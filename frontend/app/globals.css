@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #080b12;
+  --color-foreground: #ededed;
+
+  /* Custom colors from resumeai.html */
+  --color-bg-primary: #080b12;
+  --color-bg-card: #0d1117;
+  --color-bg-card-light: #161b22;
+  --color-border-subtle: rgba(255,255,255,0.08);
+  --color-accent-green: #00dc82;
+  --color-accent-teal: #00c4b4;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-blue: #3b82f6;
+  --color-accent-pink: #ec4899;
+  --color-accent-orange: #f97316;
+
+  --font-inter: var(--font-inter-var), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Apply Inter font globally like the original */
+* {
+  font-family: 'Inter', var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: #080b12;
+}
+
+/* Background color utilities */
+.bg-bg-primary { background-color: #080b12; }
+.bg-bg-primary\/90 { background-color: rgba(8,11,18,0.9); }
+.bg-bg-card { background-color: #0d1117; }
+.bg-bg-card-light { background-color: #161b22; }
+.bg-accent-green { background-color: #00dc82; }
+.bg-accent-teal { background-color: #00c4b4; }
+.bg-accent-purple { background-color: #8b5cf6; }
+.bg-accent-purple\/20 { background-color: rgba(139,92,246,0.2); }
+.bg-accent-blue { background-color: #3b82f6; }
+.bg-accent-blue\/20 { background-color: rgba(59,130,246,0.2); }
+.bg-accent-pink { background-color: #ec4899; }
+.bg-accent-pink\/20 { background-color: rgba(236,72,153,0.2); }
+.bg-accent-orange { background-color: #f97316; }
+
+/* Text color utilities */
+.text-bg-primary { color: #080b12; }
+.text-accent-green { color: #00dc82; }
+.text-accent-teal { color: #00c4b4; }
+.text-accent-purple { color: #8b5cf6; }
+.text-accent-blue { color: #3b82f6; }
+.text-accent-pink { color: #ec4899; }
+
+/* Border utilities */
+.border-bg-primary { border-color: #080b12; }
+.border-border-subtle { border-color: rgba(255,255,255,0.08); }
+
+/* Gradient utilities */
+.from-accent-green { --tw-gradient-from: #00dc82; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0,220,130,0)); }
+.to-accent-teal { --tw-gradient-to: #00c4b4; }
+.via-accent-teal { --tw-gradient-stops: var(--tw-gradient-from), #00c4b4, var(--tw-gradient-to, rgba(0,196,180,0)); }
+.to-accent-purple { --tw-gradient-to: #8b5cf6; }
+
+/* Hover states */
+.hover\:bg-accent-teal:hover { background-color: #00c4b4; }
+.hover\:bg-bg-card-light:hover { background-color: #161b22; }
+.hover\:text-accent-green:hover { color: #00dc82; }
+
+/* Custom effect classes */
+.gradient-text {
+  background: linear-gradient(135deg, #00dc82 0%, #00c4b4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,220,130,0.15) 0%, transparent 70%);
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.card-glow-green {
+  box-shadow: 0 0 60px rgba(0,220,130,0.2), 0 0 100px rgba(0,220,130,0.1);
+}
+
+.feature-card {
+  background: linear-gradient(180deg, rgba(22,27,34,1) 0%, rgba(13,17,23,1) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.pricing-card {
+  background: linear-gradient(180deg, rgba(22,27,34,1) 0%, rgba(13,17,23,1) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.pricing-highlight {
+  background: linear-gradient(180deg, rgba(0,220,130,0.08) 0%, rgba(13,17,23,1) 100%);
+  border: 1px solid rgba(0,220,130,0.3);
+}
+
+.step-circle {
+  background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.template-card {
+  transition: transform 0.3s ease;
+}
+
+.template-card:hover {
+  transform: translateY(-8px);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+}
+
+.testimonial-card {
+  background: linear-gradient(180deg, rgba(22,27,34,1) 0%, rgba(13,17,23,1) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.check-icon {
+  color: #00dc82;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0,220,130,0.3);
+  color: white;
+}

@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String   @id @default(uuid())
+  email             String   @unique
+  hashedPassword    String
+  name              String
+  subscriptionTier  String   @default("free")
+  creditsRemaining  Int      @default(3)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  resumes           Resume[]
+}
+
+model Resume {
+  id               String   @id @default(uuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title            String
+  targetRole       String?
+  targetCompany    String?
+  fullName         String
+  email            String?
+  phone            String?
+  location         String?
+  linkedinUrl      String?
+  portfolioUrl     String?
+  summary          String?
+  experiences      String?
+  education        String?
+  skills           String?
+  certifications   String?
+  projects         String?
+  languages        String?
+  templateLayout   String   @default("CLASSIC")
+  templateTheme    String   @default("NAVY")
+  customThemeColor String?
+  atsScore         Int?
+  isMaster         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
