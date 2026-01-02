@@ -11,30 +11,35 @@ import CreativeLayout from '../templates/CreativeLayout';
 export default function ResumePreview() {
     const { resumeData, selectedTemplate, selectedTheme } = useResumeStore();
 
-    // Use custom theme if set, otherwise fallback to selected preset
+    // Determine the active theme properties
+    // If it's a custom color, we generate a theme object on the fly
+    // If it's a preset, we might interpret it, but mostly we rely on resumeData.background/fonts/layoutConfig 
+    // being set by the preset action.
+
+    // However, for backward compatibility or direct theme selection (if we keep that), we can derive:
     const theme = resumeData.customThemeColor
         ? generateTheme(resumeData.customThemeColor)
-        : themes[selectedTheme];
+        : {
+            ...generateTheme(resumeData.customThemeColor || '#1e3a8a'), // Fallback to a valid theme object
+            name: 'Current',
+        };
 
-    const renderTemplate = () => {
-        switch (selectedTemplate) {
-            case 'sidebar':
-                return <SidebarLayout data={resumeData} theme={theme} />;
-            case 'header':
-                return <HeaderLayout data={resumeData} theme={theme} />;
-            case 'minimal':
-                return <MinimalLayout data={resumeData} theme={theme} />;
-            case 'creative':
-                return <CreativeLayout data={resumeData} theme={theme} />;
-            case 'classic':
-            default:
-                return <ClassicLayout data={resumeData} theme={theme} />;
-        }
+    const TemplateMap = {
+        classic: ClassicLayout,
+        sidebar: SidebarLayout,
+        header: HeaderLayout,
+        minimal: MinimalLayout,
+        creative: CreativeLayout,
     };
 
+    // Use the baseLayout from the config to determine which component to render
+    // Fallback to 'classic' if config is missing
+    const baseLayoutId = resumeData.layoutConfig?.baseLayout || 'classic';
+    const SelectedLayout = TemplateMap[baseLayoutId] || ClassicLayout;
+
     return (
-        <div className="w-full h-full">
-            {renderTemplate()}
+        <div className="w-full h-full bg-white shadow-2xl">
+            <SelectedLayout data={resumeData} theme={theme} />
         </div>
     );
 }

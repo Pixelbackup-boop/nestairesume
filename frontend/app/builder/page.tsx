@@ -8,14 +8,16 @@ import SkillsForm from '../../components/editor/SkillsForm';
 import DesignTab from '../../components/editor/DesignTab';
 import ResumePreview from '../../components/preview/ResumePreview';
 import { useResumeStore } from '../../store/useResumeStore';
-import { templates, themes } from '../../lib/themes';
+import { templates, colorPresets } from '../../lib/themes';
 import Link from 'next/link';
 import { useReactToPrint } from 'react-to-print';
-import { Printer } from 'lucide-react';
+import { Printer, ChevronDown, Layout, Palette, Sparkles } from 'lucide-react';
 
 export default function BuilderPage() {
     const [activeTab, setActiveTab] = useState('personal');
-    const { selectedTemplate, selectedTheme, setTemplate, setTheme } = useResumeStore();
+    const [showTemplateDropdown, setShowTemplateDropdown] = useState(false);
+    const [showColorDropdown, setShowColorDropdown] = useState(false);
+    const { selectedTemplate, selectedTheme, setTemplate, setTheme, setCustomThemeColor } = useResumeStore();
     const componentRef = useRef(null);
 
     const handlePrint = useReactToPrint({
@@ -44,14 +46,91 @@ export default function BuilderPage() {
                     <span className="text-gray-400 text-sm">Untitled Resume</span>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    {/* Selectors moved to Design Tab */}
+                <div className="flex items-center gap-3">
+                    {/* Template Dropdown */}
+                    <div className="relative">
+                        <button
+                            onClick={() => {
+                                setShowTemplateDropdown(!showTemplateDropdown);
+                                setShowColorDropdown(false);
+                            }}
+                            className="flex items-center gap-2 bg-bg-card-light border border-border-subtle px-4 py-2 rounded-lg text-sm text-gray-300 hover:border-accent-green/50 transition"
+                        >
+                            <Layout size={16} />
+                            <span className="hidden sm:inline">{templates.find(t => t.id === selectedTemplate)?.name || 'Template'}</span>
+                            <ChevronDown size={14} className={`transition-transform ${showTemplateDropdown ? 'rotate-180' : ''}`} />
+                        </button>
+                        {showTemplateDropdown && (
+                            <div className="absolute top-full right-0 mt-2 w-56 bg-bg-card border border-border-subtle rounded-lg shadow-xl z-50 py-2">
+                                {templates.map((template) => (
+                                    <button
+                                        key={template.id}
+                                        onClick={() => {
+                                            setTemplate(template.id);
+                                            setShowTemplateDropdown(false);
+                                        }}
+                                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-white/5 transition ${selectedTemplate === template.id ? 'text-accent-green bg-accent-green/10' : 'text-gray-300'}`}
+                                    >
+                                        <div className="font-medium">{template.name}</div>
+                                        <div className="text-xs text-gray-500">{template.description}</div>
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+/* Color Dropdown */
+                    <div className="relative">
+                        <button
+                            onClick={() => {
+                                setShowColorDropdown(!showColorDropdown);
+                                setShowTemplateDropdown(false);
+                            }}
+                            className="flex items-center gap-2 bg-bg-card-light border border-border-subtle px-4 py-2 rounded-lg text-sm text-gray-300 hover:border-accent-green/50 transition"
+                        >
+                            <Palette size={16} />
+                            <span className="hidden sm:inline">{colorPresets.find(c => c.primary === selectedTheme)?.name || 'Color'}</span>
+                            <div
+                                className="w-4 h-4 rounded-full border border-white/20"
+                                style={{ backgroundColor: colorPresets.find(c => c.primary === selectedTheme)?.primary || selectedTheme || '#1e3a8a' }}
+                            />
+                            <ChevronDown size={14} className={`transition-transform ${showColorDropdown ? 'rotate-180' : ''}`} />
+                        </button>
+                        {showColorDropdown && (
+                            <div className="absolute top-full right-0 mt-2 w-48 bg-bg-card border border-border-subtle rounded-lg shadow-xl z-50 py-2">
+                                {colorPresets.map((color) => (
+                                    <button
+                                        key={color.name}
+                                        onClick={() => {
+                                            setCustomThemeColor(color.primary);
+                                            setShowColorDropdown(false);
+                                        }}
+                                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-white/5 transition flex items-center gap-3 ${selectedTheme === color.primary ? 'text-accent-green bg-accent-green/10' : 'text-gray-300'}`}
+                                    >
+                                        <div
+                                            className="w-5 h-5 rounded-full border border-white/20"
+                                            style={{ backgroundColor: color.primary }}
+                                        />
+                                        {color.name}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Canvas Editor Link */}
+                    <Link
+                        href="/canvas-editor"
+                        className="flex items-center gap-2 bg-accent-purple/20 text-accent-purple border border-accent-purple/30 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-purple/30 transition"
+                    >
+                        <Sparkles size={16} /> <span className="hidden sm:inline">Canvas Editor</span>
+                    </Link>
 
                     <button
                         onClick={() => handlePrint()}
                         className="flex items-center gap-2 bg-accent-green text-bg-primary px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition"
                     >
-                        <Printer size={16} /> Download PDF
+                        <Printer size={16} /> <span className="hidden sm:inline">Download PDF</span>
                     </button>
                 </div>
             </header>

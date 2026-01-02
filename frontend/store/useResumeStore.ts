@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { LayoutConfig, ThemeColor, layoutPresets, colorPresets, fontPresets, ALL_THEMES, DesignPreset } from '../lib/themes';
 
 export interface Experience {
     id: string;
@@ -28,6 +29,26 @@ export interface Skill {
     level: number; // 1-5 or similar
 }
 
+export type ImageShape = 'circle' | 'rounded' | 'square';
+
+export type BackgroundType = 'solid' | 'gradient' | 'pattern';
+export type BackgroundPattern = 'none' | 'dots' | 'lines' | 'grid' | 'diagonal';
+
+export interface BackgroundSettings {
+    type: BackgroundType;
+    color: string;           // Solid color or gradient start
+    gradientEnd?: string;    // Gradient end color
+    gradientDirection?: string; // e.g., 'to right', 'to bottom right'
+    pattern: BackgroundPattern;
+    patternOpacity: number;  // 0-100
+}
+
+export interface FontSettings {
+    heading: string;    // Font for headings/name
+    body: string;       // Font for body text
+    size: 'small' | 'medium' | 'large';  // Base font size
+}
+
 export interface ResumeData {
     personalInfo: {
         fullName: string;
@@ -38,16 +59,23 @@ export interface ResumeData {
         linkedin: string;
         summary: string;
         jobTitle: string;
+        profileImage: string; // Base64 or URL
+        imageShape: ImageShape;
     };
     experience: Experience[];
     education: Education[];
     skills: Skill[];
+    background: BackgroundSettings;
+    fonts: FontSettings;
+    customThemeColor?: string;
+    layoutConfig?: LayoutConfig; // NEW: Store layout configuration
 }
 
 interface ResumeState {
     resumeData: ResumeData;
     selectedTemplate: string;
     selectedTheme: string;
+    selectedDesignPresetId?: string; // Track which preset is active
 
     // Actions
     updatePersonalInfo: (info: Partial<ResumeData['personalInfo']>) => void;
@@ -60,12 +88,22 @@ interface ResumeState {
     addSkill: (skill: Skill) => void;
     updateSkill: (id: string, skill: Partial<Skill>) => void;
     removeSkill: (id: string) => void;
+
+    // UI State Setters
     setTemplate: (templateId: string) => void;
     setTheme: (themeId: string) => void;
     setCustomThemeColor: (color: string) => void;
+
+    // New Action for Design Presets
+    applyDesignPreset: (presetId: string) => void;
+
+    // Granular Updates
+    updateBackground: (settings: Partial<BackgroundSettings>) => void;
+    updateFonts: (settings: Partial<FontSettings>) => void;
+    updateLayout: (config: Partial<LayoutConfig>) => void;
 }
 
-export const useResumeStore = create<ResumeState>((set) => ({
+export const useResumeStore = create<ResumeState>((set, get) => ({
     resumeData: {
         personalInfo: {
             fullName: '',
@@ -76,14 +114,31 @@ export const useResumeStore = create<ResumeState>((set) => ({
             linkedin: '',
             summary: '',
             jobTitle: '',
+            profileImage: '',
+            imageShape: 'circle',
         },
         experience: [],
         education: [],
         skills: [],
-        customThemeColor: '', // Initial state
+        background: {
+            type: 'solid',
+            color: '#ffffff',
+            gradientEnd: '#f8fafc',
+            gradientDirection: 'to bottom right',
+            pattern: 'none',
+            patternOpacity: 10,
+        },
+        fonts: {
+            heading: 'Inter',
+            body: 'Inter',
+            size: 'medium',
+        },
+        customThemeColor: '',
+        layoutConfig: layoutPresets[0], // Default to first layout
     },
     selectedTemplate: 'classic',
     selectedTheme: 'navy',
+    selectedDesignPresetId: '',
 
     updatePersonalInfo: (info) =>
         set((state) => ({
@@ -173,13 +228,74 @@ export const useResumeStore = create<ResumeState>((set) => ({
 
     setCustomThemeColor: (color) =>
         set((state) => ({
+            selectedTheme: 'custom',
+            selectedDesignPresetId: '', // Clear preset if customizing
             resumeData: { ...state.resumeData, customThemeColor: color }
         })),
 
-    setTemplate: (templateId) => set({ selectedTemplate: templateId }),
+    setTemplate: (templateId) => {
+        const layoutConfig = layoutPresets.find(l => l.id === templateId) || layoutPresets[0];
+        set((state) => ({
+            selectedTemplate: templateId,
+            resumeData: {
+                ...state.resumeData,
+                layoutConfig: layoutConfig
+            }
+        }));
+    },
+
     setTheme: (themeId) => set((state) => ({
         selectedTheme: themeId,
-        // Clear custom color when a preset theme is selected
+        selectedDesignPresetId: '',
         resumeData: { ...state.resumeData, customThemeColor: '' }
     })),
+
+    applyDesignPreset: (presetId) => {
+        const preset = ALL_THEMES.find(p => p.id === presetId);
+        if (!preset) return;
+
+        // Find the full layout config for this template ID
+        // Note: preset.templateId matches layoutPresets[].id
+        const layoutConfig = layoutPresets.find(l => l.id === preset.templateId) || layoutPresets[0];
+
+        set((state) => ({
+            selectedDesignPresetId: presetId,
+            selectedTemplate: layoutConfig.baseLayout, // Update base renderer
+            selectedTheme: preset.theme.id || 'custom',
+            resumeData: {
+                ...state.resumeData,
+                background: preset.background,
+                fonts: preset.fonts,
+                layoutConfig: layoutConfig,
+                customThemeColor: '', // We use the preset's theme colors
+            }
+        }));
+    },
+
+    updateBackground: (settings) =>
+        set((state) => ({
+            selectedDesignPresetId: '', // Clear preset as we are diverging
+            resumeData: {
+                ...state.resumeData,
+                background: { ...state.resumeData.background, ...settings },
+            },
+        })),
+
+    updateFonts: (settings) =>
+        set((state) => ({
+            selectedDesignPresetId: '',
+            resumeData: {
+                ...state.resumeData,
+                fonts: { ...state.resumeData.fonts, ...settings },
+            },
+        })),
+
+    updateLayout: (config) =>
+        set((state) => ({
+            selectedDesignPresetId: '',
+            resumeData: {
+                ...state.resumeData,
+                layoutConfig: { ...state.resumeData.layoutConfig!, ...config },
+            },
+        })),
 }));

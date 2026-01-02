@@ -1,5 +1,5 @@
-import { ResumeData } from '../../store/useResumeStore';
-import { ThemeColor } from '../../lib/themes';
+import { ResumeData, ImageShape, BackgroundSettings } from '../../store/useResumeStore';
+import { ThemeColor, getBackgroundStyle, getFontFamily, fontSizes } from '../../lib/themes';
 import { MapPin, Phone, Mail, Globe, Linkedin } from 'lucide-react';
 
 interface TemplateProps {
@@ -7,21 +7,89 @@ interface TemplateProps {
     theme: ThemeColor;
 }
 
+const getShapeClass = (shape?: ImageShape) => {
+    switch (shape) {
+        case 'circle': return 'rounded-full';
+        case 'rounded': return 'rounded-xl';
+        case 'square': return 'rounded-none';
+        default: return 'rounded-full';
+    }
+};
+
 export default function SidebarLayout({ data, theme }: TemplateProps) {
-    const { personalInfo, experience, education, skills } = data;
+    const { personalInfo, experience, education, skills, background, fonts, layoutConfig } = data;
+    const bgStyle = getBackgroundStyle(background as BackgroundSettings);
+    const headingFont = getFontFamily(fonts?.heading || 'Inter');
+    const bodyFont = getFontFamily(fonts?.body || 'Inter');
+    const sizeConfig = fontSizes[fonts?.size || 'medium'];
+
+    // Layout Params
+    const sidebarPos = layoutConfig?.sidebarPos || 'left';
+    const sectionSpacing = layoutConfig?.sectionSpacing === 'compact' ? 'space-y-4' : layoutConfig?.sectionSpacing === 'spacious' ? 'space-y-8' : 'space-y-6';
+    const sidebarSpacing = layoutConfig?.sectionSpacing === 'compact' ? 'space-y-6' : 'space-y-8';
+
+    // Determine Content Order
+    // We split content into Sidebar (Info, Edu, Skills by default) and Main (Summary, Exp).
+    // But for full flexibility, we might want to move sections.
+    // For now, let's keep the split but allow reordering WITHIN the main area.
+    const defaultOrder = ['summary', 'experience'];
+    const order = layoutConfig?.contentOrder ? layoutConfig.contentOrder.filter(k => ['summary', 'experience'].includes(k)) : defaultOrder;
+    // Add missing if any
+    if (!order.includes('summary')) order.unshift('summary');
+    if (!order.includes('experience')) order.push('experience');
+
+    // Sidebar Content usually fixed? Or let's just make sidebar flexible too?
+    // Doing complex drag-drop across sidebar/main is hard with current config structure.
+    // Let's stick to Main Content reordering and Sidebar Position.
+
+    const Sections = {
+        summary: personalInfo.summary && (
+            <div key="summary">
+                <h2 className="text-lg font-bold uppercase tracking-wider mb-4 border-b-2 pb-2" style={{ color: theme.primary, borderColor: theme.accent, fontFamily: headingFont }}>Profile</h2>
+                <p className="leading-relaxed opacity-90">{personalInfo.summary}</p>
+            </div>
+        ),
+        experience: experience.length > 0 && (
+            <div key="experience">
+                <h2 className="text-lg font-bold uppercase tracking-wider mb-4 border-b-2 pb-2" style={{ color: theme.primary, borderColor: theme.accent, fontFamily: headingFont }}>Experience</h2>
+                <div className={sectionSpacing}>
+                    {experience.map(exp => (
+                        <div key={exp.id}>
+                            <div className="flex justify-between items-start mb-1">
+                                <h3 className="font-bold text-base" style={{ color: theme.heading }}>{exp.title}</h3>
+                                <span className="text-xs font-medium bg-gray-100 px-2 py-1 rounded">
+                                    {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
+                                </span>
+                            </div>
+                            <div className="font-medium mb-2" style={{ color: theme.secondary }}>{exp.company}, {exp.location}</div>
+                            <p className="text-sm opacity-80 whitespace-pre-wrap">{exp.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    };
 
     return (
-        <div className="w-full h-full flex bg-white font-sans text-sm">
-            {/* Left Sidebar */}
+        <div className={`w-full h-full flex ${sidebarPos === 'right' ? 'flex-row-reverse' : 'flex-row'}`} style={{ fontFamily: bodyFont, fontSize: sizeConfig.base, ...bgStyle }}>
+            {/* Sidebar */}
             <div
-                className="w-1/3 p-6 text-white space-y-8"
+                className={`w-1/3 p-6 text-white ${sidebarSpacing} flex-shrink-0`}
                 style={{ backgroundColor: theme.primary }}
             >
                 <div className="space-y-4">
-                    <div className="w-24 h-24 rounded-full bg-white/20 mx-auto flex items-center justify-center text-3xl font-bold">
-                        {personalInfo.fullName.charAt(0)}
-                    </div>
-                    <h1 className="text-2xl font-bold text-center leading-tight">
+                    {personalInfo.profileImage ? (
+                        <img
+                            src={personalInfo.profileImage}
+                            alt={personalInfo.fullName}
+                            className={`w-24 h-24 mx-auto object-cover border-4 border-white/20 ${getShapeClass(personalInfo.imageShape)}`}
+                        />
+                    ) : (
+                        <div className={`w-24 h-24 bg-white/20 mx-auto flex items-center justify-center text-3xl font-bold ${getShapeClass(personalInfo.imageShape)}`}>
+                            {personalInfo.fullName.charAt(0)}
+                        </div>
+                    )}
+                    <h1 className="font-bold text-center leading-tight" style={{ fontFamily: headingFont, fontSize: sizeConfig.heading }}>
                         {personalInfo.fullName || 'Your Name'}
                     </h1>
                     <p className="text-center opacity-90 font-medium">
@@ -88,34 +156,9 @@ export default function SidebarLayout({ data, theme }: TemplateProps) {
                 )}
             </div>
 
-            {/* Right Content */}
-            <div className="flex-1 p-8 space-y-8" style={{ color: theme.text }}>
-                {personalInfo.summary && (
-                    <div>
-                        <h2 className="text-lg font-bold uppercase tracking-wider mb-4 border-b-2 pb-2" style={{ color: theme.primary, borderColor: theme.accent }}>Profile</h2>
-                        <p className="leading-relaxed opacity-90">{personalInfo.summary}</p>
-                    </div>
-                )}
-
-                {experience.length > 0 && (
-                    <div>
-                        <h2 className="text-lg font-bold uppercase tracking-wider mb-4 border-b-2 pb-2" style={{ color: theme.primary, borderColor: theme.accent }}>Experience</h2>
-                        <div className="space-y-6">
-                            {experience.map(exp => (
-                                <div key={exp.id}>
-                                    <div className="flex justify-between items-start mb-1">
-                                        <h3 className="font-bold text-base" style={{ color: theme.heading }}>{exp.title}</h3>
-                                        <span className="text-xs font-medium bg-gray-100 px-2 py-1 rounded">
-                                            {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
-                                        </span>
-                                    </div>
-                                    <div className="font-medium mb-2" style={{ color: theme.secondary }}>{exp.company}, {exp.location}</div>
-                                    <p className="text-sm opacity-80 whitespace-pre-wrap">{exp.description}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+            {/* Main Content */}
+            <div className={`flex-1 p-8 ${sectionSpacing}`} style={{ color: theme.text }}>
+                {order.map(key => Sections[key as keyof typeof Sections])}
             </div>
         </div>
     );

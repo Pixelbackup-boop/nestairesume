@@ -26,14 +26,11 @@ export const useAuthStore = create<AuthState>((set) => ({
     login: async (email, password) => {
         set({ isLoading: true, error: null });
         try {
-            // 1. Get Token
-            const formData = new FormData();
-            formData.append('username', email);
-            formData.append('password', password);
-
-            const response = await api.post('/auth/token', formData, {
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            });
+            // 1. Get Token - send as URL-encoded string
+            const response = await api.post('/auth/token',
+                `username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`,
+                { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+            );
 
             const { access_token } = response.data;
             localStorage.setItem('token', access_token);
@@ -62,7 +59,7 @@ export const useAuthStore = create<AuthState>((set) => ({
             await api.post('/auth/register', {
                 email,
                 password,
-                full_name: fullName
+                name: fullName
             });
             set({ isLoading: false });
         } catch (error: any) {

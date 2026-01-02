@@ -18,7 +18,7 @@ export default function LoginPage() {
         e.preventDefault();
         try {
             await login(email, password);
-            router.push('/builder');
+            router.push('/dashboard');
         } catch (err) {
             // Error handled in store
         }
