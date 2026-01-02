@@ -172,10 +172,11 @@ export default function CanvasSidebar() {
 
     // Quick shape styles
     const shapePresets = [
-        { label: 'Rectangle', shapeType: 'rectangle' as const, fill: '#00dc82' },
-        { label: 'Circle', shapeType: 'circle' as const, fill: '#8b5cf6' },
-        { label: 'Star', shapeType: 'star' as const, fill: '#ff6b6b' },
-        { label: 'Line', shapeType: 'line' as const, fill: '#00cec9' },
+        { label: 'Rectangle', shapeType: 'rectangle' as const, fill: '#00dc82', width: 100, height: 100, cornerRadius: 8 },
+        { label: 'Square Frame', shapeType: 'rectangle' as const, fill: '#e2e8f0', width: 120, height: 120, cornerRadius: 8, isHeadshot: true },
+        { label: 'Circle', shapeType: 'circle' as const, fill: '#8b5cf6', width: 100, height: 100 },
+        { label: 'Star', shapeType: 'star' as const, fill: '#ff6b6b', width: 100, height: 100 },
+        { label: 'Line', shapeType: 'line' as const, fill: '#00cec9', width: 100, height: 4 },
     ];
 
     const addShapeElement = (preset: typeof shapePresets[0]) => {
@@ -185,16 +186,16 @@ export default function CanvasSidebar() {
             shapeType: preset.shapeType,
             x: 100,
             y: 100,
-            width: 100,
-            height: preset.shapeType === 'line' ? 4 : 100,
+            width: preset.width,
+            height: preset.height,
             rotation: 0,
             opacity: 1,
             locked: false,
             visible: true,
             fill: preset.fill,
-            stroke: 'transparent',
-            strokeWidth: 0,
-            cornerRadius: preset.shapeType === 'rectangle' ? 8 : undefined,
+            stroke: preset.isHeadshot ? '#cbd5e1' : 'transparent',
+            strokeWidth: preset.isHeadshot ? 2 : 0,
+            cornerRadius: preset.cornerRadius || (preset.shapeType === 'rectangle' ? 8 : undefined),
             innerRadius: preset.shapeType === 'star' ? 0.4 : undefined,
         };
         addElement(newShape);

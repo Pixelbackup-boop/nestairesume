@@ -24,6 +24,7 @@ export interface TextElement extends CanvasElement {
     fontStyle: 'normal' | 'italic';
     fontWeight: 'normal' | 'bold';
     fill: string;
+    backgroundColor?: string; // Background color behind text
     align: 'left' | 'center' | 'right';
     lineHeight: number;
     letterSpacing: number;

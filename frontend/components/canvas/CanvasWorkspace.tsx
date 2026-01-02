@@ -383,6 +383,38 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
 
         switch (element.type) {
             case 'text':
+                // If text has background color, wrap in Group with Rect
+                if (element.backgroundColor) {
+                    return (
+                        <Group
+                            key={element.id}
+                            {...commonProps}
+                        >
+                            <Rect
+                                width={element.width}
+                                height={element.height}
+                                fill={element.backgroundColor}
+                                cornerRadius={4}
+                            />
+                            <Text
+                                text={element.text}
+                                fontSize={element.fontSize}
+                                fontFamily={element.fontFamily}
+                                fontStyle={element.fontStyle === 'italic' ? 'italic' : undefined}
+                                fontWeight={element.fontWeight === 'bold' ? 'bold' : undefined}
+                                fill={element.fill}
+                                align={element.align}
+                                lineHeight={element.lineHeight}
+                                letterSpacing={element.letterSpacing}
+                                width={element.width}
+                                height={element.height}
+                                padding={8}
+                                verticalAlign="middle"
+                                onDblClick={(e) => handleTextDblClick(e, element)}
+                            />
+                        </Group>
+                    );
+                }
                 return (
                     <Text
                         key={element.id}

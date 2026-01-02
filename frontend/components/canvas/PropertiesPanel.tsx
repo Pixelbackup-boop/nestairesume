@@ -180,7 +180,11 @@ export default function PropertiesPanel() {
                 min={min}
                 max={max}
                 step={step}
-                className="w-full"
+                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider-thumb"
+                style={{
+                    WebkitAppearance: 'none',
+                    background: `linear-gradient(to right, #00dc82 0%, #00dc82 ${((value - min) / (max - min)) * 100}%, #334155 ${((value - min) / (max - min)) * 100}%, #334155 100%)`,
+                }}
             />
         </div>
     );
@@ -371,10 +375,42 @@ export default function PropertiesPanel() {
 
                                 {/* Text Color */}
                                 <ColorInput
-                                    label="Color"
+                                    label="Text Color"
                                     value={(selectedElement as TextElement).fill}
                                     onChange={(v) => handleUpdate({ fill: v })}
                                 />
+
+                                {/* Background Color */}
+                                <div className="space-y-1">
+                                    <div className="flex items-center justify-between">
+                                        <label className="text-xs text-slate-400">Background</label>
+                                        {(selectedElement as TextElement).backgroundColor && (
+                                            <button
+                                                onClick={() => handleUpdateAndSave({ backgroundColor: undefined })}
+                                                className="text-xs text-red-400 hover:text-red-300"
+                                            >
+                                                Remove
+                                            </button>
+                                        )}
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="color"
+                                            value={(selectedElement as TextElement).backgroundColor || '#ffffff'}
+                                            onChange={(e) => handleUpdate({ backgroundColor: e.target.value })}
+                                            onBlur={() => saveToHistory()}
+                                            className="w-8 h-8 rounded cursor-pointer border-0"
+                                        />
+                                        <input
+                                            type="text"
+                                            value={(selectedElement as TextElement).backgroundColor || ''}
+                                            onChange={(e) => handleUpdate({ backgroundColor: e.target.value })}
+                                            onBlur={() => saveToHistory()}
+                                            className="w-20 px-2 py-1 bg-slate-800 border border-slate-600 rounded text-xs text-white focus:outline-none focus:border-accent-green"
+                                            placeholder="None"
+                                        />
+                                    </div>
+                                </div>
 
                                 {/* Line Height */}
                                 <SliderInput
@@ -428,8 +464,16 @@ export default function PropertiesPanel() {
                             {/* Stroke Color */}
                             <ColorInput
                                 label="Stroke"
-                                value={(selectedElement as ShapeElement).stroke}
-                                onChange={(v) => handleUpdate({ stroke: v })}
+                                value={(selectedElement as ShapeElement).stroke === 'transparent' ? '' : (selectedElement as ShapeElement).stroke}
+                                onChange={(v) => {
+                                    const shape = selectedElement as ShapeElement;
+                                    // If setting a real color and stroke width is 0, auto-set to 2
+                                    if (v && v !== 'transparent' && shape.strokeWidth === 0) {
+                                        handleUpdate({ stroke: v, strokeWidth: 2 });
+                                    } else {
+                                        handleUpdate({ stroke: v || 'transparent' });
+                                    }
+                                }}
                             />
 
                             {/* Stroke Width */}
