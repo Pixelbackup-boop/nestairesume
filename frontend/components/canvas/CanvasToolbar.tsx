@@ -21,7 +21,9 @@ import {
     ChevronDown,
     Save,
     FolderOpen,
+    Sparkles,
 } from 'lucide-react';
+import AIPopup from './AIPopup';
 import { useCanvasStore, ShapeElement, AnyCanvasElement } from '@/store/useCanvasStore';
 
 const STORAGE_KEY = 'canvas-editor-project';
@@ -70,6 +72,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
 
     const [showSaveMenu, setShowSaveMenu] = React.useState(false);
     const [hasSavedProject, setHasSavedProject] = React.useState(false);
+    const [showAIPopup, setShowAIPopup] = React.useState(false);
 
     // Check for saved project on mount (client-side only)
     React.useEffect(() => {
@@ -321,6 +324,18 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
 
                 <div className="w-px h-8 bg-slate-700 mx-2" />
 
+                {/* AI Button */}
+                <button
+                    onClick={() => setShowAIPopup(true)}
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-medium hover:from-purple-600 hover:to-blue-600 transition-all shadow-lg shadow-purple-500/20"
+                    title="AI Summary Generator"
+                >
+                    <Sparkles size={18} />
+                    <span>AI Generate</span>
+                </button>
+
+                <div className="w-px h-8 bg-slate-700 mx-2" />
+
                 {/* Save/Load buttons */}
                 <button
                     onClick={handleSave}
@@ -372,6 +387,9 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     </div>
                 </div>
             </div>
+
+            {/* AI Popup */}
+            <AIPopup isOpen={showAIPopup} onClose={() => setShowAIPopup(false)} />
         </div>
     );
 }

@@ -9,6 +9,12 @@ import {
     AlignCenter,
     AlignRight,
     Type,
+    Sparkles,
+    Loader2,
+    X,
+    Copy,
+    Check,
+    RefreshCw,
 } from 'lucide-react';
 
 interface TextEditorProps {
@@ -39,6 +45,82 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
     const [text, setText] = useState(element.text);
     const [showFontMenu, setShowFontMenu] = useState(false);
     const [showSizeMenu, setShowSizeMenu] = useState(false);
+    const [showAIPanel, setShowAIPanel] = useState(false);
+    const [aiPrompt, setAiPrompt] = useState('');
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [generatedText, setGeneratedText] = useState('');
+    const [showCopied, setShowCopied] = useState(false);
+
+    // AI prompt suggestions based on context
+    const aiSuggestions = [
+        'Professional summary for a software engineer',
+        'About me section for a designer',
+        'Career objective for entry-level',
+        'Skills description for project manager',
+    ];
+
+    // Generate AI text based on prompt
+    const generateAIText = async (prompt: string) => {
+        setIsGenerating(true);
+        setGeneratedText('');
+
+        try {
+            // Simulate AI generation (in production, call an API)
+            await new Promise(resolve => setTimeout(resolve, 1200));
+
+            // Generate contextual text based on prompt keywords (1st person voice)
+            let generated = '';
+            const lowerPrompt = prompt.toLowerCase();
+
+            if (lowerPrompt.includes('summary') || lowerPrompt.includes('about')) {
+                if (lowerPrompt.includes('software') || lowerPrompt.includes('developer')) {
+                    generated = 'I am an innovative software engineer with 5+ years of experience building scalable web applications. I am passionate about clean code, modern frameworks, and delivering exceptional user experiences.';
+                } else if (lowerPrompt.includes('design') || lowerPrompt.includes('ux')) {
+                    generated = 'I am a creative UX/UI designer with a keen eye for detail and user-centered approach. I specialize in transforming complex problems into intuitive, accessible designs that delight users.';
+                } else if (lowerPrompt.includes('manager') || lowerPrompt.includes('lead')) {
+                    generated = 'I am a results-driven project manager with proven expertise in leading cross-functional teams. I excel in agile methodologies, stakeholder communication, and delivering projects on time and budget.';
+                } else {
+                    generated = 'I am a dynamic professional with diverse skills and a proven track record of excellence. I am committed to continuous learning and driving innovation in every role.';
+                }
+            } else if (lowerPrompt.includes('objective') || lowerPrompt.includes('goal')) {
+                generated = 'I am seeking a challenging position where I can leverage my skills and experience to contribute to organizational success while continuing to grow professionally.';
+            } else if (lowerPrompt.includes('skill')) {
+                generated = 'I am an expert in problem-solving, collaboration, and delivering high-quality solutions. I am proficient in modern tools and technologies with strong attention to detail.';
+            } else {
+                // Generic generation based on input
+                generated = `I am ${prompt.charAt(0).toLowerCase() + prompt.slice(1)}. I am dedicated to excellence and continuous improvement in all professional endeavors.`;
+            }
+
+            // Store in preview instead of immediately replacing
+            setGeneratedText(generated);
+            setAiPrompt('');
+        } catch (error) {
+            console.error('Error generating AI text:', error);
+            // Provide fallback text on error
+            setGeneratedText('I am a motivated professional with diverse skills. I am committed to excellence and eager to contribute to innovative projects.');
+        } finally {
+            setIsGenerating(false);
+        }
+    };
+
+    // Copy generated text to clipboard
+    const copyGeneratedText = async () => {
+        if (generatedText) {
+            await navigator.clipboard.writeText(generatedText);
+            setShowCopied(true);
+            setTimeout(() => setShowCopied(false), 2000);
+        }
+    };
+
+    // Replace textarea text with generated text
+    const replaceWithGenerated = () => {
+        if (generatedText) {
+            setText(generatedText);
+            onUpdate({ text: generatedText }); // Save to canvas immediately
+            setGeneratedText('');
+            setShowAIPanel(false);
+        }
+    };
 
     useEffect(() => {
         if (textareaRef.current) {
@@ -249,6 +331,148 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     className="w-7 h-7 rounded cursor-pointer border-0"
                     title="Text color"
                 />
+
+                <div className="w-px h-6 bg-slate-600 mx-1" />
+
+                {/* AI Button */}
+                <div className="relative">
+                    <button
+                        onClick={() => {
+                            setShowAIPanel(!showAIPanel);
+                            setShowFontMenu(false);
+                            setShowSizeMenu(false);
+                        }}
+                        className={`p-1.5 rounded transition-colors ${
+                            showAIPanel
+                                ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
+                                : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                        }`}
+                        title="AI Generate Text"
+                    >
+                        <Sparkles size={16} />
+                    </button>
+
+                    {/* AI Panel Dropdown */}
+                    {showAIPanel && (
+                        <div className="absolute top-full right-0 mt-2 w-72 bg-slate-800 border border-slate-600 rounded-xl shadow-2xl z-50 overflow-hidden">
+                            {/* Header */}
+                            <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border-b border-slate-600">
+                                <div className="flex items-center gap-2">
+                                    <Sparkles size={14} className="text-purple-400" />
+                                    <span className="text-sm font-medium text-white">AI Generate</span>
+                                </div>
+                                <button
+                                    onClick={() => setShowAIPanel(false)}
+                                    className="p-1 text-slate-400 hover:text-white rounded"
+                                >
+                                    <X size={14} />
+                                </button>
+                            </div>
+
+                            <div className="p-3 space-y-3">
+                                {/* Show generated text preview if available */}
+                                {generatedText ? (
+                                    <>
+                                        {/* Generated text preview */}
+                                        <div className="p-3 bg-slate-900/50 rounded-lg border border-slate-600 max-h-32 overflow-y-auto">
+                                            <p className="text-slate-200 text-sm leading-relaxed">{generatedText}</p>
+                                        </div>
+
+                                        {/* Copy and Replace buttons */}
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <button
+                                                onClick={copyGeneratedText}
+                                                className="flex items-center justify-center gap-1.5 py-2 bg-slate-700 text-slate-200 text-sm font-medium rounded-lg hover:bg-slate-600 transition-colors"
+                                            >
+                                                {showCopied ? (
+                                                    <>
+                                                        <Check size={14} className="text-green-400" />
+                                                        Copied!
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Copy size={14} />
+                                                        Copy
+                                                    </>
+                                                )}
+                                            </button>
+                                            <button
+                                                onClick={replaceWithGenerated}
+                                                className="flex items-center justify-center gap-1.5 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-medium rounded-lg hover:from-purple-600 hover:to-blue-600 transition-colors"
+                                            >
+                                                <RefreshCw size={14} />
+                                                Replace
+                                            </button>
+                                        </div>
+
+                                        {/* Regenerate option */}
+                                        <button
+                                            onClick={() => setGeneratedText('')}
+                                            className="w-full py-1.5 text-slate-400 hover:text-slate-200 text-xs font-medium flex items-center justify-center gap-1 transition-colors"
+                                        >
+                                            <Sparkles size={12} />
+                                            Generate Another
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        {/* Input */}
+                                        <div>
+                                            <input
+                                                type="text"
+                                                value={aiPrompt}
+                                                onChange={(e) => setAiPrompt(e.target.value)}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter' && aiPrompt.trim()) {
+                                                        generateAIText(aiPrompt);
+                                                    }
+                                                }}
+                                                placeholder="Describe what to write..."
+                                                className="w-full px-3 py-2 bg-slate-700 text-white text-sm rounded-lg border border-slate-600 focus:border-purple-500 focus:outline-none placeholder-slate-400"
+                                                autoFocus
+                                            />
+                                        </div>
+
+                                        {/* Quick suggestions */}
+                                        <div className="space-y-1">
+                                            <p className="text-xs text-slate-400">Quick suggestions:</p>
+                                            <div className="flex flex-wrap gap-1">
+                                                {aiSuggestions.map((suggestion, i) => (
+                                                    <button
+                                                        key={i}
+                                                        onClick={() => generateAIText(suggestion)}
+                                                        className="px-2 py-1 text-xs bg-slate-700 text-slate-300 rounded hover:bg-slate-600 hover:text-white transition-colors truncate max-w-full"
+                                                    >
+                                                        {suggestion}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Generate button */}
+                                        <button
+                                            onClick={() => aiPrompt.trim() && generateAIText(aiPrompt)}
+                                            disabled={!aiPrompt.trim() || isGenerating}
+                                            className="w-full py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-medium rounded-lg hover:from-purple-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                                        >
+                                            {isGenerating ? (
+                                                <>
+                                                    <Loader2 size={14} className="animate-spin" />
+                                                    Generating...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Sparkles size={14} />
+                                                    Generate Text
+                                                </>
+                                            )}
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Text input */}
