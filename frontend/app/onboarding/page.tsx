@@ -13,12 +13,13 @@ import {
     Briefcase,
     Clock,
     Check,
-    Loader2,
     FileText,
     Wand2,
+    Layout,
 } from 'lucide-react';
 import { useResumeStore } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
+import { builderTemplates, BuilderTemplate, sampleResumeData, getLayoutPresetId } from '@/lib/builderTemplates';
 
 type CreationMethod = 'ai' | 'upload' | 'linkedin' | null;
 type ExperienceLevel = 'entry' | 'mid' | 'senior' | 'executive';
@@ -28,6 +29,7 @@ interface OnboardingState {
     fullName: string;
     jobTitle: string;
     experienceLevel: ExperienceLevel;
+    selectedTemplate: string;
 }
 
 const experienceLevels: { value: ExperienceLevel; label: string; description: string }[] = [
@@ -46,9 +48,181 @@ const aiProcessingMessages = [
     'Almost there...',
 ];
 
+// Featured templates for onboarding (subset of all templates)
+const featuredTemplates = builderTemplates.slice(0, 6);
+
+// Realistic template preview component matching the templates page
+function TemplatePreview({ template }: { template: BuilderTemplate }) {
+    const accent = template.accentColor;
+    const textDark = '#1e293b';
+    const textMuted = '#64748b';
+    const data = sampleResumeData;
+
+    if (template.layout === 'sidebar') {
+        return (
+            <div className="w-full h-full bg-white rounded-lg overflow-hidden">
+                <div className="h-full flex">
+                    {/* Sidebar */}
+                    <div className="w-[38%] h-full p-2 flex flex-col" style={{ backgroundColor: accent }}>
+                        {/* Photo */}
+                        <img
+                            src={data.headshot}
+                            alt={data.name}
+                            className="w-10 h-10 rounded-full mx-auto mb-1.5 object-cover border-2 border-white/30"
+                        />
+                        {/* Contact */}
+                        <div className="space-y-0.5 text-[4px] text-white/80 mb-1.5">
+                            <p className="truncate">{data.email}</p>
+                            <p>{data.phone}</p>
+                            <p>{data.location}</p>
+                        </div>
+                        {/* Skills */}
+                        <p className="text-[5px] font-semibold text-white mb-0.5">SKILLS</p>
+                        <div className="flex flex-wrap gap-0.5">
+                            {data.skills.slice(0, 3).map((skill, i) => (
+                                <span key={i} className="text-[3px] bg-white/20 px-0.5 py-0.5 rounded text-white">{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+                    {/* Main Content */}
+                    <div className="flex-1 p-2">
+                        <h3 className="text-[8px] font-bold" style={{ color: textDark }}>{data.name}</h3>
+                        <p className="text-[5px] mb-1" style={{ color: accent }}>{data.title}</p>
+                        <p className="text-[3px] mb-1.5 leading-relaxed line-clamp-2" style={{ color: textMuted }}>{data.summary}</p>
+                        {/* Experience */}
+                        <p className="text-[5px] font-semibold mb-0.5" style={{ color: textDark }}>EXPERIENCE</p>
+                        {data.experience.slice(0, 2).map((exp, i) => (
+                            <div key={i} className="mb-0.5">
+                                <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role}</p>
+                                <p className="text-[3px]" style={{ color: textMuted }}>{exp.company}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    if (template.layout === 'header') {
+        return (
+            <div className="w-full h-full bg-white rounded-lg overflow-hidden">
+                {/* Header */}
+                <div className="p-2 text-center" style={{ backgroundColor: accent }}>
+                    <img
+                        src={data.headshot}
+                        alt={data.name}
+                        className="w-8 h-8 rounded-full mx-auto mb-1 object-cover border-2 border-white/30"
+                    />
+                    <h3 className="text-[8px] font-bold text-white">{data.name}</h3>
+                    <p className="text-[5px] text-white/80">{data.title}</p>
+                    <div className="flex justify-center gap-1 mt-0.5 text-[3px] text-white/70">
+                        <span>{data.email}</span>
+                        <span>•</span>
+                        <span>{data.location}</span>
+                    </div>
+                </div>
+                {/* Content */}
+                <div className="p-2">
+                    <p className="text-[3px] mb-1.5 leading-relaxed line-clamp-2" style={{ color: textMuted }}>{data.summary}</p>
+                    {/* Experience */}
+                    <p className="text-[5px] font-semibold mb-0.5" style={{ color: accent }}>EXPERIENCE</p>
+                    {data.experience.slice(0, 2).map((exp, i) => (
+                        <div key={i} className="mb-0.5">
+                            <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role}</p>
+                            <p className="text-[3px]" style={{ color: textMuted }}>{exp.company} • {exp.years}</p>
+                        </div>
+                    ))}
+                    {/* Skills */}
+                    <p className="text-[5px] font-semibold mb-0.5 mt-1" style={{ color: accent }}>SKILLS</p>
+                    <div className="flex flex-wrap gap-0.5">
+                        {data.skills.slice(0, 4).map((skill, i) => (
+                            <span key={i} className="text-[3px] px-0.5 py-0.5 rounded" style={{ backgroundColor: `${accent}20`, color: accent }}>{skill}</span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    if (template.layout === 'minimal') {
+        return (
+            <div className="w-full h-full bg-white rounded-lg overflow-hidden p-2">
+                {/* Simple Header */}
+                <div className="mb-1.5">
+                    <h3 className="text-[9px] font-bold" style={{ color: textDark }}>{data.name}</h3>
+                    <p className="text-[5px]" style={{ color: accent }}>{data.title}</p>
+                    <p className="text-[3px] mt-0.5" style={{ color: textMuted }}>{data.email} • {data.phone} • {data.location}</p>
+                </div>
+                {/* Summary */}
+                <p className="text-[3px] mb-1.5 leading-relaxed line-clamp-2" style={{ color: textMuted }}>{data.summary}</p>
+                {/* Experience */}
+                <div className="border-t pt-1" style={{ borderColor: `${accent}30` }}>
+                    <p className="text-[5px] font-semibold mb-0.5" style={{ color: textDark }}>Experience</p>
+                    {data.experience.slice(0, 2).map((exp, i) => (
+                        <div key={i} className="mb-0.5">
+                            <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role} - {exp.company}</p>
+                            <p className="text-[3px]" style={{ color: textMuted }}>{exp.years}</p>
+                        </div>
+                    ))}
+                </div>
+                {/* Skills inline */}
+                <div className="mt-1">
+                    <p className="text-[3px]" style={{ color: textMuted }}>
+                        <span className="font-medium" style={{ color: textDark }}>Skills:</span> {data.skills.slice(0, 5).join(', ')}
+                    </p>
+                </div>
+            </div>
+        );
+    }
+
+    // Classic layout (default)
+    return (
+        <div className="w-full h-full bg-white rounded-lg overflow-hidden p-2">
+            {/* Header with photo */}
+            <div className="flex items-start gap-1.5 mb-1.5 pb-1.5 border-b" style={{ borderColor: `${accent}30` }}>
+                <img
+                    src={data.headshot}
+                    alt={data.name}
+                    className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                    style={{ border: `2px solid ${accent}` }}
+                />
+                <div className="flex-1 text-center">
+                    <h3 className="text-[8px] font-bold" style={{ color: textDark }}>{data.name}</h3>
+                    <p className="text-[5px]" style={{ color: accent }}>{data.title}</p>
+                    <div className="flex justify-center gap-1 mt-0.5 text-[3px]" style={{ color: textMuted }}>
+                        <span>{data.email}</span>
+                        <span>•</span>
+                        <span>{data.phone}</span>
+                    </div>
+                </div>
+            </div>
+            {/* Summary */}
+            <p className="text-[3px] mb-1.5 leading-relaxed line-clamp-2" style={{ color: textMuted }}>{data.summary}</p>
+            {/* Experience */}
+            <p className="text-[5px] font-semibold mb-0.5" style={{ color: accent }}>EXPERIENCE</p>
+            {data.experience.slice(0, 2).map((exp, i) => (
+                <div key={i} className="mb-0.5">
+                    <div className="flex justify-between">
+                        <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role}</p>
+                        <p className="text-[3px]" style={{ color: textMuted }}>{exp.years}</p>
+                    </div>
+                    <p className="text-[3px]" style={{ color: textMuted }}>{exp.company}</p>
+                </div>
+            ))}
+            {/* Skills */}
+            <p className="text-[5px] font-semibold mb-0.5 mt-1" style={{ color: accent }}>SKILLS</p>
+            <div className="flex flex-wrap gap-0.5">
+                {data.skills.slice(0, 4).map((skill, i) => (
+                    <span key={i} className="text-[3px] px-0.5 py-0.5 rounded" style={{ backgroundColor: `${accent}15`, color: accent }}>{skill}</span>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 export default function OnboardingPage() {
     const router = useRouter();
-    const { setResumeData } = useResumeStore();
+    const { setResumeData, setTemplate } = useResumeStore();
     const [step, setStep] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
     const [processingMessageIndex, setProcessingMessageIndex] = useState(0);
@@ -57,7 +231,11 @@ export default function OnboardingPage() {
         fullName: '',
         jobTitle: '',
         experienceLevel: 'mid',
+        selectedTemplate: 'executive', // Default template
     });
+
+    // Total steps for progress indicator
+    const totalSteps = 4;
 
     // Cycle through processing messages
     useEffect(() => {
@@ -101,10 +279,9 @@ export default function OnboardingPage() {
             // Load generated data into store
             setResumeData(resumeData);
 
-            // Navigate to builder
-            setTimeout(() => {
-                router.push('/builder');
-            }, 500);
+            // Move to template selection step
+            setIsGenerating(false);
+            setStep(4);
         } catch (error) {
             console.error('Error generating resume:', error);
             setIsGenerating(false);
@@ -112,7 +289,25 @@ export default function OnboardingPage() {
         }
     };
 
+    const handleTemplateSelect = (templateId: string) => {
+        setFormData((prev) => ({ ...prev, selectedTemplate: templateId }));
+    };
+
+    const handleFinish = () => {
+        // Get the actual layout preset ID for the selected template
+        const layoutPresetId = getLayoutPresetId(formData.selectedTemplate);
+
+        // Set the template using the layout preset ID
+        setTemplate(layoutPresetId);
+
+        // Navigate to builder with template info
+        router.push(`/builder?template=${formData.selectedTemplate}`);
+    };
+
     const canProceedStep2 = formData.fullName.trim().length >= 2 && formData.jobTitle.trim().length >= 2;
+
+    // Get selected template details
+    const selectedTemplateData = featuredTemplates.find(t => t.id === formData.selectedTemplate);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -126,9 +321,9 @@ export default function OnboardingPage() {
                         <span className="font-bold text-xl">ResumeAI</span>
                     </Link>
 
-                    {/* Progress indicator */}
+                    {/* Progress indicator - 4 steps */}
                     <div className="flex items-center gap-2">
-                        {[1, 2, 3].map((s) => (
+                        {[1, 2, 3, 4].map((s) => (
                             <React.Fragment key={s}>
                                 <div
                                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all ${
@@ -139,9 +334,9 @@ export default function OnboardingPage() {
                                 >
                                     {step > s ? <Check size={16} /> : s}
                                 </div>
-                                {s < 3 && (
+                                {s < totalSteps && (
                                     <div
-                                        className={`w-12 h-0.5 transition-all ${
+                                        className={`w-8 h-0.5 transition-all ${
                                             step > s ? 'bg-accent-green' : 'bg-slate-700'
                                         }`}
                                     />
@@ -368,6 +563,84 @@ export default function OnboardingPage() {
                         <p className="text-slate-500 text-sm mt-8">
                             This usually takes just a few seconds...
                         </p>
+                    </div>
+                )}
+
+                {/* Step 4: Template Selection */}
+                {step === 4 && !isGenerating && (
+                    <div className="animate-fadeIn">
+                        <button
+                            onClick={() => setStep(2)}
+                            className="flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors"
+                        >
+                            <ArrowLeft size={18} />
+                            Back to edit info
+                        </button>
+
+                        <div className="text-center mb-10">
+                            <div className="w-16 h-16 bg-accent-green/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <Layout className="text-accent-green" size={32} />
+                            </div>
+                            <h1 className="text-3xl font-bold mb-3">Choose Your Template</h1>
+                            <p className="text-slate-400">
+                                Your resume is ready! Pick a design that suits your style.
+                            </p>
+                        </div>
+
+                        {/* Template Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                            {featuredTemplates.map((template) => (
+                                <button
+                                    key={template.id}
+                                    onClick={() => handleTemplateSelect(template.id)}
+                                    className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${
+                                        formData.selectedTemplate === template.id
+                                            ? 'ring-2 ring-accent-green ring-offset-2 ring-offset-slate-900 scale-[1.02]'
+                                            : 'hover:scale-[1.02] hover:ring-1 hover:ring-slate-600'
+                                    }`}
+                                >
+                                    {/* Template Preview */}
+                                    <div className="aspect-[3/4] bg-slate-800 p-2">
+                                        <TemplatePreview template={template} />
+                                    </div>
+
+                                    {/* Template Info */}
+                                    <div className="p-3 bg-slate-800/80">
+                                        <h4 className="font-medium text-white text-sm">{template.name}</h4>
+                                        <p className="text-xs text-slate-400">{template.style}</p>
+                                    </div>
+
+                                    {/* Selected checkmark */}
+                                    {formData.selectedTemplate === template.id && (
+                                        <div className="absolute top-2 right-2 w-6 h-6 bg-accent-green rounded-full flex items-center justify-center">
+                                            <Check size={14} className="text-slate-900" />
+                                        </div>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Browse more link */}
+                        <div className="text-center mb-8">
+                            <Link
+                                href="/templates"
+                                className="text-slate-400 hover:text-accent-green text-sm inline-flex items-center gap-2 transition-colors"
+                            >
+                                Browse all templates
+                                <ArrowRight size={14} />
+                            </Link>
+                        </div>
+
+                        {/* Continue Button */}
+                        <button
+                            onClick={handleFinish}
+                            className="w-full max-w-md mx-auto block py-4 bg-accent-green text-slate-900 rounded-xl font-semibold text-lg hover:bg-accent-teal transition-colors"
+                        >
+                            <span className="flex items-center justify-center gap-2">
+                                Continue to Editor
+                                <ArrowRight size={20} />
+                            </span>
+                        </button>
                     </div>
                 )}
             </main>

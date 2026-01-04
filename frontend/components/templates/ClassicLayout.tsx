@@ -40,10 +40,10 @@ export default function ClassicLayout({ data, theme }: TemplateProps) {
     const containerPadding = marginMap[layoutConfig?.margins || 'normal'];
     const headerAlign = layoutConfig?.headerAlignment || 'left';
 
-    // Content Sections Map
+    // Content Sections Map - with resume-section class for page break control
     const sections = {
         summary: personalInfo.summary && (
-            <div className={sectionMB}>
+            <div className={`resume-section ${sectionMB}`}>
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-2 border-b pb-1" style={{ color: theme.heading, borderColor: theme.accent, fontFamily: headingFont }}>
                     Professional Summary
                 </h2>
@@ -51,13 +51,13 @@ export default function ClassicLayout({ data, theme }: TemplateProps) {
             </div>
         ),
         experience: experience.length > 0 && (
-            <div className={sectionMB}>
+            <div className={`resume-section ${sectionMB}`}>
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-3 border-b pb-1" style={{ color: theme.heading, borderColor: theme.accent, fontFamily: headingFont }}>
                     Experience
                 </h2>
                 <div className={`${layoutConfig?.sectionSpacing === 'compact' ? 'space-y-3' : 'space-y-4'}`}>
                     {experience.map((exp) => (
-                        <div key={exp.id}>
+                        <div key={exp.id} className="resume-entry">
                             <div className="flex justify-between items-baseline mb-1">
                                 <h3 className="font-bold">{exp.title}</h3>
                                 <span className="text-xs opacity-75 whitespace-nowrap">
@@ -75,13 +75,13 @@ export default function ClassicLayout({ data, theme }: TemplateProps) {
             </div>
         ),
         education: education.length > 0 && (
-            <div className={sectionMB}>
+            <div className={`resume-section ${sectionMB}`}>
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-3 border-b pb-1" style={{ color: theme.heading, borderColor: theme.accent, fontFamily: headingFont }}>
                     Education
                 </h2>
                 <div className="space-y-3">
                     {education.map((edu) => (
-                        <div key={edu.id}>
+                        <div key={edu.id} className="resume-entry">
                             <div className="flex justify-between items-baseline">
                                 <h3 className="font-bold">{edu.school}</h3>
                                 <span className="text-xs opacity-75">{edu.startDate} – {edu.current ? 'Present' : edu.endDate}</span>
@@ -94,7 +94,7 @@ export default function ClassicLayout({ data, theme }: TemplateProps) {
             </div>
         ),
         skills: skills.length > 0 && (
-            <div>
+            <div className="resume-section">
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-2 border-b pb-1" style={{ color: theme.heading, borderColor: theme.accent, fontFamily: headingFont }}>
                     Skills
                 </h2>

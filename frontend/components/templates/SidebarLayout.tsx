@@ -44,17 +44,17 @@ export default function SidebarLayout({ data, theme }: TemplateProps) {
 
     const Sections = {
         summary: personalInfo.summary && (
-            <div key="summary">
+            <div key="summary" className="resume-section">
                 <h2 className="text-lg font-bold uppercase tracking-wider mb-4 border-b-2 pb-2" style={{ color: theme.primary, borderColor: theme.accent, fontFamily: headingFont }}>Profile</h2>
                 <p className="leading-relaxed opacity-90">{personalInfo.summary}</p>
             </div>
         ),
         experience: experience.length > 0 && (
-            <div key="experience">
+            <div key="experience" className="resume-section">
                 <h2 className="text-lg font-bold uppercase tracking-wider mb-4 border-b-2 pb-2" style={{ color: theme.primary, borderColor: theme.accent, fontFamily: headingFont }}>Experience</h2>
                 <div className={sectionSpacing}>
                     {experience.map(exp => (
-                        <div key={exp.id}>
+                        <div key={exp.id} className="resume-entry">
                             <div className="flex justify-between items-start mb-1">
                                 <h3 className="font-bold text-base" style={{ color: theme.heading }}>{exp.title}</h3>
                                 <span className="text-xs font-medium bg-gray-100 px-2 py-1 rounded">
@@ -72,9 +72,9 @@ export default function SidebarLayout({ data, theme }: TemplateProps) {
 
     return (
         <div className={`w-full h-full flex ${sidebarPos === 'right' ? 'flex-row-reverse' : 'flex-row'}`} style={{ fontFamily: bodyFont, fontSize: sizeConfig.base, ...bgStyle }}>
-            {/* Sidebar */}
+            {/* Sidebar - min-h-full ensures it fills entire page height */}
             <div
-                className={`w-1/3 p-6 text-white ${sidebarSpacing} flex-shrink-0`}
+                className={`w-1/3 min-h-full p-6 text-white ${sidebarSpacing} flex-shrink-0`}
                 style={{ backgroundColor: theme.primary }}
             >
                 <div className="space-y-4">
@@ -127,11 +127,11 @@ export default function SidebarLayout({ data, theme }: TemplateProps) {
 
                 {/* Education Sidebar */}
                 {education.length > 0 && (
-                    <div>
+                    <div className="resume-section">
                         <h3 className="uppercase tracking-widest font-bold border-b border-white/30 pb-2 mb-4 text-xs">Education</h3>
                         <div className="space-y-4">
                             {education.map(edu => (
-                                <div key={edu.id}>
+                                <div key={edu.id} className="resume-entry">
                                     <div className="font-bold">{edu.school}</div>
                                     <div className="text-xs opacity-80">{edu.degree}</div>
                                     <div className="text-xs opacity-60">{edu.startDate} - {edu.endDate}</div>
@@ -143,7 +143,7 @@ export default function SidebarLayout({ data, theme }: TemplateProps) {
 
                 {/* Skills Sidebar */}
                 {skills.length > 0 && (
-                    <div>
+                    <div className="resume-section">
                         <h3 className="uppercase tracking-widest font-bold border-b border-white/30 pb-2 mb-4 text-xs">Skills</h3>
                         <div className="flex flex-wrap gap-2">
                             {skills.map(skill => (

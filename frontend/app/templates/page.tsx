@@ -18,25 +18,16 @@ import {
 } from 'lucide-react';
 import { canvasTemplates } from '@/lib/canvasTemplates';
 import { useCanvasStore, CanvasTemplate } from '@/store/useCanvasStore';
+import { builderTemplates as sharedBuilderTemplates, sampleResumeData as dummyData } from '@/lib/builderTemplates';
 
 type EditorMode = 'builder' | 'canvas';
 type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'bold' | 'classic' | 'modern' | 'header' | 'sidebar';
 
-// Builder templates data
-const builderTemplates = [
-    { id: 'executive', name: 'Executive', style: 'Classic', colors: 'from-slate-700 to-slate-900', layout: 'classic', category: 'professional' },
-    { id: 'modern', name: 'Modern', style: 'Sidebar', colors: 'from-teal-600 to-teal-900', layout: 'sidebar', category: 'modern' },
-    { id: 'creative', name: 'Creative', style: 'Header', colors: 'from-purple-600 to-purple-900', layout: 'header', category: 'creative' },
-    { id: 'minimal', name: 'Minimal', style: 'Clean', colors: 'from-gray-700 to-gray-900', layout: 'minimal', category: 'minimal' },
-    { id: 'professional', name: 'Professional', style: 'Traditional', colors: 'from-amber-700 to-amber-900', layout: 'classic', category: 'professional' },
-    { id: 'tech', name: 'Tech', style: 'Modern', colors: 'from-blue-600 to-blue-900', layout: 'sidebar', category: 'modern' },
-    { id: 'designer', name: 'Designer', style: 'Creative', colors: 'from-pink-600 to-pink-900', layout: 'header', category: 'creative' },
-    { id: 'corporate', name: 'Corporate', style: 'Classic', colors: 'from-zinc-600 to-zinc-900', layout: 'classic', category: 'professional' },
-    { id: 'startup', name: 'Startup', style: 'Modern', colors: 'from-emerald-600 to-emerald-900', layout: 'sidebar', category: 'bold' },
-    { id: 'academic', name: 'Academic', style: 'Traditional', colors: 'from-indigo-700 to-indigo-900', layout: 'classic', category: 'professional' },
-    { id: 'marketing', name: 'Marketing', style: 'Bold', colors: 'from-orange-600 to-orange-900', layout: 'header', category: 'bold' },
-    { id: 'finance', name: 'Finance', style: 'Clean', colors: 'from-sky-700 to-sky-900', layout: 'minimal', category: 'minimal' },
-];
+// Use shared builder templates with additional style property for display
+const builderTemplates = sharedBuilderTemplates.map(t => ({
+    ...t,
+    colors: t.gradientColors,
+}));
 
 const categoryIcons: Record<string, React.ElementType> = {
     all: Sparkles,
@@ -216,45 +207,10 @@ export default function TemplatesPage() {
         );
     };
 
-    // Complete CV dummy data based on professional template
-    const dummyData = {
-        name: 'Sarah Johnson',
-        title: 'UX Designer',
-        email: 'sarah.j@email.com',
-        phone: '+1 (555) 987-6543',
-        location: 'New York, NY',
-        website: 'sarahjohnson.design',
-        headshot: '/Img/headshot.png',
-        summary: 'Creative UX Designer with 6+ years of experience crafting user-centered digital experiences. Passionate about solving complex problems through intuitive design.',
-        experience: [
-            { company: 'DesignHub Agency', role: 'Lead UX Designer', years: '2021-Present' },
-            { company: 'TechStart Inc', role: 'Senior UX Designer', years: '2019-2021' },
-            { company: 'Creative Solutions', role: 'UX Designer', years: '2017-2019' },
-        ],
-        education: { school: 'Rhode Island School of Design', degree: 'BFA Graphic Design' },
-        skills: ['Figma', 'Sketch', 'Adobe XD', 'Prototyping', 'User Research', 'Wireframing'],
-        languages: ['English - Native', 'Spanish - Fluent'],
-        certifications: ['Google UX Design Certificate', 'Nielsen Norman UX Certification'],
-    };
-
     // Render builder template preview with realistic content
     const renderBuilderPreview = (template: typeof builderTemplates[0]) => {
-        // Get accent color from gradient
-        const accentColors: Record<string, string> = {
-            executive: '#374151',
-            modern: '#0d9488',
-            creative: '#9333ea',
-            minimal: '#374151',
-            professional: '#b45309',
-            tech: '#2563eb',
-            designer: '#db2777',
-            corporate: '#52525b',
-            startup: '#059669',
-            academic: '#4338ca',
-            marketing: '#ea580c',
-            finance: '#0369a1',
-        };
-        const accent = accentColors[template.id] || '#374151';
+        // Use accent color directly from template
+        const accent = template.accentColor || '#374151';
 
         // Common text styles
         const textLight = '#f8fafc';

@@ -32,16 +32,16 @@ export default function HeaderLayout({ data, theme }: TemplateProps) {
     const defaultOrder = ['summary', 'experience', 'education', 'skills'];
     const order = layoutConfig?.contentOrder ? layoutConfig.contentOrder : defaultOrder;
 
-    // Section Renderer
+    // Section Renderer - with resume-section and resume-entry classes for page break control
     const renderSection = (key: string) => {
         switch (key) {
             case 'summary': return personalInfo.summary && (
-                <div key="summary" className="text-center max-w-2xl mx-auto mb-8">
+                <div key="summary" className="resume-section text-center max-w-2xl mx-auto mb-8">
                     <p className="italic leading-relaxed text-base">{personalInfo.summary}</p>
                 </div>
             );
             case 'experience': return experience.length > 0 && (
-                <div key="experience">
+                <div key="experience" className="resume-section">
                     <div className="flex items-center gap-4 mb-4">
                         <div className="flex-1 h-px" style={{ backgroundColor: theme.accent }}></div>
                         <h2 className="font-bold text-lg uppercase tracking-widest" style={{ color: theme.primary, fontFamily: headingFont }}>Experience</h2>
@@ -49,7 +49,7 @@ export default function HeaderLayout({ data, theme }: TemplateProps) {
                     </div>
                     <div className="space-y-6">
                         {experience.map(exp => (
-                            <div key={exp.id} className="relative pl-6 border-l-2" style={{ borderColor: theme.accent }}>
+                            <div key={exp.id} className="resume-entry relative pl-6 border-l-2" style={{ borderColor: theme.accent }}>
                                 <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full border-4 border-white" style={{ backgroundColor: theme.secondary }}></div>
                                 <h3 className="font-bold text-lg leading-none mb-1">{exp.title}</h3>
                                 <div className="flex items-center gap-2 text-xs font-semibold uppercase mb-2" style={{ color: theme.secondary }}>
@@ -64,11 +64,11 @@ export default function HeaderLayout({ data, theme }: TemplateProps) {
                 </div>
             );
             case 'education': return education.length > 0 && (
-                <div key="education" className="bg-gray-50 p-6 rounded-xl">
+                <div key="education" className="resume-section bg-gray-50 p-6 rounded-xl">
                     <h2 className="font-bold uppercase tracking-widest mb-4 border-b pb-2" style={{ borderColor: theme.accent }}>Education</h2>
                     <div className="space-y-4">
                         {education.map(edu => (
-                            <div key={edu.id}>
+                            <div key={edu.id} className="resume-entry">
                                 <div className="font-bold">{edu.school}</div>
                                 <div className="text-sm">{edu.degree}</div>
                                 <div className="text-xs opacity-60">{edu.startDate} - {edu.endDate}</div>
@@ -78,7 +78,7 @@ export default function HeaderLayout({ data, theme }: TemplateProps) {
                 </div>
             );
             case 'skills': return skills.length > 0 && (
-                <div key="skills" className="bg-gray-50 p-6 rounded-xl">
+                <div key="skills" className="resume-section bg-gray-50 p-6 rounded-xl">
                     <h2 className="font-bold uppercase tracking-widest mb-4 border-b pb-2" style={{ borderColor: theme.accent }}>Skills</h2>
                     <div className="flex flex-wrap gap-2">
                         {skills.map(skill => (

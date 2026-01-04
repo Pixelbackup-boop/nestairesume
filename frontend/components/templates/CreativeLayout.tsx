@@ -41,17 +41,17 @@ export default function CreativeLayout({ data, theme }: TemplateProps) {
     const renderMainSection = (key: string) => {
         switch (key) {
             case 'summary': return personalInfo.summary && (
-                <div key="summary" className={`bg-white p-6 rounded-2xl shadow-sm border border-gray-100 ${textBaseClass}`}>
+                <div key="summary" className={`resume-section bg-white p-6 rounded-2xl shadow-sm border border-gray-100 ${textBaseClass}`}>
                     <h3 className="font-bold text-sm uppercase tracking-wider mb-3" style={{ color: theme.primary, fontFamily: headingFont }}>About Me</h3>
                     <p className="text-sm opacity-80 leading-relaxed">{personalInfo.summary}</p>
                 </div>
             );
             case 'experience': return experience.length > 0 && (
-                <div key="experience" className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <div key="experience" className="resume-section bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <h3 className={`font-bold text-sm uppercase tracking-wider mb-6 ${textBaseClass}`} style={{ color: theme.primary, fontFamily: headingFont }}>Work Experience</h3>
                     <div className="space-y-8">
                         {experience.map((exp, i) => (
-                            <div key={exp.id} className={`relative ${align === 'right' ? 'pr-6 text-right' : 'pl-6 text-left'}`}>
+                            <div key={exp.id} className={`resume-entry relative ${align === 'right' ? 'pr-6 text-right' : 'pl-6 text-left'}`}>
                                 {/* Timeline Dot */}
                                 <div
                                     className={`absolute top-1.5 w-2 h-2 rounded-full ${align === 'right' ? 'right-0' : 'left-0'}`}
@@ -71,11 +71,11 @@ export default function CreativeLayout({ data, theme }: TemplateProps) {
                 </div>
             );
             case 'education': return education.length > 0 && (
-                <div key="education" className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <div key="education" className="resume-section bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <h3 className={`font-bold text-sm uppercase tracking-wider mb-4 ${textBaseClass}`} style={{ color: theme.primary, fontFamily: headingFont }}>Education</h3>
                     <div className="grid grid-cols-2 gap-4">
                         {education.map(edu => (
-                            <div key={edu.id} className={`p-4 rounded-xl bg-gray-50 border border-gray-100 ${textBaseClass}`}>
+                            <div key={edu.id} className={`resume-entry p-4 rounded-xl bg-gray-50 border border-gray-100 ${textBaseClass}`}>
                                 <div className="font-bold text-sm">{edu.school}</div>
                                 <div className="text-xs opacity-70 mb-2">{edu.degree}</div>
                                 <div className="text-xs font-medium" style={{ color: theme.secondary }}>{edu.startDate} - {edu.endDate}</div>

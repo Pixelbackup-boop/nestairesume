@@ -131,17 +131,17 @@ export default function MinimalLayout({ data, theme }: TemplateProps) {
                         // Hacky re-implementation inline:
                         switch (key) {
                             case 'summary': return personalInfo.summary && (
-                                <div key="summary" className="grid grid-cols-[150px_1fr] gap-8">
+                                <div key="summary" className="resume-section grid grid-cols-[150px_1fr] gap-8">
                                     <div className="text-right font-bold text-xs uppercase tracking-widest pt-1" style={{ color: theme.secondary }}>About</div>
                                     <div><p className="leading-relaxed opacity-80 max-w-lg">{personalInfo.summary}</p></div>
                                 </div>
                             );
                             case 'experience': return experience.length > 0 && (
-                                <div key="experience" className="grid grid-cols-[150px_1fr] gap-8">
+                                <div key="experience" className="resume-section grid grid-cols-[150px_1fr] gap-8">
                                     <div className="text-right font-bold text-xs uppercase tracking-widest pt-1" style={{ color: theme.secondary }}>Experience</div>
                                     <div className="space-y-6">
                                         {experience.map(exp => (
-                                            <div key={exp.id}>
+                                            <div key={exp.id} className="resume-entry">
                                                 <div className="flex items-baseline justify-between mb-1">
                                                     <h3 className="font-semibold text-base">{exp.title}</h3>
                                                     <span className="text-xs opacity-50">{exp.startDate} - {exp.current ? 'Present' : exp.endDate}</span>
@@ -154,11 +154,11 @@ export default function MinimalLayout({ data, theme }: TemplateProps) {
                                 </div>
                             );
                             case 'education': return education.length > 0 && (
-                                <div key="education" className="grid grid-cols-[150px_1fr] gap-8">
+                                <div key="education" className="resume-section grid grid-cols-[150px_1fr] gap-8">
                                     <div className="text-right font-bold text-xs uppercase tracking-widest pt-1" style={{ color: theme.secondary }}>Education</div>
                                     <div className="space-y-4">
                                         {education.map(edu => (
-                                            <div key={edu.id}>
+                                            <div key={edu.id} className="resume-entry">
                                                 <h3 className="font-semibold">{edu.school}</h3>
                                                 <div className="text-sm opacity-80">{edu.degree}</div>
                                                 <div className="text-xs opacity-50">{edu.startDate} - {edu.endDate}</div>
@@ -168,7 +168,7 @@ export default function MinimalLayout({ data, theme }: TemplateProps) {
                                 </div>
                             );
                             case 'skills': return skills.length > 0 && (
-                                <div key="skills" className="grid grid-cols-[150px_1fr] gap-8">
+                                <div key="skills" className="resume-section grid grid-cols-[150px_1fr] gap-8">
                                     <div className="text-right font-bold text-xs uppercase tracking-widest pt-1" style={{ color: theme.secondary }}>Skills</div>
                                     <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-80">
                                         {skills.map((s, i) => (

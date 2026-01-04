@@ -12,6 +12,7 @@ import AuthModal from '../../components/auth/AuthModal';
 import DownloadModal from '../../components/download/DownloadModal';
 import { useResumeStore } from '../../store/useResumeStore';
 import { templates, colorPresets } from '../../lib/themes';
+import { getLayoutPresetId, getTemplateById } from '../../lib/builderTemplates';
 import Link from 'next/link';
 import { useReactToPrint } from 'react-to-print';
 import {
@@ -112,14 +113,26 @@ function BuilderContent() {
         setIsAuthenticated(authStatus);
     }, []);
 
-    // Pre-fill form with sample data when coming from templates page
+    // Handle URL parameters for template and prefill
     useEffect(() => {
         const shouldPrefill = searchParams.get('prefill') === 'true';
         const templateId = searchParams.get('template');
 
+        // If coming from templates page with prefill, use sample data
         if (shouldPrefill) {
             setResumeData(sampleResumeData);
-            if (templateId) {
+        }
+
+        // Apply template if specified (works with both onboarding and templates page)
+        if (templateId) {
+            // Check if this is a user-friendly template ID (like "executive", "modern")
+            // If so, map it to the actual layout preset ID
+            const builderTemplate = getTemplateById(templateId);
+            if (builderTemplate) {
+                // It's a user-friendly ID, use the mapped layout preset
+                setTemplate(builderTemplate.layoutPresetId);
+            } else {
+                // It's already a layout preset ID, use directly
                 setTemplate(templateId);
             }
         }

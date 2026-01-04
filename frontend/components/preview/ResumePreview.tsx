@@ -38,7 +38,7 @@ export default function ResumePreview() {
     const SelectedLayout = TemplateMap[baseLayoutId] || ClassicLayout;
 
     return (
-        <div className="w-full h-full bg-white shadow-2xl">
+        <div className="resume-page bg-white">
             <SelectedLayout data={resumeData} theme={theme} />
         </div>
     );

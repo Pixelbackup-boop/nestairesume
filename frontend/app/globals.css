@@ -138,6 +138,22 @@ body {
   color: white;
 }
 
+/* Animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
 /* Custom slider styling for better UX */
 input[type="range"].slider-thumb {
   -webkit-appearance: none;
@@ -189,4 +205,91 @@ input[type="range"].slider-thumb::-moz-range-thumb:hover {
 input[type="range"].slider-thumb::-moz-range-thumb:active {
   cursor: grabbing;
   transform: scale(1.1);
+}
+
+/* ===========================================
+   PRINT STYLES - A4 Multi-Page Resume Support
+   =========================================== */
+
+/* A4 page setup */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+/* Print-specific styles */
+@media print {
+  /* Hide everything except the resume */
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* The resume container should fill the page */
+  .resume-page {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: auto;
+  }
+
+  /* Prevent sections from breaking in the middle */
+  .resume-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep experience/education entries together */
+  .resume-entry {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Allow page breaks between major sections */
+  .resume-section-break {
+    page-break-before: auto;
+    break-before: auto;
+  }
+
+  /* Ensure headings stay with content */
+  h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Hide print button and other UI elements */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure colors print correctly */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+/* Resume page container - used for A4 sizing */
+.resume-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  position: relative;
+  overflow: visible;
+}
+
+/* Section styling for page break control */
+.resume-section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Individual entry styling for page break control */
+.resume-entry {
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
