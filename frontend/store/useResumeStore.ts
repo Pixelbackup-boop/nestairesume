@@ -78,6 +78,7 @@ interface ResumeState {
     selectedDesignPresetId?: string; // Track which preset is active
 
     // Actions
+    setResumeData: (data: Partial<ResumeData>) => void; // Bulk setter for AI-populated data
     updatePersonalInfo: (info: Partial<ResumeData['personalInfo']>) => void;
     addExperience: (exp: Experience) => void;
     updateExperience: (id: string, exp: Partial<Experience>) => void;
@@ -139,6 +140,17 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
     selectedTemplate: 'classic',
     selectedTheme: 'navy',
     selectedDesignPresetId: '',
+
+    setResumeData: (data) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                ...data,
+                personalInfo: data.personalInfo
+                    ? { ...state.resumeData.personalInfo, ...data.personalInfo }
+                    : state.resumeData.personalInfo,
+            },
+        })),
 
     updatePersonalInfo: (info) =>
         set((state) => ({
