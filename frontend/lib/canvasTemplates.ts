@@ -1,4 +1,4 @@
-import { CanvasTemplate, TextElement, ShapeElement, IconElement } from '@/store/useCanvasStore';
+import { CanvasTemplate, TextElement, ShapeElement, IconElement, ImageElement } from '@/store/useCanvasStore';
 
 // A4 dimensions for reference
 const A4_WIDTH = 595;
@@ -60,6 +60,19 @@ const createIcon = (
     fill: '#333333',
     stroke: 'transparent',
     strokeWidth: 0,
+    ...overrides,
+});
+
+// Helper to create image element
+const createImage = (
+    overrides: Partial<ImageElement> & { src: string; x: number; y: number; width: number; height: number }
+): ImageElement => ({
+    id: crypto.randomUUID(),
+    type: 'image',
+    rotation: 0,
+    opacity: 1,
+    locked: false,
+    visible: true,
     ...overrides,
 });
 
@@ -424,6 +437,14 @@ const modernSidebarTemplate: CanvasTemplate = {
             fill: '#2d2d44',
             stroke: '#00dc82',
             strokeWidth: 3,
+        }),
+        // Profile image
+        createImage({
+            src: '/Img/headshot.png',
+            x: 50,
+            y: 40,
+            width: 100,
+            height: 100,
         }),
 
         // Name on sidebar
@@ -1114,6 +1135,14 @@ const boldCreativeTemplate: CanvasTemplate = {
             fill: '#0f0f23',
             stroke: '#ffffff',
             strokeWidth: 4,
+        }),
+        // Profile image
+        createImage({
+            src: '/Img/headshot.png',
+            x: 40,
+            y: 90,
+            width: 140,
+            height: 140,
         }),
 
         // Name
