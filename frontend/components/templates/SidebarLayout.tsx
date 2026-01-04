@@ -71,10 +71,10 @@ export default function SidebarLayout({ data, theme }: TemplateProps) {
     };
 
     return (
-        <div className={`w-full h-full flex ${sidebarPos === 'right' ? 'flex-row-reverse' : 'flex-row'}`} style={{ fontFamily: bodyFont, fontSize: sizeConfig.base, ...bgStyle }}>
-            {/* Sidebar - min-h-full ensures it fills entire page height */}
+        <div className={`w-full min-h-[297mm] flex ${sidebarPos === 'right' ? 'flex-row-reverse' : 'flex-row'}`} style={{ fontFamily: bodyFont, fontSize: sizeConfig.base, ...bgStyle }}>
+            {/* Sidebar - fills full A4 page height */}
             <div
-                className={`w-1/3 min-h-full p-6 text-white ${sidebarSpacing} flex-shrink-0`}
+                className={`w-1/3 min-h-[297mm] p-6 text-white ${sidebarSpacing} flex-shrink-0`}
                 style={{ backgroundColor: theme.primary }}
             >
                 <div className="space-y-4">
