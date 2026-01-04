@@ -81,7 +81,7 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
     // Extract context from canvas for AI generation
     const extractCanvasContext = () => {
         try {
-            const textElements = elements.filter((el): el is TextElement => el.type === 'text' && el.text);
+            const textElements = elements.filter((el): el is TextElement => el.type === 'text' && Boolean(el.text));
 
             if (textElements.length === 0) {
                 return { name: '', jobTitle: '', skills: [], experience: [] };

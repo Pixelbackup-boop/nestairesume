@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ReturningUserBanner from "@/components/ReturningUserBanner";
 
 export default function Home() {
   return (
     <>
       <Header />
+      <ReturningUserBanner />
 
       {/* Hero Section */}
       <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
@@ -22,22 +24,26 @@ export default function Home() {
               <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 text-white">
                 Build Your<br />
                 <span className="gradient-text">Perfect Resume</span><br />
-                with AI
+                <span className="text-3xl lg:text-4xl text-gray-400 font-medium">No Signup Required</span>
               </h1>
 
               <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
-                Create stunning, ATS-optimized resumes in minutes. Let AI craft compelling content while you focus on landing your dream job.
+                Create stunning, ATS-optimized resumes in minutes with AI. Try it free — sign up only when you&apos;re ready to save.
               </p>
 
-              <div className="flex flex-wrap gap-3 mb-8">
-                <Link href="/auth/register" className="inline-flex items-center gap-2 bg-accent-green text-bg-primary px-6 py-3 rounded-lg font-semibold hover:bg-accent-teal transition">
-                  Start Building
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              <div className="flex flex-wrap gap-3 mb-4">
+                <Link href="/onboarding" className="inline-flex items-center gap-2 bg-accent-green text-bg-primary px-6 py-3 rounded-lg font-semibold hover:bg-accent-teal transition">
+                  Build with AI
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </Link>
-                <Link href="/builder" className="inline-flex items-center gap-2 bg-bg-card border border-border-subtle px-6 py-3 rounded-lg font-semibold hover:bg-bg-card-light transition text-white">
-                  View Templates
+                <Link href="/templates" className="inline-flex items-center gap-2 bg-bg-card border border-border-subtle px-6 py-3 rounded-lg font-semibold hover:bg-bg-card-light transition text-white">
+                  Browse Templates
                 </Link>
               </div>
+
+              <p className="text-sm text-gray-500 mb-8">
+                <span className="text-accent-green">✓</span> No credit card required &nbsp;•&nbsp; <span className="text-accent-green">✓</span> No signup to start
+              </p>
 
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-2">
@@ -363,122 +369,164 @@ export default function Home() {
             <p className="text-gray-400 mt-4">Start for free, upgrade when you need more. No hidden fees.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
             {/* Free Plan */}
-            <div className="pricing-card rounded-2xl p-6">
-              <div className="mb-6">
+            <div className="pricing-card rounded-2xl p-5">
+              <div className="mb-5">
                 <h3 className="font-semibold text-lg mb-1 text-white">Free</h3>
-                <p className="text-gray-500 text-sm">Perfect for getting started</p>
+                <p className="text-gray-500 text-xs">Try before you buy</p>
               </div>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$0</span>
-                <span className="text-gray-500">/forever</span>
+              <div className="mb-5">
+                <span className="text-3xl font-bold text-white">$0</span>
+                <span className="text-gray-500 text-sm">/forever</span>
               </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  3 resume downloads
+              <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  5 downloads (watch ad)
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  5 AI suggestions
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  3 saved resumes
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  3 basic templates
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  15 basic templates
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  PDF export
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  AI Quick Build
+                </li>
+                <li className="flex items-center gap-2 text-gray-500">
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                  Contains ads
                 </li>
               </ul>
-              <Link href="#" className="block w-full text-center py-3 rounded-lg border border-border-subtle hover:bg-bg-card-light transition font-medium text-sm text-white">
-                Get Started
+              <Link href="/onboarding" className="block w-full text-center py-2.5 rounded-lg border border-border-subtle hover:bg-bg-card-light transition font-medium text-sm text-white">
+                Get Started Free
               </Link>
             </div>
 
-            {/* Pro Plan */}
-            <div className="pricing-highlight rounded-2xl p-6 relative">
-              <div className="mb-6">
-                <h3 className="font-semibold text-lg mb-1 text-white">Pro</h3>
-                <p className="text-gray-500 text-sm">For active job seekers</p>
+            {/* Starter Plan */}
+            <div className="pricing-card rounded-2xl p-5">
+              <div className="mb-5">
+                <h3 className="font-semibold text-lg mb-1 text-white">Starter</h3>
+                <p className="text-gray-500 text-xs">One-time purchase</p>
               </div>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$9</span>
-                <span className="text-gray-500">/month</span>
+              <div className="mb-5">
+                <span className="text-3xl font-bold text-white">$3</span>
+                <span className="text-gray-500 text-sm"> one-time</span>
               </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Unlimited downloads
+              <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  10 downloads
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Unlimited AI suggestions
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  5 saved resumes
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  All 20+ templates
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  All 50+ templates
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  ATS score analysis
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  No ads
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Cover letter builder
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  PDF & PNG export
                 </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              </ul>
+              <Link href="/pricing" className="block w-full text-center py-2.5 rounded-lg border border-border-subtle hover:bg-bg-card-light transition font-medium text-sm text-white">
+                Buy Starter
+              </Link>
+            </div>
+
+            {/* Gold Plan */}
+            <div className="pricing-card rounded-2xl p-5">
+              <div className="mb-5">
+                <h3 className="font-semibold text-lg mb-1 text-white">Gold</h3>
+                <p className="text-gray-500 text-xs">Monthly subscription</p>
+              </div>
+              <div className="mb-5">
+                <span className="text-3xl font-bold text-white">$6</span>
+                <span className="text-gray-500 text-sm">/month</span>
+              </div>
+              <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  50 downloads/month
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  20 saved resumes
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  All 50+ templates
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  No ads
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  ATS optimization
+                </li>
+              </ul>
+              <Link href="/pricing" className="block w-full text-center py-2.5 rounded-lg border border-border-subtle hover:bg-bg-card-light transition font-medium text-sm text-white">
+                Get Gold
+              </Link>
+            </div>
+
+            {/* Diamond Plan - Highlighted */}
+            <div className="pricing-highlight rounded-2xl p-5 relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="px-3 py-1 bg-accent-green text-bg-primary text-xs font-bold rounded-full">
+                  MOST POPULAR
+                </span>
+              </div>
+              <div className="mb-5 mt-2">
+                <h3 className="font-semibold text-lg mb-1 text-white">Diamond</h3>
+                <p className="text-gray-500 text-xs">Best value for power users</p>
+              </div>
+              <div className="mb-5">
+                <span className="text-3xl font-bold text-white">$10</span>
+                <span className="text-gray-500 text-sm">/month</span>
+              </div>
+              <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  150 downloads/month
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  50 saved resumes
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  All + Premium templates
+                </li>
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   Priority support
                 </li>
-              </ul>
-              <Link href="#" className="block w-full text-center py-3 rounded-lg bg-accent-green text-bg-primary font-semibold text-sm hover:bg-accent-teal transition">
-                Start Pro Trial
-              </Link>
-            </div>
-
-            {/* Enterprise Plan */}
-            <div className="pricing-card rounded-2xl p-6">
-              <div className="mb-6">
-                <h3 className="font-semibold text-lg mb-1 text-white">Enterprise</h3>
-                <p className="text-gray-500 text-sm">For teams and recruiters</p>
-              </div>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$29</span>
-                <span className="text-gray-500">/month</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Everything in Pro
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Team collaboration
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Custom branding
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  API access
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Analytics dashboard
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-300">
-                  <svg className="w-4 h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Dedicated support
+                <li className="flex items-center gap-2 text-gray-300">
+                  <svg className="w-4 h-4 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Cover letter builder
                 </li>
               </ul>
-              <Link href="#" className="block w-full text-center py-3 rounded-lg border border-border-subtle hover:bg-bg-card-light transition font-medium text-sm text-white">
-                Contact Sales
+              <Link href="/pricing" className="block w-full text-center py-2.5 rounded-lg bg-accent-green text-bg-primary font-semibold text-sm hover:bg-accent-teal transition">
+                Get Diamond
               </Link>
             </div>
           </div>
+
+          <p className="text-center text-gray-500 text-sm mt-8">
+            <Link href="/pricing" className="text-accent-green hover:underline">View full comparison</Link> • Cancel anytime • Secure payments via Stripe
+          </p>
         </div>
       </section>
 
@@ -491,10 +539,11 @@ export default function Home() {
               <span className="gradient-text">winning resume?</span>
             </h2>
             <p className="text-gray-400 mb-8 max-w-md mx-auto">Join 50,000+ professionals who&apos;ve already landed their dream jobs with ResumeAI.</p>
-            <Link href="#" className="inline-flex items-center gap-2 bg-accent-green text-bg-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-teal transition">
-              Start Building Free
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <Link href="/onboarding" className="inline-flex items-center gap-2 bg-accent-green text-bg-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-teal transition">
+              Build Your CV Now — Free
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
             </Link>
+            <p className="text-sm text-gray-500 mt-4">No signup required to start</p>
           </div>
         </div>
       </section>

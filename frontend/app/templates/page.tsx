@@ -1,142 +1,693 @@
-import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+'use client';
 
-const templates = [
-  { name: "Executive", style: "Classic • Navy", colors: "from-slate-700 to-slate-900", layout: "classic" },
-  { name: "Modern", style: "Sidebar • Teal", colors: "from-teal-600 to-teal-900", layout: "sidebar" },
-  { name: "Creative", style: "Header • Purple", colors: "from-purple-600 to-purple-900", layout: "header" },
-  { name: "Minimal", style: "Clean • Dark", colors: "from-gray-700 to-gray-900", layout: "minimal" },
-  { name: "Professional", style: "Traditional", colors: "from-amber-700 to-amber-900", layout: "classic" },
-  { name: "Tech", style: "Modern • Blue", colors: "from-blue-600 to-blue-900", layout: "sidebar" },
-  { name: "Designer", style: "Creative • Pink", colors: "from-pink-600 to-pink-900", layout: "header" },
-  { name: "Corporate", style: "Classic • Gray", colors: "from-zinc-600 to-zinc-900", layout: "classic" },
-  { name: "Startup", style: "Modern • Green", colors: "from-emerald-600 to-emerald-900", layout: "sidebar" },
-  { name: "Academic", style: "Traditional • Navy", colors: "from-indigo-700 to-indigo-900", layout: "classic" },
-  { name: "Marketing", style: "Bold • Orange", colors: "from-orange-600 to-orange-900", layout: "header" },
-  { name: "Finance", style: "Clean • Blue", colors: "from-sky-700 to-sky-900", layout: "minimal" },
-  { name: "Healthcare", style: "Professional • Teal", colors: "from-cyan-600 to-cyan-900", layout: "classic" },
-  { name: "Legal", style: "Traditional • Dark", colors: "from-stone-700 to-stone-900", layout: "minimal" },
-  { name: "Engineering", style: "Technical • Blue", colors: "from-blue-700 to-blue-950", layout: "sidebar" },
-  { name: "Sales", style: "Dynamic • Red", colors: "from-rose-600 to-rose-900", layout: "header" },
-  { name: "Consulting", style: "Executive • Navy", colors: "from-slate-600 to-slate-900", layout: "classic" },
-  { name: "Creative Pro", style: "Artistic • Violet", colors: "from-violet-600 to-violet-900", layout: "creative" },
-  { name: "Data Science", style: "Modern • Cyan", colors: "from-cyan-700 to-cyan-950", layout: "sidebar" },
-  { name: "Product", style: "Clean • Indigo", colors: "from-indigo-600 to-indigo-900", layout: "minimal" },
+import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import {
+    FileText,
+    Palette,
+    Search,
+    Briefcase,
+    Minimize2,
+    Zap,
+    Sparkles,
+    ArrowRight,
+    Check,
+} from 'lucide-react';
+import { canvasTemplates } from '@/lib/canvasTemplates';
+import { useCanvasStore, CanvasTemplate } from '@/store/useCanvasStore';
+
+type EditorMode = 'builder' | 'canvas';
+type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'bold' | 'classic' | 'modern' | 'header' | 'sidebar';
+
+// Builder templates data
+const builderTemplates = [
+    { id: 'executive', name: 'Executive', style: 'Classic', colors: 'from-slate-700 to-slate-900', layout: 'classic', category: 'professional' },
+    { id: 'modern', name: 'Modern', style: 'Sidebar', colors: 'from-teal-600 to-teal-900', layout: 'sidebar', category: 'modern' },
+    { id: 'creative', name: 'Creative', style: 'Header', colors: 'from-purple-600 to-purple-900', layout: 'header', category: 'creative' },
+    { id: 'minimal', name: 'Minimal', style: 'Clean', colors: 'from-gray-700 to-gray-900', layout: 'minimal', category: 'minimal' },
+    { id: 'professional', name: 'Professional', style: 'Traditional', colors: 'from-amber-700 to-amber-900', layout: 'classic', category: 'professional' },
+    { id: 'tech', name: 'Tech', style: 'Modern', colors: 'from-blue-600 to-blue-900', layout: 'sidebar', category: 'modern' },
+    { id: 'designer', name: 'Designer', style: 'Creative', colors: 'from-pink-600 to-pink-900', layout: 'header', category: 'creative' },
+    { id: 'corporate', name: 'Corporate', style: 'Classic', colors: 'from-zinc-600 to-zinc-900', layout: 'classic', category: 'professional' },
+    { id: 'startup', name: 'Startup', style: 'Modern', colors: 'from-emerald-600 to-emerald-900', layout: 'sidebar', category: 'bold' },
+    { id: 'academic', name: 'Academic', style: 'Traditional', colors: 'from-indigo-700 to-indigo-900', layout: 'classic', category: 'professional' },
+    { id: 'marketing', name: 'Marketing', style: 'Bold', colors: 'from-orange-600 to-orange-900', layout: 'header', category: 'bold' },
+    { id: 'finance', name: 'Finance', style: 'Clean', colors: 'from-sky-700 to-sky-900', layout: 'minimal', category: 'minimal' },
 ];
 
+const categoryIcons: Record<string, React.ElementType> = {
+    all: Sparkles,
+    professional: Briefcase,
+    creative: Palette,
+    minimal: Minimize2,
+    bold: Zap,
+    modern: Sparkles,
+    classic: FileText,
+};
+
 export default function TemplatesPage() {
-  return (
-    <>
-      <Header />
+    const router = useRouter();
+    const { loadTemplate } = useCanvasStore();
+    const [editorMode, setEditorMode] = useState<EditorMode>('builder');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
+    const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
 
-      {/* Hero */}
-      <section className="pt-32 pb-16">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <span className="text-accent-green font-medium text-sm uppercase tracking-wider">Templates</span>
-          <h1 className="text-5xl font-bold mt-3 mb-6 text-white">
-            Premium templates for<br />
-            <span className="gradient-text">every profession</span>
-          </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Choose from 20+ professionally designed templates. Each one is ATS-optimized and crafted by design experts.
-          </p>
-        </div>
-      </section>
+    // Get categories based on mode
+    const categories: CategoryFilter[] = editorMode === 'builder'
+        ? ['all', 'professional', 'creative', 'minimal', 'bold']
+        : ['all', 'professional', 'creative', 'minimal', 'bold'];
 
-      {/* Filter Tabs */}
-      <section className="pb-8">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-3">
-            <button className="px-4 py-2 rounded-lg bg-accent-green text-bg-primary font-medium text-sm">All Templates</button>
-            <button className="px-4 py-2 rounded-lg bg-bg-card border border-border-subtle text-gray-400 hover:text-white transition text-sm">Classic</button>
-            <button className="px-4 py-2 rounded-lg bg-bg-card border border-border-subtle text-gray-400 hover:text-white transition text-sm">Modern</button>
-            <button className="px-4 py-2 rounded-lg bg-bg-card border border-border-subtle text-gray-400 hover:text-white transition text-sm">Creative</button>
-            <button className="px-4 py-2 rounded-lg bg-bg-card border border-border-subtle text-gray-400 hover:text-white transition text-sm">Minimal</button>
-          </div>
-        </div>
-      </section>
+    // Filter templates based on mode, search, and category
+    const filteredBuilderTemplates = useMemo(() => {
+        return builderTemplates.filter((template) => {
+            const matchesSearch = template.name.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesCategory = selectedCategory === 'all' || template.category === selectedCategory;
+            return matchesSearch && matchesCategory;
+        });
+    }, [searchQuery, selectedCategory]);
 
-      {/* Templates Grid */}
-      <section className="py-12">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-            {templates.map((template, index) => (
-              <div key={index} className="template-card cursor-pointer group">
-                <div className={`aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b ${template.colors} border border-border-subtle mb-3 relative`}>
-                  {template.layout === "sidebar" && (
+    const filteredCanvasTemplates = useMemo(() => {
+        return canvasTemplates.filter((template) => {
+            const matchesSearch = template.name.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesCategory = selectedCategory === 'all' || template.category === selectedCategory;
+            return matchesSearch && matchesCategory;
+        });
+    }, [searchQuery, selectedCategory]);
+
+    // Handle template selection - prefill with sample data
+    const handleSelectBuilderTemplate = (templateId: string) => {
+        router.push(`/builder?template=${templateId}&prefill=true`);
+    };
+
+    const handleSelectCanvasTemplate = (template: CanvasTemplate) => {
+        loadTemplate(template);
+        router.push('/canvas-editor');
+    };
+
+    // Reset category when switching modes
+    const handleModeChange = (mode: EditorMode) => {
+        setEditorMode(mode);
+        setSelectedCategory('all');
+        setSearchQuery('');
+    };
+
+    // Render canvas template preview
+    const renderCanvasPreview = (template: CanvasTemplate) => {
+        const scale = 0.28;
+        const previewWidth = 595 * scale;
+        const previewHeight = 842 * scale;
+
+        return (
+            <div
+                className="relative overflow-hidden rounded-lg mx-auto"
+                style={{
+                    width: previewWidth,
+                    height: previewHeight,
+                    backgroundColor: template.backgroundColor,
+                }}
+            >
+                <svg
+                    width={previewWidth}
+                    height={previewHeight}
+                    viewBox="0 0 595 842"
+                    className="absolute inset-0"
+                >
+                    {template.elements.map((element, index) => {
+                        if (element.type === 'shape') {
+                            if (element.shapeType === 'circle') {
+                                return (
+                                    <ellipse
+                                        key={index}
+                                        cx={element.x + element.width / 2}
+                                        cy={element.y + element.height / 2}
+                                        rx={element.width / 2}
+                                        ry={element.height / 2}
+                                        fill={element.fill}
+                                    />
+                                );
+                            }
+                            return (
+                                <rect
+                                    key={index}
+                                    x={element.x}
+                                    y={element.y}
+                                    width={element.width}
+                                    height={element.height}
+                                    fill={element.fill}
+                                    rx={element.cornerRadius || 0}
+                                />
+                            );
+                        }
+                        if (element.type === 'text') {
+                            // Render actual text instead of placeholder rectangles
+                            const lines = element.text.split('\n');
+                            const lineHeight = element.fontSize * (element.lineHeight || 1.4);
+                            return (
+                                <text
+                                    key={index}
+                                    x={element.x}
+                                    y={element.y + element.fontSize}
+                                    fill={element.fill}
+                                    fontSize={element.fontSize}
+                                    fontFamily={element.fontFamily || 'Inter, sans-serif'}
+                                    fontWeight={element.fontWeight || 'normal'}
+                                    textAnchor={element.align === 'center' ? 'middle' : element.align === 'right' ? 'end' : 'start'}
+                                    dominantBaseline="auto"
+                                >
+                                    {lines.map((line, lineIndex) => (
+                                        <tspan
+                                            key={lineIndex}
+                                            x={element.align === 'center' ? element.x + element.width / 2 : element.align === 'right' ? element.x + element.width : element.x}
+                                            dy={lineIndex === 0 ? 0 : lineHeight}
+                                        >
+                                            {line}
+                                        </tspan>
+                                    ))}
+                                </text>
+                            );
+                        }
+                        if (element.type === 'icon') {
+                            // Render icons as small circles/indicators
+                            return (
+                                <circle
+                                    key={index}
+                                    cx={element.x + element.width / 2}
+                                    cy={element.y + element.height / 2}
+                                    r={element.width / 2}
+                                    fill={element.fill}
+                                    opacity={0.8}
+                                />
+                            );
+                        }
+                        if (element.type === 'image') {
+                            // Render profile image with circular clip
+                            const clipId = `clip-${index}`;
+                            return (
+                                <g key={index}>
+                                    <defs>
+                                        <clipPath id={clipId}>
+                                            <circle
+                                                cx={element.x + element.width / 2}
+                                                cy={element.y + element.height / 2}
+                                                r={Math.min(element.width, element.height) / 2}
+                                            />
+                                        </clipPath>
+                                    </defs>
+                                    <image
+                                        href={element.src}
+                                        x={element.x}
+                                        y={element.y}
+                                        width={element.width}
+                                        height={element.height}
+                                        clipPath={`url(#${clipId})`}
+                                        preserveAspectRatio="xMidYMid slice"
+                                    />
+                                </g>
+                            );
+                        }
+                        return null;
+                    })}
+                </svg>
+            </div>
+        );
+    };
+
+    // Complete CV dummy data based on professional template
+    const dummyData = {
+        name: 'Sarah Johnson',
+        title: 'UX Designer',
+        email: 'sarah.j@email.com',
+        phone: '+1 (555) 987-6543',
+        location: 'New York, NY',
+        website: 'sarahjohnson.design',
+        headshot: '/Img/headshot.png',
+        summary: 'Creative UX Designer with 6+ years of experience crafting user-centered digital experiences. Passionate about solving complex problems through intuitive design.',
+        experience: [
+            { company: 'DesignHub Agency', role: 'Lead UX Designer', years: '2021-Present' },
+            { company: 'TechStart Inc', role: 'Senior UX Designer', years: '2019-2021' },
+            { company: 'Creative Solutions', role: 'UX Designer', years: '2017-2019' },
+        ],
+        education: { school: 'Rhode Island School of Design', degree: 'BFA Graphic Design' },
+        skills: ['Figma', 'Sketch', 'Adobe XD', 'Prototyping', 'User Research', 'Wireframing'],
+        languages: ['English - Native', 'Spanish - Fluent'],
+        certifications: ['Google UX Design Certificate', 'Nielsen Norman UX Certification'],
+    };
+
+    // Render builder template preview with realistic content
+    const renderBuilderPreview = (template: typeof builderTemplates[0]) => {
+        // Get accent color from gradient
+        const accentColors: Record<string, string> = {
+            executive: '#374151',
+            modern: '#0d9488',
+            creative: '#9333ea',
+            minimal: '#374151',
+            professional: '#b45309',
+            tech: '#2563eb',
+            designer: '#db2777',
+            corporate: '#52525b',
+            startup: '#059669',
+            academic: '#4338ca',
+            marketing: '#ea580c',
+            finance: '#0369a1',
+        };
+        const accent = accentColors[template.id] || '#374151';
+
+        // Common text styles
+        const textLight = '#f8fafc';
+        const textDark = '#1e293b';
+        const textMuted = '#64748b';
+
+        if (template.layout === 'sidebar') {
+            return (
+                <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative">
                     <div className="h-full flex">
-                      <div className="w-1/3 bg-white/10"></div>
-                      <div className="flex-1 p-3 space-y-2">
-                        <div className="h-2 bg-white/20 rounded w-3/4"></div>
-                        <div className="h-2 bg-white/10 rounded w-1/2"></div>
-                      </div>
+                        {/* Sidebar */}
+                        <div className="w-[38%] h-full p-2 flex flex-col" style={{ backgroundColor: accent }}>
+                            {/* Photo */}
+                            <img
+                                src={dummyData.headshot}
+                                alt={dummyData.name}
+                                className="w-12 h-12 rounded-full mx-auto mb-2 object-cover border-2 border-white/30"
+                            />
+                            {/* Contact */}
+                            <div className="space-y-0.5 text-[4px] text-white/80 mb-2">
+                                <p className="truncate">{dummyData.email}</p>
+                                <p>{dummyData.phone}</p>
+                                <p>{dummyData.location}</p>
+                                <p>{dummyData.website}</p>
+                            </div>
+                            {/* Skills */}
+                            <p className="text-[5px] font-semibold text-white mb-1">SKILLS</p>
+                            <div className="flex flex-wrap gap-0.5">
+                                {dummyData.skills.slice(0, 4).map((skill, i) => (
+                                    <span key={i} className="text-[3px] bg-white/20 px-1 py-0.5 rounded text-white">{skill}</span>
+                                ))}
+                            </div>
+                            {/* Languages */}
+                            <p className="text-[5px] font-semibold text-white mb-1 mt-2">LANGUAGES</p>
+                            {dummyData.languages.map((lang, i) => (
+                                <p key={i} className="text-[3px] text-white/80">{lang}</p>
+                            ))}
+                        </div>
+                        {/* Main Content */}
+                        <div className="flex-1 p-2">
+                            <h3 className="text-[9px] font-bold" style={{ color: textDark }}>{dummyData.name}</h3>
+                            <p className="text-[5px] mb-1" style={{ color: accent }}>{dummyData.title}</p>
+                            <p className="text-[3px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
+                            {/* Experience */}
+                            <p className="text-[5px] font-semibold mb-1" style={{ color: textDark }}>EXPERIENCE</p>
+                            {dummyData.experience.slice(0, 2).map((exp, i) => (
+                                <div key={i} className="mb-1">
+                                    <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role}</p>
+                                    <p className="text-[3px]" style={{ color: textMuted }}>{exp.company} • {exp.years}</p>
+                                </div>
+                            ))}
+                            {/* Education */}
+                            <p className="text-[5px] font-semibold mb-0.5 mt-1" style={{ color: textDark }}>EDUCATION</p>
+                            <p className="text-[4px] font-medium" style={{ color: textDark }}>{dummyData.education.degree}</p>
+                            <p className="text-[3px]" style={{ color: textMuted }}>{dummyData.education.school}</p>
+                        </div>
                     </div>
-                  )}
-                  {template.layout === "header" && (
-                    <div className="h-full">
-                      <div className="h-14 bg-white/20"></div>
-                      <div className="p-3 space-y-2">
-                        <div className="h-2 bg-white/10 rounded w-3/4"></div>
-                        <div className="h-2 bg-white/10 rounded w-1/2"></div>
-                      </div>
-                    </div>
-                  )}
-                  {template.layout === "classic" && (
-                    <div className="h-full p-3">
-                      <div className="h-full bg-white/5 rounded-lg border border-white/10 p-3 space-y-2">
-                        <div className="h-2 bg-white/20 rounded w-1/2 mx-auto"></div>
-                        <div className="h-2 bg-white/10 rounded w-3/4"></div>
-                        <div className="h-2 bg-white/10 rounded w-2/3"></div>
-                      </div>
-                    </div>
-                  )}
-                  {template.layout === "minimal" && (
-                    <div className="h-full p-4 space-y-3">
-                      <div className="h-2 bg-white/20 rounded w-1/2"></div>
-                      <div className="h-2 bg-white/10 rounded w-3/4"></div>
-                      <div className="h-2 bg-white/10 rounded w-2/3"></div>
-                      <div className="h-2 bg-white/10 rounded w-1/2"></div>
-                    </div>
-                  )}
-                  {template.layout === "creative" && (
-                    <div className="h-full">
-                      <div className="h-full border-l-4 border-white/30 ml-4 p-3 space-y-2">
-                        <div className="h-3 bg-white/20 rounded w-1/2"></div>
-                        <div className="h-2 bg-white/10 rounded w-3/4"></div>
-                        <div className="h-2 bg-white/10 rounded w-2/3"></div>
-                      </div>
-                    </div>
-                  )}
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-accent-green/0 group-hover:bg-accent-green/10 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <span className="bg-accent-green text-bg-primary px-4 py-2 rounded-lg font-medium text-sm">Use Template</span>
-                  </div>
                 </div>
-                <h4 className="font-medium text-sm text-white">{template.name}</h4>
-                <p className="text-xs text-gray-500">{template.style}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            );
+        }
 
-      {/* CTA */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            Can&apos;t decide?<br />
-            <span className="gradient-text">Try them all for free</span>
-          </h2>
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">Create your account and preview any template with your own content. No credit card required.</p>
-          <Link href="/auth/register" className="inline-flex items-center gap-2 bg-accent-green text-bg-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-teal transition">
-            Get Started Free
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </Link>
-        </div>
-      </section>
+        if (template.layout === 'header') {
+            return (
+                <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative">
+                    {/* Header */}
+                    <div className="p-3 text-center" style={{ backgroundColor: accent }}>
+                        <img
+                            src={dummyData.headshot}
+                            alt={dummyData.name}
+                            className="w-10 h-10 rounded-full mx-auto mb-1 object-cover border-2 border-white/30"
+                        />
+                        <h3 className="text-[10px] font-bold text-white">{dummyData.name}</h3>
+                        <p className="text-[6px] text-white/80">{dummyData.title}</p>
+                        <div className="flex justify-center gap-2 mt-1 text-[4px] text-white/70">
+                            <span>{dummyData.email}</span>
+                            <span>•</span>
+                            <span>{dummyData.location}</span>
+                        </div>
+                    </div>
+                    {/* Content */}
+                    <div className="p-3">
+                        <p className="text-[4px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
+                        {/* Experience */}
+                        <p className="text-[6px] font-semibold mb-1" style={{ color: accent }}>EXPERIENCE</p>
+                        {dummyData.experience.map((exp, i) => (
+                            <div key={i} className="mb-1">
+                                <p className="text-[5px] font-medium" style={{ color: textDark }}>{exp.role} at {exp.company}</p>
+                                <p className="text-[4px]" style={{ color: textMuted }}>{exp.years}</p>
+                            </div>
+                        ))}
+                        {/* Skills */}
+                        <p className="text-[6px] font-semibold mb-1 mt-2" style={{ color: accent }}>SKILLS</p>
+                        <div className="flex flex-wrap gap-0.5">
+                            {dummyData.skills.map((skill, i) => (
+                                <span key={i} className="text-[4px] px-1 py-0.5 rounded" style={{ backgroundColor: `${accent}20`, color: accent }}>{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
 
-      <Footer />
-    </>
-  );
+        if (template.layout === 'classic') {
+            return (
+                <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative p-3">
+                    {/* Header with photo */}
+                    <div className="flex items-start gap-2 mb-2 pb-2 border-b" style={{ borderColor: `${accent}30` }}>
+                        <img
+                            src={dummyData.headshot}
+                            alt={dummyData.name}
+                            className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                            style={{ border: `2px solid ${accent}` }}
+                        />
+                        <div className="flex-1 text-center">
+                            <h3 className="text-[10px] font-bold" style={{ color: textDark }}>{dummyData.name}</h3>
+                            <p className="text-[6px]" style={{ color: accent }}>{dummyData.title}</p>
+                            <div className="flex justify-center gap-2 mt-1 text-[4px]" style={{ color: textMuted }}>
+                                <span>{dummyData.email}</span>
+                                <span>•</span>
+                                <span>{dummyData.phone}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Summary */}
+                    <p className="text-[4px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
+                    {/* Experience */}
+                    <p className="text-[6px] font-semibold mb-1" style={{ color: accent }}>EXPERIENCE</p>
+                    {dummyData.experience.map((exp, i) => (
+                        <div key={i} className="mb-1.5">
+                            <div className="flex justify-between">
+                                <p className="text-[5px] font-medium" style={{ color: textDark }}>{exp.role}</p>
+                                <p className="text-[4px]" style={{ color: textMuted }}>{exp.years}</p>
+                            </div>
+                            <p className="text-[4px]" style={{ color: textMuted }}>{exp.company}</p>
+                        </div>
+                    ))}
+                    {/* Education */}
+                    <p className="text-[6px] font-semibold mb-1 mt-2" style={{ color: accent }}>EDUCATION</p>
+                    <p className="text-[5px] font-medium" style={{ color: textDark }}>{dummyData.education.degree}</p>
+                    <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.education.school}</p>
+                    {/* Skills */}
+                    <p className="text-[6px] font-semibold mb-1 mt-2" style={{ color: accent }}>SKILLS</p>
+                    <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.skills.join(' • ')}</p>
+                </div>
+            );
+        }
+
+        // Minimal layout
+        return (
+            <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative p-3">
+                {/* Header with small photo */}
+                <div className="flex items-center gap-2 mb-1">
+                    <img
+                        src={dummyData.headshot}
+                        alt={dummyData.name}
+                        className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                    />
+                    <div>
+                        <h3 className="text-[10px] font-bold" style={{ color: textDark }}>{dummyData.name}</h3>
+                        <p className="text-[6px]" style={{ color: accent }}>{dummyData.title}</p>
+                    </div>
+                </div>
+                <div className="text-[4px] mb-2" style={{ color: textMuted }}>
+                    {dummyData.email} • {dummyData.phone} • {dummyData.location}
+                </div>
+                {/* Thin accent line */}
+                <div className="h-px mb-2" style={{ backgroundColor: accent }}></div>
+                {/* Summary */}
+                <p className="text-[4px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
+                {/* Experience */}
+                <p className="text-[5px] font-semibold mb-1" style={{ color: textDark }}>Experience</p>
+                {dummyData.experience.map((exp, i) => (
+                    <div key={i} className="mb-1">
+                        <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role} — {exp.company}</p>
+                        <p className="text-[3px]" style={{ color: textMuted }}>{exp.years}</p>
+                    </div>
+                ))}
+                {/* Education */}
+                <p className="text-[5px] font-semibold mb-1 mt-1.5" style={{ color: textDark }}>Education</p>
+                <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.education.degree}, {dummyData.education.school}</p>
+                {/* Skills */}
+                <p className="text-[5px] font-semibold mb-1 mt-1.5" style={{ color: textDark }}>Skills</p>
+                <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.skills.join(', ')}</p>
+            </div>
+        );
+    };
+
+    const templateCount = editorMode === 'builder' ? filteredBuilderTemplates.length : filteredCanvasTemplates.length;
+
+    return (
+        <>
+            <Header />
+
+            {/* Hero */}
+            <section className="pt-32 pb-8">
+                <div className="max-w-6xl mx-auto px-6 text-center">
+                    <span className="text-accent-green font-medium text-sm uppercase tracking-wider">Templates</span>
+                    <h1 className="text-5xl font-bold mt-3 mb-6 text-white">
+                        Choose your perfect<br />
+                        <span className="gradient-text">resume template</span>
+                    </h1>
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                        Select an editing mode and pick from our professionally designed templates.
+                    </p>
+                </div>
+            </section>
+
+            {/* Mode Toggle */}
+            <section className="pb-8">
+                <div className="max-w-4xl mx-auto px-6">
+                    <div className="bg-bg-card border border-border-subtle rounded-2xl p-2 flex gap-2">
+                        {/* Form Builder Option */}
+                        <button
+                            type="button"
+                            onClick={() => handleModeChange('builder')}
+                            className={`flex-1 p-4 rounded-xl transition-all ${
+                                editorMode === 'builder'
+                                    ? 'bg-accent-green text-bg-primary'
+                                    : 'bg-transparent text-gray-400 hover:text-white hover:bg-bg-card-light'
+                            }`}
+                        >
+                            <div className="flex items-center justify-center gap-3">
+                                <FileText size={24} />
+                                <div className="text-left">
+                                    <div className="font-semibold text-lg">Form Builder</div>
+                                    <div className={`text-sm ${editorMode === 'builder' ? 'text-bg-primary/70' : 'text-gray-500'}`}>
+                                        Guided step-by-step editing
+                                    </div>
+                                </div>
+                                {editorMode === 'builder' && <Check size={20} className="ml-auto" />}
+                            </div>
+                        </button>
+
+                        {/* Canvas Editor Option */}
+                        <button
+                            type="button"
+                            onClick={() => handleModeChange('canvas')}
+                            className={`flex-1 p-4 rounded-xl transition-all ${
+                                editorMode === 'canvas'
+                                    ? 'bg-accent-green text-bg-primary'
+                                    : 'bg-transparent text-gray-400 hover:text-white hover:bg-bg-card-light'
+                            }`}
+                        >
+                            <div className="flex items-center justify-center gap-3">
+                                <Palette size={24} />
+                                <div className="text-left">
+                                    <div className="font-semibold text-lg">Canvas Editor</div>
+                                    <div className={`text-sm ${editorMode === 'canvas' ? 'text-bg-primary/70' : 'text-gray-500'}`}>
+                                        Full creative freedom
+                                    </div>
+                                </div>
+                                {editorMode === 'canvas' && <Check size={20} className="ml-auto" />}
+                            </div>
+                        </button>
+                    </div>
+
+                    {/* Mode Description */}
+                    <div className="mt-4 text-center">
+                        {editorMode === 'builder' ? (
+                            <p className="text-gray-400 text-sm">
+                                <span className="text-accent-green font-medium">Form Builder</span> - Fill in forms and let the template handle the design. Perfect for quick, professional resumes.
+                            </p>
+                        ) : (
+                            <p className="text-gray-400 text-sm">
+                                <span className="text-accent-green font-medium">Canvas Editor</span> - Drag, drop, and design freely. Full control over every element, like Canva for resumes.
+                            </p>
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            {/* Search and Filters */}
+            <section className="pb-6">
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                        {/* Search */}
+                        <div className="relative w-full sm:w-80">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder="Search templates..."
+                                className="w-full pl-10 pr-4 py-2.5 bg-bg-card border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-green transition-colors"
+                            />
+                        </div>
+
+                        {/* Category Filters */}
+                        <div className="flex flex-wrap justify-center gap-2">
+                            {categories.map((category) => {
+                                const Icon = categoryIcons[category] || Sparkles;
+                                const isActive = selectedCategory === category;
+                                const label = category.charAt(0).toUpperCase() + category.slice(1);
+                                return (
+                                    <button
+                                        key={category}
+                                        onClick={() => setSelectedCategory(category)}
+                                        className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                                            isActive
+                                                ? 'bg-accent-green text-bg-primary'
+                                                : 'bg-bg-card border border-border-subtle text-gray-400 hover:text-white hover:border-gray-500'
+                                        }`}
+                                    >
+                                        <Icon size={16} />
+                                        {label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Results count */}
+                    <div className="mt-4 text-sm text-gray-500 text-center sm:text-left">
+                        {templateCount} template{templateCount !== 1 ? 's' : ''} available
+                    </div>
+                </div>
+            </section>
+
+            {/* Templates Grid */}
+            <section className="py-8">
+                <div className="max-w-6xl mx-auto px-6">
+                    {templateCount === 0 ? (
+                        <div className="text-center py-20">
+                            <Search size={48} className="mx-auto text-gray-600 mb-4" />
+                            <h3 className="text-xl font-medium text-gray-300 mb-2">No templates found</h3>
+                            <p className="text-gray-500">Try adjusting your search or filter</p>
+                        </div>
+                    ) : editorMode === 'builder' ? (
+                        /* Builder Templates Grid */
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                            {filteredBuilderTemplates.map((template) => (
+                                <div
+                                    key={template.id}
+                                    className="group cursor-pointer"
+                                    onMouseEnter={() => setHoveredTemplate(template.id)}
+                                    onMouseLeave={() => setHoveredTemplate(null)}
+                                    onClick={() => handleSelectBuilderTemplate(template.id)}
+                                >
+                                    <div className={`relative rounded-xl overflow-hidden border-2 transition-all duration-200 ${
+                                        hoveredTemplate === template.id
+                                            ? 'border-accent-green shadow-lg shadow-accent-green/20 scale-[1.02]'
+                                            : 'border-border-subtle'
+                                    }`}>
+                                        {renderBuilderPreview(template)}
+                                        {/* Hover overlay */}
+                                        <div className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity ${
+                                            hoveredTemplate === template.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                                        }`}>
+                                            <span className="bg-accent-green text-bg-primary px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2">
+                                                Use Template <ArrowRight size={16} />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h4 className="font-medium text-sm text-white mt-3">{template.name}</h4>
+                                    <p className="text-xs text-gray-500">{template.style}</p>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        /* Canvas Templates Grid */
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                            {filteredCanvasTemplates.map((template) => (
+                                <div
+                                    key={template.id}
+                                    className="group cursor-pointer"
+                                    onMouseEnter={() => setHoveredTemplate(template.id)}
+                                    onMouseLeave={() => setHoveredTemplate(null)}
+                                    onClick={() => handleSelectCanvasTemplate(template)}
+                                >
+                                    <div className={`bg-slate-800 rounded-xl overflow-hidden border-2 transition-all duration-200 p-4 ${
+                                        hoveredTemplate === template.id
+                                            ? 'border-accent-green shadow-lg shadow-accent-green/20 scale-[1.02]'
+                                            : 'border-border-subtle'
+                                    }`}>
+                                        {renderCanvasPreview(template)}
+                                    </div>
+                                    <div className="mt-3 flex items-start justify-between">
+                                        <div>
+                                            <h4 className="font-medium text-sm text-white">{template.name}</h4>
+                                            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-800 rounded text-xs text-gray-400 capitalize mt-1">
+                                                {template.category}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </section>
+
+            {/* Bottom CTA */}
+            <section className="py-16">
+                <div className="max-w-6xl mx-auto px-6 text-center">
+                    <div className="inline-flex flex-col items-center p-8 bg-bg-card rounded-2xl border border-border-subtle">
+                        {editorMode === 'canvas' ? (
+                            <>
+                                <Palette className="text-accent-green mb-4" size={32} />
+                                <h3 className="text-xl font-semibold text-white mb-2">
+                                    Want to start from scratch?
+                                </h3>
+                                <p className="text-gray-400 mb-4 max-w-md">
+                                    Create a completely custom resume using our Canvas Editor's powerful tools.
+                                </p>
+                                <Link
+                                    href="/canvas-editor"
+                                    className="px-6 py-2.5 bg-accent-green text-bg-primary rounded-lg font-medium hover:bg-accent-teal transition-colors flex items-center gap-2"
+                                >
+                                    Open Blank Canvas <ArrowRight size={18} />
+                                </Link>
+                            </>
+                        ) : (
+                            <>
+                                <FileText className="text-accent-green mb-4" size={32} />
+                                <h3 className="text-xl font-semibold text-white mb-2">
+                                    Want AI to build your resume?
+                                </h3>
+                                <p className="text-gray-400 mb-4 max-w-md">
+                                    Let our AI create a professional resume in seconds based on your job title.
+                                </p>
+                                <Link
+                                    href="/onboarding"
+                                    className="px-6 py-2.5 bg-accent-green text-bg-primary rounded-lg font-medium hover:bg-accent-teal transition-colors flex items-center gap-2"
+                                >
+                                    Build with AI <ArrowRight size={18} />
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            <Footer />
+        </>
+    );
 }

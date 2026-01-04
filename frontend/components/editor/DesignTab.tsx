@@ -1,9 +1,82 @@
 'use client';
 
 import { useResumeStore, BackgroundType, BackgroundPattern } from '../../store/useResumeStore';
-import { templates, colorPresets, backgroundColors, gradientPresets, patterns, fontPresets, fontSizes, LayoutCategory } from '../../lib/themes';
+import { templates, colorPresets, backgroundColors, gradientPresets, patterns, fontPresets, fontSizes, LayoutCategory, LayoutConfig } from '../../lib/themes';
 import { Check, Palette, Layout, Image, Minus, Type } from 'lucide-react';
 import { useState } from 'react';
+
+// Mini template thumbnail component
+function TemplateThumbnail({ template, accentColor }: { template: LayoutConfig; accentColor: string }) {
+    const color = accentColor || '#1e3a8a';
+
+    // Render different layouts based on baseLayout
+    switch (template.baseLayout) {
+        case 'sidebar':
+            const isLeft = template.sidebarPos === 'left';
+            return (
+                <div className="w-full h-12 rounded border border-border-subtle overflow-hidden flex bg-white">
+                    {isLeft && <div className="w-1/3 h-full" style={{ backgroundColor: color }} />}
+                    <div className="flex-1 p-1 flex flex-col gap-0.5">
+                        <div className="w-3/4 h-1 bg-gray-300 rounded-sm" />
+                        <div className="w-1/2 h-0.5 bg-gray-200 rounded-sm" />
+                        <div className="flex-1" />
+                        <div className="w-full h-0.5 bg-gray-100 rounded-sm" />
+                        <div className="w-2/3 h-0.5 bg-gray-100 rounded-sm" />
+                    </div>
+                    {!isLeft && <div className="w-1/3 h-full" style={{ backgroundColor: color }} />}
+                </div>
+            );
+
+        case 'header':
+            return (
+                <div className="w-full h-12 rounded border border-border-subtle overflow-hidden flex flex-col bg-white">
+                    <div className="w-full h-4" style={{ backgroundColor: color }} />
+                    <div className="flex-1 p-1 flex flex-col gap-0.5">
+                        <div className="w-3/4 h-0.5 bg-gray-200 rounded-sm" />
+                        <div className="w-full h-0.5 bg-gray-100 rounded-sm" />
+                        <div className="w-2/3 h-0.5 bg-gray-100 rounded-sm" />
+                    </div>
+                </div>
+            );
+
+        case 'minimal':
+            return (
+                <div className="w-full h-12 rounded border border-border-subtle overflow-hidden flex flex-col p-1.5 bg-white">
+                    <div className="w-1/2 h-1.5 rounded-sm mb-1" style={{ backgroundColor: color }} />
+                    <div className="w-1/3 h-0.5 bg-gray-200 rounded-sm" />
+                    <div className="flex-1" />
+                    <div className="w-full h-0.5 bg-gray-100 rounded-sm" />
+                    <div className="w-3/4 h-0.5 bg-gray-100 rounded-sm mt-0.5" />
+                </div>
+            );
+
+        case 'creative':
+            return (
+                <div className="w-full h-12 rounded border border-border-subtle overflow-hidden flex bg-white">
+                    <div className="w-2/5 h-full flex flex-col justify-center items-center" style={{ backgroundColor: color }}>
+                        <div className="w-4 h-4 rounded-full bg-white/30" />
+                    </div>
+                    <div className="flex-1 p-1 flex flex-col gap-0.5 justify-center">
+                        <div className="w-3/4 h-1 bg-gray-300 rounded-sm" />
+                        <div className="w-1/2 h-0.5 bg-gray-200 rounded-sm" />
+                    </div>
+                </div>
+            );
+
+        case 'classic':
+        default:
+            return (
+                <div className="w-full h-12 rounded border border-border-subtle overflow-hidden flex flex-col p-1.5 bg-white">
+                    <div className="w-1/2 h-1.5 rounded-sm mb-0.5" style={{ backgroundColor: color }} />
+                    <div className="w-1/3 h-0.5 bg-gray-200 rounded-sm" />
+                    <div className="flex-1" />
+                    <div className="w-full h-0.5 bg-gray-100 rounded-sm" />
+                    <div className="w-2/3 h-0.5 bg-gray-100 rounded-sm mt-0.5" />
+                    <div className="w-3/4 h-0.5 bg-gray-100 rounded-sm mt-0.5" />
+                </div>
+            );
+    }
+}
 
 export default function DesignTab() {
     const { selectedTemplate, resumeData, setTemplate, setCustomThemeColor, updateBackground, updateFonts } = useResumeStore();
@@ -71,8 +144,12 @@ export default function DesignTab() {
                                 : 'bg-bg-card-light border-border-subtle hover:border-gray-500'
                                 }`}
                         >
+                            {/* Visual Thumbnail */}
+                            <div className="mb-2">
+                                <TemplateThumbnail template={template} accentColor={customThemeColor || '#1e3a8a'} />
+                            </div>
                             <span className="block font-medium text-white text-sm">{template.name}</span>
-                            <span className="block text-xs text-gray-400 mt-1">{template.description}</span>
+                            <span className="block text-xs text-gray-400 mt-1 line-clamp-1">{template.description}</span>
                             {selectedTemplate === template.id && (
                                 <div className="absolute top-2 right-2 bg-accent-green text-bg-primary rounded-full p-0.5">
                                     <Check size={12} />
