@@ -22,7 +22,7 @@ export {
     ClassicProfessional,
     EuropassClassic,
     SidebarModern,
-    HeaderBold,
+    HeaderBoldCreative,
     MinimalClean,
 } from './layouts';
 

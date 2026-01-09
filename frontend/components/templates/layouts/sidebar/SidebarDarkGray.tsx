@@ -5,23 +5,18 @@ import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '.
 import ProgressBar from '../../shared/ProgressBar';
 
 /**
- * Header Dark Template
- * Full-height Dark Sidebar layout.
- * Photo, Contact, Skills in dark sidebar. Name, Profile, Experience in white main content.
- *
+ * Sidebar Dark Gray Template
+ * Reference: sidebar-dark-gray.jpg
+ * 
  * Layout:
- * - Left Sidebar (~33%): Dark Slate 900 (#0f172a) background. White text.
- * - Main Content (~67%): White background. Dark text.
- * - Photo: Top of sidebar, circular.
- * - Name: Top of main content, Bold Uppercase.
- * - Accent: Gold/Yellow (#facc15) for highlights.
- *
- * Matches reference: frontend/Resume-template/organized/02-header/header-dark.jpg
- * (Note: The file name says "header-dark" but the spec describes a dark sidebar layout similar to the image analysis).
+ * - Sidebar: 33% width, Left. Dark Gray (#333333).
+ * - Main: 67% width. White (#FFFFFF).
+ * - Photo: Sidebar Top Center, 120px Circle, Border 4px White.
+ * - Margins: 0px (Full bleed sidebar).
  */
-export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, references, customThemeColor, fonts } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Montserrat'); // defaults to Montserrat/Inter
+export default function SidebarDarkGray({ data, theme, scale = 1 }: TemplateProps) {
+    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
@@ -29,14 +24,15 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
     const fs = getScaledFontSizes(sizeConfig, scale);
 
     // Colors
-    const sidebarBg = '#0f172a'; // Slate 900
-    const mainBg = '#ffffff';
-    const accentColor = customThemeColor || '#facc15'; // Yellow 400
-    const textLight = '#f8fafc'; // Slate 50
-    const textDark = '#334155'; // Slate 700
+    const sidebarBg = '#333333';
+    const mainBg = '#FFFFFF';
+    const sidebarText = '#FFFFFF';
+    const mainText = '#333333';
+    const accentColor = customThemeColor || '#10b981'; // Emerald 500
 
     // Dimensions
-    const photoSize = scale < 1 ? 80 : 140;
+    const photoSize = scale < 1 ? 80 : 120;
+    const sidebarWidth = '33%';
 
     return (
         <div
@@ -45,27 +41,27 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 fontFamily: bodyFont,
                 fontSize: sizeConfig.base,
                 backgroundColor: mainBg,
-                color: textDark,
+                color: mainText,
                 display: 'flex',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
             }}
         >
-            {/* Left Sidebar - Dark */}
+            {/* Sidebar - Dark Gray */}
             <aside
                 style={{
-                    width: '33%',
+                    width: sidebarWidth,
                     backgroundColor: sidebarBg,
-                    color: textLight,
-                    padding: scale < 1 ? '24px 16px' : '48px 32px',
+                    color: sidebarText,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    padding: scale < 1 ? '24px 16px' : '48px 32px',
                     flexShrink: 0,
-                    minHeight: '100%'
+                    minHeight: '100%',
                 }}
             >
                 {/* Photo */}
-                <div style={{ marginBottom: scale < 1 ? 32 : 50 }}>
+                <div style={{ marginBottom: scale < 1 ? 24 : 40 }}>
                     {personalInfo.profileImage ? (
                         <img
                             src={personalInfo.profileImage}
@@ -75,7 +71,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                 height: photoSize,
                                 borderRadius: '50%',
                                 objectFit: 'cover',
-                                border: `4px solid ${accentColor}`,
+                                border: `4px solid #FFFFFF`,
                             }}
                         />
                     ) : (
@@ -84,13 +80,13 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                 width: photoSize,
                                 height: photoSize,
                                 borderRadius: '50%',
-                                backgroundColor: '#1e293b',
-                                border: `4px solid ${accentColor}`,
+                                backgroundColor: '#4b5563',
+                                border: `4px solid #FFFFFF`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 fontSize: fs.name,
-                                color: textLight,
+                                color: '#FFFFFF',
                             }}
                         >
                             {personalInfo.fullName?.charAt(0) || '?'}
@@ -98,7 +94,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     )}
                 </div>
 
-                {/* Contact Info (Dark Sidebar) */}
+                {/* Contact Info */}
                 <div style={{ width: '100%', marginBottom: 40 }}>
                     <SidebarSectionHeader title="Contact" color={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -109,7 +105,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     </div>
                 </div>
 
-                {/* Skills (Dark Sidebar) */}
+                {/* Skills */}
                 {skills.length > 0 && (
                     <div style={{ width: '100%', marginBottom: 40 }}>
                         <SidebarSectionHeader title="Skills" color={accentColor} fs={fs} headingFont={headingFont} />
@@ -120,7 +116,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                     <ProgressBar
                                         value={skill.level * 20}
                                         color={accentColor}
-                                        trackColor="#334155"
+                                        trackColor="#4b5563"
                                         height={6}
                                         scale={1}
                                     />
@@ -130,23 +126,23 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     </div>
                 )}
 
-                {/* Languages (Dark Sidebar) */}
+                {/* Languages */}
                 {languages && languages.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: 40 }}>
+                    <div style={{ width: '100%' }}>
                         <SidebarSectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                             {languages.map((lang) => (
-                                <li key={lang.id} style={{ marginBottom: 6, fontSize: fs.body }}>
-                                    {lang.name}
-                                </li>
+                                <div key={lang.id} style={{ fontSize: fs.body }}>
+                                    {lang.name} - <span style={{ opacity: 0.8 }}>{lang.proficiency}</span>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     </div>
                 )}
 
             </aside>
 
-            {/* Main Content - White */}
+            {/* Main Content */}
             <main
                 style={{
                     flex: 1,
@@ -155,18 +151,17 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     flexDirection: 'column',
                 }}
             >
-                {/* Name Header */}
+                {/* Header Info */}
                 <div style={{ marginBottom: scale < 1 ? 32 : 50 }}>
                     <h1
                         style={{
                             fontFamily: headingFont,
-                            fontSize: fs.name,
-                            fontWeight: 800, // Bold
-                            color: '#0f172a',
+                            fontSize: fs.name, // 28px spec
+                            fontWeight: 700,
+                            color: mainText,
                             textTransform: 'uppercase',
-                            letterSpacing: '0.1em',
                             margin: 0,
-                            lineHeight: 1
+                            marginBottom: 8
                         }}
                     >
                         {personalInfo.fullName || 'Your Name'}
@@ -174,10 +169,9 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     <p
                         style={{
                             fontSize: fs.jobTitle,
-                            color: '#64748b',
+                            color: '#666666',
                             textTransform: 'uppercase',
-                            fontWeight: 600,
-                            marginTop: 10,
+                            fontWeight: 500,
                             letterSpacing: '0.05em'
                         }}
                     >
@@ -187,9 +181,9 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Profile */}
                 {personalInfo.summary && (
-                    <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Profile" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
-                        <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#334155' }}>
+                    <section className="mb-8 resume-section" data-paginate>
+                        <MainSectionHeader title="Profile" color={mainText} fs={fs} headingFont={headingFont} />
+                        <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#4b5563' }}>
                             {personalInfo.summary}
                         </p>
                     </section>
@@ -197,22 +191,22 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Experience */}
                 {experience.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Experience" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
-                        <div className="space-y-8">
+                    <section className="mb-8 resume-section" data-paginate>
+                        <MainSectionHeader title="Experience" color={mainText} fs={fs} headingFont={headingFont} />
+                        <div className="space-y-6">
                             {experience.map((exp) => (
                                 <div key={exp.id}>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2, alignItems: 'baseline' }}>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, textTransform: 'uppercase', color: '#0f172a' }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
                                             {exp.title}
                                         </h4>
                                     </div>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: fs.small, color: '#64748b', fontWeight: 600 }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: fs.small, color: '#666', fontWeight: 500 }}>
                                         <span>{exp.company}, {exp.city}</span>
                                         <span>{exp.startDate} – {exp.current ? 'Present' : exp.endDate}</span>
                                     </div>
 
-                                    <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>
+                                    <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563' }}>
                                         {exp.description}
                                     </p>
                                 </div>
@@ -223,35 +217,20 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Education */}
                 {education.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Education" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
-                        <div className="space-y-6">
+                    <section className="mb-8 resume-section" data-paginate>
+                        <MainSectionHeader title="Education" color={mainText} fs={fs} headingFont={headingFont} />
+                        <div className="space-y-4">
                             {education.map((edu) => (
                                 <div key={edu.id}>
-                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
                                         {edu.degree}
                                     </h4>
-                                    <p style={{ fontSize: fs.body, color: '#475569', fontWeight: 500 }}>
+                                    <p style={{ fontSize: fs.body, color: '#444', fontWeight: 500 }}>
                                         {edu.school}, {edu.city}
                                     </p>
-                                    <p style={{ fontSize: fs.small, color: '#64748b' }}>
+                                    <p style={{ fontSize: fs.small, color: '#666' }}>
                                         {edu.startDate} – {edu.endDate || 'Present'}
                                     </p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                )}
-
-                {/* References */}
-                {references && references.length > 0 && (
-                    <section className="resume-section" data-paginate>
-                        <SectionHeaderMain title="References" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                            {references.map((ref) => (
-                                <div key={ref.id}>
-                                    <div style={{ fontWeight: 700, fontSize: fs.body, color: '#0f172a' }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.small, color: '#64748b' }}>{ref.title}, {ref.company}</div>
                                 </div>
                             ))}
                         </div>
@@ -269,14 +248,13 @@ function SidebarSectionHeader({ title, color, fs, headingFont }: { title: string
         <h3
             style={{
                 fontFamily: headingFont,
-                fontSize: fs.sectionHeading,
+                fontSize: fs.sidebarHeading, // 14px spec
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#FFFFFF',
                 textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                marginBottom: 20,
-                paddingBottom: 8,
-                borderBottom: `2px solid ${color}`
+                marginBottom: 16,
+                paddingBottom: 4,
+                borderBottom: '1px solid #555555'
             }}
         >
             {title}
@@ -284,23 +262,20 @@ function SidebarSectionHeader({ title, color, fs, headingFont }: { title: string
     );
 }
 
-function SectionHeaderMain({ title, color, accent, fs, headingFont }: { title: string, color: string, accent: string, fs: ScaledFontSizes, headingFont: string }) {
+function MainSectionHeader({ title, color, fs, headingFont }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string }) {
     return (
         <h3
             style={{
                 fontFamily: headingFont,
-                fontSize: fs.sectionHeading,
-                fontWeight: 800,
+                fontSize: fs.sectionHeading, // 14px spec
+                fontWeight: 700,
                 color: color,
                 textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-                marginBottom: 24,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16
+                marginBottom: 20,
+                paddingBottom: 4,
+                borderBottom: '2px solid #EEEEEE'
             }}
         >
-            <span style={{ width: 40, height: 4, backgroundColor: accent }}></span>
             {title}
         </h3>
     );
@@ -309,17 +284,17 @@ function SectionHeaderMain({ title, color, accent, fs, headingFont }: { title: s
 function ContactItem({ icon, text }: { icon: string, text: string }) {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ filter: 'grayscale(1)', fontSize: '1.2em' }}>{icon}</span>
+            <span style={{ fontSize: '1.2em' }}>{icon}</span>
             <span style={{ wordBreak: 'break-all', opacity: 0.9 }}>{text}</span>
         </div>
     );
 }
 
-// Template metadata
-export const headerDarkMeta: TemplateMeta = {
-    id: 'header-dark',
-    name: 'Dark Sidebar',
-    category: 'header',
-    thumbnail: '/templates/header-dark.png',
-    description: 'Modern slate dark sidebar with gold accents',
+// Meta
+export const sidebarDarkGrayMeta: TemplateMeta = {
+    id: 'sidebar-dark-gray',
+    name: 'Dark Gray Sidebar',
+    category: 'sidebar',
+    thumbnail: '/templates/sidebar-dark-gray.jpg',
+    description: 'Professional dark gray sidebar with emerald accents',
 };

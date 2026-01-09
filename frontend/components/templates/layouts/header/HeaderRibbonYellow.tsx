@@ -159,14 +159,8 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                         marginTop: scale < 1 ? 8 : 16,
                     }}
                 >
-                    {personalInfo.dateOfBirth && (
-                        <span>{personalInfo.dateOfBirth}</span>
-                    )}
                     {personalInfo.phone && (
-                        <>
-                            <span>|</span>
-                            <span>{personalInfo.phone}</span>
-                        </>
+                        <span>{personalInfo.phone}</span>
                     )}
                     {personalInfo.email && (
                         <>

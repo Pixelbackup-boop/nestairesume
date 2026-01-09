@@ -8,8 +8,8 @@ export interface PostFrontmatter {
   author: string;
   category: string;
   tags: string[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   featured?: boolean;
 }
 

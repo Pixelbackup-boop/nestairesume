@@ -1,0 +1,164 @@
+'use client';
+
+import { TemplateProps, TemplateMeta } from '../../shared/types';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+
+/**
+ * Minimal Labels Tan Template
+ * Reference: minimal-labels-tan.webp
+ * 
+ * Layout:
+ * - Two Column Layout (Left: Labels/Dates, Right: Content).
+ * - Background: Light Tan/Off-white (#fefce8 or #fffbeb).
+ * - Style: Very simple, similar to ClassicLabelsLeft but warmer minimal feel.
+ */
+export default function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
+    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const headingFont = getFontFamily(fonts?.heading || 'Lato');
+    const bodyFont = getFontFamily(fonts?.body || 'Lato');
+    const sizeConfig = fontSizes[fonts?.size || 'medium'];
+
+    // Get scaled font sizes
+    const fs = getScaledFontSizes(sizeConfig, scale);
+
+    // Colors
+    const mainBg = '#fdfbf7'; // Warm white/ivory
+    const mainText = '#44403c'; // Stone 700
+    const labelText = '#a8a29e'; // Stone 400
+
+    return (
+        <div
+            className="w-full h-full"
+            style={{
+                fontFamily: bodyFont,
+                fontSize: sizeConfig.base,
+                backgroundColor: mainBg,
+                color: mainText,
+                padding: scale < 1 ? '32px' : '64px',
+                boxSizing: 'border-box',
+                display: 'flex',
+                flexDirection: 'column',
+            }}
+        >
+            {/* Header */}
+            <header style={{ marginLeft: '30%', marginBottom: scale < 1 ? 40 : 64 }}>
+                <h1
+                    style={{
+                        fontFamily: headingFont,
+                        fontSize: fs.name,
+                        fontWeight: 400,
+                        color: '#000',
+                        textTransform: 'lowercase', // Stylish minimal lowercase? Or Keep Standard. Let's do standard minimal.
+                        margin: 0,
+                        marginBottom: 4,
+                    }}
+                >
+                    {personalInfo.fullName}
+                </h1>
+                <p
+                    style={{
+                        fontSize: fs.jobTitle,
+                        color: labelText,
+                        fontWeight: 400,
+                        textTransform: 'lowercase',
+                        marginBottom: 16
+                    }}
+                >
+                    {personalInfo.jobTitle}
+                </p>
+
+                {/* Contact */}
+                <div style={{
+                    fontSize: fs.small,
+                    display: 'flex',
+                    gap: '16px',
+                    color: labelText,
+                    flexWrap: 'wrap'
+                }}>
+                    {personalInfo.email && <span>{personalInfo.email}</span>}
+                    {personalInfo.phone && <span>{personalInfo.phone}</span>}
+                    {personalInfo.location && <span>{personalInfo.location}</span>}
+                </div>
+            </header>
+
+            {/* Sections Wrapper */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: scale < 1 ? 32 : 48 }}>
+
+                {/* Profile */}
+                {personalInfo.summary && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Profile</h3>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                            <p style={{ margin: 0, lineHeight: 1.6, fontSize: fs.body }}>{personalInfo.summary}</p>
+                        </div>
+                    </div>
+                )}
+
+                {/* Experience */}
+                {experience.length > 0 && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Experience</h3>
+                        </div>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24 }}>
+                            {experience.map((exp) => (
+                                <div key={exp.id}>
+                                    <h4 style={{ fontWeight: 600, fontSize: fs.entryTitle, color: '#000', margin: 0 }}>{exp.title}</h4>
+                                    <div style={{ fontSize: fs.body, color: labelText, marginBottom: 8 }}>
+                                        {exp.company}, {exp.startDate}–{exp.current ? 'Present' : exp.endDate}
+                                    </div>
+                                    <p style={{ margin: 0, lineHeight: 1.6, fontSize: fs.body }}>{exp.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Education */}
+                {education.length > 0 && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Education</h3>
+                        </div>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                            {education.map((edu) => (
+                                <div key={edu.id}>
+                                    <h4 style={{ fontWeight: 600, fontSize: fs.entryTitle, color: '#000', margin: 0 }}>{edu.degree}</h4>
+                                    <div style={{ fontSize: fs.body, color: labelText }}>
+                                        {edu.school} | {edu.startDate}–{edu.endDate || 'Present'}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Skills */}
+                {skills.length > 0 && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Skills</h3>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                            <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
+                                {skills.map(skill => skill.name).join('  /  ')}
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+            </div>
+        </div>
+    );
+}
+
+// Meta
+export const minimalLabelsTanMeta: TemplateMeta = {
+    id: 'minimal-labels-tan',
+    name: 'Minimal Labels Tan',
+    category: 'minimal',
+    thumbnail: '/templates/minimal-labels-tan.webp',
+    description: 'Warm, understated layout with left-aligned labels',
+};

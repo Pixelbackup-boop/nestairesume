@@ -6,32 +6,34 @@ import ProgressBar from '../../shared/ProgressBar';
 
 /**
  * Header Icon Sections Template
- * Photo on left with name/summary on right. Labels-left layout with orange icon circles.
- * Skills and Languages displayed as 3-column progress bars.
+ * Stacked sections where each section is enclosed in a box with a black border.
+ * Distinctive Cyan background and Orange accents.
  *
  * Layout:
- * - Header: Photo left, Name + Summary right
- * - Body: Labels-left sections (Personal info, Work Experience, Education, Skills, Strengths, Awards)
- * - Skills/Languages: 3-column progress bars
- * - Strengths: Hashtag-style tags
+ * - Page Background: Cyan 50 (#ecfeff)
+ * - Header: Photo Left, Name Right
+ * - Body: Single Column, Stacked Boxes
+ * - Stylus: Black borders around everything.
  *
- * Matches reference: frontend/Resume-template/unique-layouts/27-icon-section-headers.webp
+ * Matches reference: frontend/Resume-template/unique-layouts/27-icon-section-headers.webp 
+ * (Note: Reference name implies icons, but description highlights the Boxes & Cyan)
  */
 export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, strengths, awards, customThemeColor, fonts } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Inter');
+    const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // Get scaled font sizes that respect user's size preference + scale
+    // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
 
-    // Single color preset - use customThemeColor or default orange
-    const accentColor = customThemeColor || '#ea580c';
+    // Colors
+    const orangeAccent = customThemeColor || '#ea580c'; // Orange 600
+    const pageBg = '#ecfeff'; // Cyan 50
+    const borderColor = '#000000';
 
-    // Calculate responsive sizes
-    const photoSize = scale < 1 ? 60 : 120;
-    const labelWidth = scale < 1 ? 80 : 140;
+    // Dimensions
+    const photoSize = scale < 1 ? 80 : 140;
 
     return (
         <div
@@ -39,45 +41,59 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
             style={{
                 fontFamily: bodyFont,
                 fontSize: sizeConfig.base,
-                backgroundColor: '#ffffff',
+                backgroundColor: pageBg,
+                color: '#000000',
+                padding: scale < 1 ? '16px' : '32px',
             }}
         >
-            {/* Header Area - Photo Left, Name/Summary Right */}
+            {/* Header Box */}
             <header
-                className="resume-section"
-                data-paginate
                 style={{
                     display: 'flex',
-                    gap: scale < 1 ? 12 : 24,
-                    padding: scale < 1 ? 16 : 32,
-                    alignItems: 'flex-start',
+                    alignItems: 'center',
+                    gap: scale < 1 ? 16 : 32,
+                    border: `1px solid ${borderColor}`,
+                    backgroundColor: '#ffffff',
+                    padding: scale < 1 ? '16px' : '32px',
+                    marginBottom: scale < 1 ? 16 : 32,
+                    boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.1)', // Subtle shadow
                 }}
             >
                 {/* Photo */}
-                <div>
+                <div style={{ flexShrink: 0 }}>
                     {personalInfo.profileImage ? (
-                        <img
-                            src={personalInfo.profileImage}
-                            alt={personalInfo.fullName}
-                            style={{
-                                width: photoSize,
-                                height: photoSize,
-                                objectFit: 'cover',
-                                borderRadius: scale < 1 ? 4 : 8,
-                            }}
-                        />
+                        <div style={{
+                            width: photoSize,
+                            height: photoSize,
+                            borderRadius: '50%',
+                            border: `2px solid ${orangeAccent}`,
+                            padding: 4,
+                            overflow: 'hidden'
+                        }}>
+                            <img
+                                src={personalInfo.profileImage}
+                                alt={personalInfo.fullName}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    borderRadius: '50%',
+                                }}
+                            />
+                        </div>
                     ) : (
                         <div
                             style={{
                                 width: photoSize,
                                 height: photoSize,
-                                backgroundColor: '#e5e7eb',
-                                borderRadius: scale < 1 ? 4 : 8,
+                                borderRadius: '50%',
+                                border: `2px solid ${orangeAccent}`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 fontSize: fs.name,
-                                color: '#9ca3af',
+                                color: orangeAccent,
+                                backgroundColor: '#fff7ed',
                             }}
                         >
                             {personalInfo.fullName?.charAt(0) || '?'}
@@ -85,363 +101,211 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                     )}
                 </div>
 
-                {/* Name and Summary */}
+                {/* Name & Contact */}
                 <div style={{ flex: 1 }}>
                     <h1
                         style={{
                             fontFamily: headingFont,
                             fontSize: fs.name,
                             fontWeight: 700,
-                            color: '#1f2937',
-                            marginBottom: scale < 1 ? 8 : 16,
+                            color: '#000000',
+                            marginBottom: 8,
+                            lineHeight: 1.1,
                         }}
                     >
                         {personalInfo.fullName || 'Your Name'}
                     </h1>
-                    {personalInfo.summary && (
-                        <p style={{ color: '#4b5563', lineHeight: 1.6, fontSize: fs.body }}>
-                            {personalInfo.summary}
-                        </p>
-                    )}
+                    <p
+                        style={{
+                            fontSize: fs.jobTitle,
+                            color: orangeAccent,
+                            fontWeight: 600,
+                            textTransform: 'uppercase',
+                            marginBottom: 12,
+                            letterSpacing: '0.05em'
+                        }}
+                    >
+                        {personalInfo.jobTitle || 'Job Title'}
+                    </p>
+
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px', fontSize: fs.small, color: '#4b5563' }}>
+                        {personalInfo.email && <span>✉️ {personalInfo.email}</span>}
+                        {personalInfo.phone && <span>📱 {personalInfo.phone}</span>}
+                        {personalInfo.location && <span>📍 {personalInfo.location}</span>}
+                    </div>
                 </div>
             </header>
 
-            {/* Main Content - Labels Left Layout */}
-            <div style={{ padding: scale < 1 ? '0 16px 16px' : '0 32px 32px' }}>
-                {/* Personal Info Section */}
-                <Section
-                    label="Personal info"
-                    icon="👤"
-                    accentColor={accentColor}
-                    fs={fs}
-                    headingFont={headingFont}
-                    labelWidth={labelWidth}
-                    scale={scale}
-                >
-                    <div style={{ fontSize: fs.body, color: '#374151' }}>
-                        <span><strong>Address:</strong> {personalInfo.location || 'Your Location'}</span>
-                        {personalInfo.phone && (
-                            <span style={{ marginLeft: scale < 1 ? 8 : 16 }}>
-                                <span style={{ color: accentColor, marginRight: 4 }}>●</span>
-                                <strong>Phone number:</strong> {personalInfo.phone}
-                            </span>
-                        )}
-                        {personalInfo.email && (
-                            <div style={{ marginTop: scale < 1 ? 2 : 4 }}>
-                                <strong>Email address:</strong> {personalInfo.email}
+            {/* Profile Section */}
+            {personalInfo.summary && (
+                <BoxSection borderColor={borderColor} title="Profile" icon="👤" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                    <p style={{ lineHeight: 1.6 }}>{personalInfo.summary}</p>
+                </BoxSection>
+            )}
+
+            {/* Experience Section */}
+            {experience.length > 0 && (
+                <BoxSection borderColor={borderColor} title="Experience" icon="💼" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                    <div className="space-y-6">
+                        {experience.map((exp) => (
+                            <div key={exp.id}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{exp.title}</h4>
+                                    <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
+                                        {exp.startDate} – {exp.current ? 'Present' : exp.endDate}
+                                    </span>
+                                </div>
+                                <p style={{ fontSize: fs.body, fontStyle: 'italic', marginBottom: 6, color: '#525252' }}>
+                                    {exp.company}, {exp.city}
+                                </p>
+                                <p style={{ fontSize: fs.body, lineHeight: 1.5 }}>
+                                    {exp.description}
+                                </p>
                             </div>
-                        )}
+                        ))}
                     </div>
-                </Section>
+                </BoxSection>
+            )}
 
-                {/* Work Experience */}
-                {experience.length > 0 && (
-                    <Section
-                        label="Work experience"
-                        icon="💼"
-                        accentColor={accentColor}
-                        fs={fs}
-                        headingFont={headingFont}
-                        labelWidth={labelWidth}
-                        scale={scale}
-                    >
-                        <div className="space-y-4">
-                            {experience.map((exp) => (
-                                <div key={exp.id} className="resume-entry" data-paginate>
-                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
-                                        {exp.title}
-                                    </h4>
-                                    <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600, marginBottom: '2px' }}>
-                                        {exp.company}
-                                    </p>
-                                    <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '4px' }}>
-                                        • {exp.startDate} – {exp.current ? 'present' : exp.endDate}
-                                        {exp.city && ` • ${exp.city.toUpperCase()}`}
-                                    </p>
-                                    {exp.description && (
-                                        <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
-                                            {exp.description.split('\n').filter(Boolean).map((line, idx) => (
-                                                <li key={idx} style={{ fontSize: fs.small, color: '#4b5563', marginBottom: '2px', lineHeight: 1.5 }}>
-                                                    {line.replace(/^[-•]\s*/, '')}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
+            {/* Education Section */}
+            {education.length > 0 && (
+                <BoxSection borderColor={borderColor} title="Education" icon="🎓" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                    <div className="space-y-5">
+                        {education.map((edu) => (
+                            <div key={edu.id}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{edu.degree}</h4>
+                                    <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
+                                        {edu.startDate} – {edu.endDate || 'Present'}
+                                    </span>
                                 </div>
-                            ))}
-                        </div>
-                    </Section>
-                )}
+                                <p style={{ fontSize: fs.body, fontStyle: 'italic', color: '#525252' }}>
+                                    {edu.school}, {edu.city}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </BoxSection>
+            )}
 
-                {/* Education */}
-                {education.length > 0 && (
-                    <Section
-                        label="Education"
-                        icon="🎓"
-                        accentColor={accentColor}
-                        fs={fs}
-                        headingFont={headingFont}
-                        labelWidth={labelWidth}
-                        scale={scale}
-                    >
-                        <div className="space-y-3">
-                            {education.map((edu) => (
-                                <div key={edu.id} className="resume-entry" data-paginate>
-                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
-                                        {edu.degree}
-                                    </h4>
-                                    <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600, marginBottom: '2px' }}>
-                                        {edu.school}
-                                    </p>
-                                    <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '2px' }}>
-                                        • {edu.startDate} – {edu.current ? 'present' : edu.endDate}
-                                        {edu.city && ` • ${edu.city.toUpperCase()}`}
-                                    </p>
-                                    {edu.description && (
-                                        <p style={{ fontSize: fs.small, color: '#4b5563' }}>
-                                            {edu.description}
-                                        </p>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </Section>
-                )}
-
-                {/* Skills - 3 Column Progress Bars */}
+            <div style={{ display: 'flex', gap: scale < 1 ? 16 : 32 }}>
+                {/* Skills Section */}
                 {skills.length > 0 && (
-                    <Section
-                        label="Skills"
-                        icon="⚙️"
-                        accentColor={accentColor}
-                        fs={fs}
-                        headingFont={headingFont}
-                        labelWidth={labelWidth}
-                        scale={scale}
-                    >
-                        <div>
-                            <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: scale < 1 ? 4 : 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                – SOFTWARE
-                            </p>
-                            <div
-                                style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: scale < 1 ? '6px 12px' : '10px 24px',
-                                }}
-                            >
+                    <div style={{ flex: 1 }}>
+                        <BoxSection borderColor={borderColor} title="Skills" icon="⚙️" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                            <div className="space-y-3">
                                 {skills.map((skill) => (
-                                    <div key={skill.id}>
-                                        <div style={{ fontSize: fs.small, color: '#374151', marginBottom: '2px' }}>
-                                            {skill.name}
-                                        </div>
-                                        <ProgressBar
-                                            value={skill.level * 20}
-                                            color={accentColor}
-                                            height={scale < 1 ? 4 : 6}
-                                            scale={1}
-                                        />
-                                    </div>
+                                    <ProgressBar
+                                        key={skill.id}
+                                        label={skill.name}
+                                        value={skill.level ? skill.level * 20 : 80}
+                                        color={orangeAccent}
+                                        height={scale < 1 ? 6 : 8}
+                                        scale={1}
+                                    />
                                 ))}
                             </div>
-                        </div>
+                        </BoxSection>
+                    </div>
+                )}
 
-                        {/* Languages as separate sub-section */}
-                        {languages && languages.length > 0 && (
-                            <div style={{ marginTop: scale < 1 ? 10 : 20 }}>
-                                <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: scale < 1 ? 4 : 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                    – LANGUAGES
-                                </p>
-                                <div
-                                    style={{
-                                        display: 'grid',
-                                        gridTemplateColumns: 'repeat(3, 1fr)',
-                                        gap: scale < 1 ? '6px 12px' : '10px 24px',
-                                    }}
-                                >
-                                    {languages.map((lang) => (
-                                        <div key={lang.id}>
-                                            <div style={{ fontSize: fs.small, color: '#374151', marginBottom: '2px' }}>
-                                                {lang.name}
-                                            </div>
-                                            <ProgressBar
-                                                value={getProficiencyLevel(lang.proficiency)}
-                                                color={accentColor}
-                                                height={scale < 1 ? 4 : 6}
-                                                scale={1}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+                {/* Awards/Strengths Section */}
+                {(strengths && strengths.length > 0) && (
+                    <div style={{ flex: 1 }}>
+                        <BoxSection borderColor={borderColor} title="Strengths" icon="⭐" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                {strengths.map((str) => (
+                                    <span key={str.id} style={{
+                                        backgroundColor: '#fff7ed', // Light orange bg
+                                        color: orangeAccent,
+                                        border: `1px solid ${orangeAccent}`,
+                                        padding: '4px 12px',
+                                        borderRadius: 4,
+                                        fontSize: fs.small,
+                                        fontWeight: 600
+                                    }}>
+                                        {str.name}
+                                    </span>
+                                ))}
                             </div>
-                        )}
-                    </Section>
-                )}
-
-                {/* Strengths - Hashtag Style */}
-                {strengths && strengths.length > 0 && (
-                    <Section
-                        label="Strengths"
-                        icon="⭐"
-                        accentColor={accentColor}
-                        fs={fs}
-                        headingFont={headingFont}
-                        labelWidth={labelWidth}
-                        scale={scale}
-                    >
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: scale < 1 ? '8px' : '16px',
-                            }}
-                        >
-                            {strengths.map((strength) => (
-                                <span
-                                    key={strength.id}
-                                    style={{
-                                        fontSize: fs.body,
-                                        color: '#374151',
-                                    }}
-                                >
-                                    # {strength.name}
-                                </span>
-                            ))}
-                        </div>
-                    </Section>
-                )}
-
-                {/* Awards */}
-                {awards && awards.length > 0 && (
-                    <Section
-                        label="Awards"
-                        icon="🏆"
-                        accentColor={accentColor}
-                        fs={fs}
-                        headingFont={headingFont}
-                        labelWidth={labelWidth}
-                        scale={scale}
-                    >
-                        <div className="space-y-3">
-                            {awards.map((award) => (
-                                <div key={award.id} className="resume-entry" data-paginate>
-                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
-                                        {award.title}
-                                    </h4>
-                                    <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600, marginBottom: '2px' }}>
-                                        {award.issuer}
-                                    </p>
-                                    <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '2px' }}>
-                                        {award.date}
-                                    </p>
-                                    {award.description && (
-                                        <p style={{ fontSize: fs.small, color: '#4b5563' }}>
-                                            {award.description}
-                                        </p>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </Section>
+                        </BoxSection>
+                    </div>
                 )}
             </div>
+
         </div>
     );
 }
 
-// Section Component with Icon Label on Left
-interface SectionProps {
-    label: string;
+// Reusable Boxed Section
+interface BoxSectionProps {
+    borderColor: string;
+    title: string;
     icon: string;
-    accentColor: string;
+    accent: string;
     fs: ScaledFontSizes;
     headingFont: string;
-    labelWidth: number;
     scale: number;
     children: React.ReactNode;
 }
 
-function Section({ label, icon, accentColor, fs, headingFont, labelWidth, scale, children }: SectionProps) {
-    const basePx = parseInt(fs.body);
-    const isSmall = basePx < 10;
-    const iconSize = isSmall ? 16 : 24;
-
+function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, children }: BoxSectionProps) {
     return (
-        <div
+        <section
             className="resume-section"
             data-paginate
             style={{
-                display: 'flex',
-                gap: scale < 1 ? 8 : 16,
-                borderTop: '1px solid #e5e7eb',
-                paddingTop: scale < 1 ? 10 : 20,
-                paddingBottom: scale < 1 ? 10 : 20,
+                border: `1px solid ${borderColor}`,
+                backgroundColor: '#ffffff',
+                padding: scale < 1 ? '16px' : '32px',
+                marginBottom: scale < 1 ? 16 : 32,
+                position: 'relative',
+                boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.1)',
             }}
         >
-            {/* Label Column */}
-            <div
-                style={{
-                    width: labelWidth,
-                    flexShrink: 0,
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                marginBottom: scale < 1 ? 16 : 24,
+                borderBottom: `2px solid ${accent}`,
+                paddingBottom: 8
+            }}>
+                <span style={{
+                    backgroundColor: accent,
+                    color: 'white',
+                    width: scale < 1 ? 24 : 32,
+                    height: scale < 1 ? 24 : 32,
+                    borderRadius: '50%',
                     display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: isSmall ? 4 : 8,
-                }}
-            >
-                <span
-                    style={{
-                        backgroundColor: accentColor,
-                        color: '#ffffff',
-                        width: iconSize,
-                        height: iconSize,
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: isSmall ? '8px' : '12px',
-                        flexShrink: 0,
-                    }}
-                >
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: scale < 1 ? 12 : 16
+                }}>
                     {icon}
                 </span>
-                <span
-                    style={{
-                        fontFamily: headingFont,
-                        fontSize: fs.sectionHeading,
-                        fontWeight: 600,
-                        color: accentColor,
-                    }}
-                >
-                    {label}
-                </span>
+                <h3 style={{
+                    fontFamily: headingFont,
+                    fontSize: fs.sectionHeading,
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    color: '#1f2937'
+                }}>
+                    {title}
+                </h3>
             </div>
-
-            {/* Content Column */}
-            <div style={{ flex: 1 }}>
+            <div style={{ fontSize: fs.body }}>
                 {children}
             </div>
-        </div>
+        </section>
     );
 }
 
-// Convert proficiency string to percentage
-function getProficiencyLevel(proficiency: string): number {
-    const levels: Record<string, number> = {
-        'native': 100,
-        'fluent': 95,
-        'advanced': 85,
-        'intermediate': 70,
-        'basic': 50,
-        'beginner': 30,
-    };
-    return levels[proficiency.toLowerCase()] || 70;
-}
-
-// Template metadata for registry
+// Template metadata
 export const headerIconSectionsMeta: TemplateMeta = {
     id: 'header-icon-sections',
-    name: 'Icon Sections',
+    name: 'Boxed Sections',
     category: 'header',
     thumbnail: '/templates/header-icon-sections.png',
-    description: 'Professional template with icon section headers and 3-column skills',
+    description: 'Distinctive layout with boxed sections and cyan background',
 };

@@ -7,7 +7,7 @@ import { TemplateRegistryEntry, TemplateProps } from '../shared/types';
 import ClassicProfessional, { classicProfessionalMeta } from './classic/ClassicProfessional';
 import EuropassClassic, { europassClassicMeta } from './classic/EuropassClassic';
 import SidebarModern, { sidebarModernMeta } from './sidebar/SidebarModern';
-import HeaderBold, { headerBoldMeta } from './header/HeaderBold';
+import HeaderBoldCreative, { headerBoldCreativeMeta } from './header/HeaderBoldCreative';
 import HeaderDark, { headerDarkMeta } from './header/HeaderDark';
 import HeaderDiagonalYellow, { headerDiagonalYellowMeta } from './header/HeaderDiagonalYellow';
 import HeaderDarkBox, { headerDarkBoxMeta } from './header/HeaderDarkBox';
@@ -25,7 +25,7 @@ import MinimalClean, { minimalCleanMeta } from './minimal/MinimalClean';
 export { default as ClassicProfessional } from './classic/ClassicProfessional';
 export { default as EuropassClassic } from './classic/EuropassClassic';
 export { default as SidebarModern } from './sidebar/SidebarModern';
-export { default as HeaderBold } from './header/HeaderBold';
+export { default as HeaderBoldCreative } from './header/HeaderBoldCreative';
 export { default as HeaderDark } from './header/HeaderDark';
 export { default as HeaderDiagonalYellow } from './header/HeaderDiagonalYellow';
 export { default as HeaderDarkBox } from './header/HeaderDarkBox';
@@ -47,7 +47,7 @@ export const templateRegistry: TemplateRegistryEntry[] = [
     { ...classicProfessionalMeta, component: ClassicProfessional },
     { ...europassClassicMeta, component: EuropassClassic },
     { ...sidebarModernMeta, component: SidebarModern },
-    { ...headerBoldMeta, component: HeaderBold },
+    { ...headerBoldCreativeMeta, component: HeaderBoldCreative },
     { ...headerDarkMeta, component: HeaderDark },
     { ...headerDiagonalYellowMeta, component: HeaderDiagonalYellow },
     { ...headerDarkBoxMeta, component: HeaderDarkBox },
@@ -98,7 +98,7 @@ export const layoutToTemplateId: Record<string, string> = {
     'classic': 'classic-professional',
     'europass': 'europass-classic',
     'sidebar': 'sidebar-modern',
-    'header': 'header-bold',
+    'header': 'header-bold-creative',
     'minimal': 'minimal-clean',
 };
 

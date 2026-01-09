@@ -10,27 +10,30 @@ import ProgressBar from '../../shared/ProgressBar';
  * Single-color schema - accent color applies to header and decorations.
  *
  * Layout:
- * - Diagonal header (yellow) with name LEFT, photo CENTER-RIGHT, contact TOP-RIGHT
- * - Two-column body: Left (Objective, Experience), Right (Education, Skills, Languages)
- * - Yellow accent bar on right edge
+ * - Header: Dark background (#18181b) with Yellow Diagonal shape on right.
+ * - Photo: Center-right, overlapping header.
+ * - Body: Two-column 55/45 split.
+ * - Footer: Yellow Diagonal shape on bottom-left.
  *
  * Matches reference: frontend/Resume-template/unique-layouts/06-diagonal-header.webp
  */
 export default function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Inter');
+    const headingFont = getFontFamily(fonts?.heading || 'Titan One');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // Get scaled font sizes that respect user's size preference + scale
+    // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
 
-    // Single color preset - use customThemeColor or default yellow
-    const accentColor = customThemeColor || '#f59e0b';
+    // Fixed colors based on reference
+    const darkBg = '#18181b';
+    const accentColor = customThemeColor || '#facc15'; // Yellow-400
+    const textColor = '#3f3f46'; // Zinc-700
 
-    // Calculate responsive sizes
-    const headerHeight = scale < 1 ? 140 : 280;
-    const photoSize = scale < 1 ? 60 : 120;
+    // Dimensions
+    const headerHeight = scale < 1 ? 120 : 220;
+    const photoSize = scale < 1 ? 80 : 150;
 
     return (
         <div
@@ -40,176 +43,150 @@ export default function HeaderDiagonalYellow({ data, theme, scale = 1 }: Templat
                 fontSize: sizeConfig.base,
                 backgroundColor: '#ffffff',
                 position: 'relative',
+                overflow: 'hidden',
+                color: textColor,
             }}
         >
-            {/* Right accent bar */}
+            {/* Header Area */}
             <div
                 style={{
-                    position: 'absolute',
-                    top: 0,
-                    right: 0,
-                    width: scale < 1 ? '4px' : '8px',
-                    height: '100%',
-                    backgroundColor: accentColor,
-                }}
-            />
-
-            {/* Diagonal Header */}
-            <header
-                className="resume-section"
-                data-paginate
-                style={{
-                    position: 'relative',
                     height: headerHeight,
-                    backgroundColor: accentColor,
-                    clipPath: 'polygon(0 0, 100% 0, 100% 70%, 65% 100%, 0 100%)',
-                    padding: scale < 1 ? '16px' : '32px',
-                    paddingRight: scale < 1 ? '100px' : '200px',
+                    backgroundColor: darkBg,
+                    position: 'relative',
+                    marginBottom: scale < 1 ? 40 : 80, // Space for overlapping photo
                 }}
             >
-                {/* Name - Large stencil style */}
-                <h1
+                {/* Yellow Diagonal Shape Top-Right */}
+                <div
                     style={{
-                        fontFamily: headingFont,
-                        fontSize: fs.name,
-                        fontWeight: 900,
-                        color: '#1f2937',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.05em',
-                        lineHeight: 1.1,
-                        maxWidth: scale < 1 ? '120px' : '240px',
+                        position: 'absolute',
+                        top: 0,
+                        right: 0,
+                        width: '35%',
+                        height: '100%',
+                        backgroundColor: accentColor,
+                        clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0% 100%)',
+                    }}
+                />
+
+                {/* Content Container */}
+                <div
+                    style={{
+                        padding: scale < 1 ? '20px' : '40px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start',
+                        height: '100%',
                     }}
                 >
-                    {personalInfo.fullName || 'Your Name'}
-                </h1>
+                    {/* Name - Left side */}
+                    <div style={{ width: '60%', paddingTop: scale < 1 ? 10 : 20 }}>
+                        <h1
+                            style={{
+                                fontFamily: headingFont,
+                                fontSize: fs.name,
+                                fontWeight: 400, // Titan One is heavy by default
+                                color: '#ffffff',
+                                textTransform: 'uppercase',
+                                lineHeight: 1.1,
+                                marginBottom: scale < 1 ? 8 : 16,
+                            }}
+                        >
+                            {personalInfo.fullName || 'Your Name'}
+                        </h1>
+                        <p
+                            style={{
+                                fontSize: fs.jobTitle,
+                                color: accentColor,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em',
+                                fontWeight: 700,
+                            }}
+                        >
+                            {personalInfo.jobTitle || 'Job Title'}
+                        </p>
+                    </div>
 
-                {/* Profile Photo - Positioned in header */}
+                    {/* Contact - Top Right (on Yellow) */}
+                    <div
+                        style={{
+                            width: '30%',
+                            textAlign: 'right',
+                            fontSize: fs.small,
+                            color: '#18181b',
+                            fontWeight: 600,
+                            zIndex: 10,
+                        }}
+                    >
+                        {personalInfo.phone && <div style={{ marginBottom: 4 }}>{personalInfo.phone}</div>}
+                        {personalInfo.email && <div style={{ marginBottom: 4 }}>{personalInfo.email}</div>}
+                        {personalInfo.location && <div style={{ marginBottom: 4 }}>{personalInfo.location}</div>}
+                        {personalInfo.website && <div>{personalInfo.website}</div>}
+                    </div>
+                </div>
+
+                {/* Photo - Centered overlapping bottom edge */}
                 {personalInfo.profileImage && (
                     <div
                         style={{
                             position: 'absolute',
-                            top: scale < 1 ? '30px' : '60px',
-                            right: scale < 1 ? '110px' : '220px',
+                            bottom: -(photoSize / 2),
+                            left: '60%', // Approx visual center of info flow
+                            transform: 'translateX(-50%)',
+                            width: photoSize,
+                            height: photoSize,
+                            borderRadius: '50%',
+                            border: '5px solid #ffffff',
+                            overflow: 'hidden',
+                            backgroundColor: '#fff',
+                            zIndex: 20,
+                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                         }}
                     >
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}
-                            style={{
-                                width: photoSize,
-                                height: photoSize,
-                                borderRadius: '50%',
-                                objectFit: 'cover',
-                                border: '3px solid white',
-                            }}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
-                    </div>
-                )}
-            </header>
-
-            {/* Contact Info - Top Right (outside diagonal) */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: scale < 1 ? '16px' : '32px',
-                    right: scale < 1 ? '20px' : '40px',
-                    textAlign: 'right',
-                    fontSize: fs.body,
-                    color: '#374151',
-                }}
-            >
-                {personalInfo.phone && (
-                    <div style={{ marginBottom: scale < 1 ? '2px' : '4px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '4px' }}>
-                        <span>📱</span> {personalInfo.phone}
-                    </div>
-                )}
-                {personalInfo.email && (
-                    <div style={{ marginBottom: scale < 1 ? '2px' : '4px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '4px' }}>
-                        <span>✉️</span> {personalInfo.email}
-                    </div>
-                )}
-                {personalInfo.location && (
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '4px' }}>
-                        <span>📍</span> {personalInfo.location}
                     </div>
                 )}
             </div>
 
-            {/* Two-Column Body */}
-            <div style={{ display: 'flex', padding: scale < 1 ? '12px' : '24px', paddingRight: scale < 1 ? '16px' : '32px' }}>
-                {/* LEFT COLUMN - Objective, Experience */}
-                <div style={{ width: '50%', paddingRight: scale < 1 ? '12px' : '24px' }}>
-                    {/* Resume Objective / Summary */}
+            {/* Two Column Layout */}
+            <div
+                style={{
+                    display: 'flex',
+                    padding: scale < 1 ? '0 20px 20px' : '0 40px 40px',
+                    gap: scale < 1 ? 15 : 30,
+                }}
+            >
+                {/* Left Column (55%) */}
+                <div style={{ width: '55%' }}>
                     {personalInfo.summary && (
-                        <section className="mb-5 resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="👤">
-                                RESUME OBJECTIVE
-                            </SectionHeader>
-                            <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="About Me" />
+                            <p style={{ lineHeight: 1.6, fontSize: fs.body }}>
                                 {personalInfo.summary}
                             </p>
                         </section>
                     )}
 
-                    {/* Work Experience */}
                     {experience.length > 0 && (
-                        <section className="mb-5 resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📋">
-                                WORK EXPERIENCE
-                            </SectionHeader>
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="Experience" />
                             <div className="space-y-4">
                                 {experience.map((exp) => (
                                     <div key={exp.id} className="resume-entry" data-paginate>
-                                        <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '2px' }}>
-                                            📅 {exp.startDate} – {exp.current ? 'PRESENT' : exp.endDate}
-                                            {exp.city && ` 📍 ${exp.city}`}
-                                        </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
+                                        <h4 style={{ fontSize: fs.entryTitle, fontWeight: 800, color: '#18181b', textTransform: 'uppercase' }}>
                                             {exp.title}
                                         </h4>
-                                        <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600, marginBottom: '4px' }}>
-                                            {exp.company}
-                                        </p>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.small, color: '#52525b', marginBottom: 4, fontWeight: 600 }}>
+                                            <span>{exp.company}</span>
+                                            <span>{exp.startDate} - {exp.current ? 'Present' : exp.endDate}</span>
+                                        </div>
                                         {exp.description && (
-                                            <ul style={{ paddingLeft: scale < 1 ? '12px' : '16px', margin: 0, listStyle: 'disc' }}>
-                                                {exp.description.split('\n').filter(Boolean).map((line, idx) => (
-                                                    <li key={idx} style={{ fontSize: fs.small, color: '#4b5563', marginBottom: '2px', lineHeight: 1.5 }}>
-                                                        {line.replace(/^[-•]\s*/, '')}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
-                </div>
-
-                {/* RIGHT COLUMN - Education, Skills, Languages */}
-                <div style={{ width: '50%', paddingLeft: scale < 1 ? '12px' : '24px' }}>
-                    {/* Education */}
-                    {education.length > 0 && (
-                        <section className="mb-5 resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🎓">
-                                EDUCATION
-                            </SectionHeader>
-                            <div className="space-y-3">
-                                {education.map((edu) => (
-                                    <div key={edu.id} className="resume-entry" data-paginate>
-                                        <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '2px' }}>
-                                            📅 {edu.startDate} – {edu.current ? 'PRESENT' : edu.endDate}
-                                            {edu.city && ` 📍 ${edu.city}`}
-                                        </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
-                                            {edu.degree}
-                                        </h4>
-                                        <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600 }}>
-                                            {edu.school}
-                                        </p>
-                                        {edu.description && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: '4px' }}>
-                                                {edu.description}
+                                            <p style={{ fontSize: fs.body, lineHeight: 1.5 }}>
+                                                {exp.description}
                                             </p>
                                         )}
                                     </div>
@@ -217,97 +194,95 @@ export default function HeaderDiagonalYellow({ data, theme, scale = 1 }: Templat
                             </div>
                         </section>
                     )}
+                </div>
 
-                    {/* Skills with Progress Bars */}
-                    {skills.length > 0 && (
-                        <section className="mb-5 resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⚙️">
-                                SKILLS
-                            </SectionHeader>
-                            <div className="space-y-2">
-                                {skills.map((skill) => (
-                                    <ProgressBar
-                                        key={skill.id}
-                                        label={skill.name}
-                                        value={skill.level * 20}
-                                        color={accentColor}
-                                        height={6}
-                                        scale={scale}
-                                    />
-                                ))}
-                            </div>
-                        </section>
-                    )}
-
-                    {/* Languages */}
-                    {languages && languages.length > 0 && (
-                        <section className="resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🌐">
-                                LANGUAGES
-                            </SectionHeader>
-                            <div className="space-y-1">
-                                {languages.map((lang) => (
-                                    <div key={lang.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
-                                        <span style={{ color: '#374151' }}>{lang.name}</span>
-                                        <span style={{ color: accentColor, fontWeight: 600, textTransform: 'capitalize' }}>
-                                            {lang.proficiency}
-                                        </span>
+                {/* Right Column (45%) */}
+                <div style={{ width: '45%' }}>
+                    {education.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="Education" />
+                            <div className="space-y-4">
+                                {education.map((edu) => (
+                                    <div key={edu.id} className="resume-entry" data-paginate>
+                                        <h4 style={{ fontSize: fs.entryTitle, fontWeight: 800, color: '#18181b', textTransform: 'uppercase' }}>
+                                            {edu.degree}
+                                        </h4>
+                                        <div style={{ fontSize: fs.small, color: '#52525b', fontWeight: 600 }}>
+                                            {edu.school}, {edu.startDate} - {edu.current ? 'Present' : edu.endDate}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         </section>
                     )}
+
+                    {skills.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="Skills" />
+                            <div className="space-y-2">
+                                {skills.map((skill) => (
+                                    <div key={skill.id}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2, fontSize: fs.small, fontWeight: 700, color: '#18181b' }}>
+                                            <span>{skill.name}</span>
+                                        </div>
+                                        <ProgressBar
+                                            value={skill.level * 20}
+                                            color={accentColor}
+                                            height={scale < 1 ? 6 : 10}
+                                            scale={scale}
+                                            trackColor="#e4e4e7" // Zinc-200
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {languages && languages.length > 0 && (
+                        <section className="resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="Languages" />
+                            <ul style={{ listStyle: 'none', padding: 0 }}>
+                                {languages.map((lang) => (
+                                    <li key={lang.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: fs.body, fontWeight: 600, borderBottom: '1px solid #e4e4e7', paddingBottom: 2 }}>
+                                        <span>{lang.name}</span>
+                                        <span style={{ color: '#52525b' }}>{lang.proficiency}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
+                    )}
                 </div>
             </div>
 
-            {/* Footer Contact */}
+            {/* Footer Diagonal */}
             <div
                 style={{
                     position: 'absolute',
-                    bottom: scale < 1 ? '12px' : '24px',
-                    right: scale < 1 ? '20px' : '40px',
-                    textAlign: 'right',
-                    fontSize: fs.small,
-                    color: '#6b7280',
+                    bottom: 0,
+                    left: 0,
+                    width: '40%',
+                    height: scale < 1 ? 40 : 80,
+                    backgroundColor: accentColor,
+                    clipPath: 'polygon(0 0, 70% 100%, 0% 100%)',
                 }}
-            >
-                {personalInfo.location && <div>📍 {personalInfo.location}</div>}
-                {personalInfo.website && <div>🌐 {personalInfo.website}</div>}
-            </div>
+            />
         </div>
     );
 }
 
-// Section Header with Icon
-interface SectionHeaderProps {
-    fs: ScaledFontSizes;
-    headingFont: string;
-    accentColor: string;
-    icon: string;
-    children: React.ReactNode;
-}
-
-function SectionHeader({ fs, headingFont, accentColor, icon, children }: SectionHeaderProps) {
-    const basePx = parseInt(fs.body);
-    const isSmall = basePx < 10;
-
+function SectionHeader({ fs, title }: { fs: ScaledFontSizes, title: string }) {
     return (
         <h3
             style={{
-                fontFamily: headingFont,
                 fontSize: fs.sectionHeading,
-                fontWeight: 800,
-                color: '#1f2937',
+                fontWeight: 900,
+                color: '#18181b', // Zinc-900
                 textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                marginBottom: isSmall ? '8px' : '14px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: isSmall ? '4px' : '8px',
+                marginBottom: parseInt(fs.body) < 10 ? 8 : 12,
+                letterSpacing: '0.05em',
             }}
         >
-            <span style={{ fontSize: fs.sectionHeading }}>{icon}</span>
-            {children}
+            {title}
         </h3>
     );
 }
@@ -318,5 +293,5 @@ export const headerDiagonalYellowMeta: TemplateMeta = {
     name: 'Diagonal Yellow',
     category: 'header',
     thumbnail: '/templates/header-diagonal-yellow.png',
-    description: 'Creative diagonal header with bold yellow accent',
+    description: 'Bold diagonal layout with dark header and yellow accents',
 };

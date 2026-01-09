@@ -2,35 +2,38 @@
 
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import ProgressBar from '../../shared/ProgressBar';
 
 /**
  * Header Blue Clean Template
- * Light blue header with job title above name. Photo on left side.
- * Two-column body with contact/skills/awards on left, experience/education on right.
+ * Left Sidebar layout with Sky Blue background.
+ * Photo, Contact, Skills in sidebar. Name, Profile, Experience in main content.
  *
  * Layout:
- * - Light blue header with photo left, job title + name right
- * - Summary below header
- * - Two-column body: Left (Contact, Skills, Awards), Right (Experience, Education)
- * - Section headers with spaced-out letters
+ * - Left Sidebar (~35%): Sky 100 (#e0f2fe) background. Full height.
+ * - Main Content (~65%): White background. Full height.
+ * - Photo: Top of sidebar, circular.
+ * - Name: Top of main content, Thin Uppercase.
  *
- * Matches reference: frontend/Canva/Blue Clean Professional CV Resume.jpg
+ * Matches reference: frontend/Resume-template/unique-layouts/10-blue-clean.webp
  */
 export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, awards, customThemeColor, fonts } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Inter');
+    const headingFont = getFontFamily(fonts?.heading || 'Roboto'); // defaults to Roboto/Inter
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // Get scaled font sizes that respect user's size preference + scale
+    // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
 
-    // Single color preset - use customThemeColor or default blue
-    const accentColor = customThemeColor || '#2563eb';
-    const headerBgColor = '#dbeafe'; // Light blue background
+    // Colors
+    const sidebarBg = '#e0f2fe'; // Sky 100
+    const mainBg = '#ffffff';
+    const accentColor = customThemeColor || '#0369a1'; // Sky 700
+    const textColor = '#334155'; // Slate 700
 
-    // Calculate responsive sizes
-    const photoSize = scale < 1 ? 60 : 120;
+    // Dimensions
+    const photoSize = scale < 1 ? 80 : 150;
 
     return (
         <div
@@ -38,23 +41,27 @@ export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProp
             style={{
                 fontFamily: bodyFont,
                 fontSize: sizeConfig.base,
-                backgroundColor: '#ffffff',
+                backgroundColor: mainBg,
+                color: textColor,
+                display: 'flex',
+                boxSizing: 'border-box'
             }}
         >
-            {/* Header */}
-            <header
-                className="resume-section"
-                data-paginate
+            {/* Left Sidebar */}
+            <aside
                 style={{
-                    backgroundColor: headerBgColor,
+                    width: '35%',
+                    backgroundColor: sidebarBg,
+                    padding: scale < 1 ? '20px 16px' : '40px 32px',
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
-                    gap: scale < 1 ? 16 : 32,
-                    padding: scale < 1 ? 16 : 32,
+                    flexShrink: 0,
+                    minHeight: '100%'
                 }}
             >
-                {/* Circular Photo */}
-                <div>
+                {/* Photo */}
+                <div style={{ marginBottom: scale < 1 ? 24 : 48 }}>
                     {personalInfo.profileImage ? (
                         <img
                             src={personalInfo.profileImage}
@@ -64,7 +71,7 @@ export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProp
                                 height: photoSize,
                                 borderRadius: '50%',
                                 objectFit: 'cover',
-                                border: '3px solid white',
+                                border: `4px solid #ffffff`,
                             }}
                         />
                     ) : (
@@ -74,7 +81,7 @@ export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProp
                                 height: photoSize,
                                 borderRadius: '50%',
                                 backgroundColor: '#bfdbfe',
-                                border: '3px solid white',
+                                border: `4px solid #ffffff`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -87,255 +94,212 @@ export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProp
                     )}
                 </div>
 
-                {/* Name and Job Title */}
-                <div>
-                    {personalInfo.jobTitle && (
-                        <p
-                            style={{
-                                fontSize: fs.small,
-                                color: '#64748b',
-                                letterSpacing: '0.3em',
-                                textTransform: 'uppercase',
-                                marginBottom: scale < 1 ? 2 : 4,
-                            }}
-                        >
-                            {personalInfo.jobTitle}
-                        </p>
-                    )}
+                {/* Contact Info (In Sidebar) */}
+                <div style={{ width: '100%', marginBottom: 40 }}>
+                    <SectionHeader title="Contact" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ fontSize: fs.small, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                        {personalInfo.phone && <ContactItem icon="📱" text={personalInfo.phone} />}
+                        {personalInfo.email && <ContactItem icon="✉️" text={personalInfo.email} />}
+                        {personalInfo.location && <ContactItem icon="📍" text={personalInfo.location} />}
+                        {personalInfo.website && <ContactItem icon="🌐" text={personalInfo.website} />}
+                    </div>
+                </div>
+
+                {/* Skills (In Sidebar) */}
+                {skills.length > 0 && (
+                    <div style={{ width: '100%', marginBottom: 40 }}>
+                        <SectionHeader title="Skills" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {skills.map((skill) => (
+                                <div key={skill.id}>
+                                    <div style={{ marginBottom: 2, fontSize: fs.body, fontWeight: 500 }}>{skill.name}</div>
+                                    <ProgressBar
+                                        value={skill.level * 20}
+                                        color={accentColor}
+                                        height={6}
+                                        scale={1}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Awards (In Sidebar) */}
+                {awards && awards.length > 0 && (
+                    <div style={{ width: '100%', marginBottom: 40 }}>
+                        <SectionHeader title="Awards" color={accentColor} fs={fs} headingFont={headingFont} />
+                        {awards.map((award) => (
+                            <div key={award.id} style={{ marginBottom: 12 }}>
+                                <div style={{ fontWeight: 700, fontSize: fs.body }}>{award.title}</div>
+                                <div style={{ fontSize: fs.small, opacity: 0.8 }}>{award.issuer} | {award.date}</div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+            </aside>
+
+            {/* Main Content */}
+            <main
+                style={{
+                    flex: 1,
+                    padding: scale < 1 ? '24px' : '48px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+            >
+                {/* Name Header (In Content) */}
+                <div style={{ marginBottom: scale < 1 ? 32 : 60, borderBottom: `2px solid ${sidebarBg}`, paddingBottom: 24 }}>
                     <h1
                         style={{
                             fontFamily: headingFont,
                             fontSize: fs.name,
-                            fontWeight: 400,
-                            color: '#1f2937',
-                            letterSpacing: '0.1em',
-                            textTransform: 'uppercase',
+                            fontWeight: 300, // Thin/Light
+                            color: '#0f172a',
+                            textTransform: 'uppercase', // Uppercase
+                            letterSpacing: '0.15em',
+                            margin: 0,
+                            lineHeight: 1.2
                         }}
                     >
                         {personalInfo.fullName || 'Your Name'}
                     </h1>
-                </div>
-            </header>
-
-            {/* Summary Section */}
-            {personalInfo.summary && (
-                <div
-                    className="resume-section"
-                    data-paginate
-                    style={{
-                        padding: scale < 1 ? '12px 16px' : '24px 32px',
-                        borderBottom: '1px solid #e5e7eb',
-                    }}
-                >
-                    <p style={{ color: '#4b5563', lineHeight: 1.6, fontSize: fs.body, fontStyle: 'italic' }}>
-                        {personalInfo.summary}
+                    <p
+                        style={{
+                            fontSize: fs.jobTitle,
+                            color: accentColor,
+                            letterSpacing: '0.2em',
+                            textTransform: 'uppercase',
+                            fontWeight: 700,
+                            marginTop: 8
+                        }}
+                    >
+                        {personalInfo.jobTitle || 'Job Title'}
                     </p>
                 </div>
-            )}
 
-            {/* Two-Column Body */}
-            <div
-                style={{
-                    display: 'flex',
-                    padding: scale < 1 ? 16 : 32,
-                    gap: scale < 1 ? 16 : 32,
-                }}
-            >
-                {/* LEFT COLUMN - Contact, Skills, Awards */}
-                <div style={{ width: '35%' }}>
-                    {/* Contact */}
-                    <section className="mb-4 resume-section" data-paginate>
-                        <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                            CONTACT
-                        </SectionHeader>
-                        <div className="space-y-2">
-                            {personalInfo.phone && (
-                                <ContactItem icon="📱" text={personalInfo.phone} fs={fs} scale={scale} />
-                            )}
-                            {personalInfo.email && (
-                                <ContactItem icon="✉️" text={personalInfo.email} fs={fs} scale={scale} />
-                            )}
-                            {personalInfo.location && (
-                                <ContactItem icon="📍" text={personalInfo.location} fs={fs} scale={scale} />
-                            )}
-                        </div>
+                {/* Profile */}
+                {personalInfo.summary && (
+                    <section className="mb-8 resume-section" data-paginate>
+                        <SectionHeaderMain title="Profile" color={'#0f172a'} fs={fs} headingFont={headingFont} />
+                        <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#475569' }}>
+                            {personalInfo.summary}
+                        </p>
                     </section>
+                )}
 
-                    {/* Skills */}
-                    {skills.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                SKILLS
-                            </SectionHeader>
-                            <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
-                                {skills.map((skill) => (
-                                    <li key={skill.id} style={{ fontSize: fs.body, color: '#374151', marginBottom: '4px' }}>
-                                        {skill.name}
-                                    </li>
-                                ))}
-                            </ul>
-                        </section>
-                    )}
-
-                    {/* Awards */}
-                    {awards && awards.length > 0 && (
-                        <section className="resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                AWARD
-                            </SectionHeader>
-                            <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
-                                {awards.map((award) => (
-                                    <li key={award.id} style={{ fontSize: fs.body, color: '#374151', marginBottom: '6px' }}>
-                                        {award.title}
-                                        {award.date && (
-                                            <span style={{ color: '#6b7280', fontSize: fs.small }}> ({award.date})</span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </section>
-                    )}
-                </div>
-
-                {/* RIGHT COLUMN - Experience, Education */}
-                <div style={{ width: '65%' }}>
-                    {/* Experience */}
-                    {experience.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                EXPERIENCE
-                            </SectionHeader>
-                            <div className="space-y-4">
-                                {experience.map((exp) => (
-                                    <div key={exp.id} className="resume-entry" data-paginate>
-                                        <h4
-                                            style={{
-                                                fontWeight: 700,
-                                                fontSize: fs.entryTitle,
-                                                color: '#1f2937',
-                                                textTransform: 'uppercase',
-                                                marginBottom: '2px',
-                                            }}
-                                        >
+                {/* Experience */}
+                {experience.length > 0 && (
+                    <section className="mb-8 resume-section" data-paginate>
+                        <SectionHeaderMain title="Experience" color={'#0f172a'} fs={fs} headingFont={headingFont} />
+                        <div className="space-y-8">
+                            {experience.map((exp) => (
+                                <div key={exp.id}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, alignItems: 'baseline' }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, textTransform: 'uppercase', color: '#334155' }}>
                                             {exp.title}
                                         </h4>
-                                        <p style={{ fontSize: fs.body, color: '#4b5563', marginBottom: '2px' }}>
-                                            {exp.company}
-                                        </p>
-                                        <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '6px' }}>
-                                            {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
-                                        </p>
-                                        {exp.description && (
-                                            <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
-                                                {exp.description.split('\n').filter(Boolean).map((line, idx) => (
-                                                    <li key={idx} style={{ fontSize: fs.small, color: '#4b5563', marginBottom: '2px', lineHeight: 1.5 }}>
-                                                        {line.replace(/^[-•]\s*/, '')}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
+                                        <span style={{ fontSize: fs.small, color: accentColor, fontWeight: 600 }}>
+                                            {exp.startDate} – {exp.current ? 'Present' : exp.endDate}
+                                        </span>
                                     </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
+                                    <p style={{ fontSize: fs.body, fontWeight: 500, color: '#64748b', marginBottom: 6 }}>
+                                        {exp.company}, {exp.city}
+                                    </p>
+                                    <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#475569' }}>
+                                        {exp.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
 
-                    {/* Education */}
-                    {education.length > 0 && (
-                        <section className="resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                EDUCATION
-                            </SectionHeader>
-                            <div className="space-y-3">
-                                {education.map((edu) => (
-                                    <div key={edu.id} className="resume-entry" data-paginate>
-                                        <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px' }}>
-                                            {edu.startDate} - {edu.current ? 'Present' : edu.endDate}
-                                        </p>
-                                        <h4
-                                            style={{
-                                                fontWeight: 700,
-                                                fontSize: fs.entryTitle,
-                                                color: '#1f2937',
-                                                textTransform: 'uppercase',
-                                                marginBottom: '2px',
-                                            }}
-                                        >
-                                            {edu.school}
-                                        </h4>
-                                        <p style={{ fontSize: fs.body, color: '#4b5563' }}>
+                {/* Education */}
+                {education.length > 0 && (
+                    <section className="mb-8 resume-section" data-paginate>
+                        <SectionHeaderMain title="Education" color={'#0f172a'} fs={fs} headingFont={headingFont} />
+                        <div className="space-y-6">
+                            {education.map((edu) => (
+                                <div key={edu.id}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#334155' }}>
                                             {edu.degree}
-                                        </p>
+                                        </h4>
+                                        <span style={{ fontSize: fs.small, color: accentColor }}>
+                                            {edu.startDate} – {edu.endDate || 'Present'}
+                                        </span>
                                     </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
-                </div>
-            </div>
+                                    <p style={{ fontSize: fs.body, color: '#64748b' }}>
+                                        {edu.school}, {edu.city}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+            </main>
         </div>
     );
 }
 
-// Contact Item with Icon
-interface ContactItemProps {
-    icon: string;
-    text: string;
-    fs: ScaledFontSizes;
-    scale: number;
-}
-
-function ContactItem({ icon, text, fs, scale }: ContactItemProps) {
-    return (
-        <div
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: scale < 1 ? 6 : 10,
-                marginBottom: scale < 1 ? 4 : 8,
-                fontSize: fs.body,
-                color: '#374151',
-            }}
-        >
-            <span style={{ fontSize: fs.body }}>{icon}</span>
-            <span>{text}</span>
-        </div>
-    );
-}
-
-// Section Header with Spaced Letters
-interface SectionHeaderProps {
-    fs: ScaledFontSizes;
-    headingFont: string;
-    accentColor: string;
-    children: React.ReactNode;
-}
-
-function SectionHeader({ fs, headingFont, accentColor, children }: SectionHeaderProps) {
-    const basePx = parseInt(fs.body);
-    const isSmall = basePx < 10;
-
+// Helpers
+function SectionHeader({ title, color, fs, headingFont }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string }) {
     return (
         <h3
             style={{
                 fontFamily: headingFont,
                 fontSize: fs.sectionHeading,
-                fontWeight: 600,
-                color: accentColor,
-                letterSpacing: '0.2em',
-                marginBottom: isSmall ? '8px' : '14px',
+                fontWeight: 700,
+                color: color,
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                marginBottom: 16,
+                borderBottom: `1px solid ${color}40`,
+                paddingBottom: 4
             }}
         >
-            {children}
+            {title}
         </h3>
     );
 }
 
-// Template metadata for registry
+function SectionHeaderMain({ title, color, fs, headingFont }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string }) {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
+            <div style={{ width: 40, height: 2, backgroundColor: color }}></div>
+            <h3
+                style={{
+                    fontFamily: headingFont,
+                    fontSize: fs.sectionHeading,
+                    fontWeight: 800,
+                    color: color,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.2em',
+                }}
+            >
+                {title}
+            </h3>
+        </div>
+    );
+}
+
+function ContactItem({ icon, text }: { icon: string, text: string }) {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: '1.2em' }}>{icon}</span>
+            <span style={{ wordBreak: 'break-all' }}>{text}</span>
+        </div>
+    );
+}
+
+// Template metadata
 export const headerBlueCleanMeta: TemplateMeta = {
     id: 'header-blue-clean',
     name: 'Blue Clean',
     category: 'header',
     thumbnail: '/templates/header-blue-clean.png',
-    description: 'Clean professional template with light blue header',
+    description: 'Clean sidebar layout with sky blue accent',
 };

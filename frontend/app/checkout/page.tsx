@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
 import api from "@/lib/api";
@@ -29,7 +29,7 @@ const PLAN_DETAILS: Record<PlanType, { name: string; price: string; description:
   },
 };
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { isAuthenticated, user } = useAuthStore();
@@ -215,5 +215,28 @@ export default function CheckoutPage() {
       </div>
       <Footer />
     </>
+  );
+}
+
+function CheckoutLoading() {
+  return (
+    <>
+      <Header />
+      <div className="min-h-screen pt-32 pb-16">
+        <div className="max-w-md mx-auto px-6 text-center">
+          <Loader2 className="w-8 h-8 text-accent-green animate-spin mx-auto" />
+          <p className="text-gray-400 mt-4">Loading checkout...</p>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<CheckoutLoading />}>
+      <CheckoutContent />
+    </Suspense>
   );
 }

@@ -25,8 +25,8 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
     // Get scaled font sizes that respect user's size preference + scale
     const fs = getScaledFontSizes(sizeConfig, scale);
 
-    // Single color preset - use customThemeColor or default dark blue
-    const accentColor = customThemeColor || '#1e3a5f';
+    // Single color preset - use customThemeColor or default Blue 600 (Vibrant)
+    const accentColor = customThemeColor || '#2563eb';
 
     return (
         <div
@@ -35,7 +35,7 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                 fontFamily: bodyFont,
                 fontSize: sizeConfig.base,
                 backgroundColor: '#ffffff',
-                padding: scale < 1 ? '16px' : '32px',
+                padding: scale < 1 ? '20px' : '40px',
             }}
         >
             {/* Header Area */}
@@ -46,64 +46,68 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
-                    marginBottom: scale < 1 ? '16px' : '32px',
+                    marginBottom: scale < 1 ? '24px' : '48px',
                 }}
             >
-                {/* Name Box */}
+                {/* Name Box - Solid Vibrant Blue */}
                 <div
                     style={{
                         backgroundColor: accentColor,
-                        padding: scale < 1 ? '16px 24px' : '32px 48px',
+                        padding: scale < 1 ? '20px 30px' : '40px 60px',
                         display: 'inline-block',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                     }}
                 >
                     <h1
                         style={{
                             fontFamily: headingFont,
                             fontSize: fs.name,
-                            fontWeight: 700,
+                            fontWeight: 900, // Black weight
                             color: '#ffffff',
-                            letterSpacing: '0.02em',
-                            whiteSpace: 'nowrap',
+                            letterSpacing: '0.05em',
+                            textTransform: 'uppercase',
+                            margin: 0,
+                            lineHeight: 1,
                         }}
                     >
                         {personalInfo.fullName || 'Your Name'}
                     </h1>
                 </div>
 
-                {/* Contact Info */}
+                {/* Contact Info - Right Aligned */}
                 <div
                     style={{
-                        textAlign: 'left',
+                        textAlign: 'right', // Changed to Right to match "opposite"
                         fontSize: fs.body,
                         color: '#374151',
                         lineHeight: 1.8,
+                        paddingTop: 10,
                     }}
                 >
                     {personalInfo.phone && (
-                        <div><strong>Phone number:</strong> {personalInfo.phone}</div>
+                        <div><strong>Phone:</strong> {personalInfo.phone}</div>
                     )}
                     {personalInfo.email && (
-                        <div><strong>Email address:</strong> {personalInfo.email}</div>
+                        <div><strong>Email:</strong> {personalInfo.email}</div>
                     )}
                     {personalInfo.website && (
                         <div><strong>Web:</strong> {personalInfo.website}</div>
                     )}
                     {personalInfo.location && (
-                        <div><strong>Location:</strong> {personalInfo.location}</div>
+                        <div><strong>Loc:</strong> {personalInfo.location}</div>
                     )}
                 </div>
             </header>
 
             {/* Two-Column Body */}
-            <div style={{ display: 'flex', gap: scale < 1 ? '16px' : '32px' }}>
+            <div style={{ display: 'flex', gap: scale < 1 ? '24px' : '48px' }}>
                 {/* LEFT COLUMN */}
-                <div style={{ width: '55%' }}>
+                <div style={{ width: '60%' }}>
                     {/* Resume Objective / Summary */}
                     {personalInfo.summary && (
-                        <section className="mb-5 resume-section" data-paginate>
+                        <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="👤">
-                                Resume objective
+                                Profile
                             </SectionHeader>
                             <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
                                 {personalInfo.summary}
@@ -113,25 +117,27 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
 
                     {/* Work Experience */}
                     {experience.length > 0 && (
-                        <section className="mb-5 resume-section" data-paginate>
+                        <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💼">
-                                Work experience
+                                Experience
                             </SectionHeader>
-                            <div className="space-y-4">
+                            <div className="space-y-5">
                                 {experience.map((exp) => (
                                     <div key={exp.id} className="resume-entry" data-paginate>
-                                        <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '2px' }}>
-                                            {exp.startDate} – {exp.current ? 'PRESENT' : exp.endDate}
-                                            {exp.city && `    ${exp.city.toUpperCase()}`}
-                                        </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
-                                            {exp.title}
-                                        </h4>
-                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600, marginBottom: '4px' }}>
-                                            {exp.company}
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px' }}>
+                                            <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937' }}>
+                                                {exp.title}
+                                            </h4>
+                                            <span style={{ fontSize: fs.small, color: '#6b7280', fontWeight: 500 }}>
+                                                {exp.startDate} – {exp.current ? 'Present' : exp.endDate}
+                                            </span>
+                                        </div>
+
+                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 700, marginBottom: '6px', textTransform: 'uppercase' }}>
+                                            {exp.company} {exp.city && `| ${exp.city}`}
                                         </p>
                                         {exp.description && (
-                                            <p style={{ fontSize: fs.small, color: '#4b5563', lineHeight: 1.5 }}>
+                                            <p style={{ fontSize: fs.body, color: '#4b5563', lineHeight: 1.5 }}>
                                                 {exp.description}
                                             </p>
                                         )}
@@ -143,21 +149,23 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
 
                     {/* Education (Left Column) */}
                     {education.length > 0 && (
-                        <section className="mb-5 resume-section" data-paginate>
+                        <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🎓">
                                 Education
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 {education.slice(0, 2).map((edu) => (
                                     <div key={edu.id} className="resume-entry" data-paginate>
-                                        <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '2px' }}>
-                                            {edu.startDate}    {edu.city?.toUpperCase()}
-                                        </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
-                                            {edu.degree}
-                                        </h4>
-                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600 }}>
-                                            {edu.school}
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px' }}>
+                                            <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937' }}>
+                                                {edu.degree}
+                                            </h4>
+                                            <span style={{ fontSize: fs.small, color: '#6b7280', fontWeight: 500 }}>
+                                                {edu.startDate} – {edu.endDate || 'Present'}
+                                            </span>
+                                        </div>
+                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 700 }}>
+                                            {edu.school} {edu.city && `| ${edu.city}`}
                                         </p>
                                     </div>
                                 ))}
@@ -167,59 +175,55 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                 </div>
 
                 {/* RIGHT COLUMN */}
-                <div style={{ width: '45%' }}>
+                <div style={{ width: '40%' }}>
                     {/* Education (Right Column - additional) */}
                     {education.length > 2 && (
-                        <section className="mb-5 resume-section" data-paginate>
+                        <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🎓">
-                                Education
+                                Education (Cont.)
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 {education.slice(2).map((edu) => (
                                     <div key={edu.id} className="resume-entry" data-paginate>
-                                        <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: '2px' }}>
-                                            {edu.startDate}    {edu.city?.toUpperCase()}
-                                        </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
+                                        <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '4px' }}>
                                             {edu.degree}
                                         </h4>
-                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600 }}>
+                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 700, marginBottom: '2px' }}>
                                             {edu.school}
                                         </p>
-                                        {edu.description && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: '4px' }}>
-                                                {edu.description}
-                                            </p>
-                                        )}
+                                        <span style={{ fontSize: fs.small, color: '#6b7280' }}>
+                                            {edu.startDate} – {edu.endDate || 'Present'}
+                                        </span>
                                     </div>
                                 ))}
                             </div>
                         </section>
                     )}
 
-                    {/* Interpersonal Skills (Circular Progress) */}
-                    {strengths && strengths.length > 0 && (
-                        <section className="mb-5 resume-section" data-paginate>
+                    {/* Skills (Circular) */}
+                    {skills.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🤝">
-                                Interpersonal skills
+                                Skills
                             </SectionHeader>
                             <div
                                 style={{
                                     display: 'grid',
                                     gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: scale < 1 ? '8px' : '16px',
+                                    gap: scale < 1 ? '10px' : '20px',
+                                    marginTop: 10,
                                 }}
                             >
-                                {strengths.slice(0, 6).map((strength) => (
+                                {skills.map((skill) => (
                                     <CircularProgress
-                                        key={strength.id}
-                                        value={strength.level}
-                                        size={scale < 1 ? 40 : 70}
+                                        key={skill.id}
+                                        value={skill.level ? skill.level * 20 : 80}
+                                        size={scale < 1 ? 50 : 80}
                                         color={accentColor}
-                                        strokeWidth={scale < 1 ? 4 : 6}
-                                        fontSize={scale < 1 ? 10 : 16}
-                                        label={strength.name}
-                                        labelFontSize={scale < 1 ? 6 : 9}
+                                        strokeWidth={scale < 1 ? 5 : 8}
+                                        fontSize={scale < 1 ? 8 : 12}
+                                        label={skill.name}
+                                        labelFontSize={scale < 1 ? 8 : 11}
                                         scale={1}
                                     />
                                 ))}
@@ -227,23 +231,20 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                         </section>
                     )}
 
-                    {/* Computer Skills (Progress Bars) */}
-                    {skills.length > 0 && (
-                        <section className="mb-5 resume-section" data-paginate>
+                    {/* Strengths (Bars) */}
+                    {strengths && strengths.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💻">
-                                Computer skills
+                                Expertise
                             </SectionHeader>
-                            <p style={{ fontSize: fs.small, color: '#6b7280', marginBottom: scale < 1 ? '6px' : '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                — SOFTWARE
-                            </p>
-                            <div className="space-y-2">
-                                {skills.map((skill) => (
+                            <div className="space-y-3">
+                                {strengths.map((str) => (
                                     <ProgressBar
-                                        key={skill.id}
-                                        label={skill.name}
-                                        value={skill.level * 20}
+                                        key={str.id}
+                                        label={str.name}
+                                        value={100} // Solid bars for expertise
                                         color={accentColor}
-                                        height={scale < 1 ? 4 : 6}
+                                        height={scale < 1 ? 6 : 10}
                                         scale={1}
                                     />
                                 ))}

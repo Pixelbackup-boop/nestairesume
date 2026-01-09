@@ -75,11 +75,11 @@ export default function UnifiedTemplate({
 // Named exports for direct template access (backward compatibility)
 export { default as ClassicProfessional } from './layouts/classic/ClassicProfessional';
 export { default as SidebarModern } from './layouts/sidebar/SidebarModern';
-export { default as HeaderBold } from './layouts/header/HeaderBold';
+export { default as HeaderBoldCreative } from './layouts/header/HeaderBoldCreative';
 export { default as MinimalClean } from './layouts/minimal/MinimalClean';
 
 // Legacy named exports mapping to new components
 export { default as ClassicTemplate } from './layouts/classic/ClassicProfessional';
 export { default as SidebarTemplate } from './layouts/sidebar/SidebarModern';
-export { default as HeaderTemplate } from './layouts/header/HeaderBold';
+export { default as HeaderTemplate } from './layouts/header/HeaderBoldCreative';
 export { default as MinimalTemplate } from './layouts/minimal/MinimalClean';

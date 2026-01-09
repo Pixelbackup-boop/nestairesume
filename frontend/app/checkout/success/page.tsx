@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, Sparkles, ArrowRight, Download, Zap, Crown } from "lucide-react";
+import { CheckCircle, Sparkles, ArrowRight, Download, Zap, Crown, Loader2 } from "lucide-react";
 import Link from "next/link";
 import Confetti from "react-confetti";
 
@@ -48,7 +48,7 @@ const PLAN_BENEFITS: Record<PlanType, { name: string; icon: typeof Zap; color: s
   },
 };
 
-export default function CheckoutSuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { refreshUser } = useAuthStore();
@@ -158,5 +158,28 @@ export default function CheckoutSuccessPage() {
       </div>
       <Footer />
     </>
+  );
+}
+
+function SuccessLoading() {
+  return (
+    <>
+      <Header />
+      <div className="min-h-screen pt-32 pb-16">
+        <div className="max-w-md mx-auto px-6 text-center">
+          <Loader2 className="w-8 h-8 text-accent-green animate-spin mx-auto" />
+          <p className="text-gray-400 mt-4">Loading...</p>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={<SuccessLoading />}>
+      <SuccessContent />
+    </Suspense>
   );
 }
