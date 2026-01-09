@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { useResumeStore } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
-import { builderTemplates, BuilderTemplate, sampleResumeData, getLayoutPresetId } from '@/lib/builderTemplates';
+import { builderTemplates, BuilderTemplate, samplePreviewData, getLayoutPresetId } from '@/lib/templates/builder';
 
 type CreationMethod = 'ai' | 'upload' | 'linkedin' | null;
 type ExperienceLevel = 'entry' | 'mid' | 'senior' | 'executive';
@@ -56,7 +56,7 @@ function TemplatePreview({ template }: { template: BuilderTemplate }) {
     const accent = template.accentColor;
     const textDark = '#1e293b';
     const textMuted = '#64748b';
-    const data = sampleResumeData;
+    const data = samplePreviewData;
 
     if (template.layout === 'sidebar') {
         return (

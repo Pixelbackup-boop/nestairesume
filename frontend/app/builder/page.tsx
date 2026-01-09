@@ -7,90 +7,27 @@ import ExperienceForm from '../../components/editor/ExperienceForm';
 import EducationForm from '../../components/editor/EducationForm';
 import SkillsForm from '../../components/editor/SkillsForm';
 import DesignTab from '../../components/editor/DesignTab';
-import ResumePreview from '../../components/preview/ResumePreview';
+import PagedPreview from '../../components/preview/PagedPreview';
 import AuthModal from '../../components/auth/AuthModal';
 import DownloadModal from '../../components/download/DownloadModal';
 import { useResumeStore } from '../../store/useResumeStore';
-import { templates, colorPresets } from '../../lib/themes';
-import { getLayoutPresetId, getTemplateById } from '../../lib/builderTemplates';
+import { templates } from '../../lib/themes';
+import {
+    getLayoutPresetId,
+    getTemplateById,
+    getTemplateTheme,
+    getTemplateThumbnail,
+    sampleResumeData,
+    colorPresets
+} from '@/lib/templates/builder';
 import Link from 'next/link';
-import { useReactToPrint } from 'react-to-print';
+import { downloadPdf } from '@/lib/pdfService';
 import {
     Download, ChevronDown, Layout, Palette, Sparkles,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
-    FileText
+    FileText, Image, X, ChevronRight
 } from 'lucide-react';
-
-// Sample data for prefilling
-const sampleResumeData = {
-    personalInfo: {
-        fullName: 'Sarah Johnson',
-        jobTitle: 'UX Designer',
-        email: 'sarah.j@email.com',
-        phone: '+1 (555) 987-6543',
-        location: 'New York, NY',
-        website: 'sarahjohnson.design',
-        linkedin: 'linkedin.com/in/sarahjohnson',
-        summary: 'Creative UX Designer with 6+ years of experience crafting user-centered digital experiences. Passionate about solving complex problems through intuitive design. Skilled in leading cross-functional teams and delivering innovative solutions that drive user engagement and business growth.',
-        profileImage: '/Img/headshot.png',
-        imageShape: 'circle' as const,
-    },
-    experience: [
-        {
-            id: 'exp-1',
-            title: 'Lead UX Designer',
-            company: 'DesignHub Agency',
-            location: 'New York, NY',
-            startDate: '2021-01',
-            endDate: '',
-            current: true,
-            description: 'Lead a team of 5 designers in creating user-centered digital products. Spearheaded the redesign of client websites resulting in 40% increase in user engagement. Established design system and component library used across all projects.',
-        },
-        {
-            id: 'exp-2',
-            title: 'Senior UX Designer',
-            company: 'TechStart Inc',
-            location: 'San Francisco, CA',
-            startDate: '2019-03',
-            endDate: '2021-01',
-            current: false,
-            description: 'Designed and prototyped mobile applications for iOS and Android platforms. Conducted user research and usability testing to inform design decisions. Collaborated with product managers and engineers to deliver features on time.',
-        },
-        {
-            id: 'exp-3',
-            title: 'UX Designer',
-            company: 'Creative Solutions',
-            location: 'Boston, MA',
-            startDate: '2017-06',
-            endDate: '2019-03',
-            current: false,
-            description: 'Created wireframes, prototypes, and high-fidelity designs for web applications. Worked closely with stakeholders to translate business requirements into design solutions. Improved product usability scores by 35%.',
-        },
-    ],
-    education: [
-        {
-            id: 'edu-1',
-            school: 'Rhode Island School of Design',
-            degree: 'Bachelor of Fine Arts in Graphic Design',
-            location: 'Providence, RI',
-            startDate: '2013-09',
-            endDate: '2017-05',
-            current: false,
-            description: 'Graduated with honors. Focus on digital design and user experience. Led student design club.',
-        },
-    ],
-    skills: [
-        { id: 'skill-1', name: 'Figma', level: 5 },
-        { id: 'skill-2', name: 'Sketch', level: 5 },
-        { id: 'skill-3', name: 'Adobe XD', level: 4 },
-        { id: 'skill-4', name: 'Prototyping', level: 5 },
-        { id: 'skill-5', name: 'User Research', level: 4 },
-        { id: 'skill-6', name: 'Wireframing', level: 5 },
-        { id: 'skill-7', name: 'Design Systems', level: 4 },
-        { id: 'skill-8', name: 'HTML/CSS', level: 3 },
-    ],
-};
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
 
@@ -104,8 +41,10 @@ function BuilderContent() {
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showDownloadModal, setShowDownloadModal] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const { resumeData, selectedTemplate, selectedTheme, setTemplate, setCustomThemeColor, setResumeData } = useResumeStore();
-    const componentRef = useRef(null);
+    const [showReferencePanel, setShowReferencePanel] = useState(false);
+    const [templateThumbnail, setTemplateThumbnail] = useState<string | undefined>();
+    const { resumeData, selectedTemplate, selectedTheme, setTemplate, setTemplateId, setTheme, setCustomThemeColor, setResumeData } = useResumeStore();
+    const componentRef = useRef<HTMLDivElement>(null);
 
     // Check authentication status on mount
     useEffect(() => {
@@ -131,17 +70,30 @@ function BuilderContent() {
             if (builderTemplate) {
                 // It's a user-friendly ID, use the mapped layout preset
                 setTemplate(builderTemplate.layoutPresetId);
+
+                // Set unique React component ID if template has one (for unique layouts)
+                const uniqueTemplateId = (builderTemplate as { templateId?: string }).templateId;
+                setTemplateId(uniqueTemplateId || null);
+
+                // Also apply the template's theme color
+                const themeSettings = getTemplateTheme(templateId);
+                if (themeSettings.themeId) {
+                    setTheme(themeSettings.themeId);
+                } else if (themeSettings.customColor) {
+                    setCustomThemeColor(themeSettings.customColor);
+                }
+
+                // Set template thumbnail for reference panel
+                const thumbnail = getTemplateThumbnail(templateId);
+                setTemplateThumbnail(thumbnail);
             } else {
                 // It's already a layout preset ID, use directly
                 setTemplate(templateId);
+                setTemplateId(null);
+                setTemplateThumbnail(undefined);
             }
         }
-    }, [searchParams, setResumeData, setTemplate]);
-
-    const handlePrint = useReactToPrint({
-        contentRef: componentRef,
-        documentTitle: 'Resume',
-    });
+    }, [searchParams, setResumeData, setTemplate, setTemplateId, setTheme, setCustomThemeColor]);
 
     // Handle download - triggers auth modal if not logged in
     const handleDownloadClick = () => {
@@ -160,9 +112,19 @@ function BuilderContent() {
         setShowDownloadModal(true);
     };
 
-    // Called when download is confirmed
-    const handleConfirmDownload = () => {
-        handlePrint();
+    // Called when download is confirmed - calls backend PDF API
+    const handleConfirmDownload = async () => {
+        try {
+            await downloadPdf(
+                resumeData,
+                selectedTemplate,
+                selectedTheme,
+                resumeData.customThemeColor
+            );
+        } catch (error) {
+            console.error('PDF download failed:', error);
+            alert('Failed to generate PDF. Please try again.');
+        }
     };
 
     // Calculate section completion status
@@ -291,91 +253,6 @@ function BuilderContent() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                        {/* Template Dropdown */}
-                        <div className="relative">
-                            <button
-                                onClick={() => {
-                                    setShowTemplateDropdown(!showTemplateDropdown);
-                                    setShowColorDropdown(false);
-                                }}
-                                className="flex items-center gap-2 bg-slate-700 border border-slate-600 px-3 py-2 rounded-lg text-sm text-slate-300 hover:border-slate-500 transition"
-                            >
-                                <Layout size={16} />
-                                <span className="hidden md:inline">
-                                    {templates.find((t) => t.id === selectedTemplate)?.name || 'Template'}
-                                </span>
-                                <ChevronDown size={14} className={`transition-transform ${showTemplateDropdown ? 'rotate-180' : ''}`} />
-                            </button>
-                            {showTemplateDropdown && (
-                                <div className="absolute top-full right-0 mt-2 w-56 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-50 py-2">
-                                    {templates.map((template) => (
-                                        <button
-                                            key={template.id}
-                                            onClick={() => {
-                                                setTemplate(template.id);
-                                                setShowTemplateDropdown(false);
-                                            }}
-                                            className={`w-full text-left px-4 py-2.5 text-sm hover:bg-slate-700 transition ${
-                                                selectedTemplate === template.id
-                                                    ? 'text-accent-green bg-accent-green/10'
-                                                    : 'text-slate-300'
-                                            }`}
-                                        >
-                                            <div className="font-medium">{template.name}</div>
-                                            <div className="text-xs text-slate-500">{template.description}</div>
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Color Dropdown */}
-                        <div className="relative">
-                            <button
-                                onClick={() => {
-                                    setShowColorDropdown(!showColorDropdown);
-                                    setShowTemplateDropdown(false);
-                                }}
-                                className="flex items-center gap-2 bg-slate-700 border border-slate-600 px-3 py-2 rounded-lg text-sm text-slate-300 hover:border-slate-500 transition"
-                            >
-                                <Palette size={16} />
-                                <div
-                                    className="w-4 h-4 rounded-full border border-slate-500"
-                                    style={{
-                                        backgroundColor:
-                                            colorPresets.find((c) => c.primary === selectedTheme)?.primary ||
-                                            selectedTheme ||
-                                            '#1e3a8a',
-                                    }}
-                                />
-                                <ChevronDown size={14} className={`transition-transform ${showColorDropdown ? 'rotate-180' : ''}`} />
-                            </button>
-                            {showColorDropdown && (
-                                <div className="absolute top-full right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-50 py-2">
-                                    {colorPresets.map((color) => (
-                                        <button
-                                            key={color.name}
-                                            onClick={() => {
-                                                setCustomThemeColor(color.primary);
-                                                setShowColorDropdown(false);
-                                            }}
-                                            className={`w-full text-left px-4 py-2.5 text-sm hover:bg-slate-700 transition flex items-center gap-3 ${
-                                                selectedTheme === color.primary
-                                                    ? 'text-accent-green bg-accent-green/10'
-                                                    : 'text-slate-300'
-                                            }`}
-                                        >
-                                            <div
-                                                className="w-5 h-5 rounded-full border border-slate-500"
-                                                style={{ backgroundColor: color.primary }}
-                                            />
-                                            {color.name}
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
                         {/* Download Button */}
                         <button
                             onClick={handleDownloadClick}
@@ -424,11 +301,27 @@ function BuilderContent() {
 
                     {/* Preview Panel */}
                     {showPreview && (
-                        <div className="w-1/2 flex flex-col bg-slate-900">
+                        <div className="w-1/2 flex flex-col bg-slate-900 relative">
                             {/* Preview Header */}
                             <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between bg-slate-800/50">
                                 <span className="text-sm font-medium text-slate-300">Live Preview</span>
                                 <div className="flex items-center gap-2">
+                                    {/* Reference Image Toggle - Only show if template has thumbnail */}
+                                    {templateThumbnail && (
+                                        <button
+                                            onClick={() => setShowReferencePanel(!showReferencePanel)}
+                                            className={`p-1.5 rounded transition flex items-center gap-1.5 ${
+                                                showReferencePanel
+                                                    ? 'text-accent-green bg-accent-green/10'
+                                                    : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                                            }`}
+                                            title="Show Reference Image"
+                                        >
+                                            <Image size={16} />
+                                            <span className="text-xs">Reference</span>
+                                        </button>
+                                    )}
+                                    <div className="w-px h-4 bg-slate-700 mx-1" />
                                     <button
                                         onClick={zoomOut}
                                         className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition"
@@ -456,21 +349,43 @@ function BuilderContent() {
                                 </div>
                             </div>
 
-                            {/* Preview Content */}
-                            <div className="flex-1 overflow-auto p-6 flex justify-center">
-                                <div
-                                    className="bg-white shadow-2xl transition-transform origin-top"
-                                    style={{
-                                        width: '210mm',
-                                        minHeight: '297mm',
-                                        transform: `scale(${previewScale})`,
-                                    }}
-                                >
-                                    <div ref={componentRef} className="w-full h-full">
-                                        <ResumePreview />
+                            {/* Preview Content - Paginated Google Docs style */}
+                            <div className="flex-1 overflow-auto">
+                                <PagedPreview ref={componentRef} scale={previewScale} />
+                            </div>
+
+                            {/* Reference Image Panel - Sliding from right */}
+                            {templateThumbnail && showReferencePanel && (
+                                <div className="absolute top-12 right-0 bottom-0 w-80 bg-slate-800 border-l border-slate-700 shadow-xl z-20 flex flex-col">
+                                    {/* Panel Header */}
+                                    <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between bg-slate-800">
+                                        <div className="flex items-center gap-2">
+                                            <Image size={16} className="text-accent-green" />
+                                            <span className="text-sm font-medium text-white">Reference Design</span>
+                                        </div>
+                                        <button
+                                            onClick={() => setShowReferencePanel(false)}
+                                            className="p-1 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition"
+                                        >
+                                            <X size={16} />
+                                        </button>
+                                    </div>
+
+                                    {/* Reference Image */}
+                                    <div className="flex-1 overflow-auto p-4">
+                                        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                                            <img
+                                                src={templateThumbnail}
+                                                alt="Template reference"
+                                                className="w-full h-auto object-contain"
+                                            />
+                                        </div>
+                                        <p className="text-xs text-slate-500 mt-3 text-center">
+                                            Original template design for reference
+                                        </p>
                                     </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     )}
                 </div>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
-import { LogOut, LayoutDashboard } from "lucide-react";
+import { LogOut, LayoutDashboard, Shield } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,6 +21,7 @@ export default function Header() {
     { href: "/features", label: "Features" },
     { href: "/templates", label: "Templates" },
     { href: "/pricing", label: "Pricing" },
+    { href: "/blog", label: "Blog" },
   ];
 
   const isActive = (href: string) => pathname === href;
@@ -71,6 +72,15 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-3">
               {isAuthenticated ? (
                 <>
+                  {user?.role === "admin" && (
+                    <Link
+                      href="/admin"
+                      className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-accent-purple hover:text-accent-purple/80 transition-colors"
+                    >
+                      <Shield size={16} />
+                      Admin
+                    </Link>
+                  )}
                   <Link
                     href="/dashboard"
                     className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
@@ -147,6 +157,16 @@ export default function Header() {
               <div className="pt-4 border-t border-white/5 space-y-2">
                 {isAuthenticated ? (
                   <>
+                    {user?.role === "admin" && (
+                      <Link
+                        href="/admin"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-accent-purple hover:bg-white/5 transition-colors"
+                      >
+                        <Shield size={16} />
+                        Admin Panel
+                      </Link>
+                    )}
                     <Link
                       href="/dashboard"
                       onClick={() => setMobileMenuOpen(false)}

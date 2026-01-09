@@ -1,45 +1,50 @@
 'use client';
 
 import { useResumeStore } from '../../store/useResumeStore';
-import { themes, generateTheme } from '../../lib/themes';
-import ClassicLayout from '../templates/ClassicLayout';
-import SidebarLayout from '../templates/SidebarLayout';
-import HeaderLayout from '../templates/HeaderLayout';
-import MinimalLayout from '../templates/MinimalLayout';
-import CreativeLayout from '../templates/CreativeLayout';
+import { colorPresets, generateTheme, getLayoutType as getBuilderLayoutType } from '@/lib/templates/builder';
+import UnifiedTemplate, { LayoutType } from '../templates/UnifiedTemplate';
 
 export default function ResumePreview() {
     const { resumeData, selectedTemplate, selectedTheme } = useResumeStore();
 
-    // Determine the active theme properties
-    // If it's a custom color, we generate a theme object on the fly
-    // If it's a preset, we might interpret it, but mostly we rely on resumeData.background/fonts/layoutConfig 
-    // being set by the preset action.
-
-    // However, for backward compatibility or direct theme selection (if we keep that), we can derive:
-    const theme = resumeData.customThemeColor
-        ? generateTheme(resumeData.customThemeColor)
-        : {
-            ...generateTheme(resumeData.customThemeColor || '#1e3a8a'), // Fallback to a valid theme object
-            name: 'Current',
-        };
-
-    const TemplateMap = {
-        classic: ClassicLayout,
-        sidebar: SidebarLayout,
-        header: HeaderLayout,
-        minimal: MinimalLayout,
-        creative: CreativeLayout,
+    // Get theme color: check preset first, then custom color, then fallback
+    const getThemeColor = (): string => {
+        // If a preset theme is selected (not 'custom'), use its primary color
+        if (selectedTheme && selectedTheme !== 'custom') {
+            const preset = colorPresets.find(c => c.id === selectedTheme);
+            if (preset) {
+                return preset.primary;
+            }
+        }
+        // Fall back to custom color or default navy
+        return resumeData.customThemeColor || '#1e3a8a';
     };
 
-    // Use the baseLayout from the config to determine which component to render
-    // Fallback to 'classic' if config is missing
-    const baseLayoutId = resumeData.layoutConfig?.baseLayout || 'classic';
-    const SelectedLayout = TemplateMap[baseLayoutId] || ClassicLayout;
+    const theme = generateTheme(getThemeColor());
+
+    // Determine layout type from layoutConfig or builder template
+    const getLayoutType = (): LayoutType => {
+        // Check layoutConfig first (set by store when template is applied)
+        if (resumeData.layoutConfig?.baseLayout) {
+            const base = resumeData.layoutConfig.baseLayout;
+            // Map creative to header (similar bold style)
+            if (base === 'creative') return 'header';
+            if (['classic', 'sidebar', 'header', 'minimal'].includes(base)) {
+                return base as LayoutType;
+            }
+        }
+
+        // Use explicit lookup from builder templates (no more brittle string parsing)
+        return getBuilderLayoutType(selectedTemplate);
+    };
 
     return (
-        <div className="resume-page bg-white">
-            <SelectedLayout data={resumeData} theme={theme} />
+        <div className="resume-page bg-white" style={{ height: '100%' }}>
+            <UnifiedTemplate
+                data={resumeData}
+                theme={theme}
+                layout={getLayoutType()}
+            />
         </div>
     );
 }

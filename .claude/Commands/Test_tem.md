@@ -1,0 +1,1 @@
+Test and verify all templates with playwright from onboarding to AI generate to select templates to builder page..also from templates page to AI generation to builder page, check

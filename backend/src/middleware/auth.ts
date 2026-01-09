@@ -7,6 +7,12 @@ export interface AuthRequest extends Request {
   user?: UserPayload;
 }
 
+interface JWTPayload {
+  sub: string;
+  email: string;
+  role: string;
+}
+
 export const authenticateToken = (req: AuthRequest, res: Response, next: NextFunction): void => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1]; // Bearer TOKEN
@@ -17,10 +23,11 @@ export const authenticateToken = (req: AuthRequest, res: Response, next: NextFun
   }
 
   try {
-    const decoded = jwt.verify(token, config.secretKey) as { sub: string; email: string };
+    const decoded = jwt.verify(token, config.secretKey) as JWTPayload;
     req.user = {
       id: decoded.sub,
       email: decoded.email,
+      role: decoded.role || "user", // Default to user for backward compatibility
     };
     next();
   } catch {
@@ -28,20 +35,18 @@ export const authenticateToken = (req: AuthRequest, res: Response, next: NextFun
   }
 };
 
-export const optionalAuth = (req: AuthRequest, res: Response, next: NextFunction): void => {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-
-  if (token) {
-    try {
-      const decoded = jwt.verify(token, config.secretKey) as { sub: string; email: string };
-      req.user = {
-        id: decoded.sub,
-        email: decoded.email,
-      };
-    } catch {
-      // Token invalid, continue without user
-    }
+// Admin-only middleware - must be used after authenticateToken
+export const requireAdmin = (req: AuthRequest, res: Response, next: NextFunction): void => {
+  if (!req.user) {
+    res.status(401).json({ detail: "Not authenticated" });
+    return;
   }
+
+  if (req.user.role !== "admin") {
+    res.status(403).json({ detail: "Admin access required" });
+    return;
+  }
+
   next();
 };
+

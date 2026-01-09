@@ -1,39 +1,43 @@
 'use client';
 
 import { useState } from 'react';
-import { useResumeStore, BackgroundType, BackgroundPattern } from '../../store/useResumeStore';
-import { colorPresets, backgroundColors, gradientPresets, patterns, fontPresets, fontSizes } from '../../lib/themes';
-import { Check, Minus } from 'lucide-react';
+import { useResumeStore } from '../../store/useResumeStore';
+import { fontPresets, fontSizes } from '../../lib/themes';
+import {
+    singleColorPresets,
+    dualColorPresets,
+    getTemplateColorSchema,
+} from '@/lib/templates/builder';
+import { Check } from 'lucide-react';
 
-type DesignSection = 'color' | 'fonts' | 'background';
+type DesignSection = 'color' | 'fonts';
 
 export default function DesignTab() {
     const [activeSection, setActiveSection] = useState<DesignSection>('color');
-    const { resumeData, setCustomThemeColor, updateBackground, updateFonts } = useResumeStore();
-    const { customThemeColor, background, fonts } = resumeData;
+    const { resumeData, selectedTemplateId, setCustomThemeColor, updateFonts } = useResumeStore();
+    const { customThemeColor, fonts } = resumeData;
 
-    const handlePresetClick = (hex: string) => {
-        setCustomThemeColor(hex);
+    // Get color schema for current template
+    const templateId = selectedTemplateId || 'header-bold';
+    const colorSchema = getTemplateColorSchema(templateId);
+    const isDualColor = colorSchema.schemaType === 'dual';
+
+    // For dual-color templates, we store both colors as "primary|secondary"
+    const handleSingleColorClick = (color: string) => {
+        setCustomThemeColor(color);
     };
 
-    const backgroundTypes: { id: BackgroundType; label: string }[] = [
-        { id: 'solid', label: 'Solid' },
-        { id: 'gradient', label: 'Gradient' },
-        { id: 'pattern', label: 'Pattern' },
-    ];
-
-    const patternIcons: Record<string, React.ReactNode> = {
-        none: <Minus size={16} />,
-        dots: <span className="text-xs">●●</span>,
-        lines: <span className="text-xs">≡</span>,
-        grid: <span className="text-xs">⊞</span>,
-        diagonal: <span className="text-xs">/</span>,
+    const handleDualColorClick = (primary: string, secondary: string) => {
+        // Store both colors separated by pipe
+        setCustomThemeColor(`${primary}|${secondary}`);
     };
+
+    // Parse stored color value
+    const [selectedPrimary, selectedSecondary] = (customThemeColor || '').split('|');
 
     const tabs: { id: DesignSection; label: string }[] = [
-        { id: 'color', label: 'Accent Color' },
+        { id: 'color', label: 'Color Theme' },
         { id: 'fonts', label: 'Fonts' },
-        { id: 'background', label: 'Background Style' },
     ];
 
     return (
@@ -55,82 +59,127 @@ export default function DesignTab() {
                 ))}
             </div>
 
-            {/* Accent Color Section */}
+            {/* Color Theme Section */}
             {activeSection === 'color' && (
-                <div className="space-y-6">
-                    {/* Presets */}
-                    <div className="grid grid-cols-4 gap-3">
-                        {colorPresets.map((color) => {
-                            const isSelected = customThemeColor === color.primary;
-                            return (
-                                <button
-                                    key={color.name}
-                                    onClick={() => handlePresetClick(color.primary)}
-                                    className={`group relative w-full aspect-square rounded-full border-2 transition-all flex items-center justify-center ${
-                                        isSelected ? 'border-white scale-110' : 'border-transparent hover:scale-105'
-                                    }`}
-                                    style={{ backgroundColor: color.primary }}
-                                    title={color.name}
-                                >
-                                    {isSelected && <Check size={16} className="text-white drop-shadow-md" />}
-                                </button>
-                            );
-                        })}
-                    </div>
+                <div className="space-y-4">
+                    <p className="text-sm text-gray-400 mb-2">
+                        {isDualColor
+                            ? 'Choose a color pair for your resume (header + sidebar)'
+                            : 'Choose an accent color for your resume'
+                        }
+                    </p>
 
-                    {/* Custom Color Picker */}
-                    <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                        <label className="text-sm font-medium text-gray-300 mb-3 block">Custom Color</label>
-                        <div className="flex items-center gap-3">
-                            <div className="relative w-10 h-10 rounded-full overflow-hidden border border-border-subtle cursor-pointer">
-                                <input
-                                    type="color"
-                                    value={customThemeColor || '#000000'}
-                                    onChange={(e) => setCustomThemeColor(e.target.value)}
-                                    className="absolute inset-0 w-[150%] h-[150%] -top-1/4 -left-1/4 p-0 m-0 cursor-pointer"
-                                />
-                            </div>
-                            <input
-                                type="text"
-                                value={customThemeColor || ''}
-                                onChange={(e) => setCustomThemeColor(e.target.value)}
-                                placeholder="#000000"
-                                className="bg-bg-primary border border-border-subtle rounded-lg px-3 py-2 text-white text-sm font-mono focus:border-accent-green outline-none w-28"
-                            />
-                            <span className="text-xs text-gray-500">Pick any hex code</span>
+                    {/* Single-Color Presets */}
+                    {!isDualColor && (
+                        <div className="grid grid-cols-5 gap-2">
+                            {singleColorPresets.map((preset) => {
+                                const isSelected = customThemeColor === preset.color;
+                                return (
+                                    <button
+                                        key={preset.id}
+                                        onClick={() => handleSingleColorClick(preset.color)}
+                                        className={`group relative w-full aspect-square rounded-lg border-2 transition-all flex items-center justify-center ${
+                                            isSelected ? 'border-white scale-105 ring-2 ring-white/30' : 'border-transparent hover:scale-105'
+                                        }`}
+                                        style={{ backgroundColor: preset.color }}
+                                        title={preset.name}
+                                    >
+                                        {isSelected && <Check size={14} className="text-white drop-shadow-md" />}
+                                    </button>
+                                );
+                            })}
                         </div>
-                    </div>
+                    )}
+
+                    {/* Dual-Color Presets */}
+                    {isDualColor && (
+                        <div className="grid grid-cols-5 gap-2">
+                            {dualColorPresets.map((preset) => {
+                                const isSelected = selectedPrimary === preset.primary && selectedSecondary === preset.secondary;
+                                return (
+                                    <button
+                                        key={preset.id}
+                                        onClick={() => handleDualColorClick(preset.primary, preset.secondary)}
+                                        className={`group relative w-full rounded-lg border-2 transition-all overflow-hidden ${
+                                            isSelected ? 'border-white scale-105 ring-2 ring-white/30' : 'border-transparent hover:scale-105'
+                                        }`}
+                                        title={preset.name}
+                                    >
+                                        {/* Primary color (top) */}
+                                        <div
+                                            className="w-full h-6"
+                                            style={{ backgroundColor: preset.primary }}
+                                        />
+                                        {/* Secondary color (bottom) */}
+                                        <div
+                                            className="w-full h-4"
+                                            style={{ backgroundColor: preset.secondary }}
+                                        />
+                                        {isSelected && (
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <Check size={14} className="text-white drop-shadow-md" />
+                                            </div>
+                                        )}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    )}
+
+                    {/* Selected color indicator */}
+                    {customThemeColor && (
+                        <div className="flex items-center gap-2 text-sm text-gray-400">
+                            {isDualColor ? (
+                                <>
+                                    <div className="flex rounded overflow-hidden">
+                                        <div className="w-4 h-4" style={{ backgroundColor: selectedPrimary }} />
+                                        <div className="w-4 h-4" style={{ backgroundColor: selectedSecondary }} />
+                                    </div>
+                                    <span>
+                                        Selected: {dualColorPresets.find(p => p.primary === selectedPrimary)?.name || 'Custom'}
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="w-4 h-4 rounded" style={{ backgroundColor: customThemeColor }} />
+                                    <span>
+                                        Selected: {singleColorPresets.find(p => p.color === customThemeColor)?.name || 'Custom'}
+                                    </span>
+                                </>
+                            )}
+                        </div>
+                    )}
                 </div>
             )}
 
             {/* Fonts Section */}
             {activeSection === 'fonts' && (
-                <div className="space-y-4">
+                <div className="space-y-3">
                     {/* Heading Font */}
-                    <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                        <label className="text-sm font-medium text-gray-300 mb-3 block">Heading Font</label>
-                        <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-bg-card-light border border-border-subtle rounded-lg p-3">
+                        <label className="text-xs font-medium text-gray-400 mb-2 block">Heading Font</label>
+                        <div className="grid grid-cols-3 gap-1.5">
                             {fontPresets.map((font) => {
                                 const isSelected = fonts.heading === font.name;
                                 return (
                                     <button
                                         key={font.name}
                                         onClick={() => updateFonts({ heading: font.name })}
-                                        className={`relative text-left p-3 rounded-lg border transition-all ${
+                                        className={`relative text-left px-2 py-1.5 rounded border transition-all ${
                                             isSelected
                                                 ? 'border-accent-green bg-accent-green/10'
                                                 : 'border-border-subtle hover:border-gray-500'
                                         }`}
                                     >
                                         <span
-                                            className="block text-white text-lg font-semibold truncate"
+                                            className="block text-white text-xs font-medium truncate"
                                             style={{ fontFamily: font.fontFamily }}
                                         >
                                             {font.name}
                                         </span>
                                         {isSelected && (
-                                            <div className="absolute top-2 right-2 text-accent-green">
-                                                <Check size={14} />
+                                            <div className="absolute top-1 right-1 text-accent-green">
+                                                <Check size={10} />
                                             </div>
                                         )}
                                     </button>
@@ -140,31 +189,30 @@ export default function DesignTab() {
                     </div>
 
                     {/* Body Font */}
-                    <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                        <label className="text-sm font-medium text-gray-300 mb-3 block">Body Font</label>
-                        <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-bg-card-light border border-border-subtle rounded-lg p-3">
+                        <label className="text-xs font-medium text-gray-400 mb-2 block">Body Font</label>
+                        <div className="grid grid-cols-3 gap-1.5">
                             {fontPresets.map((font) => {
                                 const isSelected = fonts.body === font.name;
                                 return (
                                     <button
                                         key={font.name}
                                         onClick={() => updateFonts({ body: font.name })}
-                                        className={`relative text-left p-3 rounded-lg border transition-all ${
+                                        className={`relative text-left px-2 py-1.5 rounded border transition-all ${
                                             isSelected
                                                 ? 'border-accent-green bg-accent-green/10'
                                                 : 'border-border-subtle hover:border-gray-500'
                                         }`}
                                     >
                                         <span
-                                            className="block text-white text-sm truncate"
+                                            className="block text-white text-xs truncate"
                                             style={{ fontFamily: font.fontFamily }}
                                         >
-                                            The quick brown fox jumps
+                                            {font.name}
                                         </span>
-                                        <span className="text-xs text-gray-500 mt-1 block">{font.name}</span>
                                         {isSelected && (
-                                            <div className="absolute top-2 right-2 text-accent-green">
-                                                <Check size={14} />
+                                            <div className="absolute top-1 right-1 text-accent-green">
+                                                <Check size={10} />
                                             </div>
                                         )}
                                     </button>
@@ -174,27 +222,27 @@ export default function DesignTab() {
                     </div>
 
                     {/* Font Size */}
-                    <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                        <label className="text-sm font-medium text-gray-300 mb-3 block">Text Size</label>
-                        <div className="flex gap-2">
+                    <div className="bg-bg-card-light border border-border-subtle rounded-lg p-3">
+                        <label className="text-xs font-medium text-gray-400 mb-2 block">Text Size</label>
+                        <div className="flex gap-1.5">
                             {(Object.entries(fontSizes) as [string, { name: string }][]).map(([key, value]) => {
                                 const isSelected = fonts.size === key;
                                 return (
                                     <button
                                         key={key}
                                         onClick={() => updateFonts({ size: key as 'small' | 'medium' | 'large' })}
-                                        className={`flex-1 py-3 px-4 rounded-lg border-2 text-center transition-all ${
+                                        className={`flex-1 py-2 px-2 rounded border text-center transition-all ${
                                             isSelected
                                                 ? 'border-accent-green bg-accent-green/10 text-accent-green'
                                                 : 'border-border-subtle text-gray-400 hover:border-gray-500'
                                         }`}
                                     >
                                         <span className={`block font-medium ${
-                                            key === 'small' ? 'text-xs' : key === 'medium' ? 'text-sm' : 'text-base'
+                                            key === 'small' ? 'text-[10px]' : key === 'medium' ? 'text-xs' : 'text-sm'
                                         }`}>
                                             Aa
                                         </span>
-                                        <span className="text-xs mt-1 block">{value.name}</span>
+                                        <span className="text-[10px] mt-0.5 block">{value.name}</span>
                                     </button>
                                 );
                             })}
@@ -202,18 +250,18 @@ export default function DesignTab() {
                     </div>
 
                     {/* Font Preview */}
-                    <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                        <label className="text-sm font-medium text-gray-300 mb-3 block">Preview</label>
-                        <div className="bg-white rounded-lg p-4 text-gray-800">
+                    <div className="bg-bg-card-light border border-border-subtle rounded-lg p-3">
+                        <label className="text-xs font-medium text-gray-400 mb-2 block">Preview</label>
+                        <div className="bg-white rounded p-3 text-gray-800">
                             <h3
-                                className="text-xl font-bold mb-2"
+                                className="text-base font-bold mb-1"
                                 style={{ fontFamily: fontPresets.find(f => f.name === fonts.heading)?.fontFamily }}
                             >
                                 John Smith
                             </h3>
                             <p
                                 className={`text-gray-600 ${
-                                    fonts.size === 'small' ? 'text-xs' : fonts.size === 'medium' ? 'text-sm' : 'text-base'
+                                    fonts.size === 'small' ? 'text-[10px]' : fonts.size === 'medium' ? 'text-xs' : 'text-sm'
                                 }`}
                                 style={{ fontFamily: fontPresets.find(f => f.name === fonts.body)?.fontFamily }}
                             >
@@ -224,203 +272,6 @@ export default function DesignTab() {
                 </div>
             )}
 
-            {/* Background Section */}
-            {activeSection === 'background' && (
-                <div className="space-y-4">
-                    {/* Background Type Selector */}
-                    <div className="flex gap-2 mb-5">
-                        {backgroundTypes.map((type) => (
-                            <button
-                                key={type.id}
-                                onClick={() => updateBackground({ type: type.id })}
-                                className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
-                                    background.type === type.id
-                                        ? 'bg-accent-green text-bg-primary'
-                                        : 'bg-bg-card-light border border-border-subtle text-gray-300 hover:border-gray-500'
-                                }`}
-                            >
-                                {type.label}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Solid Color Options */}
-                    {background.type === 'solid' && (
-                        <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                            <label className="text-sm font-medium text-gray-300 mb-3 block">Background Color</label>
-                            <div className="grid grid-cols-4 gap-2">
-                                {backgroundColors.map((bg) => {
-                                    const isSelected = background.color === bg.color;
-                                    return (
-                                        <button
-                                            key={bg.name}
-                                            onClick={() => updateBackground({ color: bg.color })}
-                                            className={`relative aspect-square rounded-lg border-2 transition-all ${
-                                                isSelected ? 'border-accent-green scale-105' : 'border-border-subtle hover:border-gray-400'
-                                            }`}
-                                            style={{ backgroundColor: bg.color }}
-                                            title={bg.name}
-                                        >
-                                            {isSelected && (
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <Check size={16} className="text-gray-600" />
-                                                </div>
-                                            )}
-                                        </button>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Gradient Options */}
-                    {background.type === 'gradient' && (
-                        <div className="space-y-4">
-                            <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                                <label className="text-sm font-medium text-gray-300 mb-3 block">Gradient Presets</label>
-                                <div className="grid grid-cols-3 gap-2">
-                                    {gradientPresets.map((preset) => {
-                                        const isSelected = background.color === preset.start && background.gradientEnd === preset.end;
-                                        return (
-                                            <button
-                                                key={preset.name}
-                                                onClick={() => updateBackground({
-                                                    color: preset.start,
-                                                    gradientEnd: preset.end,
-                                                    gradientDirection: preset.direction,
-                                                })}
-                                                className={`relative h-12 rounded-lg border-2 transition-all ${
-                                                    isSelected ? 'border-accent-green scale-105' : 'border-border-subtle hover:border-gray-400'
-                                                }`}
-                                                style={{
-                                                    background: `linear-gradient(${preset.direction}, ${preset.start}, ${preset.end})`,
-                                                }}
-                                                title={preset.name}
-                                            >
-                                                {isSelected && (
-                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                        <Check size={16} className="text-gray-600" />
-                                                    </div>
-                                                )}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-
-                            {/* Custom Gradient Colors */}
-                            <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                                <label className="text-sm font-medium text-gray-300 mb-3 block">Custom Gradient</label>
-                                <div className="flex items-center gap-3">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-xs text-gray-500">Start</span>
-                                        <input
-                                            type="color"
-                                            value={background.color}
-                                            onChange={(e) => updateBackground({ color: e.target.value })}
-                                            className="w-8 h-8 rounded cursor-pointer border border-border-subtle"
-                                        />
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-xs text-gray-500">End</span>
-                                        <input
-                                            type="color"
-                                            value={background.gradientEnd || '#f8fafc'}
-                                            onChange={(e) => updateBackground({ gradientEnd: e.target.value })}
-                                            className="w-8 h-8 rounded cursor-pointer border border-border-subtle"
-                                        />
-                                    </div>
-                                    <select
-                                        value={background.gradientDirection || 'to bottom'}
-                                        onChange={(e) => updateBackground({ gradientDirection: e.target.value })}
-                                        className="bg-bg-primary border border-border-subtle rounded-lg px-3 py-1.5 text-white text-xs focus:border-accent-green outline-none"
-                                    >
-                                        <option value="to bottom">↓ Top to Bottom</option>
-                                        <option value="to right">→ Left to Right</option>
-                                        <option value="to bottom right">↘ Diagonal</option>
-                                        <option value="to top right">↗ Diagonal Up</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Pattern Options */}
-                    {background.type === 'pattern' && (
-                        <div className="space-y-4">
-                            {/* Base Color for Pattern */}
-                            <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                                <label className="text-sm font-medium text-gray-300 mb-3 block">Base Color</label>
-                                <div className="grid grid-cols-4 gap-2">
-                                    {backgroundColors.map((bg) => {
-                                        const isSelected = background.color === bg.color;
-                                        return (
-                                            <button
-                                                key={bg.name}
-                                                onClick={() => updateBackground({ color: bg.color })}
-                                                className={`relative aspect-square rounded-lg border-2 transition-all ${
-                                                    isSelected ? 'border-accent-green scale-105' : 'border-border-subtle hover:border-gray-400'
-                                                }`}
-                                                style={{ backgroundColor: bg.color }}
-                                                title={bg.name}
-                                            >
-                                                {isSelected && (
-                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                        <Check size={16} className="text-gray-600" />
-                                                    </div>
-                                                )}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-
-                            {/* Pattern Selection */}
-                            <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                                <label className="text-sm font-medium text-gray-300 mb-3 block">Pattern Type</label>
-                                <div className="grid grid-cols-5 gap-2">
-                                    {patterns.map((pat) => {
-                                        const isSelected = background.pattern === pat.id;
-                                        return (
-                                            <button
-                                                key={pat.id}
-                                                onClick={() => updateBackground({ pattern: pat.id as BackgroundPattern })}
-                                                className={`flex flex-col items-center justify-center py-3 rounded-lg border-2 transition-all ${
-                                                    isSelected
-                                                        ? 'border-accent-green bg-accent-green/10 text-accent-green'
-                                                        : 'border-border-subtle text-gray-400 hover:border-gray-500'
-                                                }`}
-                                                title={pat.name}
-                                            >
-                                                <span className="text-lg mb-1">{patternIcons[pat.id]}</span>
-                                                <span className="text-xs">{pat.name}</span>
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-
-                            {/* Pattern Opacity */}
-                            {background.pattern !== 'none' && (
-                                <div className="bg-bg-card-light border border-border-subtle rounded-xl p-4">
-                                    <div className="flex items-center justify-between mb-3">
-                                        <label className="text-sm font-medium text-gray-300">Pattern Opacity</label>
-                                        <span className="text-xs text-gray-500">{background.patternOpacity}%</span>
-                                    </div>
-                                    <input
-                                        type="range"
-                                        min="5"
-                                        max="50"
-                                        value={background.patternOpacity}
-                                        onChange={(e) => updateBackground({ patternOpacity: parseInt(e.target.value) })}
-                                        className="w-full h-2 bg-bg-primary rounded-lg appearance-none cursor-pointer accent-accent-green"
-                                    />
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
-            )}
         </div>
     );
 }

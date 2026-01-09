@@ -1,11 +1,14 @@
 import { create } from 'zustand';
-import { LayoutConfig, ThemeColor, layoutPresets, colorPresets, fontPresets, ALL_THEMES, DesignPreset } from '../lib/themes';
+import { persist, createJSONStorage } from 'zustand/middleware';
+import { LayoutConfig, layoutPresets } from '../lib/themes';
+import { colorPresets } from '@/lib/templates/builder';
 
 export interface Experience {
     id: string;
     title: string;
     company: string;
-    location: string;
+    city: string;
+    country: string;
     startDate: string;
     endDate: string;
     current: boolean;
@@ -16,11 +19,15 @@ export interface Education {
     id: string;
     school: string;
     degree: string;
-    location: string;
+    city: string;
+    country: string;
     startDate: string;
     endDate: string;
     current: boolean;
     description: string;
+    gpa?: string;
+    honors?: string;
+    clubs?: string;
 }
 
 export interface Skill {
@@ -29,10 +36,61 @@ export interface Skill {
     level: number; // 1-5 or similar
 }
 
+// Languages
+export interface Language {
+    id: string;
+    name: string;
+    proficiency: 'native' | 'fluent' | 'advanced' | 'intermediate' | 'basic';
+    level: number; // 0-100 for visual bars
+}
+
+// Interests/Hobbies
+export interface Interest {
+    id: string;
+    name: string;
+    icon?: string; // Optional icon identifier
+}
+
+// Strengths (soft skills)
+export interface Strength {
+    id: string;
+    name: string;
+    level: number; // 0-100 for percentage circles
+}
+
+// Certifications
+export interface Certification {
+    id: string;
+    name: string;
+    issuer: string;
+    date: string;
+    url?: string;
+}
+
+// Awards
+export interface Award {
+    id: string;
+    title: string;
+    issuer: string;
+    date: string;
+    description?: string;
+}
+
+// References
+export interface Reference {
+    id: string;
+    name: string;
+    title: string;
+    company: string;
+    phone?: string;
+    email?: string;
+}
+
 export type ImageShape = 'circle' | 'rounded' | 'square';
+export type IdDocumentType = 'id' | 'passport' | 'driving_license' | '';
 
 export type BackgroundType = 'solid' | 'gradient' | 'pattern';
-export type BackgroundPattern = 'none' | 'dots' | 'lines' | 'grid' | 'diagonal';
+export type BackgroundPattern = 'none' | 'dots' | 'lines' | 'grid' | 'diagonal' | 'crosshatch' | 'chevron' | 'hexagon' | 'waves' | 'diamond';
 
 export interface BackgroundSettings {
     type: BackgroundType;
@@ -61,21 +119,38 @@ export interface ResumeData {
         jobTitle: string;
         profileImage: string; // Base64 or URL
         imageShape: ImageShape;
+        nationality: string;
+        idType: IdDocumentType;
+        idNumber: string;
+        // Social links
+        twitter?: string;
+        github?: string;
+        dribbble?: string;
+        behance?: string;
+        instagram?: string;
     };
     experience: Experience[];
     education: Education[];
     skills: Skill[];
+    // New sections
+    languages: Language[];
+    interests: Interest[];
+    strengths: Strength[];
+    certifications: Certification[];
+    awards: Award[];
+    references: Reference[];
+    // Styling
     background: BackgroundSettings;
     fonts: FontSettings;
     customThemeColor?: string;
-    layoutConfig?: LayoutConfig; // NEW: Store layout configuration
+    layoutConfig?: LayoutConfig; // Store layout configuration
 }
 
 interface ResumeState {
     resumeData: ResumeData;
     selectedTemplate: string;
     selectedTheme: string;
-    selectedDesignPresetId?: string; // Track which preset is active
+    selectedTemplateId: string | null; // Exact React component ID (e.g., 'header-dark')
 
     // Actions
     setResumeData: (data: Partial<ResumeData>) => void; // Bulk setter for AI-populated data
@@ -90,21 +165,44 @@ interface ResumeState {
     updateSkill: (id: string, skill: Partial<Skill>) => void;
     removeSkill: (id: string) => void;
 
+    // New section actions
+    addLanguage: (lang: Language) => void;
+    updateLanguage: (id: string, lang: Partial<Language>) => void;
+    removeLanguage: (id: string) => void;
+    addInterest: (interest: Interest) => void;
+    updateInterest: (id: string, interest: Partial<Interest>) => void;
+    removeInterest: (id: string) => void;
+    addStrength: (strength: Strength) => void;
+    updateStrength: (id: string, strength: Partial<Strength>) => void;
+    removeStrength: (id: string) => void;
+    addCertification: (cert: Certification) => void;
+    updateCertification: (id: string, cert: Partial<Certification>) => void;
+    removeCertification: (id: string) => void;
+    addAward: (award: Award) => void;
+    updateAward: (id: string, award: Partial<Award>) => void;
+    removeAward: (id: string) => void;
+    addReference: (ref: Reference) => void;
+    updateReference: (id: string, ref: Partial<Reference>) => void;
+    removeReference: (id: string) => void;
+
     // UI State Setters
     setTemplate: (templateId: string) => void;
+    setTemplateId: (templateId: string | null) => void; // Set exact React component ID
     setTheme: (themeId: string) => void;
     setCustomThemeColor: (color: string) => void;
-
-    // New Action for Design Presets
-    applyDesignPreset: (presetId: string) => void;
 
     // Granular Updates
     updateBackground: (settings: Partial<BackgroundSettings>) => void;
     updateFonts: (settings: Partial<FontSettings>) => void;
     updateLayout: (config: Partial<LayoutConfig>) => void;
+
+    // Draft management
+    clearDraft: () => void;
 }
 
-export const useResumeStore = create<ResumeState>((set, get) => ({
+export const useResumeStore = create<ResumeState>()(
+    persist(
+        (set, get) => ({
     resumeData: {
         personalInfo: {
             fullName: '',
@@ -117,10 +215,24 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
             jobTitle: '',
             profileImage: '',
             imageShape: 'circle',
+            nationality: '',
+            idType: '',
+            idNumber: '',
+            twitter: '',
+            github: '',
+            dribbble: '',
+            behance: '',
+            instagram: '',
         },
         experience: [],
         education: [],
         skills: [],
+        languages: [],
+        interests: [],
+        strengths: [],
+        certifications: [],
+        awards: [],
+        references: [],
         background: {
             type: 'solid',
             color: '#ffffff',
@@ -139,7 +251,7 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
     },
     selectedTemplate: 'classic',
     selectedTheme: 'navy',
-    selectedDesignPresetId: '',
+    selectedTemplateId: null,
 
     setResumeData: (data) =>
         set((state) => ({
@@ -238,10 +350,171 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
             },
         })),
 
+    // Language actions
+    addLanguage: (lang) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                languages: [...state.resumeData.languages, lang],
+            },
+        })),
+
+    updateLanguage: (id, lang) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                languages: state.resumeData.languages.map((l) =>
+                    l.id === id ? { ...l, ...lang } : l
+                ),
+            },
+        })),
+
+    removeLanguage: (id) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                languages: state.resumeData.languages.filter((l) => l.id !== id),
+            },
+        })),
+
+    // Interest actions
+    addInterest: (interest) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                interests: [...state.resumeData.interests, interest],
+            },
+        })),
+
+    updateInterest: (id, interest) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                interests: state.resumeData.interests.map((i) =>
+                    i.id === id ? { ...i, ...interest } : i
+                ),
+            },
+        })),
+
+    removeInterest: (id) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                interests: state.resumeData.interests.filter((i) => i.id !== id),
+            },
+        })),
+
+    // Strength actions
+    addStrength: (strength) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                strengths: [...state.resumeData.strengths, strength],
+            },
+        })),
+
+    updateStrength: (id, strength) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                strengths: state.resumeData.strengths.map((s) =>
+                    s.id === id ? { ...s, ...strength } : s
+                ),
+            },
+        })),
+
+    removeStrength: (id) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                strengths: state.resumeData.strengths.filter((s) => s.id !== id),
+            },
+        })),
+
+    // Certification actions
+    addCertification: (cert) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                certifications: [...state.resumeData.certifications, cert],
+            },
+        })),
+
+    updateCertification: (id, cert) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                certifications: state.resumeData.certifications.map((c) =>
+                    c.id === id ? { ...c, ...cert } : c
+                ),
+            },
+        })),
+
+    removeCertification: (id) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                certifications: state.resumeData.certifications.filter((c) => c.id !== id),
+            },
+        })),
+
+    // Award actions
+    addAward: (award) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                awards: [...state.resumeData.awards, award],
+            },
+        })),
+
+    updateAward: (id, award) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                awards: state.resumeData.awards.map((a) =>
+                    a.id === id ? { ...a, ...award } : a
+                ),
+            },
+        })),
+
+    removeAward: (id) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                awards: state.resumeData.awards.filter((a) => a.id !== id),
+            },
+        })),
+
+    // Reference actions
+    addReference: (ref) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                references: [...state.resumeData.references, ref],
+            },
+        })),
+
+    updateReference: (id, ref) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                references: state.resumeData.references.map((r) =>
+                    r.id === id ? { ...r, ...ref } : r
+                ),
+            },
+        })),
+
+    removeReference: (id) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                references: state.resumeData.references.filter((r) => r.id !== id),
+            },
+        })),
+
     setCustomThemeColor: (color) =>
         set((state) => ({
             selectedTheme: 'custom',
-            selectedDesignPresetId: '', // Clear preset if customizing
             resumeData: { ...state.resumeData, customThemeColor: color }
         })),
 
@@ -256,37 +529,15 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
         }));
     },
 
+    setTemplateId: (templateId) => set({ selectedTemplateId: templateId }),
+
     setTheme: (themeId) => set((state) => ({
         selectedTheme: themeId,
-        selectedDesignPresetId: '',
         resumeData: { ...state.resumeData, customThemeColor: '' }
     })),
 
-    applyDesignPreset: (presetId) => {
-        const preset = ALL_THEMES.find(p => p.id === presetId);
-        if (!preset) return;
-
-        // Find the full layout config for this template ID
-        // Note: preset.templateId matches layoutPresets[].id
-        const layoutConfig = layoutPresets.find(l => l.id === preset.templateId) || layoutPresets[0];
-
-        set((state) => ({
-            selectedDesignPresetId: presetId,
-            selectedTemplate: layoutConfig.baseLayout, // Update base renderer
-            selectedTheme: preset.theme.id || 'custom',
-            resumeData: {
-                ...state.resumeData,
-                background: preset.background,
-                fonts: preset.fonts,
-                layoutConfig: layoutConfig,
-                customThemeColor: '', // We use the preset's theme colors
-            }
-        }));
-    },
-
     updateBackground: (settings) =>
         set((state) => ({
-            selectedDesignPresetId: '', // Clear preset as we are diverging
             resumeData: {
                 ...state.resumeData,
                 background: { ...state.resumeData.background, ...settings },
@@ -295,7 +546,6 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
 
     updateFonts: (settings) =>
         set((state) => ({
-            selectedDesignPresetId: '',
             resumeData: {
                 ...state.resumeData,
                 fonts: { ...state.resumeData.fonts, ...settings },
@@ -304,10 +554,74 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
 
     updateLayout: (config) =>
         set((state) => ({
-            selectedDesignPresetId: '',
             resumeData: {
                 ...state.resumeData,
                 layoutConfig: { ...state.resumeData.layoutConfig!, ...config },
             },
         })),
-}));
+
+    // Clear draft action
+    clearDraft: () => set({
+        resumeData: {
+            personalInfo: {
+                fullName: '',
+                email: '',
+                phone: '',
+                location: '',
+                website: '',
+                linkedin: '',
+                summary: '',
+                jobTitle: '',
+                profileImage: '',
+                imageShape: 'circle',
+                nationality: '',
+                idType: '',
+                idNumber: '',
+                twitter: '',
+                github: '',
+                dribbble: '',
+                behance: '',
+                instagram: '',
+            },
+            experience: [],
+            education: [],
+            skills: [],
+            languages: [],
+            interests: [],
+            strengths: [],
+            certifications: [],
+            awards: [],
+            references: [],
+            background: {
+                type: 'solid',
+                color: '#ffffff',
+                gradientEnd: '#f8fafc',
+                gradientDirection: 'to bottom right',
+                pattern: 'none',
+                patternOpacity: 10,
+            },
+            fonts: {
+                heading: 'Inter',
+                body: 'Inter',
+                size: 'medium',
+            },
+            customThemeColor: '',
+            layoutConfig: layoutPresets[0],
+        },
+        selectedTemplate: 'classic',
+        selectedTheme: 'navy',
+        selectedTemplateId: null,
+    }),
+}),
+        {
+            name: 'resume-draft', // localStorage key
+            storage: createJSONStorage(() => localStorage),
+            // Only persist these fields (exclude functions)
+            partialize: (state) => ({
+                resumeData: state.resumeData,
+                selectedTemplate: state.selectedTemplate,
+                selectedTheme: state.selectedTheme,
+            }),
+        }
+    )
+);

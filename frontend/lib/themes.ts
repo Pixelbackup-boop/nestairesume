@@ -242,6 +242,11 @@ export const patterns = [
     { id: 'grid', name: 'Grid' },
     { id: 'lines', name: 'Lines' },
     { id: 'diagonal', name: 'Diagonal' },
+    { id: 'crosshatch', name: 'Cross' },
+    { id: 'chevron', name: 'Chevron' },
+    { id: 'hexagon', name: 'Hex' },
+    { id: 'waves', name: 'Waves' },
+    { id: 'diamond', name: 'Diamond' },
 ];
 
 export const gradients = [
@@ -249,119 +254,6 @@ export const gradients = [
     { id: 'soft-fade', name: 'Soft Fade', direction: 'to bottom', secondary: '#f8fafc' },
     { id: 'corner-glow', name: 'Corner Glow', direction: 'to bottom right', secondary: '#f1f5f9' },
 ];
-
-// --- Generative Logic ---
-
-export interface DesignPreset {
-    id: string;
-    name: string;
-    description: string;
-    thumbnailColors: string[];
-    // Properties to apply
-    templateId: string;
-    theme: ThemeColor;
-    fonts: FontSettings;
-    background: BackgroundSettings;
-}
-
-const generateAllThemes = (): DesignPreset[] => {
-    const allPresets: DesignPreset[] = [];
-    let counter = 0;
-
-    // We want a mix, not strictly every single permutation (which would be thousands)
-    // We will generate categories of variations
-
-    // 1. Core Professional (Solid backgrounds, standard layouts)
-    layoutPresets.forEach(layout => {
-        colorPresets.forEach(color => {
-            // Pick a fitting font
-            const font = fontPairings[counter % 5]; // Use top 5 fonts
-
-            allPresets.push({
-                id: `pro-${layout.id}-${color.id}`,
-                name: `${color.name} ${layout.name}`,
-                description: `Professional ${color.name} design with ${layout.name} layout.`,
-                thumbnailColors: [color.primary, color.secondary, '#ffffff'],
-                templateId: layout.id,
-                theme: color,
-                fonts: {
-                    heading: font.heading,
-                    body: font.body,
-                    size: 'medium'
-                },
-                background: {
-                    type: 'solid',
-                    color: '#ffffff',
-                    pattern: 'none',
-                    patternOpacity: 0
-                }
-            });
-            counter++;
-        });
-    });
-
-    // 2. Modern Creative (Gradients + Patterns)
-    layoutPresets.filter(l => l.id !== 'classic').forEach(layout => {
-        colorPresets.forEach(color => {
-            const font = fontPairings[(counter % 5) + 5] || fontPairings[0];
-            const pattern = patterns[(counter % 4) + 1]; // Skip 'none'
-
-            allPresets.push({
-                id: `creative-${layout.id}-${color.id}-${pattern.id}`,
-                name: `${color.name} ${pattern.name}`,
-                description: `Creative design with ${pattern.name} pattern in ${color.name}.`,
-                thumbnailColors: [color.primary, color.accent, pattern.id === 'dots' ? '#e2e8f0' : '#f1f5f9'],
-                templateId: layout.id,
-                theme: color,
-                fonts: {
-                    heading: font.heading,
-                    body: font.body,
-                    size: 'medium'
-                },
-                background: {
-                    type: 'pattern',
-                    color: '#ffffff',
-                    pattern: pattern.id as any,
-                    patternOpacity: 5
-                }
-            });
-            counter++;
-        });
-    });
-
-    // 3. Elegant Gradients
-    layoutPresets.forEach(layout => {
-        colorPresets.slice(0, 10).forEach(color => {
-            const font = fontPairings[3]; // Playfair
-            allPresets.push({
-                id: `elegant-${layout.id}-${color.id}-grad`,
-                name: `Elegant ${color.name}`,
-                description: `Soft gradient background in ${color.name} tones.`,
-                thumbnailColors: [color.primary, color.accent, color.secondary],
-                templateId: layout.id,
-                theme: color,
-                fonts: {
-                    heading: font.heading,
-                    body: font.body,
-                    size: 'medium'
-                },
-                background: {
-                    type: 'gradient',
-                    color: '#ffffff',
-                    gradientEnd: color.accent,
-                    gradientDirection: 'to bottom right',
-                    pattern: 'none',
-                    patternOpacity: 0
-                }
-            });
-            counter++;
-        });
-    });
-
-    return allPresets;
-};
-
-export const ALL_THEMES = generateAllThemes();
 
 // Keep backward compatibility for 'themes' object used in ResumePreview.tsx
 // by populating it with the color presets
@@ -402,6 +294,21 @@ export const getPatternSVG = (pattern: string, color: string, opacity: number): 
             return `url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Cpath d='M40 0v40M0 40h40' stroke='${encodeURIComponent(patternColor)}' stroke-opacity='${opacityValue}' stroke-width='0.5'/%3E%3C/svg%3E")`;
         case 'diagonal':
             return `url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10L10 0' stroke='${encodeURIComponent(patternColor)}' stroke-opacity='${opacityValue}' stroke-width='0.5'/%3E%3C/svg%3E")`;
+        case 'crosshatch':
+            // Elegant crosshatch - two diagonal lines crossing
+            return `url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 16L16 0M0 0L16 16' stroke='${encodeURIComponent(patternColor)}' stroke-opacity='${opacityValue}' stroke-width='0.5'/%3E%3C/svg%3E")`;
+        case 'chevron':
+            // Subtle chevron/arrow pattern
+            return `url("data:image/svg+xml,%3Csvg width='24' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 12L12 0L24 12' fill='none' stroke='${encodeURIComponent(patternColor)}' stroke-opacity='${opacityValue}' stroke-width='0.5'/%3E%3C/svg%3E")`;
+        case 'hexagon':
+            // Honeycomb hexagon pattern
+            return `url("data:image/svg+xml,%3Csvg width='28' height='49' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 0L28 8.5V25.5L14 34L0 25.5V8.5L14 0zM14 49L28 40.5V23.5' fill='none' stroke='${encodeURIComponent(patternColor)}' stroke-opacity='${opacityValue}' stroke-width='0.5'/%3E%3C/svg%3E")`;
+        case 'waves':
+            // Subtle wave lines
+            return `url("data:image/svg+xml,%3Csvg width='40' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6C5 6 5 2 10 2S15 6 20 6S25 2 30 2S35 6 40 6' fill='none' stroke='${encodeURIComponent(patternColor)}' stroke-opacity='${opacityValue}' stroke-width='0.5'/%3E%3C/svg%3E")`;
+        case 'diamond':
+            // Small diamond/rhombus pattern
+            return `url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 0L16 8L8 16L0 8Z' fill='none' stroke='${encodeURIComponent(patternColor)}' stroke-opacity='${opacityValue}' stroke-width='0.5'/%3E%3C/svg%3E")`;
         default:
             return 'none';
     }

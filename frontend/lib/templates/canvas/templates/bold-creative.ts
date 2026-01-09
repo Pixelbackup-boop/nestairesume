@@ -1,0 +1,325 @@
+// Canvas Template: Bold Creative
+import type { CanvasTemplate } from '@/store/useCanvasStore';
+import { createText, createShape, createIcon, createImage } from '../helpers';
+
+export const boldCreativeTemplate: CanvasTemplate = {
+    id: 'bold-creative',
+    name: 'Bold Creative',
+    thumbnail: '/templates/bold-creative.png',
+    category: 'bold',
+    backgroundColor: '#0f0f23',
+    elements: [
+        // Accent shape
+        createShape({
+            x: 0,
+            y: 0,
+            width: 595,
+            height: 180,
+            fill: '#00dc82',
+        }),
+
+        // Profile circle placeholder
+        createShape({
+            x: 40,
+            y: 90,
+            width: 140,
+            height: 140,
+            shapeType: 'circle',
+            fill: '#0f0f23',
+            stroke: '#ffffff',
+            strokeWidth: 4,
+        }),
+        // Profile image
+        createImage({
+            src: '/Img/headshot.png',
+            x: 40,
+            y: 90,
+            width: 140,
+            height: 140,
+        }),
+
+        // Name
+        createText({
+            text: 'EMMA',
+            x: 200,
+            y: 50,
+            width: 355,
+            fontSize: 48,
+            fontWeight: 'bold',
+            fill: '#0f0f23',
+        }),
+        createText({
+            text: 'RODRIGUEZ',
+            x: 200,
+            y: 100,
+            width: 355,
+            fontSize: 48,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        }),
+        createText({
+            text: 'MARKETING DIRECTOR',
+            x: 200,
+            y: 155,
+            width: 355,
+            fontSize: 14,
+            fill: '#0f0f23',
+            letterSpacing: 3,
+        }),
+
+        // Contact info
+        createIcon({ iconName: 'Email', x: 40, y: 250, width: 18, height: 18, fill: '#00dc82' }),
+        createText({
+            text: 'emma.rodriguez@email.com',
+            x: 68,
+            y: 250,
+            width: 200,
+            fontSize: 11,
+            fill: '#ffffff',
+        }),
+        createIcon({ iconName: 'Phone', x: 40, y: 278, width: 18, height: 18, fill: '#00dc82' }),
+        createText({
+            text: '+1 (555) 234-5678',
+            x: 68,
+            y: 278,
+            width: 200,
+            fontSize: 11,
+            fill: '#ffffff',
+        }),
+        createIcon({ iconName: 'Location', x: 40, y: 306, width: 18, height: 18, fill: '#00dc82' }),
+        createText({
+            text: 'Los Angeles, CA',
+            x: 68,
+            y: 306,
+            width: 200,
+            fontSize: 11,
+            fill: '#ffffff',
+        }),
+
+        // Social icons
+        createIcon({ iconName: 'LinkedIn', x: 40, y: 350, width: 20, height: 20, fill: '#00dc82' }),
+        createIcon({ iconName: 'Twitter', x: 75, y: 350, width: 20, height: 20, fill: '#00dc82' }),
+        createIcon({ iconName: 'Website', x: 110, y: 350, width: 20, height: 20, fill: '#00dc82' }),
+
+        // About section
+        createText({
+            text: 'ABOUT',
+            x: 300,
+            y: 210,
+            width: 255,
+            fontSize: 12,
+            fontWeight: 'bold',
+            fill: '#00dc82',
+            letterSpacing: 2,
+        }),
+        createText({
+            text: 'Award-winning Marketing Director with 10+ years driving brand growth for Fortune 500 companies. Expert in digital transformation, brand strategy, and team leadership. Generated $50M+ in campaign revenue.',
+            x: 300,
+            y: 235,
+            width: 255,
+            height: 80,
+            fontSize: 10,
+            fill: '#cccccc',
+            lineHeight: 1.6,
+        }),
+
+        // Experience
+        createText({
+            text: 'EXPERIENCE',
+            x: 40,
+            y: 400,
+            width: 515,
+            fontSize: 12,
+            fontWeight: 'bold',
+            fill: '#00dc82',
+            letterSpacing: 2,
+        }),
+
+        // Job 1
+        createShape({
+            x: 40,
+            y: 425,
+            width: 4,
+            height: 70,
+            fill: '#00dc82',
+        }),
+        createText({
+            text: 'Marketing Director',
+            x: 55,
+            y: 425,
+            width: 250,
+            fontSize: 13,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        }),
+        createText({
+            text: 'Nike Inc.  |  2020 - Present',
+            x: 55,
+            y: 443,
+            width: 250,
+            fontSize: 10,
+            fill: '#888888',
+        }),
+        createText({
+            text: 'Lead global marketing initiatives for $15B brand. Increased social media engagement by 200%. Launched viral campaigns with 500M+ impressions.',
+            x: 55,
+            y: 463,
+            width: 240,
+            height: 45,
+            fontSize: 9,
+            fill: '#aaaaaa',
+            lineHeight: 1.5,
+        }),
+
+        // Job 2
+        createShape({
+            x: 310,
+            y: 425,
+            width: 4,
+            height: 70,
+            fill: '#00dc82',
+        }),
+        createText({
+            text: 'Senior Marketing Manager',
+            x: 325,
+            y: 425,
+            width: 230,
+            fontSize: 13,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        }),
+        createText({
+            text: 'Apple  |  2016 - 2020',
+            x: 325,
+            y: 443,
+            width: 230,
+            fontSize: 10,
+            fill: '#888888',
+        }),
+        createText({
+            text: 'Managed $30M annual marketing budget. Built team of 12 marketers. Drove 45% YoY growth in key product categories.',
+            x: 325,
+            y: 463,
+            width: 220,
+            height: 45,
+            fontSize: 9,
+            fill: '#aaaaaa',
+            lineHeight: 1.5,
+        }),
+
+        // Job 3
+        createShape({
+            x: 40,
+            y: 520,
+            width: 4,
+            height: 70,
+            fill: '#00dc82',
+        }),
+        createText({
+            text: 'Marketing Manager',
+            x: 55,
+            y: 520,
+            width: 250,
+            fontSize: 13,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        }),
+        createText({
+            text: 'Coca-Cola  |  2013 - 2016',
+            x: 55,
+            y: 538,
+            width: 250,
+            fontSize: 10,
+            fill: '#888888',
+        }),
+        createText({
+            text: 'Developed integrated marketing campaigns across 20 markets. Increased brand awareness by 35% in target demographics.',
+            x: 55,
+            y: 558,
+            width: 240,
+            height: 45,
+            fontSize: 9,
+            fill: '#aaaaaa',
+            lineHeight: 1.5,
+        }),
+
+        // Education
+        createText({
+            text: 'EDUCATION',
+            x: 40,
+            y: 620,
+            width: 515,
+            fontSize: 12,
+            fontWeight: 'bold',
+            fill: '#00dc82',
+            letterSpacing: 2,
+        }),
+        createText({
+            text: 'MBA, Marketing',
+            x: 40,
+            y: 645,
+            width: 200,
+            fontSize: 12,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        }),
+        createText({
+            text: 'Wharton School, UPenn  •  2011-2013',
+            x: 40,
+            y: 663,
+            width: 250,
+            fontSize: 10,
+            fill: '#888888',
+        }),
+        createText({
+            text: 'BA, Communications',
+            x: 310,
+            y: 645,
+            width: 200,
+            fontSize: 12,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        }),
+        createText({
+            text: 'UCLA  •  2007-2011',
+            x: 310,
+            y: 663,
+            width: 250,
+            fontSize: 10,
+            fill: '#888888',
+        }),
+
+        // Skills
+        createText({
+            text: 'SKILLS',
+            x: 40,
+            y: 710,
+            width: 515,
+            fontSize: 12,
+            fontWeight: 'bold',
+            fill: '#00dc82',
+            letterSpacing: 2,
+        }),
+        // Skill pills - Row 1
+        createShape({ x: 40, y: 735, width: 100, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Brand Strategy', x: 45, y: 742, width: 90, fontSize: 9, fill: '#ffffff', align: 'center' }),
+        createShape({ x: 150, y: 735, width: 95, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Digital Marketing', x: 150, y: 742, width: 95, fontSize: 9, fill: '#ffffff', align: 'center' }),
+        createShape({ x: 255, y: 735, width: 80, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Team Lead', x: 255, y: 742, width: 80, fontSize: 9, fill: '#ffffff', align: 'center' }),
+        createShape({ x: 345, y: 735, width: 70, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Analytics', x: 345, y: 742, width: 70, fontSize: 9, fill: '#ffffff', align: 'center' }),
+        createShape({ x: 425, y: 735, width: 50, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'SEO', x: 425, y: 742, width: 50, fontSize: 9, fill: '#ffffff', align: 'center' }),
+        createShape({ x: 485, y: 735, width: 65, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Content', x: 485, y: 742, width: 65, fontSize: 9, fill: '#ffffff', align: 'center' }),
+
+        // Skill pills - Row 2
+        createShape({ x: 40, y: 770, width: 75, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Budgeting', x: 40, y: 777, width: 75, fontSize: 9, fill: '#ffffff', align: 'center' }),
+        createShape({ x: 125, y: 770, width: 90, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Social Media', x: 125, y: 777, width: 90, fontSize: 9, fill: '#ffffff', align: 'center' }),
+        createShape({ x: 225, y: 770, width: 100, height: 28, fill: '#1a1a3e', cornerRadius: 14 }),
+        createText({ text: 'Public Relations', x: 225, y: 777, width: 100, fontSize: 9, fill: '#ffffff', align: 'center' }),
+    ],
+};

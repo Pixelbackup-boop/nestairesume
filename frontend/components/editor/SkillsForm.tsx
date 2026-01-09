@@ -1,14 +1,19 @@
 'use client';
 
 import { useResumeStore, Skill } from '../../store/useResumeStore';
-import { Plus, X } from 'lucide-react';
+import { Plus, X, ChevronDown, ChevronUp, Globe, Zap, Heart } from 'lucide-react';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import CollapsibleSection from './CollapsibleSection';
+import LanguagesSection from './LanguagesSection';
+import StrengthsSection from './StrengthsSection';
+import InterestsSection from './InterestsSection';
 
 export default function SkillsForm() {
-    const { resumeData, addSkill, removeSkill } = useResumeStore();
-    const { skills } = resumeData;
+    const { resumeData, addSkill, updateSkill, removeSkill } = useResumeStore();
+    const { skills, languages, strengths, interests } = resumeData;
     const [newSkill, setNewSkill] = useState('');
+    const [expandedSkillId, setExpandedSkillId] = useState<string | null>(null);
 
     const handleAdd = (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,13 +26,34 @@ export default function SkillsForm() {
         };
         addSkill(skill);
         setNewSkill('');
+        setExpandedSkillId(skill.id); // Auto-expand to set level
+    };
+
+    const getLevelLabel = (level: number) => {
+        const labels = ['Beginner', 'Basic', 'Intermediate', 'Advanced', 'Expert'];
+        return labels[level - 1] || 'Intermediate';
+    };
+
+    const renderLevelDots = (level: number) => {
+        return (
+            <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map((dot) => (
+                    <div
+                        key={dot}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                            dot <= level ? 'bg-accent-green' : 'bg-gray-600'
+                        }`}
+                    />
+                ))}
+            </div>
+        );
     };
 
     return (
         <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
             <div>
                 <h2 className="text-2xl font-bold text-white mb-2">Skills</h2>
-                <p className="text-gray-400 text-sm">Add your technical and soft skills.</p>
+                <p className="text-gray-400 text-sm">Add your technical and soft skills with proficiency levels.</p>
             </div>
 
             <form onSubmit={handleAdd} className="flex gap-2">
@@ -47,19 +73,67 @@ export default function SkillsForm() {
                 </button>
             </form>
 
-            <div className="flex flex-wrap gap-2">
+            {/* Skills List with Level Control */}
+            <div className="space-y-2">
                 {skills.map((skill) => (
                     <div
                         key={skill.id}
-                        className="group flex items-center gap-2 bg-bg-card border border-border-subtle px-3 py-1.5 rounded-full text-sm text-gray-200"
+                        className="bg-bg-card-light border border-border-subtle rounded-lg overflow-hidden"
                     >
-                        <span>{skill.name}</span>
-                        <button
-                            onClick={() => removeSkill(skill.id)}
-                            className="text-gray-500 hover:text-red-400 transition"
+                        {/* Skill Header */}
+                        <div
+                            className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-white/5 transition"
+                            onClick={() => setExpandedSkillId(expandedSkillId === skill.id ? null : skill.id)}
                         >
-                            <X size={14} />
-                        </button>
+                            <div className="flex items-center gap-3">
+                                <span className="text-white font-medium">{skill.name}</span>
+                                {renderLevelDots(skill.level)}
+                                <span className="text-xs text-gray-500">{getLevelLabel(skill.level)}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        removeSkill(skill.id);
+                                    }}
+                                    className="text-gray-500 hover:text-red-400 transition p-1"
+                                >
+                                    <X size={16} />
+                                </button>
+                                {expandedSkillId === skill.id ? (
+                                    <ChevronUp size={16} className="text-gray-500" />
+                                ) : (
+                                    <ChevronDown size={16} className="text-gray-500" />
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Expanded Level Slider */}
+                        {expandedSkillId === skill.id && (
+                            <div className="px-4 pb-4 pt-2 border-t border-border-subtle">
+                                <label className="text-xs text-gray-400 mb-2 block">Proficiency Level</label>
+                                <div className="flex items-center gap-4">
+                                    <input
+                                        type="range"
+                                        min={1}
+                                        max={5}
+                                        value={skill.level}
+                                        onChange={(e) => updateSkill(skill.id, { level: Number(e.target.value) })}
+                                        className="flex-1 accent-accent-green h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                                    />
+                                    <div className="flex items-center gap-2 min-w-[120px]">
+                                        {renderLevelDots(skill.level)}
+                                        <span className="text-sm text-accent-green font-medium">
+                                            {skill.level}/5
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>Beginner</span>
+                                    <span>Expert</span>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 ))}
 
@@ -68,7 +142,7 @@ export default function SkillsForm() {
                 )}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-6">
                 <h3 className="text-sm font-medium text-gray-400 mb-3">Suggested Skills</h3>
                 <div className="flex flex-wrap gap-2">
                     {['JavaScript', 'TypeScript', 'Node.js', 'React', 'Project Management', 'Communication', 'Python', 'SQL'].map(s => (
@@ -76,15 +150,50 @@ export default function SkillsForm() {
                             key={s}
                             onClick={() => {
                                 if (!skills.find(sk => sk.name === s)) {
-                                    addSkill({ id: uuidv4(), name: s, level: 3 });
+                                    const newId = uuidv4();
+                                    addSkill({ id: newId, name: s, level: 3 });
+                                    setExpandedSkillId(newId);
                                 }
                             }}
-                            className="px-3 py-1 bg-bg-card-light border border-border-subtle rounded-md text-xs text-gray-400 hover:text-white hover:border-gray-500 transition"
+                            disabled={skills.some(sk => sk.name === s)}
+                            className="px-3 py-1 bg-bg-card-light border border-border-subtle rounded-md text-xs text-gray-400 hover:text-white hover:border-gray-500 transition disabled:opacity-30 disabled:cursor-not-allowed"
                         >
                             + {s}
                         </button>
                     ))}
                 </div>
+            </div>
+
+            {/* Additional Sections */}
+            <div className="mt-8 pt-6 border-t border-border-subtle space-y-4">
+                <h3 className="text-lg font-semibold text-white mb-4">Additional Information</h3>
+
+                <CollapsibleSection
+                    title="Languages"
+                    icon={Globe}
+                    badge={languages.length}
+                    defaultOpen={false}
+                >
+                    <LanguagesSection />
+                </CollapsibleSection>
+
+                <CollapsibleSection
+                    title="Strengths"
+                    icon={Zap}
+                    badge={strengths.length}
+                    defaultOpen={false}
+                >
+                    <StrengthsSection />
+                </CollapsibleSection>
+
+                <CollapsibleSection
+                    title="Interests & Hobbies"
+                    icon={Heart}
+                    badge={interests.length}
+                    defaultOpen={false}
+                >
+                    <InterestsSection />
+                </CollapsibleSection>
             </div>
         </div>
     );

@@ -17,7 +17,8 @@ export default function ExperienceForm() {
             id: crypto.randomUUID(), // Changed from uuidv4()
             title: '',
             company: '',
-            location: '',
+            city: '',
+            country: '',
             startDate: '',
             endDate: '',
             current: false,
@@ -113,6 +114,28 @@ export default function ExperienceForm() {
                                         onChange={(e) => handleChange(exp.id, 'company', e.target.value)}
                                         placeholder="Acme Corp"
                                         className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none" // Original styling
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-300">City</label>
+                                    <input
+                                        type="text"
+                                        value={exp.city}
+                                        onChange={(e) => handleChange(exp.id, 'city', e.target.value)}
+                                        placeholder="San Francisco"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-300">Country</label>
+                                    <input
+                                        type="text"
+                                        value={exp.country}
+                                        onChange={(e) => handleChange(exp.id, 'country', e.target.value)}
+                                        placeholder="United States"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 

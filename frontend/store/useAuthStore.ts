@@ -5,6 +5,9 @@ interface User {
     id: string;
     email: string;
     name: string;
+    role: 'user' | 'admin';
+    subscriptionTier?: string;
+    creditsRemaining?: number;
 }
 
 interface AuthState {
@@ -15,6 +18,7 @@ interface AuthState {
     login: (email: string, password: string) => Promise<void>;
     register: (email: string, password: string, fullName: string) => Promise<void>;
     logout: () => void;
+    refreshUser: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -35,12 +39,20 @@ export const useAuthStore = create<AuthState>((set) => ({
             const { access_token } = response.data;
             localStorage.setItem('token', access_token);
 
-            // 2. Set User State (For MVP we assume success means authenticated)
-            // Ideally we would fetch user profile here. 
-            // mocking user object for now based on email
+            // 2. Fetch user profile to get role and other details
+            const userResponse = await api.get('/auth/me');
+            const userData = userResponse.data;
+
             set({
                 isAuthenticated: true,
-                user: { id: '1', email, name: 'User' },
+                user: {
+                    id: userData.id,
+                    email: userData.email,
+                    name: userData.name,
+                    role: userData.role || 'user',
+                    subscriptionTier: userData.subscriptionTier,
+                    creditsRemaining: userData.creditsRemaining,
+                },
                 isLoading: false
             });
 
@@ -74,5 +86,31 @@ export const useAuthStore = create<AuthState>((set) => ({
     logout: () => {
         localStorage.removeItem('token');
         set({ user: null, isAuthenticated: false });
+    },
+
+    refreshUser: async () => {
+        const token = localStorage.getItem('token');
+        if (!token) return;
+
+        try {
+            const userResponse = await api.get('/auth/me');
+            const userData = userResponse.data;
+
+            set({
+                isAuthenticated: true,
+                user: {
+                    id: userData.id,
+                    email: userData.email,
+                    name: userData.name,
+                    role: userData.role || 'user',
+                    subscriptionTier: userData.subscriptionTier,
+                    creditsRemaining: userData.creditsRemaining,
+                },
+            });
+        } catch (error) {
+            // Token might be invalid, logout
+            localStorage.removeItem('token');
+            set({ user: null, isAuthenticated: false });
+        }
     },
 }));

@@ -13,10 +13,10 @@ export const verifyPassword = async (password: string, hashedPassword: string): 
   return bcrypt.compare(password, hashedPassword);
 };
 
-export const createAccessToken = (userId: string, email: string): string => {
+export const createAccessToken = (userId: string, email: string, role: string): string => {
   const expiresIn = config.accessTokenExpireMinutes * 60; // Convert to seconds
   return jwt.sign(
-    { sub: userId, email },
+    { sub: userId, email, role },
     config.secretKey,
     { expiresIn }
   );
@@ -53,12 +53,17 @@ export const loginUser = async (email: string, password: string) => {
     throw new Error("Invalid email or password");
   }
 
+  // Check if user is suspended
+  if (user.isSuspended) {
+    throw new Error("Account suspended. Please contact support.");
+  }
+
   const isValid = await verifyPassword(password, user.hashedPassword);
   if (!isValid) {
     throw new Error("Invalid email or password");
   }
 
-  const accessToken = createAccessToken(user.id, user.email);
+  const accessToken = createAccessToken(user.id, user.email, user.role);
 
   return {
     access_token: accessToken,
@@ -73,8 +78,12 @@ export const getUserById = async (userId: string) => {
       id: true,
       email: true,
       name: true,
+      role: true,
       subscriptionTier: true,
+      subscriptionStatus: true,
       creditsRemaining: true,
+      isSuspended: true,
+      createdAt: true,
     },
   });
 };

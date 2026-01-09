@@ -211,7 +211,7 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
    PRINT STYLES - A4 Multi-Page Resume Support
    =========================================== */
 
-/* A4 page setup */
+/* A4 page setup - margin: 0 removes browser header/footer area */
 @page {
   size: A4;
   margin: 0;
@@ -226,14 +226,15 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
     padding: 0 !important;
   }
 
-  /* The resume container should fill the page */
+  /* The resume container should fill the page with internal margins */
   .resume-page {
     width: 210mm !important;
     min-height: 297mm !important;
-    padding: 0 !important;
+    padding: 10mm !important; /* Internal padding replaces @page margin */
     margin: 0 !important;
     box-shadow: none !important;
     page-break-after: auto;
+    box-sizing: border-box !important;
   }
 
   /* Prevent sections from breaking in the middle */
@@ -265,6 +266,20 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
     display: none !important;
   }
 
+  /* Hide UI elements for native browser print (Ctrl+P) */
+  nav, aside, header, footer, button,
+  [role="navigation"], [role="complementary"], [role="banner"] {
+    display: none !important;
+  }
+
+  /* Only show the resume preview area */
+  .pages-preview-container {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
+
   /* Ensure colors print correctly */
   * {
     -webkit-print-color-adjust: exact !important;
@@ -292,4 +307,205 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
 .resume-entry {
   page-break-inside: avoid;
   break-inside: avoid;
+}
+
+/* ===========================================
+   PAGE BREAK INDICATORS - Visual A4 page breaks
+   =========================================== */
+
+/* Page break indicator lines in preview (hidden in print) */
+.page-break-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 2px dashed #64748b;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.page-break-indicator::before {
+  content: attr(data-page);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #334155;
+  color: #94a3b8;
+  padding: 2px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media print {
+  .page-break-indicator {
+    display: none !important;
+  }
+}
+
+/* ===========================================
+   PAGINATED PREVIEW - Google Docs style pages
+   =========================================== */
+
+/* Container with gray background like print preview */
+.pages-preview-container {
+  background: #525659;
+  padding: 34px 24px 24px 24px; /* Extra top padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-height: 100%;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* Individual A4 page card */
+.page-card {
+  width: 210mm;
+  height: 297mm;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Content wrapper inside page card */
+.page-card-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Hidden measuring container - never show */
+.measure-container {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Print styles for paginated preview */
+@media print {
+  /* Reset container for print */
+  .pages-preview-container {
+    background: transparent !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    width: 210mm !important;
+    margin: 0 !important;
+    transform: none !important;
+    display: block !important;
+  }
+
+  /* Hide all page cards except the first one (which contains all content) */
+  .page-card {
+    display: none !important;
+  }
+
+  .page-card:first-child {
+    display: block !important;
+    box-shadow: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    width: 210mm !important;
+  }
+
+  /* Reset content positioning so it flows naturally */
+  .page-card:first-child .page-card-content {
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* Hide the measuring container in print */
+  .measure-container {
+    display: none !important;
+  }
+
+  /* Let browser handle page breaks naturally */
+  .resume-page {
+    width: 210mm !important;
+  }
+}
+
+/* ===========================================
+   BLOG PROSE STYLES - Typography for articles
+   =========================================== */
+
+.prose-custom {
+  color: #d1d5db;
+  line-height: 1.75;
+}
+
+.prose-custom > * + * {
+  margin-top: 1.25rem;
+}
+
+/* Code block syntax highlighting */
+.prose-custom pre code {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+.prose-custom pre code .hljs-keyword,
+.prose-custom pre code .hljs-selector-tag {
+  color: #c792ea;
+}
+
+.prose-custom pre code .hljs-string,
+.prose-custom pre code .hljs-attr {
+  color: #c3e88d;
+}
+
+.prose-custom pre code .hljs-number,
+.prose-custom pre code .hljs-literal {
+  color: #f78c6c;
+}
+
+.prose-custom pre code .hljs-comment {
+  color: #676e95;
+  font-style: italic;
+}
+
+.prose-custom pre code .hljs-function,
+.prose-custom pre code .hljs-title {
+  color: #82aaff;
+}
+
+.prose-custom pre code .hljs-variable,
+.prose-custom pre code .hljs-template-variable {
+  color: #f07178;
+}
+
+.prose-custom pre code .hljs-type,
+.prose-custom pre code .hljs-class {
+  color: #ffcb6b;
+}
+
+.prose-custom pre code .hljs-built_in {
+  color: #89ddff;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Scroll margin for anchor links */
+.scroll-mt-20 {
+  scroll-margin-top: 5rem;
 }

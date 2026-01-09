@@ -5,8 +5,15 @@ import { config } from "./config/env";
 // Import routes
 import authRoutes from "./routes/auth";
 import resumeRoutes from "./routes/resumes";
-import aiRoutes from "./routes/ai";
-import exportRoutes from "./routes/export";
+import adminRoutes from "./routes/admin";
+import blogRoutes from "./routes/blog";
+import paymentRoutes from "./routes/payments";
+import webhookRoutes from "./routes/webhooks";
+import autoBlogRoutes from "./routes/autoBlog";
+import pdfRoutes from "./routes/pdf";
+
+// Import scheduler
+import { startScheduler } from "./services/schedulerService";
 
 const app = express();
 
@@ -15,8 +22,12 @@ app.use(cors({
   origin: config.corsOrigins,
   credentials: true,
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+// Stripe webhook needs raw body - must be before json parser
+app.use("/api/v1/webhooks/stripe", express.raw({ type: "application/json" }));
+
+app.use(express.json({ limit: '10mb' }));  // Increased for base64 images
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Health check
 app.get("/", (_req, res) => {
@@ -34,11 +45,18 @@ app.get("/health", (_req, res) => {
 // API Routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/resumes", resumeRoutes);
-app.use("/api/v1/ai", aiRoutes);
-app.use("/api/v1/export", exportRoutes);
+app.use("/api/v1/admin", adminRoutes);
+app.use("/api/v1/blog", blogRoutes);
+app.use("/api/v1/payments", paymentRoutes);
+app.use("/api/v1/webhooks", webhookRoutes);
+app.use("/api/v1/admin/auto-blog", autoBlogRoutes);
+app.use("/api/v1/pdf", pdfRoutes);
 
 // Start server
 app.listen(config.port, config.host, () => {
   console.log(`🚀 Server running at http://${config.host}:${config.port}`);
   console.log(`📚 API endpoints at http://${config.host}:${config.port}/api/v1`);
+
+  // Start auto-blog scheduler
+  startScheduler();
 });

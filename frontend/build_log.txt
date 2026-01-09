@@ -1,0 +1,121 @@
+
+> frontend@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/elw/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/elw/Documents/Test/AI/AI-Resume-Builder/frontend/package-lock.json
+
+▲ Next.js 16.1.1 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 4 errors:
+./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx:11:1
+Export presetColors doesn't exist in target module
+[0m [90m  9 |[39m [36mimport[39m [33mResumePreview[39m [36mfrom[39m [32m'../../components/preview/ResumePreview'[39m[33m;[39m
+ [90m 10 |[39m [36mimport[39m { useResumeStore } [36mfrom[39m [32m'../../store/useResumeStore'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { templates[33m,[39m presetColors } [36mfrom[39m [32m'../../lib/themes'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m'next/link'[39m[33m;[39m
+ [90m 13 |[39m [36mimport[39m { useReactToPrint } [36mfrom[39m [32m'react-to-print'[39m[33m;[39m
+ [90m 14 |[39m [36mimport[39m { [33mPrinter[39m[33m,[39m [33mChevronDown[39m[33m,[39m [33mLayout[39m[33m,[39m [33mPalette[39m[33m,[39m [33mSparkles[39m } [36mfrom[39m [32m'lucide-react'[39m[33m;[39m[0m
+
+The export presetColors was not found in module [project]/Documents/Test/AI/AI-Resume-Builder/frontend/lib/themes.ts [app-client] (ecmascript).
+Did you mean to import colorPresets?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component Browser]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component SSR]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+
+./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx:11:1
+Export presetColors doesn't exist in target module
+[0m [90m  9 |[39m [36mimport[39m [33mResumePreview[39m [36mfrom[39m [32m'../../components/preview/ResumePreview'[39m[33m;[39m
+ [90m 10 |[39m [36mimport[39m { useResumeStore } [36mfrom[39m [32m'../../store/useResumeStore'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { templates[33m,[39m presetColors } [36mfrom[39m [32m'../../lib/themes'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m'next/link'[39m[33m;[39m
+ [90m 13 |[39m [36mimport[39m { useReactToPrint } [36mfrom[39m [32m'react-to-print'[39m[33m;[39m
+ [90m 14 |[39m [36mimport[39m { [33mPrinter[39m[33m,[39m [33mChevronDown[39m[33m,[39m [33mLayout[39m[33m,[39m [33mPalette[39m[33m,[39m [33mSparkles[39m } [36mfrom[39m [32m'lucide-react'[39m[33m;[39m[0m
+
+The export presetColors was not found in module [project]/Documents/Test/AI/AI-Resume-Builder/frontend/lib/themes.ts [app-ssr] (ecmascript).
+Did you mean to import colorPresets?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component Browser]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component SSR]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+
+./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx:4:1
+Export presetColors doesn't exist in target module
+[0m [90m 2 |[39m
+ [90m 3 |[39m [36mimport[39m { useResumeStore[33m,[39m [33mBackgroundType[39m[33m,[39m [33mBackgroundPattern[39m } [36mfrom[39m [32m'../../store/useResumeStore'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { templates[33m,[39m presetColors[33m,[39m backgroundColors[33m,[39m gradientPresets[33m,[39m patterns[33m,[39m fontPresets[33m,[39m fontSizes } [36mfrom[39m [32m'../../lib/themes'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mPalette[39m[33m,[39m [33mLayout[39m[33m,[39m [33mImage[39m[33m,[39m [33mMinus[39m[33m,[39m [33mType[39m } [36mfrom[39m [32m'lucide-react'[39m[33m;[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mDesignTab[39m() {[0m
+
+The export presetColors was not found in module [project]/Documents/Test/AI/AI-Resume-Builder/frontend/lib/themes.ts [app-client] (ecmascript).
+Did you mean to import colorPresets?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx [Client Component Browser]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component Browser]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx [Client Component SSR]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component SSR]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+
+./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx:4:1
+Export presetColors doesn't exist in target module
+[0m [90m 2 |[39m
+ [90m 3 |[39m [36mimport[39m { useResumeStore[33m,[39m [33mBackgroundType[39m[33m,[39m [33mBackgroundPattern[39m } [36mfrom[39m [32m'../../store/useResumeStore'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { templates[33m,[39m presetColors[33m,[39m backgroundColors[33m,[39m gradientPresets[33m,[39m patterns[33m,[39m fontPresets[33m,[39m fontSizes } [36mfrom[39m [32m'../../lib/themes'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mPalette[39m[33m,[39m [33mLayout[39m[33m,[39m [33mImage[39m[33m,[39m [33mMinus[39m[33m,[39m [33mType[39m } [36mfrom[39m [32m'lucide-react'[39m[33m;[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mDesignTab[39m() {[0m
+
+The export presetColors was not found in module [project]/Documents/Test/AI/AI-Resume-Builder/frontend/lib/themes.ts [app-ssr] (ecmascript).
+Did you mean to import colorPresets?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx [Client Component Browser]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component Browser]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx [Client Component SSR]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Client Component SSR]
+    ./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx [Server Component]
+
+
+    at <unknown> (./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx:11:1)
+    at <unknown> (./Documents/Test/AI/AI-Resume-Builder/frontend/app/builder/page.tsx:11:1)
+    at <unknown> (./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx:4:1)
+    at <unknown> (./Documents/Test/AI/AI-Resume-Builder/frontend/components/editor/DesignTab.tsx:4:1)

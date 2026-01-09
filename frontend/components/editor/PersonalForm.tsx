@@ -1,15 +1,18 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useResumeStore, ImageShape } from '../../store/useResumeStore';
-import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Circle, Square, RectangleHorizontal } from 'lucide-react';
-import api from '../../lib/api';
+import { useResumeStore, ImageShape, IdDocumentType } from '../../store/useResumeStore';
+import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Circle, Square, RectangleHorizontal, Flag, CreditCard, ChevronDown, Share2, Users } from 'lucide-react';
+import { generateSummaryOnly } from '../../lib/aiResumeGenerator';
 import Image from 'next/image';
 import ImageCropper from './ImageCropper';
+import CollapsibleSection from './CollapsibleSection';
+import SocialLinksSection from './SocialLinksSection';
+import ReferencesSection from './ReferencesSection';
 
 export default function PersonalForm() {
   const { resumeData, updatePersonalInfo } = useResumeStore();
-  const { personalInfo } = resumeData;
+  const { personalInfo, references } = resumeData;
   const [isGenerating, setIsGenerating] = useState(false);
   const [showCropper, setShowCropper] = useState(false);
   const [tempImage, setTempImage] = useState<string>('');
@@ -21,6 +24,13 @@ export default function PersonalForm() {
     { id: 'square', label: 'Square', icon: Square },
   ];
 
+  const idDocumentTypes: { value: IdDocumentType; label: string }[] = [
+    { value: '', label: 'Select document type' },
+    { value: 'id', label: 'National ID' },
+    { value: 'passport', label: 'Passport' },
+    { value: 'driving_license', label: 'Driving License' },
+  ];
+
   const getShapeClass = (shape: ImageShape) => {
     switch (shape) {
       case 'circle': return 'rounded-full';
@@ -30,7 +40,7 @@ export default function PersonalForm() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     updatePersonalInfo({ [name]: value });
   };
@@ -86,20 +96,16 @@ export default function PersonalForm() {
     updatePersonalInfo({ imageShape: shape });
   };
 
-  const handleGenerateSummary = async () => {
+  const handleGenerateSummary = () => {
     if (!personalInfo.jobTitle) return;
     setIsGenerating(true);
-    try {
-      const response = await api.post('/ai/generate-summary', {
-        job_title: personalInfo.jobTitle,
-        experience: "Generated based on job title"
-      });
-      updatePersonalInfo({ summary: response.data.summary });
-    } catch (error) {
-      console.error("AI Generation failed", error);
-    } finally {
+
+    // Small delay for visual feedback
+    setTimeout(() => {
+      const summary = generateSummaryOnly(personalInfo.jobTitle, 'mid');
+      updatePersonalInfo({ summary });
       setIsGenerating(false);
-    }
+    }, 500);
   };
 
   return (
@@ -109,92 +115,72 @@ export default function PersonalForm() {
         <p className="text-gray-400 text-sm">Start with your contact details and professional summary.</p>
       </div>
 
-      {/* Profile Image Upload */}
-      <div className="bg-bg-card-light border border-border-subtle rounded-xl p-5">
-        <label className="text-sm font-medium text-gray-300 mb-4 block">Profile Photo</label>
-
-        <div className="flex items-start gap-6">
-          {/* Image Preview */}
-          <div className="relative group">
-            <div className={`w-28 h-28 overflow-hidden bg-bg-card border-2 border-dashed border-border-subtle group-hover:border-accent-green/50 transition-colors ${getShapeClass(personalInfo.imageShape || 'circle')}`}>
-              {personalInfo.profileImage ? (
-                <Image
-                  src={personalInfo.profileImage}
-                  alt="Profile"
-                  width={112}
-                  height={112}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center text-gray-500">
-                  <User size={32} />
-                  <span className="text-xs mt-1">No photo</span>
-                </div>
-              )}
-            </div>
-
-            {/* Upload overlay */}
+      {/* Profile Image Upload - Compact */}
+      <div className="flex items-center gap-4">
+        <div className="relative group">
+          <div className={`w-16 h-16 overflow-hidden bg-bg-card-light border-2 border-dashed border-border-subtle group-hover:border-accent-green/50 transition-colors ${getShapeClass(personalInfo.imageShape || 'circle')}`}>
+            {personalInfo.profileImage ? (
+              <Image
+                src={personalInfo.profileImage}
+                alt="Profile"
+                width={64}
+                height={64}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-500">
+                <User size={24} />
+              </div>
+            )}
+          </div>
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className={`absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity ${getShapeClass(personalInfo.imageShape || 'circle')}`}
+          >
+            <Camera size={18} className="text-white" />
+          </button>
+          {personalInfo.profileImage && (
+            <button
+              onClick={handleRemoveImage}
+              className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg z-10"
+            >
+              <X size={12} />
+            </button>
+          )}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleImageSelect}
+            className="hidden"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="text-sm font-medium text-gray-300 block mb-2">Profile Photo</label>
+          <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => fileInputRef.current?.click()}
-              className={`absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity ${getShapeClass(personalInfo.imageShape || 'circle')}`}
+              className="px-3 py-1.5 text-xs font-medium text-accent-green border border-accent-green/30 rounded-lg hover:bg-accent-green/10 transition"
             >
-              <Camera size={24} className="text-white" />
+              {personalInfo.profileImage ? 'Change' : 'Upload'}
             </button>
-
-            {/* Remove button */}
             {personalInfo.profileImage && (
-              <button
-                onClick={handleRemoveImage}
-                className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg z-10"
-              >
-                <X size={14} />
-              </button>
-            )}
-
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*"
-              onChange={handleImageSelect}
-              className="hidden"
-            />
-          </div>
-
-          {/* Controls */}
-          <div className="flex-1 space-y-4">
-            <div>
-              <p className="text-xs text-gray-500 mb-3">
-                Upload a professional headshot. You can crop and adjust after selecting.
-              </p>
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                className="px-4 py-2 text-sm font-medium text-accent-green border border-accent-green/30 rounded-lg hover:bg-accent-green/10 transition"
-              >
-                {personalInfo.profileImage ? 'Change Photo' : 'Upload Photo'}
-              </button>
-            </div>
-
-            {/* Shape Options */}
-            {personalInfo.profileImage && (
-              <div>
-                <label className="text-xs font-medium text-gray-400 mb-2 block">Photo Shape</label>
-                <div className="flex gap-2">
-                  {shapes.map((shape) => (
-                    <button
-                      key={shape.id}
-                      onClick={() => handleShapeChange(shape.id)}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-sm transition ${
-                        personalInfo.imageShape === shape.id
-                          ? 'border-accent-green bg-accent-green/10 text-accent-green'
-                          : 'border-border-subtle text-gray-400 hover:border-gray-500 hover:text-gray-300'
-                      }`}
-                    >
-                      <shape.icon size={16} />
-                      <span className="hidden sm:inline">{shape.label}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <>
+                {shapes.map((shape) => (
+                  <button
+                    key={shape.id}
+                    onClick={() => handleShapeChange(shape.id)}
+                    title={shape.label}
+                    className={`p-1.5 rounded-md border transition ${
+                      personalInfo.imageShape === shape.id
+                        ? 'border-accent-green bg-accent-green/10 text-accent-green'
+                        : 'border-border-subtle text-gray-400 hover:border-gray-500 hover:text-gray-300'
+                    }`}
+                  >
+                    <shape.icon size={14} />
+                  </button>
+                ))}
+              </>
             )}
           </div>
         </div>
@@ -300,6 +286,56 @@ export default function PersonalForm() {
             />
           </div>
         </div>
+
+        {/* Nationality */}
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-gray-300">Nationality</label>
+          <div className="relative">
+            <Flag size={16} className="absolute left-3 top-3 text-gray-500" />
+            <input
+              type="text"
+              name="nationality"
+              value={personalInfo.nationality || ''}
+              onChange={handleChange}
+              placeholder="e.g., American, British"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+            />
+          </div>
+        </div>
+
+        {/* ID Document */}
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-gray-300">ID / Passport / Driving License</label>
+          <div className="flex gap-3">
+            {/* Document Type Dropdown */}
+            <div className="relative w-2/5">
+              <CreditCard size={16} className="absolute left-3 top-3 text-gray-500 pointer-events-none" />
+              <select
+                name="idType"
+                value={personalInfo.idType || ''}
+                onChange={handleChange}
+                className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-8 py-2.5 text-white focus:outline-none focus:border-accent-green transition appearance-none cursor-pointer"
+              >
+                {idDocumentTypes.map((type) => (
+                  <option key={type.value} value={type.value} className="bg-slate-800">
+                    {type.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="absolute right-3 top-3 text-gray-500 pointer-events-none" />
+            </div>
+            {/* Document Number */}
+            <input
+              type="text"
+              name="idNumber"
+              value={personalInfo.idNumber || ''}
+              onChange={handleChange}
+              placeholder="Document number"
+              disabled={!personalInfo.idType}
+              className="flex-1 bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="space-y-2">
@@ -322,6 +358,28 @@ export default function PersonalForm() {
           placeholder="Experienced Software Engineer with a passion for building scalable web applications..."
           className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-green transition resize-none"
         />
+      </div>
+
+      {/* Additional Sections */}
+      <div className="mt-8 pt-6 border-t border-border-subtle space-y-4">
+        <h3 className="text-lg font-semibold text-white mb-4">Additional Information</h3>
+
+        <CollapsibleSection
+          title="Social Links"
+          icon={Share2}
+          defaultOpen={false}
+        >
+          <SocialLinksSection />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="References"
+          icon={Users}
+          badge={references.length}
+          defaultOpen={false}
+        >
+          <ReferencesSection />
+        </CollapsibleSection>
       </div>
 
       {/* Image Cropper Modal */}

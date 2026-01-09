@@ -12,8 +12,6 @@ import {
     Sparkles,
     FileText,
     Download,
-    Palette,
-    Wand2,
     Clock,
     MoreVertical,
     Trash2,
@@ -21,12 +19,12 @@ import {
     Copy,
     ArrowRight,
     Zap,
-    Target,
-    TrendingUp,
     BarChart3,
     Calendar,
-    Award,
-    Layout
+    Layout,
+    Crown,
+    CreditCard,
+    Settings
 } from 'lucide-react';
 
 interface Resume {
@@ -255,6 +253,75 @@ export default function DashboardPage() {
                         </div>
                     </div>
                 </div>
+
+                {/* Subscription Status Card */}
+                {user && (
+                    <div className="max-w-7xl mx-auto px-6 py-8">
+                        <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
+                            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                                <div className="flex items-center gap-4">
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                                        user.subscriptionTier === 'diamond' ? 'bg-purple-500/20' :
+                                        user.subscriptionTier === 'gold' ? 'bg-yellow-500/20' :
+                                        user.subscriptionTier === 'starter' ? 'bg-green-500/20' :
+                                        'bg-gray-500/20'
+                                    }`}>
+                                        <Crown size={24} className={
+                                            user.subscriptionTier === 'diamond' ? 'text-purple-400' :
+                                            user.subscriptionTier === 'gold' ? 'text-yellow-400' :
+                                            user.subscriptionTier === 'starter' ? 'text-green-400' :
+                                            'text-gray-400'
+                                        } />
+                                    </div>
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <h3 className="text-lg font-semibold text-white capitalize">
+                                                {user.subscriptionTier || 'Free'} Plan
+                                            </h3>
+                                            {user.subscriptionTier && user.subscriptionTier !== 'free' && (
+                                                <span className="px-2 py-0.5 bg-accent-green/20 text-accent-green text-xs rounded-full font-medium">
+                                                    Active
+                                                </span>
+                                            )}
+                                        </div>
+                                        <p className="text-sm text-gray-400">
+                                            {user.creditsRemaining !== undefined && user.creditsRemaining > 0
+                                                ? `${user.creditsRemaining} downloads remaining`
+                                                : 'Upgrade to unlock more downloads'
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    {(!user.subscriptionTier || user.subscriptionTier === 'free') && (
+                                        <Link href="/pricing">
+                                            <button className="flex items-center gap-2 bg-accent-green text-bg-primary px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition">
+                                                <Zap size={16} />
+                                                Upgrade Now
+                                            </button>
+                                        </Link>
+                                    )}
+                                    {user.subscriptionTier && user.subscriptionTier !== 'free' && (
+                                        <button
+                                            onClick={async () => {
+                                                try {
+                                                    const response = await api.post('/payments/create-portal');
+                                                    window.location.href = response.data.url;
+                                                } catch (err) {
+                                                    console.error('Failed to open portal:', err);
+                                                }
+                                            }}
+                                            className="flex items-center gap-2 border border-white/10 text-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-white/5 transition"
+                                        >
+                                            <Settings size={16} />
+                                            Manage Subscription
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Template Usage Stats */}
                 {resumes.length > 0 && (

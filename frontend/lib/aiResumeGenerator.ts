@@ -15,12 +15,12 @@ export interface OnboardingInput {
 }
 
 // Job category detection for generating relevant content
-type JobCategory = 'tech' | 'design' | 'marketing' | 'finance' | 'healthcare' | 'education' | 'sales' | 'general';
+type JobCategory = 'tech' | 'design' | 'marketing' | 'finance' | 'healthcare' | 'education' | 'sales' | 'hospitality' | 'general';
 
 function detectJobCategory(jobTitle: string): JobCategory {
     const title = jobTitle.toLowerCase();
 
-    if (/developer|engineer|programmer|software|devops|data|architect|backend|frontend|fullstack|ml|ai/.test(title)) {
+    if (/developer|engineer|programmer|software|devops|data scientist|data analyst|architect|backend|frontend|fullstack|machine learning|artificial intelligence/.test(title)) {
         return 'tech';
     }
     if (/designer|ux|ui|graphic|creative|artist|visual/.test(title)) {
@@ -40,6 +40,9 @@ function detectJobCategory(jobTitle: string): JobCategory {
     }
     if (/sales|account executive|business development|representative/.test(title)) {
         return 'sales';
+    }
+    if (/waiter|waitress|server|bartender|barista|chef|cook|host|hostess|restaurant|food service|busser|dishwasher|catering|hospitality/.test(title)) {
+        return 'hospitality';
     }
     return 'general';
 }
@@ -61,6 +64,7 @@ const skillsByCategory: Record<JobCategory, string[]> = {
     healthcare: ['Patient Care', 'EMR Systems', 'HIPAA Compliance', 'Clinical Assessment', 'Care Planning', 'Medical Terminology', 'Patient Education', 'Team Collaboration', 'Documentation', 'Critical Thinking'],
     education: ['Curriculum Development', 'Classroom Management', 'Student Assessment', 'Differentiated Instruction', 'Educational Technology', 'Lesson Planning', 'Communication', 'Mentoring', 'Special Education', 'Parent Relations'],
     sales: ['CRM Software', 'Lead Generation', 'Negotiation', 'Cold Calling', 'Pipeline Management', 'Salesforce', 'Account Management', 'Presentation Skills', 'Closing Deals', 'Client Relations'],
+    hospitality: ['Customer Service', 'POS Systems', 'Food Safety', 'Cash Handling', 'Menu Knowledge', 'Team Collaboration', 'Multitasking', 'Communication', 'Time Management', 'Conflict Resolution'],
     general: ['Project Management', 'Communication', 'Problem Solving', 'Team Leadership', 'Microsoft Office', 'Time Management', 'Critical Thinking', 'Adaptability', 'Collaboration', 'Organization'],
 };
 
@@ -112,6 +116,12 @@ function generateSummary(input: OnboardingInput, category: JobCategory): string 
             senior: `High-performing ${input.jobTitle} with ${yearsText} of experience leading sales teams and driving revenue growth. Managed territories generating $10M+ annually and mentored 10+ sales representatives. Expert in complex B2B sales cycles.`,
             executive: `Sales executive with ${yearsText} of experience building and scaling high-performance sales organizations. Grew revenue from $5M to $50M and expanded into 3 new markets. Strategic partner development and enterprise account management.`,
         },
+        hospitality: {
+            entry: `Friendly and energetic ${input.jobTitle} with ${yearsText} of experience in fast-paced dining environments. Committed to delivering exceptional customer service and creating memorable guest experiences. Quick learner with strong teamwork skills.`,
+            mid: `Dedicated ${input.jobTitle} with ${yearsText} of experience providing outstanding service in high-volume restaurants. Consistently received positive customer feedback and maintained 98% satisfaction ratings. Skilled in upselling and menu recommendations.`,
+            senior: `Experienced ${input.jobTitle} with ${yearsText} of expertise in fine dining and high-volume establishments. Trained and mentored 15+ staff members, improving team efficiency by 25%. Expert in wine pairing and customer relationship management.`,
+            executive: `Hospitality professional with ${yearsText} of experience managing restaurant operations and guest experiences. Oversaw teams of 30+ staff and increased revenue by 40% through service excellence initiatives. Passionate about creating exceptional dining experiences.`,
+        },
         general: {
             entry: `Motivated ${input.jobTitle} with ${yearsText} of professional experience. Strong work ethic, excellent communication skills, and commitment to delivering quality results. Eager to contribute and grow professionally.`,
             mid: `Accomplished ${input.jobTitle} with ${yearsText} of experience driving operational excellence. Improved team efficiency by 30% through process optimization. Strong collaborator with cross-functional teams.`,
@@ -132,6 +142,7 @@ const companiesByCategory: Record<JobCategory, string[]> = {
     healthcare: ['Metro General Hospital', 'Community Health Center', 'CarePlus Medical Group', 'Wellness Partners Clinic', 'Regional Medical Center'],
     education: ['Lincoln High School', 'Riverside Academy', 'State University', 'Community College District', 'Excellence Learning Center'],
     sales: ['Enterprise Solutions Inc.', 'Global Trade Partners', 'TechSales Pro', 'Business Growth Associates', 'Premier Sales Group'],
+    hospitality: ['The Grand Hotel Restaurant', 'Bistro Elegance', 'Riverside Grill & Bar', 'Downtown Dining Co.', 'Coastal Kitchen'],
     general: ['Acme Corporation', 'Global Enterprises', 'Premier Solutions LLC', 'Innovative Industries', 'Excellence Partners'],
 };
 
@@ -168,7 +179,8 @@ function generateExperience(input: OnboardingInput, category: JobCategory): Expe
             id: `exp-${i + 1}`,
             title: titles[i] || input.jobTitle,
             company: companies[i % companies.length],
-            location: ['New York, NY', 'San Francisco, CA', 'Chicago, IL', 'Austin, TX', 'Seattle, WA'][i % 5],
+            city: ['New York', 'San Francisco', 'Chicago', 'Austin', 'Seattle'][i % 5],
+            country: 'USA',
             startDate: `${startYear}-${String(Math.max(1, Math.min(12, startMonth))).padStart(2, '0')}`,
             endDate: i === 0 ? '' : `${endYear}-${String(Math.max(1, Math.min(12, endMonth))).padStart(2, '0')}`,
             current: i === 0,
@@ -324,6 +336,26 @@ function generateJobDescription(category: JobCategory, positionIndex: number, le
                 '• Maintained accurate records in CRM system',
             ],
         ],
+        hospitality: [
+            [
+                '• Supervised team of 10+ servers ensuring consistent service quality',
+                '• Trained new staff on menu items, POS systems, and service standards',
+                '• Resolved customer complaints professionally, maintaining 95% satisfaction rate',
+                '• Coordinated with kitchen staff to ensure timely food delivery',
+                '• Managed section of 8+ tables during peak hours serving 100+ guests daily',
+            ],
+            [
+                '• Provided excellent table service in fast-paced 200-seat restaurant',
+                '• Increased average check size by 20% through effective upselling',
+                '• Memorized extensive menu including daily specials and wine pairings',
+                '• Processed payments accurately handling $500+ in daily transactions',
+            ],
+            [
+                '• Greeted and seated guests ensuring positive first impressions',
+                '• Took accurate food and beverage orders using POS system',
+                '• Maintained clean and organized dining area throughout shifts',
+            ],
+        ],
         general: [
             [
                 '• Led cross-functional team of 10+ members on strategic initiatives',
@@ -366,6 +398,7 @@ function generateEducation(input: OnboardingInput, category: JobCategory): Educa
         healthcare: { degree: 'Bachelor of Science in Nursing', school: 'College of Health Sciences' },
         education: { degree: 'Bachelor of Arts in Education', school: 'State Teachers College' },
         sales: { degree: 'Bachelor of Business Administration', school: 'School of Business' },
+        hospitality: { degree: 'Certificate in Hospitality Management', school: 'Culinary Institute' },
         general: { degree: 'Bachelor of Arts', school: 'State University' },
     };
 
@@ -374,7 +407,8 @@ function generateEducation(input: OnboardingInput, category: JobCategory): Educa
             id: 'edu-1',
             school: degreesByCategory[category].school,
             degree: degreesByCategory[category].degree,
-            location: 'Boston, MA',
+            city: 'Boston',
+            country: 'USA',
             startDate: `${gradYear - 4}-09`,
             endDate: `${gradYear}-05`,
             current: false,
@@ -388,7 +422,8 @@ function generateEducation(input: OnboardingInput, category: JobCategory): Educa
             id: 'edu-0',
             school: 'Graduate School of Business',
             degree: category === 'tech' ? 'Master of Science in Computer Science' : 'Master of Business Administration',
-            location: 'New York, NY',
+            city: 'New York',
+            country: 'USA',
             startDate: `${gradYear + 2}-09`,
             endDate: `${gradYear + 4}-05`,
             current: false,
@@ -429,6 +464,9 @@ export function generateAIResume(input: OnboardingInput): Partial<ResumeData> {
             summary: generateSummary(input, category),
             profileImage: '',
             imageShape: 'circle',
+            nationality: '',
+            idType: '',
+            idNumber: '',
         },
         experience: generateExperience(input, category),
         education: generateEducation(input, category),
@@ -453,4 +491,21 @@ export async function generateAIResumeAsync(input: OnboardingInput): Promise<Par
     // return response.json();
 
     return generateAIResume(input);
+}
+
+/**
+ * Generate only the professional summary based on job title and experience level.
+ * Used by the "Generate with AI" button in the builder.
+ */
+export function generateSummaryOnly(
+    jobTitle: string,
+    experienceLevel: OnboardingInput['experienceLevel'] = 'mid'
+): string {
+    const category = detectJobCategory(jobTitle);
+    const input: OnboardingInput = {
+        fullName: '', // Not needed for summary
+        jobTitle,
+        experienceLevel,
+    };
+    return generateSummary(input, category);
 }

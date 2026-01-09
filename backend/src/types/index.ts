@@ -53,6 +53,38 @@ export interface ResumeData {
 export interface UserPayload {
   id: string;
   email: string;
+  role: string;
+}
+
+export type UserRole = "user" | "admin";
+export type SubscriptionTier = "free" | "starter" | "gold" | "diamond";
+export type SubscriptionStatus = "active" | "canceled" | "past_due";
+
+export interface BlogPostData {
+  id?: string;
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+  image?: string;
+  imageAlt?: string;
+  category: string;
+  tags: string[];
+  author: string;
+  featured?: boolean;
+  published?: boolean;
+  publishedAt?: Date;
+}
+
+export interface PaymentData {
+  id?: string;
+  userId: string;
+  stripePaymentId: string;
+  amount: number;
+  currency?: string;
+  status: "succeeded" | "pending" | "failed";
+  type: "subscription" | "one_time";
+  plan?: string;
 }
 
 export interface TemplateInfo {

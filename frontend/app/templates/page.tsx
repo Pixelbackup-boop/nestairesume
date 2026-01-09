@@ -16,9 +16,15 @@ import {
     ArrowRight,
     Check,
 } from 'lucide-react';
-import { canvasTemplates } from '@/lib/canvasTemplates';
+import { canvasTemplates } from '@/lib/templates/canvas';
 import { useCanvasStore, CanvasTemplate } from '@/store/useCanvasStore';
-import { builderTemplates as sharedBuilderTemplates, sampleResumeData as dummyData } from '@/lib/builderTemplates';
+import {
+    builderTemplates as sharedBuilderTemplates,
+    getSampleResumeDataWithProfile,
+    generateTheme,
+} from '@/lib/templates/builder';
+import OnboardingModal from '@/components/OnboardingModal';
+import UnifiedTemplate from '@/components/templates/UnifiedTemplate';
 
 type EditorMode = 'builder' | 'canvas';
 type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'bold' | 'classic' | 'modern' | 'header' | 'sidebar';
@@ -47,6 +53,10 @@ export default function TemplatesPage() {
     const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
     const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
 
+    // Modal state for builder templates
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedTemplateForModal, setSelectedTemplateForModal] = useState<{ id: string; name: string } | null>(null);
+
     // Get categories based on mode
     const categories: CategoryFilter[] = editorMode === 'builder'
         ? ['all', 'professional', 'creative', 'minimal', 'bold']
@@ -69,9 +79,15 @@ export default function TemplatesPage() {
         });
     }, [searchQuery, selectedCategory]);
 
-    // Handle template selection - prefill with sample data
-    const handleSelectBuilderTemplate = (templateId: string) => {
-        router.push(`/builder?template=${templateId}&prefill=true`);
+    // Handle template selection - show onboarding modal
+    const handleSelectBuilderTemplate = (templateId: string, templateName: string) => {
+        setSelectedTemplateForModal({ id: templateId, name: templateName });
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedTemplateForModal(null);
     };
 
     const handleSelectCanvasTemplate = (template: CanvasTemplate) => {
@@ -207,193 +223,62 @@ export default function TemplatesPage() {
         );
     };
 
-    // Render builder template preview with realistic content
-    const renderBuilderPreview = (template: typeof builderTemplates[0]) => {
-        // Use accent color directly from template
-        const accent = template.accentColor || '#374151';
+    // Render builder template preview using actual template components
+    const renderBuilderPreview = (template: typeof builderTemplates[0], templateIndex: number) => {
+        // Get full sample resume data with different profile for each template
+        const sampleData = getSampleResumeDataWithProfile(templateIndex);
 
-        // Common text styles
-        const textLight = '#f8fafc';
-        const textDark = '#1e293b';
-        const textMuted = '#64748b';
+        // Generate theme from template's accent color
+        const theme = generateTheme(template.accentColor || '#374151');
 
-        if (template.layout === 'sidebar') {
-            return (
-                <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative">
-                    <div className="h-full flex">
-                        {/* Sidebar */}
-                        <div className="w-[38%] h-full p-2 flex flex-col" style={{ backgroundColor: accent }}>
-                            {/* Photo */}
-                            <img
-                                src={dummyData.headshot}
-                                alt={dummyData.name}
-                                className="w-12 h-12 rounded-full mx-auto mb-2 object-cover border-2 border-white/30"
-                            />
-                            {/* Contact */}
-                            <div className="space-y-0.5 text-[4px] text-white/80 mb-2">
-                                <p className="truncate">{dummyData.email}</p>
-                                <p>{dummyData.phone}</p>
-                                <p>{dummyData.location}</p>
-                                <p>{dummyData.website}</p>
-                            </div>
-                            {/* Skills */}
-                            <p className="text-[5px] font-semibold text-white mb-1">SKILLS</p>
-                            <div className="flex flex-wrap gap-0.5">
-                                {dummyData.skills.slice(0, 4).map((skill, i) => (
-                                    <span key={i} className="text-[3px] bg-white/20 px-1 py-0.5 rounded text-white">{skill}</span>
-                                ))}
-                            </div>
-                            {/* Languages */}
-                            <p className="text-[5px] font-semibold text-white mb-1 mt-2">LANGUAGES</p>
-                            {dummyData.languages.map((lang, i) => (
-                                <p key={i} className="text-[3px] text-white/80">{lang}</p>
-                            ))}
-                        </div>
-                        {/* Main Content */}
-                        <div className="flex-1 p-2">
-                            <h3 className="text-[9px] font-bold" style={{ color: textDark }}>{dummyData.name}</h3>
-                            <p className="text-[5px] mb-1" style={{ color: accent }}>{dummyData.title}</p>
-                            <p className="text-[3px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
-                            {/* Experience */}
-                            <p className="text-[5px] font-semibold mb-1" style={{ color: textDark }}>EXPERIENCE</p>
-                            {dummyData.experience.slice(0, 2).map((exp, i) => (
-                                <div key={i} className="mb-1">
-                                    <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role}</p>
-                                    <p className="text-[3px]" style={{ color: textMuted }}>{exp.company} • {exp.years}</p>
-                                </div>
-                            ))}
-                            {/* Education */}
-                            <p className="text-[5px] font-semibold mb-0.5 mt-1" style={{ color: textDark }}>EDUCATION</p>
-                            <p className="text-[4px] font-medium" style={{ color: textDark }}>{dummyData.education.degree}</p>
-                            <p className="text-[3px]" style={{ color: textMuted }}>{dummyData.education.school}</p>
-                        </div>
-                    </div>
-                </div>
-            );
-        }
+        // Get templateId: use explicit templateId if defined, otherwise map from layout
+        const getTemplateIdForLayout = (layout: string): string => {
+            switch (layout) {
+                case 'sidebar': return 'sidebar-modern';
+                case 'header': return 'header-bold';
+                case 'classic': return 'classic-professional';
+                case 'minimal': return 'minimal-clean';
+                case 'europass': return 'europass-classic';
+                default: return 'classic-professional';
+            }
+        };
 
-        if (template.layout === 'header') {
-            return (
-                <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative">
-                    {/* Header */}
-                    <div className="p-3 text-center" style={{ backgroundColor: accent }}>
-                        <img
-                            src={dummyData.headshot}
-                            alt={dummyData.name}
-                            className="w-10 h-10 rounded-full mx-auto mb-1 object-cover border-2 border-white/30"
-                        />
-                        <h3 className="text-[10px] font-bold text-white">{dummyData.name}</h3>
-                        <p className="text-[6px] text-white/80">{dummyData.title}</p>
-                        <div className="flex justify-center gap-2 mt-1 text-[4px] text-white/70">
-                            <span>{dummyData.email}</span>
-                            <span>•</span>
-                            <span>{dummyData.location}</span>
-                        </div>
-                    </div>
-                    {/* Content */}
-                    <div className="p-3">
-                        <p className="text-[4px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
-                        {/* Experience */}
-                        <p className="text-[6px] font-semibold mb-1" style={{ color: accent }}>EXPERIENCE</p>
-                        {dummyData.experience.map((exp, i) => (
-                            <div key={i} className="mb-1">
-                                <p className="text-[5px] font-medium" style={{ color: textDark }}>{exp.role} at {exp.company}</p>
-                                <p className="text-[4px]" style={{ color: textMuted }}>{exp.years}</p>
-                            </div>
-                        ))}
-                        {/* Skills */}
-                        <p className="text-[6px] font-semibold mb-1 mt-2" style={{ color: accent }}>SKILLS</p>
-                        <div className="flex flex-wrap gap-0.5">
-                            {dummyData.skills.map((skill, i) => (
-                                <span key={i} className="text-[4px] px-1 py-0.5 rounded" style={{ backgroundColor: `${accent}20`, color: accent }}>{skill}</span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            );
-        }
+        // Use explicit templateId if available (for unique layouts), else fall back to layout mapping
+        const resolvedTemplateId = (template as { templateId?: string }).templateId || getTemplateIdForLayout(template.layout);
 
-        if (template.layout === 'classic') {
-            return (
-                <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative p-3">
-                    {/* Header with photo */}
-                    <div className="flex items-start gap-2 mb-2 pb-2 border-b" style={{ borderColor: `${accent}30` }}>
-                        <img
-                            src={dummyData.headshot}
-                            alt={dummyData.name}
-                            className="w-10 h-10 rounded-full object-cover flex-shrink-0"
-                            style={{ border: `2px solid ${accent}` }}
-                        />
-                        <div className="flex-1 text-center">
-                            <h3 className="text-[10px] font-bold" style={{ color: textDark }}>{dummyData.name}</h3>
-                            <p className="text-[6px]" style={{ color: accent }}>{dummyData.title}</p>
-                            <div className="flex justify-center gap-2 mt-1 text-[4px]" style={{ color: textMuted }}>
-                                <span>{dummyData.email}</span>
-                                <span>•</span>
-                                <span>{dummyData.phone}</span>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Summary */}
-                    <p className="text-[4px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
-                    {/* Experience */}
-                    <p className="text-[6px] font-semibold mb-1" style={{ color: accent }}>EXPERIENCE</p>
-                    {dummyData.experience.map((exp, i) => (
-                        <div key={i} className="mb-1.5">
-                            <div className="flex justify-between">
-                                <p className="text-[5px] font-medium" style={{ color: textDark }}>{exp.role}</p>
-                                <p className="text-[4px]" style={{ color: textMuted }}>{exp.years}</p>
-                            </div>
-                            <p className="text-[4px]" style={{ color: textMuted }}>{exp.company}</p>
-                        </div>
-                    ))}
-                    {/* Education */}
-                    <p className="text-[6px] font-semibold mb-1 mt-2" style={{ color: accent }}>EDUCATION</p>
-                    <p className="text-[5px] font-medium" style={{ color: textDark }}>{dummyData.education.degree}</p>
-                    <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.education.school}</p>
-                    {/* Skills */}
-                    <p className="text-[6px] font-semibold mb-1 mt-2" style={{ color: accent }}>SKILLS</p>
-                    <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.skills.join(' • ')}</p>
-                </div>
-            );
-        }
+        // A4 dimensions in pixels (at 96 DPI: 210mm ≈ 794px, 297mm ≈ 1123px)
+        const a4Width = 794;
+        const a4Height = 1123;
 
-        // Minimal layout
+        // Thumbnail target width and calculated scale
+        const thumbnailWidth = 254;
+        const cssScale = thumbnailWidth / a4Width; // ≈ 0.32
+        const thumbnailHeight = Math.round(a4Height * cssScale);
+
         return (
-            <div className="aspect-[3/4] rounded-lg overflow-hidden bg-white relative p-3">
-                {/* Header with small photo */}
-                <div className="flex items-center gap-2 mb-1">
-                    <img
-                        src={dummyData.headshot}
-                        alt={dummyData.name}
-                        className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+            <div
+                className="rounded-lg overflow-hidden bg-white relative"
+                style={{
+                    width: `${thumbnailWidth}px`,
+                    height: `${thumbnailHeight}px`,
+                }}
+            >
+                {/* Full-size template scaled down with CSS transform */}
+                <div
+                    style={{
+                        width: `${a4Width}px`,
+                        height: `${a4Height}px`,
+                        transform: `scale(${cssScale})`,
+                        transformOrigin: 'top left',
+                    }}
+                >
+                    <UnifiedTemplate
+                        data={sampleData}
+                        theme={theme}
+                        templateId={resolvedTemplateId}
+                        scale={1}
                     />
-                    <div>
-                        <h3 className="text-[10px] font-bold" style={{ color: textDark }}>{dummyData.name}</h3>
-                        <p className="text-[6px]" style={{ color: accent }}>{dummyData.title}</p>
-                    </div>
                 </div>
-                <div className="text-[4px] mb-2" style={{ color: textMuted }}>
-                    {dummyData.email} • {dummyData.phone} • {dummyData.location}
-                </div>
-                {/* Thin accent line */}
-                <div className="h-px mb-2" style={{ backgroundColor: accent }}></div>
-                {/* Summary */}
-                <p className="text-[4px] mb-2 leading-relaxed" style={{ color: textMuted }}>{dummyData.summary}</p>
-                {/* Experience */}
-                <p className="text-[5px] font-semibold mb-1" style={{ color: textDark }}>Experience</p>
-                {dummyData.experience.map((exp, i) => (
-                    <div key={i} className="mb-1">
-                        <p className="text-[4px] font-medium" style={{ color: textDark }}>{exp.role} — {exp.company}</p>
-                        <p className="text-[3px]" style={{ color: textMuted }}>{exp.years}</p>
-                    </div>
-                ))}
-                {/* Education */}
-                <p className="text-[5px] font-semibold mb-1 mt-1.5" style={{ color: textDark }}>Education</p>
-                <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.education.degree}, {dummyData.education.school}</p>
-                {/* Skills */}
-                <p className="text-[5px] font-semibold mb-1 mt-1.5" style={{ color: textDark }}>Skills</p>
-                <p className="text-[4px]" style={{ color: textMuted }}>{dummyData.skills.join(', ')}</p>
             </div>
         );
     };
@@ -541,20 +426,20 @@ export default function TemplatesPage() {
                     ) : editorMode === 'builder' ? (
                         /* Builder Templates Grid */
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                            {filteredBuilderTemplates.map((template) => (
+                            {filteredBuilderTemplates.map((template, index) => (
                                 <div
                                     key={template.id}
                                     className="group cursor-pointer"
                                     onMouseEnter={() => setHoveredTemplate(template.id)}
                                     onMouseLeave={() => setHoveredTemplate(null)}
-                                    onClick={() => handleSelectBuilderTemplate(template.id)}
+                                    onClick={() => handleSelectBuilderTemplate(template.id, template.name)}
                                 >
                                     <div className={`relative rounded-xl overflow-hidden border-2 transition-all duration-200 ${
                                         hoveredTemplate === template.id
                                             ? 'border-accent-green shadow-lg shadow-accent-green/20 scale-[1.02]'
                                             : 'border-border-subtle'
                                     }`}>
-                                        {renderBuilderPreview(template)}
+                                        {renderBuilderPreview(template, index)}
                                         {/* Hover overlay */}
                                         <div className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity ${
                                             hoveredTemplate === template.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -644,6 +529,16 @@ export default function TemplatesPage() {
             </section>
 
             <Footer />
+
+            {/* Onboarding Modal for Builder Templates */}
+            {selectedTemplateForModal && (
+                <OnboardingModal
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                    templateId={selectedTemplateForModal.id}
+                    templateName={selectedTemplateForModal.name}
+                />
+            )}
         </>
     );
 }

@@ -10,4 +10,13 @@ export const config = {
   deepseekApiKey: process.env.DEEPSEEK_API_KEY,
   openaiApiKey: process.env.OPENAI_API_KEY,
   corsOrigins: process.env.CORS_ORIGINS?.split(",") || ["http://localhost:4455", "http://localhost:3000"],
+  // Stripe
+  stripeSecretKey: process.env.STRIPE_SECRET_KEY || "",
+  stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET || "",
+  stripePrices: {
+    starter: process.env.STRIPE_PRICE_STARTER || "",
+    gold: process.env.STRIPE_PRICE_GOLD || "",
+    diamond: process.env.STRIPE_PRICE_DIAMOND || "",
+  },
+  frontendUrl: process.env.FRONTEND_URL || "http://localhost:4455",
 };
