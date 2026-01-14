@@ -1,17 +1,14 @@
 // Bold Category Templates
-export { boldHeaderTemplate } from './bold-header';
+// Featured Header Variants (9 templates)
 export {
-    headerDiagonalYellowTemplate,
-    headerDarkBoxTemplate,
-    headerGeometricTemplate,
-    headerDarkBannerTemplate,
-    headerDecorativeTemplate,
-    headerGreenCenteredTemplate,
-    headerRibbonYellowTemplate,
-    headerIconOrangeTemplate,
-    headerLightGrayTemplate,
-    headerBlueCleanTemplate,
     headerDarkTemplate,
-    headerDarkVariantTemplate,
+    headerDarkBannerTemplate,
+    headerDarkBoxTemplate,
+    headerDiagonalYellowTemplate,
+    headerRibbonYellowTemplate,
+    headerDecorativeTemplate,
+    headerGeometricTemplate,
+    headerIconOrangeTemplate,
+    headerBlueCleanTemplate,
     headerVariants,
 } from './header-variants';

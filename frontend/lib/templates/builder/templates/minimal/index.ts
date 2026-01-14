@@ -1,12 +1,8 @@
 // Minimal Category Templates
-export { minimalCleanTemplate } from './minimal-clean';
+// Featured Minimal Variants (3 templates)
 export {
-    minimalSimpleTemplate,
-    minimalCenteredRedTemplate,
     minimalTimelineTemplate,
-    minimalUnderlineTemplate,
     minimalLabelsTanTemplate,
-    minimalSectionBarsTemplate,
     minimalBlueSectionsTemplate,
     minimalVariants,
 } from './minimal-variants';

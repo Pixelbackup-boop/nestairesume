@@ -20,10 +20,9 @@ export {
 // Individual template components (for direct use)
 export {
     ClassicProfessional,
-    EuropassClassic,
-    SidebarModern,
-    HeaderBoldCreative,
-    MinimalClean,
+    SidebarDarkNavy,
+    HeaderDark,
+    MinimalTimeline,
 } from './layouts';
 
 // Legacy named exports (for backward compatibility)

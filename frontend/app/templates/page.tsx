@@ -62,7 +62,7 @@ export default function TemplatesPage() {
         ? ['all', 'professional', 'creative', 'minimal', 'bold']
         : ['all', 'professional', 'creative', 'minimal', 'bold'];
 
-    // Filter templates based on mode, search, and category
+    // Filter templates based on search and category
     const filteredBuilderTemplates = useMemo(() => {
         return builderTemplates.filter((template) => {
             const matchesSearch = template.name.toLowerCase().includes(searchQuery.toLowerCase());

@@ -1,38 +1,32 @@
 // Builder Templates Registry
-// Aggregates all builder templates from category folders
+// Aggregates all 16 featured builder templates
 
 import type { BuilderTemplate, LayoutType, TemplateTheme } from '../types';
 import { colorToThemeId } from '../colorPresets';
 
 // Import from category folders
-import { classicProTemplate, europassClassicTemplate, classicVariants } from './professional';
-import { modernSidebarTemplate, sidebarVariants } from './modern';
-import { boldHeaderTemplate, headerVariants } from './bold';
-import { minimalCleanTemplate, minimalVariants } from './minimal';
+import { classicProTemplate } from './professional';
+import { sidebarVariants } from './modern';
+import { headerVariants } from './bold';
+import { minimalVariants } from './minimal';
 
 // Re-export individual templates for direct access
-export { classicProTemplate, europassClassicTemplate, classicVariants } from './professional';
-export { modernSidebarTemplate, sidebarVariants } from './modern';
-export { boldHeaderTemplate, headerVariants } from './bold';
-export { minimalCleanTemplate, minimalVariants } from './minimal';
+export { classicProTemplate } from './professional';
+export { sidebarVariants } from './modern';
+export { headerVariants } from './bold';
+export { minimalVariants } from './minimal';
 
 /**
- * All builder templates.
- * Add new templates here after creating them in their category folders.
+ * All 16 featured builder templates.
  */
 export const builderTemplates: BuilderTemplate[] = [
+    // Classic (1 template)
     classicProTemplate,
-    europassClassicTemplate,
-    modernSidebarTemplate,
-    boldHeaderTemplate,
-    minimalCleanTemplate,
-    // Sidebar variants (13 templates)
+    // Sidebar variants (3 templates)
     ...sidebarVariants,
-    // Header variants (12 templates)
+    // Header variants (9 templates)
     ...headerVariants,
-    // Classic variants (8 templates)
-    ...classicVariants,
-    // Minimal variants (7 templates)
+    // Minimal variants (3 templates)
     ...minimalVariants,
 ];
 

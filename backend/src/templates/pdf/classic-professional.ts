@@ -12,14 +12,36 @@ import {
     formatIdType,
     escapeHtml,
     formatDescription,
+    getLanguageLevel,
 } from './shared/helpers';
 
 export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme): string => {
-    const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, background, fonts } = data;
-    const bgStyle = getBackgroundCSS(background);
+    const {
+        personalInfo,
+        experience = [],
+        education = [],
+        skills = [],
+        languages = [],
+        interests = [],
+        strengths = [],
+        certifications = [],
+        references = [],
+        background,
+        fonts
+    } = data;
+    // Force white background - no background customization in builder UI
+    const bgStyle = 'background-color: #ffffff;';
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
+
+    // Custom Theme Color Override
+    const primaryColor = data.customThemeColor || theme.primary;
+    const accentColor = data.customThemeColor || theme.accent; // Usually accent is same as primary in this theme logic or secondary? 
+    // In classic-professional, accent is used for underlines. Theme.primary is used for headers.
+    // Let's make them consistent if custom color is provided.
+    const effectivePrimary = data.customThemeColor || theme.primary;
+    const effectiveAccent = data.customThemeColor || theme.accent;
 
     // Build sections
     const profileImage = personalInfo.profileImage ? `
@@ -28,7 +50,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
                 src="${personalInfo.profileImage}"
                 alt="${escapeHtml(personalInfo.fullName)}"
                 class="object-cover border-2"
-                style="width: 80px; height: 80px; border-radius: ${getImageBorderRadius(personalInfo.imageShape)}; border-color: ${theme.primary};"
+                style="width: 80px; height: 80px; border-radius: ${getImageBorderRadius(personalInfo.imageShape)}; border-color: ${effectivePrimary};"
             />
         </div>
     ` : '';
@@ -52,7 +74,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
 
     const summarySection = personalInfo.summary ? `
         <section class="mb-5 resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Professional Summary
             </h2>
             <p style="color: ${theme.text}; line-height: 1.5; font-size: ${sizeConfig.base};">
@@ -62,8 +84,8 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
     ` : '';
 
     const experienceSection = experience.length > 0 ? `
-        <section class="mb-5 resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Experience
             </h2>
             <div class="space-y-3">
@@ -92,8 +114,8 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
     ` : '';
 
     const educationSection = education.length > 0 ? `
-        <section class="mb-5 resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Education
             </h2>
             <div class="space-y-2">
@@ -120,19 +142,19 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
     ` : '';
 
     const skillsSection = skills.length > 0 ? `
-        <section class="mb-5 resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Skills
             </h2>
             <div class="space-y-1">
                 ${skills.map(skill => `
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 resume-entry">
                         <span style="color: ${theme.text}; font-size: 12px; min-width: 100px;">
                             ${escapeHtml(skill.name)}
                         </span>
                         <div class="flex gap-1">
                             ${[1, 2, 3, 4, 5].map(dot => `
-                                <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${dot <= (skill.level || 3) ? theme.primary : `${theme.primary}30`};"></div>
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${dot <= (skill.level || 3) ? effectivePrimary : `${effectivePrimary}30`};"></div>
                             `).join('')}
                         </div>
                     </div>
@@ -142,17 +164,17 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
     ` : '';
 
     const languagesSection = languages && languages.length > 0 ? `
-        <section class="mb-5 resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Languages
             </h2>
             <div class="space-y-1">
                 ${languages.map(lang => `
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between resume-entry">
                         <span style="color: ${theme.text}; font-size: 12px;">${escapeHtml(lang.name)}</span>
                         <div class="flex items-center gap-2">
-                            <div style="width: 80px; height: 6px; background-color: ${theme.primary}30; border-radius: 3px; overflow: hidden;">
-                                <div style="width: ${lang.level}%; height: 100%; background-color: ${theme.primary};"></div>
+                            <div style="width: 80px; height: 6px; background-color: ${effectivePrimary}30; border-radius: 3px; overflow: hidden;">
+                                <div style="width: ${getLanguageLevel(lang)}%; height: 100%; background-color: ${effectivePrimary};"></div>
                             </div>
                             <span style="color: ${theme.text}; opacity: 0.7; font-size: 10px; text-transform: capitalize;">
                                 ${escapeHtml(lang.proficiency)}
@@ -165,13 +187,13 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
     ` : '';
 
     const strengthsSection = strengths && strengths.length > 0 ? `
-        <section class="mb-5 resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Strengths
             </h2>
             <div class="flex flex-wrap gap-1">
                 ${strengths.map(strength => `
-                    <span style="background-color: ${theme.primary}15; color: ${theme.primary}; padding: 4px 10px; border-radius: 4px; font-size: 11px;">
+                    <span class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: 11px;">
                         ${escapeHtml(strength.name)}
                     </span>
                 `).join('')}
@@ -180,13 +202,13 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
     ` : '';
 
     const certificationsSection = certifications && certifications.length > 0 ? `
-        <section class="mb-5 resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Certifications
             </h2>
             <div class="space-y-1">
                 ${certifications.map(cert => `
-                    <div>
+                    <div class="resume-entry">
                         <span style="color: ${theme.text}; font-weight: 500; font-size: 12px;">${escapeHtml(cert.name)}</span>
                         <span style="color: ${theme.text}; opacity: 0.7; font-size: 11px; margin-left: 8px;">
                             ${escapeHtml(cert.issuer)} &bull; ${escapeHtml(cert.date)}
@@ -198,8 +220,8 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
     ` : '';
 
     const interestsSection = interests && interests.length > 0 ? `
-        <section class="resume-section">
-            <h2 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${theme.accent}; padding-bottom: 4px; margin-bottom: 12px;">
+        <section>
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 Interests
             </h2>
             <p style="color: ${theme.text}; font-size: 12px;">
@@ -208,12 +230,70 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
         </section>
     ` : '';
 
+    // Social Links section
+    const hasSocialLinks = personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
+    const socialLinksSection = hasSocialLinks ? `
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                Social Links
+            </h2>
+            <div class="flex flex-wrap gap-3" style="font-size: 12px;">
+                ${personalInfo.linkedin ? `<span style="color: ${theme.text};"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
+                ${personalInfo.twitter ? `<span style="color: ${theme.text};"><strong>Twitter:</strong> ${escapeHtml(personalInfo.twitter)}</span>` : ''}
+                ${personalInfo.github ? `<span style="color: ${theme.text};"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</span>` : ''}
+                ${personalInfo.dribbble ? `<span style="color: ${theme.text};"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
+                ${personalInfo.behance ? `<span style="color: ${theme.text};"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</span>` : ''}
+                ${personalInfo.instagram ? `<span style="color: ${theme.text};"><strong>Instagram:</strong> ${escapeHtml(personalInfo.instagram)}</span>` : ''}
+            </div>
+        </section>
+    ` : '';
+
+    // References section
+    const referencesSection = references && references.length > 0 ? `
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                References
+            </h2>
+            <div class="space-y-2">
+                ${references.map(ref => `
+                    <div>
+                        <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
+                            ${escapeHtml(ref.name)}
+                        </div>
+                        <div style="color: ${theme.secondary}; font-size: 12px;">
+                            ${escapeHtml(ref.title)}${ref.company ? `, ${escapeHtml(ref.company)}` : ''}
+                        </div>
+                        ${(ref.phone || ref.email) ? `
+                            <div style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                                ${ref.phone ? `<span>${escapeHtml(ref.phone)}</span>` : ''}
+                                ${ref.phone && ref.email ? '<span> &bull; </span>' : ''}
+                                ${ref.email ? `<span>${escapeHtml(ref.email)}</span>` : ''}
+                            </div>
+                        ` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    ` : '';
+
+    // Custom Field section
+    const customFieldSection = personalInfo.customField ? `
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                ${escapeHtml(personalInfo.customFieldLabel || 'Additional Information')}
+            </h2>
+            <p style="color: ${theme.text}; font-size: 12px; line-height: 1.5; white-space: pre-line;">
+                ${formatDescription(personalInfo.customField)}
+            </p>
+        </section>
+    ` : '';
+
     return `
         <div class="w-full h-full" style="font-family: ${bodyFont}; font-size: ${sizeConfig.base}; ${bgStyle} padding: 40px;">
             <!-- Header -->
-            <header class="text-center mb-6 pb-4 border-b-2" style="border-color: ${theme.accent};">
+            <header class="text-center mb-6 pb-4 border-b-2" style="border-color: ${effectiveAccent};">
                 ${profileImage}
-                <h1 style="color: ${theme.primary}; font-family: ${headingFont}; font-size: ${sizeConfig.heading}; font-weight: 700; margin-bottom: 4px;">
+                <h1 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${sizeConfig.heading}; font-weight: 700; margin-bottom: 4px;">
                     ${escapeHtml(personalInfo.fullName || 'Your Name')}
                 </h1>
                 <p style="color: ${theme.secondary}; font-size: ${sizeConfig.subheading}; margin-bottom: 8px;">
@@ -233,6 +313,9 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme):
             ${strengthsSection}
             ${certificationsSection}
             ${interestsSection}
+            ${socialLinksSection}
+            ${referencesSection}
+            ${customFieldSection}
         </div>
     `;
 };

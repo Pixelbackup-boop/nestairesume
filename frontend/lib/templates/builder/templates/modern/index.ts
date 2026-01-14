@@ -1,24 +1,8 @@
 // Modern Category Templates
-export { modernSidebarTemplate } from './modern-sidebar';
-
-// Sidebar Variants (13 templates)
+// Featured Sidebar Variants (3 templates)
 export {
-    sidebarYellowTemplate,
-    sidebarMonogramTemplate,
-    sidebarOrangeTemplate,
-    sidebarNarrowYellowTemplate,
-    sidebarDarkGrayTemplate,
     sidebarDarkNavyTemplate,
-    sidebarNavyCompactTemplate,
-    sidebarDarkMinimalTemplate,
-    sidebarGreenTealTemplate,
-    sidebarGreenV1Template,
-    sidebarGreenV2Template,
-    sidebarGreenV3Template,
-    sidebarGreenV4Template,
+    sidebarNarrowYellowTemplate,
+    sidebarMonogramTemplate,
     sidebarVariants,
 } from './sidebar-variants';
-
-// Add more modern templates here as you create them:
-// export { techStartupTemplate } from './tech-startup';
-// export { creativeModernTemplate } from './creative-modern';

@@ -74,12 +74,12 @@ export default function UnifiedTemplate({
 
 // Named exports for direct template access (backward compatibility)
 export { default as ClassicProfessional } from './layouts/classic/ClassicProfessional';
-export { default as SidebarModern } from './layouts/sidebar/SidebarModern';
-export { default as HeaderBoldCreative } from './layouts/header/HeaderBoldCreative';
-export { default as MinimalClean } from './layouts/minimal/MinimalClean';
+export { default as SidebarDarkNavy } from './layouts/sidebar/SidebarDarkNavy';
+export { default as HeaderDark } from './layouts/header/HeaderDark';
+export { default as MinimalTimeline } from './layouts/minimal/MinimalTimeline';
 
 // Legacy named exports mapping to new components
 export { default as ClassicTemplate } from './layouts/classic/ClassicProfessional';
-export { default as SidebarTemplate } from './layouts/sidebar/SidebarModern';
-export { default as HeaderTemplate } from './layouts/header/HeaderBoldCreative';
-export { default as MinimalTemplate } from './layouts/minimal/MinimalClean';
+export { default as SidebarTemplate } from './layouts/sidebar/SidebarDarkNavy';
+export { default as HeaderTemplate } from './layouts/header/HeaderDark';
+export { default as MinimalTemplate } from './layouts/minimal/MinimalTimeline';
