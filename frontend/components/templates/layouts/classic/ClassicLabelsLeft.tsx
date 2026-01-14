@@ -166,6 +166,63 @@ export default function ClassicLabelsLeft({ data, theme, scale = 1 }: TemplatePr
                     }
                 />
             )}
+
+            {/* Languages */}
+            {languages && languages.length > 0 && (
+                <Section
+                    title="Languages"
+                    fs={fs}
+                    headingFont={headingFont}
+                    content={
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {languages.map((lang) => (
+                                <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, color: '#333' }}>
+                                    <span style={{ fontWeight: 700 }}>{lang.name}</span>: {lang.proficiency}
+                                </div>
+                            ))}
+                        </div>
+                    }
+                />
+            )}
+
+            {/* Strengths */}
+            {data.strengths && data.strengths.length > 0 && (
+                <Section
+                    title="Strengths"
+                    fs={fs}
+                    headingFont={headingFont}
+                    content={
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    fontSize: fs.small,
+                                    color: '#fff',
+                                    backgroundColor: labelColor,
+                                    padding: '4px 10px',
+                                    borderRadius: 12,
+                                    fontWeight: 600
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    }
+                />
+            )}
+
+            {/* Interests */}
+            {data.interests && data.interests.length > 0 && (
+                <Section
+                    title="Interests"
+                    fs={fs}
+                    headingFont={headingFont}
+                    content={
+                        <p style={{ lineHeight: 1.8, fontSize: fs.body, color: '#333' }}>
+                            {data.interests.map(int => int.name).join(', ')}
+                        </p>
+                    }
+                />
+            )}
         </div>
     );
 }

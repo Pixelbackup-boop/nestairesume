@@ -215,7 +215,7 @@ export default function HeaderDecorative({ data, theme, scale = 1 }: TemplatePro
                             <SectionHeader title="Skills" icon="🛠️" accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-3">
                                 {skills.map((skill) => (
-                                    <div key={skill.id}>
+                                    <div key={skill.id} data-paginate="item">
                                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2, fontSize: fs.body }}>
                                             <span style={{ fontWeight: 500 }}>{skill.name}</span>
                                         </div>
@@ -231,6 +231,42 @@ export default function HeaderDecorative({ data, theme, scale = 1 }: TemplatePro
                                             }} />
                                         </div>
                                     </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Languages */}
+                    {data.languages && data.languages.length > 0 && (
+                        <section className="mb-8 resume-section" data-paginate>
+                            <SectionHeader title="Languages" icon="🗣️" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <div className="space-y-2">
+                                {data.languages.map((lang) => (
+                                    <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
+                                        <span style={{ fontWeight: 500 }}>{lang.name}</span>
+                                        <span style={{ fontSize: fs.small, color: '#6b7280' }}>{lang.proficiency}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Strengths */}
+                    {data.strengths && data.strengths.length > 0 && (
+                        <section className="mb-8 resume-section" data-paginate>
+                            <SectionHeader title="Strengths" icon="⚡" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                                {data.strengths.map((str) => (
+                                    <span key={str.id} data-paginate="item" style={{
+                                        fontSize: fs.small,
+                                        fontWeight: 600,
+                                        color: accentColor,
+                                        border: `1px solid ${accentColor}`,
+                                        padding: '2px 8px',
+                                        borderRadius: 12
+                                    }}>
+                                        {str.name}
+                                    </span>
                                 ))}
                             </div>
                         </section>

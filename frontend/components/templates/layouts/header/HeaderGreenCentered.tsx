@@ -256,6 +256,7 @@ export default function HeaderGreenCentered({ data, theme, scale = 1 }: Template
                                 {strengths.map((str) => (
                                     <span
                                         key={str.id}
+                                        data-paginate="item"
                                         style={{
                                             backgroundColor: ribbonColor,
                                             color: '#ffffff',
@@ -280,7 +281,7 @@ export default function HeaderGreenCentered({ data, theme, scale = 1 }: Template
                             </h3>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
                                 {skills.map((skill) => (
-                                    <div key={skill.id} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: fs.body }}>
+                                    <div key={skill.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: fs.body }}>
                                         <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: ribbonColor }} />
                                         {skill.name}
                                     </div>

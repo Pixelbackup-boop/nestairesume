@@ -144,11 +144,50 @@ export default function MinimalCentered({ data, theme, scale = 1 }: TemplateProp
                         <SectionHeader title="Expertise" fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 16 }}>
                             {skills.map((skill) => (
-                                <span key={skill.id} style={{ fontSize: fs.body, color: '#374151', borderBottom: '1px solid #e5e7eb' }}>
+                                <span key={skill.id} style={{ fontSize: fs.body, color: '#374151', borderBottom: '1px solid #e5e7eb' }} data-paginate="item">
                                     {skill.name}
                                 </span>
                             ))}
                         </div>
+                    </section>
+                )}
+                {/* Languages */}
+                {languages && languages.length > 0 && (
+                    <section style={{ textAlign: 'center', marginTop: scale < 1 ? 32 : 56 }}>
+                        <SectionHeader title="Languages" fs={fs} headingFont={headingFont} />
+                        <p style={{ fontSize: fs.body, color: '#374151' }}>
+                            {languages.map(l => `${l.name} (${l.proficiency})`).join('  •  ')}
+                        </p>
+                    </section>
+                )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <section style={{ textAlign: 'center', marginTop: scale < 1 ? 32 : 56 }}>
+                        <SectionHeader title="Strengths" fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 16 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    fontSize: fs.body,
+                                    color: '#374151',
+                                    border: '1px solid #e5e7eb',
+                                    padding: '4px 12px',
+                                    borderRadius: 20
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <section style={{ textAlign: 'center', marginTop: scale < 1 ? 32 : 56 }}>
+                        <SectionHeader title="Interests" fs={fs} headingFont={headingFont} />
+                        <p style={{ fontSize: fs.body, color: '#374151' }}>
+                            {data.interests.map(i => i.name).join('  •  ')}
+                        </p>
                     </section>
                 )}
             </div>

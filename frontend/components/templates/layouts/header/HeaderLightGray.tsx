@@ -153,7 +153,7 @@ export default function HeaderLightGray({ data, theme, scale = 1 }: TemplateProp
                             </SectionHeader>
                             <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
                                 {skills.map((skill) => (
-                                    <li key={skill.id} style={{ fontSize: fs.body, color: '#374151', marginBottom: '4px' }}>
+                                    <li key={skill.id} data-paginate="item" style={{ fontSize: fs.body, color: '#374151', marginBottom: '4px' }}>
                                         {skill.name}
                                     </li>
                                 ))}
@@ -187,6 +187,23 @@ export default function HeaderLightGray({ data, theme, scale = 1 }: TemplateProp
                                         <p style={{ fontSize: fs.small, color: accentColor }}>
                                             {edu.startDate} - {edu.current ? 'Present' : edu.endDate}
                                         </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Languages */}
+                    {data.languages && data.languages.length > 0 && (
+                        <section className="resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                                LANGUAGES
+                            </SectionHeader>
+                            <div className="space-y-2">
+                                {data.languages.map((lang) => (
+                                    <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, display: 'flex', justifyContent: 'space-between' }}>
+                                        <span style={{ fontWeight: 600, color: '#374151' }}>{lang.name}</span>
+                                        <span style={{ color: '#6b7280', fontSize: fs.small }}>{lang.proficiency}</span>
                                     </div>
                                 ))}
                             </div>
@@ -244,6 +261,45 @@ export default function HeaderLightGray({ data, theme, scale = 1 }: TemplateProp
                                             </ul>
                                         )}
                                     </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Strengths */}
+                    {data.strengths && data.strengths.length > 0 && (
+                        <section className="mb-4 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                                STRENGTHS
+                            </SectionHeader>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                {data.strengths.map((str) => (
+                                    <span key={str.id} data-paginate="item" style={{
+                                        backgroundColor: '#f1f5f9',
+                                        color: accentColor,
+                                        padding: '4px 12px',
+                                        borderRadius: 4,
+                                        fontSize: fs.small,
+                                        fontWeight: 600
+                                    }}>
+                                        {str.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Interests */}
+                    {data.interests && data.interests.length > 0 && (
+                        <section className="resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                                INTERESTS
+                            </SectionHeader>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                                {data.interests.map((int) => (
+                                    <span key={int.id} style={{ fontSize: fs.body, color: '#374151', display: 'flex', alignItems: 'center', gap: 6 }}>
+                                        <span style={{ color: accentColor }}>•</span> {int.name}
+                                    </span>
                                 ))}
                             </div>
                         </section>

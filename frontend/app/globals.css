@@ -297,17 +297,6 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
   overflow: visible;
 }
 
-/* Section styling for page break control */
-.resume-section {
-  page-break-inside: avoid;
-  break-inside: avoid;
-}
-
-/* Individual entry styling for page break control */
-.resume-entry {
-  page-break-inside: avoid;
-  break-inside: avoid;
-}
 
 /* ===========================================
    PAGE BREAK INDICATORS - Visual A4 page breaks
@@ -508,4 +497,108 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
 /* Scroll margin for anchor links */
 .scroll-mt-20 {
   scroll-margin-top: 5rem;
+}
+
+/* ===========================================
+   RTL (Right-to-Left) SUPPORT - Arabic & Hebrew
+   =========================================== */
+
+/* Default text alignment for RTL */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* Arabic font family */
+[dir="rtl"] .font-arabic,
+.font-arabic {
+  font-family: var(--font-arabic), 'Noto Sans Arabic', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Flip directional icons for RTL (arrows, chevrons) */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Reverse flex direction for RTL */
+[dir="rtl"] .rtl-reverse {
+  flex-direction: row-reverse;
+}
+
+/* RTL-aware spacing using logical properties */
+[dir="rtl"] .rtl-space-reverse > * + * {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+/* Gradient direction flip for RTL */
+[dir="rtl"] .gradient-text {
+  background: linear-gradient(225deg, #00dc82 0%, #00c4b4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero glow position adjustment for RTL */
+[dir="rtl"] .hero-glow {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* RTL-aware border radius */
+[dir="rtl"] .rounded-s-lg {
+  border-start-start-radius: 0.5rem;
+  border-end-start-radius: 0.5rem;
+}
+
+[dir="rtl"] .rounded-e-lg {
+  border-start-end-radius: 0.5rem;
+  border-end-end-radius: 0.5rem;
+}
+
+/* RTL scroll line animation */
+[dir="rtl"] .scroll-line {
+  /* Same as LTR - vertical element */
+}
+
+/* RTL-aware progress bar fill direction */
+[dir="rtl"] .rtl-progress-bar {
+  direction: rtl;
+}
+
+/* RTL-aware form inputs */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+}
+
+[dir="rtl"] input::placeholder,
+[dir="rtl"] textarea::placeholder {
+  text-align: right;
+}
+
+/* RTL-aware list markers */
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+/* RTL checkbox/radio alignment */
+[dir="rtl"] input[type="checkbox"],
+[dir="rtl"] input[type="radio"] {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* RTL-aware absolute positioning helpers */
+[dir="rtl"] .rtl-left-0 {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .rtl-right-0 {
+  right: auto;
+  left: 0;
 }

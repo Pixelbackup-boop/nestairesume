@@ -1,7 +1,7 @@
 'use client';
 
 import { useResumeStore, Education } from '../../store/useResumeStore';
-import { Plus, Trash2, GripVertical, ChevronDown, ChevronUp, Award, BadgeCheck } from 'lucide-react';
+import { Plus, Trash2, ArrowUp, ArrowDown, ChevronDown, ChevronUp, Award, BadgeCheck } from 'lucide-react';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import CollapsibleSection from './CollapsibleSection';
@@ -9,7 +9,7 @@ import CertificationsSection from './CertificationsSection';
 import AwardsSection from './AwardsSection';
 
 export default function EducationForm() {
-    const { resumeData, addEducation, updateEducation, removeEducation } = useResumeStore();
+    const { resumeData, addEducation, updateEducation, removeEducation, moveEducation } = useResumeStore();
     const { education, certifications, awards } = resumeData;
     const [expandedId, setExpandedId] = useState<string | null>(null);
 
@@ -56,7 +56,7 @@ export default function EducationForm() {
             </div>
 
             <div className="space-y-4">
-                {education.map((edu) => (
+                {education.map((edu, index) => (
                     <div key={edu.id} className="bg-bg-card-light border border-border-subtle rounded-xl overflow-hidden transition-all duration-200">
                         {/* Header */}
                         <div
@@ -64,7 +64,24 @@ export default function EducationForm() {
                             onClick={() => handleToggle(edu.id)}
                         >
                             <div className="flex items-center gap-3">
-                                <GripVertical className="text-gray-600" size={18} />
+                                <div className="flex flex-col gap-0.5">
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); moveEducation(edu.id, 'up'); }}
+                                        disabled={index === 0}
+                                        className="text-gray-500 hover:text-accent-green disabled:opacity-30 disabled:cursor-not-allowed transition p-1"
+                                        title="Move up"
+                                    >
+                                        <ArrowUp size={14} />
+                                    </button>
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); moveEducation(edu.id, 'down'); }}
+                                        disabled={index === education.length - 1}
+                                        className="text-gray-500 hover:text-accent-green disabled:opacity-30 disabled:cursor-not-allowed transition p-1"
+                                        title="Move down"
+                                    >
+                                        <ArrowDown size={14} />
+                                    </button>
+                                </div>
                                 <div>
                                     <h3 className="font-semibold text-white">{edu.school || '(Not specified)'}</h3>
                                     <p className="text-sm text-gray-400">{edu.degree || 'Degree'}</p>

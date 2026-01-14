@@ -106,7 +106,7 @@ export default function SidebarDarkMinimal({ data, theme, scale = 1 }: TemplateP
                         <h4 style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: fs.small, color: accentColor, marginBottom: 16 }}>Skills</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {skills.map(skill => (
-                                <div key={skill.id}>{skill.name}</div>
+                                <div key={skill.id} data-paginate="item">{skill.name}</div>
                             ))}
                         </div>
                     </div>
@@ -118,11 +118,38 @@ export default function SidebarDarkMinimal({ data, theme, scale = 1 }: TemplateP
                         <h4 style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: fs.small, color: accentColor, marginBottom: 16 }}>Languages</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {languages.map(lang => (
-                                <div key={lang.id}>{lang.name}</div>
+                                <div key={lang.id} data-paginate="item">{lang.name}</div>
                             ))}
                         </div>
                     </div>
                 )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ marginTop: 40 }}>
+                        <h4 style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: fs.small, color: accentColor, marginBottom: 16 }}>Strengths</h4>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map(str => (
+                                <span key={str.id} style={{ backgroundColor: '#374151', padding: '4px 8px', borderRadius: 4, fontSize: fs.small, color: '#f3f4f6' }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ marginTop: 40 }}>
+                        <h4 style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: fs.small, color: accentColor, marginBottom: 16 }}>Interests</h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                            {data.interests.map(int => (
+                                <div key={int.id}>{int.name}</div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
 
             </aside>
 

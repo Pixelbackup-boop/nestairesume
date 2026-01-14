@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useResumeStore, ImageShape, IdDocumentType } from '../../store/useResumeStore';
-import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Circle, Square, RectangleHorizontal, Flag, CreditCard, ChevronDown, Share2, Users } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Circle, Square, RectangleHorizontal, Flag, CreditCard, ChevronDown, Share2, Users, FileText } from 'lucide-react';
 import { generateSummaryOnly } from '../../lib/aiResumeGenerator';
 import Image from 'next/image';
 import ImageCropper from './ImageCropper';
@@ -379,6 +379,37 @@ export default function PersonalForm() {
           defaultOpen={false}
         >
           <ReferencesSection />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="Custom Field"
+          icon={FileText}
+          defaultOpen={false}
+        >
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-300">Section Label</label>
+              <input
+                type="text"
+                name="customFieldLabel"
+                value={personalInfo.customFieldLabel || ''}
+                onChange={handleChange}
+                placeholder="e.g., Volunteer Work, Hobbies, Additional Notes"
+                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-300">Content</label>
+              <textarea
+                name="customField"
+                value={personalInfo.customField || ''}
+                onChange={handleChange}
+                rows={4}
+                placeholder="Add any additional information you'd like to include on your resume..."
+                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-green transition resize-none"
+              />
+            </div>
+          </div>
         </CollapsibleSection>
       </div>
 

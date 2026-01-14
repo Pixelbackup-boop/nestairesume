@@ -125,7 +125,7 @@ export default function SidebarYellow({ data, theme, scale = 1 }: TemplateProps)
                         <SidebarHeader title="Skills" color="#1f2937" fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                             {skills.map((skill) => (
-                                <div key={skill.id}>
+                                <div key={skill.id} data-paginate="item">
                                     <div style={{ marginBottom: 4, fontSize: fs.body, fontWeight: 700 }}>{skill.name}</div>
                                     <ProgressBar
                                         value={skill.level * 20}
@@ -217,13 +217,48 @@ export default function SidebarYellow({ data, theme, scale = 1 }: TemplateProps)
                         <MainHeader title="Languages" color={'#eab308'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', gap: 16 }}>
                             {languages.map((lang) => (
-                                <span key={lang.id} style={{ fontWeight: 700, color: '#374151' }}>
+                                <span key={lang.id} style={{ fontWeight: 700, color: '#374151', fontSize: fs.body }} data-paginate="item">
                                     {lang.name}
                                 </span>
                             ))}
                         </div>
                     </section>
                 )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <section className="mb-10 resume-section">
+                        <MainHeader title="Strengths" color={'#eab308'} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    backgroundColor: '#eab308',
+                                    color: '#000',
+                                    padding: '4px 12px',
+                                    fontWeight: 700,
+                                    fontSize: fs.small
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <section className="mb-10 resume-section">
+                        <MainHeader title="Interests" color={'#eab308'} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', gap: '12px 24px', flexWrap: 'wrap' }}>
+                            {data.interests.map((int) => (
+                                <span key={int.id} style={{ fontWeight: 500, color: '#374151', fontSize: fs.body }}>
+                                    • {int.name}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
             </main>
         </div>
     );

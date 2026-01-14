@@ -115,7 +115,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                         <SidebarSectionHeader title="Skills" color={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                             {skills.map((skill) => (
-                                <div key={skill.id}>
+                                <div key={skill.id} data-paginate="item">
                                     <div style={{ marginBottom: 4, fontSize: fs.body, fontWeight: 500 }}>{skill.name}</div>
                                     <ProgressBar
                                         value={skill.level * 20}
@@ -136,11 +136,47 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                         <SidebarSectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                             {languages.map((lang) => (
-                                <li key={lang.id} style={{ marginBottom: 6, fontSize: fs.body }}>
-                                    {lang.name}
+                                <li key={lang.id} data-paginate="item" style={{ marginBottom: 6, fontSize: fs.body }}>
+                                    <span style={{ fontWeight: 600 }}>{lang.name}</span> <span style={{ opacity: 0.7, fontSize: '0.9em' }}>- {lang.proficiency}</span>
                                 </li>
                             ))}
                         </ul>
+                    </div>
+                )}
+
+                {/* Strengths (Dark Sidebar) */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ width: '100%', marginBottom: 40 }}>
+                        <SidebarSectionHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} data-paginate="item" style={{
+                                    backgroundColor: '#1e293b',
+                                    color: accentColor,
+                                    padding: '4px 12px',
+                                    borderRadius: 4,
+                                    fontSize: fs.small,
+                                    fontWeight: 500,
+                                    border: `1px solid ${accentColor}40`
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests (Dark Sidebar) */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ width: '100%', marginBottom: 40 }}>
+                        <SidebarSectionHeader title="Interests" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                            {data.interests.map((int) => (
+                                <span key={int.id} style={{ fontSize: fs.body, display: 'flex', alignItems: 'center', gap: 6 }}>
+                                    <span style={{ color: accentColor }}>✦</span> {int.name}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 )}
 

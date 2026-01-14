@@ -9,6 +9,7 @@ import UnifiedTemplate, { LayoutType } from '../templates/UnifiedTemplate';
 const A4_HEIGHT_PX = 1123; // Standard A4 height in pixels at 96 DPI
 const A4_WIDTH_PX = 794;   // Standard A4 width in pixels at 96 DPI
 const PAGE_GAP_PX = 40;    // Gap between pages (Collapsed in Print via CSS)
+const PAGE_MARGIN_BOTTOM = 30; // Bottom margin to prevent content from touching page edge
 const SIDEBAR_WIDTH_PX = 238; // Sidebar width for sidebar templates (~30% of A4)
 
 interface PagedPreviewProps {
@@ -94,9 +95,15 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
             // "Forced Reflow" Optimization: Separate Read and Write phases
             const fullPageHeight = A4_HEIGHT_PX + PAGE_GAP_PX;
+            const BREATHING_ROOM = 16; // Small padding at top of new page
 
             // Phase 1: READ (Measure everything)
             const updates: { element: HTMLElement; margin: string }[] = [];
+
+            // Track cumulative offset from previous pushes
+            // When we push element A, all subsequent elements shift down
+            // We need to account for this when checking if element B needs pushing
+            let cumulativeOffset = 0;
 
             for (const el of elements) {
                 const element = el as HTMLElement;
@@ -104,8 +111,14 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 const containerRect = container.getBoundingClientRect();
 
                 // Get absolute position relative to container
-                const relativeTop = rect.top - containerRect.top;
-                const height = rect.height;
+                // IMPORTANT: Divide by scale to convert from visual (scaled) coordinates
+                // back to layout (unscaled) coordinates, since the parent has transform: scale()
+                const rawRelativeTop = (rect.top - containerRect.top) / scale;
+                const height = rect.height / scale;
+
+                // Adjust position by cumulative offset from previous pushes
+                // This simulates where the element WILL BE after prior pushes are applied
+                const relativeTop = rawRelativeTop + cumulativeOffset;
                 const bottom = relativeTop + height;
 
                 // OVERSIZED ELEMENT PROTECTION: If element > 90% of page height, let it span naturally
@@ -113,16 +126,17 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                     continue; // Don't push - let it span pages naturally
                 }
 
-                // Calculate which page this falls on
+                // Calculate which page this falls on (after accounting for previous pushes)
                 const currentPageIndex = Math.floor(relativeTop / fullPageHeight);
                 const pageTopBoundary = currentPageIndex * fullPageHeight;
-                const pageContentBottom = pageTopBoundary + A4_HEIGHT_PX;
+                const pageContentBottom = pageTopBoundary + A4_HEIGHT_PX - PAGE_MARGIN_BOTTOM;
 
-                // Check if element extends past the printable bottom
+                // Check if element extends past the printable bottom (into the gap area)
                 let shouldPush = bottom > pageContentBottom;
 
                 // ORPHAN PROTECTION: Push headers/sections if < 60px from bottom
-                if (!shouldPush) {
+                // But skip this for very small elements to prevent excessive whitespace
+                if (!shouldPush && height >= 80) {
                     const isBreakableElement =
                         element.classList.contains('section-header') ||
                         element.hasAttribute('data-paginate') ||
@@ -139,12 +153,20 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
                 if (shouldPush) {
                     const nextPageStart = (currentPageIndex + 1) * fullPageHeight;
-                    const pushDistance = nextPageStart - relativeTop;
+                    // Calculate push distance from RAW position (before cumulative offset)
+                    // because the margin is applied to the element in its current DOM position
+                    const pushDistance = nextPageStart - rawRelativeTop - cumulativeOffset;
 
-                    updates.push({
-                        element,
-                        margin: `${pushDistance}px`
-                    });
+                    // Only push if we actually need to move forward
+                    if (pushDistance > 0) {
+                        updates.push({
+                            element,
+                            margin: `${pushDistance}px`
+                        });
+
+                        // Track this push for subsequent elements
+                        cumulativeOffset += pushDistance + BREATHING_ROOM;
+                    }
                 }
             }
 
@@ -159,7 +181,7 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
             const pages = Math.ceil(totalHeight / (A4_HEIGHT_PX + PAGE_GAP_PX));
             setTotalPages(Math.max(pages, 1));
 
-        }, []);
+        }, [scale]);
 
         // Smart Pagination Logic - runs on data changes
         useLayoutEffect(() => {
@@ -199,8 +221,8 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 <style jsx global>{`
                     /* Preview Mode: Add Gap to Pushed Sections */
                     .pushed-section {
-                        /* Logic: Move to next page (margin) + 40px (Visual Gap aka Padding) */
-                        margin-top: calc(var(--print-margin) + 40px) !important;
+                        /* Logic: Move to next page start with small breathing room */
+                        margin-top: calc(var(--print-margin) + 16px) !important;
                         position: relative;
                     }
 
@@ -240,9 +262,9 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                             print-color-adjust: exact;
                         }
 
-                        /* Print Mode: Remove Visual Gap, Keep Logical Margin + Breathing Room */
+                        /* Print Mode: Keep same margin as preview */
                         .pushed-section {
-                            margin-top: calc(var(--print-margin) + 40px) !important;
+                            margin-top: calc(var(--print-margin) + 16px) !important;
                         }
 
                         /* Hide gap overlays in print */
@@ -304,13 +326,10 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                     </div>
                 </div>
 
-                {/* Gap overlay - rendered AFTER content with maximum z-index to ensure it ALWAYS covers */}
+                {/* Gap overlay - semi-transparent to show page separation without hiding content */}
                 <div
                     className="absolute inset-0 pointer-events-none print-hidden page-gap-overlay"
-                    style={{
-                        zIndex: 2147483647, // Maximum z-index - gap will NEVER be hidden
-                        isolation: 'isolate' // Create new stacking context
-                    }}
+                    style={{ zIndex: 50 }}
                 >
                     {backgroundPages.slice(0, -1).map((pageIndex) => (
                         <div
@@ -320,8 +339,9 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                                 top: `${(pageIndex + 1) * A4_HEIGHT_PX + pageIndex * PAGE_GAP_PX}px`,
                                 height: `${PAGE_GAP_PX}px`,
                                 left: 0,
-                                background: '#1e293b',
-                                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.3), 0 -4px 6px -1px rgba(0,0,0,0.3)',
+                                background: 'rgba(30, 41, 59, 0.6)',
+                                borderTop: '2px dashed rgba(100, 116, 139, 0.8)',
+                                borderBottom: '2px dashed rgba(100, 116, 139, 0.8)',
                             }}
                         />
                     ))}

@@ -141,6 +141,40 @@ export default function ClassicMinimalist({ data, theme, scale = 1 }: TemplatePr
                     </p>
                 </section>
             )}
+
+            {/* Languages */}
+            {languages && languages.length > 0 && (
+                <section style={{ marginBottom: scale < 1 ? 32 : 56 }}>
+                    <h3 style={{ fontSize: fs.small, textTransform: 'uppercase', color: subText, marginBottom: 16, letterSpacing: '0.1em' }}>Languages</h3>
+                    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+                        {languages.map((lang) => (
+                            <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, color: mainText }}>
+                                <span style={{ fontWeight: 600, color: '#000' }}>{lang.name}</span> <span style={{ color: subText }}>({lang.proficiency})</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Strengths */}
+            {data.strengths && data.strengths.length > 0 && (
+                <section style={{ marginBottom: scale < 1 ? 32 : 56 }}>
+                    <h3 style={{ fontSize: fs.small, textTransform: 'uppercase', color: subText, marginBottom: 16, letterSpacing: '0.1em' }}>Strengths</h3>
+                    <p style={{ lineHeight: 1.8, fontSize: fs.body, color: mainText }}>
+                        {data.strengths.map(str => str.name).join(' • ')}
+                    </p>
+                </section>
+            )}
+
+            {/* Interests */}
+            {data.interests && data.interests.length > 0 && (
+                <section>
+                    <h3 style={{ fontSize: fs.small, textTransform: 'uppercase', color: subText, marginBottom: 16, letterSpacing: '0.1em' }}>Interests</h3>
+                    <p style={{ lineHeight: 1.8, fontSize: fs.body, color: mainText }}>
+                        {data.interests.map(int => int.name).join(', ')}
+                    </p>
+                </section>
+            )}
         </div>
     );
 }

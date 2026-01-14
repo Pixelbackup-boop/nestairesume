@@ -156,6 +156,39 @@ export default function ClassicBeige({ data, theme, scale = 1 }: TemplateProps) 
                         </p>
                     </section>
                 )}
+                {/* Languages */}
+                {languages && languages.length > 0 && (
+                    <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                        <SectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+                            {languages.map((lang) => (
+                                <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, color: '#333' }}>
+                                    <span style={{ fontWeight: 700 }}>{lang.name}</span> <span style={{ fontStyle: 'italic', color: '#555' }}>({lang.proficiency})</span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                        <SectionHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <p style={{ lineHeight: 1.8, fontSize: fs.body, color: '#333' }}>
+                            {data.strengths.map(str => str.name).join(' • ')}
+                        </p>
+                    </section>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                        <SectionHeader title="Interests" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <p style={{ lineHeight: 1.8, fontSize: fs.body, color: '#333' }}>
+                            {data.interests.map(int => int.name).join(', ')}
+                        </p>
+                    </section>
+                )}
             </div>
         </div>
     );

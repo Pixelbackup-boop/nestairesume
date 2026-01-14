@@ -117,7 +117,7 @@ export default function SidebarModern({ data, theme, scale = 1 }: TemplateProps)
                         </h3>
                         <div className="space-y-1" style={{ fontSize: scale < 1 ? '7px' : '10px' }}>
                             {skills.map((skill) => (
-                                <div key={skill.id} className="flex items-center gap-1">
+                                <div key={skill.id} className="flex items-center gap-1" data-paginate="item">
                                     <span className="flex-1">{skill.name}</span>
                                     <div className="flex gap-0.5">
                                         {[1, 2, 3, 4, 5].map((dot) => (
@@ -155,7 +155,7 @@ export default function SidebarModern({ data, theme, scale = 1 }: TemplateProps)
                         </h3>
                         <div className="space-y-1" style={{ fontSize: scale < 1 ? '7px' : '10px' }}>
                             {languages.map((lang) => (
-                                <div key={lang.id} className="flex justify-between items-center">
+                                <div key={lang.id} className="flex justify-between items-center" data-paginate="item">
                                     <span>{lang.name}</span>
                                     <span className="opacity-70 capitalize">{lang.proficiency}</span>
                                 </div>
@@ -328,7 +328,7 @@ export default function SidebarModern({ data, theme, scale = 1 }: TemplateProps)
                         </SectionHeader>
                         <div className="space-y-2">
                             {certifications.map((cert) => (
-                                <div key={cert.id}>
+                                <div key={cert.id} data-paginate="item">
                                     <p style={{ color: theme.text, fontWeight: 500, fontSize: scale < 1 ? '8px' : '12px' }}>
                                         {cert.name}
                                     </p>

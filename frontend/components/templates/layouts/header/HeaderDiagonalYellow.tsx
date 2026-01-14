@@ -18,7 +18,7 @@ import ProgressBar from '../../shared/ProgressBar';
  * Matches reference: frontend/Resume-template/unique-layouts/06-diagonal-header.webp
  */
 export default function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, interests, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Titan One');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -221,7 +221,7 @@ export default function HeaderDiagonalYellow({ data, theme, scale = 1 }: Templat
                             <SectionHeader fs={fs} title="Skills" />
                             <div className="space-y-2">
                                 {skills.map((skill) => (
-                                    <div key={skill.id}>
+                                    <div key={skill.id} data-paginate="item">
                                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2, fontSize: fs.small, fontWeight: 700, color: '#18181b' }}>
                                             <span>{skill.name}</span>
                                         </div>
@@ -238,12 +238,64 @@ export default function HeaderDiagonalYellow({ data, theme, scale = 1 }: Templat
                         </section>
                     )}
 
+                    {/* Strengths */}
+                    {strengths && strengths.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="Core Strengths" />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                                {strengths.map((str) => (
+                                    <span key={str.id} data-paginate="item" style={{
+                                        backgroundColor: accentColor,
+                                        color: '#18181b',
+                                        padding: scale < 1 ? '2px 8px' : '4px 12px',
+                                        borderRadius: 4,
+                                        fontSize: fs.small,
+                                        fontWeight: 600
+                                    }}>
+                                        {str.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Interests */}
+                    {interests && interests.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="Interests" />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
+                                {interests.map((int) => (
+                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500 }}>
+                                        ★ {int.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+
+
+
+                    {/* Interests */}
+                    {data.interests && data.interests.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title="Interests" />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
+                                {data.interests.map((int) => (
+                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500 }}>
+                                        ★ {int.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
                     {languages && languages.length > 0 && (
                         <section className="resume-section" data-paginate>
                             <SectionHeader fs={fs} title="Languages" />
                             <ul style={{ listStyle: 'none', padding: 0 }}>
                                 {languages.map((lang) => (
-                                    <li key={lang.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: fs.body, fontWeight: 600, borderBottom: '1px solid #e4e4e7', paddingBottom: 2 }}>
+                                    <li key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: fs.body, fontWeight: 600, borderBottom: '1px solid #e4e4e7', paddingBottom: 2 }}>
                                         <span>{lang.name}</span>
                                         <span style={{ color: '#52525b' }}>{lang.proficiency}</span>
                                     </li>
@@ -266,7 +318,7 @@ export default function HeaderDiagonalYellow({ data, theme, scale = 1 }: Templat
                     clipPath: 'polygon(0 0, 70% 100%, 0% 100%)',
                 }}
             />
-        </div>
+        </div >
     );
 }
 

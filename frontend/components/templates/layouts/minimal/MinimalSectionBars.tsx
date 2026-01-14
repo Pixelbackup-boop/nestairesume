@@ -137,7 +137,7 @@ export default function MinimalSectionBars({ data, theme, scale = 1 }: TemplateP
                     <SectionHeader title="Skills" color={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
                         {skills.map((skill) => (
-                            <span key={skill.id} style={{ fontSize: fs.body, color: '#374151', paddingBottom: 2, borderBottom: '1px solid #e5e7eb' }}>
+                            <span key={skill.id} style={{ fontSize: fs.body, color: '#374151', paddingBottom: 2, borderBottom: '1px solid #e5e7eb' }} data-paginate="item">
                                 {skill.name}
                             </span>
                         ))}

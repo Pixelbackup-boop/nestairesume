@@ -143,10 +143,55 @@ export default function ClassicGreen({ data, theme, scale = 1 }: TemplateProps) 
                     <SectionHeader title="Skills" color={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
                         {skills.map((skill) => (
-                            <span key={skill.id} style={{ fontSize: fs.body, color: '#333', fontWeight: 500, border: '1px solid #e5e7eb', padding: '4px 8px', borderRadius: 4 }}>
+                            <span key={skill.id} data-paginate="item" style={{ fontSize: fs.body, color: '#333', fontWeight: 500, border: '1px solid #e5e7eb', padding: '4px 8px', borderRadius: 4 }}>
                                 {skill.name}
                             </span>
                         ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Languages */}
+            {languages && languages.length > 0 && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+                        {languages.map((lang) => (
+                            <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, color: '#333' }}>
+                                <strong>{lang.name}</strong> <span style={{ color: '#666' }}>- {lang.proficiency}</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Strengths */}
+            {data.strengths && data.strengths.length > 0 && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        {data.strengths.map((str) => (
+                            <span key={str.id} style={{
+                                fontSize: fs.body,
+                                color: '#15803d',
+                                fontWeight: 600,
+                                backgroundColor: '#f0fdf4',
+                                padding: '4px 8px',
+                                borderRadius: 4
+                            }}>
+                                {str.name}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Interests */}
+            {data.interests && data.interests.length > 0 && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Interests" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ fontSize: fs.body, color: '#333' }}>
+                        {data.interests.map(int => int.name).join(' • ')}
                     </div>
                 </section>
             )}

@@ -138,6 +138,7 @@ export default function ClassicSoftPills({ data, theme, scale = 1 }: TemplatePro
                         {skills.map((skill) => (
                             <span
                                 key={skill.id}
+                                data-paginate="item"
                                 style={{
                                     backgroundColor: pillBg,
                                     color: accentColor,
@@ -152,6 +153,53 @@ export default function ClassicSoftPills({ data, theme, scale = 1 }: TemplatePro
                             </span>
                         ))}
                     </div>
+                </section>
+            )}
+
+            {/* Languages */}
+            {languages && languages.length > 0 && (
+                <section style={{ marginBottom: scale < 1 ? 32 : 56 }}>
+                    <SectionHeader title="Languages" color={accentColor} pillBg={pillBg} fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+                        {languages.map((lang) => (
+                            <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, color: '#374151', display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span style={{ fontWeight: 700 }}>{lang.name}</span>
+                                <span style={{ fontSize: fs.small, backgroundColor: '#f3f4f6', padding: '2px 8px', borderRadius: 12 }}>{lang.proficiency}</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Strengths */}
+            {data.strengths && data.strengths.length > 0 && (
+                <section style={{ marginBottom: scale < 1 ? 32 : 56 }}>
+                    <SectionHeader title="Strengths" color={accentColor} pillBg={pillBg} fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                        {data.strengths.map((str) => (
+                            <span key={str.id} style={{
+                                backgroundColor: pillBg,
+                                color: accentColor,
+                                padding: '6px 16px',
+                                borderRadius: 999,
+                                fontSize: fs.body,
+                                fontWeight: 600,
+                                border: `1px solid ${accentColor}20`
+                            }}>
+                                {str.name}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Interests */}
+            {data.interests && data.interests.length > 0 && (
+                <section>
+                    <SectionHeader title="Interests" color={accentColor} pillBg={pillBg} fs={fs} headingFont={headingFont} />
+                    <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>
+                        {data.interests.map(int => int.name).join(' • ')}
+                    </p>
                 </section>
             )}
         </div>

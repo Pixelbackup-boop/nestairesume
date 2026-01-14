@@ -108,7 +108,7 @@ export default function SidebarNarrowYellow({ data, theme, scale = 1 }: Template
                         <h4 style={{ fontWeight: 800, textTransform: 'uppercase', marginBottom: 12, borderBottom: '2px solid #1f2937', display: 'inline-block' }}>Skills</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.small, fontWeight: 700 }}>
                             {skills.map((skill) => (
-                                <div key={skill.id}>{skill.name}</div>
+                                <div key={skill.id} data-paginate="item">{skill.name}</div>
                             ))}
                         </div>
                     </div>
@@ -204,6 +204,54 @@ export default function SidebarNarrowYellow({ data, theme, scale = 1 }: Template
                                     <div style={{ fontSize: fs.small, color: '#666' }}>
                                         {edu.startDate} – {edu.endDate || 'Present'}
                                     </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+                {/* Languages */}
+                {languages && languages.length > 0 && (
+                    <section className="mb-10 resume-section">
+                        <MainHeader title="Languages" color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
+                            {languages.map((lang) => (
+                                <div key={lang.id} style={{ fontSize: fs.body, fontWeight: 700, color: '#374151' }} data-paginate="item">
+                                    {lang.name} <span style={{ fontWeight: 400, opacity: 0.8 }}>({lang.proficiency})</span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <section className="mb-10 resume-section">
+                        <MainHeader title="Strengths" color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    backgroundColor: '#facc15',
+                                    color: '#1f2937',
+                                    padding: '4px 12px',
+                                    borderRadius: 20,
+                                    fontSize: fs.small,
+                                    fontWeight: 700
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <section className="mb-10 resume-section">
+                        <MainHeader title="Interests" color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
+                            {data.interests.map((int) => (
+                                <div key={int.id} style={{ fontSize: fs.body, color: '#374151' }}>
+                                    • {int.name}
                                 </div>
                             ))}
                         </div>

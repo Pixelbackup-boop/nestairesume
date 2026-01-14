@@ -184,16 +184,17 @@ export default function HeaderGeometric({ data, theme, scale = 1 }: TemplateProp
                     <SectionRow label="Strengths" fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: scale < 1 ? 15 : 30 }}>
                             {strengths.slice(0, 4).map((strength) => (
-                                <CircularProgress
-                                    key={strength.id}
-                                    value={strength.level * 20} // Assuming 1-5 scale
-                                    size={scale < 1 ? 50 : 80}
-                                    color={accentColor}
-                                    strokeWidth={4}
-                                    label={strength.name}
-                                    fontSize={scale < 1 ? 9 : 14}
-                                    scale={scale}
-                                />
+                                <div key={strength.id} data-paginate="item">
+                                    <CircularProgress
+                                        value={strength.level * 20} // Assuming 1-5 scale
+                                        size={scale < 1 ? 50 : 80}
+                                        color={accentColor}
+                                        strokeWidth={4}
+                                        label={strength.name}
+                                        fontSize={scale < 1 ? 9 : 14}
+                                        scale={scale}
+                                    />
+                                </div>
                             ))}
                         </div>
                     </SectionRow>
@@ -204,13 +205,41 @@ export default function HeaderGeometric({ data, theme, scale = 1 }: TemplateProp
                     <SectionRow label="Skills" fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
                             {skills.map((skill) => (
-                                <span key={skill.id} style={{ fontWeight: 500, fontSize: fs.body }}>
+                                <span key={skill.id} data-paginate="item" style={{ fontWeight: 500, fontSize: fs.body }}>
                                     • {skill.name}
                                 </span>
                             ))}
                         </div>
                     </SectionRow>
                 )}
+
+                {/* Languages */}
+                {data.languages && data.languages.length > 0 && (
+                    <SectionRow label="Languages" fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
+                        <div className="space-y-2">
+                            {data.languages.map((lang) => (
+                                <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body, borderBottom: '1px solid #f3f4f6', paddingBottom: 4 }}>
+                                    <span style={{ fontWeight: 600, color: '#1f2937' }}>{lang.name}</span>
+                                    <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </SectionRow>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <SectionRow label="Interests" fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+                            {data.interests.map((int) => (
+                                <span key={int.id} style={{ fontSize: fs.body, color: '#374151', display: 'flex', alignItems: 'center', gap: 6 }}>
+                                    <span style={{ color: accentColor }}>◆</span> {int.name}
+                                </span>
+                            ))}
+                        </div>
+                    </SectionRow>
+                )}
+
             </div>
         </div>
     );

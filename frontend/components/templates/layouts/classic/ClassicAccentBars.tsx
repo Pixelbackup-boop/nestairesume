@@ -147,7 +147,7 @@ export default function ClassicAccentBars({ data, theme, scale = 1 }: TemplatePr
                         <SectionHeader title="Core Skills" color={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 16px' }}>
                             {skills.map((skill) => (
-                                <div key={skill.id} style={{ fontSize: fs.body, color: '#444', display: 'flex', alignItems: 'center', gap: 6 }}>
+                                <div key={skill.id} data-paginate="item" style={{ fontSize: fs.body, color: '#444', display: 'flex', alignItems: 'center', gap: 6 }}>
                                     <span style={{ color: secondaryColor, fontSize: '0.8em' }}>■</span>
                                     {skill.name}
                                 </div>
@@ -156,6 +156,59 @@ export default function ClassicAccentBars({ data, theme, scale = 1 }: TemplatePr
                     </div>
                 )}
             </div>
+            {/* Additional Sections: Languages, Strengths, Interests */}
+            <div style={{ display: 'flex', gap: scale < 1 ? 24 : 48, marginTop: scale < 1 ? 24 : 40 }}>
+                {/* Languages */}
+                {languages && languages.length > 0 && (
+                    <div style={{ flex: 1 }}>
+                        <SectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {languages.map((lang) => (
+                                <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, color: '#444', display: 'flex', justifyContent: 'space-between' }}>
+                                    <span style={{ fontWeight: 600 }}>{lang.name}</span>
+                                    <span style={{ color: '#666', fontStyle: 'italic' }}>{lang.proficiency}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ flex: 1 }}>
+                        <SectionHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    fontSize: fs.small,
+                                    color: '#fff',
+                                    backgroundColor: secondaryColor,
+                                    padding: '4px 12px',
+                                    borderRadius: 16,
+                                    fontWeight: 600
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {/* Interests - Full Width if exists */}
+            {data.interests && data.interests.length > 0 && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Interests" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
+                        {data.interests.map((int) => (
+                            <div key={int.id} style={{ fontSize: fs.body, color: '#444', display: 'flex', alignItems: 'center', gap: 6 }}>
+                                <span style={{ color: accentColor }}>•</span>
+                                {int.name}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
         </div>
     );
 }

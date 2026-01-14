@@ -196,7 +196,7 @@ export default function EuropassClassic({ data, theme, scale = 1 }: TemplateProp
                         </SectionHeader>
                         <div className="space-y-2">
                             {languages.map((lang) => (
-                                <div key={lang.id} style={{ fontSize: scale < 1 ? '9px' : '12px' }}>
+                                <div key={lang.id} data-paginate="item" style={{ fontSize: scale < 1 ? '9px' : '12px' }}>
                                     <span style={{ color: theme.text, fontWeight: 600 }}>{lang.name}</span>
                                     <span style={{ color: theme.text, opacity: 0.7, marginLeft: '8px', textTransform: 'capitalize' }}>
                                         ({lang.proficiency})
@@ -227,7 +227,7 @@ export default function EuropassClassic({ data, theme, scale = 1 }: TemplateProp
                         </SectionHeader>
                         <div className="space-y-2">
                             {certifications.map((cert) => (
-                                <div key={cert.id} style={{ fontSize: scale < 1 ? '9px' : '12px' }}>
+                                <div key={cert.id} data-paginate="item" style={{ fontSize: scale < 1 ? '9px' : '12px' }}>
                                     <span style={{ color: theme.text, fontWeight: 600 }}>{cert.name}</span>
                                     <span style={{ color: theme.text, opacity: 0.7, marginLeft: '8px' }}>
                                         — {cert.issuer}, {cert.date}

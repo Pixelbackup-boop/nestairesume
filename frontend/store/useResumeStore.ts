@@ -128,6 +128,9 @@ export interface ResumeData {
         dribbble?: string;
         behance?: string;
         instagram?: string;
+        // Custom field for additional info
+        customField?: string;
+        customFieldLabel?: string;
     };
     experience: Experience[];
     education: Education[];
@@ -158,9 +161,11 @@ interface ResumeState {
     addExperience: (exp: Experience) => void;
     updateExperience: (id: string, exp: Partial<Experience>) => void;
     removeExperience: (id: string) => void;
+    moveExperience: (id: string, direction: 'up' | 'down') => void;
     addEducation: (edu: Education) => void;
     updateEducation: (id: string, edu: Partial<Education>) => void;
     removeEducation: (id: string) => void;
+    moveEducation: (id: string, direction: 'up' | 'down') => void;
     addSkill: (skill: Skill) => void;
     updateSkill: (id: string, skill: Partial<Skill>) => void;
     removeSkill: (id: string) => void;
@@ -298,6 +303,17 @@ export const useResumeStore = create<ResumeState>()(
             },
         })),
 
+    moveExperience: (id, direction) =>
+        set((state) => {
+            const arr = [...state.resumeData.experience];
+            const index = arr.findIndex((e) => e.id === id);
+            if (index === -1) return state;
+            const newIndex = direction === 'up' ? index - 1 : index + 1;
+            if (newIndex < 0 || newIndex >= arr.length) return state;
+            [arr[index], arr[newIndex]] = [arr[newIndex], arr[index]];
+            return { resumeData: { ...state.resumeData, experience: arr } };
+        }),
+
     addEducation: (edu) =>
         set((state) => ({
             resumeData: {
@@ -323,6 +339,17 @@ export const useResumeStore = create<ResumeState>()(
                 education: state.resumeData.education.filter((e) => e.id !== id),
             },
         })),
+
+    moveEducation: (id, direction) =>
+        set((state) => {
+            const arr = [...state.resumeData.education];
+            const index = arr.findIndex((e) => e.id === id);
+            if (index === -1) return state;
+            const newIndex = direction === 'up' ? index - 1 : index + 1;
+            if (newIndex < 0 || newIndex >= arr.length) return state;
+            [arr[index], arr[newIndex]] = [arr[newIndex], arr[index]];
+            return { resumeData: { ...state.resumeData, education: arr } };
+        }),
 
     addSkill: (skill) =>
         set((state) => ({

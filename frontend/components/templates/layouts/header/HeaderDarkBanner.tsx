@@ -209,14 +209,15 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                             </p>
                             <div className="space-y-2">
                                 {skills.slice(0, 5).map((skill) => (
-                                    <ProgressBar
-                                        key={skill.id}
-                                        label={skill.name}
-                                        value={skill.level * 20}
-                                        color={accentColor}
-                                        height={scale < 1 ? 4 : 6}
-                                        scale={1}
-                                    />
+                                    <div key={skill.id} data-paginate="item">
+                                        <ProgressBar
+                                            label={skill.name}
+                                            value={skill.level * 20}
+                                            color={accentColor}
+                                            height={scale < 1 ? 4 : 6}
+                                            scale={1}
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </section>
@@ -236,17 +237,18 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                                 }}
                             >
                                 {languages.slice(0, 3).map((lang) => (
-                                    <CircularProgress
-                                        key={lang.id}
-                                        value={lang.level}
-                                        size={scale < 1 ? 40 : 70}
-                                        color="#374151"
-                                        strokeWidth={scale < 1 ? 2 : 3}
-                                        fontSize={scale < 1 ? 10 : 16}
-                                        label={lang.name}
-                                        labelFontSize={scale < 1 ? 6 : 10}
-                                        scale={1}
-                                    />
+                                    <div key={lang.id} data-paginate="item">
+                                        <CircularProgress
+                                            value={lang.level}
+                                            size={scale < 1 ? 40 : 70}
+                                            color="#374151"
+                                            strokeWidth={scale < 1 ? 2 : 3}
+                                            fontSize={scale < 1 ? 10 : 16}
+                                            label={lang.name}
+                                            labelFontSize={scale < 1 ? 6 : 10}
+                                            scale={1}
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </section>
@@ -268,6 +270,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                                 {strengths.map((strength) => (
                                     <span
                                         key={strength.id}
+                                        data-paginate="item"
                                         style={{
                                             backgroundColor: accentColor,
                                             color: '#1f2937',

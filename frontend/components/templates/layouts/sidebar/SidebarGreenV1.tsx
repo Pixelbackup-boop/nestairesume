@@ -109,7 +109,7 @@ export default function SidebarGreenV1({ data, theme, scale = 1 }: TemplateProps
                         <SidebarHeader title="Languages" color="white" fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                             {languages.map((lang) => (
-                                <div key={lang.id} style={{ fontSize: fs.body }}>
+                                <div key={lang.id} style={{ fontSize: fs.body }} data-paginate="item">
                                     {lang.name}
                                 </div>
                             ))}
@@ -123,13 +123,48 @@ export default function SidebarGreenV1({ data, theme, scale = 1 }: TemplateProps
                         <SidebarHeader title="Skills" color="white" fs={fs} headingFont={headingFont} />
                         <ul style={{ paddingLeft: 16, margin: 0, fontSize: fs.body }}>
                             {skills.map((skill) => (
-                                <li key={skill.id} style={{ marginBottom: 4 }}>
+                                <li key={skill.id} style={{ marginBottom: 4 }} data-paginate="item">
                                     {skill.name}
                                 </li>
                             ))}
                         </ul>
                     </div>
                 )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ marginTop: 40 }}>
+                        <SidebarHeader title="Strengths" color="white" fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    backgroundColor: '#052e16',
+                                    color: '#f0fdf4',
+                                    padding: '4px 8px',
+                                    borderRadius: 4,
+                                    fontSize: fs.small
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ marginTop: 40 }}>
+                        <SidebarHeader title="Interests" color="white" fs={fs} headingFont={headingFont} />
+                        <ul style={{ paddingLeft: 16, margin: 0, fontSize: fs.body }}>
+                            {data.interests.map((int) => (
+                                <li key={int.id} style={{ marginBottom: 4 }}>
+                                    {int.name}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
 
             </aside>
 

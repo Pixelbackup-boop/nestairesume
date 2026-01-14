@@ -111,7 +111,7 @@ export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProp
                         <SectionHeader title="Skills" color={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                             {skills.map((skill) => (
-                                <div key={skill.id}>
+                                <div key={skill.id} data-paginate="item">
                                     <div style={{ marginBottom: 2, fontSize: fs.body, fontWeight: 500 }}>{skill.name}</div>
                                     <ProgressBar
                                         value={skill.level * 20}
@@ -135,6 +135,56 @@ export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProp
                                 <div style={{ fontSize: fs.small, opacity: 0.8 }}>{award.issuer} | {award.date}</div>
                             </div>
                         ))}
+                    </div>
+                )}
+
+                {/* Languages (In Sidebar) */}
+                {data.languages && data.languages.length > 0 && (
+                    <div style={{ width: '100%', marginBottom: 40 }}>
+                        <SectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {data.languages.map((lang) => (
+                                <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
+                                    <span style={{ fontWeight: 500 }}>{lang.name}</span>
+                                    <span style={{ opacity: 0.7 }}>{lang.proficiency}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Strengths (In Sidebar) */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ width: '100%', marginBottom: 40 }}>
+                        <SectionHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} data-paginate="item" style={{
+                                    backgroundColor: '#bfdbfe',
+                                    color: '#1e3a8a',
+                                    padding: '4px 12px',
+                                    borderRadius: 12,
+                                    fontSize: fs.small,
+                                    fontWeight: 500
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests (In Sidebar) */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ width: '100%', marginBottom: 40 }}>
+                        <SectionHeader title="Interests" color={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                            {data.interests.map((int) => (
+                                <span key={int.id} style={{ fontSize: fs.body, display: 'flex', alignItems: 'center', gap: 4 }}>
+                                    <span>•</span> {int.name}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 )}
 

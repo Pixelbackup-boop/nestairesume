@@ -148,7 +148,7 @@ export default function MinimalClean({ data, theme, scale = 1 }: TemplateProps) 
                     </SectionHeader>
                     <div className="space-y-1">
                         {skills.map((skill) => (
-                            <div key={skill.id} className="flex items-center gap-2">
+                            <div key={skill.id} className="flex items-center gap-2" data-paginate="item">
                                 <span style={{ color: theme.text, fontSize: scale < 1 ? '8px' : '11px', minWidth: scale < 1 ? '50px' : '80px' }}>
                                     {skill.name}
                                 </span>
@@ -207,7 +207,7 @@ export default function MinimalClean({ data, theme, scale = 1 }: TemplateProps) 
                     </SectionHeader>
                     <div className="space-y-1">
                         {certifications.map((cert) => (
-                            <p key={cert.id} style={{ color: theme.text, opacity: 0.8, fontSize: scale < 1 ? '8px' : '11px' }}>
+                            <p key={cert.id} style={{ color: theme.text, opacity: 0.8, fontSize: scale < 1 ? '8px' : '11px' }} data-paginate="item">
                                 {cert.name} — {cert.issuer}, {cert.date}
                             </p>
                         ))}

@@ -306,7 +306,7 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                             </p>
                             <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
                                 {skills.map((skill) => (
-                                    <li key={skill.id} style={{ fontSize: fs.body, color: '#374151', marginBottom: '2px' }}>
+                                    <li key={skill.id} data-paginate="item" style={{ fontSize: fs.body, color: '#374151', marginBottom: '2px' }}>
                                         {skill.name}
                                     </li>
                                 ))}
@@ -352,8 +352,25 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                         </section>
                     )}
 
-                    {/* If no interests, show strengths instead */}
-                    {(!interests || interests.length === 0) && data.strengths && data.strengths.length > 0 && (
+                    {/* Languages */}
+                    {data.languages && data.languages.length > 0 && (
+                        <section className="mb-4 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🗣️">
+                                Languages
+                            </SectionHeader>
+                            <div className="space-y-2">
+                                {data.languages.map((lang) => (
+                                    <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
+                                        <span style={{ fontWeight: 600, color: '#1f2937' }}>{lang.name}</span>
+                                        <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Strengths */}
+                    {data.strengths && data.strengths.length > 0 && (
                         <section className="resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💪">
                                 Strengths
@@ -368,6 +385,7 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                                 {data.strengths.map((strength) => (
                                     <span
                                         key={strength.id}
+                                        data-paginate="item"
                                         style={{
                                             backgroundColor: accentColor,
                                             color: '#ffffff',

@@ -114,6 +114,46 @@ export default function MinimalUnderline({ data, theme, scale = 1 }: TemplatePro
                 </section>
             )}
 
+            {/* Languages */}
+            {languages && languages.length > 0 && (
+                <section style={{ marginTop: 32 }}>
+                    <SectionHeader title="Languages" fs={fs} headingFont={headingFont} />
+                    <p style={{ lineHeight: 1.6, fontSize: fs.body }}>
+                        {languages.map(l => `${l.name} (${l.proficiency})`).join('  •  ')}
+                    </p>
+                </section>
+            )}
+
+            {/* Strengths */}
+            {data.strengths && data.strengths.length > 0 && (
+                <section style={{ marginTop: 32 }}>
+                    <SectionHeader title="Key Strengths" fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                        {data.strengths.map((str) => (
+                            <span key={str.id} style={{
+                                fontSize: fs.body,
+                                color: '#111',
+                                border: '1px solid #ccc',
+                                padding: '2px 8px',
+                                borderRadius: 2
+                            }}>
+                                {str.name}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Interests */}
+            {data.interests && data.interests.length > 0 && (
+                <section style={{ marginTop: 32 }}>
+                    <SectionHeader title="Interests" fs={fs} headingFont={headingFont} />
+                    <p style={{ lineHeight: 1.6, fontSize: fs.body }}>
+                        {data.interests.map(i => i.name).join(', ')}
+                    </p>
+                </section>
+            )}
+
         </div>
     );
 }

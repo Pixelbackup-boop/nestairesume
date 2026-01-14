@@ -142,7 +142,7 @@ export default function ClassicModern({ data, theme, scale = 1 }: TemplateProps)
                     <SectionHeader title="Technical Skills" color={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
                         {skills.map((skill) => (
-                            <div key={skill.id} style={{
+                            <div key={skill.id} data-paginate="item" style={{
                                 fontSize: fs.body,
                                 color: '#000',
                                 fontWeight: 500,
@@ -155,6 +155,51 @@ export default function ClassicModern({ data, theme, scale = 1 }: TemplateProps)
                             </div>
                         ))}
                     </div>
+                </section>
+            )}
+
+            {/* Languages */}
+            {languages && languages.length > 0 && (
+                <section style={{ marginBottom: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+                        {languages.map((lang) => (
+                            <div key={lang.id} data-paginate="item" style={{ fontSize: fs.body, color: '#374151' }}>
+                                <span style={{ fontWeight: 700 }}>{lang.name}</span> <span style={{ color: '#6b7280' }}>({lang.proficiency})</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Strengths */}
+            {data.strengths && data.strengths.length > 0 && (
+                <section style={{ marginBottom: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        {data.strengths.map((str) => (
+                            <span key={str.id} style={{
+                                fontSize: fs.small,
+                                color: '#fff',
+                                backgroundColor: accentColor,
+                                padding: '4px 8px',
+                                borderRadius: 4,
+                                fontWeight: 600
+                            }}>
+                                {str.name}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Interests */}
+            {data.interests && data.interests.length > 0 && (
+                <section>
+                    <SectionHeader title="Interests" color={accentColor} fs={fs} headingFont={headingFont} />
+                    <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>
+                        {data.interests.map(int => int.name).join(' • ')}
+                    </p>
                 </section>
             )}
         </div>

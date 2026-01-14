@@ -10,7 +10,7 @@ import ResumeEntry from '../../shared/ResumeEntry';
  * Traditional top-down professional resume layout with centered header.
  */
 export default function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, background, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, references, background, fonts } = data;
     const bgStyle = getBackgroundStyle(background);
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
@@ -189,7 +189,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                     </SectionHeader>
                     <div className="space-y-1">
                         {skills.map((skill) => (
-                            <div key={skill.id} className="flex items-center gap-2">
+                            <div key={skill.id} className="flex items-center gap-2" data-paginate="item">
                                 <span style={{ color: theme.text, fontSize: scale < 1 ? '9px' : '12px', minWidth: scale < 1 ? '60px' : '100px' }}>
                                     {skill.name}
                                 </span>
@@ -226,7 +226,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                     </SectionHeader>
                     <div className="space-y-1">
                         {languages.map((lang) => (
-                            <div key={lang.id} className="flex items-center justify-between">
+                            <div key={lang.id} className="flex items-center justify-between" data-paginate="item">
                                 <span style={{ color: theme.text, fontSize: scale < 1 ? '9px' : '12px' }}>
                                     {lang.name}
                                 </span>
@@ -303,7 +303,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                     </SectionHeader>
                     <div className="space-y-1">
                         {certifications.map((cert) => (
-                            <div key={cert.id}>
+                            <div key={cert.id} data-paginate="item">
                                 <span style={{ color: theme.text, fontWeight: 500, fontSize: scale < 1 ? '9px' : '12px' }}>
                                     {cert.name}
                                 </span>
@@ -330,6 +330,105 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                     </SectionHeader>
                     <p style={{ color: theme.text, fontSize: scale < 1 ? '9px' : '12px' }}>
                         {interests.map(i => i.name).join(' • ')}
+                    </p>
+                </section>
+            )}
+
+            {/* Social Links */}
+            {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                <section className="mb-5">
+                    <SectionHeader
+                        theme={theme}
+                        headingFont={headingFont}
+                        scale={scale}
+                        variant="default"
+                        style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
+                    >
+                        Social Links
+                    </SectionHeader>
+                    <div className="flex flex-wrap gap-3" style={{ fontSize: scale < 1 ? '9px' : '12px' }}>
+                        {personalInfo.linkedin && (
+                            <span style={{ color: theme.text }}>
+                                <strong>LinkedIn:</strong> {personalInfo.linkedin}
+                            </span>
+                        )}
+                        {personalInfo.twitter && (
+                            <span style={{ color: theme.text }}>
+                                <strong>Twitter:</strong> {personalInfo.twitter}
+                            </span>
+                        )}
+                        {personalInfo.github && (
+                            <span style={{ color: theme.text }}>
+                                <strong>GitHub:</strong> {personalInfo.github}
+                            </span>
+                        )}
+                        {personalInfo.dribbble && (
+                            <span style={{ color: theme.text }}>
+                                <strong>Dribbble:</strong> {personalInfo.dribbble}
+                            </span>
+                        )}
+                        {personalInfo.behance && (
+                            <span style={{ color: theme.text }}>
+                                <strong>Behance:</strong> {personalInfo.behance}
+                            </span>
+                        )}
+                        {personalInfo.instagram && (
+                            <span style={{ color: theme.text }}>
+                                <strong>Instagram:</strong> {personalInfo.instagram}
+                            </span>
+                        )}
+                    </div>
+                </section>
+            )}
+
+            {/* References */}
+            {references && references.length > 0 && (
+                <section className="mb-5">
+                    <SectionHeader
+                        theme={theme}
+                        headingFont={headingFont}
+                        scale={scale}
+                        variant="default"
+                        style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
+                    >
+                        References
+                    </SectionHeader>
+                    <div className="space-y-2">
+                        {references.map((ref) => (
+                            <div key={ref.id}>
+                                <div style={{ color: theme.text, fontWeight: 600, fontSize: scale < 1 ? '10px' : sizeConfig.base }}>
+                                    {ref.name}
+                                </div>
+                                <div style={{ color: theme.secondary, fontSize: scale < 1 ? '9px' : '12px' }}>
+                                    {ref.title}{ref.company && `, ${ref.company}`}
+                                </div>
+                                {(ref.phone || ref.email) && (
+                                    <div style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : '11px' }}>
+                                        {ref.phone && <span>{ref.phone}</span>}
+                                        {ref.phone && ref.email && <span> • </span>}
+                                        {ref.email && <span>{ref.email}</span>}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Custom Field */}
+            {personalInfo.customField && (
+                <section className="mb-5">
+                    <SectionHeader
+                        theme={theme}
+                        headingFont={headingFont}
+                        scale={scale}
+                        variant="default"
+                        style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
+                    >
+                        {personalInfo.customFieldLabel || 'Additional Information'}
+                    </SectionHeader>
+                    <p style={{ color: theme.text, fontSize: scale < 1 ? '9px' : '12px', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
+                        {personalInfo.customField}
                     </p>
                 </section>
             )}

@@ -149,6 +149,56 @@ export default function MinimalLabelsTan({ data, theme, scale = 1 }: TemplatePro
                     </div>
                 )}
 
+                {/* Languages */}
+                {languages && languages.length > 0 && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Languages</h3>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                            <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
+                                {languages.map(l => `${l.name} (${l.proficiency})`).join(', ')}
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Strengths</h3>
+                        </div>
+                        <div style={{ flex: 1, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    fontSize: fs.small,
+                                    color: mainText,
+                                    backgroundColor: '#f5f5f4',
+                                    padding: '4px 8px',
+                                    borderRadius: 4
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Interests</h3>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                            <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
+                                {data.interests.map(i => i.name).join(', ')}
+                            </p>
+                        </div>
+                    </div>
+                )}
+
             </div>
         </div>
     );

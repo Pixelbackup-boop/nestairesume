@@ -108,7 +108,7 @@ export default function SidebarDarkNavyCompact({ data, theme, scale = 1 }: Templ
                         <h5 style={{ color: accentColor, fontWeight: 700, textTransform: 'uppercase', fontSize: fs.small, marginBottom: 12, borderBottom: '1px solid #334155', paddingBottom: 4 }}>Skills</h5>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                             {skills.map(skill => (
-                                <span key={skill.id} style={{ backgroundColor: '#1e293b', padding: '2px 8px', borderRadius: 4, fontSize: fs.small, color: '#e2e8f0' }}>
+                                <span key={skill.id} style={{ backgroundColor: '#1e293b', padding: '2px 8px', borderRadius: 4, fontSize: fs.small, color: '#e2e8f0' }} data-paginate="item">
                                     {skill.name}
                                 </span>
                             ))}
@@ -122,11 +122,38 @@ export default function SidebarDarkNavyCompact({ data, theme, scale = 1 }: Templ
                         <h5 style={{ color: accentColor, fontWeight: 700, textTransform: 'uppercase', fontSize: fs.small, marginBottom: 12, borderBottom: '1px solid #334155', paddingBottom: 4 }}>Language</h5>
                         <ul style={{ paddingLeft: 16, margin: 0, fontSize: fs.small }}>
                             {languages.map(lang => (
-                                <li key={lang.id} style={{ marginBottom: 4 }}>{lang.name}</li>
+                                <li key={lang.id} style={{ marginBottom: 4 }} data-paginate="item">{lang.name}</li>
                             ))}
                         </ul>
                     </div>
                 )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ marginTop: 32 }}>
+                        <h5 style={{ color: accentColor, fontWeight: 700, textTransform: 'uppercase', fontSize: fs.small, marginBottom: 12, borderBottom: '1px solid #334155', paddingBottom: 4 }}>Strengths</h5>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                            {data.strengths.map(str => (
+                                <span key={str.id} style={{ backgroundColor: '#1e293b', padding: '2px 8px', borderRadius: 4, fontSize: fs.small, color: '#e2e8f0' }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ marginTop: 32 }}>
+                        <h5 style={{ color: accentColor, fontWeight: 700, textTransform: 'uppercase', fontSize: fs.small, marginBottom: 12, borderBottom: '1px solid #334155', paddingBottom: 4 }}>Interests</h5>
+                        <ul style={{ paddingLeft: 16, margin: 0, fontSize: fs.small }}>
+                            {data.interests.map(int => (
+                                <li key={int.id} style={{ marginBottom: 4 }}>{int.name}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
 
             </aside>
 

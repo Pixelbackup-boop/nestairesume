@@ -123,6 +123,46 @@ export default function MinimalTimeline({ data, theme, scale = 1 }: TemplateProp
                 </section>
             )}
 
+            {/* Languages */}
+            {languages && languages.length > 0 && (
+                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                    <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>Languages</h3>
+                    <p style={{ lineHeight: 1.8, fontSize: fs.body }}>
+                        {languages.map(l => `${l.name} (${l.proficiency})`).join('  •  ')}
+                    </p>
+                </section>
+            )}
+
+            {/* Strengths */}
+            {data.strengths && data.strengths.length > 0 && (
+                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                    <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>Strengths</h3>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                        {data.strengths.map((str) => (
+                            <span key={str.id} style={{
+                                fontSize: fs.body,
+                                color: '#1f2937',
+                                backgroundColor: '#f3f4f6',
+                                padding: '4px 8px',
+                                borderRadius: 4
+                            }}>
+                                {str.name}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Interests */}
+            {data.interests && data.interests.length > 0 && (
+                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                    <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>Interests</h3>
+                    <p style={{ lineHeight: 1.8, fontSize: fs.body }}>
+                        {data.interests.map(i => i.name).join(' • ')}
+                    </p>
+                </section>
+            )}
+
         </div>
     );
 }

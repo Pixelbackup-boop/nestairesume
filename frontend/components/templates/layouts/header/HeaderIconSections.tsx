@@ -195,14 +195,15 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                         <BoxSection borderColor={borderColor} title="Skills" icon="⚙️" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
                             <div className="space-y-3">
                                 {skills.map((skill) => (
-                                    <ProgressBar
-                                        key={skill.id}
-                                        label={skill.name}
-                                        value={skill.level ? skill.level * 20 : 80}
-                                        color={orangeAccent}
-                                        height={scale < 1 ? 6 : 8}
-                                        scale={1}
-                                    />
+                                    <div key={skill.id} data-paginate="item">
+                                        <ProgressBar
+                                            label={skill.name}
+                                            value={skill.level ? skill.level * 20 : 80}
+                                            color={orangeAccent}
+                                            height={scale < 1 ? 6 : 8}
+                                            scale={1}
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </BoxSection>
@@ -215,7 +216,7 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                         <BoxSection borderColor={borderColor} title="Strengths" icon="⭐" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                                 {strengths.map((str) => (
-                                    <span key={str.id} style={{
+                                    <span key={str.id} data-paginate="item" style={{
                                         backgroundColor: '#fff7ed', // Light orange bg
                                         color: orangeAccent,
                                         border: `1px solid ${orangeAccent}`,
@@ -225,6 +226,39 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                                         fontWeight: 600
                                     }}>
                                         {str.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </BoxSection>
+                    </div>
+                )}
+            </div>
+            {/* Languages & Interests Row */}
+            <div style={{ display: 'flex', gap: scale < 1 ? 16 : 32, marginTop: scale < 1 ? 16 : 32 }}>
+                {/* Languages Section */}
+                {data.languages && data.languages.length > 0 && (
+                    <div style={{ flex: 1 }}>
+                        <BoxSection borderColor={borderColor} title="Languages" icon="🗣️" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                            <div className="space-y-2">
+                                {data.languages.map((lang) => (
+                                    <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f3f4f6', paddingBottom: 4 }}>
+                                        <span style={{ fontWeight: 600 }}>{lang.name}</span>
+                                        <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </BoxSection>
+                    </div>
+                )}
+
+                {/* Interests Section */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ flex: 1 }}>
+                        <BoxSection borderColor={borderColor} title="Interests" icon="🎨" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                                {data.interests.map((int) => (
+                                    <span key={int.id} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                                        <span style={{ color: orangeAccent }}>★</span> {int.name}
                                     </span>
                                 ))}
                             </div>

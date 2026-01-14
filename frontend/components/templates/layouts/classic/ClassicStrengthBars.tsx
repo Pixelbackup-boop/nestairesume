@@ -136,7 +136,7 @@ export default function ClassicStrengthBars({ data, theme, scale = 1 }: Template
                             <SectionHeader title="Expertise" color={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                                 {skills.map((skill) => (
-                                    <div key={skill.id}>
+                                    <div key={skill.id} data-paginate="item">
                                         <div style={{ fontSize: fs.body, color: '#111827', fontWeight: 600, marginBottom: 6 }}>{skill.name}</div>
                                         <ProgressBar
                                             value={skill.level * 20}

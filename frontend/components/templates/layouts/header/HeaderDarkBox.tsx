@@ -49,6 +49,15 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                     marginBottom: scale < 1 ? '24px' : '48px',
                 }}
             >
+                {/* Profile Avatar - Circle with image or initials */}
+                <ProfileAvatar
+                    profileImage={personalInfo.profileImage}
+                    fullName={personalInfo.fullName || 'Your Name'}
+                    size={scale < 1 ? 70 : 120}
+                    accentColor={accentColor}
+                    headingFont={headingFont}
+                />
+
                 {/* Name Box - Solid Vibrant Blue */}
                 <div
                     style={{
@@ -200,6 +209,23 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                         </section>
                     )}
 
+                    {/* Languages */}
+                    {data.languages && data.languages.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🗣️">
+                                Languages
+                            </SectionHeader>
+                            <div className="space-y-2">
+                                {data.languages.map((lang) => (
+                                    <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
+                                        <span style={{ fontWeight: 600 }}>{lang.name}</span>
+                                        <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
                     {/* Skills (Circular) */}
                     {skills.length > 0 && (
                         <section className="mb-6 resume-section" data-paginate>
@@ -215,17 +241,18 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                                 }}
                             >
                                 {skills.map((skill) => (
-                                    <CircularProgress
-                                        key={skill.id}
-                                        value={skill.level ? skill.level * 20 : 80}
-                                        size={scale < 1 ? 50 : 80}
-                                        color={accentColor}
-                                        strokeWidth={scale < 1 ? 5 : 8}
-                                        fontSize={scale < 1 ? 8 : 12}
-                                        label={skill.name}
-                                        labelFontSize={scale < 1 ? 8 : 11}
-                                        scale={1}
-                                    />
+                                    <div key={skill.id} data-paginate="item">
+                                        <CircularProgress
+                                            value={skill.level ? skill.level * 20 : 80}
+                                            size={scale < 1 ? 50 : 80}
+                                            color={accentColor}
+                                            strokeWidth={scale < 1 ? 5 : 8}
+                                            fontSize={scale < 1 ? 8 : 12}
+                                            label={skill.name}
+                                            labelFontSize={scale < 1 ? 8 : 11}
+                                            scale={1}
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </section>
@@ -239,20 +266,113 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                             </SectionHeader>
                             <div className="space-y-3">
                                 {strengths.map((str) => (
-                                    <ProgressBar
-                                        key={str.id}
-                                        label={str.name}
-                                        value={100} // Solid bars for expertise
-                                        color={accentColor}
-                                        height={scale < 1 ? 6 : 10}
-                                        scale={1}
-                                    />
+                                    <div key={str.id} data-paginate="item">
+                                        <ProgressBar
+                                            label={str.name}
+                                            value={100} // Solid bars for expertise
+                                            color={accentColor}
+                                            height={scale < 1 ? 6 : 10}
+                                            scale={1}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Interests */}
+                    {data.interests && data.interests.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⭐">
+                                Interests
+                            </SectionHeader>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                                {data.interests.map((int) => (
+                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500, color: '#4b5563' }}>
+                                        {int.name}
+                                    </span>
                                 ))}
                             </div>
                         </section>
                     )}
                 </div>
             </div>
+        </div>
+    );
+}
+
+// Profile Avatar - Shows image or initials placeholder
+interface ProfileAvatarProps {
+    profileImage?: string;
+    fullName: string;
+    size: number;
+    accentColor: string;
+    headingFont: string;
+}
+
+function ProfileAvatar({ profileImage, fullName, size, accentColor, headingFont }: ProfileAvatarProps) {
+    // Get initials from full name (up to 2 characters)
+    const getInitials = (name: string): string => {
+        const parts = name.trim().split(/\s+/);
+        if (parts.length === 1) {
+            return parts[0].substring(0, 2).toUpperCase();
+        }
+        return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    };
+
+    const initials = getInitials(fullName);
+    const fontSize = Math.round(size * 0.4);
+
+    if (profileImage) {
+        return (
+            <div
+                style={{
+                    width: size,
+                    height: size,
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    border: `3px solid ${accentColor}`,
+                    flexShrink: 0,
+                }}
+            >
+                <img
+                    src={profileImage}
+                    alt={fullName}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                    }}
+                />
+            </div>
+        );
+    }
+
+    // Placeholder with initials
+    return (
+        <div
+            style={{
+                width: size,
+                height: size,
+                borderRadius: '50%',
+                backgroundColor: '#e5e7eb',
+                border: `3px solid ${accentColor}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+            }}
+        >
+            <span
+                style={{
+                    fontFamily: headingFont,
+                    fontSize: fontSize,
+                    fontWeight: 700,
+                    color: accentColor,
+                }}
+            >
+                {initials}
+            </span>
         </div>
     );
 }

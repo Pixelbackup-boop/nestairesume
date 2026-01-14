@@ -111,6 +111,7 @@ export default function SidebarGreenV3({ data, theme, scale = 1 }: TemplateProps
                             {skills.map((skill) => (
                                 <span
                                     key={skill.id}
+                                    data-paginate="item"
                                     style={{
                                         backgroundColor: tagBg,
                                         color: tagText,
@@ -125,6 +126,55 @@ export default function SidebarGreenV3({ data, theme, scale = 1 }: TemplateProps
                         </div>
                     </div>
                 )}
+
+                {/* Languages */}
+                {languages && languages.length > 0 && (
+                    <div style={{ marginBottom: 40 }}>
+                        <SidebarHeader title="Languages" color="white" fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                            {languages.map((lang) => (
+                                <div key={lang.id} style={{ fontSize: fs.body }} data-paginate="item">
+                                    {lang.name}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <div style={{ marginBottom: 40 }}>
+                        <SidebarHeader title="Strengths" color="white" fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    backgroundColor: '#14532d',
+                                    color: '#ffffff',
+                                    padding: '4px 8px',
+                                    borderRadius: 4,
+                                    fontSize: fs.small
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ marginBottom: 40 }}>
+                        <SidebarHeader title="Interests" color="white" fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                            {data.interests.map((int) => (
+                                <div key={int.id} style={{ fontSize: fs.body }}>
+                                    • {int.name}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
             </aside>
 
             {/* Main Content */}
