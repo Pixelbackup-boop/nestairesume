@@ -15,7 +15,7 @@ import ProgressBar from '../../shared/ProgressBar';
  * - Content: Icons only or minimal text in sidebar.
  */
 export default function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Oswald');
     const bodyFont = getFontFamily(fonts?.body || 'Roboto Condensed');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -31,7 +31,7 @@ export default function SidebarNarrowYellow({ data, theme, scale = 1 }: Template
 
     // Dimensions
     const photoSize = scale < 1 ? 60 : 100;
-    const sidebarWidth = '22%'; // Slight adjustment to accommodate some text
+    const sidebarWidth = '30%'; // Wider sidebar to fit skills with levels and interests
 
     return (
         <div
@@ -92,23 +92,69 @@ export default function SidebarNarrowYellow({ data, theme, scale = 1 }: Template
                     )}
                 </div>
 
-                {/* Contact Icons */}
+                {/* Contact */}
                 <div style={{ marginBottom: 40, width: '100%' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'center' }}>
-                        {personalInfo.phone && <div title={personalInfo.phone} style={{ fontSize: '1.5em' }}>📞</div>}
-                        {personalInfo.email && <div title={personalInfo.email} style={{ fontSize: '1.5em' }}>✉️</div>}
-                        {personalInfo.location && <div title={personalInfo.location} style={{ fontSize: '1.5em' }}>📍</div>}
-                        {personalInfo.website && <div title={personalInfo.website} style={{ fontSize: '1.5em' }}>🌐</div>}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: fs.small }}>
+                        {personalInfo.phone && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span>📞</span>
+                                <span>{personalInfo.phone}</span>
+                            </div>
+                        )}
+                        {personalInfo.email && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span>✉️</span>
+                                <span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span>
+                            </div>
+                        )}
+                        {personalInfo.location && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span>📍</span>
+                                <span>{personalInfo.location}</span>
+                            </div>
+                        )}
+                        {personalInfo.website && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span>🌐</span>
+                                <span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                {/* Vertical Text or Initials? Let's just put skills vertically/compactly */}
+                {/* Skills with proficiency levels */}
                 {skills.length > 0 && (
-                    <div style={{ width: '100%', textAlign: 'center' }}>
-                        <h4 style={{ fontWeight: 800, textTransform: 'uppercase', marginBottom: 12, borderBottom: '2px solid #1f2937', display: 'inline-block' }}>Skills</h4>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.small, fontWeight: 700 }}>
+                    <div style={{ width: '100%', marginBottom: 32 }}>
+                        <SidebarHeader title="Skills" />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                             {skills.map((skill) => (
-                                <div key={skill.id} data-paginate="item">{skill.name}</div>
+                                <div key={skill.id} data-paginate="item">
+                                    <div style={{ marginBottom: 4, fontSize: fs.small, fontWeight: 600 }}>{skill.name}</div>
+                                    <ProgressBar
+                                        value={skill.level || 3}
+                                        maxValue={5}
+                                        variant="solid"
+                                        color="#1f2937"
+                                        trackColor="rgba(31, 41, 55, 0.2)"
+                                        height={6}
+                                        scale={1}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <div style={{ width: '100%' }}>
+                        <SidebarHeader title="Interests" />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.small }}>
+                            {data.interests.map((int) => (
+                                <div key={int.id} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <span style={{ color: '#1f2937', fontSize: '8px' }}>●</span>
+                                    <span style={{ fontWeight: 500 }}>{int.name}</span>
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -209,9 +255,58 @@ export default function SidebarNarrowYellow({ data, theme, scale = 1 }: Template
                         </div>
                     </section>
                 )}
+                {/* Certifications */}
+                {certifications && certifications.length > 0 && (
+                    <section className="mb-10 resume-section" data-paginate="section">
+                        <MainHeader title="Certifications" color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <div className="space-y-3">
+                            {certifications.map((cert) => (
+                                <div key={cert.id} data-paginate="item">
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
+                                        {cert.name}
+                                    </h4>
+                                    <div style={{ fontSize: fs.body, color: '#ca8a04', fontWeight: 500 }}>
+                                        {cert.issuer}
+                                    </div>
+                                    <div style={{ fontSize: fs.small, color: '#666' }}>
+                                        {cert.date}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Awards */}
+                {awards && awards.length > 0 && (
+                    <section className="mb-10 resume-section" data-paginate="section">
+                        <MainHeader title="Awards & Achievements" color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <div className="space-y-3">
+                            {awards.map((award) => (
+                                <div key={award.id} data-paginate="item">
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
+                                        {award.title}
+                                    </h4>
+                                    <div style={{ fontSize: fs.body, color: '#ca8a04', fontWeight: 500 }}>
+                                        {award.issuer}
+                                    </div>
+                                    <div style={{ fontSize: fs.small, color: '#666' }}>
+                                        {award.date}
+                                    </div>
+                                    {award.description && (
+                                        <p style={{ fontSize: fs.body, lineHeight: 1.5, color: '#374151', marginTop: 4 }}>
+                                            {award.description}
+                                        </p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
                 {/* Languages */}
                 {languages && languages.length > 0 && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-10 resume-section" data-paginate="section">
                         <MainHeader title="Languages" color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
                             {languages.map((lang) => (
@@ -225,7 +320,7 @@ export default function SidebarNarrowYellow({ data, theme, scale = 1 }: Template
 
                 {/* Strengths */}
                 {data.strengths && data.strengths.length > 0 && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-10 resume-section" data-paginate="section">
                         <MainHeader title="Strengths" color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                             {data.strengths.map((str) => (
@@ -244,25 +339,28 @@ export default function SidebarNarrowYellow({ data, theme, scale = 1 }: Template
                     </section>
                 )}
 
-                {/* Interests */}
-                {data.interests && data.interests.length > 0 && (
-                    <section className="mb-10 resume-section">
-                        <MainHeader title="Interests" color={'#1f2937'} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
-                            {data.interests.map((int) => (
-                                <div key={int.id} style={{ fontSize: fs.body, color: '#374151' }}>
-                                    • {int.name}
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                )}
             </main>
         </div>
     );
 }
 
 // Helpers
+function SidebarHeader({ title }: { title: string }) {
+    return (
+        <h4 style={{
+            fontWeight: 800,
+            textTransform: 'uppercase',
+            marginBottom: 12,
+            borderBottom: '2px solid #1f2937',
+            paddingBottom: 4,
+            fontSize: '12px',
+            letterSpacing: '0.05em'
+        }}>
+            {title}
+        </h4>
+    );
+}
+
 function MainHeader({ title, color, fs, headingFont }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string }) {
     return (
         <h3

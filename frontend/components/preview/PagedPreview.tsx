@@ -10,8 +10,19 @@ const A4_HEIGHT_PX = 1123; // Standard A4 height in pixels at 96 DPI
 const A4_WIDTH_PX = 794;   // Standard A4 width in pixels at 96 DPI
 const PAGE_GAP_PX = 40;    // Gap between pages (Collapsed in Print via CSS)
 const PAGE_MARGIN_BOTTOM = 30; // Bottom margin to prevent content from touching page edge
-const SIDEBAR_WIDTH_PX = 278; // Sidebar width for sidebar templates (35% of A4 = 794 * 0.35)
-const SIDEBAR_BG_COLOR = '#1e293b'; // Dark navy/slate sidebar background
+// Sidebar dimensions per template
+const getSidebarConfig = (templateId: string | null): { width: number; bgColor: string } => {
+    if (!templateId) return { width: 278, bgColor: '#1e293b' }; // Default: 35% width, dark navy
+
+    if (templateId.includes('narrow-yellow')) {
+        return { width: 238, bgColor: '#facc15' }; // 30% of 794 = 238px, yellow
+    }
+    if (templateId.includes('monogram')) {
+        return { width: 278, bgColor: '#1e293b' }; // 35%, dark navy
+    }
+    // Default for other sidebar templates
+    return { width: 278, bgColor: '#1e293b' }; // 35%, dark navy
+};
 
 interface PagedPreviewProps {
     scale?: number;
@@ -291,15 +302,18 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                             }}
                         >
                             {/* Persistent Sidebar Background - appears on ALL pages for sidebar layouts */}
-                            {isSidebarLayout && (
-                                <div
-                                    className="absolute left-0 top-0 bottom-0"
-                                    style={{
-                                        width: `${SIDEBAR_WIDTH_PX}px`,
-                                        backgroundColor: SIDEBAR_BG_COLOR,
-                                    }}
-                                />
-                            )}
+                            {isSidebarLayout && (() => {
+                                const sidebarConfig = getSidebarConfig(selectedTemplateId);
+                                return (
+                                    <div
+                                        className="absolute left-0 top-0 bottom-0"
+                                        style={{
+                                            width: `${sidebarConfig.width}px`,
+                                            backgroundColor: sidebarConfig.bgColor,
+                                        }}
+                                    />
+                                );
+                            })()}
                             {/* Subtle Page Number */}
                             <div className="absolute bottom-2 right-3 text-[9px] text-gray-300 font-mono select-none">
                                 {pageIndex + 1} / {totalPages}
