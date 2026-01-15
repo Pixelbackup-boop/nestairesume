@@ -7,20 +7,38 @@ import api from './api';
 import { getThemeById, ThemeColor } from './templates/builder/colorPresets';
 import type { ResumeData } from '@/store/useResumeStore';
 
-// Map frontend template IDs to backend template IDs
-const templateMap: Record<string, string> = {
-    'classic': 'classic-professional',
-    'sidebar': 'sidebar-modern',
-    'header': 'header-bold',
-    'minimal': 'minimal-clean',
-    'creative': 'europass-classic',
-};
+// Known backend template IDs (must exist in backend/src/templates/pdf/index.ts)
+const knownTemplates = new Set([
+    // Sidebar templates
+    'sidebar-dark-navy', 'sidebar-narrow-yellow', 'sidebar-monogram',
+    // Header templates
+    'header-dark', 'header-dark-banner', 'header-dark-box',
+    'header-diagonal-yellow', 'header-ribbon-yellow', 'header-decorative',
+    'header-geometric', 'header-icon-sections', 'header-icon-orange', 'header-blue-clean',
+    // Classic templates
+    'classic-professional', 'classic-pro',
+    // Minimal templates
+    'minimal-timeline', 'minimal-labels-tan', 'minimal-blue-sections',
+    // Legacy layout aliases (backend handles these)
+    'classic', 'sidebar', 'header', 'minimal',
+]);
 
 // Get backend template ID from frontend template
 function getBackendTemplateId(frontendTemplate: string): string {
-    // Handle layout config IDs like "classic-normal-left"
+    // If template ID is already known to backend, pass it through directly
+    if (knownTemplates.has(frontendTemplate)) {
+        return frontendTemplate;
+    }
+
+    // Handle layout config IDs like "classic-normal-left" - extract base layout
+    // Backend has legacy aliases: 'sidebar' -> sidebar-dark-navy, 'header' -> header-dark, etc.
     const baseLayout = frontendTemplate.split('-')[0];
-    return templateMap[baseLayout] || 'classic-professional';
+    if (knownTemplates.has(baseLayout)) {
+        return baseLayout;
+    }
+
+    // Final fallback
+    return 'classic-professional';
 }
 
 /**

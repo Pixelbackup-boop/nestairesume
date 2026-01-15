@@ -23,6 +23,8 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme): str
         languages = [],
         strengths = [],
         interests = [],
+        certifications = [],
+        awards = [],
         fonts,
         background
     } = data;
@@ -71,10 +73,13 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme): str
     ].filter(item => item.value);
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: flex;">
-            
+        <!-- Fixed sidebar background - OUTSIDE flex, repeats on all pages -->
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg};"></div>
+
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; display: flex; position: relative;">
+
             <!-- Sidebar (35%) -->
-            <aside style="width: 35%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 48px 32px; flex-shrink: 0; min-height: 100%;">
+            <aside class="sidebar-content" style="width: 35%; color: ${sidebarText}; padding: 48px 32px; flex-shrink: 0; min-height: 100%; position: relative; z-index: 1;">
                 
                 <!-- Photo -->
                 <div style="margin-bottom: 48px; display: flex; justify-content: center;">
@@ -84,11 +89,11 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Contact -->
                 <div style="margin-bottom: 40px;">
                     ${SidebarHeader('Contact')}
-                    <div style="font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="font-size: 12px; display: flex; flex-direction: column; gap: 12px; color: ${sidebarText};">
                         ${contactItems.map(item => `
                             <div style="display: flex; align-items: center; gap: 10px;">
                                 <span style="color: ${accentColor};">${getIconSVG(item.icon as IconName, accentColor, 14)}</span>
-                                <span style="word-break: break-all;">${escapeHtml(item.value!)}</span>
+                                <span style="word-break: break-all; color: ${sidebarText};">${escapeHtml(item.value!)}</span>
                             </div>
                         `).join('')}
                     </div>
@@ -98,12 +103,12 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme): str
                 ${education.length > 0 ? `
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader('Education')}
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div style="display: flex; flex-direction: column; gap: 16px; color: ${sidebarText};">
                             ${education.map(edu => `
                                 <div>
                                     <div style="font-weight: 700; font-size: 13px; color: #ffffff;">${escapeHtml(edu.degree)}</div>
                                     <div style="font-size: 12px; color: ${accentColor}; margin-bottom: 2px;">${escapeHtml(edu.school)}</div>
-                                    <div style="font-size: 11px; opacity: 0.8;">${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}</div>
+                                    <div style="font-size: 11px; color: ${sidebarText}; opacity: 0.8;">${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}</div>
                                 </div>
                             `).join('')}
                         </div>
@@ -114,11 +119,11 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme): str
                 ${skills.length > 0 ? `
                     <div>
                         ${SidebarHeader('Skills')}
-                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="display: flex; flex-direction: column; gap: 10px; color: ${sidebarText};">
                             ${skills.map(skill => `
                                 <div>
                                     <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
-                                        <span style="font-weight: 500;">${escapeHtml(skill.name)}</span>
+                                        <span style="font-weight: 500; color: ${sidebarText};">${escapeHtml(skill.name)}</span>
                                     </div>
                                     <div style="width: 100%; height: 4px; background-color: ${accentColor}30; border-radius: 2px;">
                                         <div style="width: ${skill.level * 20}%; height: 100%; background-color: ${accentColor}; border-radius: 2px;"></div>
@@ -129,25 +134,10 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme): str
                     </div>
                 ` : ''}
 
-                <!-- Languages -->
-                 ${languages && languages.length > 0 ? `
-                    <div style="margin-top: 40px;">
-                        ${SidebarHeader('Languages')}
-                         <div style="display: flex; flex-direction: column; gap: 8px;">
-                            ${languages.map(lang => `
-                                <div style="display: flex; justify-content: space-between; font-size: 12px;">
-                                    <span>${escapeHtml(lang.name)}</span>
-                                    <span style="color: ${accentColor}; opacity: 0.9;">${escapeHtml(lang.proficiency)}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
             </aside>
 
             <!-- Main Content (65%) -->
-            <main style="flex: 1; padding: 64px 48px;">
+            <main style="flex: 1; padding: 64px 48px; background-color: ${mainBg}; color: ${mainText};">
                 
                 <!-- Header -->
                 <div style="margin-bottom: 56px;">
@@ -209,7 +199,71 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme): str
                         </div>
                     </div>
                 ` : ''}
-                
+
+                <!-- Certifications -->
+                ${certifications && certifications.length > 0 ? `
+                    <div style="margin-bottom: 40px;">
+                        ${MainHeader('Certifications')}
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            ${certifications.map(cert => `
+                                <div>
+                                    <h4 style="font-weight: 700; font-size: 14px; color: ${sidebarBg}; margin: 0 0 4px 0;">
+                                        ${escapeHtml(cert.name)}
+                                    </h4>
+                                    <div style="font-size: 12px; color: ${accentColor}; font-weight: 500; margin-bottom: 2px;">
+                                        ${escapeHtml(cert.issuer)}
+                                    </div>
+                                    <div style="font-size: 11px; color: #64748b;">
+                                        ${escapeHtml(cert.date)}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Awards -->
+                ${awards && awards.length > 0 ? `
+                    <div style="margin-bottom: 40px;">
+                        ${MainHeader('Awards & Achievements')}
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            ${awards.map(award => `
+                                <div>
+                                    <h4 style="font-weight: 700; font-size: 14px; color: ${sidebarBg}; margin: 0 0 4px 0;">
+                                        ${escapeHtml(award.title)}
+                                    </h4>
+                                    <div style="font-size: 12px; color: ${accentColor}; font-weight: 500; margin-bottom: 2px;">
+                                        ${escapeHtml(award.issuer)}
+                                    </div>
+                                    <div style="font-size: 11px; color: #64748b;">
+                                        ${escapeHtml(award.date)}
+                                    </div>
+                                    ${award.description ? `
+                                        <p style="font-size: 12px; line-height: 1.6; color: #475569; margin: 4px 0 0 0;">
+                                            ${formatDescription(award.description)}
+                                        </p>
+                                    ` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Languages -->
+                ${languages && languages.length > 0 ? `
+                    <div style="margin-bottom: 40px;">
+                        ${MainHeader('Languages')}
+                        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                            ${languages.map(lang => `
+                                <span style="font-size: 12px; color: #475569; display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-weight: 500; color: ${sidebarBg};">${escapeHtml(lang.name)}</span>
+                                    <span style="color: ${accentColor};">(${escapeHtml(lang.proficiency)})</span>
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
                 <!-- Interests -->
                 ${interests && interests.length > 0 ? `
                     <div>

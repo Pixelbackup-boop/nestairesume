@@ -16,7 +16,7 @@ import ProgressBar from '../../shared/ProgressBar';
  * - Timeline: Vertical line in experience section.
  */
 export default function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, interests, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto Slab'); // Serif for headers as per spec hint
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -127,47 +127,24 @@ export default function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProp
                     </div>
                 )}
 
-                {/* Languages */}
-                {languages && languages.length > 0 && (
-                    <div style={{ width: '100%' }}>
-                        <SidebarSectionHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: fs.body, lineHeight: 1.6 }}>
-                            {languages.map((lang) => (
-                                <li key={lang.id} data-paginate="item">{lang.name}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-
                 {/* Strengths */}
                 {data.strengths && data.strengths.length > 0 && (
                     <div style={{ width: '100%', marginTop: 40 }}>
                         <SidebarSectionHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                             {data.strengths.map((str) => (
-                                <span key={str.id} style={{
-                                    backgroundColor: '#334155',
-                                    color: sidebarText,
-                                    padding: '4px 8px',
-                                    borderRadius: 4,
-                                    fontSize: fs.small
-                                }}>
-                                    {str.name}
-                                </span>
+                                <div key={str.id} data-paginate="item">
+                                    <div style={{ marginBottom: 4, fontSize: fs.body, fontWeight: 500 }}>{str.name}</div>
+                                    <ProgressBar
+                                        value={str.level}
+                                        color={accentColor}
+                                        trackColor="#334155"
+                                        height={6}
+                                        scale={1}
+                                    />
+                                </div>
                             ))}
                         </div>
-                    </div>
-                )}
-
-                {/* Interests */}
-                {data.interests && data.interests.length > 0 && (
-                    <div style={{ width: '100%', marginTop: 40 }}>
-                        <SidebarSectionHeader title="Interests" color={accentColor} fs={fs} headingFont={headingFont} />
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: fs.body, lineHeight: 1.6 }}>
-                            {data.interests.map((int) => (
-                                <li key={int.id}>{int.name}</li>
-                            ))}
-                        </ul>
                     </div>
                 )}
 
@@ -251,6 +228,71 @@ export default function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProp
                                     <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}, {edu.city}</div>
                                     <div style={{ fontSize: fs.small, color: '#64748b' }}>{edu.startDate} – {edu.endDate || 'Present'}</div>
                                 </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Certifications */}
+                {certifications && certifications.length > 0 && (
+                    <section className="mb-8 resume-section" data-paginate="section">
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>Certifications</h3>
+                        <div style={{ display: 'grid', gap: 16 }}>
+                            {certifications.map((cert) => (
+                                <div key={cert.id} data-paginate="item">
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{cert.name}</h4>
+                                    <div style={{ fontSize: fs.body, color: accentColor, fontWeight: 500 }}>{cert.issuer}</div>
+                                    <div style={{ fontSize: fs.small, color: '#64748b' }}>{cert.date}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Awards */}
+                {awards && awards.length > 0 && (
+                    <section className="mb-8 resume-section" data-paginate="section">
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>Awards & Achievements</h3>
+                        <div style={{ display: 'grid', gap: 16 }}>
+                            {awards.map((award) => (
+                                <div key={award.id} data-paginate="item">
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{award.title}</h4>
+                                    <div style={{ fontSize: fs.body, color: accentColor, fontWeight: 500 }}>{award.issuer}</div>
+                                    <div style={{ fontSize: fs.small, color: '#64748b' }}>{award.date}</div>
+                                    {award.description && (
+                                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563', marginTop: 4 }}>{award.description}</p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Languages */}
+                {languages && languages.length > 0 && (
+                    <section className="mb-8 resume-section" data-paginate="section">
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>Languages</h3>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                            {languages.map((lang) => (
+                                <div key={lang.id} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
+                                    <span style={{ fontWeight: 500, color: '#0f172a' }}>{lang.name}</span>
+                                    <span style={{ fontSize: fs.small, color: accentColor, textTransform: 'capitalize' }}>({lang.proficiency})</span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Interests / Hobbies */}
+                {interests && interests.length > 0 && (
+                    <section className="mb-8 resume-section" data-paginate="section">
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>Interests</h3>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                            {interests.map((int) => (
+                                <span key={int.id} style={{ fontSize: fs.body, color: '#475569', display: 'flex', alignItems: 'center', gap: 6 }}>
+                                    <span style={{ color: accentColor, fontSize: '10px' }}>●</span>
+                                    {int.name}
+                                </span>
                             ))}
                         </div>
                     </section>

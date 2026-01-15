@@ -74,11 +74,9 @@ export default function DownloadModal({
     if (!isOpen) return null;
 
     const handleFreeDownload = () => {
-        if (adComplete) {
-            handleDownload();
-        } else {
-            setIsWatchingAd(true);
-        }
+        // TODO: Re-enable ad watching when site is complete
+        // For now, download directly without ads
+        handleDownload();
     };
 
     const handlePremiumPurchase = () => {
@@ -214,7 +212,7 @@ export default function DownloadModal({
                                                 : 'bg-slate-600'
                                         }`}
                                     >
-                                        <Tv
+                                        <Download
                                             size={20}
                                             className={
                                                 selectedOption === 'free'
@@ -229,7 +227,7 @@ export default function DownloadModal({
                                             <span className="text-accent-green font-bold">$0</span>
                                         </div>
                                         <p className="text-sm text-slate-400 mt-1">
-                                            Watch a short video ad (5 seconds) to download your resume
+                                            Download your resume as a high-quality PDF
                                         </p>
                                     </div>
                                 </div>
@@ -304,8 +302,8 @@ export default function DownloadModal({
                                     onClick={handleFreeDownload}
                                     className="w-full py-3 bg-accent-green text-slate-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
                                 >
-                                    <Tv size={18} />
-                                    Watch Ad & Download Free
+                                    <Download size={18} />
+                                    Download Free
                                 </button>
                             ) : (
                                 <button

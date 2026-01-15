@@ -43,7 +43,7 @@ function BuilderContent() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showReferencePanel, setShowReferencePanel] = useState(false);
     const [templateThumbnail, setTemplateThumbnail] = useState<string | undefined>();
-    const { resumeData, selectedTemplate, selectedTheme, setTemplate, setTemplateId, setTheme, setCustomThemeColor, setResumeData } = useResumeStore();
+    const { resumeData, selectedTemplate, selectedTemplateId, selectedTheme, setTemplate, setTemplateId, setTheme, setCustomThemeColor, setResumeData } = useResumeStore();
     const componentRef = useRef<HTMLDivElement>(null);
 
     // Check authentication status on mount
@@ -115,9 +115,11 @@ function BuilderContent() {
     // Called when download is confirmed - calls backend PDF API
     const handleConfirmDownload = async () => {
         try {
+            // Use exact template ID if available, otherwise fall back to layout type
+            const templateForPdf = selectedTemplateId || selectedTemplate;
             await downloadPdf(
                 resumeData,
-                selectedTemplate,
+                templateForPdf,
                 selectedTheme,
                 resumeData.customThemeColor
             );

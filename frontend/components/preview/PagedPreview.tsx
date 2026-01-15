@@ -10,7 +10,8 @@ const A4_HEIGHT_PX = 1123; // Standard A4 height in pixels at 96 DPI
 const A4_WIDTH_PX = 794;   // Standard A4 width in pixels at 96 DPI
 const PAGE_GAP_PX = 40;    // Gap between pages (Collapsed in Print via CSS)
 const PAGE_MARGIN_BOTTOM = 30; // Bottom margin to prevent content from touching page edge
-const SIDEBAR_WIDTH_PX = 238; // Sidebar width for sidebar templates (~30% of A4)
+const SIDEBAR_WIDTH_PX = 278; // Sidebar width for sidebar templates (35% of A4 = 794 * 0.35)
+const SIDEBAR_BG_COLOR = '#1e293b'; // Dark navy/slate sidebar background
 
 interface PagedPreviewProps {
     scale?: number;
@@ -295,7 +296,7 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                                     className="absolute left-0 top-0 bottom-0"
                                     style={{
                                         width: `${SIDEBAR_WIDTH_PX}px`,
-                                        backgroundColor: theme.primary,
+                                        backgroundColor: SIDEBAR_BG_COLOR,
                                     }}
                                 />
                             )}
@@ -326,7 +327,7 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                     </div>
                 </div>
 
-                {/* Gap overlay - semi-transparent to show page separation without hiding content */}
+                {/* Gap overlay - fully opaque to hide any content in page gap */}
                 <div
                     className="absolute inset-0 pointer-events-none print-hidden page-gap-overlay"
                     style={{ zIndex: 50 }}
@@ -339,9 +340,9 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                                 top: `${(pageIndex + 1) * A4_HEIGHT_PX + pageIndex * PAGE_GAP_PX}px`,
                                 height: `${PAGE_GAP_PX}px`,
                                 left: 0,
-                                background: 'rgba(30, 41, 59, 0.6)',
-                                borderTop: '2px dashed rgba(100, 116, 139, 0.8)',
-                                borderBottom: '2px dashed rgba(100, 116, 139, 0.8)',
+                                background: '#334155',
+                                borderTop: '2px dashed #64748b',
+                                borderBottom: '2px dashed #64748b',
                             }}
                         />
                     ))}
