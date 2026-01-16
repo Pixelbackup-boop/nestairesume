@@ -236,7 +236,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                                     flexWrap: 'wrap',
                                 }}
                             >
-                                {languages.slice(0, 3).map((lang) => (
+                                {languages.map((lang) => (
                                     <div key={lang.id} data-paginate="item">
                                         <CircularProgress
                                             value={lang.level}

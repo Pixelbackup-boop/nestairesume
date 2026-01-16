@@ -233,7 +233,7 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
                         <section style="margin-bottom: 20px;">
                             ${SectionHeader('Languages')}
                             <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                                ${languages.slice(0, 3).map(lang => CircularProgress(getLanguageLevel(lang), lang.name)).join('')}
+                                ${languages.map(lang => CircularProgress(getLanguageLevel(lang), lang.name)).join('')}
                             </div>
                         </section>
                     ` : ''}
