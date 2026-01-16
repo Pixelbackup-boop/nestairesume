@@ -67,10 +67,14 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
     `;
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: ${mainBg}; color: ${textDark}; display: flex; box-sizing: border-box; ${bgStyle}">
-            
+        <!-- Fixed background that covers full page on ALL pages -->
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 33%;"></div>
+
+        <!-- Table layout for content structure -->
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: ${mainBg}; color: ${textDark}; display: table; table-layout: fixed; box-sizing: border-box; ${bgStyle}">
+
             <!-- Left Sidebar -->
-            <aside style="width: 33%; background-color: ${sidebarBg}; color: ${textLight}; padding: 48px 32px; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; min-height: 100%;">
+            <aside style="display: table-cell; width: 33%; background-color: ${sidebarBg}; color: ${textLight}; padding: 48px 32px; vertical-align: top;">
                 
                 <!-- Photo -->
                 <div style="margin-bottom: 50px;">
@@ -177,7 +181,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
             </aside>
 
             <!-- Main Content -->
-            <main style="flex: 1; padding: 64px 48px; display: flex; flex-direction: column;">
+            <main style="display: table-cell; width: 67%; padding: 64px 48px; vertical-align: top;">
                 
                 <!-- Name Header -->
                 <div style="margin-bottom: 50px;">
