@@ -127,7 +127,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                                 <div>
                                     <div style="margin-bottom: 4px; font-size: 9pt; font-weight: 500;">${escapeHtml(skill.name)}</div>
                                     <div style="width: 100%; height: 6px; background-color: #334155; border-radius: 3px; overflow: hidden;">
-                                        <div style="width: ${skill.level * 20}%; height: 100%; background-color: ${accentColor};"></div>
+                                        <div style="width: ${(skill.level || 3) * 20}%; height: 100%; background-color: ${accentColor};"></div>
                                     </div>
                                 </div>
                             `).join('')}

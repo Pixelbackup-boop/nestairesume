@@ -118,7 +118,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                 <div key={skill.id} data-paginate="item">
                                     <div style={{ marginBottom: 4, fontSize: fs.body, fontWeight: 500 }}>{skill.name}</div>
                                     <ProgressBar
-                                        value={skill.level * 20}
+                                        value={(skill.level || 3) * 20}
                                         color={accentColor}
                                         trackColor="#334155"
                                         height={6}
