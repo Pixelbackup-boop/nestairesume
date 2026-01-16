@@ -2,6 +2,7 @@
 
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import ProgressBar from '../../shared/ProgressBar';
 
 /**
  * Minimal Timeline Template
@@ -13,7 +14,7 @@ import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '.
  * - Simple dots on the timeline.
  */
 export default function MinimalTimeline({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Source Sans Pro');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -117,9 +118,19 @@ export default function MinimalTimeline({ data, theme, scale = 1 }: TemplateProp
             {skills.length > 0 && (
                 <section style={{ marginLeft: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>Skills</h3>
-                    <p style={{ lineHeight: 1.8, fontSize: fs.body }}>
-                        {skills.map(skill => skill.name).join(' • ')}
-                    </p>
+                    <div className="space-y-2">
+                        {skills.map((skill) => (
+                            <div key={skill.id} data-paginate="item">
+                                <ProgressBar
+                                    label={skill.name}
+                                    value={(skill.level || 3) * 20}
+                                    color={dotColor}
+                                    height={6}
+                                    scale={1}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </section>
             )}
 
@@ -160,6 +171,45 @@ export default function MinimalTimeline({ data, theme, scale = 1 }: TemplateProp
                     <p style={{ lineHeight: 1.8, fontSize: fs.body }}>
                         {data.interests.map(i => i.name).join(' • ')}
                     </p>
+                </section>
+            )}
+
+            {/* Credentials (Certifications & Awards) */}
+            {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
+                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                    <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>Credentials</h3>
+
+                    {certifications && certifications.length > 0 && (
+                        <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
+                            <h4 style={{ fontSize: fs.body, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                Certifications
+                            </h4>
+                            <div className="space-y-2">
+                                {certifications.map((cert) => (
+                                    <div key={cert.id}>
+                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
+                                        <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {awards && awards.length > 0 && (
+                        <div>
+                            <h4 style={{ fontSize: fs.body, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                Awards & Achievements
+                            </h4>
+                            <div className="space-y-2">
+                                {awards.map((award) => (
+                                    <div key={award.id}>
+                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
+                                        <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </section>
             )}
 

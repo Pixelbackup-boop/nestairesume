@@ -20,6 +20,8 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
         languages = [],
         strengths = [],
         interests = [],
+        certifications = [],
+        awards = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
@@ -29,6 +31,18 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
     // Theme
     const timelineColor = '#e5e7eb';
     const dotColor = data.customThemeColor || '#000000';
+
+    // Progress bar helper
+    const ProgressBar = (label: string, value: number) => `
+        <div style="margin-bottom: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="font-size: 12px; font-weight: 500; color: #1f2937;">${escapeHtml(label)}</span>
+            </div>
+            <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
+                <div style="width: ${value}%; height: 100%; background-color: ${dotColor}; border-radius: 3px;"></div>
+            </div>
+        </div>
+    `;
 
     // Helper for Section Headers
     const SectionHeader = (title: string) => `
@@ -102,9 +116,9 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             ${skills.length > 0 ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Skills</h3>
-                    <p style="line-height: 1.8; font-size: 14px;">
-                        ${skills.map(skill => escapeHtml(skill.name)).join(' • ')}
-                    </p>
+                    <div>
+                        ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
+                    </div>
                 </section>
             ` : ''}
 
@@ -139,6 +153,39 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
                     <p style="line-height: 1.8; font-size: 14px;">
                         ${interests.map(i => escapeHtml(i.name)).join(' • ')}
                     </p>
+                </section>
+            ` : ''}
+
+            <!-- Credentials -->
+            ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
+                <section style="margin-left: 20px; margin-bottom: 32px;">
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Credentials</h3>
+                    ${certifications && certifications.length > 0 ? `
+                        <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
+                            <h4 style="font-size: 14px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                ${certifications.map(cert => `
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 14px; color: #1f2937;">${escapeHtml(cert.name)}</div>
+                                        <div style="font-size: 12px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                    ${awards && awards.length > 0 ? `
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                ${awards.map(award => `
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 14px; color: #1f2937;">${escapeHtml(award.title)}</div>
+                                        <div style="font-size: 12px; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
                 </section>
             ` : ''}
 

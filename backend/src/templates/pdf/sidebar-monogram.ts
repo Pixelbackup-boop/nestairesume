@@ -23,6 +23,8 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
         languages = [],
         strengths = [],
         interests = [],
+        certifications = [],
+        awards = [],
         fonts,
         background
     } = data;
@@ -67,11 +69,19 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Sidebar (30%) -->
             <aside style="width: 30%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 48px 24px; flex-shrink: 0; min-height: 100%; border-right: 1px solid #e5e7eb;">
                 
-                <!-- Monogram Circle -->
+                <!-- Profile Image or Monogram -->
                 <div style="margin-bottom: 48px; display: flex; justify-content: center;">
-                    <div style="width: 100px; height: 100px; border-radius: 50%; background-color: ${primaryColor}; display: flex; align-items: center; justify-content: center; color: #ffffff; font-family: ${headingFont}; font-size: 40px; font-weight: 700; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-                        ${initials}
-                    </div>
+                    ${personalInfo.profileImage ? `
+                        <img
+                            src="${personalInfo.profileImage}"
+                            alt="${escapeHtml(personalInfo.fullName || 'Profile')}"
+                            style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid ${primaryColor}; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+                        />
+                    ` : `
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background-color: ${primaryColor}; display: flex; align-items: center; justify-content: center; color: #ffffff; font-family: ${headingFont}; font-size: 40px; font-weight: 700; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                            ${initials}
+                        </div>
+                    `}
                 </div>
 
                 <!-- Contact -->
@@ -86,22 +96,6 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                         `).join('')}
                     </div>
                 </div>
-
-                <!-- Education (Sidebar) -->
-                ${education.length > 0 ? `
-                    <div style="margin-bottom: 40px;">
-                        ${SidebarHeader('Education')}
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            ${education.map(edu => `
-                                <div>
-                                    <div style="font-weight: 700; font-size: 13px; color: ${primaryColor};">${escapeHtml(edu.degree)}</div>
-                                    <div style="font-size: 12px; color: #4b5563;">${escapeHtml(edu.school)}</div>
-                                    <div style="font-size: 11px; color: #6b7280; font-style: italic;">${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
 
                 <!-- Skills -->
                 ${skills.length > 0 ? `
@@ -124,13 +118,13 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
 
                 <!-- Languages -->
                 ${languages && languages.length > 0 ? `
-                    <div>
+                    <div style="margin-bottom: 40px;">
                         ${SidebarHeader('Languages')}
-                        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px;">
+                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
                             ${languages.map(lang => `
-                                <div style="display: flex; justify-content: space-between;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <span>${escapeHtml(lang.name)}</span>
-                                    <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
+                                    ${lang.proficiency ? `<span style="color: ${primaryColor}; font-weight: 500;">${escapeHtml(lang.proficiency)}</span>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -189,22 +183,49 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                     </div>
                 ` : ''}
 
+                <!-- Education -->
+                ${education.length > 0 ? `
+                    <div style="margin-bottom: 40px;">
+                        ${MainHeader('Education')}
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            ${education.map(edu => `
+                                <div data-paginate="item">
+                                    <h4 style="font-weight: 700; font-size: 14px; color: #111827; margin: 0;">
+                                        ${escapeHtml(edu.degree)}
+                                    </h4>
+                                    <div style="font-size: 12px; color: #4b5563;">
+                                        ${escapeHtml(edu.school)}${edu.city ? `, ${escapeHtml(edu.city)}` : ''}
+                                    </div>
+                                    <div style="font-size: 11px; color: #6b7280;">
+                                        ${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
                 <!-- Strengths & Interests -->
                 ${(strengths || interests) ? `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
                         ${strengths && strengths.length > 0 ? `
                             <div>
                                 ${MainHeader('Strengths')}
-                                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
                                     ${strengths.map(str => `
-                                        <span style="border: 1px solid ${primaryColor}; color: ${primaryColor}; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">
-                                            ${escapeHtml(str.name)}
-                                        </span>
+                                        <div>
+                                            <div style="font-size: 11px; margin-bottom: 4px; color: #374151; font-weight: 600;">
+                                                ${escapeHtml(str.name)}
+                                            </div>
+                                            <div style="width: 100%; height: 5px; background-color: #e5e7eb; border-radius: 3px;">
+                                                <div style="width: ${(str as any).level ?? 80}%; height: 100%; background-color: ${primaryColor}; border-radius: 3px;"></div>
+                                            </div>
+                                        </div>
                                     `).join('')}
                                 </div>
                             </div>
                         ` : ''}
-                        
+
                         ${interests && interests.length > 0 ? `
                             <div>
                                 ${MainHeader('Interests')}
@@ -213,6 +234,58 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                                         <li style="margin-bottom: 4px;">${escapeHtml(int.name)}</li>
                                     `).join('')}
                                 </ul>
+                            </div>
+                        ` : ''}
+                    </div>
+                ` : ''}
+
+                <!-- Credentials (Certifications & Awards) -->
+                ${(certifications.length > 0 || awards.length > 0) ? `
+                    <div style="margin-top: 40px;">
+                        ${MainHeader('Credentials')}
+
+                        ${certifications.length > 0 ? `
+                            <div style="margin-bottom: ${awards.length > 0 ? '24px' : '0'};">
+                                <h4 style="font-size: 13px; font-weight: 600; color: #4b5563; margin: 0 0 12px 0;">
+                                    Certifications
+                                </h4>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    ${certifications.map(cert => `
+                                        <div data-paginate="item">
+                                            <div style="font-weight: 600; font-size: 12px; color: ${mainText};">
+                                                ${escapeHtml(cert.name)}
+                                            </div>
+                                            <div style="font-size: 11px; color: #6b7280;">
+                                                ${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        ${awards.length > 0 ? `
+                            <div>
+                                <h4 style="font-size: 13px; font-weight: 600; color: #4b5563; margin: 0 0 12px 0;">
+                                    Awards & Achievements
+                                </h4>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    ${awards.map(award => `
+                                        <div data-paginate="item">
+                                            <div style="font-weight: 600; font-size: 12px; color: ${mainText};">
+                                                ${escapeHtml(award.title)}
+                                            </div>
+                                            <div style="font-size: 11px; color: #6b7280;">
+                                                ${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}
+                                            </div>
+                                            ${award.description ? `
+                                                <p style="font-size: 11px; color: #374151; margin: 4px 0 0 0; line-height: 1.5;">
+                                                    ${formatDescription(award.description)}
+                                                </p>
+                                            ` : ''}
+                                        </div>
+                                    `).join('')}
+                                </div>
                             </div>
                         ` : ''}
                     </div>

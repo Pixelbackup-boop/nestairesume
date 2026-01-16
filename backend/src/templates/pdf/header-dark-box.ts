@@ -23,6 +23,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
         languages = [],
         strengths = [],
         interests = [],
+        certifications = [],
+        awards = [],
         fonts,
         background
     } = data;
@@ -60,11 +62,13 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
         `;
     };
 
-    // Progress bar for expertise
-    const ProgressBar = (label: string) => `
+    // Progress bar for expertise with level
+    const ProgressBar = (label: string, value: number) => `
         <div style="margin-bottom: 12px;">
             <div style="font-size: 10pt; font-weight: 500; color: #374151; margin-bottom: 4px;">${escapeHtml(label)}</div>
-            <div style="width: 100%; height: 10px; background-color: ${accentColor}; border-radius: 2px;"></div>
+            <div style="width: 100%; height: 10px; background-color: #e5e7eb; border-radius: 2px;">
+                <div style="width: ${value}%; height: 100%; background-color: ${accentColor}; border-radius: 2px;"></div>
+            </div>
         </div>
     `;
 
@@ -249,7 +253,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                         <section style="margin-bottom: 28px;">
                             ${SectionHeader('Expertise', '&#128187;')}
                             <div>
-                                ${strengths.map(str => ProgressBar(str.name)).join('')}
+                                ${strengths.map(str => ProgressBar(str.name, (str as any).level ?? 80)).join('')}
                             </div>
                         </section>
                     ` : ''}
@@ -265,6 +269,39 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                                     </span>
                                 `).join('')}
                             </div>
+                        </section>
+                    ` : ''}
+
+                    <!-- Credentials -->
+                    ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
+                        <section style="margin-bottom: 28px;">
+                            ${SectionHeader('Credentials', '&#127942;')}
+                            ${certifications && certifications.length > 0 ? `
+                                <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
+                                    <h4 style="font-size: 10pt; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${certifications.map(cert => `
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 10pt; color: #1f2937;">${escapeHtml(cert.name)}</div>
+                                                <div style="font-size: 9pt; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            ${awards && awards.length > 0 ? `
+                                <div>
+                                    <h4 style="font-size: 10pt; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${awards.map(award => `
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 10pt; color: #1f2937;">${escapeHtml(award.title)}</div>
+                                                <div style="font-size: 9pt; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
                         </section>
                     ` : ''}
                 </div>

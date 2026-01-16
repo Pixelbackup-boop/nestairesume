@@ -2,6 +2,7 @@
 
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import ProgressBar from '../../shared/ProgressBar';
 
 /**
  * Minimal Labels Tan Template
@@ -13,7 +14,7 @@ import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '.
  * - Style: Very simple, similar to ClassicLabelsLeft but warmer minimal feel.
  */
 export default function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Lato');
     const bodyFont = getFontFamily(fonts?.body || 'Lato');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -141,10 +142,18 @@ export default function MinimalLabelsTan({ data, theme, scale = 1 }: TemplatePro
                         <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
                             <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Skills</h3>
                         </div>
-                        <div style={{ flex: 1 }}>
-                            <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
-                                {skills.map(skill => skill.name).join('  /  ')}
-                            </p>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {skills.map((skill) => (
+                                <div key={skill.id} data-paginate="item">
+                                    <ProgressBar
+                                        label={skill.name}
+                                        value={(skill.level || 3) * 20}
+                                        color={customThemeColor || '#a8a29e'}
+                                        height={6}
+                                        scale={1}
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
                 )}
@@ -195,6 +204,47 @@ export default function MinimalLabelsTan({ data, theme, scale = 1 }: TemplatePro
                             <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
                                 {data.interests.map(i => i.name).join(', ')}
                             </p>
+                        </div>
+                    </div>
+                )}
+
+                {/* Credentials (Certifications & Awards) */}
+                {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
+                            <h3 style={{ fontSize: fs.small, color: labelText, margin: 0 }}>Credentials</h3>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                            {certifications && certifications.length > 0 && (
+                                <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: labelText, marginBottom: 8 }}>
+                                        Certifications
+                                    </h4>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                        {certifications.map((cert) => (
+                                            <div key={cert.id}>
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: mainText }}>{cert.name}</div>
+                                                <div style={{ fontSize: fs.small, color: labelText }}>{cert.issuer} • {cert.date}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                            {awards && awards.length > 0 && (
+                                <div>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: labelText, marginBottom: 8 }}>
+                                        Awards & Achievements
+                                    </h4>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                        {awards.map((award) => (
+                                            <div key={award.id}>
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: mainText }}>{award.title}</div>
+                                                <div style={{ fontSize: fs.small, color: labelText }}>{award.issuer} • {award.date}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}

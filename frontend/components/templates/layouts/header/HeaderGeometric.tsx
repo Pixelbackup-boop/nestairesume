@@ -3,6 +3,7 @@
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
+import ProgressBar from '../../shared/ProgressBar';
 
 /**
  * Header Geometric Template
@@ -18,7 +19,7 @@ import CircularProgress from '../../shared/CircularProgress';
  * Matches reference: frontend/Resume-template/unique-layouts/09-geometric-header.webp
  */
 export default function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, strengths, interests, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, strengths, interests, certifications, awards, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather'); // Serif default
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -200,14 +201,20 @@ export default function HeaderGeometric({ data, theme, scale = 1 }: TemplateProp
                     </SectionRow>
                 )}
 
-                {/* Skills - Simple List */}
+                {/* Skills */}
                 {skills.length > 0 && (
                     <SectionRow label="Skills" fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
+                        <div className="space-y-2">
                             {skills.map((skill) => (
-                                <span key={skill.id} data-paginate="item" style={{ fontWeight: 500, fontSize: fs.body }}>
-                                    • {skill.name}
-                                </span>
+                                <div key={skill.id} data-paginate="item">
+                                    <ProgressBar
+                                        label={skill.name}
+                                        value={(skill.level || 3) * 20}
+                                        color={accentColor}
+                                        height={scale < 1 ? 4 : 6}
+                                        scale={1}
+                                    />
+                                </div>
                             ))}
                         </div>
                     </SectionRow>
@@ -237,6 +244,43 @@ export default function HeaderGeometric({ data, theme, scale = 1 }: TemplateProp
                                 </span>
                             ))}
                         </div>
+                    </SectionRow>
+                )}
+
+                {/* Credentials (Certifications & Awards) */}
+                {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
+                    <SectionRow label="Credentials" fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
+                        {certifications && certifications.length > 0 && (
+                            <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                    Certifications
+                                </h4>
+                                <div className="space-y-2">
+                                    {certifications.map((cert) => (
+                                        <div key={cert.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {awards && awards.length > 0 && (
+                            <div>
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                    Awards & Achievements
+                                </h4>
+                                <div className="space-y-2">
+                                    {awards.map((award) => (
+                                        <div key={award.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </SectionRow>
                 )}
 

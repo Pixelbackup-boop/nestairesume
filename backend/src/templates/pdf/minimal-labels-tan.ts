@@ -20,6 +20,8 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
         languages = [],
         strengths = [],
         interests = [],
+        certifications = [],
+        awards = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Lato');
@@ -30,6 +32,18 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
     const mainBg = '#fdfbf7'; // Warm white/ivory
     const mainText = '#44403c'; // Stone 700
     const labelText = '#a8a29e'; // Stone 400
+
+    // Progress bar helper
+    const ProgressBar = (label: string, value: number) => `
+        <div style="margin-bottom: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="font-size: 12px; font-weight: 500; color: ${mainText};">${escapeHtml(label)}</span>
+            </div>
+            <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
+                <div style="width: ${value}%; height: 100%; background-color: ${data.customThemeColor || labelText}; border-radius: 3px;"></div>
+            </div>
+        </div>
+    `;
 
     // Helper for Row Layout
     const Row = (label: string, content: string) => `
@@ -116,11 +130,16 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 ` : ''}
 
                 <!-- Skills -->
-                ${skills.length > 0 ? Row('Skills', `
-                    <p style="margin: 0; line-height: 1.8; font-size: 14px;">
-                        ${skills.map(skill => escapeHtml(skill.name)).join('  /  ')}
-                    </p>
-                `) : ''}
+                ${skills.length > 0 ? `
+                    <div style="display: flex;">
+                        <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
+                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">Skills</h3>
+                        </div>
+                        <div style="flex: 1;">
+                            ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
+                        </div>
+                    </div>
+                ` : ''}
 
                 <!-- Languages -->
                 ${languages && languages.length > 0 ? Row('Languages', `
@@ -146,6 +165,43 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                         ${interests.map(i => escapeHtml(i.name)).join(', ')}
                     </p>
                 `) : ''}
+
+                <!-- Credentials -->
+                ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
+                    <div style="display: flex;">
+                        <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
+                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">Credentials</h3>
+                        </div>
+                        <div style="flex: 1;">
+                            ${certifications && certifications.length > 0 ? `
+                                <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
+                                    <h4 style="font-size: 12px; font-weight: 600; color: ${labelText}; margin-bottom: 8px;">Certifications</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${certifications.map(cert => `
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 14px; color: ${mainText};">${escapeHtml(cert.name)}</div>
+                                                <div style="font-size: 12px; color: ${labelText};">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            ${awards && awards.length > 0 ? `
+                                <div>
+                                    <h4 style="font-size: 12px; font-weight: 600; color: ${labelText}; margin-bottom: 8px;">Awards & Achievements</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${awards.map(award => `
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 14px; color: ${mainText};">${escapeHtml(award.title)}</div>
+                                                <div style="font-size: 12px; color: ${labelText};">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                ` : ''}
 
             </div>
         </div>

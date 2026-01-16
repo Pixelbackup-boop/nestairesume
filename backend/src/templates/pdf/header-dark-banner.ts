@@ -24,6 +24,8 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
         languages = [],
         strengths = [],
         interests = [],
+        certifications = [],
+        awards = [],
         fonts,
         background
     } = data;
@@ -244,7 +246,7 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
 
                     <!-- Interests with Icons -->
                     ${interests && interests.length > 0 ? `
-                        <section>
+                        <section style="margin-bottom: 20px;">
                             ${SectionHeader('Interests')}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
                                 ${interests.slice(0, 6).map(interest => `
@@ -258,6 +260,39 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
                                     </div>
                                 `).join('')}
                             </div>
+                        </section>
+                    ` : ''}
+
+                    <!-- Credentials -->
+                    ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
+                        <section>
+                            ${SectionHeader('Credentials')}
+                            ${certifications && certifications.length > 0 ? `
+                                <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
+                                    <h4 style="font-size: 10px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${certifications.map(cert => `
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 10pt; color: #1f2937;">${escapeHtml(cert.name)}</div>
+                                                <div style="font-size: 9px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            ${awards && awards.length > 0 ? `
+                                <div>
+                                    <h4 style="font-size: 10px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${awards.map(award => `
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 10pt; color: #1f2937;">${escapeHtml(award.title)}</div>
+                                                <div style="font-size: 9px; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
                         </section>
                     ` : ''}
                 </div>

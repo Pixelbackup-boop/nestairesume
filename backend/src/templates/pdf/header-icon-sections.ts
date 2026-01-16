@@ -23,6 +23,8 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
         languages = [],
         strengths = [],
         interests = [],
+        certifications = [],
+        awards = [],
         fonts,
         background
     } = data;
@@ -212,6 +214,38 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
                     </div>
                 ` : ''}
             </div>
+
+            <!-- Credentials Section -->
+            ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? BoxSection('Credentials', '&#127942;', `
+                <div style="display: flex; gap: 32px;">
+                    ${certifications && certifications.length > 0 ? `
+                        <div style="flex: 1;">
+                            <h4 style="font-size: 10px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                ${certifications.map(cert => `
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 10pt;">${escapeHtml(cert.name)}</div>
+                                        <div style="font-size: 10px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                    ${awards && awards.length > 0 ? `
+                        <div style="flex: 1;">
+                            <h4 style="font-size: 10px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                ${awards.map(award => `
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 10pt;">${escapeHtml(award.title)}</div>
+                                        <div style="font-size: 10px; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `) : ''}
         </div>
     `;
 };

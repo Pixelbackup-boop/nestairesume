@@ -17,7 +17,7 @@ import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '.
  * Matches reference: frontend/Resume-template/unique-layouts/16-decorative-pattern.webp
  */
 export default function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, interests, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, interests, certifications, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -293,20 +293,42 @@ export default function HeaderDecorative({ data, theme, scale = 1 }: TemplatePro
                         </section>
                     )}
 
-                    {/* Additional Details like Awards */}
-                    {awards && awards.length > 0 && (
+                    {/* Credentials (Certifications & Awards) */}
+                    {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
                         <section className="mb-8 resume-section" data-paginate>
-                            <SectionHeader title="Awards" icon="🏆" accent={accentColor} fs={fs} headingFont={headingFont} />
-                            <div className="space-y-4">
-                                {awards.map((awr) => (
-                                    <div key={awr.id} style={{ fontSize: fs.body }}>
-                                        <p style={{ fontWeight: 700, color: '#111827' }}>{awr.title}</p>
-                                        <p style={{ fontSize: fs.small, color: '#6b7280' }}>
-                                            {awr.issuer} | {awr.date}
-                                        </p>
+                            <SectionHeader title="Credentials" icon="🏆" accent={accentColor} fs={fs} headingFont={headingFont} />
+
+                            {certifications && certifications.length > 0 && (
+                                <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8, textTransform: 'uppercase' }}>
+                                        Certifications
+                                    </h4>
+                                    <div className="space-y-3">
+                                        {certifications.map((cert) => (
+                                            <div key={cert.id} data-paginate="item">
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#111827' }}>{cert.name}</div>
+                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            )}
+
+                            {awards && awards.length > 0 && (
+                                <div>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8, textTransform: 'uppercase' }}>
+                                        Awards & Achievements
+                                    </h4>
+                                    <div className="space-y-3">
+                                        {awards.map((awr) => (
+                                            <div key={awr.id} data-paginate="item">
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#111827' }}>{awr.title}</div>
+                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{awr.issuer} • {awr.date}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </section>
                     )}
                 </div>

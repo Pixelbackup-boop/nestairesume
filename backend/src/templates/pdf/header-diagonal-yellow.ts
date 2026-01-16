@@ -27,6 +27,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme)
         interests = [],
         strengths = [],
         certifications = [],
+        awards = [],
         background,
         fonts
     } = data;
@@ -44,6 +45,18 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme)
             <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; text-transform: uppercase;">
                 ${title}
             </h3>
+        </div>
+    `;
+
+    // Progress bar helper
+    const ProgressBar = (label: string, value: number) => `
+        <div style="margin-bottom: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="font-size: 11px; font-weight: 500;">${escapeHtml(label)}</span>
+            </div>
+            <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
+                <div style="width: ${value}%; height: 100%; background-color: ${theme.primary}; border-radius: 3px;"></div>
+            </div>
         </div>
     `;
 
@@ -118,12 +131,8 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme)
     const skillsHtml = skills.length > 0 ? `
         <div style="margin-bottom: 32px; page-break-inside: avoid;">
             ${SectionHeader('Skills', 'code')}
-            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                ${skills.map(skill => `
-                    <span style="background-color: ${theme.secondary}30; color: ${theme.text}; padding: 4px 12px; border-radius: 9999px; font-size: 11px; font-weight: 500;">
-                        ${escapeHtml(skill.name)}
-                    </span>
-                `).join('')}
+            <div>
+                ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
             </div>
         </div>
     ` : '';
@@ -144,6 +153,39 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme)
                     </div>
                 `).join('')}
             </div>
+        </div>
+    ` : '';
+
+    // Credentials
+    const credentialsHtml = (certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
+        <div style="margin-bottom: 32px; page-break-inside: avoid;">
+            ${SectionHeader('Credentials', 'award')}
+            ${certifications && certifications.length > 0 ? `
+                <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
+                    <h4 style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        ${certifications.map(cert => `
+                            <div>
+                                <div style="font-weight: 600; font-size: 12px;">${escapeHtml(cert.name)}</div>
+                                <div style="font-size: 11px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+            ${awards && awards.length > 0 ? `
+                <div>
+                    <h4 style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        ${awards.map(award => `
+                            <div>
+                                <div style="font-weight: 600; font-size: 12px;">${escapeHtml(award.title)}</div>
+                                <div style="font-size: 11px; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
         </div>
     ` : '';
 
@@ -197,6 +239,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme)
 
                     ${skillsHtml}
                     ${languagesHtml}
+                    ${credentialsHtml}
 
                 </div>
 

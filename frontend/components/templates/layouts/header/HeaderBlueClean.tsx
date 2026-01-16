@@ -18,7 +18,7 @@ import ProgressBar from '../../shared/ProgressBar';
  * Matches reference: frontend/Resume-template/unique-layouts/10-blue-clean.webp
  */
 export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, certifications, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto'); // defaults to Roboto/Inter
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -287,6 +287,50 @@ export default function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProp
                                 </div>
                             ))}
                         </div>
+                    </section>
+                )}
+
+                {/* Credentials (Certifications & Awards) */}
+                {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
+                    <section className="mb-8 resume-section" data-paginate>
+                        <SectionHeaderMain title="Credentials" color={'#0f172a'} fs={fs} headingFont={headingFont} />
+
+                        {certifications && certifications.length > 0 && (
+                            <div style={{ marginBottom: awards && awards.length > 0 ? 24 : 0 }}>
+                                <h4 style={{ fontSize: fs.entryTitle, fontWeight: 600, color: '#475569', marginBottom: 12 }}>
+                                    Certifications
+                                </h4>
+                                <div className="space-y-3">
+                                    {certifications.map((cert) => (
+                                        <div key={cert.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#334155' }}>{cert.name}</div>
+                                            <div style={{ fontSize: fs.small, color: '#64748b' }}>{cert.issuer} • {cert.date}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {awards && awards.length > 0 && (
+                            <div>
+                                <h4 style={{ fontSize: fs.entryTitle, fontWeight: 600, color: '#475569', marginBottom: 12 }}>
+                                    Awards & Achievements
+                                </h4>
+                                <div className="space-y-3">
+                                    {awards.map((award) => (
+                                        <div key={award.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#334155' }}>{award.title}</div>
+                                            <div style={{ fontSize: fs.small, color: '#64748b' }}>{award.issuer} • {award.date}</div>
+                                            {award.description && (
+                                                <p style={{ fontSize: fs.small, color: '#475569', marginTop: 4, lineHeight: 1.5 }}>
+                                                    {award.description}
+                                                </p>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </section>
                 )}
 

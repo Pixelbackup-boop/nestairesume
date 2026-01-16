@@ -23,7 +23,8 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
         languages = [],
         strengths = [],
         interests = [],
-        awards,
+        awards = [],
+        certifications = [],
         fonts,
         background
     } = data;
@@ -46,6 +47,18 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
             </span>
             ${title}
         </h3>
+    `;
+
+    // Progress bar helper
+    const ProgressBar = (label: string, value: number) => `
+        <div style="margin-bottom: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="font-size: 10pt; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
+            </div>
+            <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
+                <div style="width: ${value}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
+            </div>
+        </div>
     `;
 
     // Interest icon helper
@@ -195,30 +208,50 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                 <!-- RIGHT COLUMN - Awards, Skills, Interests -->
                 <div style="width: 45%;">
 
-                    <!-- Awards -->
-                    ${awards && awards.length > 0 ? `
+                    <!-- Credentials -->
+                    ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Awards', '&#127942;')}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${awards.map(award => `
-                                    <div>
-                                        <p style="font-size: 9px; color: #6b7280; margin-bottom: 2px;">
-                                            ${escapeHtml(award.date)}
-                                        </p>
-                                        <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
-                                            ${escapeHtml(award.title)}
-                                        </h4>
-                                        <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600;">
-                                            ${escapeHtml(award.issuer)}
-                                        </p>
-                                        ${award.description ? `
-                                            <p style="font-size: 9pt; color: #6b7280; margin-top: 2px;">
-                                                ${formatDescription(award.description)}
-                                            </p>
-                                        ` : ''}
+                            ${SectionHeader('Credentials', '&#127942;')}
+                            ${certifications && certifications.length > 0 ? `
+                                <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
+                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                                        ${certifications.map(cert => `
+                                            <div>
+                                                <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                                    ${escapeHtml(cert.name)}
+                                                </h4>
+                                                <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600;">
+                                                    ${escapeHtml(cert.issuer)}
+                                                </p>
+                                                <p style="font-size: 9px; color: #6b7280; margin-top: 2px;">
+                                                    ${escapeHtml(cert.date)}
+                                                </p>
+                                            </div>
+                                        `).join('')}
                                     </div>
-                                `).join('')}
-                            </div>
+                                </div>
+                            ` : ''}
+                            ${awards && awards.length > 0 ? `
+                                <div>
+                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                                        ${awards.map(award => `
+                                            <div>
+                                                <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                                    ${escapeHtml(award.title)}
+                                                </h4>
+                                                <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600;">
+                                                    ${escapeHtml(award.issuer)}
+                                                </p>
+                                                <p style="font-size: 9px; color: #6b7280; margin-top: 2px;">
+                                                    ${escapeHtml(award.date)}
+                                                </p>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
                         </section>
                     ` : ''}
 
@@ -226,16 +259,9 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     ${skills.length > 0 ? `
                         <section style="margin-bottom: 20px;">
                             ${SectionHeader('Skills', '&#9881;')}
-                            <p style="font-size: 8px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">
-                                — SOFTWARE
-                            </p>
-                            <ul style="padding-left: 14px; margin: 0; list-style: disc;">
-                                ${skills.map(skill => `
-                                    <li style="font-size: 10pt; color: #374151; margin-bottom: 2px;">
-                                        ${escapeHtml(skill.name)}
-                                    </li>
-                                `).join('')}
-                            </ul>
+                            <div>
+                                ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
+                            </div>
                         </section>
                     ` : ''}
 

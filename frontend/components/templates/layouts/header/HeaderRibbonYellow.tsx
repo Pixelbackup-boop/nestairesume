@@ -2,6 +2,7 @@
 
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import ProgressBar from '../../shared/ProgressBar';
 
 /**
  * Header Ribbon Yellow Template
@@ -17,7 +18,7 @@ import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '.
  * Matches reference: frontend/Resume-template/unique-layouts/22-ribbon-banner.webp
  */
 export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, interests, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, interests, certifications, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -266,32 +267,49 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
 
                 {/* RIGHT COLUMN - Awards, Skills, Interests */}
                 <div style={{ width: '45%' }}>
-                    {/* Awards */}
-                    {awards && awards.length > 0 && (
+                    {/* Credentials (Certifications & Awards) */}
+                    {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🏆">
-                                Awards
+                                Credentials
                             </SectionHeader>
-                            <div className="space-y-3">
-                                {awards.map((award) => (
-                                    <div key={award.id} className="resume-entry" data-paginate>
-                                        <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: '2px' }}>
-                                            {award.date}
-                                        </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
-                                            {award.title}
-                                        </h4>
-                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600 }}>
-                                            {award.issuer}
-                                        </p>
-                                        {award.description && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: '2px' }}>
-                                                {award.description}
-                                            </p>
-                                        )}
+
+                            {certifications && certifications.length > 0 && (
+                                <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                        Certifications
+                                    </h4>
+                                    <div className="space-y-2">
+                                        {certifications.map((cert) => (
+                                            <div key={cert.id} data-paginate="item">
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
+                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            )}
+
+                            {awards && awards.length > 0 && (
+                                <div>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                        Awards & Achievements
+                                    </h4>
+                                    <div className="space-y-2">
+                                        {awards.map((award) => (
+                                            <div key={award.id} data-paginate="item">
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
+                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                                {award.description && (
+                                                    <p style={{ fontSize: fs.small, color: '#4b5563', marginTop: 2 }}>
+                                                        {award.description}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </section>
                     )}
 
@@ -301,16 +319,19 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⚙️">
                                 Skills
                             </SectionHeader>
-                            <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: scale < 1 ? '4px' : '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                — SOFTWARE
-                            </p>
-                            <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
+                            <div className="space-y-2">
                                 {skills.map((skill) => (
-                                    <li key={skill.id} data-paginate="item" style={{ fontSize: fs.body, color: '#374151', marginBottom: '2px' }}>
-                                        {skill.name}
-                                    </li>
+                                    <div key={skill.id} data-paginate="item">
+                                        <ProgressBar
+                                            label={skill.name}
+                                            value={(skill.level || 3) * 20}
+                                            color={accentColor}
+                                            height={scale < 1 ? 4 : 6}
+                                            scale={1}
+                                        />
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </section>
                     )}
 

@@ -2,6 +2,7 @@
 
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import ProgressBar from '../../shared/ProgressBar';
 
 /**
  * Minimal Blue Sections Template
@@ -15,7 +16,7 @@ import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '.
  * - Typography: Clean Sans.
  */
 export default function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -139,17 +140,17 @@ export default function MinimalBlueSections({ data, theme, scale = 1 }: Template
                 {skills.length > 0 && (
                     <div style={{ flex: 1 }}>
                         <SectionHeader title="Skills" bg={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, paddingLeft: 8 }}>
+                        <div className="space-y-2" style={{ paddingLeft: 8 }}>
                             {skills.map((skill) => (
-                                <span key={skill.id} style={{
-                                    fontSize: fs.small,
-                                    color: '#000',
-                                    backgroundColor: '#f3f4f6',
-                                    padding: '4px 8px',
-                                    borderRadius: 4
-                                }} data-paginate="item">
-                                    {skill.name}
-                                </span>
+                                <div key={skill.id} data-paginate="item">
+                                    <ProgressBar
+                                        label={skill.name}
+                                        value={(skill.level || 3) * 20}
+                                        color={accentColor}
+                                        height={6}
+                                        scale={1}
+                                    />
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -199,6 +200,45 @@ export default function MinimalBlueSections({ data, theme, scale = 1 }: Template
                     <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151', paddingLeft: 8 }}>
                         {data.interests.map(int => int.name).join(' • ')}
                     </p>
+                </section>
+            )}
+
+            {/* Credentials (Certifications & Awards) */}
+            {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Credentials" bg={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ paddingLeft: 8 }}>
+                        {certifications && certifications.length > 0 && (
+                            <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
+                                <h4 style={{ fontSize: fs.body, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                    Certifications
+                                </h4>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                    {certifications.map((cert) => (
+                                        <div key={cert.id}>
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{cert.name}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                        {awards && awards.length > 0 && (
+                            <div>
+                                <h4 style={{ fontSize: fs.body, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                    Awards & Achievements
+                                </h4>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                    {awards.map((award) => (
+                                        <div key={award.id}>
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{award.title}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </section>
             )}
         </div>

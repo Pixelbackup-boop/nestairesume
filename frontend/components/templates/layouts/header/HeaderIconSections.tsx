@@ -19,7 +19,7 @@ import ProgressBar from '../../shared/ProgressBar';
  * (Note: Reference name implies icons, but description highlights the Boxes & Cyan)
  */
 export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, awards, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -266,6 +266,45 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                     </div>
                 )}
             </div>
+
+            {/* Credentials (Certifications & Awards) */}
+            {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
+                <BoxSection borderColor={borderColor} title="Credentials" icon="🏆" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                    <div style={{ display: 'flex', gap: scale < 1 ? 16 : 32 }}>
+                        {certifications && certifications.length > 0 && (
+                            <div style={{ flex: 1 }}>
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                    Certifications
+                                </h4>
+                                <div className="space-y-2">
+                                    {certifications.map((cert) => (
+                                        <div key={cert.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body }}>{cert.name}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {awards && awards.length > 0 && (
+                            <div style={{ flex: 1 }}>
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                    Awards & Achievements
+                                </h4>
+                                <div className="space-y-2">
+                                    {awards.map((award) => (
+                                        <div key={award.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body }}>{award.title}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </BoxSection>
+            )}
 
         </div>
     );

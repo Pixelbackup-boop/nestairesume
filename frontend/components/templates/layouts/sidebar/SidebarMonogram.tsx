@@ -15,7 +15,7 @@ import ProgressBar from '../../shared/ProgressBar';
  * - Accent: Gold (#facc15).
  */
 export default function SidebarMonogram({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts, certifications, awards } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Playfair Display');
     const bodyFont = getFontFamily(fonts?.body || 'Lato');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -66,26 +66,41 @@ export default function SidebarMonogram({ data, theme, scale = 1 }: TemplateProp
                     borderRight: `8px solid ${accentColor}`
                 }}
             >
-                {/* Monogram */}
-                <div
-                    style={{
-                        marginBottom: scale < 1 ? 32 : 56,
-                        width: monogramSize,
-                        height: monogramSize,
-                        borderRadius: '50%',
-                        backgroundColor: mainBg, // White background for monogram circle
-                        color: sidebarBg,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: fs.name,
-                        fontFamily: headingFont,
-                        fontWeight: 900,
-                        border: `4px solid ${accentColor}`
-                    }}
-                >
-                    {initials}
-                </div>
+                {/* Profile Image or Monogram */}
+                {personalInfo.profileImage ? (
+                    <img
+                        src={personalInfo.profileImage}
+                        alt={personalInfo.fullName || 'Profile'}
+                        style={{
+                            marginBottom: scale < 1 ? 32 : 56,
+                            width: monogramSize,
+                            height: monogramSize,
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            border: `4px solid ${accentColor}`
+                        }}
+                    />
+                ) : (
+                    <div
+                        style={{
+                            marginBottom: scale < 1 ? 32 : 56,
+                            width: monogramSize,
+                            height: monogramSize,
+                            borderRadius: '50%',
+                            backgroundColor: mainBg,
+                            color: sidebarBg,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: fs.name,
+                            fontFamily: headingFont,
+                            fontWeight: 900,
+                            border: `4px solid ${accentColor}`
+                        }}
+                    >
+                        {initials}
+                    </div>
+                )}
 
                 {/* Contact */}
                 <div style={{ width: '100%', marginBottom: 40 }}>
@@ -101,10 +116,15 @@ export default function SidebarMonogram({ data, theme, scale = 1 }: TemplateProp
                 {languages && languages.length > 0 && (
                     <div style={{ width: '100%', marginBottom: 40 }}>
                         <SidebarHeader title="Languages" color={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                             {languages.map((lang) => (
-                                <div key={lang.id} style={{ fontSize: fs.body }} data-paginate="item">
-                                    {lang.name}
+                                <div key={lang.id} style={{ fontSize: fs.body, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} data-paginate="item">
+                                    <span>{lang.name}</span>
+                                    {lang.proficiency && (
+                                        <span style={{ fontSize: fs.small, color: accentColor, fontWeight: 500 }}>
+                                            {lang.proficiency}
+                                        </span>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -115,18 +135,14 @@ export default function SidebarMonogram({ data, theme, scale = 1 }: TemplateProp
                 {data.strengths && data.strengths.length > 0 && (
                     <div style={{ width: '100%', marginBottom: 40 }}>
                         <SidebarHeader title="Strengths" color={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                             {data.strengths.map((str) => (
-                                <span key={str.id} style={{
-                                    backgroundColor: 'rgba(255,255,255,0.1)',
-                                    color: sidebarText,
-                                    padding: '4px 8px',
-                                    borderRadius: 4,
-                                    fontSize: fs.small,
-                                    border: `1px solid ${accentColor}`
-                                }}>
-                                    {str.name}
-                                </span>
+                                <div key={str.id} data-paginate="item">
+                                    <div style={{ fontSize: fs.small, marginBottom: 4, color: sidebarText }}>
+                                        {str.name}
+                                    </div>
+                                    <ProgressBar value={str.level ?? 80} color={accentColor} height={5} />
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -221,31 +237,6 @@ export default function SidebarMonogram({ data, theme, scale = 1 }: TemplateProp
                     </section>
                 )}
 
-                {/* Skills */}
-                {skills.length > 0 && (
-                    <section className="mb-10 resume-section">
-                        <MainHeader title="Skills" color={'#374151'} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                            {skills.map((skill) => (
-                                <span
-                                    key={skill.id}
-                                    data-paginate="item"
-                                    style={{
-                                        border: `1px solid ${accentColor}`,
-                                        padding: '4px 12px',
-                                        borderRadius: 20,
-                                        fontSize: fs.small,
-                                        color: '#374151',
-                                        fontWeight: 500
-                                    }}
-                                >
-                                    {skill.name}
-                                </span>
-                            ))}
-                        </div>
-                    </section>
-                )}
-
                 {/* Education */}
                 {education.length > 0 && (
                     <section className="mb-10 resume-section">
@@ -265,6 +256,87 @@ export default function SidebarMonogram({ data, theme, scale = 1 }: TemplateProp
                                 </div>
                             ))}
                         </div>
+                    </section>
+                )}
+
+                {/* Skills */}
+                {skills.length > 0 && (
+                    <section className="mb-10 resume-section">
+                        <MainHeader title="Skills" color={'#374151'} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                            {skills.map((skill) => (
+                                <div key={skill.id} data-paginate="item">
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.small, marginBottom: 4 }}>
+                                        <span style={{ fontWeight: 500, color: '#374151' }}>{skill.name}</span>
+                                    </div>
+                                    <ProgressBar value={(skill.level || 3) * 20} color={accentColor} height={6} />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Credentials (Certifications & Awards) */}
+                {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
+                    <section className="mb-10 resume-section">
+                        <MainHeader title="Credentials" color={'#374151'} fs={fs} headingFont={headingFont} />
+
+                        {/* Certifications */}
+                        {certifications && certifications.length > 0 && (
+                            <div style={{ marginBottom: awards && awards.length > 0 ? 24 : 0 }}>
+                                <h4 style={{
+                                    fontSize: fs.entryTitle,
+                                    fontWeight: 600,
+                                    color: '#4b5563',
+                                    marginBottom: 12
+                                }}>
+                                    Certifications
+                                </h4>
+                                <div className="space-y-3">
+                                    {certifications.map((cert) => (
+                                        <div key={cert.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#111827' }}>
+                                                {cert.name}
+                                            </div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>
+                                                {cert.issuer} • {cert.date}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Awards & Achievements */}
+                        {awards && awards.length > 0 && (
+                            <div>
+                                <h4 style={{
+                                    fontSize: fs.entryTitle,
+                                    fontWeight: 600,
+                                    color: '#4b5563',
+                                    marginBottom: 12
+                                }}>
+                                    Awards & Achievements
+                                </h4>
+                                <div className="space-y-3">
+                                    {awards.map((award) => (
+                                        <div key={award.id} data-paginate="item">
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#111827' }}>
+                                                {award.title}
+                                            </div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>
+                                                {award.issuer} • {award.date}
+                                            </div>
+                                            {award.description && (
+                                                <p style={{ fontSize: fs.small, color: '#374151', marginTop: 4, lineHeight: 1.5 }}>
+                                                    {award.description}
+                                                </p>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </section>
                 )}
             </main>
