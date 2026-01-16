@@ -64,15 +64,11 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
     ].filter(item => item.value);
 
     return `
-        <!-- Fixed sidebar background - repeats on ALL pages (3rd, 4th, etc.) -->
-        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 30%;"></div>
-        <!-- Fixed accent stripe on sidebar edge - repeats on ALL pages -->
-        <div class="sidebar-accent-stripe" style="background-color: ${accentColor}; width: 8px;"></div>
+        <!-- Table layout ensures sidebar and main columns are always equal height -->
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: table; table-layout: fixed;">
 
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: flex; position: relative;">
-
-            <!-- Sidebar (30%) - content only, bg handled by fixed element -->
-            <aside class="sidebar-content" style="width: 30%; color: ${sidebarText}; padding: 48px 24px; flex-shrink: 0; min-height: 100%; position: relative; z-index: 1;">
+            <!-- Sidebar (30%) - uses table-cell for equal height with main content -->
+            <aside style="display: table-cell; width: 30%; background-color: ${sidebarBg}; border-left: 8px solid ${accentColor}; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
 
                 <!-- Profile Image or Monogram -->
                 <div style="margin-bottom: 48px; display: flex; justify-content: center;">
@@ -150,8 +146,8 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
 
             </aside>
 
-            <!-- Main Content (70%) -->
-            <main style="flex: 1; padding: 64px 48px;">
+            <!-- Main Content (70%) - table-cell for equal height -->
+            <main style="display: table-cell; width: 70%; padding: 64px 48px; vertical-align: top;">
 
                 <!-- Header -->
                 <div style="margin-bottom: 48px; border-bottom: 1px solid ${accentColor}; padding-bottom: 16px;">
