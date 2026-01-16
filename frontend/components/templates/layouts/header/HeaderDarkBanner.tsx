@@ -208,7 +208,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                                 💻 SOFTWARE
                             </p>
                             <div className="space-y-2">
-                                {skills.slice(0, 5).map((skill) => (
+                                {skills.map((skill) => (
                                     <div key={skill.id} data-paginate="item">
                                         <ProgressBar
                                             label={skill.name}

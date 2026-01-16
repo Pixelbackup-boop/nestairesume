@@ -223,7 +223,7 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
                                 &#128187; SOFTWARE
                             </p>
                             <div>
-                                ${skills.slice(0, 5).map(skill => ProgressBar(skill.name, skill.level * 20)).join('')}
+                                ${skills.map(skill => ProgressBar(skill.name, skill.level * 20)).join('')}
                             </div>
                         </section>
                     ` : ''}
