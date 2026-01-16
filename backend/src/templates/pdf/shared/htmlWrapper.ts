@@ -145,9 +145,10 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         .sidebar-bg-fixed {
             position: fixed;
             top: 0;
+            bottom: 0;
             left: 0;
             width: 35%;
-            height: 100%;
+            /* Use bottom: 0 instead of height: 100% for reliable print rendering */
             z-index: 0;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
@@ -157,9 +158,10 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         .sidebar-accent-stripe {
             position: fixed;
             top: 0;
+            bottom: 0;
             left: 0;
             width: 8px;
-            height: 100%;
+            /* Use bottom: 0 instead of height: 100% for reliable print rendering */
             z-index: 1;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;

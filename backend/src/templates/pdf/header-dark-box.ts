@@ -11,7 +11,9 @@ import {
     getFontFamily,
     getBackgroundCSS,
     escapeHtml,
-    formatDescription
+    formatDescription,
+    parseDualColor,
+    getContrastText
 } from './shared/helpers';
 
 export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): string => {
@@ -32,8 +34,15 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const bgStyle = getBackgroundCSS(background);
 
-    // Colors
-    const accentColor = data.customThemeColor || theme.primary || '#2563eb';
+    // Parse dual color: primary = name box bg, secondary = accent highlights
+    // For this template, primary is used as the main box color
+    const { primary: boxBgColor, secondary: accentColor } = parseDualColor(
+        data.customThemeColor,
+        { primary: '#2563eb', secondary: '#2563eb' } // Blue 600 defaults (same for backwards compat)
+    );
+
+    // Auto-calculate text color for the name box
+    const boxTextColor = getContrastText(boxBgColor);
 
     // Helper for Section Headers with Icon
     const SectionHeader = (title: string, icon: string) => `
@@ -113,8 +122,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                 ${ProfileAvatar(personalInfo.profileImage, personalInfo.fullName || 'Your Name', 120)}
 
                 <!-- Name Box - Solid Vibrant Color -->
-                <div style="background-color: ${accentColor}; padding: 40px 60px; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-                    <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 900; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; line-height: 1;">
+                <div style="background-color: ${boxBgColor}; padding: 40px 60px; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+                    <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 900; color: ${boxTextColor}; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; line-height: 1;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
                 </div>

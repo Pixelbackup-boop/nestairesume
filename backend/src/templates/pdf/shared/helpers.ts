@@ -16,6 +16,56 @@ export const hexToRgb = (hex: string): { r: number; g: number; b: number } | nul
     } : null;
 };
 
+/**
+ * Calculate relative luminance per WCAG 2.0
+ */
+export const getLuminance = (hex: string): number => {
+    const rgb = hexToRgb(hex);
+    if (!rgb) return 0;
+    const [rs, gs, bs] = [rgb.r, rgb.g, rgb.b].map((v) => {
+        v /= 255;
+        return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+};
+
+/**
+ * Return appropriate text color based on background luminance.
+ */
+export const getContrastText = (bgHex: string): string => {
+    const luminance = getLuminance(bgHex);
+    return luminance > 0.179 ? '#1e293b' : '#f8fafc';
+};
+
+/**
+ * Convert hex to rgba string with opacity
+ */
+export const hexToRgba = (hex: string, opacity: number): string => {
+    const rgb = hexToRgb(hex);
+    if (!rgb) return `rgba(0, 0, 0, ${opacity})`;
+    return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
+};
+
+export interface DualColor {
+    primary: string;
+    secondary: string;
+}
+
+/**
+ * Parse dual color string "primary|secondary" format.
+ */
+export const parseDualColor = (
+    colorStr: string | undefined,
+    defaults: DualColor = { primary: '#0f172a', secondary: '#facc15' }
+): DualColor => {
+    if (!colorStr) return defaults;
+    const parts = colorStr.split('|');
+    if (parts.length === 1) {
+        return { primary: defaults.primary, secondary: parts[0] || defaults.secondary };
+    }
+    return { primary: parts[0] || defaults.primary, secondary: parts[1] || defaults.secondary };
+};
+
 const adjustColor = (hex: string, amount: number): string => {
     let usePound = false;
     if (hex[0] === '#') {

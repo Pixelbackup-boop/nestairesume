@@ -12,7 +12,9 @@ import {
     getBackgroundCSS,
     escapeHtml,
     formatDescription,
-    getLanguageLevel
+    getLanguageLevel,
+    parseDualColor,
+    getContrastText
 } from './shared/helpers';
 
 export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): string => {
@@ -33,9 +35,15 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const bgStyle = getBackgroundCSS(background);
 
-    // Colors
-    const accentColor = data.customThemeColor || theme.primary || '#f59e0b';
-    const headerBgColor = '#0f172a'; // Dark slate/black
+    // Parse dual color: primary = header bg, secondary = accent
+    const { primary: headerBgColor, secondary: accentColor } = parseDualColor(
+        data.customThemeColor,
+        { primary: '#0f172a', secondary: '#f59e0b' } // Slate 900 + Amber 500 defaults
+    );
+
+    // Auto-calculate header text color based on background
+    const headerText = getContrastText(headerBgColor);
+    const headerTextMuted = headerText === '#f8fafc' ? '#d1d5db' : '#6b7280';
 
     // Helper for Section Headers
     const SectionHeader = (title: string) => `
@@ -101,7 +109,7 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
         <img
             src="${personalInfo.profileImage}"
             alt="${escapeHtml(personalInfo.fullName)}"
-            style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #ffffff;"
+            style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid ${headerText};"
         />
     ` : '';
 
@@ -113,10 +121,10 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
 
                 <!-- Left: Name and Contact -->
                 <div>
-                    <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 400; color: #ffffff; letter-spacing: 0.02em; margin-bottom: 12px;">
+                    <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 400; color: ${headerText}; letter-spacing: 0.02em; margin-bottom: 12px;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
-                    <div style="display: flex; gap: 16px; font-size: 10px; color: #d1d5db; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 16px; font-size: 10px; color: ${headerTextMuted}; flex-wrap: wrap;">
                         ${personalInfo.phone ? `<span>&#128241; ${escapeHtml(personalInfo.phone)}</span>` : ''}
                         ${personalInfo.email ? `<span>&#9993; ${escapeHtml(personalInfo.email)}</span>` : ''}
                         ${personalInfo.website ? `<span>&#127760; ${escapeHtml(personalInfo.website)}</span>` : ''}
@@ -236,7 +244,7 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
                             ${SectionHeader('Strengths')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(strength => `
-                                    <span style="background-color: ${accentColor}; color: #1f2937; padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 500;">
+                                    <span style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 500;">
                                         ${escapeHtml(strength.name)}
                                     </span>
                                 `).join('')}

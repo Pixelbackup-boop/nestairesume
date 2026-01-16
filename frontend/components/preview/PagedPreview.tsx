@@ -4,6 +4,7 @@ import React, { useRef, useState, useLayoutEffect, useEffect, useCallback, forwa
 import { useResumeStore } from '../../store/useResumeStore';
 import { colorPresets, generateTheme, getLayoutType as getBuilderLayoutType } from '@/lib/templates/builder';
 import UnifiedTemplate, { LayoutType } from '../templates/UnifiedTemplate';
+import { parseDualColor } from '@/lib/templates/builder/colorUtils';
 
 // A4 dimensions
 const A4_HEIGHT_PX = 1123; // Standard A4 height in pixels at 96 DPI
@@ -11,17 +12,42 @@ const A4_WIDTH_PX = 794;   // Standard A4 width in pixels at 96 DPI
 const PAGE_GAP_PX = 40;    // Gap between pages (Collapsed in Print via CSS)
 const PAGE_MARGIN_BOTTOM = 30; // Bottom margin to prevent content from touching page edge
 // Sidebar dimensions per template
-const getSidebarConfig = (templateId: string | null): { width: number; bgColor: string } => {
-    if (!templateId) return { width: 278, bgColor: '#1e293b' }; // Default: 35% width, dark navy
+interface SidebarConfig {
+    width: number;
+    bgColor: string;
+    accentBorder?: { width: number; color: string; side: 'left' | 'right' };
+}
+
+const getSidebarConfig = (templateId: string | null, customThemeColor?: string): SidebarConfig | null => {
+    if (!templateId) return null;
+
+    // Parse dual color for templates that support it
+    const { primary: sidebarBg, secondary: accentColor } = parseDualColor(
+        customThemeColor,
+        { primary: '#0f172a', secondary: '#facc15' }
+    );
 
     if (templateId.includes('narrow-yellow')) {
         return { width: 238, bgColor: '#facc15' }; // 30% of 794 = 238px, yellow
     }
     if (templateId.includes('monogram')) {
+        // Monogram has 30% gray sidebar with 8px accent border on right
+        // Uses the theme's accent color (defaults to yellow)
+        return {
+            width: 238,
+            bgColor: '#374151', // Gray 700
+            accentBorder: { width: 8, color: accentColor || '#facc15', side: 'right' }
+        };
+    }
+    if (templateId.includes('header-dark')) {
+        // Header-dark has 33% sidebar - use dynamic primary color from dual color preset
+        return { width: 262, bgColor: sidebarBg }; // 33% of 794 = 262px
+    }
+    if (templateId.includes('sidebar-dark-navy') || templateId.includes('dark-navy')) {
         return { width: 278, bgColor: '#1e293b' }; // 35%, dark navy
     }
-    // Default for other sidebar templates
-    return { width: 278, bgColor: '#1e293b' }; // 35%, dark navy
+    // Return null for templates without sidebars
+    return null;
 };
 
 interface PagedPreviewProps {
@@ -65,8 +91,13 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
         const layoutType = getLayoutType();
 
-        // Check if this is a sidebar layout (for persistent sidebar background)
-        const isSidebarLayout = layoutType === 'sidebar';
+        // Get custom theme color string (may be "primary|secondary" for dual-color templates)
+        const customThemeColor = resumeData.customThemeColor;
+
+        // Check if this template has a sidebar that needs a persistent background
+        // This includes sidebar layouts AND header layouts with sidebars (like header-dark)
+        const sidebarConfig = getSidebarConfig(selectedTemplateId, customThemeColor);
+        const hasSidebarBackdrop = sidebarConfig !== null;
 
         // Pagination calculation function (reusable for ResizeObserver)
         const runPagination = useCallback(async () => {
@@ -88,6 +119,14 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 templateRoot.style.minHeight = '0';
                 templateRoot.style.backgroundColor = 'transparent';
                 templateRoot.style.background = 'transparent';
+
+                // For sidebar layouts: make the <aside> sidebar transparent
+                // so the backdrop sidebar color shows through on ALL pages
+                const sidebarElement = templateRoot.querySelector('aside');
+                if (sidebarElement) {
+                    (sidebarElement as HTMLElement).style.backgroundColor = 'transparent';
+                    (sidebarElement as HTMLElement).style.background = 'transparent';
+                }
             }
 
             // UNIVERSAL SELECTOR: Find ALL elements that shouldn't be split
@@ -239,7 +278,9 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                     }
 
                     /* Force content background to be transparent so backdrop shows through */
-                    .resume-print-content > div {
+                    .resume-print-content > div,
+                    .resume-print-content > div > aside,
+                    .resume-print-content > div > main {
                         background: transparent !important;
                         background-color: transparent !important;
                     }
@@ -263,10 +304,15 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                             margin: 0 !important;
                             box-shadow: none !important;
                         }
-                        /* Restore background for print */
+                        /* Restore background for print - only for main content area, not sidebar */
                         .resume-print-content > div {
                             background: white !important;
                             background-color: white !important;
+                        }
+                        /* But let aside keep its original background for print */
+                        .resume-print-content > div > aside {
+                            background: revert !important;
+                            background-color: revert !important;
                         }
                         /* Ensure background colors and patterns print */
                         .resume-print-content * {
@@ -301,15 +347,20 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                                 zIndex: 0,
                             }}
                         >
-                            {/* Persistent Sidebar Background - appears on ALL pages for sidebar layouts */}
-                            {isSidebarLayout && (() => {
-                                const sidebarConfig = getSidebarConfig(selectedTemplateId);
+                            {/* Persistent Sidebar Background - appears on ALL pages for templates with sidebars */}
+                            {hasSidebarBackdrop && sidebarConfig && (() => {
+                                const border = sidebarConfig.accentBorder;
                                 return (
                                     <div
                                         className="absolute left-0 top-0 bottom-0"
                                         style={{
                                             width: `${sidebarConfig.width}px`,
                                             backgroundColor: sidebarConfig.bgColor,
+                                            // Add accent border if configured
+                                            ...(border && {
+                                                borderRight: border.side === 'right' ? `${border.width}px solid ${border.color}` : undefined,
+                                                borderLeft: border.side === 'left' ? `${border.width}px solid ${border.color}` : undefined,
+                                            }),
                                         }}
                                     />
                                 );

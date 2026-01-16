@@ -10,7 +10,10 @@ import {
     escapeHtml,
     formatDescription,
     getIconSVG,
-    IconName
+    IconName,
+    parseDualColor,
+    getContrastText,
+    hexToRgba
 } from './shared/helpers';
 
 export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string => {
@@ -31,16 +34,20 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const bgStyle = getBackgroundCSS(background);
 
-    // Fixed colors
-    const sidebarBg = '#0f172a'; // Slate 900
+    // Parse dual color: primary = sidebar bg, secondary = accent
+    const { primary: sidebarBg, secondary: accentColor } = parseDualColor(
+        data.customThemeColor,
+        { primary: '#0f172a', secondary: '#facc15' } // Slate 900 + Yellow 400 defaults
+    );
+
+    // Auto-calculate text colors based on backgrounds
+    const sidebarText = getContrastText(sidebarBg);
     const mainBg = '#ffffff';
-    const accentColor = theme.primary || '#facc15'; // Yellow 400
-    const textLight = '#f8fafc'; // Slate 50
     const textDark = '#334155'; // Slate 700
 
     // Helper for Sidebar Section Headers
     const SidebarSectionHeader = (title: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid ${accentColor};">
+        <h3 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; color: ${sidebarText}; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid ${accentColor};">
             ${title}
         </h3>
     `;
@@ -53,7 +60,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
         </h3>
     `;
 
-    // Profile Image
+    // Profile Image - use flexbox centering (matching frontend)
     const profileImage = personalInfo.profileImage ? `
         <img
             src="${personalInfo.profileImage}"
@@ -61,7 +68,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
             style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid ${accentColor};"
         />
     ` : `
-        <div style="width: 140px; height: 140px; border-radius: 50%; background-color: #1e293b; border: 4px solid ${accentColor}; display: flex; align-items: center; justify-content: center; font-size: 48px; color: ${textLight};">
+        <div style="width: 140px; height: 140px; border-radius: 50%; background-color: ${hexToRgba(sidebarText, 0.1)}; border: 4px solid ${accentColor}; display: flex; align-items: center; justify-content: center; font-size: 48px; color: ${sidebarText};">
             ${escapeHtml(personalInfo.fullName?.charAt(0) || '?')}
         </div>
     `;
@@ -70,12 +77,12 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
         <!-- Fixed background that covers full page on ALL pages -->
         <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 33%;"></div>
 
-        <!-- Table layout for content structure -->
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: ${mainBg}; color: ${textDark}; display: table; table-layout: fixed; box-sizing: border-box; ${bgStyle}">
+        <!-- Flex layout for content structure (matching frontend) -->
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: ${mainBg}; color: ${textDark}; display: flex; box-sizing: border-box; ${bgStyle}">
 
             <!-- Left Sidebar -->
-            <aside style="display: table-cell; width: 33%; background-color: ${sidebarBg}; color: ${textLight}; padding: 48px 32px; vertical-align: top;">
-                
+            <aside class="sidebar-content" style="width: 33%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 40px 20px; flex-shrink: 0; min-height: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;">
+
                 <!-- Photo -->
                 <div style="margin-bottom: 50px;">
                     ${profileImage}
@@ -87,31 +94,31 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                     <div style="font-size: 9pt; display: flex; flex-direction: column; gap: 12px;">
                         ${personalInfo.phone ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="filter: grayscale(1); font-size: 1.2em;">📞</span>
+                                <span style="opacity: 0.9;">${getIconSVG('phone', sidebarText, 14)}</span>
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.phone)}</span>
                             </div>
                         ` : ''}
                         ${personalInfo.email ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="filter: grayscale(1); font-size: 1.2em;">✉️</span>
+                                <span style="opacity: 0.9;">${getIconSVG('email', sidebarText, 14)}</span>
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.email)}</span>
                             </div>
                         ` : ''}
                         ${personalInfo.location ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="filter: grayscale(1); font-size: 1.2em;">📍</span>
+                                <span style="opacity: 0.9;">${getIconSVG('location', sidebarText, 14)}</span>
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.location)}</span>
                             </div>
                         ` : ''}
                         ${personalInfo.website ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="filter: grayscale(1); font-size: 1.2em;">🌐</span>
+                                <span style="opacity: 0.9;">${getIconSVG('website', sidebarText, 14)}</span>
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.website)}</span>
                             </div>
                         ` : ''}
                         ${personalInfo.linkedin ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="filter: grayscale(1); font-size: 1.2em; fill: white;">${getIconSVG('linkedin', '#ffffff', 14)}</span>
+                                <span style="opacity: 0.9;">${getIconSVG('linkedin', sidebarText, 14)}</span>
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.linkedin)}</span>
                             </div>
                         ` : ''}
@@ -126,27 +133,12 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                             ${skills.map(skill => `
                                 <div>
                                     <div style="margin-bottom: 4px; font-size: 9pt; font-weight: 500;">${escapeHtml(skill.name)}</div>
-                                    <div style="width: 100%; height: 6px; background-color: #334155; border-radius: 3px; overflow: hidden;">
+                                    <div style="width: 100%; height: 6px; background-color: ${hexToRgba(sidebarText, 0.15)}; border-radius: 3px; overflow: hidden;">
                                         <div style="width: ${(skill.level || 3) * 20}%; height: 100%; background-color: ${accentColor};"></div>
                                     </div>
                                 </div>
                             `).join('')}
                         </div>
-                    </div>
-                ` : ''}
-
-                <!-- Languages -->
-                ${languages && languages.length > 0 ? `
-                    <div style="width: 100%; margin-bottom: 40px;">
-                        ${SidebarSectionHeader('Languages')}
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            ${languages.map(lang => `
-                                <li style="margin-bottom: 6px; font-size: 9pt;">
-                                    <span style="font-weight: 600;">${escapeHtml(lang.name)}</span> 
-                                    <span style="opacity: 0.7; font-size: 0.9em;">- ${escapeHtml(lang.proficiency)}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
                     </div>
                 ` : ''}
 
@@ -156,7 +148,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                         ${SidebarSectionHeader('Strengths')}
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                             ${strengths.map(str => `
-                                <span style="background-color: #1e293b; color: ${accentColor}; padding: 4px 12px; border-radius: 4px; font-size: 8pt; font-weight: 500; border: 1px solid ${accentColor}40;">
+                                <span style="background-color: ${hexToRgba(sidebarText, 0.08)}; color: ${accentColor}; padding: 4px 12px; border-radius: 4px; font-size: 8pt; font-weight: 500; border: 1px solid ${hexToRgba(accentColor, 0.25)};">
                                     ${escapeHtml(str.name)}
                                 </span>
                             `).join('')}
@@ -170,7 +162,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                         ${SidebarSectionHeader('Interests')}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${interests.map(int => `
-                                <span style="font-size: 9pt; display: flex; align-items: center; gap: 6px;">
+                                <span style="font-size: 9pt; display: flex; align-items: center; gap: 6px; color: ${sidebarText};">
                                     <span style="color: ${accentColor};">✦</span> ${escapeHtml(int.name)}
                                 </span>
                             `).join('')}
@@ -181,7 +173,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
             </aside>
 
             <!-- Main Content -->
-            <main style="display: table-cell; width: 67%; padding: 64px 48px; vertical-align: top;">
+            <main style="flex: 1; padding: 56px 40px; display: flex; flex-direction: column;">
                 
                 <!-- Name Header -->
                 <div style="margin-bottom: 50px;">
@@ -244,6 +236,21 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                                     <p style="font-size: 9pt; color: #64748b; margin: 0;">
                                         ${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}
                                     </p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+                ` : ''}
+
+                <!-- Languages -->
+                ${languages && languages.length > 0 ? `
+                    <section style="margin-bottom: 40px;">
+                        ${MainSectionHeader('Languages')}
+                        <div style="display: flex; flex-wrap: wrap; gap: 12px 24px;">
+                            ${languages.map(lang => `
+                                <div style="font-size: 10pt;">
+                                    <span style="font-weight: 600; color: #0f172a;">${escapeHtml(lang.name)}</span>
+                                    <span style="color: #64748b; margin-left: 6px;">(${escapeHtml(lang.proficiency)})</span>
                                 </div>
                             `).join('')}
                         </div>

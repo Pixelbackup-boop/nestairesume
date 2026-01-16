@@ -48,19 +48,20 @@ export const singleColorPresets: SingleColorPreset[] = [
 
 /**
  * 10 dual-color presets
- * Each has a dark primary + complementary light secondary
+ * Primary = dark background (sidebar/header)
+ * Secondary = vibrant accent color (highlights, borders, progress bars)
  */
 export const dualColorPresets: DualColorPreset[] = [
-    { id: 'slate', name: 'Slate', primary: '#334155', secondary: '#f1f5f9' },
-    { id: 'navy', name: 'Navy', primary: '#1e3a5f', secondary: '#e0f2fe' },
-    { id: 'forest', name: 'Forest', primary: '#166534', secondary: '#dcfce7' },
-    { id: 'burgundy', name: 'Burgundy', primary: '#881337', secondary: '#fce7f3' },
-    { id: 'charcoal', name: 'Charcoal', primary: '#1f2937', secondary: '#f3f4f6' },
-    { id: 'teal', name: 'Teal', primary: '#0f766e', secondary: '#ccfbf1' },
-    { id: 'brown', name: 'Brown', primary: '#78350f', secondary: '#fef3c7' },
-    { id: 'purple', name: 'Purple', primary: '#5b21b6', secondary: '#ede9fe' },
-    { id: 'rose', name: 'Rose', primary: '#9f1239', secondary: '#ffe4e6' },
-    { id: 'indigo', name: 'Indigo', primary: '#3730a3', secondary: '#e0e7ff' },
+    { id: 'slate-gold', name: 'Slate Gold', primary: '#0f172a', secondary: '#facc15' },
+    { id: 'navy-sky', name: 'Navy Sky', primary: '#1e3a5f', secondary: '#38bdf8' },
+    { id: 'forest-lime', name: 'Forest Lime', primary: '#14532d', secondary: '#84cc16' },
+    { id: 'burgundy-coral', name: 'Burgundy', primary: '#881337', secondary: '#fb7185' },
+    { id: 'charcoal-amber', name: 'Charcoal', primary: '#1f2937', secondary: '#f59e0b' },
+    { id: 'teal-cyan', name: 'Teal Cyan', primary: '#134e4a', secondary: '#22d3d1' },
+    { id: 'brown-orange', name: 'Brown', primary: '#451a03', secondary: '#fb923c' },
+    { id: 'purple-violet', name: 'Purple', primary: '#3b0764', secondary: '#a78bfa' },
+    { id: 'rose-pink', name: 'Rose Pink', primary: '#4c0519', secondary: '#f472b6' },
+    { id: 'indigo-blue', name: 'Indigo', primary: '#1e1b4b', secondary: '#818cf8' },
 ];
 
 /**
@@ -81,7 +82,7 @@ export const templateColorSchemas: Record<string, TemplateColorSchema> = {
     },
     'header-dark-box': {
         templateId: 'header-dark-box',
-        schemaType: 'single',
+        schemaType: 'dual',
         colorAreas: ['name box', 'accents'],
     },
     'header-geometric': {
@@ -91,8 +92,8 @@ export const templateColorSchemas: Record<string, TemplateColorSchema> = {
     },
     'header-dark-banner': {
         templateId: 'header-dark-banner',
-        schemaType: 'single',
-        colorAreas: ['header banner', 'accents'],
+        schemaType: 'dual',
+        colorAreas: ['header background', 'accents'],
     },
     'header-decorative': {
         templateId: 'header-decorative',
