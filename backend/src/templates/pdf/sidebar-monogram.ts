@@ -65,9 +65,9 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
 
     return `
         <!-- Fixed sidebar background - repeats on ALL pages (3rd, 4th, etc.) -->
-        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg};"></div>
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 30%;"></div>
         <!-- Fixed accent stripe on sidebar edge - repeats on ALL pages -->
-        <div class="sidebar-accent-stripe" style="background-color: ${accentColor};"></div>
+        <div class="sidebar-accent-stripe" style="background-color: ${accentColor}; width: 8px;"></div>
 
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: flex; position: relative;">
 

@@ -153,6 +153,18 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
             print-color-adjust: exact !important;
         }
 
+        /* Fixed accent stripe on sidebar edge - repeats on every printed page */
+        .sidebar-accent-stripe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
         /* Sidebar content wrapper - flows naturally */
         .sidebar-content {
             position: relative;
