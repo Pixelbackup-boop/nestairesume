@@ -4,6 +4,7 @@ import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
 import ProgressBar from '../../shared/ProgressBar';
+import { parseDualColor, getContrastText } from '@/lib/templates/builder/colorUtils';
 
 /**
  * Header Dark Banner Template
@@ -28,9 +29,15 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
     // Get scaled font sizes that respect user's size preference + scale
     const fs = getScaledFontSizes(sizeConfig, scale);
 
-    // Single color preset - use customThemeColor or default yellow/gold
-    const accentColor = customThemeColor || '#f59e0b';
-    const headerBgColor = '#0f172a'; // Dark slate/black
+    // Parse dual color: primary = header bg, secondary = accent
+    const { primary: headerBgColor, secondary: accentColor } = parseDualColor(
+        customThemeColor,
+        { primary: '#0f172a', secondary: '#f59e0b' } // Slate 900 + Amber 500 defaults
+    );
+
+    // Auto-calculate header text color based on background
+    const headerText = getContrastText(headerBgColor);
+    const headerTextMuted = headerText === '#f8fafc' ? '#d1d5db' : '#6b7280';
 
     // Calculate responsive sizes
     const headerHeight = scale < 1 ? 80 : 160;
@@ -65,7 +72,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                             fontFamily: headingFont,
                             fontSize: fs.name,
                             fontWeight: 400,
-                            color: '#ffffff',
+                            color: headerText,
                             letterSpacing: '0.02em',
                             marginBottom: scale < 1 ? '6px' : '12px',
                         }}
@@ -77,7 +84,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                             display: 'flex',
                             gap: scale < 1 ? '8px' : '16px',
                             fontSize: fs.small,
-                            color: '#d1d5db',
+                            color: headerTextMuted,
                             flexWrap: 'wrap',
                         }}
                     >
@@ -103,7 +110,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                             height: photoSize,
                             borderRadius: '50%',
                             objectFit: 'cover',
-                            border: '3px solid #ffffff',
+                            border: `3px solid ${headerText}`,
                         }}
                     />
                 )}
@@ -273,7 +280,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                                         data-paginate="item"
                                         style={{
                                             backgroundColor: accentColor,
-                                            color: '#1f2937',
+                                            color: getContrastText(accentColor),
                                             padding: scale < 1 ? '2px 6px' : '4px 12px',
                                             borderRadius: '4px',
                                             fontSize: fs.small,
@@ -362,6 +369,23 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                                     </div>
                                 </div>
                             )}
+                        </section>
+                    )}
+
+                    {/* Social Links */}
+                    {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                        <section className="resume-section mt-4" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                                Social Media
+                            </SectionHeader>
+                            <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
+                                {personalInfo.linkedin && <div>🔗 {personalInfo.linkedin}</div>}
+                                {personalInfo.github && <div>💻 {personalInfo.github}</div>}
+                                {personalInfo.twitter && <div>🐦 {personalInfo.twitter}</div>}
+                                {personalInfo.dribbble && <div>🏀 {personalInfo.dribbble}</div>}
+                                {personalInfo.behance && <div>🎨 {personalInfo.behance}</div>}
+                                {personalInfo.instagram && <div>📷 {personalInfo.instagram}</div>}
+                            </div>
                         </section>
                     )}
                 </div>

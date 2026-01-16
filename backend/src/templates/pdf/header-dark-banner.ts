@@ -303,6 +303,21 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
                             ` : ''}
                         </section>
                     ` : ''}
+
+                    <!-- Social Links -->
+                    ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <section style="margin-top: 20px;">
+                            ${SectionHeader('Social Media')}
+                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 9pt;">
+                                ${personalInfo.linkedin ? `<div style="color: #374151;">&#128279; ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
+                                ${personalInfo.github ? `<div style="color: #374151;">&#128187; ${escapeHtml(personalInfo.github)}</div>` : ''}
+                                ${personalInfo.twitter ? `<div style="color: #374151;">&#128038; ${escapeHtml(personalInfo.twitter)}</div>` : ''}
+                                ${personalInfo.dribbble ? `<div style="color: #374151;">&#127936; ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
+                                ${personalInfo.behance ? `<div style="color: #374151;">&#127912; ${escapeHtml(personalInfo.behance)}</div>` : ''}
+                                ${personalInfo.instagram ? `<div style="color: #374151;">&#128247; ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                            </div>
+                        </section>
+                    ` : ''}
                 </div>
             </div>
         </div>
