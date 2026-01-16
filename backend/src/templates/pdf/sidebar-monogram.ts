@@ -66,12 +66,14 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
     return `
         <!-- Fixed background that covers full page on ALL pages -->
         <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 30%;"></div>
+        <!-- Fixed accent stripe at 30% position (right edge of sidebar) - full page height -->
+        <div style="position: fixed; top: 0; left: 30%; width: 8px; height: 100%; background-color: ${accentColor}; z-index: 2;"></div>
 
         <!-- Table layout for content structure -->
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: table; table-layout: fixed; position: relative;">
 
-            <!-- Sidebar (30%) - table-cell with accent stripe on RIGHT edge -->
-            <aside style="display: table-cell; width: 30%; background-color: ${sidebarBg}; border-right: 8px solid ${accentColor}; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
+            <!-- Sidebar (30%) - table-cell, no border (handled by fixed stripe) -->
+            <aside style="display: table-cell; width: 30%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
 
                 <!-- Profile Image or Monogram -->
                 <div style="margin-bottom: 48px; display: flex; justify-content: center;">
