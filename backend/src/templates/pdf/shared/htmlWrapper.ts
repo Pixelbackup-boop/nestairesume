@@ -48,11 +48,7 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         /* A4 Page Setup */
         @page {
             size: A4;
-            margin: 20px 0 0 0; /* 20px top padding on page 2+ for main content */
-        }
-
-        @page :first {
-            margin: 0; /* No margin on first page */
+            margin: 0;
         }
 
         * {
@@ -146,26 +142,24 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         .opacity-90 { opacity: 0.9; }
 
         /* Fixed sidebar background - repeats on every printed page */
-        /* Extends into margin area to cover page 2+ top margin */
         .sidebar-bg-fixed {
             position: fixed;
-            top: -20px; /* Extend into margin area */
+            top: 0;
             left: 0;
             width: 35%;
-            height: calc(297mm + 20px); /* A4 height + margin coverage */
+            height: 297mm; /* A4 height */
             z-index: 0;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
         }
 
         /* Fixed accent stripe on sidebar edge - repeats on every printed page */
-        /* Extends into margin area to cover page 2+ top margin */
         .sidebar-accent-stripe {
             position: fixed;
-            top: -20px; /* Extend into margin area */
+            top: 0;
             left: 0;
             width: 8px;
-            height: calc(297mm + 20px); /* A4 height + margin coverage */
+            height: 297mm; /* A4 height */
             z-index: 1;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
