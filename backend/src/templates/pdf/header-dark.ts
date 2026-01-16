@@ -78,7 +78,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
         <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 33%;"></div>
 
         <!-- Flex layout for content structure (matching frontend) -->
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: ${mainBg}; color: ${textDark}; display: flex; box-sizing: border-box; ${bgStyle}">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; color: ${textDark}; display: flex; box-sizing: border-box; ${bgStyle}">
 
             <!-- Left Sidebar -->
             <aside class="sidebar-content" style="width: 33%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 40px 20px; flex-shrink: 0; min-height: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;">
@@ -173,7 +173,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
             </aside>
 
             <!-- Main Content -->
-            <main style="flex: 1; padding: 56px 40px; display: flex; flex-direction: column;">
+            <main style="flex: 1; padding: 56px 40px; background-color: ${mainBg}; display: flex; flex-direction: column;">
                 
                 <!-- Name Header -->
                 <div style="margin-bottom: 50px;">
