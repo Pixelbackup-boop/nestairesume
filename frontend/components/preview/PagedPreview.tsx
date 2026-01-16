@@ -39,8 +39,9 @@ const getSidebarConfig = (templateId: string | null, customThemeColor?: string):
             accentBorder: { width: 8, color: accentColor || '#facc15', side: 'right' }
         };
     }
-    if (templateId.includes('header-dark')) {
+    if (templateId === 'header-dark') {
         // Header-dark has 33% sidebar - use dynamic primary color from dual color preset
+        // Note: header-dark-banner and header-dark-box do NOT have sidebars
         return { width: 262, bgColor: sidebarBg }; // 33% of 794 = 262px
     }
     if (templateId.includes('sidebar-dark-navy') || templateId.includes('dark-navy')) {
