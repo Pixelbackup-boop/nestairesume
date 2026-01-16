@@ -64,11 +64,14 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
     ].filter(item => item.value);
 
     return `
-        <!-- Table layout ensures sidebar and main columns are always equal height -->
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: table; table-layout: fixed;">
+        <!-- Fixed background that covers full page on ALL pages -->
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 30%;"></div>
 
-            <!-- Sidebar (30%) - uses table-cell for equal height with main content -->
-            <aside style="display: table-cell; width: 30%; background-color: ${sidebarBg}; border-left: 8px solid ${accentColor}; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
+        <!-- Table layout for content structure -->
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: table; table-layout: fixed; position: relative;">
+
+            <!-- Sidebar (30%) - table-cell with accent stripe on RIGHT edge -->
+            <aside style="display: table-cell; width: 30%; background-color: ${sidebarBg}; border-right: 8px solid ${accentColor}; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
 
                 <!-- Profile Image or Monogram -->
                 <div style="margin-bottom: 48px; display: flex; justify-content: center;">
