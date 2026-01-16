@@ -94,8 +94,14 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                         {personalInfo.email && (
                             <span>✉️ {personalInfo.email}</span>
                         )}
+                        {personalInfo.location && (
+                            <span>📍 {personalInfo.location}</span>
+                        )}
                         {personalInfo.website && (
                             <span>🌐 {personalInfo.website}</span>
+                        )}
+                        {personalInfo.linkedin && (
+                            <span>🔗 {personalInfo.linkedin}</span>
                         )}
                     </div>
                 </div>
@@ -373,18 +379,32 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <section className="resume-section mt-4" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 Social Media
                             </SectionHeader>
                             <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
-                                {personalInfo.linkedin && <div>🔗 {personalInfo.linkedin}</div>}
                                 {personalInfo.github && <div>💻 {personalInfo.github}</div>}
                                 {personalInfo.twitter && <div>🐦 {personalInfo.twitter}</div>}
                                 {personalInfo.dribbble && <div>🏀 {personalInfo.dribbble}</div>}
                                 {personalInfo.behance && <div>🎨 {personalInfo.behance}</div>}
                                 {personalInfo.instagram && <div>📷 {personalInfo.instagram}</div>}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Personal Details */}
+                    {(personalInfo.nationality || personalInfo.idType) && (
+                        <section className="resume-section mt-4" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                                Personal Details
+                            </SectionHeader>
+                            <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
+                                {personalInfo.nationality && <div>🌍 Nationality: {personalInfo.nationality}</div>}
+                                {personalInfo.idType && personalInfo.idNumber && (
+                                    <div>🪪 {personalInfo.idType}: {personalInfo.idNumber}</div>
+                                )}
                             </div>
                         </section>
                     )}

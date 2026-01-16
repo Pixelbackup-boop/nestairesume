@@ -127,7 +127,9 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
                     <div style="display: flex; gap: 16px; font-size: 10px; color: ${headerTextMuted}; flex-wrap: wrap;">
                         ${personalInfo.phone ? `<span>&#128241; ${escapeHtml(personalInfo.phone)}</span>` : ''}
                         ${personalInfo.email ? `<span>&#9993; ${escapeHtml(personalInfo.email)}</span>` : ''}
+                        ${personalInfo.location ? `<span>&#128205; ${escapeHtml(personalInfo.location)}</span>` : ''}
                         ${personalInfo.website ? `<span>&#127760; ${escapeHtml(personalInfo.website)}</span>` : ''}
+                        ${personalInfo.linkedin ? `<span>&#128279; ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                     </div>
                 </div>
 
@@ -305,16 +307,26 @@ export const renderHeaderDarkBanner = (data: PdfResumeData, theme: PdfTheme): st
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    ${(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <section style="margin-top: 20px;">
                             ${SectionHeader('Social Media')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: 9pt;">
-                                ${personalInfo.linkedin ? `<div style="color: #374151;">&#128279; ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
                                 ${personalInfo.github ? `<div style="color: #374151;">&#128187; ${escapeHtml(personalInfo.github)}</div>` : ''}
                                 ${personalInfo.twitter ? `<div style="color: #374151;">&#128038; ${escapeHtml(personalInfo.twitter)}</div>` : ''}
                                 ${personalInfo.dribbble ? `<div style="color: #374151;">&#127936; ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                                 ${personalInfo.behance ? `<div style="color: #374151;">&#127912; ${escapeHtml(personalInfo.behance)}</div>` : ''}
                                 ${personalInfo.instagram ? `<div style="color: #374151;">&#128247; ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                            </div>
+                        </section>
+                    ` : ''}
+
+                    <!-- Personal Details -->
+                    ${(personalInfo.nationality || personalInfo.idType) ? `
+                        <section style="margin-top: 20px;">
+                            ${SectionHeader('Personal Details')}
+                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 9pt;">
+                                ${personalInfo.nationality ? `<div style="color: #374151;">&#127757; Nationality: ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `<div style="color: #374151;">&#128196; ${escapeHtml(personalInfo.idType)}: ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
                             </div>
                         </section>
                     ` : ''}
