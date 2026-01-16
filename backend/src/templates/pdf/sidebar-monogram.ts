@@ -64,11 +64,16 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
     ].filter(item => item.value);
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: flex;">
-            
-            <!-- Sidebar (30%) -->
-            <aside style="width: 30%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 48px 24px; flex-shrink: 0; min-height: 100%; border-right: 8px solid ${accentColor};">
-                
+        <!-- Fixed sidebar background - repeats on ALL pages (3rd, 4th, etc.) -->
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg};"></div>
+        <!-- Fixed accent stripe on sidebar edge - repeats on ALL pages -->
+        <div class="sidebar-accent-stripe" style="background-color: ${accentColor};"></div>
+
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: flex; position: relative;">
+
+            <!-- Sidebar (30%) - content only, bg handled by fixed element -->
+            <aside class="sidebar-content" style="width: 30%; color: ${sidebarText}; padding: 48px 24px; flex-shrink: 0; min-height: 100%; position: relative; z-index: 1;">
+
                 <!-- Profile Image or Monogram -->
                 <div style="margin-bottom: 48px; display: flex; justify-content: center;">
                     ${personalInfo.profileImage ? `
@@ -147,7 +152,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
 
             <!-- Main Content (70%) -->
             <main style="flex: 1; padding: 64px 48px;">
-                
+
                 <!-- Header -->
                 <div style="margin-bottom: 48px; border-bottom: 1px solid ${accentColor}; padding-bottom: 16px;">
                     <h1 style="font-family: ${headingFont}; font-size: 42px; font-weight: 700; color: #111827; text-transform: uppercase; margin: 0 0 8px 0; letter-spacing: 0.05em;">
