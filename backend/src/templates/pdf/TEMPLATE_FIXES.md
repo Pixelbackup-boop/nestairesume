@@ -9,15 +9,16 @@ This document outlines common issues encountered in both **PDF templates** (back
 ### PDF Template Issues (Backend)
 1. [Multi-Page Sidebar Background Issue](#1-multi-page-sidebar-background-issue)
 2. [Accent Stripe Not Extending Full Height](#2-accent-stripe-not-extending-full-height)
-3. [Contact Info Display (Icons Only vs Icons + Text)](#3-contact-info-display)
-4. [Color Consistency Between Preview and PDF](#4-color-consistency-between-preview-and-pdf)
-5. [Quick Reference: Template Structure](#5-quick-reference-template-structure)
+3. [Text Showing in Gap Between Pages](#3-text-showing-in-gap-between-pages)
+4. [Contact Info Display (Icons Only vs Icons + Text)](#4-contact-info-display)
+5. [Color Consistency Between Preview and PDF](#5-color-consistency-between-preview-and-pdf)
+6. [Quick Reference: Template Structure](#6-quick-reference-template-structure)
 
 ### Web Preview Issues (Frontend)
-6. [Frontend Contact Info Not Visible](#6-frontend-contact-info-not-visible)
-7. [Skill/Language Level Bars Not Showing Correct Values](#7-skill-language-level-bars-not-showing-correct-values)
-8. [Sidebar Width Too Narrow](#8-sidebar-width-too-narrow)
-9. [Frontend-Backend Template Parity](#9-frontend-backend-template-parity)
+7. [Frontend Contact Info Not Visible](#7-frontend-contact-info-not-visible)
+8. [Skill/Language Level Bars Not Showing Correct Values](#8-skill-language-level-bars-not-showing-correct-values)
+9. [Sidebar Width Too Narrow](#9-sidebar-width-too-narrow)
+10. [Frontend-Backend Template Parity](#10-frontend-backend-template-parity)
 
 ---
 
@@ -106,7 +107,53 @@ return `
 
 ---
 
-## 3. Contact Info Display
+## 3. Text Showing in Gap Between Pages
+
+### Problem
+Content (text, sections) appears in the gap between PDF pages, getting cut off or split awkwardly across page breaks.
+
+### Why It Happens
+- PDF renderers split content at fixed page boundaries
+- Long sections or items can break mid-sentence
+- No automatic "keep together" behavior by default
+
+### Solution: Use `data-paginate` Attributes
+
+Add `data-paginate="item"` to elements that should stay together:
+
+```typescript
+// Individual items that shouldn't break across pages
+${education.map(edu => `
+    <div data-paginate="item">
+        <h4>${escapeHtml(edu.degree)}</h4>
+        <div>${escapeHtml(edu.school)}</div>
+        <div>${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}</div>
+    </div>
+`).join('')}
+```
+
+### Key Points
+1. **`data-paginate="item"`**: Marks elements that should stay together on a single page
+2. **Apply to List Items**: Use on education entries, experience entries, certifications, etc.
+3. **Works with `htmlWrapper.ts`**: The CSS in htmlWrapper handles the page-break behavior
+4. **Don't Overuse**: Only apply to items that truly need to stay together
+
+### CSS Applied (from htmlWrapper.ts)
+```css
+[data-paginate="item"] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+```
+
+### Templates Using This
+- `sidebar-monogram.ts` - Education, certifications, awards items
+- `header-dark-box.ts` - All list items
+- Most templates with repeated list sections
+
+---
+
+## 4. Contact Info Display
 
 ### Problem
 Contact section shows only emoji icons with values hidden in `title` tooltips - not visible in preview or PDF.
@@ -135,7 +182,7 @@ ${personalInfo.phone ? `
 
 ---
 
-## 4. Color Consistency Between Preview and PDF
+## 5. Color Consistency Between Preview and PDF
 
 ### Problem
 Colors in web preview don't match the PDF output.
@@ -156,7 +203,7 @@ const accentColor = data.customThemeColor || '#facc15'; // Yellow 400 (gold)
 
 ---
 
-## 5. Quick Reference: Template Structure
+## 6. Quick Reference: Template Structure
 
 ### Standard Sidebar Template (with multi-page fix)
 
@@ -225,6 +272,7 @@ export const renderTemplateName = (data: PdfResumeData, theme: PdfTheme): string
 - [ ] Use `escapeHtml()` for all user content
 - [ ] Use `formatDescription()` for multi-line text
 - [ ] Add `vertical-align: top` to table cells
+- [ ] Add `data-paginate="item"` to list items (education, experience, etc.)
 - [ ] Test with multi-page content to verify backgrounds extend
 
 ---
@@ -240,7 +288,7 @@ export const renderTemplateName = (data: PdfResumeData, theme: PdfTheme): string
 
 ---
 
-## 6. Frontend Contact Info Not Visible
+## 7. Frontend Contact Info Not Visible
 
 ### Problem
 Contact section in web preview shows only emoji icons - the actual values (phone, email, location) are hidden in `title` tooltips and not visible.
@@ -278,7 +326,7 @@ Contact section in web preview shows only emoji icons - the actual values (phone
 
 ---
 
-## 7. Skill/Language Level Bars Not Showing Correct Values
+## 8. Skill/Language Level Bars Not Showing Correct Values
 
 ### Problem
 Progress bars for skills or languages show 0% or incorrect widths.
@@ -314,7 +362,7 @@ const getLanguageLevel = (lang: { proficiency?: string }): number => {
 
 ---
 
-## 8. Sidebar Width Too Narrow
+## 9. Sidebar Width Too Narrow
 
 ### Problem
 Sidebar is too narrow to display content properly (especially contact info with long emails).
@@ -344,7 +392,7 @@ const sidebarWidth = '30%'; // Increase from 25% if too narrow
 
 ---
 
-## 9. Frontend-Backend Template Parity
+## 10. Frontend-Backend Template Parity
 
 ### Problem
 Web preview (React component) looks different from PDF output (HTML template).
@@ -399,6 +447,7 @@ Web preview (React component) looks different from PDF output (HTML template).
 |-------|------|----------|
 | Sidebar bg not filling page 2+ | PDF | Fixed background div + table layout |
 | Accent stripe 70% on page 2 | PDF | Fixed-position div at sidebar edge |
+| Text in gap between pages | PDF | `data-paginate="item"` + `page-break-inside: avoid` |
 | Contact icons only (no text) | Both | Show icon + text, not title tooltip |
 | Colors not matching preview | Both | Use exact hex codes from frontend |
 | Skill bars at 0% | Both | Use `(level \|\| 3) * 20` formula |
