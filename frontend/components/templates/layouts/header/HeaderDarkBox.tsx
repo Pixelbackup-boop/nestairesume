@@ -4,20 +4,21 @@ import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
 import ProgressBar from '../../shared/ProgressBar';
+import { parseDualColor } from '@/lib/templates/builder/colorUtils';
 
 /**
  * Header Dark Box Template
- * Distinctive dark box containing only the name, with contact info beside it.
- * Single-color schema - accent applies to name box and section headers.
+ * Distinctive bordered box containing only the name, with contact info beside it.
+ * Dual-color schema: primary = box border color, secondary = accent highlights.
  *
  * Layout:
- * - Dark box with name (top-left), contact info (top-right)
+ * - Bordered box with name (center), avatar (left), contact info (right)
  * - Two-column body: Left (Objective, Experience, Education), Right (Education, Skills with circles, Computer Skills)
  *
  * Matches reference: frontend/Resume-template/unique-layouts/08-header-box.webp
  */
 export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, strengths, certifications, awards, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, references, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -25,8 +26,12 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
     // Get scaled font sizes that respect user's size preference + scale
     const fs = getScaledFontSizes(sizeConfig, scale);
 
-    // Single color preset - use customThemeColor or default Blue 600 (Vibrant)
-    const accentColor = customThemeColor || '#2563eb';
+    // Parse dual color: primary = box BORDER, secondary = accent highlights
+    // This makes both colors visually distinct in the template
+    const { primary: boxBorderColor, secondary: accentColor } = parseDualColor(
+        customThemeColor,
+        { primary: '#2563eb', secondary: '#facc15' } // Blue border, Yellow accents by default
+    );
 
     return (
         <div
@@ -58,21 +63,21 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                     headingFont={headingFont}
                 />
 
-                {/* Name Box - Solid Vibrant Blue */}
+                {/* Name Box - Bordered Outline Style */}
                 <div
                     style={{
-                        backgroundColor: accentColor,
-                        padding: scale < 1 ? '20px 30px' : '40px 60px',
+                        backgroundColor: '#ffffff',
+                        border: `${scale < 1 ? '3px' : '4px'} solid ${boxBorderColor}`,
+                        padding: scale < 1 ? '16px 24px' : '32px 48px',
                         display: 'inline-block',
-                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                     }}
                 >
                     <h1
                         style={{
                             fontFamily: headingFont,
-                            fontSize: fs.name,
+                            fontSize: scale < 1 ? '18px' : '28px', // Fixed - header name doesn't scale with text size
                             fontWeight: 900, // Black weight
-                            color: '#ffffff',
+                            color: '#1f2937', // Dark text on white background
                             letterSpacing: '0.05em',
                             textTransform: 'uppercase',
                             margin: 0,
@@ -104,6 +109,15 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                     )}
                     {personalInfo.location && (
                         <div><strong>Loc:</strong> {personalInfo.location}</div>
+                    )}
+                    {personalInfo.linkedin && (
+                        <div><strong>LinkedIn:</strong> {personalInfo.linkedin}</div>
+                    )}
+                    {personalInfo.nationality && (
+                        <div><strong>Nationality:</strong> {personalInfo.nationality}</div>
+                    )}
+                    {personalInfo.idType && personalInfo.idNumber && (
+                        <div><strong>{personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</strong> {personalInfo.idNumber}</div>
                     )}
                 </div>
             </header>
@@ -210,16 +224,21 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                     )}
 
                     {/* Languages */}
-                    {data.languages && data.languages.length > 0 && (
+                    {languages && languages.length > 0 && (
                         <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🗣️">
                                 Languages
                             </SectionHeader>
-                            <div className="space-y-2">
-                                {data.languages.map((lang) => (
-                                    <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
-                                        <span style={{ fontWeight: 600 }}>{lang.name}</span>
-                                        <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                            <div className="space-y-3">
+                                {languages.map((lang) => (
+                                    <div key={lang.id} data-paginate="item">
+                                        <ProgressBar
+                                            label={lang.name}
+                                            value={lang.level || getLanguageLevelPercent(lang.proficiency)}
+                                            color={accentColor}
+                                            height={scale < 1 ? 6 : 10}
+                                            scale={1}
+                                        />
                                     </div>
                                 ))}
                             </div>
@@ -336,10 +355,100 @@ export default function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps)
                             )}
                         </section>
                     )}
+
+                    {/* Social Links */}
+                    {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🔗">
+                                Social Links
+                            </SectionHeader>
+                            <div className="space-y-2">
+                                {personalInfo.twitter && (
+                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
+                                        <span>🐦</span>
+                                        <span style={{ color: '#374151' }}>{personalInfo.twitter}</span>
+                                    </div>
+                                )}
+                                {personalInfo.github && (
+                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
+                                        <span>💻</span>
+                                        <span style={{ color: '#374151' }}>{personalInfo.github}</span>
+                                    </div>
+                                )}
+                                {personalInfo.dribbble && (
+                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
+                                        <span>🏀</span>
+                                        <span style={{ color: '#374151' }}>{personalInfo.dribbble}</span>
+                                    </div>
+                                )}
+                                {personalInfo.behance && (
+                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
+                                        <span>🎨</span>
+                                        <span style={{ color: '#374151' }}>{personalInfo.behance}</span>
+                                    </div>
+                                )}
+                                {personalInfo.instagram && (
+                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
+                                        <span>📷</span>
+                                        <span style={{ color: '#374151' }}>{personalInfo.instagram}</span>
+                                    </div>
+                                )}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* References */}
+                    {references && references.length > 0 && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="👥">
+                                References
+                            </SectionHeader>
+                            <div className="space-y-3">
+                                {references.map((ref) => (
+                                    <div key={ref.id} data-paginate="item">
+                                        <div style={{ fontWeight: 700, fontSize: fs.body, color: '#1f2937' }}>{ref.name}</div>
+                                        <div style={{ fontSize: fs.small, color: accentColor, fontWeight: 600 }}>
+                                            {ref.title}{ref.company && `, ${ref.company}`}
+                                        </div>
+                                        {(ref.email || ref.phone) && (
+                                            <div style={{ fontSize: fs.small, color: '#6b7280', marginTop: 2 }}>
+                                                {ref.email && <span>{ref.email}</span>}
+                                                {ref.email && ref.phone && <span> • </span>}
+                                                {ref.phone && <span>{ref.phone}</span>}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Custom Field */}
+                    {personalInfo.customField && personalInfo.customFieldLabel && (
+                        <section className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📋">
+                                {personalInfo.customFieldLabel}
+                            </SectionHeader>
+                            <p style={{ fontSize: fs.body, color: '#374151', lineHeight: 1.6 }}>
+                                {personalInfo.customField}
+                            </p>
+                        </section>
+                    )}
                 </div>
             </div>
         </div>
     );
+}
+
+// Helper function to convert proficiency string to percentage
+function getLanguageLevelPercent(proficiency: string): number {
+    const prof = proficiency?.toLowerCase() || '';
+    if (prof.includes('native') || prof === 'native') return 100;
+    if (prof.includes('fluent') || prof === 'fluent') return 95;
+    if (prof.includes('advanced') || prof === 'advanced') return 80;
+    if (prof.includes('intermediate') || prof === 'intermediate') return 60;
+    if (prof.includes('basic') || prof === 'basic') return 40;
+    return 50; // default
 }
 
 // Profile Avatar - Shows image or initials placeholder
@@ -433,6 +542,7 @@ function SectionHeader({ fs, headingFont, accentColor, icon, children }: Section
 
     return (
         <h3
+            data-paginate // Enables orphan protection in PagedPreview
             style={{
                 fontFamily: headingFont,
                 fontSize: fs.sectionHeading,
