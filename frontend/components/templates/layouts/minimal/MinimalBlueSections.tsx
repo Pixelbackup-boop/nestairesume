@@ -16,7 +16,7 @@ import ProgressBar from '../../shared/ProgressBar';
  * - Typography: Clean Sans.
  */
 export default function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, certifications, awards, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, references, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -158,7 +158,7 @@ export default function MinimalBlueSections({ data, theme, scale = 1 }: Template
             </div>
 
             {/* Languages and Strengths Row */}
-            {(languages && languages.length > 0 || (data.strengths && data.strengths.length > 0)) && (
+            {((languages && languages.length > 0) || (strengths && strengths.length > 0)) && (
                 <div style={{ display: 'flex', gap: 32, marginTop: scale < 1 ? 24 : 40 }}>
                     {languages && languages.length > 0 && (
                         <div style={{ flex: 1 }}>
@@ -172,20 +172,20 @@ export default function MinimalBlueSections({ data, theme, scale = 1 }: Template
                             </div>
                         </div>
                     )}
-                    {data.strengths && data.strengths.length > 0 && (
+                    {strengths && strengths.length > 0 && (
                         <div style={{ flex: 1 }}>
                             <SectionHeader title="Strengths" bg={accentColor} fs={fs} headingFont={headingFont} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, paddingLeft: 8 }}>
-                                {data.strengths.map((str) => (
-                                    <span key={str.id} style={{
-                                        fontSize: fs.small,
-                                        color: '#000',
-                                        backgroundColor: '#f3f4f6',
-                                        padding: '4px 8px',
-                                        borderRadius: 4
-                                    }}>
-                                        {str.name}
-                                    </span>
+                            <div className="space-y-2" style={{ paddingLeft: 8 }}>
+                                {strengths.map((str) => (
+                                    <div key={str.id} data-paginate="item">
+                                        <ProgressBar
+                                            label={str.name}
+                                            value={str.level ?? 80}
+                                            color={accentColor}
+                                            height={6}
+                                            scale={1}
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -239,6 +239,67 @@ export default function MinimalBlueSections({ data, theme, scale = 1 }: Template
                             </div>
                         )}
                     </div>
+                </section>
+            )}
+
+            {/* Social Links */}
+            {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Social Links" bg={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                        {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
+                        {personalInfo.twitter && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.twitter}</div>}
+                        {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
+                        {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
+                        {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
+                        {personalInfo.instagram && <div><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
+                    </div>
+                </section>
+            )}
+
+            {/* References */}
+            {references && references.length > 0 && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="References" bg={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                        {references.map((ref) => (
+                            <div key={ref.id}>
+                                <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
+                                <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
+                                {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
+                                {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.phone}</div>}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Personal Details */}
+            {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title="Personal Details" bg={accentColor} fs={fs} headingFont={headingFont} />
+                    <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                        {personalInfo.nationality && (
+                            <div><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
+                        )}
+                        {personalInfo.idType && personalInfo.idNumber && (
+                            <div>
+                                <span style={{ fontWeight: 600 }}>
+                                    {personalInfo.idType === 'id' ? 'ID' :
+                                     personalInfo.idType === 'passport' ? 'Passport' :
+                                     personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                </span> {personalInfo.idNumber}
+                            </div>
+                        )}
+                    </div>
+                </section>
+            )}
+
+            {/* Custom Field */}
+            {personalInfo.customField && personalInfo.customFieldLabel && (
+                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title={personalInfo.customFieldLabel} bg={accentColor} fs={fs} headingFont={headingFont} />
+                    <p style={{ paddingLeft: 8, lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>{personalInfo.customField}</p>
                 </section>
             )}
         </div>

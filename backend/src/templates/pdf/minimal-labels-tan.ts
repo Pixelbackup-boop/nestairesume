@@ -29,9 +29,10 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
     // Custom Colors for this template
-    const mainBg = '#fdfbf7'; // Warm white/ivory
+    // Note: Using white background - the "tan" accent comes from the label text color
+    const mainBg = '#ffffff'; // White body background (fixed)
     const mainText = '#44403c'; // Stone 700
-    const labelText = '#a8a29e'; // Stone 400
+    const labelText = '#a8a29e'; // Stone 400 (tan accent)
 
     // Progress bar helper
     const ProgressBar = (label: string, value: number) => `
@@ -202,6 +203,47 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                         </div>
                     </div>
                 ` : ''}
+
+                <!-- References -->
+                ${data.references && data.references.length > 0 ? Row('References', `
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        ${data.references.map(ref => `
+                            <div>
+                                <div style="font-weight: 600; font-size: 14px; color: ${mainText};">${escapeHtml(ref.name)}</div>
+                                <div style="font-size: 12px; color: ${labelText};">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                ${ref.email ? `<div style="font-size: 12px; color: ${labelText};">${escapeHtml(ref.email)}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `) : ''}
+
+                <!-- Personal Info -->
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? Row('Additional Info', `
+                    <div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px;">
+                        ${personalInfo.nationality ? `<div><span style="color: ${labelText};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                        ${personalInfo.idType && personalInfo.idNumber ? `
+                            <div><span style="color: ${labelText};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                        ` : ''}
+                        ${personalInfo.customField ? `
+                            <div style="margin-top: 4px;">
+                                <span style="color: ${labelText}; display: block;">${escapeHtml(personalInfo.customFieldLabel || 'Info')}</span>
+                                ${formatDescription(personalInfo.customField)}
+                            </div>
+                        ` : ''}
+                    </div>
+                `) : ''}
+
+                <!-- Social Links (Extended) -->
+                ${(personalInfo.github || personalInfo.linkedin || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row('Social', `
+                    <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px;">
+                        ${personalInfo.linkedin ? `<a href="${personalInfo.linkedin}" style="color: ${labelText}; text-decoration: none;">LinkedIn</a>` : ''}
+                        ${personalInfo.github ? `<a href="${personalInfo.github}" style="color: ${labelText}; text-decoration: none;">GitHub</a>` : ''}
+                        ${personalInfo.twitter ? `<a href="${personalInfo.twitter}" style="color: ${labelText}; text-decoration: none;">Twitter</a>` : ''}
+                        ${personalInfo.dribbble ? `<a href="${personalInfo.dribbble}" style="color: ${labelText}; text-decoration: none;">Dribbble</a>` : ''}
+                        ${personalInfo.behance ? `<a href="${personalInfo.behance}" style="color: ${labelText}; text-decoration: none;">Behance</a>` : ''}
+                        ${personalInfo.instagram ? `<a href="${personalInfo.instagram}" style="color: ${labelText}; text-decoration: none;">Instagram</a>` : ''}
+                    </div>
+                `) : ''}
 
             </div>
         </div>

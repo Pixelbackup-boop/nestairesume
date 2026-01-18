@@ -164,12 +164,8 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
                     ${strengths && strengths.length > 0 ? `
                         <div style="flex: 1;">
                             ${SectionHeader('Strengths')}
-                            <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-left: 8px;">
-                                ${strengths.map(str => `
-                                    <span style="font-size: 12px; color: #000; background-color: #f3f4f6; padding: 4px 8px; border-radius: 4px;">
-                                        ${escapeHtml(str.name)}
-                                    </span>
-                                `).join('')}
+                            <div style="padding-left: 8px;">
+                                ${strengths.map(str => ProgressBar(str.name, str.level ?? 80)).join('')}
                             </div>
                         </div>
                     ` : '<div style="flex: 1;"></div>'}
@@ -215,6 +211,61 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
                                         </div>
                                     `).join('')}
                                 </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </section>
+            ` : ''}
+
+            <!-- References -->
+            ${data.references && data.references.length > 0 ? `
+                <section style="margin-top: 40px;">
+                    ${SectionHeader('References')}
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 8px;">
+                        ${data.references.map(ref => `
+                            <div>
+                                <div style="font-weight: 600; font-size: 14px; color: #000;">${escapeHtml(ref.name)}</div>
+                                <div style="font-size: 13px; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                ${ref.email ? `<div style="font-size: 12px; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                ${ref.phone ? `<div style="font-size: 12px; color: ${accentColor};">${escapeHtml(ref.phone)}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            ` : ''}
+
+            <!-- Additional Info (Personal & Social) -->
+            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField || personalInfo.github || personalInfo.twitter || personalInfo.linkedin) ? `
+                <section style="margin-top: 40px;">
+                    ${SectionHeader('Additional Information')}
+                    <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 16px;">
+                        
+                        <!-- Personal Details -->
+                        ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
+                            <div style="font-size: 14px; color: #374151;">
+                                ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `
+                                    <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                ` : ''}
+                                ${personalInfo.customField ? `
+                                    <div style="margin-top: 8px;">
+                                        <span style="font-weight: 600; display: block;">${escapeHtml(personalInfo.customFieldLabel || 'Additional Info')}</span>
+                                        ${formatDescription(personalInfo.customField)}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        ` : ''}
+
+                        <!-- Social Links -->
+                        ${(personalInfo.github || personalInfo.twitter || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+                                ${personalInfo.linkedin ? `<div><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.linkedin)}</span></div>` : ''}
+                                ${personalInfo.github ? `<div><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
+                                ${personalInfo.twitter ? `<div><span style="font-weight: 600; color: #1f2937;">Twitter:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.twitter)}</span></div>` : ''}
+                                ${personalInfo.dribbble ? `<div><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.dribbble)}</span></div>` : ''}
+                                ${personalInfo.behance ? `<div><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.behance)}</span></div>` : ''}
+                                ${personalInfo.instagram ? `<div><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.instagram)}</span></div>` : ''}
+                                ${personalInfo.website ? `<div><span style="font-weight: 600; color: #1f2937;">Website:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.website)}</span></div>` : ''}
                             </div>
                         ` : ''}
                     </div>

@@ -48,7 +48,11 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         /* A4 Page Setup */
         @page {
             size: A4;
-            margin: 0;
+            margin: 40px 0 40px 0; /* 40px top and bottom for consistent page spacing */
+        }
+
+        @page :first {
+            margin: 0 0 40px 0; /* First page: no top margin (header templates), 40px bottom */
         }
 
         * {

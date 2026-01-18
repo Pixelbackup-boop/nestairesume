@@ -10,7 +10,8 @@ import { parseDualColor } from '@/lib/templates/builder/colorUtils';
 const A4_HEIGHT_PX = 1123; // Standard A4 height in pixels at 96 DPI
 const A4_WIDTH_PX = 794;   // Standard A4 width in pixels at 96 DPI
 const PAGE_GAP_PX = 40;    // Gap between pages (Collapsed in Print via CSS)
-const PAGE_MARGIN_BOTTOM = 30; // Bottom margin to prevent content from touching page edge
+const PAGE_MARGIN_BOTTOM = 40; // Bottom margin to prevent content from touching page edge
+const PAGE_MARGIN_TOP = 40; // Top margin for page 2+ to prevent content cutoff
 // Sidebar dimensions per template
 interface SidebarConfig {
     width: number;
@@ -48,6 +49,35 @@ const getSidebarConfig = (templateId: string | null, customThemeColor?: string):
         return { width: 278, bgColor: '#1e293b' }; // 35%, dark navy
     }
     // Return null for templates without sidebars
+    return null;
+};
+
+// Footer decoration config for templates with decorative elements at page bottom
+interface FooterDecorationConfig {
+    type: 'diagonal';
+    width: string;
+    height: number;
+    bgColor: string;
+    clipPath: string;
+    position: 'bottom-left' | 'bottom-right';
+}
+
+const getFooterDecorationConfig = (templateId: string | null, customThemeColor?: string): FooterDecorationConfig | null => {
+    if (!templateId) return null;
+
+    if (templateId === 'header-diagonal-yellow') {
+        // Uses theme color or default yellow
+        const accentColor = customThemeColor || '#facc15';
+        return {
+            type: 'diagonal',
+            width: '40%',
+            height: 80,
+            bgColor: accentColor,
+            clipPath: 'polygon(0 0, 70% 100%, 0% 100%)',
+            position: 'bottom-left',
+        };
+    }
+
     return null;
 };
 
@@ -100,6 +130,9 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
         const sidebarConfig = getSidebarConfig(selectedTemplateId, customThemeColor);
         const hasSidebarBackdrop = sidebarConfig !== null;
 
+        // Check if this template has footer decorations (diagonal shapes, etc.)
+        const footerDecorationConfig = getFooterDecorationConfig(selectedTemplateId, customThemeColor);
+
         // Pagination calculation function (reusable for ResizeObserver)
         const runPagination = useCallback(async () => {
             if (!containerRef.current) return;
@@ -132,14 +165,26 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
             // UNIVERSAL SELECTOR: Find ALL elements that shouldn't be split
             // This works for any template - current and future
+            // Includes common wrapper elements to ensure page 2+ top margin is applied
             const elements = Array.from(container.querySelectorAll(
-                '[data-paginate], .section-header, .resume-entry, h2, h3'
+                '[data-paginate], .section-header, .resume-entry, .resume-section, section, h2, h3, ' +
+                '.credential-item, .reference-item, .language-item, .skill-item, ' +
+                '[class*="entry"], [class*="item"], [class*="section"]'
             ));
 
-            // Reset styles first
+            // Reset styles first - COMPREHENSIVE RESET
+            // Reset ALL elements that have marginTop set (not just selector-matched elements)
+            // This fixes page 4+ having stale margins from previous Phase 3 pushes
+            container.querySelectorAll('*').forEach((el) => {
+                const element = el as HTMLElement;
+                if (element.style.marginTop) {
+                    element.style.marginTop = '';
+                }
+            });
+
+            // Also reset the tracked elements' other pagination styles
             elements.forEach((el) => {
                 const element = el as HTMLElement;
-                element.style.marginTop = '';
                 element.style.paddingTop = '';
                 element.style.removeProperty('--print-margin');
                 element.classList.remove('pushed-section');
@@ -147,10 +192,10 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
             // "Forced Reflow" Optimization: Separate Read and Write phases
             const fullPageHeight = A4_HEIGHT_PX + PAGE_GAP_PX;
-            const BREATHING_ROOM = 16; // Small padding at top of new page
 
             // Phase 1: READ (Measure everything)
-            const updates: { element: HTMLElement; margin: string }[] = [];
+            // Track whether element needs raw margin vs margin + page top offset
+            const updates: { element: HTMLElement; margin: string; rawMargin?: boolean }[] = [];
 
             // Track cumulative offset from previous pushes
             // When we push element A, all subsequent elements shift down
@@ -186,6 +231,23 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 // Check if element extends past the printable bottom (into the gap area)
                 let shouldPush = bottom > pageContentBottom;
 
+                // PAGE 2+ TOP MARGIN: Push content that's too close to the top of page 2+
+                // This prevents content from appearing cut off at the top of continuation pages
+                if (!shouldPush && currentPageIndex > 0) {
+                    const distanceFromPageTop = relativeTop - pageTopBoundary;
+                    if (distanceFromPageTop < PAGE_MARGIN_TOP) {
+                        // Element starts within top margin zone - push it down
+                        const pushNeeded = PAGE_MARGIN_TOP - distanceFromPageTop;
+                        updates.push({
+                            element,
+                            margin: `${pushNeeded}px`,
+                            rawMargin: true // Just apply margin directly, no CSS extra
+                        });
+                        cumulativeOffset += pushNeeded;
+                        continue; // Skip the rest of the checks for this element
+                    }
+                }
+
                 // ORPHAN PROTECTION: Push headers/sections if < 60px from bottom
                 // But skip this for very small elements to prevent excessive whitespace
                 if (!shouldPush && height >= 80) {
@@ -205,28 +267,84 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
                 if (shouldPush) {
                     const nextPageStart = (currentPageIndex + 1) * fullPageHeight;
-                    // Calculate push distance from RAW position (before cumulative offset)
-                    // because the margin is applied to the element in its current DOM position
-                    const pushDistance = nextPageStart - rawRelativeTop - cumulativeOffset;
+                    // Calculate push distance to land at nextPageStart + PAGE_MARGIN_TOP
+                    // This ensures PAGE_MARGIN_TOP (40px) top margin on page 2+
+                    const targetPosition = nextPageStart + PAGE_MARGIN_TOP;
+                    const pushDistance = targetPosition - rawRelativeTop - cumulativeOffset;
 
                     // Only push if we actually need to move forward
                     if (pushDistance > 0) {
                         updates.push({
                             element,
-                            margin: `${pushDistance}px`
+                            margin: `${pushDistance}px`,
+                            rawMargin: true // Apply exact calculated margin, no CSS extra
                         });
 
                         // Track this push for subsequent elements
-                        cumulativeOffset += pushDistance + BREATHING_ROOM;
+                        cumulativeOffset += pushDistance;
                     }
                 }
             }
 
             // Phase 2: WRITE (Apply styles) - Avoids layout thrashing
-            updates.forEach(({ element, margin }) => {
-                element.style.setProperty('--print-margin', margin);
-                element.classList.add('pushed-section');
+            updates.forEach(({ element, margin, rawMargin }) => {
+                if (rawMargin) {
+                    // Apply margin directly - calculation already includes PAGE_MARGIN_TOP
+                    element.style.marginTop = margin;
+                } else {
+                    // Legacy: use CSS variable + class for extra offset
+                    element.style.setProperty('--print-margin', margin);
+                    element.classList.add('pushed-section');
+                }
             });
+
+            // Phase 3: PAGE 2+ TOP MARGIN ENFORCEMENT
+            // Find the FIRST element at the top of each page 2+ and ensure PAGE_MARGIN_TOP (40px) margin
+            // This is more robust than checking all elements - we target the topmost one
+            const containerRect = container.getBoundingClientRect();
+            const currentTotalPages = Math.ceil(container.scrollHeight / fullPageHeight);
+
+            for (let pageIdx = 1; pageIdx < currentTotalPages; pageIdx++) {
+                const pageTopBoundary = pageIdx * fullPageHeight;
+                const pageTopPx = pageTopBoundary; // Position in unscaled coordinates
+
+                // Find all elements that start within the first 30px of this page (gives some buffer)
+                const elementsNearTop: { element: HTMLElement; top: number }[] = [];
+
+                const allElements = container.querySelectorAll('*');
+                allElements.forEach((el) => {
+                    const element = el as HTMLElement;
+                    // Skip non-visible elements
+                    if (element.offsetParent === null && element !== container) return;
+                    // Skip elements that already have margin applied
+                    if (element.style.marginTop && parseFloat(element.style.marginTop) > 0) return;
+
+                    const rect = element.getBoundingClientRect();
+                    const relativeTop = (rect.top - containerRect.top) / scale;
+                    const distanceFromPageTop = relativeTop - pageTopPx;
+
+                    // Element starts within 30px of page top (and not before)
+                    if (distanceFromPageTop >= -5 && distanceFromPageTop < 30) {
+                        elementsNearTop.push({ element, top: relativeTop });
+                    }
+                });
+
+                // Sort by position - find the topmost element
+                elementsNearTop.sort((a, b) => a.top - b.top);
+
+                // Apply margin to the first element that needs it
+                for (const { element, top } of elementsNearTop) {
+                    const distanceFromPageTop = top - pageTopPx;
+                    if (distanceFromPageTop < PAGE_MARGIN_TOP) {
+                        const pushNeeded = PAGE_MARGIN_TOP - distanceFromPageTop;
+                        // Only push if meaningful (avoid sub-pixel pushes)
+                        if (pushNeeded > 1) {
+                            element.style.marginTop = `${Math.ceil(pushNeeded)}px`;
+                            break; // Only push the first element, others will flow down
+                        }
+                    }
+                }
+            }
 
             // Update Total Pages
             const totalHeight = container.scrollHeight;
@@ -273,8 +391,8 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 <style jsx global>{`
                     /* Preview Mode: Add Gap to Pushed Sections */
                     .pushed-section {
-                        /* Logic: Move to next page start with small breathing room */
-                        margin-top: calc(var(--print-margin) + 16px) !important;
+                        /* Logic: Move to next page start with PAGE_MARGIN_TOP (40px) for proper spacing */
+                        margin-top: calc(var(--print-margin) + 40px) !important;
                         position: relative;
                     }
 
@@ -323,7 +441,7 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
                         /* Print Mode: Keep same margin as preview */
                         .pushed-section {
-                            margin-top: calc(var(--print-margin) + 16px) !important;
+                            margin-top: calc(var(--print-margin) + 40px) !important;
                         }
 
                         /* Hide gap overlays in print */
@@ -366,6 +484,21 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                                     />
                                 );
                             })()}
+                            {/* Footer Decoration - diagonal shapes at page bottom */}
+                            {footerDecorationConfig && (
+                                <div
+                                    className="absolute"
+                                    style={{
+                                        bottom: 0,
+                                        left: footerDecorationConfig.position === 'bottom-left' ? 0 : undefined,
+                                        right: footerDecorationConfig.position === 'bottom-right' ? 0 : undefined,
+                                        width: footerDecorationConfig.width,
+                                        height: `${footerDecorationConfig.height}px`,
+                                        backgroundColor: footerDecorationConfig.bgColor,
+                                        clipPath: footerDecorationConfig.clipPath,
+                                    }}
+                                />
+                            )}
                             {/* Subtle Page Number */}
                             <div className="absolute bottom-2 right-3 text-[9px] text-gray-300 font-mono select-none">
                                 {pageIndex + 1} / {totalPages}
