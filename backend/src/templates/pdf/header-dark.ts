@@ -6,7 +6,6 @@
 import { PdfResumeData, PdfTheme } from '../../types/pdf';
 import {
     getFontFamily,
-    getBackgroundCSS,
     escapeHtml,
     formatDescription,
     getIconSVG,
@@ -27,12 +26,10 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
         interests = [],
         certifications = [],
         awards = [],
-        fonts,
-        background
+        fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Montserrat');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
-    const bgStyle = getBackgroundCSS(background);
 
     // Parse dual color: primary = sidebar bg, secondary = accent
     const { primary: sidebarBg, secondary: accentColor } = parseDualColor(
@@ -78,7 +75,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
         <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 33%;"></div>
 
         <!-- Flex layout for content structure (matching frontend) -->
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; color: ${textDark}; display: flex; box-sizing: border-box; ${bgStyle}">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; color: ${textDark}; display: flex; box-sizing: border-box;">
 
             <!-- Left Sidebar -->
             <aside class="sidebar-content" style="width: 33%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 40px 20px; flex-shrink: 0; min-height: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;">
@@ -120,6 +117,36 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                             <div style="display: flex; align-items: center; gap: 12px;">
                                 <span style="opacity: 0.9;">${getIconSVG('linkedin', sidebarText, 14)}</span>
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.linkedin)}</span>
+                            </div>
+                        ` : ''}
+                        ${personalInfo.github ? `
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="opacity: 0.9;">${getIconSVG('github', sidebarText, 14)}</span>
+                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.github)}</span>
+                            </div>
+                        ` : ''}
+                        ${personalInfo.twitter ? `
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="opacity: 0.9;">${getIconSVG('users', sidebarText, 14)}</span>
+                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.twitter)}</span>
+                            </div>
+                        ` : ''}
+                        ${personalInfo.dribbble ? `
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="opacity: 0.9;">${getIconSVG('palette', sidebarText, 14)}</span>
+                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.dribbble)}</span>
+                            </div>
+                        ` : ''}
+                        ${personalInfo.behance ? `
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="opacity: 0.9;">${getIconSVG('palette', sidebarText, 14)}</span>
+                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.behance)}</span>
+                            </div>
+                        ` : ''}
+                        ${personalInfo.instagram ? `
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span style="opacity: 0.9;">${getIconSVG('camera', sidebarText, 14)}</span>
+                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.instagram)}</span>
                             </div>
                         ` : ''}
                     </div>
@@ -294,15 +321,36 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
 
                 <!-- References -->
                 ${data.references && data.references.length > 0 ? `
-                    <section>
+                    <section style="margin-bottom: 40px;">
                         ${MainSectionHeader('References')}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             ${data.references.map(ref => `
                                 <div>
                                     <div style="font-weight: 700; font-size: 10pt; color: #0f172a;">${escapeHtml(ref.name)}</div>
                                     <div style="font-size: 9pt; color: #64748b;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                    ${ref.email ? `<div style="font-size: 9pt; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                    ${ref.phone ? `<div style="font-size: 9pt; color: ${accentColor};">${escapeHtml(ref.phone)}</div>` : ''}
                                 </div>
                             `).join('')}
+                        </div>
+                    </section>
+                ` : ''}
+
+                <!-- Personal Details & Custom Field -->
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
+                    <section>
+                        ${MainSectionHeader('Additional Info')}
+                        <div style="font-size: 10pt; color: #334155; display: flex; flex-direction: column; gap: 12px;">
+                            ${personalInfo.nationality ? `<div><span style="font-weight: 700; color: #0f172a;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                            ${personalInfo.idType && personalInfo.idNumber ? `
+                                <div><span style="font-weight: 700; color: #0f172a;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                            ` : ''}
+                            ${personalInfo.customField ? `
+                                <div>
+                                    <span style="font-weight: 700; color: #0f172a; display: block; margin-bottom: 4px;">${escapeHtml(personalInfo.customFieldLabel || 'Custom Info')}</span>
+                                    ${formatDescription(personalInfo.customField)}
+                                </div>
+                            ` : ''}
                         </div>
                     </section>
                 ` : ''}

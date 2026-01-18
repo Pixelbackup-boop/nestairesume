@@ -7,7 +7,6 @@ import { PdfResumeData, PdfTheme } from '../../types/pdf';
 import {
     getFontFamily,
     fontSizes,
-    getBackgroundCSS,
     escapeHtml,
     formatDescription,
     getIconSVG,
@@ -26,12 +25,10 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
         interests = [],
         certifications = [],
         awards = [],
-        fonts,
-        background
+        fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
-    const bgStyle = getBackgroundCSS(background);
 
     // Fixed colors
     const headerBg = theme.primary || '#2563eb'; // Blue-600 defaults
@@ -69,7 +66,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
     ].filter(item => item.value);
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: ${textColor}; ${bgStyle}">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: ${textColor}; background-color: #ffffff;">
             
             <!-- Header -->
             <div style="background: linear-gradient(135deg, ${theme.primary}, ${theme.secondary}); color: white; padding: 48px 48px 64px 48px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);">
@@ -237,6 +234,77 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                             ` : ''}
                         </div>
                     ` : ''}
+
+                    <!-- Social Links (Extended) -->
+                    ${(personalInfo.github || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <div style="margin-bottom: 40px;">
+                            ${SectionHeader('Social', 'users')}
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+                                ${personalInfo.github ? `
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        ${getIconSVG('github', theme.primary, 14)}
+                                        <a href="${personalInfo.github}" style="color: ${theme.heading}; text-decoration: none;">GitHub</a>
+                                    </div>` : ''}
+                                ${personalInfo.twitter ? `
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        ${getIconSVG('users', theme.primary, 14)}
+                                        <a href="${personalInfo.twitter}" style="color: ${theme.heading}; text-decoration: none;">Twitter</a>
+                                    </div>` : ''}
+                                ${personalInfo.dribbble ? `
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        ${getIconSVG('palette', theme.primary, 14)}
+                                        <a href="${personalInfo.dribbble}" style="color: ${theme.heading}; text-decoration: none;">Dribbble</a>
+                                    </div>` : ''}
+                                ${personalInfo.behance ? `
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        ${getIconSVG('palette', theme.primary, 14)}
+                                        <a href="${personalInfo.behance}" style="color: ${theme.heading}; text-decoration: none;">Behance</a>
+                                    </div>` : ''}
+                                ${personalInfo.instagram ? `
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        ${getIconSVG('camera', theme.primary, 14)}
+                                        <a href="${personalInfo.instagram}" style="color: ${theme.heading}; text-decoration: none;">Instagram</a>
+                                    </div>` : ''}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <!-- References -->
+                    ${data.references && data.references.length > 0 ? `
+                        <div style="margin-bottom: 40px;">
+                            ${SectionHeader('References', 'users')}
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                ${data.references.map(ref => `
+                                    <div>
+                                        <div style="font-weight: 700; font-size: 12px; color: ${theme.heading};">${escapeHtml(ref.name)}</div>
+                                        <div style="font-size: 11px; font-style: italic; color: #4b5563;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                        ${ref.email ? `<div style="font-size: 11px; color: ${theme.primary};">${escapeHtml(ref.email)}</div>` : ''}
+                                        ${ref.phone ? `<div style="font-size: 11px; color: ${theme.primary};">${escapeHtml(ref.phone)}</div>` : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <!-- Personal Details -->
+                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
+                        <div style="margin-bottom: 40px;">
+                            ${SectionHeader('Personal', 'user')}
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #4b5563;">
+                                ${personalInfo.nationality ? `<div><span style="font-weight: 600; color: ${theme.heading};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `
+                                    <div><span style="font-weight: 600; color: ${theme.heading};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                ` : ''}
+                                ${personalInfo.customField ? `
+                                    <div style="margin-top: 8px;">
+                                        <span style="font-weight: 600; color: ${theme.heading}; display: block; margin-bottom: 2px;">${escapeHtml(personalInfo.customFieldLabel || 'Additional Info')}</span>
+                                        ${formatDescription(personalInfo.customField)}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    ` : ''}
+
                 </div>
             </div>
         </div>
