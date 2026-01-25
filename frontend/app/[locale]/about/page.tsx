@@ -48,7 +48,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="feature-card rounded-xl p-8">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 sm:gap-6 gap-4">
                 <div className="text-center">
                   <div className="text-4xl font-bold gradient-text mb-2">50K+</div>
                   <p className="text-gray-400 text-sm">Resumes Created</p>

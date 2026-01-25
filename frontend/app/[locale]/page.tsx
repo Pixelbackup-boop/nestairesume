@@ -23,14 +23,14 @@ export default function Home() {
 
       {/* Hero Section - Teal Gradient with Animated Blobs */}
       <section className="relative min-h-screen pt-32 pb-20 overflow-hidden bg-teal-gradient">
-        {/* Animated Blobs */}
-        <div className="blob w-96 h-96 bg-white/10 top-20 -left-20" style={{ animationDelay: '0s' }} />
-        <div className="blob w-80 h-80 bg-white/5 top-40 right-10" style={{ animationDelay: '-5s' }} />
-        <div className="blob w-64 h-64 bg-teal-secondary/20 bottom-40 left-1/4" style={{ animationDelay: '-10s' }} />
+        {/* Animated Blobs - Hidden on mobile */}
+        <div className="blob hidden md:block w-96 h-96 bg-white/10 top-20 -left-20" style={{ animationDelay: '0s' }} />
+        <div className="blob hidden md:block w-80 h-80 bg-white/5 top-40 right-10" style={{ animationDelay: '-5s' }} />
+        <div className="blob hidden md:block w-64 h-64 bg-teal-secondary/20 bottom-40 left-1/4" style={{ animationDelay: '-10s' }} />
 
-        {/* Cloud Shapes */}
-        <div className="absolute top-20 right-20 w-32 h-16 bg-white/10 rounded-full blur-xl animate-cloud" />
-        <div className="absolute top-40 left-20 w-24 h-12 bg-white/10 rounded-full blur-lg animate-cloud" style={{ animationDelay: '-3s' }} />
+        {/* Cloud Shapes - Hidden on mobile */}
+        <div className="hidden md:block absolute top-20 right-20 w-32 h-16 bg-white/10 rounded-full blur-xl animate-cloud" />
+        <div className="hidden md:block absolute top-40 left-20 w-24 h-12 bg-white/10 rounded-full blur-lg animate-cloud" style={{ animationDelay: '-3s' }} />
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -44,10 +44,10 @@ export default function Home() {
               </HomeAnimations.HeroSubtitle>
 
               <HomeAnimations.HeroTitle>
-                <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 text-white">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] mb-4 md:mb-6 text-white">
                   {t("hero.title")}<br />
                   <span className="text-white">{t("hero.titleHighlight")}</span><br />
-                  <span className="text-3xl lg:text-4xl text-white/80 font-medium">{t("hero.subtitle")}</span>
+                  <span className="text-xl sm:text-2xl lg:text-4xl text-white/80 font-medium">{t("hero.subtitle")}</span>
                 </h1>
 
                 <p className="text-white/80 text-lg mb-8 max-w-md leading-relaxed">
@@ -115,9 +115,9 @@ export default function Home() {
       </section>
 
       {/* Features Section - White Background */}
-      <section id="features" className="py-24 bg-white">
+      <section id="features" className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{t("features.sectionTitle")}</span>
             <h2 className="text-4xl font-bold mt-3 mb-4 text-dark-teal">
               {t("features.title")}<br />
@@ -218,9 +218,9 @@ export default function Home() {
       </section>
 
       {/* How It Works Section - Light Teal Background */}
-      <section className="py-24 bg-light-teal relative">
+      <section className="py-12 md:py-24 bg-light-teal relative">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{t("howItWorks.sectionTitle")}</span>
             <h2 className="text-4xl font-bold mt-3 text-dark-teal">
               {t("howItWorks.title")}<br />
@@ -263,7 +263,7 @@ export default function Home() {
       </section>
 
       {/* Templates Section - White Background */}
-      <section id="templates" className="py-24 bg-white">
+      <section id="templates" className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
@@ -344,13 +344,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section - Teal Gradient */}
-      <section className="py-24 bg-teal-gradient relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="blob w-64 h-64 bg-white/5 top-10 -left-20" style={{ animationDelay: '-3s' }} />
-        <div className="blob w-48 h-48 bg-white/5 bottom-10 right-10" style={{ animationDelay: '-7s' }} />
+      <section className="py-12 md:py-24 bg-teal-gradient relative overflow-hidden">
+        {/* Decorative Elements - Hidden on mobile */}
+        <div className="blob hidden md:block w-64 h-64 bg-white/5 top-10 -left-20" style={{ animationDelay: '-3s' }} />
+        <div className="blob hidden md:block w-48 h-48 bg-white/5 bottom-10 right-10" style={{ animationDelay: '-7s' }} />
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <span className="text-white/80 font-medium text-sm uppercase tracking-wider">{t("testimonials.sectionTitle")}</span>
             <h2 className="text-4xl font-bold mt-3 text-white">
               {t("testimonials.title")}<br />
@@ -409,7 +409,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section - White Background */}
-      <section id="pricing" className="py-24 bg-white">
+      <section id="pricing" className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{tPricing("sectionTitle")}</span>
@@ -589,10 +589,10 @@ export default function Home() {
       </section>
 
       {/* CTA Section - Teal Gradient */}
-      <section className="py-24 bg-teal-gradient relative overflow-hidden">
-        {/* Decorative Blobs */}
-        <div className="blob w-72 h-72 bg-white/10 top-0 -right-20" style={{ animationDelay: '-4s' }} />
-        <div className="blob w-56 h-56 bg-white/5 bottom-0 left-10" style={{ animationDelay: '-8s' }} />
+      <section className="py-12 md:py-24 bg-teal-gradient relative overflow-hidden">
+        {/* Decorative Blobs - Hidden on mobile */}
+        <div className="blob hidden md:block w-72 h-72 bg-white/10 top-0 -right-20" style={{ animationDelay: '-4s' }} />
+        <div className="blob hidden md:block w-56 h-56 bg-white/5 bottom-0 left-10" style={{ animationDelay: '-8s' }} />
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center">

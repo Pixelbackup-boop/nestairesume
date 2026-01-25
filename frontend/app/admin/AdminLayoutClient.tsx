@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
 import AdminSidebar from "@/components/admin/AdminSidebar";
-import { Loader2 } from "lucide-react";
+import { Loader2, Menu } from "lucide-react";
 
 export default function AdminLayoutClient({
   children,
@@ -14,6 +14,7 @@ export default function AdminLayoutClient({
   const router = useRouter();
   const { refreshUser } = useAuthStore();
   const [isChecking, setIsChecking] = useState(true);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -63,9 +64,32 @@ export default function AdminLayoutClient({
 
   return (
     <div className="min-h-screen bg-bg-primary">
-      <AdminSidebar />
-      <main className="ml-64 min-h-screen">
-        <div className="p-8">{children}</div>
+      {/* Mobile Sidebar Overlay */}
+      {mobileSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          onClick={() => setMobileSidebarOpen(false)}
+        />
+      )}
+
+      <AdminSidebar
+        isOpen={mobileSidebarOpen}
+        onClose={() => setMobileSidebarOpen(false)}
+      />
+
+      {/* Mobile Header */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-bg-card border-b border-white/5 flex items-center px-4 z-20">
+        <button
+          onClick={() => setMobileSidebarOpen(true)}
+          className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition"
+        >
+          <Menu size={24} />
+        </button>
+        <span className="ml-3 font-semibold text-white">Admin Panel</span>
+      </div>
+
+      <main className="lg:ml-64 min-h-screen pt-16 lg:pt-0">
+        <div className="p-4 lg:p-8">{children}</div>
       </main>
     </div>
   );

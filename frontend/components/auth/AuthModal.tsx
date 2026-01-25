@@ -155,7 +155,7 @@ export default function AuthModal({
 
                 {/* Social Auth */}
                 <div className="px-8 mb-6">
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <button
                             onClick={() => handleSocialAuth('google')}
                             disabled={isLoading}

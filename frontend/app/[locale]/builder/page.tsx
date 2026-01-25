@@ -27,7 +27,7 @@ import {
     Download, ChevronDown, Layout, Palette, Sparkles,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
-    FileText, Image, X, ChevronRight
+    FileText, Image, X, ChevronRight, Menu
 } from 'lucide-react';
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
@@ -46,6 +46,7 @@ function BuilderContent() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showReferencePanel, setShowReferencePanel] = useState(false);
     const [templateThumbnail, setTemplateThumbnail] = useState<string | undefined>();
+    const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     const { resumeData, selectedTemplate, selectedTemplateId, selectedTheme, setTemplate, setTemplateId, setTheme, setCustomThemeColor, setResumeData } = useResumeStore();
     const componentRef = useRef<HTMLDivElement>(null);
 
@@ -193,16 +194,35 @@ function BuilderContent() {
 
     return (
         <div className="min-h-screen bg-slate-900 text-gray-100 flex">
+            {/* Mobile Sidebar Overlay */}
+            {mobileSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                    onClick={() => setMobileSidebarOpen(false)}
+                />
+            )}
+
             {/* Left Sidebar - Vertical Tabs */}
-            <aside className="w-64 bg-slate-800 border-r border-slate-700 flex flex-col shrink-0">
+            <aside className={`
+                fixed inset-y-0 left-0 z-50 w-64 bg-slate-800 border-r border-slate-700 flex flex-col transform transition-transform duration-300 ease-in-out
+                lg:relative lg:translate-x-0
+                ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+            `}>
                 {/* Logo */}
-                <div className="p-4 border-b border-slate-700">
+                <div className="p-4 border-b border-slate-700 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-slate-900">
                             R
                         </div>
                         <span className="font-bold text-lg text-white">Best AI Resume</span>
                     </Link>
+                    {/* Close button for mobile */}
+                    <button
+                        onClick={() => setMobileSidebarOpen(false)}
+                        className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition lg:hidden"
+                    >
+                        <X size={20} />
+                    </button>
                 </div>
 
                 {/* Progress */}
@@ -228,7 +248,10 @@ function BuilderContent() {
                         return (
                             <button
                                 key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
+                                onClick={() => {
+                                    setActiveTab(tab.id);
+                                    setMobileSidebarOpen(false); // Close sidebar on mobile after selection
+                                }}
                                 className={`w-full flex items-center gap-3 px-4 py-3.5 text-left transition-all ${
                                     isActive
                                         ? 'bg-accent-green/10 border-l-4 border-accent-green text-white'
@@ -275,11 +298,18 @@ function BuilderContent() {
             {/* Main Content Area */}
             <div className="flex-1 flex flex-col min-w-0">
                 {/* Top Header */}
-                <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 px-6 py-3 flex items-center justify-between shrink-0 z-40">
-                    <div className="flex items-center gap-4">
+                <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 px-4 lg:px-6 py-3 flex items-center justify-between shrink-0 z-40">
+                    <div className="flex items-center gap-3 lg:gap-4">
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setMobileSidebarOpen(true)}
+                            className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition lg:hidden"
+                        >
+                            <Menu size={20} />
+                        </button>
                         <div className="flex items-center gap-2 text-slate-400">
-                            <FileText size={18} />
-                            <span className="text-sm font-medium text-white">
+                            <FileText size={18} className="hidden sm:block" />
+                            <span className="text-sm font-medium text-white truncate max-w-[150px] sm:max-w-none">
                                 {resumeData.personalInfo.fullName || 'Untitled Resume'}
                             </span>
                         </div>
@@ -300,9 +330,9 @@ function BuilderContent() {
                 {/* Content Grid: Editor + Preview */}
                 <div className="flex-1 flex overflow-hidden">
                     {/* Editor Panel */}
-                    <div className={`${showPreview ? 'w-1/2' : 'flex-1'} flex flex-col bg-slate-850 border-r border-slate-700 transition-all`}>
+                    <div className={`${showPreview ? 'hidden lg:flex lg:w-1/2' : 'flex w-full'} flex-col bg-slate-850 border-r border-slate-700 transition-all`}>
                         {/* Section Header */}
-                        <div className="px-6 py-4 border-b border-slate-700 bg-slate-800/50">
+                        <div className="px-4 lg:px-6 py-3 lg:py-4 border-b border-slate-700 bg-slate-800/50">
                             <div className="flex items-center gap-3">
                                 {(() => {
                                     const currentTab = tabs.find((t) => t.id === activeTab);
@@ -323,7 +353,7 @@ function BuilderContent() {
                         </div>
 
                         {/* Form Content */}
-                        <div className="flex-1 overflow-y-auto p-6">
+                        <div className="flex-1 overflow-y-auto p-4 lg:p-6">
                             {activeTab === 'personal' && <PersonalForm />}
                             {activeTab === 'experience' && <ExperienceForm />}
                             {activeTab === 'education' && <EducationForm />}
@@ -334,7 +364,7 @@ function BuilderContent() {
 
                     {/* Preview Panel */}
                     {showPreview && (
-                        <div className="w-1/2 flex flex-col bg-slate-900 relative">
+                        <div className="w-full lg:w-1/2 flex flex-col bg-slate-900 relative">
                             {/* Preview Header */}
                             <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between bg-slate-800/50">
                                 <span className="text-sm font-medium text-slate-300">Live Preview</span>
@@ -389,7 +419,7 @@ function BuilderContent() {
 
                             {/* Reference Image Panel - Sliding from right */}
                             {templateThumbnail && showReferencePanel && (
-                                <div className="absolute top-12 right-0 bottom-0 w-80 bg-slate-800 border-l border-slate-700 shadow-xl z-20 flex flex-col">
+                                <div className="absolute top-12 right-0 bottom-0 w-full sm:w-72 lg:w-80 bg-slate-800 border-l border-slate-700 shadow-xl z-20 flex flex-col">
                                     {/* Panel Header */}
                                     <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between bg-slate-800">
                                         <div className="flex items-center gap-2">
@@ -424,13 +454,23 @@ function BuilderContent() {
                 </div>
             </div>
 
-            {/* Toggle Preview Button (Mobile/Hidden Preview) */}
+            {/* Toggle Preview Button (Mobile/Tablet) */}
             <button
                 onClick={() => setShowPreview(!showPreview)}
-                className="fixed bottom-6 right-6 p-4 bg-accent-green text-slate-900 rounded-full shadow-lg hover:bg-accent-teal transition lg:hidden"
-                title={showPreview ? 'Hide Preview' : 'Show Preview'}
+                className="fixed bottom-6 right-6 p-4 bg-accent-green text-slate-900 rounded-full shadow-lg hover:bg-accent-teal transition lg:hidden z-30 flex items-center gap-2"
+                title={showPreview ? 'Edit Resume' : 'Preview Resume'}
             >
-                {showPreview ? <EyeOff size={20} /> : <Eye size={20} />}
+                {showPreview ? (
+                    <>
+                        <EyeOff size={20} />
+                        <span className="text-sm font-medium">Edit</span>
+                    </>
+                ) : (
+                    <>
+                        <Eye size={20} />
+                        <span className="text-sm font-medium">Preview</span>
+                    </>
+                )}
             </button>
 
             {/* Auth Modal */}

@@ -10,6 +10,7 @@ import {
   ChevronLeft,
   LogOut,
   Bot,
+  X,
 } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useRouter } from "next/navigation";
@@ -28,7 +29,12 @@ const navItems: NavItem[] = [
   { href: "/admin/payments", label: "Payments", icon: <CreditCard size={20} /> },
 ];
 
-export default function AdminSidebar() {
+interface AdminSidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function AdminSidebar({ isOpen = false, onClose }: AdminSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const { logout } = useAuthStore();
@@ -46,9 +52,14 @@ export default function AdminSidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-bg-card border-r border-white/5 flex flex-col z-40">
+    <aside className={`
+      fixed left-0 top-0 h-screen w-64 bg-bg-card border-r border-white/5 flex flex-col z-40
+      transform transition-transform duration-300 ease-in-out
+      lg:translate-x-0
+      ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+    `}>
       {/* Logo */}
-      <div className="p-6 border-b border-white/5">
+      <div className="p-6 border-b border-white/5 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative">
             <div className="w-9 h-9 bg-gradient-to-br from-accent-green to-accent-teal rounded-lg flex items-center justify-center font-bold text-bg-primary text-sm shadow-lg shadow-accent-green/20">
@@ -60,6 +71,13 @@ export default function AdminSidebar() {
             <span className="text-[10px] text-accent-purple font-medium tracking-wider">ADMIN PANEL</span>
           </div>
         </Link>
+        {/* Close button for mobile */}
+        <button
+          onClick={onClose}
+          className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition lg:hidden"
+        >
+          <X size={20} />
+        </button>
       </div>
 
       {/* Navigation */}
@@ -68,6 +86,7 @@ export default function AdminSidebar() {
           <Link
             key={item.href}
             href={item.href}
+            onClick={onClose}
             className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
               isActive(item.href)
                 ? "bg-accent-purple/20 text-white"
@@ -89,13 +108,17 @@ export default function AdminSidebar() {
       <div className="p-4 border-t border-white/5 space-y-1">
         <Link
           href="/"
+          onClick={onClose}
           className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
         >
           <ChevronLeft size={20} />
           Back to Site
         </Link>
         <button
-          onClick={handleLogout}
+          onClick={() => {
+            handleLogout();
+            onClose?.();
+          }}
           className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-white/5 transition-colors"
         >
           <LogOut size={20} />

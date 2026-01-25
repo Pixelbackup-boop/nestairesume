@@ -280,7 +280,7 @@ export default function DownloadModal({
 
                                 {/* Premium Features */}
                                 {selectedOption === 'premium' && (
-                                    <div className="mt-4 pt-4 border-t border-slate-700 grid grid-cols-2 gap-2">
+                                    <div className="mt-4 pt-4 border-t border-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         {premiumFeatures.map((feature, index) => (
                                             <div
                                                 key={index}

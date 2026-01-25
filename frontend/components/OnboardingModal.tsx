@@ -222,7 +222,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                         <Clock size={14} />
                                         Experience Level
                                     </label>
-                                    <div className="grid grid-cols-2 gap-2">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         {experienceLevels.map((level) => (
                                             <button
                                                 key={level.value}
