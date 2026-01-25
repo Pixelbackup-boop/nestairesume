@@ -34,7 +34,7 @@ export default function UserEditPage() {
     const fetchUser = async () => {
       try {
         const response = await api.get(`/admin/users/${params.id}`);
-        const user = response.data;
+        const user = response.data as { name: string; email: string; role: string; subscriptionTier: string; creditsRemaining: number; isSuspended: boolean };
         setFormData({
           name: user.name,
           email: user.email,

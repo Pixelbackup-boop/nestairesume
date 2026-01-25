@@ -43,7 +43,7 @@ export default function PostQueuePage() {
     try {
       const params = filter !== "all" ? { status: filter } : {};
       const response = await api.get("/admin/auto-blog/queue", { params });
-      setPosts(response.data);
+      setPosts(response.data as QueuedPost[]);
       setError(null);
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };

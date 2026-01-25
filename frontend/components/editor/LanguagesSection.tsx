@@ -3,7 +3,7 @@
 import { useResumeStore, Language } from '../../store/useResumeStore';
 import { Plus, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 
 const proficiencyOptions: { value: Language['proficiency']; label: string; level: number }[] = [
     { value: 'native', label: 'Native', level: 100 },
@@ -23,7 +23,7 @@ export default function LanguagesSection() {
         if (!newLanguage.trim()) return;
 
         const lang: Language = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             name: newLanguage.trim(),
             proficiency: 'intermediate',
             level: 50,
@@ -113,7 +113,7 @@ export default function LanguagesSection() {
                         key={l}
                         onClick={() => {
                             if (!languages.find(lang => lang.name === l)) {
-                                addLanguage({ id: uuidv4(), name: l, proficiency: 'intermediate', level: 50 });
+                                addLanguage({ id: crypto.randomUUID(), name: l, proficiency: 'intermediate', level: 50 });
                             }
                         }}
                         disabled={languages.some(lang => lang.name === l)}

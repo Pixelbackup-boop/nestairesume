@@ -6,15 +6,22 @@
  * Two-column layout with awards and interests section.
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
-    getBackgroundCSS,
     escapeHtml,
     formatDescription
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderHeaderRibbonYellow = (
+    data: PdfResumeData,
+    theme: PdfTheme,
+    translations?: PdfTranslations,
+    locale: string = 'en'
+): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -25,19 +32,15 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
         interests = [],
         awards = [],
         certifications = [],
-        fonts,
-        background
+        references = [],
+        fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
-    const bgStyle = getBackgroundCSS(background);
+    // Note: header-ribbon-yellow always uses white body background; no bgStyle needed
 
     // Colors
     const accentColor = data.customThemeColor || theme.primary || '#eab308';
-
-    // Dimensions
-    const photoSize = 100;
-    const ribbonHeight = 56;
 
     // Helper for Section Headers with Yellow Circle Icon
     const SectionHeader = (title: string, icon: string) => `
@@ -85,39 +88,38 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
         return '&#11088;';
     };
 
-    // Profile Image
+    // Profile Image with yellow circle background - STATIC SIZE (not affected by text size)
     const profileImage = personalInfo.profileImage ? `
         <img
             src="${personalInfo.profileImage}"
             alt="${escapeHtml(personalInfo.fullName)}"
-            style="width: ${photoSize}px; height: ${photoSize}px; border-radius: 50%; object-fit: cover; border: 4px solid #374151; background-color: #ffffff;"
+            style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 5px solid #374151;"
         />
     ` : `
-        <div style="width: ${photoSize}px; height: ${photoSize}px; border-radius: 50%; background-color: #e5e7eb; border: 4px solid #374151; display: flex; align-items: center; justify-content: center; font-size: 36px; color: #9ca3af;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; background-color: #e5e7eb; border: 5px solid #374151; display: flex; align-items: center; justify-content: center; font-size: 36px; color: #9ca3af; font-weight: 700;">
             ${escapeHtml(personalInfo.fullName?.charAt(0) || '?')}
         </div>
     `;
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: #ffffff; position: relative; box-sizing: border-box; ${bgStyle}">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: #ffffff; position: relative; box-sizing: border-box;">
 
-            <!-- Header Area with Photo and Ribbon -->
-            <header style="text-align: center; padding-top: 24px; padding-bottom: 24px;">
+            <!-- Header Area with Photo and Diagonal Ribbon - STATIC SIZES -->
+            <header style="text-align: center; padding-top: 32px; padding-bottom: 16px;">
 
-                <!-- Circular Photo -->
-                <div style="display: flex; justify-content: center; margin-bottom: -30px; position: relative; z-index: 10;">
+                <!-- Profile Photo - STATIC SIZE, no yellow background -->
+                <div style="display: flex; justify-content: center; margin-bottom: -5px; position: relative; z-index: 10;">
                     ${profileImage}
                 </div>
 
-                <!-- Yellow Ribbon Banner -->
-                <div style="background-color: ${accentColor}; height: ${ribbonHeight}px; display: flex; align-items: center; justify-content: center; position: relative; margin-left: 48px; margin-right: 48px;">
-                    <!-- Ribbon Left Fold -->
-                    <div style="position: absolute; left: -24px; top: 0; width: 0; height: 0; border-top: ${ribbonHeight / 2}px solid transparent; border-bottom: ${ribbonHeight / 2}px solid transparent; border-right: 24px solid ${accentColor};"></div>
-                    <!-- Ribbon Right Fold -->
-                    <div style="position: absolute; right: -24px; top: 0; width: 0; height: 0; border-top: ${ribbonHeight / 2}px solid transparent; border-bottom: ${ribbonHeight / 2}px solid transparent; border-left: 24px solid ${accentColor};"></div>
-                    <h1 style="font-family: ${headingFont}; font-size: 26px; font-weight: 700; color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
-                        ${escapeHtml(personalInfo.fullName || 'Your Name')}
-                    </h1>
+                <!-- Diagonal Parallelogram Ribbon - STATIC SIZE, WIDER -->
+                <div style="display: flex; justify-content: center; margin-left: 0; margin-right: 0;">
+                    <div style="background-color: ${accentColor}; height: 72px; padding-left: 180px; padding-right: 180px; display: flex; align-items: center; justify-content: center; transform: skewX(-10deg);">
+                        <!-- Name - counter-skew to keep text straight, STATIC size -->
+                        <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.1em; transform: skewX(10deg); margin: 0;">
+                            ${escapeHtml(personalInfo.fullName || 'Your Name')}
+                        </h1>
+                    </div>
                 </div>
 
                 <!-- Contact Info -->
@@ -125,7 +127,21 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     ${personalInfo.phone ? `<span>${escapeHtml(personalInfo.phone)}</span>` : ''}
                     ${personalInfo.email ? `<span>|</span><span>${escapeHtml(personalInfo.email)}</span>` : ''}
                     ${personalInfo.website ? `<span>|</span><span>${escapeHtml(personalInfo.website)}</span>` : ''}
+                    ${personalInfo.linkedin ? `<span>|</span><span>${escapeHtml(personalInfo.linkedin)}</span>` : ''}
+                    ${personalInfo.nationality ? `<span>|</span><span>${escapeHtml(personalInfo.nationality)}</span>` : ''}
+                    ${personalInfo.idType && personalInfo.idNumber ? `<span>|</span><span>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}: ${escapeHtml(personalInfo.idNumber)}</span>` : ''}
                 </div>
+
+                <!-- Social Links Row -->
+                ${(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 9px; color: #6b7280; margin-top: 8px;">
+                        ${personalInfo.twitter ? `<span>Twitter: ${escapeHtml(personalInfo.twitter)}</span>` : ''}
+                        ${personalInfo.github ? `<span>GitHub: ${escapeHtml(personalInfo.github)}</span>` : ''}
+                        ${personalInfo.dribbble ? `<span>Dribbble: ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
+                        ${personalInfo.behance ? `<span>Behance: ${escapeHtml(personalInfo.behance)}</span>` : ''}
+                        ${personalInfo.instagram ? `<span>Instagram: ${escapeHtml(personalInfo.instagram)}</span>` : ''}
+                    </div>
+                ` : ''}
             </header>
 
             <!-- Two-Column Body -->
@@ -137,7 +153,7 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Profile', '&#128100;')}
+                            ${SectionHeader(t.sections.profile, '&#128100;')}
                             <p style="color: #374151; line-height: 1.6; font-size: 10pt;">
                                 ${formatDescription(personalInfo.summary)}
                             </p>
@@ -147,12 +163,12 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Work experience', '&#128188;')}
+                            ${SectionHeader(t.sections.workExperience, '&#128188;')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${experience.map(exp => `
                                     <div>
                                         <p style="font-size: 9px; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
-                                            ${escapeHtml(exp.startDate)} – ${exp.current ? 'PRESENT' : escapeHtml(exp.endDate)}
+                                            ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
                                             ${exp.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(exp.city.toUpperCase())}` : ''}
                                         </p>
                                         <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
@@ -179,12 +195,12 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     <!-- Education -->
                     ${education.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Education', '&#127891;')}
+                            ${SectionHeader(t.sections.education, '&#127891;')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${education.map(edu => `
                                     <div>
                                         <p style="font-size: 9px; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
-                                            ${escapeHtml(edu.startDate)} – ${edu.current ? 'PRESENT' : escapeHtml(edu.endDate)}
+                                            ${formatLocalizedDate(edu.startDate, locale)} – ${edu.current ? t.labels.present.toUpperCase() : formatLocalizedDate(edu.endDate, locale)}
                                             ${edu.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(edu.city.toUpperCase())}` : ''}
                                         </p>
                                         <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
@@ -211,10 +227,10 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Credentials', '&#127942;')}
+                            ${SectionHeader(t.sections.credentials, '&#127942;')}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
+                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${certifications.map(cert => `
                                             <div>
@@ -225,7 +241,7 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                                                     ${escapeHtml(cert.issuer)}
                                                 </p>
                                                 <p style="font-size: 9px; color: #6b7280; margin-top: 2px;">
-                                                    ${escapeHtml(cert.date)}
+                                                    ${formatLocalizedDate(cert.date, locale)}
                                                 </p>
                                             </div>
                                         `).join('')}
@@ -234,7 +250,7 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div>
-                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
+                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${awards.map(award => `
                                             <div>
@@ -245,7 +261,7 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                                                     ${escapeHtml(award.issuer)}
                                                 </p>
                                                 <p style="font-size: 9px; color: #6b7280; margin-top: 2px;">
-                                                    ${escapeHtml(award.date)}
+                                                    ${formatLocalizedDate(award.date, locale)}
                                                 </p>
                                             </div>
                                         `).join('')}
@@ -258,7 +274,7 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     <!-- Skills -->
                     ${skills.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Skills', '&#9881;')}
+                            ${SectionHeader(t.sections.skills, '&#9881;')}
                             <div>
                                 ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
                             </div>
@@ -268,7 +284,7 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     <!-- Interests with Icons Grid -->
                     ${interests && interests.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Interests', '&#11088;')}
+                            ${SectionHeader(t.sections.interests, '&#11088;')}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
                                 ${interests.slice(0, 6).map(interest => `
                                     <div style="text-align: center;">
@@ -287,7 +303,7 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader('Languages', '&#128483;')}
+                            ${SectionHeader(t.sections.languages, '&#128483;')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
                                     <div style="display: flex; justify-content: space-between; font-size: 10pt;">
@@ -301,8 +317,8 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
 
                     <!-- Strengths -->
                     ${strengths && strengths.length > 0 ? `
-                        <section>
-                            ${SectionHeader('Strengths', '&#128170;')}
+                        <section style="margin-bottom: 20px;">
+                            ${SectionHeader(t.sections.strengths, '&#128170;')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(strength => `
                                     <span style="background-color: ${accentColor}; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: 10px; font-weight: 500;">
@@ -310,6 +326,39 @@ export const renderHeaderRibbonYellow = (data: PdfResumeData, theme: PdfTheme): 
                                     </span>
                                 `).join('')}
                             </div>
+                        </section>
+                    ` : ''}
+
+                    <!-- References -->
+                    ${references && references.length > 0 ? `
+                        <section style="margin-bottom: 20px;">
+                            ${SectionHeader(t.sections.references, '&#128203;')}
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                ${references.map(ref => `
+                                    <div>
+                                        <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                            ${escapeHtml(ref.name)}
+                                        </h4>
+                                        <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600; margin-bottom: 2px;">
+                                            ${escapeHtml(ref.title)}${ref.company ? ` at ${escapeHtml(ref.company)}` : ''}
+                                        </p>
+                                        <div style="font-size: 9px; color: #6b7280;">
+                                            ${ref.phone ? `<div>${escapeHtml(ref.phone)}</div>` : ''}
+                                            ${ref.email ? `<div>${escapeHtml(ref.email)}</div>` : ''}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </section>
+                    ` : ''}
+
+                    <!-- Custom Field -->
+                    ${personalInfo.customField ? `
+                        <section>
+                            ${SectionHeader(personalInfo.customFieldLabel || t.sections.additionalInfo, '&#128221;')}
+                            <p style="color: #374151; line-height: 1.6; font-size: 10pt;">
+                                ${formatDescription(personalInfo.customField)}
+                            </p>
                         </section>
                     ` : ''}
                 </div>

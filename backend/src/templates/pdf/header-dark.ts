@@ -3,7 +3,7 @@
  * Ported from frontend/components/templates/layouts/header/HeaderDark.tsx
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     escapeHtml,
@@ -14,8 +14,11 @@ import {
     getContrastText,
     hexToRgba
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale: string = 'en'): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -87,7 +90,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
 
                 <!-- Contact Info -->
                 <div style="width: 100%; margin-bottom: 40px;">
-                    ${SidebarSectionHeader('Contact')}
+                    ${SidebarSectionHeader(t.sections.contact)}
                     <div style="font-size: 9pt; display: flex; flex-direction: column; gap: 12px;">
                         ${personalInfo.phone ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
@@ -155,7 +158,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Skills -->
                 ${skills.length > 0 ? `
                     <div style="width: 100%; margin-bottom: 40px;">
-                        ${SidebarSectionHeader('Skills')}
+                        ${SidebarSectionHeader(t.sections.skills)}
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             ${skills.map(skill => `
                                 <div>
@@ -172,7 +175,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Strengths -->
                 ${strengths && strengths.length > 0 ? `
                     <div style="width: 100%; margin-bottom: 40px;">
-                        ${SidebarSectionHeader('Strengths')}
+                        ${SidebarSectionHeader(t.sections.strengths)}
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                             ${strengths.map(str => `
                                 <span style="background-color: ${hexToRgba(sidebarText, 0.08)}; color: ${accentColor}; padding: 4px 12px; border-radius: 4px; font-size: 8pt; font-weight: 500; border: 1px solid ${hexToRgba(accentColor, 0.25)};">
@@ -186,7 +189,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Interests -->
                 ${interests && interests.length > 0 ? `
                     <div style="width: 100%; margin-bottom: 40px;">
-                        ${SidebarSectionHeader('Interests')}
+                        ${SidebarSectionHeader(t.sections.interests)}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${interests.map(int => `
                                 <span style="font-size: 9pt; display: flex; align-items: center; gap: 6px; color: ${sidebarText};">
@@ -215,7 +218,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Profile -->
                 ${personalInfo.summary ? `
                     <section style="margin-bottom: 40px;">
-                        ${MainSectionHeader('Profile')}
+                        ${MainSectionHeader(t.sections.profile)}
                         <p style="line-height: 1.6; font-size: 10pt; color: #334155;">
                             ${formatDescription(personalInfo.summary)}
                         </p>
@@ -225,7 +228,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Experience -->
                 ${experience.length > 0 ? `
                     <section style="margin-bottom: 40px;">
-                        ${MainSectionHeader('Experience')}
+                        ${MainSectionHeader(t.sections.experience)}
                         <div style="display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
                                 <div>
@@ -236,7 +239,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                                     </div>
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 9pt; color: #64748b; font-weight: 600;">
                                         <span>${escapeHtml(exp.company)}${exp.city ? `, ${escapeHtml(exp.city)}` : ''}</span>
-                                        <span>${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}</span>
+                                        <span>${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                     </div>
                                     <div style="font-size: 10pt; line-height: 1.6; color: #334155;">
                                         ${formatDescription(exp.description || '')}
@@ -250,7 +253,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Education -->
                 ${education.length > 0 ? `
                     <section style="margin-bottom: 40px;">
-                        ${MainSectionHeader('Education')}
+                        ${MainSectionHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 20px;">
                             ${education.map(edu => `
                                 <div>
@@ -261,7 +264,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                                         ${escapeHtml(edu.school)}${edu.city ? `, ${escapeHtml(edu.city)}` : ''}
                                     </p>
                                     <p style="font-size: 9pt; color: #64748b; margin: 0;">
-                                        ${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}
+                                        ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                     </p>
                                 </div>
                             `).join('')}
@@ -272,7 +275,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Languages -->
                 ${languages && languages.length > 0 ? `
                     <section style="margin-bottom: 40px;">
-                        ${MainSectionHeader('Languages')}
+                        ${MainSectionHeader(t.sections.languages)}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px 24px;">
                             ${languages.map(lang => `
                                 <div style="font-size: 10pt;">
@@ -287,7 +290,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Credentials -->
                 ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                     <section style="margin-bottom: 40px;">
-                        ${MainSectionHeader('Credentials')}
+                        ${MainSectionHeader(t.sections.credentials)}
                         <div style="display: flex; gap: 40px;">
                             ${certifications && certifications.length > 0 ? `
                                 <div style="flex: 1;">
@@ -296,7 +299,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                                         ${certifications.map(cert => `
                                             <div>
                                                 <div style="font-weight: 700; font-size: 10pt; color: #0f172a;">${escapeHtml(cert.name)}</div>
-                                                <div style="font-size: 9pt; color: #64748b;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                                <div style="font-size: 9pt; color: #64748b;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -309,7 +312,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                                         ${awards.map(award => `
                                             <div>
                                                 <div style="font-weight: 700; font-size: 10pt; color: #0f172a;">${escapeHtml(award.title)}</div>
-                                                <div style="font-size: 9pt; color: #64748b;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                                <div style="font-size: 9pt; color: #64748b;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -322,7 +325,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- References -->
                 ${data.references && data.references.length > 0 ? `
                     <section style="margin-bottom: 40px;">
-                        ${MainSectionHeader('References')}
+                        ${MainSectionHeader(t.sections.references)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             ${data.references.map(ref => `
                                 <div>
@@ -339,7 +342,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme): string =
                 <!-- Personal Details & Custom Field -->
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
                     <section>
-                        ${MainSectionHeader('Additional Info')}
+                        ${MainSectionHeader(t.sections.additionalInfo)}
                         <div style="font-size: 10pt; color: #334155; display: flex; flex-direction: column; gap: 12px;">
                             ${personalInfo.nationality ? `<div><span style="font-weight: 700; color: #0f172a;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `

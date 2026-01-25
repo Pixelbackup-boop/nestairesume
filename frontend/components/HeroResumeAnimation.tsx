@@ -89,8 +89,12 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
         {/* A4 Paper */}
         <motion.div
           key={`paper-${cycle}`}
-          className="absolute inset-0 bg-white rounded-xl overflow-hidden"
-          style={{ boxShadow: '0 30px 60px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0,0,0,0.05)' }}
+          className="absolute inset-0 rounded-xl overflow-hidden"
+          data-theme-preserve="light"
+          style={{
+            backgroundColor: '#ffffff',
+            boxShadow: '0 30px 60px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0,0,0,0.05)'
+          }}
           initial={{ opacity: 0, scale: 0.85, rotateY: -15 }}
           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
@@ -445,7 +449,7 @@ function MagicParticles({ cycle }: { cycle: number }) {
 function StaticResume({ className }: { className: string }) {
   return (
     <div className={`relative ${className}`}>
-      <div className="w-80 h-[520px] bg-white rounded-xl shadow-2xl overflow-hidden" style={{ boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.2)' }}>
+      <div className="w-80 h-[520px] rounded-xl shadow-2xl overflow-hidden" data-theme-preserve="light" style={{ backgroundColor: '#ffffff', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.2)' }}>
         {/* Blue Header */}
         <div className="p-4 bg-gradient-to-r from-blue-600 to-blue-500">
           <div className="flex items-center gap-3">

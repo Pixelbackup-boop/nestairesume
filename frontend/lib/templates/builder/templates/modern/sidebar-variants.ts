@@ -12,6 +12,7 @@ export const sidebarDarkNavyTemplate: BuilderTemplate = {
     category: 'professional',
     accentColor: '#1e3a5f',
     gradientColors: 'from-blue-900 to-slate-800',
+    templateId: 'sidebar-dark-navy',
 };
 
 // Narrow yellow sidebar
@@ -24,6 +25,7 @@ export const sidebarNarrowYellowTemplate: BuilderTemplate = {
     category: 'modern',
     accentColor: '#eab308',
     gradientColors: 'from-yellow-500 to-yellow-700',
+    templateId: 'sidebar-narrow-yellow',
 };
 
 // Teal sidebar with monogram style
@@ -36,6 +38,7 @@ export const sidebarMonogramTemplate: BuilderTemplate = {
     category: 'modern',
     accentColor: '#0d9488',
     gradientColors: 'from-teal-500 to-teal-700',
+    templateId: 'sidebar-monogram',
 };
 
 // Export all featured sidebar variants

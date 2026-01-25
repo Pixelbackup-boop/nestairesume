@@ -3,15 +3,18 @@
  * Ported from frontend/components/templates/layouts/minimal/MinimalLabelsTan.tsx
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     fontSizes,
     escapeHtml,
     formatDescription,
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale: string = 'en'): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -83,7 +86,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
             <div style="display: flex; flex-direction: column; gap: 48px;">
                 
                 <!-- Profile -->
-                ${personalInfo.summary ? Row('Profile', `
+                ${personalInfo.summary ? Row(t.sections.profile, `
                     <p style="margin: 0; line-height: 1.6; font-size: 14px;">
                         ${formatDescription(personalInfo.summary)}
                     </p>
@@ -93,14 +96,14 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 ${experience.length > 0 ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">Experience</h3>
+                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.experience}</h3>
                         </div>
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
                                 <div>
                                     <h4 style="font-weight: 600; font-size: 14px; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
                                     <div style="font-size: 14px; color: ${labelText}; margin-bottom: 8px;">
-                                        ${escapeHtml(exp.company)}, ${escapeHtml(exp.startDate)}–${exp.current ? 'Present' : escapeHtml(exp.endDate)}
+                                        ${escapeHtml(exp.company)}, ${formatLocalizedDate(exp.startDate, locale)}–${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                     </div>
                                     <p style="margin: 0; line-height: 1.6; font-size: 14px;">
                                         ${formatDescription(exp.description || '')}
@@ -115,14 +118,14 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 ${education.length > 0 ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">Education</h3>
+                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.education}</h3>
                         </div>
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
                                 <div>
                                     <h4 style="font-weight: 600; font-size: 14px; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
                                     <div style="font-size: 14px; color: ${labelText};">
-                                        ${escapeHtml(edu.school)} | ${escapeHtml(edu.startDate)}–${edu.endDate || 'Present'}
+                                        ${escapeHtml(edu.school)} | ${formatLocalizedDate(edu.startDate, locale)}–${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                     </div>
                                 </div>
                             `).join('')}
@@ -134,7 +137,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 ${skills.length > 0 ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">Skills</h3>
+                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.skills}</h3>
                         </div>
                         <div style="flex: 1;">
                             ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
@@ -143,14 +146,14 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 ` : ''}
 
                 <!-- Languages -->
-                ${languages && languages.length > 0 ? Row('Languages', `
+                ${languages && languages.length > 0 ? Row(t.sections.languages, `
                     <p style="margin: 0; line-height: 1.8; font-size: 14px;">
                         ${languages.map(l => `${escapeHtml(l.name)} (${escapeHtml(l.proficiency)})`).join(', ')}
                     </p>
                 `) : ''}
 
                 <!-- Strengths -->
-                ${strengths && strengths.length > 0 ? Row('Strengths', `
+                ${strengths && strengths.length > 0 ? Row(t.sections.strengths, `
                     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                         ${strengths.map(str => `
                             <span style="font-size: 12px; color: ${mainText}; background-color: #f5f5f4; padding: 4px 8px; border-radius: 4px;">
@@ -161,7 +164,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 `) : ''}
 
                 <!-- Interests -->
-                ${interests && interests.length > 0 ? Row('Interests', `
+                ${interests && interests.length > 0 ? Row(t.sections.interests, `
                     <p style="margin: 0; line-height: 1.8; font-size: 14px;">
                         ${interests.map(i => escapeHtml(i.name)).join(', ')}
                     </p>
@@ -171,7 +174,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">Credentials</h3>
+                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.credentials}</h3>
                         </div>
                         <div style="flex: 1;">
                             ${certifications && certifications.length > 0 ? `
@@ -181,7 +184,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                                         ${certifications.map(cert => `
                                             <div>
                                                 <div style="font-weight: 600; font-size: 14px; color: ${mainText};">${escapeHtml(cert.name)}</div>
-                                                <div style="font-size: 12px; color: ${labelText};">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                                <div style="font-size: 12px; color: ${labelText};">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -194,7 +197,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                                         ${awards.map(award => `
                                             <div>
                                                 <div style="font-weight: 600; font-size: 14px; color: ${mainText};">${escapeHtml(award.title)}</div>
-                                                <div style="font-size: 12px; color: ${labelText};">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                                <div style="font-size: 12px; color: ${labelText};">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -205,7 +208,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 ` : ''}
 
                 <!-- References -->
-                ${data.references && data.references.length > 0 ? Row('References', `
+                ${data.references && data.references.length > 0 ? Row(t.sections.references, `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                         ${data.references.map(ref => `
                             <div>
@@ -218,7 +221,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 `) : ''}
 
                 <!-- Personal Info -->
-                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? Row('Additional Info', `
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? Row(t.sections.additionalInfo, `
                     <div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px;">
                         ${personalInfo.nationality ? `<div><span style="color: ${labelText};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                         ${personalInfo.idType && personalInfo.idNumber ? `
@@ -234,7 +237,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme): st
                 `) : ''}
 
                 <!-- Social Links (Extended) -->
-                ${(personalInfo.github || personalInfo.linkedin || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row('Social', `
+                ${(personalInfo.github || personalInfo.linkedin || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `
                     <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px;">
                         ${personalInfo.linkedin ? `<a href="${personalInfo.linkedin}" style="color: ${labelText}; text-decoration: none;">LinkedIn</a>` : ''}
                         ${personalInfo.github ? `<a href="${personalInfo.github}" style="color: ${labelText}; text-decoration: none;">GitHub</a>` : ''}

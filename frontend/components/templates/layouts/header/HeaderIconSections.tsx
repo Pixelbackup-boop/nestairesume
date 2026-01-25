@@ -1,8 +1,10 @@
 'use client';
 
+import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
+import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
 /**
  * Header Icon Sections Template
@@ -18,14 +20,25 @@ import ProgressBar from '../../shared/ProgressBar';
  * Matches reference: frontend/Resume-template/unique-layouts/27-icon-section-headers.webp 
  * (Note: Reference name implies icons, but description highlights the Boxes & Cyan)
  */
-export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, customThemeColor, fonts } = data;
+function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
+    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, references, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
+    const t = useTemplateTranslations();
 
     // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
+
+    // Scaled Spacing
+    const sp = {
+        xs: 4 * scale,
+        sm: 8 * scale,
+        md: 12 * scale,
+        lg: 16 * scale,
+        xl: 24 * scale,
+        xxl: 32 * scale,
+    };
 
     // Colors
     const orangeAccent = customThemeColor || '#ea580c'; // Orange 600
@@ -33,7 +46,8 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
     const borderColor = '#000000';
 
     // Dimensions
-    const photoSize = scale < 1 ? 80 : 140;
+    // Proportional photo size to match PDF look
+    const photoSize = 140 * scale;
 
     return (
         <div
@@ -43,7 +57,7 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                 fontSize: sizeConfig.base,
                 backgroundColor: pageBg,
                 color: '#000000',
-                padding: scale < 1 ? '16px' : '32px',
+                padding: sp.xxl,
             }}
         >
             {/* Header Box */}
@@ -51,11 +65,11 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                 style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: scale < 1 ? 16 : 32,
+                    gap: sp.xxl,
                     border: `1px solid ${borderColor}`,
                     backgroundColor: '#ffffff',
-                    padding: scale < 1 ? '16px' : '32px',
-                    marginBottom: scale < 1 ? 16 : 32,
+                    padding: sp.xxl,
+                    marginBottom: sp.xxl,
                     boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.1)', // Subtle shadow
                 }}
             >
@@ -67,7 +81,7 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                             height: photoSize,
                             borderRadius: '50%',
                             border: `2px solid ${orangeAccent}`,
-                            padding: 4,
+                            padding: sp.xs,
                             overflow: 'hidden'
                         }}>
                             <img
@@ -109,7 +123,7 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                             fontSize: fs.name,
                             fontWeight: 700,
                             color: '#000000',
-                            marginBottom: 8,
+                            marginBottom: sp.sm,
                             lineHeight: 1.1,
                         }}
                     >
@@ -121,14 +135,14 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                             color: orangeAccent,
                             fontWeight: 600,
                             textTransform: 'uppercase',
-                            marginBottom: 12,
+                            marginBottom: sp.md,
                             letterSpacing: '0.05em'
                         }}
                     >
                         {personalInfo.jobTitle || 'Job Title'}
                     </p>
 
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px', fontSize: fs.small, color: '#4b5563' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp.sm}px ${sp.lg}px`, fontSize: fs.small, color: '#4b5563' }}>
                         {personalInfo.email && <span>✉️ {personalInfo.email}</span>}
                         {personalInfo.phone && <span>📱 {personalInfo.phone}</span>}
                         {personalInfo.location && <span>📍 {personalInfo.location}</span>}
@@ -138,24 +152,24 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
 
             {/* Profile Section */}
             {personalInfo.summary && (
-                <BoxSection borderColor={borderColor} title="Profile" icon="👤" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
+                <BoxSection borderColor={borderColor} title={t.sections.profile} icon="👤" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
                     <p style={{ lineHeight: 1.6 }}>{personalInfo.summary}</p>
                 </BoxSection>
             )}
 
             {/* Experience Section */}
             {experience.length > 0 && (
-                <BoxSection borderColor={borderColor} title="Experience" icon="💼" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
-                    <div className="space-y-6">
+                <BoxSection borderColor={borderColor} title={t.sections.experience} icon="💼" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp.xl }}>
                         {experience.map((exp) => (
                             <div key={exp.id}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp.xs }}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{exp.title}</h4>
                                     <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
-                                        {exp.startDate} – {exp.current ? 'Present' : exp.endDate}
+                                        {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                     </span>
                                 </div>
-                                <p style={{ fontSize: fs.body, fontStyle: 'italic', marginBottom: 6, color: '#525252' }}>
+                                <p style={{ fontSize: fs.body, fontStyle: 'italic', marginBottom: 6 * scale, color: '#525252' }}>
                                     {exp.company}, {exp.city}
                                 </p>
                                 <p style={{ fontSize: fs.body, lineHeight: 1.5 }}>
@@ -169,14 +183,14 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
 
             {/* Education Section */}
             {education.length > 0 && (
-                <BoxSection borderColor={borderColor} title="Education" icon="🎓" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
-                    <div className="space-y-5">
+                <BoxSection borderColor={borderColor} title={t.sections.education} icon="🎓" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 * scale }}>
                         {education.map((edu) => (
                             <div key={edu.id}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp.xs }}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{edu.degree}</h4>
                                     <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
-                                        {edu.startDate} – {edu.endDate || 'Present'}
+                                        {edu.startDate} – {edu.endDate || t.labels.present}
                                     </span>
                                 </div>
                                 <p style={{ fontSize: fs.body, fontStyle: 'italic', color: '#525252' }}>
@@ -188,20 +202,20 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                 </BoxSection>
             )}
 
-            <div style={{ display: 'flex', gap: scale < 1 ? 16 : 32 }}>
+            <div style={{ display: 'flex', gap: sp.xxl }}>
                 {/* Skills Section */}
                 {skills.length > 0 && (
                     <div style={{ flex: 1 }}>
-                        <BoxSection borderColor={borderColor} title="Skills" icon="⚙️" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
-                            <div className="space-y-3">
+                        <BoxSection borderColor={borderColor} title={t.sections.skills} icon="⚙️" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                            <div>
                                 {skills.map((skill) => (
-                                    <div key={skill.id} data-paginate="item">
+                                    <div key={skill.id} data-paginate="item" style={{ marginBottom: sp.md }}>
                                         <ProgressBar
                                             label={skill.name}
                                             value={skill.level ? skill.level * 20 : 80}
                                             color={orangeAccent}
-                                            height={scale < 1 ? 6 : 8}
-                                            scale={1}
+                                            height={8 * scale}
+                                            scale={scale}
                                         />
                                     </div>
                                 ))}
@@ -213,15 +227,15 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                 {/* Awards/Strengths Section */}
                 {(strengths && strengths.length > 0) && (
                     <div style={{ flex: 1 }}>
-                        <BoxSection borderColor={borderColor} title="Strengths" icon="⭐" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        <BoxSection borderColor={borderColor} title={t.sections.strengths} icon="⭐" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp.sm }}>
                                 {strengths.map((str) => (
                                     <span key={str.id} data-paginate="item" style={{
                                         backgroundColor: '#fff7ed', // Light orange bg
                                         color: orangeAccent,
                                         border: `1px solid ${orangeAccent}`,
-                                        padding: '4px 12px',
-                                        borderRadius: 4,
+                                        padding: `${4 * scale}px ${12 * scale}px`,
+                                        borderRadius: 4 * scale,
                                         fontSize: fs.small,
                                         fontWeight: 600
                                     }}>
@@ -234,14 +248,14 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                 )}
             </div>
             {/* Languages & Interests Row */}
-            <div style={{ display: 'flex', gap: scale < 1 ? 16 : 32, marginTop: scale < 1 ? 16 : 32 }}>
+            <div style={{ display: 'flex', gap: sp.xxl, marginTop: sp.xxl }}>
                 {/* Languages Section */}
                 {data.languages && data.languages.length > 0 && (
                     <div style={{ flex: 1 }}>
-                        <BoxSection borderColor={borderColor} title="Languages" icon="🗣️" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
-                            <div className="space-y-2">
+                        <BoxSection borderColor={borderColor} title={t.sections.languages} icon="🗣️" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
                                 {data.languages.map((lang) => (
-                                    <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f3f4f6', paddingBottom: 4 }}>
+                                    <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f3f4f6', paddingBottom: 4 * scale }}>
                                         <span style={{ fontWeight: 600 }}>{lang.name}</span>
                                         <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
                                     </div>
@@ -254,10 +268,10 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                 {/* Interests Section */}
                 {data.interests && data.interests.length > 0 && (
                     <div style={{ flex: 1 }}>
-                        <BoxSection borderColor={borderColor} title="Interests" icon="🎨" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                        <BoxSection borderColor={borderColor} title={t.sections.interests} icon="🎨" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp.md }}>
                                 {data.interests.map((int) => (
-                                    <span key={int.id} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                                    <span key={int.id} style={{ display: 'flex', alignItems: 'center', gap: 6 * scale }}>
                                         <span style={{ color: orangeAccent }}>★</span> {int.name}
                                     </span>
                                 ))}
@@ -269,14 +283,14 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
 
             {/* Credentials (Certifications & Awards) */}
             {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                <BoxSection borderColor={borderColor} title="Credentials" icon="🏆" accent={orangeAccent} fs={fs} headingFont={headingFont} scale={scale}>
-                    <div style={{ display: 'flex', gap: scale < 1 ? 16 : 32 }}>
+                <BoxSection borderColor={borderColor} title={t.sections.credentials} icon="🏆" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <div style={{ display: 'flex', gap: sp.xxl }}>
                         {certifications && certifications.length > 0 && (
                             <div style={{ flex: 1 }}>
-                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                    Certifications
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: sp.sm }}>
+                                    {t.sections.certifications}
                                 </h4>
-                                <div className="space-y-2">
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
                                     {certifications.map((cert) => (
                                         <div key={cert.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body }}>{cert.name}</div>
@@ -289,10 +303,10 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
 
                         {awards && awards.length > 0 && (
                             <div style={{ flex: 1 }}>
-                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                    Awards & Achievements
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: sp.sm }}>
+                                    {t.sections.awards}
                                 </h4>
-                                <div className="space-y-2">
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
                                     {awards.map((award) => (
                                         <div key={award.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body }}>{award.title}</div>
@@ -303,6 +317,63 @@ export default function HeaderIconSections({ data, theme, scale = 1 }: TemplateP
                             </div>
                         )}
                     </div>
+                </BoxSection>
+            )}
+
+            {/* Social Links */}
+            {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                <BoxSection borderColor={borderColor} title={t.sections.socialLinks} icon="🔗" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
+                        {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
+                        {personalInfo.twitter && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.twitter}</div>}
+                        {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
+                        {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
+                        {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
+                        {personalInfo.instagram && <div><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
+                    </div>
+                </BoxSection>
+            )}
+
+            {/* References */}
+            {references && references.length > 0 && (
+                <BoxSection borderColor={borderColor} title={t.sections.references} icon="📋" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp.lg }}>
+                        {references.map((ref) => (
+                            <div key={ref.id} data-paginate="item">
+                                <div style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{ref.name}</div>
+                                <div style={{ fontSize: fs.body, fontStyle: 'italic', color: '#525252' }}>{ref.title}, {ref.company}</div>
+                                {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
+                                {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.phone}</div>}
+                            </div>
+                        ))}
+                    </div>
+                </BoxSection>
+            )}
+
+            {/* Personal Details */}
+            {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                <BoxSection borderColor={borderColor} title={t.sections.personalDetails} icon="📝" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
+                        {personalInfo.nationality && (
+                            <div><span style={{ fontWeight: 600 }}>{t.labels.nationality}:</span> {personalInfo.nationality}</div>
+                        )}
+                        {personalInfo.idType && personalInfo.idNumber && (
+                            <div>
+                                <span style={{ fontWeight: 600 }}>
+                                    {personalInfo.idType === 'id' ? t.labels.id :
+                                        personalInfo.idType === 'passport' ? t.labels.passport :
+                                            personalInfo.idType === 'driving_license' ? t.labels.drivingLicense : t.labels.id}:
+                                </span> {personalInfo.idNumber}
+                            </div>
+                        )}
+                    </div>
+                </BoxSection>
+            )}
+
+            {/* Custom Field */}
+            {personalInfo.customField && personalInfo.customFieldLabel && (
+                <BoxSection borderColor={borderColor} title={personalInfo.customFieldLabel} icon="📌" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <p style={{ lineHeight: 1.6 }}>{personalInfo.customField}</p>
                 </BoxSection>
             )}
 
@@ -319,10 +390,11 @@ interface BoxSectionProps {
     fs: ScaledFontSizes;
     headingFont: string;
     scale: number;
+    sp: { xs: number, sm: number, md: number, lg: number, xl: number, xxl: number };
     children: React.ReactNode;
 }
 
-function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, children }: BoxSectionProps) {
+function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, sp, children }: BoxSectionProps) {
     return (
         <section
             className="resume-section"
@@ -330,8 +402,8 @@ function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, 
             style={{
                 border: `1px solid ${borderColor}`,
                 backgroundColor: '#ffffff',
-                padding: scale < 1 ? '16px' : '32px',
-                marginBottom: scale < 1 ? 16 : 32,
+                padding: `${sp.xxl}px`, // Base padding (paddingTop gets reset by pagination system)
+                marginBottom: sp.xxl,
                 position: 'relative',
                 boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.1)',
             }}
@@ -339,21 +411,22 @@ function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, 
             <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 12,
-                marginBottom: scale < 1 ? 16 : 24,
+                gap: sp.md,
+                marginTop: sp.md, // Extra top spacing for gap between border and icon (moved from section paddingTop)
+                marginBottom: sp.xl,
                 borderBottom: `2px solid ${accent}`,
-                paddingBottom: 8
+                paddingBottom: sp.sm
             }}>
                 <span style={{
                     backgroundColor: accent,
                     color: 'white',
-                    width: scale < 1 ? 24 : 32,
-                    height: scale < 1 ? 24 : 32,
+                    width: 32 * scale,
+                    height: 32 * scale,
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: scale < 1 ? 12 : 16
+                    fontSize: 16 * scale
                 }}>
                     {icon}
                 </span>
@@ -373,6 +446,9 @@ function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, 
         </section>
     );
 }
+
+// Wrap with memo to prevent unnecessary re-renders
+export default memo(HeaderIconSections);
 
 // Template metadata
 export const headerIconSectionsMeta: TemplateMeta = {

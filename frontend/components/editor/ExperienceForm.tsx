@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { useResumeStore, Experience } from '../../store/useResumeStore';
 import { Plus, Trash2, ArrowUp, ArrowDown, ChevronDown, ChevronUp, Wand2, Loader2 } from 'lucide-react';
 import api from '../../lib/api';
-import { v4 as uuidv4 } from 'uuid'; // Keep uuidv4 if crypto.randomUUID() is not universally available or preferred
+// Using native crypto.randomUUID() instead of uuid package
+import { useTranslations } from 'next-intl';
 
 export default function ExperienceForm() {
+    const t = useTranslations('Builder');
     const { resumeData, addExperience, updateExperience, removeExperience, moveExperience } = useResumeStore();
     const { experience } = resumeData;
     const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -43,7 +45,7 @@ export default function ExperienceForm() {
             const response = await api.post('/ai/improve-content', {
                 content: currentDescription
             });
-            updateExperience(id, { description: response.data.improved_content });
+            updateExperience(id, { description: (response.data as { improved_content: string }).improved_content });
         } catch (error) {
             console.error("Improvement failed", error);
         } finally {
@@ -55,14 +57,14 @@ export default function ExperienceForm() {
         <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">Work Experience</h2> {/* Changed text */}
-                    <p className="text-gray-400 text-sm">Add your relevant work experience.</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">{t('experience.title')}</h2>
+                    <p className="text-gray-400 text-sm">{t('experience.subtitle')}</p>
                 </div>
                 <button
                     onClick={handleAdd}
-                    className="flex items-center gap-2 bg-accent-green/10 text-accent-green px-4 py-2 rounded-lg hover:bg-accent-green/20 transition text-sm font-medium" // Original styling, not the one from the snippet
+                    className="flex items-center gap-2 bg-accent-green/10 text-accent-green px-4 py-2 rounded-lg hover:bg-accent-green/20 transition text-sm font-medium"
                 >
-                    <Plus size={16} /> Add Experience
+                    <Plus size={16} /> {t('experience.add')}
                 </button>
             </div>
 
@@ -94,8 +96,8 @@ export default function ExperienceForm() {
                                     </button>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">{exp.title || '(Not specified)'}</h3>
-                                    <p className="text-sm text-gray-400">{exp.company || 'Company Name'}</p>
+                                    <h3 className="font-semibold text-white">{exp.title || t('experience.notSpecified')}</h3>
+                                    <p className="text-sm text-gray-400">{exp.company || t('experience.companyName')}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3"> {/* Original gap */}
@@ -113,29 +115,29 @@ export default function ExperienceForm() {
                         {expandedId === exp.id && (
                             <div className="p-4 pt-0 border-t border-border-subtle grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Job Title</label> {/* Original styling */}
+                                    <label className="text-sm font-medium text-gray-300">{t('experience.jobTitle')}</label>
                                     <input
                                         type="text"
                                         value={exp.title}
                                         onChange={(e) => handleChange(exp.id, 'title', e.target.value)}
                                         placeholder="Senior Product Designer"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none" // Original styling
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Company</label> {/* Original styling */}
+                                    <label className="text-sm font-medium text-gray-300">{t('experience.company')}</label>
                                     <input
                                         type="text"
                                         value={exp.company}
                                         onChange={(e) => handleChange(exp.id, 'company', e.target.value)}
                                         placeholder="Acme Corp"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none" // Original styling
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">City</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('experience.city')}</label>
                                     <input
                                         type="text"
                                         value={exp.city}
@@ -146,7 +148,7 @@ export default function ExperienceForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Country</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('experience.country')}</label>
                                     <input
                                         type="text"
                                         value={exp.country}
@@ -157,25 +159,25 @@ export default function ExperienceForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Start Date</label> {/* Original styling */}
+                                    <label className="text-sm font-medium text-gray-300">{t('experience.startDate')}</label>
                                     <input
                                         type="text"
                                         value={exp.startDate}
                                         onChange={(e) => handleChange(exp.id, 'startDate', e.target.value)}
                                         placeholder="Jan 2020"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none" // Original styling
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">End Date</label> {/* Original styling */}
+                                    <label className="text-sm font-medium text-gray-300">{t('experience.endDate')}</label>
                                     <input
                                         type="text"
                                         value={exp.endDate}
                                         onChange={(e) => handleChange(exp.id, 'endDate', e.target.value)}
                                         disabled={exp.current}
                                         placeholder="Present"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none disabled:opacity-50" // Original styling
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none disabled:opacity-50"
                                     />
                                 </div>
 
@@ -187,19 +189,19 @@ export default function ExperienceForm() {
                                         onChange={(e) => handleChange(exp.id, 'current', e.target.checked)}
                                         className="rounded border-gray-600 bg-bg-card text-accent-green focus:ring-accent-green"
                                     />
-                                    <label htmlFor={`current-${exp.id}`} className="text-sm text-gray-300">I currently work here</label>
+                                    <label htmlFor={`current-${exp.id}`} className="text-sm text-gray-300">{t('experience.currentlyWork')}</label>
                                 </div>
 
                                 <div className="space-y-2 md:col-span-2">
                                     <div className="flex items-center justify-between">
-                                        <label className="text-sm font-medium text-gray-300">Description</label> {/* Original styling */}
+                                        <label className="text-sm font-medium text-gray-300">{t('experience.description')}</label>
                                         <button
                                             onClick={() => handleImprove(exp.id, exp.description)}
                                             disabled={improvingId === exp.id || !exp.description}
                                             className="text-xs flex items-center gap-1.5 text-accent-green hover:text-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
                                             {improvingId === exp.id ? <Loader2 size={12} className="animate-spin" /> : <Wand2 size={12} />}
-                                            Improve using AI
+                                            {t('experience.improveAI')}
                                         </button>
                                     </div>
                                     <textarea
@@ -217,8 +219,8 @@ export default function ExperienceForm() {
 
                 {experience.length === 0 && (
                     <div className="text-center py-10 border-2 border-dashed border-border-subtle rounded-xl bg-white/2">
-                        <p className="text-gray-500">No experience added yet.</p>
-                        <button onClick={handleAdd} className="text-accent-green hover:underline mt-2 text-sm">Add your first role</button>
+                        <p className="text-gray-500">{t('experience.noExperience')}</p>
+                        <button onClick={handleAdd} className="text-accent-green hover:underline mt-2 text-sm">{t('experience.addFirst')}</button>
                     </div>
                 )}
             </div>

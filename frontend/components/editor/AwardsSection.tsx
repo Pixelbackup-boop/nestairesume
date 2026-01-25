@@ -3,7 +3,7 @@
 import { useResumeStore, Award } from '../../store/useResumeStore';
 import { Plus, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 
 export default function AwardsSection() {
     const { resumeData, addAward, updateAward, removeAward } = useResumeStore();
@@ -17,7 +17,7 @@ export default function AwardsSection() {
         if (!newAward.title.trim()) return;
 
         const award: Award = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             title: newAward.title.trim(),
             issuer: newAward.issuer.trim(),
             date: newAward.date,

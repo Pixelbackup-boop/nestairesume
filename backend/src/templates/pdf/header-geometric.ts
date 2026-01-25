@@ -3,260 +3,375 @@
  * Ported from frontend/components/templates/layouts/header/HeaderGeometric.tsx
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     fontSizes,
     getBackgroundCSS,
     escapeHtml,
     formatDescription,
-    getIconSVG,
-    IconName,
     getLanguageLevel
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale: string = 'en'): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
         education = [],
         skills = [],
-        languages = [],
         strengths = [],
+        languages = [],
         interests = [],
         certifications = [],
         awards = [],
+        references = [],
         fonts,
-        background
+        customThemeColor
     } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Space Grotesk');
+
+    const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
-    const bgStyle = getBackgroundCSS(background);
+    const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // --- Helpers ---
-    const ProgressBar = (label: string, value: number) => `
-        <div style="margin-bottom: 10px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                <span style="font-size: 11px; font-weight: 500; color: ${theme.heading};">${escapeHtml(label)}</span>
+    // Fixed colors matching frontend
+    const headerBgColor = '#78350f'; // Amber-900 (Dark Brown)
+    const accentColor = customThemeColor || '#92400e'; // Amber-800 (Copper)
+    const textColor = '#374151'; // Gray-700
+
+    // Dimensions
+    const patternHeight = 120;
+
+    // Name font size calculation (matching frontend 32px base)
+    const sizeName = fonts?.size || 'medium';
+    const nameSize = sizeName === 'small' ? '28px' : sizeName === 'large' ? '36px' : '32px';
+
+    // Parse base size for relative scaling
+    const baseSizeVal = parseInt(sizeConfig.base); // e.g. 14
+
+    // Derived sizes to match frontend hierarchy
+    const sizes = {
+        name: nameSize,
+        sectionHeading: `${baseSizeVal}px`,       // ~14px
+        entryTitle: `${baseSizeVal - 1}px`,       // ~13px
+        body: `${baseSizeVal - 2}px`,             // ~12px
+        small: `${baseSizeVal - 4}px`,            // ~10px
+    };
+
+    const SectionRow = (label: string, content: string) => `
+        <div style="display: flex; margin-bottom: 20px; page-break-inside: avoid;">
+            <div style="width: 25%; padding-right: 20px;">
+                <h3 style="
+                    font-family: ${headingFont};
+                    font-size: ${sizes.sectionHeading};
+                    color: ${accentColor};
+                    text-transform: uppercase;
+                    border-bottom: 2px solid ${accentColor};
+                    padding-bottom: 4px;
+                    display: inline-block;
+                    margin: 0;
+                ">
+                    ${escapeHtml(label)}
+                </h3>
             </div>
-            <div style="width: 100%; height: 6px; background-color: #f1f5f9; border-radius: 3px;">
-                <div style="width: ${value}%; height: 100%; background-color: ${theme.primary}; border-radius: 3px;"></div>
+            <div style="width: 75%;">
+                ${content}
             </div>
         </div>
     `;
 
-    const SectionHeader = (title: string) => `
-        <div style="margin-bottom: 20px; page-break-inside: avoid;">
-            <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: ${theme.primary}; border-left: 4px solid ${theme.primary}; padding-left: 12px; margin-bottom: 4px;">
-                ${title}
-            </h3>
-            <div style="height: 1px; width: 100%; background: linear-gradient(to right, ${theme.primary}40, transparent);"></div>
-        </div>
-    `;
+    const CircularProgress = (value: number, label: string) => {
+        const size = 60; // Fixed size for PDF (equivalent to standard scale)
+        const strokeWidth = 4;
+        const radius = (size - strokeWidth) / 2;
+        const circumference = 2 * Math.PI * radius;
+        const strokeDashoffset = circumference - (value / 100) * circumference;
 
-    const contactItems = [
-        { value: personalInfo.email, icon: 'email' },
-        { value: personalInfo.phone, icon: 'phone' },
-        { value: personalInfo.location, icon: 'location' },
-        { value: personalInfo.linkedin, icon: 'linkedin' },
-        { value: personalInfo.website, icon: 'website' }
-    ].filter(item => item.value);
-
-    // Profile Image - Hexagon Clip
-    const profileImage = personalInfo.profileImage ? `
-        <div style="width: 140px; height: 140px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background-color: white; padding: 4px;">
-            <img
-                src="${personalInfo.profileImage}"
-                alt="${escapeHtml(personalInfo.fullName)}"
-                style="width: 100%; height: 100%; object-fit: cover; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"
-            />
+        return `
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: ${size + 20}px;">
+            <div style="position: relative; width: ${size}px; height: ${size}px;">
+                <svg width="${size}" height="${size}" style="transform: rotate(-90deg);">
+                    <!-- Background track -->
+                    <circle
+                        cx="${size / 2}"
+                        cy="${size / 2}"
+                        r="${radius}"
+                        fill="none"
+                        stroke="#e5e7eb"
+                        stroke-width="${strokeWidth}"
+                    />
+                    <!-- Progress arc -->
+                    <circle
+                        cx="${size / 2}"
+                        cy="${size / 2}"
+                        r="${radius}"
+                        fill="none"
+                        stroke="${accentColor}"
+                        stroke-width="${strokeWidth}"
+                        stroke-dasharray="${circumference}"
+                        stroke-dashoffset="${strokeDashoffset}"
+                        stroke-linecap="round"
+                    />
+                </svg>
+                <!-- Center value -->
+                <div style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #374151;
+                ">
+                    ${Math.round(value)}%
+                </div>
+            </div>
+            <!-- Label -->
+            <span style="
+                font-size: 12px;
+                color: #374151;
+                text-align: center;
+                word-break: break-word;
+                width: 100%;
+            ">
+                ${escapeHtml(label)}
+            </span>
         </div>
-    ` : '';
+        `;
+    };
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: #334155; ${bgStyle} position: relative;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${sizeConfig.base}; background-color: #ffffff; color: ${textColor}; position: relative;">
             
-            <!-- Geometric Header BG -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 260px; z-index: 0; overflow: hidden;">
-                <div style="position: absolute; top: -50px; right: -50px; width: 400px; height: 400px; background-color: ${theme.primary}; opacity: 0.1; transform: rotate(45deg);"></div>
-                <div style="position: absolute; top: 100px; left: -50px; width: 200px; height: 200px; background-color: ${theme.secondary}; opacity: 0.1; borderRadius: 50%;"></div>
-                <div style="position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, ${theme.background}00 0%, ${theme.background} 100%);"></div>
+            <!-- Geometric Pattern Decoration -->
+            <div style="height: ${patternHeight}px; background-color: #ffffff; position: relative; overflow: hidden;">
+                <svg width="100%" height="100%" viewBox="0 0 800 120" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0;">
+                    <path d="M0 0 L200 120 L400 0 L600 120 L800 0 V120 H0 Z" fill="none" stroke="${accentColor}" stroke-width="0.5" opacity="0.3" />
+                    <path d="M0 120 L200 0 L400 120 L600 0 L800 120" fill="none" stroke="${accentColor}" stroke-width="0.5" opacity="0.3" />
+                    <path d="M100 0 L300 120 L500 0 L700 120" fill="none" stroke="${accentColor}" stroke-width="0.5" opacity="0.3" />
+                    <circle cx="200" cy="60" r="2" fill="${accentColor}" opacity="0.6" />
+                    <circle cx="400" cy="60" r="2" fill="${accentColor}" opacity="0.6" />
+                    <circle cx="600" cy="60" r="2" fill="${accentColor}" opacity="0.6" />
+                </svg>
             </div>
 
-            <div style="position: relative; z-index: 10; padding: 40px 50px;">
-                
-                <!-- Header -->
-                <div style="display: flex; gap: 40px; align-items: center; margin-bottom: 50px;">
-                    ${profileImage}
-                    <div style="flex: 1;">
-                        <h1 style="font-family: ${headingFont}; font-size: 38px; font-weight: 700; color: ${theme.heading}; line-height: 1.1; margin: 0 0 8px 0;">
-                            ${escapeHtml(personalInfo.fullName || 'Your Name')}
-                        </h1>
-                        <p style="font-family: ${headingFont}; font-size: 18px; color: ${theme.primary}; font-weight: 500; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 0.05em;">
-                            ${escapeHtml(personalInfo.jobTitle || 'Job Title')}
-                        </p>
-                        
-                        <!-- Contact Grid -->
-                        <div style="display: flex; flex-wrap: wrap; gap: 12px 24px;">
-                            ${contactItems.map(item => `
-                                <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; color: #64748b;">
-                                    <span style="color: ${theme.primary};">${getIconSVG(item.icon as IconName, theme.primary, 14)}</span>
-                                    <span>${escapeHtml(item.value!)}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
+            <!-- Header Bar -->
+            <div style="
+                background-color: ${headerBgColor};
+                color: #ffffff;
+                padding: 10px 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 20px;
+            ">
+                <h1 style="
+                    font-family: ${headingFont};
+                    font-size: ${sizes.name};
+                    font-weight: 400;
+                    letter-spacing: 0.05em;
+                    margin-bottom: 8px;
+                ">
+                    ${escapeHtml(personalInfo.fullName || 'Your Name')}
+                </h1>
+
+                <div style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 24px;
+                    font-size: ${sizes.small};
+                    color: rgba(255,255,255,0.9);
+                ">
+                    ${personalInfo.email ? `<span>${escapeHtml(personalInfo.email)}</span>` : ''}
+                    ${personalInfo.phone ? `<span>${escapeHtml(personalInfo.phone)}</span>` : ''}
+                    ${personalInfo.location ? `<span>${escapeHtml(personalInfo.location)}</span>` : ''}
                 </div>
+            </div>
 
-                <!-- Main Grid -->
-                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
-                    
-                    <!-- Left Column -->
-                    <div>
-                        ${personalInfo.summary ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('About Me')}
-                                <p style="font-size: 12px; line-height: 1.6;">${formatDescription(personalInfo.summary)}</p>
-                            </div>
-                        ` : ''}
+            <!-- Main Content Body -->
+            <div style="padding: 20px 40px;">
 
-                        ${experience.length > 0 ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('Experience')}
-                                <div style="display: flex; flex-direction: column; gap: 20px;">
-                                    ${experience.map(exp => `
-                                        <div>
-                                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-                                                <h4 style="font-size: 13px; font-weight: 700; color: ${theme.heading}; margin: 0;">${escapeHtml(exp.title)}</h4>
-                                                <span style="font-size: 11px; color: #94a3b8; font-weight: 500;">
-                                                    ${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}
-                                                </span>
-                                            </div>
-                                            <div style="font-size: 12px; font-weight: 600; color: ${theme.primary}; margin-bottom: 6px;">
-                                                ${escapeHtml(exp.company)}
-                                            </div>
-                                            <div style="font-size: 11px; line-height: 1.5; color: #475569;">
-                                                ${formatDescription(exp.description || '')}
-                                            </div>
-                                        </div>
-                                    `).join('')}
+                ${personalInfo.summary ? SectionRow(t.sections.profile,
+        `<p style="line-height: 1.6; margin-top: 0;">${formatDescription(personalInfo.summary)}</p>`
+    ) : ''}
+
+                ${experience.length > 0 ? SectionRow(t.sections.experience, `
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        ${experience.map(exp => `
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                                    <h4 style="font-size: ${sizes.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
+                                        ${escapeHtml(exp.title)}
+                                    </h4>
+                                    <span style="font-size: ${sizes.small}; color: #6b7280;">
+                                        ${formatLocalizedDate(exp.startDate, locale)} - ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
+                                    </span>
                                 </div>
+                                <p style="color: ${accentColor}; font-weight: 600; margin-bottom: 4px; font-size: ${sizes.body};">
+                                    ${escapeHtml(exp.company)} ${exp.city ? `| ${escapeHtml(exp.city)}` : ''}
+                                </p>
+                                ${exp.description ? `
+                                    <div style="font-size: ${sizes.body}; line-height: 1.5; color: #4b5563;">
+                                        ${formatDescription(exp.description)}
+                                    </div>
+                                ` : ''}
                             </div>
-                        ` : ''}
-
-                        ${education.length > 0 ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('Education')}
-                                <div style="display: flex; flex-direction: column; gap: 16px;">
-                                    ${education.map(edu => `
-                                        <div>
-                                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-                                                <h4 style="font-size: 13px; font-weight: 700; color: ${theme.heading}; margin: 0;">${escapeHtml(edu.school)}</h4>
-                                                <span style="font-size: 11px; color: #94a3b8; font-weight: 500;">
-                                                    ${escapeHtml(edu.startDate)} – ${edu.current ? 'Present' : escapeHtml(edu.endDate)}
-                                                </span>
-                                            </div>
-                                            <div style="font-size: 12px; color: #475569;">
-                                                <span style="font-weight: 600;">${escapeHtml(edu.degree)}</span>
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
+                        `).join('')}
                     </div>
+                `) : ''}
 
-                    <!-- Right Column -->
-                    <div>
-                        ${skills.length > 0 ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('Skills')}
+                ${education.length > 0 ? SectionRow(t.sections.education, `
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        ${education.map(edu => `
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                                    <h4 style="font-size: ${sizes.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
+                                        ${escapeHtml(edu.degree)}
+                                    </h4>
+                                    <span style="font-size: ${sizes.small}; color: #6b7280;">
+                                        ${formatLocalizedDate(edu.startDate, locale)} - ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
+                                    </span>
+                                </div>
+                                <p style="color: ${accentColor}; font-weight: 600; font-size: ${sizes.body}; margin-bottom: 4px;">
+                                    ${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}
+                                </p>
+                                ${edu.description ? `<p style="font-size: ${sizes.small}; margin-top: 2px;">${formatDescription(edu.description)}</p>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `) : ''}
+
+                ${strengths.length > 0 ? SectionRow(t.sections.strengths, `
+                    <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                        ${strengths.slice(0, 4).map(str => {
+        const val = str.level > 5 ? str.level : str.level * 20;
+        return CircularProgress(val, str.name);
+    }).join('')}
+                    </div>
+                `) : ''}
+
+                ${skills.length > 0 ? SectionRow(t.sections.skills, `
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        ${skills.map(skill => {
+        const val = skill.level > 5 ? skill.level : (skill.level || 3) * 20;
+        return `
                                 <div>
-                                    ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                        <span style="font-size: 11px; font-weight: 500; color: ${theme.heading};">${escapeHtml(skill.name)}</span>
+                                    </div>
+                                    <div style="width: 100%; height: 6px; background-color: #f1f5f9; border-radius: 3px;">
+                                        <div style="width: ${val}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        ` : ''}
+                            `;
+    }).join('')}
+                    </div>
+                `) : ''}
 
-                         ${languages && languages.length > 0 ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('Languages')}
+                ${languages.length > 0 ? SectionRow(t.sections.languages, `
+                     <div style="display: flex; flex-direction: column; gap: 8px;">
+                        ${languages.map(lang => `
+                            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;">
+                                <span style="font-weight: 600; color: #1f2937;">${escapeHtml(lang.name)}</span>
+                                <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
+                            </div>
+                        `).join('')}
+                     </div>
+                `) : ''}
+
+                ${interests.length > 0 ? SectionRow(t.sections.interests, `
+                    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+                        ${interests.map(int => `
+                            <span style="color: #374151; display: flex; align-items: center; gap: 6px;">
+                                <span style="color: ${accentColor};">◆</span> ${escapeHtml(int.name)}
+                            </span>
+                        `).join('')}
+                    </div>
+                `) : ''}
+
+                ${(certifications.length > 0 || awards.length > 0) ? SectionRow(t.sections.credentials, `
+                    <div>
+                        ${certifications.length > 0 ? `
+                            <div style="margin-bottom: 16px;">
+                                <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                                    ${languages.map(lang => `
+                                    ${certifications.map(cert => `
                                         <div>
-                                            <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 2px;">
-                                                <span style="font-weight: 600;">${escapeHtml(lang.name)}</span>
-                                                <span style="color: #94a3b8;">${escapeHtml(lang.proficiency)}</span>
-                                            </div>
-                                            <div style="width: 100%; height: 4px; background-color: #f1f5f9; border-radius: 2px;">
-                                                <div style="width: ${getLanguageLevel(lang)}%; height: 100%; background-color: ${theme.primary}; border-radius: 2px;"></div>
-                                            </div>
+                                            <div style="font-weight: 600; color: #1f2937;">${escapeHtml(cert.name)}</div>
+                                            <div style="font-size: ${sizes.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
                             </div>
                         ` : ''}
 
-                        ${strengths && strengths.length > 0 ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('Strengths')}
+                        ${awards.length > 0 ? `
+                            <div>
+                                <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                                    ${strengths.map(str => `
-                                        <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: #475569;">
-                                            <span style="color: ${theme.primary}; font-size: 14px;">★</span>
-                                            ${escapeHtml(str.name)}
+                                    ${awards.map(award => `
+                                        <div>
+                                            <div style="font-weight: 600; color: #1f2937;">${escapeHtml(award.title)}</div>
+                                            <div style="font-size: ${sizes.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
-                            </div>
-                        ` : ''}
-                         
-                        ${interests && interests.length > 0 ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('Interests')}
-                                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    ${interests.map(int => `
-                                        <span style="font-size: 11px; color: #475569; padding: 4px 8px; background-color: #f1f5f9; border-radius: 4px;">
-                                            ${escapeHtml(int.name)}
-                                        </span>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-
-                        ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                            <div style="margin-bottom: 30px;">
-                                ${SectionHeader('Credentials')}
-                                ${certifications && certifications.length > 0 ? `
-                                    <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                        <h4 style="font-size: 11px; font-weight: 600; color: #94a3b8; margin-bottom: 8px;">Certifications</h4>
-                                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                                            ${certifications.map(cert => `
-                                                <div>
-                                                    <div style="font-weight: 600; font-size: 11px; color: ${theme.heading};">${escapeHtml(cert.name)}</div>
-                                                    <div style="font-size: 10px; color: #94a3b8;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
-                                                </div>
-                                            `).join('')}
-                                        </div>
-                                    </div>
-                                ` : ''}
-                                ${awards && awards.length > 0 ? `
-                                    <div>
-                                        <h4 style="font-size: 11px; font-weight: 600; color: #94a3b8; margin-bottom: 8px;">Awards & Achievements</h4>
-                                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                                            ${awards.map(award => `
-                                                <div>
-                                                    <div style="font-weight: 600; font-size: 11px; color: ${theme.heading};">${escapeHtml(award.title)}</div>
-                                                    <div style="font-size: 10px; color: #94a3b8;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
-                                                </div>
-                                            `).join('')}
-                                        </div>
-                                    </div>
-                                ` : ''}
                             </div>
                         ` : ''}
                     </div>
+                `) : ''}
 
-                </div>
+                ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? SectionRow(t.sections.socialLinks, `
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
+                        ${personalInfo.twitter ? `<div><span style="font-weight: 600;">Twitter:</span> ${escapeHtml(personalInfo.twitter)}</div>` : ''}
+                        ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
+                        ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
+                        ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
+                        ${personalInfo.instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                    </div>
+                `) : ''}
+                
+                ${references.length > 0 ? SectionRow(t.sections.references, `
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        ${references.map(ref => `
+                            <div>
+                                <div style="font-weight: 700; color: #1f2937;">${escapeHtml(ref.name)}</div>
+                                <div style="color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                ${ref.email ? `<div style="font-size: ${sizes.small}; color: #4b5563;">${escapeHtml(ref.email)}</div>` : ''}
+                                ${ref.phone ? `<div style="font-size: ${sizes.small}; color: #4b5563;">${escapeHtml(ref.phone)}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `) : ''}
+
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? SectionRow(t.sections.personalDetails, `
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                        ${(personalInfo.idType && personalInfo.idNumber) ? `
+                            <div>
+                                <span style="font-weight: 600;">
+                                    ${personalInfo.idType === 'id' ? 'ID' :
+                personalInfo.idType === 'passport' ? 'Passport' :
+                    personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                </span> ${escapeHtml(personalInfo.idNumber)}
+                            </div>
+                        ` : ''}
+                    </div>
+                `) : ''}
+
+                ${(personalInfo.customField && personalInfo.customFieldLabel) ? SectionRow(personalInfo.customFieldLabel, `
+                    <p style="line-height: 1.6; margin: 0;">${escapeHtml(personalInfo.customField)}</p>
+                `) : ''}
+
             </div>
         </div>
     `;

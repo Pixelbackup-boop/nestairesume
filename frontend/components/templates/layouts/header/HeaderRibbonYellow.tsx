@@ -1,8 +1,10 @@
 'use client';
 
+import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
+import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
 /**
  * Header Ribbon Yellow Template
@@ -17,8 +19,8 @@ import ProgressBar from '../../shared/ProgressBar';
  *
  * Matches reference: frontend/Resume-template/unique-layouts/22-ribbon-banner.webp
  */
-export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, interests, certifications, customThemeColor, fonts } = data;
+function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateProps) {
+    const { personalInfo, experience, education, skills, awards, interests, certifications, references, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -26,12 +28,10 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
     // Get scaled font sizes that respect user's size preference + scale
     const fs = getScaledFontSizes(sizeConfig, scale);
 
+    const t = useTemplateTranslations();
+
     // Single color preset - use customThemeColor or default yellow
     const accentColor = customThemeColor || '#eab308';
-
-    // Calculate responsive sizes
-    const photoSize = scale < 1 ? 50 : 100;
-    const ribbonHeight = scale < 1 ? 28 : 56;
 
     return (
         <div
@@ -43,52 +43,53 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                 position: 'relative',
             }}
         >
-            {/* Header Area with Photo and Ribbon */}
+            {/* Header Area with Photo and Diagonal Ribbon - STATIC SIZES (not affected by text size) */}
             <header
                 className="resume-section"
                 data-paginate
                 style={{
                     textAlign: 'center',
-                    paddingTop: scale < 1 ? 12 : 24,
-                    paddingBottom: scale < 1 ? 12 : 24,
+                    paddingTop: scale < 1 ? 16 : 32,
+                    paddingBottom: scale < 1 ? 8 : 16,
                 }}
             >
-                {/* Circular Photo */}
+                {/* Profile Photo - STATIC SIZE, no yellow background */}
                 <div
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
-                        marginBottom: scale < 1 ? -15 : -30,
+                        marginBottom: scale < 1 ? -5 : -5, // 2px gap above ribbon
                         position: 'relative',
                         zIndex: 10,
                     }}
                 >
+                    {/* Photo with dark border only - no yellow circle */}
                     {personalInfo.profileImage ? (
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}
                             style={{
-                                width: photoSize,
-                                height: photoSize,
+                                width: scale < 1 ? 60 : 120, // STATIC
+                                height: scale < 1 ? 60 : 120,
                                 borderRadius: '50%',
                                 objectFit: 'cover',
-                                border: '4px solid #374151',
-                                backgroundColor: '#ffffff',
+                                border: `${scale < 1 ? 3 : 5}px solid #374151`,
                             }}
                         />
                     ) : (
                         <div
                             style={{
-                                width: photoSize,
-                                height: photoSize,
+                                width: scale < 1 ? 60 : 120, // STATIC
+                                height: scale < 1 ? 60 : 120,
                                 borderRadius: '50%',
                                 backgroundColor: '#e5e7eb',
-                                border: '4px solid #374151',
+                                border: `${scale < 1 ? 3 : 5}px solid #374151`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                fontSize: fs.name,
+                                fontSize: scale < 1 ? '24px' : '42px', // STATIC
                                 color: '#9ca3af',
+                                fontWeight: 700,
                             }}
                         >
                             {personalInfo.fullName?.charAt(0) || '?'}
@@ -96,56 +97,43 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     )}
                 </div>
 
-                {/* Yellow Ribbon Banner */}
+                {/* Diagonal Parallelogram Ribbon - STATIC SIZE, WIDER */}
                 <div
                     style={{
-                        backgroundColor: accentColor,
-                        height: ribbonHeight,
                         display: 'flex',
-                        alignItems: 'center',
                         justifyContent: 'center',
-                        position: 'relative',
-                        marginLeft: scale < 1 ? 24 : 48,
-                        marginRight: scale < 1 ? 24 : 48,
+                        marginLeft: scale < 1 ? 10 : 0,
+                        marginRight: scale < 1 ? 10 : 0,
                     }}
                 >
-                    {/* Ribbon Left Fold */}
                     <div
                         style={{
-                            position: 'absolute',
-                            left: scale < 1 ? -12 : -24,
-                            top: 0,
-                            width: 0,
-                            height: 0,
-                            borderTop: `${ribbonHeight / 2}px solid transparent`,
-                            borderBottom: `${ribbonHeight / 2}px solid transparent`,
-                            borderRight: `${scale < 1 ? 12 : 24}px solid ${accentColor}`,
-                        }}
-                    />
-                    {/* Ribbon Right Fold */}
-                    <div
-                        style={{
-                            position: 'absolute',
-                            right: scale < 1 ? -12 : -24,
-                            top: 0,
-                            width: 0,
-                            height: 0,
-                            borderTop: `${ribbonHeight / 2}px solid transparent`,
-                            borderBottom: `${ribbonHeight / 2}px solid transparent`,
-                            borderLeft: `${scale < 1 ? 12 : 24}px solid ${accentColor}`,
-                        }}
-                    />
-                    <h1
-                        style={{
-                            fontFamily: headingFont,
-                            fontSize: fs.name,
-                            fontWeight: 700,
-                            color: '#ffffff',
-                            textShadow: '1px 1px 2px rgba(0,0,0,0.2)',
+                            backgroundColor: accentColor,
+                            height: scale < 1 ? 36 : 72, // STATIC
+                            paddingLeft: scale < 1 ? 90 : 180, // +20px wider on each side
+                            paddingRight: scale < 1 ? 90 : 180,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transform: 'skewX(-10deg)', // Creates diagonal parallelogram
                         }}
                     >
-                        {personalInfo.fullName || 'Your Name'}
-                    </h1>
+                        {/* Name - counter-skew to keep text straight, STATIC size */}
+                        <h1
+                            style={{
+                                fontFamily: headingFont,
+                                fontSize: scale < 1 ? '14px' : '28px', // STATIC - not affected by text size setting
+                                fontWeight: 700,
+                                color: '#ffffff',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em',
+                                transform: 'skewX(10deg)', // Counter-skew text
+                                margin: 0,
+                            }}
+                        >
+                            {personalInfo.fullName || 'Your Name'}
+                        </h1>
+                    </div>
                 </div>
 
                 {/* Contact Info */}
@@ -175,7 +163,46 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                             <span>{personalInfo.website}</span>
                         </>
                     )}
+                    {personalInfo.linkedin && (
+                        <>
+                            <span>|</span>
+                            <span>{personalInfo.linkedin}</span>
+                        </>
+                    )}
+                    {personalInfo.nationality && (
+                        <>
+                            <span>|</span>
+                            <span>{personalInfo.nationality}</span>
+                        </>
+                    )}
+                    {personalInfo.idType && personalInfo.idNumber && (
+                        <>
+                            <span>|</span>
+                            <span>{personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}: {personalInfo.idNumber}</span>
+                        </>
+                    )}
                 </div>
+
+                {/* Social Links Row */}
+                {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            justifyContent: 'center',
+                            gap: scale < 1 ? '6px' : '12px',
+                            fontSize: fs.small,
+                            color: '#6b7280',
+                            marginTop: scale < 1 ? 4 : 8,
+                        }}
+                    >
+                        {personalInfo.twitter && <span>Twitter: {personalInfo.twitter}</span>}
+                        {personalInfo.github && <span>GitHub: {personalInfo.github}</span>}
+                        {personalInfo.dribbble && <span>Dribbble: {personalInfo.dribbble}</span>}
+                        {personalInfo.behance && <span>Behance: {personalInfo.behance}</span>}
+                        {personalInfo.instagram && <span>Instagram: {personalInfo.instagram}</span>}
+                    </div>
+                )}
             </header>
 
             {/* Two-Column Body */}
@@ -192,7 +219,7 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     {personalInfo.summary && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="👤">
-                                Profile
+                                {t.sections.profile}
                             </SectionHeader>
                             <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
                                 {personalInfo.summary}
@@ -204,13 +231,13 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     {experience.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💼">
-                                Work experience
+                                {t.sections.experience}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {experience.map((exp) => (
                                     <div key={exp.id} className="resume-entry" data-paginate>
                                         <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: '2px', textTransform: 'uppercase' }}>
-                                            {exp.startDate} – {exp.current ? 'PRESENT' : exp.endDate}
+                                            {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                             {exp.city && `    ${exp.city.toUpperCase()}`}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
@@ -238,13 +265,13 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     {education.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🎓">
-                                Education
+                                {t.sections.education}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {education.map((edu) => (
                                     <div key={edu.id} className="resume-entry" data-paginate>
                                         <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: '2px', textTransform: 'uppercase' }}>
-                                            {edu.startDate} – {edu.current ? 'PRESENT' : edu.endDate}
+                                            {edu.startDate} – {edu.current ? t.labels.present : edu.endDate}
                                             {edu.city && `    ${edu.city.toUpperCase()}`}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
@@ -271,13 +298,13 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🏆">
-                                Credentials
+                                {t.sections.credentials}
                             </SectionHeader>
 
                             {certifications && certifications.length > 0 && (
                                 <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
                                     <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                        Certifications
+                                        {t.sections.certifications}
                                     </h4>
                                     <div className="space-y-2">
                                         {certifications.map((cert) => (
@@ -293,7 +320,7 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                             {awards && awards.length > 0 && (
                                 <div>
                                     <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                        Awards & Achievements
+                                        {t.sections.awards}
                                     </h4>
                                     <div className="space-y-2">
                                         {awards.map((award) => (
@@ -317,7 +344,7 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     {skills.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⚙️">
-                                Skills
+                                {t.sections.skills}
                             </SectionHeader>
                             <div className="space-y-2">
                                 {skills.map((skill) => (
@@ -339,7 +366,7 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     {interests && interests.length > 0 && (
                         <section className="resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⭐">
-                                Interests
+                                {t.sections.interests}
                             </SectionHeader>
                             <div
                                 style={{
@@ -377,7 +404,7 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                     {data.languages && data.languages.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🗣️">
-                                Languages
+                                {t.sections.languages}
                             </SectionHeader>
                             <div className="space-y-2">
                                 {data.languages.map((lang) => (
@@ -392,9 +419,9 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
 
                     {/* Strengths */}
                     {data.strengths && data.strengths.length > 0 && (
-                        <section className="resume-section" data-paginate>
+                        <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💪">
-                                Strengths
+                                {t.sections.strengths}
                             </SectionHeader>
                             <div
                                 style={{
@@ -420,6 +447,43 @@ export default function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateP
                                     </span>
                                 ))}
                             </div>
+                        </section>
+                    )}
+
+                    {/* References */}
+                    {references && references.length > 0 && (
+                        <section className="mb-4 resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📋">
+                                {t.sections.references}
+                            </SectionHeader>
+                            <div className="space-y-3">
+                                {references.map((ref) => (
+                                    <div key={ref.id} className="resume-entry" data-paginate>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
+                                            {ref.name}
+                                        </h4>
+                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600, marginBottom: '2px' }}>
+                                            {ref.title}{ref.company && ` at ${ref.company}`}
+                                        </p>
+                                        <div style={{ fontSize: fs.small, color: '#6b7280' }}>
+                                            {ref.phone && <div>{ref.phone}</div>}
+                                            {ref.email && <div>{ref.email}</div>}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Custom Field */}
+                    {personalInfo.customField && (
+                        <section className="resume-section" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📝">
+                                {personalInfo.customFieldLabel || 'Additional Information'}
+                            </SectionHeader>
+                            <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
+                                {personalInfo.customField}
+                            </p>
                         </section>
                     )}
                 </div>
@@ -497,6 +561,9 @@ function getInterestIcon(name: string): string {
     if (nameLower.includes('wine')) return '🍷';
     return '⭐';
 }
+
+// Wrap with memo to prevent unnecessary re-renders
+export default memo(HeaderRibbonYellow);
 
 // Template metadata for registry
 export const headerRibbonYellowMeta: TemplateMeta = {

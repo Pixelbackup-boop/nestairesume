@@ -6,13 +6,15 @@
  * Dual-color schema: primary = box border color, secondary = accent highlights.
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
+import { getTranslations } from './shared/translations';
 import {
     getFontFamily,
     escapeHtml,
     formatDescription,
     parseDualColor
 } from './shared/helpers';
+import { formatLocalizedDate } from './shared/dateUtils';
 // Note: getBackgroundCSS removed - header-dark-box always uses white body background
 
 // Helper function to convert proficiency string to percentage
@@ -26,7 +28,8 @@ function getLanguageLevelPercent(proficiency: string): number {
     return 50; // default
 }
 
-export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale: string = 'en'): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -171,7 +174,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Profile', '&#128100;')}
+                            ${SectionHeader(t.sections.profile, '&#128100;')}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(personalInfo.summary)}
                             </p>
@@ -181,7 +184,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Experience', '&#128188;')}
+                            ${SectionHeader(t.sections.experience, '&#128188;')}
                             <div style="display: flex; flex-direction: column; gap: 20px;">
                                 ${experience.map(exp => `
                                     <div data-paginate="item">
@@ -190,7 +193,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                                                 ${escapeHtml(exp.title)}
                                             </h4>
                                             <span style="font-size: ${fs.small}; color: #6b7280; font-weight: 500;">
-                                                ${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}
+                                                ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                             </span>
                                         </div>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700; margin-bottom: 6px; text-transform: uppercase;">
@@ -210,7 +213,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Education (Left Column) -->
                     ${education.length > 0 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Education', '&#127891;')}
+                            ${SectionHeader(t.sections.education, '&#127891;')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(0, 2).map(edu => `
                                     <div data-paginate="item">
@@ -219,7 +222,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                                                 ${escapeHtml(edu.degree)}
                                             </h4>
                                             <span style="font-size: ${fs.small}; color: #6b7280; font-weight: 500;">
-                                                ${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}
+                                                ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                             </span>
                                         </div>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700;">
@@ -238,7 +241,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Education (Right Column - additional) -->
                     ${education.length > 2 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Education (Cont.)', '&#127891;')}
+                            ${SectionHeader(t.sections.education + ' (Cont.)', '&#127891;')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(2).map(edu => `
                                     <div data-paginate="item">
@@ -249,7 +252,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                                             ${escapeHtml(edu.school)}
                                         </p>
                                         <span style="font-size: ${fs.small}; color: #6b7280;">
-                                            ${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}
+                                            ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                         </span>
                                     </div>
                                 `).join('')}
@@ -260,7 +263,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Languages', '&#128483;')}
+                            ${SectionHeader(t.sections.languages, '&#128483;')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
                                     <div data-paginate="item">${ProgressBar(lang.name, lang.level || getLanguageLevelPercent(lang.proficiency))}</div>
@@ -272,7 +275,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Skills (Circular) -->
                     ${skills.length > 0 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Skills', '&#129309;')}
+                            ${SectionHeader(t.sections.skills, '&#129309;')}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px;">
                                 ${skills.map(skill => `<div data-paginate="item">${CircularProgress(skill.level ? skill.level * 20 : 80, skill.name)}</div>`).join('')}
                             </div>
@@ -282,7 +285,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Strengths (Bars) -->
                     ${strengths && strengths.length > 0 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Expertise', '&#128187;')}
+                            ${SectionHeader(t.sections.strengths, '&#128187;')}
                             <div>
                                 ${strengths.map(str => `<div data-paginate="item">${ProgressBar(str.name, (str as any).level ?? 80)}</div>`).join('')}
                             </div>
@@ -292,7 +295,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Interests -->
                     ${interests && interests.length > 0 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Interests', '&#11088;')}
+                            ${SectionHeader(t.sections.interests, '&#11088;')}
                             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                                 ${interests.map(int => `
                                     <span data-paginate="item" style="font-size: ${fs.body}; font-weight: 500; color: #4b5563;">
@@ -306,7 +309,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Credentials', '&#127942;')}
+                            ${SectionHeader(t.sections.credentials, '&#127942;')}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
                                     <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
@@ -314,7 +317,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                                         ${certifications.map(cert => `
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #1f2937;">${escapeHtml(cert.name)}</div>
-                                                <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                                <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -327,7 +330,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                                         ${awards.map(award => `
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #1f2937;">${escapeHtml(award.title)}</div>
-                                                <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                                <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -339,7 +342,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- Social Links -->
                     ${(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('Social Links', '&#128279;')}
+                            ${SectionHeader(t.sections.socialLinks, '&#128279;')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${personalInfo.twitter ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
@@ -378,7 +381,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme): strin
                     <!-- References -->
                     ${references && references.length > 0 ? `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader('References', '&#128101;')}
+                            ${SectionHeader(t.sections.references, '&#128101;')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
                                     <div data-paginate="item">

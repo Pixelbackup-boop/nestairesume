@@ -7,6 +7,35 @@ import api from './api';
 import { getThemeById, ThemeColor } from './templates/builder/colorPresets';
 import type { ResumeData } from '@/store/useResumeStore';
 
+/**
+ * Translation strings for PDF section headers and labels
+ * Matches backend PdfTranslations interface
+ */
+export interface PdfTranslations {
+    sections: {
+        experience: string;
+        workExperience: string;
+        education: string;
+        skills: string;
+        languages: string;
+        interests: string;
+        strengths: string;
+        certifications: string;
+        awards: string;
+        references: string;
+        summary: string;
+        profile: string;
+        contact: string;
+        additionalInfo: string;
+        socialLinks: string;
+        personalDetails: string;
+        credentials: string;
+    };
+    labels: {
+        present: string;
+    };
+}
+
 // Known backend template IDs (must exist in backend/src/templates/pdf/index.ts)
 const knownTemplates = new Set([
     // Sidebar templates
@@ -48,12 +77,16 @@ function getBackendTemplateId(frontendTemplate: string): string {
  * @param templateId - Frontend template ID (e.g., 'sidebar', 'classic-normal-left')
  * @param themeId - Theme ID (e.g., 'navy', 'emerald', 'custom')
  * @param customColor - Custom color hex (required when themeId is 'custom')
+ * @param translations - Optional translations for section headers (for i18n support)
+ * @param locale - Locale for date formatting (e.g., 'en', 'es', 'fr')
  */
 export async function downloadPdf(
     resumeData: ResumeData,
     templateId: string,
     themeId: string,
-    customColor?: string
+    customColor?: string,
+    translations?: PdfTranslations,
+    locale?: string
 ): Promise<void> {
     // Get theme colors
     const theme: ThemeColor = getThemeById(themeId, customColor);
@@ -74,12 +107,14 @@ export async function downloadPdf(
             background: theme.background,
             heading: theme.heading,
         },
+        translations,
+        locale: locale || 'en',
     }, {
         responseType: 'blob',
     });
 
     // Create download link
-    const blob = new Blob([response.data], { type: 'application/pdf' });
+    const blob = new Blob([response.data as BlobPart], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
 
     // Generate filename from name
@@ -101,12 +136,16 @@ export async function downloadPdf(
 
 /**
  * Generate PDF and return as base64 (for preview purposes)
+ *
+ * @param locale - Locale for date formatting (e.g., 'en', 'es', 'fr')
  */
 export async function previewPdf(
     resumeData: ResumeData,
     templateId: string,
     themeId: string,
-    customColor?: string
+    customColor?: string,
+    translations?: PdfTranslations,
+    locale?: string
 ): Promise<string> {
     const theme: ThemeColor = getThemeById(themeId, customColor);
     const backendTemplateId = getBackendTemplateId(templateId);
@@ -123,7 +162,9 @@ export async function previewPdf(
             background: theme.background,
             heading: theme.heading,
         },
+        translations,
+        locale: locale || 'en',
     });
 
-    return response.data.pdf; // base64 string
+    return (response.data as { pdf: string }).pdf; // base64 string
 }

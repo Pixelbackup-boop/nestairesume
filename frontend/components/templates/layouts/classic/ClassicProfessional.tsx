@@ -1,20 +1,23 @@
 'use client';
 
+import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getBackgroundStyle, getFontFamily, fontSizes, getImageBorderRadius, formatIdType } from '../../shared/styleHelpers';
 import SectionHeader from '../../shared/SectionHeader';
 import ResumeEntry from '../../shared/ResumeEntry';
+import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
 /**
  * Classic Professional Template
  * Traditional top-down professional resume layout with centered header.
  */
-export default function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
+function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, references, background, fonts } = data;
     const bgStyle = getBackgroundStyle(background);
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
+    const t = useTemplateTranslations();
 
     return (
         <div
@@ -87,7 +90,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Professional Summary
+                        {t.sections.profile}
                     </SectionHeader>
                     <p style={{ color: theme.text, lineHeight: 1.5, fontSize: scale < 1 ? '9px' : sizeConfig.base }}>
                         {personalInfo.summary}
@@ -105,7 +108,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Experience
+                        {t.sections.experience}
                     </SectionHeader>
                     <div className="space-y-3">
                         {experience.map((exp) => (
@@ -115,7 +118,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                                         {exp.title}
                                     </h3>
                                     <span style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : '11px' }}>
-                                        {exp.startDate} – {exp.current ? 'Present' : exp.endDate}
+                                        {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                     </span>
                                 </div>
                                 <p style={{ color: theme.secondary, fontSize: scale < 1 ? '9px' : '12px', marginBottom: '4px' }}>
@@ -142,7 +145,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Education
+                        {t.sections.education}
                     </SectionHeader>
                     <div className="space-y-2">
                         {education.map((edu) => (
@@ -152,7 +155,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                                         {edu.school}
                                     </h3>
                                     <span style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : '11px' }}>
-                                        {edu.startDate} – {edu.current ? 'Present' : edu.endDate}
+                                        {edu.startDate} – {edu.current ? t.labels.present : edu.endDate}
                                     </span>
                                 </div>
                                 <p style={{ color: theme.secondary, fontSize: scale < 1 ? '9px' : '12px' }}>
@@ -185,7 +188,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Skills
+                        {t.sections.skills}
                     </SectionHeader>
                     <div className="space-y-1">
                         {skills.map((skill) => (
@@ -222,7 +225,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Languages
+                        {t.sections.languages}
                     </SectionHeader>
                     <div className="space-y-1">
                         {languages.map((lang) => (
@@ -268,7 +271,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Strengths
+                        {t.sections.strengths}
                     </SectionHeader>
                     <div className="flex flex-wrap gap-1">
                         {strengths.map((strength) => (
@@ -299,7 +302,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Certifications
+                        {t.sections.certifications}
                     </SectionHeader>
                     <div className="space-y-1">
                         {certifications.map((cert) => (
@@ -326,7 +329,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Interests
+                        {t.sections.interests}
                     </SectionHeader>
                     <p style={{ color: theme.text, fontSize: scale < 1 ? '9px' : '12px' }}>
                         {interests.map(i => i.name).join(' • ')}
@@ -344,7 +347,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        Social Links
+                        {t.sections.socialLinks}
                     </SectionHeader>
                     <div className="flex flex-wrap gap-3" style={{ fontSize: scale < 1 ? '9px' : '12px' }}>
                         {personalInfo.linkedin && (
@@ -391,7 +394,7 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        References
+                        {t.sections.references}
                     </SectionHeader>
                     <div className="space-y-2">
                         {references.map((ref) => (
@@ -435,6 +438,9 @@ export default function ClassicProfessional({ data, theme, scale = 1 }: Template
         </div>
     );
 }
+
+// Wrap with memo to prevent unnecessary re-renders
+export default memo(ClassicProfessional);
 
 // Template metadata for registry
 export const classicProfessionalMeta: TemplateMeta = {

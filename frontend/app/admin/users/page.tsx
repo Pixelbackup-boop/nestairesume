@@ -43,7 +43,7 @@ export default function UsersPage() {
       const response = await api.get("/admin/users", {
         params: { page, limit: 10, search: search || undefined },
       });
-      setData(response.data);
+      setData(response.data as UsersResponse);
       setError(null);
     } catch (err: any) {
       setError(err.response?.data?.detail || "Failed to load users");

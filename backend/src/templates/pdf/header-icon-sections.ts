@@ -6,14 +6,22 @@
  * Distinctive Cyan background and Orange accents.
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     escapeHtml,
     formatDescription
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderHeaderIconSections = (
+    data: PdfResumeData,
+    theme: PdfTheme,
+    translations?: PdfTranslations,
+    locale: string = 'en'
+): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -127,17 +135,17 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
             </header>
 
             <!-- Profile Section -->
-            ${personalInfo.summary ? BoxSection('Profile', '&#128100;', `<p style="line-height: 1.6;">${formatDescription(personalInfo.summary)}</p>`) : ''}
+            ${personalInfo.summary ? BoxSection(t.sections.profile, '&#128100;', `<p style="line-height: 1.6;">${formatDescription(personalInfo.summary)}</p>`) : ''}
 
             <!-- Experience Section -->
-            ${experience.length > 0 ? BoxSection('Experience', '&#128188;', `
+            ${experience.length > 0 ? BoxSection(t.sections.experience, '&#128188;', `
                 <div style="display: flex; flex-direction: column; gap: 24px;">
                     ${experience.map(exp => `
                         <div data-paginate="item">
                             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                                 <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}pt;">${escapeHtml(exp.title)}</h4>
                                 <span style="font-size: ${sizes.small}pt; font-weight: 600; color: ${orangeAccent};">
-                                    ${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}
+                                    ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                 </span>
                             </div>
                             <p style="font-size: ${sizes.body}pt; font-style: italic; margin-bottom: 6px; color: #525252;">
@@ -152,14 +160,14 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
             `) : ''}
 
             <!-- Education Section -->
-            ${education.length > 0 ? BoxSection('Education', '&#127891;', `
+            ${education.length > 0 ? BoxSection(t.sections.education, '&#127891;', `
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     ${education.map(edu => `
                         <div data-paginate="item">
                             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                                 <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}pt;">${escapeHtml(edu.degree)}</h4>
                                 <span style="font-size: ${sizes.small}pt; font-weight: 600; color: ${orangeAccent};">
-                                    ${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}
+                                    ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                 </span>
                             </div>
                             <p style="font-size: ${sizes.body}pt; font-style: italic; color: #525252;">
@@ -175,7 +183,7 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
                 <!-- Skills Section -->
                 ${skills.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection('Skills', '&#9881;', `
+                        ${BoxSection(t.sections.skills, '&#9881;', `
                             <div>
                                 ${skills.map(skill => ProgressBar(skill.name, skill.level ? skill.level * 20 : 80)).join('')}
                             </div>
@@ -186,7 +194,7 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
                 <!-- Strengths Section -->
                 ${strengths && strengths.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection('Strengths', '&#11088;', `
+                        ${BoxSection(t.sections.strengths, '&#11088;', `
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(str => `
                                     <span style="background-color: #fff7ed; color: ${orangeAccent}; border: 1px solid ${orangeAccent}; padding: 4px 12px; border-radius: 4px; font-size: ${sizes.small}pt; font-weight: 600; display: inline-block;">
@@ -203,7 +211,7 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
             <div style="display: flex; gap: 32px;">
                 ${languages && languages.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection('Languages', '&#128483;', `
+                        ${BoxSection(t.sections.languages, '&#128483;', `
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
                                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;" data-paginate="item">
@@ -218,7 +226,7 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
 
                 ${interests && interests.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection('Interests', '&#127912;', `
+                        ${BoxSection(t.sections.interests, '&#127912;', `
                             <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                                 ${interests.map(int => `
                                     <span style="display: flex; align-items: center; gap: 6px;">
@@ -232,16 +240,16 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
             </div>
 
             <!-- Credentials Section -->
-            ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? BoxSection('Credentials', '&#127942;', `
+            ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? BoxSection(t.sections.credentials, '&#127942;', `
                 <div style="display: flex; gap: 32px;">
                     ${certifications && certifications.length > 0 ? `
                         <div style="flex: 1;">
-                            <h4 style="font-size: ${sizes.small}pt; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                            <h4 style="font-size: ${sizes.small}pt; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${certifications.map(cert => `
                                     <div data-paginate="item">
                                         <div style="font-weight: 600; font-size: ${sizes.body}pt;">${escapeHtml(cert.name)}</div>
-                                        <div style="font-size: ${sizes.small}pt; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                        <div style="font-size: ${sizes.small}pt; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -249,12 +257,12 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
                     ` : ''}
                     ${awards && awards.length > 0 ? `
                         <div style="flex: 1;">
-                            <h4 style="font-size: ${sizes.small}pt; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                            <h4 style="font-size: ${sizes.small}pt; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${awards.map(award => `
                                     <div data-paginate="item">
                                         <div style="font-weight: 600; font-size: ${sizes.body}pt;">${escapeHtml(award.title)}</div>
-                                        <div style="font-size: ${sizes.small}pt; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                        <div style="font-size: ${sizes.small}pt; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -264,7 +272,7 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
             `) : ''}
 
             <!-- Social Links (Boxed) -->
-            ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? BoxSection('Social Links', '&#128279;', `
+            ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? BoxSection(t.sections.socialLinks, '&#128279;', `
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
                     ${personalInfo.twitter ? `<div><span style="font-weight: 600;">Twitter:</span> ${escapeHtml(personalInfo.twitter)}</div>` : ''}
@@ -276,7 +284,7 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
             `) : ''}
 
             <!-- References (Boxed) -->
-            ${data.references && data.references.length > 0 ? BoxSection('References', '&#128203;', `
+            ${data.references && data.references.length > 0 ? BoxSection(t.sections.references, '&#128203;', `
                 <div style="display: flex; flex-direction: column; gap: 16px;">
                     ${data.references.map(ref => `
                         <div data-paginate="item">
@@ -290,7 +298,7 @@ export const renderHeaderIconSections = (data: PdfResumeData, theme: PdfTheme): 
             `) : ''}
 
             <!-- Personal Details (Boxed) -->
-            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? BoxSection('Personal Details', '&#128221;', `
+            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? BoxSection(t.sections.personalDetails, '&#128221;', `
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                     ${personalInfo.idType && personalInfo.idNumber ? `

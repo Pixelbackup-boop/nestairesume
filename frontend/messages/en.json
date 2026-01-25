@@ -1,0 +1,800 @@
+{
+  "Meta": {
+    "title": "Best AI Resume - Build Your Perfect Resume with AI",
+    "description": "Create professional, ATS-optimized resumes in minutes with AI. Free to try, no signup required."
+  },
+
+  "Common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "search": "Search",
+    "submit": "Submit",
+    "next": "Next",
+    "back": "Back",
+    "download": "Download",
+    "preview": "Preview",
+    "scrollToExplore": "Scroll to explore"
+  },
+
+  "Navigation": {
+    "features": "Features",
+    "templates": "Templates",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "careerTips": "Career Tips",
+    "tools": "Tools",
+    "coverLetter": "Cover Letter Generator",
+    "coverLetterDesc": "AI-powered cover letters",
+    "resignationLetter": "Resignation Letter",
+    "resignationLetterDesc": "Professional exit letters",
+    "login": "Log in",
+    "logout": "Logout",
+    "getStarted": "Get Started Free",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "adminPanel": "Admin Panel"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "AI-Powered Resume Building",
+      "title": "Build Your",
+      "titleHighlight": "Perfect Resume",
+      "subtitle": "No Signup Required",
+      "description": "Create stunning, ATS-optimized resumes in minutes with AI. Try it free — sign up only when you're ready to save.",
+      "ctaPrimary": "Build with AI",
+      "ctaSecondary": "Browse Templates",
+      "noCreditCard": "No credit card required",
+      "noSignup": "No signup to start",
+      "trustedBy": "Trusted by 50,000+ professionals",
+      "atsScore": "ATS Score",
+      "aiSuggestion": "AI Suggestion"
+    },
+    "features": {
+      "sectionTitle": "Features",
+      "title": "Everything you need to",
+      "titleHighlight": "land your dream job",
+      "subtitle": "Powerful AI tools combined with beautiful design to help you stand out from the crowd.",
+      "aiWriting": {
+        "title": "AI-Powered Writing",
+        "description": "Let our AI craft compelling bullet points and professional summaries that highlight your achievements."
+      },
+      "templates": {
+        "title": "20+ Premium Templates",
+        "description": "Choose from professionally designed templates that stand out while maintaining ATS compatibility."
+      },
+      "atsOptimization": {
+        "title": "ATS Optimization",
+        "description": "Real-time ATS scoring ensures your resume passes automated screening systems every time."
+      },
+      "realTimePreview": {
+        "title": "Real-time Preview",
+        "description": "See changes instantly as you type. What you see is exactly what recruiters will see."
+      },
+      "pdfExport": {
+        "title": "PDF Export",
+        "description": "Download pixel-perfect PDFs ready to send. Optimized for both digital and print."
+      },
+      "smartSuggestions": {
+        "title": "Smart Suggestions",
+        "description": "Get intelligent recommendations for skills, keywords, and content based on your target role."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "How It Works",
+      "title": "Three steps to your",
+      "titleHighlight": "perfect resume",
+      "step1": {
+        "title": "Fill Your Details",
+        "description": "Enter your experience, education, and skills. Our AI assists you every step of the way."
+      },
+      "step2": {
+        "title": "Choose Template",
+        "description": "Select from 20+ professionally designed templates. Preview in real-time as you customize."
+      },
+      "step3": {
+        "title": "Download PDF",
+        "description": "Export your polished resume as a pixel-perfect PDF, ready to impress recruiters."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Templates",
+      "title": "Premium templates for",
+      "titleHighlight": "every profession",
+      "viewAll": "View All Templates"
+    },
+    "testimonials": {
+      "sectionTitle": "Testimonials",
+      "title": "Loved by professionals",
+      "titleHighlight": "worldwide"
+    },
+    "cta": {
+      "title": "Ready to build your",
+      "titleHighlight": "winning resume?",
+      "subtitle": "Join 50,000+ professionals who've already landed their dream jobs with Best AI Resume.",
+      "button": "Build Your CV Now — Free",
+      "note": "No signup required to start"
+    }
+  },
+
+  "Features": {
+    "meta": {
+      "title": "AI Resume Builder Features - Smart Writing, ATS Optimization & More",
+      "description": "Discover powerful features: AI-powered writing, real-time ATS scoring, 50+ templates, instant PDF export. Build professional resumes that get interviews."
+    }
+  },
+
+  "Templates": {
+    "meta": {
+      "title": "50+ Professional Resume Templates - Free & ATS-Friendly",
+      "description": "Browse 50+ professional resume templates. Modern, creative, and minimalist designs optimized for ATS. Free to customize and download."
+    },
+    "sectionTitle": "Templates",
+    "title": "Choose your perfect",
+    "titleHighlight": "resume template",
+    "subtitle": "Select an editing mode and pick from our professionally designed templates.",
+    "searchPlaceholder": "Search templates...",
+    "templatesAvailable": "{count} template{count, plural, one {} other {s}} available",
+    "noResults": "No templates found",
+    "noResultsHint": "Try adjusting your search or filter",
+    "useTemplate": "Use Template",
+    "formBuilder": {
+      "title": "Form Builder",
+      "description": "Guided step-by-step editing",
+      "hint": "Fill in forms and let the template handle the design. Perfect for quick, professional resumes."
+    },
+    "canvasEditor": {
+      "title": "Canvas Editor",
+      "description": "Full creative freedom",
+      "hint": "Drag, drop, and design freely. Full control over every element, like Canva for resumes."
+    },
+    "categories": {
+      "all": "All",
+      "professional": "Professional",
+      "creative": "Creative",
+      "minimal": "Minimal",
+      "bold": "Bold",
+      "modern": "Modern",
+      "classic": "Classic"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Want to start from scratch?",
+        "description": "Create a completely custom resume using our Canvas Editor's powerful tools.",
+        "button": "Open Blank Canvas"
+      },
+      "builder": {
+        "title": "Want AI to build your resume?",
+        "description": "Let our AI create a professional resume in seconds based on your job title.",
+        "button": "Build with AI"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Contact",
+      "experience": "Experience",
+      "workExperience": "Work Experience",
+      "professionalExperience": "Professional Experience",
+      "education": "Education",
+      "skills": "Skills",
+      "coreSkills": "Core Skills",
+      "technicalSkills": "Technical Skills",
+      "languages": "Languages",
+      "interests": "Interests",
+      "strengths": "Strengths",
+      "certifications": "Certifications",
+      "awards": "Awards",
+      "projects": "Projects",
+      "references": "References",
+      "summary": "Summary",
+      "professionalSummary": "Professional Summary",
+      "profile": "Profile",
+      "about": "About",
+      "additionalInfo": "Additional Information",
+      "socialLinks": "Social Links",
+      "personalDetails": "Personal Details",
+      "credentials": "Credentials"
+    },
+    "labels": {
+      "present": "Present",
+      "gpa": "GPA",
+      "native": "Native",
+      "fluent": "Fluent",
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "basic": "Basic"
+    }
+  },
+
+  "About": {
+    "meta": {
+      "title": "About Best AI Resume - Our Mission to Transform Job Search",
+      "description": "Learn about Best AI Resume - the AI-powered platform helping thousands land their dream jobs. Our mission, values, and commitment to your career success."
+    }
+  },
+
+  "Privacy": {
+    "meta": {
+      "title": "Privacy Policy - Best AI Resume",
+      "description": "Learn how Best AI Resume protects your data. Our privacy policy explains how we collect, use, and safeguard your personal information."
+    }
+  },
+
+  "Terms": {
+    "meta": {
+      "title": "Terms of Service - Best AI Resume",
+      "description": "Read the terms of service for Best AI Resume. Understand your rights and responsibilities when using our AI resume builder platform."
+    }
+  },
+
+  "Onboarding": {
+    "meta": {
+      "title": "Create Your Resume - AI Resume Generator",
+      "description": "Start building your professional resume in seconds. Answer 2 questions and let AI create a tailored, job-ready resume for you."
+    },
+    "title": "Tell us about yourself",
+    "subtitle": "Just 2 questions and AI will create your perfect resume",
+    "fullName": "Your Full Name",
+    "fullNamePlaceholder": "e.g., John Smith",
+    "jobTitle": "Job Title You're Applying For",
+    "jobTitlePlaceholder": "e.g., Software Engineer, Marketing Manager",
+    "experienceLevel": "Experience Level",
+    "levels": {
+      "entry": "Entry Level",
+      "entryDesc": "0-2 years of experience",
+      "mid": "Mid Level",
+      "midDesc": "3-5 years of experience",
+      "senior": "Senior Level",
+      "seniorDesc": "6-10 years of experience",
+      "executive": "Executive",
+      "executiveDesc": "10+ years of experience"
+    },
+    "generate": "Generate My Resume",
+    "generating": {
+      "title": "Creating Your Resume",
+      "analyzing": "Analyzing your profession...",
+      "summary": "Generating professional summary...",
+      "experience": "Creating work experience...",
+      "skills": "Adding relevant skills...",
+      "polishing": "Polishing your resume...",
+      "almostThere": "Almost there...",
+      "wait": "This usually takes just a few seconds..."
+    },
+    "step1": {
+      "title": "How would you like to create your resume?",
+      "subtitle": "Choose your preferred method to get started",
+      "recommended": "RECOMMENDED",
+      "ai": {
+        "title": "Create with AI",
+        "description": "Tell us your profession and we'll generate a professional resume in seconds"
+      },
+      "upload": {
+        "title": "Upload Resume",
+        "description": "Upload your existing resume and we'll enhance it"
+      },
+      "linkedin": {
+        "title": "Import LinkedIn",
+        "description": "Import your profile from LinkedIn automatically"
+      },
+      "comingSoon": "Coming soon",
+      "startBlank": "Or start with a blank resume"
+    },
+    "step4": {
+      "title": "Choose Your Template",
+      "subtitle": "Your resume is ready! Pick a design that suits your style.",
+      "backToEdit": "Back to edit info",
+      "browseAll": "Browse all templates",
+      "continue": "Continue to Editor"
+    },
+    "upload": {
+      "title": "Upload Your Resume",
+      "subtitle": "We'll extract your information and enhance it with AI",
+      "dragDrop": "Drag and drop your resume here",
+      "orBrowse": "or browse files",
+      "supportedFormats": "PDF or DOCX (max {maxSize})",
+      "validating": "Validating file...",
+      "uploading": "Uploading...",
+      "parsing": "AI is analyzing your resume...",
+      "success": "Resume imported successfully!",
+      "error": "Something went wrong",
+      "tryAgain": "Try Again",
+      "invalidType": "Please upload a PDF or DOCX file",
+      "fileTooLarge": "File exceeds {maxSize} limit"
+    },
+    "linkedin": {
+      "title": "Import from LinkedIn",
+      "subtitle": "Export your LinkedIn profile as PDF and upload it here",
+      "step1": "Go to your LinkedIn profile",
+      "step2": "Click \"More\" → \"Save to PDF\"",
+      "step3": "Upload the downloaded PDF below",
+      "openLinkedIn": "Open LinkedIn Profile",
+      "tip": "LinkedIn PDFs work best for importing your complete work history"
+    }
+  },
+
+  "Pricing": {
+    "meta": {
+      "title": "Pricing Plans - AI Resume Builder Starting at $3/month",
+      "description": "Choose the perfect plan for your job search. 7-day free trial on Gold & Diamond plans. No hidden fees, cancel anytime. Starting at just $3/month."
+    },
+    "sectionTitle": "Pricing",
+    "title": "Simple, transparent",
+    "titleHighlight": "pricing",
+    "subtitle": "Gold & Diamond include 7-day free trial. No hidden fees, cancel anytime.",
+    "viewComparison": "View full comparison",
+    "cancelAnytime": "Cancel anytime",
+    "securePayments": "Secure payments via Stripe",
+    "mostPopular": "MOST POPULAR",
+    "bestValue": "BEST VALUE",
+    "trialBadge": "7-day free trial",
+    "trialNote": "Cancel anytime at no cost.",
+    "allPlansInclude": "All plans include: No ads • All 50+ templates",
+    "page": {
+      "formBuilder": "Form Builder",
+      "canvasEditor": "Canvas Editor",
+      "premiumTemplates": "Premium templates",
+      "aiBuild": "AI Resume Builder",
+      "atsOptimization": "ATS Optimization",
+      "prioritySupport": "Priority support",
+      "aiSuggestions": "AI suggestions",
+      "coverLetterBuilder": "Cover letter builder",
+      "noAds": "No ads",
+      "earlyAccess": "Early access features",
+      "cvCreations": "CV creations/month",
+      "aiGenerations": "AI generations/month",
+      "unlimited": "Unlimited"
+    },
+    "comparison": {
+      "title": "Compare Plans",
+      "feature": "Feature",
+      "cvCreations": "CV Creations",
+      "aiGenerations": "AI Generations",
+      "perMonth": "{count}/mo",
+      "unlimited": "Unlimited",
+      "savedResumes": "Saved Resumes",
+      "templates": "Templates",
+      "all50": "All 50+",
+      "premiumPlus": "50+ & Premium",
+      "aiBuild": "AI Resume Builder",
+      "adFree": "Ad-Free"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "cancelAnytime": {
+        "question": "Can I cancel my subscription anytime?",
+        "answer": "Yes, you can cancel your subscription at any time, including during your free trial. You won't be charged if you cancel before the trial ends."
+      },
+      "paymentMethods": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards (Visa, MasterCard, American Express) via Stripe. PayPal coming soon."
+      },
+      "starterOneTime": {
+        "question": "How does the free trial work?",
+        "answer": "All plans come with a 7-day free trial. Add your card to start, and you won't be charged until the trial ends. During the trial, you have daily limits on AI resume generation."
+      },
+      "runOutDownloads": {
+        "question": "What happens when I reach my limits?",
+        "answer": "When you reach your monthly CV creation or AI generation limit, you can upgrade to a higher plan for more capacity. Limits reset at the start of each billing period."
+      },
+      "switchPlans": {
+        "question": "Can I switch between plans?",
+        "answer": "Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges."
+      },
+      "refunds": {
+        "question": "Do you offer refunds?",
+        "answer": "Since all plans include a 7-day free trial, we don't offer refunds after you're charged. Make sure to cancel during your trial if it's not right for you."
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "7-day free trial on Gold & Diamond plans. All plans cancel anytime.",
+      "button": "View Plans",
+      "contactSupport": "Contact Support"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Perfect for job seekers",
+      "price": "$3",
+      "period": "/month",
+      "features": {
+        "cvCreations": "30 CV creations/month",
+        "aiGenerations": "3 AI generations/month",
+        "templates": "All 50+ templates",
+        "noAds": "No ads",
+        "export": "PDF export"
+      },
+      "cta": "Get Started"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "For active job hunters",
+      "price": "$6",
+      "period": "/month",
+      "features": {
+        "cvCreations": "150 CV creations/month",
+        "aiGenerations": "10 AI generations/month",
+        "templates": "All 50+ templates",
+        "noAds": "No ads",
+        "ats": "ATS optimization"
+      },
+      "cta": "Start Free Trial"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Best for professionals",
+      "price": "$10",
+      "period": "/month",
+      "features": {
+        "cvCreations": "300 CV creations/month",
+        "aiGenerations": "30 AI generations/month",
+        "templates": "All + Premium templates",
+        "support": "Priority support",
+        "coverLetter": "Cover letter builder"
+      },
+      "cta": "Start Free Trial"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "For power users & agencies",
+      "price": "$30",
+      "period": "/month",
+      "features": {
+        "cvCreations": "Unlimited CV creations",
+        "aiGenerations": "100 AI generations/month",
+        "templates": "All + Premium templates",
+        "support": "Priority support",
+        "coverLetter": "Cover letter builder",
+        "earlyAccess": "Early access to new features"
+      },
+      "cta": "Subscribe Now"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Tips, guides, and insights for your career",
+    "searchPlaceholder": "Search articles...",
+    "readMore": "Read more",
+    "readingTime": "{time} min read",
+    "categories": "Categories",
+    "allCategories": "All Categories",
+    "relatedPosts": "Related Posts",
+    "shareOn": "Share on",
+    "noResults": "No articles found"
+  },
+
+  "Footer": {
+    "tagline": "AI-powered resume builder trusted by professionals worldwide.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "social": "Social",
+    "about": "About",
+    "careers": "Careers",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "copyright": "© {year} Best AI Resume. All rights reserved."
+  },
+
+  "Auth": {
+    "meta": {
+      "loginTitle": "Log In - Best AI Resume",
+      "loginDescription": "Sign in to your Best AI Resume account to access your saved resumes and continue building.",
+      "registerTitle": "Create Account - Best AI Resume",
+      "registerDescription": "Create your free account to save resumes, access premium templates, and unlock AI features."
+    },
+    "login": "Log in",
+    "register": "Create account",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "fullName": "Full Name",
+    "welcomeBack": "Welcome Back",
+    "welcomeBackSubtitle": "Sign in to continue building your resume",
+    "createAccount": "Create Account",
+    "createAccountSubtitle": "Start building your professional resume today"
+  },
+
+  "Errors": {
+    "notFound": "Page not found",
+    "serverError": "Something went wrong",
+    "unauthorized": "Please log in to continue"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Select language"
+  },
+
+  "Dashboard": {
+    "meta": {
+      "title": "Dashboard - My Resumes",
+      "description": "Manage your resumes, track downloads, and access your subscription settings."
+    }
+  },
+
+  "Checkout": {
+    "meta": {
+      "title": "Checkout - Complete Your Subscription",
+      "description": "Complete your subscription to unlock unlimited resume features. Secure payment via Stripe."
+    }
+  },
+
+  "Builder": {
+    "meta": {
+      "title": "Resume Builder - Create Your Professional CV Online",
+      "description": "Build your professional resume with our easy-to-use editor. Real-time preview, AI suggestions, and instant PDF download."
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "subtitle": "Start with your contact details and professional summary."
+    },
+    "profilePhoto": "Profile Photo",
+    "upload": "Upload",
+    "change": "Change",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "John Doe",
+    "jobTitle": "Job Title",
+    "jobTitlePlaceholder": "Software Engineer",
+    "email": "Email",
+    "emailPlaceholder": "john@example.com",
+    "phone": "Phone",
+    "phonePlaceholder": "+1 (555) 000-0000",
+    "location": "Location",
+    "locationPlaceholder": "New York, NY",
+    "website": "Website",
+    "websitePlaceholder": "johndoe.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/johndoe",
+    "nationality": "Nationality",
+    "nationalityPlaceholder": "e.g., American, British",
+    "idDocument": "ID / Passport / Driving License",
+    "selectDocType": "Select doc",
+    "nationalId": "National ID",
+    "passport": "Passport",
+    "drivingLicense": "Driving License",
+    "documentNumber": "Document number",
+    "professionalSummary": "Professional Summary",
+    "summaryPlaceholder": "Experienced Software Engineer with a passion for building scalable web applications...",
+    "generateWithAI": "Generate with AI",
+    "additionalInfo": "Additional Information",
+    "socialLinks": "Social Links",
+    "references": "References",
+    "customField": "Custom Field",
+    "sectionLabel": "Section Label",
+    "sectionLabelPlaceholder": "e.g., Volunteer Work, Hobbies, Additional Notes",
+    "content": "Content",
+    "contentPlaceholder": "Add any additional information you'd like to include on your resume...",
+    "shapes": {
+      "circle": "Circle",
+      "rounded": "Rounded",
+      "square": "Square"
+    },
+    "experience": {
+      "title": "Work Experience",
+      "subtitle": "Add your relevant work experience.",
+      "add": "Add Experience",
+      "notSpecified": "(Not specified)",
+      "companyName": "Company Name",
+      "jobTitle": "Job Title",
+      "company": "Company",
+      "city": "City",
+      "country": "Country",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "currentlyWork": "I currently work here",
+      "description": "Description",
+      "improveAI": "Improve using AI",
+      "noExperience": "No experience added yet.",
+      "addFirst": "Add your first role"
+    },
+    "education": {
+      "title": "Education",
+      "subtitle": "Add your educational background.",
+      "add": "Add Education",
+      "notSpecified": "(Not specified)",
+      "degree": "Degree",
+      "school": "School / University",
+      "cityOptional": "City (Optional)",
+      "countryOptional": "Country (Optional)",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "gpaOptional": "GPA (Optional)",
+      "honorsOptional": "Honors (Optional)",
+      "clubsOptional": "Clubs & Activities (Optional)",
+      "descriptionOptional": "Description (Optional)",
+      "noEducation": "No education added yet.",
+      "addEducation": "Add your education",
+      "credentials": "Credentials",
+      "certifications": "Certifications",
+      "awards": "Awards & Achievements"
+    },
+    "skills": {
+      "title": "Skills",
+      "subtitle": "Add your technical and soft skills with proficiency levels.",
+      "placeholder": "e.g. React, Python, Leadership",
+      "proficiencyLevel": "Proficiency Level",
+      "beginner": "Beginner",
+      "basic": "Basic",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert",
+      "noSkills": "No skills added yet.",
+      "suggestedSkills": "Suggested Skills",
+      "additionalInfo": "Additional Information",
+      "languages": "Languages",
+      "strengths": "Strengths",
+      "interests": "Interests & Hobbies"
+    }
+  },
+
+  "CoverLetter": {
+    "meta": {
+      "title": "Free AI Cover Letter Generator - Create Professional Cover Letters",
+      "description": "Generate professional, personalized cover letters in minutes with our free AI-powered tool. Stand out from the crowd and land more interviews."
+    },
+    "hero": {
+      "badge": "AI-Powered Cover Letter Generator",
+      "title": "Create a",
+      "titleHighlight": "Perfect Cover Letter",
+      "subtitle": "Let AI craft a compelling, personalized cover letter that highlights your strengths and captures the attention of hiring managers."
+    },
+    "form": {
+      "yourDetails": "Your Details",
+      "fillInfo": "Fill in your information",
+      "fullName": "Full Name",
+      "email": "Email",
+      "jobTitle": "Job Title",
+      "companyName": "Company Name",
+      "hiringManager": "Hiring Manager Name (Optional)",
+      "keySkills": "Key Skills",
+      "experience": "Relevant Experience",
+      "tone": "Writing Tone",
+      "professional": "Professional",
+      "friendly": "Friendly",
+      "confident": "Confident",
+      "enthusiastic": "Enthusiastic",
+      "generate": "Generate Cover Letter"
+    },
+    "preview": {
+      "title": "Preview",
+      "subtitle": "Your generated letter",
+      "noLetter": "No letter generated yet",
+      "fillAndGenerate": "Fill in your details and click Generate",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "download": "Download"
+    },
+    "tips": {
+      "title": "Tips for a",
+      "titleHighlight": "Great Cover Letter",
+      "beSpecific": "Be Specific",
+      "beSpecificDesc": "Tailor your letter to the specific job and company. Generic letters are easily spotted.",
+      "showResults": "Show Results",
+      "showResultsDesc": "Include quantifiable achievements. Numbers make your accomplishments concrete and memorable.",
+      "keepConcise": "Keep It Concise",
+      "keepConciseDesc": "Aim for 3-4 paragraphs. Recruiters spend just seconds scanning each application."
+    },
+    "cta": {
+      "title": "Need a Resume Too?",
+      "subtitle": "Pair your cover letter with a professionally designed resume built with AI.",
+      "button": "Build Your Resume"
+    }
+  },
+
+  "ResignationLetter": {
+    "meta": {
+      "title": "Free AI Resignation Letter Generator - Professional Exit Letters",
+      "description": "Create a professional resignation letter in minutes. Leave your job on good terms and maintain positive relationships with our AI-powered tool."
+    },
+    "hero": {
+      "badge": "AI-Powered Resignation Letter Generator",
+      "title": "Write a",
+      "titleHighlight": "Professional Resignation",
+      "subtitle": "Leave your job on good terms with a professionally written resignation letter. Maintain positive relationships and protect your professional reputation."
+    },
+    "notice": "Standard notice period is usually 2 weeks. Check your employment contract for specific requirements.",
+    "form": {
+      "yourDetails": "Your Details",
+      "fillInfo": "Fill in your information",
+      "yourName": "Your Name",
+      "currentPosition": "Current Position",
+      "companyName": "Company Name",
+      "managerName": "Manager's Name",
+      "lastWorkingDay": "Last Working Day",
+      "reasonForLeaving": "Reason for Leaving",
+      "positiveExperiences": "Positive Experiences (Optional)",
+      "tone": "Letter Tone",
+      "professional": "Professional",
+      "grateful": "Grateful",
+      "brief": "Brief",
+      "warm": "Warm",
+      "offerHelp": "Offer to help with transition",
+      "generate": "Generate Resignation Letter"
+    },
+    "reasons": {
+      "newOpportunity": "Pursuing a new opportunity",
+      "careerChange": "Career change",
+      "relocation": "Relocation",
+      "personal": "Personal reasons",
+      "education": "Returning to education",
+      "family": "Family commitments",
+      "health": "Health reasons",
+      "retirement": "Retirement"
+    },
+    "tips": {
+      "title": "Resignation",
+      "titleHighlight": "Best Practices",
+      "giveNotice": "Give Notice",
+      "giveNoticeDesc": "Provide at least 2 weeks notice, or follow your contract terms.",
+      "stayProfessional": "Stay Professional",
+      "stayProfessionalDesc": "Keep emotions out of it. Be respectful and positive.",
+      "documentIt": "Document It",
+      "documentItDesc": "Always submit a written resignation for your records.",
+      "leaveWell": "Leave Well",
+      "leaveWellDesc": "Complete pending work and offer to train your replacement."
+    },
+    "cta": {
+      "title": "Ready for Your Next Opportunity?",
+      "subtitle": "Build a professional resume for your job search with our AI-powered resume builder.",
+      "button": "Build Your Resume"
+    }
+  },
+
+  "CareerTips": {
+    "meta": {
+      "title": "Career Tips & Resume Advice - Expert Guides | Best AI Resume",
+      "description": "Expert career advice, resume writing tips, and job search strategies. Learn how to create AI-powered resumes, ace interviews, and land your dream job."
+    },
+    "hero": {
+      "badge": "Expert Career Guides",
+      "title": "Career Tips",
+      "titleHighlight": "& Expert Advice",
+      "subtitle": "Master resume writing, ace interviews, and accelerate your career with our expert guides."
+    },
+    "featured": "Featured Articles",
+    "allArticles": "All Articles",
+    "searchPlaceholder": "Search articles...",
+    "noArticles": "No articles found",
+    "noArticlesHint": "Try adjusting your search or filter",
+    "categories": {
+      "title": "Categories",
+      "all": "All Articles",
+      "resumeTips": "Resume Tips",
+      "coverLetters": "Cover Letters",
+      "interviews": "Interview Tips",
+      "jobSearch": "Job Search",
+      "careerAdvice": "Career Advice",
+      "aiResume": "AI Resume"
+    },
+    "article": {
+      "readMore": "Read More",
+      "tableOfContents": "Table of Contents",
+      "relatedArticles": "Related Articles",
+      "moreCareerTips": "More Career Tips",
+      "shareHelpful": "Found this helpful?",
+      "shareWithOthers": "Share it with others who might benefit",
+      "tags": "Tags"
+    },
+    "cta": {
+      "title": "Ready to Build Your Resume?",
+      "subtitle": "Put these tips into action with our AI-powered resume builder. Create a professional resume in minutes.",
+      "button": "Build Your Resume Now",
+      "sidebarTitle": "Build Your Resume",
+      "sidebarSubtitle": "Create a professional resume with AI in minutes.",
+      "sidebarButton": "Get Started"
+    }
+  }
+}

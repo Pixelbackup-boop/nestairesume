@@ -1,0 +1,506 @@
+{
+  "Meta": {
+    "title": "Best AI Resume - Erstellen Sie Ihren perfekten Lebenslauf mit KI",
+    "description": "Erstellen Sie professionelle, ATS-optimierte Lebensläufe in Minuten mit KI. Kostenlos testen, keine Anmeldung erforderlich."
+  },
+
+  "Common": {
+    "loading": "Laden...",
+    "error": "Ein Fehler ist aufgetreten",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "search": "Suchen",
+    "submit": "Absenden",
+    "next": "Weiter",
+    "back": "Zurück",
+    "download": "Herunterladen",
+    "preview": "Vorschau",
+    "scrollToExplore": "Scrollen zum Erkunden"
+  },
+
+  "Navigation": {
+    "features": "Funktionen",
+    "templates": "Vorlagen",
+    "pricing": "Preise",
+    "blog": "Blog",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "getStarted": "Kostenlos Starten",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "adminPanel": "Admin-Panel"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "KI-gestützte Lebenslauf-Erstellung",
+      "title": "Erstellen Sie Ihren",
+      "titleHighlight": "Perfekten Lebenslauf",
+      "subtitle": "Keine Anmeldung Erforderlich",
+      "description": "Erstellen Sie beeindruckende, ATS-optimierte Lebensläufe in Minuten mit KI. Kostenlos testen — melden Sie sich erst an, wenn Sie speichern möchten.",
+      "ctaPrimary": "Mit KI Erstellen",
+      "ctaSecondary": "Vorlagen Durchsuchen",
+      "noCreditCard": "Keine Kreditkarte erforderlich",
+      "noSignup": "Keine Anmeldung zum Starten",
+      "trustedBy": "Über 50.000 Fachleute vertrauen uns",
+      "atsScore": "ATS-Bewertung",
+      "aiSuggestion": "KI-Vorschlag"
+    },
+    "features": {
+      "sectionTitle": "Funktionen",
+      "title": "Alles was Sie brauchen um",
+      "titleHighlight": "Ihren Traumjob zu bekommen",
+      "subtitle": "Leistungsstarke KI-Tools kombiniert mit ansprechendem Design, um sich abzuheben.",
+      "aiWriting": {
+        "title": "KI-gestütztes Schreiben",
+        "description": "Lassen Sie unsere KI überzeugende Aufzählungspunkte und professionelle Zusammenfassungen erstellen."
+      },
+      "templates": {
+        "title": "20+ Premium-Vorlagen",
+        "description": "Wählen Sie aus professionell gestalteten Vorlagen, die auffallen und ATS-kompatibel bleiben."
+      },
+      "atsOptimization": {
+        "title": "ATS-Optimierung",
+        "description": "Die Echtzeit-ATS-Bewertung stellt sicher, dass Ihr Lebenslauf automatisierte Systeme passiert."
+      },
+      "realTimePreview": {
+        "title": "Echtzeit-Vorschau",
+        "description": "Sehen Sie Änderungen sofort. Was Sie sehen, sehen auch die Personalvermittler."
+      },
+      "pdfExport": {
+        "title": "PDF-Export",
+        "description": "Laden Sie perfekte PDFs herunter, bereit zum Versenden. Optimiert für digital und Druck."
+      },
+      "smartSuggestions": {
+        "title": "Intelligente Vorschläge",
+        "description": "Erhalten Sie intelligente Empfehlungen für Fähigkeiten, Schlüsselwörter und Inhalte."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "So Funktioniert's",
+      "title": "Drei Schritte zu Ihrem",
+      "titleHighlight": "perfekten Lebenslauf",
+      "step1": {
+        "title": "Daten Eingeben",
+        "description": "Geben Sie Ihre Erfahrung, Ausbildung und Fähigkeiten ein. Unsere KI unterstützt Sie dabei."
+      },
+      "step2": {
+        "title": "Vorlage Wählen",
+        "description": "Wählen Sie aus 20+ professionellen Vorlagen. Echtzeit-Vorschau während der Anpassung."
+      },
+      "step3": {
+        "title": "PDF Herunterladen",
+        "description": "Exportieren Sie Ihren ausgefeilten Lebenslauf als perfektes PDF."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Vorlagen",
+      "title": "Premium-Vorlagen für",
+      "titleHighlight": "jeden Beruf",
+      "viewAll": "Alle Vorlagen Anzeigen"
+    },
+    "testimonials": {
+      "sectionTitle": "Referenzen",
+      "title": "Geliebt von Fachleuten",
+      "titleHighlight": "weltweit"
+    },
+    "cta": {
+      "title": "Bereit, Ihren",
+      "titleHighlight": "erfolgreichen Lebenslauf zu erstellen?",
+      "subtitle": "Schließen Sie sich 50.000+ Fachleuten an, die ihren Traumjob mit Best AI Resume bekommen haben.",
+      "button": "Jetzt CV Erstellen — Kostenlos",
+      "note": "Keine Anmeldung erforderlich"
+    }
+  },
+
+  "Templates": {
+    "sectionTitle": "Vorlagen",
+    "title": "Wählen Sie Ihre",
+    "titleHighlight": "perfekte Vorlage",
+    "subtitle": "Wählen Sie einen Bearbeitungsmodus und eine unserer professionell gestalteten Vorlagen.",
+    "searchPlaceholder": "Vorlagen suchen...",
+    "templatesAvailable": "{count} Vorlage{count, plural, one {} other {n}} verfügbar",
+    "noResults": "Keine Vorlagen gefunden",
+    "noResultsHint": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
+    "useTemplate": "Vorlage Verwenden",
+    "formBuilder": {
+      "title": "Formular-Editor",
+      "description": "Geführte Schritt-für-Schritt-Bearbeitung",
+      "hint": "Füllen Sie Formulare aus und lassen Sie die Vorlage das Design übernehmen."
+    },
+    "canvasEditor": {
+      "title": "Canvas-Editor",
+      "description": "Volle kreative Freiheit",
+      "hint": "Ziehen, ablegen und frei gestalten. Volle Kontrolle über jedes Element."
+    },
+    "categories": {
+      "all": "Alle",
+      "professional": "Professionell",
+      "creative": "Kreativ",
+      "minimal": "Minimalistisch",
+      "bold": "Markant",
+      "modern": "Modern",
+      "classic": "Klassisch"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Von Grund auf neu starten?",
+        "description": "Erstellen Sie einen vollständig benutzerdefinierten Lebenslauf mit unserem Canvas-Editor.",
+        "button": "Leeren Canvas Öffnen"
+      },
+      "builder": {
+        "title": "Soll die KI Ihren Lebenslauf erstellen?",
+        "description": "Lassen Sie unsere KI in Sekunden einen professionellen Lebenslauf erstellen.",
+        "button": "Mit KI Erstellen"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Kontakt",
+      "experience": "Erfahrung",
+      "workExperience": "Berufserfahrung",
+      "professionalExperience": "Berufserfahrung",
+      "education": "Ausbildung",
+      "skills": "Fähigkeiten",
+      "coreSkills": "Kernkompetenzen",
+      "technicalSkills": "Technische Fähigkeiten",
+      "languages": "Sprachen",
+      "interests": "Interessen",
+      "strengths": "Stärken",
+      "certifications": "Zertifizierungen",
+      "awards": "Auszeichnungen",
+      "projects": "Projekte",
+      "references": "Referenzen",
+      "summary": "Zusammenfassung",
+      "professionalSummary": "Berufliche Zusammenfassung",
+      "profile": "Profil",
+      "about": "Über mich",
+      "additionalInfo": "Zusätzliche Informationen",
+      "socialLinks": "Soziale Medien",
+      "personalDetails": "Persönliche Angaben",
+      "credentials": "Qualifikationen"
+    },
+    "labels": {
+      "present": "Aktuell",
+      "gpa": "Notendurchschnitt",
+      "native": "Muttersprache",
+      "fluent": "Fließend",
+      "advanced": "Fortgeschritten",
+      "intermediate": "Mittelstufe",
+      "basic": "Grundkenntnisse"
+    }
+  },
+
+  "Onboarding": {
+    "title": "Erzählen Sie uns von sich",
+    "subtitle": "Nur 2 Fragen und die KI erstellt Ihren perfekten Lebenslauf",
+    "fullName": "Ihr Vollständiger Name",
+    "fullNamePlaceholder": "z.B., Max Mustermann",
+    "jobTitle": "Angestrebte Position",
+    "jobTitlePlaceholder": "z.B., Software-Ingenieur, Marketing-Manager",
+    "experienceLevel": "Erfahrungsstufe",
+    "levels": {
+      "entry": "Berufseinsteiger",
+      "entryDesc": "0-2 Jahre Erfahrung",
+      "mid": "Mittleres Level",
+      "midDesc": "3-5 Jahre Erfahrung",
+      "senior": "Senior",
+      "seniorDesc": "6-10 Jahre Erfahrung",
+      "executive": "Führungskraft",
+      "executiveDesc": "10+ Jahre Erfahrung"
+    },
+    "generate": "Meinen Lebenslauf Generieren",
+    "generating": {
+      "title": "Ihr Lebenslauf wird erstellt",
+      "analyzing": "Analysiere Ihren Beruf...",
+      "summary": "Generiere berufliche Zusammenfassung...",
+      "experience": "Erstelle Berufserfahrung...",
+      "skills": "Füge relevante Fähigkeiten hinzu...",
+      "polishing": "Verfeinere Ihren Lebenslauf...",
+      "almostThere": "Fast fertig...",
+      "wait": "Das dauert normalerweise nur wenige Sekunden..."
+    },
+    "step1": {
+      "title": "Wie möchten Sie Ihren Lebenslauf erstellen?",
+      "subtitle": "Wählen Sie Ihre bevorzugte Methode zum Starten",
+      "recommended": "EMPFOHLEN",
+      "ai": {
+        "title": "Mit KI erstellen",
+        "description": "Nennen Sie uns Ihren Beruf und wir erstellen in Sekunden einen professionellen Lebenslauf"
+      },
+      "upload": {
+        "title": "Lebenslauf hochladen",
+        "description": "Laden Sie Ihren bestehenden Lebenslauf hoch und wir verbessern ihn"
+      },
+      "linkedin": {
+        "title": "LinkedIn importieren",
+        "description": "Importieren Sie Ihr LinkedIn-Profil automatisch"
+      },
+      "comingSoon": "Demnächst verfügbar",
+      "startBlank": "Oder mit einem leeren Lebenslauf beginnen"
+    },
+    "step4": {
+      "title": "Wählen Sie Ihre Vorlage",
+      "subtitle": "Ihr Lebenslauf ist fertig! Wählen Sie ein Design, das zu Ihrem Stil passt.",
+      "backToEdit": "Zurück zum Bearbeiten",
+      "browseAll": "Alle Vorlagen durchsuchen",
+      "continue": "Weiter zum Editor"
+    },
+    "upload": {
+      "title": "Laden Sie Ihren Lebenslauf hoch",
+      "subtitle": "Wir extrahieren Ihre Informationen und verbessern sie mit KI",
+      "dragDrop": "Lebenslauf hier hinziehen oder ablegen",
+      "orBrowse": "oder Dateien durchsuchen",
+      "supportedFormats": "PDF oder DOCX (max. {maxSize})",
+      "validating": "Datei wird validiert...",
+      "uploading": "Hochladen...",
+      "parsing": "KI analysiert Ihren Lebenslauf...",
+      "success": "Lebenslauf erfolgreich importiert!",
+      "error": "Etwas ist schiefgelaufen",
+      "tryAgain": "Erneut versuchen",
+      "invalidType": "Bitte laden Sie eine PDF- oder DOCX-Datei hoch",
+      "fileTooLarge": "Datei überschreitet das Limit von {maxSize}"
+    },
+    "linkedin": {
+      "title": "Von LinkedIn importieren",
+      "subtitle": "Exportieren Sie Ihr LinkedIn-Profil als PDF und laden Sie es hier hoch",
+      "step1": "Gehen Sie zu Ihrem LinkedIn-Profil",
+      "step2": "Klicken Sie auf \"Mehr\" → \"Als PDF speichern\"",
+      "step3": "Laden Sie das heruntergeladene PDF unten hoch",
+      "openLinkedIn": "LinkedIn-Profil öffnen",
+      "tip": "LinkedIn-PDFs eignen sich am besten für den Import Ihres vollständigen Werdegangs"
+    }
+  },
+
+  "Pricing": {
+    "sectionTitle": "Preise",
+    "title": "Einfache, transparente",
+    "titleHighlight": "Preisgestaltung",
+    "subtitle": "Kostenlos starten, upgraden wenn Sie mehr brauchen. Keine versteckten Gebühren.",
+    "viewComparison": "Vollständigen Vergleich anzeigen",
+    "cancelAnytime": "Jederzeit kündbar",
+    "securePayments": "Sichere Zahlungen über Stripe",
+    "mostPopular": "AM BELIEBTESTEN",
+    "free": {
+      "name": "Kostenlos",
+      "description": "Vor dem Kauf testen",
+      "price": "0€",
+      "period": "/für immer",
+      "features": {
+        "downloads": "5 Downloads (mit Werbung)",
+        "resumes": "3 gespeicherte Lebensläufe",
+        "templates": "15 Basis-Vorlagen",
+        "aiBuild": "KI-Schnellerstellung"
+      },
+      "limitations": {
+        "ads": "Enthält Werbung"
+      },
+      "cta": "Kostenlos Starten"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Einmaliger Kauf",
+      "price": "3€",
+      "period": " einmalig",
+      "features": {
+        "downloads": "10 Downloads",
+        "resumes": "5 gespeicherte Lebensläufe",
+        "templates": "Alle 50+ Vorlagen",
+        "noAds": "Keine Werbung",
+        "export": "PDF- und PNG-Export"
+      },
+      "cta": "Starter Kaufen"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Monatliches Abo",
+      "price": "6€",
+      "period": "/Monat",
+      "features": {
+        "downloads": "50 Downloads/Monat",
+        "resumes": "20 gespeicherte Lebensläufe",
+        "templates": "Alle 50+ Vorlagen",
+        "noAds": "Keine Werbung",
+        "ats": "ATS-Optimierung"
+      },
+      "cta": "Gold Holen"
+    },
+    "diamond": {
+      "name": "Diamant",
+      "description": "Bestes Preis-Leistungs-Verhältnis",
+      "price": "10€",
+      "period": "/Monat",
+      "features": {
+        "downloads": "150 Downloads/Monat",
+        "resumes": "50 gespeicherte Lebensläufe",
+        "templates": "Alle + Premium-Vorlagen",
+        "support": "Prioritäts-Support",
+        "coverLetter": "Anschreiben-Generator"
+      },
+      "cta": "Diamant Holen"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Tipps, Anleitungen und Einblicke für Ihre Karriere",
+    "searchPlaceholder": "Artikel suchen...",
+    "readMore": "Weiterlesen",
+    "readingTime": "{time} Min. Lesezeit",
+    "categories": "Kategorien",
+    "allCategories": "Alle Kategorien",
+    "relatedPosts": "Verwandte Artikel",
+    "shareOn": "Teilen auf",
+    "noResults": "Keine Artikel gefunden"
+  },
+
+  "Footer": {
+    "tagline": "KI-gestützter Lebenslauf-Generator, dem Fachleute weltweit vertrauen.",
+    "product": "Produkt",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "social": "Soziale Medien",
+    "about": "Über uns",
+    "careers": "Karriere",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "contact": "Kontakt",
+    "copyright": "© {year} Best AI Resume. Alle Rechte vorbehalten."
+  },
+
+  "Auth": {
+    "login": "Anmelden",
+    "register": "Konto erstellen",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "forgotPassword": "Passwort vergessen?",
+    "noAccount": "Noch kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "signUp": "Registrieren",
+    "signIn": "Anmelden",
+    "welcomeBack": "Willkommen Zurück",
+    "welcomeBackSubtitle": "Melden Sie sich an, um Ihren Lebenslauf weiterzubearbeiten",
+    "createAccount": "Konto Erstellen",
+    "createAccountSubtitle": "Beginnen Sie heute mit der Erstellung Ihres professionellen Lebenslaufs"
+  },
+
+  "Errors": {
+    "notFound": "Seite nicht gefunden",
+    "serverError": "Etwas ist schiefgelaufen",
+    "unauthorized": "Bitte melden Sie sich an, um fortzufahren"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Sprache wählen"
+  },
+
+  "Builder": {
+    "personalInfo": {
+      "title": "Persönliche Informationen",
+      "subtitle": "Beginnen Sie mit Ihren Kontaktdaten und Ihrer beruflichen Zusammenfassung."
+    },
+    "profilePhoto": "Profilfoto",
+    "upload": "Hochladen",
+    "change": "Ändern",
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Max Mustermann",
+    "jobTitle": "Berufsbezeichnung",
+    "jobTitlePlaceholder": "Software-Ingenieur",
+    "email": "E-Mail",
+    "emailPlaceholder": "max@beispiel.de",
+    "phone": "Telefon",
+    "phonePlaceholder": "+49 170 0000000",
+    "location": "Standort",
+    "locationPlaceholder": "Berlin, Deutschland",
+    "website": "Webseite",
+    "websitePlaceholder": "maxmustermann.de",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/maxmustermann",
+    "nationality": "Staatsangehörigkeit",
+    "nationalityPlaceholder": "z.B., Deutsch, Österreichisch",
+    "idDocument": "Ausweis / Reisepass / Führerschein",
+    "selectDocType": "Auswählen",
+    "nationalId": "Personalausweis",
+    "passport": "Reisepass",
+    "drivingLicense": "Führerschein",
+    "documentNumber": "Dokumentennummer",
+    "professionalSummary": "Berufliche Zusammenfassung",
+    "summaryPlaceholder": "Erfahrener Software-Ingenieur mit Leidenschaft für skalierbare Webanwendungen...",
+    "generateWithAI": "Mit KI generieren",
+    "additionalInfo": "Zusätzliche Informationen",
+    "socialLinks": "Soziale Netzwerke",
+    "references": "Referenzen",
+    "customField": "Benutzerdefiniertes Feld",
+    "sectionLabel": "Abschnittsbezeichnung",
+    "sectionLabelPlaceholder": "z.B., Ehrenamt, Hobbys, Zusätzliche Anmerkungen",
+    "content": "Inhalt",
+    "contentPlaceholder": "Fügen Sie zusätzliche Informationen hinzu, die Sie in Ihrem Lebenslauf aufnehmen möchten...",
+    "shapes": {
+      "circle": "Kreis",
+      "rounded": "Abgerundet",
+      "square": "Quadrat"
+    },
+    "experience": {
+      "title": "Berufserfahrung",
+      "subtitle": "Fügen Sie Ihre relevante Berufserfahrung hinzu.",
+      "add": "Erfahrung hinzufügen",
+      "notSpecified": "(Nicht angegeben)",
+      "companyName": "Firmenname",
+      "jobTitle": "Berufsbezeichnung",
+      "company": "Unternehmen",
+      "city": "Stadt",
+      "country": "Land",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum",
+      "currentlyWork": "Ich arbeite derzeit hier",
+      "description": "Beschreibung",
+      "improveAI": "Mit KI verbessern",
+      "noExperience": "Noch keine Erfahrung hinzugefügt.",
+      "addFirst": "Fügen Sie Ihre erste Stelle hinzu"
+    },
+    "education": {
+      "title": "Ausbildung",
+      "subtitle": "Fügen Sie Ihren Bildungsweg hinzu.",
+      "add": "Ausbildung hinzufügen",
+      "notSpecified": "(Nicht angegeben)",
+      "degree": "Abschluss",
+      "school": "Schule / Universität",
+      "cityOptional": "Stadt (Optional)",
+      "countryOptional": "Land (Optional)",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum",
+      "gpaOptional": "Notendurchschnitt (Optional)",
+      "honorsOptional": "Auszeichnungen (Optional)",
+      "clubsOptional": "Vereine und Aktivitäten (Optional)",
+      "descriptionOptional": "Beschreibung (Optional)",
+      "noEducation": "Noch keine Ausbildung hinzugefügt.",
+      "addEducation": "Fügen Sie Ihre Ausbildung hinzu",
+      "credentials": "Nachweise",
+      "certifications": "Zertifizierungen",
+      "awards": "Preise und Erfolge"
+    },
+    "skills": {
+      "title": "Fähigkeiten",
+      "subtitle": "Fügen Sie Ihre technischen und persönlichen Fähigkeiten mit Kompetenzstufen hinzu.",
+      "placeholder": "z.B. React, Python, Führung",
+      "proficiencyLevel": "Kompetenzstufe",
+      "beginner": "Anfänger",
+      "basic": "Grundlegend",
+      "intermediate": "Mittelstufe",
+      "advanced": "Fortgeschritten",
+      "expert": "Experte",
+      "noSkills": "Noch keine Fähigkeiten hinzugefügt.",
+      "suggestedSkills": "Vorgeschlagene Fähigkeiten",
+      "additionalInfo": "Zusätzliche Informationen",
+      "languages": "Sprachen",
+      "strengths": "Stärken",
+      "interests": "Interessen und Hobbys"
+    }
+  }
+}

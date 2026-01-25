@@ -3,7 +3,7 @@
 import { useResumeStore, Certification } from '../../store/useResumeStore';
 import { Plus, X, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 
 export default function CertificationsSection() {
     const { resumeData, addCertification, updateCertification, removeCertification } = useResumeStore();
@@ -17,7 +17,7 @@ export default function CertificationsSection() {
         if (!newCert.name.trim() || !newCert.issuer.trim()) return;
 
         const cert: Certification = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             name: newCert.name.trim(),
             issuer: newCert.issuer.trim(),
             date: newCert.date,

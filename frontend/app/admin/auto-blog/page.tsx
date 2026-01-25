@@ -37,7 +37,7 @@ export default function AutoBlogDashboard() {
   const fetchStatus = async () => {
     try {
       const response = await api.get("/admin/auto-blog/status");
-      setStatus(response.data);
+      setStatus(response.data as AutoBlogStatus);
       setError(null);
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };
@@ -58,7 +58,7 @@ export default function AutoBlogDashboard() {
       const response = await api.post("/admin/auto-blog/toggle", {
         enabled: !status.enabled,
       });
-      setStatus({ ...status, enabled: response.data.enabled });
+      setStatus({ ...status, enabled: (response.data as { enabled: boolean }).enabled });
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };
       setError(error.response?.data?.detail || "Failed to toggle");

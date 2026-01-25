@@ -1,10 +1,13 @@
 'use client';
 
-import React, { useRef, useState, useLayoutEffect, useEffect, useCallback, forwardRef } from 'react';
+import React, { useRef, useState, useLayoutEffect, useEffect, useCallback, forwardRef, useMemo } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { useResumeStore } from '../../store/useResumeStore';
+import { isRtl, Locale } from '@/i18n.config';
 import { colorPresets, generateTheme, getLayoutType as getBuilderLayoutType } from '@/lib/templates/builder';
 import UnifiedTemplate, { LayoutType } from '../templates/UnifiedTemplate';
 import { parseDualColor } from '@/lib/templates/builder/colorUtils';
+import { TemplateTranslations } from '@/lib/templates/TranslationContext';
 
 // A4 dimensions
 const A4_HEIGHT_PX = 1123; // Standard A4 height in pixels at 96 DPI
@@ -96,6 +99,35 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
         const { resumeData, selectedTemplate, selectedTheme, selectedTemplateId } = useResumeStore();
         const containerRef = useRef<HTMLDivElement>(null);
         const [totalPages, setTotalPages] = useState(1);
+        const t = useTranslations('Resume');
+        const locale = useLocale() as Locale;
+
+        // Build translations object for template components (including RTL support)
+        const templateTranslations: TemplateTranslations = useMemo(() => ({
+            sections: {
+                experience: t('sections.experience'),
+                workExperience: t('sections.workExperience'),
+                education: t('sections.education'),
+                skills: t('sections.skills'),
+                languages: t('sections.languages'),
+                interests: t('sections.interests'),
+                strengths: t('sections.strengths'),
+                certifications: t('sections.certifications'),
+                awards: t('sections.awards'),
+                references: t('sections.references'),
+                summary: t('sections.summary'),
+                profile: t('sections.profile'),
+                contact: t('sections.contact'),
+                additionalInfo: t('sections.additionalInfo'),
+                socialLinks: t('sections.socialLinks'),
+                personalDetails: t('sections.personalDetails'),
+                credentials: t('sections.credentials'),
+            },
+            labels: {
+                present: t('labels.present'),
+            },
+            isRtl: isRtl(locale),
+        }), [t, locale]);
 
         // Get theme color
         const getThemeColor = (): string => {
@@ -522,6 +554,7 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                             theme={theme}
                             templateId={selectedTemplateId || undefined}
                             layout={layoutType}
+                            translations={templateTranslations}
                         />
                     </div>
                 </div>

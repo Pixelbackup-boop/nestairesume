@@ -3,7 +3,7 @@
  * Ported from frontend/components/templates/layouts/minimal/MinimalBlueSections.tsx
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     fontSizes,
@@ -11,8 +11,16 @@ import {
     escapeHtml,
     formatDescription,
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderMinimalBlueSections = (
+    data: PdfResumeData,
+    theme: PdfTheme,
+    translations?: PdfTranslations,
+    locale: string = 'en'
+): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -85,7 +93,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
             <!-- Profile -->
             ${personalInfo.summary ? `
                 <section style="margin-bottom: 40px;">
-                    ${SectionHeader('Profile')}
+                    ${SectionHeader(t.sections.profile)}
                     <p style="line-height: 1.6; font-size: 14px; color: #374151; padding-left: 8px;">
                         ${formatDescription(personalInfo.summary)}
                     </p>
@@ -95,13 +103,13 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
             <!-- Experience -->
             ${experience.length > 0 ? `
                 <section style="margin-bottom: 40px;">
-                    ${SectionHeader('Experience')}
+                    ${SectionHeader(t.sections.experience)}
                     <div style="display: flex; flex-direction: column; gap: 32px; padding-left: 8px;">
                         ${experience.map(exp => `
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 2px;">
                                     <h4 style="font-weight: 700; font-size: 14px; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
-                                    <span style="font-size: 12px; color: #4b5563;">${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}</span>
+                                    <span style="font-size: 12px; color: #4b5563;">${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                 </div>
                                 <div style="font-size: 12px; color: ${accentColor}; font-weight: 600; margin-bottom: 4px;">
                                     ${escapeHtml(exp.company)}${exp.city ? `, ${escapeHtml(exp.city)}` : ''}
@@ -120,13 +128,13 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
                 <!-- Education -->
                 ${education.length > 0 ? `
                     <div style="flex: 1;">
-                        ${SectionHeader('Education')}
+                        ${SectionHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px; padding-left: 8px;">
                             ${education.map(edu => `
                                 <div>
                                     <h4 style="font-weight: 700; font-size: 14px; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
                                     <div style="font-size: 14px; color: #4b5563;">${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}</div>
-                                    <div style="font-size: 12px; color: #6b7280;">${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}</div>
+                                    <div style="font-size: 12px; color: #6b7280;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
                                 </div>
                             `).join('')}
                         </div>
@@ -136,7 +144,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
                 <!-- Skills -->
                 ${skills.length > 0 ? `
                     <div style="flex: 1;">
-                        ${SectionHeader('Skills')}
+                        ${SectionHeader(t.sections.skills)}
                         <div style="padding-left: 8px;">
                             ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
                         </div>
@@ -149,7 +157,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
                 <div style="display: flex; gap: 32px; margin-top: 40px;">
                     ${languages && languages.length > 0 ? `
                         <div style="flex: 1;">
-                            ${SectionHeader('Languages')}
+                            ${SectionHeader(t.sections.languages)}
                             <div style="display: flex; flex-direction: column; gap: 8px; padding-left: 8px;">
                                 ${languages.map(lang => `
                                     <div style="font-size: 14px; color: #374151;">
@@ -163,7 +171,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
 
                     ${strengths && strengths.length > 0 ? `
                         <div style="flex: 1;">
-                            ${SectionHeader('Strengths')}
+                            ${SectionHeader(t.sections.strengths)}
                             <div style="padding-left: 8px;">
                                 ${strengths.map(str => ProgressBar(str.name, str.level ?? 80)).join('')}
                             </div>
@@ -175,7 +183,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
             <!-- Interests -->
             ${interests && interests.length > 0 ? `
                 <section style="margin-top: 40px;">
-                    ${SectionHeader('Interests')}
+                    ${SectionHeader(t.sections.interests)}
                     <p style="line-height: 1.6; font-size: 14px; color: #374151; padding-left: 8px;">
                         ${interests.map(i => escapeHtml(i.name)).join(' • ')}
                     </p>
@@ -185,7 +193,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
             <!-- Credentials -->
             ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                 <section style="margin-top: 40px;">
-                    ${SectionHeader('Credentials')}
+                    ${SectionHeader(t.sections.credentials)}
                     <div style="padding-left: 8px;">
                         ${certifications && certifications.length > 0 ? `
                             <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -194,7 +202,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
                                     ${certifications.map(cert => `
                                         <div>
                                             <div style="font-weight: 600; font-size: 14px; color: #000;">${escapeHtml(cert.name)}</div>
-                                            <div style="font-size: 12px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                            <div style="font-size: 12px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -207,7 +215,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
                                     ${awards.map(award => `
                                         <div>
                                             <div style="font-weight: 600; font-size: 14px; color: #000;">${escapeHtml(award.title)}</div>
-                                            <div style="font-size: 12px; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                            <div style="font-size: 12px; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -220,7 +228,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
             <!-- References -->
             ${data.references && data.references.length > 0 ? `
                 <section style="margin-top: 40px;">
-                    ${SectionHeader('References')}
+                    ${SectionHeader(t.sections.references)}
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 8px;">
                         ${data.references.map(ref => `
                             <div>
@@ -237,7 +245,7 @@ export const renderMinimalBlueSections = (data: PdfResumeData, theme: PdfTheme):
             <!-- Additional Info (Personal & Social) -->
             ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField || personalInfo.github || personalInfo.twitter || personalInfo.linkedin) ? `
                 <section style="margin-top: 40px;">
-                    ${SectionHeader('Additional Information')}
+                    ${SectionHeader(t.sections.additionalInfo)}
                     <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 16px;">
                         
                         <!-- Personal Details -->

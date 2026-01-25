@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import { AnimatePresence } from 'framer-motion';
 import {
     Sparkles,
     ArrowRight,
@@ -14,6 +16,7 @@ import {
 import { useResumeStore } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
 import { getLayoutPresetId, getTemplateTheme } from '@/lib/templates/builder';
+import { OnboardingAnimations } from './OnboardingAnimations';
 
 type ExperienceLevel = 'entry' | 'mid' | 'senior' | 'executive';
 
@@ -42,6 +45,7 @@ const aiProcessingMessages = [
 
 export default function OnboardingModal({ isOpen, onClose, templateId, templateName }: OnboardingModalProps) {
     const router = useRouter();
+    const locale = useLocale();
     const { setResumeData, setTemplate, setTheme, setCustomThemeColor } = useResumeStore();
     const [isGenerating, setIsGenerating] = useState(false);
     const [processingMessageIndex, setProcessingMessageIndex] = useState(0);
@@ -106,6 +110,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                 fullName: formData.fullName.trim(),
                 jobTitle: formData.jobTitle.trim(),
                 experienceLevel: formData.experienceLevel,
+                locale: locale, // Pass current locale for language-aware AI generation
             };
 
             const resumeData = await generateAIResumeAsync(input);
@@ -140,15 +145,16 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-            {/* Backdrop */}
-            <div
-                className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-                onClick={!isGenerating ? onClose : undefined}
-            />
+        <AnimatePresence>
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+                {/* Backdrop - Animated */}
+                <OnboardingAnimations.Backdrop
+                    className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+                    onClick={!isGenerating ? onClose : undefined}
+                />
 
-            {/* Modal */}
-            <div className="relative w-full max-w-xl mx-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
+                {/* Modal - Animated */}
+                <OnboardingAnimations.Modal className="relative w-full max-w-xl mx-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
                 {/* Close button */}
                 {!isGenerating && (
                     <button
@@ -162,9 +168,9 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                 {/* Content */}
                 <div className="p-8">
                     {!isGenerating ? (
-                        /* Form State */
-                        <div className="animate-fadeIn">
-                            <div className="text-center mb-8">
+                        /* Form State - Animated */
+                        <OnboardingAnimations.FormContainer className="space-y-0">
+                            <OnboardingAnimations.FormField className="text-center mb-8">
                                 <div className="w-14 h-14 bg-accent-green/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <Sparkles className="text-accent-green" size={28} />
                                 </div>
@@ -172,11 +178,11 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                 <p className="text-slate-400 text-sm">
                                     Just 2 questions and AI will create your perfect resume
                                 </p>
-                            </div>
+                            </OnboardingAnimations.FormField>
 
                             <div className="space-y-5">
                                 {/* Full Name */}
-                                <div>
+                                <OnboardingAnimations.FormField>
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
                                         <User size={14} />
                                         Your Full Name
@@ -191,10 +197,10 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                         className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition-colors"
                                         autoFocus
                                     />
-                                </div>
+                                </OnboardingAnimations.FormField>
 
                                 {/* Job Title */}
-                                <div>
+                                <OnboardingAnimations.FormField>
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
                                         <Briefcase size={14} />
                                         Job Title You're Applying For
@@ -208,10 +214,10 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                         placeholder="e.g., Software Engineer, Marketing Manager"
                                         className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition-colors"
                                     />
-                                </div>
+                                </OnboardingAnimations.FormField>
 
                                 {/* Experience Level */}
-                                <div>
+                                <OnboardingAnimations.FormField>
                                     <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
                                         <Clock size={14} />
                                         Experience Level
@@ -238,24 +244,26 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                             </button>
                                         ))}
                                     </div>
-                                </div>
+                                </OnboardingAnimations.FormField>
 
                                 {/* Generate Button */}
-                                <button
-                                    type="button"
-                                    onClick={handleGenerateResume}
-                                    disabled={!canProceed}
-                                    className="w-full mt-2 py-3.5 bg-accent-green text-slate-900 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-accent-teal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    <Wand2 size={18} />
-                                    Generate My Resume
-                                    <ArrowRight size={18} />
-                                </button>
+                                <OnboardingAnimations.FormField>
+                                    <button
+                                        type="button"
+                                        onClick={handleGenerateResume}
+                                        disabled={!canProceed}
+                                        className="w-full mt-2 py-3.5 bg-accent-green text-slate-900 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-accent-teal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        <Wand2 size={18} />
+                                        Generate My Resume
+                                        <ArrowRight size={18} />
+                                    </button>
+                                </OnboardingAnimations.FormField>
                             </div>
-                        </div>
+                        </OnboardingAnimations.FormContainer>
                     ) : (
-                        /* Loading State */
-                        <div className="animate-fadeIn text-center py-8">
+                        /* Loading State - Animated */
+                        <div className="text-center py-8">
                             <div className="relative w-24 h-24 mx-auto mb-6">
                                 {/* Spinning outer ring */}
                                 <div className="absolute inset-0 border-4 border-accent-green/20 rounded-full" />
@@ -270,9 +278,10 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                             <h2 className="text-xl font-bold text-white mb-3">Creating Your Resume</h2>
 
                             <div className="h-6">
-                                <p className="text-slate-400 animate-pulse">
-                                    {aiProcessingMessages[processingMessageIndex]}
-                                </p>
+                                <OnboardingAnimations.ProcessingMessage
+                                    message={aiProcessingMessages[processingMessageIndex]}
+                                    className="text-slate-400"
+                                />
                             </div>
 
                             {/* Progress dots */}
@@ -296,25 +305,10 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                     )}
                 </div>
 
-                {/* Decorative gradient */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-accent-green/10 blur-3xl pointer-events-none" />
+                    {/* Decorative gradient */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-accent-green/10 blur-3xl pointer-events-none" />
+                </OnboardingAnimations.Modal>
             </div>
-
-            <style jsx>{`
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(10px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-                .animate-fadeIn {
-                    animation: fadeIn 0.3s ease-out;
-                }
-            `}</style>
-        </div>
+        </AnimatePresence>
     );
 }

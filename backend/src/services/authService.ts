@@ -81,6 +81,7 @@ export const getUserById = async (userId: string) => {
       role: true,
       subscriptionTier: true,
       subscriptionStatus: true,
+      trialEndsAt: true,
       creditsRemaining: true,
       isSuspended: true,
       createdAt: true,

@@ -10,7 +10,7 @@ export const headerDarkTemplate: BuilderTemplate = {
     layout: 'header',
     layoutPresetId: 'header-normal-normal',
     category: 'professional',
-    accentColor: '#334155',
+    accentColor: '#facc15', // Yellow 400 - matches HeaderDark.tsx accent
     gradientColors: 'from-slate-600 to-slate-800',
     templateId: 'header-dark',
     thumbnail: '/templates/header-dark.jpg',

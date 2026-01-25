@@ -2,10 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
-import { Post, PostMeta, PostFrontmatter } from './types';
+import { Post, PostMeta, PostFrontmatter, PostType } from './types';
 
 const POSTS_PATH = path.join(process.cwd(), 'content/blog');
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1';
+const CAREER_TIPS_PATH = path.join(process.cwd(), 'content/career-tips');
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4444/api/v1';
 
 // ============================================
 // DATABASE POSTS (Primary Source)
@@ -27,6 +28,7 @@ interface DbPost {
   publishedAt: string | null;
   createdAt: string;
   updatedAt: string;
+  postType: PostType | null; // 'blog', 'career', or 'both'
 }
 
 function parseDbPost(dbPost: DbPost): Post {
@@ -48,6 +50,7 @@ function parseDbPost(dbPost: DbPost): Post {
     image: dbPost.image || undefined,
     imageAlt: dbPost.imageAlt || undefined,
     featured: dbPost.featured,
+    postType: dbPost.postType || 'blog', // Default to 'blog' for backwards compatibility
     content: dbPost.content,
     readingTime: readingTime(dbPost.content).text,
   };
@@ -255,4 +258,196 @@ export function paginatePosts(
     totalPages,
     currentPage,
   };
+}
+
+// ============================================
+// CAREER POSTS (Posts with postType 'career' or 'both')
+// ============================================
+
+// Get all career posts
+export async function getAllCareerPosts(): Promise<PostMeta[]> {
+  const allPosts = await getAllPosts();
+  return allPosts.filter(post =>
+    post.postType === 'career' || post.postType === 'both'
+  );
+}
+
+// Get featured career posts
+export async function getFeaturedCareerPosts(limit = 3): Promise<PostMeta[]> {
+  const careerPosts = await getAllCareerPosts();
+  return careerPosts.filter(post => post.featured).slice(0, limit);
+}
+
+// Get all unique career categories
+export async function getAllCareerCategories(): Promise<string[]> {
+  const posts = await getAllCareerPosts();
+  const categories = new Set(posts.map(post => post.category));
+  return Array.from(categories).sort();
+}
+
+// Get career posts by category
+export async function getCareerPostsByCategory(category: string): Promise<PostMeta[]> {
+  const careerPosts = await getAllCareerPosts();
+  return careerPosts.filter(post =>
+    post.category.toLowerCase() === category.toLowerCase()
+  );
+}
+
+// Search career posts
+export async function searchCareerPosts(query: string): Promise<PostMeta[]> {
+  const searchTerm = query.toLowerCase().trim();
+  if (!searchTerm) return [];
+
+  const careerPosts = await getAllCareerPosts();
+
+  return careerPosts.filter(post => {
+    const searchableText = [
+      post.title,
+      post.description,
+      post.category,
+      ...post.tags,
+    ].join(' ').toLowerCase();
+
+    return searchableText.includes(searchTerm);
+  });
+}
+
+// Get all career post slugs (for static generation)
+export async function getAllCareerPostSlugs(): Promise<string[]> {
+  const posts = await getAllCareerPosts();
+  return posts.map(post => post.slug);
+}
+
+// ============================================
+// BLOG-ONLY POSTS (Posts with postType 'blog' or 'both')
+// ============================================
+
+// Get all blog-only posts (excludes career-only posts)
+export async function getAllBlogPosts(): Promise<PostMeta[]> {
+  const allPosts = await getAllPosts();
+  return allPosts.filter(post =>
+    !post.postType || post.postType === 'blog' || post.postType === 'both'
+  );
+}
+
+// ============================================
+// CAREER TIPS (Separate content directory)
+// ============================================
+
+function getCareerTipsFiles(): string[] {
+  if (!fs.existsSync(CAREER_TIPS_PATH)) {
+    return [];
+  }
+  return fs.readdirSync(CAREER_TIPS_PATH).filter(file => file.endsWith('.mdx'));
+}
+
+function parseCareerTipFile(filename: string): Post {
+  const filePath = path.join(CAREER_TIPS_PATH, filename);
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const { data, content } = matter(fileContent);
+  const frontmatter = data as PostFrontmatter;
+
+  return {
+    ...frontmatter,
+    content,
+    readingTime: readingTime(content).text,
+    postType: 'career', // Force career type for career-tips
+  };
+}
+
+// Get all career tips articles
+export async function getAllCareerTips(): Promise<PostMeta[]> {
+  const files = getCareerTipsFiles();
+  const posts = files.map(filename => parseCareerTipFile(filename));
+
+  // Remove content from metadata
+  const postMetas: PostMeta[] = posts.map(({ content, ...meta }) => meta);
+
+  // Sort by date, newest first
+  return postMetas.sort((a, b) =>
+    new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+}
+
+// Get a single career tip by slug
+export async function getCareerTipBySlug(slug: string): Promise<Post | null> {
+  const files = getCareerTipsFiles();
+  for (const filename of files) {
+    const post = parseCareerTipFile(filename);
+    if (post.slug === slug) {
+      return post;
+    }
+  }
+  return null;
+}
+
+// Get featured career tips
+export async function getFeaturedCareerTips(limit = 3): Promise<PostMeta[]> {
+  const allTips = await getAllCareerTips();
+  return allTips.filter(post => post.featured).slice(0, limit);
+}
+
+// Get all unique career tips categories
+export async function getAllCareerTipsCategories(): Promise<string[]> {
+  const posts = await getAllCareerTips();
+  const categories = new Set(posts.map(post => post.category));
+  return Array.from(categories).sort();
+}
+
+// Get career tips by category
+export async function getCareerTipsByCategory(category: string): Promise<PostMeta[]> {
+  const allTips = await getAllCareerTips();
+  return allTips.filter(post =>
+    post.category.toLowerCase() === category.toLowerCase()
+  );
+}
+
+// Search career tips
+export async function searchCareerTips(query: string): Promise<PostMeta[]> {
+  const searchTerm = query.toLowerCase().trim();
+  if (!searchTerm) return [];
+
+  const allTips = await getAllCareerTips();
+
+  return allTips.filter(post => {
+    const searchableText = [
+      post.title,
+      post.description,
+      post.category,
+      ...post.tags,
+    ].join(' ').toLowerCase();
+
+    return searchableText.includes(searchTerm);
+  });
+}
+
+// Get all career tips slugs (for static generation)
+export async function getAllCareerTipsSlugs(): Promise<string[]> {
+  const posts = await getAllCareerTips();
+  return posts.map(post => post.slug);
+}
+
+// Get related career tips
+export async function getRelatedCareerTips(currentSlug: string, limit = 3): Promise<PostMeta[]> {
+  const currentPost = await getCareerTipBySlug(currentSlug);
+  if (!currentPost) return [];
+
+  const allTips = await getAllCareerTips();
+
+  const scoredPosts = allTips
+    .filter(post => post.slug !== currentSlug)
+    .map(post => {
+      const sharedTags = post.tags.filter(tag =>
+        currentPost.tags.includes(tag)
+      );
+      const sameCategory = post.category === currentPost.category ? 2 : 0;
+      return {
+        post,
+        score: sharedTags.length + sameCategory,
+      };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  return scoredPosts.slice(0, limit).map(item => item.post);
 }

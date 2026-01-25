@@ -7,11 +7,12 @@ import { Folder } from 'lucide-react';
 interface CategoryFilterProps {
   categories: string[];
   activeCategory?: string;
+  basePath?: string; // '/blog' or '/career'
 }
 
-export default function CategoryFilter({ categories, activeCategory }: CategoryFilterProps) {
+export default function CategoryFilter({ categories, activeCategory, basePath = '/blog' }: CategoryFilterProps) {
   const pathname = usePathname();
-  const isAllActive = pathname === '/blog';
+  const isAllActive = pathname === basePath || pathname.endsWith(basePath);
 
   return (
     <div className="bg-bg-card rounded-xl border border-white/5 overflow-hidden">
@@ -24,7 +25,7 @@ export default function CategoryFilter({ categories, activeCategory }: CategoryF
       <nav className="p-2">
         {/* All posts link */}
         <Link
-          href="/blog"
+          href={basePath}
           className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
             isAllActive
               ? 'bg-accent-green/10 text-accent-green font-medium'
@@ -42,7 +43,7 @@ export default function CategoryFilter({ categories, activeCategory }: CategoryF
           return (
             <Link
               key={category}
-              href={`/blog/category/${encodeURIComponent(categorySlug)}`}
+              href={`${basePath}/category/${encodeURIComponent(categorySlug)}`}
               className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
                 isActive
                   ? 'bg-accent-green/10 text-accent-green font-medium'

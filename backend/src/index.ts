@@ -11,6 +11,7 @@ import paymentRoutes from "./routes/payments";
 import webhookRoutes from "./routes/webhooks";
 import autoBlogRoutes from "./routes/autoBlog";
 import pdfRoutes from "./routes/pdf";
+import resumeParserRoutes from "./routes/resumeParser";
 
 // Import scheduler
 import { startScheduler } from "./services/schedulerService";
@@ -32,7 +33,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Health check
 app.get("/", (_req, res) => {
   res.json({
-    app: "ResumeAI API",
+    app: "Best AI Resume API",
     version: "1.0.0",
     docs: "/api/v1",
   });
@@ -51,6 +52,7 @@ app.use("/api/v1/payments", paymentRoutes);
 app.use("/api/v1/webhooks", webhookRoutes);
 app.use("/api/v1/admin/auto-blog", autoBlogRoutes);
 app.use("/api/v1/pdf", pdfRoutes);
+app.use("/api/v1/resume", resumeParserRoutes);
 
 // Start server
 app.listen(config.port, config.host, () => {

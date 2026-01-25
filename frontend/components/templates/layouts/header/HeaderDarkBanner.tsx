@@ -1,10 +1,12 @@
 'use client';
 
+import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
 import ProgressBar from '../../shared/ProgressBar';
 import { parseDualColor, getContrastText } from '@/lib/templates/builder/colorUtils';
+import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
 /**
  * Header Dark Banner Template
@@ -20,14 +22,16 @@ import { parseDualColor, getContrastText } from '@/lib/templates/builder/colorUt
  *
  * Matches reference: frontend/Resume-template/unique-layouts/10-dark-banner.webp
  */
-export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, customThemeColor, fonts } = data;
+function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
+    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, references, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
     // Get scaled font sizes that respect user's size preference + scale
     const fs = getScaledFontSizes(sizeConfig, scale);
+
+    const t = useTemplateTranslations();
 
     // Parse dual color: primary = header bg, secondary = accent
     const { primary: headerBgColor, secondary: accentColor } = parseDualColor(
@@ -136,7 +140,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {personalInfo.summary && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Resume summary
+                                {t.sections.summary}
                             </SectionHeader>
                             <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
                                 {personalInfo.summary}
@@ -148,13 +152,13 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {experience.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Work experience
+                                {t.sections.workExperience}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {experience.map((exp) => (
                                     <div key={exp.id} className="resume-entry" data-paginate>
                                         <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px' }}>
-                                            📅 {exp.startDate} – {exp.current ? 'PRESENT' : exp.endDate}
+                                            📅 {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                             {exp.city && ` 📍 ${exp.city.toUpperCase()}`}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
@@ -182,7 +186,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {education.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Education
+                                {t.sections.education}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {education.map((edu) => (
@@ -215,7 +219,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {skills.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Skills
+                                {t.sections.skills}
                             </SectionHeader>
                             <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: scale < 1 ? '4px' : '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                                 💻 SOFTWARE
@@ -240,7 +244,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {languages && languages.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Languages
+                                {t.sections.languages}
                             </SectionHeader>
                             <div
                                 style={{
@@ -271,7 +275,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {strengths && strengths.length > 0 && (
                         <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Strengths
+                                {t.sections.strengths}
                             </SectionHeader>
                             <div
                                 style={{
@@ -304,7 +308,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {interests && interests.length > 0 && (
                         <section className="resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Interests
+                                {t.sections.interests}
                             </SectionHeader>
                             <div
                                 style={{
@@ -341,13 +345,13 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
                         <section className="resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Credentials
+                                {t.sections.credentials}
                             </SectionHeader>
 
                             {certifications && certifications.length > 0 && (
                                 <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
                                     <p style={{ fontSize: fs.tiny, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                        Certifications
+                                        {t.sections.certifications}
                                     </p>
                                     <div className="space-y-2">
                                         {certifications.map((cert) => (
@@ -363,7 +367,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                             {awards && awards.length > 0 && (
                                 <div>
                                     <p style={{ fontSize: fs.tiny, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                        Awards & Achievements
+                                        {t.sections.awards}
                                     </p>
                                     <div className="space-y-2">
                                         {awards.map((award) => (
@@ -382,7 +386,7 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <section className="resume-section mt-4" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Social Media
+                                {t.sections.socialLinks}
                             </SectionHeader>
                             <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
                                 {personalInfo.github && <div>💻 {personalInfo.github}</div>}
@@ -398,14 +402,45 @@ export default function HeaderDarkBanner({ data, theme, scale = 1 }: TemplatePro
                     {(personalInfo.nationality || personalInfo.idType) && (
                         <section className="resume-section mt-4" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                Personal Details
+                                {t.sections.personalDetails}
                             </SectionHeader>
                             <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
                                 {personalInfo.nationality && <div>🌍 Nationality: {personalInfo.nationality}</div>}
                                 {personalInfo.idType && personalInfo.idNumber && (
-                                    <div>🪪 {personalInfo.idType}: {personalInfo.idNumber}</div>
+                                    <div>🪪 {personalInfo.idType === 'id' ? 'ID' :
+                                         personalInfo.idType === 'passport' ? 'Passport' :
+                                         personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}: {personalInfo.idNumber}</div>
                                 )}
                             </div>
+                        </section>
+                    )}
+
+                    {/* References */}
+                    {references && references.length > 0 && (
+                        <section className="resume-section mt-4" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                                {t.sections.references}
+                            </SectionHeader>
+                            <div className="space-y-3">
+                                {references.map((ref) => (
+                                    <div key={ref.id} data-paginate="item">
+                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{ref.name}</div>
+                                        <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.title}, {ref.company}</div>
+                                        {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>✉️ {ref.email}</div>}
+                                        {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>📱 {ref.phone}</div>}
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Custom Field */}
+                    {personalInfo.customField && personalInfo.customFieldLabel && (
+                        <section className="resume-section mt-4" data-paginate>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                                {personalInfo.customFieldLabel}
+                            </SectionHeader>
+                            <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{personalInfo.customField}</p>
                         </section>
                     )}
                 </div>
@@ -461,6 +496,9 @@ function getInterestIcon(name: string): string {
     if (nameLower.includes('run')) return '🏃';
     return '⭐';
 }
+
+// Wrap with memo to prevent unnecessary re-renders
+export default memo(HeaderDarkBanner);
 
 // Template metadata for registry
 export const headerDarkBannerMeta: TemplateMeta = {

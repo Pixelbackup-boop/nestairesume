@@ -4,9 +4,10 @@
  */
 
 import puppeteer, { Browser, Page } from 'puppeteer';
-import { PdfResumeData, PdfTheme, PdfGenerateRequest } from '../types/pdf';
+import { PdfResumeData, PdfTheme, PdfGenerateRequest, PdfTranslations } from '../types/pdf';
 import { getTemplateRenderer } from '../templates/pdf';
 import { wrapHtml } from '../templates/pdf/shared/htmlWrapper';
+import { getTranslations } from '../templates/pdf/shared/translations';
 
 // Browser singleton for performance
 let browser: Browser | null = null;
@@ -66,15 +67,12 @@ export async function generatePdfFromHtml(html: string): Promise<Buffer> {
         await new Promise(resolve => setTimeout(resolve, 100));
 
         // Generate PDF
+        // Note: Don't specify margins here - let CSS @page rules control them
+        // @page { margin: 20px 0 0 0 } for page 2+
+        // @page :first { margin: 0 } for first page
         const pdfBuffer = await page.pdf({
             format: 'A4',
             printBackground: true,
-            margin: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0,
-            },
             preferCSSPageSize: true,
         });
 
@@ -92,18 +90,24 @@ export async function generatePdfFromHtml(html: string): Promise<Buffer> {
 export async function renderResumePdf(
     data: PdfResumeData,
     templateId: string,
-    theme: PdfTheme
+    theme: PdfTheme,
+    translations?: PdfTranslations,
+    locale: string = 'en'
 ): Promise<Buffer> {
     // Get the appropriate template renderer
     const renderTemplate = getTemplateRenderer(templateId);
 
-    // Render template to HTML content
-    const templateHtml = renderTemplate(data, theme);
+    // Get translations with defaults
+    const t = getTranslations(translations);
 
-    // Wrap with full HTML document (fonts, CSS, etc.)
+    // Render template to HTML content (pass locale for date localization)
+    const templateHtml = renderTemplate(data, theme, t, locale);
+
+    // Wrap with full HTML document (fonts, CSS, etc.) - pass locale for RTL support
     const fullHtml = wrapHtml(templateHtml, {
         headingFont: data.fonts?.heading || 'Inter',
         bodyFont: data.fonts?.body || 'Inter',
+        locale,
     });
 
     // Generate PDF
@@ -114,8 +118,8 @@ export async function renderResumePdf(
  * Process a PDF generation request
  */
 export async function processPdfRequest(request: PdfGenerateRequest): Promise<Buffer> {
-    const { data, templateId, theme } = request;
-    return renderResumePdf(data, templateId, theme);
+    const { data, templateId, theme, translations, locale } = request;
+    return renderResumePdf(data, templateId, theme, translations, locale || 'en');
 }
 
 // Cleanup on process exit

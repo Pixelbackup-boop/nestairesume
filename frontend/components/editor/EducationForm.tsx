@@ -3,19 +3,21 @@
 import { useResumeStore, Education } from '../../store/useResumeStore';
 import { Plus, Trash2, ArrowUp, ArrowDown, ChevronDown, ChevronUp, Award, BadgeCheck } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 import CollapsibleSection from './CollapsibleSection';
 import CertificationsSection from './CertificationsSection';
 import AwardsSection from './AwardsSection';
+import { useTranslations } from 'next-intl';
 
 export default function EducationForm() {
+    const t = useTranslations('Builder');
     const { resumeData, addEducation, updateEducation, removeEducation, moveEducation } = useResumeStore();
     const { education, certifications, awards } = resumeData;
     const [expandedId, setExpandedId] = useState<string | null>(null);
 
     const handleAdd = () => {
         const newEdu: Education = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             school: '',
             degree: '',
             city: '',
@@ -44,14 +46,14 @@ export default function EducationForm() {
         <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">Education</h2>
-                    <p className="text-gray-400 text-sm">Add your educational background.</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">{t('education.title')}</h2>
+                    <p className="text-gray-400 text-sm">{t('education.subtitle')}</p>
                 </div>
                 <button
                     onClick={handleAdd}
                     className="flex items-center gap-2 bg-accent-green/10 text-accent-green px-4 py-2 rounded-lg hover:bg-accent-green/20 transition text-sm font-medium"
                 >
-                    <Plus size={16} /> Add Education
+                    <Plus size={16} /> {t('education.add')}
                 </button>
             </div>
 
@@ -83,8 +85,8 @@ export default function EducationForm() {
                                     </button>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">{edu.school || '(Not specified)'}</h3>
-                                    <p className="text-sm text-gray-400">{edu.degree || 'Degree'}</p>
+                                    <h3 className="font-semibold text-white">{edu.school || t('education.notSpecified')}</h3>
+                                    <p className="text-sm text-gray-400">{edu.degree || t('education.degree')}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
@@ -102,7 +104,7 @@ export default function EducationForm() {
                         {expandedId === edu.id && (
                             <div className="p-4 pt-0 border-t border-border-subtle grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">School / University</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.school')}</label>
                                     <input
                                         type="text"
                                         value={edu.school}
@@ -113,7 +115,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Degree</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.degree')}</label>
                                     <input
                                         type="text"
                                         value={edu.degree}
@@ -124,7 +126,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">City (Optional)</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.cityOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.city}
@@ -135,7 +137,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Country (Optional)</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.countryOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.country}
@@ -146,7 +148,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Start Date</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.startDate')}</label>
                                     <input
                                         type="text"
                                         value={edu.startDate}
@@ -157,7 +159,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">End Date</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.endDate')}</label>
                                     <input
                                         type="text"
                                         value={edu.endDate}
@@ -168,7 +170,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">GPA (Optional)</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.gpaOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.gpa || ''}
@@ -179,7 +181,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">Honors (Optional)</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.honorsOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.honors || ''}
@@ -190,7 +192,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2 md:col-span-2">
-                                    <label className="text-sm font-medium text-gray-300">Clubs & Activities (Optional)</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.clubsOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.clubs || ''}
@@ -201,7 +203,7 @@ export default function EducationForm() {
                                 </div>
 
                                 <div className="space-y-2 md:col-span-2">
-                                    <label className="text-sm font-medium text-gray-300">Description (Optional)</label>
+                                    <label className="text-sm font-medium text-gray-300">{t('education.descriptionOptional')}</label>
                                     <textarea
                                         value={edu.description}
                                         onChange={(e) => handleChange(edu.id, 'description', e.target.value)}
@@ -217,18 +219,18 @@ export default function EducationForm() {
 
                 {education.length === 0 && (
                     <div className="text-center py-10 border-2 border-dashed border-border-subtle rounded-xl bg-white/2">
-                        <p className="text-gray-500">No education added yet.</p>
-                        <button onClick={handleAdd} className="text-accent-green hover:underline mt-2 text-sm">Add your education</button>
+                        <p className="text-gray-500">{t('education.noEducation')}</p>
+                        <button onClick={handleAdd} className="text-accent-green hover:underline mt-2 text-sm">{t('education.addEducation')}</button>
                     </div>
                 )}
             </div>
 
             {/* Additional Sections */}
             <div className="mt-8 pt-6 border-t border-border-subtle space-y-4">
-                <h3 className="text-lg font-semibold text-white mb-4">Credentials</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">{t('education.credentials')}</h3>
 
                 <CollapsibleSection
-                    title="Certifications"
+                    title={t('education.certifications')}
                     icon={BadgeCheck}
                     badge={certifications.length}
                     defaultOpen={false}
@@ -237,7 +239,7 @@ export default function EducationForm() {
                 </CollapsibleSection>
 
                 <CollapsibleSection
-                    title="Awards & Achievements"
+                    title={t('education.awards')}
                     icon={Award}
                     badge={awards.length}
                     defaultOpen={false}

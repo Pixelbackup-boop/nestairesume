@@ -40,7 +40,7 @@ export default function AdminDashboard() {
     const fetchStats = async () => {
       try {
         const response = await api.get("/admin/dashboard");
-        setStats(response.data);
+        setStats(response.data as DashboardStats);
       } catch (err: any) {
         setError(err.response?.data?.detail || "Failed to load dashboard");
       } finally {

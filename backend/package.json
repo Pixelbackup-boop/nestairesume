@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "ResumeAI Node.js Backend",
+  "description": "Best AI Resume Node.js Backend",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -26,6 +26,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "mammoth": "^1.11.0",
     "multer": "^2.0.2",
     "node-cron": "^4.2.1",
     "openai": "^6.15.0",

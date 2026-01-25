@@ -36,7 +36,7 @@ export default function AutoBlogSettingsPage() {
   const [postsPerDay, setPostsPerDay] = useState(5);
   const [startHour, setStartHour] = useState(8);
   const [endHour, setEndHour] = useState(20);
-  const [authorName, setAuthorName] = useState("ResumeAI Team");
+  const [authorName, setAuthorName] = useState("Best AI Resume Team");
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function AutoBlogSettingsPage() {
   const fetchSettings = async () => {
     try {
       const response = await api.get("/admin/auto-blog/settings");
-      const data = response.data;
+      const data = response.data as AutoBlogSettings;
       setSettings(data);
       setPostsPerDay(data.postsPerDay);
       setStartHour(data.startHour);
@@ -79,7 +79,7 @@ export default function AutoBlogSettingsPage() {
         endHour,
         authorName,
       });
-      setSettings(response.data);
+      setSettings(response.data as AutoBlogSettings);
       setSuccess("Settings saved successfully!");
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };
@@ -96,9 +96,9 @@ export default function AutoBlogSettingsPage() {
 
     try {
       const response = await api.post("/admin/auto-blog/toggle");
-      setEnabled(response.data.enabled);
+      setEnabled((response.data as { enabled: boolean }).enabled);
       setSuccess(
-        response.data.enabled
+        (response.data as { enabled: boolean }).enabled
           ? "Auto-posting enabled!"
           : "Auto-posting disabled"
       );

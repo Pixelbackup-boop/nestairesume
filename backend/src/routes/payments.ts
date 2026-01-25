@@ -14,7 +14,7 @@ router.post("/create-checkout", authenticateToken, async (req: AuthRequest, res:
   try {
     const { plan } = req.body as { plan: PlanType };
 
-    if (!plan || !["starter", "gold", "diamond"].includes(plan)) {
+    if (!plan || !["starter", "gold", "diamond", "platinum"].includes(plan)) {
       res.status(400).json({ detail: "Invalid plan" });
       return;
     }

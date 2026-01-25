@@ -1,0 +1,506 @@
+{
+  "Meta": {
+    "title": "Best AI Resume - Créez Votre CV Parfait avec l'IA",
+    "description": "Créez des CV professionnels optimisés ATS en quelques minutes avec l'IA. Essai gratuit, sans inscription."
+  },
+
+  "Common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "search": "Rechercher",
+    "submit": "Soumettre",
+    "next": "Suivant",
+    "back": "Retour",
+    "download": "Télécharger",
+    "preview": "Aperçu",
+    "scrollToExplore": "Faites défiler pour explorer"
+  },
+
+  "Navigation": {
+    "features": "Fonctionnalités",
+    "templates": "Modèles",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "getStarted": "Commencer Gratuitement",
+    "dashboard": "Tableau de bord",
+    "admin": "Admin",
+    "adminPanel": "Panneau Admin"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "Création de CV Assistée par IA",
+      "title": "Créez Votre",
+      "titleHighlight": "CV Parfait",
+      "subtitle": "Sans Inscription Requise",
+      "description": "Créez des CV impressionnants optimisés ATS en quelques minutes avec l'IA. Essayez gratuitement — inscrivez-vous uniquement lorsque vous êtes prêt à sauvegarder.",
+      "ctaPrimary": "Créer avec l'IA",
+      "ctaSecondary": "Parcourir les Modèles",
+      "noCreditCard": "Pas de carte bancaire requise",
+      "noSignup": "Pas d'inscription pour commencer",
+      "trustedBy": "Plus de 50 000 professionnels nous font confiance",
+      "atsScore": "Score ATS",
+      "aiSuggestion": "Suggestion IA"
+    },
+    "features": {
+      "sectionTitle": "Fonctionnalités",
+      "title": "Tout ce dont vous avez besoin pour",
+      "titleHighlight": "décrocher l'emploi de vos rêves",
+      "subtitle": "Outils IA puissants combinés à un design élégant pour vous démarquer.",
+      "aiWriting": {
+        "title": "Rédaction Assistée par IA",
+        "description": "Laissez notre IA créer des points clés et des résumés professionnels mettant en valeur vos réalisations."
+      },
+      "templates": {
+        "title": "20+ Modèles Premium",
+        "description": "Choisissez parmi des modèles conçus professionnellement qui se démarquent tout en restant compatibles ATS."
+      },
+      "atsOptimization": {
+        "title": "Optimisation ATS",
+        "description": "Le score ATS en temps réel garantit que votre CV passe les systèmes de tri automatisés."
+      },
+      "realTimePreview": {
+        "title": "Aperçu en Temps Réel",
+        "description": "Voyez les modifications instantanément. Ce que vous voyez est exactement ce que les recruteurs verront."
+      },
+      "pdfExport": {
+        "title": "Export PDF",
+        "description": "Téléchargez des PDF parfaits prêts à envoyer. Optimisés pour le numérique et l'impression."
+      },
+      "smartSuggestions": {
+        "title": "Suggestions Intelligentes",
+        "description": "Obtenez des recommandations intelligentes pour les compétences, mots-clés et contenu selon votre objectif."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Comment Ça Marche",
+      "title": "Trois étapes pour votre",
+      "titleHighlight": "CV parfait",
+      "step1": {
+        "title": "Remplissez Vos Informations",
+        "description": "Entrez votre expérience, formation et compétences. Notre IA vous assiste à chaque étape."
+      },
+      "step2": {
+        "title": "Choisissez un Modèle",
+        "description": "Sélectionnez parmi 20+ modèles professionnels. Aperçu en temps réel pendant la personnalisation."
+      },
+      "step3": {
+        "title": "Téléchargez en PDF",
+        "description": "Exportez votre CV soigné en PDF parfait, prêt à impressionner les recruteurs."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Modèles",
+      "title": "Modèles premium pour",
+      "titleHighlight": "chaque profession",
+      "viewAll": "Voir Tous les Modèles"
+    },
+    "testimonials": {
+      "sectionTitle": "Témoignages",
+      "title": "Apprécié par les professionnels",
+      "titleHighlight": "du monde entier"
+    },
+    "cta": {
+      "title": "Prêt à créer votre",
+      "titleHighlight": "CV gagnant ?",
+      "subtitle": "Rejoignez plus de 50 000 professionnels qui ont décroché leur emploi de rêve avec Best AI Resume.",
+      "button": "Créez Votre CV Maintenant — Gratuit",
+      "note": "Pas d'inscription requise pour commencer"
+    }
+  },
+
+  "Templates": {
+    "sectionTitle": "Modèles",
+    "title": "Choisissez votre modèle",
+    "titleHighlight": "parfait",
+    "subtitle": "Sélectionnez un mode d'édition et choisissez parmi nos modèles conçus professionnellement.",
+    "searchPlaceholder": "Rechercher des modèles...",
+    "templatesAvailable": "{count} modèle{count, plural, one {} other {s}} disponible{count, plural, one {} other {s}}",
+    "noResults": "Aucun modèle trouvé",
+    "noResultsHint": "Essayez d'ajuster votre recherche ou filtre",
+    "useTemplate": "Utiliser ce Modèle",
+    "formBuilder": {
+      "title": "Constructeur de Formulaire",
+      "description": "Édition guidée étape par étape",
+      "hint": "Remplissez les formulaires et laissez le modèle gérer le design. Parfait pour des CV rapides et professionnels."
+    },
+    "canvasEditor": {
+      "title": "Éditeur Canevas",
+      "description": "Liberté créative totale",
+      "hint": "Glissez, déposez et concevez librement. Contrôle total sur chaque élément, comme Canva pour les CV."
+    },
+    "categories": {
+      "all": "Tous",
+      "professional": "Professionnel",
+      "creative": "Créatif",
+      "minimal": "Minimaliste",
+      "bold": "Audacieux",
+      "modern": "Moderne",
+      "classic": "Classique"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Vous voulez partir de zéro ?",
+        "description": "Créez un CV entièrement personnalisé avec notre Éditeur Canevas.",
+        "button": "Ouvrir un Canevas Vierge"
+      },
+      "builder": {
+        "title": "Vous voulez que l'IA crée votre CV ?",
+        "description": "Laissez notre IA créer un CV professionnel en quelques secondes selon votre poste.",
+        "button": "Créer avec l'IA"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Contact",
+      "experience": "Expérience",
+      "workExperience": "Expérience Professionnelle",
+      "professionalExperience": "Expérience Professionnelle",
+      "education": "Formation",
+      "skills": "Compétences",
+      "coreSkills": "Compétences Clés",
+      "technicalSkills": "Compétences Techniques",
+      "languages": "Langues",
+      "interests": "Centres d'intérêt",
+      "strengths": "Points Forts",
+      "certifications": "Certifications",
+      "awards": "Distinctions",
+      "projects": "Projets",
+      "references": "Références",
+      "summary": "Résumé",
+      "professionalSummary": "Résumé Professionnel",
+      "profile": "Profil",
+      "about": "À Propos",
+      "additionalInfo": "Informations Complémentaires",
+      "socialLinks": "Réseaux Sociaux",
+      "personalDetails": "Informations Personnelles",
+      "credentials": "Qualifications"
+    },
+    "labels": {
+      "present": "Présent",
+      "gpa": "Moyenne",
+      "native": "Langue maternelle",
+      "fluent": "Courant",
+      "advanced": "Avancé",
+      "intermediate": "Intermédiaire",
+      "basic": "Basique"
+    }
+  },
+
+  "Onboarding": {
+    "title": "Parlez-nous de vous",
+    "subtitle": "Seulement 2 questions et l'IA créera votre CV parfait",
+    "fullName": "Votre Nom Complet",
+    "fullNamePlaceholder": "ex., Jean Dupont",
+    "jobTitle": "Poste Recherché",
+    "jobTitlePlaceholder": "ex., Ingénieur Logiciel, Responsable Marketing",
+    "experienceLevel": "Niveau d'Expérience",
+    "levels": {
+      "entry": "Débutant",
+      "entryDesc": "0-2 ans d'expérience",
+      "mid": "Intermédiaire",
+      "midDesc": "3-5 ans d'expérience",
+      "senior": "Senior",
+      "seniorDesc": "6-10 ans d'expérience",
+      "executive": "Cadre Dirigeant",
+      "executiveDesc": "10+ ans d'expérience"
+    },
+    "generate": "Générer Mon CV",
+    "generating": {
+      "title": "Création de Votre CV",
+      "analyzing": "Analyse de votre profession...",
+      "summary": "Génération du résumé professionnel...",
+      "experience": "Création de l'expérience professionnelle...",
+      "skills": "Ajout des compétences pertinentes...",
+      "polishing": "Finalisation de votre CV...",
+      "almostThere": "Presque terminé...",
+      "wait": "Cela ne prend généralement que quelques secondes..."
+    },
+    "step1": {
+      "title": "Comment souhaitez-vous créer votre CV ?",
+      "subtitle": "Choisissez votre méthode préférée pour commencer",
+      "recommended": "RECOMMANDÉ",
+      "ai": {
+        "title": "Créer avec l'IA",
+        "description": "Indiquez-nous votre profession et nous générerons un CV professionnel en quelques secondes"
+      },
+      "upload": {
+        "title": "Télécharger un CV",
+        "description": "Téléchargez votre CV existant et nous l'améliorerons"
+      },
+      "linkedin": {
+        "title": "Importer LinkedIn",
+        "description": "Importez votre profil LinkedIn automatiquement"
+      },
+      "comingSoon": "Bientôt disponible",
+      "startBlank": "Ou commencez avec un CV vierge"
+    },
+    "step4": {
+      "title": "Choisissez Votre Modèle",
+      "subtitle": "Votre CV est prêt ! Choisissez un design qui correspond à votre style.",
+      "backToEdit": "Retour pour modifier les infos",
+      "browseAll": "Parcourir tous les modèles",
+      "continue": "Continuer vers l'éditeur"
+    },
+    "upload": {
+      "title": "Téléchargez Votre CV",
+      "subtitle": "Nous extrairons vos informations et les améliorerons avec l'IA",
+      "dragDrop": "Glissez-déposez votre CV ici",
+      "orBrowse": "ou parcourir les fichiers",
+      "supportedFormats": "PDF ou DOCX (max {maxSize})",
+      "validating": "Validation du fichier...",
+      "uploading": "Téléchargement...",
+      "parsing": "L'IA analyse votre CV...",
+      "success": "CV importé avec succès !",
+      "error": "Une erreur s'est produite",
+      "tryAgain": "Réessayer",
+      "invalidType": "Veuillez télécharger un fichier PDF ou DOCX",
+      "fileTooLarge": "Le fichier dépasse la limite de {maxSize}"
+    },
+    "linkedin": {
+      "title": "Importer depuis LinkedIn",
+      "subtitle": "Exportez votre profil LinkedIn en PDF et téléchargez-le ici",
+      "step1": "Allez sur votre profil LinkedIn",
+      "step2": "Cliquez sur \"Plus\" → \"Enregistrer en PDF\"",
+      "step3": "Téléchargez le PDF ci-dessous",
+      "openLinkedIn": "Ouvrir le Profil LinkedIn",
+      "tip": "Les PDFs LinkedIn fonctionnent mieux pour importer votre historique professionnel complet"
+    }
+  },
+
+  "Pricing": {
+    "sectionTitle": "Tarifs",
+    "title": "Tarification simple et",
+    "titleHighlight": "transparente",
+    "subtitle": "Commencez gratuitement, passez à un forfait supérieur quand vous en avez besoin. Sans frais cachés.",
+    "viewComparison": "Voir la comparaison complète",
+    "cancelAnytime": "Annulez à tout moment",
+    "securePayments": "Paiements sécurisés via Stripe",
+    "mostPopular": "LE PLUS POPULAIRE",
+    "free": {
+      "name": "Gratuit",
+      "description": "Essayez avant d'acheter",
+      "price": "0€",
+      "period": "/à vie",
+      "features": {
+        "downloads": "5 téléchargements (avec pub)",
+        "resumes": "3 CV sauvegardés",
+        "templates": "15 modèles de base",
+        "aiBuild": "Création rapide avec IA"
+      },
+      "limitations": {
+        "ads": "Contient des publicités"
+      },
+      "cta": "Commencer Gratuitement"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Achat unique",
+      "price": "3€",
+      "period": " unique",
+      "features": {
+        "downloads": "10 téléchargements",
+        "resumes": "5 CV sauvegardés",
+        "templates": "Tous les 50+ modèles",
+        "noAds": "Sans publicité",
+        "export": "Export PDF et PNG"
+      },
+      "cta": "Acheter Starter"
+    },
+    "gold": {
+      "name": "Or",
+      "description": "Abonnement mensuel",
+      "price": "6€",
+      "period": "/mois",
+      "features": {
+        "downloads": "50 téléchargements/mois",
+        "resumes": "20 CV sauvegardés",
+        "templates": "Tous les 50+ modèles",
+        "noAds": "Sans publicité",
+        "ats": "Optimisation ATS"
+      },
+      "cta": "Obtenir Or"
+    },
+    "diamond": {
+      "name": "Diamant",
+      "description": "Meilleur rapport qualité-prix",
+      "price": "10€",
+      "period": "/mois",
+      "features": {
+        "downloads": "150 téléchargements/mois",
+        "resumes": "50 CV sauvegardés",
+        "templates": "Tous + modèles Premium",
+        "support": "Support prioritaire",
+        "coverLetter": "Créateur de lettre de motivation"
+      },
+      "cta": "Obtenir Diamant"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Conseils, guides et informations pour votre carrière",
+    "searchPlaceholder": "Rechercher des articles...",
+    "readMore": "Lire la suite",
+    "readingTime": "{time} min de lecture",
+    "categories": "Catégories",
+    "allCategories": "Toutes les Catégories",
+    "relatedPosts": "Articles Connexes",
+    "shareOn": "Partager sur",
+    "noResults": "Aucun article trouvé"
+  },
+
+  "Footer": {
+    "tagline": "Créateur de CV assisté par IA, approuvé par des professionnels du monde entier.",
+    "product": "Produit",
+    "company": "Entreprise",
+    "legal": "Mentions légales",
+    "social": "Réseaux sociaux",
+    "about": "À propos",
+    "careers": "Carrières",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "contact": "Contact",
+    "copyright": "© {year} Best AI Resume. Tous droits réservés."
+  },
+
+  "Auth": {
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Vous avez déjà un compte ?",
+    "signUp": "S'inscrire",
+    "signIn": "Se connecter",
+    "welcomeBack": "Bon Retour",
+    "welcomeBackSubtitle": "Connectez-vous pour continuer à créer votre CV",
+    "createAccount": "Créer un Compte",
+    "createAccountSubtitle": "Commencez à créer votre CV professionnel aujourd'hui"
+  },
+
+  "Errors": {
+    "notFound": "Page non trouvée",
+    "serverError": "Une erreur s'est produite",
+    "unauthorized": "Veuillez vous connecter pour continuer"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Sélectionner la langue"
+  },
+
+  "Builder": {
+    "personalInfo": {
+      "title": "Informations Personnelles",
+      "subtitle": "Commencez par vos coordonnées et votre résumé professionnel."
+    },
+    "profilePhoto": "Photo de Profil",
+    "upload": "Télécharger",
+    "change": "Modifier",
+    "fullName": "Nom Complet",
+    "fullNamePlaceholder": "Jean Dupont",
+    "jobTitle": "Titre du Poste",
+    "jobTitlePlaceholder": "Ingénieur Logiciel",
+    "email": "E-mail",
+    "emailPlaceholder": "jean@exemple.com",
+    "phone": "Téléphone",
+    "phonePlaceholder": "+33 6 00 00 00 00",
+    "location": "Localisation",
+    "locationPlaceholder": "Paris, France",
+    "website": "Site Web",
+    "websitePlaceholder": "jeandupont.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/jeandupont",
+    "nationality": "Nationalité",
+    "nationalityPlaceholder": "ex., Française, Belge",
+    "idDocument": "CNI / Passeport / Permis",
+    "selectDocType": "Sélectionner",
+    "nationalId": "Carte d'identité",
+    "passport": "Passeport",
+    "drivingLicense": "Permis de Conduire",
+    "documentNumber": "Numéro de document",
+    "professionalSummary": "Résumé Professionnel",
+    "summaryPlaceholder": "Ingénieur logiciel expérimenté passionné par la création d'applications web évolutives...",
+    "generateWithAI": "Générer avec l'IA",
+    "additionalInfo": "Informations Supplémentaires",
+    "socialLinks": "Réseaux Sociaux",
+    "references": "Références",
+    "customField": "Champ Personnalisé",
+    "sectionLabel": "Libellé de Section",
+    "sectionLabelPlaceholder": "ex., Bénévolat, Loisirs, Notes Supplémentaires",
+    "content": "Contenu",
+    "contentPlaceholder": "Ajoutez toute information supplémentaire que vous souhaitez inclure dans votre CV...",
+    "shapes": {
+      "circle": "Cercle",
+      "rounded": "Arrondi",
+      "square": "Carré"
+    },
+    "experience": {
+      "title": "Expérience Professionnelle",
+      "subtitle": "Ajoutez votre expérience professionnelle pertinente.",
+      "add": "Ajouter une Expérience",
+      "notSpecified": "(Non spécifié)",
+      "companyName": "Nom de l'entreprise",
+      "jobTitle": "Titre du Poste",
+      "company": "Entreprise",
+      "city": "Ville",
+      "country": "Pays",
+      "startDate": "Date de Début",
+      "endDate": "Date de Fin",
+      "currentlyWork": "Je travaille actuellement ici",
+      "description": "Description",
+      "improveAI": "Améliorer avec l'IA",
+      "noExperience": "Aucune expérience ajoutée.",
+      "addFirst": "Ajoutez votre premier poste"
+    },
+    "education": {
+      "title": "Formation",
+      "subtitle": "Ajoutez votre parcours académique.",
+      "add": "Ajouter une Formation",
+      "notSpecified": "(Non spécifié)",
+      "degree": "Diplôme",
+      "school": "École / Université",
+      "cityOptional": "Ville (Optionnel)",
+      "countryOptional": "Pays (Optionnel)",
+      "startDate": "Date de Début",
+      "endDate": "Date de Fin",
+      "gpaOptional": "Moyenne (Optionnel)",
+      "honorsOptional": "Mentions (Optionnel)",
+      "clubsOptional": "Clubs et Activités (Optionnel)",
+      "descriptionOptional": "Description (Optionnel)",
+      "noEducation": "Aucune formation ajoutée.",
+      "addEducation": "Ajoutez votre formation",
+      "credentials": "Certifications",
+      "certifications": "Certifications",
+      "awards": "Prix et Récompenses"
+    },
+    "skills": {
+      "title": "Compétences",
+      "subtitle": "Ajoutez vos compétences techniques et personnelles avec les niveaux de maîtrise.",
+      "placeholder": "ex. React, Python, Leadership",
+      "proficiencyLevel": "Niveau de Maîtrise",
+      "beginner": "Débutant",
+      "basic": "Basique",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé",
+      "expert": "Expert",
+      "noSkills": "Aucune compétence ajoutée.",
+      "suggestedSkills": "Compétences Suggérées",
+      "additionalInfo": "Informations Supplémentaires",
+      "languages": "Langues",
+      "strengths": "Points Forts",
+      "interests": "Intérêts et Loisirs"
+    }
+  }
+}

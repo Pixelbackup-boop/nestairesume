@@ -3,15 +3,18 @@
  * Ported from frontend/components/templates/layouts/minimal/MinimalTimeline.tsx
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     fontSizes,
     escapeHtml,
     formatDescription,
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale: string = 'en'): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -73,7 +76,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Experience with Timeline -->
             ${experience.length > 0 ? `
                 <section style="margin-bottom: 40px;">
-                    ${SectionHeader('Experience')}
+                    ${SectionHeader(t.sections.experience)}
                     <div style="border-left: 2px solid ${timelineColor}; margin-left: 20px; padding-left: 24px;">
                         ${experience.map(exp => `
                             <div style="position: relative; margin-bottom: 32px;">
@@ -82,7 +85,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
 
                                 <h4 style="font-weight: 700; font-size: 14px; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
                                 <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">
-                                    ${escapeHtml(exp.company)} | ${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}
+                                    ${escapeHtml(exp.company)} | ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                 </div>
                                 <p style="font-size: 14px; line-height: 1.6; margin: 0;">
                                     ${formatDescription(exp.description || '')}
@@ -96,7 +99,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Education with Timeline -->
             ${education.length > 0 ? `
                 <section style="margin-bottom: 40px;">
-                    ${SectionHeader('Education')}
+                    ${SectionHeader(t.sections.education)}
                     <div style="border-left: 2px solid ${timelineColor}; margin-left: 20px; padding-left: 24px;">
                         ${education.map(edu => `
                             <div style="position: relative; margin-bottom: 24px;">
@@ -105,7 +108,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
                                 
                                 <h4 style="font-weight: 700; font-size: 14px; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
                                 <div style="font-size: 14px;">${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}</div>
-                                <div style="font-size: 12px; color: #6b7280;">${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}</div>
+                                <div style="font-size: 12px; color: #6b7280;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
                             </div>
                         `).join('')}
                     </div>
@@ -115,7 +118,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Skills -->
             ${skills.length > 0 ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Skills</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.skills}</h3>
                     <div>
                         ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
                     </div>
@@ -125,7 +128,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Languages -->
             ${languages && languages.length > 0 ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Languages</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.languages}</h3>
                     <p style="line-height: 1.8; font-size: 14px;">
                         ${languages.map(l => `${escapeHtml(l.name)} (${escapeHtml(l.proficiency)})`).join('  •  ')}
                     </p>
@@ -135,7 +138,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Strengths -->
             ${strengths && strengths.length > 0 ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Strengths</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.strengths}</h3>
                     <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                         ${strengths.map(str => `
                             <span style="font-size: 14px; color: #1f2937; background-color: #f3f4f6; padding: 4px 8px; border-radius: 4px;">
@@ -149,7 +152,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Interests -->
             ${interests && interests.length > 0 ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Interests</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.interests}</h3>
                     <p style="line-height: 1.8; font-size: 14px;">
                         ${interests.map(i => escapeHtml(i.name)).join(' • ')}
                     </p>
@@ -159,7 +162,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Credentials -->
             ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Credentials</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.credentials}</h3>
                     ${certifications && certifications.length > 0 ? `
                         <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
                             <h4 style="font-size: 14px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
@@ -167,7 +170,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
                                 ${certifications.map(cert => `
                                     <div>
                                         <div style="font-weight: 600; font-size: 14px; color: #1f2937;">${escapeHtml(cert.name)}</div>
-                                        <div style="font-size: 12px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                        <div style="font-size: 12px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -180,7 +183,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
                                 ${awards.map(award => `
                                     <div>
                                         <div style="font-weight: 600; font-size: 14px; color: #1f2937;">${escapeHtml(award.title)}</div>
-                                        <div style="font-size: 12px; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                        <div style="font-size: 12px; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -192,7 +195,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- References -->
             ${data.references && data.references.length > 0 ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">References</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.references}</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                         ${data.references.map(ref => `
                             <div>
@@ -208,7 +211,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Personal Details -->
             ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Additional Info</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.additionalInfo}</h3>
                     <div style="font-size: 14px; color: #374151;">
                         ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                         ${personalInfo.idType && personalInfo.idNumber ? `<div style="margin-top: 4px;"><span style="font-weight: 600;">${personalInfo.idType === 'passport' ? 'Passport Number' : personalInfo.idType === 'id' ? 'ID Number' : 'License Number'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
@@ -225,7 +228,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme): str
             <!-- Social Links -->
             ${(personalInfo.linkedin || personalInfo.github || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">Social Links</h3>
+                    <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.socialLinks}</h3>
                     <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
                         ${personalInfo.linkedin ? `<div><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.linkedin)}</span></div>` : ''}
                         ${personalInfo.github ? `<div><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}

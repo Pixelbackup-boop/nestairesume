@@ -5,26 +5,29 @@ import { Post } from '@/lib/blog/types';
 
 interface BlogHeaderProps {
   post: Post;
+  basePath?: string; // '/blog' or '/career'
 }
 
-export default function BlogHeader({ post }: BlogHeaderProps) {
+export default function BlogHeader({ post, basePath = '/blog' }: BlogHeaderProps) {
+  const backLabel = basePath === '/career' ? 'Back to Career Center' : 'Back to Blog';
+
   return (
     <header className="mb-8">
       {/* Breadcrumb */}
       <nav className="mb-6">
         <Link
-          href="/blog"
+          href={basePath}
           className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-accent-green transition-colors"
         >
           <ArrowLeft size={16} />
-          Back to Blog
+          {backLabel}
         </Link>
       </nav>
 
       {/* Category */}
       <div className="mb-4">
         <Link
-          href={`/blog/category/${encodeURIComponent(post.category.toLowerCase().replace(/\s+/g, '-'))}`}
+          href={`${basePath}/category/${encodeURIComponent(post.category.toLowerCase().replace(/\s+/g, '-'))}`}
           className="inline-block px-3 py-1 text-sm font-medium text-accent-green bg-accent-green/10 rounded-full border border-accent-green/20 hover:bg-accent-green/20 transition-colors"
         >
           {post.category}
@@ -80,7 +83,7 @@ export default function BlogHeader({ post }: BlogHeaderProps) {
         {post.tags.map(tag => (
           <Link
             key={tag}
-            href={`/blog?tag=${encodeURIComponent(tag)}`}
+            href={`${basePath}?tag=${encodeURIComponent(tag)}`}
             className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-400 bg-white/5 rounded-lg hover:bg-white/10 hover:text-white transition-colors"
           >
             <Tag size={12} />

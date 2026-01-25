@@ -3,7 +3,7 @@
 import { useResumeStore, Reference } from '../../store/useResumeStore';
 import { Plus, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 
 export default function ReferencesSection() {
     const { resumeData, addReference, updateReference, removeReference } = useResumeStore();
@@ -17,7 +17,7 @@ export default function ReferencesSection() {
         if (!newRef.name.trim()) return;
 
         const ref: Reference = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             name: newRef.name.trim(),
             title: newRef.title.trim(),
             company: newRef.company.trim(),

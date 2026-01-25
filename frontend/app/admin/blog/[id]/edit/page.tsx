@@ -6,6 +6,8 @@ import { ArrowLeft, Save, Eye, AlertCircle, Loader2 } from "lucide-react";
 import api from "@/lib/api";
 import Link from "next/link";
 
+type PostType = 'blog' | 'career' | 'both';
+
 interface BlogFormData {
   title: string;
   slug: string;
@@ -18,7 +20,14 @@ interface BlogFormData {
   author: string;
   featured: boolean;
   published: boolean;
+  postType: PostType;
 }
+
+const POST_TYPES: { value: PostType; label: string; description: string }[] = [
+  { value: 'blog', label: 'Blog Only', description: 'Appears only on the Blog page' },
+  { value: 'career', label: 'Career Only', description: 'Appears only on the Career page' },
+  { value: 'both', label: 'Both', description: 'Appears on both Blog and Career pages' },
+];
 
 const CATEGORIES = [
   "Resume Tips",
@@ -45,16 +54,17 @@ export default function EditBlogPost() {
     imageAlt: "",
     category: "Resume Tips",
     tags: "",
-    author: "ResumeAI Team",
+    author: "Best AI Resume Team",
     featured: false,
     published: false,
+    postType: "blog",
   });
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
         const response = await api.get(`/admin/blog/${params.id}`);
-        const post = response.data;
+        const post = response.data as { title: string; slug: string; description: string; content: string; image?: string; imageAlt?: string; category: string; tags: string; status: string };
         let tags = "";
         try {
           const parsedTags = JSON.parse(post.tags);
@@ -74,6 +84,7 @@ export default function EditBlogPost() {
           author: post.author,
           featured: post.featured,
           published: post.published,
+          postType: post.postType || "blog",
         });
       } catch (err: any) {
         setError(err.response?.data?.detail || "Failed to load post");
@@ -238,6 +249,40 @@ export default function EditBlogPost() {
           <div className="bg-bg-card border border-white/5 rounded-xl p-6 space-y-6">
             <h3 className="text-lg font-semibold text-white">Metadata</h3>
 
+            {/* Post Type - Where to publish */}
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Publish To *
+              </label>
+              <div className="grid grid-cols-3 gap-3">
+                {POST_TYPES.map((type) => (
+                  <label
+                    key={type.value}
+                    className={`relative flex flex-col p-3 rounded-lg border cursor-pointer transition-colors ${
+                      formData.postType === type.value
+                        ? 'border-accent-purple bg-accent-purple/10'
+                        : 'border-white/10 bg-bg-primary hover:border-white/20'
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="postType"
+                      value={type.value}
+                      checked={formData.postType === type.value}
+                      onChange={handleChange}
+                      className="sr-only"
+                    />
+                    <span className={`text-sm font-medium ${
+                      formData.postType === type.value ? 'text-accent-purple' : 'text-white'
+                    }`}>
+                      {type.label}
+                    </span>
+                    <span className="text-xs text-gray-500 mt-1">{type.description}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               {/* Category */}
               <div>
@@ -381,6 +426,15 @@ export default function EditBlogPost() {
               <div className="flex items-center gap-2 mb-6">
                 <span className="px-2 py-1 bg-white/5 text-gray-300 rounded text-xs">
                   {formData.category}
+                </span>
+                <span className={`px-2 py-1 rounded text-xs ${
+                  formData.postType === 'career'
+                    ? 'bg-accent-green/10 text-accent-green'
+                    : formData.postType === 'both'
+                      ? 'bg-accent-purple/10 text-accent-purple'
+                      : 'bg-accent-blue/10 text-accent-blue'
+                }`}>
+                  {formData.postType === 'career' ? 'Career' : formData.postType === 'both' ? 'Blog + Career' : 'Blog'}
                 </span>
                 <span className="text-gray-500 text-xs">
                   by {formData.author}

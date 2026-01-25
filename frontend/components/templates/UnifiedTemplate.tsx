@@ -4,6 +4,7 @@ import React from 'react';
 import { ResumeData } from '@/store/useResumeStore';
 import { ThemeColor } from '@/lib/themes';
 import { getTemplateById, getTemplateIdFromLayout, templateRegistry } from './layouts';
+import { TranslationProvider, TemplateTranslations } from '@/lib/templates/TranslationContext';
 
 // Re-export types for convenience
 export type { TemplateProps, TemplateMeta, TemplateRegistryEntry } from './shared/types';
@@ -20,6 +21,8 @@ interface UnifiedTemplateProps {
     templateId?: string;
     /** Legacy: Layout type (e.g., 'sidebar') - converted to templateId */
     layout?: LayoutType;
+    /** Translations for section headers and labels (i18n support) */
+    translations?: TemplateTranslations;
 }
 
 /**
@@ -37,6 +40,7 @@ export default function UnifiedTemplate({
     scale = 1,
     templateId,
     layout,
+    translations,
 }: UnifiedTemplateProps) {
     // Determine which template to render
     // Priority: templateId > layout conversion > default
@@ -65,11 +69,19 @@ export default function UnifiedTemplate({
             );
         }
         const FallbackComponent = fallback.component;
-        return <FallbackComponent data={data} theme={theme} scale={scale} />;
+        return (
+            <TranslationProvider translations={translations}>
+                <FallbackComponent data={data} theme={theme} scale={scale} />
+            </TranslationProvider>
+        );
     }
 
     const TemplateComponent = template.component;
-    return <TemplateComponent data={data} theme={theme} scale={scale} />;
+    return (
+        <TranslationProvider translations={translations}>
+            <TemplateComponent data={data} theme={theme} scale={scale} />
+        </TranslationProvider>
+    );
 }
 
 // Named exports for direct template access (backward compatibility)

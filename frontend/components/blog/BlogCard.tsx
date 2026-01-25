@@ -6,9 +6,10 @@ import { PostMeta } from '@/lib/blog/types';
 interface BlogCardProps {
   post: PostMeta;
   featured?: boolean;
+  basePath?: string; // '/blog' or '/career'
 }
 
-export default function BlogCard({ post, featured = false }: BlogCardProps) {
+export default function BlogCard({ post, featured = false, basePath = '/blog' }: BlogCardProps) {
   return (
     <article
       className={`group relative rounded-xl overflow-hidden transition-all duration-300 ${
@@ -17,7 +18,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
           : 'bg-bg-card border border-white/5 hover:border-white/10'
       }`}
     >
-      <Link href={`/blog/${post.slug}`} className="block">
+      <Link href={`${basePath}/${post.slug}`} className="block">
         {/* Image */}
         <div className="relative aspect-video overflow-hidden">
           {post.image ? (

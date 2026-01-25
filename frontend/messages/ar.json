@@ -1,0 +1,506 @@
+{
+  "Meta": {
+    "title": "Best AI Resume - أنشئ سيرتك الذاتية المثالية بالذكاء الاصطناعي",
+    "description": "أنشئ سيرة ذاتية احترافية ومحسّنة لأنظمة التتبع في دقائق. جرّب مجاناً، لا تسجيل مطلوب."
+  },
+
+  "Common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "close": "إغلاق",
+    "search": "بحث",
+    "submit": "إرسال",
+    "next": "التالي",
+    "back": "رجوع",
+    "download": "تحميل",
+    "preview": "معاينة",
+    "scrollToExplore": "مرر للاستكشاف"
+  },
+
+  "Navigation": {
+    "features": "المميزات",
+    "templates": "القوالب",
+    "pricing": "الأسعار",
+    "blog": "المدونة",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "getStarted": "ابدأ مجاناً",
+    "dashboard": "لوحة التحكم",
+    "admin": "الإدارة",
+    "adminPanel": "لوحة الإدارة"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "إنشاء سيرة ذاتية بالذكاء الاصطناعي",
+      "title": "أنشئ",
+      "titleHighlight": "سيرتك الذاتية المثالية",
+      "subtitle": "لا تسجيل مطلوب",
+      "description": "أنشئ سيرة ذاتية مذهلة ومحسّنة لأنظمة التتبع في دقائق. جرّب مجاناً — سجّل فقط عندما تكون مستعداً للحفظ.",
+      "ctaPrimary": "أنشئ بالذكاء الاصطناعي",
+      "ctaSecondary": "تصفح القوالب",
+      "noCreditCard": "لا حاجة لبطاقة ائتمان",
+      "noSignup": "لا تسجيل للبدء",
+      "trustedBy": "أكثر من 50,000 محترف يثقون بنا",
+      "atsScore": "نتيجة ATS",
+      "aiSuggestion": "اقتراح الذكاء الاصطناعي"
+    },
+    "features": {
+      "sectionTitle": "المميزات",
+      "title": "كل ما تحتاجه",
+      "titleHighlight": "للحصول على وظيفة أحلامك",
+      "subtitle": "أدوات ذكاء اصطناعي قوية مع تصميم جميل لتميزك عن الآخرين.",
+      "aiWriting": {
+        "title": "الكتابة بالذكاء الاصطناعي",
+        "description": "دع الذكاء الاصطناعي يصنع نقاطاً مقنعة وملخصات احترافية تبرز إنجازاتك."
+      },
+      "templates": {
+        "title": "أكثر من 20 قالب مميز",
+        "description": "اختر من قوالب مصممة احترافياً تبرز مع الحفاظ على توافق ATS."
+      },
+      "atsOptimization": {
+        "title": "تحسين ATS",
+        "description": "نتيجة ATS في الوقت الفعلي تضمن أن سيرتك الذاتية تجتاز أنظمة الفرز الآلية."
+      },
+      "realTimePreview": {
+        "title": "معاينة فورية",
+        "description": "شاهد التغييرات فوراً أثناء الكتابة. ما تراه هو ما سيراه مسؤولو التوظيف."
+      },
+      "pdfExport": {
+        "title": "تصدير PDF",
+        "description": "حمّل ملفات PDF مثالية جاهزة للإرسال. محسّنة للرقمي والطباعة."
+      },
+      "smartSuggestions": {
+        "title": "اقتراحات ذكية",
+        "description": "احصل على توصيات ذكية للمهارات والكلمات المفتاحية والمحتوى."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "كيف تعمل",
+      "title": "ثلاث خطوات إلى",
+      "titleHighlight": "سيرتك الذاتية المثالية",
+      "step1": {
+        "title": "أدخل بياناتك",
+        "description": "أدخل خبرتك وتعليمك ومهاراتك. الذكاء الاصطناعي يساعدك في كل خطوة."
+      },
+      "step2": {
+        "title": "اختر قالب",
+        "description": "اختر من أكثر من 20 قالب احترافي. معاينة فورية أثناء التخصيص."
+      },
+      "step3": {
+        "title": "حمّل PDF",
+        "description": "صدّر سيرتك الذاتية المصقولة كملف PDF مثالي."
+      }
+    },
+    "templates": {
+      "sectionTitle": "القوالب",
+      "title": "قوالب مميزة",
+      "titleHighlight": "لكل مهنة",
+      "viewAll": "عرض جميع القوالب"
+    },
+    "testimonials": {
+      "sectionTitle": "آراء العملاء",
+      "title": "محبوب من المحترفين",
+      "titleHighlight": "حول العالم"
+    },
+    "cta": {
+      "title": "مستعد لإنشاء",
+      "titleHighlight": "سيرتك الذاتية الناجحة؟",
+      "subtitle": "انضم إلى أكثر من 50,000 محترف حصلوا على وظائف أحلامهم مع Best AI Resume.",
+      "button": "أنشئ سيرتك الذاتية الآن — مجاناً",
+      "note": "لا تسجيل مطلوب للبدء"
+    }
+  },
+
+  "Templates": {
+    "sectionTitle": "القوالب",
+    "title": "اختر قالبك",
+    "titleHighlight": "المثالي",
+    "subtitle": "اختر وضع التحرير واختر من قوالبنا المصممة احترافياً.",
+    "searchPlaceholder": "البحث في القوالب...",
+    "templatesAvailable": "{count} قالب متاح",
+    "noResults": "لم يتم العثور على قوالب",
+    "noResultsHint": "حاول تعديل البحث أو الفلتر",
+    "useTemplate": "استخدم القالب",
+    "formBuilder": {
+      "title": "منشئ النماذج",
+      "description": "تحرير موجّه خطوة بخطوة",
+      "hint": "املأ النماذج ودع القالب يتولى التصميم. مثالي لسير ذاتية سريعة واحترافية."
+    },
+    "canvasEditor": {
+      "title": "محرر اللوحة",
+      "description": "حرية إبداعية كاملة",
+      "hint": "اسحب وأفلت وصمم بحرية. تحكم كامل في كل عنصر."
+    },
+    "categories": {
+      "all": "الكل",
+      "professional": "احترافي",
+      "creative": "إبداعي",
+      "minimal": "بسيط",
+      "bold": "جريء",
+      "modern": "عصري",
+      "classic": "كلاسيكي"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "تريد البدء من الصفر؟",
+        "description": "أنشئ سيرة ذاتية مخصصة بالكامل باستخدام محرر اللوحة.",
+        "button": "افتح لوحة فارغة"
+      },
+      "builder": {
+        "title": "تريد أن ينشئ الذكاء الاصطناعي سيرتك الذاتية؟",
+        "description": "دع الذكاء الاصطناعي ينشئ سيرة ذاتية احترافية في ثوانٍ.",
+        "button": "أنشئ بالذكاء الاصطناعي"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "معلومات الاتصال",
+      "experience": "الخبرة",
+      "workExperience": "الخبرة العملية",
+      "professionalExperience": "الخبرة المهنية",
+      "education": "التعليم",
+      "skills": "المهارات",
+      "coreSkills": "المهارات الأساسية",
+      "technicalSkills": "المهارات التقنية",
+      "languages": "اللغات",
+      "interests": "الاهتمامات",
+      "strengths": "نقاط القوة",
+      "certifications": "الشهادات",
+      "awards": "الجوائز",
+      "projects": "المشاريع",
+      "references": "المراجع",
+      "summary": "الملخص",
+      "professionalSummary": "الملخص المهني",
+      "profile": "الملف الشخصي",
+      "about": "نبذة",
+      "additionalInfo": "معلومات إضافية",
+      "socialLinks": "الروابط الاجتماعية",
+      "personalDetails": "البيانات الشخصية",
+      "credentials": "المؤهلات"
+    },
+    "labels": {
+      "present": "الحالي",
+      "gpa": "المعدل",
+      "native": "اللغة الأم",
+      "fluent": "طلاقة",
+      "advanced": "متقدم",
+      "intermediate": "متوسط",
+      "basic": "مبتدئ"
+    }
+  },
+
+  "Onboarding": {
+    "title": "أخبرنا عن نفسك",
+    "subtitle": "سؤالان فقط وسينشئ الذكاء الاصطناعي سيرتك الذاتية المثالية",
+    "fullName": "اسمك الكامل",
+    "fullNamePlaceholder": "مثال: أحمد محمد",
+    "jobTitle": "المسمى الوظيفي المطلوب",
+    "jobTitlePlaceholder": "مثال: مهندس برمجيات، مدير تسويق",
+    "experienceLevel": "مستوى الخبرة",
+    "levels": {
+      "entry": "مبتدئ",
+      "entryDesc": "0-2 سنوات خبرة",
+      "mid": "متوسط",
+      "midDesc": "3-5 سنوات خبرة",
+      "senior": "خبير",
+      "seniorDesc": "6-10 سنوات خبرة",
+      "executive": "تنفيذي",
+      "executiveDesc": "أكثر من 10 سنوات خبرة"
+    },
+    "generate": "إنشاء سيرتي الذاتية",
+    "generating": {
+      "title": "جاري إنشاء سيرتك الذاتية",
+      "analyzing": "تحليل مهنتك...",
+      "summary": "إنشاء الملخص المهني...",
+      "experience": "إنشاء الخبرة العملية...",
+      "skills": "إضافة المهارات ذات الصلة...",
+      "polishing": "صقل سيرتك الذاتية...",
+      "almostThere": "اقتربنا من الانتهاء...",
+      "wait": "عادة ما يستغرق هذا بضع ثوانٍ فقط..."
+    },
+    "step1": {
+      "title": "كيف تريد إنشاء سيرتك الذاتية؟",
+      "subtitle": "اختر طريقتك المفضلة للبدء",
+      "recommended": "موصى به",
+      "ai": {
+        "title": "إنشاء بالذكاء الاصطناعي",
+        "description": "أخبرنا عن مهنتك وسننشئ سيرة ذاتية احترافية في ثوانٍ"
+      },
+      "upload": {
+        "title": "رفع سيرة ذاتية",
+        "description": "ارفع سيرتك الذاتية الحالية وسنقوم بتحسينها"
+      },
+      "linkedin": {
+        "title": "استيراد من LinkedIn",
+        "description": "استورد ملفك الشخصي من LinkedIn تلقائياً"
+      },
+      "comingSoon": "قريباً",
+      "startBlank": "أو ابدأ بسيرة ذاتية فارغة"
+    },
+    "step4": {
+      "title": "اختر قالبك",
+      "subtitle": "سيرتك الذاتية جاهزة! اختر تصميماً يناسب أسلوبك.",
+      "backToEdit": "العودة لتعديل المعلومات",
+      "browseAll": "تصفح جميع القوالب",
+      "continue": "متابعة إلى المحرر"
+    },
+    "upload": {
+      "title": "ارفع سيرتك الذاتية",
+      "subtitle": "سنستخرج معلوماتك ونحسّنها بالذكاء الاصطناعي",
+      "dragDrop": "اسحب وأفلت سيرتك الذاتية هنا",
+      "orBrowse": "أو تصفح الملفات",
+      "supportedFormats": "PDF أو DOCX (الحد الأقصى {maxSize})",
+      "validating": "جاري التحقق من الملف...",
+      "uploading": "جاري الرفع...",
+      "parsing": "الذكاء الاصطناعي يحلل سيرتك الذاتية...",
+      "success": "تم استيراد السيرة الذاتية بنجاح!",
+      "error": "حدث خطأ ما",
+      "tryAgain": "حاول مرة أخرى",
+      "invalidType": "يرجى رفع ملف PDF أو DOCX",
+      "fileTooLarge": "الملف يتجاوز الحد المسموح {maxSize}"
+    },
+    "linkedin": {
+      "title": "استيراد من LinkedIn",
+      "subtitle": "قم بتصدير ملفك الشخصي على LinkedIn كـ PDF وارفعه هنا",
+      "step1": "اذهب إلى ملفك الشخصي على LinkedIn",
+      "step2": "انقر على \"المزيد\" ← \"حفظ كـ PDF\"",
+      "step3": "ارفع ملف PDF المحمّل أدناه",
+      "openLinkedIn": "فتح ملف LinkedIn",
+      "tip": "ملفات PDF من LinkedIn تعمل بشكل أفضل لاستيراد سجلك المهني الكامل"
+    }
+  },
+
+  "Pricing": {
+    "sectionTitle": "الأسعار",
+    "title": "أسعار بسيطة",
+    "titleHighlight": "وشفافة",
+    "subtitle": "ابدأ مجاناً، قم بالترقية عند الحاجة. لا رسوم خفية.",
+    "viewComparison": "عرض المقارنة الكاملة",
+    "cancelAnytime": "إلغاء في أي وقت",
+    "securePayments": "مدفوعات آمنة عبر Stripe",
+    "mostPopular": "الأكثر شعبية",
+    "free": {
+      "name": "مجاني",
+      "description": "جرّب قبل الشراء",
+      "price": "$0",
+      "period": "/للأبد",
+      "features": {
+        "downloads": "5 تحميلات (مع إعلان)",
+        "resumes": "3 سير ذاتية محفوظة",
+        "templates": "15 قالب أساسي",
+        "aiBuild": "إنشاء سريع بالذكاء الاصطناعي"
+      },
+      "limitations": {
+        "ads": "يحتوي على إعلانات"
+      },
+      "cta": "ابدأ مجاناً"
+    },
+    "starter": {
+      "name": "المبتدئ",
+      "description": "شراء لمرة واحدة",
+      "price": "$3",
+      "period": " لمرة واحدة",
+      "features": {
+        "downloads": "10 تحميلات",
+        "resumes": "5 سير ذاتية محفوظة",
+        "templates": "جميع القوالب 50+",
+        "noAds": "بدون إعلانات",
+        "export": "تصدير PDF و PNG"
+      },
+      "cta": "اشتر المبتدئ"
+    },
+    "gold": {
+      "name": "الذهبي",
+      "description": "اشتراك شهري",
+      "price": "$6",
+      "period": "/شهر",
+      "features": {
+        "downloads": "50 تحميل/شهر",
+        "resumes": "20 سيرة ذاتية محفوظة",
+        "templates": "جميع القوالب 50+",
+        "noAds": "بدون إعلانات",
+        "ats": "تحسين ATS"
+      },
+      "cta": "احصل على الذهبي"
+    },
+    "diamond": {
+      "name": "الماسي",
+      "description": "أفضل قيمة للمستخدمين المتقدمين",
+      "price": "$10",
+      "period": "/شهر",
+      "features": {
+        "downloads": "150 تحميل/شهر",
+        "resumes": "50 سيرة ذاتية محفوظة",
+        "templates": "الكل + قوالب مميزة",
+        "support": "دعم أولوية",
+        "coverLetter": "منشئ خطاب التغطية"
+      },
+      "cta": "احصل على الماسي"
+    }
+  },
+
+  "Blog": {
+    "title": "المدونة",
+    "subtitle": "نصائح وإرشادات ومعلومات لمسيرتك المهنية",
+    "searchPlaceholder": "البحث في المقالات...",
+    "readMore": "اقرأ المزيد",
+    "readingTime": "{time} دقائق للقراءة",
+    "categories": "الفئات",
+    "allCategories": "جميع الفئات",
+    "relatedPosts": "مقالات ذات صلة",
+    "shareOn": "شارك على",
+    "noResults": "لم يتم العثور على مقالات"
+  },
+
+  "Footer": {
+    "tagline": "منشئ سير ذاتية بالذكاء الاصطناعي يثق به المحترفون حول العالم.",
+    "product": "المنتج",
+    "company": "الشركة",
+    "legal": "قانوني",
+    "social": "التواصل الاجتماعي",
+    "about": "من نحن",
+    "careers": "الوظائف",
+    "privacy": "الخصوصية",
+    "terms": "الشروط",
+    "contact": "اتصل بنا",
+    "copyright": "© {year} Best AI Resume. جميع الحقوق محفوظة."
+  },
+
+  "Auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "signUp": "التسجيل",
+    "signIn": "تسجيل الدخول",
+    "welcomeBack": "مرحباً بعودتك",
+    "welcomeBackSubtitle": "سجّل دخولك لمتابعة إنشاء سيرتك الذاتية",
+    "createAccount": "إنشاء حساب",
+    "createAccountSubtitle": "ابدأ بإنشاء سيرتك الذاتية الاحترافية اليوم"
+  },
+
+  "Errors": {
+    "notFound": "الصفحة غير موجودة",
+    "serverError": "حدث خطأ ما",
+    "unauthorized": "يرجى تسجيل الدخول للمتابعة"
+  },
+
+  "LanguageSwitcher": {
+    "label": "اختر اللغة"
+  },
+
+  "Builder": {
+    "personalInfo": {
+      "title": "المعلومات الشخصية",
+      "subtitle": "ابدأ ببيانات الاتصال والملخص المهني."
+    },
+    "profilePhoto": "صورة الملف الشخصي",
+    "upload": "رفع",
+    "change": "تغيير",
+    "fullName": "الاسم الكامل",
+    "fullNamePlaceholder": "أحمد محمد",
+    "jobTitle": "المسمى الوظيفي",
+    "jobTitlePlaceholder": "مهندس برمجيات",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "ahmed@example.com",
+    "phone": "الهاتف",
+    "phonePlaceholder": "+971 50 000 0000",
+    "location": "الموقع",
+    "locationPlaceholder": "دبي، الإمارات",
+    "website": "الموقع الإلكتروني",
+    "websitePlaceholder": "ahmedmohamed.com",
+    "linkedin": "لينكد إن",
+    "linkedinPlaceholder": "linkedin.com/in/ahmedmohamed",
+    "nationality": "الجنسية",
+    "nationalityPlaceholder": "مثال: إماراتي، سعودي",
+    "idDocument": "الهوية / جواز السفر / رخصة القيادة",
+    "selectDocType": "اختر النوع",
+    "nationalId": "بطاقة الهوية",
+    "passport": "جواز السفر",
+    "drivingLicense": "رخصة القيادة",
+    "documentNumber": "رقم الوثيقة",
+    "professionalSummary": "الملخص المهني",
+    "summaryPlaceholder": "مهندس برمجيات ذو خبرة وشغف ببناء تطبيقات ويب قابلة للتوسع...",
+    "generateWithAI": "إنشاء بالذكاء الاصطناعي",
+    "additionalInfo": "معلومات إضافية",
+    "socialLinks": "روابط التواصل الاجتماعي",
+    "references": "المراجع",
+    "customField": "حقل مخصص",
+    "sectionLabel": "عنوان القسم",
+    "sectionLabelPlaceholder": "مثال: العمل التطوعي، الهوايات، ملاحظات إضافية",
+    "content": "المحتوى",
+    "contentPlaceholder": "أضف أي معلومات إضافية تريد تضمينها في سيرتك الذاتية...",
+    "shapes": {
+      "circle": "دائرة",
+      "rounded": "مستدير",
+      "square": "مربع"
+    },
+    "experience": {
+      "title": "الخبرة العملية",
+      "subtitle": "أضف خبرتك العملية ذات الصلة.",
+      "add": "إضافة خبرة",
+      "notSpecified": "(غير محدد)",
+      "companyName": "اسم الشركة",
+      "jobTitle": "المسمى الوظيفي",
+      "company": "الشركة",
+      "city": "المدينة",
+      "country": "البلد",
+      "startDate": "تاريخ البدء",
+      "endDate": "تاريخ الانتهاء",
+      "currentlyWork": "أعمل حالياً هنا",
+      "description": "الوصف",
+      "improveAI": "تحسين بالذكاء الاصطناعي",
+      "noExperience": "لم تتم إضافة خبرة بعد.",
+      "addFirst": "أضف وظيفتك الأولى"
+    },
+    "education": {
+      "title": "التعليم",
+      "subtitle": "أضف خلفيتك التعليمية.",
+      "add": "إضافة تعليم",
+      "notSpecified": "(غير محدد)",
+      "degree": "الدرجة العلمية",
+      "school": "المدرسة / الجامعة",
+      "cityOptional": "المدينة (اختياري)",
+      "countryOptional": "البلد (اختياري)",
+      "startDate": "تاريخ البدء",
+      "endDate": "تاريخ الانتهاء",
+      "gpaOptional": "المعدل التراكمي (اختياري)",
+      "honorsOptional": "مرتبة الشرف (اختياري)",
+      "clubsOptional": "الأندية والأنشطة (اختياري)",
+      "descriptionOptional": "الوصف (اختياري)",
+      "noEducation": "لم تتم إضافة تعليم بعد.",
+      "addEducation": "أضف تعليمك",
+      "credentials": "المؤهلات",
+      "certifications": "الشهادات",
+      "awards": "الجوائز والإنجازات"
+    },
+    "skills": {
+      "title": "المهارات",
+      "subtitle": "أضف مهاراتك التقنية والشخصية مع مستويات الإتقان.",
+      "placeholder": "مثل: React، Python، القيادة",
+      "proficiencyLevel": "مستوى الإتقان",
+      "beginner": "مبتدئ",
+      "basic": "أساسي",
+      "intermediate": "متوسط",
+      "advanced": "متقدم",
+      "expert": "خبير",
+      "noSkills": "لم تتم إضافة مهارات بعد.",
+      "suggestedSkills": "مهارات مقترحة",
+      "additionalInfo": "معلومات إضافية",
+      "languages": "اللغات",
+      "strengths": "نقاط القوة",
+      "interests": "الاهتمامات والهوايات"
+    }
+  }
+}

@@ -37,7 +37,7 @@ export default function ContentLibraryPage() {
   const fetchSources = async () => {
     try {
       const response = await api.get("/admin/auto-blog/content");
-      setSources(response.data);
+      setSources(response.data as ContentSource[]);
       setError(null);
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };
@@ -107,7 +107,7 @@ export default function ContentLibraryPage() {
         count: 5,
       });
       setSuccess(
-        `Generated ${response.data.generated} posts! Check the queue to review.`
+        `Generated ${(response.data as { generated: number }).generated} posts! Check the queue to review.`
       );
       fetchSources();
     } catch (err: unknown) {

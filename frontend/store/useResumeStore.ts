@@ -652,3 +652,32 @@ export const useResumeStore = create<ResumeState>()(
         }
     )
 );
+
+// =============================================================================
+// SELECTOR HOOKS - Use these to prevent unnecessary re-renders
+// Components will only re-render when the specific slice of state they use changes
+// =============================================================================
+
+// Data selectors
+export const usePersonalInfo = () => useResumeStore((state) => state.resumeData.personalInfo);
+export const useExperience = () => useResumeStore((state) => state.resumeData.experience);
+export const useEducation = () => useResumeStore((state) => state.resumeData.education);
+export const useSkills = () => useResumeStore((state) => state.resumeData.skills);
+export const useLanguages = () => useResumeStore((state) => state.resumeData.languages);
+export const useInterests = () => useResumeStore((state) => state.resumeData.interests);
+export const useStrengths = () => useResumeStore((state) => state.resumeData.strengths);
+export const useCertifications = () => useResumeStore((state) => state.resumeData.certifications);
+export const useAwards = () => useResumeStore((state) => state.resumeData.awards);
+export const useReferences = () => useResumeStore((state) => state.resumeData.references);
+export const useBackground = () => useResumeStore((state) => state.resumeData.background);
+export const useFonts = () => useResumeStore((state) => state.resumeData.fonts);
+export const useLayoutConfig = () => useResumeStore((state) => state.resumeData.layoutConfig);
+
+// UI state selectors
+export const useSelectedTemplate = () => useResumeStore((state) => state.selectedTemplate);
+export const useSelectedTemplateId = () => useResumeStore((state) => state.selectedTemplateId);
+export const useSelectedTheme = () => useResumeStore((state) => state.selectedTheme);
+export const useCustomThemeColor = () => useResumeStore((state) => state.resumeData.customThemeColor);
+
+// Full resume data (use sparingly - causes re-render on any data change)
+export const useResumeData = () => useResumeStore((state) => state.resumeData);

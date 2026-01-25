@@ -13,12 +13,20 @@ model User {
   hashedPassword     String
   name               String
   role               String    @default("user") // "user" | "admin"
-  subscriptionTier   String    @default("free") // "free" | "starter" | "gold" | "diamond"
+  subscriptionTier   String    @default("free") // "free" | "starter" | "gold" | "diamond" | "platinum"
   creditsRemaining   Int       @default(3)
   stripeCustomerId   String?   // Stripe customer ID
   subscriptionId     String?   // Active Stripe subscription ID
-  subscriptionStatus String?   // "active" | "canceled" | "past_due"
+  subscriptionStatus String?   // "active" | "canceled" | "past_due" | "trialing"
   isSuspended        Boolean   @default(false)
+  // Trial tracking
+  trialEndsAt        DateTime? // When trial period ends
+  hasUsedTrial       Boolean   @default(false) // Prevent multiple trials
+  // Usage limits (internal tracking)
+  cvCreatedCount     Int       @default(0) // CVs created this billing period
+  aiUsedCount        Int       @default(0) // AI generations this month
+  aiUsedToday        Int       @default(0) // AI generations today (for trial daily limit)
+  lastAiResetDate    DateTime? // When daily/monthly counters were last reset
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt
   resumes            Resume[]
@@ -81,7 +89,7 @@ model Payment {
   currency        String   @default("usd")
   status          String   // "succeeded" | "pending" | "failed"
   type            String   // "subscription" | "one_time"
-  plan            String?  // "starter" | "gold" | "diamond"
+  plan            String?  // "starter" | "gold" | "diamond" | "platinum"
   createdAt       DateTime @default(now())
 }
 

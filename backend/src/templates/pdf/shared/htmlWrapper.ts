@@ -8,12 +8,26 @@ import { getGoogleFontUrl } from './helpers';
 interface WrapperOptions {
     headingFont: string;
     bodyFont: string;
+    locale?: string;
 }
+
+// RTL locales list
+const RTL_LOCALES = ['ar', 'he', 'fa', 'ur'];
+
+/**
+ * Check if a locale is RTL (Right-to-Left)
+ */
+const isRtl = (locale: string): boolean => RTL_LOCALES.includes(locale);
+
+/**
+ * Get direction for a locale
+ */
+const getDirection = (locale: string): 'ltr' | 'rtl' => isRtl(locale) ? 'rtl' : 'ltr';
 
 /**
  * Generates Google Fonts link tags for the specified fonts
  */
-const generateFontLinks = (headingFont: string, bodyFont: string): string => {
+const generateFontLinks = (headingFont: string, bodyFont: string, locale: string): string => {
     const fonts = new Set<string>();
 
     const headingUrl = getGoogleFontUrl(headingFont);
@@ -21,6 +35,11 @@ const generateFontLinks = (headingFont: string, bodyFont: string): string => {
 
     if (headingUrl) fonts.add(headingUrl);
     if (bodyUrl) fonts.add(bodyUrl);
+
+    // Add Arabic font for RTL locales
+    if (isRtl(locale)) {
+        fonts.add('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+    }
 
     return Array.from(fonts)
         .map(url => `<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,11 +52,13 @@ const generateFontLinks = (headingFont: string, bodyFont: string): string => {
  * Wraps template HTML content with a complete HTML document
  */
 export const wrapHtml = (content: string, options: WrapperOptions): string => {
-    const { headingFont, bodyFont } = options;
-    const fontLinks = generateFontLinks(headingFont, bodyFont);
+    const { headingFont, bodyFont, locale = 'en' } = options;
+    const fontLinks = generateFontLinks(headingFont, bodyFont, locale);
+    const dir = getDirection(locale);
+    const isRtlLocale = isRtl(locale);
 
     return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${locale}" dir="${dir}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,11 +90,50 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: ${isRtlLocale ? "'Noto Sans Arabic', 'Inter', sans-serif" : "'Inter', sans-serif"};
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
             color-adjust: exact !important;
         }
+
+        /* RTL Support */
+        [dir="rtl"] body {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+            text-align: right;
+        }
+
+        [dir="rtl"] .text-left { text-align: right; }
+        [dir="rtl"] .text-right { text-align: left; }
+
+        /* RTL flex direction reversal for horizontal layouts */
+        [dir="rtl"] .flex-row-reverse-rtl { flex-direction: row-reverse; }
+
+        /* RTL sidebar positioning - sidebar moves to right */
+        [dir="rtl"] .sidebar-bg-fixed {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .sidebar-accent-stripe {
+            left: auto;
+            right: 0;
+        }
+
+        /* RTL margin/padding adjustments */
+        [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+        [dir="rtl"] .ml-3 { margin-left: 0; margin-right: 0.75rem; }
+        [dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+        [dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+        [dir="rtl"] .mr-3 { margin-right: 0; margin-left: 0.75rem; }
+        [dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+        [dir="rtl"] .pl-2 { padding-left: 0; padding-right: 0.5rem; }
+        [dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
+        [dir="rtl"] .pr-2 { padding-right: 0; padding-left: 0.5rem; }
+        [dir="rtl"] .pr-4 { padding-right: 0; padding-left: 1rem; }
+
+        /* RTL border adjustments */
+        [dir="rtl"] .border-l-2 { border-left: none; border-right-width: 2px; border-right-style: solid; }
+        [dir="rtl"] .border-r-2 { border-right: none; border-left-width: 2px; border-left-style: solid; }
 
         /* Resume container */
         .resume-page {

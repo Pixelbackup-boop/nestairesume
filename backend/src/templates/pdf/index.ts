@@ -3,7 +3,7 @@
  * Exports all 16 featured PDF templates
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import { renderClassicProfessional } from './classic-professional';
 
 // Sidebar Templates (3)
@@ -27,7 +27,7 @@ import { renderMinimalTimeline } from './minimal-timeline';
 import { renderMinimalLabelsTan } from './minimal-labels-tan';
 import { renderMinimalBlueSections } from './minimal-blue-sections';
 
-export type TemplateRenderer = (data: PdfResumeData, theme: PdfTheme) => string;
+export type TemplateRenderer = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale?: string) => string;
 
 export const templates: Record<string, TemplateRenderer> = {
     // Sidebar Templates (3)

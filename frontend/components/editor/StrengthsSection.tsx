@@ -3,7 +3,7 @@
 import { useResumeStore, Strength } from '../../store/useResumeStore';
 import { Plus, X } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 
 export default function StrengthsSection() {
     const { resumeData, addStrength, updateStrength, removeStrength } = useResumeStore();
@@ -16,7 +16,7 @@ export default function StrengthsSection() {
         if (!newStrength.trim()) return;
 
         const strength: Strength = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             name: newStrength.trim(),
             level: 80, // Default level
         };
@@ -145,7 +145,7 @@ export default function StrengthsSection() {
                         key={s}
                         onClick={() => {
                             if (!strengths.find(str => str.name === s)) {
-                                const newId = uuidv4();
+                                const newId = crypto.randomUUID();
                                 addStrength({ id: newId, name: s, level: 80 });
                                 setExpandedId(newId);
                             }

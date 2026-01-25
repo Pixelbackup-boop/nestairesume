@@ -54,7 +54,7 @@ export default function BlogPage() {
       const response = await api.get("/admin/blog", {
         params: { page, limit: 10, search: search || undefined },
       });
-      setData(response.data);
+      setData(response.data as BlogResponse);
       setError(null);
     } catch (err: any) {
       setError(err.response?.data?.detail || "Failed to load posts");

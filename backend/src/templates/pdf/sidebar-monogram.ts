@@ -3,7 +3,7 @@
  * Ported from frontend/components/templates/layouts/sidebar/SidebarMonogram.tsx
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     fontSizes,
@@ -13,8 +13,11 @@ import {
     getIconSVG,
     IconName
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale: string = 'en'): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -92,7 +95,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
 
                 <!-- Contact -->
                 <div style="margin-bottom: 40px;">
-                    ${SidebarHeader('Contact')}
+                    ${SidebarHeader(t.sections.contact)}
                     <div style="font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
                         ${contactItems.map(item => `
                             <div style="display: flex; gap: 10px; align-items: flex-start;">
@@ -101,12 +104,37 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                             </div>
                         `).join('')}
                     </div>
+                        <!-- Extra Socials -->
+                        ${['github', 'twitter', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
+        const val = (personalInfo as any)[network];
+        if (!val || contactItems.find(c => c.value === val)) return '';
+        return `
+                                <div style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: ${accentColor}; margin-top: 2px;">${getIconSVG(network as IconName, accentColor, 14)}</span>
+                                    <span style="word-break: break-all;">${escapeHtml(val)}</span>
+                                </div>
+                            `;
+    }).join('')}
+                    </div>
                 </div>
+
+                <!-- Personal Details -->
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                    <div style="margin-bottom: 40px;">
+                        ${SidebarHeader(t.sections.personalDetails)}
+                        <div style="font-size: 12px; display: flex; flex-direction: column; gap: 8px;">
+                            ${personalInfo.nationality ? `<div><span style="color: ${accentColor}; font-weight: 500;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                            ${personalInfo.idType && personalInfo.idNumber ? `
+                                <div><span style="color: ${accentColor}; font-weight: 500;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                            ` : ''}
+                        </div>
+                    </div>
+                ` : ''}
 
                 <!-- Languages -->
                 ${languages && languages.length > 0 ? `
                     <div style="margin-bottom: 40px;">
-                        ${SidebarHeader('Languages')}
+                        ${SidebarHeader(t.sections.languages)}
                         <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
                             ${languages.map(lang => `
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -121,7 +149,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Strengths -->
                 ${strengths && strengths.length > 0 ? `
                     <div style="margin-bottom: 40px;">
-                        ${SidebarHeader('Strengths')}
+                        ${SidebarHeader(t.sections.strengths)}
                         <div style="display: flex; flex-direction: column; gap: 8px;">
                             ${strengths.map(str => `
                                 <div>
@@ -140,7 +168,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Interests -->
                 ${interests && interests.length > 0 ? `
                     <div style="margin-bottom: 40px;">
-                        ${SidebarHeader('Interests')}
+                        ${SidebarHeader(t.sections.interests)}
                         <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px;">
                             ${interests.map(int => `
                                 <div>• ${escapeHtml(int.name)}</div>
@@ -167,7 +195,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Profile -->
                 ${personalInfo.summary ? `
                     <div style="margin-bottom: 40px;">
-                        ${MainHeader('About')}
+                        ${MainHeader(t.sections.profile)}
                         <p style="line-height: 1.6; font-size: 12px; color: #4b5563;">
                             ${formatDescription(personalInfo.summary)}
                         </p>
@@ -177,7 +205,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Experience -->
                 ${experience.length > 0 ? `
                     <div style="margin-bottom: 40px;">
-                        ${MainHeader('Experience')}
+                        ${MainHeader(t.sections.experience)}
                         <div style="display: flex; flex-direction: column; gap: 32px;">
                             ${experience.map(exp => `
                                 <div>
@@ -186,7 +214,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                                             ${escapeHtml(exp.title)}
                                         </h4>
                                         <span style="font-size: 11px; color: #374151; font-weight: 600;">
-                                            ${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}
+                                            ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                         </span>
                                     </div>
                                     <div style="font-size: 12px; color: #6b7280; margin-bottom: 8px; font-weight: 600;">
@@ -204,7 +232,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Education -->
                 ${education.length > 0 ? `
                     <div style="margin-bottom: 40px;">
-                        ${MainHeader('Education')}
+                        ${MainHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
                                 <div data-paginate="item">
@@ -215,7 +243,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                                         ${escapeHtml(edu.school)}${edu.city ? `, ${escapeHtml(edu.city)}` : ''}
                                     </div>
                                     <div style="font-size: 11px; color: #6b7280;">
-                                        ${escapeHtml(edu.startDate)} – ${edu.endDate || 'Present'}
+                                        ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                     </div>
                                 </div>
                             `).join('')}
@@ -226,7 +254,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Skills -->
                 ${skills.length > 0 ? `
                     <div style="margin-bottom: 40px;">
-                        ${MainHeader('Skills')}
+                        ${MainHeader(t.sections.skills)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                             ${skills.map(skill => `
                                 <div>
@@ -245,12 +273,12 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                 <!-- Credentials (Certifications & Awards) -->
                 ${(certifications.length > 0 || awards.length > 0) ? `
                     <div style="margin-top: 40px;">
-                        ${MainHeader('Credentials')}
+                        ${MainHeader(t.sections.credentials)}
 
                         ${certifications.length > 0 ? `
                             <div style="margin-bottom: ${awards.length > 0 ? '24px' : '0'};">
                                 <h4 style="font-size: 13px; font-weight: 600; color: #4b5563; margin: 0 0 12px 0;">
-                                    Certifications
+                                    ${t.sections.certifications}
                                 </h4>
                                 <div style="display: flex; flex-direction: column; gap: 12px;">
                                     ${certifications.map(cert => `
@@ -259,7 +287,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                                                 ${escapeHtml(cert.name)}
                                             </div>
                                             <div style="font-size: 11px; color: #6b7280;">
-                                                ${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}
+                                                ${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}
                                             </div>
                                         </div>
                                     `).join('')}
@@ -270,7 +298,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                         ${awards.length > 0 ? `
                             <div>
                                 <h4 style="font-size: 13px; font-weight: 600; color: #4b5563; margin: 0 0 12px 0;">
-                                    Awards & Achievements
+                                    ${t.sections.awards}
                                 </h4>
                                 <div style="display: flex; flex-direction: column; gap: 12px;">
                                     ${awards.map(award => `
@@ -279,7 +307,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                                                 ${escapeHtml(award.title)}
                                             </div>
                                             <div style="font-size: 11px; color: #6b7280;">
-                                                ${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}
+                                                ${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}
                                             </div>
                                             ${award.description ? `
                                                 <p style="font-size: 11px; color: #374151; margin: 4px 0 0 0; line-height: 1.5;">
@@ -291,6 +319,32 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme): str
                                 </div>
                             </div>
                         ` : ''}
+                    </div>
+                ` : ''}
+
+                <!-- References -->
+                ${data.references && data.references.length > 0 ? `
+                    <div style="margin-top: 40px;">
+                        ${MainHeader(t.sections.references)}
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                            ${data.references.map(ref => `
+                                <div>
+                                    <div style="font-weight: 700; font-size: 13px; color: ${mainText};">${escapeHtml(ref.name)}</div>
+                                    <div style="font-size: 12px; color: #4b5563;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                    ${ref.email ? `<div style="font-size: 11px; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Custom Field -->
+                ${personalInfo.customField ? `
+                    <div style="margin-top: 40px;">
+                        ${MainHeader(personalInfo.customFieldLabel || t.sections.additionalInfo)}
+                         <p style="line-height: 1.6; font-size: 12px; color: #4b5563;">
+                            ${formatDescription(personalInfo.customField)}
+                        </p>
                     </div>
                 ` : ''}
 

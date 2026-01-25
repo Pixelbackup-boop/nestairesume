@@ -6,9 +6,10 @@ import { Search, X } from 'lucide-react';
 
 interface SearchBarProps {
   placeholder?: string;
+  basePath?: string; // '/blog' or '/career'
 }
 
-export default function SearchBar({ placeholder = 'Search articles...' }: SearchBarProps) {
+export default function SearchBar({ placeholder = 'Search articles...', basePath = '/blog' }: SearchBarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(searchParams.get('q') || '');
@@ -22,7 +23,7 @@ export default function SearchBar({ placeholder = 'Search articles...' }: Search
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      router.push(`/blog/search?q=${encodeURIComponent(query.trim())}`);
+      router.push(`${basePath}/search?q=${encodeURIComponent(query.trim())}`);
     }
   };
 

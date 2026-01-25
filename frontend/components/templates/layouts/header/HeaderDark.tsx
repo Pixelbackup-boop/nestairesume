@@ -1,9 +1,11 @@
 'use client';
 
+import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { parseDualColor, getContrastText, hexToRgba } from '@/lib/templates/builder/colorUtils';
+import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
 // SVG Icon component for consistent rendering with backend PDF
 const SvgIcon = ({ name, color = '#ffffff', size = 14 }: { name: string; color?: string; size?: number }) => {
@@ -36,11 +38,12 @@ const SvgIcon = ({ name, color = '#ffffff', size = 14 }: { name: string; color?:
  * Matches reference: frontend/Resume-template/organized/02-header/header-dark.jpg
  * (Note: The file name says "header-dark" but the spec describes a dark sidebar layout similar to the image analysis).
  */
-export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
+function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, references, certifications, awards, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Montserrat'); // defaults to Montserrat/Inter
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
+    const t = useTemplateTranslations();
 
     // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
@@ -122,7 +125,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Contact Info (Dark Sidebar) */}
                 <div style={{ width: '100%', marginBottom: 40 }}>
-                    <SidebarSectionHeader title="Contact" accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
+                    <SidebarSectionHeader title={t.sections.contact} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
                     <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 12 }}>
                         {personalInfo.phone && <ContactItemSvg icon="phone" text={personalInfo.phone} color={sidebarText} />}
                         {personalInfo.email && <ContactItemSvg icon="email" text={personalInfo.email} color={sidebarText} />}
@@ -135,7 +138,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Skills (Dark Sidebar) */}
                 {skills.length > 0 && (
                     <div style={{ width: '100%', marginBottom: 40 }}>
-                        <SidebarSectionHeader title="Skills" accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
+                        <SidebarSectionHeader title={t.sections.skills} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                             {skills.map((skill) => (
                                 <div key={skill.id} data-paginate="item">
@@ -156,7 +159,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Strengths (Dark Sidebar) */}
                 {data.strengths && data.strengths.length > 0 && (
                     <div style={{ width: '100%', marginBottom: 40 }}>
-                        <SidebarSectionHeader title="Strengths" accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
+                        <SidebarSectionHeader title={t.sections.strengths} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                             {data.strengths.map((str) => (
                                 <span key={str.id} data-paginate="item" style={{
@@ -178,7 +181,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Interests (Dark Sidebar) */}
                 {data.interests && data.interests.length > 0 && (
                     <div style={{ width: '100%', marginBottom: 40 }}>
-                        <SidebarSectionHeader title="Interests" accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
+                        <SidebarSectionHeader title={t.sections.interests} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
                             {data.interests.map((int) => (
                                 <span key={int.id} style={{ fontSize: fs.body, display: 'flex', alignItems: 'center', gap: 6, color: sidebarText }}>
@@ -233,7 +236,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Profile */}
                 {personalInfo.summary && (
                     <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Profile" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <SectionHeaderMain title={t.sections.profile} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#334155' }}>
                             {personalInfo.summary}
                         </p>
@@ -243,7 +246,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Experience */}
                 {experience.length > 0 && (
                     <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Experience" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <SectionHeaderMain title={t.sections.experience} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div className="space-y-8">
                             {experience.map((exp) => (
                                 <div key={exp.id} data-paginate="item">
@@ -254,7 +257,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: fs.small, color: '#64748b', fontWeight: 600 }}>
                                         <span>{exp.company}, {exp.city}</span>
-                                        <span>{exp.startDate} – {exp.current ? 'Present' : exp.endDate}</span>
+                                        <span>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
 
                                     <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>
@@ -269,7 +272,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Education */}
                 {education.length > 0 && (
                     <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Education" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <SectionHeaderMain title={t.sections.education} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div className="space-y-6">
                             {education.map((edu) => (
                                 <div key={edu.id} data-paginate="item">
@@ -280,7 +283,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                         {edu.school}, {edu.city}
                                     </p>
                                     <p style={{ fontSize: fs.small, color: '#64748b' }}>
-                                        {edu.startDate} – {edu.endDate || 'Present'}
+                                        {edu.startDate} – {edu.endDate || t.labels.present}
                                     </p>
                                 </div>
                             ))}
@@ -291,7 +294,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Languages */}
                 {languages && languages.length > 0 && (
                     <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Languages" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <SectionHeaderMain title={t.sections.languages} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
                             {languages.map((lang) => (
                                 <div key={lang.id} style={{ fontSize: fs.body }} data-paginate="item">
@@ -306,12 +309,12 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Credentials (Certifications & Awards) */}
                 {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
                     <section className="mb-10 resume-section" data-paginate>
-                        <SectionHeaderMain title="Credentials" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <SectionHeaderMain title={t.sections.credentials} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
 
                         {certifications && certifications.length > 0 && (
                             <div style={{ marginBottom: awards && awards.length > 0 ? 24 : 0 }}>
                                 <h4 style={{ fontSize: fs.entryTitle, fontWeight: 600, color: '#475569', marginBottom: 12 }}>
-                                    Certifications
+                                    {t.sections.certifications}
                                 </h4>
                                 <div className="space-y-3">
                                     {certifications.map((cert) => (
@@ -327,7 +330,7 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                         {awards && awards.length > 0 && (
                             <div>
                                 <h4 style={{ fontSize: fs.entryTitle, fontWeight: 600, color: '#475569', marginBottom: 12 }}>
-                                    Awards & Achievements
+                                    {t.sections.awards}
                                 </h4>
                                 <div className="space-y-3">
                                     {awards.map((award) => (
@@ -349,16 +352,61 @@ export default function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* References */}
                 {references && references.length > 0 && (
-                    <section className="resume-section" data-paginate>
-                        <SectionHeaderMain title="References" color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                    <section className="mb-10 resume-section" data-paginate>
+                        <SectionHeaderMain title={t.sections.references} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
                             {references.map((ref) => (
                                 <div key={ref.id}>
                                     <div style={{ fontWeight: 700, fontSize: fs.body, color: '#0f172a' }}>{ref.name}</div>
                                     <div style={{ fontSize: fs.small, color: '#64748b' }}>{ref.title}, {ref.company}</div>
+                                    {ref.email && <div style={{ fontSize: fs.small, color: '#64748b' }}>{ref.email}</div>}
+                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#64748b' }}>{ref.phone}</div>}
                                 </div>
                             ))}
                         </div>
+                    </section>
+                )}
+
+                {/* Social Links */}
+                {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    <section className="mb-10 resume-section" data-paginate>
+                        <SectionHeaderMain title={t.sections.socialLinks} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                            {personalInfo.twitter && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Twitter:</span> <span style={{ color: '#334155' }}>{personalInfo.twitter}</span></div>}
+                            {personalInfo.github && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>GitHub:</span> <span style={{ color: '#334155' }}>{personalInfo.github}</span></div>}
+                            {personalInfo.dribbble && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Dribbble:</span> <span style={{ color: '#334155' }}>{personalInfo.dribbble}</span></div>}
+                            {personalInfo.behance && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Behance:</span> <span style={{ color: '#334155' }}>{personalInfo.behance}</span></div>}
+                            {personalInfo.instagram && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Instagram:</span> <span style={{ color: '#334155' }}>{personalInfo.instagram}</span></div>}
+                        </div>
+                    </section>
+                )}
+
+                {/* Personal Details */}
+                {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                    <section className="mb-10 resume-section" data-paginate>
+                        <SectionHeaderMain title={t.sections.personalDetails} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                            {personalInfo.nationality && (
+                                <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Nationality:</span> <span style={{ color: '#334155' }}>{personalInfo.nationality}</span></div>
+                            )}
+                            {personalInfo.idType && personalInfo.idNumber && (
+                                <div>
+                                    <span style={{ fontWeight: 600, color: '#0f172a' }}>
+                                        {personalInfo.idType === 'id' ? 'ID' :
+                                         personalInfo.idType === 'passport' ? 'Passport' :
+                                         personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                    </span> <span style={{ color: '#334155' }}>{personalInfo.idNumber}</span>
+                                </div>
+                            )}
+                        </div>
+                    </section>
+                )}
+
+                {/* Custom Field */}
+                {personalInfo.customField && personalInfo.customFieldLabel && (
+                    <section className="resume-section" data-paginate>
+                        <SectionHeaderMain title={personalInfo.customFieldLabel} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>{personalInfo.customField}</p>
                     </section>
                 )}
 
@@ -419,6 +467,9 @@ function ContactItemSvg({ icon, text, color }: { icon: string, text: string, col
         </div>
     );
 }
+
+// Wrap with memo to prevent unnecessary re-renders
+export default memo(HeaderDark);
 
 // Template metadata
 export const headerDarkMeta: TemplateMeta = {

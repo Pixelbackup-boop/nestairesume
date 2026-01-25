@@ -3,7 +3,7 @@
  * Ported from frontend/components/templates/layouts/header/HeaderBlueClean.tsx
  */
 
-import { PdfResumeData, PdfTheme } from '../../types/pdf';
+import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     fontSizes,
@@ -13,8 +13,11 @@ import {
     IconName,
     getLanguageLevel
 } from './shared/helpers';
+import { getTranslations } from './shared/translations';
+import { formatLocalizedDate } from './shared/dateUtils';
 
-export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): string => {
+export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, translations?: PdfTranslations, locale: string = 'en'): string => {
+    const t = getTranslations(translations);
     const {
         personalInfo,
         experience = [],
@@ -100,7 +103,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                     
                     ${personalInfo.summary ? `
                         <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin-bottom: 32px;">
-                            <h3 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; text-transform: uppercase; color: ${theme.primary}; margin-bottom: 12px;">About Me</h3>
+                            <h3 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; text-transform: uppercase; color: ${theme.primary}; margin-bottom: 12px;">${t.sections.profile}</h3>
                             <p style="font-size: 13px; line-height: 1.6; color: #4b5563;">
                                 ${formatDescription(personalInfo.summary)}
                             </p>
@@ -109,7 +112,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
 
                     ${experience.length > 0 ? `
                         <div style="margin-bottom: 32px;">
-                            ${SectionHeader('Experience', 'briefcase')}
+                            ${SectionHeader(t.sections.experience, 'briefcase')}
                             <div style="display: flex; flex-direction: column; gap: 24px;">
                                 ${experience.map(exp => `
                                     <div style="position: relative; padding-left: 20px; border-left: 2px solid ${theme.primary}20;">
@@ -121,7 +124,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                                         
                                         <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: ${theme.primary}; margin-bottom: 8px;">
                                             <span>${escapeHtml(exp.company)}</span>
-                                            <span>${escapeHtml(exp.startDate)} – ${exp.current ? 'Present' : escapeHtml(exp.endDate)}</span>
+                                            <span>${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                         </div>
 
                                         <div style="font-size: 12px; line-height: 1.6; color: #4b5563;">
@@ -135,7 +138,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
 
                     ${education.length > 0 ? `
                         <div style="margin-bottom: 32px;">
-                            ${SectionHeader('Education', 'graduation-cap')}
+                            ${SectionHeader(t.sections.education, 'graduation-cap')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.map(edu => `
                                     <div style="display: flex; gap: 16px; align-items: center;">
@@ -144,7 +147,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                                             <h4 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; color: ${theme.heading}; margin: 0;">${escapeHtml(edu.school)}</h4>
                                             <div style="font-size: 12px; color: #4b5563;">
                                                 <span style="font-weight: 600; color: ${theme.primary};">${escapeHtml(edu.degree)}</span>
-                                                <span style="color: #9ca3af;"> • ${escapeHtml(edu.startDate)} – ${edu.endDate}</span>
+                                                <span style="color: #9ca3af;"> • ${formatLocalizedDate(edu.startDate, locale)} – ${formatLocalizedDate(edu.endDate, locale)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +162,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                     
                     ${skills.length > 0 ? `
                         <div style="margin-bottom: 40px;">
-                            ${SectionHeader('Skills', 'code')}
+                            ${SectionHeader(t.sections.skills, 'code')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${skills.map(skill => `
                                     <div style="background: white; border: 1px solid ${theme.primary}30; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; color: ${theme.heading}; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
@@ -172,7 +175,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
 
                     ${languages && languages.length > 0 ? `
                         <div style="margin-bottom: 40px;">
-                            ${SectionHeader('Languages', 'globe')}
+                            ${SectionHeader(t.sections.languages, 'globe')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
                                     <div>
@@ -191,7 +194,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
 
                     ${interests && interests.length > 0 ? `
                         <div style="margin-bottom: 40px;">
-                            ${SectionHeader('Interests', 'heart')}
+                            ${SectionHeader(t.sections.interests, 'heart')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${interests.map(int => `
                                     <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #4b5563;">
@@ -205,15 +208,15 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
 
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                         <div style="margin-bottom: 40px;">
-                            ${SectionHeader('Credentials', 'award')}
+                            ${SectionHeader(t.sections.credentials, 'award')}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                                    <h4 style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${certifications.map(cert => `
                                             <div>
                                                 <div style="font-weight: 600; font-size: 12px; color: ${theme.heading};">${escapeHtml(cert.name)}</div>
-                                                <div style="font-size: 11px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${escapeHtml(cert.date)}</div>
+                                                <div style="font-size: 11px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -221,12 +224,12 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div>
-                                    <h4 style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                                    <h4 style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${awards.map(award => `
                                             <div>
                                                 <div style="font-weight: 600; font-size: 12px; color: ${theme.heading};">${escapeHtml(award.title)}</div>
-                                                <div style="font-size: 11px; color: #6b7280;">${escapeHtml(award.issuer)} • ${escapeHtml(award.date)}</div>
+                                                <div style="font-size: 11px; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -238,7 +241,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                     <!-- Social Links (Extended) -->
                     ${(personalInfo.github || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <div style="margin-bottom: 40px;">
-                            ${SectionHeader('Social', 'users')}
+                            ${SectionHeader(t.sections.socialLinks, 'users')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
                                 ${personalInfo.github ? `
                                     <div style="display: flex; align-items: center; gap: 8px;">
@@ -272,7 +275,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                     <!-- References -->
                     ${data.references && data.references.length > 0 ? `
                         <div style="margin-bottom: 40px;">
-                            ${SectionHeader('References', 'users')}
+                            ${SectionHeader(t.sections.references, 'users')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${data.references.map(ref => `
                                     <div>
@@ -289,7 +292,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                     <!-- Personal Details -->
                     ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
                         <div style="margin-bottom: 40px;">
-                            ${SectionHeader('Personal', 'user')}
+                            ${SectionHeader(t.sections.personalDetails, 'user')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #4b5563;">
                                 ${personalInfo.nationality ? `<div><span style="font-weight: 600; color: ${theme.heading};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
@@ -297,7 +300,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme): str
                                 ` : ''}
                                 ${personalInfo.customField ? `
                                     <div style="margin-top: 8px;">
-                                        <span style="font-weight: 600; color: ${theme.heading}; display: block; margin-bottom: 2px;">${escapeHtml(personalInfo.customFieldLabel || 'Additional Info')}</span>
+                                        <span style="font-weight: 600; color: ${theme.heading}; display: block; margin-bottom: 2px;">${escapeHtml(personalInfo.customFieldLabel || t.sections.additionalInfo)}</span>
                                         ${formatDescription(personalInfo.customField)}
                                     </div>
                                 ` : ''}

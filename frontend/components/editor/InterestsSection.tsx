@@ -3,7 +3,7 @@
 import { useResumeStore, Interest } from '../../store/useResumeStore';
 import { Plus, X } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 
 export default function InterestsSection() {
     const { resumeData, addInterest, removeInterest } = useResumeStore();
@@ -15,7 +15,7 @@ export default function InterestsSection() {
         if (!newInterest.trim()) return;
 
         const interest: Interest = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             name: newInterest.trim(),
         };
         addInterest(interest);
@@ -72,7 +72,7 @@ export default function InterestsSection() {
                         key={i}
                         onClick={() => {
                             if (!interests.find(int => int.name === i)) {
-                                addInterest({ id: uuidv4(), name: i });
+                                addInterest({ id: crypto.randomUUID(), name: i });
                             }
                         }}
                         disabled={interests.some(int => int.name === i)}

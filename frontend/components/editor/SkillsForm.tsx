@@ -3,13 +3,15 @@
 import { useResumeStore, Skill } from '../../store/useResumeStore';
 import { Plus, X, ChevronDown, ChevronUp, Globe, Zap, Heart } from 'lucide-react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// Using native crypto.randomUUID() instead of uuid package
 import CollapsibleSection from './CollapsibleSection';
 import LanguagesSection from './LanguagesSection';
 import StrengthsSection from './StrengthsSection';
 import InterestsSection from './InterestsSection';
+import { useTranslations } from 'next-intl';
 
 export default function SkillsForm() {
+    const t = useTranslations('Builder');
     const { resumeData, addSkill, updateSkill, removeSkill } = useResumeStore();
     const { skills, languages, strengths, interests } = resumeData;
     const [newSkill, setNewSkill] = useState('');
@@ -20,7 +22,7 @@ export default function SkillsForm() {
         if (!newSkill.trim()) return;
 
         const skill: Skill = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             name: newSkill.trim(),
             level: 3, // Default level
         };
@@ -30,8 +32,14 @@ export default function SkillsForm() {
     };
 
     const getLevelLabel = (level: number) => {
-        const labels = ['Beginner', 'Basic', 'Intermediate', 'Advanced', 'Expert'];
-        return labels[level - 1] || 'Intermediate';
+        const labels = [
+            t('skills.beginner'),
+            t('skills.basic'),
+            t('skills.intermediate'),
+            t('skills.advanced'),
+            t('skills.expert')
+        ];
+        return labels[level - 1] || t('skills.intermediate');
     };
 
     const renderLevelDots = (level: number) => {
@@ -52,8 +60,8 @@ export default function SkillsForm() {
     return (
         <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
             <div>
-                <h2 className="text-2xl font-bold text-white mb-2">Skills</h2>
-                <p className="text-gray-400 text-sm">Add your technical and soft skills with proficiency levels.</p>
+                <h2 className="text-2xl font-bold text-white mb-2">{t('skills.title')}</h2>
+                <p className="text-gray-400 text-sm">{t('skills.subtitle')}</p>
             </div>
 
             <form onSubmit={handleAdd} className="flex gap-2">
@@ -61,7 +69,7 @@ export default function SkillsForm() {
                     type="text"
                     value={newSkill}
                     onChange={(e) => setNewSkill(e.target.value)}
-                    placeholder="e.g. React, Python, Leadership"
+                    placeholder={t('skills.placeholder')}
                     className="flex-1 bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green outline-none transition"
                 />
                 <button
@@ -111,7 +119,7 @@ export default function SkillsForm() {
                         {/* Expanded Level Slider */}
                         {expandedSkillId === skill.id && (
                             <div className="px-4 pb-4 pt-2 border-t border-border-subtle">
-                                <label className="text-xs text-gray-400 mb-2 block">Proficiency Level</label>
+                                <label className="text-xs text-gray-400 mb-2 block">{t('skills.proficiencyLevel')}</label>
                                 <div className="flex items-center gap-4">
                                     <input
                                         type="range"
@@ -129,8 +137,8 @@ export default function SkillsForm() {
                                     </div>
                                 </div>
                                 <div className="flex justify-between text-xs text-gray-500 mt-1">
-                                    <span>Beginner</span>
-                                    <span>Expert</span>
+                                    <span>{t('skills.beginner')}</span>
+                                    <span>{t('skills.expert')}</span>
                                 </div>
                             </div>
                         )}
@@ -138,19 +146,19 @@ export default function SkillsForm() {
                 ))}
 
                 {skills.length === 0 && (
-                    <p className="text-gray-500 text-sm italic w-full text-center py-4">No skills added yet.</p>
+                    <p className="text-gray-500 text-sm italic w-full text-center py-4">{t('skills.noSkills')}</p>
                 )}
             </div>
 
             <div className="mt-6">
-                <h3 className="text-sm font-medium text-gray-400 mb-3">Suggested Skills</h3>
+                <h3 className="text-sm font-medium text-gray-400 mb-3">{t('skills.suggestedSkills')}</h3>
                 <div className="flex flex-wrap gap-2">
                     {['JavaScript', 'TypeScript', 'Node.js', 'React', 'Project Management', 'Communication', 'Python', 'SQL'].map(s => (
                         <button
                             key={s}
                             onClick={() => {
                                 if (!skills.find(sk => sk.name === s)) {
-                                    const newId = uuidv4();
+                                    const newId = crypto.randomUUID();
                                     addSkill({ id: newId, name: s, level: 3 });
                                     setExpandedSkillId(newId);
                                 }
@@ -166,10 +174,10 @@ export default function SkillsForm() {
 
             {/* Additional Sections */}
             <div className="mt-8 pt-6 border-t border-border-subtle space-y-4">
-                <h3 className="text-lg font-semibold text-white mb-4">Additional Information</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">{t('skills.additionalInfo')}</h3>
 
                 <CollapsibleSection
-                    title="Languages"
+                    title={t('skills.languages')}
                     icon={Globe}
                     badge={languages.length}
                     defaultOpen={false}
@@ -178,7 +186,7 @@ export default function SkillsForm() {
                 </CollapsibleSection>
 
                 <CollapsibleSection
-                    title="Strengths"
+                    title={t('skills.strengths')}
                     icon={Zap}
                     badge={strengths.length}
                     defaultOpen={false}
@@ -187,7 +195,7 @@ export default function SkillsForm() {
                 </CollapsibleSection>
 
                 <CollapsibleSection
-                    title="Interests & Hobbies"
+                    title={t('skills.interests')}
                     icon={Heart}
                     badge={interests.length}
                     defaultOpen={false}

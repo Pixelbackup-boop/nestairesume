@@ -56,7 +56,7 @@ export default function AdminSidebar() {
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-white text-lg leading-none">ResumeAI</span>
+            <span className="font-bold text-white text-lg leading-none">Best AI Resume</span>
             <span className="text-[10px] text-accent-purple font-medium tracking-wider">ADMIN PANEL</span>
           </div>
         </Link>

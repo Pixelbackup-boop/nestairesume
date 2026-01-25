@@ -10,4 +10,5 @@ export const classicProTemplate: BuilderTemplate = {
     category: 'professional',
     accentColor: '#1e3a8a',
     gradientColors: 'from-blue-800 to-blue-950',
+    templateId: 'classic-professional',
 };

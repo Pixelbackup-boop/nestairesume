@@ -119,6 +119,9 @@ export interface PdfPersonalInfo {
     dribbble?: string;
     behance?: string;
     instagram?: string;
+    // Custom field for additional info
+    customField?: string;
+    customFieldLabel?: string;
 }
 
 export interface PdfResumeData {
@@ -134,6 +137,7 @@ export interface PdfResumeData {
     references: PdfReference[];
     background: PdfBackgroundSettings;
     fonts: PdfFontSettings;
+    customThemeColor?: string;
 }
 
 export interface PdfTheme {
@@ -146,8 +150,39 @@ export interface PdfTheme {
     heading: string;
 }
 
+/**
+ * Translations for PDF template section headers and labels
+ * Passed from frontend to enable localized PDF generation
+ */
+export interface PdfTranslations {
+    sections: {
+        experience: string;
+        workExperience: string;
+        education: string;
+        skills: string;
+        languages: string;
+        interests: string;
+        strengths: string;
+        certifications: string;
+        awards: string;
+        references: string;
+        summary: string;
+        profile: string;
+        contact: string;
+        additionalInfo: string;
+        socialLinks: string;
+        personalDetails: string;
+        credentials: string;
+    };
+    labels: {
+        present: string;
+    };
+}
+
 export interface PdfGenerateRequest {
     data: PdfResumeData;
     templateId: string;
     theme: PdfTheme;
+    translations?: PdfTranslations;
+    locale?: string;
 }

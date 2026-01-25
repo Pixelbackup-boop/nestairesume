@@ -7,6 +7,8 @@ interface User {
     name: string;
     role: 'user' | 'admin';
     subscriptionTier?: string;
+    subscriptionStatus?: string;
+    trialEndsAt?: string;
     creditsRemaining?: number;
 }
 
@@ -36,12 +38,12 @@ export const useAuthStore = create<AuthState>((set) => ({
                 { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
             );
 
-            const { access_token } = response.data;
+            const { access_token } = response.data as { access_token: string };
             localStorage.setItem('token', access_token);
 
             // 2. Fetch user profile to get role and other details
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data;
+            const userData = userResponse.data as { id: string; email: string; name?: string; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
 
             set({
                 isAuthenticated: true,
@@ -51,6 +53,8 @@ export const useAuthStore = create<AuthState>((set) => ({
                     name: userData.name,
                     role: userData.role || 'user',
                     subscriptionTier: userData.subscriptionTier,
+                    subscriptionStatus: userData.subscriptionStatus,
+                    trialEndsAt: userData.trialEndsAt,
                     creditsRemaining: userData.creditsRemaining,
                 },
                 isLoading: false
@@ -94,7 +98,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
         try {
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data;
+            const userData = userResponse.data as { id: string; email: string; name?: string; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
 
             set({
                 isAuthenticated: true,
@@ -104,6 +108,8 @@ export const useAuthStore = create<AuthState>((set) => ({
                     name: userData.name,
                     role: userData.role || 'user',
                     subscriptionTier: userData.subscriptionTier,
+                    subscriptionStatus: userData.subscriptionStatus,
+                    trialEndsAt: userData.trialEndsAt,
                     creditsRemaining: userData.creditsRemaining,
                 },
             });

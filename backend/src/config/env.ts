@@ -17,6 +17,7 @@ export const config = {
     starter: process.env.STRIPE_PRICE_STARTER || "",
     gold: process.env.STRIPE_PRICE_GOLD || "",
     diamond: process.env.STRIPE_PRICE_DIAMOND || "",
+    platinum: process.env.STRIPE_PRICE_PLATINUM || "",
   },
   frontendUrl: process.env.FRONTEND_URL || "http://localhost:4455",
 };

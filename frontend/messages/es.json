@@ -1,0 +1,506 @@
+{
+  "Meta": {
+    "title": "Best AI Resume - Crea Tu Currículum Perfecto con IA",
+    "description": "Crea currículums profesionales optimizados para ATS en minutos con IA. Prueba gratis, sin registro."
+  },
+
+  "Common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "search": "Buscar",
+    "submit": "Enviar",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "download": "Descargar",
+    "preview": "Vista previa",
+    "scrollToExplore": "Desplaza para explorar"
+  },
+
+  "Navigation": {
+    "features": "Funciones",
+    "templates": "Plantillas",
+    "pricing": "Precios",
+    "blog": "Blog",
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "getStarted": "Comenzar Gratis",
+    "dashboard": "Panel",
+    "admin": "Admin",
+    "adminPanel": "Panel de Admin"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "Creación de Currículum con IA",
+      "title": "Crea Tu",
+      "titleHighlight": "Currículum Perfecto",
+      "subtitle": "Sin Registro Necesario",
+      "description": "Crea currículums impresionantes optimizados para ATS en minutos con IA. Pruébalo gratis — regístrate solo cuando estés listo para guardar.",
+      "ctaPrimary": "Crear con IA",
+      "ctaSecondary": "Ver Plantillas",
+      "noCreditCard": "Sin tarjeta de crédito",
+      "noSignup": "Sin registro para empezar",
+      "trustedBy": "Más de 50,000 profesionales confían en nosotros",
+      "atsScore": "Puntuación ATS",
+      "aiSuggestion": "Sugerencia de IA"
+    },
+    "features": {
+      "sectionTitle": "Funciones",
+      "title": "Todo lo que necesitas para",
+      "titleHighlight": "conseguir tu trabajo ideal",
+      "subtitle": "Potentes herramientas de IA combinadas con diseño atractivo para destacar entre la multitud.",
+      "aiWriting": {
+        "title": "Escritura con IA",
+        "description": "Deja que nuestra IA cree puntos clave y resúmenes profesionales que destaquen tus logros."
+      },
+      "templates": {
+        "title": "20+ Plantillas Premium",
+        "description": "Elige entre plantillas diseñadas profesionalmente que destacan manteniendo compatibilidad ATS."
+      },
+      "atsOptimization": {
+        "title": "Optimización ATS",
+        "description": "La puntuación ATS en tiempo real asegura que tu currículum pase los sistemas automáticos."
+      },
+      "realTimePreview": {
+        "title": "Vista Previa en Tiempo Real",
+        "description": "Ve los cambios al instante mientras escribes. Lo que ves es lo que verán los reclutadores."
+      },
+      "pdfExport": {
+        "title": "Exportar PDF",
+        "description": "Descarga PDFs perfectos listos para enviar. Optimizados para digital e impresión."
+      },
+      "smartSuggestions": {
+        "title": "Sugerencias Inteligentes",
+        "description": "Obtén recomendaciones inteligentes de habilidades, palabras clave y contenido según tu objetivo."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Cómo Funciona",
+      "title": "Tres pasos para tu",
+      "titleHighlight": "currículum perfecto",
+      "step1": {
+        "title": "Completa Tus Datos",
+        "description": "Ingresa tu experiencia, educación y habilidades. Nuestra IA te asiste en cada paso."
+      },
+      "step2": {
+        "title": "Elige Plantilla",
+        "description": "Selecciona entre 20+ plantillas profesionales. Vista previa en tiempo real mientras personalizas."
+      },
+      "step3": {
+        "title": "Descarga PDF",
+        "description": "Exporta tu currículum pulido como PDF perfecto, listo para impresionar a reclutadores."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Plantillas",
+      "title": "Plantillas premium para",
+      "titleHighlight": "cada profesión",
+      "viewAll": "Ver Todas las Plantillas"
+    },
+    "testimonials": {
+      "sectionTitle": "Testimonios",
+      "title": "Amado por profesionales",
+      "titleHighlight": "en todo el mundo"
+    },
+    "cta": {
+      "title": "¿Listo para crear tu",
+      "titleHighlight": "currículum ganador?",
+      "subtitle": "Únete a más de 50,000 profesionales que ya consiguieron su trabajo ideal con Best AI Resume.",
+      "button": "Crea Tu CV Ahora — Gratis",
+      "note": "Sin registro para empezar"
+    }
+  },
+
+  "Templates": {
+    "sectionTitle": "Plantillas",
+    "title": "Elige tu plantilla",
+    "titleHighlight": "perfecta",
+    "subtitle": "Selecciona un modo de edición y elige entre nuestras plantillas diseñadas profesionalmente.",
+    "searchPlaceholder": "Buscar plantillas...",
+    "templatesAvailable": "{count} plantilla{count, plural, one {} other {s}} disponible{count, plural, one {} other {s}}",
+    "noResults": "No se encontraron plantillas",
+    "noResultsHint": "Intenta ajustar tu búsqueda o filtro",
+    "useTemplate": "Usar Plantilla",
+    "formBuilder": {
+      "title": "Constructor de Formularios",
+      "description": "Edición guiada paso a paso",
+      "hint": "Completa formularios y deja que la plantilla maneje el diseño. Perfecto para currículums rápidos y profesionales."
+    },
+    "canvasEditor": {
+      "title": "Editor de Lienzo",
+      "description": "Libertad creativa total",
+      "hint": "Arrastra, suelta y diseña libremente. Control total sobre cada elemento, como Canva para currículums."
+    },
+    "categories": {
+      "all": "Todos",
+      "professional": "Profesional",
+      "creative": "Creativo",
+      "minimal": "Minimalista",
+      "bold": "Audaz",
+      "modern": "Moderno",
+      "classic": "Clásico"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "¿Quieres empezar desde cero?",
+        "description": "Crea un currículum completamente personalizado con nuestro Editor de Lienzo.",
+        "button": "Abrir Lienzo en Blanco"
+      },
+      "builder": {
+        "title": "¿Quieres que la IA cree tu currículum?",
+        "description": "Deja que nuestra IA cree un currículum profesional en segundos según tu puesto.",
+        "button": "Crear con IA"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Contacto",
+      "experience": "Experiencia",
+      "workExperience": "Experiencia Laboral",
+      "professionalExperience": "Experiencia Profesional",
+      "education": "Educación",
+      "skills": "Habilidades",
+      "coreSkills": "Habilidades Principales",
+      "technicalSkills": "Habilidades Técnicas",
+      "languages": "Idiomas",
+      "interests": "Intereses",
+      "strengths": "Fortalezas",
+      "certifications": "Certificaciones",
+      "awards": "Premios",
+      "projects": "Proyectos",
+      "references": "Referencias",
+      "summary": "Resumen",
+      "professionalSummary": "Resumen Profesional",
+      "profile": "Perfil",
+      "about": "Acerca de",
+      "additionalInfo": "Información Adicional",
+      "socialLinks": "Redes Sociales",
+      "personalDetails": "Datos Personales",
+      "credentials": "Credenciales"
+    },
+    "labels": {
+      "present": "Presente",
+      "gpa": "Promedio",
+      "native": "Nativo",
+      "fluent": "Fluido",
+      "advanced": "Avanzado",
+      "intermediate": "Intermedio",
+      "basic": "Básico"
+    }
+  },
+
+  "Onboarding": {
+    "title": "Cuéntanos sobre ti",
+    "subtitle": "Solo 2 preguntas y la IA creará tu currículum perfecto",
+    "fullName": "Tu Nombre Completo",
+    "fullNamePlaceholder": "ej., Juan García",
+    "jobTitle": "Puesto al que Aplicas",
+    "jobTitlePlaceholder": "ej., Ingeniero de Software, Gerente de Marketing",
+    "experienceLevel": "Nivel de Experiencia",
+    "levels": {
+      "entry": "Nivel Inicial",
+      "entryDesc": "0-2 años de experiencia",
+      "mid": "Nivel Medio",
+      "midDesc": "3-5 años de experiencia",
+      "senior": "Nivel Senior",
+      "seniorDesc": "6-10 años de experiencia",
+      "executive": "Ejecutivo",
+      "executiveDesc": "10+ años de experiencia"
+    },
+    "generate": "Generar Mi Currículum",
+    "generating": {
+      "title": "Creando Tu Currículum",
+      "analyzing": "Analizando tu profesión...",
+      "summary": "Generando resumen profesional...",
+      "experience": "Creando experiencia laboral...",
+      "skills": "Añadiendo habilidades relevantes...",
+      "polishing": "Puliendo tu currículum...",
+      "almostThere": "Casi listo...",
+      "wait": "Esto suele tomar solo unos segundos..."
+    },
+    "step1": {
+      "title": "¿Cómo te gustaría crear tu currículum?",
+      "subtitle": "Elige tu método preferido para comenzar",
+      "recommended": "RECOMENDADO",
+      "ai": {
+        "title": "Crear con IA",
+        "description": "Cuéntanos tu profesión y generaremos un currículum profesional en segundos"
+      },
+      "upload": {
+        "title": "Subir Currículum",
+        "description": "Sube tu currículum existente y lo mejoraremos"
+      },
+      "linkedin": {
+        "title": "Importar LinkedIn",
+        "description": "Importa tu perfil de LinkedIn automáticamente"
+      },
+      "comingSoon": "Próximamente",
+      "startBlank": "O empieza con un currículum en blanco"
+    },
+    "step4": {
+      "title": "Elige Tu Plantilla",
+      "subtitle": "¡Tu currículum está listo! Elige un diseño que se adapte a tu estilo.",
+      "backToEdit": "Volver a editar información",
+      "browseAll": "Ver todas las plantillas",
+      "continue": "Continuar al Editor"
+    },
+    "upload": {
+      "title": "Sube Tu Currículum",
+      "subtitle": "Extraeremos tu información y la mejoraremos con IA",
+      "dragDrop": "Arrastra y suelta tu currículum aquí",
+      "orBrowse": "o busca archivos",
+      "supportedFormats": "PDF o DOCX (máx. {maxSize})",
+      "validating": "Validando archivo...",
+      "uploading": "Subiendo...",
+      "parsing": "La IA está analizando tu currículum...",
+      "success": "¡Currículum importado exitosamente!",
+      "error": "Algo salió mal",
+      "tryAgain": "Intentar de nuevo",
+      "invalidType": "Por favor sube un archivo PDF o DOCX",
+      "fileTooLarge": "El archivo excede el límite de {maxSize}"
+    },
+    "linkedin": {
+      "title": "Importar desde LinkedIn",
+      "subtitle": "Exporta tu perfil de LinkedIn como PDF y súbelo aquí",
+      "step1": "Ve a tu perfil de LinkedIn",
+      "step2": "Haz clic en \"Más\" → \"Guardar como PDF\"",
+      "step3": "Sube el PDF descargado abajo",
+      "openLinkedIn": "Abrir Perfil de LinkedIn",
+      "tip": "Los PDFs de LinkedIn funcionan mejor para importar tu historial laboral completo"
+    }
+  },
+
+  "Pricing": {
+    "sectionTitle": "Precios",
+    "title": "Precios simples y",
+    "titleHighlight": "transparentes",
+    "subtitle": "Empieza gratis, mejora cuando necesites más. Sin cargos ocultos.",
+    "viewComparison": "Ver comparación completa",
+    "cancelAnytime": "Cancela cuando quieras",
+    "securePayments": "Pagos seguros vía Stripe",
+    "mostPopular": "MÁS POPULAR",
+    "free": {
+      "name": "Gratis",
+      "description": "Prueba antes de comprar",
+      "price": "$0",
+      "period": "/siempre",
+      "features": {
+        "downloads": "5 descargas (ver anuncio)",
+        "resumes": "3 currículums guardados",
+        "templates": "15 plantillas básicas",
+        "aiBuild": "Creación rápida con IA"
+      },
+      "limitations": {
+        "ads": "Contiene anuncios"
+      },
+      "cta": "Comenzar Gratis"
+    },
+    "starter": {
+      "name": "Inicial",
+      "description": "Pago único",
+      "price": "$3",
+      "period": " único",
+      "features": {
+        "downloads": "10 descargas",
+        "resumes": "5 currículums guardados",
+        "templates": "Todas las 50+ plantillas",
+        "noAds": "Sin anuncios",
+        "export": "Exportar PDF y PNG"
+      },
+      "cta": "Comprar Inicial"
+    },
+    "gold": {
+      "name": "Oro",
+      "description": "Suscripción mensual",
+      "price": "$6",
+      "period": "/mes",
+      "features": {
+        "downloads": "50 descargas/mes",
+        "resumes": "20 currículums guardados",
+        "templates": "Todas las 50+ plantillas",
+        "noAds": "Sin anuncios",
+        "ats": "Optimización ATS"
+      },
+      "cta": "Obtener Oro"
+    },
+    "diamond": {
+      "name": "Diamante",
+      "description": "Mejor valor para usuarios avanzados",
+      "price": "$10",
+      "period": "/mes",
+      "features": {
+        "downloads": "150 descargas/mes",
+        "resumes": "50 currículums guardados",
+        "templates": "Todas + plantillas Premium",
+        "support": "Soporte prioritario",
+        "coverLetter": "Creador de carta de presentación"
+      },
+      "cta": "Obtener Diamante"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Consejos, guías e información para tu carrera",
+    "searchPlaceholder": "Buscar artículos...",
+    "readMore": "Leer más",
+    "readingTime": "{time} min de lectura",
+    "categories": "Categorías",
+    "allCategories": "Todas las Categorías",
+    "relatedPosts": "Artículos Relacionados",
+    "shareOn": "Compartir en",
+    "noResults": "No se encontraron artículos"
+  },
+
+  "Footer": {
+    "tagline": "Constructor de currículums con IA en el que confían profesionales de todo el mundo.",
+    "product": "Producto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "social": "Social",
+    "about": "Acerca de",
+    "careers": "Empleos",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "contact": "Contacto",
+    "copyright": "© {year} Best AI Resume. Todos los derechos reservados."
+  },
+
+  "Auth": {
+    "login": "Iniciar sesión",
+    "register": "Crear cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes cuenta?",
+    "hasAccount": "¿Ya tienes cuenta?",
+    "signUp": "Registrarse",
+    "signIn": "Iniciar sesión",
+    "welcomeBack": "Bienvenido de Nuevo",
+    "welcomeBackSubtitle": "Inicia sesión para continuar creando tu currículum",
+    "createAccount": "Crear Cuenta",
+    "createAccountSubtitle": "Empieza a crear tu currículum profesional hoy"
+  },
+
+  "Errors": {
+    "notFound": "Página no encontrada",
+    "serverError": "Algo salió mal",
+    "unauthorized": "Por favor inicia sesión para continuar"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Seleccionar idioma"
+  },
+
+  "Builder": {
+    "personalInfo": {
+      "title": "Información Personal",
+      "subtitle": "Comienza con tus datos de contacto y resumen profesional."
+    },
+    "profilePhoto": "Foto de Perfil",
+    "upload": "Subir",
+    "change": "Cambiar",
+    "fullName": "Nombre Completo",
+    "fullNamePlaceholder": "Juan García",
+    "jobTitle": "Título del Puesto",
+    "jobTitlePlaceholder": "Ingeniero de Software",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "juan@ejemplo.com",
+    "phone": "Teléfono",
+    "phonePlaceholder": "+34 600 000 000",
+    "location": "Ubicación",
+    "locationPlaceholder": "Madrid, España",
+    "website": "Sitio Web",
+    "websitePlaceholder": "juangarcia.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/juangarcia",
+    "nationality": "Nacionalidad",
+    "nationalityPlaceholder": "ej., Española, Mexicana",
+    "idDocument": "DNI / Pasaporte / Licencia",
+    "selectDocType": "Seleccionar",
+    "nationalId": "DNI",
+    "passport": "Pasaporte",
+    "drivingLicense": "Licencia de Conducir",
+    "documentNumber": "Número de documento",
+    "professionalSummary": "Resumen Profesional",
+    "summaryPlaceholder": "Ingeniero de Software experimentado con pasión por crear aplicaciones web escalables...",
+    "generateWithAI": "Generar con IA",
+    "additionalInfo": "Información Adicional",
+    "socialLinks": "Redes Sociales",
+    "references": "Referencias",
+    "customField": "Campo Personalizado",
+    "sectionLabel": "Etiqueta de Sección",
+    "sectionLabelPlaceholder": "ej., Voluntariado, Aficiones, Notas Adicionales",
+    "content": "Contenido",
+    "contentPlaceholder": "Añade cualquier información adicional que quieras incluir en tu currículum...",
+    "shapes": {
+      "circle": "Círculo",
+      "rounded": "Redondeado",
+      "square": "Cuadrado"
+    },
+    "experience": {
+      "title": "Experiencia Laboral",
+      "subtitle": "Añade tu experiencia laboral relevante.",
+      "add": "Añadir Experiencia",
+      "notSpecified": "(No especificado)",
+      "companyName": "Nombre de Empresa",
+      "jobTitle": "Título del Puesto",
+      "company": "Empresa",
+      "city": "Ciudad",
+      "country": "País",
+      "startDate": "Fecha de Inicio",
+      "endDate": "Fecha de Fin",
+      "currentlyWork": "Actualmente trabajo aquí",
+      "description": "Descripción",
+      "improveAI": "Mejorar con IA",
+      "noExperience": "No hay experiencia añadida todavía.",
+      "addFirst": "Añade tu primer puesto"
+    },
+    "education": {
+      "title": "Educación",
+      "subtitle": "Añade tu formación académica.",
+      "add": "Añadir Educación",
+      "notSpecified": "(No especificado)",
+      "degree": "Título",
+      "school": "Escuela / Universidad",
+      "cityOptional": "Ciudad (Opcional)",
+      "countryOptional": "País (Opcional)",
+      "startDate": "Fecha de Inicio",
+      "endDate": "Fecha de Fin",
+      "gpaOptional": "Nota Media (Opcional)",
+      "honorsOptional": "Honores (Opcional)",
+      "clubsOptional": "Clubes y Actividades (Opcional)",
+      "descriptionOptional": "Descripción (Opcional)",
+      "noEducation": "No hay educación añadida todavía.",
+      "addEducation": "Añade tu formación",
+      "credentials": "Credenciales",
+      "certifications": "Certificaciones",
+      "awards": "Premios y Logros"
+    },
+    "skills": {
+      "title": "Habilidades",
+      "subtitle": "Añade tus habilidades técnicas y personales con niveles de competencia.",
+      "placeholder": "ej. React, Python, Liderazgo",
+      "proficiencyLevel": "Nivel de Competencia",
+      "beginner": "Principiante",
+      "basic": "Básico",
+      "intermediate": "Intermedio",
+      "advanced": "Avanzado",
+      "expert": "Experto",
+      "noSkills": "No hay habilidades añadidas todavía.",
+      "suggestedSkills": "Habilidades Sugeridas",
+      "additionalInfo": "Información Adicional",
+      "languages": "Idiomas",
+      "strengths": "Fortalezas",
+      "interests": "Intereses y Aficiones"
+    }
+  }
+}

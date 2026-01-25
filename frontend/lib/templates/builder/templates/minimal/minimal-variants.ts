@@ -12,6 +12,7 @@ export const minimalTimelineTemplate: BuilderTemplate = {
     category: 'creative',
     accentColor: '#ef4444',
     gradientColors: 'from-red-500 to-red-700',
+    templateId: 'minimal-timeline',
 };
 
 // Labels tan minimal - professional style
@@ -24,6 +25,7 @@ export const minimalLabelsTanTemplate: BuilderTemplate = {
     category: 'professional',
     accentColor: '#b45309',
     gradientColors: 'from-amber-600 to-amber-800',
+    templateId: 'minimal-labels-tan',
 };
 
 // Blue sections minimal - professional style
@@ -36,6 +38,7 @@ export const minimalBlueSectionsTemplate: BuilderTemplate = {
     category: 'professional',
     accentColor: '#2563eb',
     gradientColors: 'from-blue-600 to-blue-800',
+    templateId: 'minimal-blue-sections',
 };
 
 // Export all featured minimal variants
