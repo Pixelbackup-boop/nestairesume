@@ -202,7 +202,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
             }}
         >
             {/* Formatting toolbar */}
-            <div className="flex items-center gap-1 mb-2 p-2 bg-slate-800 rounded-lg shadow-xl border border-slate-600">
+            <div className="flex items-center gap-1 mb-2 p-2 bg-white rounded-lg shadow-xl border border-gray-300">
                 {/* Font family dropdown */}
                 <div className="relative">
                     <button
@@ -210,19 +210,19 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                             setShowFontMenu(!showFontMenu);
                             setShowSizeMenu(false);
                         }}
-                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-700 rounded transition-colors min-w-[100px]"
+                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-gray-600 hover:text-white hover:bg-gray-200 rounded transition-colors min-w-[100px]"
                     >
                         <Type size={14} />
                         <span className="truncate">{element.fontFamily}</span>
                     </button>
                     {showFontMenu && (
-                        <div className="absolute top-full left-0 mt-1 bg-slate-800 border border-slate-600 rounded-lg shadow-xl max-h-48 overflow-y-auto z-50 min-w-[150px]">
+                        <div className="absolute top-full left-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-xl max-h-48 overflow-y-auto z-50 min-w-[150px]">
                             {fontFamilies.map((font) => (
                                 <button
                                     key={font}
                                     onClick={() => setFontFamily(font)}
-                                    className={`w-full px-3 py-2 text-left text-sm hover:bg-slate-700 transition-colors ${
-                                        element.fontFamily === font ? 'text-accent-green' : 'text-slate-300'
+                                    className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-200 transition-colors ${
+                                        element.fontFamily === font ? 'text-accent-green' : 'text-gray-600'
                                     }`}
                                     style={{ fontFamily: font }}
                                 >
@@ -240,18 +240,18 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                             setShowSizeMenu(!showSizeMenu);
                             setShowFontMenu(false);
                         }}
-                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-slate-700 rounded transition-colors w-14"
+                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-gray-600 hover:text-white hover:bg-gray-200 rounded transition-colors w-14"
                     >
                         {element.fontSize}
                     </button>
                     {showSizeMenu && (
-                        <div className="absolute top-full left-0 mt-1 bg-slate-800 border border-slate-600 rounded-lg shadow-xl max-h-48 overflow-y-auto z-50">
+                        <div className="absolute top-full left-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-xl max-h-48 overflow-y-auto z-50">
                             {fontSizes.map((size) => (
                                 <button
                                     key={size}
                                     onClick={() => setFontSize(size)}
-                                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-700 transition-colors ${
-                                        element.fontSize === size ? 'text-accent-green' : 'text-slate-300'
+                                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-200 transition-colors ${
+                                        element.fontSize === size ? 'text-accent-green' : 'text-gray-600'
                                     }`}
                                 >
                                     {size}
@@ -261,15 +261,15 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     )}
                 </div>
 
-                <div className="w-px h-6 bg-slate-600 mx-1" />
+                <div className="w-px h-6 bg-gray-200 mx-1" />
 
                 {/* Bold */}
                 <button
                     onClick={toggleBold}
                     className={`p-1.5 rounded transition-colors ${
                         element.fontWeight === 'bold'
-                            ? 'bg-slate-600 text-white'
-                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                            ? 'bg-gray-200 text-white'
+                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
                     }`}
                 >
                     <Bold size={16} />
@@ -280,22 +280,22 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={toggleItalic}
                     className={`p-1.5 rounded transition-colors ${
                         element.fontStyle === 'italic'
-                            ? 'bg-slate-600 text-white'
-                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                            ? 'bg-gray-200 text-white'
+                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
                     }`}
                 >
                     <Italic size={16} />
                 </button>
 
-                <div className="w-px h-6 bg-slate-600 mx-1" />
+                <div className="w-px h-6 bg-gray-200 mx-1" />
 
                 {/* Alignment */}
                 <button
                     onClick={() => setAlign('left')}
                     className={`p-1.5 rounded transition-colors ${
                         element.align === 'left'
-                            ? 'bg-slate-600 text-white'
-                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                            ? 'bg-gray-200 text-white'
+                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
                     }`}
                 >
                     <AlignLeft size={16} />
@@ -304,8 +304,8 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={() => setAlign('center')}
                     className={`p-1.5 rounded transition-colors ${
                         element.align === 'center'
-                            ? 'bg-slate-600 text-white'
-                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                            ? 'bg-gray-200 text-white'
+                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
                     }`}
                 >
                     <AlignCenter size={16} />
@@ -314,14 +314,14 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={() => setAlign('right')}
                     className={`p-1.5 rounded transition-colors ${
                         element.align === 'right'
-                            ? 'bg-slate-600 text-white'
-                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                            ? 'bg-gray-200 text-white'
+                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
                     }`}
                 >
                     <AlignRight size={16} />
                 </button>
 
-                <div className="w-px h-6 bg-slate-600 mx-1" />
+                <div className="w-px h-6 bg-gray-200 mx-1" />
 
                 {/* Color picker */}
                 <input
@@ -332,7 +332,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     title="Text color"
                 />
 
-                <div className="w-px h-6 bg-slate-600 mx-1" />
+                <div className="w-px h-6 bg-gray-200 mx-1" />
 
                 {/* AI Button */}
                 <div className="relative">
@@ -345,7 +345,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                         className={`p-1.5 rounded transition-colors ${
                             showAIPanel
                                 ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
-                                : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                                : 'text-gray-500 hover:text-white hover:bg-gray-200'
                         }`}
                         title="AI Generate Text"
                     >
@@ -354,16 +354,16 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
 
                     {/* AI Panel Dropdown */}
                     {showAIPanel && (
-                        <div className="absolute top-full right-0 mt-2 w-72 bg-slate-800 border border-slate-600 rounded-xl shadow-2xl z-50 overflow-hidden">
+                        <div className="absolute top-full right-0 mt-2 w-72 bg-white border border-gray-300 rounded-xl shadow-2xl z-50 overflow-hidden">
                             {/* Header */}
-                            <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border-b border-slate-600">
+                            <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border-b border-gray-300">
                                 <div className="flex items-center gap-2">
                                     <Sparkles size={14} className="text-purple-400" />
                                     <span className="text-sm font-medium text-white">AI Generate</span>
                                 </div>
                                 <button
                                     onClick={() => setShowAIPanel(false)}
-                                    className="p-1 text-slate-400 hover:text-white rounded"
+                                    className="p-1 text-gray-500 hover:text-white rounded"
                                 >
                                     <X size={14} />
                                 </button>
@@ -374,15 +374,15 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                                 {generatedText ? (
                                     <>
                                         {/* Generated text preview */}
-                                        <div className="p-3 bg-slate-900/50 rounded-lg border border-slate-600 max-h-32 overflow-y-auto">
-                                            <p className="text-slate-200 text-sm leading-relaxed">{generatedText}</p>
+                                        <div className="p-3 bg-gray-50/50 rounded-lg border border-gray-300 max-h-32 overflow-y-auto">
+                                            <p className="text-gray-700 text-sm leading-relaxed">{generatedText}</p>
                                         </div>
 
                                         {/* Copy and Replace buttons */}
                                         <div className="grid grid-cols-2 gap-2">
                                             <button
                                                 onClick={copyGeneratedText}
-                                                className="flex items-center justify-center gap-1.5 py-2 bg-slate-700 text-slate-200 text-sm font-medium rounded-lg hover:bg-slate-600 transition-colors"
+                                                className="flex items-center justify-center gap-1.5 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors"
                                             >
                                                 {showCopied ? (
                                                     <>
@@ -408,7 +408,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                                         {/* Regenerate option */}
                                         <button
                                             onClick={() => setGeneratedText('')}
-                                            className="w-full py-1.5 text-slate-400 hover:text-slate-200 text-xs font-medium flex items-center justify-center gap-1 transition-colors"
+                                            className="w-full py-1.5 text-gray-500 hover:text-gray-700 text-xs font-medium flex items-center justify-center gap-1 transition-colors"
                                         >
                                             <Sparkles size={12} />
                                             Generate Another
@@ -428,20 +428,20 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                                                     }
                                                 }}
                                                 placeholder="Describe what to write..."
-                                                className="w-full px-3 py-2 bg-slate-700 text-white text-sm rounded-lg border border-slate-600 focus:border-purple-500 focus:outline-none placeholder-slate-400"
+                                                className="w-full px-3 py-2 bg-gray-200 text-white text-sm rounded-lg border border-gray-300 focus:border-purple-500 focus:outline-none placeholder-gray-400"
                                                 autoFocus
                                             />
                                         </div>
 
                                         {/* Quick suggestions */}
                                         <div className="space-y-1">
-                                            <p className="text-xs text-slate-400">Quick suggestions:</p>
+                                            <p className="text-xs text-gray-500">Quick suggestions:</p>
                                             <div className="flex flex-wrap gap-1">
                                                 {aiSuggestions.map((suggestion, i) => (
                                                     <button
                                                         key={i}
                                                         onClick={() => generateAIText(suggestion)}
-                                                        className="px-2 py-1 text-xs bg-slate-700 text-slate-300 rounded hover:bg-slate-600 hover:text-white transition-colors truncate max-w-full"
+                                                        className="px-2 py-1 text-xs bg-gray-200 text-gray-600 rounded hover:bg-gray-200 hover:text-white transition-colors truncate max-w-full"
                                                     >
                                                         {suggestion}
                                                     </button>
@@ -480,7 +480,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                 ref={textareaRef}
                 value={text}
                 onChange={handleTextChange}
-                className="min-w-[200px] max-w-[400px] p-3 bg-slate-800 text-white border border-slate-600 rounded-lg shadow-xl resize-both focus:outline-none focus:border-accent-green"
+                className="min-w-[200px] max-w-[400px] p-3 bg-white text-white border border-gray-300 rounded-lg shadow-xl resize-both focus:outline-none focus:border-accent-green"
                 style={{
                     fontSize: Math.min(element.fontSize * zoom, 24),
                     fontFamily: element.fontFamily,
@@ -492,7 +492,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                 placeholder="Enter text..."
             />
 
-            <p className="text-xs text-slate-500 mt-2">
+            <p className="text-xs text-gray-400 mt-2">
                 Press Escape or click outside to close
             </p>
         </div>

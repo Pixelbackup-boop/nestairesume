@@ -110,11 +110,11 @@ export default function DownloadModal({
             />
 
             {/* Modal */}
-            <div className="relative bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden animate-fadeIn">
+            <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden animate-fadeIn">
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition z-10"
+                    className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
                 >
                     <X size={20} />
                 </button>
@@ -124,8 +124,8 @@ export default function DownloadModal({
                     <div className="w-14 h-14 bg-accent-green/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                         <Download className="text-accent-green" size={28} />
                     </div>
-                    <h2 className="text-2xl font-bold text-white mb-2">Download Your Resume</h2>
-                    <p className="text-slate-400 text-sm">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Download Your Resume</h2>
+                    <p className="text-gray-500 text-sm">
                         Choose how you'd like to download your resume
                     </p>
                 </div>
@@ -133,30 +133,30 @@ export default function DownloadModal({
                 {/* Ad Watching State */}
                 {isWatchingAd && (
                     <div className="px-8 pb-8">
-                        <div className="bg-slate-700/50 rounded-xl p-6 text-center">
+                        <div className="bg-gray-100 rounded-xl p-6 text-center">
                             <Tv className="mx-auto text-accent-green mb-4" size={48} />
-                            <h3 className="text-lg font-semibold text-white mb-2">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
                                 Watching Advertisement
                             </h3>
-                            <p className="text-slate-400 text-sm mb-4">
+                            <p className="text-gray-500 text-sm mb-4">
                                 Please wait while the ad plays...
                             </p>
 
                             {/* Progress Bar */}
-                            <div className="h-2 bg-slate-600 rounded-full overflow-hidden mb-2">
+                            <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
                                 <div
                                     className="h-full bg-accent-green transition-all duration-100"
                                     style={{ width: `${adProgress}%` }}
                                 />
                             </div>
-                            <span className="text-xs text-slate-500">
+                            <span className="text-xs text-gray-400">
                                 {Math.ceil((100 - adProgress) / 20)} seconds remaining
                             </span>
 
                             {/* Simulated Ad Content */}
-                            <div className="mt-6 bg-slate-800 rounded-lg p-4 border border-slate-600">
-                                <div className="text-xs text-slate-500 mb-2">ADVERTISEMENT</div>
-                                <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-4 text-white text-sm">
+                            <div className="mt-6 bg-white rounded-lg p-4 border border-gray-300">
+                                <div className="text-xs text-gray-400 mb-2">ADVERTISEMENT</div>
+                                <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-4 text-gray-900 text-sm">
                                     <p className="font-medium">Upgrade to Premium!</p>
                                     <p className="text-xs opacity-80 mt-1">
                                         Download unlimited resumes without ads
@@ -172,17 +172,17 @@ export default function DownloadModal({
                     <div className="px-8 pb-8">
                         <div className="bg-accent-green/10 border border-accent-green/30 rounded-xl p-6 text-center">
                             <div className="w-12 h-12 bg-accent-green rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Check className="text-slate-900" size={24} />
+                                <Check className="text-gray-900" size={24} />
                             </div>
-                            <h3 className="text-lg font-semibold text-white mb-2">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
                                 Ready to Download!
                             </h3>
-                            <p className="text-slate-400 text-sm mb-6">
+                            <p className="text-gray-500 text-sm mb-6">
                                 Thank you for watching. Your resume is ready.
                             </p>
                             <button
                                 onClick={handleDownload}
-                                className="w-full py-3 bg-accent-green text-slate-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
+                                className="w-full py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
                             >
                                 <Download size={18} />
                                 Download Resume (PDF)
@@ -201,7 +201,7 @@ export default function DownloadModal({
                                 className={`w-full p-4 rounded-xl border-2 text-left transition ${
                                     selectedOption === 'free'
                                         ? 'border-accent-green bg-accent-green/10'
-                                        : 'border-slate-700 bg-slate-700/50 hover:border-slate-600'
+                                        : 'border-gray-200 bg-gray-100 hover:border-gray-300'
                                 }`}
                             >
                                 <div className="flex items-start gap-4">
@@ -209,7 +209,7 @@ export default function DownloadModal({
                                         className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                                             selectedOption === 'free'
                                                 ? 'bg-accent-green/20'
-                                                : 'bg-slate-600'
+                                                : 'bg-gray-200'
                                         }`}
                                     >
                                         <Download
@@ -217,16 +217,16 @@ export default function DownloadModal({
                                             className={
                                                 selectedOption === 'free'
                                                     ? 'text-accent-green'
-                                                    : 'text-slate-400'
+                                                    : 'text-gray-500'
                                             }
                                         />
                                     </div>
                                     <div className="flex-1">
                                         <div className="flex items-center justify-between">
-                                            <h3 className="font-semibold text-white">Free Download</h3>
+                                            <h3 className="font-semibold text-gray-900">Free Download</h3>
                                             <span className="text-accent-green font-bold">$0</span>
                                         </div>
-                                        <p className="text-sm text-slate-400 mt-1">
+                                        <p className="text-sm text-gray-500 mt-1">
                                             Download your resume as a high-quality PDF
                                         </p>
                                     </div>
@@ -239,11 +239,11 @@ export default function DownloadModal({
                                 className={`w-full p-4 rounded-xl border-2 text-left transition relative overflow-hidden ${
                                     selectedOption === 'premium'
                                         ? 'border-yellow-500 bg-yellow-500/10'
-                                        : 'border-slate-700 bg-slate-700/50 hover:border-slate-600'
+                                        : 'border-gray-200 bg-gray-100 hover:border-gray-300'
                                 }`}
                             >
                                 {/* Popular Badge */}
-                                <div className="absolute top-0 right-0 bg-yellow-500 text-slate-900 text-xs font-bold px-3 py-1 rounded-bl-lg">
+                                <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-bl-lg">
                                     BEST VALUE
                                 </div>
 
@@ -252,7 +252,7 @@ export default function DownloadModal({
                                         className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                                             selectedOption === 'premium'
                                                 ? 'bg-yellow-500/20'
-                                                : 'bg-slate-600'
+                                                : 'bg-gray-200'
                                         }`}
                                     >
                                         <Crown
@@ -260,19 +260,19 @@ export default function DownloadModal({
                                             className={
                                                 selectedOption === 'premium'
                                                     ? 'text-yellow-500'
-                                                    : 'text-slate-400'
+                                                    : 'text-gray-500'
                                             }
                                         />
                                     </div>
                                     <div className="flex-1">
                                         <div className="flex items-center justify-between">
-                                            <h3 className="font-semibold text-white">Premium</h3>
+                                            <h3 className="font-semibold text-gray-900">Premium</h3>
                                             <div className="text-right">
                                                 <span className="text-yellow-500 font-bold">$9.99</span>
-                                                <span className="text-slate-500 text-xs">/month</span>
+                                                <span className="text-gray-400 text-xs">/month</span>
                                             </div>
                                         </div>
-                                        <p className="text-sm text-slate-400 mt-1">
+                                        <p className="text-sm text-gray-500 mt-1">
                                             Unlimited downloads, premium templates, no ads
                                         </p>
                                     </div>
@@ -280,11 +280,11 @@ export default function DownloadModal({
 
                                 {/* Premium Features */}
                                 {selectedOption === 'premium' && (
-                                    <div className="mt-4 pt-4 border-t border-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <div className="mt-4 pt-4 border-t border-gray-200 grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         {premiumFeatures.map((feature, index) => (
                                             <div
                                                 key={index}
-                                                className="flex items-center gap-2 text-xs text-slate-300"
+                                                className="flex items-center gap-2 text-xs text-gray-600"
                                             >
                                                 <feature.icon size={14} className="text-yellow-500" />
                                                 {feature.label}
@@ -300,7 +300,7 @@ export default function DownloadModal({
                             {selectedOption === 'free' ? (
                                 <button
                                     onClick={handleFreeDownload}
-                                    className="w-full py-3 bg-accent-green text-slate-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
+                                    className="w-full py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
                                 >
                                     <Download size={18} />
                                     Download Free
@@ -308,7 +308,7 @@ export default function DownloadModal({
                             ) : (
                                 <button
                                     onClick={handlePremiumPurchase}
-                                    className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
+                                    className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
                                 >
                                     <Crown size={18} />
                                     Upgrade to Premium
@@ -316,7 +316,7 @@ export default function DownloadModal({
                             )}
                         </div>
 
-                        <p className="mt-4 text-xs text-slate-500 text-center">
+                        <p className="mt-4 text-xs text-gray-400 text-center">
                             Your resume will be downloaded as a high-quality PDF file
                         </p>
                     </div>
@@ -327,7 +327,7 @@ export default function DownloadModal({
                     <div className="px-8 pb-8">
                         <div className="text-center py-8">
                             <Loader2 className="mx-auto text-accent-green animate-spin mb-4" size={40} />
-                            <p className="text-slate-300">Preparing your download...</p>
+                            <p className="text-gray-600">Preparing your download...</p>
                         </div>
                     </div>
                 )}

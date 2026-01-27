@@ -751,14 +751,14 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-full overflow-auto bg-slate-800"
+            className="relative w-full h-full overflow-auto bg-white"
             style={{ minHeight: '100%' }}
         >
             {!isReady ? (
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                         <div className="w-8 h-8 border-2 border-accent-green border-t-transparent rounded-full animate-spin mx-auto mb-2" />
-                        <p className="text-slate-500 text-sm">Initializing canvas...</p>
+                        <p className="text-gray-400 text-sm">Initializing canvas...</p>
                     </div>
                 </div>
             ) : (
@@ -850,7 +850,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
             )}
 
             {/* Zoom indicator */}
-            <div className="absolute bottom-4 right-4 bg-slate-900/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+            <div className="absolute bottom-4 right-4 bg-gray-50/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium">
                 {Math.round(zoom * 100)}%
             </div>
         </div>

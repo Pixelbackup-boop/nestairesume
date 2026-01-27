@@ -47,35 +47,35 @@ export default function AwardsSection() {
                             value={newAward.title}
                             onChange={(e) => setNewAward({ ...newAward, title: e.target.value })}
                             placeholder="Award Title *"
-                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="text"
                             value={newAward.issuer}
                             onChange={(e) => setNewAward({ ...newAward, issuer: e.target.value })}
                             placeholder="Issuing Organization"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="text"
                             value={newAward.date}
                             onChange={(e) => setNewAward({ ...newAward, date: e.target.value })}
                             placeholder="Year (e.g., 2023)"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <textarea
                             value={newAward.description}
                             onChange={(e) => setNewAward({ ...newAward, description: e.target.value })}
                             placeholder="Description (optional)"
                             rows={2}
-                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green resize-none"
+                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green resize-none"
                         />
                     </div>
                     <div className="flex justify-end gap-2">
                         <button
                             type="button"
                             onClick={() => { setIsAdding(false); setNewAward({ title: '', issuer: '', date: '', description: '' }); }}
-                            className="px-3 py-1.5 text-sm text-gray-400 hover:text-white transition"
+                            className="px-3 py-1.5 text-sm text-gray-400 hover:text-gray-900 transition"
                         >
                             Cancel
                         </button>
@@ -102,7 +102,7 @@ export default function AwardsSection() {
                             onClick={() => setExpandedId(expandedId === award.id ? null : award.id)}
                         >
                             <div className="flex-1">
-                                <span className="text-white font-medium text-sm">{award.title}</span>
+                                <span className="text-gray-900 font-medium text-sm">{award.title}</span>
                                 <div className="text-xs text-gray-500">
                                     {award.issuer && <span>{award.issuer}</span>}
                                     {award.issuer && award.date && <span> • </span>}
@@ -131,28 +131,28 @@ export default function AwardsSection() {
                                     value={award.title}
                                     onChange={(e) => updateAward(award.id, { title: e.target.value })}
                                     placeholder="Award Title"
-                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="text"
                                     value={award.issuer}
                                     onChange={(e) => updateAward(award.id, { issuer: e.target.value })}
                                     placeholder="Issuer"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="text"
                                     value={award.date}
                                     onChange={(e) => updateAward(award.id, { date: e.target.value })}
                                     placeholder="Year"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <textarea
                                     value={award.description || ''}
                                     onChange={(e) => updateAward(award.id, { description: e.target.value || undefined })}
                                     placeholder="Description (optional)"
                                     rows={2}
-                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green resize-none"
+                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green resize-none"
                                 />
                             </div>
                         )}

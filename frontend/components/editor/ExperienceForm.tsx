@@ -57,7 +57,7 @@ export default function ExperienceForm() {
         <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">{t('experience.title')}</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('experience.title')}</h2>
                     <p className="text-gray-400 text-sm">{t('experience.subtitle')}</p>
                 </div>
                 <button
@@ -96,7 +96,7 @@ export default function ExperienceForm() {
                                     </button>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">{exp.title || t('experience.notSpecified')}</h3>
+                                    <h3 className="font-semibold text-gray-900">{exp.title || t('experience.notSpecified')}</h3>
                                     <p className="text-sm text-gray-400">{exp.company || t('experience.companyName')}</p>
                                 </div>
                             </div>
@@ -115,69 +115,69 @@ export default function ExperienceForm() {
                         {expandedId === exp.id && (
                             <div className="p-4 pt-0 border-t border-border-subtle grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('experience.jobTitle')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('experience.jobTitle')}</label>
                                     <input
                                         type="text"
                                         value={exp.title}
                                         onChange={(e) => handleChange(exp.id, 'title', e.target.value)}
                                         placeholder="Senior Product Designer"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('experience.company')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('experience.company')}</label>
                                     <input
                                         type="text"
                                         value={exp.company}
                                         onChange={(e) => handleChange(exp.id, 'company', e.target.value)}
                                         placeholder="Acme Corp"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('experience.city')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('experience.city')}</label>
                                     <input
                                         type="text"
                                         value={exp.city}
                                         onChange={(e) => handleChange(exp.id, 'city', e.target.value)}
                                         placeholder="San Francisco"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('experience.country')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('experience.country')}</label>
                                     <input
                                         type="text"
                                         value={exp.country}
                                         onChange={(e) => handleChange(exp.id, 'country', e.target.value)}
                                         placeholder="United States"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('experience.startDate')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('experience.startDate')}</label>
                                     <input
                                         type="text"
                                         value={exp.startDate}
                                         onChange={(e) => handleChange(exp.id, 'startDate', e.target.value)}
                                         placeholder="Jan 2020"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('experience.endDate')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('experience.endDate')}</label>
                                     <input
                                         type="text"
                                         value={exp.endDate}
                                         onChange={(e) => handleChange(exp.id, 'endDate', e.target.value)}
                                         disabled={exp.current}
                                         placeholder="Present"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none disabled:opacity-50"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none disabled:opacity-50"
                                     />
                                 </div>
 
@@ -189,12 +189,12 @@ export default function ExperienceForm() {
                                         onChange={(e) => handleChange(exp.id, 'current', e.target.checked)}
                                         className="rounded border-gray-600 bg-bg-card text-accent-green focus:ring-accent-green"
                                     />
-                                    <label htmlFor={`current-${exp.id}`} className="text-sm text-gray-300">{t('experience.currentlyWork')}</label>
+                                    <label htmlFor={`current-${exp.id}`} className="text-sm text-gray-700">{t('experience.currentlyWork')}</label>
                                 </div>
 
                                 <div className="space-y-2 md:col-span-2">
                                     <div className="flex items-center justify-between">
-                                        <label className="text-sm font-medium text-gray-300">{t('experience.description')}</label>
+                                        <label className="text-sm font-medium text-gray-700">{t('experience.description')}</label>
                                         <button
                                             onClick={() => handleImprove(exp.id, exp.description)}
                                             disabled={improvingId === exp.id || !exp.description}
@@ -209,7 +209,7 @@ export default function ExperienceForm() {
                                         onChange={(e) => handleChange(exp.id, 'description', e.target.value)}
                                         rows={4}
                                         placeholder="• Led a team of 5 designers..."
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none resize-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none resize-none"
                                     />
                                 </div>
                             </div>

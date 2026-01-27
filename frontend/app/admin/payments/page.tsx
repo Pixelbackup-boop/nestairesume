@@ -54,11 +54,11 @@ export default function PaymentsPage() {
     setLoading(true);
     try {
       const [paymentsRes, statsRes] = await Promise.all([
-        api.get("/admin/payments", { params: { page, limit: 15 } }),
+        api.get("/admin/payments", { params: { page: String(page), limit: "15" } }),
         api.get("/admin/payments/stats"),
       ]);
-      setData(paymentsRes.data);
-      setStats(statsRes.data);
+      setData(paymentsRes.data as PaymentsResponse);
+      setStats(statsRes.data as PaymentStats);
       setError(null);
     } catch (err: any) {
       setError(err.response?.data?.detail || "Failed to load payments");

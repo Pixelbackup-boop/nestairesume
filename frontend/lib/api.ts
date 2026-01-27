@@ -4,6 +4,7 @@ const API_BASE = 'http://localhost:4444/api/v1';
 interface RequestConfig {
   headers?: Record<string, string>;
   params?: Record<string, string>;
+  responseType?: 'json' | 'blob' | 'text';
 }
 
 interface ApiError {
@@ -42,7 +43,7 @@ async function request<T>(
     const response = await fetch(url, {
       method,
       headers,
-      body: data ? JSON.stringify(data) : undefined,
+      body: data ? (typeof data === 'string' ? data : JSON.stringify(data)) : undefined,
     });
 
     const responseData = await response.json().catch(() => ({}));

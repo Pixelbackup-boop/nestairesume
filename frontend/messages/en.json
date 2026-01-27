@@ -1,7 +1,7 @@
 {
   "Meta": {
-    "title": "Best AI Resume - Build Your Perfect Resume with AI",
-    "description": "Create professional, ATS-optimized resumes in minutes with AI. Free to try, no signup required."
+    "title": "Free AI Resume Builder | Create ATS Resume in Minutes | Best AI Resume",
+    "description": "Build professional, ATS-optimized resumes in minutes with our free AI resume builder. Trusted by 50,000+ professionals. No signup required to start."
   },
 
   "Common": {
@@ -27,24 +27,85 @@
     "pricing": "Pricing",
     "blog": "Blog",
     "careerTips": "Career Tips",
+    "careerGuides": "Career Guides",
+    "resumeExamples": "Resume Examples",
+    "resumeExamplesDesc": "Job-specific resume guides & templates",
+    "careerTipsDesc": "Expert advice for your career",
+    "blogDesc": "Tips, guides, and insights",
+    "viewAllExamples": "View all resume examples",
+    "viewAllTips": "View all career tips",
     "tools": "Tools",
     "coverLetter": "Cover Letter Generator",
     "coverLetterDesc": "AI-powered cover letters",
     "resignationLetter": "Resignation Letter",
     "resignationLetterDesc": "Professional exit letters",
+    "resumeFormat": "Resume Format Guide",
+    "resumeFormatDesc": "Chronological, functional & more",
     "login": "Log in",
     "logout": "Logout",
     "getStarted": "Get Started Free",
     "dashboard": "Dashboard",
     "admin": "Admin",
-    "adminPanel": "Admin Panel"
+    "adminPanel": "Admin Panel",
+    "resources": "Resources",
+    "compare": "Compare",
+    "byStyle": "By Style",
+    "byFormat": "By Format",
+    "allTemplates": "All Templates",
+    "buildResumeFree": "Build Your Resume Free",
+    "chooseFromTemplates": "Choose from 20+ professional templates",
+    "technology": "Technology",
+    "business": "Business",
+    "healthcare": "Healthcare",
+    "seeAllTech": "See All Tech",
+    "seeAllBusiness": "See All Business",
+    "seeAllHealthcare": "See All Healthcare",
+    "resumeExamplesCount": "300+ Resume Examples",
+    "browseAll": "Browse All",
+    "softwareEngineer": "Software Engineer",
+    "dataAnalyst": "Data Analyst",
+    "devopsEngineer": "DevOps Engineer",
+    "fullStackDev": "Full Stack Developer",
+    "projectManager": "Project Manager",
+    "marketingManager": "Marketing Manager",
+    "businessAnalyst": "Business Analyst",
+    "salesManager": "Sales Manager",
+    "nurse": "Nurse",
+    "medicalAssistant": "Medical Assistant",
+    "pharmacist": "Pharmacist",
+    "dentalAssistant": "Dental Assistant",
+    "guides": "Guides",
+    "latestPosts": "Latest Posts",
+    "allCareerTips": "All Career Tips",
+    "allBlog": "All Blog Posts",
+    "atsGuide": "ATS-Friendly Resume Guide",
+    "coverLetterGuide": "Cover Letter Guide",
+    "interviewPrep": "Interview Preparation",
+    "bestResumeApps": "Best Resume Builder Apps",
+    "resumeSkills": "Resume Skills Guide",
+    "linkedinGuide": "LinkedIn Optimization",
+    "writingServices": "Resume Writing Services",
+    "freeAlternatives": "Free Alternatives",
+    "paidAlternatives": "Paid Alternatives",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs AI Builder",
+    "whyWereBetter": "Why We're the #1 Free Builder",
+    "whyWereBetterDesc": "AI-powered, ATS-optimized, completely free"
   },
 
   "Home": {
     "hero": {
       "badge": "AI-Powered Resume Building",
-      "title": "Build Your",
-      "titleHighlight": "Perfect Resume",
+      "title": "Build Your AI-Powered",
+      "titleHighlight": "Resume in Minutes",
       "subtitle": "No Signup Required",
       "description": "Create stunning, ATS-optimized resumes in minutes with AI. Try it free — sign up only when you're ready to save.",
       "ctaPrimary": "Build with AI",
@@ -119,6 +180,41 @@
       "subtitle": "Join 50,000+ professionals who've already landed their dream jobs with Best AI Resume.",
       "button": "Build Your CV Now — Free",
       "note": "No signup required to start"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Frequently Asked",
+      "titleHighlight": "Questions",
+      "items": [
+        {
+          "question": "Is this AI resume builder really free?",
+          "answer": "Yes! You can create, edit, and preview your resume completely free. We offer premium plans for advanced features like unlimited PDF downloads and additional templates, but you can build a professional resume without paying anything."
+        },
+        {
+          "question": "What is an ATS and why does it matter?",
+          "answer": "ATS (Applicant Tracking System) is software used by 99% of Fortune 500 companies to scan and filter resumes. Our AI ensures your resume is ATS-optimized with the right keywords, formatting, and structure to pass these automated screenings."
+        },
+        {
+          "question": "How does the AI help write my resume?",
+          "answer": "Our AI analyzes your job title and experience to generate professional bullet points, summaries, and skill suggestions. It uses industry-specific keywords and achievement-focused language that recruiters look for."
+        },
+        {
+          "question": "Do I need to sign up to use the builder?",
+          "answer": "No signup required to start building! You can create your entire resume first. Only sign up when you want to save your progress or download. This lets you try everything risk-free."
+        },
+        {
+          "question": "Can I download my resume as a PDF?",
+          "answer": "Yes! Export your resume as a pixel-perfect PDF that looks exactly like the preview. PDFs are optimized for both digital applications and printing on standard letter/A4 paper."
+        },
+        {
+          "question": "How long does it take to create a resume?",
+          "answer": "Most users create a professional resume in under 10 minutes. Our AI suggestions and pre-written content speed up the process significantly compared to starting from scratch."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Our users got hired at",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
     }
   },
 
@@ -481,7 +577,39 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "contact": "Contact",
-    "copyright": "© {year} Best AI Resume. All rights reserved."
+    "copyright": "© {year} Best AI Resume. All rights reserved.",
+    "resources": "Resources",
+    "resumeFormatGuide": "Resume Format Guide",
+    "canvaAlternative": "Canva Alternative",
+    "overleafAlternative": "Overleaf Alternative",
+    "resumeIoAlternative": "Resume.io Alternative",
+    "reziAlternative": "Rezi Alternative",
+    "builder": "Resume Builder",
+    "templateCategories": "Templates",
+    "compare": "Compare",
+    "googleDocs": "Google Docs Templates",
+    "simpleClean": "Simple & Clean",
+    "atsFriendly": "ATS-Friendly",
+    "microsoftWord": "Word Templates",
+    "modern": "Modern Templates",
+    "creative": "Creative Templates",
+    "coverLetterGenerator": "AI Cover Letter Generator",
+    "resignationLetterGenerator": "AI Resignation Letter Generator",
+    "buildResumeFree": "Build Your Resume Free",
+    "zetyAlternative": "Zety Alternative",
+    "livecareerAlternative": "LiveCareer Alternative",
+    "adobeAlternative": "Adobe Alternative",
+    "novaAlternative": "Nova Alternative",
+    "europassAlternative": "Europass Alternative",
+    "chatgptComparison": "ChatGPT Comparison",
+    "resumeExamples": "Resume Examples",
+    "softwareEngineer": "Software Engineer",
+    "nurse": "Nurse",
+    "projectManager": "Project Manager",
+    "marketingManager": "Marketing Manager",
+    "dataAnalyst": "Data Analyst",
+    "accountant": "Accountant",
+    "viewAll300": "View All 300+"
   },
 
   "Auth": {
@@ -795,6 +923,29 @@
       "sidebarTitle": "Build Your Resume",
       "sidebarSubtitle": "Create a professional resume with AI in minutes.",
       "sidebarButton": "Get Started"
+    }
+  },
+
+  "ResumeExamples": {
+    "meta": {
+      "title": "Resume Examples by Job Title | Free Templates & Guides 2026",
+      "description": "Browse 50+ professional resume examples by job title. Each includes a free template, key skills, and writing tips to land your dream job."
+    },
+    "hero": {
+      "badge": "Job-Specific Guides",
+      "title": "Resume Examples",
+      "titleHighlight": "by Job Title",
+      "subtitle": "Find your profession and get a customized resume template with industry-specific tips."
+    },
+    "searchPlaceholder": "Search by job title...",
+    "featured": "Featured Resume Examples",
+    "allExamples": "All Resume Examples",
+    "noResults": "No resume examples found",
+    "noResultsHint": "Try adjusting your search or filter",
+    "cta": {
+      "title": "Ready to create your winning resume?",
+      "subtitle": "Use our AI-powered builder to create a professional resume in minutes.",
+      "button": "Build My Resume — Free"
     }
   }
 }

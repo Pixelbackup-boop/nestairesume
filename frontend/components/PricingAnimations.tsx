@@ -283,12 +283,12 @@ function FAQItem({ question, answer, className = '' }: FAQItemProps) {
 
   if (prefersReducedMotion) {
     return (
-      <div className={`bg-white dark:bg-bg-card rounded-xl border border-gray-200 dark:border-border-subtle ${className}`}>
+      <div className={`bg-white rounded-xl border border-gray-200 ${className}`}>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="w-full p-6 text-left flex items-center justify-between"
         >
-          <h3 className="font-semibold text-gray-900 dark:text-white">{question}</h3>
+          <h3 className="font-semibold text-gray-900">{question}</h3>
           <svg
             className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             fill="none"
@@ -300,7 +300,7 @@ function FAQItem({ question, answer, className = '' }: FAQItemProps) {
         </button>
         {isOpen && (
           <div className="px-6 pb-6">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">{answer}</p>
+            <p className="text-gray-600 text-sm">{answer}</p>
           </div>
         )}
       </div>
@@ -309,14 +309,14 @@ function FAQItem({ question, answer, className = '' }: FAQItemProps) {
 
   return (
     <motion.div
-      className={`bg-white dark:bg-bg-card rounded-xl border border-gray-200 dark:border-border-subtle overflow-hidden ${className}`}
+      className={`bg-white rounded-xl border border-gray-200 overflow-hidden ${className}`}
       variants={faqItemVariants}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full p-6 text-left flex items-center justify-between group"
       >
-        <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-accent-green transition-colors">
+        <h3 className="font-semibold text-gray-900 group-hover:text-accent-green transition-colors">
           {question}
         </h3>
         <motion.svg
@@ -335,7 +335,7 @@ function FAQItem({ question, answer, className = '' }: FAQItemProps) {
         style={{ height: 0, opacity: 0, overflow: 'hidden' }}
       >
         <div className="px-6 pb-6">
-          <p className="text-gray-600 dark:text-gray-400 text-sm">{answer}</p>
+          <p className="text-gray-600 text-sm">{answer}</p>
         </div>
       </div>
     </motion.div>

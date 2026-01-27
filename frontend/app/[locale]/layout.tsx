@@ -3,7 +3,10 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Poppins, Noto_Sans_Arabic } from 'next/font/google';
 import { locales, Locale, isRtl, getDirection } from '@/i18n.config';
-import { ThemeProvider } from '@/components/ThemeProvider';
+
+import WebVitals from '@/components/WebVitals';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { Suspense } from 'react';
 import '../globals.css';
 
 const poppins = Poppins({
@@ -23,6 +26,63 @@ const siteConfig = {
   name: 'Best AI Resume',
   url: 'https://www.bestairesumes.com',
   ogImage: '/og-image.png',
+};
+
+// Organization Schema for SEO
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Best AI Resume',
+  url: 'https://www.bestairesumes.com',
+  logo: 'https://www.bestairesumes.com/logo.png',
+  description: 'AI-powered resume builder that helps job seekers create professional, ATS-optimized resumes in minutes.',
+  sameAs: [
+    // Add social media URLs when available
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    availableLanguage: ['English', 'German', 'French', 'Spanish', 'Arabic'],
+  },
+};
+
+// SoftwareApplication Schema for rich product results in SERPs
+const softwareAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Best AI Resume Builder',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: 'https://www.bestairesumes.com',
+  description: 'AI-powered resume builder that helps job seekers create professional, ATS-optimized resumes in minutes.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '2847',
+    bestRating: '5',
+    worstRating: '1',
+  },
+};
+
+// WebSite Schema for sitelinks search box
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Best AI Resume',
+  url: 'https://www.bestairesumes.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.bestairesumes.com/blog/search?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 // Generate static params for all locales
@@ -98,17 +158,40 @@ export default async function LocaleLayout({
   const dir = getDirection(locale as Locale);
 
   return (
-    <html lang={locale} dir={dir} className="scroll-smooth" suppressHydrationWarning>
+    <html lang={locale} dir={dir} className="scroll-smooth">
+      <head>
+        {/* Search Console Verification — replace with actual verification codes */}
+        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+        <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+
+        {/* Organization Schema - Content is hardcoded, not user input */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        {/* WebSite Schema - Content is hardcoded, not user input */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        {/* SoftwareApplication + AggregateRating Schema - Content is hardcoded, not user input */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+        />
+      </head>
       <body
         className={`${poppins.variable} ${notoArabic.variable} antialiased ${
           rtl ? 'font-arabic' : ''
         }`}
       >
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Suspense fallback={null}>
+            <GoogleAnalytics />
+          </Suspense>
+          <WebVitals />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

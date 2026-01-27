@@ -47,35 +47,35 @@ export default function CertificationsSection() {
                             value={newCert.name}
                             onChange={(e) => setNewCert({ ...newCert, name: e.target.value })}
                             placeholder="Certification Name *"
-                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="text"
                             value={newCert.issuer}
                             onChange={(e) => setNewCert({ ...newCert, issuer: e.target.value })}
                             placeholder="Issuing Organization *"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="text"
                             value={newCert.date}
                             onChange={(e) => setNewCert({ ...newCert, date: e.target.value })}
                             placeholder="Date (e.g., 2023-06)"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="text"
                             value={newCert.url}
                             onChange={(e) => setNewCert({ ...newCert, url: e.target.value })}
                             placeholder="Credential URL (optional)"
-                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                     </div>
                     <div className="flex justify-end gap-2">
                         <button
                             type="button"
                             onClick={() => { setIsAdding(false); setNewCert({ name: '', issuer: '', date: '', url: '' }); }}
-                            className="px-3 py-1.5 text-sm text-gray-400 hover:text-white transition"
+                            className="px-3 py-1.5 text-sm text-gray-400 hover:text-gray-900 transition"
                         >
                             Cancel
                         </button>
@@ -103,7 +103,7 @@ export default function CertificationsSection() {
                         >
                             <div className="flex-1">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-white font-medium text-sm">{cert.name}</span>
+                                    <span className="text-gray-900 font-medium text-sm">{cert.name}</span>
                                     {cert.url && (
                                         <a
                                             href={cert.url}
@@ -140,28 +140,28 @@ export default function CertificationsSection() {
                                     value={cert.name}
                                     onChange={(e) => updateCertification(cert.id, { name: e.target.value })}
                                     placeholder="Certification Name"
-                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="text"
                                     value={cert.issuer}
                                     onChange={(e) => updateCertification(cert.id, { issuer: e.target.value })}
                                     placeholder="Issuer"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="text"
                                     value={cert.date}
                                     onChange={(e) => updateCertification(cert.id, { date: e.target.value })}
                                     placeholder="Date"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="text"
                                     value={cert.url || ''}
                                     onChange={(e) => updateCertification(cert.id, { url: e.target.value || undefined })}
                                     placeholder="Credential URL (optional)"
-                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                             </div>
                         )}

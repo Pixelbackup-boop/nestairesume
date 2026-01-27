@@ -98,13 +98,13 @@ export default function CareerTipsPage() {
                 <BookOpen size={16} className="text-teal-primary" />
                 <span className="text-sm text-teal-primary font-medium">{t('hero.badge') || 'Expert Career Guides'}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                 {t('hero.title') || 'Career Tips'}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-primary to-teal-secondary">
                   {t('hero.titleHighlight') || '& Expert Advice'}
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+              <p className="text-lg md:text-xl text-gray-600">
                 {t('hero.subtitle') || 'Master resume writing, ace interviews, and accelerate your career with our expert guides.'}
               </p>
             </div>
@@ -118,7 +118,7 @@ export default function CareerTipsPage() {
                   placeholder={t('searchPlaceholder') || 'Search articles...'}
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-white dark:bg-bg-card rounded-xl border border-gray-200 dark:border-border-subtle focus:outline-none focus:ring-2 focus:ring-teal-primary/50 text-gray-900 dark:text-white placeholder-gray-400"
+                  className="w-full pl-12 pr-4 py-4 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-primary/50 text-gray-900 placeholder-gray-400"
                 />
               </div>
             </div>
@@ -127,11 +127,11 @@ export default function CareerTipsPage() {
 
         {/* Featured Articles */}
         {featuredPosts.length > 0 && (
-          <section className="py-12 bg-gray-50 dark:bg-bg-secondary">
+          <section className="py-12 bg-gray-50">
             <div className="max-w-6xl mx-auto px-6">
               <div className="flex items-center gap-2 mb-8">
                 <Sparkles size={20} className="text-teal-primary" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-2xl font-bold text-gray-900">
                   {t('featured') || 'Featured Articles'}
                 </h2>
               </div>
@@ -140,7 +140,7 @@ export default function CareerTipsPage() {
                   <Link
                     key={post.slug}
                     href={`/${locale}/career-tips/${post.slug}`}
-                    className="group bg-white dark:bg-bg-card rounded-2xl overflow-hidden border border-gray-100 dark:border-border-subtle hover:shadow-xl hover:shadow-teal-primary/10 transition-all duration-300"
+                    className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-teal-primary/10 transition-all duration-300"
                   >
                     {post.image && (
                       <div className="relative h-48 overflow-hidden">
@@ -161,10 +161,10 @@ export default function CareerTipsPage() {
                       <span className="text-xs font-medium text-teal-primary uppercase tracking-wider">
                         {post.category}
                       </span>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2 mb-3 group-hover:text-teal-primary transition-colors line-clamp-2">
+                      <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-teal-primary transition-colors line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">
+                      <p className="text-gray-600 text-sm line-clamp-2 mb-4">
                         {post.description}
                       </p>
                       <div className="flex items-center gap-4 text-xs text-gray-500">
@@ -188,8 +188,8 @@ export default function CareerTipsPage() {
               {/* Sidebar - Categories */}
               <aside className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
-                  <div className="bg-white dark:bg-bg-card rounded-2xl border border-gray-100 dark:border-border-subtle p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                  <div className="bg-white rounded-2xl border border-gray-100 p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
                       {t('categories.title') || 'Categories'}
                     </h3>
                     <div className="space-y-2">
@@ -200,7 +200,7 @@ export default function CareerTipsPage() {
                           className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                             selectedCategory === category.id
                               ? 'bg-teal-primary text-white'
-                              : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                              : 'text-gray-600 hover:bg-gray-100'
                           }`}
                         >
                           {category.label}
@@ -229,7 +229,7 @@ export default function CareerTipsPage() {
               {/* Articles Grid */}
               <div className="lg:col-span-3">
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  <h2 className="text-2xl font-bold text-gray-900">
                     {t('allArticles') || 'All Articles'}
                   </h2>
                   <span className="text-sm text-gray-500">
@@ -240,12 +240,12 @@ export default function CareerTipsPage() {
                 {loading ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {[1, 2, 3, 4].map(i => (
-                      <div key={i} className="bg-white dark:bg-bg-card rounded-2xl overflow-hidden animate-pulse">
-                        <div className="h-48 bg-gray-200 dark:bg-gray-700" />
+                      <div key={i} className="bg-white rounded-2xl overflow-hidden animate-pulse">
+                        <div className="h-48 bg-gray-200" />
                         <div className="p-6 space-y-3">
-                          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4" />
-                          <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4" />
-                          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+                          <div className="h-4 bg-gray-200 rounded w-1/4" />
+                          <div className="h-6 bg-gray-200 rounded w-3/4" />
+                          <div className="h-4 bg-gray-200 rounded w-full" />
                         </div>
                       </div>
                     ))}
@@ -256,7 +256,7 @@ export default function CareerTipsPage() {
                       <Link
                         key={post.slug}
                         href={`/${locale}/career-tips/${post.slug}`}
-                        className="group bg-white dark:bg-bg-card rounded-2xl overflow-hidden border border-gray-100 dark:border-border-subtle hover:shadow-lg transition-all duration-300"
+                        className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300"
                       >
                         {post.image && (
                           <div className="relative h-48 overflow-hidden">
@@ -273,23 +273,23 @@ export default function CareerTipsPage() {
                             <span className="text-xs font-medium text-teal-primary uppercase tracking-wider">
                               {post.category}
                             </span>
-                            <span className="text-gray-300 dark:text-gray-600">•</span>
+                            <span className="text-gray-300">•</span>
                             <span className="text-xs text-gray-500 flex items-center gap-1">
                               <Clock size={12} />
                               {post.readingTime}
                             </span>
                           </div>
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-teal-primary transition-colors line-clamp-2">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-teal-primary transition-colors line-clamp-2">
                             {post.title}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">
+                          <p className="text-gray-600 text-sm line-clamp-2 mb-4">
                             {post.description}
                           </p>
                           <div className="flex items-center gap-2 flex-wrap">
                             {post.tags.slice(0, 3).map(tag => (
                               <span
                                 key={tag}
-                                className="px-2 py-1 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs rounded-lg"
+                                className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-lg"
                               >
                                 {tag}
                               </span>
@@ -301,10 +301,10 @@ export default function CareerTipsPage() {
                   </div>
                 ) : (
                   <div className="text-center py-16">
-                    <div className="w-16 h-16 bg-gray-100 dark:bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <BookOpen size={24} className="text-gray-400" />
                     </div>
-                    <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">
                       {t('noArticles') || 'No articles found'}
                     </h3>
                     <p className="text-gray-500">

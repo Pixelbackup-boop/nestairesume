@@ -38,18 +38,18 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           <BookOpen size={16} className="text-accent-green" />
           <span className="text-sm text-accent-green font-medium">Our Blog</span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Resume Tips &{' '}
           <span className="gradient-text">Career Advice</span>
         </h1>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Expert guides, tips, and strategies to help you create standout resumes and advance your career.
         </p>
       </div>
 
       {/* Search Bar */}
       <div className="max-w-xl mx-auto mb-12">
-        <Suspense fallback={<div className="h-12 bg-bg-card rounded-xl animate-pulse" />}>
+        <Suspense fallback={<div className="h-12 bg-gray-100 rounded-xl animate-pulse" />}>
           <SearchBar />
         </Suspense>
       </div>
@@ -59,7 +59,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <section className="mb-16">
           <div className="flex items-center gap-2 mb-6">
             <Sparkles size={20} className="text-accent-green" />
-            <h2 className="text-xl font-semibold text-white">Featured Articles</h2>
+            <h2 className="text-xl font-semibold text-gray-900">Featured Articles</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredPosts.map(post => (
@@ -95,11 +95,11 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             </>
           ) : (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen size={24} className="text-gray-500" />
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-white mb-2">No articles yet</h3>
-              <p className="text-gray-400">Check back soon for new content!</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No articles yet</h3>
+              <p className="text-gray-600">Check back soon for new content!</p>
             </div>
           )}
         </div>

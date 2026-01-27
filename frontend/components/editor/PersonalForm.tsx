@@ -113,7 +113,7 @@ export default function PersonalForm() {
   return (
     <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
       <div>
-        <h2 className="text-2xl font-bold text-white mb-2">{t('personalInfo.title')}</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('personalInfo.title')}</h2>
         <p className="text-gray-400 text-sm">{t('personalInfo.subtitle')}</p>
       </div>
 
@@ -139,12 +139,12 @@ export default function PersonalForm() {
             onClick={() => fileInputRef.current?.click()}
             className={`absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity ${getShapeClass(personalInfo.imageShape || 'circle')}`}
           >
-            <Camera size={18} className="text-white" />
+            <Camera size={18} className="text-gray-900" />
           </button>
           {personalInfo.profileImage && (
             <button
               onClick={handleRemoveImage}
-              className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg z-10"
+              className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-gray-900 hover:bg-red-600 transition shadow-lg z-10"
             >
               <X size={12} />
             </button>
@@ -158,7 +158,7 @@ export default function PersonalForm() {
           />
         </div>
         <div className="flex-1">
-          <label className="text-sm font-medium text-gray-300 block mb-2">{t('profilePhoto')}</label>
+          <label className="text-sm font-medium text-gray-700 block mb-2">{t('profilePhoto')}</label>
           <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => fileInputRef.current?.click()}
@@ -176,7 +176,7 @@ export default function PersonalForm() {
                     className={`p-1.5 rounded-md border transition ${
                       personalInfo.imageShape === shape.id
                         ? 'border-accent-green bg-accent-green/10 text-accent-green'
-                        : 'border-border-subtle text-gray-400 hover:border-gray-500 hover:text-gray-300'
+                        : 'border-border-subtle text-gray-400 hover:border-gray-500 hover:text-gray-700'
                     }`}
                   >
                     <shape.icon size={14} />
@@ -190,18 +190,18 @@ export default function PersonalForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('fullName')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('fullName')}</label>
           <input
             type="text"
             name="fullName"
             value={personalInfo.fullName}
             onChange={handleChange}
             placeholder={t('fullNamePlaceholder')}
-            className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+            className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('jobTitle')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('jobTitle')}</label>
           <div className="relative">
             <Briefcase size={16} className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -210,13 +210,13 @@ export default function PersonalForm() {
               value={personalInfo.jobTitle}
               onChange={handleChange}
               placeholder={t('jobTitlePlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('email')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('email')}</label>
           <div className="relative">
             <Mail size={16} className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -225,13 +225,13 @@ export default function PersonalForm() {
               value={personalInfo.email}
               onChange={handleChange}
               placeholder={t('emailPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('phone')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('phone')}</label>
           <div className="relative">
             <Phone size={16} className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -240,13 +240,13 @@ export default function PersonalForm() {
               value={personalInfo.phone}
               onChange={handleChange}
               placeholder={t('phonePlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('location')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('location')}</label>
           <div className="relative">
             <MapPin size={16} className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -255,13 +255,13 @@ export default function PersonalForm() {
               value={personalInfo.location}
               onChange={handleChange}
               placeholder={t('locationPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('website')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('website')}</label>
           <div className="relative">
             <Globe size={16} className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -270,12 +270,12 @@ export default function PersonalForm() {
               value={personalInfo.website}
               onChange={handleChange}
               placeholder={t('websitePlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
             />
           </div>
         </div>
         <div className="space-y-2 md:col-span-2">
-          <label className="text-sm font-medium text-gray-300">{t('linkedin')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('linkedin')}</label>
           <div className="relative">
             <Linkedin size={16} className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -284,14 +284,14 @@ export default function PersonalForm() {
               value={personalInfo.linkedin}
               onChange={handleChange}
               placeholder={t('linkedinPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
             />
           </div>
         </div>
 
         {/* Nationality */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('nationality')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('nationality')}</label>
           <div className="relative">
             <Flag size={16} className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -300,14 +300,14 @@ export default function PersonalForm() {
               value={personalInfo.nationality || ''}
               onChange={handleChange}
               placeholder={t('nationalityPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
             />
           </div>
         </div>
 
         {/* ID Document */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">{t('idDocument')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('idDocument')}</label>
           <div className="flex gap-3">
             {/* Document Type Dropdown */}
             <div className="relative w-2/5">
@@ -316,10 +316,10 @@ export default function PersonalForm() {
                 name="idType"
                 value={personalInfo.idType || ''}
                 onChange={handleChange}
-                className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-8 py-2.5 text-white focus:outline-none focus:border-accent-green transition appearance-none cursor-pointer"
+                className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-8 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition appearance-none cursor-pointer"
               >
                 {idDocumentTypes.map((type) => (
-                  <option key={type.value} value={type.value} className="bg-slate-800">
+                  <option key={type.value} value={type.value} className="bg-white">
                     {type.label}
                   </option>
                 ))}
@@ -334,7 +334,7 @@ export default function PersonalForm() {
               onChange={handleChange}
               placeholder={t('documentNumber')}
               disabled={!personalInfo.idType}
-              className="flex-1 bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
@@ -342,7 +342,7 @@ export default function PersonalForm() {
 
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <label className="text-sm font-medium text-gray-300">{t('professionalSummary')}</label>
+          <label className="text-sm font-medium text-gray-700">{t('professionalSummary')}</label>
           <button
             onClick={handleGenerateSummary}
             disabled={isGenerating || !personalInfo.jobTitle}
@@ -358,13 +358,13 @@ export default function PersonalForm() {
           onChange={handleChange}
           rows={4}
           placeholder={t('summaryPlaceholder')}
-          className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-green transition resize-none"
+          className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-accent-green transition resize-none"
         />
       </div>
 
       {/* Additional Sections */}
       <div className="mt-8 pt-6 border-t border-border-subtle space-y-4">
-        <h3 className="text-lg font-semibold text-white mb-4">{t('additionalInfo')}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('additionalInfo')}</h3>
 
         <CollapsibleSection
           title={t('socialLinks')}
@@ -390,25 +390,25 @@ export default function PersonalForm() {
         >
           <div className="space-y-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-300">{t('sectionLabel')}</label>
+              <label className="text-sm font-medium text-gray-700">{t('sectionLabel')}</label>
               <input
                 type="text"
                 name="customFieldLabel"
                 value={personalInfo.customFieldLabel || ''}
                 onChange={handleChange}
                 placeholder={t('sectionLabelPlaceholder')}
-                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent-green transition"
+                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-300">{t('content')}</label>
+              <label className="text-sm font-medium text-gray-700">{t('content')}</label>
               <textarea
                 name="customField"
                 value={personalInfo.customField || ''}
                 onChange={handleChange}
                 rows={4}
                 placeholder={t('contentPlaceholder')}
-                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-green transition resize-none"
+                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-accent-green transition resize-none"
               />
             </div>
           </div>

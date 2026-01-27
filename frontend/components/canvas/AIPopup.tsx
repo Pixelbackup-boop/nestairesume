@@ -208,21 +208,21 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
             />
 
             {/* Popup Modal */}
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-slate-800 rounded-2xl shadow-2xl border border-slate-700 z-50 overflow-hidden">
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 overflow-hidden">
                 {/* Header */}
-                <div className="flex items-center justify-between px-5 py-4 border-b border-slate-700 bg-gradient-to-r from-purple-500/10 to-blue-500/10">
+                <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 bg-gradient-to-r from-purple-500/10 to-blue-500/10">
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg">
                             <Sparkles size={20} className="text-white" />
                         </div>
                         <div>
                             <h2 className="font-semibold text-white">AI Summary Generator</h2>
-                            <p className="text-xs text-slate-400">Generate a professional summary using AI</p>
+                            <p className="text-xs text-gray-500">Generate a professional summary using AI</p>
                         </div>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition-colors"
+                        className="p-2 text-gray-500 hover:text-white hover:bg-gray-200 rounded-lg transition-colors"
                     >
                         <X size={20} />
                     </button>
@@ -245,16 +245,16 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
                     {isGenerating && (
                         <div className="text-center py-8">
                             <Loader2 size={32} className="animate-spin text-purple-400 mx-auto mb-3" />
-                            <p className="text-slate-300">Analyzing your resume...</p>
-                            <p className="text-sm text-slate-500 mt-1">Generating professional summary</p>
+                            <p className="text-gray-600">Analyzing your resume...</p>
+                            <p className="text-sm text-gray-400 mt-1">Generating professional summary</p>
                         </div>
                     )}
 
                     {/* Generated Summary */}
                     {generatedSummary && !isGenerating && (
                         <div className="space-y-4">
-                            <div className="p-4 bg-slate-900/50 rounded-xl border border-slate-700">
-                                <p className="text-slate-200 leading-relaxed">{generatedSummary}</p>
+                            <div className="p-4 bg-gray-50/50 rounded-xl border border-gray-200">
+                                <p className="text-gray-700 leading-relaxed">{generatedSummary}</p>
                             </div>
 
                             {showReplaced ? (
@@ -266,7 +266,7 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
                                 <div className="grid grid-cols-2 gap-3">
                                     <button
                                         onClick={copyToClipboard}
-                                        className="flex items-center justify-center gap-2 py-3 bg-slate-700 text-slate-200 rounded-xl hover:bg-slate-600 transition-colors font-medium"
+                                        className="flex items-center justify-center gap-2 py-3 bg-gray-200 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-medium"
                                     >
                                         {showCopied ? (
                                             <>
@@ -293,7 +293,7 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
                             {/* Regenerate option */}
                             <button
                                 onClick={generateAISummary}
-                                className="w-full py-2.5 text-slate-400 hover:text-slate-200 text-sm font-medium flex items-center justify-center gap-2 transition-colors"
+                                className="w-full py-2.5 text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center justify-center gap-2 transition-colors"
                             >
                                 <RefreshCw size={16} />
                                 Generate Another
@@ -306,7 +306,7 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
                         <div className="p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
                             <div className="flex items-start gap-3">
                                 <Lightbulb size={18} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                                <div className="text-sm text-slate-300">
+                                <div className="text-sm text-gray-600">
                                     <p className="font-medium text-blue-300 mb-1">Tip</p>
                                     <p>The AI will analyze your resume content to generate a personalized professional summary that highlights your key skills and experience.</p>
                                 </div>

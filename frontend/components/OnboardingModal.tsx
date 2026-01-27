@@ -154,12 +154,12 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                 />
 
                 {/* Modal - Animated */}
-                <OnboardingAnimations.Modal className="relative w-full max-w-xl mx-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
+                <OnboardingAnimations.Modal className="relative w-full max-w-xl mx-4 bg-gradient-to-br from-gray-50 via-white to-gray-50 rounded-2xl border border-gray-200 shadow-2xl overflow-hidden">
                 {/* Close button */}
                 {!isGenerating && (
                     <button
                         onClick={onClose}
-                        className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white transition-colors z-10"
+                        className="absolute top-4 right-4 p-2 text-gray-500 hover:text-white transition-colors z-10"
                     >
                         <X size={20} />
                     </button>
@@ -175,7 +175,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                     <Sparkles className="text-accent-green" size={28} />
                                 </div>
                                 <h2 className="text-2xl font-bold text-white mb-2">Tell us about yourself</h2>
-                                <p className="text-slate-400 text-sm">
+                                <p className="text-gray-500 text-sm">
                                     Just 2 questions and AI will create your perfect resume
                                 </p>
                             </OnboardingAnimations.FormField>
@@ -183,7 +183,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                             <div className="space-y-5">
                                 {/* Full Name */}
                                 <OnboardingAnimations.FormField>
-                                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
+                                    <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                         <User size={14} />
                                         Your Full Name
                                     </label>
@@ -194,14 +194,14 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                             setFormData((prev) => ({ ...prev, fullName: e.target.value }))
                                         }
                                         placeholder="e.g., John Smith"
-                                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition-colors"
+                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors"
                                         autoFocus
                                     />
                                 </OnboardingAnimations.FormField>
 
                                 {/* Job Title */}
                                 <OnboardingAnimations.FormField>
-                                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
+                                    <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                         <Briefcase size={14} />
                                         Job Title You're Applying For
                                     </label>
@@ -212,13 +212,13 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                             setFormData((prev) => ({ ...prev, jobTitle: e.target.value }))
                                         }
                                         placeholder="e.g., Software Engineer, Marketing Manager"
-                                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition-colors"
+                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors"
                                     />
                                 </OnboardingAnimations.FormField>
 
                                 {/* Experience Level */}
                                 <OnboardingAnimations.FormField>
-                                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
+                                    <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                         <Clock size={14} />
                                         Experience Level
                                     </label>
@@ -236,11 +236,11 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                                 className={`p-3 rounded-xl border-2 text-left transition-all ${
                                                     formData.experienceLevel === level.value
                                                         ? 'border-accent-green bg-accent-green/10'
-                                                        : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
+                                                        : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                                                 }`}
                                             >
                                                 <div className="font-medium text-white text-sm">{level.label}</div>
-                                                <div className="text-xs text-slate-400">{level.description}</div>
+                                                <div className="text-xs text-gray-500">{level.description}</div>
                                             </button>
                                         ))}
                                     </div>
@@ -252,7 +252,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                         type="button"
                                         onClick={handleGenerateResume}
                                         disabled={!canProceed}
-                                        className="w-full mt-2 py-3.5 bg-accent-green text-slate-900 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-accent-teal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full mt-2 py-3.5 bg-accent-green text-gray-900 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-accent-teal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         <Wand2 size={18} />
                                         Generate My Resume
@@ -280,7 +280,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                             <div className="h-6">
                                 <OnboardingAnimations.ProcessingMessage
                                     message={aiProcessingMessages[processingMessageIndex]}
-                                    className="text-slate-400"
+                                    className="text-gray-500"
                                 />
                             </div>
 
@@ -292,13 +292,13 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                         className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                                             index <= processingMessageIndex
                                                 ? 'bg-accent-green'
-                                                : 'bg-slate-700'
+                                                : 'bg-gray-200'
                                         }`}
                                     />
                                 ))}
                             </div>
 
-                            <p className="text-slate-500 text-xs mt-6">
+                            <p className="text-gray-400 text-xs mt-6">
                                 This usually takes just a few seconds...
                             </p>
                         </div>

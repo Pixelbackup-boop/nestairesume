@@ -28,10 +28,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
   return {
-    title: `${categoryName} Articles | ResumeAI Blog`,
+    title: `${categoryName} Articles | Best AI Resume Blog`,
     description: `Browse our ${categoryName.toLowerCase()} articles for expert advice, tips, and guides.`,
     openGraph: {
-      title: `${categoryName} Articles | ResumeAI Blog`,
+      title: `${categoryName} Articles | Best AI Resume Blog`,
       description: `Browse our ${categoryName.toLowerCase()} articles for expert advice, tips, and guides.`,
     },
   };
@@ -67,7 +67,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
       <div className="mb-12">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-accent-green transition-colors mb-6"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-accent-green transition-colors mb-6"
         >
           <ArrowLeft size={16} />
           Back to Blog
@@ -77,18 +77,18 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           <div className="p-2 bg-accent-green/10 rounded-lg">
             <Folder size={24} className="text-accent-green" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             {displayName}
           </h1>
         </div>
-        <p className="text-gray-400">
+        <p className="text-gray-600">
           {categoryPosts.length} article{categoryPosts.length !== 1 ? 's' : ''} in this category
         </p>
       </div>
 
       {/* Search Bar */}
       <div className="max-w-xl mb-12">
-        <Suspense fallback={<div className="h-12 bg-bg-card rounded-xl animate-pulse" />}>
+        <Suspense fallback={<div className="h-12 bg-gray-100 rounded-xl animate-pulse" />}>
           <SearchBar placeholder={`Search in ${displayName}...`} />
         </Suspense>
       </div>
@@ -119,11 +119,11 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
             </>
           ) : (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Folder size={24} className="text-gray-500" />
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Folder size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-white mb-2">No articles yet</h3>
-              <p className="text-gray-400">Check back soon for new content in this category!</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No articles yet</h3>
+              <p className="text-gray-600">Check back soon for new content in this category!</p>
             </div>
           )}
         </div>

@@ -59,13 +59,13 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
       {currentPage > 1 ? (
         <Link
           href={getPageUrl(currentPage - 1)}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-gray-400 hover:text-white bg-bg-card border border-white/10 rounded-lg hover:border-white/20 transition-colors"
+          className="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 bg-white border border-gray-300 rounded-lg hover:border-gray-400 transition-colors"
         >
           <ChevronLeft size={16} />
           Previous
         </Link>
       ) : (
-        <span className="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 bg-bg-card border border-white/5 rounded-lg cursor-not-allowed">
+        <span className="flex items-center gap-1 px-3 py-2 text-sm text-gray-400 bg-gray-50 border border-gray-200 rounded-lg cursor-not-allowed">
           <ChevronLeft size={16} />
           Previous
         </span>
@@ -84,8 +84,8 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
               href={getPageUrl(page)}
               className={`px-3 py-2 text-sm rounded-lg transition-colors ${
                 page === currentPage
-                  ? 'bg-accent-green text-bg-primary font-medium'
-                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-accent-green text-white font-medium'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
               {page}
@@ -98,13 +98,13 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
       {currentPage < totalPages ? (
         <Link
           href={getPageUrl(currentPage + 1)}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-gray-400 hover:text-white bg-bg-card border border-white/10 rounded-lg hover:border-white/20 transition-colors"
+          className="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 bg-white border border-gray-300 rounded-lg hover:border-gray-400 transition-colors"
         >
           Next
           <ChevronRight size={16} />
         </Link>
       ) : (
-        <span className="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 bg-bg-card border border-white/5 rounded-lg cursor-not-allowed">
+        <span className="flex items-center gap-1 px-3 py-2 text-sm text-gray-400 bg-gray-50 border border-gray-200 rounded-lg cursor-not-allowed">
           Next
           <ChevronRight size={16} />
         </span>

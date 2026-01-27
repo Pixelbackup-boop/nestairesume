@@ -31,7 +31,7 @@ export default function CollapsibleSection({
                     <div className="w-8 h-8 bg-accent-green/10 rounded-lg flex items-center justify-center">
                         <Icon size={16} className="text-accent-green" />
                     </div>
-                    <span className="font-medium text-white">{title}</span>
+                    <span className="font-medium text-gray-900">{title}</span>
                     {badge !== undefined && badge > 0 && (
                         <span className="px-2 py-0.5 bg-accent-green/20 text-accent-green text-xs font-medium rounded-full">
                             {badge}

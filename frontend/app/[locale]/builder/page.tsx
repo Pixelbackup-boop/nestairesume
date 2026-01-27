@@ -193,7 +193,7 @@ function BuilderContent() {
     const resetZoom = () => setPreviewScale(0.75);
 
     return (
-        <div className="min-h-screen bg-slate-900 text-gray-100 flex">
+        <div className="min-h-screen bg-gray-50 text-gray-900 flex">
             {/* Mobile Sidebar Overlay */}
             {mobileSidebarOpen && (
                 <div
@@ -204,34 +204,34 @@ function BuilderContent() {
 
             {/* Left Sidebar - Vertical Tabs */}
             <aside className={`
-                fixed inset-y-0 left-0 z-50 w-64 bg-slate-800 border-r border-slate-700 flex flex-col transform transition-transform duration-300 ease-in-out
+                fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 flex flex-col transform transition-transform duration-300 ease-in-out
                 lg:relative lg:translate-x-0
                 ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
             `}>
                 {/* Logo */}
-                <div className="p-4 border-b border-slate-700 flex items-center justify-between">
+                <div className="p-4 border-b border-gray-200 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-slate-900">
+                        <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-gray-900">
                             R
                         </div>
-                        <span className="font-bold text-lg text-white">Best AI Resume</span>
+                        <span className="font-bold text-lg text-gray-900">Best AI Resume</span>
                     </Link>
                     {/* Close button for mobile */}
                     <button
                         onClick={() => setMobileSidebarOpen(false)}
-                        className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition lg:hidden"
+                        className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition lg:hidden"
                     >
                         <X size={20} />
                     </button>
                 </div>
 
                 {/* Progress */}
-                <div className="px-4 py-3 border-b border-slate-700">
-                    <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <div className="px-4 py-3 border-b border-gray-200">
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
                         <span>Progress</span>
                         <span className="font-semibold text-accent-green">{progress}%</span>
                     </div>
-                    <div className="h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-accent-green to-accent-teal rounded-full transition-all duration-500"
                             style={{ width: `${progress}%` }}
@@ -254,21 +254,21 @@ function BuilderContent() {
                                 }}
                                 className={`w-full flex items-center gap-3 px-4 py-3.5 text-left transition-all ${
                                     isActive
-                                        ? 'bg-accent-green/10 border-l-4 border-accent-green text-white'
-                                        : 'border-l-4 border-transparent text-slate-400 hover:bg-slate-700/50 hover:text-slate-200'
+                                        ? 'bg-accent-green/10 border-l-4 border-accent-green text-gray-900'
+                                        : 'border-l-4 border-transparent text-gray-500 hover:bg-gray-100 hover:text-gray-700'
                                 }`}
                             >
                                 <div className={`relative ${isActive ? 'text-accent-green' : ''}`}>
                                     <Icon size={20} />
                                     {isComplete && !isActive && (
-                                        <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-accent-green rounded-full border-2 border-slate-800" />
+                                        <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-accent-green rounded-full border-2 border-gray-200" />
                                     )}
                                 </div>
                                 <div className="flex-1">
-                                    <div className={`font-medium text-sm ${isActive ? 'text-white' : ''}`}>
+                                    <div className={`font-medium text-sm ${isActive ? 'text-gray-900' : ''}`}>
                                         {tab.label}
                                     </div>
-                                    <div className="text-xs text-slate-500">{tab.description}</div>
+                                    <div className="text-xs text-gray-400">{tab.description}</div>
                                 </div>
                                 {isActive && <Check size={16} className="text-accent-green" />}
                             </button>
@@ -277,17 +277,17 @@ function BuilderContent() {
                 </nav>
 
                 {/* Bottom Actions */}
-                <div className="p-4 border-t border-slate-700 space-y-2">
+                <div className="p-4 border-t border-gray-200 space-y-2">
                     <Link
                         href="/templates"
-                        className="flex items-center gap-2 px-3 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/50 rounded-lg transition"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
                     >
                         <Sparkles size={16} />
                         Canvas Editor
                     </Link>
                     <Link
                         href="/"
-                        className="flex items-center gap-2 px-3 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-700/50 rounded-lg transition"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
                     >
                         <Home size={16} />
                         Back to Home
@@ -298,18 +298,18 @@ function BuilderContent() {
             {/* Main Content Area */}
             <div className="flex-1 flex flex-col min-w-0">
                 {/* Top Header */}
-                <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 px-4 lg:px-6 py-3 flex items-center justify-between shrink-0 z-40">
+                <header className="bg-white/90 backdrop-blur-sm border-b border-gray-200 px-4 lg:px-6 py-3 flex items-center justify-between shrink-0 z-40">
                     <div className="flex items-center gap-3 lg:gap-4">
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setMobileSidebarOpen(true)}
-                            className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition lg:hidden"
+                            className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition lg:hidden"
                         >
                             <Menu size={20} />
                         </button>
-                        <div className="flex items-center gap-2 text-slate-400">
+                        <div className="flex items-center gap-2 text-gray-500">
                             <FileText size={18} className="hidden sm:block" />
-                            <span className="text-sm font-medium text-white truncate max-w-[150px] sm:max-w-none">
+                            <span className="text-sm font-medium text-gray-900 truncate max-w-[150px] sm:max-w-none">
                                 {resumeData.personalInfo.fullName || 'Untitled Resume'}
                             </span>
                         </div>
@@ -319,7 +319,7 @@ function BuilderContent() {
                         {/* Download Button */}
                         <button
                             onClick={handleDownloadClick}
-                            className="flex items-center gap-2 bg-accent-green text-slate-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition"
+                            className="flex items-center gap-2 bg-accent-green text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition"
                         >
                             <Download size={16} />
                             <span className="hidden sm:inline">Download PDF</span>
@@ -330,9 +330,9 @@ function BuilderContent() {
                 {/* Content Grid: Editor + Preview */}
                 <div className="flex-1 flex overflow-hidden">
                     {/* Editor Panel */}
-                    <div className={`${showPreview ? 'hidden lg:flex lg:w-1/2' : 'flex w-full'} flex-col bg-slate-850 border-r border-slate-700 transition-all`}>
+                    <div className={`${showPreview ? 'hidden lg:flex lg:w-1/2' : 'flex w-full'} flex-col bg-white border-r border-gray-200 transition-all`}>
                         {/* Section Header */}
-                        <div className="px-4 lg:px-6 py-3 lg:py-4 border-b border-slate-700 bg-slate-800/50">
+                        <div className="px-4 lg:px-6 py-3 lg:py-4 border-b border-gray-200 bg-gray-50">
                             <div className="flex items-center gap-3">
                                 {(() => {
                                     const currentTab = tabs.find((t) => t.id === activeTab);
@@ -343,8 +343,8 @@ function BuilderContent() {
                                                 <Icon size={20} className="text-accent-green" />
                                             </div>
                                             <div>
-                                                <h2 className="font-semibold text-white">{currentTab?.label}</h2>
-                                                <p className="text-xs text-slate-400">{currentTab?.description}</p>
+                                                <h2 className="font-semibold text-gray-900">{currentTab?.label}</h2>
+                                                <p className="text-xs text-gray-500">{currentTab?.description}</p>
                                             </div>
                                         </>
                                     );
@@ -364,10 +364,10 @@ function BuilderContent() {
 
                     {/* Preview Panel */}
                     {showPreview && (
-                        <div className="w-full lg:w-1/2 flex flex-col bg-slate-900 relative">
+                        <div className="w-full lg:w-1/2 flex flex-col bg-gray-50 relative">
                             {/* Preview Header */}
-                            <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between bg-slate-800/50">
-                                <span className="text-sm font-medium text-slate-300">Live Preview</span>
+                            <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+                                <span className="text-sm font-medium text-gray-600">Live Preview</span>
                                 <div className="flex items-center gap-2">
                                     {/* Reference Image Toggle - Only show if template has thumbnail */}
                                     {templateThumbnail && (
@@ -376,7 +376,7 @@ function BuilderContent() {
                                             className={`p-1.5 rounded transition flex items-center gap-1.5 ${
                                                 showReferencePanel
                                                     ? 'text-accent-green bg-accent-green/10'
-                                                    : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                                                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-200'
                                             }`}
                                             title="Show Reference Image"
                                         >
@@ -384,27 +384,27 @@ function BuilderContent() {
                                             <span className="text-xs">Reference</span>
                                         </button>
                                     )}
-                                    <div className="w-px h-4 bg-slate-700 mx-1" />
+                                    <div className="w-px h-4 bg-gray-200 mx-1" />
                                     <button
                                         onClick={zoomOut}
-                                        className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition"
+                                        className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
                                         title="Zoom Out"
                                     >
                                         <ZoomOut size={16} />
                                     </button>
-                                    <span className="text-xs text-slate-400 w-12 text-center">
+                                    <span className="text-xs text-gray-500 w-12 text-center">
                                         {Math.round(previewScale * 100)}%
                                     </span>
                                     <button
                                         onClick={zoomIn}
-                                        className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition"
+                                        className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
                                         title="Zoom In"
                                     >
                                         <ZoomIn size={16} />
                                     </button>
                                     <button
                                         onClick={resetZoom}
-                                        className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition"
+                                        className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
                                         title="Reset Zoom"
                                     >
                                         <RotateCcw size={16} />
@@ -419,16 +419,16 @@ function BuilderContent() {
 
                             {/* Reference Image Panel - Sliding from right */}
                             {templateThumbnail && showReferencePanel && (
-                                <div className="absolute top-12 right-0 bottom-0 w-full sm:w-72 lg:w-80 bg-slate-800 border-l border-slate-700 shadow-xl z-20 flex flex-col">
+                                <div className="absolute top-12 right-0 bottom-0 w-full sm:w-72 lg:w-80 bg-white border-l border-gray-200 shadow-xl z-20 flex flex-col">
                                     {/* Panel Header */}
-                                    <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between bg-slate-800">
+                                    <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-white">
                                         <div className="flex items-center gap-2">
                                             <Image size={16} className="text-accent-green" />
-                                            <span className="text-sm font-medium text-white">Reference Design</span>
+                                            <span className="text-sm font-medium text-gray-900">Reference Design</span>
                                         </div>
                                         <button
                                             onClick={() => setShowReferencePanel(false)}
-                                            className="p-1 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition"
+                                            className="p-1 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
                                         >
                                             <X size={16} />
                                         </button>
@@ -443,7 +443,7 @@ function BuilderContent() {
                                                 className="w-full h-auto object-contain"
                                             />
                                         </div>
-                                        <p className="text-xs text-slate-500 mt-3 text-center">
+                                        <p className="text-xs text-gray-400 mt-3 text-center">
                                             Original template design for reference
                                         </p>
                                     </div>
@@ -457,7 +457,7 @@ function BuilderContent() {
             {/* Toggle Preview Button (Mobile/Tablet) */}
             <button
                 onClick={() => setShowPreview(!showPreview)}
-                className="fixed bottom-6 right-6 p-4 bg-accent-green text-slate-900 rounded-full shadow-lg hover:bg-accent-teal transition lg:hidden z-30 flex items-center gap-2"
+                className="fixed bottom-6 right-6 p-4 bg-accent-green text-gray-900 rounded-full shadow-lg hover:bg-accent-teal transition lg:hidden z-30 flex items-center gap-2"
                 title={showPreview ? 'Edit Resume' : 'Preview Resume'}
             >
                 {showPreview ? (
@@ -495,8 +495,8 @@ export default function BuilderPage() {
     return (
         <Suspense
             fallback={
-                <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-                    <div className="text-slate-400">Loading builder...</div>
+                <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                    <div className="text-gray-500">Loading builder...</div>
                 </div>
             }
         >

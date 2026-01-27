@@ -52,7 +52,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
       {/* Search */}
       <div className="mb-6">
         <div className="relative max-w-md">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input
@@ -60,7 +60,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
             placeholder="Search by job title or skill..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent bg-white text-slate-900 placeholder:text-slate-400"
+            className="w-full pl-10 pr-4 py-3 border border-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent bg-white text-gray-900 placeholder:text-gray-500"
           />
         </div>
       </div>
@@ -72,8 +72,8 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
             onClick={() => setActiveCategory('All')}
             className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition ${
               activeCategory === 'All'
-                ? 'bg-slate-900 text-white'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                ? 'bg-gray-50 text-white'
+                : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
             }`}
           >
             All <span className="ml-1 text-xs opacity-70">{totalCount}</span>
@@ -84,8 +84,8 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
               onClick={() => setActiveCategory(cat.name)}
               className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition ${
                 activeCategory === cat.name
-                  ? 'bg-slate-900 text-white'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  ? 'bg-gray-50 text-white'
+                  : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
               }`}
             >
               {cat.name} <span className="ml-1 text-xs opacity-70">{cat.count}</span>
@@ -95,10 +95,10 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
       </div>
 
       {/* Results Count */}
-      <p className="text-sm text-slate-500 mb-6">
+      <p className="text-sm text-gray-400 mb-6">
         Showing {filtered.length} of {totalCount} resume examples
-        {activeCategory !== 'All' && <> in <span className="font-medium text-slate-700">{activeCategory}</span></>}
-        {searchQuery.trim() && <> matching &ldquo;<span className="font-medium text-slate-700">{searchQuery}</span>&rdquo;</>}
+        {activeCategory !== 'All' && <> in <span className="font-medium text-gray-700">{activeCategory}</span></>}
+        {searchQuery.trim() && <> matching &ldquo;<span className="font-medium text-gray-700">{searchQuery}</span>&rdquo;</>}
       </p>
 
       {/* Grid */}
@@ -108,10 +108,10 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
             <Link
               key={example.slug}
               href={`/resume-examples/${example.slug}`}
-              className="group block bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition hover:border-blue-300"
+              className="group block bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition hover:border-blue-300"
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-bold text-lg text-slate-900 group-hover:text-accent-blue transition leading-tight">
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-accent-blue transition leading-tight">
                   {example.jobTitle}
                 </h3>
                 {example.avgSalary && (
@@ -121,13 +121,13 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
                 )}
               </div>
 
-              <span className="inline-block text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded mb-3">
+              <span className="inline-block text-xs font-medium text-gray-400 bg-gray-50 px-2 py-0.5 rounded mb-3">
                 {example.displayCategory}
               </span>
 
               <div className="flex flex-wrap gap-1.5 mb-4">
                 {example.keySkills.slice(0, 4).map((skill, i) => (
-                  <span key={i} className="text-xs text-slate-600 bg-slate-50 border border-slate-150 px-2 py-0.5 rounded">
+                  <span key={i} className="text-xs text-gray-600 bg-gray-50 border border-gray-200 px-2 py-0.5 rounded">
                     {skill}
                   </span>
                 ))}
@@ -143,7 +143,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-slate-500">
+        <div className="text-center py-16 text-gray-400">
           <p className="text-lg font-medium mb-2">No resume examples found</p>
           <p className="text-sm">Try a different search term or category</p>
         </div>

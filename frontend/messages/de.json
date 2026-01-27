@@ -1,9 +1,8 @@
 {
   "Meta": {
-    "title": "Best AI Resume - Erstellen Sie Ihren perfekten Lebenslauf mit KI",
-    "description": "Erstellen Sie professionelle, ATS-optimierte Lebensläufe in Minuten mit KI. Kostenlos testen, keine Anmeldung erforderlich."
+    "title": "Kostenloser KI-Lebenslauf-Generator | ATS-optimiert in Minuten | Best AI Resume",
+    "description": "Erstellen Sie professionelle, ATS-optimierte Lebensläufe in Minuten mit unserem kostenlosen KI-Lebenslauf-Generator. Über 50.000 Fachleute vertrauen uns. Keine Anmeldung erforderlich."
   },
-
   "Common": {
     "loading": "Laden...",
     "error": "Ein Fehler ist aufgetreten",
@@ -20,25 +19,90 @@
     "preview": "Vorschau",
     "scrollToExplore": "Scrollen zum Erkunden"
   },
-
   "Navigation": {
     "features": "Funktionen",
     "templates": "Vorlagen",
     "pricing": "Preise",
     "blog": "Blog",
+    "careerTips": "Karrieretipps",
+    "careerGuides": "Karriere-Leitfäden",
+    "resumeExamples": "Lebenslauf-Beispiele",
+    "resumeExamplesDesc": "Berufsspezifische Lebenslauf-Vorlagen",
+    "careerTipsDesc": "Expertenrat für Ihre Karriere",
+    "blogDesc": "Tipps, Leitfäden und Einblicke",
+    "viewAllExamples": "Alle Beispiele ansehen",
+    "viewAllTips": "Alle Tipps ansehen",
+    "tools": "Werkzeuge",
+    "coverLetter": "Anschreiben-Generator",
+    "coverLetterDesc": "KI-gestützte Anschreiben",
+    "resignationLetter": "Kündigungsschreiben",
+    "resignationLetterDesc": "Professionelle Kündigungen",
+    "resumeFormat": "Lebenslauf-Format Leitfaden",
+    "resumeFormatDesc": "Chronologisch, funktional & mehr",
     "login": "Anmelden",
     "logout": "Abmelden",
     "getStarted": "Kostenlos Starten",
     "dashboard": "Dashboard",
     "admin": "Admin",
-    "adminPanel": "Admin-Panel"
+    "adminPanel": "Admin-Panel",
+    "resources": "Ressourcen",
+    "compare": "Vergleichen",
+    "byStyle": "Nach Stil",
+    "byFormat": "Nach Format",
+    "allTemplates": "Alle Vorlagen",
+    "buildResumeFree": "Lebenslauf kostenlos erstellen",
+    "chooseFromTemplates": "Wählen Sie aus 20+ Vorlagen",
+    "technology": "Technologie",
+    "business": "Business",
+    "healthcare": "Gesundheitswesen",
+    "seeAllTech": "Alle Tech-Berufe",
+    "seeAllBusiness": "Alle Business-Berufe",
+    "seeAllHealthcare": "Alle Gesundheitsberufe",
+    "resumeExamplesCount": "300+ Lebenslauf-Beispiele",
+    "browseAll": "Alle ansehen",
+    "softwareEngineer": "Software-Ingenieur",
+    "dataAnalyst": "Datenanalyst",
+    "devopsEngineer": "DevOps-Ingenieur",
+    "fullStackDev": "Full-Stack-Entwickler",
+    "projectManager": "Projektmanager",
+    "marketingManager": "Marketing-Manager",
+    "businessAnalyst": "Business-Analyst",
+    "salesManager": "Vertriebsleiter",
+    "nurse": "Krankenpfleger/in",
+    "medicalAssistant": "Medizinische/r Fachangestellte/r",
+    "pharmacist": "Apotheker/in",
+    "dentalAssistant": "Zahnarztassistent/in",
+    "guides": "Leitfäden",
+    "latestPosts": "Neueste Beiträge",
+    "allCareerTips": "Alle Karrieretipps",
+    "allBlog": "Alle Blogbeiträge",
+    "atsGuide": "ATS-optimierter Lebenslauf",
+    "coverLetterGuide": "Anschreiben-Leitfaden",
+    "interviewPrep": "Vorstellungsgespräch",
+    "bestResumeApps": "Beste Lebenslauf-Apps",
+    "resumeSkills": "Fähigkeiten im Lebenslauf",
+    "linkedinGuide": "LinkedIn-Optimierung",
+    "writingServices": "Lebenslauf-Schreibdienste",
+    "freeAlternatives": "Kostenlose Alternativen",
+    "paidAlternatives": "Kostenpflichtige Alternativen",
+    "vsCanva": "vs. Canva",
+    "vsOverleaf": "vs. Overleaf",
+    "vsEuropass": "vs. Europass",
+    "vsZety": "vs. Zety",
+    "vsResumeIo": "vs. Resume.io",
+    "vsRezi": "vs. Rezi",
+    "vsLiveCareer": "vs. LiveCareer",
+    "vsAdobe": "vs. Adobe",
+    "vsNova": "vs. Nova",
+    "chatgptComparison": "ChatGPT vs. KI-Builder",
+    "whyWereBetter": "Warum wir die Nr. 1 sind",
+    "whyWereBetterDesc": "KI-gestützt, ATS-optimiert, komplett kostenlos"
   },
-
   "Home": {
     "hero": {
       "badge": "KI-gestützte Lebenslauf-Erstellung",
-      "title": "Erstellen Sie Ihren",
-      "titleHighlight": "Perfekten Lebenslauf",
+      "title": "Erstellen Sie Ihren KI-gestützten",
+      "titleHighlight": "Lebenslauf in Minuten",
       "subtitle": "Keine Anmeldung Erforderlich",
       "description": "Erstellen Sie beeindruckende, ATS-optimierte Lebensläufe in Minuten mit KI. Kostenlos testen — melden Sie sich erst an, wenn Sie speichern möchten.",
       "ctaPrimary": "Mit KI Erstellen",
@@ -113,9 +177,50 @@
       "subtitle": "Schließen Sie sich 50.000+ Fachleuten an, die ihren Traumjob mit Best AI Resume bekommen haben.",
       "button": "Jetzt CV Erstellen — Kostenlos",
       "note": "Keine Anmeldung erforderlich"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Häufig gestellte",
+      "titleHighlight": "Fragen",
+      "items": [
+        {
+          "question": "Ist dieser KI-Lebenslauf-Generator wirklich kostenlos?",
+          "answer": "Ja! Sie können Ihren Lebenslauf völlig kostenlos erstellen, bearbeiten und in der Vorschau anzeigen. Wir bieten Premium-Pläne für erweiterte Funktionen wie unbegrenzte PDF-Downloads und zusätzliche Vorlagen, aber Sie können einen professionellen Lebenslauf erstellen, ohne etwas zu bezahlen."
+        },
+        {
+          "question": "Was ist ein ATS und warum ist es wichtig?",
+          "answer": "ATS (Applicant Tracking System) ist eine Software, die von 99% der Fortune-500-Unternehmen verwendet wird, um Lebensläufe zu scannen und zu filtern. Unsere KI stellt sicher, dass Ihr Lebenslauf ATS-optimiert ist mit den richtigen Schlüsselwörtern, Formatierung und Struktur."
+        },
+        {
+          "question": "Wie hilft die KI beim Schreiben meines Lebenslaufs?",
+          "answer": "Unsere KI analysiert Ihre Berufsbezeichnung und Erfahrung, um professionelle Aufzählungspunkte, Zusammenfassungen und Fähigkeitsvorschläge zu generieren. Sie verwendet branchenspezifische Schlüsselwörter und leistungsorientierte Sprache."
+        },
+        {
+          "question": "Muss ich mich anmelden, um den Builder zu benutzen?",
+          "answer": "Keine Anmeldung erforderlich zum Starten! Sie können Ihren gesamten Lebenslauf zuerst erstellen. Melden Sie sich nur an, wenn Sie Ihren Fortschritt speichern oder herunterladen möchten."
+        },
+        {
+          "question": "Kann ich meinen Lebenslauf als PDF herunterladen?",
+          "answer": "Ja! Exportieren Sie Ihren Lebenslauf als pixelgenaues PDF, das genau wie die Vorschau aussieht. PDFs sind sowohl für digitale Bewerbungen als auch für den Druck auf Standard-Papier optimiert."
+        },
+        {
+          "question": "Wie lange dauert es, einen Lebenslauf zu erstellen?",
+          "answer": "Die meisten Benutzer erstellen einen professionellen Lebenslauf in unter 10 Minuten. Unsere KI-Vorschläge und vorgeschriebenen Inhalte beschleunigen den Prozess erheblich."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Unsere Nutzer wurden eingestellt bei",
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Templates": {
     "sectionTitle": "Vorlagen",
     "title": "Wählen Sie Ihre",
@@ -156,9 +261,12 @@
         "description": "Lassen Sie unsere KI in Sekunden einen professionellen Lebenslauf erstellen.",
         "button": "Mit KI Erstellen"
       }
+    },
+    "meta": {
+      "title": "50+ Professionelle Lebenslauf-Vorlagen - Kostenlos & ATS-Freundlich",
+      "description": "Durchsuchen Sie über 50 professionelle Lebenslauf-Vorlagen. Moderne, kreative und minimalistische Designs optimiert für ATS."
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Kontakt",
@@ -195,7 +303,6 @@
       "basic": "Grundkenntnisse"
     }
   },
-
   "Onboarding": {
     "title": "Erzählen Sie uns von sich",
     "subtitle": "Nur 2 Fragen und die KI erstellt Ihren perfekten Lebenslauf",
@@ -274,9 +381,12 @@
       "step3": "Laden Sie das heruntergeladene PDF unten hoch",
       "openLinkedIn": "LinkedIn-Profil öffnen",
       "tip": "LinkedIn-PDFs eignen sich am besten für den Import Ihres vollständigen Werdegangs"
+    },
+    "meta": {
+      "title": "Erstellen Sie Ihren Lebenslauf - KI-Lebenslauf-Generator",
+      "description": "Erstellen Sie Ihren professionellen Lebenslauf in Sekunden. Beantworten Sie 2 Fragen und lassen Sie die KI einen maßgeschneiderten Lebenslauf erstellen."
     }
   },
-
   "Pricing": {
     "sectionTitle": "Preise",
     "title": "Einfache, transparente",
@@ -343,9 +453,93 @@
         "coverLetter": "Anschreiben-Generator"
       },
       "cta": "Diamant Holen"
+    },
+    "meta": {
+      "title": "Preise - KI-Lebenslauf-Generator ab 3$/Monat",
+      "description": "Wählen Sie den perfekten Plan für Ihre Jobsuche. 7-Tage kostenlose Testversion. Jederzeit kündbar."
+    },
+    "allPlansInclude": "Alle Pläne beinhalten: Werbefrei • Alle 50+ Vorlagen",
+    "bestValue": "BESTES ANGEBOT",
+    "trialBadge": "7-Tage kostenlose Testversion",
+    "trialNote": "Jederzeit kostenlos kündbar.",
+    "comparison": {
+      "title": "Pläne Vergleichen",
+      "feature": "Funktion",
+      "cvCreations": "CV-Erstellungen",
+      "aiGenerations": "KI-Generierungen",
+      "perMonth": "{count}/Monat",
+      "unlimited": "Unbegrenzt",
+      "savedResumes": "Gespeicherte Lebensläufe",
+      "templates": "Vorlagen",
+      "all50": "Alle 50+",
+      "premiumPlus": "50+ & Premium",
+      "aiBuild": "KI-Lebenslauf-Generator",
+      "adFree": "Werbefrei"
+    },
+    "cta": {
+      "title": "Bereit loszulegen?",
+      "subtitle": "7-Tage kostenlose Testversion bei Gold- & Diamond-Plänen. Alle Pläne jederzeit kündbar.",
+      "button": "Pläne Ansehen",
+      "contactSupport": "Support Kontaktieren"
+    },
+    "faq": {
+      "title": "Häufig Gestellte Fragen",
+      "cancelAnytime": {
+        "question": "Kann ich mein Abonnement jederzeit kündigen?",
+        "answer": "Ja, Sie können Ihr Abonnement jederzeit kündigen, auch während der kostenlosen Testphase."
+      },
+      "paymentMethods": {
+        "question": "Welche Zahlungsmethoden akzeptieren Sie?",
+        "answer": "Wir akzeptieren alle gängigen Kreditkarten (Visa, MasterCard, American Express) über Stripe."
+      },
+      "starterOneTime": {
+        "question": "Wie funktioniert die kostenlose Testversion?",
+        "answer": "Alle Pläne beinhalten eine 7-tägige kostenlose Testversion. Fügen Sie Ihre Karte hinzu, um zu starten - Sie werden erst nach Ablauf der Testphase belastet."
+      },
+      "runOutDownloads": {
+        "question": "Was passiert, wenn ich meine Limits erreiche?",
+        "answer": "Wenn Sie Ihr monatliches Limit erreichen, können Sie auf einen höheren Plan upgraden. Limits werden zu Beginn jeder Abrechnungsperiode zurückgesetzt."
+      },
+      "switchPlans": {
+        "question": "Kann ich zwischen Plänen wechseln?",
+        "answer": "Absolut. Sie können Ihren Plan jederzeit upgraden oder downgraden."
+      },
+      "refunds": {
+        "question": "Bieten Sie Rückerstattungen an?",
+        "answer": "Da alle Pläne eine 7-tägige kostenlose Testversion beinhalten, bieten wir nach Belastung keine Rückerstattungen an."
+      }
+    },
+    "page": {
+      "formBuilder": "Formular-Editor",
+      "canvasEditor": "Canvas-Editor",
+      "premiumTemplates": "Premium-Vorlagen",
+      "aiBuild": "KI-Lebenslauf-Generator",
+      "atsOptimization": "ATS-Optimierung",
+      "prioritySupport": "Priority-Support",
+      "aiSuggestions": "KI-Vorschläge",
+      "coverLetterBuilder": "Anschreiben-Generator",
+      "noAds": "Werbefrei",
+      "earlyAccess": "Frühzeitiger Zugang zu Funktionen",
+      "cvCreations": "CV-Erstellungen/Monat",
+      "aiGenerations": "KI-Generierungen/Monat",
+      "unlimited": "Unbegrenzt"
+    },
+    "platinum": {
+      "name": "Platin",
+      "description": "Für Power-User & Agenturen",
+      "price": "30$",
+      "period": "/Monat",
+      "features": {
+        "cvCreations": "Unbegrenzte CV-Erstellungen",
+        "aiGenerations": "100 KI-Generierungen/Monat",
+        "templates": "Alle + Premium-Vorlagen",
+        "support": "Priority-Support",
+        "coverLetter": "Anschreiben-Generator",
+        "earlyAccess": "Frühzeitiger Zugang zu neuen Funktionen"
+      },
+      "cta": "Jetzt Abonnieren"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Tipps, Anleitungen und Einblicke für Ihre Karriere",
@@ -358,7 +552,6 @@
     "shareOn": "Teilen auf",
     "noResults": "Keine Artikel gefunden"
   },
-
   "Footer": {
     "tagline": "KI-gestützter Lebenslauf-Generator, dem Fachleute weltweit vertrauen.",
     "product": "Produkt",
@@ -370,9 +563,40 @@
     "privacy": "Datenschutz",
     "terms": "AGB",
     "contact": "Kontakt",
-    "copyright": "© {year} Best AI Resume. Alle Rechte vorbehalten."
+    "copyright": "© {year} Best AI Resume. Alle Rechte vorbehalten.",
+    "resources": "Ressourcen",
+    "resumeFormatGuide": "Lebenslauf-Format Leitfaden",
+    "canvaAlternative": "Canva Alternative",
+    "overleafAlternative": "Overleaf Alternative",
+    "resumeIoAlternative": "Resume.io Alternative",
+    "reziAlternative": "Rezi Alternative",
+    "builder": "Lebenslauf-Generator",
+    "templateCategories": "Vorlagen",
+    "compare": "Vergleichen",
+    "googleDocs": "Google Docs Vorlagen",
+    "simpleClean": "Schlicht und Sauber",
+    "atsFriendly": "ATS-kompatibel",
+    "microsoftWord": "Word Vorlagen",
+    "modern": "Moderne Vorlagen",
+    "creative": "Kreative Vorlagen",
+    "coverLetterGenerator": "KI-Anschreiben-Generator",
+    "resignationLetterGenerator": "KI-Kündigungsschreiben-Generator",
+    "buildResumeFree": "Lebenslauf Kostenlos Erstellen",
+    "zetyAlternative": "Zety Alternative",
+    "livecareerAlternative": "LiveCareer Alternative",
+    "adobeAlternative": "Adobe Alternative",
+    "novaAlternative": "Nova Alternative",
+    "europassAlternative": "Europass Alternative",
+    "chatgptComparison": "ChatGPT Vergleich",
+    "resumeExamples": "Lebenslauf-Beispiele",
+    "softwareEngineer": "Software-Ingenieur",
+    "nurse": "Krankenpfleger/in",
+    "projectManager": "Projektmanager",
+    "marketingManager": "Marketing-Manager",
+    "dataAnalyst": "Datenanalyst",
+    "accountant": "Buchhalter/in",
+    "viewAll300": "Alle 300+ ansehen"
   },
-
   "Auth": {
     "login": "Anmelden",
     "register": "Konto erstellen",
@@ -387,19 +611,23 @@
     "welcomeBack": "Willkommen Zurück",
     "welcomeBackSubtitle": "Melden Sie sich an, um Ihren Lebenslauf weiterzubearbeiten",
     "createAccount": "Konto Erstellen",
-    "createAccountSubtitle": "Beginnen Sie heute mit der Erstellung Ihres professionellen Lebenslaufs"
+    "createAccountSubtitle": "Beginnen Sie heute mit der Erstellung Ihres professionellen Lebenslaufs",
+    "meta": {
+      "loginTitle": "Anmelden - Best AI Resume",
+      "loginDescription": "Melden Sie sich bei Ihrem Best AI Resume Konto an, um auf Ihre gespeicherten Lebensläufe zuzugreifen.",
+      "registerTitle": "Konto Erstellen - Best AI Resume",
+      "registerDescription": "Erstellen Sie Ihr kostenloses Konto, um Lebensläufe zu speichern und KI-Funktionen freizuschalten."
+    },
+    "fullName": "Vollständiger Name"
   },
-
   "Errors": {
     "notFound": "Seite nicht gefunden",
     "serverError": "Etwas ist schiefgelaufen",
     "unauthorized": "Bitte melden Sie sich an, um fortzufahren"
   },
-
   "LanguageSwitcher": {
     "label": "Sprache wählen"
   },
-
   "Builder": {
     "personalInfo": {
       "title": "Persönliche Informationen",
@@ -501,6 +729,223 @@
       "languages": "Sprachen",
       "strengths": "Stärken",
       "interests": "Interessen und Hobbys"
+    },
+    "meta": {
+      "title": "Lebenslauf-Editor - Erstellen Sie Ihren Professionellen Lebenslauf Online",
+      "description": "Erstellen Sie Ihren professionellen Lebenslauf mit unserem einfach zu bedienenden Editor. Echtzeit-Vorschau, KI-Vorschläge und sofortiger PDF-Download."
+    }
+  },
+  "ResignationLetter": {
+    "meta": {
+      "title": "Kostenloser KI-Kündigungsschreiben-Generator - Professionelle Kündigungen",
+      "description": "Erstellen Sie in wenigen Minuten ein professionelles Kündigungsschreiben. Verlassen Sie Ihren Job im Guten und pflegen Sie positive Beziehungen mit unserem KI-gestützten Tool."
+    },
+    "hero": {
+      "badge": "KI-gestützter Kündigungsschreiben-Generator",
+      "title": "Schreiben Sie eine",
+      "titleHighlight": "Professionelle Kündigung",
+      "subtitle": "Verlassen Sie Ihren Job im Guten mit einem professionell verfassten Kündigungsschreiben. Pflegen Sie positive Beziehungen und schützen Sie Ihren beruflichen Ruf."
+    },
+    "notice": "Die Standard-Kündigungsfrist beträgt in der Regel 2 Wochen. Prüfen Sie Ihren Arbeitsvertrag für spezifische Anforderungen.",
+    "form": {
+      "yourDetails": "Ihre Angaben",
+      "fillInfo": "Füllen Sie Ihre Informationen aus",
+      "yourName": "Ihr Name",
+      "currentPosition": "Aktuelle Position",
+      "companyName": "Firmenname",
+      "managerName": "Name des Vorgesetzten",
+      "lastWorkingDay": "Letzter Arbeitstag",
+      "reasonForLeaving": "Grund für das Ausscheiden",
+      "positiveExperiences": "Positive Erfahrungen (Optional)",
+      "tone": "Ton des Schreibens",
+      "professional": "Professionell",
+      "grateful": "Dankbar",
+      "brief": "Kurz",
+      "warm": "Herzlich",
+      "offerHelp": "Hilfe bei der Übergabe anbieten",
+      "generate": "Kündigungsschreiben Erstellen"
+    },
+    "reasons": {
+      "newOpportunity": "Neue Möglichkeit verfolgen",
+      "careerChange": "Berufswechsel",
+      "relocation": "Umzug",
+      "personal": "Persönliche Gründe",
+      "education": "Rückkehr zur Ausbildung",
+      "family": "Familiäre Verpflichtungen",
+      "health": "Gesundheitliche Gründe",
+      "retirement": "Ruhestand"
+    },
+    "tips": {
+      "title": "Kündigungs-",
+      "titleHighlight": "Best Practices",
+      "giveNotice": "Frist Einhalten",
+      "giveNoticeDesc": "Geben Sie mindestens 2 Wochen Kündigungsfrist oder folgen Sie Ihren Vertragsbedingungen.",
+      "stayProfessional": "Professionell Bleiben",
+      "stayProfessionalDesc": "Lassen Sie Emotionen beiseite. Seien Sie respektvoll und positiv.",
+      "documentIt": "Dokumentieren",
+      "documentItDesc": "Reichen Sie immer eine schriftliche Kündigung für Ihre Unterlagen ein.",
+      "leaveWell": "Gut Abschließen",
+      "leaveWellDesc": "Schließen Sie offene Aufgaben ab und bieten Sie an, Ihren Nachfolger einzuarbeiten."
+    },
+    "cta": {
+      "title": "Bereit für Ihre Nächste Chance?",
+      "subtitle": "Erstellen Sie einen professionellen Lebenslauf für Ihre Jobsuche mit unserem KI-gestützten Lebenslauf-Generator.",
+      "button": "Lebenslauf Erstellen"
+    }
+  },
+  "CareerTips": {
+    "meta": {
+      "title": "Karrieretipps & Lebenslauf-Ratschläge - Experten-Leitfäden | Best AI Resume",
+      "description": "Experten-Karriereberatung, Tipps zum Lebenslauf-Schreiben und Strategien für die Jobsuche."
+    },
+    "hero": {
+      "badge": "Experten-Karriereleitfäden",
+      "title": "Karrieretipps",
+      "titleHighlight": "& Expertenrat",
+      "subtitle": "Meistern Sie das Schreiben von Lebensläufen, glänzen Sie bei Vorstellungsgesprächen und beschleunigen Sie Ihre Karriere."
+    },
+    "featured": "Empfohlene Artikel",
+    "allArticles": "Alle Artikel",
+    "searchPlaceholder": "Artikel suchen...",
+    "noArticles": "Keine Artikel gefunden",
+    "noArticlesHint": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
+    "categories": {
+      "title": "Kategorien",
+      "all": "Alle Artikel",
+      "resumeTips": "Lebenslauf-Tipps",
+      "coverLetters": "Anschreiben",
+      "interviews": "Interview-Tipps",
+      "jobSearch": "Jobsuche",
+      "careerAdvice": "Karriereberatung",
+      "aiResume": "KI-Lebenslauf"
+    },
+    "article": {
+      "readMore": "Weiterlesen",
+      "tableOfContents": "Inhaltsverzeichnis",
+      "relatedArticles": "Verwandte Artikel",
+      "moreCareerTips": "Weitere Karrieretipps",
+      "shareHelpful": "War das hilfreich?",
+      "shareWithOthers": "Teilen Sie es mit anderen",
+      "tags": "Tags"
+    },
+    "cta": {
+      "title": "Bereit, Ihren Lebenslauf zu erstellen?",
+      "subtitle": "Setzen Sie diese Tipps mit unserem KI-gestützten Lebenslauf-Builder in die Tat um.",
+      "button": "Lebenslauf jetzt erstellen",
+      "sidebarTitle": "Lebenslauf erstellen",
+      "sidebarSubtitle": "Erstellen Sie einen professionellen Lebenslauf mit KI.",
+      "sidebarButton": "Jetzt starten"
+    }
+  },
+  "ResumeExamples": {
+    "meta": {
+      "title": "Lebenslauf-Beispiele nach Berufsbezeichnung | Kostenlose Vorlagen & Leitfäden 2026",
+      "description": "Durchsuchen Sie 50+ professionelle Lebenslauf-Beispiele nach Berufsbezeichnung. Jedes enthält eine kostenlose Vorlage, wichtige Fähigkeiten und Schreibtipps."
+    },
+    "hero": {
+      "badge": "Berufsspezifische Leitfäden",
+      "title": "Lebenslauf-Beispiele",
+      "titleHighlight": "nach Berufsbezeichnung",
+      "subtitle": "Finden Sie Ihren Beruf und erhalten Sie eine maßgeschneiderte Lebenslauf-Vorlage mit branchenspezifischen Tipps."
+    },
+    "searchPlaceholder": "Nach Berufsbezeichnung suchen...",
+    "featured": "Empfohlene Lebenslauf-Beispiele",
+    "allExamples": "Alle Lebenslauf-Beispiele",
+    "noResults": "Keine Lebenslauf-Beispiele gefunden",
+    "noResultsHint": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
+    "cta": {
+      "title": "Bereit, Ihren erfolgreichen Lebenslauf zu erstellen?",
+      "subtitle": "Nutzen Sie unseren KI-gestützten Builder, um in Minuten einen professionellen Lebenslauf zu erstellen.",
+      "button": "Meinen Lebenslauf erstellen — Kostenlos"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "Über Best AI Resume - Unsere Mission die Jobsuche zu Transformieren",
+      "description": "Erfahren Sie mehr über Best AI Resume - die KI-gestützte Plattform, die Tausenden hilft, ihren Traumjob zu finden."
+    }
+  },
+  "Checkout": {
+    "meta": {
+      "title": "Kasse - Abonnement Abschließen",
+      "description": "Schließen Sie Ihr Abonnement ab, um alle Funktionen freizuschalten. Sichere Zahlung über Stripe."
+    }
+  },
+  "CoverLetter": {
+    "meta": {
+      "title": "Kostenloser KI-Anschreiben-Generator - Professionelle Bewerbungsschreiben Erstellen",
+      "description": "Erstellen Sie professionelle, personalisierte Anschreiben in Minuten mit unserem kostenlosen KI-gestützten Tool."
+    },
+    "hero": {
+      "badge": "KI-gestützter Anschreiben-Generator",
+      "title": "Erstellen Sie ein",
+      "titleHighlight": "Perfektes Anschreiben",
+      "subtitle": "Lassen Sie die KI ein überzeugendes, personalisiertes Anschreiben erstellen, das Ihre Stärken hervorhebt."
+    },
+    "form": {
+      "yourDetails": "Ihre Angaben",
+      "fillInfo": "Füllen Sie Ihre Informationen aus",
+      "fullName": "Vollständiger Name",
+      "email": "E-Mail",
+      "jobTitle": "Stellenbezeichnung",
+      "companyName": "Firmenname",
+      "hiringManager": "Name des Personalverantwortlichen (Optional)",
+      "keySkills": "Schlüsselkompetenzen",
+      "experience": "Relevante Erfahrung",
+      "tone": "Schreibton",
+      "professional": "Professionell",
+      "friendly": "Freundlich",
+      "confident": "Selbstbewusst",
+      "enthusiastic": "Enthusiastisch",
+      "generate": "Anschreiben Erstellen"
+    },
+    "preview": {
+      "title": "Vorschau",
+      "subtitle": "Ihr generiertes Schreiben",
+      "noLetter": "Noch kein Schreiben generiert",
+      "fillAndGenerate": "Füllen Sie Ihre Daten aus und klicken Sie auf Erstellen",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "download": "Herunterladen"
+    },
+    "tips": {
+      "title": "Tipps für ein",
+      "titleHighlight": "Hervorragendes Anschreiben",
+      "beSpecific": "Seien Sie Konkret",
+      "beSpecificDesc": "Passen Sie Ihr Schreiben an die spezifische Stelle und das Unternehmen an.",
+      "showResults": "Zeigen Sie Ergebnisse",
+      "showResultsDesc": "Fügen Sie quantifizierbare Erfolge ein. Zahlen machen Ihre Leistungen greifbar.",
+      "keepConcise": "Bleiben Sie Prägnant",
+      "keepConciseDesc": "Zielen Sie auf 3-4 Absätze. Recruiter verbringen nur Sekunden mit jeder Bewerbung."
+    },
+    "cta": {
+      "title": "Brauchen Sie auch einen Lebenslauf?",
+      "subtitle": "Kombinieren Sie Ihr Anschreiben mit einem professionell gestalteten Lebenslauf mit KI.",
+      "button": "Lebenslauf Erstellen"
+    }
+  },
+  "Dashboard": {
+    "meta": {
+      "title": "Dashboard - Meine Lebensläufe",
+      "description": "Verwalten Sie Ihre Lebensläufe, verfolgen Sie Downloads und greifen Sie auf Ihre Abonnement-Einstellungen zu."
+    }
+  },
+  "Features": {
+    "meta": {
+      "title": "KI-Lebenslauf-Generator Funktionen - Intelligentes Schreiben & ATS-Optimierung",
+      "description": "Entdecken Sie leistungsstarke Funktionen: KI-Schreiben, Echtzeit-ATS-Score, 50+ Vorlagen, sofortiger PDF-Export."
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Datenschutzrichtlinie - Best AI Resume",
+      "description": "Erfahren Sie, wie Best AI Resume Ihre Daten schützt. Unsere Datenschutzrichtlinie erklärt, wie wir Ihre Daten erheben und schützen."
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "Nutzungsbedingungen - Best AI Resume",
+      "description": "Lesen Sie die Nutzungsbedingungen von Best AI Resume. Verstehen Sie Ihre Rechte und Pflichten."
     }
   }
 }

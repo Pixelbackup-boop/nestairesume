@@ -263,12 +263,12 @@ export default function CanvasSidebar() {
             {/* Link to full templates page */}
             <Link
                 href="/canvas-templates"
-                className="flex items-center justify-between px-4 py-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors group"
+                className="flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-200 rounded-lg transition-colors group"
             >
-                <span className="text-sm font-medium text-slate-300 group-hover:text-white">
+                <span className="text-sm font-medium text-gray-600 group-hover:text-white">
                     Browse All Templates
                 </span>
-                <ExternalLink size={16} className="text-slate-400 group-hover:text-accent-green" />
+                <ExternalLink size={16} className="text-gray-500 group-hover:text-accent-green" />
             </Link>
 
             {templateCategories.map((category) => {
@@ -281,11 +281,11 @@ export default function CanvasSidebar() {
                     <div key={category.id}>
                         <button
                             onClick={() => setExpandedCategory(isExpanded ? null : category.id)}
-                            className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+                            className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-600 hover:text-white hover:bg-white rounded-lg transition-colors"
                         >
                             <span className="flex items-center gap-2">
                                 {category.label}
-                                <span className="text-xs text-slate-500">({categoryTemplates.length})</span>
+                                <span className="text-xs text-gray-400">({categoryTemplates.length})</span>
                             </span>
                             <ChevronRight
                                 size={16}
@@ -302,7 +302,7 @@ export default function CanvasSidebar() {
                                         className={`relative aspect-[3/4] rounded-lg overflow-hidden border-2 transition-all ${
                                             selectedTemplateId === template.id
                                                 ? 'border-accent-green ring-2 ring-accent-green/30'
-                                                : 'border-slate-700 hover:border-slate-500'
+                                                : 'border-gray-200 hover:border-gray-300'
                                         }`}
                                     >
                                         {/* SVG Template preview */}
@@ -316,7 +316,7 @@ export default function CanvasSidebar() {
                                         </div>
                                         {selectedTemplateId === template.id && (
                                             <div className="absolute top-2 right-2 w-5 h-5 bg-accent-green rounded-full flex items-center justify-center">
-                                                <Check size={12} className="text-slate-900" />
+                                                <Check size={12} className="text-gray-900" />
                                             </div>
                                         )}
                                     </button>
@@ -333,7 +333,7 @@ export default function CanvasSidebar() {
         <div className="space-y-6">
             {/* Text presets */}
             <div>
-                <h3 className="text-sm font-medium text-slate-400 mb-3 flex items-center gap-2">
+                <h3 className="text-sm font-medium text-gray-500 mb-3 flex items-center gap-2">
                     <Type size={16} />
                     Text
                 </h3>
@@ -342,10 +342,10 @@ export default function CanvasSidebar() {
                         <button
                             key={preset.label}
                             onClick={() => addTextElement(preset)}
-                            className="w-full px-4 py-3 bg-slate-800 hover:bg-slate-700 rounded-lg text-left transition-colors group"
+                            className="w-full px-4 py-3 bg-white hover:bg-gray-200 rounded-lg text-left transition-colors group"
                         >
                             <span
-                                className="text-slate-200 group-hover:text-white"
+                                className="text-gray-700 group-hover:text-white"
                                 style={{
                                     fontSize: Math.min(preset.fontSize * 0.6, 20),
                                     fontWeight: preset.fontWeight,
@@ -361,7 +361,7 @@ export default function CanvasSidebar() {
 
             {/* Shape presets */}
             <div>
-                <h3 className="text-sm font-medium text-slate-400 mb-3 flex items-center gap-2">
+                <h3 className="text-sm font-medium text-gray-500 mb-3 flex items-center gap-2">
                     <Shapes size={16} />
                     Shapes
                 </h3>
@@ -370,7 +370,7 @@ export default function CanvasSidebar() {
                         <button
                             key={preset.label}
                             onClick={() => addShapeElement(preset)}
-                            className="p-4 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors flex flex-col items-center gap-2"
+                            className="p-4 bg-white hover:bg-gray-200 rounded-lg transition-colors flex flex-col items-center gap-2"
                         >
                             <div
                                 className={`w-10 h-10 ${
@@ -385,7 +385,7 @@ export default function CanvasSidebar() {
                                         : undefined,
                                 }}
                             />
-                            <span className="text-xs text-slate-400">{preset.label}</span>
+                            <span className="text-xs text-gray-500">{preset.label}</span>
                         </button>
                     ))}
                 </div>
@@ -405,16 +405,16 @@ export default function CanvasSidebar() {
 
             <button
                 onClick={() => fileInputRef.current?.click()}
-                className="w-full p-6 border-2 border-dashed border-slate-600 hover:border-accent-green rounded-xl text-center transition-colors group"
+                className="w-full p-6 border-2 border-dashed border-gray-300 hover:border-accent-green rounded-xl text-center transition-colors group"
             >
-                <Upload size={32} className="mx-auto mb-2 text-slate-400 group-hover:text-accent-green transition-colors" />
-                <span className="text-sm text-slate-300 group-hover:text-white transition-colors">
+                <Upload size={32} className="mx-auto mb-2 text-gray-500 group-hover:text-accent-green transition-colors" />
+                <span className="text-sm text-gray-600 group-hover:text-white transition-colors">
                     Upload Image
                 </span>
-                <p className="text-xs text-slate-500 mt-1">PNG, JPG up to 5MB</p>
+                <p className="text-xs text-gray-400 mt-1">PNG, JPG up to 5MB</p>
             </button>
 
-            <p className="text-xs text-slate-500 text-center">
+            <p className="text-xs text-gray-400 text-center">
                 Tip: Select a shape to clip the image to that shape, or select an image placeholder to replace it
             </p>
         </div>
@@ -424,7 +424,7 @@ export default function CanvasSidebar() {
         <div className="space-y-6">
             {/* Solid colors */}
             <div>
-                <h3 className="text-sm font-medium text-slate-400 mb-3">Background Color</h3>
+                <h3 className="text-sm font-medium text-gray-500 mb-3">Background Color</h3>
                 <div className="grid grid-cols-4 gap-2">
                     {backgroundColors.map((bg) => (
                         <button
@@ -436,7 +436,7 @@ export default function CanvasSidebar() {
                             className={`aspect-square rounded-lg border-2 transition-all ${
                                 backgroundColor === bg.color && !backgroundGradient.enabled
                                     ? 'border-accent-green ring-2 ring-accent-green/30'
-                                    : 'border-slate-600 hover:border-slate-400'
+                                    : 'border-gray-300 hover:border-gray-400'
                             }`}
                             style={{ backgroundColor: bg.color }}
                             title={bg.label}
@@ -447,7 +447,7 @@ export default function CanvasSidebar() {
 
             {/* Custom color */}
             <div>
-                <h3 className="text-sm font-medium text-slate-400 mb-3">Custom Color</h3>
+                <h3 className="text-sm font-medium text-gray-500 mb-3">Custom Color</h3>
                 <div className="flex items-center gap-3">
                     <input
                         type="color"
@@ -468,7 +468,7 @@ export default function CanvasSidebar() {
                                 setBackgroundGradient({ ...backgroundGradient, enabled: false });
                             }
                         }}
-                        className="flex-1 px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-slate-200 text-sm"
+                        className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 text-sm"
                         placeholder="#ffffff"
                     />
                 </div>
@@ -477,11 +477,11 @@ export default function CanvasSidebar() {
             {/* Gradient toggle */}
             <div>
                 <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-sm font-medium text-slate-400">Gradient</h3>
+                    <h3 className="text-sm font-medium text-gray-500">Gradient</h3>
                     <button
                         onClick={() => setBackgroundGradient({ ...backgroundGradient, enabled: !backgroundGradient.enabled })}
                         className={`w-10 h-6 rounded-full transition-colors ${
-                            backgroundGradient.enabled ? 'bg-accent-green' : 'bg-slate-600'
+                            backgroundGradient.enabled ? 'bg-accent-green' : 'bg-gray-200'
                         }`}
                     >
                         <div
@@ -496,7 +496,7 @@ export default function CanvasSidebar() {
                     <div className="space-y-3">
                         <div className="flex gap-2">
                             <div className="flex-1">
-                                <label className="text-xs text-slate-500 mb-1 block">Start</label>
+                                <label className="text-xs text-gray-400 mb-1 block">Start</label>
                                 <input
                                     type="color"
                                     value={backgroundGradient.start}
@@ -505,7 +505,7 @@ export default function CanvasSidebar() {
                                 />
                             </div>
                             <div className="flex-1">
-                                <label className="text-xs text-slate-500 mb-1 block">End</label>
+                                <label className="text-xs text-gray-400 mb-1 block">End</label>
                                 <input
                                     type="color"
                                     value={backgroundGradient.end}
@@ -515,7 +515,7 @@ export default function CanvasSidebar() {
                             </div>
                         </div>
                         <div>
-                            <label className="text-xs text-slate-500 mb-1 block">Direction: {backgroundGradient.direction}°</label>
+                            <label className="text-xs text-gray-400 mb-1 block">Direction: {backgroundGradient.direction}°</label>
                             <input
                                 type="range"
                                 min="0"
@@ -531,18 +531,18 @@ export default function CanvasSidebar() {
 
             {/* Accent colors for quick reference */}
             <div>
-                <h3 className="text-sm font-medium text-slate-400 mb-3">Accent Colors</h3>
+                <h3 className="text-sm font-medium text-gray-500 mb-3">Accent Colors</h3>
                 <div className="grid grid-cols-4 gap-2">
                     {accentColors.map((color) => (
                         <button
                             key={color}
-                            className="aspect-square rounded-lg border-2 border-slate-600 hover:border-slate-400 transition-all"
+                            className="aspect-square rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-all"
                             style={{ backgroundColor: color }}
                             title={color}
                         />
                     ))}
                 </div>
-                <p className="text-xs text-slate-500 mt-2">
+                <p className="text-xs text-gray-400 mt-2">
                     Reference colors from templates. Click elements to change their colors.
                 </p>
             </div>
@@ -550,17 +550,17 @@ export default function CanvasSidebar() {
     );
 
     return (
-        <div className="w-72 bg-slate-900 border-r border-slate-700 flex flex-col h-full">
+        <div className="w-72 bg-gray-50 border-r border-gray-200 flex flex-col h-full">
             {/* Tabs */}
-            <div className="flex border-b border-slate-700">
+            <div className="flex border-b border-gray-200">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={`flex-1 py-3 flex flex-col items-center gap-1 text-xs transition-colors ${
                             activeTab === tab.id
-                                ? 'text-accent-green border-b-2 border-accent-green bg-slate-800/50'
-                                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                ? 'text-accent-green border-b-2 border-accent-green bg-gray-50'
+                                : 'text-gray-500 hover:text-white hover:bg-white'
                         }`}
                     >
                         <tab.icon size={20} />

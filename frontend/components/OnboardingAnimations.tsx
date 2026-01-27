@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { motion, useReducedMotion, Variants, AnimatePresence } from 'framer-motion';
 
 interface AnimationProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 

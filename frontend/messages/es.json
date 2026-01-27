@@ -1,9 +1,8 @@
 {
   "Meta": {
-    "title": "Best AI Resume - Crea Tu Currículum Perfecto con IA",
-    "description": "Crea currículums profesionales optimizados para ATS en minutos con IA. Prueba gratis, sin registro."
+    "title": "Creador de Currículum IA Gratis | CV Optimizado ATS en Minutos | Best AI Resume",
+    "description": "Crea currículums profesionales optimizados para ATS en minutos con nuestro creador de CV con IA gratis. Más de 50,000 profesionales confían en nosotros. Sin registro."
   },
-
   "Common": {
     "loading": "Cargando...",
     "error": "Ha ocurrido un error",
@@ -20,25 +19,90 @@
     "preview": "Vista previa",
     "scrollToExplore": "Desplaza para explorar"
   },
-
   "Navigation": {
     "features": "Funciones",
     "templates": "Plantillas",
     "pricing": "Precios",
     "blog": "Blog",
+    "careerTips": "Consejos Profesionales",
+    "careerGuides": "Guías Profesionales",
+    "resumeExamples": "Ejemplos de Currículum",
+    "resumeExamplesDesc": "Guías de CV por profesión",
+    "careerTipsDesc": "Consejos de expertos para tu carrera",
+    "blogDesc": "Consejos, guías e información",
+    "viewAllExamples": "Ver todos los ejemplos",
+    "viewAllTips": "Ver todos los consejos",
+    "tools": "Herramientas",
+    "coverLetter": "Generador de Carta",
+    "coverLetterDesc": "Cartas de presentación con IA",
+    "resignationLetter": "Carta de Renuncia",
+    "resignationLetterDesc": "Cartas de renuncia profesionales",
+    "resumeFormat": "Guía de Formato de CV",
+    "resumeFormatDesc": "Cronológico, funcional y más",
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión",
     "getStarted": "Comenzar Gratis",
     "dashboard": "Panel",
     "admin": "Admin",
-    "adminPanel": "Panel de Admin"
+    "adminPanel": "Panel de Admin",
+    "resources": "Recursos",
+    "compare": "Comparar",
+    "byStyle": "Por Estilo",
+    "byFormat": "Por Formato",
+    "allTemplates": "Todas las Plantillas",
+    "buildResumeFree": "Crea tu CV gratis",
+    "chooseFromTemplates": "Elige entre 20+ plantillas profesionales",
+    "technology": "Tecnología",
+    "business": "Negocios",
+    "healthcare": "Salud",
+    "seeAllTech": "Ver todo Tech",
+    "seeAllBusiness": "Ver todo Negocios",
+    "seeAllHealthcare": "Ver todo Salud",
+    "resumeExamplesCount": "300+ Ejemplos de CV",
+    "browseAll": "Ver todos",
+    "softwareEngineer": "Ingeniero de Software",
+    "dataAnalyst": "Analista de Datos",
+    "devopsEngineer": "Ingeniero DevOps",
+    "fullStackDev": "Desarrollador Full Stack",
+    "projectManager": "Gerente de Proyectos",
+    "marketingManager": "Gerente de Marketing",
+    "businessAnalyst": "Analista de Negocios",
+    "salesManager": "Gerente de Ventas",
+    "nurse": "Enfermero/a",
+    "medicalAssistant": "Asistente Médico",
+    "pharmacist": "Farmacéutico/a",
+    "dentalAssistant": "Asistente Dental",
+    "guides": "Guías",
+    "latestPosts": "Últimos Artículos",
+    "allCareerTips": "Todos los Consejos",
+    "allBlog": "Todos los Artículos",
+    "atsGuide": "Guía CV ATS",
+    "coverLetterGuide": "Guía Carta de Presentación",
+    "interviewPrep": "Preparación de Entrevista",
+    "bestResumeApps": "Mejores Apps de CV",
+    "resumeSkills": "Guía de Habilidades CV",
+    "linkedinGuide": "Optimización LinkedIn",
+    "writingServices": "Servicios de Redacción CV",
+    "freeAlternatives": "Alternativas Gratuitas",
+    "paidAlternatives": "Alternativas de Pago",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs Constructor IA",
+    "whyWereBetter": "Por qué somos #1 gratis",
+    "whyWereBetterDesc": "IA, optimizado ATS, completamente gratis"
   },
-
   "Home": {
     "hero": {
       "badge": "Creación de Currículum con IA",
-      "title": "Crea Tu",
-      "titleHighlight": "Currículum Perfecto",
+      "title": "Crea Tu Currículum con IA",
+      "titleHighlight": "en Minutos",
       "subtitle": "Sin Registro Necesario",
       "description": "Crea currículums impresionantes optimizados para ATS en minutos con IA. Pruébalo gratis — regístrate solo cuando estés listo para guardar.",
       "ctaPrimary": "Crear con IA",
@@ -113,9 +177,50 @@
       "subtitle": "Únete a más de 50,000 profesionales que ya consiguieron su trabajo ideal con Best AI Resume.",
       "button": "Crea Tu CV Ahora — Gratis",
       "note": "Sin registro para empezar"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Preguntas",
+      "titleHighlight": "Frecuentes",
+      "items": [
+        {
+          "question": "¿Este creador de CV con IA es realmente gratis?",
+          "answer": "¡Sí! Puedes crear, editar y previsualizar tu currículum completamente gratis. Ofrecemos planes premium para funciones avanzadas, pero puedes crear un CV profesional sin pagar nada."
+        },
+        {
+          "question": "¿Qué es un ATS y por qué importa?",
+          "answer": "ATS (Sistema de Seguimiento de Candidatos) es un software usado por el 99% de las empresas Fortune 500 para escanear y filtrar currículums. Nuestra IA asegura que tu CV esté optimizado para ATS con las palabras clave correctas."
+        },
+        {
+          "question": "¿Cómo ayuda la IA a escribir mi currículum?",
+          "answer": "Nuestra IA analiza tu puesto y experiencia para generar puntos clave profesionales, resúmenes y sugerencias de habilidades con lenguaje enfocado en logros."
+        },
+        {
+          "question": "¿Necesito registrarme para usar el creador?",
+          "answer": "¡No se requiere registro para empezar! Crea tu currículum completo primero. Regístrate solo cuando quieras guardar o descargar."
+        },
+        {
+          "question": "¿Puedo descargar mi currículum como PDF?",
+          "answer": "¡Sí! Exporta tu CV como un PDF perfecto pixel por pixel. Los PDFs están optimizados para aplicaciones digitales e impresión."
+        },
+        {
+          "question": "¿Cuánto tiempo toma crear un currículum?",
+          "answer": "La mayoría de usuarios crean un CV profesional en menos de 10 minutos gracias a nuestras sugerencias de IA y contenido pre-escrito."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Nuestros usuarios fueron contratados en",
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Templates": {
     "sectionTitle": "Plantillas",
     "title": "Elige tu plantilla",
@@ -156,9 +261,12 @@
         "description": "Deja que nuestra IA cree un currículum profesional en segundos según tu puesto.",
         "button": "Crear con IA"
       }
+    },
+    "meta": {
+      "title": "50+ Plantillas de Currículum Profesionales - Gratis y Compatibles con ATS",
+      "description": "Explore más de 50 plantillas de currículum profesionales. Diseños modernos, creativos y minimalistas optimizados para ATS."
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Contacto",
@@ -195,7 +303,6 @@
       "basic": "Básico"
     }
   },
-
   "Onboarding": {
     "title": "Cuéntanos sobre ti",
     "subtitle": "Solo 2 preguntas y la IA creará tu currículum perfecto",
@@ -274,9 +381,12 @@
       "step3": "Sube el PDF descargado abajo",
       "openLinkedIn": "Abrir Perfil de LinkedIn",
       "tip": "Los PDFs de LinkedIn funcionan mejor para importar tu historial laboral completo"
+    },
+    "meta": {
+      "title": "Cree Su Currículum - Generador de CV con IA",
+      "description": "Comience a crear su currículum profesional en segundos. Responda 2 preguntas y deje que la IA cree un CV adaptado."
     }
   },
-
   "Pricing": {
     "sectionTitle": "Precios",
     "title": "Precios simples y",
@@ -343,9 +453,93 @@
         "coverLetter": "Creador de carta de presentación"
       },
       "cta": "Obtener Diamante"
+    },
+    "meta": {
+      "title": "Precios - Generador de CV con IA desde $3/mes",
+      "description": "Elija el plan perfecto para su búsqueda de empleo. Prueba gratuita de 7 días. Sin compromiso."
+    },
+    "allPlansInclude": "Todos los planes incluyen: Sin anuncios • Más de 50 plantillas",
+    "bestValue": "MEJOR VALOR",
+    "trialBadge": "Prueba gratuita de 7 días",
+    "trialNote": "Cancele en cualquier momento sin costo.",
+    "comparison": {
+      "title": "Comparar Planes",
+      "feature": "Característica",
+      "cvCreations": "Creaciones de CV",
+      "aiGenerations": "Generaciones IA",
+      "perMonth": "{count}/mes",
+      "unlimited": "Ilimitado",
+      "savedResumes": "CVs Guardados",
+      "templates": "Plantillas",
+      "all50": "Todas las 50+",
+      "premiumPlus": "50+ & Premium",
+      "aiBuild": "Generador de CV con IA",
+      "adFree": "Sin Anuncios"
+    },
+    "cta": {
+      "title": "¿Listo para comenzar?",
+      "subtitle": "Prueba gratuita de 7 días en planes Gold y Diamond. Todos los planes se cancelan en cualquier momento.",
+      "button": "Ver Planes",
+      "contactSupport": "Contactar Soporte"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "cancelAnytime": {
+        "question": "¿Puedo cancelar mi suscripción en cualquier momento?",
+        "answer": "Sí, puede cancelar su suscripción en cualquier momento, incluyendo durante su prueba gratuita."
+      },
+      "paymentMethods": {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Aceptamos todas las tarjetas de crédito principales (Visa, MasterCard, American Express) a través de Stripe."
+      },
+      "starterOneTime": {
+        "question": "¿Cómo funciona la prueba gratuita?",
+        "answer": "Todos los planes incluyen una prueba gratuita de 7 días. Agregue su tarjeta para comenzar, no se le cobrará hasta que termine la prueba."
+      },
+      "runOutDownloads": {
+        "question": "¿Qué pasa cuando alcanzo mis límites?",
+        "answer": "Cuando alcance su límite mensual, puede actualizar a un plan superior. Los límites se reinician al inicio de cada período de facturación."
+      },
+      "switchPlans": {
+        "question": "¿Puedo cambiar entre planes?",
+        "answer": "Absolutamente. Puede actualizar o reducir su plan en cualquier momento."
+      },
+      "refunds": {
+        "question": "¿Ofrecen reembolsos?",
+        "answer": "Dado que todos los planes incluyen una prueba gratuita de 7 días, no ofrecemos reembolsos después del cobro."
+      }
+    },
+    "page": {
+      "formBuilder": "Editor de Formulario",
+      "canvasEditor": "Editor Canvas",
+      "premiumTemplates": "Plantillas premium",
+      "aiBuild": "Generador de CV con IA",
+      "atsOptimization": "Optimización ATS",
+      "prioritySupport": "Soporte prioritario",
+      "aiSuggestions": "Sugerencias de IA",
+      "coverLetterBuilder": "Generador de carta de presentación",
+      "noAds": "Sin anuncios",
+      "earlyAccess": "Acceso anticipado a funciones",
+      "cvCreations": "Creaciones de CV/mes",
+      "aiGenerations": "Generaciones IA/mes",
+      "unlimited": "Ilimitado"
+    },
+    "platinum": {
+      "name": "Platino",
+      "description": "Para usuarios avanzados y agencias",
+      "price": "$30",
+      "period": "/mes",
+      "features": {
+        "cvCreations": "Creaciones de CV ilimitadas",
+        "aiGenerations": "100 generaciones IA/mes",
+        "templates": "Todas + plantillas Premium",
+        "support": "Soporte prioritario",
+        "coverLetter": "Generador de carta de presentación",
+        "earlyAccess": "Acceso anticipado a nuevas funciones"
+      },
+      "cta": "Suscribirse Ahora"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Consejos, guías e información para tu carrera",
@@ -358,7 +552,6 @@
     "shareOn": "Compartir en",
     "noResults": "No se encontraron artículos"
   },
-
   "Footer": {
     "tagline": "Constructor de currículums con IA en el que confían profesionales de todo el mundo.",
     "product": "Producto",
@@ -370,9 +563,40 @@
     "privacy": "Privacidad",
     "terms": "Términos",
     "contact": "Contacto",
-    "copyright": "© {year} Best AI Resume. Todos los derechos reservados."
+    "copyright": "© {year} Best AI Resume. Todos los derechos reservados.",
+    "resources": "Recursos",
+    "resumeFormatGuide": "Guía de Formato de CV",
+    "canvaAlternative": "Alternativa a Canva",
+    "overleafAlternative": "Alternativa a Overleaf",
+    "resumeIoAlternative": "Alternativa a Resume.io",
+    "reziAlternative": "Alternativa a Rezi",
+    "builder": "Constructor de CV",
+    "templateCategories": "Plantillas",
+    "compare": "Comparar",
+    "googleDocs": "Plantillas Google Docs",
+    "simpleClean": "Simple y Limpio",
+    "atsFriendly": "Compatible con ATS",
+    "microsoftWord": "Plantillas Word",
+    "modern": "Plantillas Modernas",
+    "creative": "Plantillas Creativas",
+    "coverLetterGenerator": "Generador de Carta de Presentación",
+    "resignationLetterGenerator": "Generador de Carta de Renuncia",
+    "buildResumeFree": "Crea Tu CV Gratis",
+    "zetyAlternative": "Alternativa a Zety",
+    "livecareerAlternative": "Alternativa a LiveCareer",
+    "adobeAlternative": "Alternativa a Adobe",
+    "novaAlternative": "Alternativa a Nova",
+    "europassAlternative": "Alternativa a Europass",
+    "chatgptComparison": "Comparación ChatGPT",
+    "resumeExamples": "Ejemplos de Currículum",
+    "softwareEngineer": "Ingeniero de Software",
+    "nurse": "Enfermero/a",
+    "projectManager": "Gerente de Proyectos",
+    "marketingManager": "Gerente de Marketing",
+    "dataAnalyst": "Analista de Datos",
+    "accountant": "Contador/a",
+    "viewAll300": "Ver todos los 300+"
   },
-
   "Auth": {
     "login": "Iniciar sesión",
     "register": "Crear cuenta",
@@ -387,19 +611,23 @@
     "welcomeBack": "Bienvenido de Nuevo",
     "welcomeBackSubtitle": "Inicia sesión para continuar creando tu currículum",
     "createAccount": "Crear Cuenta",
-    "createAccountSubtitle": "Empieza a crear tu currículum profesional hoy"
+    "createAccountSubtitle": "Empieza a crear tu currículum profesional hoy",
+    "meta": {
+      "loginTitle": "Iniciar Sesión - Best AI Resume",
+      "loginDescription": "Inicie sesión en su cuenta de Best AI Resume para acceder a sus currículums guardados.",
+      "registerTitle": "Crear Cuenta - Best AI Resume",
+      "registerDescription": "Cree su cuenta gratuita para guardar currículums y acceder a funciones de IA."
+    },
+    "fullName": "Nombre Completo"
   },
-
   "Errors": {
     "notFound": "Página no encontrada",
     "serverError": "Algo salió mal",
     "unauthorized": "Por favor inicia sesión para continuar"
   },
-
   "LanguageSwitcher": {
     "label": "Seleccionar idioma"
   },
-
   "Builder": {
     "personalInfo": {
       "title": "Información Personal",
@@ -501,6 +729,223 @@
       "languages": "Idiomas",
       "strengths": "Fortalezas",
       "interests": "Intereses y Aficiones"
+    },
+    "meta": {
+      "title": "Editor de Currículum - Cree Su CV Profesional en Línea",
+      "description": "Cree su currículum profesional con nuestro editor fácil de usar. Vista previa en tiempo real, sugerencias de IA y descarga PDF."
+    }
+  },
+  "ResignationLetter": {
+    "meta": {
+      "title": "Generador Gratuito de Carta de Renuncia con IA - Cartas Profesionales",
+      "description": "Cree una carta de renuncia profesional en minutos. Deje su trabajo en buenos términos y mantenga relaciones positivas con nuestra herramienta impulsada por IA."
+    },
+    "hero": {
+      "badge": "Generador de Carta de Renuncia con IA",
+      "title": "Escriba una",
+      "titleHighlight": "Renuncia Profesional",
+      "subtitle": "Deje su trabajo en buenos términos con una carta de renuncia escrita profesionalmente. Mantenga relaciones positivas y proteja su reputación profesional."
+    },
+    "notice": "El período de preaviso estándar suele ser de 2 semanas. Consulte su contrato de trabajo para requisitos específicos.",
+    "form": {
+      "yourDetails": "Sus Datos",
+      "fillInfo": "Complete su información",
+      "yourName": "Su Nombre",
+      "currentPosition": "Puesto Actual",
+      "companyName": "Nombre de la Empresa",
+      "managerName": "Nombre del Gerente",
+      "lastWorkingDay": "Último Día de Trabajo",
+      "reasonForLeaving": "Razón de Salida",
+      "positiveExperiences": "Experiencias Positivas (Opcional)",
+      "tone": "Tono de la Carta",
+      "professional": "Profesional",
+      "grateful": "Agradecido",
+      "brief": "Breve",
+      "warm": "Cálido",
+      "offerHelp": "Ofrecer ayuda con la transición",
+      "generate": "Generar Carta de Renuncia"
+    },
+    "reasons": {
+      "newOpportunity": "Buscando una nueva oportunidad",
+      "careerChange": "Cambio de carrera",
+      "relocation": "Reubicación",
+      "personal": "Razones personales",
+      "education": "Regreso a los estudios",
+      "family": "Compromisos familiares",
+      "health": "Razones de salud",
+      "retirement": "Jubilación"
+    },
+    "tips": {
+      "title": "Mejores Prácticas",
+      "titleHighlight": "de Renuncia",
+      "giveNotice": "Dar Preaviso",
+      "giveNoticeDesc": "Dé al menos 2 semanas de preaviso, o siga los términos de su contrato.",
+      "stayProfessional": "Ser Profesional",
+      "stayProfessionalDesc": "Deje las emociones fuera. Sea respetuoso y positivo.",
+      "documentIt": "Documéntelo",
+      "documentItDesc": "Siempre presente una renuncia escrita para sus registros.",
+      "leaveWell": "Salga Bien",
+      "leaveWellDesc": "Complete el trabajo pendiente y ofrezca capacitar a su reemplazo."
+    },
+    "cta": {
+      "title": "¿Listo para Su Próxima Oportunidad?",
+      "subtitle": "Cree un currículum profesional para su búsqueda de empleo con nuestro generador de CV impulsado por IA.",
+      "button": "Crear Su Currículum"
+    }
+  },
+  "CareerTips": {
+    "meta": {
+      "title": "Consejos de Carrera & Currículum - Guías de Expertos | Best AI Resume",
+      "description": "Consejos de expertos en carrera, tips para escribir tu currículum y estrategias de búsqueda de empleo."
+    },
+    "hero": {
+      "badge": "Guías de Expertos en Carrera",
+      "title": "Consejos de Carrera",
+      "titleHighlight": "& Asesoramiento de Expertos",
+      "subtitle": "Domina la redacción de currículums, triunfa en entrevistas y acelera tu carrera."
+    },
+    "featured": "Artículos Destacados",
+    "allArticles": "Todos los Artículos",
+    "searchPlaceholder": "Buscar artículos...",
+    "noArticles": "No se encontraron artículos",
+    "noArticlesHint": "Intenta ajustar tu búsqueda o filtro",
+    "categories": {
+      "title": "Categorías",
+      "all": "Todos los Artículos",
+      "resumeTips": "Consejos de CV",
+      "coverLetters": "Cartas de Presentación",
+      "interviews": "Consejos de Entrevista",
+      "jobSearch": "Búsqueda de Empleo",
+      "careerAdvice": "Consejos de Carrera",
+      "aiResume": "CV con IA"
+    },
+    "article": {
+      "readMore": "Leer Más",
+      "tableOfContents": "Tabla de Contenidos",
+      "relatedArticles": "Artículos Relacionados",
+      "moreCareerTips": "Más Consejos de Carrera",
+      "shareHelpful": "¿Te resultó útil?",
+      "shareWithOthers": "Compártelo con otros",
+      "tags": "Etiquetas"
+    },
+    "cta": {
+      "title": "¿Listo para crear tu currículum?",
+      "subtitle": "Pon estos consejos en práctica con nuestro creador de CV potenciado por IA.",
+      "button": "Crear Mi CV Ahora",
+      "sidebarTitle": "Crear Tu CV",
+      "sidebarSubtitle": "Crea un currículum profesional con IA en minutos.",
+      "sidebarButton": "Comenzar"
+    }
+  },
+  "ResumeExamples": {
+    "meta": {
+      "title": "Ejemplos de Currículum por Profesión | Plantillas Gratis & Guías 2026",
+      "description": "Explora 50+ ejemplos de currículum profesionales por título de trabajo. Cada uno incluye plantilla gratuita, habilidades clave y consejos de redacción."
+    },
+    "hero": {
+      "badge": "Guías por Profesión",
+      "title": "Ejemplos de Currículum",
+      "titleHighlight": "por Profesión",
+      "subtitle": "Encuentra tu profesión y obtén una plantilla de currículum personalizada con consejos específicos del sector."
+    },
+    "searchPlaceholder": "Buscar por título de trabajo...",
+    "featured": "Ejemplos de Currículum Destacados",
+    "allExamples": "Todos los Ejemplos de Currículum",
+    "noResults": "No se encontraron ejemplos de currículum",
+    "noResultsHint": "Intenta ajustar tu búsqueda o filtro",
+    "cta": {
+      "title": "¿Listo para crear tu currículum ganador?",
+      "subtitle": "Usa nuestro creador potenciado por IA para crear un currículum profesional en minutos.",
+      "button": "Crear Mi CV — Gratis"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "Acerca de Best AI Resume - Nuestra Misión para Transformar la Búsqueda de Empleo",
+      "description": "Conozca Best AI Resume - la plataforma impulsada por IA que ayuda a miles a conseguir el trabajo de sus sueños."
+    }
+  },
+  "Checkout": {
+    "meta": {
+      "title": "Pago - Complete Su Suscripción",
+      "description": "Complete su suscripción para desbloquear todas las funciones. Pago seguro a través de Stripe."
+    }
+  },
+  "CoverLetter": {
+    "meta": {
+      "title": "Generador Gratuito de Carta de Presentación con IA - Cree Cartas Profesionales",
+      "description": "Genere cartas de presentación profesionales y personalizadas en minutos con nuestra herramienta gratuita impulsada por IA."
+    },
+    "hero": {
+      "badge": "Generador de Carta de Presentación con IA",
+      "title": "Cree una",
+      "titleHighlight": "Carta de Presentación Perfecta",
+      "subtitle": "Deje que la IA redacte una carta de presentación convincente y personalizada que destaque sus fortalezas."
+    },
+    "form": {
+      "yourDetails": "Sus Datos",
+      "fillInfo": "Complete su información",
+      "fullName": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "jobTitle": "Título del Puesto",
+      "companyName": "Nombre de la Empresa",
+      "hiringManager": "Nombre del Responsable de Contratación (Opcional)",
+      "keySkills": "Habilidades Clave",
+      "experience": "Experiencia Relevante",
+      "tone": "Tono de Escritura",
+      "professional": "Profesional",
+      "friendly": "Amigable",
+      "confident": "Seguro",
+      "enthusiastic": "Entusiasta",
+      "generate": "Generar Carta de Presentación"
+    },
+    "preview": {
+      "title": "Vista Previa",
+      "subtitle": "Su carta generada",
+      "noLetter": "Aún no se ha generado ninguna carta",
+      "fillAndGenerate": "Complete sus datos y haga clic en Generar",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "download": "Descargar"
+    },
+    "tips": {
+      "title": "Consejos para una",
+      "titleHighlight": "Excelente Carta de Presentación",
+      "beSpecific": "Sea Específico",
+      "beSpecificDesc": "Adapte su carta al puesto y empresa específicos.",
+      "showResults": "Muestre Resultados",
+      "showResultsDesc": "Incluya logros cuantificables. Los números hacen sus logros concretos.",
+      "keepConcise": "Sea Conciso",
+      "keepConciseDesc": "Apunte a 3-4 párrafos. Los reclutadores dedican solo segundos a cada solicitud."
+    },
+    "cta": {
+      "title": "¿Necesita También un Currículum?",
+      "subtitle": "Combine su carta de presentación con un currículum diseñado profesionalmente con IA.",
+      "button": "Crear Su Currículum"
+    }
+  },
+  "Dashboard": {
+    "meta": {
+      "title": "Panel de Control - Mis Currículums",
+      "description": "Administre sus currículums, rastree descargas y acceda a la configuración de su suscripción."
+    }
+  },
+  "Features": {
+    "meta": {
+      "title": "Funciones del Generador de CV con IA - Escritura Inteligente y Optimización ATS",
+      "description": "Descubra funciones potentes: escritura con IA, puntuación ATS en tiempo real, 50+ plantillas, exportación PDF instantánea."
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Política de Privacidad - Best AI Resume",
+      "description": "Conozca cómo Best AI Resume protege sus datos. Nuestra política de privacidad explica cómo recopilamos y protegemos su información."
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "Términos de Servicio - Best AI Resume",
+      "description": "Lea los términos de servicio de Best AI Resume. Comprenda sus derechos y responsabilidades."
     }
   }
 }

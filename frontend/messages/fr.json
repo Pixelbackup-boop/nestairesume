@@ -1,9 +1,8 @@
 {
   "Meta": {
-    "title": "Best AI Resume - Créez Votre CV Parfait avec l'IA",
-    "description": "Créez des CV professionnels optimisés ATS en quelques minutes avec l'IA. Essai gratuit, sans inscription."
+    "title": "Créateur de CV IA Gratuit | CV Optimisé ATS en Minutes | Best AI Resume",
+    "description": "Créez des CV professionnels optimisés ATS en minutes avec notre créateur de CV IA gratuit. Plus de 50 000 professionnels nous font confiance. Sans inscription."
   },
-
   "Common": {
     "loading": "Chargement...",
     "error": "Une erreur s'est produite",
@@ -20,25 +19,90 @@
     "preview": "Aperçu",
     "scrollToExplore": "Faites défiler pour explorer"
   },
-
   "Navigation": {
     "features": "Fonctionnalités",
     "templates": "Modèles",
     "pricing": "Tarifs",
     "blog": "Blog",
+    "careerTips": "Conseils Carrière",
+    "careerGuides": "Guides Carrière",
+    "resumeExamples": "Exemples de CV",
+    "resumeExamplesDesc": "Modèles de CV par métier",
+    "careerTipsDesc": "Conseils d'experts pour votre carrière",
+    "blogDesc": "Astuces, guides et perspectives",
+    "viewAllExamples": "Voir tous les exemples",
+    "viewAllTips": "Voir tous les conseils",
+    "tools": "Outils",
+    "coverLetter": "Générateur de Lettre",
+    "coverLetterDesc": "Lettres de motivation par IA",
+    "resignationLetter": "Lettre de Démission",
+    "resignationLetterDesc": "Lettres de départ professionnelles",
+    "resumeFormat": "Guide de Format de CV",
+    "resumeFormatDesc": "Chronologique, fonctionnel & plus",
     "login": "Connexion",
     "logout": "Déconnexion",
     "getStarted": "Commencer Gratuitement",
     "dashboard": "Tableau de bord",
     "admin": "Admin",
-    "adminPanel": "Panneau Admin"
+    "adminPanel": "Panneau Admin",
+    "resources": "Ressources",
+    "compare": "Comparer",
+    "byStyle": "Par Style",
+    "byFormat": "Par Format",
+    "allTemplates": "Tous les Modèles",
+    "buildResumeFree": "Créer votre CV gratuitement",
+    "chooseFromTemplates": "Choisissez parmi 20+ modèles professionnels",
+    "technology": "Technologie",
+    "business": "Business",
+    "healthcare": "Santé",
+    "seeAllTech": "Voir tous les Tech",
+    "seeAllBusiness": "Voir tous les Business",
+    "seeAllHealthcare": "Voir tous les Santé",
+    "resumeExamplesCount": "300+ Exemples de CV",
+    "browseAll": "Tout parcourir",
+    "softwareEngineer": "Ingénieur Logiciel",
+    "dataAnalyst": "Analyste de Données",
+    "devopsEngineer": "Ingénieur DevOps",
+    "fullStackDev": "Développeur Full Stack",
+    "projectManager": "Chef de Projet",
+    "marketingManager": "Responsable Marketing",
+    "businessAnalyst": "Analyste Business",
+    "salesManager": "Directeur Commercial",
+    "nurse": "Infirmier/ère",
+    "medicalAssistant": "Assistant/e Médical/e",
+    "pharmacist": "Pharmacien/ne",
+    "dentalAssistant": "Assistant/e Dentaire",
+    "guides": "Guides",
+    "latestPosts": "Articles Récents",
+    "allCareerTips": "Tous les Conseils Carrière",
+    "allBlog": "Tous les Articles",
+    "atsGuide": "Guide CV ATS",
+    "coverLetterGuide": "Guide Lettre de Motivation",
+    "interviewPrep": "Préparation Entretien",
+    "bestResumeApps": "Meilleures Apps de CV",
+    "resumeSkills": "Guide Compétences CV",
+    "linkedinGuide": "Optimisation LinkedIn",
+    "writingServices": "Services de Rédaction CV",
+    "freeAlternatives": "Alternatives Gratuites",
+    "paidAlternatives": "Alternatives Payantes",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs Créateur IA",
+    "whyWereBetter": "Pourquoi nous sommes n°1",
+    "whyWereBetterDesc": "IA, optimisé ATS, entièrement gratuit"
   },
-
   "Home": {
     "hero": {
       "badge": "Création de CV Assistée par IA",
-      "title": "Créez Votre",
-      "titleHighlight": "CV Parfait",
+      "title": "Créez Votre CV avec IA",
+      "titleHighlight": "en Quelques Minutes",
       "subtitle": "Sans Inscription Requise",
       "description": "Créez des CV impressionnants optimisés ATS en quelques minutes avec l'IA. Essayez gratuitement — inscrivez-vous uniquement lorsque vous êtes prêt à sauvegarder.",
       "ctaPrimary": "Créer avec l'IA",
@@ -113,9 +177,50 @@
       "subtitle": "Rejoignez plus de 50 000 professionnels qui ont décroché leur emploi de rêve avec Best AI Resume.",
       "button": "Créez Votre CV Maintenant — Gratuit",
       "note": "Pas d'inscription requise pour commencer"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Questions",
+      "titleHighlight": "Fréquentes",
+      "items": [
+        {
+          "question": "Ce créateur de CV IA est-il vraiment gratuit ?",
+          "answer": "Oui ! Vous pouvez créer, modifier et prévisualiser votre CV gratuitement. Nous proposons des forfaits premium pour des fonctionnalités avancées, mais vous pouvez créer un CV professionnel sans rien payer."
+        },
+        {
+          "question": "Qu'est-ce qu'un ATS et pourquoi est-ce important ?",
+          "answer": "L'ATS (Applicant Tracking System) est un logiciel utilisé par 99% des entreprises Fortune 500 pour scanner et filtrer les CV. Notre IA garantit que votre CV est optimisé ATS avec les bons mots-clés et la bonne structure."
+        },
+        {
+          "question": "Comment l'IA aide-t-elle à rédiger mon CV ?",
+          "answer": "Notre IA analyse votre poste et votre expérience pour générer des points clés professionnels, des résumés et des suggestions de compétences avec un langage axé sur les réalisations."
+        },
+        {
+          "question": "Dois-je m'inscrire pour utiliser le créateur ?",
+          "answer": "Aucune inscription requise pour commencer ! Créez d'abord votre CV complet. Inscrivez-vous uniquement pour sauvegarder ou télécharger."
+        },
+        {
+          "question": "Puis-je télécharger mon CV en PDF ?",
+          "answer": "Oui ! Exportez votre CV en PDF parfait au pixel près. Les PDF sont optimisés pour les candidatures numériques et l'impression."
+        },
+        {
+          "question": "Combien de temps faut-il pour créer un CV ?",
+          "answer": "La plupart des utilisateurs créent un CV professionnel en moins de 10 minutes grâce à nos suggestions IA et contenus pré-rédigés."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Nos utilisateurs ont été embauchés chez",
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Templates": {
     "sectionTitle": "Modèles",
     "title": "Choisissez votre modèle",
@@ -156,9 +261,12 @@
         "description": "Laissez notre IA créer un CV professionnel en quelques secondes selon votre poste.",
         "button": "Créer avec l'IA"
       }
+    },
+    "meta": {
+      "title": "50+ Modèles de CV Professionnels - Gratuits et Compatibles ATS",
+      "description": "Parcourez plus de 50 modèles de CV professionnels. Designs modernes, créatifs et minimalistes optimisés pour l'ATS."
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Contact",
@@ -195,7 +303,6 @@
       "basic": "Basique"
     }
   },
-
   "Onboarding": {
     "title": "Parlez-nous de vous",
     "subtitle": "Seulement 2 questions et l'IA créera votre CV parfait",
@@ -274,9 +381,12 @@
       "step3": "Téléchargez le PDF ci-dessous",
       "openLinkedIn": "Ouvrir le Profil LinkedIn",
       "tip": "Les PDFs LinkedIn fonctionnent mieux pour importer votre historique professionnel complet"
+    },
+    "meta": {
+      "title": "Créez Votre CV - Générateur de CV IA",
+      "description": "Commencez à créer votre CV professionnel en quelques secondes. Répondez à 2 questions et laissez l'IA créer un CV adapté."
     }
   },
-
   "Pricing": {
     "sectionTitle": "Tarifs",
     "title": "Tarification simple et",
@@ -343,9 +453,93 @@
         "coverLetter": "Créateur de lettre de motivation"
       },
       "cta": "Obtenir Diamant"
+    },
+    "meta": {
+      "title": "Tarifs - Générateur de CV IA à partir de 3$/mois",
+      "description": "Choisissez le forfait parfait pour votre recherche d'emploi. Essai gratuit de 7 jours. Sans engagement."
+    },
+    "allPlansInclude": "Tous les forfaits incluent : Sans publicité • Plus de 50 modèles",
+    "bestValue": "MEILLEURE OFFRE",
+    "trialBadge": "Essai gratuit de 7 jours",
+    "trialNote": "Annulez à tout moment sans frais.",
+    "comparison": {
+      "title": "Comparer les Forfaits",
+      "feature": "Fonctionnalité",
+      "cvCreations": "Créations de CV",
+      "aiGenerations": "Générations IA",
+      "perMonth": "{count}/mois",
+      "unlimited": "Illimité",
+      "savedResumes": "CV sauvegardés",
+      "templates": "Modèles",
+      "all50": "Tous les 50+",
+      "premiumPlus": "50+ & Premium",
+      "aiBuild": "Générateur de CV IA",
+      "adFree": "Sans Publicité"
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "Essai gratuit de 7 jours sur les forfaits Gold et Diamond. Annulation possible à tout moment.",
+      "button": "Voir les Forfaits",
+      "contactSupport": "Contacter le Support"
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "cancelAnytime": {
+        "question": "Puis-je annuler mon abonnement à tout moment ?",
+        "answer": "Oui, vous pouvez annuler votre abonnement à tout moment, y compris pendant votre essai gratuit."
+      },
+      "paymentMethods": {
+        "question": "Quels moyens de paiement acceptez-vous ?",
+        "answer": "Nous acceptons toutes les cartes de crédit majeures (Visa, MasterCard, American Express) via Stripe."
+      },
+      "starterOneTime": {
+        "question": "Comment fonctionne l'essai gratuit ?",
+        "answer": "Tous les forfaits incluent un essai gratuit de 7 jours. Ajoutez votre carte pour commencer, vous ne serez pas facturé avant la fin de l'essai."
+      },
+      "runOutDownloads": {
+        "question": "Que se passe-t-il quand j'atteins mes limites ?",
+        "answer": "Quand vous atteignez votre limite mensuelle, vous pouvez passer à un forfait supérieur. Les limites sont réinitialisées à chaque période de facturation."
+      },
+      "switchPlans": {
+        "question": "Puis-je changer de forfait ?",
+        "answer": "Absolument. Vous pouvez mettre à jour ou réduire votre forfait à tout moment."
+      },
+      "refunds": {
+        "question": "Offrez-vous des remboursements ?",
+        "answer": "Tous les forfaits incluent un essai gratuit de 7 jours, nous n'offrons pas de remboursement après facturation."
+      }
+    },
+    "page": {
+      "formBuilder": "Éditeur de Formulaire",
+      "canvasEditor": "Éditeur Canvas",
+      "premiumTemplates": "Modèles premium",
+      "aiBuild": "Générateur de CV IA",
+      "atsOptimization": "Optimisation ATS",
+      "prioritySupport": "Support prioritaire",
+      "aiSuggestions": "Suggestions IA",
+      "coverLetterBuilder": "Générateur de lettre de motivation",
+      "noAds": "Sans publicité",
+      "earlyAccess": "Accès anticipé aux fonctionnalités",
+      "cvCreations": "Créations de CV/mois",
+      "aiGenerations": "Générations IA/mois",
+      "unlimited": "Illimité"
+    },
+    "platinum": {
+      "name": "Platine",
+      "description": "Pour les utilisateurs avancés et agences",
+      "price": "30$",
+      "period": "/mois",
+      "features": {
+        "cvCreations": "Créations de CV illimitées",
+        "aiGenerations": "100 générations IA/mois",
+        "templates": "Tous + modèles Premium",
+        "support": "Support prioritaire",
+        "coverLetter": "Générateur de lettre de motivation",
+        "earlyAccess": "Accès anticipé aux nouvelles fonctionnalités"
+      },
+      "cta": "S'abonner"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Conseils, guides et informations pour votre carrière",
@@ -358,7 +552,6 @@
     "shareOn": "Partager sur",
     "noResults": "Aucun article trouvé"
   },
-
   "Footer": {
     "tagline": "Créateur de CV assisté par IA, approuvé par des professionnels du monde entier.",
     "product": "Produit",
@@ -370,9 +563,40 @@
     "privacy": "Confidentialité",
     "terms": "Conditions",
     "contact": "Contact",
-    "copyright": "© {year} Best AI Resume. Tous droits réservés."
+    "copyright": "© {year} Best AI Resume. Tous droits réservés.",
+    "resources": "Ressources",
+    "resumeFormatGuide": "Guide de Format de CV",
+    "canvaAlternative": "Alternative à Canva",
+    "overleafAlternative": "Alternative à Overleaf",
+    "resumeIoAlternative": "Alternative à Resume.io",
+    "reziAlternative": "Alternative à Rezi",
+    "builder": "Créateur de CV",
+    "templateCategories": "Modèles",
+    "compare": "Comparer",
+    "googleDocs": "Modèles Google Docs",
+    "simpleClean": "Simple et Propre",
+    "atsFriendly": "Compatible ATS",
+    "microsoftWord": "Modèles Word",
+    "modern": "Modèles Modernes",
+    "creative": "Modèles Créatifs",
+    "coverLetterGenerator": "Générateur de Lettre de Motivation",
+    "resignationLetterGenerator": "Générateur de Lettre de Démission",
+    "buildResumeFree": "Créez Votre CV Gratuitement",
+    "zetyAlternative": "Alternative à Zety",
+    "livecareerAlternative": "Alternative à LiveCareer",
+    "adobeAlternative": "Alternative à Adobe",
+    "novaAlternative": "Alternative à Nova",
+    "europassAlternative": "Alternative à Europass",
+    "chatgptComparison": "Comparaison ChatGPT",
+    "resumeExamples": "Exemples de CV",
+    "softwareEngineer": "Ingénieur Logiciel",
+    "nurse": "Infirmier/ère",
+    "projectManager": "Chef de Projet",
+    "marketingManager": "Responsable Marketing",
+    "dataAnalyst": "Analyste de Données",
+    "accountant": "Comptable",
+    "viewAll300": "Voir les 300+"
   },
-
   "Auth": {
     "login": "Connexion",
     "register": "Créer un compte",
@@ -387,19 +611,23 @@
     "welcomeBack": "Bon Retour",
     "welcomeBackSubtitle": "Connectez-vous pour continuer à créer votre CV",
     "createAccount": "Créer un Compte",
-    "createAccountSubtitle": "Commencez à créer votre CV professionnel aujourd'hui"
+    "createAccountSubtitle": "Commencez à créer votre CV professionnel aujourd'hui",
+    "meta": {
+      "loginTitle": "Connexion - Best AI Resume",
+      "loginDescription": "Connectez-vous à votre compte Best AI Resume pour accéder à vos CV sauvegardés.",
+      "registerTitle": "Créer un Compte - Best AI Resume",
+      "registerDescription": "Créez votre compte gratuit pour sauvegarder vos CV et accéder aux fonctionnalités IA."
+    },
+    "fullName": "Nom Complet"
   },
-
   "Errors": {
     "notFound": "Page non trouvée",
     "serverError": "Une erreur s'est produite",
     "unauthorized": "Veuillez vous connecter pour continuer"
   },
-
   "LanguageSwitcher": {
     "label": "Sélectionner la langue"
   },
-
   "Builder": {
     "personalInfo": {
       "title": "Informations Personnelles",
@@ -501,6 +729,223 @@
       "languages": "Langues",
       "strengths": "Points Forts",
       "interests": "Intérêts et Loisirs"
+    },
+    "meta": {
+      "title": "Générateur de CV - Créez Votre CV Professionnel en Ligne",
+      "description": "Créez votre CV professionnel avec notre éditeur facile à utiliser. Aperçu en temps réel, suggestions IA et téléchargement PDF."
+    }
+  },
+  "ResignationLetter": {
+    "meta": {
+      "title": "Générateur Gratuit de Lettre de Démission IA - Lettres Professionnelles",
+      "description": "Créez une lettre de démission professionnelle en quelques minutes. Quittez votre emploi en bons termes et maintenez des relations positives avec notre outil alimenté par l'IA."
+    },
+    "hero": {
+      "badge": "Générateur de Lettre de Démission IA",
+      "title": "Rédigez une",
+      "titleHighlight": "Démission Professionnelle",
+      "subtitle": "Quittez votre emploi en bons termes avec une lettre de démission rédigée professionnellement. Maintenez des relations positives et protégez votre réputation professionnelle."
+    },
+    "notice": "Le préavis standard est généralement de 2 semaines. Vérifiez votre contrat de travail pour les exigences spécifiques.",
+    "form": {
+      "yourDetails": "Vos Coordonnées",
+      "fillInfo": "Remplissez vos informations",
+      "yourName": "Votre Nom",
+      "currentPosition": "Poste Actuel",
+      "companyName": "Nom de l'Entreprise",
+      "managerName": "Nom du Responsable",
+      "lastWorkingDay": "Dernier Jour de Travail",
+      "reasonForLeaving": "Raison du Départ",
+      "positiveExperiences": "Expériences Positives (Facultatif)",
+      "tone": "Ton de la Lettre",
+      "professional": "Professionnel",
+      "grateful": "Reconnaissant",
+      "brief": "Bref",
+      "warm": "Chaleureux",
+      "offerHelp": "Proposer de l'aide pour la transition",
+      "generate": "Générer la Lettre de Démission"
+    },
+    "reasons": {
+      "newOpportunity": "Poursuite d'une nouvelle opportunité",
+      "careerChange": "Changement de carrière",
+      "relocation": "Déménagement",
+      "personal": "Raisons personnelles",
+      "education": "Retour aux études",
+      "family": "Engagements familiaux",
+      "health": "Raisons de santé",
+      "retirement": "Retraite"
+    },
+    "tips": {
+      "title": "Bonnes Pratiques",
+      "titleHighlight": "de Démission",
+      "giveNotice": "Donner un Préavis",
+      "giveNoticeDesc": "Donnez au moins 2 semaines de préavis, ou suivez les termes de votre contrat.",
+      "stayProfessional": "Rester Professionnel",
+      "stayProfessionalDesc": "Gardez les émotions de côté. Soyez respectueux et positif.",
+      "documentIt": "Documentez-le",
+      "documentItDesc": "Soumettez toujours une démission écrite pour vos dossiers.",
+      "leaveWell": "Partez Bien",
+      "leaveWellDesc": "Terminez le travail en cours et proposez de former votre remplaçant."
+    },
+    "cta": {
+      "title": "Prêt pour Votre Prochaine Opportunité ?",
+      "subtitle": "Créez un CV professionnel pour votre recherche d'emploi avec notre générateur de CV alimenté par l'IA.",
+      "button": "Créer Votre CV"
+    }
+  },
+  "CareerTips": {
+    "meta": {
+      "title": "Conseils Carrière & CV - Guides d'Experts | Best AI Resume",
+      "description": "Conseils d'experts en carrière, astuces pour rédiger votre CV et stratégies de recherche d'emploi."
+    },
+    "hero": {
+      "badge": "Guides Experts Carrière",
+      "title": "Conseils Carrière",
+      "titleHighlight": "& Avis d'Experts",
+      "subtitle": "Maîtrisez la rédaction de CV, réussissez vos entretiens et accélérez votre carrière."
+    },
+    "featured": "Articles en Vedette",
+    "allArticles": "Tous les Articles",
+    "searchPlaceholder": "Rechercher des articles...",
+    "noArticles": "Aucun article trouvé",
+    "noArticlesHint": "Essayez d'ajuster votre recherche ou filtre",
+    "categories": {
+      "title": "Catégories",
+      "all": "Tous les Articles",
+      "resumeTips": "Conseils CV",
+      "coverLetters": "Lettres de Motivation",
+      "interviews": "Conseils d'Entretien",
+      "jobSearch": "Recherche d'Emploi",
+      "careerAdvice": "Conseils Carrière",
+      "aiResume": "CV IA"
+    },
+    "article": {
+      "readMore": "Lire la Suite",
+      "tableOfContents": "Table des Matières",
+      "relatedArticles": "Articles Connexes",
+      "moreCareerTips": "Plus de Conseils Carrière",
+      "shareHelpful": "Cela vous a aidé ?",
+      "shareWithOthers": "Partagez avec d'autres",
+      "tags": "Tags"
+    },
+    "cta": {
+      "title": "Prêt à créer votre CV ?",
+      "subtitle": "Mettez ces conseils en pratique avec notre créateur de CV alimenté par l'IA.",
+      "button": "Créer Mon CV Maintenant",
+      "sidebarTitle": "Créer Votre CV",
+      "sidebarSubtitle": "Créez un CV professionnel avec l'IA en quelques minutes.",
+      "sidebarButton": "Commencer"
+    }
+  },
+  "ResumeExamples": {
+    "meta": {
+      "title": "Exemples de CV par Métier | Modèles Gratuits & Guides 2026",
+      "description": "Parcourez 50+ exemples de CV professionnels par métier. Chacun inclut un modèle gratuit, compétences clés et conseils de rédaction."
+    },
+    "hero": {
+      "badge": "Guides par Métier",
+      "title": "Exemples de CV",
+      "titleHighlight": "par Métier",
+      "subtitle": "Trouvez votre profession et obtenez un modèle de CV personnalisé avec des conseils spécifiques au secteur."
+    },
+    "searchPlaceholder": "Rechercher par métier...",
+    "featured": "Exemples de CV en Vedette",
+    "allExamples": "Tous les Exemples de CV",
+    "noResults": "Aucun exemple de CV trouvé",
+    "noResultsHint": "Essayez d'ajuster votre recherche ou filtre",
+    "cta": {
+      "title": "Prêt à créer votre CV gagnant ?",
+      "subtitle": "Utilisez notre créateur alimenté par l'IA pour créer un CV professionnel en quelques minutes.",
+      "button": "Créer Mon CV — Gratuit"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "À propos de Best AI Resume - Notre Mission pour Transformer la Recherche d'Emploi",
+      "description": "Découvrez Best AI Resume - la plateforme alimentée par l'IA aidant des milliers de personnes à décrocher l'emploi de leurs rêves."
+    }
+  },
+  "Checkout": {
+    "meta": {
+      "title": "Paiement - Finalisez Votre Abonnement",
+      "description": "Finalisez votre abonnement pour débloquer toutes les fonctionnalités. Paiement sécurisé via Stripe."
+    }
+  },
+  "CoverLetter": {
+    "meta": {
+      "title": "Générateur Gratuit de Lettre de Motivation IA - Créez des Lettres Professionnelles",
+      "description": "Générez des lettres de motivation professionnelles et personnalisées en quelques minutes avec notre outil gratuit alimenté par l'IA."
+    },
+    "hero": {
+      "badge": "Générateur de Lettre de Motivation IA",
+      "title": "Créez une",
+      "titleHighlight": "Lettre de Motivation Parfaite",
+      "subtitle": "Laissez l'IA rédiger une lettre de motivation convaincante et personnalisée qui met en valeur vos atouts."
+    },
+    "form": {
+      "yourDetails": "Vos Coordonnées",
+      "fillInfo": "Remplissez vos informations",
+      "fullName": "Nom Complet",
+      "email": "Email",
+      "jobTitle": "Intitulé du Poste",
+      "companyName": "Nom de l'Entreprise",
+      "hiringManager": "Nom du Responsable RH (Facultatif)",
+      "keySkills": "Compétences Clés",
+      "experience": "Expérience Pertinente",
+      "tone": "Ton de Rédaction",
+      "professional": "Professionnel",
+      "friendly": "Amical",
+      "confident": "Confiant",
+      "enthusiastic": "Enthousiaste",
+      "generate": "Générer la Lettre de Motivation"
+    },
+    "preview": {
+      "title": "Aperçu",
+      "subtitle": "Votre lettre générée",
+      "noLetter": "Aucune lettre générée",
+      "fillAndGenerate": "Remplissez vos informations et cliquez sur Générer",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "download": "Télécharger"
+    },
+    "tips": {
+      "title": "Conseils pour une",
+      "titleHighlight": "Excellente Lettre de Motivation",
+      "beSpecific": "Soyez Précis",
+      "beSpecificDesc": "Adaptez votre lettre au poste et à l'entreprise spécifiques.",
+      "showResults": "Montrez des Résultats",
+      "showResultsDesc": "Incluez des réalisations quantifiables. Les chiffres rendent vos accomplissements concrets.",
+      "keepConcise": "Restez Concis",
+      "keepConciseDesc": "Visez 3-4 paragraphes. Les recruteurs ne passent que quelques secondes sur chaque candidature."
+    },
+    "cta": {
+      "title": "Besoin d'un CV Aussi ?",
+      "subtitle": "Associez votre lettre de motivation à un CV conçu professionnellement avec l'IA.",
+      "button": "Créer Votre CV"
+    }
+  },
+  "Dashboard": {
+    "meta": {
+      "title": "Tableau de Bord - Mes CV",
+      "description": "Gérez vos CV, suivez les téléchargements et accédez aux paramètres de votre abonnement."
+    }
+  },
+  "Features": {
+    "meta": {
+      "title": "Fonctionnalités du Générateur de CV IA - Rédaction Intelligente et Optimisation ATS",
+      "description": "Découvrez des fonctionnalités puissantes : rédaction IA, score ATS en temps réel, 50+ modèles, export PDF instantané."
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Politique de Confidentialité - Best AI Resume",
+      "description": "Découvrez comment Best AI Resume protège vos données. Notre politique de confidentialité explique comment nous collectons et protégeons vos informations."
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "Conditions d'Utilisation - Best AI Resume",
+      "description": "Lisez les conditions d'utilisation de Best AI Resume. Comprenez vos droits et responsabilités."
     }
   }
 }

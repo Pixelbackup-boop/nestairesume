@@ -151,50 +151,50 @@ export default function DashboardPage() {
                 <div className="relative overflow-hidden">
                     {/* Background gradient effects */}
                     <div className="absolute inset-0 bg-gradient-to-br from-accent-green/10 via-transparent to-accent-teal/10" />
-                    <div className="absolute top-20 left-1/4 w-96 h-96 bg-accent-green/20 rounded-full blur-3xl" />
-                    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-teal/20 rounded-full blur-3xl" />
+                    <div className="absolute top-20 left-1/4 w-96 h-96 bg-accent-green/10 rounded-full blur-3xl" />
+                    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-teal/10 rounded-full blur-3xl" />
 
                     <div className="relative max-w-7xl mx-auto px-6 py-12">
                         {/* Welcome + Stats Row */}
                         <div className="flex flex-col lg:flex-row gap-8 mb-12">
                             {/* Welcome Message */}
                             <div className="flex-1">
-                                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                                <h1 className="text-4xl md:text-5xl font-bold text-dark-teal mb-4">
                                     Welcome back{user?.name ? `, ${user.name}` : ''}! 👋
                                 </h1>
-                                <p className="text-xl text-gray-400">
+                                <p className="text-xl text-text-secondary">
                                     Ready to land your dream job? Let's create a resume that stands out.
                                 </p>
                             </div>
 
                             {/* Quick Stats Cards */}
                             <div className="flex gap-4">
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px]">
+                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px] shadow-sm">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-10 h-10 rounded-lg bg-accent-green/20 flex items-center justify-center">
                                             <FileText size={20} className="text-accent-green" />
                                         </div>
                                     </div>
-                                    <div className="text-3xl font-bold text-white">{stats.totalResumes}</div>
-                                    <div className="text-sm text-gray-400">Total Resumes</div>
+                                    <div className="text-3xl font-bold text-dark-teal">{stats.totalResumes}</div>
+                                    <div className="text-sm text-text-secondary">Total Resumes</div>
                                 </div>
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px]">
+                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px] shadow-sm">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-10 h-10 rounded-lg bg-accent-teal/20 flex items-center justify-center">
                                             <Calendar size={20} className="text-accent-teal" />
                                         </div>
                                     </div>
-                                    <div className="text-3xl font-bold text-white">{stats.thisMonth}</div>
-                                    <div className="text-sm text-gray-400">This Month</div>
+                                    <div className="text-3xl font-bold text-dark-teal">{stats.thisMonth}</div>
+                                    <div className="text-sm text-text-secondary">This Month</div>
                                 </div>
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px] hidden md:block">
+                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px] hidden md:block shadow-sm">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
                                             <Layout size={20} className="text-purple-400" />
                                         </div>
                                     </div>
-                                    <div className="text-3xl font-bold text-white">{Object.keys(stats.templates).length}</div>
-                                    <div className="text-sm text-gray-400">Templates Used</div>
+                                    <div className="text-3xl font-bold text-dark-teal">{Object.keys(stats.templates).length}</div>
+                                    <div className="text-sm text-text-secondary">Templates Used</div>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +213,7 @@ export default function DashboardPage() {
                                                 <Sparkles size={16} />
                                                 AI-Powered Resume Builder
                                             </div>
-                                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                                            <h2 className="text-2xl md:text-3xl font-bold text-dark-teal mb-3">
                                                 Create Your Perfect Resume
                                             </h2>
 
@@ -223,7 +223,7 @@ export default function DashboardPage() {
                                                     <button
                                                         key={action.label}
                                                         onClick={() => router.push('/builder')}
-                                                        className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-1.5 rounded-full text-sm text-gray-300 transition"
+                                                        className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 border border-border-subtle px-3 py-1.5 rounded-full text-sm text-text-secondary transition"
                                                     >
                                                         <span>{action.icon}</span>
                                                         {action.label}
@@ -257,7 +257,7 @@ export default function DashboardPage() {
                 {/* Subscription Status Card */}
                 {user && (
                     <div className="max-w-7xl mx-auto px-6 py-8">
-                        <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
+                        <div className="bg-bg-card border border-border-subtle rounded-xl p-6 shadow-sm">
                             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                                 <div className="flex items-center gap-4">
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
@@ -265,32 +265,32 @@ export default function DashboardPage() {
                                         user.subscriptionTier === 'diamond' ? 'bg-purple-500/20' :
                                         user.subscriptionTier === 'gold' ? 'bg-yellow-500/20' :
                                         user.subscriptionTier === 'starter' ? 'bg-green-500/20' :
-                                        'bg-gray-500/20'
+                                        'bg-gray-100'
                                     }`}>
                                         <Crown size={24} className={
-                                            user.subscriptionTier === 'platinum' ? 'text-amber-400' :
-                                            user.subscriptionTier === 'diamond' ? 'text-purple-400' :
-                                            user.subscriptionTier === 'gold' ? 'text-yellow-400' :
-                                            user.subscriptionTier === 'starter' ? 'text-green-400' :
-                                            'text-gray-400'
+                                            user.subscriptionTier === 'platinum' ? 'text-amber-500' :
+                                            user.subscriptionTier === 'diamond' ? 'text-purple-500' :
+                                            user.subscriptionTier === 'gold' ? 'text-yellow-500' :
+                                            user.subscriptionTier === 'starter' ? 'text-green-500' :
+                                            'text-text-muted'
                                         } />
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2">
-                                            <h3 className="text-lg font-semibold text-white capitalize">
+                                            <h3 className="text-lg font-semibold text-dark-teal capitalize">
                                                 {user.subscriptionTier || 'Free'} Plan
                                             </h3>
                                             {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && (
                                                 <span className={`px-2 py-0.5 text-xs rounded-full font-medium ${
                                                     user.subscriptionStatus === 'trialing'
-                                                        ? 'bg-blue-500/20 text-blue-400'
+                                                        ? 'bg-blue-500/20 text-blue-600'
                                                         : 'bg-accent-green/20 text-accent-green'
                                                 }`}>
                                                     {user.subscriptionStatus === 'trialing' ? 'Trial' : 'Active'}
                                                 </span>
                                             )}
                                         </div>
-                                        <p className="text-sm text-gray-400">
+                                        <p className="text-sm text-text-secondary">
                                             {user.subscriptionStatus === 'trialing' && user.trialEndsAt
                                                 ? `Trial ends ${new Date(user.trialEndsAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
                                                 : user.creditsRemaining !== undefined && user.creditsRemaining > 0
@@ -303,7 +303,7 @@ export default function DashboardPage() {
                                 <div className="flex items-center gap-3">
                                     {(!user.subscriptionTier || user.subscriptionTier === 'free' || user.subscriptionTier === 'expired') && (
                                         <Link href="/pricing">
-                                            <button className="flex items-center gap-2 bg-accent-green text-bg-primary px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition">
+                                            <button className="flex items-center gap-2 bg-accent-green text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition">
                                                 <Zap size={16} />
                                                 {user.subscriptionTier === 'expired' ? 'Resubscribe' : 'Upgrade Now'}
                                             </button>
@@ -319,7 +319,7 @@ export default function DashboardPage() {
                                                     console.error('Failed to open portal:', err);
                                                 }
                                             }}
-                                            className="flex items-center gap-2 border border-white/10 text-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-white/5 transition"
+                                            className="flex items-center gap-2 border border-border-subtle text-text-secondary px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition"
                                         >
                                             <CreditCard size={16} />
                                             Manage Subscription
@@ -334,21 +334,21 @@ export default function DashboardPage() {
                 {/* Template Usage Stats */}
                 {resumes.length > 0 && (
                     <div className="max-w-7xl mx-auto px-6 py-8">
-                        <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
+                        <div className="bg-bg-card border border-border-subtle rounded-xl p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
                                 <BarChart3 size={24} className="text-accent-green" />
-                                <h3 className="text-xl font-bold text-white">Template Usage</h3>
+                                <h3 className="text-xl font-bold text-dark-teal">Template Usage</h3>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                                 {templateStats.map((template) => (
                                     <div key={template.layout} className="bg-bg-card-light rounded-lg p-4">
                                         <div className="flex items-center justify-between mb-3">
-                                            <span className="text-sm font-medium text-gray-300 capitalize">
+                                            <span className="text-sm font-medium text-text-secondary capitalize">
                                                 {template.layout.toLowerCase()}
                                             </span>
-                                            <span className="text-lg font-bold text-white">{template.count}</span>
+                                            <span className="text-lg font-bold text-dark-teal">{template.count}</span>
                                         </div>
-                                        <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                                             <div
                                                 className={`h-full ${template.color} rounded-full transition-all duration-500`}
                                                 style={{ width: `${(template.count / maxTemplateCount) * 100}%` }}
@@ -365,7 +365,7 @@ export default function DashboardPage() {
                 <div className="max-w-7xl mx-auto px-6 py-8">
                     <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center gap-3">
-                            <h3 className="text-2xl font-bold text-white">Your Resumes</h3>
+                            <h3 className="text-2xl font-bold text-dark-teal">Your Resumes</h3>
                             {resumes.length > 0 && (
                                 <span className="bg-accent-green/20 text-accent-green px-3 py-1 rounded-full text-sm font-medium">
                                     {resumes.length} total
@@ -380,11 +380,11 @@ export default function DashboardPage() {
                     {loading ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {[1, 2, 3].map((i) => (
-                                <div key={i} className="bg-bg-card border border-border-subtle rounded-xl overflow-hidden animate-pulse">
-                                    <div className="h-40 bg-gray-800" />
+                                <div key={i} className="bg-bg-card border border-border-subtle rounded-xl overflow-hidden animate-pulse shadow-sm">
+                                    <div className="h-40 bg-gray-100" />
                                     <div className="p-4 space-y-3">
-                                        <div className="h-4 bg-gray-700 rounded w-3/4" />
-                                        <div className="h-3 bg-gray-700 rounded w-1/2" />
+                                        <div className="h-4 bg-gray-200 rounded w-3/4" />
+                                        <div className="h-3 bg-gray-200 rounded w-1/2" />
                                     </div>
                                 </div>
                             ))}
@@ -395,12 +395,12 @@ export default function DashboardPage() {
                             <div className="w-20 h-20 bg-accent-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <FileText size={32} className="text-accent-green" />
                             </div>
-                            <h4 className="text-xl font-semibold text-white mb-2">No resumes yet</h4>
-                            <p className="text-gray-400 mb-6 max-w-md mx-auto">
+                            <h4 className="text-xl font-semibold text-dark-teal mb-2">No resumes yet</h4>
+                            <p className="text-text-secondary mb-6 max-w-md mx-auto">
                                 Create your first AI-powered resume and start applying to your dream jobs today.
                             </p>
                             <Link href="/builder">
-                                <button className="inline-flex items-center gap-2 bg-accent-green text-bg-primary px-6 py-3 rounded-lg font-semibold hover:bg-accent-teal transition">
+                                <button className="inline-flex items-center gap-2 bg-accent-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-teal transition">
                                     <Sparkles size={18} />
                                     Create Your First Resume
                                 </button>
@@ -412,16 +412,16 @@ export default function DashboardPage() {
                             {resumes.map((resume) => (
                                 <div
                                     key={resume.id}
-                                    className="bg-bg-card border border-border-subtle rounded-xl overflow-hidden hover:border-accent-green/30 transition group"
+                                    className="bg-bg-card border border-border-subtle rounded-xl overflow-hidden hover:border-accent-green/30 transition group shadow-sm"
                                 >
                                     {/* Preview Thumbnail with Template Badge */}
-                                    <div className="h-40 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
-                                        <FileText size={48} className="text-gray-600" />
+                                    <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center relative">
+                                        <FileText size={48} className="text-gray-300" />
                                         <div className="absolute top-3 left-3 flex gap-2">
-                                            <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-medium capitalize">
+                                            <span className="bg-blue-500/10 text-blue-600 px-2 py-1 rounded text-xs font-medium capitalize">
                                                 {resume.templateLayout?.toLowerCase() || 'classic'}
                                             </span>
-                                            <span className="bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs font-medium capitalize">
+                                            <span className="bg-purple-500/10 text-purple-600 px-2 py-1 rounded text-xs font-medium capitalize">
                                                 {resume.templateTheme?.toLowerCase() || 'navy'}
                                             </span>
                                         </div>
@@ -431,11 +431,11 @@ export default function DashboardPage() {
                                     <div className="p-4">
                                         <div className="flex items-start justify-between">
                                             <div className="flex-1 min-w-0">
-                                                <h4 className="font-semibold text-white group-hover:text-accent-green transition truncate">
+                                                <h4 className="font-semibold text-dark-teal group-hover:text-accent-green transition truncate">
                                                     {resume.title || 'Untitled Resume'}
                                                 </h4>
-                                                <p className="text-sm text-gray-500 truncate">{resume.fullName || 'No name'}</p>
-                                                <p className="text-xs text-gray-400 flex items-center gap-1 mt-1">
+                                                <p className="text-sm text-text-muted truncate">{resume.fullName || 'No name'}</p>
+                                                <p className="text-xs text-text-secondary flex items-center gap-1 mt-1">
                                                     <Clock size={12} />
                                                     {formatDate(resume.updatedAt)}
                                                 </p>
@@ -445,21 +445,21 @@ export default function DashboardPage() {
                                             <div className="relative">
                                                 <button
                                                     onClick={() => setActiveDropdown(activeDropdown === resume.id ? null : resume.id)}
-                                                    className="text-gray-500 hover:text-white p-1"
+                                                    className="text-text-muted hover:text-dark-teal p-1"
                                                 >
                                                     <MoreVertical size={18} />
                                                 </button>
                                                 {activeDropdown === resume.id && (
-                                                    <div className="absolute right-0 top-8 w-40 bg-bg-card border border-border-subtle rounded-lg shadow-xl z-10 py-1">
+                                                    <div className="absolute right-0 top-8 w-40 bg-white border border-border-subtle rounded-lg shadow-xl z-10 py-1">
                                                         <button
                                                             onClick={() => handleDuplicate(resume)}
-                                                            className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-300 hover:bg-white/5 transition"
+                                                            className="w-full flex items-center gap-2 px-4 py-2 text-sm text-text-secondary hover:bg-gray-50 transition"
                                                         >
                                                             <Copy size={14} /> Duplicate
                                                         </button>
                                                         <button
                                                             onClick={() => handleDelete(resume.id)}
-                                                            className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-red-500/10 transition"
+                                                            className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 transition"
                                                         >
                                                             <Trash2 size={14} /> Delete
                                                         </button>
@@ -470,11 +470,11 @@ export default function DashboardPage() {
 
                                         <div className="flex gap-2 mt-4">
                                             <Link href={`/builder?id=${resume.id}`} className="flex-1">
-                                                <button className="w-full flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-gray-300 py-2 rounded-lg text-sm transition">
+                                                <button className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-text-secondary py-2 rounded-lg text-sm transition">
                                                     <Edit3 size={14} /> Edit
                                                 </button>
                                             </Link>
-                                            <button className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg text-sm transition">
+                                            <button className="flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-text-secondary px-4 py-2 rounded-lg text-sm transition">
                                                 <Download size={14} />
                                             </button>
                                         </div>
@@ -488,7 +488,7 @@ export default function DashboardPage() {
                                     <div className="w-16 h-16 bg-accent-green/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
                                         <Plus size={28} className="text-accent-green" />
                                     </div>
-                                    <p className="text-gray-400 group-hover:text-accent-green transition">Create New Resume</p>
+                                    <p className="text-text-secondary group-hover:text-accent-green transition">Create New Resume</p>
                                 </div>
                             </Link>
                         </div>
@@ -504,10 +504,10 @@ export default function DashboardPage() {
                                     <Zap size={20} />
                                     <span className="font-semibold">Pro Tip</span>
                                 </div>
-                                <h4 className="text-2xl font-bold text-white mb-2">
+                                <h4 className="text-2xl font-bold text-dark-teal mb-2">
                                     Tailor your resume for each job
                                 </h4>
-                                <p className="text-gray-400">
+                                <p className="text-text-secondary">
                                     Resumes tailored to specific job descriptions are 3x more likely to get interviews.
                                     Use our AI to quickly customize your resume for each application.
                                 </p>
@@ -515,11 +515,11 @@ export default function DashboardPage() {
                             <div className="flex gap-6">
                                 <div className="text-center">
                                     <div className="text-4xl font-bold text-accent-green">3x</div>
-                                    <div className="text-sm text-gray-400">More Interviews</div>
+                                    <div className="text-sm text-text-secondary">More Interviews</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-4xl font-bold text-accent-teal">85%</div>
-                                    <div className="text-sm text-gray-400">ATS Pass Rate</div>
+                                    <div className="text-sm text-text-secondary">ATS Pass Rate</div>
                                 </div>
                             </div>
                         </div>

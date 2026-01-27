@@ -56,65 +56,11 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.6;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* ===========================================
-   DARK THEME OVERRIDES
+   UTILITY CLASSES
    =========================================== */
-.dark {
-  --color-background: #0f1419;
-  --color-foreground: #e7e9ea;
-  --color-bg-light: #1a1f26;
-  --color-bg-white: #15202b;
-  --color-bg-card: #1e2732;
-  --color-text-primary: #e7e9ea;
-  --color-text-secondary: #8b98a5;
-  --color-text-muted: #6e767d;
-  --color-border-subtle: #2f3336;
-  --color-border-light: #38444d;
-  --color-dark-teal: #e7e9ea;
-}
-
-.dark body {
-  background: #0f1419;
-  color: #e7e9ea;
-}
-
-/* Dark mode specific utilities */
-.dark .bg-white { background-color: #15202b; }
-
-/* Preserve white background regardless of theme (for resume previews, paper effects, etc.) */
-.bg-white-always { background-color: #ffffff !important; }
-
-/* Data attribute approach - immune to dark mode cascade */
-[data-theme-preserve="light"] {
-  background-color: #ffffff !important;
-}
-.dark .bg-gray-50 { background-color: #1a1f26; }
-.dark .bg-gray-100 { background-color: #1e2732; }
-.dark .text-gray-600 { color: #8b98a5; }
-.dark .text-gray-700 { color: #a0aab4; }
-.dark .text-gray-800 { color: #c4ccd4; }
-.dark .text-gray-900 { color: #e7e9ea; }
-.dark .border-gray-200 { border-color: #2f3336; }
-.dark .border-gray-300 { border-color: #38444d; }
-.dark .shadow-lg { --tw-shadow-color: rgba(0, 0, 0, 0.3); }
-
-/* Dark mode for cards and panels */
-.dark .bg-white\/98 { background-color: rgba(21, 32, 43, 0.98); }
-.dark .bg-white\/95 { background-color: rgba(21, 32, 43, 0.95); }
-.dark .bg-white\/90 { background-color: rgba(21, 32, 43, 0.90); }
-
-/* Dark mode text colors */
-.dark .text-dark-teal { color: #e7e9ea; }
-.dark .text-dark-teal\/70 { color: rgba(231, 233, 234, 0.7); }
-.dark .text-dark-teal\/80 { color: rgba(231, 233, 234, 0.8); }
-
-/* Keep accent colors vibrant in dark mode */
-.dark .bg-teal-primary\/10 { background-color: rgba(0, 212, 170, 0.15); }
-.dark .hover\:bg-gray-50:hover { background-color: #1e2732; }
-.dark .hover\:bg-gray-100:hover { background-color: #2f3336; }
 
 /* ===========================================
    TEAL THEME UTILITY CLASSES
@@ -137,27 +83,29 @@ body {
 .bg-accent-pink { background-color: #ec4899; }
 .bg-accent-pink\/20 { background-color: rgba(236,72,153,0.2); }
 
-/* Legacy dark theme classes (keeping for compatibility) */
-.bg-bg-primary { background-color: #ffffff; }
-.bg-bg-primary\/90 { background-color: rgba(255,255,255,0.9); }
-.bg-bg-card { background-color: #ffffff; }
-.bg-bg-card-light { background-color: #f8fffe; }
+/* Theme-aware utility classes (use CSS variables for dark mode support) */
+.bg-bg-primary { background-color: var(--color-background); }
+.bg-bg-primary\/90 { background-color: color-mix(in srgb, var(--color-background) 90%, transparent); }
+.bg-bg-card { background-color: var(--color-bg-card); }
+.bg-bg-card-light { background-color: var(--color-bg-light); }
+.bg-bg-light { background-color: var(--color-bg-light); }
 
 /* Text color utilities */
-.text-dark-teal { color: #1a3a3a; }
+.text-dark-teal { color: var(--color-dark-teal); }
 .text-accent-orange { color: #ff6b35; }
 .text-accent-green { color: #00d4aa; }
 .text-accent-teal { color: #00b894; }
 .text-accent-purple { color: #8b5cf6; }
 .text-accent-blue { color: #3b82f6; }
 .text-accent-pink { color: #ec4899; }
-.text-text-secondary { color: #64748b; }
-.text-bg-primary { color: #1a3a3a; }
+.text-text-secondary { color: var(--color-text-secondary); }
+.text-text-muted { color: var(--color-text-muted); }
+.text-bg-primary { color: var(--color-dark-teal); }
 
 /* Border utilities */
-.border-dark-teal { border-color: #1a3a3a; }
-.border-border-subtle { border-color: #e0f2ef; }
-.border-border-light { border-color: #f0f0f0; }
+.border-dark-teal { border-color: var(--color-dark-teal); }
+.border-border-subtle { border-color: var(--color-border-subtle); }
+.border-border-light { border-color: var(--color-border-light); }
 .border-teal-primary { border-color: #00d4aa; }
 
 /* Gradient utilities */
@@ -502,6 +450,31 @@ body {
 .animate-float-delayed {
   animation: float-delayed 15s ease-in-out infinite;
   will-change: transform; /* GPU acceleration hint */
+}
+
+/* ===========================================
+   MEGA MENU ANIMATIONS
+   =========================================== */
+
+@keyframes megaMenuSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mega-menu-enter {
+  animation: megaMenuSlideIn 0.2s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mega-menu-enter {
+    animation: none;
+  }
 }
 
 /* ===========================================

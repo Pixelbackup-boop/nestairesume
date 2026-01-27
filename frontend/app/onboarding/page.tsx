@@ -310,15 +310,15 @@ export default function OnboardingPage() {
     const selectedTemplateData = featuredTemplates.find(t => t.id === formData.selectedTemplate);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 text-gray-900">
             {/* Header */}
-            <header className="border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+            <header className="border-b border-gray-200 bg-gray-50/80 backdrop-blur-sm sticky top-0 z-50">
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-slate-900">
+                        <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-gray-900">
                             R
                         </div>
-                        <span className="font-bold text-xl">ResumeAI</span>
+                        <span className="font-bold text-xl">Best AI Resume</span>
                     </Link>
 
                     {/* Progress indicator - 4 steps */}
@@ -328,8 +328,8 @@ export default function OnboardingPage() {
                                 <div
                                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all ${
                                         step >= s
-                                            ? 'bg-accent-green text-slate-900'
-                                            : 'bg-slate-700 text-slate-400'
+                                            ? 'bg-accent-green text-gray-900'
+                                            : 'bg-gray-200 text-gray-500'
                                     }`}
                                 >
                                     {step > s ? <Check size={16} /> : s}
@@ -337,7 +337,7 @@ export default function OnboardingPage() {
                                 {s < totalSteps && (
                                     <div
                                         className={`w-8 h-0.5 transition-all ${
-                                            step > s ? 'bg-accent-green' : 'bg-slate-700'
+                                            step > s ? 'bg-accent-green' : 'bg-gray-200'
                                         }`}
                                     />
                                 )}
@@ -357,7 +357,7 @@ export default function OnboardingPage() {
                             <h1 className="text-4xl font-bold mb-4">
                                 How would you like to create your resume?
                             </h1>
-                            <p className="text-slate-400 text-lg">
+                            <p className="text-gray-500 text-lg">
                                 Choose your preferred method to get started
                             </p>
                         </div>
@@ -368,14 +368,14 @@ export default function OnboardingPage() {
                                 onClick={() => handleMethodSelect('ai')}
                                 className="group relative bg-gradient-to-br from-accent-green/20 to-accent-teal/20 border-2 border-accent-green/50 rounded-2xl p-8 text-left hover:border-accent-green hover:scale-[1.02] transition-all duration-200"
                             >
-                                <div className="absolute top-3 right-3 bg-accent-green text-slate-900 text-xs font-bold px-2 py-1 rounded-full">
+                                <div className="absolute top-3 right-3 bg-accent-green text-gray-900 text-xs font-bold px-2 py-1 rounded-full">
                                     RECOMMENDED
                                 </div>
                                 <div className="w-14 h-14 bg-accent-green/20 rounded-xl flex items-center justify-center mb-4">
                                     <Wand2 className="text-accent-green" size={28} />
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">Create with AI</h3>
-                                <p className="text-slate-400 text-sm">
+                                <p className="text-gray-500 text-sm">
                                     Tell us your profession and we'll generate a professional resume in seconds
                                 </p>
                             </button>
@@ -383,31 +383,31 @@ export default function OnboardingPage() {
                             {/* Upload Option */}
                             <button
                                 onClick={() => handleMethodSelect('upload')}
-                                className="group bg-slate-800/50 border-2 border-slate-700 rounded-2xl p-8 text-left hover:border-slate-500 hover:bg-slate-800 transition-all duration-200"
+                                className="group bg-gray-50 border-2 border-gray-200 rounded-2xl p-8 text-left hover:border-gray-300 hover:bg-white transition-all duration-200"
                             >
-                                <div className="w-14 h-14 bg-slate-700/50 rounded-xl flex items-center justify-center mb-4">
-                                    <Upload className="text-slate-400" size={28} />
+                                <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
+                                    <Upload className="text-gray-500" size={28} />
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">Upload Resume</h3>
-                                <p className="text-slate-400 text-sm">
+                                <p className="text-gray-500 text-sm">
                                     Upload your existing resume and we'll enhance it
                                 </p>
-                                <span className="text-xs text-slate-500 mt-2 block">Coming soon</span>
+                                <span className="text-xs text-gray-400 mt-2 block">Coming soon</span>
                             </button>
 
                             {/* LinkedIn Option */}
                             <button
                                 onClick={() => handleMethodSelect('linkedin')}
-                                className="group bg-slate-800/50 border-2 border-slate-700 rounded-2xl p-8 text-left hover:border-slate-500 hover:bg-slate-800 transition-all duration-200"
+                                className="group bg-gray-50 border-2 border-gray-200 rounded-2xl p-8 text-left hover:border-gray-300 hover:bg-white transition-all duration-200"
                             >
-                                <div className="w-14 h-14 bg-slate-700/50 rounded-xl flex items-center justify-center mb-4">
-                                    <Linkedin className="text-slate-400" size={28} />
+                                <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
+                                    <Linkedin className="text-gray-500" size={28} />
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">Import LinkedIn</h3>
-                                <p className="text-slate-400 text-sm">
+                                <p className="text-gray-500 text-sm">
                                     Import your profile from LinkedIn automatically
                                 </p>
-                                <span className="text-xs text-slate-500 mt-2 block">Coming soon</span>
+                                <span className="text-xs text-gray-400 mt-2 block">Coming soon</span>
                             </button>
                         </div>
 
@@ -415,7 +415,7 @@ export default function OnboardingPage() {
                         <div className="text-center mt-10">
                             <Link
                                 href="/builder"
-                                className="text-slate-400 hover:text-white text-sm inline-flex items-center gap-2 transition-colors"
+                                className="text-gray-500 hover:text-gray-900 text-sm inline-flex items-center gap-2 transition-colors"
                             >
                                 <FileText size={16} />
                                 Or start with a blank resume
@@ -429,7 +429,7 @@ export default function OnboardingPage() {
                     <div className="animate-fadeIn max-w-xl mx-auto">
                         <button
                             onClick={() => setStep(1)}
-                            className="flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors"
+                            className="flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-8 transition-colors"
                         >
                             <ArrowLeft size={18} />
                             Back
@@ -440,7 +440,7 @@ export default function OnboardingPage() {
                                 <Sparkles className="text-accent-green" size={32} />
                             </div>
                             <h1 className="text-3xl font-bold mb-3">Tell us about yourself</h1>
-                            <p className="text-slate-400">
+                            <p className="text-gray-500">
                                 Just 2 questions and AI will create your perfect resume
                             </p>
                         </div>
@@ -448,7 +448,7 @@ export default function OnboardingPage() {
                         <div className="space-y-6">
                             {/* Full Name */}
                             <div>
-                                <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
+                                <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                     <User size={16} />
                                     Your Full Name
                                 </label>
@@ -459,14 +459,14 @@ export default function OnboardingPage() {
                                         setFormData((prev) => ({ ...prev, fullName: e.target.value }))
                                     }
                                     placeholder="e.g., John Smith"
-                                    className="w-full px-4 py-3.5 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition-colors text-lg"
+                                    className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors text-lg"
                                     autoFocus
                                 />
                             </div>
 
                             {/* Job Title */}
                             <div>
-                                <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-2">
+                                <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                     <Briefcase size={16} />
                                     Job Title You're Applying For
                                 </label>
@@ -477,13 +477,13 @@ export default function OnboardingPage() {
                                         setFormData((prev) => ({ ...prev, jobTitle: e.target.value }))
                                     }
                                     placeholder="e.g., Software Engineer, Marketing Manager"
-                                    className="w-full px-4 py-3.5 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition-colors text-lg"
+                                    className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors text-lg"
                                 />
                             </div>
 
                             {/* Experience Level */}
                             <div>
-                                <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-3">
+                                <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-3">
                                     <Clock size={16} />
                                     Experience Level
                                 </label>
@@ -500,11 +500,11 @@ export default function OnboardingPage() {
                                             className={`p-4 rounded-xl border-2 text-left transition-all ${
                                                 formData.experienceLevel === level.value
                                                     ? 'border-accent-green bg-accent-green/10'
-                                                    : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
+                                                    : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                                             }`}
                                         >
                                             <div className="font-medium">{level.label}</div>
-                                            <div className="text-xs text-slate-400">{level.description}</div>
+                                            <div className="text-xs text-gray-500">{level.description}</div>
                                         </button>
                                     ))}
                                 </div>
@@ -514,7 +514,7 @@ export default function OnboardingPage() {
                             <button
                                 onClick={handleGenerateResume}
                                 disabled={!canProceedStep2}
-                                className="w-full mt-4 py-4 bg-accent-green text-slate-900 rounded-xl font-semibold text-lg flex items-center justify-center gap-2 hover:bg-accent-teal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full mt-4 py-4 bg-accent-green text-gray-900 rounded-xl font-semibold text-lg flex items-center justify-center gap-2 hover:bg-accent-teal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <Wand2 size={20} />
                                 Generate My Resume
@@ -541,7 +541,7 @@ export default function OnboardingPage() {
                         <h2 className="text-2xl font-bold mb-4">Creating Your Resume</h2>
 
                         <div className="h-8">
-                            <p className="text-slate-400 text-lg animate-pulse">
+                            <p className="text-gray-500 text-lg animate-pulse">
                                 {aiProcessingMessages[processingMessageIndex]}
                             </p>
                         </div>
@@ -554,13 +554,13 @@ export default function OnboardingPage() {
                                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                                         index <= processingMessageIndex
                                             ? 'bg-accent-green'
-                                            : 'bg-slate-700'
+                                            : 'bg-gray-200'
                                     }`}
                                 />
                             ))}
                         </div>
 
-                        <p className="text-slate-500 text-sm mt-8">
+                        <p className="text-gray-400 text-sm mt-8">
                             This usually takes just a few seconds...
                         </p>
                     </div>
@@ -571,7 +571,7 @@ export default function OnboardingPage() {
                     <div className="animate-fadeIn">
                         <button
                             onClick={() => setStep(2)}
-                            className="flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors"
+                            className="flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-8 transition-colors"
                         >
                             <ArrowLeft size={18} />
                             Back to edit info
@@ -582,7 +582,7 @@ export default function OnboardingPage() {
                                 <Layout className="text-accent-green" size={32} />
                             </div>
                             <h1 className="text-3xl font-bold mb-3">Choose Your Template</h1>
-                            <p className="text-slate-400">
+                            <p className="text-gray-500">
                                 Your resume is ready! Pick a design that suits your style.
                             </p>
                         </div>
@@ -595,25 +595,25 @@ export default function OnboardingPage() {
                                     onClick={() => handleTemplateSelect(template.id)}
                                     className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${
                                         formData.selectedTemplate === template.id
-                                            ? 'ring-2 ring-accent-green ring-offset-2 ring-offset-slate-900 scale-[1.02]'
-                                            : 'hover:scale-[1.02] hover:ring-1 hover:ring-slate-600'
+                                            ? 'ring-2 ring-accent-green ring-offset-2 ring-offset-white scale-[1.02]'
+                                            : 'hover:scale-[1.02] hover:ring-1 hover:ring-gray-300'
                                     }`}
                                 >
                                     {/* Template Preview */}
-                                    <div className="aspect-[3/4] bg-slate-800 p-2">
+                                    <div className="aspect-[3/4] bg-white p-2">
                                         <TemplatePreview template={template} />
                                     </div>
 
                                     {/* Template Info */}
-                                    <div className="p-3 bg-slate-800/80">
-                                        <h4 className="font-medium text-white text-sm">{template.name}</h4>
-                                        <p className="text-xs text-slate-400">{template.style}</p>
+                                    <div className="p-3 bg-white/90">
+                                        <h4 className="font-medium text-gray-900 text-sm">{template.name}</h4>
+                                        <p className="text-xs text-gray-500">{template.style}</p>
                                     </div>
 
                                     {/* Selected checkmark */}
                                     {formData.selectedTemplate === template.id && (
                                         <div className="absolute top-2 right-2 w-6 h-6 bg-accent-green rounded-full flex items-center justify-center">
-                                            <Check size={14} className="text-slate-900" />
+                                            <Check size={14} className="text-gray-900" />
                                         </div>
                                     )}
                                 </button>
@@ -624,7 +624,7 @@ export default function OnboardingPage() {
                         <div className="text-center mb-8">
                             <Link
                                 href="/templates"
-                                className="text-slate-400 hover:text-accent-green text-sm inline-flex items-center gap-2 transition-colors"
+                                className="text-gray-500 hover:text-accent-green text-sm inline-flex items-center gap-2 transition-colors"
                             >
                                 Browse all templates
                                 <ArrowRight size={14} />
@@ -634,7 +634,7 @@ export default function OnboardingPage() {
                         {/* Continue Button */}
                         <button
                             onClick={handleFinish}
-                            className="w-full max-w-md mx-auto block py-4 bg-accent-green text-slate-900 rounded-xl font-semibold text-lg hover:bg-accent-teal transition-colors"
+                            className="w-full max-w-md mx-auto block py-4 bg-accent-green text-gray-900 rounded-xl font-semibold text-lg hover:bg-accent-teal transition-colors"
                         >
                             <span className="flex items-center justify-center gap-2">
                                 Continue to Editor

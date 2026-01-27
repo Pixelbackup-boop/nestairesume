@@ -54,7 +54,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`p-2 rounded-lg bg-white/5 text-gray-400 transition-colors ${color} hover:bg-white/10`}
+          className={`p-2 rounded-lg bg-gray-100 text-gray-600 transition-colors ${color} hover:bg-gray-200`}
           title={`Share on ${name}`}
         >
           <Icon size={18} />
@@ -62,8 +62,8 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
       ))}
       <button
         onClick={copyToClipboard}
-        className={`p-2 rounded-lg bg-white/5 transition-colors hover:bg-white/10 ${
-          copied ? 'text-accent-green' : 'text-gray-400 hover:text-white'
+        className={`p-2 rounded-lg bg-gray-100 transition-colors hover:bg-gray-200 ${
+          copied ? 'text-accent-green' : 'text-gray-600 hover:text-gray-900'
         }`}
         title="Copy link"
       >

@@ -9,7 +9,7 @@ export default function BlogLayout({
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#080b12] pt-20">
+      <main className="min-h-screen bg-gray-50 pt-20">
         {children}
       </main>
       <Footer />

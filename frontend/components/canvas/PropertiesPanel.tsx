@@ -50,8 +50,8 @@ export default function PropertiesPanel() {
 
     if (!selectedElement) {
         return (
-            <div className="w-64 bg-slate-900 border-l border-slate-700 p-4 flex flex-col items-center justify-center text-center h-full">
-                <div className="text-slate-500 text-sm">
+            <div className="w-64 bg-gray-50 border-l border-gray-200 p-4 flex flex-col items-center justify-center text-center h-full">
+                <div className="text-gray-400 text-sm">
                     <Square className="w-12 h-12 mx-auto mb-3 opacity-30" />
                     <p>Select an element to edit its properties</p>
                 </div>
@@ -88,10 +88,10 @@ export default function PropertiesPanel() {
 
     // Section toggle
     const Section = ({ id, title, children }: { id: string; title: string; children: React.ReactNode }) => (
-        <div className="border-b border-slate-700">
+        <div className="border-b border-gray-200">
             <button
                 onClick={() => setActiveSection(activeSection === id ? null : id)}
-                className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-800 transition-colors"
+                className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-600 hover:bg-white transition-colors"
             >
                 {title}
                 <ChevronDown
@@ -117,7 +117,7 @@ export default function PropertiesPanel() {
         step?: number;
     }) => (
         <div className="flex items-center justify-between">
-            <label className="text-xs text-slate-400">{label}</label>
+            <label className="text-xs text-gray-500">{label}</label>
             <input
                 type="number"
                 value={Math.round(value * 100) / 100}
@@ -126,7 +126,7 @@ export default function PropertiesPanel() {
                 min={min}
                 max={max}
                 step={step}
-                className="w-20 px-2 py-1 bg-slate-800 border border-slate-600 rounded text-sm text-white text-right focus:outline-none focus:border-accent-green"
+                className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-sm text-white text-right focus:outline-none focus:border-accent-green"
             />
         </div>
     );
@@ -137,7 +137,7 @@ export default function PropertiesPanel() {
         onChange: (value: string) => void;
     }) => (
         <div className="flex items-center justify-between">
-            <label className="text-xs text-slate-400">{label}</label>
+            <label className="text-xs text-gray-500">{label}</label>
             <div className="flex items-center gap-2">
                 <input
                     type="color"
@@ -151,7 +151,7 @@ export default function PropertiesPanel() {
                     value={value || ''}
                     onChange={(e) => onChange(e.target.value)}
                     onBlur={() => saveToHistory()}
-                    className="w-20 px-2 py-1 bg-slate-800 border border-slate-600 rounded text-xs text-white focus:outline-none focus:border-accent-green"
+                    className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-xs text-white focus:outline-none focus:border-accent-green"
                     placeholder="#000000"
                 />
             </div>
@@ -168,8 +168,8 @@ export default function PropertiesPanel() {
     }) => (
         <div className="space-y-1">
             <div className="flex items-center justify-between">
-                <label className="text-xs text-slate-400">{label}</label>
-                <span className="text-xs text-slate-500">{Math.round(value)}</span>
+                <label className="text-xs text-gray-500">{label}</label>
+                <span className="text-xs text-gray-400">{Math.round(value)}</span>
             </div>
             <input
                 type="range"
@@ -180,7 +180,7 @@ export default function PropertiesPanel() {
                 min={min}
                 max={max}
                 step={step}
-                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider-thumb"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb"
                 style={{
                     WebkitAppearance: 'none',
                     background: `linear-gradient(to right, #00dc82 0%, #00dc82 ${((value - min) / (max - min)) * 100}%, #334155 ${((value - min) / (max - min)) * 100}%, #334155 100%)`,
@@ -190,63 +190,63 @@ export default function PropertiesPanel() {
     );
 
     return (
-        <div className="w-64 bg-slate-900 border-l border-slate-700 flex flex-col h-full overflow-hidden">
+        <div className="w-64 bg-gray-50 border-l border-gray-200 flex flex-col h-full overflow-hidden">
             {/* Header */}
-            <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between shrink-0">
+            <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2 text-white">
                     {getElementIcon()}
                     <span className="font-medium text-sm">{getElementTypeName()}</span>
                 </div>
                 <button
                     onClick={deselectAll}
-                    className="p-1 text-slate-400 hover:text-white transition-colors"
+                    className="p-1 text-gray-500 hover:text-white transition-colors"
                 >
                     <X size={16} />
                 </button>
             </div>
 
             {/* Quick Actions */}
-            <div className="px-4 py-3 border-b border-slate-700 flex items-center gap-1 shrink-0">
+            <div className="px-4 py-3 border-b border-gray-200 flex items-center gap-1 shrink-0">
                 <button
                     onClick={() => duplicateElement(selectedElement.id)}
-                    className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
+                    className="p-2 text-gray-500 hover:text-white hover:bg-white rounded transition-colors"
                     title="Duplicate"
                 >
                     <Copy size={16} />
                 </button>
                 <button
                     onClick={() => handleUpdateAndSave({ locked: !selectedElement.locked })}
-                    className={`p-2 rounded transition-colors ${selectedElement.locked ? 'text-accent-green bg-slate-800' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
+                    className={`p-2 rounded transition-colors ${selectedElement.locked ? 'text-accent-green bg-white' : 'text-gray-500 hover:text-white hover:bg-white'}`}
                     title={selectedElement.locked ? 'Unlock' : 'Lock'}
                 >
                     {selectedElement.locked ? <Lock size={16} /> : <Unlock size={16} />}
                 </button>
                 <button
                     onClick={() => handleUpdateAndSave({ visible: !selectedElement.visible })}
-                    className={`p-2 rounded transition-colors ${!selectedElement.visible ? 'text-yellow-500 bg-slate-800' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
+                    className={`p-2 rounded transition-colors ${!selectedElement.visible ? 'text-yellow-500 bg-white' : 'text-gray-500 hover:text-white hover:bg-white'}`}
                     title={selectedElement.visible ? 'Hide' : 'Show'}
                 >
                     {selectedElement.visible ? <Eye size={16} /> : <EyeOff size={16} />}
                 </button>
-                <div className="w-px h-6 bg-slate-700 mx-1" />
+                <div className="w-px h-6 bg-gray-200 mx-1" />
                 <button
                     onClick={() => bringToFront(selectedElement.id)}
-                    className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
+                    className="p-2 text-gray-500 hover:text-white hover:bg-white rounded transition-colors"
                     title="Bring to Front"
                 >
                     <ChevronsUp size={16} />
                 </button>
                 <button
                     onClick={() => sendToBack(selectedElement.id)}
-                    className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
+                    className="p-2 text-gray-500 hover:text-white hover:bg-white rounded transition-colors"
                     title="Send to Back"
                 >
                     <ChevronsDown size={16} />
                 </button>
-                <div className="w-px h-6 bg-slate-700 mx-1" />
+                <div className="w-px h-6 bg-gray-200 mx-1" />
                 <button
                     onClick={() => removeElement(selectedElement.id)}
-                    className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded transition-colors"
+                    className="p-2 text-gray-500 hover:text-red-400 hover:bg-white rounded transition-colors"
                     title="Delete"
                 >
                     <Trash2 size={16} />
@@ -291,7 +291,7 @@ export default function PropertiesPanel() {
                         />
                         <button
                             onClick={() => handleUpdateAndSave({ rotation: 0 })}
-                            className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors ml-2"
+                            className="p-1.5 text-gray-500 hover:text-white hover:bg-white rounded transition-colors ml-2"
                             title="Reset Rotation"
                         >
                             <RotateCcw size={14} />
@@ -313,11 +313,11 @@ export default function PropertiesPanel() {
                             <div className="space-y-3">
                                 {/* Font Family */}
                                 <div>
-                                    <label className="text-xs text-slate-400 mb-1 block">Font</label>
+                                    <label className="text-xs text-gray-500 mb-1 block">Font</label>
                                     <select
                                         value={(selectedElement as TextElement).fontFamily}
                                         onChange={(e) => handleUpdateAndSave({ fontFamily: e.target.value })}
-                                        className="w-full px-2 py-1.5 bg-slate-800 border border-slate-600 rounded text-sm text-white focus:outline-none focus:border-accent-green"
+                                        className="w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-sm text-white focus:outline-none focus:border-accent-green"
                                     >
                                         {['Inter', 'Playfair Display', 'Roboto', 'Open Sans', 'Lato', 'Poppins', 'Montserrat', 'Merriweather', 'Georgia', 'Times New Roman'].map((font) => (
                                             <option key={font} value={font} style={{ fontFamily: font }}>
@@ -338,12 +338,12 @@ export default function PropertiesPanel() {
 
                                 {/* Bold & Italic */}
                                 <div className="flex items-center gap-2">
-                                    <label className="text-xs text-slate-400 flex-1">Style</label>
+                                    <label className="text-xs text-gray-500 flex-1">Style</label>
                                     <button
                                         onClick={() => handleUpdateAndSave({
                                             fontWeight: (selectedElement as TextElement).fontWeight === 'bold' ? 'normal' : 'bold'
                                         })}
-                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontWeight === 'bold' ? 'bg-slate-700 text-white' : 'text-slate-400 hover:bg-slate-800'}`}
+                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontWeight === 'bold' ? 'bg-gray-200 text-white' : 'text-gray-500 hover:bg-white'}`}
                                     >
                                         <Bold size={16} />
                                     </button>
@@ -351,7 +351,7 @@ export default function PropertiesPanel() {
                                         onClick={() => handleUpdateAndSave({
                                             fontStyle: (selectedElement as TextElement).fontStyle === 'italic' ? 'normal' : 'italic'
                                         })}
-                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontStyle === 'italic' ? 'bg-slate-700 text-white' : 'text-slate-400 hover:bg-slate-800'}`}
+                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontStyle === 'italic' ? 'bg-gray-200 text-white' : 'text-gray-500 hover:bg-white'}`}
                                     >
                                         <Italic size={16} />
                                     </button>
@@ -359,12 +359,12 @@ export default function PropertiesPanel() {
 
                                 {/* Alignment */}
                                 <div className="flex items-center gap-2">
-                                    <label className="text-xs text-slate-400 flex-1">Align</label>
+                                    <label className="text-xs text-gray-500 flex-1">Align</label>
                                     {(['left', 'center', 'right'] as const).map((align) => (
                                         <button
                                             key={align}
                                             onClick={() => handleUpdateAndSave({ align })}
-                                            className={`p-2 rounded transition-colors ${(selectedElement as TextElement).align === align ? 'bg-slate-700 text-white' : 'text-slate-400 hover:bg-slate-800'}`}
+                                            className={`p-2 rounded transition-colors ${(selectedElement as TextElement).align === align ? 'bg-gray-200 text-white' : 'text-gray-500 hover:bg-white'}`}
                                         >
                                             {align === 'left' && <AlignLeft size={16} />}
                                             {align === 'center' && <AlignCenter size={16} />}
@@ -383,7 +383,7 @@ export default function PropertiesPanel() {
                                 {/* Background Color */}
                                 <div className="space-y-1">
                                     <div className="flex items-center justify-between">
-                                        <label className="text-xs text-slate-400">Background</label>
+                                        <label className="text-xs text-gray-500">Background</label>
                                         {(selectedElement as TextElement).backgroundColor && (
                                             <button
                                                 onClick={() => handleUpdateAndSave({ backgroundColor: undefined })}
@@ -406,7 +406,7 @@ export default function PropertiesPanel() {
                                             value={(selectedElement as TextElement).backgroundColor || ''}
                                             onChange={(e) => handleUpdate({ backgroundColor: e.target.value })}
                                             onBlur={() => saveToHistory()}
-                                            className="w-20 px-2 py-1 bg-slate-800 border border-slate-600 rounded text-xs text-white focus:outline-none focus:border-accent-green"
+                                            className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-xs text-white focus:outline-none focus:border-accent-green"
                                             placeholder="None"
                                         />
                                     </div>
@@ -451,7 +451,7 @@ export default function PropertiesPanel() {
                             {/* Image fill indicator */}
                             {(selectedElement as ShapeElement).imageSrc && (
                                 <div className="flex items-center justify-between">
-                                    <label className="text-xs text-slate-400">Image Fill</label>
+                                    <label className="text-xs text-gray-500">Image Fill</label>
                                     <button
                                         onClick={() => handleUpdateAndSave({ imageSrc: undefined })}
                                         className="text-xs text-red-400 hover:text-red-300"
@@ -515,11 +515,11 @@ export default function PropertiesPanel() {
                     <Section id="image" title="Image">
                         <div className="space-y-3">
                             {(selectedElement as ImageElement).src ? (
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-gray-500">
                                     Image loaded. Use Uploads tab to replace.
                                 </div>
                             ) : (
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-gray-500">
                                     No image. Use Uploads tab to add one.
                                 </div>
                             )}

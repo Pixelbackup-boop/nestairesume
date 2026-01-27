@@ -125,7 +125,7 @@ export default function LayerPanel() {
 
     if (elements.length === 0) {
         return (
-            <div className="p-4 text-center text-slate-500 text-sm">
+            <div className="p-4 text-center text-gray-400 text-sm">
                 <p>No elements yet.</p>
                 <p className="text-xs mt-1">Add elements from the sidebar.</p>
             </div>
@@ -134,9 +134,9 @@ export default function LayerPanel() {
 
     return (
         <div className="flex flex-col h-full">
-            <div className="px-4 py-2 border-b border-slate-700">
-                <h3 className="text-sm font-medium text-slate-300">Layers</h3>
-                <p className="text-xs text-slate-500">{elements.length} element{elements.length !== 1 ? 's' : ''}</p>
+            <div className="px-4 py-2 border-b border-gray-200">
+                <h3 className="text-sm font-medium text-gray-600">Layers</h3>
+                <p className="text-xs text-gray-400">{elements.length} element{elements.length !== 1 ? 's' : ''}</p>
             </div>
 
             <div className="flex-1 overflow-y-auto">
@@ -151,24 +151,24 @@ export default function LayerPanel() {
                             onDragOver={handleDragOver}
                             onDrop={(e) => handleDrop(e, index)}
                             onClick={() => selectElement(element.id)}
-                            className={`group flex items-center gap-2 px-2 py-2 border-b border-slate-800 cursor-pointer transition-colors ${
+                            className={`group flex items-center gap-2 px-2 py-2 border-b border-gray-200 cursor-pointer transition-colors ${
                                 isSelected
                                     ? 'bg-accent-green/10 border-l-2 border-l-accent-green'
-                                    : 'hover:bg-slate-800/50 border-l-2 border-l-transparent'
+                                    : 'hover:bg-gray-50 border-l-2 border-l-transparent'
                             } ${!element.visible ? 'opacity-50' : ''}`}
                         >
                             {/* Drag handle */}
-                            <div className="cursor-grab active:cursor-grabbing text-slate-600 hover:text-slate-400">
+                            <div className="cursor-grab active:cursor-grabbing text-gray-600 hover:text-gray-500">
                                 <GripVertical size={14} />
                             </div>
 
                             {/* Element icon */}
-                            <div className={`${isSelected ? 'text-accent-green' : 'text-slate-400'}`}>
+                            <div className={`${isSelected ? 'text-accent-green' : 'text-gray-500'}`}>
                                 {getElementIcon(element)}
                             </div>
 
                             {/* Element name */}
-                            <span className={`flex-1 text-xs truncate ${isSelected ? 'text-white' : 'text-slate-300'}`}>
+                            <span className={`flex-1 text-xs truncate ${isSelected ? 'text-white' : 'text-gray-600'}`}>
                                 {getElementName(element)}
                             </span>
 
@@ -177,7 +177,7 @@ export default function LayerPanel() {
                                 <button
                                     onClick={(e) => toggleVisibility(element, e)}
                                     className={`p-1 rounded transition-colors ${
-                                        element.visible ? 'text-slate-500 hover:text-white' : 'text-yellow-500'
+                                        element.visible ? 'text-gray-400 hover:text-white' : 'text-yellow-500'
                                     }`}
                                     title={element.visible ? 'Hide' : 'Show'}
                                 >
@@ -186,7 +186,7 @@ export default function LayerPanel() {
                                 <button
                                     onClick={(e) => toggleLock(element, e)}
                                     className={`p-1 rounded transition-colors ${
-                                        element.locked ? 'text-accent-green' : 'text-slate-500 hover:text-white'
+                                        element.locked ? 'text-accent-green' : 'text-gray-400 hover:text-white'
                                     }`}
                                     title={element.locked ? 'Unlock' : 'Lock'}
                                 >
@@ -194,7 +194,7 @@ export default function LayerPanel() {
                                 </button>
                                 <button
                                     onClick={(e) => handleDelete(element, e)}
-                                    className="p-1 rounded text-slate-500 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
+                                    className="p-1 rounded text-gray-400 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
                                     title="Delete"
                                 >
                                     <Trash2 size={12} />

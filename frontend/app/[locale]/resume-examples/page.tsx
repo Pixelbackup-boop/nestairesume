@@ -30,16 +30,16 @@ export default async function ResumeExamplesIndex() {
     <>
       <Header />
 
-      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
+      <section className="pt-32 pb-16 bg-gray-50 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <span className="text-accent-blue font-semibold tracking-wider uppercase text-sm mb-2 block">
             Resume Examples 2026
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold mt-2 mb-6 text-slate-900">
+          <h1 className="text-4xl md:text-6xl font-bold mt-2 mb-6 text-gray-900">
             Resume Examples<br />
             <span className="text-accent-primary">by Job Title</span>
           </h1>
-          <p className="text-lg text-slate-600 mb-4 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 mb-4 max-w-2xl mx-auto">
             Browse {allExamples.length}+ professional resume examples organized by industry. Find your role, study the resume format, and build yours with our AI builder.
           </p>
         </div>
@@ -49,10 +49,10 @@ export default async function ResumeExamplesIndex() {
         <div className="max-w-6xl mx-auto px-6">
           <ResumeExamplesGrid examples={examples} categories={categories} />
 
-          <div className="mt-16 text-center p-8 bg-slate-50 rounded-2xl border border-slate-200">
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Don&apos;t see your job title?</h3>
-            <p className="text-slate-600 mb-6">Our AI can write a custom resume for ANY job title in seconds.</p>
-            <Link href="/onboarding" className="inline-block bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition">
+          <div className="mt-16 text-center p-8 bg-gray-50 rounded-2xl border border-gray-100">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Don&apos;t see your job title?</h3>
+            <p className="text-gray-600 mb-6">Our AI can write a custom resume for ANY job title in seconds.</p>
+            <Link href="/onboarding" className="inline-block bg-gray-50 text-white px-6 py-3 rounded-xl font-bold hover:bg-white transition">
               Generate Custom Resume
             </Link>
           </div>

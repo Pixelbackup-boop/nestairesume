@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AUTHORS } from "@/lib/resume-examples/posts";
 
 export default function AboutPage() {
   return (
@@ -124,6 +125,70 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Meet Our Experts - E-E-A-T Signal */}
+      <section className="py-16 bg-white/5">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-accent-blue font-medium text-sm uppercase tracking-wider">Expertise You Can Trust</span>
+            <h2 className="text-3xl font-bold mt-3 text-white">Meet Our Career Experts</h2>
+            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+              Our team of career coaches, recruiters, and industry specialists each bring deep expertise to the resume guides they write.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.values(AUTHORS).map((a) => (
+              <Link
+                key={a.slug}
+                href={`/about/${a.slug}`}
+                className="bg-white/10 rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:border-accent-blue/30 hover:bg-white/15 transition group"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-16 h-16 flex-shrink-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent-blue to-accent-purple rounded-full blur-sm opacity-30 group-hover:opacity-50 transition"></div>
+                    <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/20 bg-gray-800">
+                      <img
+                        src={a.image}
+                        alt={`${a.name} - ${a.jobTitle}`}
+                        className="w-full h-full object-cover"
+                        width={64}
+                        height={64}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white group-hover:text-accent-blue transition">{a.name}</h3>
+                    <p className="text-accent-blue/80 text-sm font-medium">{a.jobTitle}</p>
+                  </div>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">{a.bio}</p>
+                <div className="flex flex-wrap gap-2">
+                  {a.expertise.slice(0, 3).map((e) => (
+                    <span key={e} className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-400">
+                      {e}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center border-t border-white/10 pt-8">
+            <h4 className="text-lg font-semibold text-white mb-4">Our Editorial Standards</h4>
+            <div className="grid md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
+              <div>
+                <h5 className="text-accent-green font-medium mb-1">Data-Backed Advice</h5>
+                <p className="text-gray-400 text-sm">Every tip we share is tested against real ATS systems and verified by industry professionals.</p>
+              </div>
+              <div>
+                <h5 className="text-accent-green font-medium mb-1">Human-First Approach</h5>
+                <p className="text-gray-400 text-sm">We believe AI should empower, not replace. We prioritize strategies that appeal to human recruiters first.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section >
+
       {/* Our Commitment */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6">
@@ -162,7 +227,7 @@ export default function AboutPage() {
             </svg>
           </Link>
         </div>
-      </section>
+      </section >
 
       <Footer />
     </>

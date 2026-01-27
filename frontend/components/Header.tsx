@@ -1,17 +1,18 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { useAuthStore } from "@/store/useAuthStore";
-import { LogOut, LayoutDashboard, Shield, ChevronDown, FileText, FileSignature } from "lucide-react";
+import { LogOut, LayoutDashboard, Shield, ChevronDown, FileText, FileSignature, BookOpen, Newspaper, ArrowRight, Layers } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
-import ThemeToggle from "./ThemeToggle";
+
+import MegaMenuPanel from "./MegaMenuPanel";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -19,41 +20,61 @@ export default function Header() {
   const t = useTranslations("Navigation");
   const { isAuthenticated, user, logout } = useAuthStore();
 
-  // Listen for scroll to toggle header background
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial state
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mega menu on route change
+  useEffect(() => {
+    setActiveMenu(null);
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   const handleLogout = () => {
     logout();
     router.push(`/${locale}`);
   };
 
-  // Helper to add locale prefix to links (memoized)
   const localizedHref = useCallback((path: string) => `/${locale}${path}`, [locale]);
 
-  // Memoize navLinks to prevent recreation on every render
-  const navLinks = useMemo(() => [
-    { href: "/templates", label: t("templates") },
-    { href: "/pricing", label: t("pricing") },
-    { href: "/career-tips", label: t("careerTips") },
-  ], [t]);
+  const toggleMenu = useCallback((menu: string) => {
+    setActiveMenu(prev => prev === menu ? null : menu);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setActiveMenu(null);
+  }, []);
+
+  const isMenuActive = (menu: string): boolean => {
+    switch (menu) {
+      case "templates": return pathname.includes("/templates");
+      case "resources": return pathname.includes("/career-tips") || pathname.includes("/blog") || pathname.includes("/tools") || pathname.includes("/resume-format");
+      default: return false;
+    }
+  };
 
   const isActive = (href: string) => pathname === localizedHref(href);
-
-  // Check if we're on home page (for transparent header on hero)
   const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
 
-  // Text color based on scroll state and page
   const textColor = scrolled || !isHomePage ? "text-dark-teal" : "text-white";
   const textColorMuted = scrolled || !isHomePage ? "text-dark-teal/70" : "text-white/80";
   const textColorHover = scrolled || !isHomePage ? "hover:text-dark-teal" : "hover:text-white";
   const activeTextColor = scrolled || !isHomePage ? "text-dark-teal bg-teal-primary/10" : "text-white bg-white/10";
+
+  const menuBtnClass = (menu: string) =>
+    `flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+      isMenuActive(menu) || activeMenu === menu
+        ? activeTextColor
+        : `${textColorMuted} ${textColorHover}`
+    }`;
+
+  // Shared link style for mega menu items
+  const megaLinkClass = "block px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors";
+  const megaSectionHeader = "text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4";
+  const megaViewAll = "flex items-center gap-1 mt-3 px-3 text-sm font-medium text-teal-primary hover:text-teal-secondary transition-colors";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
@@ -85,124 +106,68 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={localizedHref(link.href)}
-                  className={`relative px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 ${
-                    isActive(link.href)
-                      ? activeTextColor
-                      : `${textColorMuted} ${textColorHover}`
-                  }`}
-                >
-                  {link.label}
-                  {isActive(link.href) && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-teal-primary rounded-full" />
-                  )}
-                </Link>
-              ))}
+            <div className="hidden lg:flex items-center gap-1">
+              {/* Templates ▾ */}
+              <button data-mega-trigger onClick={() => toggleMenu("templates")} className={menuBtnClass("templates")}>
+                {t("templates")}
+                <ChevronDown size={14} className={`transition-transform ${activeMenu === "templates" ? "rotate-180" : ""}`} />
+              </button>
 
-              {/* Tools Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
-                  onBlur={() => setTimeout(() => setToolsDropdownOpen(false), 150)}
-                  className={`flex items-center gap-1 px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 ${
-                    pathname.includes('/tools/')
-                      ? activeTextColor
-                      : `${textColorMuted} ${textColorHover}`
-                  }`}
-                >
-                  {t("tools")}
-                  <ChevronDown size={16} className={`transition-transform ${toolsDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {toolsDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-bg-card rounded-xl shadow-xl border border-gray-100 dark:border-border-subtle overflow-hidden z-50">
-                    <Link
-                      href={localizedHref("/tools/cover-letter")}
-                      className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
-                    >
-                      <div className="w-9 h-9 bg-accent-purple/10 rounded-lg flex items-center justify-center">
-                        <FileText size={18} className="text-accent-purple" />
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900 dark:text-white text-sm">{t("coverLetter")}</div>
-                        <div className="text-xs text-gray-500">{t("coverLetterDesc")}</div>
-                      </div>
-                    </Link>
-                    <Link
-                      href={localizedHref("/tools/resignation-letter")}
-                      className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
-                    >
-                      <div className="w-9 h-9 bg-accent-teal/10 rounded-lg flex items-center justify-center">
-                        <FileSignature size={18} className="text-accent-teal" />
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900 dark:text-white text-sm">{t("resignationLetter")}</div>
-                        <div className="text-xs text-gray-500">{t("resignationLetterDesc")}</div>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </div>
+              {/* Resources ▾ */}
+              <button data-mega-trigger onClick={() => toggleMenu("resources")} className={menuBtnClass("resources")}>
+                {t("resources")}
+                <ChevronDown size={14} className={`transition-transform ${activeMenu === "resources" ? "rotate-180" : ""}`} />
+              </button>
+
+              {/* Pricing (simple link) */}
+              <Link
+                href={localizedHref("/pricing")}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  isActive("/pricing") ? activeTextColor : `${textColorMuted} ${textColorHover}`
+                }`}
+              >
+                {t("pricing")}
+              </Link>
             </div>
 
-            {/* Right Side - Language, Auth Buttons & Theme Toggle */}
-            <div className="hidden md:flex items-center gap-3">
+            {/* Right Side */}
+            <div className="hidden lg:flex items-center gap-3">
               <LanguageSwitcher scrolled={scrolled} isHomePage={isHomePage} />
 
               {isAuthenticated ? (
                 <>
                   {user?.role === "admin" && (
-                    <Link
-                      href={localizedHref("/admin")}
-                      className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}
-                    >
+                    <Link href={localizedHref("/admin")} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}>
                       <Shield size={16} />
                       {t("admin")}
                     </Link>
                   )}
-                  <Link
-                    href={localizedHref("/dashboard")}
-                    className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}
-                  >
+                  <Link href={localizedHref("/dashboard")} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}>
                     <LayoutDashboard size={16} />
                     {t("dashboard")}
                   </Link>
-                  <button
-                    onClick={handleLogout}
-                    className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} hover:text-red-500`}
-                  >
+                  <button onClick={handleLogout} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} hover:text-red-500`}>
                     <LogOut size={16} />
                     {t("logout")}
                   </button>
                 </>
               ) : (
                 <>
-                  <Link
-                    href={localizedHref("/auth/login")}
-                    className={`px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}
-                  >
+                  <Link href={localizedHref("/auth/login")} className={`px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}>
                     {t("login")}
                   </Link>
-                  <Link
-                    href={localizedHref("/auth/register")}
-                    className="group relative px-5 py-2.5 rounded-full font-semibold text-sm overflow-hidden bg-white shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/15 transition-all"
-                  >
+                  <Link href={localizedHref("/auth/register")} className="group relative px-5 py-2.5 rounded-full font-semibold text-sm overflow-hidden bg-white shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/15 transition-all">
                     <span className="relative text-teal-primary">{t("getStarted")}</span>
                   </Link>
                 </>
               )}
 
-              {/* Theme Toggle - Far Right */}
-              <ThemeToggle scrolled={scrolled} isHomePage={isHomePage} />
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-2 transition-colors ${textColorMuted} ${textColorHover}`}
+              className={`lg:hidden p-2 transition-colors ${textColorMuted} ${textColorHover}`}
             >
               {mobileMenuOpen ? (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,98 +182,203 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* ============================================
+            MEGA MENU PANELS (Desktop)
+           ============================================ */}
+
+        {/* Templates Mega Menu */}
+        <MegaMenuPanel isOpen={activeMenu === "templates"} onClose={closeMenu}>
+          <div className="grid grid-cols-[1fr_1fr_280px] gap-8">
+            <div>
+              <h3 className={megaSectionHeader}>{t("byStyle")}</h3>
+              <div className="space-y-1">
+                <Link href={localizedHref("/templates/modern")} onClick={closeMenu} className={megaLinkClass}>Modern</Link>
+                <Link href={localizedHref("/templates/creative")} onClick={closeMenu} className={megaLinkClass}>Creative</Link>
+                <Link href={localizedHref("/templates/simple")} onClick={closeMenu} className={megaLinkClass}>Simple &amp; Clean</Link>
+              </div>
+              <Link href={localizedHref("/templates")} onClick={closeMenu} className={megaViewAll}>
+                {t("allTemplates")} <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div>
+              <h3 className={megaSectionHeader}>{t("byFormat")}</h3>
+              <div className="space-y-1">
+                <Link href={localizedHref("/templates/ats-friendly")} onClick={closeMenu} className={megaLinkClass}>ATS-Friendly</Link>
+                <Link href={localizedHref("/templates/google-docs")} onClick={closeMenu} className={megaLinkClass}>Google Docs</Link>
+                <Link href={localizedHref("/templates/word")} onClick={closeMenu} className={megaLinkClass}>Microsoft Word</Link>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-teal-primary/10 to-teal-secondary/10 rounded-xl p-6 flex flex-col justify-center">
+              <div className="w-10 h-10 bg-teal-primary/20 rounded-lg flex items-center justify-center mb-3">
+                <Layers size={20} className="text-teal-primary" />
+              </div>
+              <h4 className="font-bold text-lg text-gray-900 mb-1">{t("buildResumeFree")}</h4>
+              <p className="text-sm text-gray-600 mb-4">{t("chooseFromTemplates")}</p>
+              <Link href={localizedHref("/builder")} onClick={closeMenu} className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-teal-primary to-teal-secondary text-white rounded-lg font-semibold text-sm hover:opacity-90 transition w-fit">
+                {t("getStarted")} <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </MegaMenuPanel>
+
+        {/* Resources Mega Menu */}
+        <MegaMenuPanel isOpen={activeMenu === "resources"} onClose={closeMenu}>
+          <div className="grid grid-cols-3 gap-8">
+            <div>
+              <h3 className={megaSectionHeader}>
+                <span className="flex items-center gap-2">
+                  <BookOpen size={14} className="text-teal-primary" />
+                  {t("guides")}
+                </span>
+              </h3>
+              <div className="space-y-1">
+                <Link href={localizedHref("/resume-format")} onClick={closeMenu} className={megaLinkClass}>{t("resumeFormat")}</Link>
+                <Link href={localizedHref("/career-tips/how-to-write-ats-friendly-resume")} onClick={closeMenu} className={megaLinkClass}>{t("atsGuide")}</Link>
+                <Link href={localizedHref("/career-tips/how-to-write-cover-letter")} onClick={closeMenu} className={megaLinkClass}>{t("coverLetterGuide")}</Link>
+                <Link href={localizedHref("/career-tips/interview-preparation-guide")} onClick={closeMenu} className={megaLinkClass}>{t("interviewPrep")}</Link>
+              </div>
+              <Link href={localizedHref("/career-tips")} onClick={closeMenu} className={megaViewAll}>
+                {t("allCareerTips")} <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div>
+              <h3 className={megaSectionHeader}>
+                <span className="flex items-center gap-2">
+                  <Newspaper size={14} className="text-accent-blue" />
+                  {t("latestPosts")}
+                </span>
+              </h3>
+              <div className="space-y-1">
+                <Link href={localizedHref("/blog/best-resume-builder-apps")} onClick={closeMenu} className={megaLinkClass}>{t("bestResumeApps")}</Link>
+                <Link href={localizedHref("/blog/how-to-list-skills-on-resume")} onClick={closeMenu} className={megaLinkClass}>{t("resumeSkills")}</Link>
+                <Link href={localizedHref("/blog/linkedin-profile-optimization")} onClick={closeMenu} className={megaLinkClass}>{t("linkedinGuide")}</Link>
+                <Link href={localizedHref("/blog/best-resume-writing-services")} onClick={closeMenu} className={megaLinkClass}>{t("writingServices")}</Link>
+              </div>
+              <Link href={localizedHref("/blog")} onClick={closeMenu} className={megaViewAll}>
+                {t("allBlog")} <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div>
+              <h3 className={megaSectionHeader}>
+                <span className="flex items-center gap-2">
+                  <FileText size={14} className="text-accent-purple" />
+                  {t("tools")}
+                </span>
+              </h3>
+              <div className="space-y-1">
+                <Link href={localizedHref("/tools/cover-letter")} onClick={closeMenu} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                  <div className="w-8 h-8 bg-accent-purple/10 rounded-lg flex items-center justify-center shrink-0">
+                    <FileText size={16} className="text-accent-purple" />
+                  </div>
+                  <div>
+                    <div className="font-medium">{t("coverLetter")}</div>
+                    <div className="text-xs text-gray-500">{t("coverLetterDesc")}</div>
+                  </div>
+                </Link>
+                <Link href={localizedHref("/tools/resignation-letter")} onClick={closeMenu} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                  <div className="w-8 h-8 bg-teal-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                    <FileSignature size={16} className="text-teal-primary" />
+                  </div>
+                  <div>
+                    <div className="font-medium">{t("resignationLetter")}</div>
+                    <div className="text-xs text-gray-500">{t("resignationLetterDesc")}</div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </MegaMenuPanel>
+
+        {/* ============================================
+            MOBILE MENU
+           ============================================ */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white/98 backdrop-blur-md">
+          <div className="lg:hidden border-t border-gray-200 bg-white/98 backdrop-blur-md max-h-[calc(100vh-72px)] overflow-y-auto">
             <div className="px-6 py-4 space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={localizedHref(link.href)}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive(link.href)
-                      ? "text-dark-teal bg-teal-primary/10"
-                      : "text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50"
-                  }`}
-                >
+
+              {/* Templates Section */}
+              <div className="pt-2 pb-1">
+                <span className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">{t("templates")}</span>
+              </div>
+              {[
+                { href: "/templates/modern", label: "Modern" },
+                { href: "/templates/creative", label: "Creative" },
+                { href: "/templates/simple", label: "Simple & Clean" },
+                { href: "/templates/ats-friendly", label: "ATS-Friendly" },
+                { href: "/templates/google-docs", label: "Google Docs" },
+                { href: "/templates/word", label: "Word" },
+              ].map(link => (
+                <Link key={link.href} href={localizedHref(link.href)} onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
                   {link.label}
                 </Link>
               ))}
+              <Link href={localizedHref("/templates")} onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-teal-primary">
+                {t("allTemplates")} <ArrowRight size={14} />
+              </Link>
 
-              {/* Tools Section in Mobile */}
-              <div className="pt-2 pb-1">
-                <span className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">{t("tools")}</span>
+              {/* Resources Section */}
+              <div className="pt-3 pb-1">
+                <span className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">{t("resources")}</span>
               </div>
-              <Link
-                href={localizedHref("/tools/cover-letter")}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors"
-              >
-                <FileText size={18} className="text-accent-purple" />
-                {t("coverLetter")}
+              <Link href={localizedHref("/blog")} onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                <Newspaper size={18} className="text-accent-blue" /> {t("blog")}
               </Link>
-              <Link
-                href={localizedHref("/tools/resignation-letter")}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors"
-              >
-                <FileSignature size={18} className="text-accent-teal" />
-                {t("resignationLetter")}
+              <Link href={localizedHref("/career-tips")} onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                <BookOpen size={18} className="text-accent-purple" /> {t("careerTips")}
+              </Link>
+              <Link href={localizedHref("/tools/cover-letter")} onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                <FileText size={18} className="text-accent-purple" /> {t("coverLetter")}
+              </Link>
+              <Link href={localizedHref("/tools/resignation-letter")} onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                <FileSignature size={18} className="text-teal-primary" /> {t("resignationLetter")}
               </Link>
 
-              {/* Theme & Language in Mobile */}
+              {/* Pricing */}
+              <div className="pt-3 pb-1">
+                <Link href={localizedHref("/pricing")} onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-2.5 rounded-lg text-sm font-semibold text-dark-teal hover:bg-gray-50 transition-colors">
+                  {t("pricing")}
+                </Link>
+              </div>
+
+              {/* Language */}
               <div className="px-4 py-3 flex items-center gap-3">
-                <ThemeToggle scrolled={true} isHomePage={false} />
                 <LanguageSwitcher scrolled={true} isHomePage={false} />
               </div>
 
+              {/* Auth */}
               <div className="pt-4 border-t border-gray-200 space-y-2">
                 {isAuthenticated ? (
                   <>
                     {user?.role === "admin" && (
-                      <Link
-                        href={localizedHref("/admin")}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-teal-primary hover:bg-gray-50 transition-colors"
-                      >
-                        <Shield size={16} />
-                        {t("adminPanel")}
+                      <Link href={localizedHref("/admin")} onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-teal-primary hover:bg-gray-50 transition-colors">
+                        <Shield size={16} /> {t("adminPanel")}
                       </Link>
                     )}
-                    <Link
-                      href={localizedHref("/dashboard")}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors"
-                    >
-                      <LayoutDashboard size={16} />
-                      {t("dashboard")}
+                    <Link href={localizedHref("/dashboard")} onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                      <LayoutDashboard size={16} /> {t("dashboard")}
                     </Link>
-                    <button
-                      onClick={() => {
-                        handleLogout();
-                        setMobileMenuOpen(false);
-                      }}
-                      className="flex items-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-red-500 hover:bg-gray-50 transition-colors"
-                    >
-                      <LogOut size={16} />
-                      {t("logout")}
+                    <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
+                      className="flex items-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-red-500 hover:bg-gray-50 transition-colors">
+                      <LogOut size={16} /> {t("logout")}
                     </button>
                   </>
                 ) : (
                   <>
-                    <Link
-                      href={localizedHref("/auth/login")}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors"
-                    >
+                    <Link href={localizedHref("/auth/login")} onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
                       {t("login")}
                     </Link>
-                    <Link
-                      href={localizedHref("/auth/register")}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 rounded-full text-sm font-semibold text-center bg-gradient-to-r from-teal-primary to-teal-secondary text-white"
-                    >
+                    <Link href={localizedHref("/auth/register")} onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-3 rounded-full text-sm font-semibold text-center bg-gradient-to-r from-teal-primary to-teal-secondary text-white">
                       {t("getStarted")}
                     </Link>
                   </>

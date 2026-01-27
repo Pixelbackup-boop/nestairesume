@@ -28,6 +28,10 @@ export interface TemplateTranslations {
     };
     labels: {
         present: string;
+        nationality?: string;
+        id?: string;
+        passport?: string;
+        drivingLicense?: string;
     };
     /** RTL direction support */
     isRtl?: boolean;
@@ -58,6 +62,10 @@ export const defaultTranslations: TemplateTranslations = {
     },
     labels: {
         present: 'Present',
+        nationality: 'Nationality',
+        id: 'ID Number',
+        passport: 'Passport',
+        drivingLicense: 'Driving License',
     },
     isRtl: false,
 };

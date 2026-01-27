@@ -138,25 +138,25 @@ export function TypewriterCV({ className = '', autoStart = true, onComplete }: T
   const getSectionStyle = (type: string) => {
     switch (type) {
       case 'name':
-        return 'text-lg font-bold text-slate-800';
+        return 'text-lg font-bold text-gray-800';
       case 'title':
         return 'text-sm text-blue-600 font-medium';
       case 'contact':
-        return 'text-xs text-slate-500 mt-1';
+        return 'text-xs text-gray-400 mt-1';
       case 'section-header':
-        return 'text-xs font-bold text-slate-700 mt-4 mb-1 tracking-wider border-b border-slate-200 pb-1';
+        return 'text-xs font-bold text-gray-700 mt-4 mb-1 tracking-wider border-b border-gray-100 pb-1';
       case 'paragraph':
-        return 'text-xs text-slate-600 leading-relaxed';
+        return 'text-xs text-gray-600 leading-relaxed';
       case 'job-title':
-        return 'text-xs font-semibold text-slate-700 mt-2';
+        return 'text-xs font-semibold text-gray-700 mt-2';
       case 'date':
-        return 'text-[10px] text-slate-400';
+        return 'text-[10px] text-gray-500';
       case 'bullet':
-        return 'text-xs text-slate-600 ml-2';
+        return 'text-xs text-gray-600 ml-2';
       case 'skills':
-        return 'text-xs text-slate-600';
+        return 'text-xs text-gray-600';
       default:
-        return 'text-xs text-slate-600';
+        return 'text-xs text-gray-600';
     }
   };
 
@@ -230,11 +230,11 @@ export function TypewriterCV({ className = '', autoStart = true, onComplete }: T
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       >
         {/* Paper texture overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent pointer-events-none" />
 
         {/* Paper edge shadow */}
-        <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-l from-slate-200/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-t from-slate-200/50 to-transparent" />
+        <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-l from-gray-200/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-t from-gray-200/50 to-transparent" />
 
         {/* CV Content */}
         <div className="relative h-full overflow-hidden">

@@ -15,7 +15,7 @@ export default function BlogCard({ post, featured = false, basePath = '/blog' }:
       className={`group relative rounded-xl overflow-hidden transition-all duration-300 ${
         featured
           ? 'bg-gradient-to-br from-accent-green/10 to-accent-teal/5 border border-accent-green/20'
-          : 'bg-bg-card border border-white/5 hover:border-white/10'
+          : 'bg-white border border-gray-200 hover:border-gray-300'
       }`}
     >
       <Link href={`${basePath}/${post.slug}`} className="block">
@@ -38,14 +38,14 @@ export default function BlogCard({ post, featured = false, basePath = '/blog' }:
           )}
           {/* Category badge */}
           <div className="absolute top-3 left-3">
-            <span className="px-2.5 py-1 text-xs font-medium bg-bg-primary/80 backdrop-blur-sm text-accent-green rounded-full border border-accent-green/30">
+            <span className="px-2.5 py-1 text-xs font-medium bg-white/80 backdrop-blur-sm text-accent-green rounded-full border border-accent-green/30">
               {post.category}
             </span>
           </div>
           {/* Featured badge */}
           {featured && (
             <div className="absolute top-3 right-3">
-              <span className="px-2.5 py-1 text-xs font-semibold bg-accent-green text-bg-primary rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-accent-green text-white rounded-full">
                 Featured
               </span>
             </div>
@@ -71,12 +71,12 @@ export default function BlogCard({ post, featured = false, basePath = '/blog' }:
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-accent-green transition-colors line-clamp-2">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-accent-green transition-colors line-clamp-2">
             {post.title}
           </h3>
 
           {/* Description */}
-          <p className="text-sm text-gray-400 line-clamp-2 mb-4">
+          <p className="text-sm text-gray-600 line-clamp-2 mb-4">
             {post.description}
           </p>
 
@@ -85,7 +85,7 @@ export default function BlogCard({ post, featured = false, basePath = '/blog' }:
             {post.tags.slice(0, 3).map(tag => (
               <span
                 key={tag}
-                className="flex items-center gap-1 px-2 py-0.5 text-xs text-gray-500 bg-white/5 rounded"
+                className="flex items-center gap-1 px-2 py-0.5 text-xs text-gray-500 bg-gray-100 rounded"
               >
                 <Tag size={10} />
                 {tag}

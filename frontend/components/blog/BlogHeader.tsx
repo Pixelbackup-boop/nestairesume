@@ -17,7 +17,7 @@ export default function BlogHeader({ post, basePath = '/blog' }: BlogHeaderProps
       <nav className="mb-6">
         <Link
           href={basePath}
-          className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-accent-green transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-accent-green transition-colors"
         >
           <ArrowLeft size={16} />
           {backLabel}
@@ -35,12 +35,12 @@ export default function BlogHeader({ post, basePath = '/blog' }: BlogHeaderProps
       </div>
 
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
         {post.title}
       </h1>
 
       {/* Description */}
-      <p className="text-lg text-gray-400 mb-6 max-w-3xl">
+      <p className="text-lg text-gray-600 mb-6 max-w-3xl">
         {post.description}
       </p>
 
@@ -66,7 +66,7 @@ export default function BlogHeader({ post, basePath = '/blog' }: BlogHeaderProps
 
       {/* Featured Image */}
       {post.image && (
-        <div className="relative aspect-video rounded-xl overflow-hidden mb-8 border border-white/10">
+        <div className="relative aspect-video rounded-xl overflow-hidden mb-8 border border-gray-200">
           <Image
             src={post.image}
             alt={post.imageAlt || post.title}
@@ -84,7 +84,7 @@ export default function BlogHeader({ post, basePath = '/blog' }: BlogHeaderProps
           <Link
             key={tag}
             href={`${basePath}?tag=${encodeURIComponent(tag)}`}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-400 bg-white/5 rounded-lg hover:bg-white/10 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 hover:text-gray-900 transition-colors"
           >
             <Tag size={12} />
             {tag}

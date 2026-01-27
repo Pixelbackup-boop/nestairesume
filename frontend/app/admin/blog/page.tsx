@@ -52,7 +52,7 @@ export default function BlogPage() {
     setLoading(true);
     try {
       const response = await api.get("/admin/blog", {
-        params: { page, limit: 10, search: search || undefined },
+        params: { page: String(page), limit: "10", ...(search ? { search } : {}) },
       });
       setData(response.data as BlogResponse);
       setError(null);

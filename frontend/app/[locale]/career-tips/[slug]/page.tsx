@@ -95,14 +95,14 @@ function renderMarkdown(content: string): string {
     // Headers with IDs
     .replace(/^### (.+)$/gm, (_, text) => {
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-      return `<h3 id="${id}" class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-4 scroll-mt-24">${text}</h3>`;
+      return `<h3 id="${id}" class="text-xl font-semibold text-gray-900 mt-8 mb-4 scroll-mt-24">${text}</h3>`;
     })
     .replace(/^## (.+)$/gm, (_, text) => {
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-      return `<h2 id="${id}" class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-6 scroll-mt-24">${text}</h2>`;
+      return `<h2 id="${id}" class="text-2xl font-bold text-gray-900 mt-10 mb-6 scroll-mt-24">${text}</h2>`;
     })
     // Bold
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900 dark:text-white">$1</strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
     // Italic
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     // Links
@@ -112,15 +112,15 @@ function renderMarkdown(content: string): string {
     // Ordered lists
     .replace(/^\d+\. (.+)$/gm, '<li class="ml-4 mb-2 list-decimal">$1</li>')
     // Paragraphs
-    .replace(/\n\n/g, '</p><p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">')
+    .replace(/\n\n/g, '</p><p class="text-gray-600 leading-relaxed mb-6">')
     // Line breaks
     .replace(/\n/g, '<br/>');
 
   // Wrap lists
-  html = html.replace(/(<li class="ml-4 mb-2">.*?<\/li>)+/gs, '<ul class="list-disc mb-6 space-y-1">$&</ul>');
-  html = html.replace(/(<li class="ml-4 mb-2 list-decimal">.*?<\/li>)+/gs, '<ol class="list-decimal mb-6 space-y-1 ml-4">$&</ol>');
+  html = html.replace(/(<li class="ml-4 mb-2">[\s\S]*?<\/li>)+/g, '<ul class="list-disc mb-6 space-y-1">$&</ul>');
+  html = html.replace(/(<li class="ml-4 mb-2 list-decimal">[\s\S]*?<\/li>)+/g, '<ol class="list-decimal mb-6 space-y-1 ml-4">$&</ol>');
 
-  return `<p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">${html}</p>`;
+  return `<p class="text-gray-600 leading-relaxed mb-6">${html}</p>`;
 }
 
 export default async function CareerTipArticlePage({ params }: PageProps) {
@@ -170,13 +170,13 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                 <span className="inline-block px-3 py-1 bg-teal-primary/10 text-teal-primary text-sm font-medium rounded-full mb-4">
                   {post.category}
                 </span>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   {post.title}
                 </h1>
-                <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-xl text-gray-600 mb-6">
                   {post.description}
                 </p>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-gray-200 dark:border-border-subtle">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-6 border-b border-gray-200">
                   <span className="flex items-center gap-2">
                     <User size={16} />
                     {post.author}
@@ -207,18 +207,18 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
 
               {/* Article Content */}
               <div
-                className="prose prose-lg dark:prose-invert max-w-none"
+                className="prose prose-lg max-w-none"
                 dangerouslySetInnerHTML={{ __html: contentHtml }}
               />
 
               {/* Tags */}
-              <div className="mt-10 pt-6 border-t border-gray-200 dark:border-border-subtle">
+              <div className="mt-10 pt-6 border-t border-gray-200">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm text-gray-500">Tags:</span>
                   {post.tags.map(tag => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-sm rounded-lg"
+                      className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-lg"
                     >
                       {tag}
                     </span>
@@ -227,18 +227,18 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
               </div>
 
               {/* Share Section */}
-              <div className="mt-8 p-6 bg-gray-50 dark:bg-bg-secondary rounded-2xl">
+              <div className="mt-8 p-6 bg-gray-50 rounded-2xl">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">Found this helpful?</h3>
+                    <h3 className="font-semibold text-gray-900">Found this helpful?</h3>
                     <p className="text-sm text-gray-500">Share it with others who might benefit</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <button className="p-3 bg-white dark:bg-bg-card rounded-xl border border-gray-200 dark:border-border-subtle hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
-                      <Share2 size={20} className="text-gray-600 dark:text-gray-400" />
+                    <button className="p-3 bg-white rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors">
+                      <Share2 size={20} className="text-gray-600" />
                     </button>
-                    <button className="p-3 bg-white dark:bg-bg-card rounded-xl border border-gray-200 dark:border-border-subtle hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
-                      <Bookmark size={20} className="text-gray-600 dark:text-gray-400" />
+                    <button className="p-3 bg-white rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors">
+                      <Bookmark size={20} className="text-gray-600" />
                     </button>
                   </div>
                 </div>
@@ -265,8 +265,8 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
               <div className="sticky top-24 space-y-6">
                 {/* Table of Contents */}
                 {headings.length > 0 && (
-                  <div className="bg-white dark:bg-bg-card rounded-2xl border border-gray-100 dark:border-border-subtle p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                  <div className="bg-white rounded-2xl border border-gray-100 p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
                       Table of Contents
                     </h3>
                     <nav className="space-y-2">
@@ -274,7 +274,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                         <a
                           key={index}
                           href={`#${heading.id}`}
-                          className={`block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-primary transition-colors ${
+                          className={`block text-sm text-gray-600 hover:text-teal-primary transition-colors ${
                             heading.level === 3 ? 'pl-4' : ''
                           }`}
                         >
@@ -287,8 +287,8 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
 
                 {/* Related Articles */}
                 {relatedPosts.length > 0 && (
-                  <div className="bg-white dark:bg-bg-card rounded-2xl border border-gray-100 dark:border-border-subtle p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                  <div className="bg-white rounded-2xl border border-gray-100 p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
                       Related Articles
                     </h3>
                     <div className="space-y-4">
@@ -298,7 +298,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                           href={`/${locale}/career-tips/${related.slug}`}
                           className="block group"
                         >
-                          <h4 className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-teal-primary transition-colors line-clamp-2">
+                          <h4 className="text-sm font-medium text-gray-900 group-hover:text-teal-primary transition-colors line-clamp-2">
                             {related.title}
                           </h4>
                           <span className="text-xs text-gray-500 mt-1">
@@ -332,7 +332,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
         {/* More Articles Section */}
         {relatedPosts.length > 0 && (
           <section className="max-w-6xl mx-auto px-6 mt-16">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">
               More Career Tips
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -340,7 +340,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                 <Link
                   key={related.slug}
                   href={`/${locale}/career-tips/${related.slug}`}
-                  className="group bg-white dark:bg-bg-card rounded-2xl overflow-hidden border border-gray-100 dark:border-border-subtle hover:shadow-lg transition-all duration-300"
+                  className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300"
                 >
                   {related.image && (
                     <div className="relative h-40 overflow-hidden">
@@ -356,7 +356,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                     <span className="text-xs font-medium text-teal-primary uppercase tracking-wider">
                       {related.category}
                     </span>
-                    <h3 className="text-base font-semibold text-gray-900 dark:text-white mt-2 group-hover:text-teal-primary transition-colors line-clamp-2">
+                    <h3 className="text-base font-semibold text-gray-900 mt-2 group-hover:text-teal-primary transition-colors line-clamp-2">
                       {related.title}
                     </h3>
                     <span className="text-xs text-gray-500 mt-2 block">

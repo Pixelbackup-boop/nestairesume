@@ -60,7 +60,7 @@ export default function SkillsForm() {
     return (
         <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
             <div>
-                <h2 className="text-2xl font-bold text-white mb-2">{t('skills.title')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('skills.title')}</h2>
                 <p className="text-gray-400 text-sm">{t('skills.subtitle')}</p>
             </div>
 
@@ -70,7 +70,7 @@ export default function SkillsForm() {
                     value={newSkill}
                     onChange={(e) => setNewSkill(e.target.value)}
                     placeholder={t('skills.placeholder')}
-                    className="flex-1 bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green outline-none transition"
+                    className="flex-1 bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-gray-900 focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green outline-none transition"
                 />
                 <button
                     type="submit"
@@ -94,7 +94,7 @@ export default function SkillsForm() {
                             onClick={() => setExpandedSkillId(expandedSkillId === skill.id ? null : skill.id)}
                         >
                             <div className="flex items-center gap-3">
-                                <span className="text-white font-medium">{skill.name}</span>
+                                <span className="text-gray-900 font-medium">{skill.name}</span>
                                 {renderLevelDots(skill.level)}
                                 <span className="text-xs text-gray-500">{getLevelLabel(skill.level)}</span>
                             </div>
@@ -164,7 +164,7 @@ export default function SkillsForm() {
                                 }
                             }}
                             disabled={skills.some(sk => sk.name === s)}
-                            className="px-3 py-1 bg-bg-card-light border border-border-subtle rounded-md text-xs text-gray-400 hover:text-white hover:border-gray-500 transition disabled:opacity-30 disabled:cursor-not-allowed"
+                            className="px-3 py-1 bg-bg-card-light border border-border-subtle rounded-md text-xs text-gray-400 hover:text-gray-900 hover:border-gray-500 transition disabled:opacity-30 disabled:cursor-not-allowed"
                         >
                             + {s}
                         </button>
@@ -174,7 +174,7 @@ export default function SkillsForm() {
 
             {/* Additional Sections */}
             <div className="mt-8 pt-6 border-t border-border-subtle space-y-4">
-                <h3 className="text-lg font-semibold text-white mb-4">{t('skills.additionalInfo')}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('skills.additionalInfo')}</h3>
 
                 <CollapsibleSection
                     title={t('skills.languages')}

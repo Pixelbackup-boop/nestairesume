@@ -50,42 +50,42 @@ export default function ReferencesSection() {
                             value={newRef.name}
                             onChange={(e) => setNewRef({ ...newRef, name: e.target.value })}
                             placeholder="Full Name *"
-                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="col-span-2 bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="text"
                             value={newRef.title}
                             onChange={(e) => setNewRef({ ...newRef, title: e.target.value })}
                             placeholder="Job Title"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="text"
                             value={newRef.company}
                             onChange={(e) => setNewRef({ ...newRef, company: e.target.value })}
                             placeholder="Company"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="email"
                             value={newRef.email}
                             onChange={(e) => setNewRef({ ...newRef, email: e.target.value })}
                             placeholder="Email (optional)"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                         <input
                             type="tel"
                             value={newRef.phone}
                             onChange={(e) => setNewRef({ ...newRef, phone: e.target.value })}
                             placeholder="Phone (optional)"
-                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green"
+                            className="bg-bg-card-light border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                         />
                     </div>
                     <div className="flex justify-end gap-2">
                         <button
                             type="button"
                             onClick={() => { setIsAdding(false); setNewRef({ name: '', title: '', company: '', phone: '', email: '' }); }}
-                            className="px-3 py-1.5 text-sm text-gray-400 hover:text-white transition"
+                            className="px-3 py-1.5 text-sm text-gray-400 hover:text-gray-900 transition"
                         >
                             Cancel
                         </button>
@@ -112,7 +112,7 @@ export default function ReferencesSection() {
                             onClick={() => setExpandedId(expandedId === ref.id ? null : ref.id)}
                         >
                             <div className="flex-1">
-                                <span className="text-white font-medium text-sm">{ref.name}</span>
+                                <span className="text-gray-900 font-medium text-sm">{ref.name}</span>
                                 <div className="text-xs text-gray-500">
                                     {ref.title && <span>{ref.title}</span>}
                                     {ref.title && ref.company && <span> at </span>}
@@ -141,35 +141,35 @@ export default function ReferencesSection() {
                                     value={ref.name}
                                     onChange={(e) => updateReference(ref.id, { name: e.target.value })}
                                     placeholder="Full Name"
-                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="col-span-2 bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="text"
                                     value={ref.title}
                                     onChange={(e) => updateReference(ref.id, { title: e.target.value })}
                                     placeholder="Job Title"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="text"
                                     value={ref.company}
                                     onChange={(e) => updateReference(ref.id, { company: e.target.value })}
                                     placeholder="Company"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="email"
                                     value={ref.email || ''}
                                     onChange={(e) => updateReference(ref.id, { email: e.target.value || undefined })}
                                     placeholder="Email"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                                 <input
                                     type="tel"
                                     value={ref.phone || ''}
                                     onChange={(e) => updateReference(ref.id, { phone: e.target.value || undefined })}
                                     placeholder="Phone"
-                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-white text-sm focus:outline-none focus:border-accent-green"
+                                    className="bg-bg-card-light border border-border-subtle rounded px-2 py-1.5 text-gray-900 text-sm focus:outline-none focus:border-accent-green"
                                 />
                             </div>
                         )}

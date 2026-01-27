@@ -50,8 +50,8 @@ export const useAuthStore = create<AuthState>((set) => ({
                 user: {
                     id: userData.id,
                     email: userData.email,
-                    name: userData.name,
-                    role: userData.role || 'user',
+                    name: userData.name || '',
+                    role: (userData.role as 'user' | 'admin') || 'user',
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
                     trialEndsAt: userData.trialEndsAt,
@@ -105,8 +105,8 @@ export const useAuthStore = create<AuthState>((set) => ({
                 user: {
                     id: userData.id,
                     email: userData.email,
-                    name: userData.name,
-                    role: userData.role || 'user',
+                    name: userData.name || '',
+                    role: (userData.role as 'user' | 'admin') || 'user',
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
                     trialEndsAt: userData.trialEndsAt,

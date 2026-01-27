@@ -46,7 +46,7 @@ export default function EducationForm() {
         <div className="space-y-6 animate-in slide-in-from-left-4 fade-in duration-300">
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">{t('education.title')}</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('education.title')}</h2>
                     <p className="text-gray-400 text-sm">{t('education.subtitle')}</p>
                 </div>
                 <button
@@ -85,7 +85,7 @@ export default function EducationForm() {
                                     </button>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">{edu.school || t('education.notSpecified')}</h3>
+                                    <h3 className="font-semibold text-gray-900">{edu.school || t('education.notSpecified')}</h3>
                                     <p className="text-sm text-gray-400">{edu.degree || t('education.degree')}</p>
                                 </div>
                             </div>
@@ -104,112 +104,112 @@ export default function EducationForm() {
                         {expandedId === edu.id && (
                             <div className="p-4 pt-0 border-t border-border-subtle grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.school')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.school')}</label>
                                     <input
                                         type="text"
                                         value={edu.school}
                                         onChange={(e) => handleChange(edu.id, 'school', e.target.value)}
                                         placeholder="Stanford University"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.degree')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.degree')}</label>
                                     <input
                                         type="text"
                                         value={edu.degree}
                                         onChange={(e) => handleChange(edu.id, 'degree', e.target.value)}
                                         placeholder="B.S. Computer Science"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.cityOptional')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.cityOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.city}
                                         onChange={(e) => handleChange(edu.id, 'city', e.target.value)}
                                         placeholder="Stanford"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.countryOptional')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.countryOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.country}
                                         onChange={(e) => handleChange(edu.id, 'country', e.target.value)}
                                         placeholder="United States"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.startDate')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.startDate')}</label>
                                     <input
                                         type="text"
                                         value={edu.startDate}
                                         onChange={(e) => handleChange(edu.id, 'startDate', e.target.value)}
                                         placeholder="2016"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.endDate')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.endDate')}</label>
                                     <input
                                         type="text"
                                         value={edu.endDate}
                                         onChange={(e) => handleChange(edu.id, 'endDate', e.target.value)}
                                         placeholder="2020"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.gpaOptional')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.gpaOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.gpa || ''}
                                         onChange={(e) => handleChange(edu.id, 'gpa', e.target.value)}
                                         placeholder="3.8 / 4.0"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.honorsOptional')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.honorsOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.honors || ''}
                                         onChange={(e) => handleChange(edu.id, 'honors', e.target.value)}
                                         placeholder="Magna Cum Laude, Dean's List"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2 md:col-span-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.clubsOptional')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.clubsOptional')}</label>
                                     <input
                                         type="text"
                                         value={edu.clubs || ''}
                                         onChange={(e) => handleChange(edu.id, 'clubs', e.target.value)}
                                         placeholder="Computer Science Club, Debate Team"
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none"
                                     />
                                 </div>
 
                                 <div className="space-y-2 md:col-span-2">
-                                    <label className="text-sm font-medium text-gray-300">{t('education.descriptionOptional')}</label>
+                                    <label className="text-sm font-medium text-gray-700">{t('education.descriptionOptional')}</label>
                                     <textarea
                                         value={edu.description}
                                         onChange={(e) => handleChange(edu.id, 'description', e.target.value)}
                                         rows={2}
                                         placeholder="Relevant coursework, thesis, etc."
-                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-white focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none resize-none"
+                                        className="w-full bg-bg-card border border-border-subtle rounded-lg px-4 py-2 text-gray-900 focus:ring-1 focus:ring-accent-green focus:border-accent-green outline-none resize-none"
                                     />
                                 </div>
                             </div>
@@ -227,7 +227,7 @@ export default function EducationForm() {
 
             {/* Additional Sections */}
             <div className="mt-8 pt-6 border-t border-border-subtle space-y-4">
-                <h3 className="text-lg font-semibold text-white mb-4">{t('education.credentials')}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('education.credentials')}</h3>
 
                 <CollapsibleSection
                     title={t('education.certifications')}

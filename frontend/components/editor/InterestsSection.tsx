@@ -32,7 +32,7 @@ export default function InterestsSection() {
                     value={newInterest}
                     onChange={(e) => setNewInterest(e.target.value)}
                     placeholder="e.g. Photography, Travel, Reading"
-                    className="flex-1 bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green outline-none transition"
+                    className="flex-1 bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green outline-none transition"
                 />
                 <button
                     type="submit"
@@ -76,7 +76,7 @@ export default function InterestsSection() {
                             }
                         }}
                         disabled={interests.some(int => int.name === i)}
-                        className="px-2 py-1 bg-bg-card border border-border-subtle rounded-md text-xs text-gray-400 hover:text-white hover:border-gray-500 transition disabled:opacity-30 disabled:cursor-not-allowed"
+                        className="px-2 py-1 bg-bg-card border border-border-subtle rounded-md text-xs text-gray-400 hover:text-gray-900 hover:border-gray-500 transition disabled:opacity-30 disabled:cursor-not-allowed"
                     >
                         + {i}
                     </button>

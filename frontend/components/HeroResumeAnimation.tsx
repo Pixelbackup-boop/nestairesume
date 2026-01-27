@@ -128,10 +128,10 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             {/* Summary */}
             <TypewriterSection delay={SECTION_DELAY} cycle={cycle}>
               <div className="mt-4">
-                <h3 className="text-[10px] font-bold text-slate-700 uppercase tracking-wider border-b border-slate-200 pb-1">
+                <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Professional Summary
                 </h3>
-                <p className="text-[9px] text-slate-600 mt-1.5 leading-relaxed">
+                <p className="text-[9px] text-gray-600 mt-1.5 leading-relaxed">
                   {CV_DATA.summary}
                 </p>
               </div>
@@ -140,7 +140,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             {/* Experience */}
             <TypewriterSection delay={SECTION_DELAY * 2} cycle={cycle}>
               <div className="mt-3">
-                <h3 className="text-[10px] font-bold text-slate-700 uppercase tracking-wider border-b border-slate-200 pb-1">
+                <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Experience
                 </h3>
               </div>
@@ -150,13 +150,13 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             <TypewriterSection delay={SECTION_DELAY * 3} cycle={cycle}>
               <div className="mt-2">
                 <div className="flex justify-between items-baseline">
-                  <span className="text-[10px] font-semibold text-slate-700">{CV_DATA.experience[0].role}</span>
-                  <span className="text-[8px] text-slate-400">{CV_DATA.experience[0].date}</span>
+                  <span className="text-[10px] font-semibold text-gray-700">{CV_DATA.experience[0].role}</span>
+                  <span className="text-[8px] text-gray-500">{CV_DATA.experience[0].date}</span>
                 </div>
                 <p className="text-[9px] text-blue-600">{CV_DATA.experience[0].company}</p>
                 <ul className="mt-1 space-y-0.5">
                   {CV_DATA.experience[0].bullets.map((bullet, i) => (
-                    <li key={i} className="text-[8px] text-slate-600 flex items-start gap-1">
+                    <li key={i} className="text-[8px] text-gray-600 flex items-start gap-1">
                       <span className="text-blue-500 mt-0.5">•</span>
                       {bullet}
                     </li>
@@ -169,13 +169,13 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             <TypewriterSection delay={SECTION_DELAY * 4} cycle={cycle}>
               <div className="mt-2">
                 <div className="flex justify-between items-baseline">
-                  <span className="text-[10px] font-semibold text-slate-700">{CV_DATA.experience[1].role}</span>
-                  <span className="text-[8px] text-slate-400">{CV_DATA.experience[1].date}</span>
+                  <span className="text-[10px] font-semibold text-gray-700">{CV_DATA.experience[1].role}</span>
+                  <span className="text-[8px] text-gray-500">{CV_DATA.experience[1].date}</span>
                 </div>
                 <p className="text-[9px] text-blue-600">{CV_DATA.experience[1].company}</p>
                 <ul className="mt-1 space-y-0.5">
                   {CV_DATA.experience[1].bullets.map((bullet, i) => (
-                    <li key={i} className="text-[8px] text-slate-600 flex items-start gap-1">
+                    <li key={i} className="text-[8px] text-gray-600 flex items-start gap-1">
                       <span className="text-blue-500 mt-0.5">•</span>
                       {bullet}
                     </li>
@@ -187,7 +187,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             {/* Skills */}
             <TypewriterSection delay={SECTION_DELAY * 5} cycle={cycle}>
               <div className="mt-3">
-                <h3 className="text-[10px] font-bold text-slate-700 uppercase tracking-wider border-b border-slate-200 pb-1">
+                <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Skills
                 </h3>
                 <div className="flex flex-wrap gap-1 mt-1.5">
@@ -203,12 +203,12 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             {/* Education */}
             <TypewriterSection delay={SECTION_DELAY * 6} cycle={cycle}>
               <div className="mt-3">
-                <h3 className="text-[10px] font-bold text-slate-700 uppercase tracking-wider border-b border-slate-200 pb-1">
+                <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Education
                 </h3>
                 <div className="mt-1.5">
-                  <p className="text-[10px] font-semibold text-slate-700">{CV_DATA.education.degree}</p>
-                  <p className="text-[9px] text-slate-500">{CV_DATA.education.school} • {CV_DATA.education.year}</p>
+                  <p className="text-[10px] font-semibold text-gray-700">{CV_DATA.education.degree}</p>
+                  <p className="text-[9px] text-gray-400">{CV_DATA.education.school} • {CV_DATA.education.year}</p>
                 </div>
               </div>
             </TypewriterSection>
@@ -472,8 +472,8 @@ function StaticResume({ className }: { className: string }) {
         {/* Content */}
         <div className="p-5 pb-6">
           <div className="mt-1">
-            <h3 className="text-[10px] font-bold text-slate-700 uppercase tracking-wider border-b border-slate-200 pb-1">Summary</h3>
-            <p className="text-[9px] text-slate-600 mt-1.5">{CV_DATA.summary}</p>
+            <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">Summary</h3>
+            <p className="text-[9px] text-gray-600 mt-1.5">{CV_DATA.summary}</p>
           </div>
         </div>
         <div className="absolute top-3 right-3 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">

@@ -113,10 +113,10 @@ export default function ImageCropper({ imageSrc, onCropComplete, onCancel, initi
             <div className="bg-bg-card border border-border-subtle rounded-2xl max-w-2xl w-full mx-4 overflow-hidden">
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-border-subtle">
-                    <h3 className="text-lg font-semibold text-white">Crop & Style Photo</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Crop & Style Photo</h3>
                     <button
                         onClick={onCancel}
-                        className="p-2 text-gray-400 hover:text-white transition rounded-lg hover:bg-white/5"
+                        className="p-2 text-gray-400 hover:text-gray-900 transition rounded-lg hover:bg-white/5"
                     >
                         <X size={20} />
                     </button>
@@ -146,7 +146,7 @@ export default function ImageCropper({ imageSrc, onCropComplete, onCancel, initi
 
                     {/* Shape Selection */}
                     <div className="mb-6">
-                        <label className="text-sm font-medium text-gray-300 mb-3 block">Photo Shape</label>
+                        <label className="text-sm font-medium text-gray-700 mb-3 block">Photo Shape</label>
                         <div className="flex gap-3">
                             {shapes.map((shape) => (
                                 <button
@@ -155,7 +155,7 @@ export default function ImageCropper({ imageSrc, onCropComplete, onCancel, initi
                                     className={`flex-1 flex flex-col items-center gap-2 p-4 rounded-xl border transition ${
                                         selectedShape === shape.id
                                             ? 'border-accent-green bg-accent-green/10 text-accent-green'
-                                            : 'border-border-subtle text-gray-400 hover:border-gray-500 hover:text-gray-300'
+                                            : 'border-border-subtle text-gray-400 hover:border-gray-500 hover:text-gray-700'
                                     }`}
                                 >
                                     <shape.icon size={24} />
@@ -183,7 +183,7 @@ export default function ImageCropper({ imageSrc, onCropComplete, onCancel, initi
                 <div className="flex items-center justify-between p-4 border-t border-border-subtle bg-bg-card-light">
                     <button
                         onClick={handleReset}
-                        className="flex items-center gap-2 px-4 py-2 text-gray-400 hover:text-white transition"
+                        className="flex items-center gap-2 px-4 py-2 text-gray-400 hover:text-gray-900 transition"
                     >
                         <RotateCcw size={16} />
                         Reset
@@ -191,7 +191,7 @@ export default function ImageCropper({ imageSrc, onCropComplete, onCancel, initi
                     <div className="flex gap-3">
                         <button
                             onClick={onCancel}
-                            className="px-6 py-2 text-gray-300 hover:text-white transition rounded-lg border border-border-subtle hover:border-gray-500"
+                            className="px-6 py-2 text-gray-700 hover:text-gray-900 transition rounded-lg border border-border-subtle hover:border-gray-500"
                         >
                             Cancel
                         </button>

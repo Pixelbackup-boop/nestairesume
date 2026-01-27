@@ -410,7 +410,7 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
         return (
             <div
-                className="relative bg-slate-400 rounded-sm"
+                className="relative bg-gray-300 rounded-sm"
                 style={{
                     width: `${A4_WIDTH_PX}px`,
                     height: `${totalPages * (A4_HEIGHT_PX + PAGE_GAP_PX) - PAGE_GAP_PX}px`, // No gap after last page

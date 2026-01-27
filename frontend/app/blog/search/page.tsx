@@ -12,7 +12,7 @@ interface SearchPageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Search Blog | ResumeAI',
+  title: 'Search Blog | Best AI Resume',
   description: 'Search our blog for resume tips, career advice, and job search strategies.',
 };
 
@@ -28,7 +28,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       <div className="mb-12">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-accent-green transition-colors mb-6"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-accent-green transition-colors mb-6"
         >
           <ArrowLeft size={16} />
           Back to Blog
@@ -38,12 +38,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <div className="p-2 bg-accent-green/10 rounded-lg">
             <Search size={24} className="text-accent-green" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             Search Results
           </h1>
         </div>
         {query && (
-          <p className="text-gray-400">
+          <p className="text-gray-600">
             {results.length} result{results.length !== 1 ? 's' : ''} for &quot;{query}&quot;
           </p>
         )}
@@ -51,7 +51,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
       {/* Search Bar */}
       <div className="max-w-xl mb-12">
-        <Suspense fallback={<div className="h-12 bg-bg-card rounded-xl animate-pulse" />}>
+        <Suspense fallback={<div className="h-12 bg-gray-100 rounded-xl animate-pulse" />}>
           <SearchBar />
         </Suspense>
       </div>
@@ -69,11 +69,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <div className="lg:col-span-3 order-1 lg:order-2">
           {!query ? (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search size={24} className="text-gray-500" />
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-white mb-2">Start searching</h3>
-              <p className="text-gray-400">Enter a search term to find articles</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Start searching</h3>
+              <p className="text-gray-600">Enter a search term to find articles</p>
             </div>
           ) : results.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -83,11 +83,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             </div>
           ) : (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search size={24} className="text-gray-500" />
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-white mb-2">No results found</h3>
-              <p className="text-gray-400 mb-6">
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No results found</h3>
+              <p className="text-gray-600 mb-6">
                 We couldn&apos;t find any articles matching &quot;{query}&quot;
               </p>
               <div className="text-sm text-gray-500">

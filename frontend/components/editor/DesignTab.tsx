@@ -51,7 +51,7 @@ export default function DesignTab() {
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                             activeSection === tab.id
                                 ? 'bg-accent-green text-bg-primary'
-                                : 'bg-bg-card-light border border-border-subtle text-gray-300 hover:border-gray-500'
+                                : 'bg-bg-card-light border border-border-subtle text-gray-700 hover:border-gray-500'
                         }`}
                     >
                         {tab.label}
@@ -84,7 +84,7 @@ export default function DesignTab() {
                                         style={{ backgroundColor: preset.color }}
                                         title={preset.name}
                                     >
-                                        {isSelected && <Check size={14} className="text-white drop-shadow-md" />}
+                                        {isSelected && <Check size={14} className="text-gray-900 drop-shadow-md" />}
                                     </button>
                                 );
                             })}
@@ -117,7 +117,7 @@ export default function DesignTab() {
                                         />
                                         {isSelected && (
                                             <div className="absolute inset-0 flex items-center justify-center">
-                                                <Check size={14} className="text-white drop-shadow-md" />
+                                                <Check size={14} className="text-gray-900 drop-shadow-md" />
                                             </div>
                                         )}
                                     </button>
@@ -172,7 +172,7 @@ export default function DesignTab() {
                                         }`}
                                     >
                                         <span
-                                            className="block text-white text-xs font-medium truncate"
+                                            className="block text-gray-900 text-xs font-medium truncate"
                                             style={{ fontFamily: font.fontFamily }}
                                         >
                                             {font.name}
@@ -205,7 +205,7 @@ export default function DesignTab() {
                                         }`}
                                     >
                                         <span
-                                            className="block text-white text-xs truncate"
+                                            className="block text-gray-900 text-xs truncate"
                                             style={{ fontFamily: font.fontFamily }}
                                         >
                                             {font.name}

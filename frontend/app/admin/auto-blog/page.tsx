@@ -37,7 +37,7 @@ export default function AutoBlogDashboard() {
   const fetchStatus = async () => {
     try {
       const response = await api.get("/admin/auto-blog/status");
-      setStatus(response.data as AutoBlogStatus);
+      setStatus(response.data as Status);
       setError(null);
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };

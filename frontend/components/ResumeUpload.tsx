@@ -151,7 +151,7 @@ export default function ResumeUpload({
             ? 'border-red-500/50 bg-red-500/5'
             : status === 'success'
             ? 'border-accent-green bg-accent-green/5'
-            : 'border-slate-600 bg-slate-800/50 hover:border-slate-500 hover:bg-slate-800'
+            : 'border-gray-300 bg-gray-50 hover:border-gray-300 hover:bg-white'
           }
           ${isProcessing ? 'cursor-wait' : 'cursor-pointer'}
         `}
@@ -161,9 +161,9 @@ export default function ResumeUpload({
           {status === 'idle' && (
             <div className={`
               w-16 h-16 mx-auto rounded-2xl flex items-center justify-center transition-colors
-              ${isDragOver ? 'bg-accent-green/20' : 'bg-slate-700/50'}
+              ${isDragOver ? 'bg-accent-green/20' : 'bg-gray-100'}
             `}>
-              <Upload className={isDragOver ? 'text-accent-green' : 'text-slate-400'} size={32} />
+              <Upload className={isDragOver ? 'text-accent-green' : 'text-gray-500'} size={32} />
             </div>
           )}
 
@@ -196,20 +196,20 @@ export default function ResumeUpload({
 
         {/* Selected file info */}
         {selectedFile && status !== 'idle' && (
-          <div className="flex items-center justify-center gap-2 text-sm text-slate-400 mb-3">
+          <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-3">
             <FileText size={16} />
             <span>{selectedFile.name}</span>
-            <span className="text-slate-500">({formatFileSize(selectedFile.size)})</span>
+            <span className="text-gray-400">({formatFileSize(selectedFile.size)})</span>
           </div>
         )}
 
         {/* Instructions */}
         {(status === 'idle' || status === 'error') && (
           <>
-            <p className="text-slate-400 text-sm mb-4">
+            <p className="text-gray-500 text-sm mb-4">
               or <span className="text-accent-green hover:underline">browse files</span>
             </p>
-            <p className="text-slate-500 text-xs">
+            <p className="text-gray-400 text-xs">
               PDF or DOCX (max {formatFileSize(MAX_FILE_SIZE)})
             </p>
           </>
@@ -222,7 +222,7 @@ export default function ResumeUpload({
               e.stopPropagation();
               resetState();
             }}
-            className="mt-4 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm rounded-lg transition-colors"
+            className="mt-4 px-4 py-2 bg-gray-200 hover:bg-gray-200 text-white text-sm rounded-lg transition-colors"
           >
             Try Again
           </button>
@@ -243,7 +243,7 @@ export default function ResumeUpload({
                 key={step}
                 className={`
                   w-2 h-2 rounded-full transition-all duration-300
-                  ${isComplete || isCurrent ? 'bg-accent-green' : 'bg-slate-600'}
+                  ${isComplete || isCurrent ? 'bg-accent-green' : 'bg-gray-200'}
                   ${isCurrent ? 'animate-pulse' : ''}
                 `}
               />

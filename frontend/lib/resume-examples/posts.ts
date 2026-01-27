@@ -3,15 +3,99 @@ import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 
-// Centralized author info for E-E-A-T structured data
-export const SITE_AUTHOR = {
-  name: "Alex Brown",
-  jobTitle: "Senior HR & Resume Strategist",
-  organization: "Best AI Resume",
-  image: "/images/authors/alex-brown.png",
-  url: "https://www.bestairesumes.com/about",
-  linkedin: "https://www.linkedin.com/in/alex-brown-4324043a8/",
+// Author type for E-E-A-T structured data
+export interface Author {
+  name: string;
+  slug: string;
+  jobTitle: string;
+  organization: string;
+  image: string;
+  url: string;
+  linkedin: string;
+  expertise: string[];
+  bio: string;
+  categories: string[]; // raw MDX categories this author writes for
+}
+
+// All authors – keyed by the name used in MDX frontmatter `author` field
+export const AUTHORS: Record<string, Author> = {
+  "Alex Brown": {
+    name: "Alex Brown",
+    slug: "alex-brown",
+    jobTitle: "Senior HR & Resume Strategist",
+    organization: "Best AI Resume",
+    image: "/images/authors/alex-brown.png",
+    url: "https://www.bestairesumes.com/about/alex-brown",
+    linkedin: "https://www.linkedin.com/in/alex-brown-4324043a8/",
+    expertise: ["Resume Strategy", "ATS Optimization", "HR & Recruitment", "Career Transitions", "Interview Preparation", "Industry Analysis"],
+    bio: "Helping professionals craft resumes that pass ATS screening and impress hiring managers. Author of 300+ resume guides covering every industry.",
+    categories: ["HR", "Administrative", "Education", "Entry-Level", "Social Services", "Legal", "Law Enforcement"],
+  },
+  "Ken Coleman": {
+    name: "Ken Coleman",
+    slug: "ken-coleman",
+    jobTitle: "Career Coach & Bestselling Author",
+    organization: "Best AI Resume",
+    image: "/images/authors/ken-coleman.png",
+    url: "https://www.bestairesumes.com/about/ken-coleman",
+    linkedin: "",
+    expertise: ["Career Coaching", "Leadership Development", "Career Path Discovery", "Professional Growth", "Workplace Communication", "Job Search Strategy"],
+    bio: "Career coach specializing in helping people discover their ideal career path and unlock leadership potential. Expert in career transitions and professional development strategy.",
+    categories: ["Business", "Management", "Consulting", "Sales", "Marketing", "Finance", "Insurance", "Real Estate", "Events"],
+  },
+  "Jason M. Hill": {
+    name: "Jason M. Hill",
+    slug: "jason-m-hill",
+    jobTitle: "Recruiter & Career Strategist",
+    organization: "Best AI Resume",
+    image: "/images/authors/jason-m-hill.png",
+    url: "https://www.bestairesumes.com/about/jason-m-hill",
+    linkedin: "",
+    expertise: ["Technical Recruiting", "Resume Optimization", "Salary Negotiation", "Interview Preparation", "ATS Systems", "Hiring Manager Perspective"],
+    bio: "Former Silicon Valley recruiter turned career strategist. Focuses on resume optimization, interview prep, and salary negotiation strategies for professionals across tech and engineering.",
+    categories: ["Technology", "Engineering", "Science", "Research"],
+  },
+  "Sarah Sutton": {
+    name: "Sarah Sutton",
+    slug: "sarah-sutton",
+    jobTitle: "Remote Work & Career Expert",
+    organization: "Best AI Resume",
+    image: "/images/authors/sarah-sutton.png",
+    url: "https://www.bestairesumes.com/about/sarah-sutton",
+    linkedin: "",
+    expertise: ["Remote Work Strategy", "Flexible Careers", "Job Market Trends", "Work-Life Balance", "Freelance Careers", "Digital Workplace"],
+    bio: "Leading expert in remote work and flexible job markets. Specializes in helping job seekers navigate telecommuting, freelance, and modern workplace opportunities.",
+    categories: ["Customer Service", "Retail", "Logistics", "Supply Chain", "Transportation", "Automotive", "Aviation", "Maritime"],
+  },
+  "Anna Papalia": {
+    name: "Anna Papalia",
+    slug: "anna-papalia",
+    jobTitle: "Interview Coach & Career Influencer",
+    organization: "Best AI Resume",
+    image: "/images/authors/anna-papalia.png",
+    url: "https://www.bestairesumes.com/about/anna-papalia",
+    linkedin: "",
+    expertise: ["Interview Coaching", "Personal Branding", "Communication Skills", "Confidence Building", "Personality-Based Strategies", "Career Storytelling"],
+    bio: "Interview coaching expert who teaches job seekers how to leverage their personality traits during the hiring process. Specialist in interview styles and career storytelling.",
+    categories: ["Healthcare", "Creative", "Hospitality", "Fitness", "Beauty", "Entertainment", "Animal Care", "Childcare", "Trades", "Manufacturing", "Construction", "Architecture", "Security", "Media"],
+  },
 };
+
+// Default / primary author (backwards-compatible)
+export const SITE_AUTHOR = AUTHORS["Alex Brown"];
+
+// Helper to get author data from frontmatter name
+export function getAuthor(name: string): Author {
+  return AUTHORS[name] || AUTHORS["Alex Brown"];
+}
+
+// Helper to get the correct author for a given raw category
+export function getAuthorForCategory(category: string): Author {
+  for (const author of Object.values(AUTHORS)) {
+    if (author.categories.includes(category)) return author;
+  }
+  return AUTHORS["Alex Brown"]; // fallback
+}
 
 // Resume Example specific frontmatter
 export interface ResumeExampleMeta {
@@ -30,6 +114,7 @@ export interface ResumeExampleMeta {
   avgSalary?: string;
   jobGrowth?: string;
   keySkills: string[];
+  faq?: { question: string; answer: string }[];
 }
 
 export interface ResumeExample extends ResumeExampleMeta {
@@ -124,6 +209,7 @@ export async function getAllResumeExamples(): Promise<ResumeExampleMeta[]> {
         avgSalary: data.avgSalary,
         jobGrowth: data.jobGrowth,
         keySkills: data.keySkills || [],
+        faq: data.faq || [],
       } as ResumeExampleMeta;
     });
 
@@ -169,6 +255,7 @@ export async function getResumeExampleBySlug(slug: string): Promise<ResumeExampl
       avgSalary: data.avgSalary,
       jobGrowth: data.jobGrowth,
       keySkills: data.keySkills || [],
+      faq: data.faq || [],
       content,
       readingTime: stats.text,
     };

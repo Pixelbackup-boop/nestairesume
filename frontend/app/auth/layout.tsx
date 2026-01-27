@@ -15,8 +15,8 @@ export default function AuthLayout({
                 <div className="max-w-6xl mx-auto px-6">
                     <div className="flex items-center justify-between h-16">
                         <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-                            <div className="w-7 h-7 bg-accent-green rounded-md flex items-center justify-center font-bold text-bg-primary text-sm">R</div>
-                            <span className="font-semibold text-white">ResumeAI</span>
+                            <div className="w-7 h-7 bg-accent-green rounded-md flex items-center justify-center font-bold text-bg-primary text-sm">B</div>
+                            <span className="font-semibold text-white">Best AI Resume</span>
                         </Link>
 
                         <Link

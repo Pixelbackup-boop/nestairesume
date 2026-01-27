@@ -5,29 +5,29 @@ import Link from 'next/link';
 export const MDXComponents = {
   // Headings with anchor links
   h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className="text-3xl font-bold text-white mt-8 mb-4" {...props}>
+    <h1 className="text-3xl font-bold text-gray-900 mt-8 mb-4" {...props}>
       {children}
     </h1>
   ),
   h2: ({ children, id, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 id={id} className="text-2xl font-bold text-white mt-8 mb-4 scroll-mt-20" {...props}>
+    <h2 id={id} className="text-2xl font-bold text-gray-900 mt-8 mb-4 scroll-mt-20" {...props}>
       {children}
     </h2>
   ),
   h3: ({ children, id, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 id={id} className="text-xl font-semibold text-white mt-6 mb-3 scroll-mt-20" {...props}>
+    <h3 id={id} className="text-xl font-semibold text-gray-900 mt-6 mb-3 scroll-mt-20" {...props}>
       {children}
     </h3>
   ),
   h4: ({ children, id, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h4 id={id} className="text-lg font-semibold text-gray-200 mt-4 mb-2 scroll-mt-20" {...props}>
+    <h4 id={id} className="text-lg font-semibold text-gray-700 mt-4 mb-2 scroll-mt-20" {...props}>
       {children}
     </h4>
   ),
 
   // Paragraphs
   p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="text-gray-300 leading-relaxed mb-4" {...props}>
+    <p className="text-gray-700 leading-relaxed mb-4" {...props}>
       {children}
     </p>
   ),
@@ -60,17 +60,17 @@ export const MDXComponents = {
 
   // Lists
   ul: ({ children, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2 ml-4" {...props}>
+    <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2 ml-4" {...props}>
       {children}
     </ul>
   ),
   ol: ({ children, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className="list-decimal list-inside text-gray-300 mb-4 space-y-2 ml-4" {...props}>
+    <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-2 ml-4" {...props}>
       {children}
     </ol>
   ),
   li: ({ children, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => (
-    <li className="text-gray-300" {...props}>
+    <li className="text-gray-700" {...props}>
       {children}
     </li>
   ),
@@ -78,7 +78,7 @@ export const MDXComponents = {
   // Blockquote
   blockquote: ({ children, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className="border-l-4 border-accent-green pl-4 py-2 my-4 bg-white/5 rounded-r-lg italic text-gray-400"
+      className="border-l-4 border-accent-green pl-4 py-2 my-4 bg-gray-50 rounded-r-lg italic text-gray-600"
       {...props}
     >
       {children}
@@ -88,7 +88,7 @@ export const MDXComponents = {
   // Code blocks
   pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
     <pre
-      className="bg-bg-card rounded-lg p-4 overflow-x-auto my-4 border border-white/10 text-sm"
+      className="bg-gray-50 rounded-lg p-4 overflow-x-auto my-4 border border-gray-200 text-sm"
       {...props}
     >
       {children}
@@ -100,7 +100,7 @@ export const MDXComponents = {
     if (isInline) {
       return (
         <code
-          className="bg-white/10 text-accent-green px-1.5 py-0.5 rounded text-sm font-mono"
+          className="bg-gray-200 text-accent-green px-1.5 py-0.5 rounded text-sm font-mono"
           {...props}
         >
           {children}
@@ -108,7 +108,7 @@ export const MDXComponents = {
       );
     }
     return (
-      <code className={`${className} text-gray-300 font-mono`} {...props}>
+      <code className={`${className} text-gray-700 font-mono`} {...props}>
         {children}
       </code>
     );
@@ -124,29 +124,29 @@ export const MDXComponents = {
   ),
   th: ({ children, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
-      className="border border-white/10 bg-bg-card px-4 py-2 text-left text-white font-semibold"
+      className="border border-gray-200 bg-gray-50 px-4 py-2 text-left text-gray-900 font-semibold"
       {...props}
     >
       {children}
     </th>
   ),
   td: ({ children, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className="border border-white/10 px-4 py-2 text-gray-300" {...props}>
+    <td className="border border-gray-200 px-4 py-2 text-gray-700" {...props}>
       {children}
     </td>
   ),
 
   // Horizontal rule
-  hr: () => <hr className="border-white/10 my-8" />,
+  hr: () => <hr className="border-gray-200 my-8" />,
 
   // Strong and emphasis
   strong: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <strong className="text-white font-semibold" {...props}>
+    <strong className="text-gray-900 font-semibold" {...props}>
       {children}
     </strong>
   ),
   em: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <em className="italic text-gray-200" {...props}>
+    <em className="italic text-gray-700" {...props}>
       {children}
     </em>
   ),

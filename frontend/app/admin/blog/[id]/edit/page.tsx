@@ -64,7 +64,7 @@ export default function EditBlogPost() {
     const fetchPost = async () => {
       try {
         const response = await api.get(`/admin/blog/${params.id}`);
-        const post = response.data as { title: string; slug: string; description: string; content: string; image?: string; imageAlt?: string; category: string; tags: string; status: string };
+        const post = response.data as { title: string; slug: string; description: string; content: string; image?: string; imageAlt?: string; category: string; tags: string; status: string; author: string; featured: boolean; published: boolean; postType?: PostType };
         let tags = "";
         try {
           const parsedTags = JSON.parse(post.tags);

@@ -37,7 +37,7 @@ export default function SearchBar({ placeholder = 'Search articles...', basePath
       <div className="relative">
         <Search
           size={18}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
         />
         <input
           ref={inputRef}
@@ -45,13 +45,13 @@ export default function SearchBar({ placeholder = 'Search articles...', basePath
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder={placeholder}
-          className="w-full pl-11 pr-10 py-3 bg-bg-card border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-green/50 focus:ring-1 focus:ring-accent-green/50 transition-colors"
+          className="w-full pl-11 pr-10 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green/50 focus:ring-1 focus:ring-accent-green/50 transition-colors"
         />
         {query && (
           <button
             type="button"
             onClick={clearSearch}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors"
           >
             <X size={18} />
           </button>

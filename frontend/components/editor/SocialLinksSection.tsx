@@ -42,7 +42,7 @@ export default function SocialLinksSection() {
                                 value={(personalInfo as Record<string, string>)[key] || ''}
                                 onChange={(e) => handleChange(key, e.target.value)}
                                 placeholder={placeholder}
-                                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-green transition"
+                                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:outline-none focus:border-accent-green transition"
                             />
                         </div>
                     </div>

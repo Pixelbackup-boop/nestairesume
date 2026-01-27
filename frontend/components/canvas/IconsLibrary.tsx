@@ -250,26 +250,26 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
         <div className="space-y-4">
             {/* Search */}
             <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                 <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search icons..."
-                    className="w-full pl-9 pr-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-accent-green"
+                    className="w-full pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:border-accent-green"
                 />
             </div>
 
             {/* Color picker */}
             <div>
-                <label className="text-xs text-slate-400 mb-2 block">Icon Color</label>
+                <label className="text-xs text-gray-500 mb-2 block">Icon Color</label>
                 <div className="flex flex-wrap gap-1">
                     {colorPresets.map((color) => (
                         <button
                             key={color}
                             onClick={() => setSelectedColor(color)}
                             className={`w-6 h-6 rounded border-2 transition-all ${
-                                selectedColor === color ? 'border-accent-green scale-110' : 'border-slate-600'
+                                selectedColor === color ? 'border-accent-green scale-110' : 'border-gray-300'
                             }`}
                             style={{ backgroundColor: color }}
                         />
@@ -291,8 +291,8 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
                         onClick={() => setSelectedCategory(cat.id)}
                         className={`px-2 py-1 text-xs rounded transition-colors ${
                             selectedCategory === cat.id
-                                ? 'bg-accent-green text-slate-900 font-medium'
-                                : 'bg-slate-800 text-slate-400 hover:text-white'
+                                ? 'bg-accent-green text-gray-900 font-medium'
+                                : 'bg-white text-gray-500 hover:text-white'
                         }`}
                     >
                         {cat.label}
@@ -308,12 +308,12 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
                         <button
                             key={item.name}
                             onClick={() => addIconAsShape(item)}
-                            className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors flex flex-col items-center gap-1 group"
+                            className="p-3 bg-white hover:bg-gray-200 rounded-lg transition-colors flex flex-col items-center gap-1 group"
                             title={item.name}
                         >
                             <IconComponent
                                 size={20}
-                                className="text-slate-300 group-hover:text-white transition-colors"
+                                className="text-gray-600 group-hover:text-white transition-colors"
                                 style={{ color: selectedColor }}
                             />
                         </button>
@@ -322,7 +322,7 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
             </div>
 
             {filteredIcons.length === 0 && (
-                <p className="text-center text-slate-500 text-sm py-4">
+                <p className="text-center text-gray-400 text-sm py-4">
                     No icons found
                 </p>
             )}

@@ -101,11 +101,11 @@ export default function AuthModal({
             />
 
             {/* Modal */}
-            <div className="relative bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-fadeIn">
+            <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-fadeIn">
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition z-10"
+                    className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
                 >
                     <X size={20} />
                 </button>
@@ -113,14 +113,14 @@ export default function AuthModal({
                 {/* Header */}
                 <div className="px-8 pt-8 pb-6 text-center">
                     <div className="w-14 h-14 bg-accent-green/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                        <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-slate-900">
+                        <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-gray-900">
                             R
                         </div>
                     </div>
-                    <h2 className="text-2xl font-bold text-white mb-2">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
                         {mode === 'login' ? 'Welcome Back' : 'Create Account'}
                     </h2>
-                    <p className="text-slate-400 text-sm">
+                    <p className="text-gray-500 text-sm">
                         {mode === 'login'
                             ? 'Sign in to download your resume'
                             : 'Sign up to save and download your resumes'}
@@ -129,13 +129,13 @@ export default function AuthModal({
 
                 {/* Mode Tabs */}
                 <div className="px-8 mb-6">
-                    <div className="flex bg-slate-700/50 rounded-lg p-1">
+                    <div className="flex bg-gray-100 rounded-lg p-1">
                         <button
                             onClick={() => setMode('login')}
                             className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition ${
                                 mode === 'login'
-                                    ? 'bg-slate-600 text-white'
-                                    : 'text-slate-400 hover:text-white'
+                                    ? 'bg-white text-gray-900 shadow-sm'
+                                    : 'text-gray-500 hover:text-gray-900'
                             }`}
                         >
                             Sign In
@@ -144,8 +144,8 @@ export default function AuthModal({
                             onClick={() => setMode('signup')}
                             className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition ${
                                 mode === 'signup'
-                                    ? 'bg-slate-600 text-white'
-                                    : 'text-slate-400 hover:text-white'
+                                    ? 'bg-white text-gray-900 shadow-sm'
+                                    : 'text-gray-500 hover:text-gray-900'
                             }`}
                         >
                             Sign Up
@@ -159,7 +159,7 @@ export default function AuthModal({
                         <button
                             onClick={() => handleSocialAuth('google')}
                             disabled={isLoading}
-                            className="flex items-center justify-center gap-2 py-2.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-sm text-white transition disabled:opacity-50"
+                            className="flex items-center justify-center gap-2 py-2.5 bg-gray-200 hover:bg-gray-100 rounded-lg text-sm text-gray-900 transition disabled:opacity-50"
                         >
                             <Chrome size={18} />
                             Google
@@ -167,7 +167,7 @@ export default function AuthModal({
                         <button
                             onClick={() => handleSocialAuth('github')}
                             disabled={isLoading}
-                            className="flex items-center justify-center gap-2 py-2.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-sm text-white transition disabled:opacity-50"
+                            className="flex items-center justify-center gap-2 py-2.5 bg-gray-200 hover:bg-gray-100 rounded-lg text-sm text-gray-900 transition disabled:opacity-50"
                         >
                             <Github size={18} />
                             GitHub
@@ -175,9 +175,9 @@ export default function AuthModal({
                     </div>
 
                     <div className="flex items-center gap-3 my-6">
-                        <div className="flex-1 h-px bg-slate-700" />
-                        <span className="text-xs text-slate-500">or continue with email</span>
-                        <div className="flex-1 h-px bg-slate-700" />
+                        <div className="flex-1 h-px bg-gray-200" />
+                        <span className="text-xs text-gray-400">or continue with email</span>
+                        <div className="flex-1 h-px bg-gray-200" />
                     </div>
                 </div>
 
@@ -193,20 +193,20 @@ export default function AuthModal({
                         {/* Name (Signup only) */}
                         {mode === 'signup' && (
                             <div>
-                                <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                                <label className="block text-sm font-medium text-gray-600 mb-1.5">
                                     Full Name
                                 </label>
                                 <div className="relative">
                                     <User
                                         size={18}
-                                        className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
+                                        className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                                     />
                                     <input
                                         type="text"
                                         value={formData.name}
                                         onChange={(e) => updateFormData('name', e.target.value)}
                                         placeholder="John Smith"
-                                        className="w-full pl-10 pr-4 py-2.5 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition"
+                                        className="w-full pl-10 pr-4 py-2.5 bg-gray-200 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition"
                                         required={mode === 'signup'}
                                     />
                                 </div>
@@ -215,20 +215,20 @@ export default function AuthModal({
 
                         {/* Email */}
                         <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                            <label className="block text-sm font-medium text-gray-600 mb-1.5">
                                 Email Address
                             </label>
                             <div className="relative">
                                 <Mail
                                     size={18}
-                                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
+                                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                                 />
                                 <input
                                     type="email"
                                     value={formData.email}
                                     onChange={(e) => updateFormData('email', e.target.value)}
                                     placeholder="you@example.com"
-                                    className="w-full pl-10 pr-4 py-2.5 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition"
+                                    className="w-full pl-10 pr-4 py-2.5 bg-gray-200 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition"
                                     required
                                 />
                             </div>
@@ -236,27 +236,27 @@ export default function AuthModal({
 
                         {/* Password */}
                         <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                            <label className="block text-sm font-medium text-gray-600 mb-1.5">
                                 Password
                             </label>
                             <div className="relative">
                                 <Lock
                                     size={18}
-                                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
+                                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                                 />
                                 <input
                                     type={showPassword ? 'text' : 'password'}
                                     value={formData.password}
                                     onChange={(e) => updateFormData('password', e.target.value)}
                                     placeholder="••••••••"
-                                    className="w-full pl-10 pr-12 py-2.5 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-accent-green transition"
+                                    className="w-full pl-10 pr-12 py-2.5 bg-gray-200 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition"
                                     required
                                     minLength={6}
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition"
                                 >
                                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                                 </button>
@@ -280,7 +280,7 @@ export default function AuthModal({
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full mt-6 py-3 bg-accent-green text-slate-900 rounded-lg font-semibold hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                        className="w-full mt-6 py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                         {isLoading ? (
                             <>
@@ -296,7 +296,7 @@ export default function AuthModal({
 
                     {/* Terms (Signup only) */}
                     {mode === 'signup' && (
-                        <p className="mt-4 text-xs text-slate-500 text-center">
+                        <p className="mt-4 text-xs text-gray-400 text-center">
                             By signing up, you agree to our{' '}
                             <a href="#" className="text-accent-green hover:underline">
                                 Terms of Service

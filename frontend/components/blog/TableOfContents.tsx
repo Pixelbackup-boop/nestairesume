@@ -40,11 +40,11 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="sticky top-24 bg-bg-card rounded-xl border border-white/5 overflow-hidden">
+    <nav className="sticky top-24 bg-white rounded-xl border border-gray-200 overflow-hidden">
       {/* Header */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 text-sm font-semibold text-white hover:bg-white/5 transition-colors"
+        className="w-full flex items-center justify-between p-4 text-sm font-semibold text-gray-900 hover:bg-gray-100 transition-colors"
       >
         <span className="flex items-center gap-2">
           <List size={16} className="text-accent-green" />
@@ -76,7 +76,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
                 } ${
                   activeId === id
                     ? 'text-accent-green font-medium'
-                    : 'text-gray-400 hover:text-white'
+                    : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 {text}

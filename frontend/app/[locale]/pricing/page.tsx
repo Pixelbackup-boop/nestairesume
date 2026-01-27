@@ -138,16 +138,36 @@ export default function PricingPage() {
     },
   ];
 
+  // FAQPage JSON-LD schema — built from hardcoded i18n translation constants, safe for rendering
+  const faqSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  });
+
   return (
     <>
       <Header />
+
+      {/* FAQPage JSON-LD schema — hardcoded i18n translation constants, no user input involved */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: faqSchema }}
+      />
 
       {/* Hero - Animated */}
       <section className="pt-32 pb-12">
         <PricingAnimations.Hero>
           <div className="max-w-6xl mx-auto px-6 text-center">
             <span className="text-accent-green font-medium text-sm uppercase tracking-wider">{t("sectionTitle")}</span>
-            <h1 className="text-4xl sm:text-5xl font-bold mt-3 mb-6 text-gray-900 dark:text-white">
+            <h1 className="text-4xl sm:text-5xl font-bold mt-3 mb-6 text-gray-900">
               {t("title")}<br />
               <span className="gradient-text">{t("titleHighlight")}</span>
             </h1>
@@ -186,11 +206,11 @@ export default function PricingPage() {
                   </div>
                 )}
                 <div className={`mb-5 ${plan.badge ? "mt-2" : ""}`}>
-                  <h3 className="font-semibold text-xl mb-1 text-gray-900 dark:text-white">{plan.name}</h3>
+                  <h3 className="font-semibold text-xl mb-1 text-gray-900">{plan.name}</h3>
                   <p className="text-gray-500 text-sm">{plan.description}</p>
                 </div>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-gray-900 dark:text-white">{plan.price}</span>
+                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
                   <span className="text-gray-500 text-sm">{plan.period}</span>
                 </div>
                 {plan.hasTrial ? (
@@ -208,7 +228,7 @@ export default function PricingPage() {
                     <li
                       key={idx}
                       className={`flex items-center gap-2 text-sm ${
-                        feature.included ? "text-gray-700 dark:text-gray-300" : "text-gray-400 dark:text-gray-500"
+                        feature.included ? "text-gray-700" : "text-gray-400"
                       }`}
                     >
                       <svg
@@ -244,7 +264,7 @@ export default function PricingPage() {
                   className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition btn-lift ${
                     plan.highlighted
                       ? "bg-accent-green text-bg-primary hover:bg-accent-teal"
-                      : "border border-gray-300 dark:border-border-subtle hover:bg-gray-100 dark:hover:bg-bg-card-light text-gray-900 dark:text-white"
+                      : "border border-gray-300 hover:bg-gray-100 text-gray-900"
                   }`}
                 >
                   {plan.cta}
@@ -258,32 +278,32 @@ export default function PricingPage() {
       {/* Comparison Table - Animated Rows */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">{t("comparison.title")}</h2>
+          <h2 className="text-2xl font-bold text-center mb-8 text-gray-900">{t("comparison.title")}</h2>
           <PricingAnimations.ComparisonTable className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-border-subtle">
-                  <th className="text-left py-4 px-4 text-gray-500 dark:text-gray-400 font-medium">{t("comparison.feature")}</th>
-                  <th className="text-center py-4 px-4 text-gray-900 dark:text-white font-semibold">{t("starter.name")}</th>
-                  <th className="text-center py-4 px-4 text-gray-900 dark:text-white font-semibold">{t("gold.name")}</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-4 px-4 text-gray-500 font-medium">{t("comparison.feature")}</th>
+                  <th className="text-center py-4 px-4 text-gray-900 font-semibold">{t("starter.name")}</th>
+                  <th className="text-center py-4 px-4 text-gray-900 font-semibold">{t("gold.name")}</th>
                   <th className="text-center py-4 px-4 text-accent-green font-semibold">{t("diamond.name")}</th>
                   <th className="text-center py-4 px-4 text-amber-400 font-semibold">{t("platinum.name")}</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonFeatures.map((row, idx) => (
-                  <PricingAnimations.TableRow key={idx} className="border-b border-gray-200 dark:border-border-subtle">
-                    <td className="py-4 px-4 text-gray-700 dark:text-gray-300">{row.feature}</td>
-                    <td className={`text-center py-4 px-4 ${row.starter === "✗" ? "text-gray-400 dark:text-gray-500" : "text-gray-700 dark:text-gray-300"}`}>
+                  <PricingAnimations.TableRow key={idx} className="border-b border-gray-200">
+                    <td className="py-4 px-4 text-gray-700">{row.feature}</td>
+                    <td className={`text-center py-4 px-4 ${row.starter === "✗" ? "text-gray-400" : "text-gray-700"}`}>
                       {row.starter}
                     </td>
-                    <td className={`text-center py-4 px-4 ${row.gold === "✗" ? "text-gray-400 dark:text-gray-500" : "text-gray-700 dark:text-gray-300"}`}>
+                    <td className={`text-center py-4 px-4 ${row.gold === "✗" ? "text-gray-400" : "text-gray-700"}`}>
                       {row.gold}
                     </td>
-                    <td className={`text-center py-4 px-4 ${row.diamond === "✗" ? "text-gray-400 dark:text-gray-500" : "text-accent-green"}`}>
+                    <td className={`text-center py-4 px-4 ${row.diamond === "✗" ? "text-gray-400" : "text-accent-green"}`}>
                       {row.diamond}
                     </td>
-                    <td className={`text-center py-4 px-4 ${row.platinum === "✗" ? "text-gray-400 dark:text-gray-500" : "text-amber-400"}`}>
+                    <td className={`text-center py-4 px-4 ${row.platinum === "✗" ? "text-gray-400" : "text-amber-400"}`}>
                       {row.platinum}
                     </td>
                   </PricingAnimations.TableRow>
@@ -298,7 +318,7 @@ export default function PricingPage() {
       <section className="py-16 bg-bg-card/30">
         <div className="max-w-3xl mx-auto px-6">
           <PricingAnimations.FAQHeader className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{t("faq.title")}</h2>
+            <h2 className="text-3xl font-bold text-gray-900">{t("faq.title")}</h2>
           </PricingAnimations.FAQHeader>
           <PricingAnimations.FAQContainer className="space-y-4">
             {faqs.map((faq, idx) => (
@@ -315,8 +335,8 @@ export default function PricingPage() {
       {/* CTA - Animated */}
       <section className="py-16">
         <PricingAnimations.CTA className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">{t("cta.title")}</h2>
-          <p className="text-gray-500 dark:text-gray-400 mb-8">{t("cta.subtitle")}</p>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">{t("cta.title")}</h2>
+          <p className="text-gray-500 mb-8">{t("cta.subtitle")}</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href={localizedHref("/onboarding")}
@@ -329,7 +349,7 @@ export default function PricingPage() {
             </Link>
             <Link
               href="#"
-              className="inline-flex items-center gap-2 border border-gray-300 dark:border-border-subtle px-6 py-4 rounded-xl font-medium hover:bg-gray-100 dark:hover:bg-bg-card-light transition text-gray-900 dark:text-white"
+              className="inline-flex items-center gap-2 border border-gray-300 px-6 py-4 rounded-xl font-medium hover:bg-gray-100 transition text-gray-900"
             >
               {t("cta.contactSupport")}
             </Link>

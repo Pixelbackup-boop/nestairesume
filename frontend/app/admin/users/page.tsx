@@ -41,7 +41,7 @@ export default function UsersPage() {
     setLoading(true);
     try {
       const response = await api.get("/admin/users", {
-        params: { page, limit: 10, search: search || undefined },
+        params: { page: String(page), limit: "10", ...(search ? { search } : {}) },
       });
       setData(response.data as UsersResponse);
       setError(null);

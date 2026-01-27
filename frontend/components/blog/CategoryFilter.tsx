@@ -15,9 +15,9 @@ export default function CategoryFilter({ categories, activeCategory, basePath = 
   const isAllActive = pathname === basePath || pathname.endsWith(basePath);
 
   return (
-    <div className="bg-bg-card rounded-xl border border-white/5 overflow-hidden">
-      <div className="p-4 border-b border-white/5">
-        <h3 className="flex items-center gap-2 text-sm font-semibold text-white">
+    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+      <div className="p-4 border-b border-gray-200">
+        <h3 className="flex items-center gap-2 text-sm font-semibold text-gray-900">
           <Folder size={16} className="text-accent-green" />
           Categories
         </h3>
@@ -29,7 +29,7 @@ export default function CategoryFilter({ categories, activeCategory, basePath = 
           className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
             isAllActive
               ? 'bg-accent-green/10 text-accent-green font-medium'
-              : 'text-gray-400 hover:text-white hover:bg-white/5'
+              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
           }`}
         >
           All Articles
@@ -47,7 +47,7 @@ export default function CategoryFilter({ categories, activeCategory, basePath = 
               className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
                 isActive
                   ? 'bg-accent-green/10 text-accent-green font-medium'
-                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
               {category}

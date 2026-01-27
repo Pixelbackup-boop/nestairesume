@@ -1,0 +1,183 @@
+---
+title: What is ATS Parse Rate? (And Why Yours Might Be Low)
+slug: ats-parse-rate-meaning
+description: >-
+  What is ATS parse rate? Learn why your resume gets rejected and how to test
+  and improve your ATS readability score.
+date: '2026-01-22'
+author: Alex Morgan
+authorBio: Certified Career Coach & HR Tech Specialist
+category: Technical SEO
+tags:
+  - ATS
+  - parse rate
+  - resume keywords
+  - technical
+image: /blog/ats-parse-rate.svg
+imageAlt: ATS system scanning a resume
+featured: false
+faq:
+  - question: What is a good ATS parse rate?
+    answer: >-
+      A good ATS parse rate is 80% or higher, meaning the system correctly reads
+      at least 80% of your resume fields (name, contact info, work history,
+      skills, education). Aim for 90%+ by using clean formatting, standard
+      section headers, and a simple single-column layout.
+  - question: How can I check my resume's ATS parse rate?
+    answer: >-
+      Upload your resume to free ATS testing tools like Jobscan, ResumeWorded,
+      or our AI resume builder's ATS checker. These tools simulate how an ATS
+      reads your resume and show which fields were parsed correctly and which
+      were missed.
+  - question: Why does my resume get rejected immediately after applying?
+    answer: >-
+      Instant rejections usually mean the ATS could not parse your resume
+      properly or you did not match enough keywords from the job description.
+      Common causes include using tables, multi-column layouts, headers and
+      footers for contact info, or saving as an image-based PDF.
+  - question: Does file format affect ATS parse rate?
+    answer: >-
+      Yes. PDF and DOCX are the most widely accepted formats. However, some
+      older ATS systems struggle with PDFs that use embedded fonts or complex
+      layouts. When in doubt, submit a DOCX file. Always use a text-based PDF
+      exported from Word or Google Docs, never a scanned document.
+---
+
+You applied for a job. 10 seconds later, you got a rejection email.
+
+Did a human read it? **No.**
+Did the robot hate you? **Maybe.**
+
+It likely comes down to your **ATS Parse Rate**.
+
+## What Is ATS Parse Rate?
+
+When you upload your resume (PDF or Docx), the Applicant Tracking System (ATS) "reads" the file and tries to extract data into fields:
+*   First Name
+*   Last Name
+*   Education
+*   Work History
+
+**Parse Rate** is the percentage of your resume's data that was correctly identified and filed.
+
+*   **Low Parse Rate (< 50%):** The ATS thinks your name is "Education" and your job title is "2024." You are auto-rejected because your profile is incomplete.
+*   **High Parse Rate (> 90%):** The recruiter sees a perfectly populated profile.
+
+## Common Causes of Low Parse Rate
+
+1.  **Columns & Tables:** Robots read left-to-right. Two columns can confuse them (reading Experience column mixed with Skills column).
+2.  **Icons & Graphics:** An icon of a phone instead of the word "Phone:" is invisible to basic parsers.
+3.  **Creative Fonts:** See our guide on [best resume fonts](/blog/best-resume-fonts-2026).
+4.  **Header/Footer abuse:** Some systems ignore headers entirely, losing your contact info.
+
+## How to Check Your Score
+
+You don't need to guess. Use a [resume score checker](/) like ours. We run your resume through the same parser logic used by companies like Greenhouse and Lever.
+
+## The Fix
+
+If your parse rate is low:
+1.  **Simplify:** Switch to a standard "clean" layout.
+2.  **Standardize Headings:** Use "Work Experience," not "My Journey."
+3.  **PDF vs Word:** PDF locks the formatting for humans, but ensure it is a *text* PDF, not an image scan.
+
+Don't let a bad file format ruin your career chances. Test your resume today.
+
+## How ATS Parse Rates Actually Work (Technical Breakdown)
+
+Understanding the mechanics behind parse rates helps you write a resume that machines love. When your resume file hits an ATS like Greenhouse, Lever, Workday, or iCIMS, it goes through a multi-stage process:
+
+**Stage 1: File Ingestion.** The ATS receives your PDF or DOCX and converts it to raw text. This is where complex layouts fail -- a two-column design might produce garbled text where your job title merges with a skill from the adjacent column.
+
+**Stage 2: Section Detection.** The parser uses pattern matching to identify section headers. It looks for standard labels like "Work Experience," "Education," "Skills," and "Contact Information." If you named your section "Where I've Made My Mark" instead of "Work Experience," the parser flags it as unrecognized and either skips the section or dumps its contents into a miscellaneous field.
+
+**Stage 3: Entity Extraction.** Within each section, the parser extracts structured data -- company names, job titles, date ranges, degree names, and skill keywords. This is where formatting precision matters. A date written as "Jan 2024 - Present" is parsed differently than "2024/01" or "Since January of last year."
+
+**Stage 4: Field Mapping.** The extracted data is mapped to the ATS database fields. Your name goes into the "name" field, your most recent job title goes into "current title," and so on. If the parser couldn't identify a field, that database entry stays blank -- and a blank "job title" field might auto-disqualify you from roles that filter by title.
+
+**Stage 5: Keyword Scoring.** The ATS compares your parsed content against the keywords the recruiter programmed into the job requisition. Only correctly parsed text counts. If your skills section was mangled in Stage 1, those keywords are lost.
+
+The result of this pipeline is your parse rate -- the percentage of your resume's intended data that survived the extraction process intact.
+
+## How to Check Your Resume's Parse Rate (Step-by-Step)
+
+You should never submit a resume without testing it first. Here's how to check your parse rate before applying:
+
+### Method 1: Free ATS Simulation Tools
+
+1. **Upload to Jobscan** -- paste the job description and your resume. Jobscan shows your keyword match rate and identifies parsing issues. The free tier allows a limited number of scans per month.
+2. **Try ResumeWorded** -- their "Score My Resume" tool provides a parse rate estimate and flags formatting problems. It shows you which sections were detected and which were missed.
+3. **Use our ATS Checker** at [Best AI Resume](/) -- our tool runs your resume through the same parsing logic used by Greenhouse and Lever and returns a detailed breakdown by section.
+
+### Method 2: The "Copy-Paste Test"
+
+This is the simplest DIY method:
+
+1. Open your PDF resume in a browser or PDF reader.
+2. Press **Ctrl+A** (Select All), then **Ctrl+C** (Copy).
+3. Paste into a plain text editor like Notepad.
+4. Review the output. Is the text in the correct order? Are your name, contact info, job titles, and dates intact? Or is text jumbled, merged, or missing?
+
+If the pasted output is garbled, an ATS will parse it the same way. Fix the source file before submitting.
+
+### Method 3: Apply to Your Own Job Posting
+
+If you have access to an ATS (through your current company or a free trial of tools like Breezy HR or JazzHR), post a dummy job and submit your own resume. Then check how the ATS populated your candidate profile. This is the most accurate test because you see exactly what the recruiter would see.
+
+## Common Formatting Issues That Lower Parse Rates
+
+Each of these specific issues causes measurable parse rate drops. Here's what to watch for:
+
+### Tables and Text Boxes
+**Parse rate impact: -30% to -50%.** When you use a Word table to align your content, the ATS reads cells in unpredictable order. A table with "Company Name" in the left cell and "Date Range" in the right cell might parse as "Company Name Date Range" in one ATS and "Date Range Company Name" in another. Text boxes are even worse because many parsers skip them entirely.
+
+### Headers and Footers
+**Parse rate impact: -10% to -20%.** If your name and contact info live in the document header, some ATS platforms (notably older versions of Taleo and SuccessFactors) ignore header content completely. Your resume then appears to have no name or phone number -- an instant rejection.
+
+### Multi-Column Layouts
+**Parse rate impact: -20% to -40%.** The parser reads content in a single stream from top to bottom. Columns cause it to read across both columns simultaneously, mixing unrelated content. A sidebar with skills next to a main column of work history produces nonsensical merged text.
+
+### Images and Icons
+**Parse rate impact: varies.** An email icon next to your email address is invisible to the parser. If the icon replaces the word "Email:" then the parser has no label for the field. Similarly, skill-level bar charts or star ratings are completely unreadable -- the ATS sees nothing where you see a visual representation of your Python proficiency.
+
+### Non-Standard Section Headers
+**Parse rate impact: -15% to -30%.** The following header labels are universally recognized by ATS: "Work Experience," "Education," "Skills," "Summary," "Certifications," and "Contact." Creative alternatives like "My Toolbox," "Career Highlights," or "What I Know" force the parser to guess, and it often guesses wrong.
+
+### Embedded Fonts and Special Characters
+**Parse rate impact: -5% to -15%.** Some PDF generators embed fonts as images rather than text. Bullet points using special Unicode characters (like decorative arrows or custom shapes) may be stripped or replaced with question marks. Stick to standard bullet characters: the filled circle, the em dash, or the standard hyphen.
+
+## ATS Parse Rate by File Format
+
+Not all file formats parse equally. Here's a comparison based on testing across popular ATS platforms:
+
+| File Format | Average Parse Rate | Best For | Notes |
+|---|---|---|---|
+| **.docx (Word)** | 92-98% | Maximum compatibility | Most ATS platforms natively support DOCX. This is the safest format for Taleo, Workday, and iCIMS. |
+| **.pdf (text-based)** | 85-95% | Modern ATS (Greenhouse, Lever) | PDFs exported from Word, Google Docs, or design tools that embed real text parse well. Newer ATS versions handle PDFs almost as well as DOCX. |
+| **.pdf (image-based / scanned)** | 0-10% | Never use for applications | Scanned documents or PDFs created from photos contain no text data. The ATS sees a blank page. |
+| **.txt (plain text)** | 99% | ATS compatibility | Perfect parse rates, but you lose all formatting. Only use if the application specifically requests plain text. |
+| **.rtf (Rich Text)** | 80-90% | Legacy systems | RTF is supported by most ATS but sometimes loses formatting nuances. Not recommended over DOCX. |
+| **.pages (Apple)** | 0-20% | Never use for applications | Very few ATS platforms support Apple's native format. Always export to PDF or DOCX. |
+| **Google Docs link** | N/A | Sharing, not applying | You can't upload a link to most ATS portals. Download as DOCX or PDF before submitting. |
+
+**The safe bet:** Submit DOCX when the application accepts it. Use a text-based PDF as your backup. Keep a plain text version for copy-paste applications.
+
+## What Parse Rate Score Should You Aim For?
+
+Industry benchmarks suggest the following thresholds:
+
+- **95-100% parse rate:** Your resume is perfectly optimized. All fields populate correctly. This is the goal.
+- **80-94% parse rate:** Good but with minor issues. Maybe a date format wasn't recognized or one section header was non-standard. Worth fixing but unlikely to cause rejection.
+- **60-79% parse rate:** Problem zone. Key fields like job title or education may be missing from your ATS profile. Recruiters might see an incomplete candidate and pass.
+- **Below 60% parse rate:** Critical failure. Your resume is essentially invisible. The ATS profile is too incomplete for keyword matching to work, and most systems auto-reject at this threshold.
+
+Reaching 95%+ doesn't require a boring resume. You can still use bold text, italic text, proper heading hierarchy, and even subtle color accents. The key is structural simplicity: single column, standard headers, no tables, no text boxes, no images containing text.
+
+## Related Resources
+
+- [What Is an ATS? The Complete Guide to Applicant Tracking Systems (2026)](/blog/what-is-ats-guide)
+- [How to Write an ATS-Friendly Resume in 2026](/blog/how-to-write-ats-friendly-resume)
+- [Process Engineer Resume Example](/resume-examples/process-engineer)
+- [Cloud Engineer Resume Example](/resume-examples/cloud-engineer)
+
+Need a professional resume? [Try our AI-powered resume builder](/builder) to create an ATS-optimized resume in minutes.
