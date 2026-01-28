@@ -9,14 +9,15 @@ export interface TemplateCategory {
 }
 
 export const TEMPLATE_CATEGORIES: TemplateCategory[] = [
-    {
-        slug: 'google-docs',
-        title: 'Google Docs Resume Templates',
-        keyword: 'resume template google docs',
-        seoTitle: 'Free Google Docs Resume Templates (2026) | Download & Edit',
-        seoDescription: 'Download 10+ free Google Docs resume templates. Fully editable, professional designs that work with any ATS. No login required.',
-        heroText: 'Stop fighting with Microsoft Word. Our collection of Google Docs resume templates is designed for speed, simplicity, and compatibility. Click any template to copy it directly to your Google Drive.'
-    },
+    // Google Docs category hidden — will re-enable when Google Drive API integration is ready
+    // {
+    //     slug: 'google-docs',
+    //     title: 'Google Docs Resume Templates',
+    //     keyword: 'resume template google docs',
+    //     seoTitle: 'Free Google Docs Resume Templates (2026) | Download & Edit',
+    //     seoDescription: 'Download 10+ free Google Docs resume templates. Fully editable, professional designs that work with any ATS. No login required.',
+    //     heroText: 'Stop fighting with Microsoft Word. Our collection of Google Docs resume templates is designed for speed, simplicity, and compatibility. Click any template to copy it directly to your Google Drive.'
+    // },
     {
         slug: 'simple',
         title: 'Simple & Clean Resume Templates',
@@ -34,7 +35,7 @@ export const TEMPLATE_CATEGORIES: TemplateCategory[] = [
         heroText: '75% of resumes are rejected by robots before a human sees them. These templates are rigorously tested against major ATS platforms (Greenhouse, Lever, Workday) to ensure your data gets read correctly.'
     },
     {
-        slug: 'word',
+        slug: 'microsoftword',
         title: 'Microsoft Word Resume Templates',
         keyword: 'cv template word',
         seoTitle: 'Microsoft Word Resume Templates (Free .docx Download)',
