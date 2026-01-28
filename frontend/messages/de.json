@@ -595,7 +595,14 @@
     "marketingManager": "Marketing-Manager",
     "dataAnalyst": "Datenanalyst",
     "accountant": "Buchhalter/in",
-    "viewAll300": "Alle 300+ ansehen"
+    "viewAll300": "Alle 300+ ansehen",
+    "careerGuides": "Karriere-Ratgeber",
+    "careerGuidance": "Karriereberatung",
+    "jobSearchStrategy": "Jobsuche-Strategie",
+    "careerDevelopmentPlan": "Karriereentwicklungsplan",
+    "highPayingSkills": "Gut Bezahlte Fähigkeiten",
+    "interviewPreparation": "Interview-Vorbereitung",
+    "salaryNegotiation": "Gehaltsverhandlung"
   },
   "Auth": {
     "login": "Anmelden",

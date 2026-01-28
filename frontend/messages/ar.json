@@ -595,7 +595,14 @@
     "marketingManager": "مدير تسويق",
     "dataAnalyst": "محلل بيانات",
     "accountant": "محاسب",
-    "viewAll300": "عرض جميع +300"
+    "viewAll300": "عرض جميع +300",
+    "careerGuides": "أدلة المهنة",
+    "careerGuidance": "التوجيه المهني",
+    "jobSearchStrategy": "استراتيجية البحث عن عمل",
+    "careerDevelopmentPlan": "خطة التطوير المهني",
+    "highPayingSkills": "المهارات ذات الأجور العالية",
+    "interviewPreparation": "الإعداد للمقابلات",
+    "salaryNegotiation": "التفاوض على الراتب"
   },
   "Auth": {
     "login": "تسجيل الدخول",

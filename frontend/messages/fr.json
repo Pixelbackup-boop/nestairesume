@@ -595,7 +595,14 @@
     "marketingManager": "Responsable Marketing",
     "dataAnalyst": "Analyste de Données",
     "accountant": "Comptable",
-    "viewAll300": "Voir les 300+"
+    "viewAll300": "Voir les 300+",
+    "careerGuides": "Guides de Carrière",
+    "careerGuidance": "Orientation Professionnelle",
+    "jobSearchStrategy": "Stratégie de Recherche d'Emploi",
+    "careerDevelopmentPlan": "Plan de Développement de Carrière",
+    "highPayingSkills": "Compétences Bien Rémunérées",
+    "interviewPreparation": "Préparation aux Entretiens",
+    "salaryNegotiation": "Négociation Salariale"
   },
   "Auth": {
     "login": "Connexion",

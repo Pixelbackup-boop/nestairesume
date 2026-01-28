@@ -1,0 +1,42 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <!-- Grid pattern background -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Gradient glow -->
+  <ellipse cx="600" cy="315" rx="400" ry="250" fill="url(#glow)"/>
+  <defs>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#00dc82" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00dc82" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Compass icon -->
+  <circle cx="600" cy="240" r="80" fill="#161b22" stroke="#00dc82" stroke-width="3"/>
+  <circle cx="600" cy="240" r="60" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+  <!-- Compass cardinal points -->
+  <text x="600" y="175" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#00dc82" text-anchor="middle">N</text>
+  <text x="600" y="320" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" text-anchor="middle">S</text>
+  <text x="530" y="245" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" text-anchor="middle">W</text>
+  <text x="670" y="245" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" text-anchor="middle">E</text>
+
+  <!-- Compass needle -->
+  <polygon points="600,180 590,250 600,240 610,250" fill="#00dc82"/>
+  <polygon points="600,300 590,230 600,240 610,230" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="600" cy="240" r="8" fill="#0d1117" stroke="#00dc82" stroke-width="2"/>
+
+  <!-- Path indicators -->
+  <path d="M480 350 Q540 320 600 350 Q660 380 720 350" stroke="#00dc82" stroke-width="2" fill="none" stroke-dasharray="8 4"/>
+
+  <!-- Text -->
+  <text x="600" y="430" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">Career Guidance 2026</text>
+  <text x="600" y="470" font-family="system-ui, sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">Find your path with modern AI tools</text>
+</svg>

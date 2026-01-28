@@ -71,6 +71,17 @@ export default function Footer() {
         { label: t("coverLetterGenerator"), href: "/tools/cover-letter" },
         { label: t("resignationLetterGenerator"), href: "/tools/resignation-letter" },
       ],
+      subSection: {
+        heading: t("careerGuides"),
+        links: [
+          { label: t("careerGuidance"), href: "/career-tips/career-guidance" },
+          { label: t("jobSearchStrategy"), href: "/blog/job-search-strategy" },
+          { label: t("careerDevelopmentPlan"), href: "/career-tips/career-development-plan" },
+          { label: t("highPayingSkills"), href: "/blog/high-paying-skills" },
+          { label: t("interviewPreparation"), href: "/blog/interview-preparation-guide" },
+          { label: t("salaryNegotiation"), href: "/blog/salary-negotiation-tips" },
+        ],
+      },
     },
     {
       heading: t("company"),

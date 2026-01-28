@@ -609,7 +609,14 @@
     "marketingManager": "Marketing Manager",
     "dataAnalyst": "Data Analyst",
     "accountant": "Accountant",
-    "viewAll300": "View All 300+"
+    "viewAll300": "View All 300+",
+    "careerGuides": "Career Guides",
+    "careerGuidance": "Career Guidance",
+    "jobSearchStrategy": "Job Search Strategy",
+    "careerDevelopmentPlan": "Career Development Plan",
+    "highPayingSkills": "High Paying Skills",
+    "interviewPreparation": "Interview Preparation",
+    "salaryNegotiation": "Salary Negotiation"
   },
 
   "Auth": {

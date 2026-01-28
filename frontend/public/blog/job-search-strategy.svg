@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <!-- Grid pattern background -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Gradient glow -->
+  <ellipse cx="600" cy="315" rx="400" ry="250" fill="url(#glow)"/>
+  <defs>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#00dc82" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00dc82" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Magnifying glass -->
+  <circle cx="560" cy="220" r="60" fill="none" stroke="#00dc82" stroke-width="4"/>
+  <circle cx="560" cy="220" r="50" fill="#161b22"/>
+  <line x1="605" y1="265" x2="650" y2="310" stroke="#00dc82" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Target/bullseye inside magnifying glass -->
+  <circle cx="560" cy="220" r="30" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <circle cx="560" cy="220" r="15" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <circle cx="560" cy="220" r="5" fill="#00dc82"/>
+
+  <!-- Strategy arrow/path -->
+  <path d="M680 180 L720 180 L720 220 L760 220" stroke="#00dc82" stroke-width="2" fill="none" stroke-dasharray="6 3"/>
+  <polygon points="760,215 775,220 760,225" fill="#00dc82"/>
+
+  <!-- Checklist items -->
+  <rect x="680" y="240" width="80" height="20" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="680" y="270" width="100" height="20" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="680" y="300" width="70" height="20" rx="3" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Checkmarks -->
+  <circle cx="665" cy="250" r="8" fill="#00dc82"/>
+  <path d="M660 250 L663 254 L672 245" stroke="#0d1117" stroke-width="2" fill="none"/>
+  <circle cx="665" cy="280" r="8" fill="#00dc82"/>
+  <path d="M660 280 L663 284 L672 275" stroke="#0d1117" stroke-width="2" fill="none"/>
+  <circle cx="665" cy="310" r="8" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+  <!-- Text -->
+  <text x="600" y="420" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">Job Search Strategy 2026</text>
+  <text x="600" y="460" font-family="system-ui, sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">The complete playbook for landing your next role</text>
+</svg>

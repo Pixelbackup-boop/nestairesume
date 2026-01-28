@@ -1,0 +1,43 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <!-- Grid pattern background -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Gradient glow -->
+  <ellipse cx="600" cy="315" rx="400" ry="250" fill="url(#glow)"/>
+  <defs>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#00dc82" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00dc82" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Person silhouette (counselor) -->
+  <circle cx="520" cy="200" r="35" fill="#161b22" stroke="#00dc82" stroke-width="2"/>
+  <rect x="485" y="250" width="70" height="90" rx="8" fill="#161b22" stroke="#00dc82" stroke-width="2"/>
+
+  <!-- Person silhouette (client) -->
+  <circle cx="680" cy="200" r="35" fill="#161b22" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <rect x="645" y="250" width="70" height="90" rx="8" fill="#161b22" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+
+  <!-- Chat bubbles -->
+  <rect x="560" y="160" width="60" height="30" rx="6" fill="#00dc82" opacity="0.8"/>
+  <polygon points="575,190 565,190 575,200" fill="#00dc82" opacity="0.8"/>
+
+  <rect x="580" y="210" width="50" height="25" rx="6" fill="rgba(255,255,255,0.2)"/>
+  <polygon points="620,235 630,235 620,245" fill="rgba(255,255,255,0.2)"/>
+
+  <!-- AI sparkle icon -->
+  <circle cx="600" cy="300" r="25" fill="#00dc82"/>
+  <path d="M600 285 L600 315 M585 300 L615 300 M590 290 L610 310 M610 290 L590 310" stroke="#0d1117" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Text -->
+  <text x="600" y="420" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">Career Counseling Guide</text>
+  <text x="600" y="460" font-family="system-ui, sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">AI-powered guidance for your career journey</text>
+</svg>

@@ -595,7 +595,14 @@
     "marketingManager": "Gerente de Marketing",
     "dataAnalyst": "Analista de Datos",
     "accountant": "Contador/a",
-    "viewAll300": "Ver todos los 300+"
+    "viewAll300": "Ver todos los 300+",
+    "careerGuides": "Guías de Carrera",
+    "careerGuidance": "Orientación Profesional",
+    "jobSearchStrategy": "Estrategia de Búsqueda de Empleo",
+    "careerDevelopmentPlan": "Plan de Desarrollo Profesional",
+    "highPayingSkills": "Habilidades Bien Remuneradas",
+    "interviewPreparation": "Preparación para Entrevistas",
+    "salaryNegotiation": "Negociación Salarial"
   },
   "Auth": {
     "login": "Iniciar sesión",
