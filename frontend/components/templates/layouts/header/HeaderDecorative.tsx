@@ -4,6 +4,10 @@ import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
+import {
+    User, Briefcase, GraduationCap, Wrench, MessageCircle, Zap, Star, Trophy,
+    Link, ClipboardList, FileText, Pin, LucideIcon
+} from 'lucide-react';
 
 /**
  * Header Decorative Template
@@ -58,14 +62,20 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     overflow: 'visible', // Allow photo to break out
                 }}
             >
-                {/* Decorative Pattern (SVG) */}
+                {/* Decorative Pattern - Chain Link (dynamic color from theme) */}
                 <svg
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.1, pointerEvents: 'none' }}
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.4, pointerEvents: 'none' }}
                 >
-                    <pattern id="pattern-circles" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <circle cx="20" cy="20" r="18" fill="none" stroke="white" strokeWidth="1" />
-                    </pattern>
-                    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+                    <defs>
+                        <pattern id="pattern-chain-link" x="0" y="0" width="32" height="26" patternUnits="userSpaceOnUse">
+                            <path
+                                d="M14 0v3.994C14 7.864 10.858 11 7 11c-3.866 0-7-3.138-7-7.006V0h2v4.005C2 6.765 4.24 9 7 9c2.756 0 5-2.236 5-4.995V0h2zm0 26v-5.994C14 16.138 10.866 13 7 13c-3.858 0-7 3.137-7 7.006V26h2v-6.005C2 17.235 4.244 15 7 15c2.76 0 5 2.236 5 4.995V26h2zm2-18.994C16 3.136 19.142 0 23 0c3.866 0 7 3.138 7 7.006v9.988C30 20.864 26.858 24 23 24c-3.866 0-7-3.138-7-7.006V7.006zm2-.01C18 4.235 20.244 2 23 2c2.76 0 5 2.236 5 4.995v10.01C28 19.765 25.756 22 23 22c-2.76 0-5-2.236-5-4.995V6.995z"
+                                fill={accentColor}
+                                fillRule="evenodd"
+                            />
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-chain-link)" />
                 </svg>
 
                 <div style={{
@@ -91,7 +101,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     </h1>
                     <p style={{
                         fontSize: fs.jobTitle,
-                        color: accentColor,
+                        color: 'white',
                         fontWeight: 600,
                         textTransform: 'uppercase',
                         textAlign: 'right',
@@ -160,14 +170,14 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                 <div style={{ width: '60%' }}>
                     {personalInfo.summary && (
                         <section className="mb-8 resume-section" data-paginate>
-                            <SectionHeader title={t.sections.profile} icon="👤" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.profile} icon={User} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <p style={{ lineHeight: 1.6, fontSize: fs.body }}>{personalInfo.summary}</p>
                         </section>
                     )}
 
                     {experience.length > 0 && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.experience} icon="💼" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.experience} icon={Briefcase} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-6">
                                 {experience.map((exp) => (
                                     <div key={exp.id} data-paginate="item">
@@ -191,7 +201,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {education.length > 0 && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.education} icon="🎓" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.education} icon={GraduationCap} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-4">
                                 {education.map((edu) => (
                                     <div key={edu.id} data-paginate="item">
@@ -215,7 +225,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Skills */}
                     {skills.length > 0 && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.skills} icon="🛠️" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.skills} icon={Wrench} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-3">
                                 {skills.map((skill) => (
                                     <div key={skill.id} data-paginate="item">
@@ -242,7 +252,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Languages */}
                     {data.languages && data.languages.length > 0 && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.languages} icon="🗣️" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.languages} icon={MessageCircle} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-2">
                                 {data.languages.map((lang) => (
                                     <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
@@ -257,7 +267,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Strengths */}
                     {data.strengths && data.strengths.length > 0 && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.strengths} icon="⚡" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.strengths} icon={Zap} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                                 {data.strengths.map((str) => (
                                     <span key={str.id} data-paginate="item" style={{
@@ -278,7 +288,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Interests */}
                     {interests && interests.length > 0 && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.interests} icon="⭐" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.interests} icon={Star} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                                 {interests.map((int) => (
                                     <span key={int.id} data-paginate="item" style={{
@@ -299,7 +309,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.credentials} icon="🏆" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.credentials} icon={Trophy} accent={accentColor} fs={fs} headingFont={headingFont} />
 
                             {certifications && certifications.length > 0 && (
                                 <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
@@ -336,12 +346,12 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.socialLinks} icon="🔗" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.socialLinks} icon={Link} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
                                 {personalInfo.linkedin && <div data-paginate="item"><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                                {personalInfo.twitter && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.twitter}</div>}
+                                {personalInfo.x && <div data-paginate="item"><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                                 {personalInfo.github && <div data-paginate="item"><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                                 {personalInfo.dribbble && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                                 {personalInfo.behance && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -353,7 +363,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* References */}
                     {references && references.length > 0 && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.references} icon="📋" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.references} icon={ClipboardList} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                                 {references.map((ref) => (
                                     <div key={ref.id} data-paginate="item">
@@ -370,7 +380,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Personal Details */}
                     {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
                         <div className="mb-8">
-                            <SectionHeader title={t.sections.personalDetails} icon="📝" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={t.sections.personalDetails} icon={FileText} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
                                 {personalInfo.nationality && (
                                     <div data-paginate="item"><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
@@ -391,7 +401,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Custom Field */}
                     {personalInfo.customField && personalInfo.customFieldLabel && (
                         <div className="mb-8">
-                            <SectionHeader title={personalInfo.customFieldLabel} icon="📌" accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <SectionHeader title={personalInfo.customFieldLabel} icon={Pin} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <p style={{ fontSize: fs.body, lineHeight: 1.6 }} data-paginate="item">{personalInfo.customField}</p>
                         </div>
                     )}
@@ -401,7 +411,11 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
     );
 }
 
-function SectionHeader({ title, icon, accent, fs, headingFont }: { title: string, icon: string, accent: string, fs: ScaledFontSizes, headingFont: string }) {
+function SectionHeader({ title, icon: Icon, accent, fs, headingFont }: { title: string, icon: LucideIcon, accent: string, fs: ScaledFontSizes, headingFont: string }) {
+    const basePx = parseInt(fs.body);
+    const isSmall = basePx < 10;
+    const iconSize = isSmall ? 14 : 16;
+
     return (
         <div style={{
             display: 'flex',
@@ -411,7 +425,9 @@ function SectionHeader({ title, icon, accent, fs, headingFont }: { title: string
             borderBottom: '2px solid #f3f4f6',
             paddingBottom: 8
         }}>
-            <span style={{ fontSize: fs.sectionHeading }}>{icon}</span>
+            <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: accent }}>
+                <Icon size={iconSize} strokeWidth={2} />
+            </span>
             <h3 style={{
                 fontFamily: headingFont,
                 fontSize: fs.sectionHeading,
