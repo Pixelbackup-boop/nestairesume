@@ -53,7 +53,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
     const Row = (label: string, content: string) => `
         <div style="display: flex; margin-bottom: 0;">
             <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${label}</h3>
+                <h3 style="font-size: 18px; font-weight: 600; color: #000; margin: 0;">${label}</h3>
             </div>
             <div style="flex: 1;">
                 ${content}
@@ -66,16 +66,16 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
             
             <!-- Header -->
             <header style="margin-left: 30%; margin-bottom: 64px;">
-                <h1 style="font-family: ${headingFont}; font-size: 38px; font-weight: 400; color: #000; text-transform: lowercase; margin: 0 0 4px 0;">
+                <h1 style="font-family: ${headingFont}; font-size: 38px; font-weight: 400; color: #000; margin: 0 0 4px 0;">
                     ${escapeHtml(personalInfo.fullName || 'Your Name')}
                 </h1>
-                <p style="font-size: 16px; color: ${labelText}; font-weight: 400; text-transform: lowercase; margin-bottom: 16px;">
+                <p style="font-size: 16px; color: #000; font-weight: 400; margin-bottom: 16px;">
                     ${escapeHtml(personalInfo.jobTitle || 'Job Title')}
                 </p>
 
                 <!-- Contact -->
-                <div style="font-size: 12px; display: flex; gap: 16px; color: ${labelText}; flex-wrap: wrap;">
-                    ${[personalInfo.email, personalInfo.phone, personalInfo.location]
+                <div style="font-size: 12px; display: flex; gap: 16px; color: #000; flex-wrap: wrap;">
+                    ${[personalInfo.email, personalInfo.phone, personalInfo.location, personalInfo.website]
             .filter(Boolean)
             .map(item => `<span>${escapeHtml(item!)}</span>`)
             .join('')}
@@ -96,7 +96,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 ${experience.length > 0 ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.experience}</h3>
+                            <h3 style="font-size: 18px; font-weight: 600; color: #000; margin: 0;">${t.sections.experience}</h3>
                         </div>
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
@@ -118,7 +118,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 ${education.length > 0 ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.education}</h3>
+                            <h3 style="font-size: 18px; font-weight: 600; color: #000; margin: 0;">${t.sections.education}</h3>
                         </div>
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
@@ -137,7 +137,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 ${skills.length > 0 ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.skills}</h3>
+                            <h3 style="font-size: 18px; font-weight: 600; color: #000; margin: 0;">${t.sections.skills}</h3>
                         </div>
                         <div style="flex: 1;">
                             ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
@@ -174,7 +174,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                     <div style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
-                            <h3 style="font-size: 12px; color: ${labelText}; margin: 0;">${t.sections.credentials}</h3>
+                            <h3 style="font-size: 18px; font-weight: 600; color: #000; margin: 0;">${t.sections.credentials}</h3>
                         </div>
                         <div style="flex: 1;">
                             ${certifications && certifications.length > 0 ? `
@@ -237,8 +237,9 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 `) : ''}
 
                 <!-- Social Links (Extended) -->
-                ${(personalInfo.github || personalInfo.linkedin || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `
+                ${(personalInfo.website || personalInfo.github || personalInfo.linkedin || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `
                     <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px;">
+                        ${personalInfo.website ? `<a href="${personalInfo.website}" style="color: ${labelText}; text-decoration: none;">Website</a>` : ''}
                         ${personalInfo.linkedin ? `<a href="${personalInfo.linkedin}" style="color: ${labelText}; text-decoration: none;">LinkedIn</a>` : ''}
                         ${personalInfo.github ? `<a href="${personalInfo.github}" style="color: ${labelText}; text-decoration: none;">GitHub</a>` : ''}
                         ${personalInfo.twitter ? `<a href="${personalInfo.twitter}" style="color: ${labelText}; text-decoration: none;">Twitter</a>` : ''}
