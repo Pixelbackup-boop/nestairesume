@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -62,7 +63,7 @@ export default function Header() {
   const textColor = scrolled || !isHomePage ? "text-dark-teal" : "text-white";
   const textColorMuted = scrolled || !isHomePage ? "text-dark-teal/70" : "text-white/80";
   const textColorHover = scrolled || !isHomePage ? "hover:text-dark-teal" : "hover:text-white";
-  const activeTextColor = scrolled || !isHomePage ? "text-dark-teal bg-teal-primary/10" : "text-white bg-white/10";
+  const activeTextColor = "text-white bg-teal-primary";
 
   const menuBtnClass = (menu: string) =>
     `flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
@@ -90,9 +91,14 @@ export default function Header() {
             {/* Logo */}
             <Link href={localizedHref("/")} className="flex items-center gap-3 group">
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-primary to-teal-secondary rounded-lg flex items-center justify-center font-bold text-white text-base shadow-lg shadow-teal-primary/20 group-hover:shadow-teal-primary/40 transition-shadow">
-                  B
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Best AI Resume Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-lg shadow-lg shadow-teal-primary/20 group-hover:shadow-teal-primary/40 transition-shadow"
+                  priority
+                />
                 <div className="absolute inset-0 bg-teal-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <div className="flex flex-col">
