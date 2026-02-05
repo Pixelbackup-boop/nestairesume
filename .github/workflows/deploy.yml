@@ -106,7 +106,6 @@ jobs:
             --min-instances 0 \
             --max-instances 10 \
             --set-env-vars="NODE_ENV=production" \
-            --set-env-vars="PORT=8080" \
             --set-env-vars="HOST=0.0.0.0" \
             --set-env-vars="DATABASE_URL=${{ secrets.DATABASE_URL }}" \
             --set-env-vars="JWT_SECRET=${{ secrets.JWT_SECRET }}" \
