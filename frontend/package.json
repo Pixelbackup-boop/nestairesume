@@ -13,6 +13,7 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "@swc/helpers": "^0.5.18",
     "@types/uuid": "^10.0.0",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
