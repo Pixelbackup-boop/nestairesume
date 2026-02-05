@@ -45,13 +45,16 @@ model Account {
   id                String  @id @default(uuid())
   userId            String
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type              String  // "oauth" | "credentials"
   provider          String  // "google" | "github" etc
   providerAccountId String
-  accessToken       String?
-  refreshToken      String?
-  expiresAt         Int?
-  tokenType         String?
+  access_token      String?
+  refresh_token     String?
+  expires_at        Int?
+  token_type        String?
   scope             String?
+  id_token          String?
+  session_state     String?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
