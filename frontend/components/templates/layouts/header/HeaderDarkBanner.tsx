@@ -383,14 +383,14 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <section className="resume-section mt-4" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.socialLinks}
                             </SectionHeader>
                             <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
                                 {personalInfo.github && <div>💻 {personalInfo.github}</div>}
-                                {personalInfo.twitter && <div>🐦 {personalInfo.twitter}</div>}
+                                {personalInfo.x && <div>🐦 {personalInfo.x}</div>}
                                 {personalInfo.dribbble && <div>🏀 {personalInfo.dribbble}</div>}
                                 {personalInfo.behance && <div>🎨 {personalInfo.behance}</div>}
                                 {personalInfo.instagram && <div>📷 {personalInfo.instagram}</div>}

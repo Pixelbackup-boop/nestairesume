@@ -48,7 +48,7 @@ export default function MegaMenuPanel({ isOpen, onClose, children }: MegaMenuPan
       role="menu"
       aria-orientation="horizontal"
     >
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-6 lg:px-6 lg:py-8">
         {children}
       </div>
     </div>

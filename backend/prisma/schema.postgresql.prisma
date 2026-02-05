@@ -1,0 +1,234 @@
+// Production PostgreSQL Schema
+// To switch to PostgreSQL:
+// 1. Copy this file to schema.prisma (or update DATABASE_URL)
+// 2. Set DATABASE_URL to your PostgreSQL connection string
+// 3. Run: npx prisma migrate deploy (production) or npx prisma migrate dev (development)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                      String    @id @default(uuid())
+  email                   String    @unique
+  emailVerified           DateTime? // For OAuth email verification
+  hashedPassword          String?   // Optional for OAuth-only users
+  name                    String
+  image                   String?   // Profile image from OAuth
+  role                    String    @default("user") // "user" | "admin"
+  // Email verification
+  verificationCode        String?   // 6-digit verification code
+  verificationCodeExpires DateTime? // When the code expires
+  subscriptionTier        String    @default("free") // "free" | "starter" | "gold" | "diamond" | "platinum"
+  creditsRemaining        Int       @default(3)
+  stripeCustomerId        String?   // Stripe customer ID
+  subscriptionId          String?   // Active Stripe subscription ID
+  subscriptionStatus      String?   // "active" | "canceled" | "past_due" | "trialing"
+  isSuspended             Boolean   @default(false)
+  // Trial tracking
+  trialEndsAt             DateTime? // When trial period ends
+  hasUsedTrial            Boolean   @default(false) // Prevent multiple trials
+  // Usage limits (internal tracking - reset on billing cycle)
+  cvCreatedCount          Int       @default(0) // CVs created this billing period
+  aiUsedCount             Int       @default(0) // AI generations this month
+  aiUsedToday             Int       @default(0) // AI generations today (for trial daily limit)
+  downloadCount           Int       @default(0) // Downloads this billing period
+  coverLetterCount        Int       @default(0) // Cover letters this billing period
+  lastAiResetDate         DateTime? // When daily/monthly counters were last reset
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+  // Relations
+  resumes                 Resume[]
+  payments                Payment[]
+  accounts                Account[]
+  sessions                Session[]
+  communityTemplates      CommunityTemplate[]
+
+  @@index([email])
+  @@index([stripeCustomerId])
+  @@index([subscriptionTier])
+}
+
+// NextAuth.js Account model - stores OAuth provider info
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  type              String  // "oauth" | "oidc" | "email"
+  provider          String  // "google" | "github" | "linkedin" | "azure-ad" | "apple"
+  providerAccountId String  // ID from the OAuth provider
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+// NextAuth.js Session model
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+// NextAuth.js Verification Token model
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Resume {
+  id               String   @id @default(uuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title            String
+  targetRole       String?
+  targetCompany    String?
+  fullName         String
+  email            String?
+  phone            String?
+  location         String?
+  linkedinUrl      String?
+  portfolioUrl     String?
+  summary          String?  @db.Text
+  experiences      String?  @db.Text // JSON array stored as text
+  education        String?  @db.Text // JSON array stored as text
+  skills           String?  @db.Text // JSON array stored as text
+  certifications   String?  @db.Text // JSON array stored as text
+  projects         String?  @db.Text // JSON array stored as text
+  languages        String?  @db.Text // JSON array stored as text
+  templateLayout   String   @default("CLASSIC")
+  templateTheme    String   @default("NAVY")
+  customThemeColor String?
+  atsScore         Int?
+  isMaster         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model BlogPost {
+  id          String    @id @default(uuid())
+  slug        String    @unique
+  title       String
+  description String    @db.Text
+  content     String    @db.Text // MDX/Markdown content
+  image       String?
+  imageAlt    String?
+  category    String
+  tags        String    @db.Text // JSON array stored as string
+  author      String
+  featured    Boolean   @default(false)
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([category])
+  @@index([published])
+}
+
+model Payment {
+  id              String   @id @default(uuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stripePaymentId String   @unique
+  amount          Int      // Amount in cents
+  currency        String   @default("usd")
+  status          String   // "succeeded" | "pending" | "failed"
+  type            String   // "subscription" | "one_time"
+  plan            String?  // "starter" | "gold" | "diamond" | "platinum"
+  createdAt       DateTime @default(now())
+
+  @@index([userId])
+  @@index([stripePaymentId])
+  @@index([createdAt])
+}
+
+// ============ AUTO-BLOGGING MODELS ============
+
+model ContentSource {
+  id             String          @id @default(uuid())
+  name           String          // "Marketing Book 2024"
+  filename       String          // Original filename
+  type           String          @default("pdf") // "pdf"
+  content        String          @db.Text // Extracted text content
+  pageCount      Int?            // Number of pages
+  metadata       String?         @db.Text // JSON: additional info
+  createdAt      DateTime        @default(now())
+  scheduledPosts ScheduledPost[]
+}
+
+model ScheduledPost {
+  id           String         @id @default(uuid())
+  title        String
+  slug         String
+  description  String         @db.Text
+  content      String         @db.Text // Generated markdown
+  category     String
+  tags         String         @db.Text // JSON array
+  scheduledFor DateTime
+  status       String         @default("pending") // "pending" | "approved" | "published" | "failed"
+  sourceId     String?
+  source       ContentSource? @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  blogPostId   String?        // Set after publishing
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@index([status])
+  @@index([scheduledFor])
+  @@index([sourceId])
+}
+
+model AutoBlogSettings {
+  id          String   @id @default(uuid())
+  postsPerDay Int      @default(5)
+  startHour   Int      @default(8)  // 8 AM
+  endHour     Int      @default(20) // 8 PM
+  enabled     Boolean  @default(false)
+  authorName  String   @default("ResumeAI Team")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ============ COMMUNITY TEMPLATES ============
+
+model CommunityTemplate {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  description String?  @db.Text
+  category    String   @default("professional") // "creative" | "professional" | "ats" | "bold"
+  designData  String   @db.Text // JSON serialized canvas elements
+  thumbnail   String?  @db.Text // Base64 data URL for preview
+  downloads   Int      @default(0)
+  isPublic    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+  @@index([category])
+  @@index([isPublic])
+  @@index([downloads])
+}

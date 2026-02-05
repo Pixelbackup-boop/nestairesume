@@ -237,12 +237,12 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 `) : ''}
 
                 <!-- Social Links (Extended) -->
-                ${(personalInfo.website || personalInfo.github || personalInfo.linkedin || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `
+                ${(personalInfo.website || personalInfo.github || personalInfo.linkedin || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `
                     <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px;">
                         ${personalInfo.website ? `<a href="${personalInfo.website}" style="color: ${labelText}; text-decoration: none;">Website</a>` : ''}
                         ${personalInfo.linkedin ? `<a href="${personalInfo.linkedin}" style="color: ${labelText}; text-decoration: none;">LinkedIn</a>` : ''}
                         ${personalInfo.github ? `<a href="${personalInfo.github}" style="color: ${labelText}; text-decoration: none;">GitHub</a>` : ''}
-                        ${personalInfo.twitter ? `<a href="${personalInfo.twitter}" style="color: ${labelText}; text-decoration: none;">Twitter</a>` : ''}
+                        ${personalInfo.x ? `<a href="${personalInfo.x}" style="color: ${labelText}; text-decoration: none;">Twitter</a>` : ''}
                         ${personalInfo.dribbble ? `<a href="${personalInfo.dribbble}" style="color: ${labelText}; text-decoration: none;">Dribbble</a>` : ''}
                         ${personalInfo.behance ? `<a href="${personalInfo.behance}" style="color: ${labelText}; text-decoration: none;">Behance</a>` : ''}
                         ${personalInfo.instagram ? `<a href="${personalInfo.instagram}" style="color: ${labelText}; text-decoration: none;">Instagram</a>` : ''}

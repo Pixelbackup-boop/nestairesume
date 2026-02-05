@@ -167,27 +167,29 @@ export default function DashboardPage() {
                                 </p>
                             </div>
 
-                            {/* Quick Stats Cards */}
-                            <div className="flex gap-4">
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px] shadow-sm">
+                            {/* Quick Stats Cards - responsive grid */}
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full lg:w-auto">
+                                <div className="bg-bg-card border border-border-subtle rounded-xl p-4 md:p-5 shadow-sm">
                                     <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-10 h-10 rounded-lg bg-accent-green/20 flex items-center justify-center">
-                                            <FileText size={20} className="text-accent-green" />
+                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-accent-green/20 flex items-center justify-center">
+                                            <FileText size={18} className="text-accent-green md:hidden" />
+                                            <FileText size={20} className="text-accent-green hidden md:block" />
                                         </div>
                                     </div>
-                                    <div className="text-3xl font-bold text-dark-teal">{stats.totalResumes}</div>
-                                    <div className="text-sm text-text-secondary">Total Resumes</div>
+                                    <div className="text-2xl md:text-3xl font-bold text-dark-teal">{stats.totalResumes}</div>
+                                    <div className="text-xs md:text-sm text-text-secondary">Total Resumes</div>
                                 </div>
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px] shadow-sm">
+                                <div className="bg-bg-card border border-border-subtle rounded-xl p-4 md:p-5 shadow-sm">
                                     <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-10 h-10 rounded-lg bg-accent-teal/20 flex items-center justify-center">
-                                            <Calendar size={20} className="text-accent-teal" />
+                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-accent-teal/20 flex items-center justify-center">
+                                            <Calendar size={18} className="text-accent-teal md:hidden" />
+                                            <Calendar size={20} className="text-accent-teal hidden md:block" />
                                         </div>
                                     </div>
-                                    <div className="text-3xl font-bold text-dark-teal">{stats.thisMonth}</div>
-                                    <div className="text-sm text-text-secondary">This Month</div>
+                                    <div className="text-2xl md:text-3xl font-bold text-dark-teal">{stats.thisMonth}</div>
+                                    <div className="text-xs md:text-sm text-text-secondary">This Month</div>
                                 </div>
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-5 min-w-[140px] hidden md:block shadow-sm">
+                                <div className="bg-bg-card border border-border-subtle rounded-xl p-4 md:p-5 hidden md:block shadow-sm">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
                                             <Layout size={20} className="text-purple-400" />
@@ -278,7 +280,11 @@ export default function DashboardPage() {
                                     <div>
                                         <div className="flex items-center gap-2">
                                             <h3 className="text-lg font-semibold text-dark-teal capitalize">
-                                                {user.subscriptionTier || 'Free'} Plan
+                                                {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired'
+                                                    ? `${user.subscriptionTier} Plan`
+                                                    : user.subscriptionTier === 'expired'
+                                                        ? 'Expired Plan'
+                                                        : 'No Active Plan'}
                                             </h3>
                                             {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && (
                                                 <span className={`px-2 py-0.5 text-xs rounded-full font-medium ${
@@ -305,7 +311,7 @@ export default function DashboardPage() {
                                         <Link href="/pricing">
                                             <button className="flex items-center gap-2 bg-accent-green text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition">
                                                 <Zap size={16} />
-                                                {user.subscriptionTier === 'expired' ? 'Resubscribe' : 'Upgrade Now'}
+                                                {user.subscriptionTier === 'expired' ? 'Resubscribe' : 'Subscribe'}
                                             </button>
                                         </Link>
                                     )}

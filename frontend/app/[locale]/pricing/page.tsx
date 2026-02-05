@@ -1,112 +1,145 @@
 'use client';
 
+import { useState } from 'react';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { PricingAnimations } from "@/components/PricingAnimations";
+import { useAuthStore } from "@/store/useAuthStore";
+import api from "@/lib/api";
+
+type PlanType = "starter" | "gold" | "diamond" | "platinum";
 
 export default function PricingPage() {
   const t = useTranslations("Pricing");
   const locale = useLocale();
+  const router = useRouter();
+  const { isAuthenticated } = useAuthStore();
+  const [isAnnual, setIsAnnual] = useState(false);
+  const [loadingPlan, setLoadingPlan] = useState<PlanType | null>(null);
 
   const localizedHref = (path: string) => `/${locale}${path}`;
 
+  // Handle direct checkout to Stripe
+  const handleCheckout = async (plan: PlanType) => {
+    // If not authenticated, redirect to login first
+    if (!isAuthenticated) {
+      router.push(localizedHref(`/auth/login?redirect=/checkout?plan=${plan}`));
+      return;
+    }
+
+    setLoadingPlan(plan);
+
+    try {
+      const response = await api.post("/payments/create-checkout", { plan });
+      const { url } = response.data as { url: string };
+
+      // Redirect to Stripe Checkout
+      window.location.href = url;
+    } catch (err) {
+      console.error("Checkout error:", err);
+      // Fallback to checkout page if direct checkout fails
+      router.push(localizedHref(`/checkout?plan=${plan}`));
+    } finally {
+      setLoadingPlan(null);
+    }
+  };
+
   const plans = [
     {
+      key: "starter" as PlanType,
       name: t("starter.name"),
-      price: t("starter.price"),
-      period: t("starter.period"),
+      price: isAnnual ? t("starter.annualPrice") : t("starter.price"),
+      period: isAnnual ? t("starter.annualPeriod") : t("starter.period"),
+      monthlyEquivalent: isAnnual ? t("starter.annualMonthly") : null,
       description: t("starter.description"),
       features: [
         { text: t("starter.features.cvCreations"), included: true },
         { text: t("starter.features.aiGenerations"), included: true },
+        { text: t("starter.features.downloads"), included: true },
         { text: t("starter.features.templates"), included: true },
         { text: t("starter.features.noAds"), included: true },
-        { text: t("starter.features.export"), included: true },
-        { text: t("page.formBuilder"), included: true },
-        { text: t("page.atsOptimization"), included: false },
-        { text: t("page.coverLetterBuilder"), included: false },
+        { text: t("page.atsOptimization"), included: true },
+        { text: t("page.coverLetterBuilder"), included: true },
       ],
-      cta: t("starter.cta"),
-      href: localizedHref("/checkout?plan=starter"),
       highlighted: false,
-      hasTrial: false, // No trial - charges immediately
+      hasTrial: false,
     },
     {
+      key: "gold" as PlanType,
       name: t("gold.name"),
-      price: t("gold.price"),
-      period: t("gold.period"),
+      price: isAnnual ? t("gold.annualPrice") : t("gold.price"),
+      period: isAnnual ? t("gold.annualPeriod") : t("gold.period"),
+      monthlyEquivalent: isAnnual ? t("gold.annualMonthly") : null,
       description: t("gold.description"),
       features: [
         { text: t("gold.features.cvCreations"), included: true },
         { text: t("gold.features.aiGenerations"), included: true },
+        { text: t("gold.features.downloads"), included: true },
         { text: t("gold.features.templates"), included: true },
         { text: t("gold.features.noAds"), included: true },
-        { text: t("gold.features.ats"), included: true },
-        { text: t("page.aiSuggestions"), included: true },
-        { text: t("page.coverLetterBuilder"), included: false },
-        { text: t("page.prioritySupport"), included: false },
+        { text: t("page.atsOptimization"), included: true },
+        { text: t("page.coverLetterBuilder"), included: true },
       ],
-      cta: t("gold.cta"),
-      href: localizedHref("/checkout?plan=gold"),
       highlighted: false,
-      hasTrial: true, // 7-day free trial
+      hasTrial: !isAnnual,
     },
     {
+      key: "diamond" as PlanType,
       name: t("diamond.name"),
-      price: t("diamond.price"),
-      period: t("diamond.period"),
+      price: isAnnual ? t("diamond.annualPrice") : t("diamond.price"),
+      period: isAnnual ? t("diamond.annualPeriod") : t("diamond.period"),
+      monthlyEquivalent: isAnnual ? t("diamond.annualMonthly") : null,
       description: t("diamond.description"),
       badge: t("mostPopular"),
       features: [
         { text: t("diamond.features.cvCreations"), included: true },
         { text: t("diamond.features.aiGenerations"), included: true },
+        { text: t("diamond.features.downloads"), included: true },
         { text: t("diamond.features.templates"), included: true },
         { text: t("page.noAds"), included: true },
         { text: t("page.atsOptimization"), included: true },
-        { text: t("diamond.features.coverLetter"), included: true },
+        { text: t("page.coverLetterBuilder"), included: true },
         { text: t("diamond.features.support"), included: true },
-        { text: t("page.earlyAccess"), included: false },
       ],
-      cta: t("diamond.cta"),
-      href: localizedHref("/checkout?plan=diamond"),
       highlighted: true,
-      hasTrial: true, // 7-day free trial
+      hasTrial: !isAnnual,
     },
     {
+      key: "platinum" as PlanType,
       name: t("platinum.name"),
-      price: t("platinum.price"),
-      period: t("platinum.period"),
+      price: isAnnual ? t("platinum.annualPrice") : t("platinum.price"),
+      period: isAnnual ? t("platinum.annualPeriod") : t("platinum.period"),
+      monthlyEquivalent: isAnnual ? t("platinum.annualMonthly") : null,
       description: t("platinum.description"),
       badge: t("bestValue"),
       features: [
         { text: t("platinum.features.cvCreations"), included: true },
         { text: t("platinum.features.aiGenerations"), included: true },
+        { text: t("platinum.features.downloads"), included: true },
         { text: t("platinum.features.templates"), included: true },
         { text: t("page.noAds"), included: true },
-        { text: t("platinum.features.coverLetter"), included: true },
+        { text: t("page.atsOptimization"), included: true },
+        { text: t("page.coverLetterBuilder"), included: true },
         { text: t("platinum.features.support"), included: true },
         { text: t("platinum.features.earlyAccess"), included: true },
-        { text: t("page.prioritySupport"), included: true },
       ],
-      cta: t("platinum.cta"),
-      href: localizedHref("/checkout?plan=platinum"),
       highlighted: false,
-      hasTrial: false, // No trial - charges immediately
+      hasTrial: false,
     },
   ];
 
   const comparisonFeatures = [
-    { feature: t("comparison.cvCreations"), starter: "30/mo", gold: "150/mo", diamond: "300/mo", platinum: t("comparison.unlimited") },
-    { feature: t("comparison.aiGenerations"), starter: "3/mo", gold: "10/mo", diamond: "30/mo", platinum: "100/mo" },
+    { feature: t("comparison.cvCreations"), starter: "30/mo", gold: "100/mo", diamond: "200/mo", platinum: "500/mo" },
+    { feature: t("comparison.aiGenerations"), starter: "50/mo", gold: "100/mo", diamond: "250/mo", platinum: "700/mo" },
+    { feature: t("comparison.downloads"), starter: "3/mo", gold: "10/mo", diamond: "25/mo", platinum: "100/mo" },
     { feature: "Free Trial", starter: "✗", gold: "7 days", diamond: "7 days", platinum: "✗" },
-    { feature: t("comparison.templates"), starter: t("comparison.all50"), gold: t("comparison.all50"), diamond: t("comparison.premiumPlus"), platinum: t("comparison.premiumPlus") },
-    { feature: t("comparison.aiBuild"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
     { feature: t("page.formBuilder"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
     { feature: t("comparison.adFree"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
-    { feature: t("page.atsOptimization"), starter: "✗", gold: "✓", diamond: "✓", platinum: "✓" },
-    { feature: t("page.coverLetterBuilder"), starter: "✗", gold: "✗", diamond: "✓", platinum: "✓" },
+    { feature: t("page.atsOptimization"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
+    { feature: t("page.coverLetterBuilder"), starter: "10/mo", gold: "50/mo", diamond: "150/mo", platinum: "300/mo" },
     { feature: t("page.prioritySupport"), starter: "✗", gold: "✗", diamond: "✓", platinum: "✓" },
     { feature: t("page.earlyAccess"), starter: "✗", gold: "✗", diamond: "✗", platinum: "✓" },
   ];
@@ -184,6 +217,36 @@ export default function PricingPage() {
         </PricingAnimations.Hero>
       </section>
 
+      {/* Billing Toggle */}
+      <section className="pb-8">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-center justify-center gap-4">
+            <span className={`text-sm font-medium transition-colors ${!isAnnual ? 'text-gray-900' : 'text-gray-400'}`}>
+              {t("billingToggle.monthly")}
+            </span>
+            <button
+              onClick={() => setIsAnnual(!isAnnual)}
+              className={`relative w-14 h-7 rounded-full transition-colors ${
+                isAnnual ? 'bg-accent-green' : 'bg-gray-300'
+              }`}
+              aria-label="Toggle billing period"
+            >
+              <span
+                className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow transition-transform ${
+                  isAnnual ? 'translate-x-7' : 'translate-x-0'
+                }`}
+              />
+            </button>
+            <span className={`text-sm font-medium transition-colors ${isAnnual ? 'text-gray-900' : 'text-gray-400'}`}>
+              {t("billingToggle.annual")}
+            </span>
+            <span className="bg-accent-green/10 text-accent-green text-xs font-semibold px-2.5 py-1 rounded-full">
+              {t("billingToggle.savePercent")}
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Cards - Staggered Animation */}
       <section className="py-8">
         <div className="max-w-6xl mx-auto px-6">
@@ -212,6 +275,11 @@ export default function PricingPage() {
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
                   <span className="text-gray-500 text-sm">{plan.period}</span>
+                  {plan.monthlyEquivalent && (
+                    <div className="text-accent-green text-sm font-medium mt-1">
+                      {plan.monthlyEquivalent}
+                    </div>
+                  )}
                 </div>
                 {plan.hasTrial ? (
                   <div className="mb-4 inline-flex items-center gap-1.5 bg-accent-green/10 text-accent-green text-xs font-medium px-2.5 py-1 rounded-full">
@@ -259,16 +327,27 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href={plan.href}
-                  className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition btn-lift ${
+                <button
+                  onClick={() => handleCheckout(plan.key)}
+                  disabled={loadingPlan === plan.key}
+                  className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition btn-lift disabled:opacity-50 disabled:cursor-not-allowed ${
                     plan.highlighted
                       ? "bg-accent-green text-bg-primary hover:bg-accent-teal"
                       : "border border-gray-300 hover:bg-gray-100 text-gray-900"
                   }`}
                 >
-                  {plan.cta}
-                </Link>
+                  {loadingPlan === plan.key ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Loading...
+                    </span>
+                  ) : (
+                    "Get Started"
+                  )}
+                </button>
               </PricingAnimations.PricingCard>
             ))}
           </PricingAnimations.PricingGrid>

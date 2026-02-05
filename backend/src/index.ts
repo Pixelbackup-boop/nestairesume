@@ -11,6 +11,7 @@ import paymentRoutes from "./routes/payments";
 import webhookRoutes from "./routes/webhooks";
 import autoBlogRoutes from "./routes/autoBlog";
 import pdfRoutes from "./routes/pdf";
+import docxRoutes from "./routes/docx";
 import resumeParserRoutes from "./routes/resumeParser";
 
 // Import scheduler
@@ -52,6 +53,7 @@ app.use("/api/v1/payments", paymentRoutes);
 app.use("/api/v1/webhooks", webhookRoutes);
 app.use("/api/v1/admin/auto-blog", autoBlogRoutes);
 app.use("/api/v1/pdf", pdfRoutes);
+app.use("/api/v1/docx", docxRoutes);
 app.use("/api/v1/resume", resumeParserRoutes);
 
 // Start server

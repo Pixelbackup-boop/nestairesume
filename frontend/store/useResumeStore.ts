@@ -123,7 +123,7 @@ export interface ResumeData {
         idType: IdDocumentType;
         idNumber: string;
         // Social links
-        twitter?: string;
+        x?: string;  // X (formerly Twitter)
         github?: string;
         dribbble?: string;
         behance?: string;
@@ -223,7 +223,7 @@ export const useResumeStore = create<ResumeState>()(
             nationality: '',
             idType: '',
             idNumber: '',
-            twitter: '',
+            x: '',
             github: '',
             dribbble: '',
             behance: '',
@@ -604,7 +604,7 @@ export const useResumeStore = create<ResumeState>()(
                 nationality: '',
                 idType: '',
                 idNumber: '',
-                twitter: '',
+                x: '',
                 github: '',
                 dribbble: '',
                 behance: '',

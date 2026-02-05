@@ -338,7 +338,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
             )}
 
             {/* Social Links */}
-            {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+            {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                 <section className="mb-5">
                     <SectionHeader
                         theme={theme}
@@ -355,9 +355,9 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                 <strong>LinkedIn:</strong> {personalInfo.linkedin}
                             </span>
                         )}
-                        {personalInfo.twitter && (
+                        {personalInfo.x && (
                             <span style={{ color: theme.text }}>
-                                <strong>Twitter:</strong> {personalInfo.twitter}
+                                <strong>Twitter:</strong> {personalInfo.x}
                             </span>
                         )}
                         {personalInfo.github && (

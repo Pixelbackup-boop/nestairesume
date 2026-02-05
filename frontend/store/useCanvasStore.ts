@@ -141,6 +141,7 @@ interface CanvasActions {
 
     // Templates
     loadTemplate: (template: CanvasTemplate) => void;
+    loadCommunityTemplate: (designData: string, name: string) => void;
     clearCanvas: () => void;
 
     // History
@@ -322,6 +323,35 @@ export const useCanvasStore = create<CanvasState & CanvasActions>((set, get) => 
             historyIndex: 0,
         });
         get().saveToHistory();
+    },
+
+    loadCommunityTemplate: (designData, name) => {
+        try {
+            const parsed = JSON.parse(designData);
+            // Handle both array format and object with elements property
+            const elements = Array.isArray(parsed) ? parsed : (parsed.elements || []);
+            set({
+                elements: elements.map((el: AnyCanvasElement) => ({
+                    ...el,
+                    id: crypto.randomUUID(), // Generate new IDs
+                })),
+                backgroundColor: parsed.backgroundColor || '#ffffff',
+                backgroundGradient: parsed.backgroundGradient
+                    ? {
+                        enabled: true,
+                        start: parsed.backgroundGradient.start,
+                        end: parsed.backgroundGradient.end,
+                        direction: parsed.backgroundGradient.direction,
+                    }
+                    : initialState.backgroundGradient,
+                selectedElementIds: [],
+                history: [[]],
+                historyIndex: 0,
+            });
+            get().saveToHistory();
+        } catch (error) {
+            console.error('Failed to parse community template:', error);
+        }
     },
 
     clearCanvas: () => {

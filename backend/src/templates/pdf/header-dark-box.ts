@@ -340,14 +340,14 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <section data-paginate style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.socialLinks, '&#128279;')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                ${personalInfo.twitter ? `
+                                ${personalInfo.x ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
                                         <span>&#128038;</span>
-                                        <span style="color: #374151;">${escapeHtml(personalInfo.twitter)}</span>
+                                        <span style="color: #374151;">${escapeHtml(personalInfo.x)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.github ? `

@@ -21,6 +21,7 @@ interface AuthState {
     register: (email: string, password: string, fullName: string) => Promise<void>;
     logout: () => void;
     refreshUser: () => Promise<void>;
+    setFromNextAuth: (session: any) => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -116,6 +117,22 @@ export const useAuthStore = create<AuthState>((set) => ({
         } catch (error) {
             // Token might be invalid, logout
             localStorage.removeItem('token');
+            set({ user: null, isAuthenticated: false });
+        }
+    },
+
+    setFromNextAuth: (session) => {
+        if (session?.user) {
+            set({
+                isAuthenticated: true,
+                user: {
+                    id: session.user.id || session.user.email,
+                    email: session.user.email,
+                    name: session.user.name || '',
+                    role: 'user',
+                },
+            });
+        } else {
             set({ user: null, isAuthenticated: false });
         }
     },

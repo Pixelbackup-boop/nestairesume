@@ -2,9 +2,9 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
-import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
+import { useTemplateSetup } from '@/hooks';
 
 /**
  * Header Ribbon Yellow Template
@@ -19,19 +19,20 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  *
  * Matches reference: frontend/Resume-template/unique-layouts/22-ribbon-banner.webp
  */
-function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateProps) {
+function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, awards, interests, certifications, references, customThemeColor, fonts } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Inter');
-    const bodyFont = getFontFamily(fonts?.body || 'Inter');
-    const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // Get scaled font sizes that respect user's size preference + scale
-    const fs = getScaledFontSizes(sizeConfig, scale);
+    const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
+        customThemeColor,
+        fonts,
+        scale,
+        defaultPrimary: '#eab308',  // Yellow accent
+        defaultHeadingFont: 'Inter',
+        defaultBodyFont: 'Inter',
+    });
 
-    const t = useTemplateTranslations();
-
-    // Single color preset - use customThemeColor or default yellow
-    const accentColor = customThemeColor || '#eab308';
+    // Single color preset
+    const accentColor = colors.primary;
 
     return (
         <div
@@ -184,7 +185,7 @@ function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateProps) {
                 </div>
 
                 {/* Social Links Row */}
-                {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                     <div
                         style={{
                             display: 'flex',
@@ -196,7 +197,7 @@ function HeaderRibbonYellow({ data, theme, scale = 1 }: TemplateProps) {
                             marginTop: scale < 1 ? 4 : 8,
                         }}
                     >
-                        {personalInfo.twitter && <span>Twitter: {personalInfo.twitter}</span>}
+                        {personalInfo.x && <span>Twitter: {personalInfo.x}</span>}
                         {personalInfo.github && <span>GitHub: {personalInfo.github}</span>}
                         {personalInfo.dribbble && <span>Dribbble: {personalInfo.dribbble}</span>}
                         {personalInfo.behance && <span>Behance: {personalInfo.behance}</span>}

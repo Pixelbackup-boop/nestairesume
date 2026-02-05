@@ -1,0 +1,65 @@
+# Docker Compose for Local Development with PostgreSQL
+# Usage: docker-compose up -d
+
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: resume-builder-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: resumebuilder
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # pgAdmin (Optional - Database GUI)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: resume-builder-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.dev
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    profiles:
+      - tools
+
+volumes:
+  postgres_data:
+    driver: local
+
+# ============ USAGE ============
+# Start PostgreSQL only:
+#   docker-compose up -d postgres
+#
+# Start with pgAdmin:
+#   docker-compose --profile tools up -d
+#
+# Stop all:
+#   docker-compose down
+#
+# Reset database:
+#   docker-compose down -v && docker-compose up -d
+#
+# ============ CONNECTION ============
+# Host: localhost
+# Port: 5432
+# User: postgres
+# Password: postgres
+# Database: resumebuilder
+#
+# Connection string:
+#   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/resumebuilder?schema=public"

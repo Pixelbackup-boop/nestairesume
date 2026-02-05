@@ -35,6 +35,27 @@ export const authenticateToken = (req: AuthRequest, res: Response, next: NextFun
   }
 };
 
+// Optional authentication - extracts user if token present, continues if not
+export const optionalAuth = (req: AuthRequest, _res: Response, next: NextFunction): void => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, config.secretKey) as JWTPayload;
+      req.user = {
+        id: decoded.sub,
+        email: decoded.email,
+        role: decoded.role || "user",
+      };
+    } catch {
+      // Invalid token - continue without user
+    }
+  }
+
+  next();
+};
+
 // Admin-only middleware - must be used after authenticateToken
 export const requireAdmin = (req: AuthRequest, res: Response, next: NextFunction): void => {
   if (!req.user) {

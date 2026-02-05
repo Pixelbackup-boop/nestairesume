@@ -2,36 +2,38 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
-import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
+import { useTemplateSetup } from '@/hooks';
 
 /**
  * Sidebar Monogram Template
  * Reference: sidebar-monogram.webp
- * 
+ *
  * Layout:
  * - Sidebar: 30% width, Left. Gray 700 (#374151).
  * - Main: 70% width. White.
  * - Header: Large Monogram (Initials) instead of photo.
  * - Accent: Gold (#facc15).
  */
-function SidebarMonogram({ data, theme, scale = 1 }: TemplateProps) {
+function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, customThemeColor, fonts, certifications, awards, references } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Playfair Display');
-    const bodyFont = getFontFamily(fonts?.body || 'Lato');
-    const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // Get scaled font sizes
-    const fs = getScaledFontSizes(sizeConfig, scale);
-    const t = useTemplateTranslations();
+    const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
+        customThemeColor,
+        fonts,
+        scale,
+        defaultPrimary: '#facc15',  // Yellow 400 accent
+        defaultHeadingFont: 'Playfair Display',
+        defaultBodyFont: 'Lato',
+    });
 
     // Colors
     const sidebarBg = '#374151'; // Gray 700
     const mainBg = '#FFFFFF';
     const sidebarText = '#f9fafb';
     const mainText = '#1f2937';
-    const accentColor = customThemeColor || '#facc15'; // Yellow 400
+    const accentColor = colors.primary;
 
     // Dimensions
     const monogramSize = scale < 1 ? 80 : 120;
@@ -345,12 +347,12 @@ function SidebarMonogram({ data, theme, scale = 1 }: TemplateProps) {
                 )}
 
                 {/* Social Links */}
-                {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                     <section className="mb-10 resume-section" data-paginate="section">
                         <MainHeader title={t.sections.socialLinks} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                            {personalInfo.twitter && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.twitter}</div>}
+                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}

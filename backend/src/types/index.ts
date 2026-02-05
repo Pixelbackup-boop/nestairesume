@@ -57,7 +57,7 @@ export interface UserPayload {
 }
 
 export type UserRole = "user" | "admin";
-export type SubscriptionTier = "free" | "starter" | "gold" | "diamond";
+export type SubscriptionTier = "free" | "starter" | "gold" | "diamond" | "platinum" | "expired";
 export type SubscriptionStatus = "active" | "canceled" | "past_due";
 
 export interface BlogPostData {

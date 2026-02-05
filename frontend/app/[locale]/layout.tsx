@@ -6,6 +6,8 @@ import { locales, Locale, isRtl, getDirection } from '@/i18n.config';
 
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { SessionProvider } from '@/components/providers/SessionProvider';
+import { AuthSyncProvider } from '@/components/providers/AuthSyncProvider';
 import { Suspense } from 'react';
 import '../globals.css';
 
@@ -186,11 +188,15 @@ export default async function LocaleLayout({
         }`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Suspense fallback={null}>
-            <GoogleAnalytics />
-          </Suspense>
-          <WebVitals />
-          {children}
+          <SessionProvider>
+            <AuthSyncProvider>
+              <Suspense fallback={null}>
+                <GoogleAnalytics />
+              </Suspense>
+              <WebVitals />
+              {children}
+            </AuthSyncProvider>
+          </SessionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

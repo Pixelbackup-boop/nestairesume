@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /builder/
+Disallow: /dashboard/
+Disallow: /onboarding/
+Disallow: /checkout/
+
+Sitemap: https://www.bestairesumes.com/sitemap.xml

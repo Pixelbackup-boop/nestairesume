@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -61,11 +62,13 @@ export default function AdminSidebar({ isOpen = false, onClose }: AdminSidebarPr
       {/* Logo */}
       <div className="p-6 border-b border-white/5 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative">
-            <div className="w-9 h-9 bg-gradient-to-br from-accent-green to-accent-teal rounded-lg flex items-center justify-center font-bold text-bg-primary text-sm shadow-lg shadow-accent-green/20">
-              R
-            </div>
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Best AI Resume Logo"
+            width={36}
+            height={36}
+            className="rounded-lg shadow-lg shadow-accent-green/20"
+          />
           <div className="flex flex-col">
             <span className="font-bold text-white text-lg leading-none">Best AI Resume</span>
             <span className="text-[10px] text-accent-purple font-medium tracking-wider">ADMIN PANEL</span>

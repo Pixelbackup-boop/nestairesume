@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import { authenticateToken, AuthRequest } from "../middleware/auth";
+import { validateBody, createCheckoutSchema } from "../middleware/validation";
 import {
   createCheckoutSession,
   createPortalSession,
@@ -10,14 +11,9 @@ import {
 const router = Router();
 
 // Create checkout session
-router.post("/create-checkout", authenticateToken, async (req: AuthRequest, res: Response): Promise<void> => {
+router.post("/create-checkout", authenticateToken, validateBody(createCheckoutSchema), async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const { plan } = req.body as { plan: PlanType };
-
-    if (!plan || !["starter", "gold", "diamond", "platinum"].includes(plan)) {
-      res.status(400).json({ detail: "Invalid plan" });
-      return;
-    }
 
     if (!req.user) {
       res.status(401).json({ detail: "Not authenticated" });
@@ -25,7 +21,7 @@ router.post("/create-checkout", authenticateToken, async (req: AuthRequest, res:
     }
 
     const url = await createCheckoutSession(
-      req.user.sub,
+      req.user.id,
       req.user.email,
       req.user.email, // Using email as name fallback
       plan
@@ -47,7 +43,7 @@ router.post("/create-portal", authenticateToken, async (req: AuthRequest, res: R
       return;
     }
 
-    const url = await createPortalSession(req.user.sub);
+    const url = await createPortalSession(req.user.id);
     res.json({ url });
   } catch (error: unknown) {
     console.error("Portal error:", error);
@@ -64,7 +60,7 @@ router.get("/status", authenticateToken, async (req: AuthRequest, res: Response)
       return;
     }
 
-    const status = await getSubscriptionStatus(req.user.sub);
+    const status = await getSubscriptionStatus(req.user.id);
     res.json(status);
   } catch (error: unknown) {
     console.error("Status error:", error);

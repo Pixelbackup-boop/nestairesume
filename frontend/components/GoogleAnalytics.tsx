@@ -6,11 +6,8 @@ import { useEffect } from "react";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-declare global {
-  interface Window {
-    gtag: (...args: unknown[]) => void;
-  }
-}
+// gtag is already declared elsewhere - remove duplicate declaration
+// The global Window.gtag type comes from @types/gtag.js or similar
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();

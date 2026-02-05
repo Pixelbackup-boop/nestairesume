@@ -420,7 +420,7 @@
       "features": {
         "downloads": "10 Downloads",
         "resumes": "5 gespeicherte Lebensläufe",
-        "templates": "Alle 50+ Vorlagen",
+        "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
         "export": "PDF- und PNG-Export"
       },
@@ -434,7 +434,7 @@
       "features": {
         "downloads": "50 Downloads/Monat",
         "resumes": "20 gespeicherte Lebensläufe",
-        "templates": "Alle 50+ Vorlagen",
+        "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
         "ats": "ATS-Optimierung"
       },
@@ -458,7 +458,7 @@
       "title": "Preise - KI-Lebenslauf-Generator ab 3$/Monat",
       "description": "Wählen Sie den perfekten Plan für Ihre Jobsuche. 7-Tage kostenlose Testversion. Jederzeit kündbar."
     },
-    "allPlansInclude": "Alle Pläne beinhalten: Werbefrei • Alle 50+ Vorlagen",
+    "allPlansInclude": "Alle Pläne beinhalten: Werbefrei • Alle Freemium-Vorlagen",
     "bestValue": "BESTES ANGEBOT",
     "trialBadge": "7-Tage kostenlose Testversion",
     "trialNote": "Jederzeit kostenlos kündbar.",
@@ -471,7 +471,7 @@
       "unlimited": "Unbegrenzt",
       "savedResumes": "Gespeicherte Lebensläufe",
       "templates": "Vorlagen",
-      "all50": "Alle 50+",
+      "all50": "Alle Freemium",
       "premiumPlus": "50+ & Premium",
       "aiBuild": "KI-Lebenslauf-Generator",
       "adFree": "Werbefrei"

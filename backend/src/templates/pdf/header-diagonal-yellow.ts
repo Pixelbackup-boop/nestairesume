@@ -220,13 +220,13 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     ` : '';
 
     // Social Links
-    const hasSocialLinks = personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
+    const hasSocialLinks = personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
     const socialLinksHtml = hasSocialLinks ? `
         <div data-paginate style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.socialLinks)}
             <div style="display: flex; flex-direction: column; gap: 4px; font-size: 11px;">
                 ${personalInfo.linkedin ? `<div data-paginate="item"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                ${personalInfo.twitter ? `<div data-paginate="item"><strong>Twitter:</strong> ${escapeHtml(personalInfo.twitter)}</div>` : ''}
+                ${personalInfo.x ? `<div data-paginate="item"><strong>Twitter:</strong> ${escapeHtml(personalInfo.x)}</div>` : ''}
                 ${personalInfo.github ? `<div data-paginate="item"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</div>` : ''}
                 ${personalInfo.dribbble ? `<div data-paginate="item"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                 ${personalInfo.behance ? `<div data-paginate="item"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</div>` : ''}

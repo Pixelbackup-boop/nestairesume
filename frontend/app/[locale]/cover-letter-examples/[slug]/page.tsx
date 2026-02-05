@@ -1,0 +1,466 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import {
+  getCoverLetterExampleBySlug,
+  getAllCoverLetterExampleSlugs,
+  getRelatedCoverLetterExamples,
+  getAuthor,
+} from "@/lib/cover-letter-examples/posts";
+
+const siteUrl = "https://www.bestairesumes.com";
+const locales = ["en", "de", "fr", "es", "ar"];
+
+// Generate static params for all examples and locales
+export async function generateStaticParams() {
+  const slugs = await getAllCoverLetterExampleSlugs();
+  return locales.flatMap((locale) =>
+    slugs.map((slug) => ({ locale, slug }))
+  );
+}
+
+// Generate SEO metadata
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const example = await getCoverLetterExampleBySlug(slug);
+
+  if (!example) {
+    return { title: "Not Found" };
+  }
+
+  const title = `${example.jobTitle} Cover Letter Example & Writing Guide 2026`;
+  const description = example.description;
+  const url = `${siteUrl}/${locale}/cover-letter-examples/${slug}`;
+
+  return {
+    title,
+    description,
+    keywords: example.tags.join(", "),
+    authors: [{ name: example.author }],
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url,
+      siteName: "Best AI Resume",
+      publishedTime: example.date,
+      authors: [example.author],
+      tags: example.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
+
+// Convert markdown content to HTML (simplified) - content is from controlled MDX files
+function renderContent(content: string): string {
+  let html = content;
+
+  // Convert headers
+  html = html.replace(/^### (.+)$/gm, '<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-4">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">$1</h2>');
+
+  // Convert bold and italic
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold">$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+  // Convert links
+  html = html.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-teal-primary hover:underline">$1</a>');
+
+  // Convert lists
+  html = html.replace(/^- (.+)$/gm, '<li class="ml-4 mb-2">$1</li>');
+  html = html.replace(/^\d+\. (.+)$/gm, '<li class="ml-4 mb-2 list-decimal">$1</li>');
+
+  // Convert paragraphs
+  const lines = html.split('\n');
+  html = lines
+    .map((line) => {
+      const trimmed = line.trim();
+      if (!trimmed) return '';
+      if (trimmed.startsWith('<')) return line;
+      if (trimmed.startsWith('-') || trimmed.match(/^\d+\./)) return line;
+      return `<p class="text-gray-700 leading-relaxed mb-4">${trimmed}</p>`;
+    })
+    .join('\n');
+
+  return html;
+}
+
+// Extract headings for TOC
+function extractHeadings(content: string): { id: string; text: string; level: number }[] {
+  const headings: { id: string; text: string; level: number }[] = [];
+  const h2Regex = /^## (.+)$/gm;
+  const h3Regex = /^### (.+)$/gm;
+
+  let match;
+  while ((match = h2Regex.exec(content)) !== null) {
+    headings.push({ id: match[1].toLowerCase().replace(/\s+/g, '-'), text: match[1], level: 2 });
+  }
+  while ((match = h3Regex.exec(content)) !== null) {
+    headings.push({ id: match[1].toLowerCase().replace(/\s+/g, '-'), text: match[1], level: 3 });
+  }
+
+  return headings;
+}
+
+export default async function CoverLetterExamplePage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  const example = await getCoverLetterExampleBySlug(slug);
+
+  if (!example) {
+    notFound();
+  }
+
+  const author = getAuthor(example.author);
+  const relatedExamples = await getRelatedCoverLetterExamples(slug, 3);
+  const headings = extractHeadings(example.content);
+
+  const localizedHref = (path: string) => `/${locale}${path}`;
+
+  // JSON-LD structured data - hardcoded objects from constants, safe for rendering
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${example.jobTitle} Cover Letter Example & Writing Guide`,
+    description: example.description,
+    datePublished: example.date,
+    dateModified: example.date,
+    url: `${siteUrl}/${locale}/cover-letter-examples/${slug}`,
+    publisher: {
+      "@type": "Organization",
+      name: "Best AI Resume",
+      url: siteUrl,
+    },
+    author: [{
+      "@type": "Person",
+      name: author.name,
+      jobTitle: author.jobTitle,
+      url: `${siteUrl}/about/${author.slug}`,
+      image: `${siteUrl}${author.image}`,
+    }],
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Cover Letter Examples", item: `${siteUrl}/cover-letter-examples` },
+      { "@type": "ListItem", position: 3, name: `${example.jobTitle} Cover Letter` },
+    ],
+  };
+
+  const faqJsonLd = example.faq && example.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: example.faq.map((item: { question: string; answer: string }) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  } : null;
+
+  // All JSON-LD objects are built from hardcoded constants and sanitized frontmatter
+  const articleSchema = JSON.stringify(articleJsonLd);
+  const breadcrumbSchema = JSON.stringify(breadcrumbJsonLd);
+  const faqSchema = faqJsonLd ? JSON.stringify(faqJsonLd) : null;
+
+  return (
+    <>
+      <Header />
+
+      {/* Article JSON-LD - hardcoded schema object */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: articleSchema }}
+      />
+      {/* BreadcrumbList JSON-LD - hardcoded schema object */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
+      />
+      {/* FAQPage JSON-LD - from controlled MDX frontmatter */}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: faqSchema }}
+        />
+      )}
+
+      {/* Breadcrumb */}
+      <nav className="pt-24 pb-4 bg-light-teal">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Link href={localizedHref("/")} className="hover:text-teal-primary">
+              Home
+            </Link>
+            <span>/</span>
+            <Link href={localizedHref("/cover-letter-examples")} className="hover:text-teal-primary">
+              Cover Letter Examples
+            </Link>
+            <span>/</span>
+            <span className="text-dark-teal">{example.jobTitle}</span>
+          </div>
+        </div>
+      </nav>
+
+      {/* Header Section */}
+      <section className="py-8 bg-light-teal">
+        <div className="max-w-6xl mx-auto px-6">
+          <span className="inline-block px-3 py-1 bg-teal-primary/10 text-teal-primary text-sm font-medium rounded-full mb-4">
+            {example.category}
+          </span>
+          <h1 className="text-4xl font-bold text-dark-teal mb-4">
+            {example.jobTitle} Cover Letter Example
+          </h1>
+          <p className="text-lg text-dark-teal/70 mb-6">{example.description}</p>
+
+          <div className="flex items-center gap-4 text-sm text-gray-500 flex-wrap">
+            <Link href={`/about/${author.slug}`} className="flex items-center gap-2 hover:text-teal-primary transition">
+              <img
+                src={author.image}
+                alt={author.name}
+                className="w-8 h-8 rounded-full object-cover"
+                width={32}
+                height={32}
+              />
+              <span className="font-medium text-dark-teal">{author.name}</span>
+            </Link>
+            <span>•</span>
+            <span>{author.jobTitle}</span>
+            <span>•</span>
+            <span>{example.readingTime}</span>
+            <span>•</span>
+            <span>Updated {new Date(example.date).toLocaleDateString()}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Article Content */}
+            <article className="lg:col-span-2">
+              {/* Key Skills */}
+              {example.keySkills.length > 0 && (
+                <div className="bg-light-teal rounded-xl p-6 mb-8">
+                  <h2 className="text-xl font-semibold text-dark-teal mb-4">
+                    Key Skills to Highlight
+                  </h2>
+                  <div className="flex flex-wrap gap-2">
+                    {example.keySkills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-2 bg-white text-dark-teal text-sm rounded-lg border border-teal-primary/20"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Content - from controlled MDX files */}
+              <div
+                className="prose prose-lg max-w-none"
+                dangerouslySetInnerHTML={{ __html: renderContent(example.content) }}
+              />
+
+              {/* Tags */}
+              {example.tags.length > 0 && (
+                <div className="mt-8 pt-8 border-t border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-500 mb-3">
+                    Related Topics
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {example.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* FAQ Section */}
+              {example.faq && example.faq.length > 0 && (
+                <div className="mt-10 pt-8 border-t border-gray-200">
+                  <h2 className="text-2xl font-bold text-dark-teal mb-6">
+                    Frequently Asked Questions
+                  </h2>
+                  <div className="space-y-3">
+                    {example.faq.map((item: { question: string; answer: string }, index: number) => (
+                      <details
+                        key={index}
+                        className="group bg-light-teal rounded-lg"
+                      >
+                        <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-dark-teal font-medium hover:text-teal-primary transition list-none">
+                          <span>{item.question}</span>
+                          <svg
+                            className="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </summary>
+                        <div className="px-5 pb-4 text-gray-600 leading-relaxed">
+                          <p>{item.answer}</p>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Internal Links */}
+              <div className="mt-10 pt-8 border-t border-gray-200">
+                <h3 className="text-lg font-semibold text-dark-teal mb-4">
+                  Related Resources
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <Link
+                    href={localizedHref(`/resume-examples/${slug}`)}
+                    className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg hover:bg-light-teal transition group"
+                  >
+                    <span className="text-teal-primary mt-0.5">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">{example.jobTitle} Resume Example</p>
+                      <p className="text-xs text-dark-teal/60 mt-0.5">See the matching resume format</p>
+                    </div>
+                  </Link>
+                  <Link
+                    href={localizedHref("/tools/cover-letter")}
+                    className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg hover:bg-light-teal transition group"
+                  >
+                    <span className="text-teal-primary mt-0.5">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">AI Cover Letter Generator</p>
+                      <p className="text-xs text-dark-teal/60 mt-0.5">Create your cover letter in seconds</p>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </article>
+
+            {/* Sidebar */}
+            <aside className="space-y-6">
+              <div className="sticky top-24 z-10 space-y-6">
+                {/* CTA Card */}
+                <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                  <h3 className="font-semibold text-dark-teal mb-4">Create Your Cover Letter</h3>
+                  <p className="text-sm text-dark-teal/70 mb-4">
+                    Use our AI to generate a personalized {example.jobTitle} cover letter in seconds.
+                  </p>
+                  <Link
+                    href={localizedHref("/tools/cover-letter")}
+                    className="block w-full text-center bg-teal-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-secondary transition"
+                  >
+                    Generate Cover Letter
+                  </Link>
+                </div>
+
+                {/* Table of Contents */}
+                {headings.length > 0 && (
+                  <div className="bg-light-teal rounded-xl p-6">
+                    <h3 className="font-semibold text-dark-teal mb-4">Table of Contents</h3>
+                    <nav className="space-y-2">
+                      {headings.map((heading, index) => (
+                        <a
+                          key={index}
+                          href={`#${heading.id}`}
+                          className={`block text-sm hover:text-teal-primary transition ${
+                            heading.level === 3 ? "pl-4 text-dark-teal/60" : "text-dark-teal/80"
+                          }`}
+                        >
+                          {heading.text}
+                        </a>
+                      ))}
+                    </nav>
+                  </div>
+                )}
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Examples */}
+      {relatedExamples.length > 0 && (
+        <section className="py-12 bg-light-teal">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-2xl font-bold text-dark-teal mb-6">Related Cover Letters</h2>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {relatedExamples.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={localizedHref(`/cover-letter-examples/${related.slug}`)}
+                  className="block bg-white rounded-xl p-5 hover:shadow-md transition hover:border-teal-primary/20 border border-transparent"
+                >
+                  <p className="font-semibold text-dark-teal">{related.jobTitle} Cover Letter</p>
+                  <p className="text-sm text-dark-teal/60 mt-1">{related.category}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Bottom CTA */}
+      <section className="py-16 bg-gradient-to-r from-teal-primary to-teal-secondary">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Create Your {example.jobTitle} Cover Letter
+          </h2>
+          <p className="text-white/80 mb-8">
+            Join thousands of professionals who landed their dream jobs with Best AI Resume.
+          </p>
+          <Link
+            href={localizedHref("/tools/cover-letter")}
+            className="inline-flex items-center gap-2 bg-white text-teal-primary px-8 py-4 rounded-full font-semibold hover:bg-light-teal transition shadow-lg"
+          >
+            Generate Cover Letter — Free
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}

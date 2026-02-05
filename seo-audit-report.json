@@ -1,0 +1,4991 @@
+{
+  "summary": {
+    "total": 459,
+    "withIssues": 235,
+    "critical": 2,
+    "high": 235,
+    "medium": 126,
+    "low": 0
+  },
+  "issuesByType": {
+    "Description too short": {
+      "count": 96,
+      "sev": "high",
+      "examples": [
+        "business-administration: 98 chars (min 120)",
+        "business-consultant: 81 chars (min 120)",
+        "business-development-executive: 92 chars (min 120)",
+        "business-development-manager: 90 chars (min 120)",
+        "business-intelligence-analyst: 91 chars (min 120)",
+        "call-center-representative: 88 chars (min 120)",
+        "certified-nursing-assistant: 83 chars (min 120)",
+        "change-management: 90 chars (min 120)",
+        "cio: 86 chars (min 120)",
+        "clinical-research-associate: 89 chars (min 120)"
+      ]
+    },
+    "Missing section": {
+      "count": 7,
+      "sev": "high",
+      "examples": [
+        "data-analyst: Skills Section",
+        "marketing-manager: Skills Section",
+        "nurse: Skills Section",
+        "nurse: Achievement Bullets",
+        "software-engineer: Skills Section",
+        "software-engineer: Achievement Bullets",
+        "teacher: Skills Section"
+      ]
+    },
+    "Too few tags": {
+      "count": 40,
+      "sev": "medium",
+      "examples": [
+        "ai-ml-resume-guide: 4 (need 6+)",
+        "ats-parse-rate-meaning: 4 (need 6+)",
+        "best-resume-builder-apps: 5 (need 6+)",
+        "best-resume-fonts-2026: 4 (need 6+)",
+        "best-resume-writing-services: 4 (need 6+)",
+        "chatgpt-vs-claude-for-resumes: 4 (need 6+)",
+        "chronological-resume-format: 4 (need 6+)",
+        "how-to-email-resume: 4 (need 6+)",
+        "how-to-list-projects-on-resume: 4 (need 6+)",
+        "how-to-list-remote-work-on-resume: 4 (need 6+)"
+      ]
+    },
+    "Content too thin": {
+      "count": 104,
+      "sev": "high",
+      "examples": [
+        "ai-prompts-resume-writing: 540 words (min 1500)",
+        "canva-ai-resume-builder-guide: 1237 words (min 1500)",
+        "how-to-list-remote-work-on-resume: 1469 words (min 1500)",
+        "resume-keywords-by-industry: 1499 words (min 1500)",
+        "account-manager: 671 words (min 800)",
+        "accountant: 634 words (min 800)",
+        "administrative-assistant: 641 words (min 800)",
+        "animator: 662 words (min 800)",
+        "art-director: 679 words (min 800)",
+        "automotive-technician: 646 words (min 800)"
+      ]
+    },
+    "Description too long": {
+      "count": 86,
+      "sev": "medium",
+      "examples": [
+        "account-manager: 170 chars (max 160)",
+        "accountant: 162 chars (max 160)",
+        "administrative-assistant: 179 chars (max 160)",
+        "art-director: 161 chars (max 160)",
+        "automotive-technician: 167 chars (max 160)",
+        "backend-developer: 173 chars (max 160)",
+        "bookkeeper: 167 chars (max 160)",
+        "business-analyst: 184 chars (max 160)",
+        "chef: 164 chars (max 160)",
+        "civil-engineer: 177 chars (max 160)"
+      ]
+    },
+    "Title too long": {
+      "count": 28,
+      "sev": "high",
+      "examples": [
+        "administrative-assistant: 66 chars (max 60)",
+        "automotive-technician: 63 chars (max 60)",
+        "clinical-research-coordinator: 71 chars (max 60)",
+        "construction-manager: 62 chars (max 60)",
+        "customer-service-representative: 73 chars (max 60)",
+        "cybersecurity-analyst: 63 chars (max 60)",
+        "database-administrator: 64 chars (max 60)",
+        "digital-marketing-manager: 67 chars (max 60)",
+        "executive-assistant: 61 chars (max 60)",
+        "healthcare-administrator: 66 chars (max 60)"
+      ]
+    },
+    "Keyword missing from title": {
+      "count": 1,
+      "sev": "critical",
+      "examples": [
+        "human-resources-manager: Missing: hr"
+      ]
+    },
+    "Keyword missing from description": {
+      "count": 1,
+      "sev": "critical",
+      "examples": [
+        "nurse: Missing: nurse"
+      ]
+    }
+  },
+  "detailedResults": [
+    {
+      "file": "business-administration",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "98 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 98,
+        "tags": 8,
+        "words": 1535,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "business-consultant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1569,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "business-development-executive",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "92 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 92,
+        "tags": 8,
+        "words": 1542,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "business-development-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "90 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 90,
+        "tags": 8,
+        "words": 1384,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "business-intelligence-analyst",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "91 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 91,
+        "tags": 8,
+        "words": 1586,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "call-center-representative",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "88 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 49,
+        "descLen": 88,
+        "tags": 8,
+        "words": 1224,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "certified-nursing-assistant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1441,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "change-management",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "90 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 90,
+        "tags": 8,
+        "words": 1552,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "cio",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "86 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 41,
+        "descLen": 86,
+        "tags": 8,
+        "words": 1422,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "clinical-research-associate",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "89 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 89,
+        "tags": 8,
+        "words": 1287,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "clinical-research-coordinator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "91 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 91,
+        "tags": 8,
+        "words": 1254,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "cna",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "117 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 41,
+        "descLen": 117,
+        "tags": 8,
+        "words": 1400,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "computer-science",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "91 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 91,
+        "tags": 8,
+        "words": 1424,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "computer-technician",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1353,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "construction-superintendent",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "89 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 89,
+        "tags": 8,
+        "words": 1303,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "construction-worker",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1397,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "contract-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1302,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "correctional-officer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1402,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "customer-success-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "86 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 86,
+        "tags": 8,
+        "words": 1324,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "customer-success",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "89 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 89,
+        "tags": 8,
+        "words": 1388,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "cybersecurity-analyst",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1354,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "data-analyst",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Missing section",
+          "val": "Skills Section"
+        }
+      ],
+      "stats": {
+        "titleLen": 50,
+        "descLen": 127,
+        "tags": 12,
+        "words": 1475,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "data-entry-operator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1292,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "data-entry-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1278,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "database-administrator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "84 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 84,
+        "tags": 8,
+        "words": 1320,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "dental-office-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1339,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "desktop-support",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 53,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1433,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "digital-marketing-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "87 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 87,
+        "tags": 8,
+        "words": 1310,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "electrical-engineer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1287,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "electrical-technician",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1313,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "executive-assistant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 12,
+        "words": 1230,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "executive-director",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "80 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 80,
+        "tags": 8,
+        "words": 1328,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "food-service",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1278,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "heavy-equipment-operator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "86 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 86,
+        "tags": 8,
+        "words": 1323,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "hotel-front-desk",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "84 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 84,
+        "tags": 8,
+        "words": 1362,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "hr-business-partner",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1353,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "inside-sales",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "89 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 50,
+        "descLen": 89,
+        "tags": 8,
+        "words": 1381,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "it-support-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1483,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "it-support-tech",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1418,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "java-full-stack-developer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "87 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 87,
+        "tags": 8,
+        "words": 1398,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "junior-developer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "111 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 111,
+        "tags": 8,
+        "words": 1357,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "leasing-consultant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "80 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 80,
+        "tags": 8,
+        "words": 1358,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "logistics-coordinator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1280,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "logistics-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1254,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "lpn",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "92 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 41,
+        "descLen": 92,
+        "tags": 8,
+        "words": 1428,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "machine-learning-engineer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "87 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 87,
+        "tags": 8,
+        "words": 1434,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "machine-learning-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "89 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 89,
+        "tags": 8,
+        "words": 1421,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "maintenance-engineer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1345,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "maintenance-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1295,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "maintenance-technician",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "84 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 84,
+        "tags": 8,
+        "words": 1291,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "makeup-artist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "104 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 104,
+        "tags": 8,
+        "words": 1333,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "management-consultant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1386,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "marketing-coordinator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1350,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "marketing-director",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "80 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 80,
+        "tags": 8,
+        "words": 1451,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "marketing-executive",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1351,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "marketing-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Missing section",
+          "val": "Skills Section"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 133,
+        "tags": 11,
+        "words": 1304,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "mechanical-design-engineer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "88 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 88,
+        "tags": 8,
+        "words": 1378,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "mechanical-engineer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 12,
+        "words": 1258,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "mechanical-technician",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1352,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "medical-billing-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "88 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 88,
+        "tags": 8,
+        "words": 1368,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "medical-office-assistant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "86 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 86,
+        "tags": 8,
+        "words": 1356,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "medical-receptionist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1356,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "medical-representative",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "84 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 84,
+        "tags": 8,
+        "words": 1349,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "medical-technologist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1248,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "network-administrator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1302,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "nurse",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Missing section",
+          "val": "Skills Section"
+        },
+        {
+          "sev": "high",
+          "type": "Missing section",
+          "val": "Achievement Bullets"
+        }
+      ],
+      "stats": {
+        "titleLen": 43,
+        "descLen": 127,
+        "tags": 12,
+        "words": 1205,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "nursing-assistant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "86 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 86,
+        "tags": 8,
+        "words": 1412,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "operations-analyst",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "80 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 80,
+        "tags": 8,
+        "words": 1276,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "physician-assistant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1369,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "production-engineer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1309,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "production-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "80 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 80,
+        "tags": 8,
+        "words": 1292,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "quality-assurance-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "101 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 101,
+        "tags": 8,
+        "words": 1410,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "quality-control",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "87 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 53,
+        "descLen": 87,
+        "tags": 8,
+        "words": 1240,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "recruiting-coordinator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "84 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 84,
+        "tags": 8,
+        "words": 1279,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resident-assistant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "80 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 80,
+        "tags": 8,
+        "words": 1371,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "retail-store-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1304,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "risk-management",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "88 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 53,
+        "descLen": 88,
+        "tags": 8,
+        "words": 1371,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "salesforce-administrator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "86 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 86,
+        "tags": 8,
+        "words": 1377,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "shipping-receiving",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "88 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 88,
+        "tags": 8,
+        "words": 1401,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "social-media-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1375,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "social-media-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "85 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 85,
+        "tags": 8,
+        "words": 1355,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "software-engineer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Missing section",
+          "val": "Skills Section"
+        },
+        {
+          "sev": "high",
+          "type": "Missing section",
+          "val": "Achievement Bullets"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 136,
+        "tags": 12,
+        "words": 1133,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "solution-architect",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "80 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 80,
+        "tags": 8,
+        "words": 1388,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "supply-chain-analyst",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1324,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "system-administrator",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1272,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "talent-acquisition-specialist",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "91 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 91,
+        "tags": 8,
+        "words": 1386,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "teacher",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Missing section",
+          "val": "Skills Section"
+        }
+      ],
+      "stats": {
+        "titleLen": 45,
+        "descLen": 127,
+        "tags": 12,
+        "words": 1384,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "tech-sales",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "87 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 87,
+        "tags": 8,
+        "words": 1442,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "technical-program-manager",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "87 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 87,
+        "tags": 8,
+        "words": 1389,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "veterinary-assistant",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "82 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 82,
+        "tags": 8,
+        "words": 1360,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "veterinary-technician",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "83 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 83,
+        "tags": 8,
+        "words": 1474,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "waiter-waitress",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "81 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 53,
+        "descLen": 81,
+        "tags": 8,
+        "words": 1399,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "web-developer",
+      "type": "resume-example",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "104 chars (min 120)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 104,
+        "tags": 12,
+        "words": 1330,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ai-ml-resume-guide",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 46,
+        "descLen": 143,
+        "tags": 4,
+        "words": 1923,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ai-prompts-resume-writing",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "540 words (min 1500)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 148,
+        "tags": 6,
+        "words": 540,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ats-parse-rate-meaning",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "115 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 115,
+        "tags": 4,
+        "words": 1686,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "best-resume-builder-apps",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "5 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 130,
+        "tags": 5,
+        "words": 1679,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "best-resume-fonts-2026",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 133,
+        "tags": 4,
+        "words": 1868,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "best-resume-writing-services",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "108 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 108,
+        "tags": 4,
+        "words": 1657,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "canva-ai-resume-builder-guide",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "1237 words (min 1500)"
+        }
+      ],
+      "stats": {
+        "titleLen": 46,
+        "descLen": 148,
+        "tags": 6,
+        "words": 1237,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "chatgpt-vs-claude-for-resumes",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 125,
+        "tags": 4,
+        "words": 1852,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "chronological-resume-format",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 147,
+        "tags": 4,
+        "words": 1682,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-email-resume",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 140,
+        "tags": 4,
+        "words": 1504,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-list-projects-on-resume",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 144,
+        "tags": 4,
+        "words": 1808,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-list-remote-work-on-resume",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "1469 words (min 1500)"
+        }
+      ],
+      "stats": {
+        "titleLen": 46,
+        "descLen": 142,
+        "tags": 4,
+        "words": 1469,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-list-skills-on-resume",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "86 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 47,
+        "descLen": 86,
+        "tags": 4,
+        "words": 1631,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-write-a-resume",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 44,
+        "descLen": 127,
+        "tags": 4,
+        "words": 1730,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-write-ats-friendly-resume",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 43,
+        "descLen": 158,
+        "tags": 4,
+        "words": 2221,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-write-cover-letter",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 123,
+        "tags": 4,
+        "words": 1673,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-write-professional-summary",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 49,
+        "descLen": 134,
+        "tags": 4,
+        "words": 1578,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "how-to-write-student-resume",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "116 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 47,
+        "descLen": 116,
+        "tags": 4,
+        "words": 1927,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "indeed-resume-tips",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 128,
+        "tags": 4,
+        "words": 1868,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "interview-preparation-guide",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 49,
+        "descLen": 155,
+        "tags": 4,
+        "words": 1785,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "japanese-resume-maker",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 126,
+        "tags": 4,
+        "words": 1850,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "linkedin-profile-optimization",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 49,
+        "descLen": 134,
+        "tags": 4,
+        "words": 1720,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-action-verbs",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 139,
+        "tags": 4,
+        "words": 1638,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-builder-word-template",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 130,
+        "tags": 4,
+        "words": 2328,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-for-career-change",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 124,
+        "tags": 4,
+        "words": 1657,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-gap-explanation-examples",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 127,
+        "tags": 4,
+        "words": 1603,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-keywords-by-industry",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "1499 words (min 1500)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 149,
+        "tags": 4,
+        "words": 1499,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-length-guide",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 158,
+        "tags": 4,
+        "words": 1649,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-maker-google-docs",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "114 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 114,
+        "tags": 4,
+        "words": 2369,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-objective-vs-summary",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 129,
+        "tags": 4,
+        "words": 1656,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-paper-printing-tips",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "107 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 50,
+        "descLen": 107,
+        "tags": 4,
+        "words": 2113,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-vs-cv-difference",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 155,
+        "tags": 4,
+        "words": 1605,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-with-1-year-experience",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 49,
+        "descLen": 142,
+        "tags": 4,
+        "words": 1600,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "salary-negotiation-tips",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 120,
+        "tags": 4,
+        "words": 1917,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "simple-resume-format-freshers",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 157,
+        "tags": 4,
+        "words": 2097,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "top-resume-mistakes-to-avoid",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 46,
+        "descLen": 125,
+        "tags": 4,
+        "words": 1917,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "what-is-ats-guide",
+      "type": "blog",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "4 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 135,
+        "tags": 4,
+        "words": 1717,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "account-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "170 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "671 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 170,
+        "tags": 6,
+        "words": 671,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "accountant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "162 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "634 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 162,
+        "tags": 6,
+        "words": 634,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "administrative-assistant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "66 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "179 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "641 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 66,
+        "descLen": 179,
+        "tags": 6,
+        "words": 641,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "animator",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "662 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 50,
+        "descLen": 154,
+        "tags": 6,
+        "words": 662,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "art-director",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "161 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "679 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 161,
+        "tags": 6,
+        "words": 679,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "automotive-technician",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "63 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "167 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "646 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 63,
+        "descLen": 167,
+        "tags": 6,
+        "words": 646,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "backend-developer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "173 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "645 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 173,
+        "tags": 6,
+        "words": 645,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "bartender",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "659 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 151,
+        "tags": 6,
+        "words": 659,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "bookkeeper",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "167 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "645 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 167,
+        "tags": 6,
+        "words": 645,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "business-analyst",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "184 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "653 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 184,
+        "tags": 6,
+        "words": 653,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "carpenter",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "657 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 149,
+        "tags": 6,
+        "words": 657,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "chef",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "164 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "670 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 46,
+        "descLen": 164,
+        "tags": 6,
+        "words": 670,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "civil-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "668 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 177,
+        "tags": 6,
+        "words": 668,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "clinical-research-coordinator",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "71 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "190 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "667 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 71,
+        "descLen": 190,
+        "tags": 6,
+        "words": 667,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "cloud-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "173 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "668 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 173,
+        "tags": 6,
+        "words": 668,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "compliance-officer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "176 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "647 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 176,
+        "tags": 6,
+        "words": 647,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "construction-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "62 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "180 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "664 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 62,
+        "descLen": 180,
+        "tags": 6,
+        "words": 664,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "content-writer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "181 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "648 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 181,
+        "tags": 6,
+        "words": 648,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "copywriter",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "654 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 158,
+        "tags": 6,
+        "words": 654,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "corporate-trainer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "175 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "654 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 175,
+        "tags": 6,
+        "words": 654,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "customer-service-representative",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "73 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "192 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "655 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 73,
+        "descLen": 192,
+        "tags": 6,
+        "words": 655,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "cybersecurity-analyst",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "63 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "182 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "675 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 63,
+        "descLen": 182,
+        "tags": 7,
+        "words": 675,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "data-analyst",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "178 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "757 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 178,
+        "tags": 7,
+        "words": 757,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "database-administrator",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "64 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "175 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "636 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 64,
+        "descLen": 175,
+        "tags": 6,
+        "words": 636,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "dental-hygienist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "166 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "632 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 166,
+        "tags": 6,
+        "words": 632,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "devops-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "189 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "698 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 189,
+        "tags": 7,
+        "words": 698,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "diesel-mechanic",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "161 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "639 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 161,
+        "tags": 6,
+        "words": 639,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "digital-marketing-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "67 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "645 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 67,
+        "descLen": 177,
+        "tags": 6,
+        "words": 645,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "electrician",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "181 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "659 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 53,
+        "descLen": 181,
+        "tags": 6,
+        "words": 659,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "emt-paramedic",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "179 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "648 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 179,
+        "tags": 6,
+        "words": 648,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "event-planner",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "172 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "663 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 172,
+        "tags": 6,
+        "words": 663,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "executive-assistant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "61 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "166 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "701 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 61,
+        "descLen": 166,
+        "tags": 6,
+        "words": 701,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "financial-analyst",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "164 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "648 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 164,
+        "tags": 6,
+        "words": 648,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "flight-attendant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "656 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 160,
+        "tags": 6,
+        "words": 656,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "frontend-developer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "171 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "658 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 171,
+        "tags": 7,
+        "words": 658,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "graphic-designer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "179 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "671 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 179,
+        "tags": 6,
+        "words": 671,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "healthcare-administrator",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "66 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "182 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "686 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 66,
+        "descLen": 182,
+        "tags": 6,
+        "words": 686,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "home-health-aide",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "165 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "662 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 165,
+        "tags": 6,
+        "words": 662,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "hotel-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "686 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 177,
+        "tags": 6,
+        "words": 686,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "human-resources-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "65 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "critical",
+          "type": "Keyword missing from title",
+          "val": "Missing: hr"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "695 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 65,
+        "descLen": 177,
+        "tags": 6,
+        "words": 695,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "hvac-technician",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "645 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 159,
+        "tags": 6,
+        "words": 645,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "instructional-designer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "64 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "175 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "657 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 64,
+        "descLen": 175,
+        "tags": 6,
+        "words": 657,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "insurance-agent",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "657 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 160,
+        "tags": 6,
+        "words": 657,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "interior-designer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "172 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "678 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 172,
+        "tags": 6,
+        "words": 678,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "it-support-specialist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "63 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "186 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "684 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 63,
+        "descLen": 186,
+        "tags": 7,
+        "words": 684,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "legal-assistant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "181 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "639 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 181,
+        "tags": 6,
+        "words": 639,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "librarian",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "166 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "635 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 166,
+        "tags": 6,
+        "words": 635,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "loan-officer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "169 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "652 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 169,
+        "tags": 6,
+        "words": 652,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "machine-learning-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "67 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "178 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "672 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 67,
+        "descLen": 178,
+        "tags": 6,
+        "words": 672,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "machinist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "631 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 153,
+        "tags": 6,
+        "words": 631,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "maintenance-technician",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "64 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "176 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "654 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 64,
+        "descLen": 176,
+        "tags": 6,
+        "words": 654,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "marketing-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "183 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "654 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 183,
+        "tags": 7,
+        "words": 654,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "mechanical-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "61 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "164 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "653 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 61,
+        "descLen": 164,
+        "tags": 6,
+        "words": 653,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "medical-assistant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "178 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "655 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 178,
+        "tags": 6,
+        "words": 655,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "medical-receptionist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "62 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "183 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "623 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 62,
+        "descLen": 183,
+        "tags": 6,
+        "words": 623,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "mobile-developer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "169 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "651 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 169,
+        "tags": 6,
+        "words": 651,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "network-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "630 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 177,
+        "tags": 6,
+        "words": 630,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "nurse",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "174 chars (max 160)"
+        },
+        {
+          "sev": "critical",
+          "type": "Keyword missing from description",
+          "val": "Missing: nurse"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "663 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 47,
+        "descLen": 174,
+        "tags": 8,
+        "words": 663,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "nursing-assistant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "190 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "626 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 190,
+        "tags": 6,
+        "words": 626,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "occupational-therapist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "64 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "168 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "672 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 64,
+        "descLen": 168,
+        "tags": 6,
+        "words": 672,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "operations-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "180 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "624 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 180,
+        "tags": 6,
+        "words": 624,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "optician",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "167 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "643 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 50,
+        "descLen": 167,
+        "tags": 6,
+        "words": 643,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "paralegal",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "172 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "645 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 172,
+        "tags": 6,
+        "words": 645,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "personal-trainer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "659 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 159,
+        "tags": 6,
+        "words": 659,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "pharmacy-technician",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "61 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "189 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "652 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 61,
+        "descLen": 189,
+        "tags": 6,
+        "words": 652,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "photographer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "647 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 151,
+        "tags": 6,
+        "words": 647,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "physical-therapist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "643 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 177,
+        "tags": 6,
+        "words": 643,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "plumber",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "664 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 49,
+        "descLen": 150,
+        "tags": 6,
+        "words": 664,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "procurement-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "61 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "176 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "662 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 61,
+        "descLen": 176,
+        "tags": 6,
+        "words": 662,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "product-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "188 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "726 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 188,
+        "tags": 7,
+        "words": 726,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "project-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "172 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "646 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 57,
+        "descLen": 172,
+        "tags": 7,
+        "words": 646,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "qa-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "175 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "716 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 53,
+        "descLen": 175,
+        "tags": 7,
+        "words": 716,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "radiologic-technologist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "65 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "173 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "640 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 65,
+        "descLen": 173,
+        "tags": 6,
+        "words": 640,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "real-estate-agent",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "189 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "672 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 189,
+        "tags": 6,
+        "words": 672,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "registered-nurse",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "185 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "673 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 185,
+        "tags": 7,
+        "words": 673,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "restaurant-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "168 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "694 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 168,
+        "tags": 6,
+        "words": 694,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "retail-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "167 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "644 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 167,
+        "tags": 6,
+        "words": 644,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "sales-representative",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "62 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "182 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "636 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 62,
+        "descLen": 182,
+        "tags": 8,
+        "words": 636,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "school-counselor",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "176 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "675 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 176,
+        "tags": 6,
+        "words": 675,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "scrum-master",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "169 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "678 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 169,
+        "tags": 6,
+        "words": 678,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "security-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "190 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "672 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 190,
+        "tags": 6,
+        "words": 672,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "social-media-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "62 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "166 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "668 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 62,
+        "descLen": 166,
+        "tags": 6,
+        "words": 668,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "social-worker",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "173 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "654 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 173,
+        "tags": 6,
+        "words": 654,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "software-engineer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "623 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 177,
+        "tags": 8,
+        "words": 623,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "solutions-architect",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "61 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "190 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "677 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 61,
+        "descLen": 190,
+        "tags": 6,
+        "words": 677,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "speech-language-pathologist",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "69 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "172 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "667 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 69,
+        "descLen": 172,
+        "tags": 6,
+        "words": 667,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "supply-chain-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "62 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "176 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "685 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 62,
+        "descLen": 176,
+        "tags": 6,
+        "words": 685,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "systems-administrator",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "63 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "645 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 63,
+        "descLen": 177,
+        "tags": 6,
+        "words": 645,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "tax-accountant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "167 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "667 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 56,
+        "descLen": 167,
+        "tags": 6,
+        "words": 667,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "teacher",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "184 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "677 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 49,
+        "descLen": 184,
+        "tags": 8,
+        "words": 677,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "teaching-assistant",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "180 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "652 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 60,
+        "descLen": 180,
+        "tags": 6,
+        "words": 652,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "technical-writer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "189 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "695 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 189,
+        "tags": 7,
+        "words": 695,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "travel-agent",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "163 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "673 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 163,
+        "tags": 6,
+        "words": 673,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "tutor",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "662 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 47,
+        "descLen": 152,
+        "tags": 6,
+        "words": 662,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ux-designer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "177 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "711 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 53,
+        "descLen": 177,
+        "tags": 7,
+        "words": 711,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "veterinary-technician",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Title too long",
+          "val": "63 chars (max 60)"
+        },
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "163 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "666 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 63,
+        "descLen": 163,
+        "tags": 6,
+        "words": 666,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "video-editor",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "682 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 54,
+        "descLen": 147,
+        "tags": 6,
+        "words": 682,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "warehouse-manager",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "171 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "674 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 59,
+        "descLen": 171,
+        "tags": 6,
+        "words": 674,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "web-developer",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Description too long",
+          "val": "186 chars (max 160)"
+        },
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "689 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 55,
+        "descLen": 186,
+        "tags": 7,
+        "words": 689,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "welder",
+      "type": "cover-letter",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Content too thin",
+          "val": "638 words (min 800)"
+        }
+      ],
+      "stats": {
+        "titleLen": 48,
+        "descLen": 149,
+        "tags": 6,
+        "words": 638,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ai-engineer-resume",
+      "type": "career-tips",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "97 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "5 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 58,
+        "descLen": 97,
+        "tags": 5,
+        "words": 1745,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ai-ml-engineer-resume",
+      "type": "career-tips",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "5 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 52,
+        "descLen": 149,
+        "tags": 5,
+        "words": 1737,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ai-product-manager-resume",
+      "type": "career-tips",
+      "issues": [
+        {
+          "sev": "high",
+          "type": "Description too short",
+          "val": "99 chars (min 120)"
+        },
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "5 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 51,
+        "descLen": 99,
+        "tags": 5,
+        "words": 1805,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "ai-resume-tools",
+      "type": "career-tips",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "5 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 46,
+        "descLen": 132,
+        "tags": 5,
+        "words": 1647,
+        "hasAuthor": true
+      }
+    },
+    {
+      "file": "resume-bullet-points-ai",
+      "type": "career-tips",
+      "issues": [
+        {
+          "sev": "medium",
+          "type": "Too few tags",
+          "val": "5 (need 6+)"
+        }
+      ],
+      "stats": {
+        "titleLen": 45,
+        "descLen": 138,
+        "tags": 5,
+        "words": 1701,
+        "hasAuthor": true
+      }
+    }
+  ]
+}

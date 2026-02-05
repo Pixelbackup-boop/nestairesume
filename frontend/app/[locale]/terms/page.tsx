@@ -274,38 +274,35 @@ export default function TermsPage() {
             <div>
               <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-accent-green/20 flex items-center justify-center text-accent-green text-sm font-bold">4</span>
-                Free Plan
+                Free Access &amp; Paid Plans
               </h2>
               <div className="feature-card rounded-xl p-6">
                 <p className="text-gray-400 mb-4 leading-relaxed">
-                  We offer a free plan with limited features:
+                  Before subscribing, you can:
                 </p>
                 <ul className="text-gray-400 space-y-2">
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-accent-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Access to basic templates</span>
+                    <span>Browse and preview all templates</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-accent-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Limited PDF downloads per month</span>
+                    <span>Create and save resumes to your account</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-accent-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Basic AI suggestions</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-accent-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>No credit card required to start</span>
+                    <span>View resume examples and career tips</span>
                   </li>
                 </ul>
+                <p className="text-gray-400 mt-4 leading-relaxed">
+                  To download PDFs, use AI features, and access premium templates, a paid subscription is required. Our plans start at $3/month (Starter) with options up to Platinum for unlimited access.
+                </p>
               </div>
             </div>
 

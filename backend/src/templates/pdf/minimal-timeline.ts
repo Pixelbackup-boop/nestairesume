@@ -226,13 +226,13 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
             ` : ''}
 
             <!-- Social Links -->
-            ${(personalInfo.linkedin || personalInfo.github || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
+            ${(personalInfo.linkedin || personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
                 <section style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">${t.sections.socialLinks}</h3>
                     <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
                         ${personalInfo.linkedin ? `<div><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.linkedin)}</span></div>` : ''}
                         ${personalInfo.github ? `<div><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
-                        ${personalInfo.twitter ? `<div><span style="font-weight: 600; color: #1f2937;">Twitter:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.twitter)}</span></div>` : ''}
+                        ${personalInfo.x ? `<div><span style="font-weight: 600; color: #1f2937;">Twitter:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.x)}</span></div>` : ''}
                         ${personalInfo.dribbble ? `<div><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.dribbble)}</span></div>` : ''}
                         ${personalInfo.behance ? `<div><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.behance)}</span></div>` : ''}
                         ${personalInfo.instagram ? `<div><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.instagram)}</span></div>` : ''}

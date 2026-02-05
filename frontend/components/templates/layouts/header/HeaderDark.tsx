@@ -368,11 +368,11 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 )}
 
                 {/* Social Links */}
-                {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                     <section className="mb-10 resume-section" data-paginate>
                         <SectionHeaderMain title={t.sections.socialLinks} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
-                            {personalInfo.twitter && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Twitter:</span> <span style={{ color: '#334155' }}>{personalInfo.twitter}</span></div>}
+                            {personalInfo.x && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Twitter:</span> <span style={{ color: '#334155' }}>{personalInfo.x}</span></div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>GitHub:</span> <span style={{ color: '#334155' }}>{personalInfo.github}</span></div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Dribbble:</span> <span style={{ color: '#334155' }}>{personalInfo.dribbble}</span></div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Behance:</span> <span style={{ color: '#334155' }}>{personalInfo.behance}</span></div>}

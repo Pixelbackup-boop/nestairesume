@@ -27,6 +27,8 @@ model User {
   aiUsedCount        Int       @default(0) // AI generations this month
   aiUsedToday        Int       @default(0) // AI generations today (for trial daily limit)
   lastAiResetDate    DateTime? // When daily/monthly counters were last reset
+  downloadCount      Int       @default(0) // PDF/DOCX downloads this month
+  coverLetterCount   Int       @default(0) // Cover letters created this month
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt
   resumes            Resume[]

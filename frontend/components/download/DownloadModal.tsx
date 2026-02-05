@@ -19,7 +19,11 @@ interface DownloadModalProps {
     onClose: () => void;
     onDownload: () => void;
     isPremiumUser?: boolean;
+    /** Optional format label for display (e.g., "Google Docs", "PDF") */
+    format?: string;
 }
+
+export type { DownloadModalProps };
 
 type DownloadOption = 'free' | 'premium';
 
@@ -35,6 +39,7 @@ export default function DownloadModal({
     onClose,
     onDownload,
     isPremiumUser = false,
+    format,
 }: DownloadModalProps) {
     const [selectedOption, setSelectedOption] = useState<DownloadOption>('free');
     const [isWatchingAd, setIsWatchingAd] = useState(false);

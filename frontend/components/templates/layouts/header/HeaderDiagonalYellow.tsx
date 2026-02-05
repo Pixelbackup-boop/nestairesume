@@ -332,15 +332,15 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} title={t.sections.socialLinks} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: fs.body }}>
                                 {personalInfo.linkedin && (
                                     <div data-paginate="item"><strong>LinkedIn:</strong> {personalInfo.linkedin}</div>
                                 )}
-                                {personalInfo.twitter && (
-                                    <div data-paginate="item"><strong>Twitter:</strong> {personalInfo.twitter}</div>
+                                {personalInfo.x && (
+                                    <div data-paginate="item"><strong>Twitter:</strong> {personalInfo.x}</div>
                                 )}
                                 {personalInfo.github && (
                                     <div data-paginate="item"><strong>GitHub:</strong> {personalInfo.github}</div>

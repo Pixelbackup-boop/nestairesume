@@ -2,33 +2,33 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
-import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
+import { useTemplateSetup } from '@/hooks';
 
 /**
  * Minimal Timeline Template
  * Reference: minimal-timeline.webp
- * 
+ *
  * Layout:
  * - Left vertical line connecting items in experience/education.
  * - Single column but with the visual timeline aid.
  * - Simple dots on the timeline.
  */
-function MinimalTimeline({ data, theme, scale = 1 }: TemplateProps) {
+function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, certifications, awards, references, customThemeColor, fonts } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Roboto');
-    const bodyFont = getFontFamily(fonts?.body || 'Source Sans Pro');
-    const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // Get scaled font sizes
-    const fs = getScaledFontSizes(sizeConfig, scale);
+    const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
+        customThemeColor,
+        fonts,
+        scale,
+        defaultPrimary: '#000000',
+        defaultHeadingFont: 'Roboto',
+        defaultBodyFont: 'Source Sans Pro',
+    });
 
     // Colors
     const timelineColor = '#e5e7eb';
-    const dotColor = customThemeColor || '#000';
-
-    const t = useTemplateTranslations();
+    const dotColor = colors.primary;
 
     return (
         <div
@@ -218,12 +218,12 @@ function MinimalTimeline({ data, theme, scale = 1 }: TemplateProps) {
             )}
 
             {/* Social Links */}
-            {(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+            {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                 <section style={{ marginLeft: 20, marginTop: 32 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.socialLinks}</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                         {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                        {personalInfo.twitter && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.twitter}</div>}
+                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
                         {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                         {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                         {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}

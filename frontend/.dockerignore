@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Development
+*.md
+.env
+.env.*
+!.env.example
+.git
+.gitignore
+
+# Next.js build output
+.next
+out
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Testing
+*.test.ts
+*.spec.ts
+*.test.tsx
+*.spec.tsx
+__tests__
+coverage
+cypress
+e2e
+
+# Misc
+.DS_Store
+Thumbs.db
+.playwright-mcp

@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Development
+*.md
+.env
+.env.*
+!.env.example
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Build artifacts (production stage copies from builder)
+dist
+
+# SQLite database files (dev only)
+*.db
+*.db-journal
+prisma/*.db
+prisma/*.db-journal
+
+# Testing
+*.test.ts
+*.spec.ts
+__tests__
+coverage
+
+# Misc
+.DS_Store
+Thumbs.db

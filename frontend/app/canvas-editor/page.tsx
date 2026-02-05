@@ -142,6 +142,37 @@ export default function CanvasEditorPage() {
 
     return (
         <div className="h-screen flex flex-col bg-slate-900 overflow-hidden">
+            {/* Mobile/Tablet Blocker - Canvas requires desktop for precise editing */}
+            <div className="lg:hidden fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 text-center">
+                <div className="w-20 h-20 bg-accent-green/20 rounded-2xl flex items-center justify-center mb-6">
+                    <svg className="w-10 h-10 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h1 className="text-2xl font-bold text-dark-teal mb-3">Desktop Required</h1>
+                <p className="text-text-secondary mb-6 max-w-sm">
+                    The Canvas Editor requires a larger screen for precise design work.
+                    Please use a laptop or desktop computer to access this feature.
+                </p>
+                <div className="space-y-3 w-full max-w-xs">
+                    <Link
+                        href="/builder"
+                        className="block w-full px-6 py-3 bg-gradient-to-r from-accent-green to-accent-teal text-white font-semibold rounded-xl text-center"
+                    >
+                        Use Standard Builder Instead
+                    </Link>
+                    <Link
+                        href="/dashboard"
+                        className="block w-full px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-xl text-center"
+                    >
+                        Back to Dashboard
+                    </Link>
+                </div>
+                <p className="mt-8 text-xs text-text-muted">
+                    The standard resume builder works great on mobile!
+                </p>
+            </div>
+
             {/* Header */}
             <header className="h-14 bg-slate-900 border-b border-slate-700 flex items-center justify-between px-4 shrink-0">
                 <div className="flex items-center gap-4">

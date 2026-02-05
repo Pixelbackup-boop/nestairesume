@@ -137,7 +137,7 @@ export const renderHeaderDarkBanner = (
                         ${personalInfo.website ? `<span>&#127760; ${escapeHtml(personalInfo.website)}</span>` : ''}
                         ${personalInfo.linkedin ? `<span>&#128279; ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                         ${personalInfo.github ? `<span>&#128187; ${escapeHtml(personalInfo.github)}</span>` : ''}
-                        ${personalInfo.twitter ? `<span>&#128038; ${escapeHtml(personalInfo.twitter)}</span>` : ''}
+                        ${personalInfo.x ? `<span>&#128038; ${escapeHtml(personalInfo.x)}</span>` : ''}
                         ${personalInfo.dribbble ? `<span>&#127936; ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
                         ${personalInfo.behance ? `<span>&#127912; ${escapeHtml(personalInfo.behance)}</span>` : ''}
                         ${personalInfo.instagram ? `<span>&#128247; ${escapeHtml(personalInfo.instagram)}</span>` : ''}
@@ -353,12 +353,12 @@ export const renderHeaderDarkBanner = (
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <section style="margin-top: 20px;">
                             ${SectionHeader(t.sections.socialLinks)}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: 9pt;">
                                 ${personalInfo.github ? `<div style="color: #374151;">&#128187; ${escapeHtml(personalInfo.github)}</div>` : ''}
-                                ${personalInfo.twitter ? `<div style="color: #374151;">&#128038; ${escapeHtml(personalInfo.twitter)}</div>` : ''}
+                                ${personalInfo.x ? `<div style="color: #374151;">&#128038; ${escapeHtml(personalInfo.x)}</div>` : ''}
                                 ${personalInfo.dribbble ? `<div style="color: #374151;">&#127936; ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                                 ${personalInfo.behance ? `<div style="color: #374151;">&#127912; ${escapeHtml(personalInfo.behance)}</div>` : ''}
                                 ${personalInfo.instagram ? `<div style="color: #374151;">&#128247; ${escapeHtml(personalInfo.instagram)}</div>` : ''}

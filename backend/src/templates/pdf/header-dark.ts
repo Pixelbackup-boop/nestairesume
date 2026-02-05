@@ -128,10 +128,10 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.github)}</span>
                             </div>
                         ` : ''}
-                        ${personalInfo.twitter ? `
+                        ${personalInfo.x ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
                                 <span style="opacity: 0.9;">${getIconSVG('users', sidebarText, 14)}</span>
-                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.twitter)}</span>
+                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.x)}</span>
                             </div>
                         ` : ''}
                         ${personalInfo.dribbble ? `

@@ -1,8 +1,8 @@
-import cron from "node-cron";
+import * as cron from "node-cron";
 import prisma from "../config/database";
 import * as aiBlogService from "./aiBlogService";
 
-let schedulerTask: cron.ScheduledTask | null = null;
+let schedulerTask: ReturnType<typeof cron.schedule> | null = null;
 
 // Get or create settings
 export const getSettings = async () => {

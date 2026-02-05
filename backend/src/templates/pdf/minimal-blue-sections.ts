@@ -243,7 +243,7 @@ export const renderMinimalBlueSections = (
             ` : ''}
 
             <!-- Additional Info (Personal & Social) -->
-            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField || personalInfo.github || personalInfo.twitter || personalInfo.linkedin) ? `
+            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField || personalInfo.github || personalInfo.x || personalInfo.linkedin) ? `
                 <section style="margin-top: 40px;">
                     ${SectionHeader(t.sections.additionalInfo)}
                     <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 16px;">
@@ -265,11 +265,11 @@ export const renderMinimalBlueSections = (
                         ` : ''}
 
                         <!-- Social Links -->
-                        ${(personalInfo.github || personalInfo.twitter || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
+                        ${(personalInfo.github || personalInfo.x || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
                                 ${personalInfo.linkedin ? `<div><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.linkedin)}</span></div>` : ''}
                                 ${personalInfo.github ? `<div><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
-                                ${personalInfo.twitter ? `<div><span style="font-weight: 600; color: #1f2937;">Twitter:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.twitter)}</span></div>` : ''}
+                                ${personalInfo.x ? `<div><span style="font-weight: 600; color: #1f2937;">Twitter:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.x)}</span></div>` : ''}
                                 ${personalInfo.dribbble ? `<div><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.dribbble)}</span></div>` : ''}
                                 ${personalInfo.behance ? `<div><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.behance)}</span></div>` : ''}
                                 ${personalInfo.instagram ? `<div><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.instagram)}</span></div>` : ''}

@@ -1,0 +1,77 @@
+# Cloud Build configuration for Backend
+# Triggered on push to main branch (backend changes)
+
+steps:
+  # Step 1: Build TypeScript
+  - name: 'node:20'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        cd backend
+        npm ci
+        npm run build
+    id: 'build-typescript'
+
+  # Step 2: Build Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REPO}/backend:${SHORT_SHA}'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REPO}/backend:latest'
+      - './backend'
+    id: 'build-docker'
+    waitFor: ['build-typescript']
+
+  # Step 3: Push to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '--all-tags'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REPO}/backend'
+    id: 'push-image'
+    waitFor: ['build-docker']
+
+  # Step 4: Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'resume-backend'
+      - '--image'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REPO}/backend:${SHORT_SHA}'
+      - '--region'
+      - '${_REGION}'
+      - '--platform'
+      - 'managed'
+      - '--memory'
+      - '2Gi'
+      - '--cpu'
+      - '2'
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '10'
+      - '--timeout'
+      - '300'
+      - '--set-secrets'
+      - 'DATABASE_URL=DATABASE_URL:latest,JWT_SECRET=JWT_SECRET:latest,STRIPE_SECRET_KEY=STRIPE_SECRET_KEY:latest,STRIPE_WEBHOOK_SECRET=STRIPE_WEBHOOK_SECRET:latest,OPENAI_API_KEY=OPENAI_API_KEY:latest,BREVO_API_KEY=BREVO_API_KEY:latest,SENTRY_DSN=SENTRY_DSN:latest'
+      - '--set-env-vars'
+      - 'NODE_ENV=production,PORT=4444,HOST=0.0.0.0,CORS_ORIGINS=${_FRONTEND_URL}'
+      - '--allow-unauthenticated'
+    id: 'deploy'
+    waitFor: ['push-image']
+
+substitutions:
+  _REGION: 'us-central1'
+  _ARTIFACT_REPO: 'resume-builder'
+  # Update with your Vercel URL (supports multiple comma-separated origins)
+  _FRONTEND_URL: 'https://your-app.vercel.app,https://www.bestairesumes.com'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+timeout: '1200s'

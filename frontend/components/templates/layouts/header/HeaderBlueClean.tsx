@@ -361,12 +361,12 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.github || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    {(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <div style={{ marginBottom: sp.xxxl }}>
                             <SectionHeader title={t.sections.socialLinks} icon="👥" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm, fontSize: fs.small }}>
                                 {personalInfo.github && <SocialLink icon="💻" label="GitHub" url={personalInfo.github} primary={primaryColor} />}
-                                {personalInfo.twitter && <SocialLink icon="🐦" label="Twitter" url={personalInfo.twitter} primary={primaryColor} />}
+                                {personalInfo.x && <SocialLink icon="🐦" label="Twitter" url={personalInfo.x} primary={primaryColor} />}
                                 {personalInfo.dribbble && <SocialLink icon="🎨" label="Dribbble" url={personalInfo.dribbble} primary={primaryColor} />}
                                 {personalInfo.behance && <SocialLink icon="🎨" label="Behance" url={personalInfo.behance} primary={primaryColor} />}
                                 {personalInfo.instagram && <SocialLink icon="📷" label="Instagram" url={personalInfo.instagram} primary={primaryColor} />}

@@ -194,7 +194,7 @@ export default function Header() {
 
         {/* Templates Mega Menu */}
         <MegaMenuPanel isOpen={activeMenu === "templates"} onClose={closeMenu}>
-          <div className="grid grid-cols-[1fr_1fr_280px] gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_280px] gap-6 lg:gap-8">
             <div>
               <h3 className={megaSectionHeader}>{t("byStyle")}</h3>
               <div className="space-y-1">
@@ -229,7 +229,7 @@ export default function Header() {
 
         {/* Resources Mega Menu */}
         <MegaMenuPanel isOpen={activeMenu === "resources"} onClose={closeMenu}>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <div>
               <h3 className={megaSectionHeader}>
                 <span className="flex items-center gap-2">

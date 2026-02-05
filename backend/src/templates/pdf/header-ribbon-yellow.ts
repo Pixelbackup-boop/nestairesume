@@ -133,9 +133,9 @@ export const renderHeaderRibbonYellow = (
                 </div>
 
                 <!-- Social Links Row -->
-                ${(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 9px; color: #6b7280; margin-top: 8px;">
-                        ${personalInfo.twitter ? `<span>Twitter: ${escapeHtml(personalInfo.twitter)}</span>` : ''}
+                        ${personalInfo.x ? `<span>Twitter: ${escapeHtml(personalInfo.x)}</span>` : ''}
                         ${personalInfo.github ? `<span>GitHub: ${escapeHtml(personalInfo.github)}</span>` : ''}
                         ${personalInfo.dribbble ? `<span>Dribbble: ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
                         ${personalInfo.behance ? `<span>Behance: ${escapeHtml(personalInfo.behance)}</span>` : ''}

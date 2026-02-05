@@ -2,11 +2,10 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
 import ProgressBar from '../../shared/ProgressBar';
-import { parseDualColor } from '@/lib/templates/builder/colorUtils';
-import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
+import { useTemplateSetup } from '@/hooks';
 
 /**
  * Header Dark Box Template
@@ -19,23 +18,22 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  *
  * Matches reference: frontend/Resume-template/unique-layouts/08-header-box.webp
  */
-function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps) {
+function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, references, customThemeColor, fonts } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Inter');
-    const bodyFont = getFontFamily(fonts?.body || 'Inter');
-    const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
-    // Get scaled font sizes that respect user's size preference + scale
-    const fs = getScaledFontSizes(sizeConfig, scale);
-
-    // Parse dual color: primary = box BORDER, secondary = accent highlights
-    // This makes both colors visually distinct in the template
-    const { primary: boxBorderColor, secondary: accentColor } = parseDualColor(
+    const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
         customThemeColor,
-        { primary: '#2563eb', secondary: '#facc15' } // Blue border, Yellow accents by default
-    );
+        fonts,
+        scale,
+        defaultPrimary: '#2563eb',    // Blue border
+        defaultSecondary: '#facc15',  // Yellow accents
+        defaultHeadingFont: 'Inter',
+        defaultBodyFont: 'Inter',
+    });
 
-    const t = useTemplateTranslations();
+    // Dual-color: primary = box BORDER, secondary = accent highlights
+    const boxBorderColor = colors.primary;
+    const accentColor = colors.secondary;
 
     return (
         <div
@@ -361,16 +359,16 @@ function HeaderDarkBox({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <section className="mb-6 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🔗">
                                 {t.sections.socialLinks}
                             </SectionHeader>
                             <div className="space-y-2">
-                                {personalInfo.twitter && (
+                                {personalInfo.x && (
                                     <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
                                         <span>🐦</span>
-                                        <span style={{ color: '#374151' }}>{personalInfo.twitter}</span>
+                                        <span style={{ color: '#374151' }}>{personalInfo.x}</span>
                                     </div>
                                 )}
                                 {personalInfo.github && (

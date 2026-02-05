@@ -4,7 +4,7 @@ import prisma from "../config/database";
 
 // Initialize Stripe (will be null if no API key)
 const stripe = config.stripeSecretKey
-  ? new Stripe(config.stripeSecretKey, { apiVersion: "2024-12-18.acacia" })
+  ? new Stripe(config.stripeSecretKey)
   : null;
 
 export type PlanType = "starter" | "gold" | "diamond" | "platinum";
@@ -15,6 +15,8 @@ interface PlanConfig {
   type: "subscription";
   cvLimit: number;       // CV creations per month (-1 = unlimited)
   aiLimit: number;       // AI CV generations per month
+  downloadLimit: number; // PDF downloads per month (-1 = unlimited)
+  coverLetterLimit: number; // Cover letters per month (-1 = unlimited)
   trialDailyLimit: number; // AI generations per day during trial
   hasTrial: boolean;     // Whether plan offers free trial
 }
@@ -26,6 +28,8 @@ const PLANS: Record<PlanType, PlanConfig> = {
     type: "subscription",
     cvLimit: 30,
     aiLimit: 3,
+    downloadLimit: 3,
+    coverLetterLimit: 10,
     trialDailyLimit: 3,
     hasTrial: false, // No trial - charges immediately
   },
@@ -35,6 +39,8 @@ const PLANS: Record<PlanType, PlanConfig> = {
     type: "subscription",
     cvLimit: 150,
     aiLimit: 10,
+    downloadLimit: 10,
+    coverLetterLimit: 30,
     trialDailyLimit: 5,
     hasTrial: true, // 7-day free trial
   },
@@ -44,6 +50,8 @@ const PLANS: Record<PlanType, PlanConfig> = {
     type: "subscription",
     cvLimit: 300,
     aiLimit: 30,
+    downloadLimit: 25,
+    coverLetterLimit: 50,
     trialDailyLimit: 10,
     hasTrial: true, // 7-day free trial
   },
@@ -53,6 +61,8 @@ const PLANS: Record<PlanType, PlanConfig> = {
     type: "subscription",
     cvLimit: -1, // Unlimited
     aiLimit: 100,
+    downloadLimit: -1, // Unlimited
+    coverLetterLimit: -1, // Unlimited
     trialDailyLimit: 15,
     hasTrial: false, // No trial - charges immediately
   },
@@ -280,7 +290,7 @@ const handleSubscriptionDeleted = async (subscription: Stripe.Subscription): Pro
 // Handle successful invoice payment (monthly renewal)
 const handleInvoicePaid = async (invoice: Stripe.Invoice): Promise<void> => {
   const customerId = invoice.customer as string;
-  const subscriptionId = invoice.subscription as string;
+  const subscriptionId = (invoice as any).subscription as string;
 
   const user = await prisma.user.findFirst({
     where: { stripeCustomerId: customerId },
@@ -289,10 +299,11 @@ const handleInvoicePaid = async (invoice: Stripe.Invoice): Promise<void> => {
   if (!user || !subscriptionId) return;
 
   // Record the payment
+  const paymentIntent = (invoice as any).payment_intent;
   await prisma.payment.create({
     data: {
       userId: user.id,
-      stripePaymentId: invoice.payment_intent as string || invoice.id,
+      stripePaymentId: (paymentIntent as string) || invoice.id,
       amount: invoice.amount_paid,
       currency: invoice.currency,
       status: "succeeded",
@@ -331,10 +342,11 @@ const handlePaymentFailed = async (invoice: Stripe.Invoice): Promise<void> => {
   });
 
   // Optionally record the failed payment
+  const paymentIntent = (invoice as any).payment_intent;
   await prisma.payment.create({
     data: {
       userId: user.id,
-      stripePaymentId: invoice.payment_intent as string || invoice.id,
+      stripePaymentId: (paymentIntent as string) || invoice.id,
       amount: invoice.amount_due,
       currency: invoice.currency,
       status: "failed",
@@ -370,6 +382,8 @@ export const getSubscriptionStatus = async (userId: string) => {
     limits: plan ? {
       cvLimit: plan.cvLimit,
       aiLimit: plan.aiLimit,
+      downloadLimit: plan.downloadLimit,
+      coverLetterLimit: plan.coverLetterLimit,
       dailyLimit: isTrialing ? plan.trialDailyLimit : plan.aiLimit,
     } : null,
     isTrialing,

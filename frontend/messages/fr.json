@@ -420,7 +420,7 @@
       "features": {
         "downloads": "10 téléchargements",
         "resumes": "5 CV sauvegardés",
-        "templates": "Tous les 50+ modèles",
+        "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
         "export": "Export PDF et PNG"
       },
@@ -434,7 +434,7 @@
       "features": {
         "downloads": "50 téléchargements/mois",
         "resumes": "20 CV sauvegardés",
-        "templates": "Tous les 50+ modèles",
+        "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
         "ats": "Optimisation ATS"
       },
@@ -458,7 +458,7 @@
       "title": "Tarifs - Générateur de CV IA à partir de 3$/mois",
       "description": "Choisissez le forfait parfait pour votre recherche d'emploi. Essai gratuit de 7 jours. Sans engagement."
     },
-    "allPlansInclude": "Tous les forfaits incluent : Sans publicité • Plus de 50 modèles",
+    "allPlansInclude": "Tous les forfaits incluent : Sans publicité • Tous les modèles freemium",
     "bestValue": "MEILLEURE OFFRE",
     "trialBadge": "Essai gratuit de 7 jours",
     "trialNote": "Annulez à tout moment sans frais.",
@@ -471,7 +471,7 @@
       "unlimited": "Illimité",
       "savedResumes": "CV sauvegardés",
       "templates": "Modèles",
-      "all50": "Tous les 50+",
+      "all50": "Tous freemium",
       "premiumPlus": "50+ & Premium",
       "aiBuild": "Générateur de CV IA",
       "adFree": "Sans Publicité"

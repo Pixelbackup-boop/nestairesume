@@ -1,0 +1,32 @@
+"use strict";
+/**
+ * HTML Wrapper for PDF Generation
+ * Wraps template content with proper document structure, fonts, and CSS
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.wrapHtml = void 0;
+var helpers_1 = require("./helpers");
+/**
+ * Generates Google Fonts link tags for the specified fonts
+ */
+var generateFontLinks = function (headingFont, bodyFont) {
+    var fonts = new Set();
+    var headingUrl = (0, helpers_1.getGoogleFontUrl)(headingFont);
+    var bodyUrl = (0, helpers_1.getGoogleFontUrl)(bodyFont);
+    if (headingUrl)
+        fonts.add(headingUrl);
+    if (bodyUrl)
+        fonts.add(bodyUrl);
+    return Array.from(fonts)
+        .map(function (url) { return "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"".concat(url, "\" rel=\"stylesheet\">"); })
+        .join('\n');
+};
+/**
+ * Wraps template HTML content with a complete HTML document
+ */
+var wrapHtml = function (content, options) {
+    var headingFont = options.headingFont, bodyFont = options.bodyFont;
+    var fontLinks = generateFontLinks(headingFont, bodyFont);
+    return "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Resume</title>\n    ".concat(fontLinks, "\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n    <style>\n        /* A4 Page Setup */\n        @page {\n            size: A4;\n            margin: 0;\n        }\n\n        * {\n            box-sizing: border-box;\n            margin: 0;\n            padding: 0;\n        }\n\n        html, body {\n            width: 210mm;\n            min-height: 297mm;\n            margin: 0;\n            padding: 0;\n        }\n\n        body {\n            font-family: 'Inter', sans-serif;\n            -webkit-print-color-adjust: exact !important;\n            print-color-adjust: exact !important;\n            color-adjust: exact !important;\n        }\n\n        /* Resume container */\n        .resume-page {\n            width: 210mm;\n            min-height: 297mm;\n            background: white;\n            position: relative;\n        }\n\n        /* Section break control */\n        .resume-section {\n            page-break-inside: avoid;\n            break-inside: avoid;\n        }\n\n        .resume-entry {\n            page-break-inside: avoid;\n            break-inside: avoid;\n        }\n\n        /* Utility classes matching Tailwind */\n        .flex { display: flex; }\n        .flex-1 { flex: 1; }\n        .flex-col { flex-direction: column; }\n        .flex-wrap { flex-wrap: wrap; }\n        .flex-shrink-0 { flex-shrink: 0; }\n        .items-center { align-items: center; }\n        .items-baseline { align-items: baseline; }\n        .justify-center { justify-content: center; }\n        .justify-between { justify-content: space-between; }\n        .text-center { text-align: center; }\n        .font-bold { font-weight: 700; }\n        .font-semibold { font-weight: 600; }\n        .font-medium { font-weight: 500; }\n        .uppercase { text-transform: uppercase; }\n        .capitalize { text-transform: capitalize; }\n        .break-all { word-break: break-all; }\n        .object-cover { object-fit: cover; }\n        .relative { position: relative; }\n        .absolute { position: absolute; }\n        .w-full { width: 100%; }\n        .h-full { height: 100%; }\n\n        /* Spacing */\n        .gap-1 { gap: 0.25rem; }\n        .gap-2 { gap: 0.5rem; }\n        .gap-3 { gap: 0.75rem; }\n        .gap-4 { gap: 1rem; }\n        .mb-1 { margin-bottom: 0.25rem; }\n        .mb-2 { margin-bottom: 0.5rem; }\n        .mb-3 { margin-bottom: 0.75rem; }\n        .mb-4 { margin-bottom: 1rem; }\n        .mb-5 { margin-bottom: 1.25rem; }\n        .mb-6 { margin-bottom: 1.5rem; }\n        .mt-2 { margin-top: 0.5rem; }\n        .ml-2 { margin-left: 0.5rem; }\n        .pb-4 { padding-bottom: 1rem; }\n        .space-y-1 > * + * { margin-top: 0.25rem; }\n        .space-y-2 > * + * { margin-top: 0.5rem; }\n        .space-y-3 > * + * { margin-top: 0.75rem; }\n        .space-y-4 > * + * { margin-top: 1rem; }\n\n        /* Borders */\n        .border-b-2 { border-bottom-width: 2px; border-bottom-style: solid; }\n        .border-2 { border-width: 2px; border-style: solid; }\n\n        /* Opacity */\n        .opacity-70 { opacity: 0.7; }\n        .opacity-80 { opacity: 0.8; }\n        .opacity-90 { opacity: 0.9; }\n\n        /* Fixed sidebar background - repeats on every printed page */\n        .sidebar-bg-fixed {\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: 35%;\n            height: 100%;\n            z-index: 0;\n            -webkit-print-color-adjust: exact !important;\n            print-color-adjust: exact !important;\n        }\n\n        /* Fixed accent stripe on sidebar edge - repeats on every printed page */\n        .sidebar-accent-stripe {\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: 8px;\n            height: 100%;\n            z-index: 1;\n            -webkit-print-color-adjust: exact !important;\n            print-color-adjust: exact !important;\n        }\n\n        /* Sidebar content wrapper - flows naturally */\n        .sidebar-content {\n            position: relative;\n            z-index: 1;\n        }\n\n        /* Main content wrapper */\n        .main-content {\n            position: relative;\n            z-index: 1;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"resume-page\">\n        ").concat(content, "\n    </div>\n</body>\n</html>");
+};
+exports.wrapHtml = wrapHtml;

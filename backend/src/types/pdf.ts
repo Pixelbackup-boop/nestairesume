@@ -114,7 +114,7 @@ export interface PdfPersonalInfo {
     nationality: string;
     idType: IdDocumentType;
     idNumber: string;
-    twitter?: string;
+    x?: string;  // X (formerly Twitter)
     github?: string;
     dribbble?: string;
     behance?: string;

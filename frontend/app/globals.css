@@ -40,11 +40,34 @@
   --font-poppins: var(--font-poppins-var), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Font size overrides - must be outside @theme to override Tailwind defaults */
+/* ===========================================
+   RESPONSIVE FONT SIZE OVERRIDES
+   Mobile-first scaling: smaller on mobile, larger on desktop
+   =========================================== */
+
+/* Mobile defaults (< 640px) - standard readable sizes */
 :root {
-  --text-sm: 1.125rem !important;  /* 18px (was 14px) */
-  --text-base: 1.25rem !important; /* 20px (was 16px) - header menu, footer */
-  --text-lg: 1.5rem !important;    /* 24px (was 18px) */
+  --text-sm: 0.875rem;   /* 14px - comfortable on small screens */
+  --text-base: 1rem;     /* 16px - browser default, optimal mobile readability */
+  --text-lg: 1.125rem;   /* 18px */
+}
+
+/* Tablet (640px+) - slightly larger */
+@media (min-width: 640px) {
+  :root {
+    --text-sm: 1rem;       /* 16px */
+    --text-base: 1.125rem; /* 18px */
+    --text-lg: 1.25rem;    /* 20px */
+  }
+}
+
+/* Laptop/Desktop (1024px+) - full size as originally designed */
+@media (min-width: 1024px) {
+  :root {
+    --text-sm: 1.125rem;   /* 18px */
+    --text-base: 1.25rem;  /* 20px */
+    --text-lg: 1.5rem;     /* 24px */
+  }
 }
 
 /* Apply Poppins font globally */

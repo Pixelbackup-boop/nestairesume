@@ -1,59 +1,77 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, Sparkles, ArrowRight, Download, Zap, Crown, Loader2 } from "lucide-react";
+import { CheckCircle, Sparkles, ArrowRight, Download, Zap, Crown, Loader2, Mail, Settings } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
 // Lazy load Confetti (~25KB) - only needed on success page
 const Confetti = dynamic(() => import("react-confetti"), { ssr: false });
 
-type PlanType = "starter" | "gold" | "diamond";
+type PlanType = "starter" | "gold" | "diamond" | "platinum";
 
-const PLAN_BENEFITS: Record<PlanType, { name: string; icon: typeof Zap; color: string; benefits: string[] }> = {
+const PLAN_BENEFITS: Record<PlanType, { name: string; icon: typeof Zap; color: string; bgColor: string; benefits: string[] }> = {
   starter: {
     name: "Starter",
     icon: Download,
-    color: "text-green-400",
+    color: "text-emerald-600",
+    bgColor: "bg-emerald-50",
     benefits: [
-      "10 resume downloads",
-      "All templates unlocked",
-      "PDF export",
-      "Never expires",
+      "30 CV creations per month",
+      "3 AI generations per month",
+      "3 PDF downloads per month",
+      "All freemium templates",
+      "No ads",
     ],
   },
   gold: {
     name: "Gold",
     icon: Zap,
-    color: "text-yellow-400",
+    color: "text-amber-600",
+    bgColor: "bg-amber-50",
     benefits: [
-      "50 downloads per month",
+      "150 CV creations per month",
+      "10 AI generations per month",
+      "10 PDF downloads per month",
       "ATS optimization",
-      "Priority support",
-      "All templates",
+      "Cover letter builder",
     ],
   },
   diamond: {
     name: "Diamond",
     icon: Crown,
-    color: "text-purple-400",
+    color: "text-violet-600",
+    bgColor: "bg-violet-50",
     benefits: [
-      "150 downloads per month",
-      "Premium templates",
-      "Cover letter generator",
-      "LinkedIn optimization",
+      "300 CV creations per month",
+      "30 AI generations per month",
+      "25 PDF downloads per month",
+      "All premium templates",
       "Priority support",
+    ],
+  },
+  platinum: {
+    name: "Platinum",
+    icon: Crown,
+    color: "text-slate-700",
+    bgColor: "bg-slate-100",
+    benefits: [
+      "Unlimited CV creations",
+      "100 AI generations per month",
+      "Unlimited PDF downloads",
+      "All premium templates",
+      "Priority support",
+      "Early access to new features",
     ],
   },
 };
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const { refreshUser } = useAuthStore();
   const [showConfetti, setShowConfetti] = useState(true);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
@@ -90,72 +108,89 @@ function SuccessContent() {
         />
       )}
 
-      <div className="min-h-screen pt-32 pb-16">
-        <div className="max-w-xl mx-auto px-6 text-center">
-          {/* Success Icon */}
-          <div className="relative mb-8">
-            <div className="w-24 h-24 bg-accent-green/20 rounded-full flex items-center justify-center mx-auto animate-bounce">
-              <CheckCircle className="w-12 h-12 text-accent-green" />
-            </div>
-            <div className="absolute inset-0 w-24 h-24 mx-auto rounded-full bg-accent-green/20 animate-ping" />
-          </div>
-
-          {/* Success Message */}
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Payment Successful!
-          </h1>
-          <p className="text-xl text-gray-400 mb-8">
-            Welcome to {planDetails?.name || "your new plan"}! Your account has been upgraded.
-          </p>
-
-          {/* Plan Benefits Card */}
-          {planDetails && (
-            <div className="bg-bg-card border border-white/10 rounded-2xl p-8 mb-8 text-left">
-              <div className="flex items-center gap-3 mb-6">
-                <div className={`w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center`}>
-                  <Icon className={`w-6 h-6 ${planDetails.color}`} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">{planDetails.name} Plan</h3>
-                  <p className="text-sm text-gray-400">Your new benefits</p>
-                </div>
+      <div className="min-h-screen pt-28 pb-16 bg-gradient-to-b from-emerald-50/50 to-white">
+        <div className="max-w-lg mx-auto px-6">
+          {/* Success Card */}
+          <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
+            {/* Header with gradient */}
+            <div className="bg-gradient-to-br from-emerald-500 to-teal-600 px-8 py-10 text-center">
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <CheckCircle className="w-10 h-10 text-emerald-500" />
               </div>
-
-              <ul className="space-y-3">
-                {planDetails.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-accent-green/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-3 h-3 text-accent-green" />
-                    </div>
-                    <span className="text-gray-300">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
+              <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                Payment Successful!
+              </h1>
+              <p className="text-emerald-100 text-lg">
+                Welcome to {planDetails?.name || "your new plan"}!
+              </p>
             </div>
-          )}
 
-          {/* CTA Buttons */}
-          <div className="space-y-4">
-            <Link
-              href="/builder"
-              className="flex items-center justify-center gap-2 w-full bg-accent-green text-bg-primary py-4 rounded-xl font-semibold hover:bg-accent-teal transition"
-            >
-              <Sparkles size={20} />
-              Create Your Resume
-              <ArrowRight size={20} />
-            </Link>
+            {/* Plan Benefits */}
+            <div className="px-8 py-8">
+              {planDetails && (
+                <div className={`${planDetails.bgColor} rounded-2xl p-6 mb-6`}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm`}>
+                      <Icon className={`w-5 h-5 ${planDetails.color}`} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900">{planDetails.name} Plan</h3>
+                      <p className="text-sm text-gray-600">Your new benefits</p>
+                    </div>
+                  </div>
 
-            <Link
-              href="/dashboard"
-              className="flex items-center justify-center gap-2 w-full border border-white/10 text-white py-4 rounded-xl font-semibold hover:bg-white/5 transition"
-            >
-              Go to Dashboard
-            </Link>
+                  <ul className="space-y-3">
+                    {planDetails.benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                        <span className="text-gray-700 font-medium">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* CTA Buttons */}
+              <div className="space-y-3">
+                <Link
+                  href="/builder"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition shadow-lg shadow-emerald-200"
+                >
+                  <Sparkles size={20} />
+                  Create Your Resume
+                  <ArrowRight size={20} />
+                </Link>
+
+                <Link
+                  href="/dashboard"
+                  className="flex items-center justify-center gap-2 w-full bg-gray-100 text-gray-700 py-4 rounded-xl font-semibold hover:bg-gray-200 transition"
+                >
+                  <Settings size={18} />
+                  Go to Dashboard
+                </Link>
+              </div>
+            </div>
+
+            {/* Footer Note */}
+            <div className="px-8 py-5 bg-gray-50 border-t border-gray-100">
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-gray-600">
+                  A receipt has been sent to your email. You can manage your subscription anytime from your{" "}
+                  <Link href="/dashboard" className="text-emerald-600 font-medium hover:underline">
+                    dashboard
+                  </Link>.
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Receipt Note */}
-          <p className="text-sm text-gray-500 mt-8">
-            A receipt has been sent to your email. You can manage your subscription anytime from your dashboard.
+          {/* Additional Info */}
+          <p className="text-center text-sm text-gray-500 mt-6">
+            Questions? Contact us at{" "}
+            <a href="mailto:support@bestairesumes.com" className="text-emerald-600 hover:underline">
+              support@bestairesumes.com
+            </a>
           </p>
         </div>
       </div>
@@ -168,10 +203,10 @@ function SuccessLoading() {
   return (
     <>
       <Header />
-      <div className="min-h-screen pt-32 pb-16">
+      <div className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-emerald-50/50 to-white">
         <div className="max-w-md mx-auto px-6 text-center">
-          <Loader2 className="w-8 h-8 text-accent-green animate-spin mx-auto" />
-          <p className="text-gray-400 mt-4">Loading...</p>
+          <Loader2 className="w-8 h-8 text-emerald-500 animate-spin mx-auto" />
+          <p className="text-gray-600 mt-4">Loading your subscription details...</p>
         </div>
       </div>
       <Footer />

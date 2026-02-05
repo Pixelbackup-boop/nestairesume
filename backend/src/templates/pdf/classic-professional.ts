@@ -234,7 +234,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     ` : '';
 
     // Social Links section
-    const hasSocialLinks = personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
+    const hasSocialLinks = personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
     const socialLinksSection = hasSocialLinks ? `
         <section class="mb-5">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
@@ -242,7 +242,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="flex flex-wrap gap-3" style="font-size: 12px;">
                 ${personalInfo.linkedin ? `<span style="color: ${theme.text};"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
-                ${personalInfo.twitter ? `<span style="color: ${theme.text};"><strong>Twitter:</strong> ${escapeHtml(personalInfo.twitter)}</span>` : ''}
+                ${personalInfo.x ? `<span style="color: ${theme.text};"><strong>Twitter:</strong> ${escapeHtml(personalInfo.x)}</span>` : ''}
                 ${personalInfo.github ? `<span style="color: ${theme.text};"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</span>` : ''}
                 ${personalInfo.dribbble ? `<span style="color: ${theme.text};"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
                 ${personalInfo.behance ? `<span style="color: ${theme.text};"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</span>` : ''}

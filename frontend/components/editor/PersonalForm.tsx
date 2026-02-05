@@ -10,6 +10,7 @@ import ImageCropper from './ImageCropper';
 import CollapsibleSection from './CollapsibleSection';
 import SocialLinksSection from './SocialLinksSection';
 import ReferencesSection from './ReferencesSection';
+import IconInput from '../ui/IconInput';
 
 export default function PersonalForm() {
   const t = useTranslations('Builder');
@@ -200,110 +201,73 @@ export default function PersonalForm() {
             className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">{t('jobTitle')}</label>
-          <div className="relative">
-            <Briefcase size={16} className="absolute left-3 top-3 text-gray-500" />
-            <input
-              type="text"
-              name="jobTitle"
-              value={personalInfo.jobTitle}
-              onChange={handleChange}
-              placeholder={t('jobTitlePlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-            />
-          </div>
-        </div>
+        <IconInput
+          label={t('jobTitle')}
+          name="jobTitle"
+          value={personalInfo.jobTitle}
+          onChange={handleChange}
+          icon={Briefcase}
+          placeholder={t('jobTitlePlaceholder')}
+        />
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">{t('email')}</label>
-          <div className="relative">
-            <Mail size={16} className="absolute left-3 top-3 text-gray-500" />
-            <input
-              type="email"
-              name="email"
-              value={personalInfo.email}
-              onChange={handleChange}
-              placeholder={t('emailPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-            />
-          </div>
-        </div>
+        <IconInput
+          label={t('email')}
+          name="email"
+          value={personalInfo.email}
+          onChange={handleChange}
+          icon={Mail}
+          type="email"
+          placeholder={t('emailPlaceholder')}
+        />
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">{t('phone')}</label>
-          <div className="relative">
-            <Phone size={16} className="absolute left-3 top-3 text-gray-500" />
-            <input
-              type="text"
-              name="phone"
-              value={personalInfo.phone}
-              onChange={handleChange}
-              placeholder={t('phonePlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-            />
-          </div>
-        </div>
+        <IconInput
+          label={t('phone')}
+          name="phone"
+          value={personalInfo.phone}
+          onChange={handleChange}
+          icon={Phone}
+          type="tel"
+          placeholder={t('phonePlaceholder')}
+        />
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">{t('location')}</label>
-          <div className="relative">
-            <MapPin size={16} className="absolute left-3 top-3 text-gray-500" />
-            <input
-              type="text"
-              name="location"
-              value={personalInfo.location}
-              onChange={handleChange}
-              placeholder={t('locationPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-            />
-          </div>
-        </div>
+        <IconInput
+          label={t('location')}
+          name="location"
+          value={personalInfo.location}
+          onChange={handleChange}
+          icon={MapPin}
+          placeholder={t('locationPlaceholder')}
+        />
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">{t('website')}</label>
-          <div className="relative">
-            <Globe size={16} className="absolute left-3 top-3 text-gray-500" />
-            <input
-              type="text"
-              name="website"
-              value={personalInfo.website}
-              onChange={handleChange}
-              placeholder={t('websitePlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-            />
-          </div>
-        </div>
-        <div className="space-y-2 md:col-span-2">
-          <label className="text-sm font-medium text-gray-700">{t('linkedin')}</label>
-          <div className="relative">
-            <Linkedin size={16} className="absolute left-3 top-3 text-gray-500" />
-            <input
-              type="text"
-              name="linkedin"
-              value={personalInfo.linkedin}
-              onChange={handleChange}
-              placeholder={t('linkedinPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-            />
-          </div>
-        </div>
+        <IconInput
+          label={t('website')}
+          name="website"
+          value={personalInfo.website}
+          onChange={handleChange}
+          icon={Globe}
+          type="url"
+          placeholder={t('websitePlaceholder')}
+        />
 
-        {/* Nationality */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">{t('nationality')}</label>
-          <div className="relative">
-            <Flag size={16} className="absolute left-3 top-3 text-gray-500" />
-            <input
-              type="text"
-              name="nationality"
-              value={personalInfo.nationality || ''}
-              onChange={handleChange}
-              placeholder={t('nationalityPlaceholder')}
-              className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-            />
-          </div>
-        </div>
+        <IconInput
+          label={t('linkedin')}
+          name="linkedin"
+          value={personalInfo.linkedin}
+          onChange={handleChange}
+          icon={Linkedin}
+          type="url"
+          placeholder={t('linkedinPlaceholder')}
+          className="md:col-span-2"
+        />
+
+        <IconInput
+          label={t('nationality')}
+          name="nationality"
+          value={personalInfo.nationality || ''}
+          onChange={handleChange}
+          icon={Flag}
+          placeholder={t('nationalityPlaceholder')}
+        />
 
         {/* ID Document */}
         <div className="space-y-2">

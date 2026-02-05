@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#F8FAFC"/>
+
+  <!-- Decorative elements -->
+  <circle cx="720" cy="100" r="100" fill="#14B8A6" opacity="0.08"/>
+  <circle cx="80" cy="350" r="70" fill="#0D9488" opacity="0.08"/>
+
+  <!-- Computer/Screen -->
+  <g transform="translate(420, 60)">
+    <!-- Monitor -->
+    <rect x="0" y="0" width="300" height="200" rx="12" fill="#1E293B"/>
+    <rect x="10" y="10" width="280" height="160" rx="6" fill="#0F172A"/>
+
+    <!-- Screen content - ATS scanning animation -->
+    <rect x="20" y="25" width="120" height="8" rx="2" fill="#14B8A6"/>
+    <rect x="20" y="40" width="180" height="6" rx="2" fill="#334155"/>
+    <rect x="20" y="52" width="160" height="6" rx="2" fill="#334155"/>
+    <rect x="20" y="64" width="200" height="6" rx="2" fill="#334155"/>
+
+    <!-- Scanning line -->
+    <rect x="20" y="80" width="260" height="2" fill="#14B8A6" opacity="0.8">
+      <animate attributeName="y" values="25;150;25" dur="2s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Checkmarks appearing -->
+    <g transform="translate(220, 25)">
+      <circle cx="12" cy="6" r="10" fill="#10B981"/>
+      <path d="M7 6 L10 9 L17 2" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+    <g transform="translate(220, 40)">
+      <circle cx="12" cy="6" r="10" fill="#10B981"/>
+      <path d="M7 6 L10 9 L17 2" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+    <g transform="translate(220, 55)">
+      <circle cx="12" cy="6" r="10" fill="#10B981"/>
+      <path d="M7 6 L10 9 L17 2" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+
+    <!-- Keywords section -->
+    <rect x="20" y="100" width="60" height="20" rx="4" fill="#14B8A6" opacity="0.3"/>
+    <text x="50" y="114" font-family="Arial" font-size="8" fill="#14B8A6" text-anchor="middle">KEYWORDS</text>
+
+    <rect x="90" y="100" width="50" height="20" rx="4" fill="#14B8A6" opacity="0.3"/>
+    <text x="115" y="114" font-family="Arial" font-size="8" fill="#14B8A6" text-anchor="middle">SKILLS</text>
+
+    <rect x="150" y="100" width="60" height="20" rx="4" fill="#14B8A6" opacity="0.3"/>
+    <text x="180" y="114" font-family="Arial" font-size="8" fill="#14B8A6" text-anchor="middle">FORMAT</text>
+
+    <!-- Score -->
+    <text x="150" y="150" font-family="Arial" font-size="32" fill="#10B981" text-anchor="middle" font-weight="bold">95%</text>
+    <text x="150" y="165" font-family="Arial" font-size="10" fill="#64748B" text-anchor="middle">ATS SCORE</text>
+
+    <!-- Stand -->
+    <rect x="120" y="200" width="60" height="15" fill="#334155"/>
+    <rect x="100" y="215" width="100" height="8" rx="2" fill="#475569"/>
+  </g>
+
+  <!-- Checklist -->
+  <g transform="translate(60, 80)">
+    <!-- Clipboard -->
+    <rect x="0" y="20" width="280" height="300" rx="8" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+    <rect x="90" y="5" width="100" height="30" rx="4" fill="#14B8A6"/>
+    <rect x="130" y="0" width="20" height="20" rx="4" fill="#0D9488"/>
+
+    <!-- Title -->
+    <text x="140" y="60" font-family="Arial" font-size="14" fill="#0F172A" text-anchor="middle" font-weight="bold">ATS CHECKLIST</text>
+
+    <!-- Checklist items -->
+    <g transform="translate(20, 85)">
+      <!-- Item 1 - checked -->
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="#10B981"/>
+      <path d="M5 10 L8 13 L15 6" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <text x="30" y="14" font-family="Arial" font-size="12" fill="#334155">Standard fonts</text>
+    </g>
+
+    <g transform="translate(20, 120)">
+      <!-- Item 2 - checked -->
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="#10B981"/>
+      <path d="M5 10 L8 13 L15 6" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <text x="30" y="14" font-family="Arial" font-size="12" fill="#334155">Simple formatting</text>
+    </g>
+
+    <g transform="translate(20, 155)">
+      <!-- Item 3 - checked -->
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="#10B981"/>
+      <path d="M5 10 L8 13 L15 6" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <text x="30" y="14" font-family="Arial" font-size="12" fill="#334155">Keywords included</text>
+    </g>
+
+    <g transform="translate(20, 190)">
+      <!-- Item 4 - checked -->
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="#10B981"/>
+      <path d="M5 10 L8 13 L15 6" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <text x="30" y="14" font-family="Arial" font-size="12" fill="#334155">Standard headers</text>
+    </g>
+
+    <g transform="translate(20, 225)">
+      <!-- Item 5 - checked -->
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="#10B981"/>
+      <path d="M5 10 L8 13 L15 6" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <text x="30" y="14" font-family="Arial" font-size="12" fill="#334155">.docx or .pdf format</text>
+    </g>
+
+    <g transform="translate(20, 260)">
+      <!-- Item 6 - unchecked (in progress) -->
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="white" stroke="#14B8A6" stroke-width="2"/>
+      <text x="30" y="14" font-family="Arial" font-size="12" fill="#94A3B8">No tables or graphics</text>
+    </g>
+  </g>
+
+  <!-- "5 min" badge -->
+  <g transform="translate(280, 40)">
+    <circle cx="30" cy="30" r="28" fill="#14B8A6"/>
+    <text x="30" y="28" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">5</text>
+    <text x="30" y="42" font-family="Arial" font-size="8" fill="white" text-anchor="middle">MIN</text>
+  </g>
+
+  <!-- Bottom gradient -->
+  <rect x="0" y="440" width="800" height="10" fill="url(#atsGradient)"/>
+  <defs>
+    <linearGradient id="atsGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#14B8A6"/>
+      <stop offset="50%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#0D9488"/>
+    </linearGradient>
+  </defs>
+</svg>

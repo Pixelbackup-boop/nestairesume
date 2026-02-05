@@ -319,12 +319,12 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <section style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.socialLinks, 'link')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
                                 ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                                ${personalInfo.twitter ? `<div><span style="font-weight: 600;">Twitter:</span> ${escapeHtml(personalInfo.twitter)}</div>` : ''}
+                                ${personalInfo.x ? `<div><span style="font-weight: 600;">Twitter:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
                                 ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
                                 ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                                 ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}

@@ -239,7 +239,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                     ` : ''}
 
                     <!-- Social Links (Extended) -->
-                    ${(personalInfo.github || personalInfo.twitter || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    ${(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <div style="margin-bottom: 40px;">
                             ${SectionHeader(t.sections.socialLinks, 'users')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
@@ -248,10 +248,10 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                         ${getIconSVG('github', theme.primary, 14)}
                                         <a href="${personalInfo.github}" style="color: ${theme.heading}; text-decoration: none;">GitHub</a>
                                     </div>` : ''}
-                                ${personalInfo.twitter ? `
+                                ${personalInfo.x ? `
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         ${getIconSVG('users', theme.primary, 14)}
-                                        <a href="${personalInfo.twitter}" style="color: ${theme.heading}; text-decoration: none;">Twitter</a>
+                                        <a href="${personalInfo.x}" style="color: ${theme.heading}; text-decoration: none;">Twitter</a>
                                     </div>` : ''}
                                 ${personalInfo.dribbble ? `
                                     <div style="display: flex; align-items: center; gap: 8px;">

@@ -1,0 +1,119 @@
+{
+  "data": {
+    "personalInfo": {
+      "fullName": "Sarah Johnson",
+      "jobTitle": "UX Designer",
+      "email": "sarah.j@email.com",
+      "phone": "+1 (555) 987-6543",
+      "location": "New York, NY",
+      "website": "sarahjohnson.design",
+      "linkedin": "linkedin.com/in/sarahjohnson",
+      "summary": "Creative UX Designer with 6+ years of experience crafting user-centered digital experiences. Passionate about solving complex problems through intuitive design.",
+      "profileImage": "",
+      "imageShape": "circle",
+      "nationality": "",
+      "idType": "",
+      "idNumber": "",
+      "twitter": "",
+      "github": "",
+      "dribbble": "dribbble.com/sarahjohnson",
+      "behance": "",
+      "instagram": ""
+    },
+    "experience": [
+      {
+        "id": "exp-1",
+        "title": "Lead UX Designer",
+        "company": "DesignHub Agency",
+        "city": "New York",
+        "country": "USA",
+        "startDate": "2021-01",
+        "endDate": "",
+        "current": true,
+        "description": "Lead a team of 5 designers creating user-centered digital products. Increased user engagement by 40% through redesign initiatives. Established design system used across all projects."
+      },
+      {
+        "id": "exp-2",
+        "title": "Senior UX Designer",
+        "company": "TechStart Inc",
+        "city": "San Francisco",
+        "country": "USA",
+        "startDate": "2019-03",
+        "endDate": "2021-01",
+        "current": false,
+        "description": "Designed mobile applications for iOS and Android platforms. Conducted user research and usability testing. Collaborated with engineers to deliver features on time."
+      },
+      {
+        "id": "exp-3",
+        "title": "UX Designer",
+        "company": "Creative Solutions",
+        "city": "Boston",
+        "country": "USA",
+        "startDate": "2017-06",
+        "endDate": "2019-03",
+        "current": false,
+        "description": "Created wireframes and prototypes for web applications. Improved product usability scores by 35%."
+      }
+    ],
+    "education": [
+      {
+        "id": "edu-1",
+        "school": "Rhode Island School of Design",
+        "degree": "Bachelor of Fine Arts in Graphic Design",
+        "city": "Providence",
+        "country": "USA",
+        "startDate": "2013-09",
+        "endDate": "2017-05",
+        "current": false,
+        "description": ""
+      }
+    ],
+    "skills": [
+      { "id": "skill-1", "name": "Figma", "level": 95 },
+      { "id": "skill-2", "name": "Sketch", "level": 90 },
+      { "id": "skill-3", "name": "Adobe XD", "level": 85 },
+      { "id": "skill-4", "name": "Prototyping", "level": 95 },
+      { "id": "skill-5", "name": "User Research", "level": 80 }
+    ],
+    "languages": [
+      { "id": "lang-1", "name": "English", "proficiency": "native", "level": 100 },
+      { "id": "lang-2", "name": "Spanish", "proficiency": "fluent", "level": 85 }
+    ],
+    "interests": [
+      { "id": "int-1", "name": "Photography" },
+      { "id": "int-2", "name": "Hiking" },
+      { "id": "int-3", "name": "Travel" }
+    ],
+    "strengths": [
+      { "id": "str-1", "name": "Leadership", "level": 90 },
+      { "id": "str-2", "name": "Communication", "level": 95 },
+      { "id": "str-3", "name": "Problem Solving", "level": 85 }
+    ],
+    "certifications": [
+      { "id": "cert-1", "name": "Google UX Design Certificate", "issuer": "Google", "date": "2022-06" }
+    ],
+    "awards": [],
+    "references": [],
+    "background": {
+      "type": "solid",
+      "color": "#ffffff",
+      "pattern": "none",
+      "patternOpacity": 10
+    },
+    "fonts": {
+      "heading": "Inter",
+      "body": "Inter",
+      "size": "medium"
+    },
+    "customThemeColor": ""
+  },
+  "theme": {
+    "name": "Navy Blue",
+    "primary": "#1e3a8a",
+    "secondary": "#3b82f6",
+    "accent": "#dbeafe",
+    "text": "#1f2937",
+    "background": "#ffffff",
+    "heading": "#111827"
+  }
+}
