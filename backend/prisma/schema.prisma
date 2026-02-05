@@ -12,6 +12,8 @@ model User {
   email              String    @unique
   hashedPassword     String
   name               String
+  image              String?   // Profile image URL
+  emailVerified      DateTime? // When email was verified
   role               String    @default("user") // "user" | "admin"
   subscriptionTier   String    @default("free") // "free" | "starter" | "gold" | "diamond" | "platinum"
   creditsRemaining   Int       @default(3)
@@ -36,6 +38,24 @@ model User {
   updatedAt          DateTime  @updatedAt
   resumes            Resume[]
   payments           Payment[]
+  accounts           Account[] // OAuth accounts
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider          String  // "google" | "github" etc
+  providerAccountId String
+  accessToken       String?
+  refreshToken      String?
+  expiresAt         Int?
+  tokenType         String?
+  scope             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([provider, providerAccountId])
 }
 
 model Resume {
