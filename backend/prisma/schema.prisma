@@ -29,6 +29,9 @@ model User {
   lastAiResetDate    DateTime? // When daily/monthly counters were last reset
   downloadCount      Int       @default(0) // PDF/DOCX downloads this month
   coverLetterCount   Int       @default(0) // Cover letters created this month
+  // Password reset
+  verificationCode        String?   // Password reset code
+  verificationCodeExpires DateTime? // When reset code expires
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt
   resumes            Resume[]
