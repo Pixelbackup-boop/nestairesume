@@ -485,3 +485,4 @@ gcloud sql instances describe resume-db --format="value(connectionName)"
 4. Add rate limiting if not already
 5. Configure CDN for static assets
 6. Set up staging environment
+# Deployed 2026-02-05
