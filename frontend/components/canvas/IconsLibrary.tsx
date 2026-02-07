@@ -102,7 +102,7 @@ const iconLibrary: IconItem[] = [
     // Social
     { name: 'LinkedIn', icon: Linkedin, category: 'social' },
     { name: 'GitHub', icon: Github, category: 'social' },
-    { name: 'Twitter', icon: Twitter, category: 'social' },
+    { name: 'X', icon: Twitter, category: 'social' },
     { name: 'Instagram', icon: Instagram, category: 'social' },
     { name: 'Facebook', icon: Facebook, category: 'social' },
     { name: 'YouTube', icon: Youtube, category: 'social' },
@@ -256,7 +256,7 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search icons..."
-                    className="w-full pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:border-accent-green"
+                    className="w-full pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green"
                 />
             </div>
 
@@ -292,7 +292,7 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
                         className={`px-2 py-1 text-xs rounded transition-colors ${
                             selectedCategory === cat.id
                                 ? 'bg-accent-green text-gray-900 font-medium'
-                                : 'bg-white text-gray-500 hover:text-white'
+                                : 'bg-white text-gray-500 hover:text-gray-700'
                         }`}
                     >
                         {cat.label}
@@ -313,7 +313,7 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
                         >
                             <IconComponent
                                 size={20}
-                                className="text-gray-600 group-hover:text-white transition-colors"
+                                className="text-gray-600 group-hover:text-gray-900 transition-colors"
                                 style={{ color: selectedColor }}
                             />
                         </button>

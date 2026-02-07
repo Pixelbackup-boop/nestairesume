@@ -78,27 +78,6 @@ export default async function TemplateCategoryPage({ params }: Props) {
                     <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                         {catData.heroText}
                     </p>
-                    <div className="flex justify-center gap-4">
-                        <a href="#templates" className="bg-accent-green text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-green-400 transition">
-                            Browse Templates
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* SEO Content Block (The "Text Trap") */}
-            <section className="py-12 bg-white">
-                <div className="max-w-3xl mx-auto px-6 text-gray-600 leading-relaxed text-sm md:text-base">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Why choose a {catData.keyword}?</h2>
-                    <p className="mb-4">
-                        In 2026, recruiters spend less than 7 seconds reviewing a resume. Using a <strong>{catData.keyword}</strong> ensures
-                        that your information is presented in a format they recognize and trust. Unlike overly creative designs that confuse
-                        Applicant Tracking Systems (ATS), our {catData.title.toLowerCase()} prioritize readability and structure.
-                    </p>
-                    <p>
-                        Whether you are a student, mid-level professional, or executive, these templates provide the perfect foundation
-                        for your career story.
-                    </p>
                 </div>
             </section>
 

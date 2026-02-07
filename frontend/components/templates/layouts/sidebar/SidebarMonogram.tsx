@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -17,7 +18,7 @@ import { useTemplateSetup } from '@/hooks';
  * - Accent: Gold (#facc15).
  */
 function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts, certifications, awards, references } = data;
+    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts, certifications, awards, references, customFields } = data;
 
     const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
         customThemeColor,
@@ -112,9 +113,9 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                 <div style={{ width: '100%', marginBottom: 40 }}>
                     <SidebarHeader title={t.sections.contact} color={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                        {personalInfo.phone && <div style={{ display: 'flex', gap: 8 }}><span>📞</span><span>{personalInfo.phone}</span></div>}
-                        {personalInfo.email && <div style={{ display: 'flex', gap: 8 }}><span>✉️</span><span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span></div>}
-                        {personalInfo.location && <div style={{ display: 'flex', gap: 8 }}><span>📍</span><span>{personalInfo.location}</span></div>}
+                        {personalInfo.phone && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><Phone size={14} color={sidebarText} /><span>{personalInfo.phone}</span></div>}
+                        {personalInfo.email && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><Mail size={14} color={sidebarText} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span></div>}
+                        {personalInfo.location && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><MapPin size={14} color={sidebarText} /><span>{personalInfo.location}</span></div>}
                     </div>
                 </div>
 
@@ -352,7 +353,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                         <MainHeader title={t.sections.socialLinks} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
+                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -399,13 +400,13 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
-                {/* Custom Field */}
-                {personalInfo.customField && personalInfo.customFieldLabel && (
-                    <section className="mb-10 resume-section" data-paginate="section">
-                        <MainHeader title={personalInfo.customFieldLabel} color={'#374151'} fs={fs} headingFont={headingFont} />
-                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{personalInfo.customField}</p>
+                {/* Custom Fields */}
+                {customFields?.map((field) => (
+                    <section key={field.id} className="mb-10 resume-section" data-paginate="section">
+                        <MainHeader title={field.label} color={'#374151'} fs={fs} headingFont={headingFont} />
+                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{field.content}</p>
                     </section>
-                )}
+                ))}
             </main>
         </div>
     );

@@ -28,7 +28,9 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         interests = [],
         strengths = [],
         certifications = [],
+        awards = [],
         references = [],
+        customFields = [],
         background,
         fonts
     } = data;
@@ -69,6 +71,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         personalInfo.phone,
         personalInfo.location,
         personalInfo.nationality,
+        personalInfo.website,
     ].filter(Boolean);
 
     const contactHtml = contactItems.map((item, i) =>
@@ -222,6 +225,31 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         </section>
     ` : '';
 
+    const awardsSection = awards.length > 0 ? `
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                ${t.sections.awards}
+            </h2>
+            <div class="space-y-2">
+                ${awards.map(award => `
+                    <div class="resume-entry">
+                        <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
+                            ${escapeHtml(award.title)}
+                        </div>
+                        <div style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                            ${escapeHtml(award.issuer)} &bull; ${formatLocalizedDate(award.date, locale)}
+                        </div>
+                        ${award.description ? `
+                            <p style="color: ${theme.text}; opacity: 0.8; font-size: 12px; line-height: 1.4;">
+                                ${formatDescription(award.description)}
+                            </p>
+                        ` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    ` : '';
+
     const interestsSection = interests && interests.length > 0 ? `
         <section>
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
@@ -242,7 +270,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="flex flex-wrap gap-3" style="font-size: 12px;">
                 ${personalInfo.linkedin ? `<span style="color: ${theme.text};"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
-                ${personalInfo.x ? `<span style="color: ${theme.text};"><strong>Twitter:</strong> ${escapeHtml(personalInfo.x)}</span>` : ''}
+                ${personalInfo.x ? `<span style="color: ${theme.text};"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</span>` : ''}
                 ${personalInfo.github ? `<span style="color: ${theme.text};"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</span>` : ''}
                 ${personalInfo.dribbble ? `<span style="color: ${theme.text};"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
                 ${personalInfo.behance ? `<span style="color: ${theme.text};"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</span>` : ''}
@@ -279,17 +307,17 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         </section>
     ` : '';
 
-    // Custom Field section
-    const customFieldSection = personalInfo.customField ? `
+    // Custom Fields section
+    const customFieldsSection = customFields.map(field => `
         <section class="mb-5">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
-                ${escapeHtml(personalInfo.customFieldLabel || t.sections.additionalInfo)}
+                ${escapeHtml(field.label)}
             </h2>
             <p style="color: ${theme.text}; font-size: 12px; line-height: 1.5; white-space: pre-line;">
-                ${formatDescription(personalInfo.customField)}
+                ${formatDescription(field.content)}
             </p>
         </section>
-    ` : '';
+    `).join('');
 
     return `
         <div class="w-full h-full" style="font-family: ${bodyFont}; font-size: ${sizeConfig.base}; ${bgStyle} padding: 40px;">
@@ -315,10 +343,11 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             ${languagesSection}
             ${strengthsSection}
             ${certificationsSection}
+            ${awardsSection}
             ${interestsSection}
             ${socialLinksSection}
             ${referencesSection}
-            ${customFieldSection}
+            ${customFieldsSection}
         </div>
     `;
 };

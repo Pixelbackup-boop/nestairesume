@@ -35,6 +35,7 @@ export const renderHeaderDarkBanner = (
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
@@ -333,8 +334,8 @@ export const renderHeaderDarkBanner = (
                         </section>
                     ` : ''}
                     
-                    <!-- Personal & Custom -->
-                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
+                    <!-- Personal Details -->
+                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                         <section style="margin-top: 20px;">
                             ${SectionHeader(t.sections.additionalInfo)}
                             <div style="font-size: 9pt; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
@@ -342,15 +343,19 @@ export const renderHeaderDarkBanner = (
                                 ${personalInfo.idType && personalInfo.idNumber ? `
                                     <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                                 ` : ''}
-                                ${personalInfo.customField ? `
-                                    <div style="margin-top: 4px;">
-                                        <span style="font-weight: 600; display: block;">${escapeHtml(personalInfo.customFieldLabel || 'Info')}</span>
-                                        ${formatDescription(personalInfo.customField)}
-                                    </div>
-                                ` : ''}
                             </div>
                         </section>
                     ` : ''}
+
+                    <!-- Custom Fields -->
+                    ${customFields.map(field => `
+                        <section style="margin-top: 20px;">
+                            ${SectionHeader(field.label)}
+                            <p style="font-size: 9pt; color: #4b5563; line-height: 1.6;">
+                                ${formatDescription(field.content)}
+                            </p>
+                        </section>
+                    `).join('')}
 
                     <!-- Social Links -->
                     ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `

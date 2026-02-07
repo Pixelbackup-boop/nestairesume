@@ -17,6 +17,14 @@ export async function generateMetadata({
   const title = t('title');
   const description = t('description');
 
+  const locales = ['en', 'es', 'fr', 'de', 'ar'];
+  const alternateLanguages: Record<string, string> = {
+    'x-default': `${siteConfig.url}/en/pricing`,
+  };
+  locales.forEach((loc) => {
+    alternateLanguages[loc] = `${siteConfig.url}/${loc}/pricing`;
+  });
+
   return {
     title,
     description,
@@ -51,14 +59,30 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${siteConfig.url}/${locale}/pricing`,
+      languages: alternateLanguages,
     },
   };
 }
+
+// Breadcrumb schema — hardcoded constants only, no user input
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+    { '@type': 'ListItem', position: 2, name: 'Pricing' },
+  ],
+};
 
 export default function PricingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

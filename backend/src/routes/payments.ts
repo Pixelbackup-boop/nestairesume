@@ -5,8 +5,10 @@ import {
   createCheckoutSession,
   createPortalSession,
   getSubscriptionStatus,
+  getPublicPlanLimits,
   PlanType,
 } from "../services/stripeService";
+import { getUsageStatus } from "../middleware/subscriptionLimits";
 
 const router = Router();
 
@@ -66,6 +68,32 @@ router.get("/status", authenticateToken, async (req: AuthRequest, res: Response)
     console.error("Status error:", error);
     res.status(500).json({ detail: "Failed to get subscription status" });
   }
+});
+
+// Get usage limits and remaining counts
+router.get("/usage", authenticateToken, async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ detail: "Not authenticated" });
+      return;
+    }
+
+    const usage = await getUsageStatus(req.user.id);
+    if (!usage) {
+      res.status(404).json({ detail: "User not found" });
+      return;
+    }
+
+    res.json(usage);
+  } catch (error: unknown) {
+    console.error("Usage error:", error);
+    res.status(500).json({ detail: "Failed to get usage status" });
+  }
+});
+
+// Public endpoint: plan limits (no auth required)
+router.get("/plans", (_req: Request, res: Response): void => {
+  res.json(getPublicPlanLimits());
 });
 
 export default router;

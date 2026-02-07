@@ -94,8 +94,8 @@ export default function VerifyEmailPage() {
             localStorage.setItem('token', data.access_token);
             await refreshUser();
 
-            // Redirect to dashboard
-            router.push(localizedHref('/dashboard'));
+            // Redirect to builder with registered flag for welcome modal
+            router.push(localizedHref('/builder?registered=true'));
         } catch (err: any) {
             setError(err.response?.data?.detail || t('verificationFailed'));
         } finally {

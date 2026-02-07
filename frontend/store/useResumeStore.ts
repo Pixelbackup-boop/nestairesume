@@ -86,6 +86,13 @@ export interface Reference {
     email?: string;
 }
 
+// Custom Fields (user-defined sections)
+export interface CustomField {
+    id: string;
+    label: string;
+    content: string;
+}
+
 export type ImageShape = 'circle' | 'rounded' | 'square';
 export type IdDocumentType = 'id' | 'passport' | 'driving_license' | '';
 
@@ -142,6 +149,7 @@ export interface ResumeData {
     certifications: Certification[];
     awards: Award[];
     references: Reference[];
+    customFields: CustomField[];
     // Styling
     background: BackgroundSettings;
     fonts: FontSettings;
@@ -189,6 +197,9 @@ interface ResumeState {
     addReference: (ref: Reference) => void;
     updateReference: (id: string, ref: Partial<Reference>) => void;
     removeReference: (id: string) => void;
+    addCustomField: (field: CustomField) => void;
+    updateCustomField: (id: string, field: Partial<CustomField>) => void;
+    removeCustomField: (id: string) => void;
 
     // UI State Setters
     setTemplate: (templateId: string) => void;
@@ -238,6 +249,7 @@ export const useResumeStore = create<ResumeState>()(
         certifications: [],
         awards: [],
         references: [],
+        customFields: [],
         background: {
             type: 'solid',
             color: '#ffffff',
@@ -539,6 +551,33 @@ export const useResumeStore = create<ResumeState>()(
             },
         })),
 
+    // Custom Field actions
+    addCustomField: (field) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                customFields: [...(state.resumeData.customFields ?? []), field],
+            },
+        })),
+
+    updateCustomField: (id, field) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                customFields: (state.resumeData.customFields ?? []).map((f) =>
+                    f.id === id ? { ...f, ...field } : f
+                ),
+            },
+        })),
+
+    removeCustomField: (id) =>
+        set((state) => ({
+            resumeData: {
+                ...state.resumeData,
+                customFields: (state.resumeData.customFields ?? []).filter((f) => f.id !== id),
+            },
+        })),
+
     setCustomThemeColor: (color) =>
         set((state) => ({
             selectedTheme: 'custom',
@@ -619,6 +658,7 @@ export const useResumeStore = create<ResumeState>()(
             certifications: [],
             awards: [],
             references: [],
+            customFields: [],
             background: {
                 type: 'solid',
                 color: '#ffffff',
@@ -669,6 +709,7 @@ export const useStrengths = () => useResumeStore((state) => state.resumeData.str
 export const useCertifications = () => useResumeStore((state) => state.resumeData.certifications);
 export const useAwards = () => useResumeStore((state) => state.resumeData.awards);
 export const useReferences = () => useResumeStore((state) => state.resumeData.references);
+export const useCustomFields = () => useResumeStore((state) => state.resumeData.customFields);
 export const useBackground = () => useResumeStore((state) => state.resumeData.background);
 export const useFonts = () => useResumeStore((state) => state.resumeData.fonts);
 export const useLayoutConfig = () => useResumeStore((state) => state.resumeData.layoutConfig);

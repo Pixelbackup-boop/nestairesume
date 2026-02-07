@@ -31,7 +31,7 @@ export const modernSidebarTemplate: CanvasTemplate = {
         }),
         // Profile image
         createImage({
-            src: '/Img/headshot.png',
+            src: '/Img/headshot.webp',
             x: 50,
             y: 40,
             width: 100,
@@ -189,7 +189,7 @@ export const modernSidebarTemplate: CanvasTemplate = {
             letterSpacing: 2,
         }),
         createIcon({ iconName: 'LinkedIn', x: 55, y: 720, width: 20, height: 20, fill: '#0077b5' }),
-        createIcon({ iconName: 'Twitter', x: 90, y: 720, width: 20, height: 20, fill: '#1da1f2' }),
+        createIcon({ iconName: 'X', x: 90, y: 720, width: 20, height: 20, fill: '#1da1f2' }),
         createIcon({ iconName: 'GitHub', x: 125, y: 720, width: 20, height: 20, fill: '#888888' }),
 
         // Main content - Right side

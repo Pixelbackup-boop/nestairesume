@@ -39,6 +39,10 @@
     "coverLetterDesc": "AI-powered cover letters",
     "resignationLetter": "Resignation Letter",
     "resignationLetterDesc": "Professional exit letters",
+    "atsChecker": "ATS Resume Checker",
+    "atsCheckerDesc": "Check ATS compatibility",
+    "mockInterview": "Mock Interview",
+    "mockInterviewDesc": "AI-powered practice interviews",
     "resumeFormat": "Resume Format Guide",
     "resumeFormatDesc": "Chronological, functional & more",
     "login": "Log in",
@@ -47,6 +51,7 @@
     "dashboard": "Dashboard",
     "admin": "Admin",
     "adminPanel": "Admin Panel",
+    "profile": "Profile",
     "resources": "Resources",
     "compare": "Compare",
     "byStyle": "By Style",
@@ -231,8 +236,8 @@
       "description": "Browse 50+ professional resume templates. Modern, creative, and minimalist designs optimized for ATS. Free to customize and download."
     },
     "sectionTitle": "Templates",
-    "title": "Choose your perfect",
-    "titleHighlight": "resume template",
+    "title": "Best Resume Templates",
+    "titleHighlight": "of 2026",
     "subtitle": "Select an editing mode and pick from our professionally designed templates.",
     "searchPlaceholder": "Search templates...",
     "templatesAvailable": "{count} template{count, plural, one {} other {s}} available",
@@ -254,7 +259,7 @@
       "professional": "Modern",
       "creative": "Creative",
       "minimal": "Simple and Clean",
-      "bold": "Bold",
+      "ats-friendly": "ATS-Friendly",
       "modern": "Modern",
       "classic": "Classic"
     },
@@ -448,8 +453,10 @@
       "coverLetterBuilder": "Cover letter builder",
       "noAds": "No ads",
       "earlyAccess": "Early access features",
-      "cvCreations": "CV creations/month",
-      "aiGenerations": "AI generations/month",
+      "cvCreations": "{count} CV creations/month",
+      "aiGenerations": "{count} AI generations/month",
+      "downloads": "{count} downloads/month",
+      "coverLetters": "{count} cover letters/month",
       "unlimited": "Unlimited"
     },
     "comparison": {
@@ -479,7 +486,7 @@
       },
       "starterOneTime": {
         "question": "How does the free trial work?",
-        "answer": "All plans come with a 7-day free trial. Add your card to start, and you won't be charged until the trial ends. During the trial, you have daily limits on AI resume generation."
+        "answer": "Gold & Diamond plans include a 7-day free trial. Add your card to start, and you won't be charged until the trial ends. During the trial, you have daily limits on AI resume generation."
       },
       "runOutDownloads": {
         "question": "What happens when I reach my limits?",
@@ -491,7 +498,7 @@
       },
       "refunds": {
         "question": "Do you offer refunds?",
-        "answer": "Since all plans include a 7-day free trial, we don't offer refunds after you're charged. Make sure to cancel during your trial if it's not right for you."
+        "answer": "Gold & Diamond plans include a 7-day free trial. For plans without a trial, we don't offer refunds after purchase. Make sure to cancel during your trial if it's not right for you."
       }
     },
     "cta": {
@@ -698,6 +705,52 @@
     }
   },
 
+  "Profile": {
+    "meta": {
+      "title": "Profile Settings - Best AI Resume",
+      "description": "Manage your account settings, update your profile, and change your password."
+    },
+    "title": "Profile Settings",
+    "chooseAvatar": "Choose Avatar",
+    "accountDetails": "Account Details",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "emailAddress": "Email Address",
+    "changeEmail": "Change",
+    "newEmail": "New Email Address",
+    "emailPlaceholder": "your@newemail.com",
+    "emailChangeHint": "A verification code will be sent to this email",
+    "cancel": "Cancel",
+    "sendCode": "Send Code",
+    "sending": "Sending...",
+    "enterCodeSentTo": "Enter the 6-digit code sent to",
+    "verifyCode": "Verify",
+    "verifying": "Verifying...",
+    "useAnotherEmail": "Use a different email address",
+    "codeSent": "Verification code sent to your new email",
+    "emailChanged": "Email changed successfully",
+    "enterNewEmail": "Please enter a new email address",
+    "enterCode": "Please enter the 6-digit code",
+    "emailChangeFailed": "Failed to send verification code",
+    "verificationFailed": "Verification failed",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password",
+    "passwordHint": "Must be at least 8 characters",
+    "changePasswordBtn": "Change Password",
+    "changingPassword": "Changing...",
+    "profileUpdated": "Profile updated successfully",
+    "passwordChanged": "Password changed successfully",
+    "updateFailed": "Update failed",
+    "passwordChangeFailed": "Password change failed",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "noChanges": "No changes to save"
+  },
+
   "Checkout": {
     "meta": {
       "title": "Checkout - Complete Your Subscription",
@@ -745,11 +798,16 @@
     "additionalInfo": "Additional Information",
     "socialLinks": "Social Links",
     "references": "References",
-    "customField": "Custom Field",
-    "sectionLabel": "Section Label",
-    "sectionLabelPlaceholder": "e.g., Volunteer Work, Hobbies, Additional Notes",
-    "content": "Content",
-    "contentPlaceholder": "Add any additional information you'd like to include on your resume...",
+    "customFields": {
+      "title": "Custom Fields",
+      "subtitle": "Add custom sections with your own labels and content.",
+      "add": "Add Custom Field",
+      "noCustomFields": "No custom fields added yet.",
+      "label": "Section Label",
+      "labelPlaceholder": "e.g., Volunteer Work, Hobbies, Publications",
+      "content": "Content",
+      "contentPlaceholder": "Add your content here..."
+    },
     "shapes": {
       "circle": "Circle",
       "rounded": "Rounded",
@@ -991,6 +1049,119 @@
       "title": "Ready to create your winning resume?",
       "subtitle": "Use our AI-powered builder to create a professional resume in minutes.",
       "button": "Build My Resume — Free"
+    }
+  },
+  "AtsChecker": {
+    "hero": {
+      "badge": "Free ATS Resume Checker",
+      "title": "Is Your Resume",
+      "titleHighlight": "ATS-Compatible?",
+      "statistic": "75% of resumes are rejected by ATS before a human ever sees them.",
+      "description": "Our free ATS checker analyzes your resume for formatting issues, missing keywords, and compatibility problems that cause automatic rejections."
+    },
+    "tool": {
+      "title": "Check Your Resume's ATS Score",
+      "description": "Upload your PDF or DOCX resume and get an instant ATS compatibility score with detailed feedback.",
+      "uploadBtn": "Click to upload or drag and drop",
+      "formats": "PDF or DOCX — Max 10MB",
+      "checkBtn": "Check My Resume",
+      "changeFile": "Change file",
+      "analyzing": "Analyzing your resume…",
+      "cta": "Build an ATS-Friendly Resume",
+      "subtext": "Free — no credit card required"
+    },
+    "checks": {
+      "title": "What ATS Systems Check For",
+      "subtitle": "Understanding what ATS software scans helps you optimize your resume for maximum visibility.",
+      "keywords": {
+        "title": "Keyword Matching",
+        "description": "ATS scans for job-specific keywords from the posting. Missing critical terms means automatic rejection."
+      },
+      "formatting": {
+        "title": "Clean Formatting",
+        "description": "Complex layouts, tables, and columns confuse ATS parsers. Simple, single-column formats parse best."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "description": "ATS looks for name, email, phone, and location in standard formats. Missing info means lost opportunities."
+      },
+      "dates": {
+        "title": "Consistent Date Formats",
+        "description": "ATS systems parse employment dates to calculate experience. Inconsistent formats cause parsing errors."
+      }
+    },
+    "checklist": {
+      "title": "ATS Optimization Checklist",
+      "subtitle": "Follow these guidelines to maximize your resume's chances of passing ATS screening.",
+      "doThis": "Do This",
+      "avoidThis": "Avoid This",
+      "dos": {
+        "singleColumn": "Use a single-column layout for maximum compatibility",
+        "keywords": "Include keywords from the job description naturally",
+        "standardHeadings": "Use standard section headings (Experience, Education, Skills)",
+        "fileFormat": "Submit as PDF or DOCX as specified by the employer",
+        "standardFonts": "Use standard fonts like Arial, Calibri, or Times New Roman",
+        "spellOut": "Spell out acronyms first, then abbreviate (e.g., Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "Don't use tables or text boxes for layout",
+        "images": "Don't include images, logos, or graphics",
+        "headers": "Don't place important info in headers or footers",
+        "creativeTitles": "Don't use creative section titles (e.g., 'My Journey' instead of 'Experience')",
+        "fancyFonts": "Don't use decorative or uncommon fonts",
+        "lightText": "Don't use light gray or low-contrast text colors"
+      }
+    },
+    "systems": {
+      "title": "Popular ATS Systems",
+      "subtitle": "Our templates are tested and optimized for all major Applicant Tracking Systems used by employers worldwide."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "whatIsAts": {
+        "question": "What is an ATS (Applicant Tracking System)?",
+        "answer": "An ATS is software used by employers to collect, scan, and rank job applications. It filters resumes based on keywords, formatting, and relevance before a recruiter ever sees them. Over 98% of Fortune 500 companies use an ATS."
+      },
+      "whyFail": {
+        "question": "Why do resumes fail ATS screening?",
+        "answer": "Common reasons include complex formatting (tables, columns, graphics), missing keywords from the job description, non-standard section headings, incompatible file formats, and information placed in headers or footers that ATS can't read."
+      },
+      "bestFormat": {
+        "question": "What's the best resume format for ATS?",
+        "answer": "A clean, single-column layout with standard section headings works best. Use simple formatting, standard fonts, and avoid graphics or tables. PDF and DOCX are the most universally accepted file formats."
+      },
+      "keywords": {
+        "question": "How do I find the right keywords for my resume?",
+        "answer": "Read the job description carefully and identify repeated skills, qualifications, and terminology. Include these keywords naturally throughout your resume, especially in your summary, skills section, and work experience descriptions."
+      },
+      "twoColumn": {
+        "question": "Can I use a two-column resume with ATS?",
+        "answer": "Two-column layouts can cause parsing issues with many ATS systems. The software may read across columns instead of down them, jumbling your information. A single-column layout is the safest choice for ATS compatibility."
+      },
+      "jobTitle": {
+        "question": "Should I match the exact job title in my resume?",
+        "answer": "Yes, if your actual title is similar. Including the exact job title from the posting in your resume (where truthful) significantly improves ATS matching. You can include it in your summary or as a target role."
+      }
+    },
+    "resources": {
+      "title": "Related Resources",
+      "guide": {
+        "title": "ATS Resume Writing Guide",
+        "description": "Step-by-step guide to writing a resume that passes ATS screening."
+      },
+      "templates": {
+        "title": "ATS-Friendly Templates",
+        "description": "Pre-optimized resume templates designed for ATS compatibility."
+      },
+      "examples": {
+        "title": "Resume Examples",
+        "description": "See real resume examples for your profession."
+      }
+    },
+    "cta": {
+      "title": "Stop Getting Rejected by ATS",
+      "description": "Build a professional, ATS-optimized resume in minutes with our AI-powered builder. Every template is tested for ATS compatibility.",
+      "button": "Build My ATS Resume — Free"
     }
   }
 }

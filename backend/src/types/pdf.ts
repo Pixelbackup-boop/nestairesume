@@ -80,6 +80,12 @@ export interface PdfReference {
     email?: string;
 }
 
+export interface PdfCustomField {
+    id: string;
+    label: string;
+    content: string;
+}
+
 export type ImageShape = 'circle' | 'rounded' | 'square';
 export type IdDocumentType = 'id' | 'passport' | 'driving_license' | '';
 export type BackgroundType = 'solid' | 'gradient' | 'pattern';
@@ -135,6 +141,7 @@ export interface PdfResumeData {
     certifications: PdfCertification[];
     awards: PdfAward[];
     references: PdfReference[];
+    customFields: PdfCustomField[];
     background: PdfBackgroundSettings;
     fonts: PdfFontSettings;
     customThemeColor?: string;

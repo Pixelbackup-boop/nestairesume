@@ -44,6 +44,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
         awards = [],
         certifications = [],
         references = [],
+        customFields = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
@@ -324,7 +325,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                             ${SectionHeader(t.sections.socialLinks, 'link')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
                                 ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                                ${personalInfo.x ? `<div><span style="font-weight: 600;">Twitter:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
+                                ${personalInfo.x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
                                 ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
                                 ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                                 ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
@@ -369,13 +370,13 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                         </section>
                     ` : ''}
 
-                    <!-- Custom Field -->
-                    ${personalInfo.customField && personalInfo.customFieldLabel ? `
+                    <!-- Custom Fields -->
+                    ${customFields.map(field => `
                         <section style="margin-bottom: 32px;">
-                            ${SectionHeader(escapeHtml(personalInfo.customFieldLabel), 'pin')}
-                            <p style="font-size: ${sizes.body}; line-height: 1.6;">${formatDescription(personalInfo.customField)}</p>
+                            ${SectionHeader(escapeHtml(field.label), 'pin')}
+                            <p style="font-size: ${sizes.body}; line-height: 1.6;">${formatDescription(field.content)}</p>
                         </section>
-                    ` : ''}
+                    `).join('')}
                 </div>
             </div>
         </div>

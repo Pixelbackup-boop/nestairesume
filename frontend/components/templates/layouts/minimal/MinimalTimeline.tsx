@@ -15,7 +15,7 @@ import { useTemplateSetup } from '@/hooks';
  * - Simple dots on the timeline.
  */
 function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, certifications, awards, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, references, customFields, customThemeColor, fonts } = data;
 
     const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
         customThemeColor,
@@ -223,7 +223,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.socialLinks}</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                         {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
+                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                         {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                         {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                         {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -270,13 +270,13 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
                 </section>
             )}
 
-            {/* Custom Field */}
-            {personalInfo.customField && personalInfo.customFieldLabel && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
-                    <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{personalInfo.customFieldLabel}</h3>
-                    <p style={{ lineHeight: 1.6, fontSize: fs.body }}>{personalInfo.customField}</p>
+            {/* Custom Fields */}
+            {customFields?.map((field) => (
+                <section key={field.id} style={{ marginLeft: 20, marginTop: 32 }}>
+                    <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{field.label}</h3>
+                    <p style={{ lineHeight: 1.6, fontSize: fs.body }}>{field.content}</p>
                 </section>
-            )}
+            ))}
 
         </div>
     );

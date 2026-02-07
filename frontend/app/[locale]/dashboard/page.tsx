@@ -26,6 +26,7 @@ import {
     CreditCard,
     Settings
 } from 'lucide-react';
+import { useUsageStore } from '@/store/useUsageStore';
 
 interface Resume {
     id: string;
@@ -43,12 +44,81 @@ interface TemplateStats {
     color: string;
 }
 
+interface UsageCardProps {
+    icon: React.ReactNode;
+    iconBg: string;
+    label: string;
+    usage?: { used: number; limit: number };
+    percentage: number;
+    barColor: string;
+    loading: boolean;
+    tier?: string;
+    className?: string;
+}
+
+function UsageCard({ icon, iconBg, label, usage, percentage, barColor, loading, tier, className = '' }: UsageCardProps) {
+    const isFree = !tier || tier === 'free' || tier === 'expired';
+    const isUnlimited = usage?.limit === -1;
+
+    return (
+        <div className={`bg-bg-card border border-border-subtle rounded-xl p-4 md:p-5 shadow-sm ${className}`}>
+            <div className="flex items-center gap-3 mb-2">
+                <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg ${iconBg} flex items-center justify-center`}>
+                    {icon}
+                </div>
+            </div>
+            {loading ? (
+                <div className="animate-pulse space-y-2">
+                    <div className="h-7 bg-gray-200 rounded w-16" />
+                    <div className="h-3 bg-gray-200 rounded w-20" />
+                </div>
+            ) : isFree ? (
+                <>
+                    <div className="text-sm font-semibold text-text-secondary">No plan</div>
+                    <div className="text-xs text-text-muted mt-1">Subscribe to unlock</div>
+                </>
+            ) : (
+                <>
+                    <div className="text-2xl md:text-3xl font-bold text-dark-teal">
+                        {usage?.used ?? 0}
+                        <span className="text-sm font-normal text-text-secondary ml-1">
+                            / {isUnlimited ? '∞' : usage?.limit ?? 0}
+                        </span>
+                    </div>
+                    <div className="text-xs md:text-sm text-text-secondary">{label}</div>
+                    {!isUnlimited && (
+                        <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden mt-2">
+                            <div
+                                className={`h-full ${barColor} rounded-full transition-all duration-500`}
+                                style={{ width: `${Math.min(percentage, 100)}%` }}
+                            />
+                        </div>
+                    )}
+                    {isUnlimited && (
+                        <div className="text-xs text-accent-green font-medium mt-2">Unlimited</div>
+                    )}
+                </>
+            )}
+        </div>
+    );
+}
+
 export default function DashboardPage() {
     const router = useRouter();
-    const { user, isAuthenticated } = useAuthStore();
+    const { user, isAuthenticated, refreshUser } = useAuthStore();
+    const { usage, isLoading: usageLoading, fetchUsage, getUsagePercentage } = useUsageStore();
     const [resumes, setResumes] = useState<Resume[]>([]);
     const [loading, setLoading] = useState(true);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+    // Refresh user + usage data on mount for fresh subscription status
+    useEffect(() => {
+        const hasToken = typeof window !== 'undefined' && localStorage.getItem('token');
+        if (isAuthenticated && hasToken) {
+            refreshUser();
+            fetchUsage();
+        }
+    }, [isAuthenticated, refreshUser, fetchUsage]);
 
     // Fetch user's resumes from API
     useEffect(() => {
@@ -56,14 +126,20 @@ export default function DashboardPage() {
             try {
                 const response = await api.get('/resumes');
                 setResumes((response.data as Resume[]) || []);
-            } catch (error) {
-                console.error('Failed to fetch resumes:', error);
+            } catch (error: unknown) {
+                const apiError = error as { message?: string; response?: { status?: number } };
+                // 401 errors are expected when session is stale - don't spam console
+                if (apiError?.response?.status !== 401) {
+                    console.error('Failed to fetch resumes:', apiError?.message || 'Unknown error');
+                }
             } finally {
                 setLoading(false);
             }
         };
 
-        if (isAuthenticated) {
+        // Only fetch if we have a token (not just isAuthenticated from NextAuth)
+        const hasToken = typeof window !== 'undefined' && localStorage.getItem('token');
+        if (isAuthenticated && hasToken) {
             fetchResumes();
         } else {
             setLoading(false);
@@ -167,37 +243,38 @@ export default function DashboardPage() {
                                 </p>
                             </div>
 
-                            {/* Quick Stats Cards - responsive grid */}
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full lg:w-auto">
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-4 md:p-5 shadow-sm">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-accent-green/20 flex items-center justify-center">
-                                            <FileText size={18} className="text-accent-green md:hidden" />
-                                            <FileText size={20} className="text-accent-green hidden md:block" />
-                                        </div>
-                                    </div>
-                                    <div className="text-2xl md:text-3xl font-bold text-dark-teal">{stats.totalResumes}</div>
-                                    <div className="text-xs md:text-sm text-text-secondary">Total Resumes</div>
-                                </div>
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-4 md:p-5 shadow-sm">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-accent-teal/20 flex items-center justify-center">
-                                            <Calendar size={18} className="text-accent-teal md:hidden" />
-                                            <Calendar size={20} className="text-accent-teal hidden md:block" />
-                                        </div>
-                                    </div>
-                                    <div className="text-2xl md:text-3xl font-bold text-dark-teal">{stats.thisMonth}</div>
-                                    <div className="text-xs md:text-sm text-text-secondary">This Month</div>
-                                </div>
-                                <div className="bg-bg-card border border-border-subtle rounded-xl p-4 md:p-5 hidden md:block shadow-sm">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                                            <Layout size={20} className="text-purple-400" />
-                                        </div>
-                                    </div>
-                                    <div className="text-3xl font-bold text-dark-teal">{Object.keys(stats.templates).length}</div>
-                                    <div className="text-sm text-text-secondary">Templates Used</div>
-                                </div>
+                            {/* Usage Stats Cards - responsive grid */}
+                            <div className="grid grid-cols-3 gap-3 md:gap-4 w-full lg:w-auto">
+                                <UsageCard
+                                    icon={<FileText size={20} className="text-accent-green" />}
+                                    iconBg="bg-accent-green/20"
+                                    label="Resumes Created"
+                                    usage={usage?.usage.cv}
+                                    percentage={getUsagePercentage('cv')}
+                                    barColor="bg-accent-green"
+                                    loading={usageLoading}
+                                    tier={usage?.tier}
+                                />
+                                <UsageCard
+                                    icon={<Download size={20} className="text-accent-teal" />}
+                                    iconBg="bg-accent-teal/20"
+                                    label="Downloads"
+                                    usage={usage?.usage.download}
+                                    percentage={getUsagePercentage('download')}
+                                    barColor="bg-accent-teal"
+                                    loading={usageLoading}
+                                    tier={usage?.tier}
+                                />
+                                <UsageCard
+                                    icon={<FileText size={20} className="text-amber-400" />}
+                                    iconBg="bg-amber-500/20"
+                                    label="Cover Letters"
+                                    usage={usage?.usage.coverLetter}
+                                    percentage={getUsagePercentage('coverLetter')}
+                                    barColor="bg-amber-500"
+                                    loading={usageLoading}
+                                    tier={usage?.tier}
+                                />
                             </div>
                         </div>
 
@@ -299,9 +376,9 @@ export default function DashboardPage() {
                                         <p className="text-sm text-text-secondary">
                                             {user.subscriptionStatus === 'trialing' && user.trialEndsAt
                                                 ? `Trial ends ${new Date(user.trialEndsAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
-                                                : user.creditsRemaining !== undefined && user.creditsRemaining > 0
-                                                    ? `${user.creditsRemaining} downloads remaining`
-                                                    : 'Upgrade to unlock more downloads'
+                                                : user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && user.subscriptionStatus === 'active'
+                                                    ? 'Your plan is active'
+                                                    : 'Subscribe to unlock downloads'
                                             }
                                         </p>
                                     </div>

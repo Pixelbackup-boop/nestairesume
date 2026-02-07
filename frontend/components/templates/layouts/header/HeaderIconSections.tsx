@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -21,7 +22,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * (Note: Reference name implies icons, but description highlights the Boxes & Cyan)
  */
 function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -142,10 +143,10 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                         {personalInfo.jobTitle || 'Job Title'}
                     </p>
 
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp.sm}px ${sp.lg}px`, fontSize: fs.small, color: '#4b5563' }}>
-                        {personalInfo.email && <span>✉️ {personalInfo.email}</span>}
-                        {personalInfo.phone && <span>📱 {personalInfo.phone}</span>}
-                        {personalInfo.location && <span>📍 {personalInfo.location}</span>}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp.sm}px ${sp.lg}px`, fontSize: fs.small, color: '#4b5563', alignItems: 'center' }}>
+                        {personalInfo.email && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Mail size={12} color="#4b5563" /> {personalInfo.email}</span>}
+                        {personalInfo.phone && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Phone size={12} color="#4b5563" /> {personalInfo.phone}</span>}
+                        {personalInfo.location && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><MapPin size={12} color="#4b5563" /> {personalInfo.location}</span>}
                     </div>
                 </div>
             </header>
@@ -325,7 +326,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                 <BoxSection borderColor={borderColor} title={t.sections.socialLinks} icon="🔗" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
                         {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
+                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                         {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                         {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                         {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -370,12 +371,12 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                 </BoxSection>
             )}
 
-            {/* Custom Field */}
-            {personalInfo.customField && personalInfo.customFieldLabel && (
-                <BoxSection borderColor={borderColor} title={personalInfo.customFieldLabel} icon="📌" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
-                    <p style={{ lineHeight: 1.6 }}>{personalInfo.customField}</p>
+            {/* Custom Fields */}
+            {customFields?.map((field) => (
+                <BoxSection key={field.id} borderColor={borderColor} title={field.label} icon="📌" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <p style={{ lineHeight: 1.6 }}>{field.content}</p>
                 </BoxSection>
-            )}
+            ))}
 
         </div>
     );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
@@ -19,6 +19,21 @@ export default function PricingPage() {
   const { isAuthenticated } = useAuthStore();
   const [isAnnual, setIsAnnual] = useState(false);
   const [loadingPlan, setLoadingPlan] = useState<PlanType | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<PlanType>('diamond');
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+  const [planLimits, setPlanLimits] = useState<Record<string, {
+    cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number;
+  }> | null>(null);
+
+  // Fetch plan limits from backend (single source of truth)
+  useEffect(() => {
+    api.get('/payments/plans')
+      .then(res => setPlanLimits(res.data as Record<string, { cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number }>))
+      .catch(err => console.error('Failed to fetch plan limits:', err));
+  }, []);
+
+  const formatLimit = (limit: number | undefined) =>
+    limit === -1 ? t("page.unlimited") : String(limit ?? '—');
 
   const localizedHref = (path: string) => `/${locale}${path}`;
 
@@ -33,15 +48,17 @@ export default function PricingPage() {
     setLoadingPlan(plan);
 
     try {
+      setCheckoutError(null);
       const response = await api.post("/payments/create-checkout", { plan });
       const { url } = response.data as { url: string };
 
       // Redirect to Stripe Checkout
       window.location.href = url;
-    } catch (err) {
-      console.error("Checkout error:", err);
-      // Fallback to checkout page if direct checkout fails
-      router.push(localizedHref(`/checkout?plan=${plan}`));
+    } catch (err: unknown) {
+      const errorObj = err as { message?: string; response?: { data?: { detail?: string }; status?: number } };
+      const message = errorObj?.message || errorObj?.response?.data?.detail || "Failed to start checkout";
+      console.error("Checkout error:", message);
+      setCheckoutError(message);
     } finally {
       setLoadingPlan(null);
     }
@@ -56,13 +73,13 @@ export default function PricingPage() {
       monthlyEquivalent: isAnnual ? t("starter.annualMonthly") : null,
       description: t("starter.description"),
       features: [
-        { text: t("starter.features.cvCreations"), included: true },
-        { text: t("starter.features.aiGenerations"), included: true },
-        { text: t("starter.features.downloads"), included: true },
+        { text: t("page.cvCreations", { count: formatLimit(planLimits?.starter?.cvLimit) }), included: true },
+        { text: t("page.aiGenerations", { count: formatLimit(planLimits?.starter?.aiLimit) }), included: true },
+        { text: t("page.downloads", { count: formatLimit(planLimits?.starter?.downloadLimit) }), included: true },
         { text: t("starter.features.templates"), included: true },
         { text: t("starter.features.noAds"), included: true },
         { text: t("page.atsOptimization"), included: true },
-        { text: t("page.coverLetterBuilder"), included: true },
+        { text: t("page.coverLetters", { count: formatLimit(planLimits?.starter?.coverLetterLimit) }), included: true },
       ],
       highlighted: false,
       hasTrial: false,
@@ -75,13 +92,13 @@ export default function PricingPage() {
       monthlyEquivalent: isAnnual ? t("gold.annualMonthly") : null,
       description: t("gold.description"),
       features: [
-        { text: t("gold.features.cvCreations"), included: true },
-        { text: t("gold.features.aiGenerations"), included: true },
-        { text: t("gold.features.downloads"), included: true },
+        { text: t("page.cvCreations", { count: formatLimit(planLimits?.gold?.cvLimit) }), included: true },
+        { text: t("page.aiGenerations", { count: formatLimit(planLimits?.gold?.aiLimit) }), included: true },
+        { text: t("page.downloads", { count: formatLimit(planLimits?.gold?.downloadLimit) }), included: true },
         { text: t("gold.features.templates"), included: true },
         { text: t("gold.features.noAds"), included: true },
         { text: t("page.atsOptimization"), included: true },
-        { text: t("page.coverLetterBuilder"), included: true },
+        { text: t("page.coverLetters", { count: formatLimit(planLimits?.gold?.coverLetterLimit) }), included: true },
       ],
       highlighted: false,
       hasTrial: !isAnnual,
@@ -95,13 +112,13 @@ export default function PricingPage() {
       description: t("diamond.description"),
       badge: t("mostPopular"),
       features: [
-        { text: t("diamond.features.cvCreations"), included: true },
-        { text: t("diamond.features.aiGenerations"), included: true },
-        { text: t("diamond.features.downloads"), included: true },
+        { text: t("page.cvCreations", { count: formatLimit(planLimits?.diamond?.cvLimit) }), included: true },
+        { text: t("page.aiGenerations", { count: formatLimit(planLimits?.diamond?.aiLimit) }), included: true },
+        { text: t("page.downloads", { count: formatLimit(planLimits?.diamond?.downloadLimit) }), included: true },
         { text: t("diamond.features.templates"), included: true },
         { text: t("page.noAds"), included: true },
         { text: t("page.atsOptimization"), included: true },
-        { text: t("page.coverLetterBuilder"), included: true },
+        { text: t("page.coverLetters", { count: formatLimit(planLimits?.diamond?.coverLetterLimit) }), included: true },
         { text: t("diamond.features.support"), included: true },
       ],
       highlighted: true,
@@ -116,13 +133,13 @@ export default function PricingPage() {
       description: t("platinum.description"),
       badge: t("bestValue"),
       features: [
-        { text: t("platinum.features.cvCreations"), included: true },
-        { text: t("platinum.features.aiGenerations"), included: true },
-        { text: t("platinum.features.downloads"), included: true },
+        { text: t("page.cvCreations", { count: formatLimit(planLimits?.platinum?.cvLimit) }), included: true },
+        { text: t("page.aiGenerations", { count: formatLimit(planLimits?.platinum?.aiLimit) }), included: true },
+        { text: t("page.downloads", { count: formatLimit(planLimits?.platinum?.downloadLimit) }), included: true },
         { text: t("platinum.features.templates"), included: true },
         { text: t("page.noAds"), included: true },
         { text: t("page.atsOptimization"), included: true },
-        { text: t("page.coverLetterBuilder"), included: true },
+        { text: t("page.coverLetters", { count: formatLimit(planLimits?.platinum?.coverLetterLimit) }), included: true },
         { text: t("platinum.features.support"), included: true },
         { text: t("platinum.features.earlyAccess"), included: true },
       ],
@@ -131,15 +148,22 @@ export default function PricingPage() {
     },
   ];
 
+  // Format limit for comparison table cells
+  const fmtCell = (limit: number | undefined) => {
+    if (limit === undefined) return '—';
+    if (limit === -1) return t("comparison.unlimited");
+    return t("comparison.perMonth", { count: limit });
+  };
+
   const comparisonFeatures = [
-    { feature: t("comparison.cvCreations"), starter: "30/mo", gold: "100/mo", diamond: "200/mo", platinum: "500/mo" },
-    { feature: t("comparison.aiGenerations"), starter: "50/mo", gold: "100/mo", diamond: "250/mo", platinum: "700/mo" },
-    { feature: t("comparison.downloads"), starter: "3/mo", gold: "10/mo", diamond: "25/mo", platinum: "100/mo" },
+    { feature: t("comparison.cvCreations"), starter: fmtCell(planLimits?.starter?.cvLimit), gold: fmtCell(planLimits?.gold?.cvLimit), diamond: fmtCell(planLimits?.diamond?.cvLimit), platinum: fmtCell(planLimits?.platinum?.cvLimit) },
+    { feature: t("comparison.aiGenerations"), starter: fmtCell(planLimits?.starter?.aiLimit), gold: fmtCell(planLimits?.gold?.aiLimit), diamond: fmtCell(planLimits?.diamond?.aiLimit), platinum: fmtCell(planLimits?.platinum?.aiLimit) },
+    { feature: t("comparison.downloads"), starter: fmtCell(planLimits?.starter?.downloadLimit), gold: fmtCell(planLimits?.gold?.downloadLimit), diamond: fmtCell(planLimits?.diamond?.downloadLimit), platinum: fmtCell(planLimits?.platinum?.downloadLimit) },
+    { feature: t("page.coverLetterBuilder"), starter: fmtCell(planLimits?.starter?.coverLetterLimit), gold: fmtCell(planLimits?.gold?.coverLetterLimit), diamond: fmtCell(planLimits?.diamond?.coverLetterLimit), platinum: fmtCell(planLimits?.platinum?.coverLetterLimit) },
     { feature: "Free Trial", starter: "✗", gold: "7 days", diamond: "7 days", platinum: "✗" },
     { feature: t("page.formBuilder"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
     { feature: t("comparison.adFree"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
     { feature: t("page.atsOptimization"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
-    { feature: t("page.coverLetterBuilder"), starter: "10/mo", gold: "50/mo", diamond: "150/mo", platinum: "300/mo" },
     { feature: t("page.prioritySupport"), starter: "✗", gold: "✗", diamond: "✓", platinum: "✓" },
     { feature: t("page.earlyAccess"), starter: "✗", gold: "✗", diamond: "✗", platinum: "✓" },
   ];
@@ -247,16 +271,29 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Checkout Error */}
+      {checkoutError && (
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-center justify-between bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+            <span>{checkoutError}</span>
+            <button onClick={() => setCheckoutError(null)} className="ml-4 text-red-400 hover:text-red-600">&times;</button>
+          </div>
+        </div>
+      )}
+
       {/* Pricing Cards - Staggered Animation */}
       <section className="py-8">
         <div className="max-w-6xl mx-auto px-6">
           <PricingAnimations.PricingGrid className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {plans.map((plan) => (
+            {plans.map((plan) => {
+              const isSelected = selectedPlan === plan.key;
+              return (
               <PricingAnimations.PricingCard
                 key={plan.name}
-                highlighted={plan.highlighted}
-                className={`rounded-2xl p-6 relative ${
-                  plan.highlighted
+                highlighted={isSelected}
+                onClick={() => setSelectedPlan(plan.key)}
+                className={`rounded-2xl p-6 relative cursor-pointer ${
+                  isSelected
                     ? "pricing-highlight"
                     : "pricing-card"
                 }`}
@@ -331,7 +368,7 @@ export default function PricingPage() {
                   onClick={() => handleCheckout(plan.key)}
                   disabled={loadingPlan === plan.key}
                   className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition btn-lift disabled:opacity-50 disabled:cursor-not-allowed ${
-                    plan.highlighted
+                    isSelected
                       ? "bg-accent-green text-bg-primary hover:bg-accent-teal"
                       : "border border-gray-300 hover:bg-gray-100 text-gray-900"
                   }`}
@@ -349,7 +386,8 @@ export default function PricingPage() {
                   )}
                 </button>
               </PricingAnimations.PricingCard>
-            ))}
+              );
+            })}
           </PricingAnimations.PricingGrid>
         </div>
       </section>

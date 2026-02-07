@@ -6,7 +6,7 @@ export const boldCreativeTemplate: CanvasTemplate = {
     id: 'bold-creative',
     name: 'Bold Creative',
     thumbnail: '/templates/bold-creative.png',
-    category: 'bold',
+    category: 'modern',
     backgroundColor: '#0f0f23',
     elements: [
         // Accent shape
@@ -31,7 +31,7 @@ export const boldCreativeTemplate: CanvasTemplate = {
         }),
         // Profile image
         createImage({
-            src: '/Img/headshot.png',
+            src: '/Img/headshot.webp',
             x: 40,
             y: 90,
             width: 140,
@@ -98,7 +98,7 @@ export const boldCreativeTemplate: CanvasTemplate = {
 
         // Social icons
         createIcon({ iconName: 'LinkedIn', x: 40, y: 350, width: 20, height: 20, fill: '#00dc82' }),
-        createIcon({ iconName: 'Twitter', x: 75, y: 350, width: 20, height: 20, fill: '#00dc82' }),
+        createIcon({ iconName: 'X', x: 75, y: 350, width: 20, height: 20, fill: '#00dc82' }),
         createIcon({ iconName: 'Website', x: 110, y: 350, width: 20, height: 20, fill: '#00dc82' }),
 
         // About section

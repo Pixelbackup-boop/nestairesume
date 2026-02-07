@@ -12,7 +12,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Traditional top-down professional resume layout with centered header.
  */
 function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, references, background, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, awards, references, customFields, background, fonts } = data;
     const bgStyle = getBackgroundStyle(background);
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
@@ -72,6 +72,8 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                     {personalInfo.location && <span>{personalInfo.location}</span>}
                     {personalInfo.nationality && <span>•</span>}
                     {personalInfo.nationality && <span>{personalInfo.nationality}</span>}
+                    {personalInfo.website && <span>•</span>}
+                    {personalInfo.website && <span>{personalInfo.website}</span>}
                 </div>
                 {personalInfo.idType && personalInfo.idNumber && (
                     <div style={{ color: theme.text, fontSize: scale < 1 ? '7px' : '11px', marginTop: '4px', opacity: 0.8 }}>
@@ -319,6 +321,38 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                 </section>
             )}
 
+            {/* Awards */}
+            {awards && awards.length > 0 && (
+                <section className="mb-5 resume-section">
+                    <SectionHeader
+                        theme={theme}
+                        headingFont={headingFont}
+                        scale={scale}
+                        variant="default"
+                        style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
+                    >
+                        {t.sections.awards}
+                    </SectionHeader>
+                    <div className="space-y-2">
+                        {awards.map((award) => (
+                            <div key={award.id} data-paginate="item">
+                                <div style={{ color: theme.text, fontWeight: 600, fontSize: scale < 1 ? '10px' : sizeConfig.base }}>
+                                    {award.title}
+                                </div>
+                                <div style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : '11px' }}>
+                                    {award.issuer} • {award.date}
+                                </div>
+                                {award.description && (
+                                    <p style={{ color: theme.text, opacity: 0.8, fontSize: scale < 1 ? '8px' : '12px', lineHeight: 1.4 }}>
+                                        {award.description}
+                                    </p>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
             {/* Interests */}
             {interests && interests.length > 0 && (
                 <section className="resume-section">
@@ -357,7 +391,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                         )}
                         {personalInfo.x && (
                             <span style={{ color: theme.text }}>
-                                <strong>Twitter:</strong> {personalInfo.x}
+                                <strong>X:</strong> {personalInfo.x}
                             </span>
                         )}
                         {personalInfo.github && (
@@ -418,9 +452,9 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                 </section>
             )}
 
-            {/* Custom Field */}
-            {personalInfo.customField && (
-                <section className="mb-5">
+            {/* Custom Fields */}
+            {customFields?.map((field) => (
+                <section key={field.id} className="mb-5">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -428,13 +462,13 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                         variant="default"
                         style={{ borderBottom: `1px solid ${theme.accent}`, paddingBottom: '4px' }}
                     >
-                        {personalInfo.customFieldLabel || 'Additional Information'}
+                        {field.label}
                     </SectionHeader>
                     <p style={{ color: theme.text, fontSize: scale < 1 ? '9px' : '12px', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
-                        {personalInfo.customField}
+                        {field.content}
                     </p>
                 </section>
-            )}
+            ))}
         </div>
     );
 }

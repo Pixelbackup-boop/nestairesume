@@ -33,6 +33,7 @@ export const renderHeaderRibbonYellow = (
         awards = [],
         certifications = [],
         references = [],
+        customFields = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
@@ -135,7 +136,7 @@ export const renderHeaderRibbonYellow = (
                 <!-- Social Links Row -->
                 ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 9px; color: #6b7280; margin-top: 8px;">
-                        ${personalInfo.x ? `<span>Twitter: ${escapeHtml(personalInfo.x)}</span>` : ''}
+                        ${personalInfo.x ? `<span>X: ${escapeHtml(personalInfo.x)}</span>` : ''}
                         ${personalInfo.github ? `<span>GitHub: ${escapeHtml(personalInfo.github)}</span>` : ''}
                         ${personalInfo.dribbble ? `<span>Dribbble: ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
                         ${personalInfo.behance ? `<span>Behance: ${escapeHtml(personalInfo.behance)}</span>` : ''}
@@ -352,15 +353,15 @@ export const renderHeaderRibbonYellow = (
                         </section>
                     ` : ''}
 
-                    <!-- Custom Field -->
-                    ${personalInfo.customField ? `
-                        <section>
-                            ${SectionHeader(personalInfo.customFieldLabel || t.sections.additionalInfo, '&#128221;')}
+                    <!-- Custom Fields -->
+                    ${customFields.map(field => `
+                        <section style="margin-bottom: 20px;">
+                            ${SectionHeader(field.label, '&#128221;')}
                             <p style="color: #374151; line-height: 1.6; font-size: 10pt;">
-                                ${formatDescription(personalInfo.customField)}
+                                ${formatDescription(field.content)}
                             </p>
                         </section>
-                    ` : ''}
+                    `).join('')}
                 </div>
             </div>
         </div>

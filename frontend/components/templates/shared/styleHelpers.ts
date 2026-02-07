@@ -107,7 +107,7 @@ export const formatIdType = (idType?: string): string => {
     switch (idType) {
         case 'id': return 'ID';
         case 'passport': return 'Passport';
-        case 'license': return 'License';
+        case 'driving_license': return 'Driving License';
         default: return '';
     }
 };

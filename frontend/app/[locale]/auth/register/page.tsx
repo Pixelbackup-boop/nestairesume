@@ -73,21 +73,21 @@ export default function RegisterPage() {
                     {/* OAuth Buttons */}
                     <div className="space-y-3 mb-6">
                         <button
-                            onClick={() => signIn('google', { callbackUrl: localizedHref('/builder') })}
+                            onClick={() => signIn('google', { callbackUrl: localizedHref('/builder?registered=true') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GoogleIcon />
                             {t('continueWithGoogle') || 'Continue with Google'}
                         </button>
                         <button
-                            onClick={() => signIn('github', { callbackUrl: localizedHref('/builder') })}
+                            onClick={() => signIn('github', { callbackUrl: localizedHref('/builder?registered=true') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GitHubIcon />
                             {t('continueWithGitHub') || 'Continue with GitHub'}
                         </button>
                         <button
-                            onClick={() => signIn('linkedin', { callbackUrl: localizedHref('/builder') })}
+                            onClick={() => signIn('linkedin', { callbackUrl: localizedHref('/builder?registered=true') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#0A66C2] text-white font-medium py-3 rounded-lg hover:bg-[#004182] transition"
                         >
                             <LinkedInIcon />

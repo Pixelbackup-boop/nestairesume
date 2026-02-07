@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Phone, Mail, MapPin, Globe } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -17,7 +18,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * - Content: Icons only or minimal text in sidebar.
  */
 function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, certifications, awards, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Oswald');
     const bodyFont = getFontFamily(fonts?.body || 'Roboto Condensed');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -101,25 +102,25 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: fs.small }}>
                         {personalInfo.phone && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span>📞</span>
+                                <Phone size={14} color={sidebarText} />
                                 <span>{personalInfo.phone}</span>
                             </div>
                         )}
                         {personalInfo.email && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span>✉️</span>
+                                <Mail size={14} color={sidebarText} />
                                 <span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span>
                             </div>
                         )}
                         {personalInfo.location && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span>📍</span>
+                                <MapPin size={14} color={sidebarText} />
                                 <span>{personalInfo.location}</span>
                             </div>
                         )}
                         {personalInfo.website && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span>🌐</span>
+                                <Globe size={14} color={sidebarText} />
                                 <span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span>
                             </div>
                         )}
@@ -349,7 +350,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                         <MainHeader title={t.sections.socialLinks} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
+                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -396,13 +397,13 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
-                {/* Custom Field */}
-                {personalInfo.customField && personalInfo.customFieldLabel && (
-                    <section className="mb-10 resume-section" data-paginate="section">
-                        <MainHeader title={personalInfo.customFieldLabel} color={'#1f2937'} fs={fs} headingFont={headingFont} />
-                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{personalInfo.customField}</p>
+                {/* Custom Fields */}
+                {customFields?.map((field) => (
+                    <section key={field.id} className="mb-10 resume-section" data-paginate="section">
+                        <MainHeader title={field.label} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{field.content}</p>
                     </section>
-                )}
+                ))}
 
             </main>
         </div>

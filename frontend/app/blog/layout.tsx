@@ -13,7 +13,7 @@ export default function BlogLayout({
             <div className="w-7 h-7 bg-gradient-to-br from-teal-500 to-teal-600 rounded-md flex items-center justify-center font-bold text-white text-sm">B</div>
             <span className="font-semibold text-gray-900">Best AI Resume</span>
           </Link>
-          <Link href="/en/blog" className="text-sm text-gray-600 hover:text-teal-600 transition">
+          <Link href="/blog" className="text-sm text-gray-600 hover:text-teal-600 transition">
             Blog
           </Link>
         </div>

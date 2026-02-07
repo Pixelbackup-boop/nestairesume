@@ -80,6 +80,7 @@ const dummyData: PdfResumeData = {
     ],
     awards: [],
     references: [],
+    customFields: [],
     customThemeColor: '#3b82f6',
     fonts: {
         heading: 'Roboto',

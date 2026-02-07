@@ -2,9 +2,20 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /auth/
-Disallow: /builder/
+Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /onboarding/
 Disallow: /checkout/
+Disallow: /profile/
+Disallow: /canvas-editor/
+Disallow: /test-ads/
+Disallow: /*/auth/
+Disallow: /*/admin/
+Disallow: /*/dashboard/
+Disallow: /*/onboarding/
+Disallow: /*/checkout/
+Disallow: /*/profile/
+Disallow: /*/canvas-editor/
+Disallow: /*/test-ads/
 
 Sitemap: https://www.bestairesumes.com/sitemap.xml

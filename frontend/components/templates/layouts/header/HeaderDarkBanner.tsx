@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
@@ -23,7 +24,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches reference: frontend/Resume-template/unique-layouts/10-dark-banner.webp
  */
 function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -90,22 +91,23 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                             fontSize: fs.small,
                             color: headerTextMuted,
                             flexWrap: 'wrap',
+                            alignItems: 'center',
                         }}
                     >
                         {personalInfo.phone && (
-                            <span>📱 {personalInfo.phone}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Phone size={12} color={headerTextMuted} /> {personalInfo.phone}</span>
                         )}
                         {personalInfo.email && (
-                            <span>✉️ {personalInfo.email}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Mail size={12} color={headerTextMuted} /> {personalInfo.email}</span>
                         )}
                         {personalInfo.location && (
-                            <span>📍 {personalInfo.location}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><MapPin size={12} color={headerTextMuted} /> {personalInfo.location}</span>
                         )}
                         {personalInfo.website && (
-                            <span>🌐 {personalInfo.website}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Globe size={12} color={headerTextMuted} /> {personalInfo.website}</span>
                         )}
                         {personalInfo.linkedin && (
-                            <span>🔗 {personalInfo.linkedin}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Linkedin size={12} color={headerTextMuted} /> {personalInfo.linkedin}</span>
                         )}
                     </div>
                 </div>
@@ -434,15 +436,15 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* Custom Field */}
-                    {personalInfo.customField && personalInfo.customFieldLabel && (
-                        <section className="resume-section mt-4" data-paginate>
+                    {/* Custom Fields */}
+                    {customFields?.map((field) => (
+                        <section key={field.id} className="resume-section mt-4" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                {personalInfo.customFieldLabel}
+                                {field.label}
                             </SectionHeader>
-                            <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{personalInfo.customField}</p>
+                            <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{field.content}</p>
                         </section>
-                    )}
+                    ))}
                 </div>
             </div>
         </div>

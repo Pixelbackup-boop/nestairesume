@@ -48,9 +48,9 @@ function ModeToggle({ children, className = '' }: AnimationProps) {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2, ease: easeOut }}
+      transition={{ duration: 0, ease: easeOut }}
     >
       {children}
     </motion.div>
@@ -65,20 +65,20 @@ const gridVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.1,
+      staggerChildren: 0,
+      delayChildren: 0,
     },
   },
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 25, scale: 0.97 },
+  hidden: { opacity: 1, y: 0, scale: 1 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 0,
       ease: easeOut,
     },
   },
@@ -185,9 +185,9 @@ function FiltersSection({ children, className = '' }: AnimationProps) {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.3, ease: easeOut }}
+      transition={{ duration: 0, ease: easeOut }}
     >
       {children}
     </motion.div>

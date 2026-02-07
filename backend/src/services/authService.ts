@@ -6,6 +6,7 @@ import {
   generateVerificationCode,
   sendVerificationEmail,
   sendPasswordResetEmail,
+  sendEmailChangeVerification,
 } from "./emailService";
 
 const SALT_ROUNDS = 10;
@@ -89,6 +90,7 @@ export const getUserById = async (userId: string) => {
       id: true,
       email: true,
       name: true,
+      image: true,
       role: true,
       subscriptionTier: true,
       subscriptionStatus: true,
@@ -455,4 +457,139 @@ export const setPassword = async (userId: string, newPassword: string) => {
   });
 
   return { message: "Password set successfully" };
+};
+
+// ==================== Profile Update Functions ====================
+
+interface UpdateProfileData {
+  name?: string;
+  avatarId?: number;
+}
+
+export const updateProfile = async (userId: string, data: UpdateProfileData) => {
+  // Build update object
+  const updateData: { name?: string; image?: string } = {};
+  if (data.name) updateData.name = data.name;
+  if (data.avatarId) updateData.image = `avatar-${data.avatarId}`;
+
+  // Update user
+  const user = await prisma.user.update({
+    where: { id: userId },
+    data: updateData,
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      image: true,
+      role: true,
+    },
+  });
+
+  return user;
+};
+
+// ==================== Email Change Functions ====================
+
+export const requestEmailChange = async (userId: string, newEmail: string) => {
+  // Check if new email is already in use
+  const existing = await prisma.user.findFirst({
+    where: {
+      email: newEmail,
+      NOT: { id: userId },
+    },
+  });
+
+  if (existing) {
+    throw new Error("Email already in use");
+  }
+
+  // Get current user
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  // Generate verification code and expiry
+  const verificationCode = generateVerificationCode();
+  const verificationCodeExpires = new Date(
+    Date.now() + VERIFICATION_CODE_EXPIRY_MINUTES * 60 * 1000
+  );
+
+  // Store pending email and code in user record
+  await prisma.user.update({
+    where: { id: userId },
+    data: {
+      pendingEmail: newEmail,
+      verificationCode,
+      verificationCodeExpires,
+    },
+  });
+
+  // Send verification email to the NEW email address
+  await sendEmailChangeVerification(newEmail, user.name, verificationCode);
+
+  return { message: "Verification code sent to your new email address" };
+};
+
+export const verifyEmailChange = async (
+  userId: string,
+  newEmail: string,
+  code: string
+) => {
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  // Verify the pending email matches
+  if (!user.pendingEmail || user.pendingEmail !== newEmail) {
+    throw new Error("Email change request not found or email mismatch");
+  }
+
+  // Verify the code
+  if (!user.verificationCode || user.verificationCode !== code) {
+    throw new Error("Invalid verification code");
+  }
+
+  // Check expiry
+  if (!user.verificationCodeExpires || user.verificationCodeExpires < new Date()) {
+    throw new Error("Verification code has expired");
+  }
+
+  // Double-check email is still available (race condition protection)
+  const existing = await prisma.user.findFirst({
+    where: {
+      email: newEmail,
+      NOT: { id: userId },
+    },
+  });
+
+  if (existing) {
+    throw new Error("Email is no longer available");
+  }
+
+  // Update email and clear verification fields
+  const updatedUser = await prisma.user.update({
+    where: { id: userId },
+    data: {
+      email: newEmail,
+      pendingEmail: null,
+      verificationCode: null,
+      verificationCodeExpires: null,
+    },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      image: true,
+      role: true,
+      subscriptionTier: true,
+      subscriptionStatus: true,
+      trialEndsAt: true,
+      creditsRemaining: true,
+    },
+  });
+
+  return updatedUser;
 };

@@ -27,6 +27,7 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts,
         background
     } = data;
@@ -101,7 +102,7 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                         `).join('')}
                         
                         <!-- Extra Socials -->
-                        ${['github', 'twitter', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
+                        ${['github', 'x', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
         const val = (personalInfo as any)[network];
         if (!val || contactItems.find(c => c.value === val)) return '';
         return `
@@ -330,15 +331,15 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                     </div>
                 ` : ''}
 
-                <!-- Custom Field -->
-                ${personalInfo.customField ? `
-                    <div>
-                        ${MainHeader(personalInfo.customFieldLabel || t.sections.additionalInfo)}
+                <!-- Custom Fields -->
+                ${customFields.map(field => `
+                    <div style="margin-bottom: 32px;">
+                        ${MainHeader(field.label)}
                         <p style="line-height: 1.6; font-size: 12px; color: #374151;">
-                            ${formatDescription(personalInfo.customField)}
+                            ${formatDescription(field.content)}
                         </p>
                     </div>
-                ` : ''}
+                `).join('')}
 
             </main>
         </div>

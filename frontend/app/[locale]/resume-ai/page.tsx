@@ -80,14 +80,37 @@ const faqSchemaHtml = JSON.stringify(faqSchema);
 const softwareAppSchemaHtml = JSON.stringify(softwareAppSchema);
 const articleSchemaHtml = JSON.stringify(articleSchema);
 
-export const metadata: Metadata = {
-    title: 'Resume AI | Free AI Resume Builder & Generator 2026',
-    description: 'Build your resume with AI in seconds. Free Resume AI tool that writes professional content, optimizes for ATS, and helps you land interviews.',
-    keywords: 'resume ai, ai resume builder, ai resume generator, resume artificial intelligence, ai powered resume, smart resume builder, ai resume writer, resume ai free',
-    alternates: {
-        canonical: `${siteUrl}/resume-ai`,
-    },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const locales = ['en', 'es', 'fr', 'de', 'ar'];
+    const alternateLanguages: Record<string, string> = {
+        'x-default': `${siteUrl}/en/resume-ai`,
+    };
+    locales.forEach((loc) => {
+        alternateLanguages[loc] = `${siteUrl}/${loc}/resume-ai`;
+    });
+
+    return {
+        title: 'Resume AI | Free AI Resume Builder & Generator 2026',
+        description: 'Build your resume with AI in seconds. Free Resume AI tool that writes professional content, optimizes for ATS, and helps you land interviews.',
+        keywords: 'resume ai, ai resume builder, ai resume generator, resume artificial intelligence, ai powered resume, smart resume builder, ai resume writer, resume ai free',
+        openGraph: {
+            title: 'Resume AI | Free AI Resume Builder & Generator 2026',
+            description: 'Build your resume with AI in seconds. Free Resume AI tool that writes professional content, optimizes for ATS.',
+            type: 'article',
+            url: `${siteUrl}/${locale}/resume-ai`,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: 'Resume AI | Free AI Resume Builder & Generator 2026',
+            description: 'Build your resume with AI in seconds. Free Resume AI tool that writes professional content.',
+        },
+        alternates: {
+            canonical: `${siteUrl}/${locale}/resume-ai`,
+            languages: alternateLanguages,
+        },
+    };
+}
 
 const aiFeatures = [
     {

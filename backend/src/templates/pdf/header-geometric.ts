@@ -28,6 +28,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
         certifications = [],
         awards = [],
         references = [],
+        customFields = [],
         fonts,
         customThemeColor
     } = data;
@@ -332,7 +333,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                 ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? SectionRow(t.sections.socialLinks, `
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                        ${personalInfo.x ? `<div><span style="font-weight: 600;">Twitter:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
+                        ${personalInfo.x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
                         ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
                         ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                         ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
@@ -368,9 +369,9 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                     </div>
                 `) : ''}
 
-                ${(personalInfo.customField && personalInfo.customFieldLabel) ? SectionRow(personalInfo.customFieldLabel, `
-                    <p style="line-height: 1.6; margin: 0;">${escapeHtml(personalInfo.customField)}</p>
-                `) : ''}
+                ${customFields.map(field => SectionRow(field.label, `
+                    <p style="line-height: 1.6; margin: 0;">${formatDescription(field.content)}</p>
+                `)).join('')}
 
             </div>
         </div>

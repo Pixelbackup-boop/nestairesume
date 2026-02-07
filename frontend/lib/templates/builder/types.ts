@@ -3,7 +3,7 @@
 
 export type LayoutType = 'classic' | 'sidebar' | 'header' | 'minimal' | 'europass';
 
-export type TemplateCategory = 'professional' | 'modern' | 'creative' | 'minimal' | 'bold';
+export type TemplateCategory = 'professional' | 'modern' | 'creative' | 'minimal' | 'ats-friendly';
 
 export interface BuilderTemplate {
     id: string;

@@ -25,6 +25,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Lato');
@@ -221,20 +222,21 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 `) : ''}
 
                 <!-- Personal Info -->
-                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? Row(t.sections.additionalInfo, `
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? Row(t.sections.additionalInfo, `
                     <div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px;">
                         ${personalInfo.nationality ? `<div><span style="color: ${labelText};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                         ${personalInfo.idType && personalInfo.idNumber ? `
                             <div><span style="color: ${labelText};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                         ` : ''}
-                        ${personalInfo.customField ? `
-                            <div style="margin-top: 4px;">
-                                <span style="color: ${labelText}; display: block;">${escapeHtml(personalInfo.customFieldLabel || 'Info')}</span>
-                                ${formatDescription(personalInfo.customField)}
-                            </div>
-                        ` : ''}
                     </div>
                 `) : ''}
+
+                <!-- Custom Fields -->
+                ${customFields.map(field => Row(field.label, `
+                    <p style="margin: 0; line-height: 1.6; font-size: 14px;">
+                        ${formatDescription(field.content)}
+                    </p>
+                `)).join('')}
 
                 <!-- Social Links (Extended) -->
                 ${(personalInfo.website || personalInfo.github || personalInfo.linkedin || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `

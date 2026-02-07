@@ -34,8 +34,8 @@ describe('Stripe Service', () => {
         expect(PLANS.starter.cvLimit).toBe(30);
       });
 
-      it('should have correct AI limit (3)', () => {
-        expect(PLANS.starter.aiLimit).toBe(3);
+      it('should have correct AI limit (50)', () => {
+        expect(PLANS.starter.aiLimit).toBe(50);
       });
 
       it('should have correct download limit (3)', () => {
@@ -56,8 +56,8 @@ describe('Stripe Service', () => {
         expect(PLANS.gold.cvLimit).toBe(150);
       });
 
-      it('should have correct AI limit (10)', () => {
-        expect(PLANS.gold.aiLimit).toBe(10);
+      it('should have correct AI limit (100)', () => {
+        expect(PLANS.gold.aiLimit).toBe(100);
       });
 
       it('should have correct download limit (10)', () => {
@@ -78,8 +78,8 @@ describe('Stripe Service', () => {
         expect(PLANS.diamond.cvLimit).toBe(300);
       });
 
-      it('should have correct AI limit (30)', () => {
-        expect(PLANS.diamond.aiLimit).toBe(30);
+      it('should have correct AI limit (200)', () => {
+        expect(PLANS.diamond.aiLimit).toBe(200);
       });
 
       it('should have correct download limit (25)', () => {
@@ -100,12 +100,12 @@ describe('Stripe Service', () => {
         expect(PLANS.platinum.cvLimit).toBe(-1);
       });
 
-      it('should have correct AI limit (100)', () => {
-        expect(PLANS.platinum.aiLimit).toBe(100);
+      it('should have correct AI limit (500)', () => {
+        expect(PLANS.platinum.aiLimit).toBe(500);
       });
 
-      it('should have UNLIMITED downloads (-1)', () => {
-        expect(PLANS.platinum.downloadLimit).toBe(-1);
+      it('should have 120 downloads/month', () => {
+        expect(PLANS.platinum.downloadLimit).toBe(120);
       });
 
       it('should have UNLIMITED cover letters (-1)', () => {
@@ -134,8 +134,7 @@ describe('Stripe Service', () => {
       it('should have increasing download limits', () => {
         expect(PLANS.starter.downloadLimit).toBeLessThan(PLANS.gold.downloadLimit);
         expect(PLANS.gold.downloadLimit).toBeLessThan(PLANS.diamond.downloadLimit);
-        // Platinum is -1 (unlimited)
-        expect(PLANS.platinum.downloadLimit).toBe(-1);
+        expect(PLANS.diamond.downloadLimit).toBeLessThan(PLANS.platinum.downloadLimit);
       });
     });
 
@@ -191,7 +190,7 @@ describe('Stripe Service', () => {
         coverLetterCount: 3,
         limits: {
           cvLimit: 30,
-          aiLimit: 3, // Starter has aiLimit: 3
+          aiLimit: 50,
           downloadLimit: 3,
           coverLetterLimit: 10,
         },
@@ -248,7 +247,7 @@ describe('Stripe Service', () => {
       const status = await getSubscriptionStatus(platinumUser.id);
 
       expect(status?.limits?.cvLimit).toBe(-1);
-      expect(status?.limits?.downloadLimit).toBe(-1);
+      expect(status?.limits?.downloadLimit).toBe(120);
       expect(status?.limits?.coverLetterLimit).toBe(-1);
     });
   });

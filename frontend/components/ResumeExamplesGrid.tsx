@@ -72,7 +72,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
             onClick={() => setActiveCategory('All')}
             className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition ${
               activeCategory === 'All'
-                ? 'bg-gray-50 text-white'
+                ? 'bg-accent-green text-gray-900'
                 : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
             }`}
           >
@@ -84,7 +84,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
               onClick={() => setActiveCategory(cat.name)}
               className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition ${
                 activeCategory === cat.name
-                  ? 'bg-gray-50 text-white'
+                  ? 'bg-accent-green text-gray-900'
                   : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
               }`}
             >

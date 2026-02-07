@@ -10,19 +10,21 @@ interface Props {
 
 export function AuthSyncProvider({ children }: Props) {
   const { data: session, status } = useSession();
-  const { setFromNextAuth } = useAuthStore();
+  const { setFromNextAuth, refreshUser } = useAuthStore();
 
   useEffect(() => {
     if (status === "authenticated" && session) {
       setFromNextAuth(session);
     } else if (status === "unauthenticated") {
-      // Check if there's a legacy token in localStorage
       const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-      if (!token) {
+      if (token) {
+        // Rehydrate auth state from JWT token (email/password login)
+        refreshUser();
+      } else {
         setFromNextAuth(null);
       }
     }
-  }, [session, status, setFromNextAuth]);
+  }, [session, status, setFromNextAuth, refreshUser]);
 
   return <>{children}</>;
 }

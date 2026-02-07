@@ -1,6 +1,10 @@
 import { Router, Response } from "express";
 import { AuthRequest, authenticateToken, requireAdmin } from "../middleware/auth";
 import * as adminService from "../services/adminService";
+import { PLANS, PlanType, reloadPlansFromDb } from "../services/stripeService";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 const router = Router();
 
@@ -189,6 +193,49 @@ router.get("/payments", async (req: AuthRequest, res: Response) => {
     res.json(result);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to get payments";
+    res.status(500).json({ detail: message });
+  }
+});
+
+// Plan limits management
+router.get("/plans", (_req: AuthRequest, res: Response) => {
+  const plans: Record<string, { name: string; cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number; trialDailyLimit: number }> = {};
+  for (const [key, config] of Object.entries(PLANS)) {
+    plans[key] = {
+      name: config.name,
+      cvLimit: config.cvLimit,
+      aiLimit: config.aiLimit,
+      downloadLimit: config.downloadLimit,
+      coverLetterLimit: config.coverLetterLimit,
+      trialDailyLimit: config.trialDailyLimit,
+    };
+  }
+  res.json(plans);
+});
+
+router.put("/plans/:planType", async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const { planType } = req.params;
+    const validPlans: PlanType[] = ["starter", "gold", "diamond", "platinum"];
+
+    if (!validPlans.includes(planType as PlanType)) {
+      res.status(400).json({ detail: "Invalid plan type" });
+      return;
+    }
+
+    const { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit } = req.body;
+
+    await prisma.planConfig.upsert({
+      where: { planType },
+      update: { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
+      create: { planType, cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
+    });
+
+    await reloadPlansFromDb();
+
+    res.json({ success: true, plan: PLANS[planType as PlanType] });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to update plan";
     res.status(500).json({ detail: message });
   }
 });

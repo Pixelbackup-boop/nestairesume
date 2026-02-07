@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { Loader2, Menu } from "lucide-react";
@@ -12,17 +12,22 @@ export default function AdminLayoutClient({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const { refreshUser } = useAuthStore();
-  const [isChecking, setIsChecking] = useState(true);
+  const isLoginPage = pathname === "/admin/login";
+  const [isChecking, setIsChecking] = useState(!isLoginPage);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   useEffect(() => {
+    // Skip auth check on the login page itself
+    if (isLoginPage) return;
+
     const checkAuth = async () => {
       // Try to restore session from token
       const token = localStorage.getItem("token");
 
       if (!token) {
-        router.push("/auth/login?redirect=/admin");
+        router.push("/admin/login");
         return;
       }
 
@@ -36,7 +41,7 @@ export default function AdminLayoutClient({
       const store = useAuthStore.getState();
 
       if (!store.isAuthenticated) {
-        router.push("/auth/login?redirect=/admin");
+        router.push("/admin/login");
         return;
       }
 
@@ -50,6 +55,11 @@ export default function AdminLayoutClient({
 
     checkAuth();
   }, [router, refreshUser]);
+
+  // Login page renders without the admin shell
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
 
   if (isChecking) {
     return (

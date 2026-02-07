@@ -31,10 +31,10 @@ jest.mock('../../services/stripeService', () => ({
   handleWebhookEvent: jest.fn(),
   constructWebhookEvent: jest.fn(),
   PLANS: {
-    starter: { cvLimit: 30, aiLimit: 3, downloadLimit: 3, coverLetterLimit: 10, trialDailyLimit: 3, hasTrial: false },
-    gold: { cvLimit: 150, aiLimit: 10, downloadLimit: 10, coverLetterLimit: 30, trialDailyLimit: 5, hasTrial: true },
-    diamond: { cvLimit: 300, aiLimit: 30, downloadLimit: 25, coverLetterLimit: 50, trialDailyLimit: 10, hasTrial: true },
-    platinum: { cvLimit: -1, aiLimit: 100, downloadLimit: -1, coverLetterLimit: -1, trialDailyLimit: 15, hasTrial: false },
+    starter: { cvLimit: 30, aiLimit: 50, downloadLimit: 3, coverLetterLimit: 10, trialDailyLimit: 3, hasTrial: false },
+    gold: { cvLimit: 150, aiLimit: 100, downloadLimit: 10, coverLetterLimit: 30, trialDailyLimit: 5, hasTrial: true },
+    diamond: { cvLimit: 300, aiLimit: 200, downloadLimit: 25, coverLetterLimit: 50, trialDailyLimit: 10, hasTrial: true },
+    platinum: { cvLimit: -1, aiLimit: 500, downloadLimit: 120, coverLetterLimit: -1, trialDailyLimit: 15, hasTrial: false },
   },
 }));
 
@@ -112,11 +112,11 @@ describe('Complete Subscription Purchase Flow', () => {
       expect(starterAtLimit.cvCreatedCount >= PLAN_LIMITS.starter.cvLimit).toBe(true);
     });
 
-    it('Step 5: STARTER user can only use 3 AI generations', async () => {
+    it('Step 5: STARTER user can only use 50 AI generations', async () => {
       const starterUser = createTestUser({
         subscriptionTier: 'starter',
         subscriptionStatus: 'active',
-        aiUsedCount: 3,
+        aiUsedCount: 50,
       });
 
       // At limit - should be blocked
@@ -235,9 +235,9 @@ describe('Complete Subscription Purchase Flow', () => {
       expect(diamondUser.downloadCount).toBeLessThan(PLAN_LIMITS.diamond.downloadLimit);
     });
 
-    it('Step 3: DIAMOND user can use up to 300 CVs, 30 AI, 25 downloads', async () => {
+    it('Step 3: DIAMOND user can use up to 300 CVs, 200 AI, 25 downloads', async () => {
       expect(PLAN_LIMITS.diamond.cvLimit).toBe(300);
-      expect(PLAN_LIMITS.diamond.aiLimit).toBe(30);
+      expect(PLAN_LIMITS.diamond.aiLimit).toBe(200);
       expect(PLAN_LIMITS.diamond.downloadLimit).toBe(25);
       expect(PLAN_LIMITS.diamond.coverLetterLimit).toBe(50);
     });
@@ -260,26 +260,26 @@ describe('Complete Subscription Purchase Flow', () => {
       expect(platinumUser.cvCreatedCount).toBeGreaterThan(0);
     });
 
-    it('PLATINUM user has UNLIMITED downloads', async () => {
-      expect(PLAN_LIMITS.platinum.downloadLimit).toBe(-1);
+    it('PLATINUM user has 120 downloads/month', async () => {
+      expect(PLAN_LIMITS.platinum.downloadLimit).toBe(120);
     });
 
     it('PLATINUM user has UNLIMITED cover letters', async () => {
       expect(PLAN_LIMITS.platinum.coverLetterLimit).toBe(-1);
     });
 
-    it('PLATINUM user still has AI limit (100/month)', async () => {
+    it('PLATINUM user still has AI limit (500/month)', async () => {
       const platinumUser = createTestUser({
         subscriptionTier: 'platinum',
         subscriptionStatus: 'active',
-        aiUsedCount: 99,
+        aiUsedCount: 499,
       });
 
       // Under limit
       expect(platinumUser.aiUsedCount).toBeLessThan(PLAN_LIMITS.platinum.aiLimit);
 
       // At limit
-      const userAtLimit = { ...platinumUser, aiUsedCount: 100 };
+      const userAtLimit = { ...platinumUser, aiUsedCount: 500 };
       expect(userAtLimit.aiUsedCount >= PLAN_LIMITS.platinum.aiLimit).toBe(true);
     });
   });
@@ -382,7 +382,7 @@ describe('Complete Subscription Purchase Flow', () => {
         subscriptionStatus: 'active',
         limits: {
           cvLimit: 30,
-          aiLimit: 3,
+          aiLimit: 50,
           downloadLimit: 3,
           coverLetterLimit: 10,
         },
@@ -396,7 +396,7 @@ describe('Complete Subscription Purchase Flow', () => {
       expect(response.status).toBe(HTTP_STATUS.OK);
       expect(response.body.subscriptionTier).toBe('starter');
       expect(response.body.limits.cvLimit).toBe(30);
-      expect(response.body.limits.aiLimit).toBe(3);
+      expect(response.body.limits.aiLimit).toBe(50);
     });
 
     it('GET /payments/status returns correct limits for GOLD trial', async () => {
@@ -411,7 +411,7 @@ describe('Complete Subscription Purchase Flow', () => {
         subscriptionStatus: 'trialing',
         limits: {
           cvLimit: 150,
-          aiLimit: 10,
+          aiLimit: 100,
           downloadLimit: 10,
           coverLetterLimit: 30,
           dailyLimit: 5, // Trial daily limit
@@ -440,8 +440,8 @@ describe('Complete Subscription Purchase Flow', () => {
         subscriptionStatus: 'active',
         limits: {
           cvLimit: -1,
-          aiLimit: 100,
-          downloadLimit: -1,
+          aiLimit: 500,
+          downloadLimit: 120,
           coverLetterLimit: -1,
         },
         isTrialing: false,
@@ -453,7 +453,7 @@ describe('Complete Subscription Purchase Flow', () => {
 
       expect(response.status).toBe(HTTP_STATUS.OK);
       expect(response.body.limits.cvLimit).toBe(-1);
-      expect(response.body.limits.downloadLimit).toBe(-1);
+      expect(response.body.limits.downloadLimit).toBe(120);
     });
   });
 });

@@ -174,7 +174,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                 <div className="w-14 h-14 bg-accent-green/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <Sparkles className="text-accent-green" size={28} />
                                 </div>
-                                <h2 className="text-2xl font-bold text-white mb-2">Tell us about yourself</h2>
+                                <h2 className="text-2xl font-bold text-gray-900 mb-2">Tell us about yourself</h2>
                                 <p className="text-gray-500 text-sm">
                                     Just 2 questions and AI will create your perfect resume
                                 </p>
@@ -194,7 +194,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                             setFormData((prev) => ({ ...prev, fullName: e.target.value }))
                                         }
                                         placeholder="e.g., John Smith"
-                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors"
+                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors"
                                         autoFocus
                                     />
                                 </OnboardingAnimations.FormField>
@@ -212,7 +212,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                             setFormData((prev) => ({ ...prev, jobTitle: e.target.value }))
                                         }
                                         placeholder="e.g., Software Engineer, Marketing Manager"
-                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors"
+                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors"
                                     />
                                 </OnboardingAnimations.FormField>
 
@@ -239,7 +239,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                                         : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                                                 }`}
                                             >
-                                                <div className="font-medium text-white text-sm">{level.label}</div>
+                                                <div className="font-medium text-gray-900 text-sm">{level.label}</div>
                                                 <div className="text-xs text-gray-500">{level.description}</div>
                                             </button>
                                         ))}
@@ -275,7 +275,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                 </div>
                             </div>
 
-                            <h2 className="text-xl font-bold text-white mb-3">Creating Your Resume</h2>
+                            <h2 className="text-xl font-bold text-gray-900 mb-3">Creating Your Resume</h2>
 
                             <div className="h-6">
                                 <OnboardingAnimations.ProcessingMessage

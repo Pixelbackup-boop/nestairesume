@@ -110,11 +110,42 @@ export const changePasswordSchema = z.object({
     .max(128, 'Password too long'),
 });
 
+export const requestEmailChangeSchema = z.object({
+  newEmail: z
+    .string({ required_error: 'New email is required' })
+    .email('Invalid email format')
+    .max(255, 'Email too long'),
+});
+
+export const verifyEmailChangeSchema = z.object({
+  newEmail: z
+    .string({ required_error: 'New email is required' })
+    .email('Invalid email format'),
+  code: z
+    .string({ required_error: 'Verification code is required' })
+    .length(6, 'Verification code must be 6 characters'),
+});
+
 export const setPasswordSchema = z.object({
   password: z
     .string({ required_error: 'Password is required' })
     .min(8, 'Password must be at least 8 characters')
     .max(128, 'Password too long'),
+});
+
+export const updateProfileSchema = z.object({
+  name: z
+    .string()
+    .min(1, 'Name cannot be empty')
+    .max(100, 'Name too long')
+    .trim()
+    .optional(),
+  avatarId: z
+    .number()
+    .int('Avatar ID must be an integer')
+    .min(1, 'Avatar ID must be between 1 and 5')
+    .max(5, 'Avatar ID must be between 1 and 5')
+    .optional(),
 });
 
 export const oauthSchema = z.object({
@@ -150,3 +181,6 @@ export type LoginInput = z.infer<typeof loginSchema>;
 export type VerifyEmailInput = z.infer<typeof verifyEmailSchema>;
 export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>;
 export type CreateCheckoutInput = z.infer<typeof createCheckoutSchema>;
+export type UpdateProfileInput = z.infer<typeof updateProfileSchema>;
+export type RequestEmailChangeInput = z.infer<typeof requestEmailChangeSchema>;
+export type VerifyEmailChangeInput = z.infer<typeof verifyEmailChangeSchema>;

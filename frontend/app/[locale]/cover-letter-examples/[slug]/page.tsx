@@ -37,6 +37,12 @@ export async function generateMetadata({
   const title = `${example.jobTitle} Cover Letter Example & Writing Guide 2026`;
   const description = example.description;
   const url = `${siteUrl}/${locale}/cover-letter-examples/${slug}`;
+  const languages: Record<string, string> = {
+    'x-default': `${siteUrl}/en/cover-letter-examples/${slug}`,
+  };
+  locales.forEach((loc) => {
+    languages[loc] = `${siteUrl}/${loc}/cover-letter-examples/${slug}`;
+  });
 
   return {
     title,
@@ -60,6 +66,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: url,
+      languages,
     },
   };
 }
@@ -153,6 +160,13 @@ export default async function CoverLetterExamplePage({
       jobTitle: author.jobTitle,
       url: `${siteUrl}/about/${author.slug}`,
       image: `${siteUrl}${author.image}`,
+      knowsAbout: author.expertise,
+      ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
+      worksFor: {
+        "@type": "Organization",
+        name: author.organization,
+        url: siteUrl,
+      },
     }],
   };
 

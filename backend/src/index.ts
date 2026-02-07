@@ -13,9 +13,12 @@ import autoBlogRoutes from "./routes/autoBlog";
 import pdfRoutes from "./routes/pdf";
 import docxRoutes from "./routes/docx";
 import resumeParserRoutes from "./routes/resumeParser";
+import aiRoutes from "./routes/ai";
+import atsCheckerRoutes from "./routes/atsChecker";
 
 // Import scheduler
 import { startScheduler } from "./services/schedulerService";
+import { reloadPlansFromDb } from "./services/stripeService";
 
 const app = express();
 
@@ -55,11 +58,16 @@ app.use("/api/v1/admin/auto-blog", autoBlogRoutes);
 app.use("/api/v1/pdf", pdfRoutes);
 app.use("/api/v1/docx", docxRoutes);
 app.use("/api/v1/resume", resumeParserRoutes);
+app.use("/api/v1/ai", aiRoutes);
+app.use("/api/v1/ats", atsCheckerRoutes);
 
 // Start server
-app.listen(config.port, config.host, () => {
+app.listen(config.port, config.host, async () => {
   console.log(`🚀 Server running at http://${config.host}:${config.port}`);
   console.log(`📚 API endpoints at http://${config.host}:${config.port}/api/v1`);
+
+  // Load plan limits from DB (falls back to hardcoded defaults if no rows)
+  await reloadPlansFromDb();
 
   // Start auto-blog scheduler
   startScheduler();

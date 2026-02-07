@@ -23,7 +23,7 @@ import {
  * Matches reference: frontend/Resume-template/unique-layouts/16-decorative-pattern.webp
  */
 function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, interests, certifications, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, interests, certifications, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -398,13 +398,13 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                         </div>
                     )}
 
-                    {/* Custom Field */}
-                    {personalInfo.customField && personalInfo.customFieldLabel && (
-                        <div className="mb-8">
-                            <SectionHeader title={personalInfo.customFieldLabel} icon={Pin} accent={accentColor} fs={fs} headingFont={headingFont} />
-                            <p style={{ fontSize: fs.body, lineHeight: 1.6 }} data-paginate="item">{personalInfo.customField}</p>
+                    {/* Custom Fields */}
+                    {customFields?.map((field) => (
+                        <div key={field.id} className="mb-8">
+                            <SectionHeader title={field.label} icon={Pin} accent={accentColor} fs={fs} headingFont={headingFont} />
+                            <p style={{ fontSize: fs.body, lineHeight: 1.6 }} data-paginate="item">{field.content}</p>
                         </div>
-                    )}
+                    ))}
                 </div>
             </div>
         </div>

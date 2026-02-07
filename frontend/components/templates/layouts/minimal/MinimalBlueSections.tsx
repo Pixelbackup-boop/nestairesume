@@ -18,7 +18,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * - Typography: Clean Sans.
  */
 function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -251,7 +251,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                     <SectionHeader title={t.sections.socialLinks} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                         {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
+                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                         {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                         {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                         {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -298,13 +298,13 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                 </section>
             )}
 
-            {/* Custom Field */}
-            {personalInfo.customField && personalInfo.customFieldLabel && (
-                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
-                    <SectionHeader title={personalInfo.customFieldLabel} bg={accentColor} fs={fs} headingFont={headingFont} />
-                    <p style={{ paddingLeft: 8, lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>{personalInfo.customField}</p>
+            {/* Custom Fields */}
+            {customFields?.map((field) => (
+                <section key={field.id} style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                    <SectionHeader title={field.label} bg={accentColor} fs={fs} headingFont={headingFont} />
+                    <p style={{ paddingLeft: 8, lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>{field.content}</p>
                 </section>
-            )}
+            ))}
         </div>
     );
 }

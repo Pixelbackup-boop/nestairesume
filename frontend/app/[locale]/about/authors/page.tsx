@@ -6,18 +6,38 @@ import { AUTHORS } from "@/lib/resume-examples/posts";
 
 const siteUrl = "https://www.bestairesumes.com";
 
-export const metadata: Metadata = {
-  title: "Our Expert Authors | Best AI Resume",
-  description:
-    "Meet the career experts, recruiters, and coaches behind our resume guides. Our authors bring real-world hiring experience to help you land your dream job.",
-  openGraph: {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const locales = ['en', 'es', 'fr', 'de', 'ar'];
+  const alternateLanguages: Record<string, string> = {
+    'x-default': `${siteUrl}/en/about/authors`,
+  };
+  locales.forEach((loc) => {
+    alternateLanguages[loc] = `${siteUrl}/${loc}/about/authors`;
+  });
+
+  return {
     title: "Our Expert Authors | Best AI Resume",
     description:
-      "Meet the career experts, recruiters, and coaches behind our resume guides.",
-    type: "website",
-    url: `${siteUrl}/about/authors`,
-  },
-};
+      "Meet the career experts, recruiters, and coaches behind our resume guides. Our authors bring real-world hiring experience to help you land your dream job.",
+    openGraph: {
+      title: "Our Expert Authors | Best AI Resume",
+      description:
+        "Meet the career experts, recruiters, and coaches behind our resume guides.",
+      type: "website",
+      url: `${siteUrl}/${locale}/about/authors`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "Our Expert Authors | Best AI Resume",
+      description: "Meet the career experts, recruiters, and coaches behind our resume guides.",
+    },
+    alternates: {
+      canonical: `${siteUrl}/${locale}/about/authors`,
+      languages: alternateLanguages,
+    },
+  };
+}
 
 export default function AuthorsPage() {
   const authors = Object.values(AUTHORS);

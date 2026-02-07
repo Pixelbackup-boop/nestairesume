@@ -1,107 +1,102 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import {
     X,
     Download,
     Crown,
-    Tv,
-    Check,
     Loader2,
-    Sparkles,
-    FileText,
-    Palette,
-    Zap,
+    AlertCircle,
+    LogIn,
+    TrendingUp,
 } from 'lucide-react';
+import { useAuthStore } from '@/store/useAuthStore';
+import { useUsageStore, formatUsage, formatRemaining } from '@/store/useUsageStore';
 
 interface DownloadModalProps {
     isOpen: boolean;
     onClose: () => void;
     onDownload: () => void;
-    isPremiumUser?: boolean;
     /** Optional format label for display (e.g., "Google Docs", "PDF") */
     format?: string;
 }
 
 export type { DownloadModalProps };
 
-type DownloadOption = 'free' | 'premium';
-
-const premiumFeatures = [
-    { icon: FileText, label: 'Unlimited resume downloads' },
-    { icon: Palette, label: 'Access to all premium templates' },
-    { icon: Sparkles, label: 'AI-powered content suggestions' },
-    { icon: Zap, label: 'No ads ever' },
-];
-
 export default function DownloadModal({
     isOpen,
     onClose,
     onDownload,
-    isPremiumUser = false,
-    format,
+    format = 'PDF',
 }: DownloadModalProps) {
-    const [selectedOption, setSelectedOption] = useState<DownloadOption>('free');
-    const [isWatchingAd, setIsWatchingAd] = useState(false);
-    const [adProgress, setAdProgress] = useState(0);
-    const [adComplete, setAdComplete] = useState(false);
+    const router = useRouter();
+    const locale = useLocale();
+    const { isAuthenticated, user } = useAuthStore();
+    const { usage, isLoading: usageLoading, fetchUsage, checkLimit } = useUsageStore();
     const [isDownloading, setIsDownloading] = useState(false);
 
-    // Reset state when modal opens
+    // Fetch usage data when modal opens
     useEffect(() => {
-        if (isOpen) {
-            setIsWatchingAd(false);
-            setAdProgress(0);
-            setAdComplete(false);
+        if (isOpen && isAuthenticated) {
+            fetchUsage();
+        }
+    }, [isOpen, isAuthenticated, fetchUsage]);
+
+    // Reset state when modal closes
+    useEffect(() => {
+        if (!isOpen) {
             setIsDownloading(false);
         }
     }, [isOpen]);
 
-    // Simulate ad watching
-    useEffect(() => {
-        if (!isWatchingAd) return;
-
-        const interval = setInterval(() => {
-            setAdProgress((prev) => {
-                if (prev >= 100) {
-                    clearInterval(interval);
-                    setAdComplete(true);
-                    setIsWatchingAd(false);
-                    return 100;
-                }
-                return prev + 2; // 5 seconds total (50 intervals * 100ms)
-            });
-        }, 100);
-
-        return () => clearInterval(interval);
-    }, [isWatchingAd]);
-
     if (!isOpen) return null;
 
-    const handleFreeDownload = () => {
-        // TODO: Re-enable ad watching when site is complete
-        // For now, download directly without ads
-        handleDownload();
+    const downloadCheck = checkLimit('download');
+    const subscriptionStatus = user?.subscriptionStatus;
+    const subscriptionTier = user?.subscriptionTier;
+    const isTrialing = subscriptionStatus === 'trialing';
+    const isActive = subscriptionStatus === 'active' || isTrialing;
+    const hasValidSubscription = isActive && subscriptionTier && subscriptionTier !== 'free';
+
+    // Determine user state
+    const getUserState = () => {
+        if (!isAuthenticated) return 'not_logged_in';
+        if (usageLoading) return 'loading';
+        if (!hasValidSubscription) return 'no_subscription';
+        if (!downloadCheck.canUse) return 'limit_reached';
+        return 'can_download';
     };
 
-    const handlePremiumPurchase = () => {
-        // TODO: Integrate with payment provider (Stripe, etc.)
-        console.log('Redirect to premium checkout');
-        // For now, simulate premium purchase
-        alert('Premium checkout would open here. For demo, using free download.');
-    };
+    const userState = getUserState();
 
     const handleDownload = async () => {
         setIsDownloading(true);
-        // Small delay for UX
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        onDownload();
-        setIsDownloading(false);
-        onClose();
+        try {
+            await onDownload();
+            // Refresh usage after download
+            fetchUsage();
+        } catch (error) {
+            console.error('Download failed:', error);
+        } finally {
+            setIsDownloading(false);
+            onClose();
+        }
     };
 
-    // Premium users skip directly to download
-    if (isPremiumUser) {
+    const handleSignUp = () => {
+        onClose();
+        router.push(`/${locale}/auth/register`);
+    };
+
+    const handleUpgrade = () => {
+        onClose();
+        router.push(`/${locale}/pricing`);
+    };
+
+    // Active subscribers with unlimited downloads - skip modal and download directly
+    if (isAuthenticated && hasValidSubscription && downloadCheck.limit === -1 && !usageLoading) {
         handleDownload();
         return null;
     }
@@ -131,211 +126,164 @@ export default function DownloadModal({
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">Download Your Resume</h2>
                     <p className="text-gray-500 text-sm">
-                        Choose how you'd like to download your resume
+                        {format === 'PDF' ? 'Download as a high-quality PDF file' : `Download as ${format}`}
                     </p>
                 </div>
 
-                {/* Ad Watching State */}
-                {isWatchingAd && (
-                    <div className="px-8 pb-8">
-                        <div className="bg-gray-100 rounded-xl p-6 text-center">
-                            <Tv className="mx-auto text-accent-green mb-4" size={48} />
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                Watching Advertisement
-                            </h3>
-                            <p className="text-gray-500 text-sm mb-4">
-                                Please wait while the ad plays...
-                            </p>
+                {/* Content based on user state */}
+                <div className="px-8 pb-8">
+                    {/* Loading State */}
+                    {userState === 'loading' && (
+                        <div className="text-center py-8">
+                            <Loader2 className="mx-auto text-accent-green animate-spin mb-4" size={40} />
+                            <p className="text-gray-600">Checking your account...</p>
+                        </div>
+                    )}
 
-                            {/* Progress Bar */}
-                            <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
-                                <div
-                                    className="h-full bg-accent-green transition-all duration-100"
-                                    style={{ width: `${adProgress}%` }}
-                                />
-                            </div>
-                            <span className="text-xs text-gray-400">
-                                {Math.ceil((100 - adProgress) / 20)} seconds remaining
-                            </span>
-
-                            {/* Simulated Ad Content */}
-                            <div className="mt-6 bg-white rounded-lg p-4 border border-gray-300">
-                                <div className="text-xs text-gray-400 mb-2">ADVERTISEMENT</div>
-                                <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-4 text-gray-900 text-sm">
-                                    <p className="font-medium">Upgrade to Premium!</p>
-                                    <p className="text-xs opacity-80 mt-1">
-                                        Download unlimited resumes without ads
+                    {/* Not Logged In */}
+                    {userState === 'not_logged_in' && (
+                        <div className="space-y-4">
+                            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+                                <LogIn className="text-amber-600 mt-0.5 shrink-0" size={20} />
+                                <div>
+                                    <p className="text-sm font-medium text-amber-900">Sign in to Download</p>
+                                    <p className="text-sm text-amber-700 mt-1">
+                                        Create an account to access downloads, all templates, and AI tools.
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                )}
-
-                {/* Ad Complete - Download Ready */}
-                {adComplete && !isDownloading && (
-                    <div className="px-8 pb-8">
-                        <div className="bg-accent-green/10 border border-accent-green/30 rounded-xl p-6 text-center">
-                            <div className="w-12 h-12 bg-accent-green rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Check className="text-gray-900" size={24} />
-                            </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                Ready to Download!
-                            </h3>
-                            <p className="text-gray-500 text-sm mb-6">
-                                Thank you for watching. Your resume is ready.
+                            <button
+                                onClick={handleSignUp}
+                                className="w-full py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
+                            >
+                                <LogIn size={18} />
+                                Sign Up
+                            </button>
+                            <p className="text-xs text-gray-400 text-center">
+                                Already have an account?{' '}
+                                <button
+                                    onClick={() => {
+                                        onClose();
+                                        router.push(`/${locale}/auth/login`);
+                                    }}
+                                    className="text-accent-green hover:underline"
+                                >
+                                    Log in
+                                </button>
                             </p>
+                        </div>
+                    )}
+
+                    {/* No Subscription */}
+                    {userState === 'no_subscription' && (
+                        <div className="space-y-4">
+                            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+                                <Crown className="text-amber-600 mt-0.5 shrink-0" size={20} />
+                                <div>
+                                    <p className="text-sm font-medium text-amber-900">Choose a Plan to Download</p>
+                                    <p className="text-sm text-amber-700 mt-1">
+                                        Your resume is ready! Pick a plan to download it as a high-quality PDF. Free trial and paid plans available.
+                                    </p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={handleUpgrade}
+                                className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
+                            >
+                                <Crown size={18} />
+                                View Plans
+                            </button>
+                            <button
+                                onClick={onClose}
+                                className="w-full text-sm text-gray-500 hover:text-gray-700 transition text-center"
+                            >
+                                Maybe later
+                            </button>
+                        </div>
+                    )}
+
+                    {/* Limit Reached */}
+                    {userState === 'limit_reached' && (
+                        <div className="space-y-4">
+                            <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
+                                <AlertCircle className="text-red-600 mt-0.5 shrink-0" size={20} />
+                                <div>
+                                    <p className="text-sm font-medium text-red-900">Download limit reached</p>
+                                    <p className="text-sm text-red-700 mt-1">
+                                        You've used all {downloadCheck.limit} downloads this month. Upgrade your plan for more downloads.
+                                    </p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={handleUpgrade}
+                                className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
+                            >
+                                <TrendingUp size={18} />
+                                Upgrade for More Downloads
+                            </button>
+                        </div>
+                    )}
+
+                    {/* Can Download */}
+                    {userState === 'can_download' && !isDownloading && (
+                        <div className="space-y-4">
+                            {/* Usage Info */}
+                            {usage && downloadCheck.limit !== -1 && (
+                                <div className="bg-gray-50 rounded-xl p-4">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-sm font-medium text-gray-700">Downloads this month</span>
+                                        <span className="text-sm font-bold text-gray-900">
+                                            {formatUsage(usage.usage.download.used, usage.usage.download.limit)}
+                                        </span>
+                                    </div>
+                                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div
+                                            className={`h-full transition-all ${
+                                                downloadCheck.remaining <= 2 ? 'bg-amber-500' : 'bg-accent-green'
+                                            }`}
+                                            style={{
+                                                width: `${Math.min(100, (usage.usage.download.used / usage.usage.download.limit) * 100)}%`
+                                            }}
+                                        />
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2">
+                                        {formatRemaining(downloadCheck.remaining, downloadCheck.limit)}
+                                        {isTrialing && user?.trialEndsAt && (
+                                            <span className="ml-2">
+                                                • Trial ends {new Date(user.trialEndsAt).toLocaleDateString()}
+                                            </span>
+                                        )}
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* Unlimited badge */}
+                            {downloadCheck.limit === -1 && (
+                                <div className="bg-accent-green/10 rounded-xl p-4 text-center">
+                                    <span className="text-sm font-medium text-accent-green">
+                                        ✨ Unlimited downloads with your plan
+                                    </span>
+                                </div>
+                            )}
+
                             <button
                                 onClick={handleDownload}
                                 className="w-full py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
                             >
                                 <Download size={18} />
-                                Download Resume (PDF)
+                                Download {format}
                             </button>
                         </div>
-                    </div>
-                )}
+                    )}
 
-                {/* Option Selection */}
-                {!isWatchingAd && !adComplete && !isDownloading && (
-                    <div className="px-8 pb-8">
-                        <div className="space-y-4">
-                            {/* Free Option */}
-                            <button
-                                onClick={() => setSelectedOption('free')}
-                                className={`w-full p-4 rounded-xl border-2 text-left transition ${
-                                    selectedOption === 'free'
-                                        ? 'border-accent-green bg-accent-green/10'
-                                        : 'border-gray-200 bg-gray-100 hover:border-gray-300'
-                                }`}
-                            >
-                                <div className="flex items-start gap-4">
-                                    <div
-                                        className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                                            selectedOption === 'free'
-                                                ? 'bg-accent-green/20'
-                                                : 'bg-gray-200'
-                                        }`}
-                                    >
-                                        <Download
-                                            size={20}
-                                            className={
-                                                selectedOption === 'free'
-                                                    ? 'text-accent-green'
-                                                    : 'text-gray-500'
-                                            }
-                                        />
-                                    </div>
-                                    <div className="flex-1">
-                                        <div className="flex items-center justify-between">
-                                            <h3 className="font-semibold text-gray-900">Free Download</h3>
-                                            <span className="text-accent-green font-bold">$0</span>
-                                        </div>
-                                        <p className="text-sm text-gray-500 mt-1">
-                                            Download your resume as a high-quality PDF
-                                        </p>
-                                    </div>
-                                </div>
-                            </button>
-
-                            {/* Premium Option */}
-                            <button
-                                onClick={() => setSelectedOption('premium')}
-                                className={`w-full p-4 rounded-xl border-2 text-left transition relative overflow-hidden ${
-                                    selectedOption === 'premium'
-                                        ? 'border-yellow-500 bg-yellow-500/10'
-                                        : 'border-gray-200 bg-gray-100 hover:border-gray-300'
-                                }`}
-                            >
-                                {/* Popular Badge */}
-                                <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-bl-lg">
-                                    BEST VALUE
-                                </div>
-
-                                <div className="flex items-start gap-4">
-                                    <div
-                                        className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                                            selectedOption === 'premium'
-                                                ? 'bg-yellow-500/20'
-                                                : 'bg-gray-200'
-                                        }`}
-                                    >
-                                        <Crown
-                                            size={20}
-                                            className={
-                                                selectedOption === 'premium'
-                                                    ? 'text-yellow-500'
-                                                    : 'text-gray-500'
-                                            }
-                                        />
-                                    </div>
-                                    <div className="flex-1">
-                                        <div className="flex items-center justify-between">
-                                            <h3 className="font-semibold text-gray-900">Premium</h3>
-                                            <div className="text-right">
-                                                <span className="text-yellow-500 font-bold">$9.99</span>
-                                                <span className="text-gray-400 text-xs">/month</span>
-                                            </div>
-                                        </div>
-                                        <p className="text-sm text-gray-500 mt-1">
-                                            Unlimited downloads, premium templates, no ads
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Premium Features */}
-                                {selectedOption === 'premium' && (
-                                    <div className="mt-4 pt-4 border-t border-gray-200 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                        {premiumFeatures.map((feature, index) => (
-                                            <div
-                                                key={index}
-                                                className="flex items-center gap-2 text-xs text-gray-600"
-                                            >
-                                                <feature.icon size={14} className="text-yellow-500" />
-                                                {feature.label}
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </button>
-                        </div>
-
-                        {/* Action Button */}
-                        <div className="mt-6">
-                            {selectedOption === 'free' ? (
-                                <button
-                                    onClick={handleFreeDownload}
-                                    className="w-full py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
-                                >
-                                    <Download size={18} />
-                                    Download Free
-                                </button>
-                            ) : (
-                                <button
-                                    onClick={handlePremiumPurchase}
-                                    className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
-                                >
-                                    <Crown size={18} />
-                                    Upgrade to Premium
-                                </button>
-                            )}
-                        </div>
-
-                        <p className="mt-4 text-xs text-gray-400 text-center">
-                            Your resume will be downloaded as a high-quality PDF file
-                        </p>
-                    </div>
-                )}
-
-                {/* Downloading State */}
-                {isDownloading && (
-                    <div className="px-8 pb-8">
+                    {/* Downloading State */}
+                    {isDownloading && (
                         <div className="text-center py-8">
                             <Loader2 className="mx-auto text-accent-green animate-spin mb-4" size={40} />
                             <p className="text-gray-600">Preparing your download...</p>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
 
             <style jsx>{`

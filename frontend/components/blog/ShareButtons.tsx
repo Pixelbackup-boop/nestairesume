@@ -16,9 +16,9 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
 
   const shareLinks = [
     {
-      name: 'Twitter',
+      name: 'X',
       icon: Twitter,
-      href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+      href: `https://x.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
       color: 'hover:text-[#1DA1F2]',
     },
     {

@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import { motion, useReducedMotion, Variants, useInView } from 'framer-motion';
 
 interface AnimationProps {
@@ -205,23 +205,6 @@ function AnimatedLine({ className = '' }: { className?: string }) {
   const isInView = useInView(lineRef, { once: true, amount: 0.5 });
   const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    if (prefersReducedMotion || !isInView || !lineRef.current) return;
-
-    // Dynamic import GSAP only when needed
-    import('@/lib/animations/gsapInit').then(({ gsap }) => {
-      gsap.fromTo(
-        lineRef.current,
-        { scaleX: 0, transformOrigin: 'left center' },
-        {
-          scaleX: 1,
-          duration: 1.2,
-          ease: 'power2.out',
-        }
-      );
-    });
-  }, [isInView, prefersReducedMotion]);
-
   if (prefersReducedMotion) {
     return (
       <div
@@ -231,10 +214,13 @@ function AnimatedLine({ className = '' }: { className?: string }) {
   }
 
   return (
-    <div
+    <motion.div
       ref={lineRef}
       className={`hidden md:block absolute top-20 left-[20%] right-[20%] h-px bg-gradient-to-r from-accent-green via-accent-teal to-accent-purple ${className}`}
-      style={{ transform: 'scaleX(0)', transformOrigin: 'left center' }}
+      initial={{ scaleX: 0, transformOrigin: 'left center' }}
+      animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+      transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+      style={{ transformOrigin: 'left center' }}
     />
   );
 }

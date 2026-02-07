@@ -28,6 +28,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts,
         background
     } = data;
@@ -105,7 +106,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         `).join('')}
                     </div>
                         <!-- Extra Socials -->
-                        ${['github', 'twitter', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
+                        ${['github', 'x', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
         const val = (personalInfo as any)[network];
         if (!val || contactItems.find(c => c.value === val)) return '';
         return `
@@ -338,15 +339,15 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                     </div>
                 ` : ''}
 
-                <!-- Custom Field -->
-                ${personalInfo.customField ? `
+                <!-- Custom Fields -->
+                ${customFields.map(field => `
                     <div style="margin-top: 40px;">
-                        ${MainHeader(personalInfo.customFieldLabel || t.sections.additionalInfo)}
-                         <p style="line-height: 1.6; font-size: 12px; color: #4b5563;">
-                            ${formatDescription(personalInfo.customField)}
+                        ${MainHeader(field.label)}
+                        <p style="line-height: 1.6; font-size: 12px; color: #4b5563;">
+                            ${formatDescription(field.content)}
                         </p>
                     </div>
-                ` : ''}
+                `).join('')}
 
             </main>
         </div>

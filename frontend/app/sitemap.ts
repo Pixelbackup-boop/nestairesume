@@ -1,119 +1,138 @@
 import { MetadataRoute } from 'next';
 import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerCategories, getAllCareerTips, getAllCareerTipsCategories } from '@/lib/blog/posts';
-import { getAllResumeExamples } from '@/lib/resume-examples/posts';
+import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
+import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
+
+const locales = ['en', 'es', 'fr', 'de', 'ar'];
+
+function localizedUrls(baseUrl: string, path: string, options: { lastModified: Date; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }): MetadataRoute.Sitemap {
+  return locales.map(locale => ({
+    url: `${baseUrl}/${locale}${path}`,
+    lastModified: options.lastModified,
+    changeFrequency: options.changeFrequency,
+    priority: options.priority,
+  }));
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
+  const now = new Date();
 
-  // Static pages
-  const staticPages = [
-    '',
-    '/features',
-    '/templates',
-    '/pricing',
-    '/about',
-    '/privacy',
-    '/blog',
-    '/career',
-    '/career-tips',
-    '/resume-examples',
-    '/resume-format',
-    '/canva-alternative',
-    '/overleaf-alternative',
-    '/resume-io-alternative',
-    '/rezi-alternative',
-    '/zety-alternative',
-    '/livecareer-alternative',
-    '/adobe-alternative',
-    '/nova-alternative',
-    '/europass-alternative',
-    '/compare/chatgpt-vs-ai-resume-builder',
-    '/builder',
-    '/tools/cover-letter',
-    '/tools/resignation-letter',
-    '/auth/login',
-    '/auth/register',
-  ].map(route => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
-  }));
+  // Static pages (localized)
+  const staticRoutes = [
+    { path: '', priority: 1 },
+    { path: '/features', priority: 0.8 },
+    { path: '/templates', priority: 0.8 },
+    { path: '/pricing', priority: 0.8 },
+    { path: '/about', priority: 0.7 },
+    { path: '/privacy', priority: 0.3 },
+    { path: '/blog', priority: 0.8 },
+    { path: '/career', priority: 0.7 },
+    { path: '/career-tips', priority: 0.7 },
+    { path: '/resume-examples', priority: 0.9 },
+    { path: '/cover-letter-examples', priority: 0.9 },
+    { path: '/resume-format', priority: 0.8 },
+    { path: '/builder', priority: 0.8 },
+    { path: '/tools/cover-letter', priority: 0.7 },
+    { path: '/tools/resignation-letter', priority: 0.7 },
+    { path: '/tools/ats-checker', priority: 0.7 },
+    { path: '/tools/mock-interview', priority: 0.7 },
+    { path: '/canva-alternative', priority: 0.7 },
+    { path: '/overleaf-alternative', priority: 0.7 },
+    { path: '/resume-io-alternative', priority: 0.7 },
+    { path: '/rezi-alternative', priority: 0.7 },
+    { path: '/zety-alternative', priority: 0.7 },
+    { path: '/livecareer-alternative', priority: 0.7 },
+    { path: '/adobe-alternative', priority: 0.7 },
+    { path: '/nova-alternative', priority: 0.7 },
+    { path: '/europass-alternative', priority: 0.7 },
+    { path: '/compare/chatgpt-vs-ai-resume-builder', priority: 0.7 },
+    { path: '/free-resume-builder', priority: 0.8 },
+    { path: '/resume-ai', priority: 0.8 },
+    { path: '/resume-maker', priority: 0.8 },
+    { path: '/biodata-format', priority: 0.7 },
+    { path: '/terms', priority: 0.3 },
+    { path: '/community', priority: 0.5 },
+    { path: '/about/authors', priority: 0.5 },
+  ];
 
-  // Blog posts
+  const staticPages = staticRoutes.flatMap(route =>
+    localizedUrls(baseUrl, route.path, { lastModified: now, changeFrequency: 'weekly', priority: route.priority })
+  );
+
+  // Author pages (localized)
+  const authorPages = Object.values(AUTHORS).flatMap(author =>
+    localizedUrls(baseUrl, `/about/${author.slug}`, { lastModified: now, changeFrequency: 'monthly', priority: 0.6 })
+  );
+
+  // Blog posts (localized)
   const posts = await getAllPosts();
   const blogPages = posts
     .filter(post => !post.postType || post.postType === 'blog' || post.postType === 'both')
-    .map(post => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }));
+    .flatMap(post =>
+      localizedUrls(baseUrl, `/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 })
+    );
 
-  // Career posts
+  // Career posts (localized)
   const careerPosts = await getAllCareerPosts();
-  const careerPages = careerPosts.map(post => ({
-    url: `${baseUrl}/career/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
+  const careerPages = careerPosts.flatMap(post =>
+    localizedUrls(baseUrl, `/career/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 })
+  );
 
-  // Blog category pages
-  const categories = await getAllCategories();
-  const categoryPages = categories.map(category => ({
-    url: `${baseUrl}/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
-
-  // Career category pages
-  const careerCategories = await getAllCareerCategories();
-  const careerCategoryPages = careerCategories.map(category => ({
-    url: `${baseUrl}/career/category/${category.toLowerCase().replace(/\s+/g, '-')}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
-
-  // Career tips articles (from content/career-tips/)
+  // Career tips (localized)
   const careerTips = await getAllCareerTips();
-  const careerTipsPages = careerTips.map(tip => ({
-    url: `${baseUrl}/career-tips/${tip.slug}`,
-    lastModified: new Date(tip.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
+  const careerTipsPages = careerTips.flatMap(tip =>
+    localizedUrls(baseUrl, `/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 })
+  );
 
-  // Career tips category pages
+  // Blog category pages (localized)
+  const categories = await getAllCategories();
+  const categoryPages = categories.flatMap(category =>
+    localizedUrls(baseUrl, `/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
+  );
+
+  // Career category pages (localized)
+  const careerCategories = await getAllCareerCategories();
+  const careerCategoryPages = careerCategories.flatMap(category =>
+    localizedUrls(baseUrl, `/career/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
+  );
+
+  // Career tips category pages (localized)
   const careerTipsCategories = await getAllCareerTipsCategories();
-  const careerTipsCategoryPages = careerTipsCategories.map(category => ({
-    url: `${baseUrl}/career-tips/category/${category.toLowerCase().replace(/\s+/g, '-')}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
+  const careerTipsCategoryPages = careerTipsCategories.flatMap(category =>
+    localizedUrls(baseUrl, `/career-tips/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
+  );
 
-  // Resume examples (job-specific pages)
+  // Resume examples (localized)
   const resumeExamples = await getAllResumeExamples();
-  const resumeExamplesPages = resumeExamples.map(example => ({
-    url: `${baseUrl}/resume-examples/${example.slug}`,
-    lastModified: new Date(example.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
+  const resumeExamplesPages = resumeExamples.flatMap(example =>
+    localizedUrls(baseUrl, `/resume-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
+  );
 
-  // Template category pages (/templates/modern, /templates/simple, etc.)
+  // Cover letter examples (localized)
+  const coverLetterExamples = await getAllCoverLetterExamples();
+  const coverLetterPages = coverLetterExamples.flatMap(example =>
+    localizedUrls(baseUrl, `/cover-letter-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
+  );
+
+  // Template category pages (localized)
   const templateCategorySlugs = getAllCategorySlugs();
-  const templateCategoryPages = templateCategorySlugs.map(slug => ({
-    url: `${baseUrl}/templates/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
+  const templateCategoryPages = templateCategorySlugs.flatMap(slug =>
+    localizedUrls(baseUrl, `/templates/${slug}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.7 })
+  );
 
-  return [...staticPages, ...blogPages, ...careerPages, ...categoryPages, ...careerCategoryPages, ...careerTipsPages, ...careerTipsCategoryPages, ...resumeExamplesPages, ...templateCategoryPages];
+  return [
+    ...staticPages,
+    ...authorPages,
+    ...blogPages,
+    ...careerPages,
+    ...careerTipsPages,
+    ...categoryPages,
+    ...careerCategoryPages,
+    ...careerTipsCategoryPages,
+    ...resumeExamplesPages,
+    ...coverLetterPages,
+    ...templateCategoryPages,
+  ];
 }

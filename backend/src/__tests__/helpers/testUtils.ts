@@ -114,29 +114,29 @@ export const createTestResume = (overrides = {}) => ({
 export const PLAN_LIMITS = {
   starter: {
     cvLimit: 30,
-    aiLimit: 3,
+    aiLimit: 50,
     downloadLimit: 3,
     coverLetterLimit: 10,
     trialDailyLimit: 3,
   },
   gold: {
     cvLimit: 150,
-    aiLimit: 10,
+    aiLimit: 100,
     downloadLimit: 10,
     coverLetterLimit: 30,
     trialDailyLimit: 5,
   },
   diamond: {
     cvLimit: 300,
-    aiLimit: 30,
+    aiLimit: 200,
     downloadLimit: 25,
     coverLetterLimit: 50,
     trialDailyLimit: 10,
   },
   platinum: {
     cvLimit: -1, // Unlimited
-    aiLimit: 100,
-    downloadLimit: -1, // Unlimited
+    aiLimit: 500,
+    downloadLimit: 120,
     coverLetterLimit: -1, // Unlimited
     trialDailyLimit: 15,
   },

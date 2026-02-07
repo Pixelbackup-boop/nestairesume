@@ -147,9 +147,9 @@ body {
    CUSTOM EFFECT CLASSES
    =========================================== */
 
-/* Gradient text - teal */
+/* Gradient text - teal (brightened for accessibility) */
 .gradient-text {
-  background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+  background: linear-gradient(135deg, #00f5c4 0%, #00dc82 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -961,7 +961,7 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
 
 /* Gradient direction flip for RTL */
 [dir="rtl"] .gradient-text {
-  background: linear-gradient(225deg, #00d4aa 0%, #00b894 100%);
+  background: linear-gradient(225deg, #00f5c4 0%, #00dc82 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

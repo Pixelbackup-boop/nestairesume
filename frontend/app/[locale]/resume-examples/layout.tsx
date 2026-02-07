@@ -11,6 +11,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'ResumeExamples' });
 
+  const locales = ['en', 'es', 'fr', 'de', 'ar'];
+  const alternateLanguages: Record<string, string> = {
+    'x-default': `${siteUrl}/en/resume-examples`,
+  };
+  locales.forEach((loc) => {
+    alternateLanguages[loc] = `${siteUrl}/${loc}/resume-examples`;
+  });
+
   return {
     title: t('meta.title'),
     description: t('meta.description'),
@@ -28,6 +36,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${siteUrl}/${locale}/resume-examples`,
+      languages: alternateLanguages,
     },
   };
 }

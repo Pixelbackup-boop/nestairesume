@@ -9,8 +9,11 @@ import TableOfContents from '@/components/blog/TableOfContents';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import ShareButtons from '@/components/blog/ShareButtons';
 
+const siteUrl = 'https://www.bestairesumes.com';
+const locales = ['en', 'de', 'fr', 'es', 'ar'];
+
 interface PostPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 // Generate static paths for all posts
@@ -21,7 +24,7 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const post = await getPostBySlug(slug);
 
   if (!post) {
@@ -30,7 +33,13 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     };
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://resumeai.com';
+  const url = `${siteUrl}/${locale}/blog/${post.slug}`;
+  const languages: Record<string, string> = {
+    'x-default': `${siteUrl}/en/blog/${post.slug}`,
+  };
+  locales.forEach((loc) => {
+    languages[loc] = `${siteUrl}/${loc}/blog/${post.slug}`;
+  });
 
   return {
     title: `${post.title} | Best AI Resume Blog`,
@@ -52,7 +61,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       images: post.image ? [post.image] : [],
     },
     alternates: {
-      canonical: `${siteUrl}/blog/${post.slug}`,
+      canonical: url,
+      languages,
     },
   };
 }
@@ -88,7 +98,6 @@ export default async function PostPage({ params }: PostPageProps) {
   const relatedPosts = await getRelatedPosts(post.slug, 3);
 
   // Build URL for sharing
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://resumeai.com';
   const postUrl = `${siteUrl}/blog/${post.slug}`;
 
   // Resolve author for E-E-A-T Person schema
@@ -109,6 +118,7 @@ export default async function PostPage({ params }: PostPageProps) {
       jobTitle: author.jobTitle,
       url: `${siteUrl}/about/${author.slug}`,
       image: `${siteUrl}${author.image}`,
+      knowsAbout: author.expertise,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
       worksFor: {
         '@type': 'Organization',

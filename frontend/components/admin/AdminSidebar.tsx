@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   LogOut,
   Bot,
+  Settings,
   X,
 } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -28,6 +29,7 @@ const navItems: NavItem[] = [
   { href: "/admin/blog", label: "Blog Posts", icon: <FileText size={20} /> },
   { href: "/admin/auto-blog", label: "Auto Blog", icon: <Bot size={20} /> },
   { href: "/admin/payments", label: "Payments", icon: <CreditCard size={20} /> },
+  { href: "/admin/plans", label: "Plans", icon: <Settings size={20} /> },
 ];
 
 interface AdminSidebarProps {

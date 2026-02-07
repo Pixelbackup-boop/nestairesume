@@ -52,7 +52,7 @@ export default async function ResumeExamplesIndex() {
           <div className="mt-16 text-center p-8 bg-gray-50 rounded-2xl border border-gray-100">
             <h3 className="text-xl font-bold text-gray-900 mb-2">Don&apos;t see your job title?</h3>
             <p className="text-gray-600 mb-6">Our AI can write a custom resume for ANY job title in seconds.</p>
-            <Link href="/onboarding" className="inline-block bg-gray-50 text-white px-6 py-3 rounded-xl font-bold hover:bg-white transition">
+            <Link href="/onboarding" className="inline-block bg-accent-green text-gray-900 px-6 py-3 rounded-xl font-bold hover:bg-accent-teal transition">
               Generate Custom Resume
             </Link>
           </div>

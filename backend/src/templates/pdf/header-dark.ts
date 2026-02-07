@@ -29,6 +29,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Montserrat');
@@ -339,8 +340,8 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                     </section>
                 ` : ''}
 
-                <!-- Personal Details & Custom Field -->
-                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
+                <!-- Personal Details -->
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                     <section>
                         ${MainSectionHeader(t.sections.additionalInfo)}
                         <div style="font-size: 10pt; color: #334155; display: flex; flex-direction: column; gap: 12px;">
@@ -348,15 +349,17 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                             ${personalInfo.idType && personalInfo.idNumber ? `
                                 <div><span style="font-weight: 700; color: #0f172a;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                             ` : ''}
-                            ${personalInfo.customField ? `
-                                <div>
-                                    <span style="font-weight: 700; color: #0f172a; display: block; margin-bottom: 4px;">${escapeHtml(personalInfo.customFieldLabel || 'Custom Info')}</span>
-                                    ${formatDescription(personalInfo.customField)}
-                                </div>
-                            ` : ''}
                         </div>
                     </section>
                 ` : ''}
+
+                <!-- Custom Fields -->
+                ${customFields.map(field => `
+                    <section>
+                        ${MainSectionHeader(field.label)}
+                        <p style="font-size: 10pt; line-height: 1.6; color: #334155;">${formatDescription(field.content)}</p>
+                    </section>
+                `).join('')}
 
             </main>
         </div>

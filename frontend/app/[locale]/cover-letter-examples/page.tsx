@@ -187,7 +187,7 @@ export default async function CoverLetterExamplesIndex() {
               <h3 className="font-bold text-dark-teal mb-2">Resume Examples</h3>
               <p className="text-dark-teal/60 text-sm">300+ job-specific resume examples</p>
             </Link>
-            <Link href="/blog/how-to-write-a-cover-letter" className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
+            <Link href="/blog/how-to-write-cover-letter" className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
               <h3 className="font-bold text-dark-teal mb-2">Cover Letter Guide</h3>
               <p className="text-dark-teal/60 text-sm">Step-by-step writing tutorial</p>
             </Link>

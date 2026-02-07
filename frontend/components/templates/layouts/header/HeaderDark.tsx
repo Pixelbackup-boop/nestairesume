@@ -39,7 +39,7 @@ const SvgIcon = ({ name, color = '#ffffff', size = 14 }: { name: string; color?:
  * (Note: The file name says "header-dark" but the spec describes a dark sidebar layout similar to the image analysis).
  */
 function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, references, certifications, awards, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, references, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Montserrat'); // defaults to Montserrat/Inter
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -372,7 +372,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     <section className="mb-10 resume-section" data-paginate>
                         <SectionHeaderMain title={t.sections.socialLinks} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
-                            {personalInfo.x && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Twitter:</span> <span style={{ color: '#334155' }}>{personalInfo.x}</span></div>}
+                            {personalInfo.x && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>X:</span> <span style={{ color: '#334155' }}>{personalInfo.x}</span></div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>GitHub:</span> <span style={{ color: '#334155' }}>{personalInfo.github}</span></div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Dribbble:</span> <span style={{ color: '#334155' }}>{personalInfo.dribbble}</span></div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Behance:</span> <span style={{ color: '#334155' }}>{personalInfo.behance}</span></div>}
@@ -402,13 +402,13 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
-                {/* Custom Field */}
-                {personalInfo.customField && personalInfo.customFieldLabel && (
-                    <section className="resume-section" data-paginate>
-                        <SectionHeaderMain title={personalInfo.customFieldLabel} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
-                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>{personalInfo.customField}</p>
+                {/* Custom Fields */}
+                {customFields?.map((field) => (
+                    <section key={field.id} className="resume-section" data-paginate>
+                        <SectionHeaderMain title={field.label} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>{field.content}</p>
                     </section>
-                )}
+                ))}
 
             </main>
         </div>

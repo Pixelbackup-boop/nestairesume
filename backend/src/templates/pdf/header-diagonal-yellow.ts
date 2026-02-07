@@ -35,6 +35,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
         certifications = [],
         awards = [],
         references = [],
+        customFields = [],
         fonts
     } = data;
 
@@ -226,7 +227,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             ${SectionHeader(t.sections.socialLinks)}
             <div style="display: flex; flex-direction: column; gap: 4px; font-size: 11px;">
                 ${personalInfo.linkedin ? `<div data-paginate="item"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                ${personalInfo.x ? `<div data-paginate="item"><strong>Twitter:</strong> ${escapeHtml(personalInfo.x)}</div>` : ''}
+                ${personalInfo.x ? `<div data-paginate="item"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</div>` : ''}
                 ${personalInfo.github ? `<div data-paginate="item"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</div>` : ''}
                 ${personalInfo.dribbble ? `<div data-paginate="item"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                 ${personalInfo.behance ? `<div data-paginate="item"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</div>` : ''}
@@ -272,13 +273,13 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
         </div>
     ` : '';
 
-    // Custom Field
-    const customFieldHtml = personalInfo.customField && personalInfo.customFieldLabel ? `
+    // Custom Fields
+    const customFieldsHtml = customFields.map(field => `
         <div data-paginate style="margin-bottom: 24px;">
-            ${SectionHeader(personalInfo.customFieldLabel)}
-            <p style="font-size: 11px; line-height: 1.6;">${escapeHtml(personalInfo.customField)}</p>
+            ${SectionHeader(field.label)}
+            <p style="font-size: 11px; line-height: 1.6;">${formatDescription(field.content)}</p>
         </div>
-    ` : '';
+    `).join('');
 
     // Contact items for header - matches frontend fs.small (10px)
     const contactHtml = `
@@ -348,7 +349,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                     ${socialLinksHtml}
                     ${referencesHtml}
                     ${personalDetailsHtml}
-                    ${customFieldHtml}
+                    ${customFieldsHtml}
                 </div>
             </div>
         </div>

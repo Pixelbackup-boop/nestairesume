@@ -16,6 +16,14 @@ export async function generateMetadata({
   const description =
     'Practice job interviews with AI-generated questions tailored to your role. Get instant STAR method feedback on your answers. Free mock interview tool.';
 
+  const locales = ['en', 'es', 'fr', 'de', 'ar'];
+  const alternateLanguages: Record<string, string> = {
+    'x-default': `${siteConfig.url}/en/tools/mock-interview`,
+  };
+  locales.forEach((loc) => {
+    alternateLanguages[loc] = `${siteConfig.url}/${loc}/tools/mock-interview`;
+  });
+
   return {
     title,
     description,
@@ -52,14 +60,31 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${siteConfig.url}/${locale}/tools/mock-interview`,
+      languages: alternateLanguages,
     },
   };
 }
+
+// Breadcrumb schema — hardcoded constants only, no user input
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+    { '@type': 'ListItem', position: 2, name: 'Tools', item: `${siteConfig.url}/tools` },
+    { '@type': 'ListItem', position: 3, name: 'Mock Interview' },
+  ],
+};
 
 export default function MockInterviewLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

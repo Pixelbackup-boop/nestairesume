@@ -20,7 +20,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches reference: frontend/Resume-template/unique-layouts/06-diagonal-header.webp
  */
 function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Titan One');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -340,7 +340,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                                     <div data-paginate="item"><strong>LinkedIn:</strong> {personalInfo.linkedin}</div>
                                 )}
                                 {personalInfo.x && (
-                                    <div data-paginate="item"><strong>Twitter:</strong> {personalInfo.x}</div>
+                                    <div data-paginate="item"><strong>X:</strong> {personalInfo.x}</div>
                                 )}
                                 {personalInfo.github && (
                                     <div data-paginate="item"><strong>GitHub:</strong> {personalInfo.github}</div>
@@ -392,13 +392,13 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* Custom Field */}
-                    {personalInfo.customField && personalInfo.customFieldLabel && (
-                        <section className="mb-6 resume-section" data-paginate>
-                            <SectionHeader fs={fs} title={personalInfo.customFieldLabel} />
-                            <p style={{ fontSize: fs.body, lineHeight: 1.6 }}>{personalInfo.customField}</p>
+                    {/* Custom Fields */}
+                    {customFields?.map((field) => (
+                        <section key={field.id} className="mb-6 resume-section" data-paginate>
+                            <SectionHeader fs={fs} title={field.label} />
+                            <p style={{ fontSize: fs.body, lineHeight: 1.6 }}>{field.content}</p>
                         </section>
-                    )}
+                    ))}
                 </div>
             </div>
 

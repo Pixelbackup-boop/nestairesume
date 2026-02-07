@@ -28,6 +28,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
@@ -290,7 +291,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                     ` : ''}
 
                     <!-- Personal Details -->
-                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
+                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                         <div style="margin-bottom: 40px;">
                             ${SectionHeader(t.sections.personalDetails, 'user')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #4b5563;">
@@ -298,15 +299,19 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                 ${personalInfo.idType && personalInfo.idNumber ? `
                                     <div><span style="font-weight: 600; color: ${theme.heading};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                                 ` : ''}
-                                ${personalInfo.customField ? `
-                                    <div style="margin-top: 8px;">
-                                        <span style="font-weight: 600; color: ${theme.heading}; display: block; margin-bottom: 2px;">${escapeHtml(personalInfo.customFieldLabel || t.sections.additionalInfo)}</span>
-                                        ${formatDescription(personalInfo.customField)}
-                                    </div>
-                                ` : ''}
                             </div>
                         </div>
                     ` : ''}
+
+                    <!-- Custom Fields -->
+                    ${customFields.map(field => `
+                        <div style="margin-bottom: 40px;">
+                            ${SectionHeader(field.label, 'user')}
+                            <p style="font-size: 12px; color: #4b5563; line-height: 1.6;">
+                                ${formatDescription(field.content)}
+                            </p>
+                        </div>
+                    `).join('')}
 
                 </div>
             </div>

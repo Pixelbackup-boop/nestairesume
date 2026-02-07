@@ -6,9 +6,9 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { useAuthStore } from "@/store/useAuthStore";
-import { LogOut, LayoutDashboard, Shield, ChevronDown, FileText, FileSignature, BookOpen, Newspaper, ArrowRight, Layers } from "lucide-react";
+import { LogOut, LayoutDashboard, Shield, ChevronDown, FileText, FileSignature, BookOpen, Newspaper, ArrowRight, Layers, User, ScanSearch, Mic } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
-
+import UserDropdown from "./UserDropdown";
 import MegaMenuPanel from "./MegaMenuPanel";
 
 export default function Header() {
@@ -141,22 +141,7 @@ export default function Header() {
               <LanguageSwitcher scrolled={scrolled} isHomePage={isHomePage} />
 
               {isAuthenticated ? (
-                <>
-                  {user?.role === "admin" && (
-                    <Link href={localizedHref("/admin")} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}>
-                      <Shield size={16} />
-                      {t("admin")}
-                    </Link>
-                  )}
-                  <Link href={localizedHref("/dashboard")} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}>
-                    <LayoutDashboard size={16} />
-                    {t("dashboard")}
-                  </Link>
-                  <button onClick={handleLogout} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} hover:text-red-500`}>
-                    <LogOut size={16} />
-                    {t("logout")}
-                  </button>
-                </>
+                <UserDropdown scrolled={scrolled} isHomePage={isHomePage} />
               ) : (
                 <>
                   <Link href={localizedHref("/auth/login")} className={`px-4 py-2 text-sm font-medium transition-colors ${textColorMuted} ${textColorHover}`}>
@@ -210,8 +195,7 @@ export default function Header() {
               <h3 className={megaSectionHeader}>{t("byFormat")}</h3>
               <div className="space-y-1">
                 <Link href={localizedHref("/templates/ats-friendly")} onClick={closeMenu} className={megaLinkClass}>ATS-Friendly</Link>
-                <Link href={localizedHref("/templates/google-docs")} onClick={closeMenu} className={megaLinkClass}>Google Docs</Link>
-                <Link href={localizedHref("/templates/word")} onClick={closeMenu} className={megaLinkClass}>Microsoft Word</Link>
+                <Link href={localizedHref("/templates/microsoftword")} onClick={closeMenu} className={megaLinkClass}>Microsoft Word</Link>
               </div>
             </div>
             <div className="bg-gradient-to-br from-teal-primary/10 to-teal-secondary/10 rounded-xl p-6 flex flex-col justify-center">
@@ -290,6 +274,24 @@ export default function Header() {
                     <div className="text-xs text-gray-500">{t("resignationLetterDesc")}</div>
                   </div>
                 </Link>
+                <Link href={localizedHref("/tools/ats-checker")} onClick={closeMenu} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                  <div className="w-8 h-8 bg-accent-blue/10 rounded-lg flex items-center justify-center shrink-0">
+                    <ScanSearch size={16} className="text-accent-blue" />
+                  </div>
+                  <div>
+                    <div className="font-medium">{t("atsChecker")}</div>
+                    <div className="text-xs text-gray-500">{t("atsCheckerDesc")}</div>
+                  </div>
+                </Link>
+                <Link href={localizedHref("/tools/mock-interview")} onClick={closeMenu} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                  <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center shrink-0">
+                    <Mic size={16} className="text-green-600" />
+                  </div>
+                  <div>
+                    <div className="font-medium">{t("mockInterview")}</div>
+                    <div className="text-xs text-gray-500">{t("mockInterviewDesc")}</div>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -311,8 +313,7 @@ export default function Header() {
                 { href: "/templates/creative", label: "Creative" },
                 { href: "/templates/simple", label: "Simple & Clean" },
                 { href: "/templates/ats-friendly", label: "ATS-Friendly" },
-                { href: "/templates/google-docs", label: "Google Docs" },
-                { href: "/templates/word", label: "Word" },
+                { href: "/templates/microsoftword", label: "Microsoft Word" },
               ].map(link => (
                 <Link key={link.href} href={localizedHref(link.href)} onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
@@ -344,6 +345,14 @@ export default function Header() {
                 className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
                 <FileSignature size={18} className="text-teal-primary" /> {t("resignationLetter")}
               </Link>
+              <Link href={localizedHref("/tools/ats-checker")} onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                <ScanSearch size={18} className="text-accent-blue" /> {t("atsChecker")}
+              </Link>
+              <Link href={localizedHref("/tools/mock-interview")} onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                <Mic size={18} className="text-green-600" /> {t("mockInterview")}
+              </Link>
 
               {/* Pricing */}
               <div className="pt-3 pb-1">
@@ -362,18 +371,22 @@ export default function Header() {
               <div className="pt-4 border-t border-gray-200 space-y-2">
                 {isAuthenticated ? (
                   <>
+                    <Link href={localizedHref("/profile")} onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                      <User size={16} /> {t("profile") || "Profile"}
+                    </Link>
+                    <Link href={localizedHref("/dashboard")} onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
+                      <LayoutDashboard size={16} /> {t("dashboard")}
+                    </Link>
                     {user?.role === "admin" && (
                       <Link href={localizedHref("/admin")} onClick={() => setMobileMenuOpen(false)}
                         className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-teal-primary hover:bg-gray-50 transition-colors">
                         <Shield size={16} /> {t("adminPanel")}
                       </Link>
                     )}
-                    <Link href={localizedHref("/dashboard")} onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
-                      <LayoutDashboard size={16} /> {t("dashboard")}
-                    </Link>
                     <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
-                      className="flex items-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-red-500 hover:bg-gray-50 transition-colors">
+                      className="flex items-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium text-red-500 hover:bg-red-50 transition-colors">
                       <LogOut size={16} /> {t("logout")}
                     </button>
                   </>

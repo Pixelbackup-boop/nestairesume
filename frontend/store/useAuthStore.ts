@@ -5,6 +5,7 @@ interface User {
     id: string;
     email: string;
     name: string;
+    image?: string | null;
     role: 'user' | 'admin';
     subscriptionTier?: string;
     subscriptionStatus?: string;
@@ -22,6 +23,7 @@ interface AuthState {
     logout: () => void;
     refreshUser: () => Promise<void>;
     setFromNextAuth: (session: any) => void;
+    updateProfile: (data: { name?: string; email?: string; avatarId?: number }) => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -44,7 +46,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
             // 2. Fetch user profile to get role and other details
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data as { id: string; email: string; name?: string; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
+            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
 
             set({
                 isAuthenticated: true,
@@ -52,6 +54,7 @@ export const useAuthStore = create<AuthState>((set) => ({
                     id: userData.id,
                     email: userData.email,
                     name: userData.name || '',
+                    image: userData.image,
                     role: (userData.role as 'user' | 'admin') || 'user',
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
@@ -99,7 +102,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
         try {
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data as { id: string; email: string; name?: string; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
+            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
 
             set({
                 isAuthenticated: true,
@@ -107,6 +110,7 @@ export const useAuthStore = create<AuthState>((set) => ({
                     id: userData.id,
                     email: userData.email,
                     name: userData.name || '',
+                    image: userData.image,
                     role: (userData.role as 'user' | 'admin') || 'user',
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
@@ -134,6 +138,24 @@ export const useAuthStore = create<AuthState>((set) => ({
             });
         } else {
             set({ user: null, isAuthenticated: false });
+        }
+    },
+
+    updateProfile: async (data) => {
+        try {
+            const response = await api.patch('/auth/profile', data);
+            const updated = response.data as { id: string; email: string; name: string; image?: string | null; role: string };
+
+            set((state) => ({
+                user: state.user ? {
+                    ...state.user,
+                    name: updated.name,
+                    email: updated.email,
+                    image: updated.image,
+                } : null,
+            }));
+        } catch (error: any) {
+            throw error;
         }
     },
 }));

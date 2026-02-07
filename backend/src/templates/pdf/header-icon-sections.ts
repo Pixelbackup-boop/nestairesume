@@ -32,6 +32,7 @@ export const renderHeaderIconSections = (
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts
     } = data;
 
@@ -275,7 +276,7 @@ export const renderHeaderIconSections = (
             ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? BoxSection(t.sections.socialLinks, '&#128279;', `
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                    ${personalInfo.x ? `<div><span style="font-weight: 600;">Twitter:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
+                    ${personalInfo.x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
                     ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
                     ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                     ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
@@ -311,10 +312,10 @@ export const renderHeaderIconSections = (
                 </div>
             `) : ''}
 
-            <!-- Custom Field (Boxed) -->
-            ${personalInfo.customField && personalInfo.customFieldLabel ? BoxSection(personalInfo.customFieldLabel, '&#128204;', `
-                <p style="line-height: 1.6;">${formatDescription(personalInfo.customField)}</p>
-            `) : ''}
+            <!-- Custom Fields (Boxed) -->
+            ${customFields.map(field => BoxSection(field.label, '&#128204;', `
+                <p style="line-height: 1.6;">${formatDescription(field.content)}</p>
+            `)).join('')}
 
         </div>
     `;

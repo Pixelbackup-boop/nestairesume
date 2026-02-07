@@ -16,14 +16,14 @@ export const headerDarkTemplate: BuilderTemplate = {
     thumbnail: '/templates/header-dark.jpg',
 };
 
-// Dark banner header - bold style (UNIQUE LAYOUT: dark header, two-column with skills/interests right)
+// Dark banner header - modern style (UNIQUE LAYOUT: dark header, two-column with skills/interests right)
 export const headerDarkBannerTemplate: BuilderTemplate = {
     id: 'header-dark-banner',
     name: 'Dark Banner',
-    style: 'Bold',
+    style: 'Modern',
     layout: 'header',
     layoutPresetId: 'header-normal-normal',
-    category: 'bold',
+    category: 'modern',
     accentColor: '#f59e0b',
     gradientColors: 'from-slate-900 to-slate-950',
     templateId: 'header-dark-banner',
@@ -100,28 +100,28 @@ export const headerGeometricTemplate: BuilderTemplate = {
     thumbnail: '/templates/header-geometric.webp',
 };
 
-// Orange icon sections header - bold style (UNIQUE LAYOUT: labels-left, 3-column skills, hashtag strengths)
+// Orange icon sections header - modern style (UNIQUE LAYOUT: labels-left, 3-column skills, hashtag strengths)
 export const headerIconOrangeTemplate: BuilderTemplate = {
     id: 'header-icon-orange',
     name: 'Icon Orange',
-    style: 'Bold',
+    style: 'Modern',
     layout: 'header',
     layoutPresetId: 'header-normal-normal',
-    category: 'bold',
+    category: 'modern',
     accentColor: '#ea580c',
     gradientColors: 'from-orange-600 to-orange-800',
     templateId: 'header-icon-sections',
     thumbnail: '/templates/header-icon-sections.webp',
 };
 
-// Blue clean header - professional style (UNIQUE LAYOUT: light blue header, photo left, two-column)
+// Blue clean header - ATS-friendly style (UNIQUE LAYOUT: light blue header, photo left, two-column)
 export const headerBlueCleanTemplate: BuilderTemplate = {
     id: 'header-blue-clean',
     name: 'Blue Clean',
-    style: 'Professional',
+    style: 'ATS-Friendly',
     layout: 'header',
     layoutPresetId: 'header-normal-normal',
-    category: 'professional',
+    category: 'ats-friendly',
     accentColor: '#2563eb',
     gradientColors: 'from-blue-600 to-blue-800',
     templateId: 'header-blue-clean',

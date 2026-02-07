@@ -6,7 +6,7 @@ import {
     Search,
     Briefcase,
     Minimize2,
-    Zap,
+    FileCheck,
     Sparkles,
     Palette,
     ArrowRight,
@@ -44,18 +44,18 @@ const FEATURED_TEMPLATE_IDS = [
 const SEO_SLUG_TO_FILTER: Record<string, string> = {
     'creative': 'creative',
     'modern': 'professional', // modern SEO page shows professional templates
-    'simple': 'minimal',
-    'ats-friendly': 'all', // all templates are ATS-friendly
+    'simple': 'ats-friendly',
+    'ats-friendly': 'ats-friendly',
 };
 
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'bold';
+type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'ats-friendly';
 
 const categoryIcons: Record<string, React.ElementType> = {
     all: Sparkles,
     professional: Briefcase,
     creative: Palette,
     minimal: Minimize2,
-    bold: Zap,
+    'ats-friendly': FileCheck,
 };
 
 const builderTemplates = sharedBuilderTemplates.map(t => ({
@@ -87,7 +87,7 @@ export default function BuilderTemplatesGrid({
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedTemplateForModal, setSelectedTemplateForModal] = useState<{ id: string; name: string } | null>(null);
 
-    const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal', 'bold'];
+    const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal', 'ats-friendly'];
 
     const filteredTemplates = useMemo(() => {
         return builderTemplates.filter((template) => {

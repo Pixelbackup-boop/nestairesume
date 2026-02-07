@@ -210,7 +210,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                             setShowFontMenu(!showFontMenu);
                             setShowSizeMenu(false);
                         }}
-                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-gray-600 hover:text-white hover:bg-gray-200 rounded transition-colors min-w-[100px]"
+                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-gray-600 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors min-w-[100px]"
                     >
                         <Type size={14} />
                         <span className="truncate">{element.fontFamily}</span>
@@ -240,7 +240,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                             setShowSizeMenu(!showSizeMenu);
                             setShowFontMenu(false);
                         }}
-                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-gray-600 hover:text-white hover:bg-gray-200 rounded transition-colors w-14"
+                        className="flex items-center gap-1 px-2 py-1.5 text-sm text-gray-600 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors w-14"
                     >
                         {element.fontSize}
                     </button>
@@ -268,8 +268,8 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={toggleBold}
                     className={`p-1.5 rounded transition-colors ${
                         element.fontWeight === 'bold'
-                            ? 'bg-gray-200 text-white'
-                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
+                            ? 'bg-gray-200 text-gray-900'
+                            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                     <Bold size={16} />
@@ -280,8 +280,8 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={toggleItalic}
                     className={`p-1.5 rounded transition-colors ${
                         element.fontStyle === 'italic'
-                            ? 'bg-gray-200 text-white'
-                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
+                            ? 'bg-gray-200 text-gray-900'
+                            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                     <Italic size={16} />
@@ -294,8 +294,8 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={() => setAlign('left')}
                     className={`p-1.5 rounded transition-colors ${
                         element.align === 'left'
-                            ? 'bg-gray-200 text-white'
-                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
+                            ? 'bg-gray-200 text-gray-900'
+                            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                     <AlignLeft size={16} />
@@ -304,8 +304,8 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={() => setAlign('center')}
                     className={`p-1.5 rounded transition-colors ${
                         element.align === 'center'
-                            ? 'bg-gray-200 text-white'
-                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
+                            ? 'bg-gray-200 text-gray-900'
+                            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                     <AlignCenter size={16} />
@@ -314,8 +314,8 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                     onClick={() => setAlign('right')}
                     className={`p-1.5 rounded transition-colors ${
                         element.align === 'right'
-                            ? 'bg-gray-200 text-white'
-                            : 'text-gray-500 hover:text-white hover:bg-gray-200'
+                            ? 'bg-gray-200 text-gray-900'
+                            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                     <AlignRight size={16} />
@@ -345,7 +345,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                         className={`p-1.5 rounded transition-colors ${
                             showAIPanel
                                 ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
-                                : 'text-gray-500 hover:text-white hover:bg-gray-200'
+                                : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                         }`}
                         title="AI Generate Text"
                     >
@@ -359,11 +359,11 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                             <div className="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border-b border-gray-300">
                                 <div className="flex items-center gap-2">
                                     <Sparkles size={14} className="text-purple-400" />
-                                    <span className="text-sm font-medium text-white">AI Generate</span>
+                                    <span className="text-sm font-medium text-gray-900">AI Generate</span>
                                 </div>
                                 <button
                                     onClick={() => setShowAIPanel(false)}
-                                    className="p-1 text-gray-500 hover:text-white rounded"
+                                    className="p-1 text-gray-500 hover:text-gray-700 rounded"
                                 >
                                     <X size={14} />
                                 </button>
@@ -428,7 +428,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                                                     }
                                                 }}
                                                 placeholder="Describe what to write..."
-                                                className="w-full px-3 py-2 bg-gray-200 text-white text-sm rounded-lg border border-gray-300 focus:border-purple-500 focus:outline-none placeholder-gray-400"
+                                                className="w-full px-3 py-2 bg-gray-200 text-gray-900 text-sm rounded-lg border border-gray-300 focus:border-purple-500 focus:outline-none placeholder-gray-400"
                                                 autoFocus
                                             />
                                         </div>
@@ -480,7 +480,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                 ref={textareaRef}
                 value={text}
                 onChange={handleTextChange}
-                className="min-w-[200px] max-w-[400px] p-3 bg-white text-white border border-gray-300 rounded-lg shadow-xl resize-both focus:outline-none focus:border-accent-green"
+                className="min-w-[200px] max-w-[400px] p-3 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-xl resize-both focus:outline-none focus:border-accent-green"
                 style={{
                     fontSize: Math.min(element.fontSize * zoom, 24),
                     fontFamily: element.fontFamily,

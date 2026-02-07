@@ -126,7 +126,7 @@ export default function PropertiesPanel() {
                 min={min}
                 max={max}
                 step={step}
-                className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-sm text-white text-right focus:outline-none focus:border-accent-green"
+                className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-sm text-gray-900 text-right focus:outline-none focus:border-accent-green"
             />
         </div>
     );
@@ -151,7 +151,7 @@ export default function PropertiesPanel() {
                     value={value || ''}
                     onChange={(e) => onChange(e.target.value)}
                     onBlur={() => saveToHistory()}
-                    className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-xs text-white focus:outline-none focus:border-accent-green"
+                    className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-xs text-gray-900 focus:outline-none focus:border-accent-green"
                     placeholder="#000000"
                 />
             </div>
@@ -193,13 +193,13 @@ export default function PropertiesPanel() {
         <div className="w-64 bg-gray-50 border-l border-gray-200 flex flex-col h-full overflow-hidden">
             {/* Header */}
             <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between shrink-0">
-                <div className="flex items-center gap-2 text-white">
+                <div className="flex items-center gap-2 text-gray-700">
                     {getElementIcon()}
                     <span className="font-medium text-sm">{getElementTypeName()}</span>
                 </div>
                 <button
                     onClick={deselectAll}
-                    className="p-1 text-gray-500 hover:text-white transition-colors"
+                    className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
                 >
                     <X size={16} />
                 </button>
@@ -209,21 +209,21 @@ export default function PropertiesPanel() {
             <div className="px-4 py-3 border-b border-gray-200 flex items-center gap-1 shrink-0">
                 <button
                     onClick={() => duplicateElement(selectedElement.id)}
-                    className="p-2 text-gray-500 hover:text-white hover:bg-white rounded transition-colors"
+                    className="p-2 text-gray-500 hover:text-gray-700 hover:bg-white rounded transition-colors"
                     title="Duplicate"
                 >
                     <Copy size={16} />
                 </button>
                 <button
                     onClick={() => handleUpdateAndSave({ locked: !selectedElement.locked })}
-                    className={`p-2 rounded transition-colors ${selectedElement.locked ? 'text-accent-green bg-white' : 'text-gray-500 hover:text-white hover:bg-white'}`}
+                    className={`p-2 rounded transition-colors ${selectedElement.locked ? 'text-accent-green bg-white' : 'text-gray-500 hover:text-gray-700 hover:bg-white'}`}
                     title={selectedElement.locked ? 'Unlock' : 'Lock'}
                 >
                     {selectedElement.locked ? <Lock size={16} /> : <Unlock size={16} />}
                 </button>
                 <button
                     onClick={() => handleUpdateAndSave({ visible: !selectedElement.visible })}
-                    className={`p-2 rounded transition-colors ${!selectedElement.visible ? 'text-yellow-500 bg-white' : 'text-gray-500 hover:text-white hover:bg-white'}`}
+                    className={`p-2 rounded transition-colors ${!selectedElement.visible ? 'text-yellow-500 bg-white' : 'text-gray-500 hover:text-gray-700 hover:bg-white'}`}
                     title={selectedElement.visible ? 'Hide' : 'Show'}
                 >
                     {selectedElement.visible ? <Eye size={16} /> : <EyeOff size={16} />}
@@ -231,14 +231,14 @@ export default function PropertiesPanel() {
                 <div className="w-px h-6 bg-gray-200 mx-1" />
                 <button
                     onClick={() => bringToFront(selectedElement.id)}
-                    className="p-2 text-gray-500 hover:text-white hover:bg-white rounded transition-colors"
+                    className="p-2 text-gray-500 hover:text-gray-700 hover:bg-white rounded transition-colors"
                     title="Bring to Front"
                 >
                     <ChevronsUp size={16} />
                 </button>
                 <button
                     onClick={() => sendToBack(selectedElement.id)}
-                    className="p-2 text-gray-500 hover:text-white hover:bg-white rounded transition-colors"
+                    className="p-2 text-gray-500 hover:text-gray-700 hover:bg-white rounded transition-colors"
                     title="Send to Back"
                 >
                     <ChevronsDown size={16} />
@@ -291,7 +291,7 @@ export default function PropertiesPanel() {
                         />
                         <button
                             onClick={() => handleUpdateAndSave({ rotation: 0 })}
-                            className="p-1.5 text-gray-500 hover:text-white hover:bg-white rounded transition-colors ml-2"
+                            className="p-1.5 text-gray-500 hover:text-gray-700 hover:bg-white rounded transition-colors ml-2"
                             title="Reset Rotation"
                         >
                             <RotateCcw size={14} />
@@ -317,7 +317,7 @@ export default function PropertiesPanel() {
                                     <select
                                         value={(selectedElement as TextElement).fontFamily}
                                         onChange={(e) => handleUpdateAndSave({ fontFamily: e.target.value })}
-                                        className="w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-sm text-white focus:outline-none focus:border-accent-green"
+                                        className="w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-sm text-gray-900 focus:outline-none focus:border-accent-green"
                                     >
                                         {['Inter', 'Playfair Display', 'Roboto', 'Open Sans', 'Lato', 'Poppins', 'Montserrat', 'Merriweather', 'Georgia', 'Times New Roman'].map((font) => (
                                             <option key={font} value={font} style={{ fontFamily: font }}>
@@ -343,7 +343,7 @@ export default function PropertiesPanel() {
                                         onClick={() => handleUpdateAndSave({
                                             fontWeight: (selectedElement as TextElement).fontWeight === 'bold' ? 'normal' : 'bold'
                                         })}
-                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontWeight === 'bold' ? 'bg-gray-200 text-white' : 'text-gray-500 hover:bg-white'}`}
+                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontWeight === 'bold' ? 'bg-gray-200 text-gray-900' : 'text-gray-500 hover:bg-white'}`}
                                     >
                                         <Bold size={16} />
                                     </button>
@@ -351,7 +351,7 @@ export default function PropertiesPanel() {
                                         onClick={() => handleUpdateAndSave({
                                             fontStyle: (selectedElement as TextElement).fontStyle === 'italic' ? 'normal' : 'italic'
                                         })}
-                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontStyle === 'italic' ? 'bg-gray-200 text-white' : 'text-gray-500 hover:bg-white'}`}
+                                        className={`p-2 rounded transition-colors ${(selectedElement as TextElement).fontStyle === 'italic' ? 'bg-gray-200 text-gray-900' : 'text-gray-500 hover:bg-white'}`}
                                     >
                                         <Italic size={16} />
                                     </button>
@@ -364,7 +364,7 @@ export default function PropertiesPanel() {
                                         <button
                                             key={align}
                                             onClick={() => handleUpdateAndSave({ align })}
-                                            className={`p-2 rounded transition-colors ${(selectedElement as TextElement).align === align ? 'bg-gray-200 text-white' : 'text-gray-500 hover:bg-white'}`}
+                                            className={`p-2 rounded transition-colors ${(selectedElement as TextElement).align === align ? 'bg-gray-200 text-gray-900' : 'text-gray-500 hover:bg-white'}`}
                                         >
                                             {align === 'left' && <AlignLeft size={16} />}
                                             {align === 'center' && <AlignCenter size={16} />}
@@ -406,7 +406,7 @@ export default function PropertiesPanel() {
                                             value={(selectedElement as TextElement).backgroundColor || ''}
                                             onChange={(e) => handleUpdate({ backgroundColor: e.target.value })}
                                             onBlur={() => saveToHistory()}
-                                            className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-xs text-white focus:outline-none focus:border-accent-green"
+                                            className="w-20 px-2 py-1 bg-white border border-gray-300 rounded text-xs text-gray-900 focus:outline-none focus:border-accent-green"
                                             placeholder="None"
                                         />
                                     </div>

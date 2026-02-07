@@ -11,19 +11,20 @@ import {
     Briefcase,
     Palette,
     Minimize2,
-    Zap,
+    FileCheck,
 } from 'lucide-react';
 import { canvasTemplates } from '@/lib/canvasTemplates';
 import { useCanvasStore, CanvasTemplate } from '@/store/useCanvasStore';
 
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'bold';
+type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'modern' | 'ats-friendly';
 
 const categoryIcons: Record<CategoryFilter, React.ElementType> = {
     all: Sparkles,
     professional: Briefcase,
     creative: Palette,
     minimal: Minimize2,
-    bold: Zap,
+    modern: Sparkles,
+    'ats-friendly': FileCheck,
 };
 
 const categoryLabels: Record<CategoryFilter, string> = {
@@ -31,7 +32,8 @@ const categoryLabels: Record<CategoryFilter, string> = {
     professional: 'Professional',
     creative: 'Creative',
     minimal: 'Minimal',
-    bold: 'Bold',
+    modern: 'Modern',
+    'ats-friendly': 'ATS-Friendly',
 };
 
 export default function CanvasTemplatesPage() {

@@ -675,7 +675,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section - Light Background with Schema Markup */}
+      {/* FAQ Section - Light Background with JSON-LD Schema */}
+      {/* FAQ schema — built from translation strings, no user input */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: (t.raw("faq.items") as Array<{question: string; answer: string}>).map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer,
+            },
+          })),
+        }) }}
+      />
       <section id="faq" className="py-12 md:py-24 bg-light-teal">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-8 md:mb-12">
@@ -686,29 +702,20 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* FAQ Items with Schema-ready structure */}
-          <div className="space-y-4" itemScope itemType="https://schema.org/FAQPage">
+          <div className="space-y-4">
             {(t.raw("faq.items") as Array<{question: string; answer: string}>).map((item, index) => (
               <details
                 key={index}
                 className="group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
               >
                 <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-50 transition">
-                  <h3 className="font-semibold text-dark-teal pr-4" itemProp="name">{item.question}</h3>
+                  <h3 className="font-semibold text-dark-teal pr-4">{item.question}</h3>
                   <svg className="w-5 h-5 text-teal-primary flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div
-                  className="px-5 pb-5 text-dark-teal/70 leading-relaxed"
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
-                >
-                  <p itemProp="text">{item.answer}</p>
+                <div className="px-5 pb-5 text-dark-teal/70 leading-relaxed">
+                  <p>{item.answer}</p>
                 </div>
               </details>
             ))}

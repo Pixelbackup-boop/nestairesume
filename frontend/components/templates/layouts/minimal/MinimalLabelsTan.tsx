@@ -16,7 +16,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * - Style: Very simple, similar to ClassicLabelsLeft but warmer minimal feel.
  */
 function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, certifications, awards, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Lato');
     const bodyFont = getFontFamily(fonts?.body || 'Lato');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -312,17 +312,17 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                     </div>
                 )}
 
-                {/* Custom Field */}
-                {personalInfo.customField && personalInfo.customFieldLabel && (
-                    <div style={{ display: 'flex' }}>
+                {/* Custom Fields */}
+                {customFields?.map((field) => (
+                    <div key={field.id} style={{ display: 'flex', marginTop: 24 }}>
                         <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{personalInfo.customFieldLabel}</h3>
+                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{field.label}</h3>
                         </div>
                         <div style={{ flex: 1 }}>
-                            <p style={{ margin: 0, lineHeight: 1.6, fontSize: fs.body }}>{personalInfo.customField}</p>
+                            <p style={{ margin: 0, lineHeight: 1.6, fontSize: fs.body }}>{field.content}</p>
                         </div>
                     </div>
-                )}
+                ))}
 
             </div>
         </div>

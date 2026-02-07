@@ -205,7 +205,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                         className={`p-2.5 rounded-lg transition-colors ${
                             activeTool === tool.id
                                 ? 'bg-accent-green text-gray-900'
-                                : 'text-gray-500 hover:text-white hover:bg-white'
+                                : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                         }`}
                         title={tool.label}
                     >
@@ -223,7 +223,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                                 className={`p-2 rounded-lg transition-colors ${
                                     activeShapeType === shape.id
                                         ? 'bg-gray-200 text-accent-green'
-                                        : 'text-gray-500 hover:text-white hover:bg-white'
+                                        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                                 }`}
                                 title={shape.label}
                             >
@@ -242,7 +242,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     disabled={!canUndo}
                     className={`p-2.5 rounded-lg transition-colors ${
                         canUndo
-                            ? 'text-gray-500 hover:text-white hover:bg-white'
+                            ? 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                             : 'text-gray-600 cursor-not-allowed'
                     }`}
                     title="Undo (Cmd+Z)"
@@ -254,7 +254,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     disabled={!canRedo}
                     className={`p-2.5 rounded-lg transition-colors ${
                         canRedo
-                            ? 'text-gray-500 hover:text-white hover:bg-white'
+                            ? 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                             : 'text-gray-600 cursor-not-allowed'
                     }`}
                     title="Redo (Cmd+Shift+Z)"
@@ -268,7 +268,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                 <div className="flex items-center gap-1">
                     <button
                         onClick={() => selectedElementIds.forEach((id) => duplicateElement(id))}
-                        className="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white transition-colors"
+                        className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
                         title="Duplicate (Cmd+D)"
                     >
                         <Copy size={20} />
@@ -285,14 +285,14 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
 
                     <button
                         onClick={() => selectedElementIds.forEach((id) => bringToFront(id))}
-                        className="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white transition-colors"
+                        className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
                         title="Bring to Front"
                     >
                         <ChevronUp size={20} />
                     </button>
                     <button
                         onClick={() => selectedElementIds.forEach((id) => sendToBack(id))}
-                        className="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white transition-colors"
+                        className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
                         title="Send to Back"
                     >
                         <ChevronDown size={20} />
@@ -305,7 +305,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                 <button
                     onClick={() => setZoom(zoom - 0.1)}
                     disabled={zoom <= 0.2}
-                    className="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white transition-colors disabled:text-gray-600 disabled:cursor-not-allowed"
+                    className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors disabled:text-gray-600 disabled:cursor-not-allowed"
                     title="Zoom Out"
                 >
                     <ZoomOut size={20} />
@@ -316,7 +316,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                 <button
                     onClick={() => setZoom(zoom + 0.1)}
                     disabled={zoom >= 3}
-                    className="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white transition-colors disabled:text-gray-600 disabled:cursor-not-allowed"
+                    className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors disabled:text-gray-600 disabled:cursor-not-allowed"
                     title="Zoom In"
                 >
                     <ZoomIn size={20} />
@@ -339,7 +339,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                 {/* Save/Load buttons */}
                 <button
                     onClick={handleSave}
-                    className="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white transition-colors"
+                    className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
                     title="Save Project (Cmd+S)"
                 >
                     <Save size={20} />
@@ -349,7 +349,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     disabled={!hasSavedProject}
                     className={`p-2.5 rounded-lg transition-colors ${
                         hasSavedProject
-                            ? 'text-gray-500 hover:text-white hover:bg-white'
+                            ? 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                             : 'text-gray-600 cursor-not-allowed'
                     }`}
                     title="Load Project"
@@ -368,19 +368,19 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     <div className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 min-w-[140px]">
                         <button
                             onClick={() => onExport('pdf')}
-                            className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-200 hover:text-white transition-colors"
+                            className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                         >
                             Download PDF
                         </button>
                         <button
                             onClick={() => onExport('png')}
-                            className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-200 hover:text-white transition-colors"
+                            className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                         >
                             Download PNG
                         </button>
                         <button
                             onClick={() => onExport('jpeg')}
-                            className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-200 hover:text-white transition-colors"
+                            className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                         >
                             Download JPEG
                         </button>

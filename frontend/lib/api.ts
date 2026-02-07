@@ -46,6 +46,27 @@ async function request<T>(
       body: data ? (typeof data === 'string' ? data : JSON.stringify(data)) : undefined,
     });
 
+    // Handle blob responses (for PDF/DOCX downloads)
+    if (config.responseType === 'blob') {
+      if (!response.ok) {
+        // Try to parse error as JSON for blob requests
+        const errorText = await response.text();
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { message: errorText || `Request failed with status ${response.status}` };
+        }
+        const error: ApiError = {
+          response: { data: errorData, status: response.status },
+          message: errorData?.message || errorData?.error || `Request failed with status ${response.status}`,
+        };
+        throw error;
+      }
+      const blob = await response.blob();
+      return { data: blob as T };
+    }
+
     const responseData = await response.json().catch(() => ({}));
 
     if (!response.ok) {
@@ -54,7 +75,7 @@ async function request<T>(
           data: responseData,
           status: response.status,
         },
-        message: responseData?.message || `Request failed with status ${response.status}`,
+        message: responseData?.message || responseData?.error || responseData?.detail || `Request failed with status ${response.status}`,
       };
       throw error;
     }

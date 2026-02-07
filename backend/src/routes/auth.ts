@@ -11,6 +11,9 @@ import {
   resetPassword,
   changePassword,
   setPassword,
+  updateProfile,
+  requestEmailChange,
+  verifyEmailChange,
 } from "../services/authService";
 import { authenticateToken, AuthRequest } from "../middleware/auth";
 import {
@@ -24,6 +27,9 @@ import {
   changePasswordSchema,
   setPasswordSchema,
   oauthSchema,
+  updateProfileSchema,
+  requestEmailChangeSchema,
+  verifyEmailChangeSchema,
 } from "../middleware/validation";
 
 const router = Router();
@@ -159,6 +165,57 @@ router.get("/me", authenticateToken, async (req: AuthRequest, res: Response) => 
     res.json(user);
   } catch (error) {
     res.status(500).json({ detail: "Failed to get user" });
+  }
+});
+
+// PATCH /api/v1/auth/profile - Update user profile (name and avatar only)
+router.patch("/profile", authenticateToken, validateBody(updateProfileSchema), async (req: AuthRequest, res: Response) => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ detail: "Not authenticated" });
+      return;
+    }
+
+    const { name, avatarId } = req.body;
+    const user = await updateProfile(req.user.id, { name, avatarId });
+    res.json(user);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Profile update failed";
+    res.status(400).json({ detail: message });
+  }
+});
+
+// POST /api/v1/auth/request-email-change - Request email change with verification
+router.post("/request-email-change", authenticateToken, validateBody(requestEmailChangeSchema), async (req: AuthRequest, res: Response) => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ detail: "Not authenticated" });
+      return;
+    }
+
+    const { newEmail } = req.body;
+    const result = await requestEmailChange(req.user.id, newEmail);
+    res.json(result);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Email change request failed";
+    res.status(400).json({ detail: message });
+  }
+});
+
+// POST /api/v1/auth/verify-email-change - Verify code and complete email change
+router.post("/verify-email-change", authenticateToken, validateBody(verifyEmailChangeSchema), async (req: AuthRequest, res: Response) => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ detail: "Not authenticated" });
+      return;
+    }
+
+    const { newEmail, code } = req.body;
+    const user = await verifyEmailChange(req.user.id, newEmail, code);
+    res.json(user);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Email verification failed";
+    res.status(400).json({ detail: message });
   }
 });
 

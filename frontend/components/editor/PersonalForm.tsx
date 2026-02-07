@@ -3,29 +3,24 @@
 import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useResumeStore, ImageShape, IdDocumentType } from '../../store/useResumeStore';
-import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Circle, Square, RectangleHorizontal, Flag, CreditCard, ChevronDown, Share2, Users, FileText } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Flag, CreditCard, ChevronDown, Share2, Users, FileText } from 'lucide-react';
 import { generateSummaryOnly } from '../../lib/aiResumeGenerator';
 import Image from 'next/image';
 import ImageCropper from './ImageCropper';
 import CollapsibleSection from './CollapsibleSection';
 import SocialLinksSection from './SocialLinksSection';
 import ReferencesSection from './ReferencesSection';
+import CustomFieldsSection from './CustomFieldsSection';
 import IconInput from '../ui/IconInput';
 
 export default function PersonalForm() {
   const t = useTranslations('Builder');
   const { resumeData, updatePersonalInfo } = useResumeStore();
-  const { personalInfo, references } = resumeData;
+  const { personalInfo, references, customFields = [] } = resumeData;
   const [isGenerating, setIsGenerating] = useState(false);
   const [showCropper, setShowCropper] = useState(false);
   const [tempImage, setTempImage] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const shapes: { id: ImageShape; label: string; icon: typeof Circle }[] = [
-    { id: 'circle', label: t('shapes.circle'), icon: Circle },
-    { id: 'rounded', label: t('shapes.rounded'), icon: RectangleHorizontal },
-    { id: 'square', label: t('shapes.square'), icon: Square },
-  ];
 
   const idDocumentTypes: { value: IdDocumentType; label: string }[] = [
     { value: '', label: t('selectDocType') },
@@ -71,8 +66,8 @@ export default function PersonalForm() {
     reader.readAsDataURL(file);
   };
 
-  const handleCropComplete = (croppedImage: string, shape: ImageShape) => {
-    updatePersonalInfo({ profileImage: croppedImage, imageShape: shape });
+  const handleCropComplete = (croppedImage: string) => {
+    updatePersonalInfo({ profileImage: croppedImage });
     setShowCropper(false);
     setTempImage('');
     if (fileInputRef.current) {
@@ -93,10 +88,6 @@ export default function PersonalForm() {
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
-  };
-
-  const handleShapeChange = (shape: ImageShape) => {
-    updatePersonalInfo({ imageShape: shape });
   };
 
   const handleGenerateSummary = () => {
@@ -160,32 +151,12 @@ export default function PersonalForm() {
         </div>
         <div className="flex-1">
           <label className="text-sm font-medium text-gray-700 block mb-2">{t('profilePhoto')}</label>
-          <div className="flex items-center gap-2 flex-wrap">
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="px-3 py-1.5 text-xs font-medium text-accent-green border border-accent-green/30 rounded-lg hover:bg-accent-green/10 transition"
-            >
-              {personalInfo.profileImage ? t('change') : t('upload')}
-            </button>
-            {personalInfo.profileImage && (
-              <>
-                {shapes.map((shape) => (
-                  <button
-                    key={shape.id}
-                    onClick={() => handleShapeChange(shape.id)}
-                    title={shape.label}
-                    className={`p-1.5 rounded-md border transition ${
-                      personalInfo.imageShape === shape.id
-                        ? 'border-accent-green bg-accent-green/10 text-accent-green'
-                        : 'border-border-subtle text-gray-400 hover:border-gray-500 hover:text-gray-700'
-                    }`}
-                  >
-                    <shape.icon size={14} />
-                  </button>
-                ))}
-              </>
-            )}
-          </div>
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="px-3 py-1.5 text-xs font-medium text-accent-green border border-accent-green/30 rounded-lg hover:bg-accent-green/10 transition"
+          >
+            {personalInfo.profileImage ? t('change') : t('upload')}
+          </button>
         </div>
       </div>
 
@@ -348,34 +319,12 @@ export default function PersonalForm() {
         </CollapsibleSection>
 
         <CollapsibleSection
-          title={t('customField')}
+          title={t('customFields.title')}
           icon={FileText}
+          badge={customFields.length}
           defaultOpen={false}
         >
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">{t('sectionLabel')}</label>
-              <input
-                type="text"
-                name="customFieldLabel"
-                value={personalInfo.customFieldLabel || ''}
-                onChange={handleChange}
-                placeholder={t('sectionLabelPlaceholder')}
-                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">{t('content')}</label>
-              <textarea
-                name="customField"
-                value={personalInfo.customField || ''}
-                onChange={handleChange}
-                rows={4}
-                placeholder={t('contentPlaceholder')}
-                className="w-full bg-bg-card-light border border-border-subtle rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-accent-green transition resize-none"
-              />
-            </div>
-          </div>
+          <CustomFieldsSection />
         </CollapsibleSection>
       </div>
 
@@ -385,7 +334,6 @@ export default function PersonalForm() {
           imageSrc={tempImage}
           onCropComplete={handleCropComplete}
           onCancel={handleCropCancel}
-          initialShape={personalInfo.imageShape || 'circle'}
         />
       )}
     </div>

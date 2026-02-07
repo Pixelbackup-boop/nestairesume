@@ -48,16 +48,37 @@ const articleSchema = {
     dateModified: '2026-01-28',
 };
 
-export const metadata: Metadata = {
-    title: 'Biodata Format 2026: Free Templates, Examples & Writing Guide | Best AI Resume',
-    description: 'Learn the biodata format for job applications. Compare biodata vs resume, download free biodata templates (PDF & Word), and see examples for India, Pakistan & more.',
-    keywords: 'biodata format, biodata, biodata for job, biodata vs resume, marriage biodata format, biodata template, simple biodata format, job biodata',
-    openGraph: {
-        title: 'Biodata Format 2026: Free Templates & Complete Guide',
-        description: 'Complete biodata format guide with free templates. Learn when to use biodata vs resume for jobs in India, Pakistan, and Middle East.',
-        type: 'article',
-    },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const locales = ['en', 'es', 'fr', 'de', 'ar'];
+    const alternateLanguages: Record<string, string> = {
+        'x-default': `${siteUrl}/en/biodata-format`,
+    };
+    locales.forEach((loc) => {
+        alternateLanguages[loc] = `${siteUrl}/${loc}/biodata-format`;
+    });
+
+    return {
+        title: 'Biodata Format 2026: Free Templates, Examples & Writing Guide | Best AI Resume',
+        description: 'Learn the biodata format for job applications. Compare biodata vs resume, download free biodata templates (PDF & Word), and see examples for India, Pakistan & more.',
+        keywords: 'biodata format, biodata, biodata for job, biodata vs resume, marriage biodata format, biodata template, simple biodata format, job biodata',
+        openGraph: {
+            title: 'Biodata Format 2026: Free Templates & Complete Guide',
+            description: 'Complete biodata format guide with free templates. Learn when to use biodata vs resume for jobs in India, Pakistan, and Middle East.',
+            type: 'article',
+            url: `${siteUrl}/${locale}/biodata-format`,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: 'Biodata Format 2026: Free Templates & Complete Guide',
+            description: 'Complete biodata format guide with free templates for India, Pakistan, and Middle East.',
+        },
+        alternates: {
+            canonical: `${siteUrl}/${locale}/biodata-format`,
+            languages: alternateLanguages,
+        },
+    };
+}
 
 export default function BiodataFormatPage() {
     return (

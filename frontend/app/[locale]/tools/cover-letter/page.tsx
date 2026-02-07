@@ -3,8 +3,11 @@
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useAuthStore } from '@/store/useAuthStore';
+import api from '@/lib/api';
 import {
   Sparkles,
   FileText,
@@ -19,6 +22,7 @@ import {
   Target,
   Lightbulb,
   ArrowRight,
+  AlertCircle,
 } from 'lucide-react';
 
 interface FormData {
@@ -43,6 +47,8 @@ const TONES = [
 export default function CoverLetterGeneratorPage() {
   const t = useTranslations('CoverLetter');
   const locale = useLocale();
+  const router = useRouter();
+  const { isAuthenticated } = useAuthStore();
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
@@ -57,6 +63,7 @@ export default function CoverLetterGeneratorPage() {
   const [generatedLetter, setGeneratedLetter] = useState<string>('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -68,37 +75,45 @@ export default function CoverLetterGeneratorPage() {
       return;
     }
 
+    // Check if user is logged in
+    if (!isAuthenticated) {
+      setError('Please sign in to generate a cover letter');
+      return;
+    }
+
     setIsGenerating(true);
+    setError(null);
 
-    // Simulate AI generation (replace with actual API call)
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const response = await api.post<{ cover_letter: string }>('/ai/generate-cover-letter', {
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        jobTitle: formData.jobTitle,
+        companyName: formData.companyName,
+        hiringManagerName: formData.hiringManagerName,
+        skills: formData.skills,
+        experience: formData.experience,
+        tone: formData.tone,
+      });
 
-    const toneStyles: Record<string, string> = {
-      professional: 'formal and business-oriented',
-      friendly: 'warm and approachable',
-      confident: 'assertive and self-assured',
-      enthusiastic: 'energetic and passionate',
-    };
+      setGeneratedLetter(response.data.cover_letter);
+    } catch (err: any) {
+      const errorCode = err?.response?.data?.code;
+      const errorMessage = err?.response?.data?.error || err?.message || 'Failed to generate cover letter';
 
-    const letter = `Dear ${formData.hiringManagerName || 'Hiring Manager'},
-
-I am writing to express my strong interest in the ${formData.jobTitle} position at ${formData.companyName}. With my background in ${formData.skills || 'relevant skills'}, I am confident that I would be a valuable addition to your team.
-
-${formData.experience ? `In my previous roles, ${formData.experience}` : 'Throughout my career, I have consistently demonstrated my ability to deliver results and contribute positively to team dynamics.'}
-
-What excites me most about this opportunity at ${formData.companyName} is the chance to apply my skills in a dynamic environment where I can continue to grow professionally while making meaningful contributions to your organization's success.
-
-I am particularly drawn to ${formData.companyName}'s commitment to excellence and innovation. I believe my ${toneStyles[formData.tone]} approach to work aligns perfectly with your company culture.
-
-I would welcome the opportunity to discuss how my background, skills, and enthusiasm would benefit your team. Thank you for considering my application.
-
-Sincerely,
-${formData.fullName}
-${formData.email ? `Email: ${formData.email}` : ''}
-${formData.phone ? `Phone: ${formData.phone}` : ''}`;
-
-    setGeneratedLetter(letter);
-    setIsGenerating(false);
+      if (errorCode === 'COVER_LETTER_LIMIT_REACHED') {
+        setError('You have reached your cover letter limit. Upgrade your plan for more.');
+      } else if (errorCode === 'SUBSCRIPTION_REQUIRED') {
+        setError('A subscription is required to generate cover letters. Please upgrade your plan.');
+      } else if (err?.response?.status === 401) {
+        setError('Please sign in to generate a cover letter');
+      } else {
+        setError(errorMessage);
+      }
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const copyToClipboard = async () => {
@@ -293,6 +308,32 @@ ${formData.phone ? `Phone: ${formData.phone}` : ''}`;
                     ))}
                   </div>
                 </div>
+
+                {/* Error Message */}
+                {error && (
+                  <div className="flex items-start gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
+                    <AlertCircle size={20} className="text-red-400 mt-0.5 shrink-0" />
+                    <div className="flex-1">
+                      <p className="text-red-300 text-sm">{error}</p>
+                      {!isAuthenticated && (
+                        <button
+                          onClick={() => router.push(`/${locale}/auth/login`)}
+                          className="text-accent-purple text-sm underline mt-1"
+                        >
+                          Sign in now
+                        </button>
+                      )}
+                      {error.includes('limit') && (
+                        <button
+                          onClick={() => router.push(`/${locale}/pricing`)}
+                          className="text-accent-purple text-sm underline mt-1"
+                        >
+                          View plans
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {/* Generate Button */}
                 <button

@@ -61,11 +61,37 @@ const breadcrumbSchemaHtml = JSON.stringify(breadcrumbSchema);
 const faqSchemaHtml = JSON.stringify(faqSchema);
 const articleSchemaHtml = JSON.stringify(articleSchema);
 
-export const metadata: Metadata = {
-    title: 'ChatGPT vs AI Resume Builder: Which Creates Better Resumes? (2026) | Best AI Resume',
-    description: 'Should you use ChatGPT or a dedicated AI resume builder to write your resume? Compare formatting, ATS compatibility, and output quality. See which tool gets more interviews.',
-    keywords: 'chatgpt resume, chatgpt resume builder, ai resume builder, chatgpt vs resume builder, write resume with chatgpt, ai resume writer',
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const locales = ['en', 'es', 'fr', 'de', 'ar'];
+    const alternateLanguages: Record<string, string> = {
+        'x-default': `${siteUrl}/en/compare/chatgpt-vs-ai-resume-builder`,
+    };
+    locales.forEach((loc) => {
+        alternateLanguages[loc] = `${siteUrl}/${loc}/compare/chatgpt-vs-ai-resume-builder`;
+    });
+
+    return {
+        title: 'ChatGPT vs AI Resume Builder: Which Creates Better Resumes? (2026) | Best AI Resume',
+        description: 'Should you use ChatGPT or a dedicated AI resume builder to write your resume? Compare formatting, ATS compatibility, and output quality. See which tool gets more interviews.',
+        keywords: 'chatgpt resume, chatgpt resume builder, ai resume builder, chatgpt vs resume builder, write resume with chatgpt, ai resume writer',
+        openGraph: {
+            title: 'ChatGPT vs AI Resume Builder: Which Creates Better Resumes? (2026)',
+            description: 'Compare using ChatGPT vs a dedicated AI resume builder. Feature-by-feature comparison with honest pros and cons.',
+            type: 'article',
+            url: `${siteUrl}/${locale}/compare/chatgpt-vs-ai-resume-builder`,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: 'ChatGPT vs AI Resume Builder: Which Creates Better Resumes?',
+            description: 'Compare using ChatGPT vs a dedicated AI resume builder for creating job-winning resumes.',
+        },
+        alternates: {
+            canonical: `${siteUrl}/${locale}/compare/chatgpt-vs-ai-resume-builder`,
+            languages: alternateLanguages,
+        },
+    };
+}
 
 export default function ChatGPTComparisonPage() {
     return (

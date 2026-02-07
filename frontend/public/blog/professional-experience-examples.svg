@@ -1,0 +1,37 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <!-- Grid pattern background -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#00dc82" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00dc82" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Gradient glow -->
+  <ellipse cx="600" cy="315" rx="400" ry="250" fill="url(#glow)"/>
+
+  <!-- Briefcase icon -->
+  <rect x="520" y="180" width="160" height="120" rx="10" fill="#161b22" stroke="#00dc82" stroke-width="2"/>
+  <rect x="560" y="160" width="80" height="30" rx="8" fill="none" stroke="#00dc82" stroke-width="2"/>
+  <line x1="520" y1="220" x2="680" y2="220" stroke="#00dc82" stroke-width="2" opacity="0.5"/>
+  <!-- Clasp -->
+  <rect x="585" y="212" width="30" height="16" rx="4" fill="#00dc82" opacity="0.8"/>
+
+  <!-- Bullet point examples below briefcase -->
+  <circle cx="530" cy="330" r="5" fill="#00dc82"/>
+  <rect x="545" y="326" width="130" height="8" rx="2" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="530" cy="355" r="5" fill="#00dc82"/>
+  <rect x="545" y="351" width="110" height="8" rx="2" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="530" cy="380" r="5" fill="#00dc82"/>
+  <rect x="545" y="376" width="140" height="8" rx="2" fill="rgba(255,255,255,0.3)"/>
+
+  <!-- Text -->
+  <text x="600" y="445" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">Professional Experience Examples</text>
+  <text x="600" y="485" font-family="system-ui, sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">Achievement-focused bullet points for any industry</text>
+</svg>

@@ -4,7 +4,7 @@
  */
 
 import { Router, Request, Response } from 'express';
-import { optionalAuth, AuthRequest } from '../middleware/auth';
+import { authenticateToken, AuthRequest } from '../middleware/auth';
 import { checkDownloadLimit, incrementDownloadCount } from '../middleware/subscriptionLimits';
 import { processPdfRequest } from '../services/pdfGeneratorService';
 import { PdfGenerateRequest } from '../types/pdf';
@@ -23,7 +23,7 @@ const router = Router();
  *
  * Response: PDF file (application/pdf)
  */
-router.post('/generate', optionalAuth, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
+router.post('/generate', authenticateToken, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
     try {
         const request = req.body as PdfGenerateRequest;
 
@@ -44,11 +44,8 @@ router.post('/generate', optionalAuth, checkDownloadLimit, async (req: AuthReque
         // Generate PDF
         const pdfBuffer = await processPdfRequest(request);
 
-        // Increment download count for authenticated users
-        const userId = req.user?.id;
-        if (userId) {
-            await incrementDownloadCount(userId);
-        }
+        // Increment download count (auth is required, so user always exists)
+        await incrementDownloadCount(req.user!.id);
 
         // Generate filename from name
         const sanitizedName = (request.data.personalInfo?.fullName || 'resume')

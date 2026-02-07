@@ -21,7 +21,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches reference: frontend/Resume-template/unique-layouts/09-geometric-header.webp
  */
 function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, strengths, interests, certifications, awards, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, strengths, interests, certifications, awards, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather'); // Serif default
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -293,7 +293,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                     <SectionRow label={t.sections.socialLinks} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
                             {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
+                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -338,12 +338,12 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                     </SectionRow>
                 )}
 
-                {/* Custom Field */}
-                {personalInfo.customField && personalInfo.customFieldLabel && (
-                    <SectionRow label={personalInfo.customFieldLabel} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <p style={{ lineHeight: 1.6 }}>{personalInfo.customField}</p>
+                {/* Custom Fields */}
+                {customFields?.map((field) => (
+                    <SectionRow key={field.id} label={field.label} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
+                        <p style={{ lineHeight: 1.6 }}>{field.content}</p>
                     </SectionRow>
-                )}
+                ))}
 
             </div>
         </div>

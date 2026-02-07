@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" fill="#8B5CF6"/>
+  <!-- Face -->
+  <circle cx="50" cy="52" r="32" fill="#DEB887"/>
+  <!-- Hair - curly -->
+  <circle cx="30" cy="28" r="10" fill="#1A1A1A"/>
+  <circle cx="50" cy="22" r="12" fill="#1A1A1A"/>
+  <circle cx="70" cy="28" r="10" fill="#1A1A1A"/>
+  <circle cx="25" cy="40" r="8" fill="#1A1A1A"/>
+  <circle cx="75" cy="40" r="8" fill="#1A1A1A"/>
+  <!-- Glasses -->
+  <circle cx="38" cy="50" r="10" stroke="#4A5568" stroke-width="2.5" fill="none"/>
+  <circle cx="62" cy="50" r="10" stroke="#4A5568" stroke-width="2.5" fill="none"/>
+  <line x1="48" y1="50" x2="52" y2="50" stroke="#4A5568" stroke-width="2.5"/>
+  <!-- Eyes -->
+  <circle cx="38" cy="50" r="3" fill="#2D3748"/>
+  <circle cx="62" cy="50" r="3" fill="#2D3748"/>
+  <!-- Smile -->
+  <path d="M40 68 Q50 76 60 68" stroke="#2D3748" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

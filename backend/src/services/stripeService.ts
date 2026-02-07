@@ -21,13 +21,13 @@ interface PlanConfig {
   hasTrial: boolean;     // Whether plan offers free trial
 }
 
-const PLANS: Record<PlanType, PlanConfig> = {
+export const PLANS: Record<PlanType, PlanConfig> = {
   starter: {
     name: "Starter",
     priceId: config.stripePrices.starter,
     type: "subscription",
     cvLimit: 30,
-    aiLimit: 3,
+    aiLimit: 50,
     downloadLimit: 3,
     coverLetterLimit: 10,
     trialDailyLimit: 3,
@@ -38,7 +38,7 @@ const PLANS: Record<PlanType, PlanConfig> = {
     priceId: config.stripePrices.gold,
     type: "subscription",
     cvLimit: 150,
-    aiLimit: 10,
+    aiLimit: 100,
     downloadLimit: 10,
     coverLetterLimit: 30,
     trialDailyLimit: 5,
@@ -49,7 +49,7 @@ const PLANS: Record<PlanType, PlanConfig> = {
     priceId: config.stripePrices.diamond,
     type: "subscription",
     cvLimit: 300,
-    aiLimit: 30,
+    aiLimit: 200,
     downloadLimit: 25,
     coverLetterLimit: 50,
     trialDailyLimit: 10,
@@ -60,8 +60,8 @@ const PLANS: Record<PlanType, PlanConfig> = {
     priceId: config.stripePrices.platinum,
     type: "subscription",
     cvLimit: -1, // Unlimited
-    aiLimit: 100,
-    downloadLimit: -1, // Unlimited
+    aiLimit: 500,
+    downloadLimit: 120,
     coverLetterLimit: -1, // Unlimited
     trialDailyLimit: 15,
     hasTrial: false, // No trial - charges immediately
@@ -390,8 +390,34 @@ export const getSubscriptionStatus = async (userId: string) => {
   };
 };
 
-// Export PLANS for use in other services
-export { PLANS };
+// Load plan limits from DB and mutate in-memory PLANS (shared by reference across all modules)
+export const reloadPlansFromDb = async () => {
+  const dbConfigs = await prisma.planConfig.findMany();
+  for (const config of dbConfigs) {
+    const plan = PLANS[config.planType as PlanType];
+    if (plan) {
+      plan.cvLimit = config.cvLimit;
+      plan.aiLimit = config.aiLimit;
+      plan.downloadLimit = config.downloadLimit;
+      plan.coverLetterLimit = config.coverLetterLimit;
+      plan.trialDailyLimit = config.trialDailyLimit;
+    }
+  }
+};
+
+// Return plan limits only (no priceId/secrets) for public API
+export const getPublicPlanLimits = () => {
+  const plans: Record<string, { cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number }> = {};
+  for (const [key, config] of Object.entries(PLANS)) {
+    plans[key] = {
+      cvLimit: config.cvLimit,
+      aiLimit: config.aiLimit,
+      downloadLimit: config.downloadLimit,
+      coverLetterLimit: config.coverLetterLimit,
+    };
+  }
+  return plans;
+};
 
 // Construct webhook event
 export const constructWebhookEvent = (

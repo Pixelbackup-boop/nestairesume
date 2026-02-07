@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Mail, Phone, MapPin, Linkedin, Globe } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, getScaledFontSizes, ScaledFontSizes, fontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -12,7 +13,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches backend PDF: header-blue-clean.ts
  */
 function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, certifications, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, certifications, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -47,11 +48,11 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
     // Contact items for header
     const contactItems = [
-        { value: personalInfo.email, icon: '✉️', label: 'email' },
-        { value: personalInfo.phone, icon: '📱', label: 'phone' },
-        { value: personalInfo.location, icon: '📍', label: 'location' },
-        { value: personalInfo.linkedin, icon: '🔗', label: 'linkedin' },
-        { value: personalInfo.website, icon: '🌐', label: 'website' }
+        { value: personalInfo.email, icon: <Mail size={12} color="white" />, label: 'email' },
+        { value: personalInfo.phone, icon: <Phone size={12} color="white" />, label: 'phone' },
+        { value: personalInfo.location, icon: <MapPin size={12} color="white" />, label: 'location' },
+        { value: personalInfo.linkedin, icon: <Linkedin size={12} color="white" />, label: 'linkedin' },
+        { value: personalInfo.website, icon: <Globe size={12} color="white" />, label: 'website' }
     ].filter(item => item.value);
 
     return (
@@ -127,7 +128,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                         </p>
 
                         {/* Contact Row */}
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp.md}px ${sp.xl}px` }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp.md}px ${sp.xl}px`, alignItems: 'center' }}>
                             {contactItems.map((item, idx) => (
                                 <div
                                     key={idx}
@@ -139,7 +140,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                         fontWeight: 500,
                                     }}
                                 >
-                                    <span>{item.icon}</span>
+                                    {item.icon}
                                     <span>{item.value}</span>
                                 </div>
                             ))}
@@ -366,7 +367,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                             <SectionHeader title={t.sections.socialLinks} icon="👥" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm, fontSize: fs.small }}>
                                 {personalInfo.github && <SocialLink icon="💻" label="GitHub" url={personalInfo.github} primary={primaryColor} />}
-                                {personalInfo.x && <SocialLink icon="🐦" label="Twitter" url={personalInfo.x} primary={primaryColor} />}
+                                {personalInfo.x && <SocialLink icon="𝕏" label="X" url={personalInfo.x} primary={primaryColor} />}
                                 {personalInfo.dribbble && <SocialLink icon="🎨" label="Dribbble" url={personalInfo.dribbble} primary={primaryColor} />}
                                 {personalInfo.behance && <SocialLink icon="🎨" label="Behance" url={personalInfo.behance} primary={primaryColor} />}
                                 {personalInfo.instagram && <SocialLink icon="📷" label="Instagram" url={personalInfo.instagram} primary={primaryColor} />}
@@ -392,7 +393,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Personal Details */}
-                    {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) && (
+                    {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
                         <div style={{ marginBottom: sp.xxxl }}>
                             <SectionHeader title={t.sections.personalDetails} icon="👤" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm, fontSize: fs.small, color: '#4b5563' }}>
@@ -406,17 +407,17 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                         </span> {personalInfo.idNumber}
                                     </div>
                                 )}
-                                {personalInfo.customField && (
-                                    <div style={{ marginTop: sp.sm }}>
-                                        <span style={{ fontWeight: 600, color: headingColor, display: 'block', marginBottom: 2 }}>
-                                            {personalInfo.customFieldLabel || 'Additional Info'}
-                                        </span>
-                                        {personalInfo.customField}
-                                    </div>
-                                )}
                             </div>
                         </div>
                     )}
+
+                    {/* Custom Fields */}
+                    {customFields?.map((field) => (
+                        <div key={field.id} style={{ marginBottom: sp.xxxl }}>
+                            <SectionHeader title={field.label} icon="📝" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
+                            <p style={{ fontSize: fs.small, color: '#4b5563', lineHeight: 1.6 }}>{field.content}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

@@ -64,10 +64,10 @@ const LIMIT_CONFIG: Record<LimitType, {
 
 // Plan display names and features
 const PLAN_BENEFITS: Record<string, { name: string; highlight: string }> = {
-  starter: { name: 'Starter', highlight: '30 CVs, 10 AI, 3 downloads/month' },
-  gold: { name: 'Gold', highlight: '80 CVs, 30 AI, 10 downloads/month' },
-  diamond: { name: 'Diamond', highlight: '150 CVs, 50 AI, 30 downloads/month' },
-  platinum: { name: 'Platinum', highlight: 'Unlimited CVs & downloads, 100 AI/month' },
+  starter: { name: 'Starter', highlight: '30 CVs, 50 AI, 3 downloads/month' },
+  gold: { name: 'Gold', highlight: '150 CVs, 100 AI, 10 downloads/month' },
+  diamond: { name: 'Diamond', highlight: '300 CVs, 200 AI, 25 downloads/month' },
+  platinum: { name: 'Platinum', highlight: 'Unlimited CVs, 500 AI, 120 downloads/month' },
 };
 
 export default function LimitReachedModal({

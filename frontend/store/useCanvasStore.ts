@@ -72,7 +72,7 @@ export interface CanvasTemplate {
     id: string;
     name: string;
     thumbnail: string;
-    category: 'creative' | 'professional' | 'minimal' | 'bold';
+    category: 'creative' | 'professional' | 'minimal' | 'modern' | 'ats-friendly';
     backgroundColor: string;
     backgroundGradient?: {
         start: string;

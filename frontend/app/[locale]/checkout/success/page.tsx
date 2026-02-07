@@ -79,15 +79,33 @@ function SuccessContent() {
   const plan = searchParams.get("plan") as PlanType | null;
 
   useEffect(() => {
-    // Get window size for confetti
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
 
-    // Refresh user data to get updated subscription
-    refreshUser();
+    // Poll refreshUser until webhook updates subscription (Stripe webhook can lag 2-10s)
+    const MAX_RETRIES = 5;
+    const RETRY_INTERVAL_MS = 2000;
+    let retryCount = 0;
+    let retryTimeout: NodeJS.Timeout | null = null;
 
-    // Stop confetti after 5 seconds
-    const timer = setTimeout(() => setShowConfetti(false), 5000);
-    return () => clearTimeout(timer);
+    const pollSubscription = async () => {
+      await refreshUser();
+      const currentUser = useAuthStore.getState().user;
+      const isStillFree = !currentUser?.subscriptionTier || currentUser.subscriptionTier === 'free';
+
+      if (isStillFree && retryCount < MAX_RETRIES) {
+        retryCount++;
+        retryTimeout = setTimeout(pollSubscription, RETRY_INTERVAL_MS);
+      }
+    };
+
+    pollSubscription();
+
+    const confettiTimer = setTimeout(() => setShowConfetti(false), 5000);
+
+    return () => {
+      if (retryTimeout) clearTimeout(retryTimeout);
+      clearTimeout(confettiTimer);
+    };
   }, [refreshUser]);
 
   const planDetails = plan && PLAN_BENEFITS[plan] ? PLAN_BENEFITS[plan] : null;

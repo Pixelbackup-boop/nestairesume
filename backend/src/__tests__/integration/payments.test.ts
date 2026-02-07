@@ -23,10 +23,10 @@ jest.mock('../../services/stripeService', () => ({
   createPortalSession: jest.fn(),
   getSubscriptionStatus: jest.fn(),
   PLANS: {
-    starter: { name: 'Starter', cvLimit: 30, aiLimit: 10, downloadLimit: 3 },
-    gold: { name: 'Gold', cvLimit: 80, aiLimit: 30, downloadLimit: 10 },
-    diamond: { name: 'Diamond', cvLimit: 150, aiLimit: 50, downloadLimit: 30 },
-    platinum: { name: 'Platinum', cvLimit: -1, aiLimit: 100, downloadLimit: -1 },
+    starter: { name: 'Starter', cvLimit: 30, aiLimit: 50, downloadLimit: 3 },
+    gold: { name: 'Gold', cvLimit: 150, aiLimit: 100, downloadLimit: 10 },
+    diamond: { name: 'Diamond', cvLimit: 300, aiLimit: 200, downloadLimit: 25 },
+    platinum: { name: 'Platinum', cvLimit: -1, aiLimit: 500, downloadLimit: 120 },
   },
 }));
 
@@ -226,7 +226,7 @@ describe('Payments API Integration Tests', () => {
         isTrialing: false,
         limits: {
           cvLimit: 150,
-          aiLimit: 10,
+          aiLimit: 100,
           downloadLimit: 10,
           coverLetterLimit: 30,
         },

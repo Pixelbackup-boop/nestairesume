@@ -10,7 +10,7 @@ datasource db {
 model User {
   id                 String    @id @default(uuid())
   email              String    @unique
-  hashedPassword     String
+  hashedPassword     String?   // Optional for OAuth-only users
   name               String
   image              String?   // Profile image URL
   emailVerified      DateTime? // When email was verified
@@ -31,9 +31,10 @@ model User {
   lastAiResetDate    DateTime? // When daily/monthly counters were last reset
   downloadCount      Int       @default(0) // PDF/DOCX downloads this month
   coverLetterCount   Int       @default(0) // Cover letters created this month
-  // Password reset
-  verificationCode        String?   // Password reset code
-  verificationCodeExpires DateTime? // When reset code expires
+  // Verification codes (used for password reset and email change)
+  verificationCode        String?   // 6-digit verification code
+  verificationCodeExpires DateTime? // When code expires
+  pendingEmail            String?   // New email awaiting verification
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt
   resumes            Resume[]
@@ -56,7 +57,7 @@ model Account {
   id_token          String?
   session_state     String?
   createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  updatedAt         DateTime? @updatedAt
 
   @@unique([provider, providerAccountId])
 }
@@ -119,6 +120,18 @@ model Payment {
   type            String   // "subscription" | "one_time"
   plan            String?  // "starter" | "gold" | "diamond" | "platinum"
   createdAt       DateTime @default(now())
+}
+
+model PlanConfig {
+  id               String   @id @default(uuid())
+  planType         String   @unique // "starter" | "gold" | "diamond" | "platinum"
+  cvLimit          Int
+  aiLimit          Int
+  downloadLimit    Int
+  coverLetterLimit Int
+  trialDailyLimit  Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 }
 
 // ============ AUTO-BLOGGING MODELS ============

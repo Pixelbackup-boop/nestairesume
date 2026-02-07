@@ -80,14 +80,37 @@ const faqSchemaHtml = JSON.stringify(faqSchema);
 const softwareAppSchemaHtml = JSON.stringify(softwareAppSchema);
 const articleSchemaHtml = JSON.stringify(articleSchema);
 
-export const metadata: Metadata = {
-    title: 'Free Resume Builder | 100% Free AI Resume Maker 2026',
-    description: 'Build your professional resume free. No credit card, no hidden fees. AI writing, 20+ ATS-friendly templates, and instant PDF download.',
-    keywords: 'free resume builder, resume maker ai free, free ai resume builder, free resume maker, no cost resume builder, resume builder free download, free resume templates, build resume free',
-    alternates: {
-        canonical: `${siteUrl}/free-resume-builder`,
-    },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const locales = ['en', 'es', 'fr', 'de', 'ar'];
+    const alternateLanguages: Record<string, string> = {
+        'x-default': `${siteUrl}/en/free-resume-builder`,
+    };
+    locales.forEach((loc) => {
+        alternateLanguages[loc] = `${siteUrl}/${loc}/free-resume-builder`;
+    });
+
+    return {
+        title: 'Free Resume Builder | 100% Free AI Resume Maker 2026',
+        description: 'Build your professional resume free. No credit card, no hidden fees. AI writing, 20+ ATS-friendly templates, and instant PDF download.',
+        keywords: 'free resume builder, resume maker ai free, free ai resume builder, free resume maker, no cost resume builder, resume builder free download, free resume templates, build resume free',
+        openGraph: {
+            title: 'Free Resume Builder | 100% Free AI Resume Maker 2026',
+            description: 'Build your professional resume free. No credit card, no hidden fees. AI writing, 20+ ATS-friendly templates, and instant PDF download.',
+            type: 'article',
+            url: `${siteUrl}/${locale}/free-resume-builder`,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: 'Free Resume Builder | 100% Free AI Resume Maker 2026',
+            description: 'Build your professional resume free. No credit card, no hidden fees.',
+        },
+        alternates: {
+            canonical: `${siteUrl}/${locale}/free-resume-builder`,
+            languages: alternateLanguages,
+        },
+    };
+}
 
 const freeFeatures = [
     { feature: 'Professional Templates', description: '20+ designs', included: true },

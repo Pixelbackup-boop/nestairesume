@@ -41,6 +41,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
         certifications = [],
         awards = [],
         references = [],
+        customFields = [],
         fonts
     } = data;
     // Note: 'background' not destructured - this template always uses white body
@@ -402,15 +403,15 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                         </section>
                     ` : ''}
 
-                    <!-- Custom Field -->
-                    ${personalInfo.customField && personalInfo.customFieldLabel ? `
+                    <!-- Custom Fields -->
+                    ${customFields.map(field => `
                         <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(escapeHtml(personalInfo.customFieldLabel), '&#128203;')}
+                            ${SectionHeader(escapeHtml(field.label), '&#128203;')}
                             <p style="font-size: ${fs.body}; color: #374151; line-height: 1.6;">
-                                ${formatDescription(personalInfo.customField)}
+                                ${formatDescription(field.content)}
                             </p>
                         </section>
-                    ` : ''}
+                    `).join('')}
                 </div>
             </div>
         </div>

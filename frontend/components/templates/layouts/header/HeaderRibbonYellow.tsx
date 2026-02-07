@@ -20,7 +20,7 @@ import { useTemplateSetup } from '@/hooks';
  * Matches reference: frontend/Resume-template/unique-layouts/22-ribbon-banner.webp
  */
 function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, interests, certifications, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, interests, certifications, references, customFields, customThemeColor, fonts } = data;
 
     const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
         customThemeColor,
@@ -197,7 +197,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                             marginTop: scale < 1 ? 4 : 8,
                         }}
                     >
-                        {personalInfo.x && <span>Twitter: {personalInfo.x}</span>}
+                        {personalInfo.x && <span>X: {personalInfo.x}</span>}
                         {personalInfo.github && <span>GitHub: {personalInfo.github}</span>}
                         {personalInfo.dribbble && <span>Dribbble: {personalInfo.dribbble}</span>}
                         {personalInfo.behance && <span>Behance: {personalInfo.behance}</span>}
@@ -476,17 +476,17 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* Custom Field */}
-                    {personalInfo.customField && (
-                        <section className="resume-section" data-paginate>
+                    {/* Custom Fields */}
+                    {customFields?.map((field) => (
+                        <section key={field.id} className="resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📝">
-                                {personalInfo.customFieldLabel || 'Additional Information'}
+                                {field.label}
                             </SectionHeader>
                             <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
-                                {personalInfo.customField}
+                                {field.content}
                             </p>
                         </section>
-                    )}
+                    ))}
                 </div>
             </div>
         </div>

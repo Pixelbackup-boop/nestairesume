@@ -1,0 +1,41 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <!-- Grid pattern background -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#00dc82" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00dc82" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Gradient glow -->
+  <ellipse cx="600" cy="315" rx="400" ry="250" fill="url(#glow)"/>
+
+  <!-- LaTeX document icon -->
+  <rect x="500" y="140" width="200" height="240" rx="6" fill="#161b22" stroke="#00dc82" stroke-width="2"/>
+  <!-- LaTeX-style formatted text lines -->
+  <rect x="530" y="175" width="140" height="12" rx="2" fill="#00dc82" opacity="0.9"/>
+  <rect x="530" y="200" width="120" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="530" y="215" width="140" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="530" y="230" width="100" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <!-- Math-style formula hint -->
+  <rect x="530" y="255" width="60" height="8" rx="2" fill="#00dc82" opacity="0.5"/>
+  <rect x="600" y="255" width="50" height="8" rx="2" fill="#00dc82" opacity="0.3"/>
+  <!-- More text lines -->
+  <rect x="530" y="278" width="130" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="530" y="293" width="110" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="530" y="308" width="140" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="530" y="323" width="90" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <!-- Leaf/Overleaf accent -->
+  <circle cx="680" cy="160" r="28" fill="#00dc82"/>
+  <path d="M670 160 C670 148, 680 142, 690 148 C695 150, 692 158, 685 160 C680 162, 672 165, 670 160Z" fill="#0d1117" opacity="0.6"/>
+
+  <!-- Text -->
+  <text x="600" y="445" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">Resume Overleaf Templates</text>
+  <text x="600" y="485" font-family="system-ui, sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">LaTeX templates vs online resume builders</text>
+</svg>

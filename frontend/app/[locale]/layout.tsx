@@ -101,7 +101,9 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Meta' });
 
-  const alternateLanguages: Record<string, string> = {};
+  const alternateLanguages: Record<string, string> = {
+    'x-default': `${siteConfig.url}/en`,
+  };
   locales.forEach((loc) => {
     alternateLanguages[loc] = `${siteConfig.url}/${loc}`;
   });
@@ -162,9 +164,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir} className="scroll-smooth">
       <head>
-        {/* Search Console Verification — replace with actual verification codes */}
-        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
-        <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+        {/* Search Console Verification — set via env vars: NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION and NEXT_PUBLIC_BING_VERIFICATION */}
+        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        )}
+        {process.env.NEXT_PUBLIC_BING_VERIFICATION && (
+          <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
+        )}
 
         {/* Organization Schema - Content is hardcoded, not user input */}
         <script

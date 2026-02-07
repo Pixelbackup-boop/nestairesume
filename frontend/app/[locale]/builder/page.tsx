@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useMemo, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import PersonalForm from '@/components/editor/PersonalForm';
 import ExperienceForm from '@/components/editor/ExperienceForm';
@@ -9,9 +9,9 @@ import EducationForm from '@/components/editor/EducationForm';
 import SkillsForm from '@/components/editor/SkillsForm';
 import DesignTab from '@/components/editor/DesignTab';
 import PagedPreview from '@/components/preview/PagedPreview';
-import AuthModal from '@/components/auth/AuthModal';
 import DownloadModal from '@/components/download/DownloadModal';
 import { useResumeStore } from '@/store/useResumeStore';
+import { useAuthStore } from '@/store/useAuthStore';
 import { templates } from '@/lib/themes';
 import {
     getLayoutPresetId,
@@ -27,7 +27,7 @@ import {
     Download, ChevronDown, Layout, Palette, Sparkles,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
-    FileText, Image, X, ChevronRight, Menu
+    FileText, Image, X, ChevronRight, Menu, CheckCircle, Crown
 } from 'lucide-react';
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
@@ -41,10 +41,11 @@ function BuilderContent() {
     const [showColorDropdown, setShowColorDropdown] = useState(false);
     const [previewScale, setPreviewScale] = useState(0.75);
     const [showPreview, setShowPreview] = useState(true);
-    const [showAuthModal, setShowAuthModal] = useState(false);
     const [showDownloadModal, setShowDownloadModal] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [showWelcomeModal, setShowWelcomeModal] = useState(false);
     const [showReferencePanel, setShowReferencePanel] = useState(false);
+    const router = useRouter();
+    const { isAuthenticated, refreshUser } = useAuthStore();
     const [templateThumbnail, setTemplateThumbnail] = useState<string | undefined>();
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     const { resumeData, selectedTemplate, selectedTemplateId, selectedTheme, setTemplate, setTemplateId, setTheme, setCustomThemeColor, setResumeData } = useResumeStore();
@@ -76,11 +77,21 @@ function BuilderContent() {
         },
     }), [t]);
 
-    // Check authentication status on mount
+    // Refresh user auth status on mount
     useEffect(() => {
-        const authStatus = localStorage.getItem('isAuthenticated') === 'true';
-        setIsAuthenticated(authStatus);
-    }, []);
+        refreshUser();
+    }, [refreshUser]);
+
+    // Show welcome modal for newly registered users
+    useEffect(() => {
+        if (searchParams.get('registered') === 'true') {
+            setShowWelcomeModal(true);
+            // Clear the query param to prevent re-showing on refresh
+            const url = new URL(window.location.href);
+            url.searchParams.delete('registered');
+            router.replace(url.pathname + url.search, { scroll: false });
+        }
+    }, [searchParams, router]);
 
     // Handle URL parameters for template and prefill
     useEffect(() => {
@@ -125,20 +136,8 @@ function BuilderContent() {
         }
     }, [searchParams, setResumeData, setTemplate, setTemplateId, setTheme, setCustomThemeColor]);
 
-    // Handle download - triggers auth modal if not logged in
+    // Handle download - show download modal (modal handles auth check internally)
     const handleDownloadClick = () => {
-        if (!isAuthenticated) {
-            setShowAuthModal(true);
-        } else {
-            setShowDownloadModal(true);
-        }
-    };
-
-    // Called when auth is successful
-    const handleAuthSuccess = () => {
-        setIsAuthenticated(true);
-        setShowAuthModal(false);
-        // After successful auth, show download modal
         setShowDownloadModal(true);
     };
 
@@ -473,19 +472,57 @@ function BuilderContent() {
                 )}
             </button>
 
-            {/* Auth Modal */}
-            <AuthModal
-                isOpen={showAuthModal}
-                onClose={() => setShowAuthModal(false)}
-                onSuccess={handleAuthSuccess}
-            />
-
-            {/* Download Modal */}
+            {/* Download Modal - handles auth, subscription, and usage checks internally */}
             <DownloadModal
                 isOpen={showDownloadModal}
                 onClose={() => setShowDownloadModal(false)}
                 onDownload={handleConfirmDownload}
             />
+
+            {/* Welcome Modal - shown after new registration */}
+            {showWelcomeModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                    <div
+                        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                        onClick={() => setShowWelcomeModal(false)}
+                    />
+                    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-[fadeIn_0.2s_ease-out]">
+                        <button
+                            onClick={() => setShowWelcomeModal(false)}
+                            className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
+                        >
+                            <X size={20} />
+                        </button>
+                        <div className="px-8 pt-8 pb-6 text-center">
+                            <div className="w-14 h-14 bg-accent-green/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <CheckCircle className="text-accent-green" size={28} />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-2">Account Created!</h2>
+                            <p className="text-gray-500 text-sm">
+                                Your resume is saved. You can continue editing or choose a plan to download.
+                            </p>
+                        </div>
+                        <div className="px-8 pb-8 space-y-3">
+                            <button
+                                onClick={() => {
+                                    setShowWelcomeModal(false);
+                                    router.push(`/${locale}/pricing`);
+                                }}
+                                className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
+                            >
+                                <Crown size={18} />
+                                Choose a Plan
+                            </button>
+                            <button
+                                onClick={() => setShowWelcomeModal(false)}
+                                className="w-full py-3 border border-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition"
+                            >
+                                Back to Editor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

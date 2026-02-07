@@ -31,6 +31,7 @@ export const renderMinimalBlueSections = (
         interests = [],
         certifications = [],
         awards = [],
+        customFields = [],
         fonts,
         background
     } = data;
@@ -243,23 +244,17 @@ export const renderMinimalBlueSections = (
             ` : ''}
 
             <!-- Additional Info (Personal & Social) -->
-            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField || personalInfo.github || personalInfo.x || personalInfo.linkedin) ? `
+            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.github || personalInfo.x || personalInfo.linkedin) ? `
                 <section style="margin-top: 40px;">
                     ${SectionHeader(t.sections.additionalInfo)}
                     <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 16px;">
-                        
+
                         <!-- Personal Details -->
-                        ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.customField) ? `
+                        ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                             <div style="font-size: 14px; color: #374151;">
                                 ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
                                     <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
-                                ` : ''}
-                                ${personalInfo.customField ? `
-                                    <div style="margin-top: 8px;">
-                                        <span style="font-weight: 600; display: block;">${escapeHtml(personalInfo.customFieldLabel || 'Additional Info')}</span>
-                                        ${formatDescription(personalInfo.customField)}
-                                    </div>
                                 ` : ''}
                             </div>
                         ` : ''}
@@ -269,7 +264,7 @@ export const renderMinimalBlueSections = (
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
                                 ${personalInfo.linkedin ? `<div><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.linkedin)}</span></div>` : ''}
                                 ${personalInfo.github ? `<div><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
-                                ${personalInfo.x ? `<div><span style="font-weight: 600; color: #1f2937;">Twitter:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.x)}</span></div>` : ''}
+                                ${personalInfo.x ? `<div><span style="font-weight: 600; color: #1f2937;">X:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.x)}</span></div>` : ''}
                                 ${personalInfo.dribbble ? `<div><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.dribbble)}</span></div>` : ''}
                                 ${personalInfo.behance ? `<div><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.behance)}</span></div>` : ''}
                                 ${personalInfo.instagram ? `<div><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.instagram)}</span></div>` : ''}
@@ -279,6 +274,16 @@ export const renderMinimalBlueSections = (
                     </div>
                 </section>
             ` : ''}
+
+            <!-- Custom Fields -->
+            ${customFields.map(field => `
+                <section style="margin-top: 40px;">
+                    ${SectionHeader(field.label)}
+                    <p style="line-height: 1.6; font-size: 14px; color: #374151; padding-left: 8px;">
+                        ${formatDescription(field.content)}
+                    </p>
+                </section>
+            `).join('')}
 
         </div>
     `;

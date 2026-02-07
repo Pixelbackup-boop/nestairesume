@@ -189,7 +189,7 @@ export default function ResumeUpload({
         {/* Status text */}
         <p className={`
           text-lg font-medium mb-2
-          ${status === 'error' ? 'text-red-400' : status === 'success' ? 'text-accent-green' : 'text-white'}
+          ${status === 'error' ? 'text-red-400' : status === 'success' ? 'text-accent-green' : 'text-gray-700'}
         `}>
           {statusMessages[status]}
         </p>
@@ -222,7 +222,7 @@ export default function ResumeUpload({
               e.stopPropagation();
               resetState();
             }}
-            className="mt-4 px-4 py-2 bg-gray-200 hover:bg-gray-200 text-white text-sm rounded-lg transition-colors"
+            className="mt-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm rounded-lg transition-colors"
           >
             Try Again
           </button>

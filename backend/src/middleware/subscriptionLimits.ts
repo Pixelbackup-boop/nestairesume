@@ -151,7 +151,7 @@ export const checkAiLimit = async (
 };
 
 // Check if user has reached their download limit
-// For anonymous users with optionalAuthenticate, skip the check
+// Authentication is now required for downloads
 export const checkDownloadLimit = async (
   req: AuthenticatedRequest,
   res: Response,
@@ -160,13 +160,9 @@ export const checkDownloadLimit = async (
   try {
     const userId = req.user?.userId || req.user?.id;
 
-    // If no user (anonymous), skip limit check - allow limited anonymous downloads
-    // or require auth depending on your business model
+    // Require authentication for downloads
     if (!userId) {
-      // Option 1: Allow anonymous downloads (no tracking)
-      return next();
-      // Option 2: Require authentication
-      // return res.status(401).json({ error: "Please sign in to download" });
+      return res.status(401).json({ error: "Please sign in to download", code: "AUTH_REQUIRED" });
     }
 
     const user = await prisma.user.findUnique({

@@ -80,14 +80,37 @@ const faqSchemaHtml = JSON.stringify(faqSchema);
 const softwareAppSchemaHtml = JSON.stringify(softwareAppSchema);
 const articleSchemaHtml = JSON.stringify(articleSchema);
 
-export const metadata: Metadata = {
-    title: 'Free Resume Maker | AI-Powered Resume Builder 2026',
-    description: 'Create a professional resume in minutes with our free AI resume maker. ATS-friendly templates, AI writing, and instant PDF download.',
-    keywords: 'resume maker, resume maker ai free, best resume maker ai, free resume maker, ai resume maker, resume builder, resume creator, make a resume',
-    alternates: {
-        canonical: `${siteUrl}/resume-maker`,
-    },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const locales = ['en', 'es', 'fr', 'de', 'ar'];
+    const alternateLanguages: Record<string, string> = {
+        'x-default': `${siteUrl}/en/resume-maker`,
+    };
+    locales.forEach((loc) => {
+        alternateLanguages[loc] = `${siteUrl}/${loc}/resume-maker`;
+    });
+
+    return {
+        title: 'Free Resume Maker | AI-Powered Resume Builder 2026',
+        description: 'Create a professional resume in minutes with our free AI resume maker. ATS-friendly templates, AI writing, and instant PDF download.',
+        keywords: 'resume maker, resume maker ai free, best resume maker ai, free resume maker, ai resume maker, resume builder, resume creator, make a resume',
+        openGraph: {
+            title: 'Free Resume Maker | AI-Powered Resume Builder 2026',
+            description: 'Create a professional resume in minutes with our free AI resume maker. ATS-friendly templates, AI writing, and instant PDF download.',
+            type: 'article',
+            url: `${siteUrl}/${locale}/resume-maker`,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: 'Free Resume Maker | AI-Powered Resume Builder 2026',
+            description: 'Create a professional resume in minutes with our free AI resume maker.',
+        },
+        alternates: {
+            canonical: `${siteUrl}/${locale}/resume-maker`,
+            languages: alternateLanguages,
+        },
+    };
+}
 
 const features = [
     {

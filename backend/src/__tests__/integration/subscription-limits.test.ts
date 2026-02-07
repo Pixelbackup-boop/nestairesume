@@ -6,10 +6,10 @@
  * and cover letters.
  *
  * Plan Limits:
- * - STARTER: 30 CVs, 3 AI, 3 downloads, 10 cover letters
- * - GOLD: 150 CVs, 10 AI, 10 downloads, 30 cover letters
- * - DIAMOND: 300 CVs, 30 AI, 25 downloads, 50 cover letters
- * - PLATINUM: Unlimited CVs, 100 AI, Unlimited downloads, Unlimited cover letters
+ * - STARTER: 30 CVs, 50 AI, 3 downloads, 10 cover letters
+ * - GOLD: 150 CVs, 100 AI, 10 downloads, 30 cover letters
+ * - DIAMOND: 300 CVs, 200 AI, 25 downloads, 50 cover letters
+ * - PLATINUM: Unlimited CVs, 500 AI, 120 downloads, Unlimited cover letters
  */
 
 import request from 'supertest';
@@ -81,19 +81,19 @@ describe('Subscription Limits Integration Tests', () => {
       });
     });
 
-    describe('AI Generation Limits (3)', () => {
+    describe('AI Generation Limits (50)', () => {
       it('should ALLOW AI generation when user has 0 uses', async () => {
         const user = createStarterUser({ aiUsedCount: 0 });
         expect(user.aiUsedCount).toBeLessThan(PLAN_LIMITS.starter.aiLimit);
       });
 
-      it('should ALLOW AI generation when user has 2 uses (limit-1)', async () => {
-        const user = createStarterUser({ aiUsedCount: 2 });
+      it('should ALLOW AI generation when user has 49 uses (limit-1)', async () => {
+        const user = createStarterUser({ aiUsedCount: 49 });
         expect(user.aiUsedCount).toBeLessThan(PLAN_LIMITS.starter.aiLimit);
       });
 
-      it('should BLOCK AI generation when user has 3 uses (at limit)', async () => {
-        const user = createStarterUser({ aiUsedCount: 3 });
+      it('should BLOCK AI generation when user has 50 uses (at limit)', async () => {
+        const user = createStarterUser({ aiUsedCount: 50 });
         expect(user.aiUsedCount).toBeGreaterThanOrEqual(PLAN_LIMITS.starter.aiLimit);
       });
     });
@@ -154,14 +154,14 @@ describe('Subscription Limits Integration Tests', () => {
       });
     });
 
-    describe('AI Generation Limits (10)', () => {
-      it('should ALLOW AI generation when user has 9 uses (limit-1)', async () => {
-        const user = createGoldUser({ aiUsedCount: 9 });
+    describe('AI Generation Limits (100)', () => {
+      it('should ALLOW AI generation when user has 99 uses (limit-1)', async () => {
+        const user = createGoldUser({ aiUsedCount: 99 });
         expect(user.aiUsedCount).toBeLessThan(PLAN_LIMITS.gold.aiLimit);
       });
 
-      it('should BLOCK AI generation when user has 10 uses (at limit)', async () => {
-        const user = createGoldUser({ aiUsedCount: 10 });
+      it('should BLOCK AI generation when user has 100 uses (at limit)', async () => {
+        const user = createGoldUser({ aiUsedCount: 100 });
         expect(user.aiUsedCount).toBeGreaterThanOrEqual(PLAN_LIMITS.gold.aiLimit);
       });
     });
@@ -212,14 +212,14 @@ describe('Subscription Limits Integration Tests', () => {
       });
     });
 
-    describe('AI Generation Limits (30)', () => {
-      it('should ALLOW AI generation when user has 29 uses (limit-1)', async () => {
-        const user = createDiamondUser({ aiUsedCount: 29 });
+    describe('AI Generation Limits (200)', () => {
+      it('should ALLOW AI generation when user has 199 uses (limit-1)', async () => {
+        const user = createDiamondUser({ aiUsedCount: 199 });
         expect(user.aiUsedCount).toBeLessThan(PLAN_LIMITS.diamond.aiLimit);
       });
 
-      it('should BLOCK AI generation when user has 30 uses (at limit)', async () => {
-        const user = createDiamondUser({ aiUsedCount: 30 });
+      it('should BLOCK AI generation when user has 200 uses (at limit)', async () => {
+        const user = createDiamondUser({ aiUsedCount: 200 });
         expect(user.aiUsedCount).toBeGreaterThanOrEqual(PLAN_LIMITS.diamond.aiLimit);
       });
     });
@@ -250,7 +250,7 @@ describe('Subscription Limits Integration Tests', () => {
   });
 
   // ================================================================
-  // PLATINUM TIER LIMITS (Unlimited CVs, 100 AI, Unlimited downloads, Unlimited cover letters)
+  // PLATINUM TIER LIMITS (Unlimited CVs, 500 AI, 120 downloads, Unlimited cover letters)
   // ================================================================
   describe('PLATINUM Tier Limits', () => {
     describe('CV Creation - UNLIMITED', () => {
@@ -266,23 +266,22 @@ describe('Subscription Limits Integration Tests', () => {
       });
     });
 
-    describe('AI Generation Limits (100)', () => {
-      it('should ALLOW AI generation when user has 99 uses (limit-1)', async () => {
-        const user = createPlatinumUser({ aiUsedCount: 99 });
+    describe('AI Generation Limits (500)', () => {
+      it('should ALLOW AI generation when user has 499 uses (limit-1)', async () => {
+        const user = createPlatinumUser({ aiUsedCount: 499 });
         expect(user.aiUsedCount).toBeLessThan(PLAN_LIMITS.platinum.aiLimit);
       });
 
-      it('should BLOCK AI generation when user has 100 uses (at limit)', async () => {
-        const user = createPlatinumUser({ aiUsedCount: 100 });
+      it('should BLOCK AI generation when user has 500 uses (at limit)', async () => {
+        const user = createPlatinumUser({ aiUsedCount: 500 });
         expect(user.aiUsedCount).toBeGreaterThanOrEqual(PLAN_LIMITS.platinum.aiLimit);
       });
     });
 
-    describe('Download - UNLIMITED', () => {
-      it('should ALLOW download when user has 1000 downloads', async () => {
-        const user = createPlatinumUser({ downloadCount: 1000 });
-        // Platinum downloadLimit is -1 (unlimited)
-        expect(PLAN_LIMITS.platinum.downloadLimit).toBe(-1);
+    describe('Download - 120/month', () => {
+      it('should ALLOW download when user is under limit', async () => {
+        const user = createPlatinumUser({ downloadCount: 100 });
+        expect(PLAN_LIMITS.platinum.downloadLimit).toBe(120);
       });
     });
 
@@ -367,7 +366,7 @@ describe('Subscription Limits Integration Tests', () => {
     it('should have correct STARTER limits', () => {
       expect(PLAN_LIMITS.starter).toEqual({
         cvLimit: 30,
-        aiLimit: 3,
+        aiLimit: 50,
         downloadLimit: 3,
         coverLetterLimit: 10,
         trialDailyLimit: 3,
@@ -377,7 +376,7 @@ describe('Subscription Limits Integration Tests', () => {
     it('should have correct GOLD limits', () => {
       expect(PLAN_LIMITS.gold).toEqual({
         cvLimit: 150,
-        aiLimit: 10,
+        aiLimit: 100,
         downloadLimit: 10,
         coverLetterLimit: 30,
         trialDailyLimit: 5,
@@ -387,7 +386,7 @@ describe('Subscription Limits Integration Tests', () => {
     it('should have correct DIAMOND limits', () => {
       expect(PLAN_LIMITS.diamond).toEqual({
         cvLimit: 300,
-        aiLimit: 30,
+        aiLimit: 200,
         downloadLimit: 25,
         coverLetterLimit: 50,
         trialDailyLimit: 10,
@@ -397,8 +396,8 @@ describe('Subscription Limits Integration Tests', () => {
     it('should have correct PLATINUM limits', () => {
       expect(PLAN_LIMITS.platinum).toEqual({
         cvLimit: -1, // Unlimited
-        aiLimit: 100,
-        downloadLimit: -1, // Unlimited
+        aiLimit: 500,
+        downloadLimit: 120,
         coverLetterLimit: -1, // Unlimited
         trialDailyLimit: 15,
       });
@@ -421,11 +420,11 @@ describe('Subscription Limits Integration Tests', () => {
       });
 
       it('user at STARTER AI limit should have room after GOLD upgrade', async () => {
-        // User at STARTER AI limit (3)
-        const starterUser = createStarterUser({ aiUsedCount: 3 });
+        // User at STARTER AI limit (50)
+        const starterUser = createStarterUser({ aiUsedCount: 50 });
         expect(starterUser.aiUsedCount).toBeGreaterThanOrEqual(PLAN_LIMITS.starter.aiLimit);
 
-        // Same count is below GOLD limit (10)
+        // Same count is below GOLD limit (100)
         const goldLimit = PLAN_LIMITS.gold.aiLimit;
         expect(starterUser.aiUsedCount).toBeLessThan(goldLimit);
       });
@@ -454,9 +453,9 @@ describe('Subscription Limits Integration Tests', () => {
         expect(30).toBeGreaterThanOrEqual(PLAN_LIMITS.starter.cvLimit);
       });
 
-      it('STARTER AI: 2 allowed, 3 blocked', () => {
-        expect(2).toBeLessThan(PLAN_LIMITS.starter.aiLimit);
-        expect(3).toBeGreaterThanOrEqual(PLAN_LIMITS.starter.aiLimit);
+      it('STARTER AI: 49 allowed, 50 blocked', () => {
+        expect(49).toBeLessThan(PLAN_LIMITS.starter.aiLimit);
+        expect(50).toBeGreaterThanOrEqual(PLAN_LIMITS.starter.aiLimit);
       });
 
       it('STARTER Download: 2 allowed, 3 blocked', () => {
@@ -470,9 +469,9 @@ describe('Subscription Limits Integration Tests', () => {
         expect(150).toBeGreaterThanOrEqual(PLAN_LIMITS.gold.cvLimit);
       });
 
-      it('GOLD AI: 9 allowed, 10 blocked', () => {
-        expect(9).toBeLessThan(PLAN_LIMITS.gold.aiLimit);
-        expect(10).toBeGreaterThanOrEqual(PLAN_LIMITS.gold.aiLimit);
+      it('GOLD AI: 99 allowed, 100 blocked', () => {
+        expect(99).toBeLessThan(PLAN_LIMITS.gold.aiLimit);
+        expect(100).toBeGreaterThanOrEqual(PLAN_LIMITS.gold.aiLimit);
       });
 
       // DIAMOND boundaries
@@ -481,9 +480,9 @@ describe('Subscription Limits Integration Tests', () => {
         expect(300).toBeGreaterThanOrEqual(PLAN_LIMITS.diamond.cvLimit);
       });
 
-      it('DIAMOND AI: 29 allowed, 30 blocked', () => {
-        expect(29).toBeLessThan(PLAN_LIMITS.diamond.aiLimit);
-        expect(30).toBeGreaterThanOrEqual(PLAN_LIMITS.diamond.aiLimit);
+      it('DIAMOND AI: 199 allowed, 200 blocked', () => {
+        expect(199).toBeLessThan(PLAN_LIMITS.diamond.aiLimit);
+        expect(200).toBeGreaterThanOrEqual(PLAN_LIMITS.diamond.aiLimit);
       });
 
       it('DIAMOND Download: 24 allowed, 25 blocked', () => {
@@ -492,9 +491,9 @@ describe('Subscription Limits Integration Tests', () => {
       });
 
       // PLATINUM boundaries
-      it('PLATINUM AI: 99 allowed, 100 blocked', () => {
-        expect(99).toBeLessThan(PLAN_LIMITS.platinum.aiLimit);
-        expect(100).toBeGreaterThanOrEqual(PLAN_LIMITS.platinum.aiLimit);
+      it('PLATINUM AI: 499 allowed, 500 blocked', () => {
+        expect(499).toBeLessThan(PLAN_LIMITS.platinum.aiLimit);
+        expect(500).toBeGreaterThanOrEqual(PLAN_LIMITS.platinum.aiLimit);
       });
     });
   });

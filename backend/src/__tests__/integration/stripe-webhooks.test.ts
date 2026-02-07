@@ -44,7 +44,7 @@ jest.mock('../../services/stripeService', () => ({
       priceId: 'price_starter_test',
       type: 'subscription',
       cvLimit: 30,
-      aiLimit: 3,
+      aiLimit: 50,
       downloadLimit: 3,
       coverLetterLimit: 10,
       trialDailyLimit: 3,
@@ -55,7 +55,7 @@ jest.mock('../../services/stripeService', () => ({
       priceId: 'price_gold_test',
       type: 'subscription',
       cvLimit: 150,
-      aiLimit: 10,
+      aiLimit: 100,
       downloadLimit: 10,
       coverLetterLimit: 30,
       trialDailyLimit: 5,
@@ -66,7 +66,7 @@ jest.mock('../../services/stripeService', () => ({
       priceId: 'price_diamond_test',
       type: 'subscription',
       cvLimit: 300,
-      aiLimit: 30,
+      aiLimit: 200,
       downloadLimit: 25,
       coverLetterLimit: 50,
       trialDailyLimit: 10,
@@ -77,8 +77,8 @@ jest.mock('../../services/stripeService', () => ({
       priceId: 'price_platinum_test',
       type: 'subscription',
       cvLimit: -1,
-      aiLimit: 100,
-      downloadLimit: -1,
+      aiLimit: 500,
+      downloadLimit: 120,
       coverLetterLimit: -1,
       trialDailyLimit: 15,
       hasTrial: false,
@@ -271,8 +271,8 @@ describe('Stripe Integration Tests', () => {
         subscriptionStatus: 'active',
         limits: {
           cvLimit: -1, // Unlimited
-          aiLimit: 100,
-          downloadLimit: -1, // Unlimited
+          aiLimit: 500,
+          downloadLimit: 120,
           coverLetterLimit: -1, // Unlimited
           dailyLimit: 100,
         },
@@ -286,7 +286,7 @@ describe('Stripe Integration Tests', () => {
       expect(response.status).toBe(HTTP_STATUS.OK);
       expect(response.body.subscriptionTier).toBe('platinum');
       expect(response.body.limits.cvLimit).toBe(-1);
-      expect(response.body.limits.downloadLimit).toBe(-1);
+      expect(response.body.limits.downloadLimit).toBe(120);
     });
 
     it('should reject unauthenticated request', async () => {
@@ -330,13 +330,13 @@ describe('Stripe Integration Tests', () => {
         const goldMonthlyLimit = PLAN_LIMITS.gold.aiLimit;
 
         expect(goldTrialDailyLimit).toBe(5);
-        expect(goldMonthlyLimit).toBe(10);
+        expect(goldMonthlyLimit).toBe(100);
         expect(goldTrialDailyLimit).toBeLessThan(goldMonthlyLimit);
       });
 
       it('active user should have monthly AI limits', () => {
         const goldMonthlyLimit = PLAN_LIMITS.gold.aiLimit;
-        expect(goldMonthlyLimit).toBe(10);
+        expect(goldMonthlyLimit).toBe(100);
       });
     });
 
@@ -382,13 +382,12 @@ describe('Stripe Integration Tests', () => {
       expect(PLAN_LIMITS.diamond.coverLetterLimit).toBeGreaterThan(PLAN_LIMITS.gold.coverLetterLimit);
     });
 
-    it('PLATINUM should have highest/unlimited limits', () => {
-      // Unlimited is represented as -1
+    it('PLATINUM should have highest limits', () => {
       expect(PLAN_LIMITS.platinum.cvLimit).toBe(-1);
-      expect(PLAN_LIMITS.platinum.downloadLimit).toBe(-1);
+      expect(PLAN_LIMITS.platinum.downloadLimit).toBe(120);
       expect(PLAN_LIMITS.platinum.coverLetterLimit).toBe(-1);
       // AI still has a cap even for platinum
-      expect(PLAN_LIMITS.platinum.aiLimit).toBe(100);
+      expect(PLAN_LIMITS.platinum.aiLimit).toBe(500);
     });
   });
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState, useRef, useEffect } from 'react';
+import { ReactNode, useState } from 'react';
 import { motion, useReducedMotion, Variants, AnimatePresence } from 'framer-motion';
 
 interface AnimationProps {
@@ -81,11 +81,11 @@ function PricingGrid({ children, className = '' }: AnimationProps) {
   );
 }
 
-function PricingCard({ children, className = '', highlighted = false }: AnimationProps & { highlighted?: boolean }) {
+function PricingCard({ children, className = '', highlighted = false, onClick }: AnimationProps & { highlighted?: boolean; onClick?: () => void }) {
   const prefersReducedMotion = useReducedMotion();
 
   if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} onClick={onClick}>{children}</div>;
   }
 
   return (
@@ -94,6 +94,7 @@ function PricingCard({ children, className = '', highlighted = false }: Animatio
       variants={cardVariants}
       whileHover={highlighted ? { scale: 1.02, y: -5 } : { scale: 1.01, y: -3 }}
       transition={{ duration: 0.2 }}
+      onClick={onClick}
     >
       {children}
     </motion.div>
@@ -256,30 +257,7 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, className = '' }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (prefersReducedMotion || !contentRef.current) return;
-
-    // Dynamic import GSAP for accordion animation
-    import('@/lib/animations/gsapInit').then(({ gsap }) => {
-      if (isOpen) {
-        gsap.fromTo(
-          contentRef.current,
-          { height: 0, opacity: 0 },
-          { height: 'auto', opacity: 1, duration: 0.3, ease: 'power2.out' }
-        );
-      } else {
-        gsap.to(contentRef.current, {
-          height: 0,
-          opacity: 0,
-          duration: 0.2,
-          ease: 'power2.in',
-        });
-      }
-    });
-  }, [isOpen, prefersReducedMotion]);
 
   if (prefersReducedMotion) {
     return (
@@ -330,14 +308,21 @@ function FAQItem({ question, answer, className = '' }: FAQItemProps) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </motion.svg>
       </button>
-      <div
-        ref={contentRef}
-        style={{ height: 0, opacity: 0, overflow: 'hidden' }}
-      >
-        <div className="px-6 pb-6">
-          <p className="text-gray-600 text-sm">{answer}</p>
-        </div>
-      </div>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ overflow: 'hidden' }}
+          >
+            <div className="px-6 pb-6">
+              <p className="text-gray-600 text-sm">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

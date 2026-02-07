@@ -1,0 +1,1 @@
+[     462ms] [WARNING] Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ http://localhost:4455/_next/static/chunks/41356_next_dist_bdce7b59._.js:2297

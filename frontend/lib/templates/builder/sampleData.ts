@@ -29,7 +29,7 @@ export const sampleProfiles = [
         website: 'michaelanderson.dev',
         linkedin: 'linkedin.com/in/michaelanderson',
         summary: 'Full-stack Software Engineer with 8+ years of experience building scalable web applications. Expert in React, Node.js, and cloud architecture.',
-        profileImage: '/Img/michael-anderson.png',
+        profileImage: '/Img/michael-anderson.webp',
         github: 'github.com/michaelanderson',
     },
     {
@@ -90,7 +90,7 @@ export const sampleProfiles = [
         website: 'victoriachen.consulting',
         linkedin: 'linkedin.com/in/victoriachen',
         summary: 'Strategic Business Consultant with 9+ years helping Fortune 500 companies optimize operations and drive growth. MBA from Harvard Business School.',
-        profileImage: '/Img/victoria-chen.png',
+        profileImage: '/Img/victoria-chen.webp',
     },
     {
         fullName: 'Rachel Kim',
@@ -101,7 +101,7 @@ export const sampleProfiles = [
         website: 'rachelkim.content',
         linkedin: 'linkedin.com/in/rachelkim',
         summary: 'Creative Content Strategist with 5+ years developing engaging brand narratives and content marketing campaigns. Expert in SEO and social media strategy.',
-        profileImage: '/Img/rachel-kim.png',
+        profileImage: '/Img/rachel-kim.webp',
     },
     {
         fullName: 'Amanda Wilson',
@@ -112,7 +112,7 @@ export const sampleProfiles = [
         website: 'amandawilson.finance',
         linkedin: 'linkedin.com/in/amandawilson',
         summary: 'Detail-oriented Financial Analyst with 6+ years in investment banking and corporate finance. CFA charterholder with expertise in financial modeling.',
-        profileImage: '/Img/amanda-wilson.png',
+        profileImage: '/Img/amanda-wilson.webp',
     },
     {
         fullName: 'Jessica Taylor',
@@ -123,7 +123,7 @@ export const sampleProfiles = [
         website: 'jessicataylor.hr',
         linkedin: 'linkedin.com/in/jessicataylor',
         summary: 'People-focused HR Director with 8+ years building inclusive workplace cultures and talent acquisition strategies. SHRM-SCP certified professional.',
-        profileImage: '/Img/jessica-taylor.png',
+        profileImage: '/Img/jessica-taylor.webp',
     },
     {
         fullName: 'Alex Parker',
@@ -134,7 +134,7 @@ export const sampleProfiles = [
         website: 'alexparker.law',
         linkedin: 'linkedin.com/in/alexparker',
         summary: 'Corporate Legal Counsel with 7+ years specializing in M&A transactions and regulatory compliance. JD from Georgetown Law with top honors.',
-        profileImage: '/Img/alex-parker.png',
+        profileImage: '/Img/alex-parker.webp',
     },
     {
         fullName: 'Nathan Brooks',
@@ -145,7 +145,7 @@ export const sampleProfiles = [
         website: 'nathanbrooks.creative',
         linkedin: 'linkedin.com/in/nathanbrooks',
         summary: 'Visionary Creative Director with 10+ years leading award-winning campaigns for global brands. Expert in brand strategy and visual storytelling.',
-        profileImage: '/Img/nathan-brooks.png',
+        profileImage: '/Img/nathan-brooks.webp',
     },
     {
         fullName: 'Ryan Cooper',
@@ -156,7 +156,7 @@ export const sampleProfiles = [
         website: 'ryancooper.pm',
         linkedin: 'linkedin.com/in/ryancooper',
         summary: 'PMP-certified Project Manager with 6+ years delivering complex IT projects on time and under budget. Agile and Scrum Master certified.',
-        profileImage: '/Img/ryan-cooper.png',
+        profileImage: '/Img/ryan-cooper.webp',
     },
 ];
 
@@ -264,6 +264,7 @@ export const sampleResumeData: ResumeData = {
     ],
     awards: [],
     references: [],
+    customFields: [],
     background: {
         type: 'solid',
         color: '#ffffff',

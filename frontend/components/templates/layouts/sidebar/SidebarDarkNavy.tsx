@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Phone, Mail, MapPin, Globe } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -18,7 +19,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * - Timeline: Vertical line in experience section.
  */
 function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, certifications, awards, interests, references, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, interests, references, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto Slab'); // Serif for headers as per spec hint
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -104,10 +105,10 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                 <div style={{ width: '100%', marginBottom: 40 }}>
                     <SidebarSectionHeader title={t.sections.contact} color={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                        {personalInfo.phone && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><span>📞</span><span>{personalInfo.phone}</span></div>}
-                        {personalInfo.email && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><span>✉️</span><span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span></div>}
-                        {personalInfo.location && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><span>📍</span><span>{personalInfo.location}</span></div>}
-                        {personalInfo.website && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><span>🌐</span><span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span></div>}
+                        {personalInfo.phone && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><Phone size={14} color={sidebarText} /><span>{personalInfo.phone}</span></div>}
+                        {personalInfo.email && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><Mail size={14} color={sidebarText} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span></div>}
+                        {personalInfo.location && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><MapPin size={14} color={sidebarText} /><span>{personalInfo.location}</span></div>}
+                        {personalInfo.website && <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><Globe size={14} color={sidebarText} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span></div>}
                     </div>
                 </div>
 
@@ -322,7 +323,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                         <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>{t.sections.socialLinks}</h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>Twitter:</span> {personalInfo.x}</div>}
+                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
@@ -369,13 +370,13 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
-                {/* Custom Field */}
-                {personalInfo.customField && personalInfo.customFieldLabel && (
-                    <section className="mb-8 resume-section" data-paginate="section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>{personalInfo.customFieldLabel}</h3>
-                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>{personalInfo.customField}</p>
+                {/* Custom Fields */}
+                {customFields?.map((field) => (
+                    <section key={field.id} className="mb-8 resume-section" data-paginate="section">
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>{field.label}</h3>
+                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>{field.content}</p>
                     </section>
-                )}
+                ))}
 
             </main>
         </div>

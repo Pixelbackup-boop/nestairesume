@@ -233,9 +233,9 @@ describe('Subscription Limits Middleware', () => {
       });
     });
 
-    describe('PLATINUM tier (Unlimited downloads)', () => {
-      it('should allow unlimited downloads', async () => {
-        const user = createPlatinumUser({ downloadCount: 500 });
+    describe('PLATINUM tier (120 downloads/month)', () => {
+      it('should allow downloads under limit', async () => {
+        const user = createPlatinumUser({ downloadCount: 100 });
         mockReq = { user: { userId: user.id, id: user.id, email: user.email, role: user.role } };
         (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
 
@@ -260,8 +260,8 @@ describe('Subscription Limits Middleware', () => {
   // ==================== AI LIMIT TESTS ====================
   describe('checkAiLimit', () => {
     describe('Monthly limits by tier', () => {
-      it('STARTER: should allow up to 2 AI generations', async () => {
-        const user = createStarterUser({ aiUsedCount: 2 });
+      it('STARTER: should allow up to 49 AI generations', async () => {
+        const user = createStarterUser({ aiUsedCount: 49 });
         mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
         (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
 
@@ -270,8 +270,8 @@ describe('Subscription Limits Middleware', () => {
         expect(mockNext).toHaveBeenCalled();
       });
 
-      it('STARTER: should BLOCK at 3 AI generations', async () => {
-        const user = createStarterUser({ aiUsedCount: 3 });
+      it('STARTER: should BLOCK at 50 AI generations', async () => {
+        const user = createStarterUser({ aiUsedCount: 50 });
         mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
         (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
 
@@ -286,8 +286,8 @@ describe('Subscription Limits Middleware', () => {
         );
       });
 
-      it('PLATINUM: should allow up to 99 AI generations', async () => {
-        const user = createPlatinumUser({ aiUsedCount: 99 });
+      it('PLATINUM: should allow up to 499 AI generations', async () => {
+        const user = createPlatinumUser({ aiUsedCount: 499 });
         mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
         (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
 
@@ -296,8 +296,8 @@ describe('Subscription Limits Middleware', () => {
         expect(mockNext).toHaveBeenCalled();
       });
 
-      it('PLATINUM: should BLOCK at 100 AI generations', async () => {
-        const user = createPlatinumUser({ aiUsedCount: 100 });
+      it('PLATINUM: should BLOCK at 500 AI generations', async () => {
+        const user = createPlatinumUser({ aiUsedCount: 500 });
         mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
         (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
 
@@ -387,7 +387,7 @@ describe('Subscription Limits Middleware', () => {
           tier: 'starter',
           usage: expect.objectContaining({
             cv: { used: 10, limit: 30 },
-            ai: { used: 5, limit: 3 }, // Starter has aiLimit: 3
+            ai: { used: 5, limit: 50 },
             download: { used: 2, limit: 3 },
             coverLetter: { used: 3, limit: 10 },
           }),

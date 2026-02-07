@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import { getPostBySlug, getAllCareerPostSlugs, getRelatedPosts } from '@/lib/blog/posts';
 import { compileMDXContent, extractHeadings } from '@/lib/blog/mdx';
+import { getAuthor } from '@/lib/resume-examples/posts';
 import BlogHeader from '@/components/blog/BlogHeader';
 import TableOfContents from '@/components/blog/TableOfContents';
 import RelatedPosts from '@/components/blog/RelatedPosts';
@@ -11,7 +12,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 interface CareerPostPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 // Generate static paths for all career posts
@@ -22,7 +23,7 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: CareerPostPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const post = await getPostBySlug(slug);
 
   if (!post) {
@@ -32,6 +33,13 @@ export async function generateMetadata({ params }: CareerPostPageProps): Promise
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
+  const locales = ['en', 'es', 'fr', 'de', 'ar'];
+  const alternateLanguages: Record<string, string> = {
+    'x-default': `${siteUrl}/en/career/${post.slug}`,
+  };
+  locales.forEach((loc) => {
+    alternateLanguages[loc] = `${siteUrl}/${loc}/career/${post.slug}`;
+  });
 
   return {
     title: `${post.title} | Career Center | Best AI Resume`,
@@ -53,7 +61,8 @@ export async function generateMetadata({ params }: CareerPostPageProps): Promise
       images: post.image ? [post.image] : [],
     },
     alternates: {
-      canonical: `${siteUrl}/career/${post.slug}`,
+      canonical: `${siteUrl}/${locale}/career/${post.slug}`,
+      languages: alternateLanguages,
     },
   };
 }
@@ -93,6 +102,9 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
   // Get related posts
   const relatedPosts = await getRelatedPosts(post.slug, 3);
 
+  // Resolve author for E-E-A-T Person schema
+  const author = getAuthor(post.author);
+
   // Build URL for sharing
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
   const postUrl = `${siteUrl}/career/${post.slug}`;
@@ -107,9 +119,18 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
     datePublished: post.date,
     dateModified: post.date,
     author: {
-      '@type': 'Organization',
-      name: post.author,
-      url: siteUrl,
+      '@type': 'Person',
+      name: author.name,
+      jobTitle: author.jobTitle,
+      url: `${siteUrl}/about/${author.slug}`,
+      image: `${siteUrl}${author.image}`,
+      knowsAbout: author.expertise,
+      ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
+      worksFor: {
+        '@type': 'Organization',
+        name: author.organization,
+        url: siteUrl,
+      },
     },
     publisher: {
       '@type': 'Organization',
