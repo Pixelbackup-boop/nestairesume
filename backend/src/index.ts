@@ -15,6 +15,8 @@ import docxRoutes from "./routes/docx";
 import resumeParserRoutes from "./routes/resumeParser";
 import aiRoutes from "./routes/ai";
 import atsCheckerRoutes from "./routes/atsChecker";
+import adsRoutes from "./routes/ads";
+import mockInterviewRoutes from "./routes/mockInterview";
 
 // Import scheduler
 import { startScheduler } from "./services/schedulerService";
@@ -60,6 +62,8 @@ app.use("/api/v1/docx", docxRoutes);
 app.use("/api/v1/resume", resumeParserRoutes);
 app.use("/api/v1/ai", aiRoutes);
 app.use("/api/v1/ats", atsCheckerRoutes);
+app.use("/api/v1/ads", adsRoutes);
+app.use("/api/v1/interview", mockInterviewRoutes);
 
 // Start server
 app.listen(config.port, config.host, async () => {

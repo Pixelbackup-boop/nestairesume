@@ -1,6 +1,8 @@
 import { Router, Response } from "express";
 import { AuthRequest, authenticateToken, requireAdmin } from "../middleware/auth";
 import * as adminService from "../services/adminService";
+import * as adSettingsService from "../services/adSettingsService";
+import { getUsageStatus } from "../middleware/subscriptionLimits";
 import { PLANS, PlanType, reloadPlansFromDb } from "../services/stripeService";
 import { PrismaClient } from "@prisma/client";
 
@@ -26,12 +28,18 @@ router.get("/dashboard", async (_req: AuthRequest, res: Response) => {
 // User management
 router.get("/users", async (req: AuthRequest, res: Response) => {
   try {
-    const skip = parseInt(req.query.skip as string) || 0;
+    const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 20;
     const search = req.query.search as string | undefined;
+    const skip = (page - 1) * limit;
 
     const result = await adminService.getAllUsers(skip, limit, search);
-    res.json(result);
+    res.json({
+      ...result,
+      page,
+      limit,
+      totalPages: Math.ceil(result.total / limit),
+    });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to get users";
     res.status(500).json({ detail: message });
@@ -40,12 +48,15 @@ router.get("/users", async (req: AuthRequest, res: Response) => {
 
 router.get("/users/:id", async (req: AuthRequest, res: Response) => {
   try {
-    const user = await adminService.getUserWithResumes(req.params.id);
+    const [user, usageStatus] = await Promise.all([
+      adminService.getUserWithResumes(req.params.id),
+      getUsageStatus(req.params.id),
+    ]);
     if (!user) {
       res.status(404).json({ detail: "User not found" });
       return;
     }
-    res.json(user);
+    res.json({ ...user, usageStatus });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to get user";
     res.status(500).json({ detail: message });
@@ -184,6 +195,16 @@ router.get("/payments/stats", async (_req: AuthRequest, res: Response) => {
   }
 });
 
+router.get("/payments/analytics", async (_req: AuthRequest, res: Response) => {
+  try {
+    const analytics = await adminService.getPaymentAnalytics();
+    res.json(analytics);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to get payment analytics";
+    res.status(500).json({ detail: message });
+  }
+});
+
 router.get("/payments", async (req: AuthRequest, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
@@ -236,6 +257,27 @@ router.put("/plans/:planType", async (req: AuthRequest, res: Response): Promise<
     res.json({ success: true, plan: PLANS[planType as PlanType] });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to update plan";
+    res.status(500).json({ detail: message });
+  }
+});
+
+// Ad settings management
+router.get("/ads/settings", async (_req: AuthRequest, res: Response) => {
+  try {
+    const settings = await adSettingsService.getAdSettings();
+    res.json(settings);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to get ad settings";
+    res.status(500).json({ detail: message });
+  }
+});
+
+router.post("/ads/settings", async (req: AuthRequest, res: Response) => {
+  try {
+    const settings = await adSettingsService.saveAdSettings(req.body);
+    res.json(settings);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to save ad settings";
     res.status(500).json({ detail: message });
   }
 });

@@ -1,11 +1,13 @@
 'use client';
 
+import { useDeferredValue } from 'react';
 import { useResumeStore } from '../../store/useResumeStore';
 import { colorPresets, generateTheme, getLayoutType as getBuilderLayoutType } from '@/lib/templates/builder';
 import UnifiedTemplate, { LayoutType } from '../templates/UnifiedTemplate';
 
 export default function ResumePreview() {
-    const { resumeData, selectedTemplate, selectedTheme } = useResumeStore();
+    const { resumeData: rawResumeData, selectedTemplate, selectedTheme } = useResumeStore();
+    const resumeData = useDeferredValue(rawResumeData);
 
     // Get theme color: check preset first, then custom color, then fallback
     const getThemeColor = (): string => {

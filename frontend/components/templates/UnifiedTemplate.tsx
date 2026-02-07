@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ResumeData } from '@/store/useResumeStore';
 import { ThemeColor } from '@/lib/themes';
 import { getTemplateById, getTemplateIdFromLayout, templateRegistry } from './layouts';
@@ -27,12 +27,7 @@ interface UnifiedTemplateProps {
 
 /**
  * UnifiedTemplate - Router that dispatches to the correct template component.
- *
- * Supports both:
- * - New templateId prop: <UnifiedTemplate templateId="sidebar-modern" ... />
- * - Legacy layout prop: <UnifiedTemplate layout="sidebar" ... />
- *
- * The templateId takes precedence if both are provided.
+ * Templates are lazy-loaded — only the active template's JS is downloaded.
  */
 export default function UnifiedTemplate({
     data,
@@ -47,7 +42,6 @@ export default function UnifiedTemplate({
     let resolvedTemplateId = templateId;
 
     if (!resolvedTemplateId && layout) {
-        // Convert legacy layout type to template ID
         resolvedTemplateId = getTemplateIdFromLayout(layout);
     }
 
@@ -59,7 +53,6 @@ export default function UnifiedTemplate({
     const template = getTemplateById(resolvedTemplateId);
 
     if (!template) {
-        // Fallback to classic if template not found
         const fallback = getTemplateById('classic-professional');
         if (!fallback) {
             return (
@@ -70,28 +63,28 @@ export default function UnifiedTemplate({
         }
         const FallbackComponent = fallback.component;
         return (
-            <TranslationProvider translations={translations}>
-                <FallbackComponent data={data} theme={theme} scale={scale} />
-            </TranslationProvider>
+            <Suspense fallback={<TemplateLoadingSkeleton />}>
+                <TranslationProvider translations={translations}>
+                    <FallbackComponent data={data} theme={theme} scale={scale} />
+                </TranslationProvider>
+            </Suspense>
         );
     }
 
     const TemplateComponent = template.component;
     return (
-        <TranslationProvider translations={translations}>
-            <TemplateComponent data={data} theme={theme} scale={scale} />
-        </TranslationProvider>
+        <Suspense fallback={<TemplateLoadingSkeleton />}>
+            <TranslationProvider translations={translations}>
+                <TemplateComponent data={data} theme={theme} scale={scale} />
+            </TranslationProvider>
+        </Suspense>
     );
 }
 
-// Named exports for direct template access (backward compatibility)
-export { default as ClassicProfessional } from './layouts/classic/ClassicProfessional';
-export { default as SidebarDarkNavy } from './layouts/sidebar/SidebarDarkNavy';
-export { default as HeaderDark } from './layouts/header/HeaderDark';
-export { default as MinimalTimeline } from './layouts/minimal/MinimalTimeline';
-
-// Legacy named exports mapping to new components
-export { default as ClassicTemplate } from './layouts/classic/ClassicProfessional';
-export { default as SidebarTemplate } from './layouts/sidebar/SidebarDarkNavy';
-export { default as HeaderTemplate } from './layouts/header/HeaderDark';
-export { default as MinimalTemplate } from './layouts/minimal/MinimalTimeline';
+function TemplateLoadingSkeleton() {
+    return (
+        <div className="w-full h-full bg-white animate-pulse flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+        </div>
+    );
+}

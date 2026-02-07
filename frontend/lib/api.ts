@@ -70,6 +70,15 @@ async function request<T>(
     const responseData = await response.json().catch(() => ({}));
 
     if (!response.ok) {
+      // Auto-redirect to login on 401 (expired/invalid token)
+      if (response.status === 401 && typeof window !== 'undefined') {
+        localStorage.removeItem('token');
+        if (window.location.pathname.startsWith('/admin') && !window.location.pathname.includes('/admin/login')) {
+          window.location.href = '/admin/login';
+          return { data: {} as T };
+        }
+      }
+
       const error: ApiError = {
         response: {
           data: responseData,

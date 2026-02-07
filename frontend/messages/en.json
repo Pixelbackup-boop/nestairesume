@@ -984,6 +984,78 @@
     }
   },
 
+  "MockInterview": {
+    "meta": {
+      "title": "Free AI Mock Interview Practice | Best AI Resume",
+      "description": "Practice job interviews with AI-generated questions tailored to your role. Get instant STAR method feedback on your answers. Free mock interview tool."
+    },
+    "hero": {
+      "badge": "AI-Powered Interview Practice",
+      "title": "AI Mock Interview Practice",
+      "description": "Practice with AI-generated interview questions tailored to your role and experience level. Get instant feedback using the STAR method."
+    },
+    "setup": {
+      "title": "Set Up Your Interview",
+      "jobTitle": "Job Title",
+      "jobTitlePlaceholder": "e.g. Software Engineer, Marketing Manager...",
+      "experienceLevel": "Experience Level",
+      "levels": {
+        "entry": { "label": "Entry Level", "description": "0–2 years experience" },
+        "mid": { "label": "Mid Level", "description": "3–6 years experience" },
+        "senior": { "label": "Senior Level", "description": "7+ years experience" }
+      },
+      "questionCount": "Number of Questions: {count}",
+      "quick": "Quick (3)",
+      "thorough": "Thorough (10)",
+      "startButton": "Start Interview",
+      "generating": "Generating Questions..."
+    },
+    "interview": {
+      "progress": "Question {current} of {total}",
+      "yourAnswer": "Your Answer",
+      "answerPlaceholder": "Type your answer here. Use the STAR method: Situation, Task, Action, Result...",
+      "answerTip": "Tip: Aim for 3–5 sentences. Use specific examples and quantify results when possible.",
+      "skip": "Skip",
+      "evaluating": "Evaluating...",
+      "submitContinue": "Submit & Continue",
+      "submitFinish": "Submit & Finish",
+      "starReminder": "Remember the STAR Method:",
+      "starDescription": "Structure your answers with Situation, Task, Action, and Result for the strongest responses."
+    },
+    "results": {
+      "complete": "Interview Complete!",
+      "summary": "You answered {answered} of {total} questions",
+      "averageScore": "Average Score:",
+      "startNew": "Start New Interview",
+      "bonusQuestions": "Unlock 10 bonus practice questions",
+      "bonusUnlocked": "Bonus Questions Unlocked!",
+      "bonusDescription": "You can now practice with up to 10 questions per session.",
+      "detailedFeedback": "Detailed Feedback",
+      "questionLabel": "Question {number}",
+      "strengths": "Strengths",
+      "improvements": "Areas for Improvement",
+      "sampleAnswer": "Sample Answer",
+      "skipped": "This question was skipped",
+      "continuePrep": "Continue Your Preparation",
+      "resources": {
+        "starMethod": {
+          "title": "Master the STAR Method",
+          "description": "Learn how to structure your answers for behavioral interview questions."
+        },
+        "tellMe": {
+          "title": "How to Answer \"Tell Me About Yourself\"",
+          "description": "Craft the perfect opening answer that sets the tone for your interview."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Please enter a job title to continue.",
+      "generateFailed": "Failed to generate interview questions. Please try again.",
+      "startFailed": "Failed to start the interview. Please try again.",
+      "detailedAnswer": "Please provide a more detailed answer (at least 20 characters)."
+    }
+  },
+
   "CareerTips": {
     "meta": {
       "title": "Career Tips & Resume Advice - Expert Guides | Best AI Resume",

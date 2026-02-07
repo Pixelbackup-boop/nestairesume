@@ -63,21 +63,21 @@ export default function AdminLayoutClient({
 
   if (isChecking) {
     return (
-      <div className="min-h-screen bg-bg-primary flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="w-8 h-8 animate-spin text-accent-purple" />
-          <p className="text-gray-400 text-sm">Verifying access...</p>
+          <p className="text-gray-500 text-sm">Verifying access...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-bg-primary">
+    <div className="min-h-screen bg-gray-50">
       {/* Mobile Sidebar Overlay */}
       {mobileSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/30 z-30 lg:hidden"
           onClick={() => setMobileSidebarOpen(false)}
         />
       )}
@@ -88,14 +88,14 @@ export default function AdminLayoutClient({
       />
 
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-bg-card border-b border-white/5 flex items-center px-4 z-20">
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center px-4 z-20">
         <button
           onClick={() => setMobileSidebarOpen(true)}
-          className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition"
+          className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
         >
           <Menu size={24} />
         </button>
-        <span className="ml-3 font-semibold text-white">Admin Panel</span>
+        <span className="ml-3 font-semibold text-gray-900">Admin Panel</span>
       </div>
 
       <main className="lg:ml-64 min-h-screen pt-16 lg:pt-0">

@@ -42,14 +42,19 @@ export interface ScaledFontSizes {
  * @param sizeConfig - The user's font size preference from fontSizes[small|medium|large]
  * @param scale - Scale factor (1 = full size, <1 = thumbnail/preview)
  */
+// Cache for getScaledFontSizes — very few unique combinations (3 sizes × 2 scales)
+const fontSizeCache = new Map<string, ScaledFontSizes>();
+
 export const getScaledFontSizes = (
     sizeConfig: { base: string; heading: string; subheading: string },
     scale: number
 ): ScaledFontSizes => {
+    const cacheKey = `${sizeConfig.base}-${scale < 1 ? 'sm' : 'lg'}`;
+    const cached = fontSizeCache.get(cacheKey);
+    if (cached) return cached;
+
     // Parse the base sizes
     const baseSize = parseInt(sizeConfig.base);      // 12, 14, or 16
-    const headingSize = parseInt(sizeConfig.heading); // 20, 24, or 28
-    const subheadingSize = parseInt(sizeConfig.subheading); // 14, 16, or 18
 
     // Calculate multiplier based on user preference (medium is baseline)
     // small: 12/14 = 0.857, medium: 14/14 = 1, large: 16/14 = 1.143
@@ -67,7 +72,7 @@ export const getScaledFontSizes = (
         return `${size}px`;
     };
 
-    return {
+    const result: ScaledFontSizes = {
         name: calcSize(32, 12),           // 32px normal, 12px minimum
         jobTitle: calcSize(14, 8),        // 14px normal
         sectionHeading: calcSize(14, 8),  // 14px normal
@@ -77,6 +82,9 @@ export const getScaledFontSizes = (
         small: calcSize(10, 5),           // 10px normal
         tiny: calcSize(9, 5),             // 9px normal
     };
+
+    fontSizeCache.set(cacheKey, result);
+    return result;
 };
 
 /**

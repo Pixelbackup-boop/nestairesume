@@ -1,18 +1,26 @@
-"use client";
-
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations, getLocale } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReturningUserBanner from "@/components/ReturningUserBanner";
 import HeroResumeAnimation from "@/components/HeroResumeAnimation";
-import { HomeAnimations } from "@/components/HomeAnimations";
+import {
+  HeroSubtitle,
+  HeroTitle,
+  HeroCTA,
+  FeaturesGrid,
+  FeatureCard,
+  StepsGrid,
+  Step,
+  TestimonialsGrid,
+  Testimonial,
+} from "@/components/HomeAnimations";
 
-export default function Home() {
-  const t = useTranslations("Home");
-  const tCommon = useTranslations("Common");
-  const tPricing = useTranslations("Pricing");
-  const locale = useLocale();
+export default async function Home() {
+  const t = await getTranslations("Home");
+  const tCommon = await getTranslations("Common");
+  const tPricing = await getTranslations("Pricing");
+  const locale = await getLocale();
 
   const localizedHref = (path: string) => `/${locale}${path}`;
 
@@ -66,14 +74,14 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              <HomeAnimations.HeroSubtitle>
+              <HeroSubtitle>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-sm mb-6">
                   <span className="text-white">✦</span>
                   <span className="text-white/90">{t("hero.badge")}</span>
                 </div>
-              </HomeAnimations.HeroSubtitle>
+              </HeroSubtitle>
 
-              <HomeAnimations.HeroTitle>
+              <HeroTitle>
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] mb-4 md:mb-6 text-white">
                   {t("hero.title")}<br />
                   <span className="text-white">{t("hero.titleHighlight")}</span><br />
@@ -83,9 +91,9 @@ export default function Home() {
                 <p className="text-white/80 text-lg mb-8 max-w-md leading-relaxed">
                   {t("hero.description")}
                 </p>
-              </HomeAnimations.HeroTitle>
+              </HeroTitle>
 
-              <HomeAnimations.HeroCTA>
+              <HeroCTA>
                 <div className="flex flex-wrap gap-3 mb-4">
                   <Link
                     href={localizedHref("/onboarding")}
@@ -120,7 +128,7 @@ export default function Home() {
                     <span className="text-white/70 text-sm">{t("hero.trustedBy")}</span>
                   </div>
                 </div>
-              </HomeAnimations.HeroCTA>
+              </HeroCTA>
             </div>
 
             {/* Right Content - AI Writing Animation */}
@@ -215,9 +223,9 @@ export default function Home() {
             </p>
           </div>
 
-          <HomeAnimations.FeaturesGrid className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <FeaturesGrid className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Feature 1 */}
-            <HomeAnimations.FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
+            <FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-teal-primary/10 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -228,10 +236,10 @@ export default function Home() {
               <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
                 Learn More →
               </Link>
-            </HomeAnimations.FeatureCard>
+            </FeatureCard>
 
             {/* Feature 2 */}
-            <HomeAnimations.FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
+            <FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-teal-primary/10 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
@@ -242,10 +250,10 @@ export default function Home() {
               <Link href={localizedHref("/templates")} className="text-accent-orange text-sm font-medium hover:underline">
                 Learn More →
               </Link>
-            </HomeAnimations.FeatureCard>
+            </FeatureCard>
 
             {/* Feature 3 */}
-            <HomeAnimations.FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
+            <FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-teal-primary/10 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -256,10 +264,10 @@ export default function Home() {
               <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
                 Learn More →
               </Link>
-            </HomeAnimations.FeatureCard>
+            </FeatureCard>
 
             {/* Feature 4 */}
-            <HomeAnimations.FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
+            <FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-teal-primary/10 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -271,10 +279,10 @@ export default function Home() {
               <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
                 Learn More →
               </Link>
-            </HomeAnimations.FeatureCard>
+            </FeatureCard>
 
             {/* Feature 5 */}
-            <HomeAnimations.FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
+            <FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-teal-primary/10 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -285,10 +293,10 @@ export default function Home() {
               <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
                 Learn More →
               </Link>
-            </HomeAnimations.FeatureCard>
+            </FeatureCard>
 
             {/* Feature 6 */}
-            <HomeAnimations.FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
+            <FeatureCard className="feature-card-light rounded-2xl p-6 hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-teal-primary/10 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -299,8 +307,8 @@ export default function Home() {
               <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
                 Learn More →
               </Link>
-            </HomeAnimations.FeatureCard>
-          </HomeAnimations.FeaturesGrid>
+            </FeatureCard>
+          </FeaturesGrid>
         </div>
       </section>
 
@@ -315,37 +323,37 @@ export default function Home() {
             </h2>
           </div>
 
-          <HomeAnimations.StepsGrid className="grid md:grid-cols-3 gap-8 relative">
+          <StepsGrid className="grid md:grid-cols-3 gap-8 relative">
             {/* Connecting Line */}
             <div className="hidden md:block absolute top-20 left-[20%] right-[20%] h-px bg-gradient-to-r from-teal-primary via-teal-secondary to-accent-orange"></div>
 
             {/* Step 1 */}
-            <HomeAnimations.Step className="text-center">
+            <Step className="text-center">
               <div className="w-40 h-40 mx-auto rounded-full bg-white shadow-lg flex items-center justify-center mb-6 relative">
                 <span className="text-6xl font-bold text-teal-primary">01</span>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("howItWorks.step1.title")}</h3>
               <p className="text-dark-teal/70 text-sm">{t("howItWorks.step1.description")}</p>
-            </HomeAnimations.Step>
+            </Step>
 
             {/* Step 2 */}
-            <HomeAnimations.Step className="text-center">
+            <Step className="text-center">
               <div className="w-40 h-40 mx-auto rounded-full bg-white shadow-lg flex items-center justify-center mb-6 relative">
                 <span className="text-6xl font-bold text-teal-secondary">02</span>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("howItWorks.step2.title")}</h3>
               <p className="text-dark-teal/70 text-sm">{t("howItWorks.step2.description")}</p>
-            </HomeAnimations.Step>
+            </Step>
 
             {/* Step 3 */}
-            <HomeAnimations.Step className="text-center">
+            <Step className="text-center">
               <div className="w-40 h-40 mx-auto rounded-full bg-white shadow-lg flex items-center justify-center mb-6 relative">
                 <span className="text-6xl font-bold text-accent-orange">03</span>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("howItWorks.step3.title")}</h3>
               <p className="text-dark-teal/70 text-sm">{t("howItWorks.step3.description")}</p>
-            </HomeAnimations.Step>
-          </HomeAnimations.StepsGrid>
+            </Step>
+          </StepsGrid>
         </div>
       </section>
 
@@ -445,9 +453,9 @@ export default function Home() {
             </h2>
           </div>
 
-          <HomeAnimations.TestimonialsGrid className="grid md:grid-cols-3 gap-6">
+          <TestimonialsGrid className="grid md:grid-cols-3 gap-6">
             {/* Testimonial 1 */}
-            <HomeAnimations.Testimonial className="bg-white rounded-2xl p-6 shadow-xl">
+            <Testimonial className="bg-white rounded-2xl p-6 shadow-xl">
               <div className="flex text-yellow-400 text-sm mb-4">★★★★★</div>
               <p className="text-dark-teal/80 text-sm mb-6 leading-relaxed">&quot;Best AI Resume helped me land interviews at 5 FAANG companies. The AI suggestions transformed my bullet points from basic descriptions to impactful achievements.&quot;</p>
               <div className="flex items-center gap-3">
@@ -457,10 +465,10 @@ export default function Home() {
                   <div className="text-xs text-dark-teal/60">Software Engineer at Google</div>
                 </div>
               </div>
-            </HomeAnimations.Testimonial>
+            </Testimonial>
 
             {/* Testimonial 2 */}
-            <HomeAnimations.Testimonial className="bg-white rounded-2xl p-6 shadow-xl">
+            <Testimonial className="bg-white rounded-2xl p-6 shadow-xl">
               <div className="flex text-yellow-400 text-sm mb-4">★★★★★</div>
               <p className="text-dark-teal/80 text-sm mb-6 leading-relaxed">&quot;The ATS optimization feature is a game-changer. I went from getting ghosted to receiving callbacks within days of updating my resume.&quot;</p>
               <div className="flex items-center gap-3">
@@ -470,10 +478,10 @@ export default function Home() {
                   <div className="text-xs text-dark-teal/60">Product Manager at Stripe</div>
                 </div>
               </div>
-            </HomeAnimations.Testimonial>
+            </Testimonial>
 
             {/* Testimonial 3 */}
-            <HomeAnimations.Testimonial className="bg-white rounded-2xl p-6 shadow-xl">
+            <Testimonial className="bg-white rounded-2xl p-6 shadow-xl">
               <div className="flex text-yellow-400 text-sm mb-4">★★★★★</div>
               <p className="text-dark-teal/80 text-sm mb-6 leading-relaxed">&quot;Beautiful templates that actually work. I&apos;ve recommended Best AI Resume to everyone in my design community. It&apos;s simply the best.&quot;</p>
               <div className="flex items-center gap-3">
@@ -483,8 +491,8 @@ export default function Home() {
                   <div className="text-xs text-dark-teal/60">UX Designer at Figma</div>
                 </div>
               </div>
-            </HomeAnimations.Testimonial>
-          </HomeAnimations.TestimonialsGrid>
+            </Testimonial>
+          </TestimonialsGrid>
         </div>
 
         {/* Wave Divider - Single Simple Wave */}

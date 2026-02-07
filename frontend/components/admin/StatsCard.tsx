@@ -51,11 +51,11 @@ export default function StatsCard({
   const colors = colorClasses[color];
 
   return (
-    <div className="bg-bg-card border border-white/5 rounded-xl p-6 hover:border-white/10 transition-colors">
+    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-gray-300 transition-colors">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm text-gray-400 font-medium">{title}</p>
-          <p className="text-3xl font-bold text-white mt-2">{value}</p>
+          <p className="text-sm text-gray-500 font-medium">{title}</p>
+          <p className="text-3xl font-bold text-gray-900 mt-2">{value}</p>
           {subtitle && (
             <p className="text-xs text-gray-500 mt-1">{subtitle}</p>
           )}
@@ -63,7 +63,7 @@ export default function StatsCard({
             <div className="flex items-center gap-1 mt-2">
               <span
                 className={`text-xs font-medium ${
-                  trend.isPositive ? "text-accent-green" : "text-red-400"
+                  trend.isPositive ? "text-accent-green" : "text-red-500"
                 }`}
               >
                 {trend.isPositive ? "+" : "-"}{Math.abs(trend.value)}%

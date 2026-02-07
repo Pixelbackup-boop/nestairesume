@@ -85,8 +85,8 @@ export default function UserEditPage() {
   if (loading) {
     return (
       <div className="animate-pulse space-y-6">
-        <div className="h-8 bg-white/5 rounded w-48" />
-        <div className="h-96 bg-white/5 rounded-xl" />
+        <div className="h-8 bg-gray-100 rounded w-48" />
+        <div className="h-96 bg-gray-100 rounded-xl" />
       </div>
     );
   }
@@ -96,7 +96,7 @@ export default function UserEditPage() {
       {/* Back Link */}
       <Link
         href={`/admin/users/${params.id}`}
-        className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+        className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
       >
         <ArrowLeft size={16} />
         Back to User
@@ -104,24 +104,24 @@ export default function UserEditPage() {
 
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white">Edit User</h1>
-        <p className="text-gray-400 mt-1">Update user details and permissions.</p>
+        <h1 className="text-2xl font-bold text-gray-900">Edit User</h1>
+        <p className="text-gray-500 mt-1">Update user details and permissions.</p>
       </div>
 
       {/* Error */}
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-center gap-3">
-          <AlertCircle className="text-red-400" size={20} />
-          <p className="text-red-400 text-sm">{error}</p>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+          <AlertCircle className="text-red-600" size={20} />
+          <p className="text-red-600 text-sm">{error}</p>
         </div>
       )}
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="bg-bg-card border border-white/5 rounded-xl p-6 space-y-6">
+        <div className="bg-white border border-gray-200 rounded-xl p-6 space-y-6 shadow-sm">
           {/* Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Name
             </label>
             <input
@@ -130,13 +130,13 @@ export default function UserEditPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-purple/50 transition-colors"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Email
             </label>
             <input
@@ -145,20 +145,20 @@ export default function UserEditPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-purple/50 transition-colors"
             />
           </div>
 
           {/* Role */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Role
             </label>
             <select
               name="role"
               value={formData.role}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white focus:outline-none focus:border-accent-purple/50 transition-colors"
+              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-accent-purple/50 transition-colors"
             >
               <option value="user">User</option>
               <option value="admin">Admin</option>
@@ -167,14 +167,14 @@ export default function UserEditPage() {
 
           {/* Subscription Tier */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Subscription Tier
             </label>
             <select
               name="subscriptionTier"
               value={formData.subscriptionTier}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white focus:outline-none focus:border-accent-purple/50 transition-colors"
+              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-accent-purple/50 transition-colors"
             >
               <option value="free">Free</option>
               <option value="starter">Starter</option>
@@ -185,7 +185,7 @@ export default function UserEditPage() {
 
           {/* Credits */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Credits Remaining
             </label>
             <input
@@ -194,7 +194,7 @@ export default function UserEditPage() {
               value={formData.creditsRemaining}
               onChange={handleChange}
               min="0"
-              className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white focus:outline-none focus:border-accent-purple/50 transition-colors"
+              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-accent-purple/50 transition-colors"
             />
           </div>
 
@@ -206,9 +206,9 @@ export default function UserEditPage() {
               id="isSuspended"
               checked={formData.isSuspended}
               onChange={handleChange}
-              className="w-4 h-4 rounded border-white/20 bg-bg-primary text-accent-purple focus:ring-accent-purple/50"
+              className="w-4 h-4 rounded border-gray-300 bg-gray-50 text-accent-purple focus:ring-accent-purple/50"
             />
-            <label htmlFor="isSuspended" className="text-sm text-gray-300">
+            <label htmlFor="isSuspended" className="text-sm text-gray-700">
               Account suspended
             </label>
           </div>
@@ -230,7 +230,7 @@ export default function UserEditPage() {
           </button>
           <Link
             href={`/admin/users/${params.id}`}
-            className="px-6 py-2.5 text-gray-400 hover:text-white transition-colors"
+            className="px-6 py-2.5 text-gray-500 hover:text-gray-900 transition-colors"
           >
             Cancel
           </Link>

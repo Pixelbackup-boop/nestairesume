@@ -98,6 +98,10 @@ export default function MockInterviewPage() {
         }),
       });
 
+      if (!response.ok) {
+        throw new Error(t('errors.generateFailed'));
+      }
+
       const data = await response.json();
 
       if (!data.success) {
@@ -140,11 +144,13 @@ export default function MockInterviewPage() {
         }),
       });
 
-      const data = await response.json();
-
       let feedback: AnswerFeedback | null = null;
-      if (data.success) {
-        feedback = data.data;
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          feedback = data.data;
+        }
       }
 
       // Store result
@@ -571,7 +577,7 @@ export default function MockInterviewPage() {
                 <h3 className="text-lg font-semibold text-white mb-4">{t('results.continuePrep')}</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <Link
-                    href="/blog/star-method-interview-questions"
+                    href={`/${locale}/blog/star-method-interview-questions`}
                     className="p-4 bg-[#161b22] rounded-lg hover:bg-[#1c2128] transition-colors group"
                   >
                     <h4 className="text-white font-medium group-hover:text-accent-purple transition-colors">
@@ -582,7 +588,7 @@ export default function MockInterviewPage() {
                     </p>
                   </Link>
                   <Link
-                    href="/blog/tell-me-about-yourself-answer"
+                    href={`/${locale}/blog/tell-me-about-yourself-answer`}
                     className="p-4 bg-[#161b22] rounded-lg hover:bg-[#1c2128] transition-colors group"
                   >
                     <h4 className="text-white font-medium group-hover:text-accent-purple transition-colors">

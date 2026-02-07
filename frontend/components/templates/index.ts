@@ -16,19 +16,3 @@ export {
     getTemplateCategories,
     getTemplateIdFromLayout,
 } from './layouts';
-
-// Individual template components (for direct use)
-export {
-    ClassicProfessional,
-    SidebarDarkNavy,
-    HeaderDark,
-    MinimalTimeline,
-} from './layouts';
-
-// Legacy named exports (for backward compatibility)
-export {
-    ClassicTemplate,
-    SidebarTemplate,
-    HeaderTemplate,
-    MinimalTemplate,
-} from './UnifiedTemplate';

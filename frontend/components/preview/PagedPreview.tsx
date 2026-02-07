@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useLayoutEffect, useEffect, useCallback, forwardRef, useMemo } from 'react';
+import React, { useRef, useState, useLayoutEffect, useEffect, useCallback, forwardRef, useMemo, useDeferredValue } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useResumeStore } from '../../store/useResumeStore';
 import { isRtl, Locale } from '@/i18n.config';
@@ -96,7 +96,8 @@ interface PagedPreviewProps {
  */
 const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
     function PagedPreview({ scale = 1 }, ref) {
-        const { resumeData, selectedTemplate, selectedTheme, selectedTemplateId } = useResumeStore();
+        const { resumeData: rawResumeData, selectedTemplate, selectedTheme, selectedTemplateId } = useResumeStore();
+        const resumeData = useDeferredValue(rawResumeData);
         const containerRef = useRef<HTMLDivElement>(null);
         const [totalPages, setTotalPages] = useState(1);
         const t = useTranslations('Resume');

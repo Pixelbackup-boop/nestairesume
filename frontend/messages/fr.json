@@ -812,6 +812,79 @@
       "button": "Créer Votre CV"
     }
   },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Pratique d'Entretien avec IA Gratuite | Best AI Resume",
+      "description": "Entraînez-vous aux entretiens d'embauche avec des questions générées par l'IA adaptées à votre poste. Obtenez un retour instantané avec la méthode STAR."
+    },
+    "hero": {
+      "badge": "Pratique d'Entretien avec IA",
+      "title": "Entretien Simulé avec IA",
+      "description": "Entraînez-vous avec des questions d'entretien générées par l'IA, adaptées à votre poste et niveau d'expérience. Obtenez un retour instantané avec la méthode STAR."
+    },
+    "setup": {
+      "title": "Configurez Votre Entretien",
+      "jobTitle": "Intitulé du Poste",
+      "jobTitlePlaceholder": "ex. Ingénieur Logiciel, Responsable Marketing...",
+      "experienceLevel": "Niveau d'Expérience",
+      "levels": {
+        "entry": { "label": "Débutant", "description": "0–2 ans d'expérience" },
+        "mid": { "label": "Intermédiaire", "description": "3–6 ans d'expérience" },
+        "senior": { "label": "Senior", "description": "7+ ans d'expérience" }
+      },
+      "questionCount": "Nombre de Questions : {count}",
+      "quick": "Rapide (3)",
+      "thorough": "Approfondi (10)",
+      "startButton": "Commencer l'Entretien",
+      "generating": "Génération des Questions..."
+    },
+    "interview": {
+      "progress": "Question {current} sur {total}",
+      "yourAnswer": "Votre Réponse",
+      "answerPlaceholder": "Tapez votre réponse ici. Utilisez la méthode STAR : Situation, Tâche, Action, Résultat...",
+      "answerTip": "Conseil : Visez 3 à 5 phrases. Utilisez des exemples précis et quantifiez vos résultats si possible.",
+      "skip": "Passer",
+      "evaluating": "Évaluation...",
+      "submitContinue": "Soumettre et Continuer",
+      "submitFinish": "Soumettre et Terminer",
+      "starReminder": "Rappelez-vous la Méthode STAR :",
+      "starDescription": "Structurez vos réponses avec Situation, Tâche, Action et Résultat pour des réponses percutantes."
+    },
+    "results": {
+      "complete": "Entretien Terminé !",
+      "summary": "Vous avez répondu à {answered} questions sur {total}",
+      "averageScore": "Score Moyen :",
+      "startNew": "Nouvel Entretien",
+      "bonusQuestions": "Débloquez 10 questions de pratique supplémentaires",
+      "bonusUnlocked": "Questions Bonus Débloquées !",
+      "bonusDescription": "Vous pouvez maintenant pratiquer avec jusqu'à 10 questions par session.",
+      "detailedFeedback": "Retour Détaillé",
+      "questionLabel": "Question {number}",
+      "strengths": "Points Forts",
+      "improvements": "Axes d'Amélioration",
+      "sampleAnswer": "Exemple de Réponse",
+      "skipped": "Cette question a été passée",
+      "continuePrep": "Continuez Votre Préparation",
+      "resources": {
+        "starMethod": {
+          "title": "Maîtrisez la Méthode STAR",
+          "description": "Apprenez à structurer vos réponses pour les questions d'entretien comportementales."
+        },
+        "tellMe": {
+          "title": "Comment Répondre à « Parlez-moi de Vous »",
+          "description": "Élaborez la réponse d'ouverture parfaite qui donne le ton de votre entretien."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Veuillez entrer un intitulé de poste pour continuer.",
+      "generateFailed": "Échec de la génération des questions. Veuillez réessayer.",
+      "startFailed": "Échec du démarrage de l'entretien. Veuillez réessayer.",
+      "detailedAnswer": "Veuillez fournir une réponse plus détaillée (au moins 20 caractères)."
+    }
+  },
+
   "CareerTips": {
     "meta": {
       "title": "Conseils Carrière & CV - Guides d'Experts | Best AI Resume",

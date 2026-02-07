@@ -69,11 +69,11 @@ export default function AutoBlogDashboard() {
 
   if (error) {
     return (
-      <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 flex items-center gap-4">
-        <AlertCircle className="text-red-400" size={24} />
+      <div className="bg-red-50 border border-red-200 rounded-xl p-6 flex items-center gap-4">
+        <AlertCircle className="text-red-600" size={24} />
         <div>
-          <p className="text-red-400 font-medium">Error</p>
-          <p className="text-red-400/70 text-sm">{error}</p>
+          <p className="text-red-600 font-medium">Error</p>
+          <p className="text-red-600/70 text-sm">{error}</p>
         </div>
       </div>
     );
@@ -84,11 +84,11 @@ export default function AutoBlogDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+          <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
             <Bot className="text-accent-green" />
             Auto Blog
           </h1>
-          <p className="text-gray-400 mt-1">
+          <p className="text-gray-500 mt-1">
             AI-powered blog post generation from your content
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function AutoBlogDashboard() {
           className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition ${
             status?.enabled
               ? "bg-accent-green/20 text-accent-green hover:bg-accent-green/30"
-              : "bg-gray-500/20 text-gray-400 hover:bg-gray-500/30"
+              : "bg-gray-500/20 text-gray-500 hover:bg-gray-500/30"
           }`}
         >
           <Power size={18} />
@@ -110,7 +110,7 @@ export default function AutoBlogDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {loading ? (
           Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-32 bg-white/5 rounded-xl animate-pulse" />
+            <div key={i} className="h-32 bg-gray-100 rounded-xl animate-pulse" />
           ))
         ) : (
           <>
@@ -146,14 +146,14 @@ export default function AutoBlogDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Upload Content */}
         <Link href="/admin/auto-blog/content">
-          <div className="bg-bg-card border border-white/5 rounded-xl p-6 hover:border-accent-green/30 transition cursor-pointer group">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6 hover:border-accent-green/30 transition cursor-pointer group">
             <div className="w-12 h-12 bg-accent-green/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition">
               <Upload className="text-accent-green" size={24} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Content Library
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               Upload PDFs and manage your source content
             </p>
           </div>
@@ -161,12 +161,12 @@ export default function AutoBlogDashboard() {
 
         {/* Post Queue */}
         <Link href="/admin/auto-blog/queue">
-          <div className="bg-bg-card border border-white/5 rounded-xl p-6 hover:border-accent-purple/30 transition cursor-pointer group">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6 hover:border-accent-purple/30 transition cursor-pointer group">
             <div className="w-12 h-12 bg-accent-purple/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition">
               <Sparkles className="text-accent-purple" size={24} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Post Queue</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Post Queue</h3>
+            <p className="text-gray-500 text-sm">
               Review and approve AI-generated posts
             </p>
           </div>
@@ -174,12 +174,12 @@ export default function AutoBlogDashboard() {
 
         {/* Settings */}
         <Link href="/admin/auto-blog/settings">
-          <div className="bg-bg-card border border-white/5 rounded-xl p-6 hover:border-accent-blue/30 transition cursor-pointer group">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6 hover:border-accent-blue/30 transition cursor-pointer group">
             <div className="w-12 h-12 bg-accent-blue/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition">
               <Settings className="text-accent-blue" size={24} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Settings</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Settings</h3>
+            <p className="text-gray-500 text-sm">
               Configure posting schedule and preferences
             </p>
           </div>
@@ -187,8 +187,8 @@ export default function AutoBlogDashboard() {
       </div>
 
       {/* How It Works */}
-      <div className="bg-bg-card border border-white/5 rounded-xl p-6">
-        <h3 className="text-lg font-semibold text-white mb-4">How It Works</h3>
+      <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">How It Works</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {[
             {
@@ -216,8 +216,8 @@ export default function AutoBlogDashboard() {
               <div className="w-10 h-10 bg-accent-green/20 text-accent-green rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                 {item.step}
               </div>
-              <h4 className="font-medium text-white mb-1">{item.title}</h4>
-              <p className="text-gray-400 text-sm">{item.desc}</p>
+              <h4 className="font-medium text-gray-900 mb-1">{item.title}</h4>
+              <p className="text-gray-500 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>

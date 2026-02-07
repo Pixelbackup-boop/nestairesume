@@ -812,6 +812,79 @@
       "button": "Crear Su Currículum"
     }
   },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Práctica de Entrevista con IA Gratis | Best AI Resume",
+      "description": "Practica entrevistas de trabajo con preguntas generadas por IA adaptadas a tu puesto. Recibe retroalimentación instantánea con el método STAR."
+    },
+    "hero": {
+      "badge": "Práctica de Entrevista con IA",
+      "title": "Entrevista Simulada con IA",
+      "description": "Practica con preguntas de entrevista generadas por IA, adaptadas a tu puesto y nivel de experiencia. Recibe retroalimentación instantánea usando el método STAR."
+    },
+    "setup": {
+      "title": "Configura Tu Entrevista",
+      "jobTitle": "Puesto de Trabajo",
+      "jobTitlePlaceholder": "ej. Ingeniero de Software, Gerente de Marketing...",
+      "experienceLevel": "Nivel de Experiencia",
+      "levels": {
+        "entry": { "label": "Nivel Inicial", "description": "0–2 años de experiencia" },
+        "mid": { "label": "Nivel Medio", "description": "3–6 años de experiencia" },
+        "senior": { "label": "Nivel Senior", "description": "7+ años de experiencia" }
+      },
+      "questionCount": "Número de Preguntas: {count}",
+      "quick": "Rápida (3)",
+      "thorough": "Completa (10)",
+      "startButton": "Comenzar Entrevista",
+      "generating": "Generando Preguntas..."
+    },
+    "interview": {
+      "progress": "Pregunta {current} de {total}",
+      "yourAnswer": "Tu Respuesta",
+      "answerPlaceholder": "Escribe tu respuesta aquí. Usa el método STAR: Situación, Tarea, Acción, Resultado...",
+      "answerTip": "Consejo: Escribe 3–5 oraciones. Usa ejemplos específicos y cuantifica resultados cuando sea posible.",
+      "skip": "Saltar",
+      "evaluating": "Evaluando...",
+      "submitContinue": "Enviar y Continuar",
+      "submitFinish": "Enviar y Finalizar",
+      "starReminder": "Recuerda el Método STAR:",
+      "starDescription": "Estructura tus respuestas con Situación, Tarea, Acción y Resultado para las mejores respuestas."
+    },
+    "results": {
+      "complete": "¡Entrevista Completada!",
+      "summary": "Respondiste {answered} de {total} preguntas",
+      "averageScore": "Puntuación Promedio:",
+      "startNew": "Iniciar Nueva Entrevista",
+      "bonusQuestions": "Desbloquea 10 preguntas de práctica adicionales",
+      "bonusUnlocked": "¡Preguntas Adicionales Desbloqueadas!",
+      "bonusDescription": "Ahora puedes practicar con hasta 10 preguntas por sesión.",
+      "detailedFeedback": "Retroalimentación Detallada",
+      "questionLabel": "Pregunta {number}",
+      "strengths": "Fortalezas",
+      "improvements": "Áreas de Mejora",
+      "sampleAnswer": "Respuesta de Ejemplo",
+      "skipped": "Esta pregunta fue saltada",
+      "continuePrep": "Continúa Tu Preparación",
+      "resources": {
+        "starMethod": {
+          "title": "Domina el Método STAR",
+          "description": "Aprende a estructurar tus respuestas para preguntas de entrevista conductuales."
+        },
+        "tellMe": {
+          "title": "Cómo Responder \"Háblame de Ti\"",
+          "description": "Elabora la respuesta perfecta que establezca el tono de tu entrevista."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Por favor ingresa un puesto de trabajo para continuar.",
+      "generateFailed": "No se pudieron generar las preguntas. Por favor intenta de nuevo.",
+      "startFailed": "No se pudo iniciar la entrevista. Por favor intenta de nuevo.",
+      "detailedAnswer": "Por favor proporciona una respuesta más detallada (al menos 20 caracteres)."
+    }
+  },
+
   "CareerTips": {
     "meta": {
       "title": "Consejos de Carrera & Currículum - Guías de Expertos | Best AI Resume",

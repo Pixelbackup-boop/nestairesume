@@ -436,10 +436,10 @@ function Testimonial({ children, className = '' }: AnimationProps) {
 }
 
 // ============================================
-// EXPORT ALL AS NAMESPACE
+// EXPORTS (individual named exports for Next.js server/client boundary)
 // ============================================
 
-export const HomeAnimations = {
+export {
   Hero,
   HeroTitle,
   HeroSubtitle,
@@ -450,7 +450,6 @@ export const HomeAnimations = {
   TimelineHeader,
   TimelineStep,
   ProfileCard,
-  // New locale homepage components
   Section,
   FeaturesGrid,
   FeatureCard,

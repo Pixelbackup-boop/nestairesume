@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { getCareerTipBySlug, getRelatedCareerTips, getAllCareerTipsSlugs } from '@/lib/blog/posts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
+import { splitHtmlAtMiddle } from '@/lib/splitContent';
 import { Clock, Calendar, User, ChevronRight, ArrowRight, Share2, Bookmark } from 'lucide-react';
 
 interface PageProps {
@@ -134,6 +136,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
   const relatedPosts = await getRelatedCareerTips(slug, 3);
   const headings = extractHeadings(post.content);
   const contentHtml = renderMarkdown(post.content);
+  const [firstHalfHtml, secondHalfHtml] = splitHtmlAtMiddle(contentHtml);
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -205,11 +208,22 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                 </div>
               )}
 
-              {/* Article Content */}
+              {/* Article Content — First Half */}
               <div
                 className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: contentHtml }}
+                dangerouslySetInnerHTML={{ __html: firstHalfHtml }}
               />
+
+              {/* In-Article Ad (mid-content) */}
+              {secondHalfHtml && <InArticleVideoAd slotType="careerInArticle" className="my-8" />}
+
+              {/* Article Content — Second Half */}
+              {secondHalfHtml && (
+                <div
+                  className="prose prose-lg max-w-none"
+                  dangerouslySetInnerHTML={{ __html: secondHalfHtml }}
+                />
+              )}
 
               {/* Tags */}
               <div className="mt-10 pt-6 border-t border-gray-200">

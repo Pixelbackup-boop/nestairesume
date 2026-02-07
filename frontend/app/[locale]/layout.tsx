@@ -6,6 +6,7 @@ import { locales, Locale, isRtl, getDirection } from '@/i18n.config';
 
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import TawkTo from '@/components/TawkTo';
 import { SessionProvider } from '@/components/providers/SessionProvider';
 import { AuthSyncProvider } from '@/components/providers/AuthSyncProvider';
 import { Suspense } from 'react';
@@ -200,6 +201,7 @@ export default async function LocaleLayout({
                 <GoogleAnalytics />
               </Suspense>
               <WebVitals />
+              <TawkTo />
               {children}
             </AuthSyncProvider>
           </SessionProvider>

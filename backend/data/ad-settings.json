@@ -1,0 +1,11 @@
+{
+  "adsEnabled": false,
+  "usePlaceholders": true,
+  "publisherId": "",
+  "slots": {
+    "blogInArticle": "",
+    "resumeInArticle": "",
+    "careerInArticle": "",
+    "toolsRewarded": ""
+  }
+}

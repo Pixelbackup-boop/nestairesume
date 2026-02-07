@@ -812,6 +812,79 @@
       "button": "Lebenslauf Erstellen"
     }
   },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Kostenloses KI-Vorstellungsgespräch | Best AI Resume",
+      "description": "Üben Sie Vorstellungsgespräche mit KI-generierten Fragen, die auf Ihre Stelle zugeschnitten sind. Erhalten Sie sofortiges Feedback mit der STAR-Methode."
+    },
+    "hero": {
+      "badge": "KI-gestütztes Interviewtraining",
+      "title": "KI-Vorstellungsgespräch Üben",
+      "description": "Üben Sie mit KI-generierten Interviewfragen, die auf Ihre Stelle und Erfahrungsstufe zugeschnitten sind. Erhalten Sie sofortiges Feedback mit der STAR-Methode."
+    },
+    "setup": {
+      "title": "Interview Einrichten",
+      "jobTitle": "Stellenbezeichnung",
+      "jobTitlePlaceholder": "z.B. Software-Ingenieur, Marketing-Manager...",
+      "experienceLevel": "Erfahrungsstufe",
+      "levels": {
+        "entry": { "label": "Einsteiger", "description": "0–2 Jahre Erfahrung" },
+        "mid": { "label": "Mittelstufe", "description": "3–6 Jahre Erfahrung" },
+        "senior": { "label": "Senior", "description": "7+ Jahre Erfahrung" }
+      },
+      "questionCount": "Anzahl der Fragen: {count}",
+      "quick": "Schnell (3)",
+      "thorough": "Gründlich (10)",
+      "startButton": "Interview Starten",
+      "generating": "Fragen werden generiert..."
+    },
+    "interview": {
+      "progress": "Frage {current} von {total}",
+      "yourAnswer": "Ihre Antwort",
+      "answerPlaceholder": "Geben Sie Ihre Antwort hier ein. Verwenden Sie die STAR-Methode: Situation, Aufgabe, Aktion, Ergebnis...",
+      "answerTip": "Tipp: Streben Sie 3–5 Sätze an. Verwenden Sie konkrete Beispiele und quantifizieren Sie Ergebnisse wenn möglich.",
+      "skip": "Überspringen",
+      "evaluating": "Wird ausgewertet...",
+      "submitContinue": "Absenden & Weiter",
+      "submitFinish": "Absenden & Beenden",
+      "starReminder": "Denken Sie an die STAR-Methode:",
+      "starDescription": "Strukturieren Sie Ihre Antworten mit Situation, Aufgabe, Aktion und Ergebnis für die stärksten Antworten."
+    },
+    "results": {
+      "complete": "Interview Abgeschlossen!",
+      "summary": "Sie haben {answered} von {total} Fragen beantwortet",
+      "averageScore": "Durchschnittliche Bewertung:",
+      "startNew": "Neues Interview Starten",
+      "bonusQuestions": "Schalten Sie 10 Bonus-Übungsfragen frei",
+      "bonusUnlocked": "Bonusfragen Freigeschaltet!",
+      "bonusDescription": "Sie können jetzt mit bis zu 10 Fragen pro Sitzung üben.",
+      "detailedFeedback": "Detailliertes Feedback",
+      "questionLabel": "Frage {number}",
+      "strengths": "Stärken",
+      "improvements": "Verbesserungsmöglichkeiten",
+      "sampleAnswer": "Beispielantwort",
+      "skipped": "Diese Frage wurde übersprungen",
+      "continuePrep": "Setzen Sie Ihre Vorbereitung Fort",
+      "resources": {
+        "starMethod": {
+          "title": "Die STAR-Methode Meistern",
+          "description": "Lernen Sie, wie Sie Ihre Antworten für verhaltensbasierte Interviewfragen strukturieren."
+        },
+        "tellMe": {
+          "title": "Wie Antwortet Man auf \u201EErzählen Sie von Sich\u201C",
+          "description": "Formulieren Sie die perfekte Eröffnungsantwort, die den Ton für Ihr Interview setzt."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Bitte geben Sie eine Stellenbezeichnung ein, um fortzufahren.",
+      "generateFailed": "Fehler beim Generieren der Interviewfragen. Bitte versuchen Sie es erneut.",
+      "startFailed": "Fehler beim Starten des Interviews. Bitte versuchen Sie es erneut.",
+      "detailedAnswer": "Bitte geben Sie eine ausführlichere Antwort (mindestens 20 Zeichen)."
+    }
+  },
+
   "CareerTips": {
     "meta": {
       "title": "Karrieretipps & Lebenslauf-Ratschläge - Experten-Leitfäden | Best AI Resume",

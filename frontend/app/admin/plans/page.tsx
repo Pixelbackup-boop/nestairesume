@@ -112,9 +112,9 @@ export default function AdminPlansPage() {
   if (error && !plans) {
     return (
       <div className="bg-red-50 border border-red-200 rounded-xl p-6 flex items-center gap-4">
-        <AlertCircle className="text-red-500" size={24} />
+        <AlertCircle className="text-red-600" size={24} />
         <div>
-          <p className="text-red-700 font-medium">Error loading plans</p>
+          <p className="text-red-600 font-medium">Error loading plans</p>
           <p className="text-red-500 text-sm">{error}</p>
         </div>
       </div>

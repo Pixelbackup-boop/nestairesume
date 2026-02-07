@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 
 const siteConfig = {
@@ -11,10 +12,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'MockInterview.meta' });
 
-  const title = 'Free AI Mock Interview Practice | Best AI Resume';
-  const description =
-    'Practice job interviews with AI-generated questions tailored to your role. Get instant STAR method feedback on your answers. Free mock interview tool.';
+  const title = t('title');
+  const description = t('description');
 
   const locales = ['en', 'es', 'fr', 'de', 'ar'];
   const alternateLanguages: Record<string, string> = {

@@ -133,25 +133,25 @@ export default function ContentLibraryPage() {
         <div className="flex items-center gap-4">
           <Link
             href="/admin/auto-blog"
-            className="p-2 hover:bg-white/5 rounded-lg transition"
+            className="p-2 hover:bg-gray-50 rounded-lg transition"
           >
-            <ArrowLeft size={20} className="text-gray-400" />
+            <ArrowLeft size={20} className="text-gray-500" />
           </Link>
           <div>
-            <h1 className="text-2xl font-bold text-white">Content Library</h1>
-            <p className="text-gray-400 mt-1">Upload PDFs to generate blog posts</p>
+            <h1 className="text-2xl font-bold text-gray-900">Content Library</h1>
+            <p className="text-gray-500 mt-1">Upload PDFs to generate blog posts</p>
           </div>
         </div>
       </div>
 
       {/* Alerts */}
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-center gap-3">
-          <AlertCircle className="text-red-400 flex-shrink-0" size={20} />
-          <p className="text-red-400">{error}</p>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+          <AlertCircle className="text-red-600 flex-shrink-0" size={20} />
+          <p className="text-red-600">{error}</p>
           <button
             onClick={() => setError(null)}
-            className="ml-auto text-red-400 hover:text-red-300"
+            className="ml-auto text-red-600 hover:text-red-500"
           >
             ×
           </button>
@@ -172,7 +172,7 @@ export default function ContentLibraryPage() {
       )}
 
       {/* Upload Card */}
-      <div className="bg-bg-card border border-dashed border-white/10 rounded-xl p-8">
+      <div className="bg-white border border-dashed border-gray-300 rounded-xl p-8">
         <input
           ref={fileInputRef}
           type="file"
@@ -192,10 +192,10 @@ export default function ContentLibraryPage() {
               <Upload className="text-accent-green" size={28} />
             )}
           </div>
-          <h3 className="text-lg font-semibold text-white mb-2">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
             {uploading ? "Uploading..." : "Upload PDF"}
           </h3>
-          <p className="text-gray-400 text-sm text-center max-w-md">
+          <p className="text-gray-500 text-sm text-center max-w-md">
             Upload books, guides, or articles. AI will extract content and
             generate blog posts.
           </p>
@@ -204,9 +204,9 @@ export default function ContentLibraryPage() {
       </div>
 
       {/* Content List */}
-      <div className="bg-bg-card border border-white/5 rounded-xl overflow-hidden">
-        <div className="p-6 border-b border-white/5">
-          <h2 className="text-lg font-semibold text-white">Uploaded Content</h2>
+      <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
+        <div className="p-6 border-b border-gray-200">
+          <h2 className="text-lg font-semibold text-gray-900">Uploaded Content</h2>
         </div>
 
         {loading ? (
@@ -221,19 +221,19 @@ export default function ContentLibraryPage() {
             No content uploaded yet. Upload a PDF to get started.
           </div>
         ) : (
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-gray-200">
             {sources.map((source) => (
               <div
                 key={source.id}
-                className="p-4 flex items-center justify-between hover:bg-white/5 transition"
+                className="p-4 flex items-center justify-between hover:bg-gray-50 transition"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
                     <FileText className="text-red-400" size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-white">{source.name}</h4>
-                    <p className="text-sm text-gray-400">
+                    <h4 className="font-medium text-gray-900">{source.name}</h4>
+                    <p className="text-sm text-gray-500">
                       {source.pageCount} pages • Uploaded {formatDate(source.createdAt)}
                       {source._count.scheduledPosts > 0 && (
                         <span className="ml-2 text-accent-green">
@@ -258,7 +258,7 @@ export default function ContentLibraryPage() {
                   </button>
                   <button
                     onClick={() => handleDelete(source.id)}
-                    className="p-2 text-gray-400 hover:text-red-400 hover:bg-white/5 rounded-lg transition"
+                    className="p-2 text-gray-500 hover:text-red-600 hover:bg-gray-50 rounded-lg transition"
                   >
                     <Trash2 size={18} />
                   </button>

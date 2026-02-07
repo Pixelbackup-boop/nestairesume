@@ -83,7 +83,9 @@ export default function Header() {
         className={`transition-all duration-300 ${
           scrolled
             ? "bg-white/98 backdrop-blur-md shadow-lg shadow-teal-primary/10"
-            : "bg-dark-teal/20"
+            : isHomePage
+              ? "bg-dark-teal/20"
+              : "bg-white/98 backdrop-blur-md"
         }`}
       >
         <div className="max-w-6xl mx-auto px-6">

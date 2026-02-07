@@ -8,6 +8,8 @@ import BlogHeader from '@/components/blog/BlogHeader';
 import TableOfContents from '@/components/blog/TableOfContents';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import ShareButtons from '@/components/blog/ShareButtons';
+import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
+import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 
 const siteUrl = 'https://www.bestairesumes.com';
 const locales = ['en', 'de', 'fr', 'es', 'ar'];
@@ -88,8 +90,12 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  // Compile MDX content
-  const { content } = await compileMDXContent(post.content);
+  // Split and compile MDX content for mid-article ad placement
+  const [firstMd, secondMd] = splitMarkdownAtMiddle(post.content);
+  const { content: firstContent } = await compileMDXContent(firstMd);
+  const { content: secondContent } = secondMd
+    ? await compileMDXContent(secondMd)
+    : { content: null };
 
   // Extract headings for table of contents
   const headings = extractHeadings(post.content);
@@ -182,10 +188,20 @@ export default async function PostPage({ params }: PostPageProps) {
           <div className="lg:col-span-3">
             <BlogHeader post={post} />
 
-            {/* Article Content */}
+            {/* Article Content — First Half */}
             <div className="prose-custom">
-              {content}
+              {firstContent}
             </div>
+
+            {/* In-Article Ad (mid-content) */}
+            {secondContent && <InArticleVideoAd slotType="blogInArticle" className="my-8" />}
+
+            {/* Article Content — Second Half */}
+            {secondContent && (
+              <div className="prose-custom">
+                {secondContent}
+              </div>
+            )}
 
             {/* FAQ Section */}
             {post.faq && post.faq.length > 0 && (

@@ -15,10 +15,7 @@ interface User {
   creditsRemaining: number;
   isSuspended: boolean;
   createdAt: string;
-  _count: {
-    resumes: number;
-    payments: number;
-  };
+  resumeCount: number;
 }
 
 interface UsersResponse {
@@ -98,20 +95,20 @@ export default function UsersPage() {
   const getTierBadge = (tier: string) => {
     const styles: Record<string, string> = {
       diamond: "bg-accent-pink/20 text-accent-pink",
-      gold: "bg-yellow-500/20 text-yellow-400",
+      gold: "bg-yellow-100 text-yellow-600",
       starter: "bg-accent-blue/20 text-accent-blue",
-      free: "bg-gray-500/20 text-gray-400",
+      free: "bg-gray-100 text-gray-500",
     };
     return styles[tier] || styles.free;
   };
 
   if (error) {
     return (
-      <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 flex items-center gap-4">
-        <AlertCircle className="text-red-400" size={24} />
+      <div className="bg-red-50 border border-red-200 rounded-xl p-6 flex items-center gap-4">
+        <AlertCircle className="text-red-600" size={24} />
         <div>
-          <p className="text-red-400 font-medium">Error loading users</p>
-          <p className="text-red-400/70 text-sm">{error}</p>
+          <p className="text-red-600 font-medium">Error loading users</p>
+          <p className="text-red-500 text-sm">{error}</p>
         </div>
       </div>
     );
@@ -122,8 +119,8 @@ export default function UsersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Users</h1>
-          <p className="text-gray-400 mt-1">
+          <h1 className="text-2xl font-bold text-gray-900">Users</h1>
+          <p className="text-gray-500 mt-1">
             Manage user accounts, subscriptions, and permissions.
           </p>
         </div>
@@ -139,51 +136,51 @@ export default function UsersPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name or email..."
-              className="w-full pl-10 pr-4 py-2.5 bg-bg-card border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-purple/50 transition-colors"
             />
           </div>
         </form>
       </div>
 
       {/* Table */}
-      <div className="bg-bg-card border border-white/5 rounded-xl overflow-hidden">
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-white/5">
-                <th className="text-left px-6 py-4 text-sm font-medium text-gray-400">User</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-gray-400">Role</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-gray-400">Plan</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-gray-400">Resumes</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-gray-400">Status</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-gray-400">Joined</th>
-                <th className="text-right px-6 py-4 text-sm font-medium text-gray-400">Actions</th>
+              <tr className="border-b border-gray-200">
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">User</th>
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Role</th>
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Plan</th>
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Resumes</th>
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Status</th>
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Joined</th>
+                <th className="text-right px-6 py-4 text-sm font-medium text-gray-500">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5">
+            <tbody className="divide-y divide-gray-200">
               {loading ? (
                 Array.from({ length: 5 }).map((_, i) => (
                   <tr key={i} className="animate-pulse">
                     <td className="px-6 py-4">
-                      <div className="h-4 bg-white/5 rounded w-32" />
+                      <div className="h-4 bg-gray-100 rounded w-32" />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="h-4 bg-white/5 rounded w-16" />
+                      <div className="h-4 bg-gray-100 rounded w-16" />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="h-4 bg-white/5 rounded w-20" />
+                      <div className="h-4 bg-gray-100 rounded w-20" />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="h-4 bg-white/5 rounded w-8" />
+                      <div className="h-4 bg-gray-100 rounded w-8" />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="h-4 bg-white/5 rounded w-16" />
+                      <div className="h-4 bg-gray-100 rounded w-16" />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="h-4 bg-white/5 rounded w-24" />
+                      <div className="h-4 bg-gray-100 rounded w-24" />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="h-4 bg-white/5 rounded w-8 ml-auto" />
+                      <div className="h-4 bg-gray-100 rounded w-8 ml-auto" />
                     </td>
                   </tr>
                 ))
@@ -195,11 +192,11 @@ export default function UsersPage() {
                 </tr>
               ) : (
                 data?.users.map((user) => (
-                  <tr key={user.id} className="hover:bg-white/5 transition-colors">
+                  <tr key={user.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <div>
-                        <p className="text-white font-medium">{user.name}</p>
-                        <p className="text-gray-400 text-sm">{user.email}</p>
+                        <p className="text-gray-900 font-medium">{user.name}</p>
+                        <p className="text-gray-500 text-sm">{user.email}</p>
                       </div>
                     </td>
                     <td className="px-6 py-4">
@@ -207,7 +204,7 @@ export default function UsersPage() {
                         className={`px-2 py-1 rounded text-xs font-medium ${
                           user.role === "admin"
                             ? "bg-accent-purple/20 text-accent-purple"
-                            : "bg-gray-500/20 text-gray-400"
+                            : "bg-gray-100 text-gray-500"
                         }`}
                       >
                         {user.role}
@@ -218,59 +215,59 @@ export default function UsersPage() {
                         {user.subscriptionTier}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-300">
-                      {user._count.resumes}
+                    <td className="px-6 py-4 text-gray-700">
+                      {user.resumeCount}
                     </td>
                     <td className="px-6 py-4">
                       <span
                         className={`px-2 py-1 rounded text-xs font-medium ${
                           user.isSuspended
-                            ? "bg-red-500/20 text-red-400"
+                            ? "bg-red-100 text-red-500"
                             : "bg-accent-green/20 text-accent-green"
                         }`}
                       >
                         {user.isSuspended ? "Suspended" : "Active"}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-400 text-sm">
+                    <td className="px-6 py-4 text-gray-500 text-sm">
                       {formatDate(user.createdAt)}
                     </td>
                     <td className="px-6 py-4">
                       <div className="relative flex justify-end">
                         <button
                           onClick={() => setActionMenu(actionMenu === user.id ? null : user.id)}
-                          className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                          className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
                         >
                           <MoreVertical size={16} />
                         </button>
 
                         {actionMenu === user.id && (
-                          <div className="absolute right-0 top-full mt-1 w-48 bg-bg-card-light border border-white/10 rounded-lg shadow-xl z-10 py-1">
+                          <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10 py-1">
                             <Link
                               href={`/admin/users/${user.id}`}
-                              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors"
+                              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                             >
                               <Eye size={16} />
                               View Details
                             </Link>
                             <Link
                               href={`/admin/users/${user.id}/edit`}
-                              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors"
+                              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                             >
                               <Edit size={16} />
                               Edit User
                             </Link>
                             <button
                               onClick={() => handleSuspend(user.id, user.isSuspended)}
-                              className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors"
+                              className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                             >
                               <Ban size={16} />
                               {user.isSuspended ? "Unsuspend" : "Suspend"}
                             </button>
-                            <hr className="my-1 border-white/5" />
+                            <hr className="my-1 border-gray-200" />
                             <button
                               onClick={() => handleDelete(user.id)}
-                              className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-400 hover:bg-red-500/10 transition-colors"
+                              className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-500 hover:bg-red-50 transition-colors"
                             >
                               <Trash2 size={16} />
                               Delete User
@@ -288,25 +285,25 @@ export default function UsersPage() {
 
         {/* Pagination */}
         {data && data.totalPages > 1 && (
-          <div className="flex items-center justify-between px-6 py-4 border-t border-white/5">
-            <p className="text-sm text-gray-400">
+          <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200">
+            <p className="text-sm text-gray-500">
               Showing {(page - 1) * 10 + 1} to {Math.min(page * 10, data.total)} of {data.total} users
             </p>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setPage(page - 1)}
                 disabled={page === 1}
-                className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronLeft size={16} />
               </button>
-              <span className="text-sm text-gray-300">
+              <span className="text-sm text-gray-700">
                 Page {page} of {data.totalPages}
               </span>
               <button
                 onClick={() => setPage(page + 1)}
                 disabled={page === data.totalPages}
-                className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronRight size={16} />
               </button>

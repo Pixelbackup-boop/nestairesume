@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InArticleVideoAd from "@/components/ads/InArticleVideoAd";
+import { splitHtmlAtMiddle } from "@/lib/splitContent";
 import {
   getResumeExampleBySlug,
   getAllResumeExampleSlugs,
@@ -236,6 +238,10 @@ export default async function ResumeExamplePage({
   const breadcrumbSchema = JSON.stringify(breadcrumbJsonLd);
   const faqSchema = faqJsonLd ? JSON.stringify(faqJsonLd) : null;
 
+  // Split rendered HTML for mid-content ad placement
+  const fullHtml = renderContent(example.content);
+  const [firstHalfHtml, secondHalfHtml] = splitHtmlAtMiddle(fullHtml);
+
   return (
     <>
       <Header />
@@ -351,11 +357,22 @@ export default async function ResumeExamplePage({
                 </div>
               )}
 
-              {/* Content - from controlled MDX files */}
+              {/* Content — First Half */}
               <div
                 className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: renderContent(example.content) }}
+                dangerouslySetInnerHTML={{ __html: firstHalfHtml }}
               />
+
+              {/* In-Article Ad (mid-content) */}
+              {secondHalfHtml && <InArticleVideoAd slotType="resumeInArticle" className="my-8" />}
+
+              {/* Content — Second Half */}
+              {secondHalfHtml && (
+                <div
+                  className="prose prose-lg max-w-none"
+                  dangerouslySetInnerHTML={{ __html: secondHalfHtml }}
+                />
+              )}
 
               {/* Tags */}
               {example.tags.length > 0 && (

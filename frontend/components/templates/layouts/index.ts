@@ -1,56 +1,49 @@
 // Template Registry
 // Aggregates all template components and provides lookup functions
+// Components are lazy-loaded — only the active template's code is downloaded
 
+import { lazy } from 'react';
 import { TemplateRegistryEntry, TemplateProps } from '../shared/types';
 
-// --- Header Templates (9) ---
-import HeaderDark, { headerDarkMeta } from './header/HeaderDark';
-import HeaderDiagonalYellow, { headerDiagonalYellowMeta } from './header/HeaderDiagonalYellow';
-import HeaderDarkBox, { headerDarkBoxMeta } from './header/HeaderDarkBox';
-import HeaderGeometric, { headerGeometricMeta } from './header/HeaderGeometric';
-import HeaderDarkBanner, { headerDarkBannerMeta } from './header/HeaderDarkBanner';
-import HeaderDecorative, { headerDecorativeMeta } from './header/HeaderDecorative';
-import HeaderRibbonYellow, { headerRibbonYellowMeta } from './header/HeaderRibbonYellow';
-import HeaderIconSections, { headerIconSectionsMeta } from './header/HeaderIconSections';
-import HeaderBlueClean, { headerBlueCleanMeta } from './header/HeaderBlueClean';
+// --- Metadata imports (static, small objects) ---
+import { headerDarkMeta } from './header/HeaderDark';
+import { headerDiagonalYellowMeta } from './header/HeaderDiagonalYellow';
+import { headerDarkBoxMeta } from './header/HeaderDarkBox';
+import { headerGeometricMeta } from './header/HeaderGeometric';
+import { headerDarkBannerMeta } from './header/HeaderDarkBanner';
+import { headerDecorativeMeta } from './header/HeaderDecorative';
+import { headerRibbonYellowMeta } from './header/HeaderRibbonYellow';
+import { headerIconSectionsMeta } from './header/HeaderIconSections';
+import { headerBlueCleanMeta } from './header/HeaderBlueClean';
+import { sidebarDarkNavyMeta } from './sidebar/SidebarDarkNavy';
+import { sidebarMonogramMeta } from './sidebar/SidebarMonogram';
+import { sidebarNarrowYellowMeta } from './sidebar/SidebarNarrowYellow';
+import { classicProfessionalMeta } from './classic/ClassicProfessional';
+import { minimalBlueSectionsMeta } from './minimal/MinimalBlueSections';
+import { minimalLabelsTanMeta } from './minimal/MinimalLabelsTan';
+import { minimalTimelineMeta } from './minimal/MinimalTimeline';
 
-// --- Sidebar Templates (3) ---
-import SidebarDarkNavy, { sidebarDarkNavyMeta } from './sidebar/SidebarDarkNavy';
-import SidebarMonogram, { sidebarMonogramMeta } from './sidebar/SidebarMonogram';
-import SidebarNarrowYellow, { sidebarNarrowYellowMeta } from './sidebar/SidebarNarrowYellow';
-
-// --- Classic Templates (1) ---
-import ClassicProfessional, { classicProfessionalMeta } from './classic/ClassicProfessional';
-
-// --- Minimal Templates (3) ---
-import MinimalBlueSections, { minimalBlueSectionsMeta } from './minimal/MinimalBlueSections';
-import MinimalLabelsTan, { minimalLabelsTanMeta } from './minimal/MinimalLabelsTan';
-import MinimalTimeline, { minimalTimelineMeta } from './minimal/MinimalTimeline';
-
-// Re-export individual templates for direct access
-export { default as HeaderDark } from './header/HeaderDark';
-export { default as HeaderDiagonalYellow } from './header/HeaderDiagonalYellow';
-export { default as HeaderDarkBox } from './header/HeaderDarkBox';
-export { default as HeaderGeometric } from './header/HeaderGeometric';
-export { default as HeaderDarkBanner } from './header/HeaderDarkBanner';
-export { default as HeaderDecorative } from './header/HeaderDecorative';
-export { default as HeaderRibbonYellow } from './header/HeaderRibbonYellow';
-export { default as HeaderIconSections } from './header/HeaderIconSections';
-export { default as HeaderBlueClean } from './header/HeaderBlueClean';
-
-export { default as SidebarDarkNavy } from './sidebar/SidebarDarkNavy';
-export { default as SidebarMonogram } from './sidebar/SidebarMonogram';
-export { default as SidebarNarrowYellow } from './sidebar/SidebarNarrowYellow';
-
-export { default as ClassicProfessional } from './classic/ClassicProfessional';
-
-export { default as MinimalBlueSections } from './minimal/MinimalBlueSections';
-export { default as MinimalLabelsTan } from './minimal/MinimalLabelsTan';
-export { default as MinimalTimeline } from './minimal/MinimalTimeline';
-
+// --- Lazy-loaded components (only downloaded when used) ---
+const HeaderDark = lazy(() => import('./header/HeaderDark'));
+const HeaderDiagonalYellow = lazy(() => import('./header/HeaderDiagonalYellow'));
+const HeaderDarkBox = lazy(() => import('./header/HeaderDarkBox'));
+const HeaderGeometric = lazy(() => import('./header/HeaderGeometric'));
+const HeaderDarkBanner = lazy(() => import('./header/HeaderDarkBanner'));
+const HeaderDecorative = lazy(() => import('./header/HeaderDecorative'));
+const HeaderRibbonYellow = lazy(() => import('./header/HeaderRibbonYellow'));
+const HeaderIconSections = lazy(() => import('./header/HeaderIconSections'));
+const HeaderBlueClean = lazy(() => import('./header/HeaderBlueClean'));
+const SidebarDarkNavy = lazy(() => import('./sidebar/SidebarDarkNavy'));
+const SidebarMonogram = lazy(() => import('./sidebar/SidebarMonogram'));
+const SidebarNarrowYellow = lazy(() => import('./sidebar/SidebarNarrowYellow'));
+const ClassicProfessional = lazy(() => import('./classic/ClassicProfessional'));
+const MinimalBlueSections = lazy(() => import('./minimal/MinimalBlueSections'));
+const MinimalLabelsTan = lazy(() => import('./minimal/MinimalLabelsTan'));
+const MinimalTimeline = lazy(() => import('./minimal/MinimalTimeline'));
 
 /**
  * Template Registry - All 16 featured templates
+ * Metadata is eagerly loaded (small). Components are lazy-loaded (large).
  */
 export const templateRegistry: TemplateRegistryEntry[] = [
     // Header (9)

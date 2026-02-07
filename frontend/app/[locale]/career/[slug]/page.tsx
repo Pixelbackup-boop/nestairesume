@@ -10,6 +10,8 @@ import RelatedPosts from '@/components/blog/RelatedPosts';
 import ShareButtons from '@/components/blog/ShareButtons';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
+import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 
 interface CareerPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -93,8 +95,12 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
     notFound();
   }
 
-  // Compile MDX content
-  const { content } = await compileMDXContent(post.content);
+  // Split and compile MDX content for mid-article ad placement
+  const [firstMd, secondMd] = splitMarkdownAtMiddle(post.content);
+  const { content: firstContent } = await compileMDXContent(firstMd);
+  const { content: secondContent } = secondMd
+    ? await compileMDXContent(secondMd)
+    : { content: null };
 
   // Extract headings for table of contents
   const headings = extractHeadings(post.content);
@@ -160,10 +166,20 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
           <div className="lg:col-span-3">
             <BlogHeader post={post} basePath="/career" />
 
-            {/* Article Content */}
+            {/* Article Content — First Half */}
             <div className="prose-custom">
-              {content}
+              {firstContent}
             </div>
+
+            {/* In-Article Ad (mid-content) */}
+            {secondContent && <InArticleVideoAd slotType="careerInArticle" className="my-8" />}
+
+            {/* Article Content — Second Half */}
+            {secondContent && (
+              <div className="prose-custom">
+                {secondContent}
+              </div>
+            )}
 
             {/* Share Buttons */}
             <div className="mt-12 pt-8 border-t border-white/10">

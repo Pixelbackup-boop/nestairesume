@@ -131,19 +131,19 @@ export default function PostQueuePage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/admin/auto-blog" className="p-2 hover:bg-white/5 rounded-lg transition">
-            <ArrowLeft size={20} className="text-gray-400" />
+          <Link href="/admin/auto-blog" className="p-2 hover:bg-gray-50 rounded-lg transition">
+            <ArrowLeft size={20} className="text-gray-500" />
           </Link>
           <div>
-            <h1 className="text-2xl font-bold text-white">Post Queue</h1>
-            <p className="text-gray-400 mt-1">Review and approve AI-generated posts</p>
+            <h1 className="text-2xl font-bold text-gray-900">Post Queue</h1>
+            <p className="text-gray-500 mt-1">Review and approve AI-generated posts</p>
           </div>
         </div>
         {/* Filter */}
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="bg-bg-card border border-white/10 text-white rounded-lg px-4 py-2"
+          className="bg-white border border-gray-200 text-gray-900 rounded-lg px-4 py-2"
         >
           <option value="all">All Posts</option>
           <option value="pending">Pending Review</option>
@@ -155,10 +155,10 @@ export default function PostQueuePage() {
 
       {/* Alerts */}
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-center gap-3">
-          <AlertCircle className="text-red-400 flex-shrink-0" size={20} />
-          <p className="text-red-400">{error}</p>
-          <button onClick={() => setError(null)} className="ml-auto text-red-400 hover:text-red-300">×</button>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+          <AlertCircle className="text-red-600 flex-shrink-0" size={20} />
+          <p className="text-red-600">{error}</p>
+          <button onClick={() => setError(null)} className="ml-auto text-red-600 hover:text-red-500">×</button>
         </div>
       )}
 
@@ -172,9 +172,9 @@ export default function PostQueuePage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Posts List */}
-        <div className="bg-bg-card border border-white/5 rounded-xl overflow-hidden">
-          <div className="p-4 border-b border-white/5">
-            <h2 className="font-semibold text-white">
+        <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
+          <div className="p-4 border-b border-gray-200">
+            <h2 className="font-semibold text-gray-900">
               {posts.length} {filter === "all" ? "Total" : filter} Posts
             </h2>
           </div>
@@ -188,19 +188,19 @@ export default function PostQueuePage() {
               No posts in queue. Generate some from your content library!
             </div>
           ) : (
-            <div className="divide-y divide-white/5 max-h-[600px] overflow-y-auto">
+            <div className="divide-y divide-gray-200 max-h-[600px] overflow-y-auto">
               {posts.map((post) => (
                 <div
                   key={post.id}
                   onClick={() => setSelectedPost(post)}
                   className={`p-4 cursor-pointer transition ${
-                    selectedPost?.id === post.id ? "bg-white/10" : "hover:bg-white/5"
+                    selectedPost?.id === post.id ? "bg-gray-100" : "hover:bg-gray-50"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-medium text-white truncate">{post.title}</h4>
-                      <p className="text-sm text-gray-400 truncate">{post.description}</p>
+                      <h4 className="font-medium text-gray-900 truncate">{post.title}</h4>
+                      <p className="text-sm text-gray-500 truncate">{post.description}</p>
                       <div className="flex items-center gap-2 mt-2">
                         {getStatusBadge(post.status)}
                         <span className="text-xs text-gray-500">{post.category}</span>
@@ -217,32 +217,32 @@ export default function PostQueuePage() {
         </div>
 
         {/* Post Preview */}
-        <div className="bg-bg-card border border-white/5 rounded-xl overflow-hidden">
-          <div className="p-4 border-b border-white/5">
-            <h2 className="font-semibold text-white">Preview</h2>
+        <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
+          <div className="p-4 border-b border-gray-200">
+            <h2 className="font-semibold text-gray-900">Preview</h2>
           </div>
 
           {selectedPost ? (
             <div className="p-4 space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">{selectedPost.title}</h3>
-                <p className="text-gray-400 text-sm">{selectedPost.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{selectedPost.title}</h3>
+                <p className="text-gray-500 text-sm">{selectedPost.description}</p>
               </div>
 
               <div className="flex items-center gap-2 flex-wrap">
                 {getStatusBadge(selectedPost.status)}
-                <span className="px-2 py-1 bg-white/5 text-gray-300 rounded text-xs">
+                <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
                   {selectedPost.category}
                 </span>
                 {JSON.parse(selectedPost.tags || "[]").map((tag: string) => (
-                  <span key={tag} className="px-2 py-1 bg-white/5 text-gray-400 rounded text-xs">
+                  <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-500 rounded text-xs">
                     #{tag}
                   </span>
                 ))}
               </div>
 
-              <div className="bg-black/20 rounded-lg p-4 max-h-[300px] overflow-y-auto">
-                <pre className="text-sm text-gray-300 whitespace-pre-wrap font-mono">
+              <div className="bg-gray-50 rounded-lg p-4 max-h-[300px] overflow-y-auto">
+                <pre className="text-sm text-gray-700 whitespace-pre-wrap font-mono">
                   {selectedPost.content.substring(0, 2000)}
                   {selectedPost.content.length > 2000 && "..."}
                 </pre>
@@ -253,7 +253,7 @@ export default function PostQueuePage() {
               </div>
 
               {/* Actions */}
-              <div className="flex items-center gap-2 pt-4 border-t border-white/5">
+              <div className="flex items-center gap-2 pt-4 border-t border-gray-200">
                 {selectedPost.status === "pending" && (
                   <button
                     onClick={() => handleApprove(selectedPost.id)}
@@ -285,7 +285,7 @@ export default function PostQueuePage() {
                 <button
                   onClick={() => handleDelete(selectedPost.id)}
                   disabled={actionLoading === selectedPost.id}
-                  className="flex items-center gap-2 px-4 py-2 text-red-400 hover:bg-red-500/10 rounded-lg transition disabled:opacity-50"
+                  className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition disabled:opacity-50"
                 >
                   <Trash2 size={16} />
                   Delete

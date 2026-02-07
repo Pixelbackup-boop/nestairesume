@@ -54,10 +54,10 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="animate-pulse space-y-8">
-        <div className="h-8 bg-white/5 rounded w-48" />
+        <div className="h-8 bg-gray-100 rounded w-48" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-32 bg-white/5 rounded-xl" />
+            <div key={i} className="h-32 bg-gray-100 rounded-xl" />
           ))}
         </div>
       </div>
@@ -66,11 +66,11 @@ export default function AdminDashboard() {
 
   if (error) {
     return (
-      <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 flex items-center gap-4">
-        <AlertCircle className="text-red-400" size={24} />
+      <div className="bg-red-50 border border-red-200 rounded-xl p-6 flex items-center gap-4">
+        <AlertCircle className="text-red-600" size={24} />
         <div>
-          <p className="text-red-400 font-medium">Error loading dashboard</p>
-          <p className="text-red-400/70 text-sm">{error}</p>
+          <p className="text-red-600 font-medium">Error loading dashboard</p>
+          <p className="text-red-500 text-sm">{error}</p>
         </div>
       </div>
     );
@@ -96,8 +96,8 @@ export default function AdminDashboard() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-        <p className="text-gray-400 mt-1">Welcome back. Here&apos;s what&apos;s happening.</p>
+        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+        <p className="text-gray-500 mt-1">Welcome back. Here&apos;s what&apos;s happening.</p>
       </div>
 
       {/* Stats Grid */}
@@ -133,9 +133,9 @@ export default function AdminDashboard() {
       {/* Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Users */}
-        <div className="bg-bg-card border border-white/5 rounded-xl overflow-hidden">
-          <div className="p-6 border-b border-white/5 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">Recent Users</h2>
+        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+          <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-900">Recent Users</h2>
             <Link
               href="/admin/users"
               className="text-sm text-accent-purple hover:text-accent-purple/80 transition-colors"
@@ -143,18 +143,18 @@ export default function AdminDashboard() {
               View all
             </Link>
           </div>
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-gray-200">
             {stats?.recentUsers.length === 0 ? (
               <div className="p-6 text-center text-gray-500">
                 No users yet
               </div>
             ) : (
               stats?.recentUsers.map((user) => (
-                <div key={user.id} className="p-4 hover:bg-white/5 transition-colors">
+                <div key={user.id} className="p-4 hover:bg-gray-50 transition-colors">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-white font-medium">{user.name}</p>
-                      <p className="text-gray-400 text-sm">{user.email}</p>
+                      <p className="text-gray-900 font-medium">{user.name}</p>
+                      <p className="text-gray-500 text-sm">{user.email}</p>
                     </div>
                     <div className="text-right">
                       <span
@@ -162,10 +162,10 @@ export default function AdminDashboard() {
                           user.subscriptionTier === "diamond"
                             ? "bg-accent-pink/20 text-accent-pink"
                             : user.subscriptionTier === "gold"
-                            ? "bg-yellow-500/20 text-yellow-400"
+                            ? "bg-yellow-100 text-yellow-600"
                             : user.subscriptionTier === "starter"
                             ? "bg-accent-blue/20 text-accent-blue"
-                            : "bg-gray-500/20 text-gray-400"
+                            : "bg-gray-100 text-gray-500"
                         }`}
                       >
                         {user.subscriptionTier}
@@ -183,9 +183,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Recent Payments */}
-        <div className="bg-bg-card border border-white/5 rounded-xl overflow-hidden">
-          <div className="p-6 border-b border-white/5 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">Recent Payments</h2>
+        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+          <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-900">Recent Payments</h2>
             <Link
               href="/admin/payments"
               className="text-sm text-accent-purple hover:text-accent-purple/80 transition-colors"
@@ -193,20 +193,20 @@ export default function AdminDashboard() {
               View all
             </Link>
           </div>
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-gray-200">
             {stats?.recentPayments.length === 0 ? (
               <div className="p-6 text-center text-gray-500">
                 No payments yet
               </div>
             ) : (
               stats?.recentPayments.map((payment) => (
-                <div key={payment.id} className="p-4 hover:bg-white/5 transition-colors">
+                <div key={payment.id} className="p-4 hover:bg-gray-50 transition-colors">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-white font-medium">
+                      <p className="text-gray-900 font-medium">
                         {formatCurrency(payment.amount)}
                       </p>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-500 text-sm">
                         {payment.user.email}
                       </p>
                     </div>
@@ -216,8 +216,8 @@ export default function AdminDashboard() {
                           payment.status === "succeeded"
                             ? "bg-accent-green/20 text-accent-green"
                             : payment.status === "pending"
-                            ? "bg-yellow-500/20 text-yellow-400"
-                            : "bg-red-500/20 text-red-400"
+                            ? "bg-yellow-100 text-yellow-600"
+                            : "bg-red-100 text-red-500"
                         }`}
                       >
                         {payment.status}
@@ -235,8 +235,8 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-bg-card border border-white/5 rounded-xl p-6">
-        <h2 className="text-lg font-semibold text-white mb-4">Quick Actions</h2>
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/admin/blog/new"
@@ -246,13 +246,13 @@ export default function AdminDashboard() {
           </Link>
           <Link
             href="/admin/users"
-            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 transition-colors text-sm font-medium"
+            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
           >
             Manage Users
           </Link>
           <Link
             href="/admin/payments"
-            className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 transition-colors text-sm font-medium"
+            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
           >
             View Payments
           </Link>

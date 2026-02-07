@@ -112,7 +112,7 @@ export default function NewBlogPost() {
       {/* Back Link */}
       <Link
         href="/admin/blog"
-        className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+        className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
       >
         <ArrowLeft size={16} />
         Back to Posts
@@ -121,12 +121,12 @@ export default function NewBlogPost() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">New Blog Post</h1>
-          <p className="text-gray-400 mt-1">Create a new blog post.</p>
+          <h1 className="text-2xl font-bold text-gray-900">New Blog Post</h1>
+          <p className="text-gray-500 mt-1">Create a new blog post.</p>
         </div>
         <button
           onClick={() => setShowPreview(!showPreview)}
-          className="flex items-center gap-2 px-4 py-2 bg-white/5 text-gray-300 rounded-lg hover:bg-white/10 transition-colors text-sm font-medium"
+          className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
         >
           <Eye size={16} />
           {showPreview ? "Hide Preview" : "Preview"}
@@ -135,19 +135,19 @@ export default function NewBlogPost() {
 
       {/* Error */}
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-center gap-3">
-          <AlertCircle className="text-red-400" size={20} />
-          <p className="text-red-400 text-sm">{error}</p>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+          <AlertCircle className="text-red-600" size={20} />
+          <p className="text-red-600 text-sm">{error}</p>
         </div>
       )}
 
       <div className={`grid gap-6 ${showPreview ? "lg:grid-cols-2" : ""}`}>
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="bg-bg-card border border-white/5 rounded-xl p-6 space-y-6">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6 space-y-6">
             {/* Title */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Title *
               </label>
               <input
@@ -157,17 +157,17 @@ export default function NewBlogPost() {
                 onChange={handleTitleChange}
                 required
                 placeholder="Enter post title..."
-                className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+                className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
               />
             </div>
 
             {/* Slug */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Slug *
               </label>
               <div className="flex items-center">
-                <span className="px-3 py-2.5 bg-white/5 border border-white/10 border-r-0 rounded-l-lg text-gray-500 text-sm">
+                <span className="px-3 py-2.5 bg-gray-100 border border-gray-200 border-r-0 rounded-l-lg text-gray-500 text-sm">
                   /blog/
                 </span>
                 <input
@@ -177,14 +177,14 @@ export default function NewBlogPost() {
                   onChange={handleChange}
                   required
                   placeholder="post-slug"
-                  className="flex-1 px-4 py-2.5 bg-bg-primary border border-white/10 rounded-r-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+                  className="flex-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-r-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
                 />
               </div>
             </div>
 
             {/* Description */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Description * <span className="text-gray-500">(SEO meta description)</span>
               </label>
               <textarea
@@ -194,13 +194,13 @@ export default function NewBlogPost() {
                 required
                 rows={2}
                 placeholder="Brief description for search results..."
-                className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors resize-none"
+                className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors resize-none"
               />
             </div>
 
             {/* Content */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Content * <span className="text-gray-500">(Markdown supported)</span>
               </label>
               <textarea
@@ -210,18 +210,18 @@ export default function NewBlogPost() {
                 required
                 rows={15}
                 placeholder="Write your post content in Markdown..."
-                className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors resize-y font-mono text-sm"
+                className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors resize-y font-mono text-sm"
               />
             </div>
           </div>
 
           {/* Metadata */}
-          <div className="bg-bg-card border border-white/5 rounded-xl p-6 space-y-6">
-            <h3 className="text-lg font-semibold text-white">Metadata</h3>
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6 space-y-6">
+            <h3 className="text-lg font-semibold text-gray-900">Metadata</h3>
 
             {/* Post Type - Where to publish */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Publish To *
               </label>
               <div className="grid grid-cols-3 gap-3">
@@ -231,7 +231,7 @@ export default function NewBlogPost() {
                     className={`relative flex flex-col p-3 rounded-lg border cursor-pointer transition-colors ${
                       formData.postType === type.value
                         ? 'border-accent-purple bg-accent-purple/10'
-                        : 'border-white/10 bg-bg-primary hover:border-white/20'
+                        : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                     }`}
                   >
                     <input
@@ -243,7 +243,7 @@ export default function NewBlogPost() {
                       className="sr-only"
                     />
                     <span className={`text-sm font-medium ${
-                      formData.postType === type.value ? 'text-accent-purple' : 'text-white'
+                      formData.postType === type.value ? 'text-accent-purple' : 'text-gray-900'
                     }`}>
                       {type.label}
                     </span>
@@ -256,14 +256,14 @@ export default function NewBlogPost() {
             <div className="grid grid-cols-2 gap-4">
               {/* Category */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Category *
                 </label>
                 <select
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white focus:outline-none focus:border-accent-purple/50 transition-colors"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-accent-purple/50 transition-colors"
                 >
                   {CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>
@@ -275,7 +275,7 @@ export default function NewBlogPost() {
 
               {/* Author */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Author *
                 </label>
                 <input
@@ -284,14 +284,14 @@ export default function NewBlogPost() {
                   value={formData.author}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white focus:outline-none focus:border-accent-purple/50 transition-colors"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-accent-purple/50 transition-colors"
                 />
               </div>
             </div>
 
             {/* Tags */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Tags <span className="text-gray-500">(comma-separated)</span>
               </label>
               <input
@@ -300,14 +300,14 @@ export default function NewBlogPost() {
                 value={formData.tags}
                 onChange={handleChange}
                 placeholder="resume, tips, career"
-                className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+                className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
               />
             </div>
 
             {/* Image */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Featured Image URL
                 </label>
                 <input
@@ -316,11 +316,11 @@ export default function NewBlogPost() {
                   value={formData.image}
                   onChange={handleChange}
                   placeholder="/blog/image.svg"
-                  className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Image Alt Text
                 </label>
                 <input
@@ -329,7 +329,7 @@ export default function NewBlogPost() {
                   value={formData.imageAlt}
                   onChange={handleChange}
                   placeholder="Description of the image"
-                  className="w-full px-4 py-2.5 bg-bg-primary border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-accent-purple/50 transition-colors"
                 />
               </div>
             </div>
@@ -342,9 +342,9 @@ export default function NewBlogPost() {
                   name="featured"
                   checked={formData.featured}
                   onChange={handleChange}
-                  className="w-4 h-4 rounded border-white/20 bg-bg-primary text-accent-purple focus:ring-accent-purple/50"
+                  className="w-4 h-4 rounded border-gray-300 bg-gray-50 text-accent-purple focus:ring-accent-purple/50"
                 />
-                <span className="text-sm text-gray-300">Featured post</span>
+                <span className="text-sm text-gray-700">Featured post</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -352,9 +352,9 @@ export default function NewBlogPost() {
                   name="published"
                   checked={formData.published}
                   onChange={handleChange}
-                  className="w-4 h-4 rounded border-white/20 bg-bg-primary text-accent-green focus:ring-accent-green/50"
+                  className="w-4 h-4 rounded border-gray-300 bg-gray-50 text-accent-green focus:ring-accent-green/50"
                 />
-                <span className="text-sm text-gray-300">Publish immediately</span>
+                <span className="text-sm text-gray-700">Publish immediately</span>
               </label>
             </div>
           </div>
@@ -375,7 +375,7 @@ export default function NewBlogPost() {
             </button>
             <Link
               href="/admin/blog"
-              className="px-6 py-2.5 text-gray-400 hover:text-white transition-colors"
+              className="px-6 py-2.5 text-gray-500 hover:text-gray-900 transition-colors"
             >
               Cancel
             </Link>
@@ -384,17 +384,17 @@ export default function NewBlogPost() {
 
         {/* Preview */}
         {showPreview && (
-          <div className="bg-bg-card border border-white/5 rounded-xl p-6 overflow-hidden">
-            <h3 className="text-lg font-semibold text-white mb-4">Preview</h3>
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6 overflow-hidden">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Preview</h3>
             <div className="prose-custom">
-              <h1 className="text-2xl font-bold text-white mb-2">
+              <h1 className="text-2xl font-bold text-gray-900 mb-2">
                 {formData.title || "Post Title"}
               </h1>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-gray-500 text-sm mb-4">
                 {formData.description || "Post description will appear here..."}
               </p>
               <div className="flex items-center gap-2 mb-6">
-                <span className="px-2 py-1 bg-white/5 text-gray-300 rounded text-xs">
+                <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
                   {formData.category}
                 </span>
                 <span className={`px-2 py-1 rounded text-xs ${
@@ -410,7 +410,7 @@ export default function NewBlogPost() {
                   by {formData.author}
                 </span>
               </div>
-              <div className="whitespace-pre-wrap text-gray-300 text-sm">
+              <div className="whitespace-pre-wrap text-gray-700 text-sm">
                 {formData.content || "Start writing to see the preview..."}
               </div>
             </div>

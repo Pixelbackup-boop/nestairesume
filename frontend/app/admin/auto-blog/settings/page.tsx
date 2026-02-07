@@ -131,13 +131,13 @@ export default function AutoBlogSettingsPage() {
       <div className="flex items-center gap-4">
         <Link
           href="/admin/auto-blog"
-          className="p-2 hover:bg-white/5 rounded-lg transition"
+          className="p-2 hover:bg-gray-50 rounded-lg transition"
         >
-          <ArrowLeft size={20} className="text-gray-400" />
+          <ArrowLeft size={20} className="text-gray-500" />
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-white">Auto-Blog Settings</h1>
-          <p className="text-gray-400 mt-1">
+          <h1 className="text-2xl font-bold text-gray-900">Auto-Blog Settings</h1>
+          <p className="text-gray-500 mt-1">
             Configure automatic blog post scheduling
           </p>
         </div>
@@ -145,12 +145,12 @@ export default function AutoBlogSettingsPage() {
 
       {/* Alerts */}
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-center gap-3">
-          <AlertCircle className="text-red-400 flex-shrink-0" size={20} />
-          <p className="text-red-400">{error}</p>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+          <AlertCircle className="text-red-600 flex-shrink-0" size={20} />
+          <p className="text-red-600">{error}</p>
           <button
             onClick={() => setError(null)}
-            className="ml-auto text-red-400 hover:text-red-300"
+            className="ml-auto text-red-600 hover:text-red-500"
           >
             ×
           </button>
@@ -171,11 +171,11 @@ export default function AutoBlogSettingsPage() {
       )}
 
       {/* Enable/Disable Toggle */}
-      <div className="bg-bg-card border border-white/5 rounded-xl p-6">
+      <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-white">Auto-Posting</h2>
-            <p className="text-gray-400 text-sm mt-1">
+            <h2 className="text-lg font-semibold text-gray-900">Auto-Posting</h2>
+            <p className="text-gray-500 text-sm mt-1">
               {enabled
                 ? "Approved posts will be automatically published at scheduled times"
                 : "Auto-posting is currently disabled"}
@@ -199,12 +199,12 @@ export default function AutoBlogSettingsPage() {
       </div>
 
       {/* Settings Form */}
-      <div className="bg-bg-card border border-white/5 rounded-xl p-6 space-y-6">
-        <h2 className="text-lg font-semibold text-white">Schedule Settings</h2>
+      <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6 space-y-6">
+        <h2 className="text-lg font-semibold text-gray-900">Schedule Settings</h2>
 
         {/* Posts Per Day */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
             <Calendar size={16} />
             Posts Per Day
           </label>
@@ -214,9 +214,9 @@ export default function AutoBlogSettingsPage() {
             max="10"
             value={postsPerDay}
             onChange={(e) => setPostsPerDay(Number(e.target.value))}
-            className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent-green"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent-green"
           />
-          <div className="flex justify-between text-sm text-gray-400 mt-1">
+          <div className="flex justify-between text-sm text-gray-500 mt-1">
             <span>1</span>
             <span className="text-accent-green font-medium">
               {postsPerDay} posts/day
@@ -228,14 +228,14 @@ export default function AutoBlogSettingsPage() {
         {/* Active Hours */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
               <Clock size={16} />
               Start Hour
             </label>
             <select
               value={startHour}
               onChange={(e) => setStartHour(Number(e.target.value))}
-              className="w-full bg-black/20 border border-white/10 text-white rounded-lg px-4 py-3"
+              className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-lg px-4 py-3"
             >
               {Array.from({ length: 24 }, (_, i) => (
                 <option key={i} value={i}>
@@ -245,14 +245,14 @@ export default function AutoBlogSettingsPage() {
             </select>
           </div>
           <div>
-            <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
               <Clock size={16} />
               End Hour
             </label>
             <select
               value={endHour}
               onChange={(e) => setEndHour(Number(e.target.value))}
-              className="w-full bg-black/20 border border-white/10 text-white rounded-lg px-4 py-3"
+              className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-lg px-4 py-3"
             >
               {Array.from({ length: 24 }, (_, i) => (
                 <option key={i} value={i}>
@@ -270,7 +270,7 @@ export default function AutoBlogSettingsPage() {
 
         {/* Author Name */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
             <User size={16} />
             Author Name
           </label>
@@ -279,7 +279,7 @@ export default function AutoBlogSettingsPage() {
             value={authorName}
             onChange={(e) => setAuthorName(e.target.value)}
             placeholder="Enter author name"
-            className="w-full bg-black/20 border border-white/10 text-white rounded-lg px-4 py-3 focus:border-accent-green/50 focus:outline-none"
+            className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-lg px-4 py-3 focus:border-accent-green/50 focus:outline-none"
           />
           <p className="text-sm text-gray-500 mt-1">
             This name will appear as the author on all auto-posted articles
@@ -304,7 +304,7 @@ export default function AutoBlogSettingsPage() {
       {/* Info Box */}
       <div className="bg-accent-blue/10 border border-accent-blue/20 rounded-xl p-4">
         <h3 className="font-medium text-accent-blue mb-2">How it works</h3>
-        <ul className="text-sm text-gray-400 space-y-1">
+        <ul className="text-sm text-gray-500 space-y-1">
           <li>
             • Upload PDF content in the{" "}
             <Link
