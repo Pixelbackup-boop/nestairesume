@@ -1,0 +1,38 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#00dc82" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00dc82" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <ellipse cx="600" cy="315" rx="400" ry="250" fill="url(#glow)"/>
+
+  <!-- Envelope icon -->
+  <rect x="510" y="170" width="180" height="130" rx="6" fill="#161b22" stroke="#00dc82" stroke-width="2"/>
+  <!-- Envelope flap -->
+  <path d="M510 170 L600 250 L690 170" stroke="#00dc82" stroke-width="2" fill="none"/>
+  <!-- Envelope bottom fold lines -->
+  <path d="M510 300 L570 255" stroke="rgba(0,220,130,0.3)" stroke-width="1" fill="none"/>
+  <path d="M690 300 L630 255" stroke="rgba(0,220,130,0.3)" stroke-width="1" fill="none"/>
+
+  <!-- Letter peeking out -->
+  <rect x="530" y="155" width="140" height="80" rx="4" fill="#1c2333" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <rect x="550" y="172" width="50" height="5" rx="2" fill="#00dc82" opacity="0.7"/>
+  <rect x="550" y="184" width="100" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="550" y="194" width="85" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="550" y="204" width="95" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+  <rect x="550" y="214" width="70" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- Pen accent -->
+  <line x1="660" y1="320" x2="690" y2="350" stroke="#00dc82" stroke-width="2" opacity="0.5"/>
+  <polygon points="690,350 695,345 693,353" fill="#00dc82" opacity="0.5"/>
+
+  <text x="600" y="440" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">How to Write a Cover Letter</text>
+  <text x="600" y="480" font-family="system-ui, sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">Step-by-step guide with examples</text>
+</svg>

@@ -404,7 +404,7 @@ function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, 
                 border: `1px solid ${borderColor}`,
                 backgroundColor: '#ffffff',
                 padding: `${sp.xxl}px`, // Base padding (paddingTop gets reset by pagination system)
-                marginBottom: sp.xxl,
+                marginBottom: sp.lg,
                 position: 'relative',
                 boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.1)',
             }}

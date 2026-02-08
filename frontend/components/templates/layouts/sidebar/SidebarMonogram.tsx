@@ -110,7 +110,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                 )}
 
                 {/* Contact */}
-                <div style={{ width: '100%', marginBottom: 40 }}>
+                <div style={{ width: '100%', marginBottom: 20 }}>
                     <SidebarHeader title={t.sections.contact} color={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 12 }}>
                         {personalInfo.phone && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><Phone size={14} color={sidebarText} /><span>{personalInfo.phone}</span></div>}
@@ -121,7 +121,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Languages */}
                 {languages && languages.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: 40 }}>
+                    <div style={{ width: '100%', marginBottom: 20 }}>
                         <SidebarHeader title={t.sections.languages} color={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                             {languages.map((lang) => (
@@ -140,7 +140,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Strengths */}
                 {data.strengths && data.strengths.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: 40 }}>
+                    <div style={{ width: '100%', marginBottom: 20 }}>
                         <SidebarHeader title={t.sections.strengths} color={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                             {data.strengths.map((str) => (
@@ -157,7 +157,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Interests */}
                 {data.interests && data.interests.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: 40 }}>
+                    <div style={{ width: '100%', marginBottom: 20 }}>
                         <SidebarHeader title={t.sections.interests} color={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                             {data.interests.map((int) => (
@@ -211,7 +211,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Profile */}
                 {personalInfo.summary && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.profile} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>
                             {personalInfo.summary}
@@ -221,7 +221,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Experience */}
                 {experience.length > 0 && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.experience} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div className="space-y-8">
                             {experience.map((exp) => (
@@ -246,7 +246,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Education */}
                 {education.length > 0 && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.education} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div className="space-y-4">
                             {education.map((edu) => (
@@ -268,7 +268,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Skills */}
                 {skills.length > 0 && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.skills} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                             {skills.map((skill) => (
@@ -285,7 +285,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Credentials (Certifications & Awards) */}
                 {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.credentials} color={'#374151'} fs={fs} headingFont={headingFont} />
 
                         {/* Certifications */}
@@ -349,7 +349,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Social Links */}
                 {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.socialLinks} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
@@ -364,7 +364,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* References */}
                 {references && references.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.references} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                             {references.map((ref) => (
@@ -381,7 +381,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Personal Details */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.personalDetails} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.nationality && (
@@ -391,8 +391,8 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                                 <div>
                                     <span style={{ fontWeight: 600 }}>
                                         {personalInfo.idType === 'id' ? 'ID' :
-                                         personalInfo.idType === 'passport' ? 'Passport' :
-                                         personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                            personalInfo.idType === 'passport' ? 'Passport' :
+                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
                                     </span> {personalInfo.idNumber}
                                 </div>
                             )}
@@ -402,7 +402,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
-                    <section key={field.id} className="mb-10 resume-section" data-paginate="section">
+                    <section key={field.id} className="mb-5 resume-section">
                         <MainHeader title={field.label} color={'#374151'} fs={fs} headingFont={headingFont} />
                         <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{field.content}</p>
                     </section>

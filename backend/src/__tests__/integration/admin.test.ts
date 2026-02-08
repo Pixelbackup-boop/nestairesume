@@ -227,7 +227,6 @@ describe('Admin API Integration Tests', () => {
           name: 'Updated Name',
           role: undefined,
           subscriptionTier: 'gold',
-          creditsRemaining: undefined,
           isSuspended: undefined,
         });
       });

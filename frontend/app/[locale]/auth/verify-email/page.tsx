@@ -17,6 +17,8 @@ export default function VerifyEmailPage() {
     const { refreshUser } = useAuthStore();
 
     const email = searchParams.get('email') || '';
+    const redirectParam = searchParams.get('redirect');
+    const redirectTo = redirectParam?.startsWith('/') ? redirectParam : null;
     const [code, setCode] = useState(['', '', '', '', '', '']);
     const [isVerifying, setIsVerifying] = useState(false);
     const [isResending, setIsResending] = useState(false);
@@ -94,8 +96,11 @@ export default function VerifyEmailPage() {
             localStorage.setItem('token', data.access_token);
             await refreshUser();
 
-            // Redirect to builder with registered flag for welcome modal
-            router.push(localizedHref('/builder?registered=true'));
+            // Redirect back to original page (or builder) with registered flag
+            const postVerifyUrl = redirectTo
+                ? redirectTo + (redirectTo.includes('?') ? '&' : '?') + 'registered=true'
+                : localizedHref('/builder?registered=true');
+            router.push(postVerifyUrl);
         } catch (err: any) {
             setError(err.response?.data?.detail || t('verificationFailed'));
         } finally {
@@ -219,7 +224,7 @@ export default function VerifyEmailPage() {
                     <p className="text-center mt-6 text-gray-500 text-xs">
                         {t('wrongEmail')}{' '}
                         <button
-                            onClick={() => router.push(localizedHref('/auth/register'))}
+                            onClick={() => router.push(localizedHref('/auth/register') + (redirectTo ? `?redirect=${encodeURIComponent(redirectTo)}` : ''))}
                             className="text-accent-green hover:underline"
                         >
                             {t('changeEmail')}

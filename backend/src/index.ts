@@ -16,7 +16,9 @@ import resumeParserRoutes from "./routes/resumeParser";
 import aiRoutes from "./routes/ai";
 import atsCheckerRoutes from "./routes/atsChecker";
 import adsRoutes from "./routes/ads";
+import tawkRoutes from "./routes/tawk";
 import mockInterviewRoutes from "./routes/mockInterview";
+import contactRoutes from "./routes/contact";
 
 // Import scheduler
 import { startScheduler } from "./services/schedulerService";
@@ -63,7 +65,9 @@ app.use("/api/v1/resume", resumeParserRoutes);
 app.use("/api/v1/ai", aiRoutes);
 app.use("/api/v1/ats", atsCheckerRoutes);
 app.use("/api/v1/ads", adsRoutes);
+app.use("/api/v1/tawk", tawkRoutes);
 app.use("/api/v1/interview", mockInterviewRoutes);
+app.use("/api/v1/contact", contactRoutes);
 
 // Start server
 app.listen(config.port, config.host, async () => {

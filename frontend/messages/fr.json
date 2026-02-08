@@ -1085,5 +1085,30 @@
       "title": "Conditions d'Utilisation - Best AI Resume",
       "description": "Lisez les conditions d'utilisation de Best AI Resume. Comprenez vos droits et responsabilités."
     }
+  },
+  "Contact": {
+    "title": "Contactez-nous",
+    "description": "Que vous ayez une question sur votre compte, besoin d'aide avec votre CV ou souhaitiez signaler un problème — nous sommes là pour vous aider. Remplissez le formulaire ci-dessous et notre équipe vous répondra dans les 24 heures.",
+    "inquiryType": "Type de Demande",
+    "inquiryTypes": {
+      "general": "Demande Générale",
+      "billing": "Problème de Facturation",
+      "cvCreation": "Problème de Création de CV"
+    },
+    "name": "Votre Nom",
+    "namePlaceholder": "Jean Dupont",
+    "email": "Adresse E-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Comment pouvons-nous vous aider ?",
+    "message": "Message",
+    "messagePlaceholder": "Dites-nous en plus sur votre demande...",
+    "submit": "Envoyer le Message",
+    "sending": "Envoi en cours...",
+    "successTitle": "Message Envoyé !",
+    "successMessage": "Merci de nous avoir contactés. Nous vous répondrons dans les 24 heures.",
+    "sendAnother": "Envoyer un Autre Message",
+    "errorGeneric": "Une erreur est survenue. Veuillez réessayer plus tard.",
+    "errorRateLimit": "Trop de soumissions. Veuillez patienter avant de réessayer."
   }
 }

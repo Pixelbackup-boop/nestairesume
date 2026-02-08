@@ -218,7 +218,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                 <div style={{ width: '55%' }}>
                     {/* Profile / Summary */}
                     {personalInfo.summary && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="👤">
                                 {t.sections.profile}
                             </SectionHeader>
@@ -230,13 +230,13 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Work Experience */}
                     {experience.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💼">
                                 {t.sections.experience}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {experience.map((exp) => (
-                                    <div key={exp.id} className="resume-entry" data-paginate>
+                                    <div key={exp.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: '2px', textTransform: 'uppercase' }}>
                                             {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                             {exp.city && `    ${exp.city.toUpperCase()}`}
@@ -264,13 +264,13 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Education */}
                     {education.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🎓">
                                 {t.sections.education}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {education.map((edu) => (
-                                    <div key={edu.id} className="resume-entry" data-paginate>
+                                    <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: '2px', textTransform: 'uppercase' }}>
                                             {edu.startDate} – {edu.current ? t.labels.present : edu.endDate}
                                             {edu.city && `    ${edu.city.toUpperCase()}`}
@@ -297,7 +297,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                 <div style={{ width: '45%' }}>
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🏆">
                                 {t.sections.credentials}
                             </SectionHeader>
@@ -343,7 +343,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Skills */}
                     {skills.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⚙️">
                                 {t.sections.skills}
                             </SectionHeader>
@@ -365,7 +365,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Interests with Icons Grid */}
                     {interests && interests.length > 0 && (
-                        <section className="resume-section" data-paginate>
+                        <section className="resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⭐">
                                 {t.sections.interests}
                             </SectionHeader>
@@ -379,6 +379,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                 {interests.slice(0, 6).map((interest) => (
                                     <div
                                         key={interest.id}
+                                        data-paginate="item"
                                         style={{
                                             textAlign: 'center',
                                         }}
@@ -403,7 +404,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Languages */}
                     {data.languages && data.languages.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🗣️">
                                 {t.sections.languages}
                             </SectionHeader>
@@ -420,7 +421,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Strengths */}
                     {data.strengths && data.strengths.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💪">
                                 {t.sections.strengths}
                             </SectionHeader>
@@ -453,13 +454,13 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📋">
                                 {t.sections.references}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {references.map((ref) => (
-                                    <div key={ref.id} className="resume-entry" data-paginate>
+                                    <div key={ref.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
                                             {ref.name}
                                         </h4>

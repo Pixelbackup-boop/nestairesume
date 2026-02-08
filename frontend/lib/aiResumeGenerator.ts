@@ -6,7 +6,7 @@
  * Can be extended to use real AI APIs (OpenAI, Claude) in the future.
  */
 
-import { ResumeData, Experience, Education, Skill } from '../store/useResumeStore';
+import { ResumeData, Experience, Education, Skill, IdDocumentType } from '../store/useResumeStore';
 
 export interface OnboardingInput {
     fullName: string;
@@ -73,6 +73,7 @@ const skillsByCategory: Record<JobCategory, string[]> = {
 type LocaleData = {
     cities: string[];
     country: string;
+    nationality: string;
     companies: Record<JobCategory, string[]>;
     degrees: Record<JobCategory, { degree: string; school: string }>;
     educationDescription: string;
@@ -83,6 +84,7 @@ const localeData: Record<string, LocaleData> = {
     en: {
         cities: ['New York', 'San Francisco', 'Chicago', 'Austin', 'Seattle'],
         country: 'USA',
+        nationality: 'American',
         companies: {
             tech: ['TechCorp Solutions', 'InnovateTech Inc.', 'CloudWorks Systems', 'DataDriven Labs', 'AppForge Digital'],
             design: ['DesignHub Agency', 'CreativeStudio Pro', 'Pixel Perfect Design', 'UX Collective', 'Visual Arts Inc.'],
@@ -111,6 +113,7 @@ const localeData: Record<string, LocaleData> = {
     es: {
         cities: ['Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Bilbao'],
         country: 'España',
+        nationality: 'Spanish',
         companies: {
             tech: ['Soluciones TechCorp', 'InnovaTech S.L.', 'CloudWorks España', 'DataLabs Ibérica', 'AppForge Digital'],
             design: ['Agencia DesignHub', 'Estudio Creativo Pro', 'Diseño Pixel Perfect', 'Colectivo UX', 'Artes Visuales S.L.'],
@@ -139,6 +142,7 @@ const localeData: Record<string, LocaleData> = {
     fr: {
         cities: ['Paris', 'Lyon', 'Marseille', 'Toulouse', 'Bordeaux'],
         country: 'France',
+        nationality: 'French',
         companies: {
             tech: ['TechCorp Solutions', 'InnovaTech SARL', 'CloudWorks France', 'DataLabs Européen', 'AppForge Digital'],
             design: ['Agence DesignHub', 'Studio Créatif Pro', 'Design Pixel Perfect', 'Collectif UX', 'Arts Visuels SARL'],
@@ -167,6 +171,7 @@ const localeData: Record<string, LocaleData> = {
     de: {
         cities: ['Berlin', 'München', 'Hamburg', 'Frankfurt', 'Köln'],
         country: 'Deutschland',
+        nationality: 'German',
         companies: {
             tech: ['TechCorp Solutions GmbH', 'InnovaTech AG', 'CloudWorks Deutschland', 'DataLabs Europa', 'AppForge Digital'],
             design: ['DesignHub Agentur', 'Kreativstudio Pro', 'Pixel Perfect Design', 'UX Kollektiv', 'Visuelle Kunst GmbH'],
@@ -195,6 +200,7 @@ const localeData: Record<string, LocaleData> = {
     ar: {
         cities: ['دبي', 'الرياض', 'القاهرة', 'أبوظبي', 'جدة'],
         country: 'الإمارات',
+        nationality: 'Emirati',
         companies: {
             tech: ['حلول تك كورب', 'إنوفاتك للتقنية', 'كلاود ووركس', 'مختبرات البيانات', 'آب فورج الرقمية'],
             design: ['وكالة ديزاين هب', 'استوديو الإبداع', 'بيكسل بيرفكت للتصميم', 'مجموعة تجربة المستخدم', 'الفنون البصرية'],
@@ -1595,14 +1601,14 @@ export function generateAIResume(input: OnboardingInput): Partial<ResumeData> {
             email: `${input.fullName.toLowerCase().replace(/\s+/g, '.')}@email.com`,
             phone: phone,
             location: location,
-            website: '',
+            website: `www.${input.fullName.toLowerCase().replace(/\s+/g, '')}.com`,
             linkedin: `linkedin.com/in/${input.fullName.toLowerCase().replace(/\s+/g, '')}`,
             summary: generateSummary(input, category),
             profileImage: '',
             imageShape: 'circle',
-            nationality: '',
-            idType: '',
-            idNumber: '',
+            nationality: locData.nationality,
+            idType: 'driving_license' as IdDocumentType,
+            idNumber: `DL-${Math.floor(100000000 + Math.random() * 900000000)}`,
         },
         experience: generateExperience(input, category),
         education: generateEducation(input, category),

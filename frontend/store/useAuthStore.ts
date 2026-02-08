@@ -10,7 +10,6 @@ interface User {
     subscriptionTier?: string;
     subscriptionStatus?: string;
     trialEndsAt?: string;
-    creditsRemaining?: number;
 }
 
 interface AuthState {
@@ -46,7 +45,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
             // 2. Fetch user profile to get role and other details
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
+            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string };
 
             set({
                 isAuthenticated: true,
@@ -59,7 +58,6 @@ export const useAuthStore = create<AuthState>((set) => ({
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
                     trialEndsAt: userData.trialEndsAt,
-                    creditsRemaining: userData.creditsRemaining,
                 },
                 isLoading: false
             });
@@ -102,7 +100,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
         try {
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string; creditsRemaining?: number };
+            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string };
 
             set({
                 isAuthenticated: true,
@@ -115,7 +113,6 @@ export const useAuthStore = create<AuthState>((set) => ({
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
                     trialEndsAt: userData.trialEndsAt,
-                    creditsRemaining: userData.creditsRemaining,
                 },
             });
         } catch (error) {

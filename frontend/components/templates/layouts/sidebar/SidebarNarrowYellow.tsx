@@ -98,7 +98,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 </div>
 
                 {/* Contact */}
-                <div style={{ marginBottom: 40, width: '100%' }}>
+                <div style={{ marginBottom: 20, width: '100%' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: fs.small }}>
                         {personalInfo.phone && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -129,7 +129,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Skills with proficiency levels */}
                 {skills.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: 32 }}>
+                    <div style={{ width: '100%', marginBottom: 20 }}>
                         <SidebarHeader title={t.sections.skills} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                             {skills.map((skill) => (
@@ -206,7 +206,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Profile */}
                 {personalInfo.summary && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.profile} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>
                             {personalInfo.summary}
@@ -216,7 +216,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Experience */}
                 {experience.length > 0 && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.experience} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div className="space-y-8">
                             {experience.map((exp) => (
@@ -241,7 +241,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Education */}
                 {education.length > 0 && (
-                    <section className="mb-10 resume-section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.education} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div className="space-y-4">
                             {education.map((edu) => (
@@ -262,7 +262,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 )}
                 {/* Certifications */}
                 {certifications && certifications.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.certifications} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div className="space-y-3">
                             {certifications.map((cert) => (
@@ -284,7 +284,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Awards */}
                 {awards && awards.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.awards} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div className="space-y-3">
                             {awards.map((award) => (
@@ -311,7 +311,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Languages */}
                 {languages && languages.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.languages} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
                             {languages.map((lang) => (
@@ -325,7 +325,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Strengths */}
                 {data.strengths && data.strengths.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.strengths} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                             {data.strengths.map((str) => (
@@ -346,7 +346,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Social Links */}
                 {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.socialLinks} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
@@ -361,7 +361,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* References */}
                 {references && references.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.references} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                             {references.map((ref) => (
@@ -378,7 +378,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Personal Details */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                    <section className="mb-10 resume-section" data-paginate="section">
+                    <section className="mb-5 resume-section">
                         <MainHeader title={t.sections.personalDetails} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.nationality && (
@@ -388,8 +388,8 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                                 <div>
                                     <span style={{ fontWeight: 600 }}>
                                         {personalInfo.idType === 'id' ? 'ID' :
-                                         personalInfo.idType === 'passport' ? 'Passport' :
-                                         personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                            personalInfo.idType === 'passport' ? 'Passport' :
+                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
                                     </span> {personalInfo.idNumber}
                                 </div>
                             )}
@@ -399,7 +399,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
-                    <section key={field.id} className="mb-10 resume-section" data-paginate="section">
+                    <section key={field.id} className="mb-5 resume-section">
                         <MainHeader title={field.label} color={'#1f2937'} fs={fs} headingFont={headingFont} />
                         <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{field.content}</p>
                     </section>

@@ -238,13 +238,13 @@ export default function AdminAdsPage() {
             </div>
             <button
               onClick={() => setSettings((prev) => ({ ...prev, adsEnabled: !prev.adsEnabled }))}
-              className={`relative w-14 h-7 rounded-full transition-colors ${
-                settings.adsEnabled ? "bg-green-500" : "bg-gray-600"
+              className={`relative w-14 h-7 rounded-full transition-colors border-none outline-none focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2 cursor-pointer ${
+                settings.adsEnabled ? "bg-green-500" : "bg-gray-300"
               }`}
             >
               <span
-                className={`absolute top-1 w-5 h-5 bg-white rounded-full transition-transform ${
-                  settings.adsEnabled ? "translate-x-8" : "translate-x-1"
+                className={`absolute left-[4px] top-[4px] w-5 h-5 bg-white rounded-full shadow-sm transition-transform duration-200 ${
+                  settings.adsEnabled ? "translate-x-[28px]" : "translate-x-0"
                 }`}
               />
             </button>
@@ -263,13 +263,13 @@ export default function AdminAdsPage() {
             </div>
             <button
               onClick={() => setSettings((prev) => ({ ...prev, usePlaceholders: !prev.usePlaceholders }))}
-              className={`relative w-14 h-7 rounded-full transition-colors ${
-                settings.usePlaceholders ? "bg-yellow-500" : "bg-gray-600"
+              className={`relative w-14 h-7 rounded-full transition-colors border-none outline-none focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 cursor-pointer ${
+                settings.usePlaceholders ? "bg-yellow-500" : "bg-gray-300"
               }`}
             >
               <span
-                className={`absolute top-1 w-5 h-5 bg-white rounded-full transition-transform ${
-                  settings.usePlaceholders ? "translate-x-8" : "translate-x-1"
+                className={`absolute left-[4px] top-[4px] w-5 h-5 bg-white rounded-full shadow-sm transition-transform duration-200 ${
+                  settings.usePlaceholders ? "translate-x-[28px]" : "translate-x-0"
                 }`}
               />
             </button>

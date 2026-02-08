@@ -76,7 +76,6 @@ export const getAllUsers = async (skip = 0, limit = 20, search?: string) => {
         role: true,
         subscriptionTier: true,
         subscriptionStatus: true,
-        creditsRemaining: true,
         isSuspended: true,
         createdAt: true,
         updatedAt: true,
@@ -113,7 +112,6 @@ export const getUserWithResumes = async (userId: string) => {
       subscriptionTier: true,
       subscriptionStatus: true,
       stripeCustomerId: true,
-      creditsRemaining: true,
       isSuspended: true,
       cvCreatedCount: true,
       aiUsedCount: true,
@@ -156,7 +154,6 @@ export const updateUser = async (
     name?: string;
     role?: string;
     subscriptionTier?: string;
-    creditsRemaining?: number;
     isSuspended?: boolean;
   }
 ) => {
@@ -169,7 +166,6 @@ export const updateUser = async (
       name: true,
       role: true,
       subscriptionTier: true,
-      creditsRemaining: true,
       isSuspended: true,
     },
   });

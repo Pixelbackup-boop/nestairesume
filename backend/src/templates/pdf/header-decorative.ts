@@ -10,7 +10,8 @@ import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     escapeHtml,
-    formatDescription
+    formatDescription,
+    getFontScale
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -51,25 +52,18 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = data.fonts?.size || 'medium'; // 'small' | 'medium' | 'large'
 
-    // Calculate font sizes matching frontend styleHelpers.tsx
-    // multiplier: small=0.857, medium=1, large=1.143 (approx)
-    // based on styleHelpers: sizeMult = baseSize / 14.
-    // We can simplify by pre-calculating or using a helper if available, but here we can derive.
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
 
-    const getSizes = (size: 'small' | 'medium' | 'large') => {
-        const mult = size === 'small' ? 0.857 : size === 'large' ? 1.143 : 1;
-        const calc = (val: number) => `${Math.round(val * mult)}px`;
-        return {
-            name: calc(32),
-            jobTitle: calc(14),
-            sectionHeading: calc(14),
-            entryTitle: calc(12),
-            body: calc(11),
-            small: calc(10)
-        };
+    const sizes = {
+        name: s(32),
+        jobTitle: s(14),
+        sectionHeading: s(14),
+        entryTitle: s(12),
+        body: s(11),
+        small: s(10)
     };
-
-    const sizes = getSizes(sizeConfig);
 
     // Colors
     const headerBg = '#1f1f1f'; // Dark Grey/Black

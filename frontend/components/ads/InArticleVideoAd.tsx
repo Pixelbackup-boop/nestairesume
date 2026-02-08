@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { getAdSettings, AdSettings, estimatedCpm as cpmEstimates } from '@/lib/adConfig';
+import { useAuthStore } from '@/store/useAuthStore';
+
+const PAID_TIERS = ['starter', 'gold', 'diamond', 'platinum'];
 
 interface InArticleVideoAdProps {
   slotType?: 'blogInArticle' | 'resumeInArticle' | 'careerInArticle';
@@ -14,6 +17,7 @@ export default function InArticleVideoAd({
   className = '',
   showPositionIndicator = false,
 }: InArticleVideoAdProps) {
+  const { user } = useAuthStore();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [settings, setSettings] = useState<AdSettings | null>(null);
@@ -42,6 +46,9 @@ export default function InArticleVideoAd({
   // Don't render anything if loading or ads disabled
   if (loading) return null;
   if (!settings?.adsEnabled) return null;
+
+  // Skip ads for paid subscribers
+  if (user?.subscriptionTier && PAID_TIERS.includes(user.subscriptionTier)) return null;
 
   const estimatedCpm = cpmEstimates[slotType] || '$10-15';
   const adNetwork = 'Google Ad Manager';

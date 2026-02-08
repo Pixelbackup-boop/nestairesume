@@ -174,6 +174,34 @@ export const createCheckoutSchema = z.object({
   }),
 });
 
+// ==================== Contact Form Schema ====================
+
+export const contactFormSchema = z.object({
+  inquiryType: z
+    .string({ required_error: 'Inquiry type is required' })
+    .min(1, 'Inquiry type is required')
+    .max(100, 'Inquiry type too long'),
+  name: z
+    .string({ required_error: 'Name is required' })
+    .min(1, 'Name is required')
+    .max(100, 'Name too long')
+    .trim(),
+  email: z
+    .string({ required_error: 'Email is required' })
+    .email('Invalid email format')
+    .max(255, 'Email too long'),
+  subject: z
+    .string({ required_error: 'Subject is required' })
+    .min(1, 'Subject is required')
+    .max(200, 'Subject too long')
+    .trim(),
+  message: z
+    .string({ required_error: 'Message is required' })
+    .min(10, 'Message must be at least 10 characters')
+    .max(5000, 'Message too long (max 5000 characters)')
+    .trim(),
+});
+
 // ==================== Type Exports ====================
 
 export type RegisterInput = z.infer<typeof registerSchema>;
@@ -184,3 +212,4 @@ export type CreateCheckoutInput = z.infer<typeof createCheckoutSchema>;
 export type UpdateProfileInput = z.infer<typeof updateProfileSchema>;
 export type RequestEmailChangeInput = z.infer<typeof requestEmailChangeSchema>;
 export type VerifyEmailChangeInput = z.infer<typeof verifyEmailChangeSchema>;
+export type ContactFormInput = z.infer<typeof contactFormSchema>;

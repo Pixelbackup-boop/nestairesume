@@ -280,7 +280,6 @@ CREATE TABLE users (
   email VARCHAR(255) UNIQUE,
   name VARCHAR(255),
   subscription_tier VARCHAR(50) DEFAULT 'free',
-  credits_remaining INT DEFAULT 3,
   created_at TIMESTAMP DEFAULT NOW()
 );
 

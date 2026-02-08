@@ -11,7 +11,6 @@ interface UserEditData {
   email: string;
   role: string;
   subscriptionTier: string;
-  creditsRemaining: number;
   isSuspended: boolean;
 }
 
@@ -26,7 +25,6 @@ export default function UserEditPage() {
     email: "",
     role: "user",
     subscriptionTier: "free",
-    creditsRemaining: 0,
     isSuspended: false,
   });
 
@@ -34,13 +32,12 @@ export default function UserEditPage() {
     const fetchUser = async () => {
       try {
         const response = await api.get(`/admin/users/${params.id}`);
-        const user = response.data as { name: string; email: string; role: string; subscriptionTier: string; creditsRemaining: number; isSuspended: boolean };
+        const user = response.data as { name: string; email: string; role: string; subscriptionTier: string; isSuspended: boolean };
         setFormData({
           name: user.name,
           email: user.email,
           role: user.role,
           subscriptionTier: user.subscriptionTier,
-          creditsRemaining: user.creditsRemaining,
           isSuspended: user.isSuspended,
         });
       } catch (err: any) {
@@ -181,21 +178,6 @@ export default function UserEditPage() {
               <option value="gold">Gold</option>
               <option value="diamond">Diamond</option>
             </select>
-          </div>
-
-          {/* Credits */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Credits Remaining
-            </label>
-            <input
-              type="number"
-              name="creditsRemaining"
-              value={formData.creditsRemaining}
-              onChange={handleChange}
-              min="0"
-              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-accent-purple/50 transition-colors"
-            />
           </div>
 
           {/* Suspended */}

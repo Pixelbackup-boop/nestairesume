@@ -1085,5 +1085,30 @@
       "title": "Términos de Servicio - Best AI Resume",
       "description": "Lea los términos de servicio de Best AI Resume. Comprenda sus derechos y responsabilidades."
     }
+  },
+  "Contact": {
+    "title": "Contáctenos",
+    "description": "Ya sea que tenga una pregunta sobre su cuenta, necesite ayuda con su currículum o quiera reportar un problema, estamos aquí para ayudarle. Complete el formulario a continuación y nuestro equipo le responderá en 24 horas.",
+    "inquiryType": "Tipo de Consulta",
+    "inquiryTypes": {
+      "general": "Consulta General",
+      "billing": "Problema de Facturación",
+      "cvCreation": "Problema con Creación de CV"
+    },
+    "name": "Su Nombre",
+    "namePlaceholder": "Juan Pérez",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "usted@ejemplo.com",
+    "subject": "Asunto",
+    "subjectPlaceholder": "¿Cómo podemos ayudarle?",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntenos más sobre su consulta...",
+    "submit": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "successTitle": "¡Mensaje Enviado!",
+    "successMessage": "Gracias por contactarnos. Le responderemos en 24 horas.",
+    "sendAnother": "Enviar Otro Mensaje",
+    "errorGeneric": "Algo salió mal. Por favor intente de nuevo más tarde.",
+    "errorRateLimit": "Demasiados envíos. Por favor espere antes de intentar nuevamente."
   }
 }

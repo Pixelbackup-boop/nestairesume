@@ -169,14 +169,14 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Main Column (Left) */}
                 <div style={{ width: '60%' }}>
                     {personalInfo.summary && (
-                        <section className="mb-8 resume-section" data-paginate>
+                        <section className="mb-5 resume-section">
                             <SectionHeader title={t.sections.profile} icon={User} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <p style={{ lineHeight: 1.6, fontSize: fs.body }}>{personalInfo.summary}</p>
                         </section>
                     )}
 
                     {experience.length > 0 && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.experience} icon={Briefcase} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-6">
                                 {experience.map((exp) => (
@@ -200,7 +200,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {education.length > 0 && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.education} icon={GraduationCap} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-4">
                                 {education.map((edu) => (
@@ -224,7 +224,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Skills */}
                     {skills.length > 0 && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.skills} icon={Wrench} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-3">
                                 {skills.map((skill) => (
@@ -251,7 +251,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Languages */}
                     {data.languages && data.languages.length > 0 && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.languages} icon={MessageCircle} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div className="space-y-2">
                                 {data.languages.map((lang) => (
@@ -266,7 +266,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Strengths */}
                     {data.strengths && data.strengths.length > 0 && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.strengths} icon={Zap} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                                 {data.strengths.map((str) => (
@@ -287,7 +287,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Interests */}
                     {interests && interests.length > 0 && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.interests} icon={Star} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                                 {interests.map((int) => (
@@ -308,7 +308,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.credentials} icon={Trophy} accent={accentColor} fs={fs} headingFont={headingFont} />
 
                             {certifications && certifications.length > 0 && (
@@ -347,7 +347,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Social Links */}
                     {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.socialLinks} icon={Link} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
                                 {personalInfo.linkedin && <div data-paginate="item"><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
@@ -362,7 +362,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.references} icon={ClipboardList} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                                 {references.map((ref) => (
@@ -379,7 +379,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Personal Details */}
                     {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                        <div className="mb-8">
+                        <div className="mb-5">
                             <SectionHeader title={t.sections.personalDetails} icon={FileText} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
                                 {personalInfo.nationality && (
@@ -400,7 +400,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <div key={field.id} className="mb-8">
+                        <div key={field.id} className="mb-5">
                             <SectionHeader title={field.label} icon={Pin} accent={accentColor} fs={fs} headingFont={headingFont} />
                             <p style={{ fontSize: fs.body, lineHeight: 1.6 }} data-paginate="item">{field.content}</p>
                         </div>

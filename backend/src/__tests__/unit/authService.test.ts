@@ -282,7 +282,6 @@ describe('Auth Service', () => {
         subscriptionTier: 'starter',
         subscriptionStatus: 'active',
         trialEndsAt: null,
-        creditsRemaining: 10,
         isSuspended: false,
         createdAt: new Date(),
       };

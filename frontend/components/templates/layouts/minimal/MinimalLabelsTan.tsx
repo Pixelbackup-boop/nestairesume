@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
+import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
 /**
@@ -46,7 +47,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
             }}
         >
             {/* Header */}
-            <header style={{ marginLeft: '30%', marginBottom: scale < 1 ? 40 : 64 }}>
+            <header style={{ marginLeft: '30%', marginBottom: 32 }}>
                 <h1
                     style={{
                         fontFamily: headingFont,
@@ -86,7 +87,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
             </header>
 
             {/* Sections Wrapper */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: scale < 1 ? 32 : 48 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
 
                 {/* Profile */}
                 {personalInfo.summary && (
@@ -108,13 +109,18 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                         </div>
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24 }}>
                             {experience.map((exp) => (
-                                <div key={exp.id}>
-                                    <h4 style={{ fontWeight: 600, fontSize: fs.entryTitle, color: '#000', margin: 0 }}>{exp.title}</h4>
-                                    <div style={{ fontSize: fs.body, color: labelText, marginBottom: 8 }}>
-                                        {exp.company}, {exp.startDate}–{exp.current ? t.labels.present : exp.endDate}
+                                <ResumeEntry key={exp.id}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{exp.title}</h4>
+                                        <span style={{ fontSize: fs.small, color: '#4b5563' }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
-                                    <p style={{ margin: 0, lineHeight: 1.6, fontSize: fs.body }}>{exp.description}</p>
-                                </div>
+                                    <div style={{ fontSize: fs.small, color: '#d97706', fontWeight: 600, marginBottom: 4 }}>
+                                        {exp.company}, {exp.city}
+                                    </div>
+                                    <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>
+                                        {exp.description}
+                                    </p>
+                                </ResumeEntry>
                             ))}
                         </div>
                     </div>
@@ -128,12 +134,11 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                         </div>
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 16 }}>
                             {education.map((edu) => (
-                                <div key={edu.id}>
-                                    <h4 style={{ fontWeight: 600, fontSize: fs.entryTitle, color: '#000', margin: 0 }}>{edu.degree}</h4>
-                                    <div style={{ fontSize: fs.body, color: labelText }}>
-                                        {edu.school} | {edu.startDate}–{edu.endDate || t.labels.present}
-                                    </div>
-                                </div>
+                                <ResumeEntry key={edu.id}>
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{edu.degree}</h4>
+                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}, {edu.city}</div>
+                                    <div style={{ fontSize: fs.small, color: '#6b7280' }}>{edu.startDate} – {edu.endDate || t.labels.present}</div>
+                                </ResumeEntry>
                             ))}
                         </div>
                     </div>
@@ -225,9 +230,9 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                                     </h4>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                                         {certifications.map((cert) => (
-                                            <div key={cert.id}>
-                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: mainText }}>{cert.name}</div>
-                                                <div style={{ fontSize: fs.small, color: labelText }}>{cert.issuer} • {cert.date}</div>
+                                            <div key={cert.id} data-paginate="item">
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{cert.name}</div>
+                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
                                             </div>
                                         ))}
                                     </div>
@@ -240,9 +245,9 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                                     </h4>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                                         {awards.map((award) => (
-                                            <div key={award.id}>
-                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: mainText }}>{award.title}</div>
-                                                <div style={{ fontSize: fs.small, color: labelText }}>{award.issuer} • {award.date}</div>
+                                            <div key={award.id} data-paginate="item">
+                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{award.title}</div>
+                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
                                             </div>
                                         ))}
                                     </div>
@@ -278,11 +283,11 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                         </div>
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 16 }}>
                             {references.map((ref) => (
-                                <div key={ref.id}>
-                                    <div style={{ fontWeight: 600, fontSize: fs.body, color: mainText }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.body, color: labelText }}>{ref.title}, {ref.company}</div>
-                                    {ref.email && <div style={{ fontSize: fs.small, color: labelText }}>{ref.email}</div>}
-                                    {ref.phone && <div style={{ fontSize: fs.small, color: labelText }}>{ref.phone}</div>}
+                                <div key={ref.id} data-paginate="item">
+                                    <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
+                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
+                                    {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
+                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.phone}</div>}
                                 </div>
                             ))}
                         </div>
@@ -303,8 +308,8 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                                 <div>
                                     <span style={{ fontWeight: 600 }}>
                                         {personalInfo.idType === 'id' ? 'ID' :
-                                         personalInfo.idType === 'passport' ? 'Passport' :
-                                         personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                            personalInfo.idType === 'passport' ? 'Passport' :
+                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
                                     </span> {personalInfo.idNumber}
                                 </div>
                             )}

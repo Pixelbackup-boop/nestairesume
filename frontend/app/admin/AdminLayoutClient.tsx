@@ -27,26 +27,23 @@ export default function AdminLayoutClient({
       const token = localStorage.getItem("token");
 
       if (!token) {
-        router.push("/admin/login");
+        window.location.replace("/admin/login");
         return;
       }
 
       // Refresh user data from API
       await refreshUser();
 
-      // Small delay to let state update
-      await new Promise((resolve) => setTimeout(resolve, 50));
-
       // Re-check auth state after refresh
       const store = useAuthStore.getState();
 
       if (!store.isAuthenticated) {
-        router.push("/admin/login");
+        window.location.replace("/admin/login");
         return;
       }
 
       if (store.user?.role !== "admin") {
-        router.push("/dashboard");
+        window.location.replace("/dashboard");
         return;
       }
 
@@ -54,7 +51,7 @@ export default function AdminLayoutClient({
     };
 
     checkAuth();
-  }, [router, refreshUser]);
+  }, [isLoginPage, refreshUser]);
 
   // Login page renders without the admin shell
   if (isLoginPage) {

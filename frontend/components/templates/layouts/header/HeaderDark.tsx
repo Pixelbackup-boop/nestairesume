@@ -124,7 +124,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 </div>
 
                 {/* Contact Info (Dark Sidebar) */}
-                <div style={{ width: '100%', marginBottom: 40 }}>
+                <div style={{ width: '100%', marginBottom: 20 }}>
                     <SidebarSectionHeader title={t.sections.contact} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
                     <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 12 }}>
                         {personalInfo.phone && <ContactItemSvg icon="phone" text={personalInfo.phone} color={sidebarText} />}
@@ -137,7 +137,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Skills (Dark Sidebar) */}
                 {skills.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: 40 }}>
+                    <div style={{ width: '100%', marginBottom: 20 }}>
                         <SidebarSectionHeader title={t.sections.skills} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                             {skills.map((skill) => (
@@ -235,7 +235,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Profile */}
                 {personalInfo.summary && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.profile} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#334155' }}>
                             {personalInfo.summary}
@@ -245,7 +245,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Experience */}
                 {experience.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.experience} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div className="space-y-8">
                             {experience.map((exp) => (
@@ -271,7 +271,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Education */}
                 {education.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.education} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div className="space-y-6">
                             {education.map((edu) => (
@@ -293,7 +293,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Languages */}
                 {languages && languages.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.languages} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
                             {languages.map((lang) => (
@@ -308,7 +308,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Credentials (Certifications & Awards) */}
                 {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.credentials} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
 
                         {certifications && certifications.length > 0 && (
@@ -352,7 +352,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* References */}
                 {references && references.length > 0 && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.references} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
                             {references.map((ref) => (
@@ -369,7 +369,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Social Links */}
                 {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.socialLinks} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.x && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>X:</span> <span style={{ color: '#334155' }}>{personalInfo.x}</span></div>}
@@ -383,7 +383,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Personal Details */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                    <section className="mb-10 resume-section" data-paginate>
+                    <section className="mb-5 resume-section">
                         <SectionHeaderMain title={t.sections.personalDetails} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.nationality && (
@@ -393,8 +393,8 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                 <div>
                                     <span style={{ fontWeight: 600, color: '#0f172a' }}>
                                         {personalInfo.idType === 'id' ? 'ID' :
-                                         personalInfo.idType === 'passport' ? 'Passport' :
-                                         personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                            personalInfo.idType === 'passport' ? 'Passport' :
+                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
                                     </span> <span style={{ color: '#334155' }}>{personalInfo.idNumber}</span>
                                 </div>
                             )}
@@ -404,7 +404,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
-                    <section key={field.id} className="resume-section" data-paginate>
+                    <section key={field.id} className="resume-section mb-5">
                         <SectionHeaderMain title={field.label} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
                         <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>{field.content}</p>
                     </section>

@@ -85,9 +85,14 @@ export default function DownloadModal({
         }
     };
 
+    // Capture current URL so auth pages can redirect back here
+    const currentPath = typeof window !== 'undefined'
+        ? window.location.pathname + window.location.search
+        : `/${locale}/builder`;
+
     const handleSignUp = () => {
         onClose();
-        router.push(`/${locale}/auth/register`);
+        router.push(`/${locale}/auth/register?redirect=${encodeURIComponent(currentPath)}`);
     };
 
     const handleUpgrade = () => {
@@ -164,7 +169,7 @@ export default function DownloadModal({
                                 <button
                                     onClick={() => {
                                         onClose();
-                                        router.push(`/${locale}/auth/login`);
+                                        router.push(`/${locale}/auth/login?redirect=${encodeURIComponent(currentPath)}`);
                                     }}
                                     className="text-accent-green hover:underline"
                                 >

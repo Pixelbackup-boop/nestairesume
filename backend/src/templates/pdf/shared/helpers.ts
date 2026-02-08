@@ -167,6 +167,22 @@ export const fontSizes = {
     },
 };
 
+/**
+ * Get font scale factor based on size preference.
+ * Matches frontend scaling logic:
+ * Small (12px base) -> 0.857 (12/14)
+ * Medium (14px base) -> 1.0 (14/14)
+ * Large (16px base) -> 1.143 (16/14)
+ */
+export const getFontScale = (size?: 'small' | 'medium' | 'large'): number => {
+    switch (size) {
+        case 'small': return 0.857;
+        case 'large': return 1.143;
+        case 'medium':
+        default: return 1.0;
+    }
+};
+
 // --- Background Helpers ---
 
 const getPatternSVG = (pattern: BackgroundPattern, color: string, opacity: number): string => {
@@ -241,7 +257,7 @@ export const formatIdType = (idType?: string): string => {
     switch (idType) {
         case 'id': return 'ID';
         case 'passport': return 'Passport';
-        case 'driving_license': return 'License';
+        case 'driving_license': return 'Driving License';
         default: return '';
     }
 };
@@ -268,7 +284,7 @@ export const formatDescription = (text: string | undefined | null): string => {
 
 // --- SVG Icons (Lucide Replication) ---
 
-export type IconName = 'email' | 'phone' | 'location' | 'linkedin' | 'website' | 'github' | 'calendar' | 'building' | 'briefcase' | 'graduation-cap' | 'award' | 'users' | 'lightbulb' | 'globe' | 'star' | 'heart' | 'music' | 'camera' | 'plane' | 'book' | 'coffee' | 'code' | 'zap' | 'flag' | 'user' | 'wrench' | 'palette' | 'tent' | 'languages';
+export type IconName = 'email' | 'phone' | 'location' | 'linkedin' | 'website' | 'github' | 'calendar' | 'building' | 'briefcase' | 'graduation-cap' | 'award' | 'users' | 'lightbulb' | 'globe' | 'star' | 'heart' | 'music' | 'camera' | 'plane' | 'book' | 'coffee' | 'code' | 'zap' | 'flag' | 'user' | 'wrench' | 'palette' | 'tent' | 'languages' | 'instagram' | 'x' | 'dribbble' | 'behance';
 
 export const getIconSVG = (name: IconName, color: string = '#000000', size: number = 16): string => {
     const paths: Record<IconName, string> = {
@@ -301,9 +317,14 @@ export const getIconSVG = (name: IconName, color: string = '#000000', size: numb
         palette: '<circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>',
         tent: '<path d="M3.5 21 14 3"/><path d="M20.5 21 10 3"/><path d="M15.5 21 12 15l-3.5 6"/><path d="M2 21h20"/>',
         languages: '<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>',
+        instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
+        x: '<path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>', // Approximation of X logo using strokes
+        dribbble: '<circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 13.25"/>',
+        behance: '<path d="M5 17V7h4a2 2 0 0 1 0 4H7v1h2a2 2 0 0 1 0 4H5"/><path d="M15 13h5a2.5 2.5 0 1 0-5 0v.5"/><path d="M16 9h4"/>',
     };
 
     const path = paths[name] || paths.star;
+
     return `
         <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
             ${path}

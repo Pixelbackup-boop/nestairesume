@@ -12,7 +12,8 @@ import {
     getFontFamily,
     escapeHtml,
     formatDescription,
-    parseDualColor
+    parseDualColor,
+    getFontScale
 } from './shared/helpers';
 import { formatLocalizedDate } from './shared/dateUtils';
 // Note: getBackgroundCSS removed - header-dark-box always uses white body background
@@ -48,17 +49,16 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
 
-    // Font size scaling based on user's size preference (small/medium/large)
-    // MUST match frontend styleHelpers.ts getScaledFontSizes() for identical content flow
-    // small: 12px base (0.857x), medium: 14px base (1x), large: 16px base (1.143x)
-    // Note: Header name stays fixed at 28px - only body content scales
-    const sizeMultiplier = fonts?.size === 'small' ? 0.857 : fonts?.size === 'large' ? 1.143 : 1;
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+
     const fs = {
         name: '28px', // Fixed - header name box doesn't scale
-        sectionHeading: `${Math.round(14 * sizeMultiplier)}px`,
-        entryTitle: `${Math.round(12 * sizeMultiplier)}px`, // 12px matches frontend
-        body: `${Math.round(11 * sizeMultiplier)}px`,       // 11px matches frontend
-        small: `${Math.round(10 * sizeMultiplier)}px`,      // 10px matches frontend
+        sectionHeading: s(14),
+        entryTitle: s(12),  // 12px matches frontend
+        body: s(11),        // 11px matches frontend
+        small: s(10),       // 10px matches frontend
     };
 
     // Parse dual color: primary = box BORDER, secondary = accent highlights
@@ -77,8 +77,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
     `;
 
     // Circular progress for skills
-    const circleTextSize = `${Math.round(12 * sizeMultiplier)}px`;
-    const circleLabelSize = `${Math.round(11 * sizeMultiplier)}px`;
+    const circleTextSize = s(12);
+    const circleLabelSize = s(11);
     const CircularProgress = (value: number, label: string) => {
         const radius = 32;
         const circumference = 2 * Math.PI * radius;
@@ -162,7 +162,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                     ${personalInfo.location ? `<div><strong>Loc:</strong> ${escapeHtml(personalInfo.location)}</div>` : ''}
                     ${personalInfo.linkedin ? `<div><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
                     ${personalInfo.nationality ? `<div><strong>Nationality:</strong> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                    ${personalInfo.idType && personalInfo.idNumber ? `<div><strong>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</strong> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
+                    ${personalInfo.idType && personalInfo.idNumber ? `<div><strong>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</strong> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
                 </div>
             </header>
 

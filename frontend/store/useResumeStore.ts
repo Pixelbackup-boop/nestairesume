@@ -689,6 +689,23 @@ export const useResumeStore = create<ResumeState>()(
                 selectedTemplate: state.selectedTemplate,
                 selectedTheme: state.selectedTheme,
             }),
+            // Deep merge so new fields (website, nationality, idType, idNumber)
+            // get their defaults even when loading old localStorage data
+            merge: (persistedState, currentState) => {
+                const persisted = persistedState as Partial<typeof currentState>;
+                return {
+                    ...currentState,
+                    ...persisted,
+                    resumeData: {
+                        ...currentState.resumeData,
+                        ...persisted.resumeData,
+                        personalInfo: {
+                            ...currentState.resumeData.personalInfo,
+                            ...persisted.resumeData?.personalInfo,
+                        },
+                    },
+                };
+            },
         }
     )
 );

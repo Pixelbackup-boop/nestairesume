@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
+import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
 /**
@@ -47,7 +48,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
             }}
         >
             {/* Header */}
-            <header style={{ marginBottom: scale < 1 ? 32 : 56, borderBottom: `2px solid ${accentColor}`, paddingBottom: 24 }}>
+            <header style={{ marginBottom: 32, borderBottom: `2px solid ${accentColor}`, paddingBottom: 24 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                     <div>
                         <h1
@@ -92,7 +93,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Profile */}
             {personalInfo.summary && (
-                <section style={{ marginBottom: scale < 1 ? 24 : 40 }}>
+                <section style={{ marginBottom: 20 }}>
                     <SectionHeader title={t.sections.profile} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151', paddingLeft: 8 }}>
                         {personalInfo.summary}
@@ -102,11 +103,11 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Experience */}
             {experience.length > 0 && (
-                <section style={{ marginBottom: scale < 1 ? 24 : 40 }}>
+                <section style={{ marginBottom: 20 }}>
                     <SectionHeader title={t.sections.experience} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ display: 'flex', flexDirection: 'column', gap: scale < 1 ? 20 : 32, paddingLeft: 8 }}>
                         {experience.map((exp) => (
-                            <div key={exp.id}>
+                            <ResumeEntry key={exp.id}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{exp.title}</h4>
                                     <span style={{ fontSize: fs.small, color: '#4b5563' }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
@@ -117,7 +118,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                                 <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>
                                     {exp.description}
                                 </p>
-                            </div>
+                            </ResumeEntry>
                         ))}
                     </div>
                 </section>
@@ -130,11 +131,11 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                         <SectionHeader title={t.sections.education} bg={accentColor} fs={fs} headingFont={headingFont} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 16, paddingLeft: 8 }}>
                             {education.map((edu) => (
-                                <div key={edu.id}>
+                                <ResumeEntry key={edu.id}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{edu.degree}</h4>
                                     <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}, {edu.city}</div>
                                     <div style={{ fontSize: fs.small, color: '#6b7280' }}>{edu.startDate} – {edu.endDate || t.labels.present}</div>
-                                </div>
+                                </ResumeEntry>
                             ))}
                         </div>
                     </div>
@@ -162,7 +163,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Languages and Strengths Row */}
             {((languages && languages.length > 0) || (strengths && strengths.length > 0)) && (
-                <div style={{ display: 'flex', gap: 32, marginTop: scale < 1 ? 24 : 40 }}>
+                <div style={{ display: 'flex', gap: 32, marginTop: 20 }}>
                     {languages && languages.length > 0 && (
                         <div style={{ flex: 1 }}>
                             <SectionHeader title={t.sections.languages} bg={accentColor} fs={fs} headingFont={headingFont} />
@@ -198,7 +199,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Interests */}
             {data.interests && data.interests.length > 0 && (
-                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                <section style={{ marginTop: 20 }}>
                     <SectionHeader title={t.sections.interests} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151', paddingLeft: 8 }}>
                         {data.interests.map(int => int.name).join(' • ')}
@@ -208,7 +209,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Credentials (Certifications & Awards) */}
             {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                <section style={{ marginTop: 20 }}>
                     <SectionHeader title={t.sections.credentials} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ paddingLeft: 8 }}>
                         {certifications && certifications.length > 0 && (
@@ -218,7 +219,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                                 </h4>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                                     {certifications.map((cert) => (
-                                        <div key={cert.id}>
+                                        <div key={cert.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{cert.name}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
                                         </div>
@@ -233,7 +234,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                                 </h4>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                                     {awards.map((award) => (
-                                        <div key={award.id}>
+                                        <div key={award.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{award.title}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
                                         </div>
@@ -247,7 +248,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Social Links */}
             {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                <section style={{ marginTop: 20 }}>
                     <SectionHeader title={t.sections.socialLinks} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                         {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
@@ -262,11 +263,11 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* References */}
             {references && references.length > 0 && (
-                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                <section style={{ marginTop: 20 }}>
                     <SectionHeader title={t.sections.references} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 16 }}>
                         {references.map((ref) => (
-                            <div key={ref.id}>
+                            <div key={ref.id} data-paginate="item">
                                 <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
                                 <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
                                 {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
@@ -279,7 +280,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Personal Details */}
             {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                <section style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                <section style={{ marginTop: 20 }}>
                     <SectionHeader title={t.sections.personalDetails} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                         {personalInfo.nationality && (
@@ -289,8 +290,8 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                             <div>
                                 <span style={{ fontWeight: 600 }}>
                                     {personalInfo.idType === 'id' ? 'ID' :
-                                     personalInfo.idType === 'passport' ? 'Passport' :
-                                     personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        personalInfo.idType === 'passport' ? 'Passport' :
+                                            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
                                 </span> {personalInfo.idNumber}
                             </div>
                         )}
@@ -300,7 +301,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Custom Fields */}
             {customFields?.map((field) => (
-                <section key={field.id} style={{ marginTop: scale < 1 ? 24 : 40 }}>
+                <section key={field.id} style={{ marginTop: 20 }}>
                     <SectionHeader title={field.label} bg={accentColor} fs={fs} headingFont={headingFont} />
                     <p style={{ paddingLeft: 8, lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>{field.content}</p>
                 </section>

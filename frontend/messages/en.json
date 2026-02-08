@@ -1235,5 +1235,30 @@
       "description": "Build a professional, ATS-optimized resume in minutes with our AI-powered builder. Every template is tested for ATS compatibility.",
       "button": "Build My ATS Resume — Free"
     }
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "description": "Whether you have a question about your account, need help with your resume, or want to report an issue — we're here to help. Fill out the form below and our team will get back to you within 24 hours.",
+    "inquiryType": "Inquiry Type",
+    "inquiryTypes": {
+      "general": "General Inquiry",
+      "billing": "Billing Issue",
+      "cvCreation": "CV Creation Issue"
+    },
+    "name": "Your Name",
+    "namePlaceholder": "John Doe",
+    "email": "Email Address",
+    "emailPlaceholder": "you@example.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "How can we help?",
+    "message": "Message",
+    "messagePlaceholder": "Tell us more about your inquiry...",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thank you for contacting us. We'll get back to you within 24 hours.",
+    "sendAnother": "Send Another Message",
+    "errorGeneric": "Something went wrong. Please try again later.",
+    "errorRateLimit": "Too many submissions. Please wait before trying again."
   }
 }

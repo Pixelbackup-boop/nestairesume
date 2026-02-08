@@ -578,6 +578,23 @@ export default function BiodataFormatPage() {
                 </div>
             </section>
 
+            {/* External Resources */}
+            <section className="py-8 bg-white border-t border-gray-100">
+                <div className="max-w-4xl mx-auto px-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">External Resources</h3>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                        <a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                            <span className="text-gray-400">↗</span>
+                            <span className="text-sm text-gray-700">Bureau of Labor Statistics: Career Outlook</span>
+                        </a>
+                        <a href="https://www.glassdoor.com/blog/guide/resume-tips/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                            <span className="text-gray-400">↗</span>
+                            <span className="text-sm text-gray-700">Glassdoor: Resume & Career Guide</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             {/* Final CTA */}
             <section className="py-24 bg-gradient-to-r from-orange-500 to-orange-600 text-center px-6">
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Create Your Biodata in Minutes</h2>

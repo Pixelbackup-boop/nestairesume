@@ -12,7 +12,8 @@ import {
     IconName,
     parseDualColor,
     getContrastText,
-    hexToRgba
+    hexToRgba,
+    getFontScale
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -35,6 +36,10 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
     const headingFont = getFontFamily(fonts?.heading || 'Montserrat');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
 
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+
     // Parse dual color: primary = sidebar bg, secondary = accent
     const { primary: sidebarBg, secondary: accentColor } = parseDualColor(
         data.customThemeColor,
@@ -48,14 +53,14 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
 
     // Helper for Sidebar Section Headers
     const SidebarSectionHeader = (title: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; color: ${sidebarText}; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid ${accentColor};">
+        <h3 style="font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; color: ${sidebarText}; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid ${accentColor};">
             ${title}
         </h3>
     `;
 
     // Helper for Main Section Headers
     const MainSectionHeader = (title: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 14px; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; display: flex; align-items: center; gap: 16px;">
+        <h3 style="font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; display: flex; align-items: center; gap: 16px;">
             <span style="width: 40px; height: 4px; background-color: ${accentColor}; display: inline-block;"></span>
             ${title}
         </h3>
@@ -76,13 +81,14 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
 
     return `
         <!-- Fixed background that covers full page on ALL pages -->
-        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 33%;"></div>
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; position: fixed; top: -2px; left: 0; width: 33%; height: calc(100% + 4px); min-height: 100vh; z-index: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
 
         <!-- Flex layout for content structure (matching frontend) -->
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; color: ${textDark}; display: flex; box-sizing: border-box;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${s(13)}; color: ${textDark}; display: flex; box-sizing: border-box; position: relative;">
+
 
             <!-- Left Sidebar -->
-            <aside class="sidebar-content" style="width: 33%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 40px 20px; flex-shrink: 0; min-height: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;">
+            <aside class="sidebar-content" style="width: 33%; color: ${sidebarText}; padding: 40px 20px; flex-shrink: 0; min-height: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;">
 
                 <!-- Photo -->
                 <div style="margin-bottom: 50px;">
@@ -92,7 +98,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                 <!-- Contact Info -->
                 <div style="width: 100%; margin-bottom: 40px;">
                     ${SidebarSectionHeader(t.sections.contact)}
-                    <div style="font-size: 9pt; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="font-size: ${s(12)}; display: flex; flex-direction: column; gap: 12px;">
                         ${personalInfo.phone ? `
                             <div style="display: flex; align-items: center; gap: 12px;">
                                 <span style="opacity: 0.9;">${getIconSVG('phone', sidebarText, 14)}</span>
@@ -163,7 +169,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             ${skills.map(skill => `
                                 <div>
-                                    <div style="margin-bottom: 4px; font-size: 9pt; font-weight: 500;">${escapeHtml(skill.name)}</div>
+                                    <div style="margin-bottom: 4px; font-size: ${s(12)}; font-weight: 500;">${escapeHtml(skill.name)}</div>
                                     <div style="width: 100%; height: 6px; background-color: ${hexToRgba(sidebarText, 0.15)}; border-radius: 3px; overflow: hidden;">
                                         <div style="width: ${(skill.level || 3) * 20}%; height: 100%; background-color: ${accentColor};"></div>
                                     </div>
@@ -179,7 +185,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                         ${SidebarSectionHeader(t.sections.strengths)}
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                             ${strengths.map(str => `
-                                <span style="background-color: ${hexToRgba(sidebarText, 0.08)}; color: ${accentColor}; padding: 4px 12px; border-radius: 4px; font-size: 8pt; font-weight: 500; border: 1px solid ${hexToRgba(accentColor, 0.25)};">
+                                <span style="background-color: ${hexToRgba(sidebarText, 0.08)}; color: ${accentColor}; padding: 4px 12px; border-radius: 4px; font-size: ${s(11)}; font-weight: 500; border: 1px solid ${hexToRgba(accentColor, 0.25)};">
                                     ${escapeHtml(str.name)}
                                 </span>
                             `).join('')}
@@ -193,7 +199,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                         ${SidebarSectionHeader(t.sections.interests)}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${interests.map(int => `
-                                <span style="font-size: 9pt; display: flex; align-items: center; gap: 6px; color: ${sidebarText};">
+                                <span style="font-size: ${s(12)}; display: flex; align-items: center; gap: 6px; color: ${sidebarText};">
                                     <span style="color: ${accentColor};">✦</span> ${escapeHtml(int.name)}
                                 </span>
                             `).join('')}
@@ -204,14 +210,20 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
             </aside>
 
             <!-- Main Content -->
-            <main style="flex: 1; padding: 56px 40px; background-color: ${mainBg}; display: flex; flex-direction: column;">
+            <main style="flex: 1; background-color: ${mainBg}; position: relative; z-index: 1;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead><tr><td style="height: 20px;"></td></tr></thead>
+                    <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 36px 40px; vertical-align: top;">
                 
                 <!-- Name Header -->
                 <div style="margin-bottom: 50px;">
-                    <h1 style="font-family: ${headingFont}; font-size: 36px; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; line-height: 1;">
+                    <h1 style="font-family: ${headingFont}; font-size: ${s(36)}; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; line-height: 1;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
-                    <p style="font-size: 14px; color: #64748b; text-transform: uppercase; font-weight: 600; margin-top: 10px; letter-spacing: 0.05em;">
+                    <p style="font-size: ${s(14)}; color: #64748b; text-transform: uppercase; font-weight: 600; margin-top: 10px; letter-spacing: 0.05em;">
                         ${escapeHtml(personalInfo.jobTitle || 'Job Title')}
                     </p>
                 </div>
@@ -220,7 +232,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                 ${personalInfo.summary ? `
                     <section style="margin-bottom: 40px;">
                         ${MainSectionHeader(t.sections.profile)}
-                        <p style="line-height: 1.6; font-size: 10pt; color: #334155;">
+                        <p style="line-height: 1.6; font-size: ${s(13)}; color: #334155;">
                             ${formatDescription(personalInfo.summary)}
                         </p>
                     </section>
@@ -234,15 +246,15 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                             ${experience.map(exp => `
                                 <div>
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 2px; align-items: baseline;">
-                                        <h4 style="font-weight: 700; font-size: 11pt; text-transform: uppercase; color: #0f172a; margin: 0;">
+                                        <h4 style="font-weight: 700; font-size: ${s(15)}; text-transform: uppercase; color: #0f172a; margin: 0;">
                                             ${escapeHtml(exp.title)}
                                         </h4>
                                     </div>
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 9pt; color: #64748b; font-weight: 600;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: ${s(12)}; color: #64748b; font-weight: 600;">
                                         <span>${escapeHtml(exp.company)}${exp.city ? `, ${escapeHtml(exp.city)}` : ''}</span>
                                         <span>${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                     </div>
-                                    <div style="font-size: 10pt; line-height: 1.6; color: #334155;">
+                                    <div style="font-size: ${s(13)}; line-height: 1.6; color: #334155;">
                                         ${formatDescription(exp.description || '')}
                                     </div>
                                 </div>
@@ -258,13 +270,13 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                         <div style="display: flex; flex-direction: column; gap: 20px;">
                             ${education.map(edu => `
                                 <div>
-                                    <h4 style="font-weight: 700; font-size: 11pt; color: #0f172a; margin: 0;">
+                                    <h4 style="font-weight: 700; font-size: ${s(15)}; color: #0f172a; margin: 0;">
                                         ${escapeHtml(edu.degree)}
                                     </h4>
-                                    <p style="font-size: 10pt; color: #475569; font-weight: 500; margin: 2px 0;">
+                                    <p style="font-size: ${s(13)}; color: #475569; font-weight: 500; margin: 2px 0;">
                                         ${escapeHtml(edu.school)}${edu.city ? `, ${escapeHtml(edu.city)}` : ''}
                                     </p>
-                                    <p style="font-size: 9pt; color: #64748b; margin: 0;">
+                                    <p style="font-size: ${s(12)}; color: #64748b; margin: 0;">
                                         ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                     </p>
                                 </div>
@@ -279,7 +291,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                         ${MainSectionHeader(t.sections.languages)}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px 24px;">
                             ${languages.map(lang => `
-                                <div style="font-size: 10pt;">
+                                <div style="font-size: ${s(13)};">
                                     <span style="font-weight: 600; color: #0f172a;">${escapeHtml(lang.name)}</span>
                                     <span style="color: #64748b; margin-left: 6px;">(${escapeHtml(lang.proficiency)})</span>
                                 </div>
@@ -295,12 +307,12 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                         <div style="display: flex; gap: 40px;">
                             ${certifications && certifications.length > 0 ? `
                                 <div style="flex: 1;">
-                                    <h4 style="font-size: 10pt; font-weight: 600; color: #64748b; margin-bottom: 12px;">Certifications</h4>
+                                    <h4 style="font-size: ${s(13)}; font-weight: 600; color: #64748b; margin-bottom: 12px;">Certifications</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${certifications.map(cert => `
                                             <div>
-                                                <div style="font-weight: 700; font-size: 10pt; color: #0f172a;">${escapeHtml(cert.name)}</div>
-                                                <div style="font-size: 9pt; color: #64748b;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                                <div style="font-weight: 700; font-size: ${s(13)}; color: #0f172a;">${escapeHtml(cert.name)}</div>
+                                                <div style="font-size: ${s(12)}; color: #64748b;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -308,12 +320,12 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div style="flex: 1;">
-                                    <h4 style="font-size: 10pt; font-weight: 600; color: #64748b; margin-bottom: 12px;">Awards & Achievements</h4>
+                                    <h4 style="font-size: ${s(13)}; font-weight: 600; color: #64748b; margin-bottom: 12px;">Awards & Achievements</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${awards.map(award => `
                                             <div>
-                                                <div style="font-weight: 700; font-size: 10pt; color: #0f172a;">${escapeHtml(award.title)}</div>
-                                                <div style="font-size: 9pt; color: #64748b;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                                <div style="font-weight: 700; font-size: ${s(13)}; color: #0f172a;">${escapeHtml(award.title)}</div>
+                                                <div style="font-size: ${s(12)}; color: #64748b;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -330,10 +342,10 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             ${data.references.map(ref => `
                                 <div>
-                                    <div style="font-weight: 700; font-size: 10pt; color: #0f172a;">${escapeHtml(ref.name)}</div>
-                                    <div style="font-size: 9pt; color: #64748b;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                    ${ref.email ? `<div style="font-size: 9pt; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
-                                    ${ref.phone ? `<div style="font-size: 9pt; color: ${accentColor};">${escapeHtml(ref.phone)}</div>` : ''}
+                                    <div style="font-weight: 700; font-size: ${s(13)}; color: #0f172a;">${escapeHtml(ref.name)}</div>
+                                    <div style="font-size: ${s(12)}; color: #64748b;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                    ${ref.email ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                    ${ref.phone ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${escapeHtml(ref.phone)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -344,10 +356,10 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                     <section>
                         ${MainSectionHeader(t.sections.additionalInfo)}
-                        <div style="font-size: 10pt; color: #334155; display: flex; flex-direction: column; gap: 12px;">
+                        <div style="font-size: ${s(13)}; color: #334155; display: flex; flex-direction: column; gap: 12px;">
                             ${personalInfo.nationality ? `<div><span style="font-weight: 700; color: #0f172a;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
-                                <div><span style="font-weight: 700; color: #0f172a;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                <div><span style="font-weight: 700; color: #0f172a;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                             ` : ''}
                         </div>
                     </section>
@@ -357,10 +369,14 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                 ${customFields.map(field => `
                     <section>
                         ${MainSectionHeader(field.label)}
-                        <p style="font-size: 10pt; line-height: 1.6; color: #334155;">${formatDescription(field.content)}</p>
+                        <p style="font-size: ${s(13)}; line-height: 1.6; color: #334155;">${formatDescription(field.content)}</p>
                     </section>
                 `).join('')}
 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </main>
         </div>
     `;

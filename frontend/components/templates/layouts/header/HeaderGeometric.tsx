@@ -366,7 +366,7 @@ function SectionRow({ label, fs, headingFont, accentColor, scale, children, keep
             {...(keepTogether ? { 'data-paginate': true } : {})}
             style={{
                 display: 'flex',
-                marginBottom: scale < 1 ? 20 : 40,
+                marginBottom: scale < 1 ? 10 : 20,
                 // Removed pageBreakInside: 'avoid' to allow granular splitting unless keepTogether is set by PagedPreview logic
             }}
         >

@@ -131,7 +131,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                 <div style={{ width: '60%' }}>
                     {/* Resume Objective / Summary */}
                     {personalInfo.summary && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<User size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.profile}
                             </SectionHeader>
@@ -141,15 +141,15 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* Work Experience */}
+                    {/* Experience */}
                     {experience.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Briefcase size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.experience}
                             </SectionHeader>
                             <div className="space-y-5">
                                 {experience.map((exp) => (
-                                    <div key={exp.id} className="resume-entry" data-paginate>
+                                    <div key={exp.id} className="resume-entry" data-paginate="item">
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px' }}>
                                             <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937' }}>
                                                 {exp.title}
@@ -175,13 +175,13 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Education (Left Column) */}
                     {education.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<GraduationCap size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.education}
                             </SectionHeader>
                             <div className="space-y-4">
                                 {education.slice(0, 2).map((edu) => (
-                                    <div key={edu.id} className="resume-entry" data-paginate>
+                                    <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px' }}>
                                             <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937' }}>
                                                 {edu.degree}
@@ -204,7 +204,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                 <div style={{ width: '40%' }}>
                     {/* Education (Right Column - additional) */}
                     {education.length > 2 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<GraduationCap size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 Education (Cont.)
                             </SectionHeader>
@@ -228,7 +228,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Languages */}
                     {languages && languages.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Languages size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.languages}
                             </SectionHeader>
@@ -250,7 +250,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Skills (Circular) */}
                     {skills.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Users size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.skills}
                             </SectionHeader>
@@ -282,7 +282,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Strengths (Bars) */}
                     {strengths && strengths.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Code size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.strengths}
                             </SectionHeader>
@@ -304,7 +304,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Interests */}
                     {data.interests && data.interests.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Star size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.interests}
                             </SectionHeader>
@@ -320,7 +320,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <section className="resume-section" data-paginate>
+                        <section className="resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Award size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.credentials}
                             </SectionHeader>
@@ -361,7 +361,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Social Links */}
                     {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section" data-paginate>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Link size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.socialLinks}
                             </SectionHeader>
@@ -400,9 +400,32 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
+                    {/* Personal Details */}
+                    {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                        <section className="mb-4 resume-section">
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<ClipboardList size={parseInt(fs.sectionHeading)} color={accentColor} />}>
+                                {t.sections.personalDetails}
+                            </SectionHeader>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                                {personalInfo.nationality && (
+                                    <div><span style={{ fontWeight: 600, color: '#111827' }}>Nationality:</span> <span style={{ color: '#374151' }}>{personalInfo.nationality}</span></div>
+                                )}
+                                {personalInfo.idType && personalInfo.idNumber && (
+                                    <div>
+                                        <span style={{ fontWeight: 600, color: '#111827' }}>
+                                            {personalInfo.idType === 'id' ? 'ID' :
+                                                personalInfo.idType === 'passport' ? 'Passport' :
+                                                    personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        </span> <span style={{ color: '#374151' }}>{personalInfo.idNumber}</span>
+                                    </div>
+                                )}
+                            </div>
+                        </section>
+                    )}
+
                     {/* References */}
                     {references && references.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Users size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {t.sections.references}
                             </SectionHeader>
@@ -428,7 +451,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <section key={field.id} className="mb-6 resume-section" data-paginate>
+                        <section key={field.id} className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<ClipboardList size={parseInt(fs.sectionHeading)} color={accentColor} />}>
                                 {field.label}
                             </SectionHeader>

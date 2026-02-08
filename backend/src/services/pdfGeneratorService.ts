@@ -103,11 +103,40 @@ export async function renderResumePdf(
     // Render template to HTML content (pass locale for date localization)
     const templateHtml = renderTemplate(data, theme, t, locale);
 
+    // Categorize templates for margin strategy
+    const sidebarTemplates = [
+        'sidebar-dark-navy',
+        'sidebar-narrow-yellow',
+        'sidebar-monogram',
+        'header-dark'
+    ];
+
+    const headerTemplates = [
+        'header-dark-banner',
+        'header-blue-clean',
+        'header-icon-sections',
+        'header-icon-orange',
+        'header-geometric',
+        'header-diagonal-yellow',
+        'header-ribbon-yellow',
+        'header-decorative',
+        'header-dark-box'
+    ];
+
+    let marginStrategy: 'sidebar' | 'full-bleed' | 'standard' = 'standard';
+
+    if (sidebarTemplates.includes(templateId)) {
+        marginStrategy = 'sidebar'; // 20px uniform
+    } else if (headerTemplates.includes(templateId)) {
+        marginStrategy = 'full-bleed'; // 0px
+    }
+
     // Wrap with full HTML document (fonts, CSS, etc.) - pass locale for RTL support
     const fullHtml = wrapHtml(templateHtml, {
         headingFont: data.fonts?.heading || 'Inter',
         bodyFont: data.fonts?.body || 'Inter',
         locale,
+        marginStrategy
     });
 
     // Generate PDF

@@ -26,6 +26,8 @@ const router = Router();
 router.post('/generate', authenticateToken, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
     try {
         const request = req.body as PdfGenerateRequest;
+        console.log(`[PDF] Generate request received for template: ${request.templateId}`);
+        console.log(`[PDF] Data size: ${JSON.stringify(request.data).length} chars`);
 
         // Validate required fields
         if (!request.data) {

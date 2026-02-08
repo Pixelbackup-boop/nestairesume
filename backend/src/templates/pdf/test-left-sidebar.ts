@@ -84,10 +84,10 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
             /* Fixed sidebar background - appears on EVERY page */
             .sidebar-bg {
                 position: fixed;
-                top: 0;
+                top: -2px;
                 left: 0;
-                bottom: 0;
                 width: 35%;
+                height: calc(100% + 4px);
                 background-color: ${sidebarBg};
                 z-index: 0;
                 -webkit-print-color-adjust: exact !important;
@@ -118,7 +118,6 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
                 flex: 1;
                 background-color: #ffffff;
                 color: ${mainText};
-                padding: 40px 36px;
                 position: relative;
                 z-index: 1;
             }
@@ -196,6 +195,13 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- MAIN CONTENT AREA -->
             <div class="test-main">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead><tr><td style="height: 20px;"></td></tr></thead>
+                    <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 20px 36px; vertical-align: top;">
+
                 <!-- Header -->
                 <div style="margin-bottom: 32px;">
                     <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 800; color: ${sidebarBg}; text-transform: uppercase; margin: 0 0 6px 0;">
@@ -275,6 +281,10 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
                         </div>
                     </div>
                 ` : ''}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     `;

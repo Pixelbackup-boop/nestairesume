@@ -95,7 +95,6 @@ export const getUserById = async (userId: string) => {
       subscriptionTier: true,
       subscriptionStatus: true,
       trialEndsAt: true,
-      creditsRemaining: true,
       isSuspended: true,
       createdAt: true,
     },
@@ -587,7 +586,6 @@ export const verifyEmailChange = async (
       subscriptionTier: true,
       subscriptionStatus: true,
       trialEndsAt: true,
-      creditsRemaining: true,
     },
   });
 

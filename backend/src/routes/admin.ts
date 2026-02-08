@@ -2,6 +2,7 @@ import { Router, Response } from "express";
 import { AuthRequest, authenticateToken, requireAdmin } from "../middleware/auth";
 import * as adminService from "../services/adminService";
 import * as adSettingsService from "../services/adSettingsService";
+import * as tawkSettingsService from "../services/tawkSettingsService";
 import { getUsageStatus } from "../middleware/subscriptionLimits";
 import { PLANS, PlanType, reloadPlansFromDb } from "../services/stripeService";
 import { PrismaClient } from "@prisma/client";
@@ -65,7 +66,7 @@ router.get("/users/:id", async (req: AuthRequest, res: Response) => {
 
 router.put("/users/:id", async (req: AuthRequest, res: Response) => {
   try {
-    const { name, role, subscriptionTier, creditsRemaining, isSuspended } = req.body;
+    const { name, role, subscriptionTier, isSuspended } = req.body;
 
     // Prevent admin from demoting themselves
     if (req.params.id === req.user?.id && role && role !== "admin") {
@@ -77,7 +78,6 @@ router.put("/users/:id", async (req: AuthRequest, res: Response) => {
       name,
       role,
       subscriptionTier,
-      creditsRemaining,
       isSuspended,
     });
     res.json(user);
@@ -278,6 +278,27 @@ router.post("/ads/settings", async (req: AuthRequest, res: Response) => {
     res.json(settings);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to save ad settings";
+    res.status(500).json({ detail: message });
+  }
+});
+
+// Tawk.to live chat settings
+router.get("/tawk/settings", async (_req: AuthRequest, res: Response) => {
+  try {
+    const settings = await tawkSettingsService.getTawkSettings();
+    res.json(settings);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to get tawk settings";
+    res.status(500).json({ detail: message });
+  }
+});
+
+router.post("/tawk/settings", async (req: AuthRequest, res: Response) => {
+  try {
+    const settings = await tawkSettingsService.saveTawkSettings(req.body);
+    res.json(settings);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to save tawk settings";
     res.status(500).json({ detail: message });
   }
 });

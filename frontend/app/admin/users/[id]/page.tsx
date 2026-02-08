@@ -46,7 +46,6 @@ interface UserDetail {
   role: string;
   subscriptionTier: string;
   subscriptionStatus: string | null;
-  creditsRemaining: number;
   isSuspended: boolean;
   createdAt: string;
   updatedAt: string;
@@ -262,7 +261,7 @@ export default function UserDetailPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6 pt-6 border-t border-gray-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-gray-200">
           <div>
             <p className="text-gray-500 text-sm">Subscription</p>
             <div className="flex items-center gap-2 mt-1">
@@ -287,10 +286,6 @@ export default function UserDetailPage() {
                 Trial ends {new Date(user.trialEndsAt).toLocaleDateString()}
               </p>
             )}
-          </div>
-          <div>
-            <p className="text-gray-500 text-sm">Credits Remaining</p>
-            <p className="text-2xl font-bold text-gray-900 mt-1">{user.creditsRemaining}</p>
           </div>
           <div>
             <p className="text-gray-500 text-sm">Total Resumes</p>

@@ -12,7 +12,6 @@ interface User {
   role: string;
   subscriptionTier: string;
   subscriptionStatus: string | null;
-  creditsRemaining: number;
   isSuspended: boolean;
   createdAt: string;
   resumeCount: number;

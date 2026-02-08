@@ -1,11 +1,19 @@
 {
-  "adsEnabled": false,
+  "adsEnabled": true,
   "usePlaceholders": true,
-  "publisherId": "",
+  "adsensePublisherId": "",
   "slots": {
     "blogInArticle": "",
     "resumeInArticle": "",
     "careerInArticle": "",
     "toolsRewarded": ""
-  }
+  },
+  "estimatedMonthlyViews": {
+    "blog": 50000,
+    "resume": 200000,
+    "career": 20000,
+    "tools": 10000
+  },
+  "publisherId": "",
+  "updatedAt": "2026-02-07T16:15:57.796Z"
 }

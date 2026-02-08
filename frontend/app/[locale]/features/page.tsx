@@ -158,6 +158,23 @@ export default function FeaturesPage() {
         </FeaturesAnimations.CTA>
       </section>
 
+      {/* External Resources */}
+      <section className="py-8 bg-gray-900 border-t border-gray-800">
+          <div className="max-w-4xl mx-auto px-6">
+              <h3 className="text-lg font-semibold text-gray-300 mb-3">External Resources</h3>
+              <div className="grid sm:grid-cols-2 gap-3">
+                  <a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">
+                      <span className="text-gray-500">↗</span>
+                      <span className="text-sm text-gray-400">Bureau of Labor Statistics: Career Data</span>
+                  </a>
+                  <a href="https://www.shrm.org/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">
+                      <span className="text-gray-500">↗</span>
+                      <span className="text-sm text-gray-400">SHRM: HR & Career Resources</span>
+                  </a>
+              </div>
+          </div>
+      </section>
+
       <Footer />
     </>
   );

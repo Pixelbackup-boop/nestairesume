@@ -372,5 +372,25 @@ export const aiGlobalLimiter = rateLimit({
  */
 export const aiRateLimiters = [aiGlobalLimiter, aiLimiter];
 
+/**
+ * Contact form rate limiter
+ * 3 submissions per 15 minutes per IP
+ */
+export const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 3,
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: getClientId,
+  handler: (_req: Request, res: Response) => {
+    res.status(429).json({
+      error: 'Too many contact submissions',
+      message: 'You can submit up to 3 messages per 15 minutes. Please wait before trying again.',
+      retryAfter: 900,
+      retryAfterFormatted: '15 minutes',
+    });
+  },
+});
+
 // Export plan limits for use in other parts of the app
 export { AI_LIMITS };

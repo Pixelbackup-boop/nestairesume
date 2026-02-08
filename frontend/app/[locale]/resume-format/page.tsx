@@ -395,6 +395,23 @@ export default function ResumeFormatPage() {
                 </div>
             </section>
 
+            {/* External Resources */}
+            <section className="py-8 bg-white border-t border-gray-100">
+                <div className="max-w-4xl mx-auto px-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">External Resources</h3>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                        <a href="https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                            <span className="text-gray-400">↗</span>
+                            <span className="text-sm text-gray-700">BLS Career Outlook: Resume Tips</span>
+                        </a>
+                        <a href="https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                            <span className="text-gray-400">↗</span>
+                            <span className="text-sm text-gray-700">SHRM: Understanding ATS Systems</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             {/* Sticky Bottom CTA */}
             <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 p-4 shadow-2xl z-50 md:hidden">
                 <div className="flex items-center justify-between gap-4">

@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { useResumeStore, ResumeData } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
-import { builderTemplates, BuilderTemplate, samplePreviewData, getLayoutPresetId } from '@/lib/templates/builder';
+import { builderTemplates, BuilderTemplate, samplePreviewData, getLayoutPresetId, getTemplateTheme } from '@/lib/templates/builder';
 import ResumeUpload from '@/components/ResumeUpload';
 import { ParseResult } from '@/lib/resumeImportService';
 
@@ -206,7 +206,7 @@ function TemplatePreview({ template }: { template: BuilderTemplate }) {
 export default function OnboardingPage() {
     const router = useRouter();
     const locale = useLocale();
-    const { setResumeData, setTemplate } = useResumeStore();
+    const { setResumeData, setTemplate, setTheme, setCustomThemeColor } = useResumeStore();
     const [step, setStep] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
     const [processingMessageIndex, setProcessingMessageIndex] = useState(0);
@@ -335,6 +335,14 @@ export default function OnboardingPage() {
         // Set the template using the layout preset ID
         setTemplate(layoutPresetId);
 
+        // Explicitly set the template's default theme/color
+        const themeSettings = getTemplateTheme(formData.selectedTemplate);
+        if (themeSettings.themeId) {
+            setTheme(themeSettings.themeId);
+        } else if (themeSettings.customColor) {
+            setCustomThemeColor(themeSettings.customColor);
+        }
+
         // Navigate to builder with template info
         router.push(localizedHref(`/builder?template=${formData.selectedTemplate}`));
     };
@@ -387,13 +395,12 @@ export default function OnboardingPage() {
                                 {[1, 2, 3, 4].map((s) => (
                                     <div
                                         key={s}
-                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                            step === s
-                                                ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
-                                                : step > s
+                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${step === s
+                                            ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
+                                            : step > s
                                                 ? 'bg-accent-green'
                                                 : 'bg-[#e0f2ef]'
-                                        }`}
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -486,13 +493,12 @@ export default function OnboardingPage() {
                                 {[1, 2, 3, 4].map((s) => (
                                     <div
                                         key={s}
-                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                            step === s
-                                                ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
-                                                : step > s
+                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${step === s
+                                            ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
+                                            : step > s
                                                 ? 'bg-accent-green'
                                                 : 'bg-[#e0f2ef]'
-                                        }`}
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -556,11 +562,10 @@ export default function OnboardingPage() {
                                                                 experienceLevel: level.value,
                                                             }))
                                                         }
-                                                        className={`p-4 rounded-xl border-2 text-left transition-all ${
-                                                            formData.experienceLevel === level.value
-                                                                ? 'border-accent-green bg-gradient-to-br from-accent-green/10 to-accent-teal/10'
-                                                                : 'border-[#e0f2ef] bg-[#f8fffe] hover:border-accent-green'
-                                                        }`}
+                                                        className={`p-4 rounded-xl border-2 text-left transition-all ${formData.experienceLevel === level.value
+                                                            ? 'border-accent-green bg-gradient-to-br from-accent-green/10 to-accent-teal/10'
+                                                            : 'border-[#e0f2ef] bg-[#f8fffe] hover:border-accent-green'
+                                                            }`}
                                                     >
                                                         <div className="font-bold text-dark-teal">{level.label}</div>
                                                         <div className="text-xs text-gray-500">{level.description}</div>
@@ -693,11 +698,10 @@ export default function OnboardingPage() {
                                 {[1, 2, 3, 4].map((s) => (
                                     <div
                                         key={s}
-                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                            s <= 3
-                                                ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
-                                                : 'bg-[#e0f2ef]'
-                                        }`}
+                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${s <= 3
+                                            ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
+                                            : 'bg-[#e0f2ef]'
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -722,21 +726,19 @@ export default function OnboardingPage() {
                                 {aiProcessingMessages.slice(0, 4).map((message, index) => (
                                     <div
                                         key={index}
-                                        className={`flex items-center gap-3 p-3 rounded-xl text-sm transition-all duration-300 ${
-                                            index < processingMessageIndex
-                                                ? 'bg-accent-green/10 text-accent-green'
-                                                : index === processingMessageIndex
+                                        className={`flex items-center gap-3 p-3 rounded-xl text-sm transition-all duration-300 ${index < processingMessageIndex
+                                            ? 'bg-accent-green/10 text-accent-green'
+                                            : index === processingMessageIndex
                                                 ? 'bg-accent-green/10 text-accent-green'
                                                 : 'bg-[#f8fffe] text-gray-400'
-                                        }`}
+                                            }`}
                                     >
-                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
-                                            index < processingMessageIndex
-                                                ? 'border-accent-green bg-accent-green'
-                                                : index === processingMessageIndex
+                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${index < processingMessageIndex
+                                            ? 'border-accent-green bg-accent-green'
+                                            : index === processingMessageIndex
                                                 ? 'border-accent-green animate-pulse'
                                                 : 'border-[#e0f2ef]'
-                                        }`}>
+                                            }`}>
                                             {index < processingMessageIndex && (
                                                 <Check size={12} className="text-white" />
                                             )}
@@ -767,13 +769,12 @@ export default function OnboardingPage() {
                                 {[1, 2, 3, 4].map((s) => (
                                     <div
                                         key={s}
-                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                            step === s
-                                                ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
-                                                : step > s
+                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${step === s
+                                            ? 'bg-gradient-to-br from-accent-green to-accent-teal scale-125'
+                                            : step > s
                                                 ? 'bg-accent-green'
                                                 : 'bg-[#e0f2ef]'
-                                        }`}
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -791,11 +792,10 @@ export default function OnboardingPage() {
                                     <button
                                         key={template.id}
                                         onClick={() => handleTemplateSelect(template.id)}
-                                        className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${
-                                            formData.selectedTemplate === template.id
-                                                ? 'ring-2 ring-accent-green ring-offset-2 scale-[1.02]'
-                                                : 'hover:scale-[1.02] ring-1 ring-[#e0f2ef] hover:ring-accent-green'
-                                        }`}
+                                        className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${formData.selectedTemplate === template.id
+                                            ? 'ring-2 ring-accent-green ring-offset-2 scale-[1.02]'
+                                            : 'hover:scale-[1.02] ring-1 ring-[#e0f2ef] hover:ring-accent-green'
+                                            }`}
                                     >
                                         {/* Template Preview */}
                                         <div className="aspect-[3/4] bg-[#f8fffe] p-2">

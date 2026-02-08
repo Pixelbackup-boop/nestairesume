@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { signIn } from 'next-auth/react';
 import { useAuthStore } from '@/store/useAuthStore';
@@ -36,9 +36,14 @@ export default function LoginPage() {
     const router = useRouter();
     const locale = useLocale();
     const t = useTranslations('Auth');
+    const searchParams = useSearchParams();
     const { login, isLoading, error } = useAuthStore();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    // Read redirect param (validated to prevent open redirect)
+    const redirectParam = searchParams.get('redirect');
+    const redirectTo = redirectParam?.startsWith('/') ? redirectParam : null;
 
     const localizedHref = (path: string) => `/${locale}${path}`;
 
@@ -46,7 +51,7 @@ export default function LoginPage() {
         e.preventDefault();
         try {
             await login(email, password);
-            router.push(localizedHref('/dashboard'));
+            router.push(redirectTo || localizedHref('/dashboard'));
         } catch (err) {
             // Error handled in store
         }
@@ -71,21 +76,21 @@ export default function LoginPage() {
                     {/* OAuth Buttons */}
                     <div className="space-y-3 mb-6">
                         <button
-                            onClick={() => signIn('google', { callbackUrl: localizedHref('/builder') })}
+                            onClick={() => signIn('google', { callbackUrl: redirectTo || localizedHref('/builder') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GoogleIcon />
                             {t('continueWithGoogle') || 'Continue with Google'}
                         </button>
                         <button
-                            onClick={() => signIn('github', { callbackUrl: localizedHref('/builder') })}
+                            onClick={() => signIn('github', { callbackUrl: redirectTo || localizedHref('/builder') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GitHubIcon />
                             {t('continueWithGitHub') || 'Continue with GitHub'}
                         </button>
                         <button
-                            onClick={() => signIn('linkedin', { callbackUrl: localizedHref('/builder') })}
+                            onClick={() => signIn('linkedin', { callbackUrl: redirectTo || localizedHref('/builder') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#0A66C2] text-white font-medium py-3 rounded-lg hover:bg-[#004182] transition"
                         >
                             <LinkedInIcon />
@@ -139,7 +144,7 @@ export default function LoginPage() {
 
                     <p className="text-center mt-6 text-gray-400 text-sm">
                         {t('noAccount')}{' '}
-                        <Link href={localizedHref('/auth/register')} className="text-accent-green hover:underline">
+                        <Link href={localizedHref('/auth/register') + (redirectTo ? `?redirect=${encodeURIComponent(redirectTo)}` : '')} className="text-accent-green hover:underline">
                             {t('signUp')}
                         </Link>
                     </p>

@@ -21,6 +21,7 @@ import docxRoutes from "./routes/docx";
 import resumeParserRoutes from "./routes/resumeParser";
 import mockInterviewRoutes from "./routes/mockInterview";
 import adsRoutes from "./routes/ads";
+import contactRoutes from "./routes/contact";
 import { authLimiter, generalLimiter } from "./middleware/rateLimiter";
 
 // Import middleware (only if not in test environment)
@@ -107,6 +108,7 @@ app.use("/api/v1/docx", docxRoutes);
 app.use("/api/v1/resume", resumeParserRoutes);
 app.use("/api/v1/interview", mockInterviewRoutes);
 app.use("/api/v1/ads", adsRoutes);
+app.use("/api/v1/contact", contactRoutes);
 
 // Generic error handler
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {

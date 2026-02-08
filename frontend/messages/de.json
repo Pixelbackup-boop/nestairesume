@@ -1085,5 +1085,30 @@
       "title": "Nutzungsbedingungen - Best AI Resume",
       "description": "Lesen Sie die Nutzungsbedingungen von Best AI Resume. Verstehen Sie Ihre Rechte und Pflichten."
     }
+  },
+  "Contact": {
+    "title": "Kontaktieren Sie uns",
+    "description": "Ob Sie eine Frage zu Ihrem Konto haben, Hilfe mit Ihrem Lebenslauf benötigen oder ein Problem melden möchten — wir sind für Sie da. Füllen Sie das Formular aus und unser Team wird sich innerhalb von 24 Stunden bei Ihnen melden.",
+    "inquiryType": "Art der Anfrage",
+    "inquiryTypes": {
+      "general": "Allgemeine Anfrage",
+      "billing": "Abrechnungsproblem",
+      "cvCreation": "Problem bei der CV-Erstellung"
+    },
+    "name": "Ihr Name",
+    "namePlaceholder": "Max Mustermann",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "sie@beispiel.com",
+    "subject": "Betreff",
+    "subjectPlaceholder": "Wie können wir Ihnen helfen?",
+    "message": "Nachricht",
+    "messagePlaceholder": "Erzählen Sie uns mehr über Ihre Anfrage...",
+    "submit": "Nachricht Senden",
+    "sending": "Wird gesendet...",
+    "successTitle": "Nachricht Gesendet!",
+    "successMessage": "Vielen Dank für Ihre Kontaktaufnahme. Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+    "sendAnother": "Weitere Nachricht Senden",
+    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut.",
+    "errorRateLimit": "Zu viele Einreichungen. Bitte warten Sie, bevor Sie es erneut versuchen."
   }
 }

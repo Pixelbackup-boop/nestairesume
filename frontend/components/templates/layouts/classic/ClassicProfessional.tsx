@@ -26,11 +26,11 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                 fontFamily: bodyFont,
                 fontSize: sizeConfig.base,
                 ...bgStyle,
-                padding: scale < 1 ? '16px' : '40px',
+                padding: scale < 1 ? '16px' : '40px 44px',
             }}
         >
             {/* Header */}
-            <header className="text-center mb-6 pb-4 border-b-2" style={{ borderColor: theme.accent }}>
+            <header className="text-center mb-4 pb-4 border-b-2" style={{ borderColor: theme.accent }}>
                 {/* Profile Image */}
                 {personalInfo.profileImage && (
                     <div className="flex justify-center mb-3">
@@ -84,7 +84,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Summary */}
             {personalInfo.summary && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -102,7 +102,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Experience */}
             {experience.length > 0 && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -139,7 +139,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Education */}
             {education.length > 0 && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -182,7 +182,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Skills */}
             {skills.length > 0 && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -219,7 +219,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Languages */}
             {languages && languages.length > 0 && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -236,6 +236,9 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                     {lang.name}
                                 </span>
                                 <div className="flex items-center gap-2">
+                                    <span style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '7px' : '10px', textTransform: 'capitalize' }}>
+                                        {lang.proficiency}
+                                    </span>
                                     <div
                                         style={{
                                             width: scale < 1 ? '40px' : '80px',
@@ -253,9 +256,6 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                             }}
                                         />
                                     </div>
-                                    <span style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '7px' : '10px', textTransform: 'capitalize' }}>
-                                        {lang.proficiency}
-                                    </span>
                                 </div>
                             </div>
                         ))}
@@ -265,7 +265,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Strengths */}
             {strengths && strengths.length > 0 && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -296,7 +296,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Certifications */}
             {certifications && certifications.length > 0 && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -323,7 +323,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Awards */}
             {awards && awards.length > 0 && (
-                <section className="mb-5 resume-section">
+                <section className="mb-4 resume-section">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -373,7 +373,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Social Links */}
             {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                <section className="mb-5">
+                <section className="mb-4">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -420,7 +420,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* References */}
             {references && references.length > 0 && (
-                <section className="mb-5">
+                <section className="mb-4">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -454,7 +454,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Custom Fields */}
             {customFields?.map((field) => (
-                <section key={field.id} className="mb-5">
+                <section key={field.id} className="mb-4">
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}

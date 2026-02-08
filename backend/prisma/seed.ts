@@ -38,7 +38,6 @@ async function main() {
       name: adminName,
       role: "admin",
       subscriptionTier: "diamond",
-      creditsRemaining: 999999,
     },
   });
 

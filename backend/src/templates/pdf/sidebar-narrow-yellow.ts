@@ -79,7 +79,7 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
 
     return `
         <!-- Fixed sidebar background - OUTSIDE flex, repeats on all pages -->
-        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 30%;"></div>
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; position: fixed; top: -2px; left: 0; width: 30%; height: calc(100% + 4px); min-height: 100vh; z-index: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
 
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; display: flex; position: relative;">
 
@@ -154,8 +154,14 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
             </aside>
 
             <!-- Main Content (78%) -->
-            <main style="flex: 1; padding: 56px 40px; background-color: ${mainBg}; color: ${mainText};">
-
+            <main style="flex: 1; background-color: ${mainBg}; color: ${mainText};">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead><tr><td style="height: 20px;"></td></tr></thead>
+                    <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 36px 40px; vertical-align: top;">
+                
                 <!-- Header -->
                 <div style="margin-bottom: 48px;">
                     <h1 style="font-family: ${headingFont}; font-size: 42px; font-weight: 800; color: ${mainText}; text-transform: uppercase; margin: 0 0 8px 0; line-height: 0.95;">
@@ -295,7 +301,7 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                         <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
                             ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
-                                <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                             ` : ''}
                         </div>
                     </div>
@@ -341,6 +347,10 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                     </div>
                 `).join('')}
 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             </main>
         </div>
     `;

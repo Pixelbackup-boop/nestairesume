@@ -12,6 +12,8 @@ import {
   LogOut,
   Bot,
   Settings,
+  Megaphone,
+  MessageCircle,
   X,
 } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -30,6 +32,8 @@ const navItems: NavItem[] = [
   { href: "/admin/auto-blog", label: "Auto Blog", icon: <Bot size={20} /> },
   { href: "/admin/payments", label: "Payments", icon: <CreditCard size={20} /> },
   { href: "/admin/plans", label: "Plans", icon: <Settings size={20} /> },
+  { href: "/admin/ads", label: "Ads", icon: <Megaphone size={20} /> },
+  { href: "/admin/live-chat", label: "Live Chat", icon: <MessageCircle size={20} /> },
 ];
 
 interface AdminSidebarProps {

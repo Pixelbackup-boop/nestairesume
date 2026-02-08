@@ -130,7 +130,7 @@ export const renderHeaderRibbonYellow = (
                     ${personalInfo.website ? `<span>|</span><span>${escapeHtml(personalInfo.website)}</span>` : ''}
                     ${personalInfo.linkedin ? `<span>|</span><span>${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                     ${personalInfo.nationality ? `<span>|</span><span>${escapeHtml(personalInfo.nationality)}</span>` : ''}
-                    ${personalInfo.idType && personalInfo.idNumber ? `<span>|</span><span>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}: ${escapeHtml(personalInfo.idNumber)}</span>` : ''}
+                    ${personalInfo.idType && personalInfo.idNumber ? `<span>|</span><span>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}: ${escapeHtml(personalInfo.idNumber)}</span>` : ''}
                 </div>
 
                 <!-- Social Links Row -->

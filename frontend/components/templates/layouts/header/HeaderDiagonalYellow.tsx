@@ -167,7 +167,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Left Column (55%) */}
                 <div style={{ width: '55%' }}>
                     {personalInfo.summary && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.profile} />
                             <p style={{ lineHeight: 1.6, fontSize: fs.body }}>
                                 {personalInfo.summary}
@@ -176,11 +176,11 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {experience.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.experience} />
                             <div className="space-y-4">
                                 {experience.map((exp) => (
-                                    <div key={exp.id} className="resume-entry" data-paginate>
+                                    <div key={exp.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 800, color: '#18181b', textTransform: 'uppercase' }}>
                                             {exp.title}
                                         </h4>
@@ -203,11 +203,11 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Right Column (45%) */}
                 <div style={{ width: '45%' }}>
                     {education.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.education} />
                             <div className="space-y-4">
                                 {education.map((edu) => (
-                                    <div key={edu.id} className="resume-entry" data-paginate>
+                                    <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 800, color: '#18181b', textTransform: 'uppercase' }}>
                                             {edu.degree}
                                         </h4>
@@ -221,7 +221,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {skills.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.skills} />
                             <div className="space-y-2">
                                 {skills.map((skill) => (
@@ -244,7 +244,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Strengths */}
                     {strengths && strengths.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.strengths} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                                 {strengths.map((str) => (
@@ -265,11 +265,11 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Interests */}
                     {interests && interests.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.interests} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
                                 {interests.map((int) => (
-                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500 }}>
+                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500 }} data-paginate="item">
                                         ★ {int.name}
                                     </span>
                                 ))}
@@ -279,7 +279,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Languages */}
                     {languages && languages.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.languages} />
                             <ul style={{ listStyle: 'none', padding: 0 }}>
                                 {languages.map((lang) => (
@@ -294,7 +294,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.credentials} />
 
                             {certifications && certifications.length > 0 && (
@@ -333,7 +333,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Social Links */}
                     {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.socialLinks} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: fs.body }}>
                                 {personalInfo.linkedin && (
@@ -360,7 +360,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.references} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                                 {references.map((ref) => (
@@ -377,7 +377,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Personal Details (Nationality, ID) */}
                     {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                        <section className="mb-6 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={t.sections.personalDetails} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: fs.body }}>
                                 {personalInfo.nationality && (
@@ -394,7 +394,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <section key={field.id} className="mb-6 resume-section" data-paginate>
+                        <section key={field.id} className="mb-4 resume-section">
                             <SectionHeader fs={fs} title={field.label} />
                             <p style={{ fontSize: fs.body, lineHeight: 1.6 }}>{field.content}</p>
                         </section>

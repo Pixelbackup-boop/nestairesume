@@ -3,6 +3,7 @@
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import ProgressBar from '../../shared/ProgressBar';
+import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateSetup } from '@/hooks';
 
 /**
@@ -45,7 +46,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
             }}
         >
             {/* Header */}
-            <header style={{ marginBottom: scale < 1 ? 40 : 64, marginLeft: 20 }}>
+            <header style={{ marginBottom: 32, marginLeft: 20 }}>
                 <h1
                     style={{
                         fontFamily: headingFont,
@@ -66,27 +67,35 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Experience with Timeline */}
             {experience.length > 0 && (
-                <section style={{ marginBottom: 40 }}>
+                <section style={{ marginBottom: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 24, marginLeft: 20, textTransform: 'uppercase' }}>{t.sections.experience}</h3>
                     <div style={{ borderLeft: `2px solid ${timelineColor}`, marginLeft: 20, paddingLeft: 24 }}>
                         {experience.map((exp) => (
-                            <div key={exp.id} style={{ position: 'relative', marginBottom: 32 }}>
+                            <ResumeEntry key={exp.id} style={{ position: 'relative', marginBottom: 32 }}>
                                 {/* Timeline Dot */}
                                 <div style={{
                                     position: 'absolute',
-                                    left: -31, // -24 padding - 2 border/2 - width/2 
-                                    top: 4,
+                                    left: -31,
+                                    top: 6,
                                     width: 12,
                                     height: 12,
                                     borderRadius: '50%',
                                     backgroundColor: dotColor,
-                                    border: '2px solid white'
-                                }}></div>
+                                    border: '2px solid white',
+                                    zIndex: 1
+                                }} />
 
-                                <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{exp.title}</h4>
-                                <div style={{ fontSize: fs.small, color: '#6b7280', marginBottom: 4 }}>{exp.company} | {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</div>
-                                <p style={{ fontSize: fs.body, lineHeight: 1.6 }}>{exp.description}</p>
-                            </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{exp.title}</h4>
+                                    <span style={{ fontSize: fs.small, color: '#4b5563' }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
+                                </div>
+                                <div style={{ fontSize: fs.small, color: '#000', fontWeight: 600, marginBottom: 4 }}>
+                                    {exp.company}, {exp.city}
+                                </div>
+                                <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>
+                                    {exp.description}
+                                </p>
+                            </ResumeEntry>
                         ))}
                     </div>
                 </section>
@@ -94,25 +103,28 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Education with Timeline */}
             {education.length > 0 && (
-                <section style={{ marginBottom: 40 }}>
+                <section style={{ marginBottom: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 24, marginLeft: 20, textTransform: 'uppercase' }}>{t.sections.education}</h3>
                     <div style={{ borderLeft: `2px solid ${timelineColor}`, marginLeft: 20, paddingLeft: 24 }}>
                         {education.map((edu) => (
-                            <div key={edu.id} style={{ position: 'relative', marginBottom: 24 }}>
+                            <ResumeEntry key={edu.id} style={{ position: 'relative', marginBottom: 24 }}>
+                                {/* Timeline Dot */}
                                 <div style={{
                                     position: 'absolute',
                                     left: -31,
-                                    top: 4,
+                                    top: 6,
                                     width: 12,
                                     height: 12,
                                     borderRadius: '50%',
                                     backgroundColor: dotColor,
-                                    border: '2px solid white'
+                                    border: '2px solid white',
+                                    zIndex: 1
                                 }}></div>
+
                                 <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{edu.degree}</h4>
-                                <div style={{ fontSize: fs.body }}>{edu.school}, {edu.city}</div>
+                                <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}, {edu.city}</div>
                                 <div style={{ fontSize: fs.small, color: '#6b7280' }}>{edu.startDate} – {edu.endDate || t.labels.present}</div>
-                            </div>
+                            </ResumeEntry>
                         ))}
                     </div>
                 </section>
@@ -140,7 +152,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Languages */}
             {languages && languages.length > 0 && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                <section style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.languages}</h3>
                     <p style={{ lineHeight: 1.8, fontSize: fs.body }}>
                         {languages.map(l => `${l.name} (${l.proficiency})`).join('  •  ')}
@@ -150,7 +162,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Strengths */}
             {data.strengths && data.strengths.length > 0 && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                <section style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.strengths}</h3>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
                         {data.strengths.map((str) => (
@@ -170,7 +182,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Interests */}
             {data.interests && data.interests.length > 0 && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                <section style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.interests}</h3>
                     <p style={{ lineHeight: 1.8, fontSize: fs.body }}>
                         {data.interests.map(i => i.name).join(' • ')}
@@ -180,7 +192,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Credentials (Certifications & Awards) */}
             {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                <section style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.credentials}</h3>
 
                     {certifications && certifications.length > 0 && (
@@ -190,8 +202,8 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
                             </h4>
                             <div className="space-y-2">
                                 {certifications.map((cert) => (
-                                    <div key={cert.id}>
-                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
+                                    <div key={cert.id} data-paginate="item">
+                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{cert.name}</div>
                                         <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
                                     </div>
                                 ))}
@@ -206,8 +218,8 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
                             </h4>
                             <div className="space-y-2">
                                 {awards.map((award) => (
-                                    <div key={award.id}>
-                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
+                                    <div key={award.id} data-paginate="item">
+                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{award.title}</div>
                                         <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
                                     </div>
                                 ))}
@@ -219,7 +231,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Social Links */}
             {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                <section style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.socialLinks}</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                         {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
@@ -234,11 +246,11 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* References */}
             {references && references.length > 0 && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                <section style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.references}</h3>
-                    <div className="space-y-4">
+                    <div style={{ paddingLeft: 16, display: 'flex', flexDirection: 'column', gap: 16 }}>
                         {references.map((ref) => (
-                            <div key={ref.id}>
+                            <div key={ref.id} data-paginate="item">
                                 <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
                                 <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
                                 {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
@@ -251,7 +263,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Personal Details */}
             {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                <section style={{ marginLeft: 20, marginTop: 32 }}>
+                <section style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{t.sections.personalDetails}</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                         {personalInfo.nationality && (
@@ -261,8 +273,8 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
                             <div>
                                 <span style={{ fontWeight: 600 }}>
                                     {personalInfo.idType === 'id' ? 'ID' :
-                                     personalInfo.idType === 'passport' ? 'Passport' :
-                                     personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        personalInfo.idType === 'passport' ? 'Passport' :
+                                            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
                                 </span> {personalInfo.idNumber}
                             </div>
                         )}
@@ -272,7 +284,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
 
             {/* Custom Fields */}
             {customFields?.map((field) => (
-                <section key={field.id} style={{ marginLeft: 20, marginTop: 32 }}>
+                <section key={field.id} style={{ marginLeft: 20, marginTop: 20 }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase' }}>{field.label}</h3>
                     <p style={{ lineHeight: 1.6, fontSize: fs.body }}>{field.content}</p>
                 </section>

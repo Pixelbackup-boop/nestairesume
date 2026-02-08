@@ -152,13 +152,13 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Work Experience */}
                     {experience.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.workExperience}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {experience.map((exp) => (
-                                    <div key={exp.id} className="resume-entry" data-paginate>
+                                    <div key={exp.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px' }}>
                                             📅 {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                             {exp.city && ` 📍 ${exp.city.toUpperCase()}`}
@@ -186,13 +186,13 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Education */}
                     {education.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.education}
                             </SectionHeader>
                             <div className="space-y-3">
                                 {education.map((edu) => (
-                                    <div key={edu.id} className="resume-entry" data-paginate>
+                                    <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px' }}>
                                             📅 {edu.startDate}
                                             {edu.city && ` 📍 ${edu.city.toUpperCase()}`}
@@ -219,7 +219,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                 <div style={{ width: '45%' }}>
                     {/* Skills with Progress Bars */}
                     {skills.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.skills}
                             </SectionHeader>
@@ -244,7 +244,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Languages with Circular Indicators */}
                     {languages && languages.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.languages}
                             </SectionHeader>
@@ -275,7 +275,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Strengths as Pill Badges */}
                     {strengths && strengths.length > 0 && (
-                        <section className="mb-4 resume-section" data-paginate>
+                        <section className="mb-4 resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.strengths}
                             </SectionHeader>
@@ -308,7 +308,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Interests with Icons */}
                     {interests && interests.length > 0 && (
-                        <section className="resume-section" data-paginate>
+                        <section className="resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.interests}
                             </SectionHeader>
@@ -322,6 +322,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                 {interests.slice(0, 6).map((interest) => (
                                     <div
                                         key={interest.id}
+                                        data-paginate="item"
                                         style={{
                                             textAlign: 'center',
                                         }}
@@ -343,9 +344,9 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* Credentials (Certifications & Awards) */}
+                    {/* Certifications & Awards */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <section className="resume-section" data-paginate>
+                        <section className="resume-section">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.credentials}
                             </SectionHeader>
@@ -386,32 +387,32 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Social Links */}
                     {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <section className="resume-section mt-4" data-paginate>
+                        <section className="resume-section mt-4">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.socialLinks}
                             </SectionHeader>
                             <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
-                                {personalInfo.github && <div>💻 {personalInfo.github}</div>}
-                                {personalInfo.x && <div>🐦 {personalInfo.x}</div>}
-                                {personalInfo.dribbble && <div>🏀 {personalInfo.dribbble}</div>}
-                                {personalInfo.behance && <div>🎨 {personalInfo.behance}</div>}
-                                {personalInfo.instagram && <div>📷 {personalInfo.instagram}</div>}
+                                {personalInfo.github && <div data-paginate="item">💻 {personalInfo.github}</div>}
+                                {personalInfo.x && <div data-paginate="item">🐦 {personalInfo.x}</div>}
+                                {personalInfo.dribbble && <div data-paginate="item">🏀 {personalInfo.dribbble}</div>}
+                                {personalInfo.behance && <div data-paginate="item">🎨 {personalInfo.behance}</div>}
+                                {personalInfo.instagram && <div data-paginate="item">📷 {personalInfo.instagram}</div>}
                             </div>
                         </section>
                     )}
 
                     {/* Personal Details */}
                     {(personalInfo.nationality || personalInfo.idType) && (
-                        <section className="resume-section mt-4" data-paginate>
+                        <section className="resume-section mt-4">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.personalDetails}
                             </SectionHeader>
                             <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
-                                {personalInfo.nationality && <div>🌍 Nationality: {personalInfo.nationality}</div>}
+                                {personalInfo.nationality && <div data-paginate="item">🌍 Nationality: {personalInfo.nationality}</div>}
                                 {personalInfo.idType && personalInfo.idNumber && (
-                                    <div>🪪 {personalInfo.idType === 'id' ? 'ID' :
-                                         personalInfo.idType === 'passport' ? 'Passport' :
-                                         personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}: {personalInfo.idNumber}</div>
+                                    <div data-paginate="item">🪪 {personalInfo.idType === 'id' ? 'ID' :
+                                        personalInfo.idType === 'passport' ? 'Passport' :
+                                            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}: {personalInfo.idNumber}</div>
                                 )}
                             </div>
                         </section>
@@ -419,7 +420,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <section className="resume-section mt-4" data-paginate>
+                        <section className="resume-section mt-4">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {t.sections.references}
                             </SectionHeader>
@@ -438,7 +439,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <section key={field.id} className="resume-section mt-4" data-paginate>
+                        <section key={field.id} className="resume-section mt-4">
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
                                 {field.label}
                             </SectionHeader>
@@ -447,7 +448,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

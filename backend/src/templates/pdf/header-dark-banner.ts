@@ -15,7 +15,8 @@ import {
     formatDescription,
     getLanguageLevel,
     parseDualColor,
-    getContrastText
+    getContrastText,
+    getFontScale
 } from './shared/helpers';
 
 export const renderHeaderDarkBanner = (
@@ -40,6 +41,11 @@ export const renderHeaderDarkBanner = (
     } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
+
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+
     // Note: header-dark-banner always uses white body background; only header uses dual color
 
     // Parse dual color: primary = header bg, secondary = accent
@@ -54,7 +60,7 @@ export const renderHeaderDarkBanner = (
 
     // Helper for Section Headers
     const SectionHeader = (title: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 13px; font-weight: 500; color: ${accentColor}; margin-bottom: 12px;">
+        <h3 style="font-family: ${headingFont}; font-size: ${s(13)}; font-weight: 500; color: ${accentColor}; margin-bottom: 12px;">
             ${title}
         </h3>
     `;
@@ -71,9 +77,9 @@ export const renderHeaderDarkBanner = (
                     <circle cx="35" cy="35" r="${radius}" fill="none" stroke="#374151" stroke-width="3"
                         stroke-dasharray="${circumference}" stroke-dashoffset="${strokeDashoffset}"
                         transform="rotate(-90 35 35)" stroke-linecap="round"/>
-                    <text x="35" y="40" text-anchor="middle" font-size="16px" fill="#374151" font-weight="600">${value}%</text>
+                    <text x="35" y="40" text-anchor="middle" font-size="${s(16)}" fill="#374151" font-weight="600">${value}%</text>
                 </svg>
-                <span style="font-size: 10px; color: #4b5563; margin-top: 4px; text-align: center;">${escapeHtml(label)}</span>
+                <span style="font-size: ${s(10)}; color: #4b5563; margin-top: 4px; text-align: center;">${escapeHtml(label)}</span>
             </div>
         `;
     };
@@ -82,7 +88,7 @@ export const renderHeaderDarkBanner = (
     const ProgressBar = (label: string, value: number) => `
         <div style="margin-bottom: 10px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                <span style="font-size: 10px; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
+                <span style="font-size: ${s(10)}; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
             </div>
             <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
                 <div style="width: ${value}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
@@ -121,17 +127,17 @@ export const renderHeaderDarkBanner = (
     ` : '';
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: #ffffff; box-sizing: border-box;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${s(13)}; background-color: #ffffff; box-sizing: border-box;">
 
             <!-- Dark Header Banner -->
             <header style="background-color: ${headerBgColor}; height: 160px; padding: 24px 32px; display: flex; justify-content: space-between; align-items: center;">
 
                 <!-- Left: Name and Contact -->
                 <div>
-                    <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 400; color: ${headerText}; letter-spacing: 0.02em; margin-bottom: 12px;">
+                    <h1 style="font-family: ${headingFont}; font-size: ${s(28)}; font-weight: 400; color: ${headerText}; letter-spacing: 0.02em; margin-bottom: 12px;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
-                    <div style="display: flex; gap: 16px; font-size: 10px; color: ${headerTextMuted}; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 16px; font-size: ${s(10)}; color: ${headerTextMuted}; flex-wrap: wrap;">
                         ${personalInfo.phone ? `<span>&#128241; ${escapeHtml(personalInfo.phone)}</span>` : ''}
                         ${personalInfo.email ? `<span>&#9993; ${escapeHtml(personalInfo.email)}</span>` : ''}
                         ${personalInfo.location ? `<span>&#128205; ${escapeHtml(personalInfo.location)}</span>` : ''}
@@ -159,7 +165,7 @@ export const renderHeaderDarkBanner = (
                     ${personalInfo.summary ? `
                         <section style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.summary)}
-                            <p style="color: #374151; line-height: 1.6; font-size: 10pt;">
+                            <p style="color: #374151; line-height: 1.6; font-size: ${s(13)};">
                                 ${formatDescription(personalInfo.summary)}
                             </p>
                         </section>
@@ -172,20 +178,20 @@ export const renderHeaderDarkBanner = (
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${experience.map(exp => `
                                     <div>
-                                        <p style="font-size: 9px; color: ${accentColor}; margin-bottom: 2px;">
+                                        <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px;">
                                             &#128197; ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
                                             ${exp.city ? ` &#128205; ${escapeHtml(exp.city.toUpperCase())}` : ''}
                                         </p>
-                                        <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 2px;">
+                                        <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
                                             ${escapeHtml(exp.title)}
                                         </h4>
-                                        <p style="font-size: 10pt; color: #4b5563; font-weight: 600; margin-bottom: 4px;">
+                                        <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600; margin-bottom: 4px;">
                                             ${escapeHtml(exp.company)}
                                         </p>
                                         ${exp.description ? `
                                             <ul style="padding-left: 16px; margin: 0; list-style: disc;">
                                                 ${exp.description.split('\n').filter(Boolean).map(line => `
-                                                    <li style="font-size: 9pt; color: #4b5563; margin-bottom: 2px; line-height: 1.5;">
+                                                    <li style="font-size: ${s(12)}; color: #4b5563; margin-bottom: 2px; line-height: 1.5;">
                                                         ${escapeHtml(line.replace(/^[-•]\s*/, ''))}
                                                     </li>
                                                 `).join('')}
@@ -204,18 +210,18 @@ export const renderHeaderDarkBanner = (
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${education.map(edu => `
                                     <div>
-                                        <p style="font-size: 9px; color: ${accentColor}; margin-bottom: 2px;">
+                                        <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px;">
                                             &#128197; ${formatLocalizedDate(edu.startDate, locale)}
                                             ${edu.city ? ` &#128205; ${escapeHtml(edu.city.toUpperCase())}` : ''}
                                         </p>
-                                        <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 2px;">
+                                        <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
                                             ${escapeHtml(edu.degree)}
                                         </h4>
-                                        <p style="font-size: 10pt; color: #4b5563; font-weight: 600;">
+                                        <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600;">
                                             ${escapeHtml(edu.school)}
                                         </p>
                                         ${edu.description ? `
-                                            <p style="font-size: 9pt; color: #6b7280; margin-top: 4px;">
+                                            <p style="font-size: ${s(12)}; color: #6b7280; margin-top: 4px;">
                                                 ${formatDescription(edu.description)}
                                             </p>
                                         ` : ''}
@@ -233,7 +239,7 @@ export const renderHeaderDarkBanner = (
                     ${skills.length > 0 ? `
                         <section style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.skills)}
-                            <p style="font-size: 8px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">
+                            <p style="font-size: ${s(8)}; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">
                                 &#128187; SOFTWARE
                             </p>
                             <div>
@@ -258,7 +264,7 @@ export const renderHeaderDarkBanner = (
                             ${SectionHeader(t.sections.strengths)}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(strength => `
-                                    <span style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 500;">
+                                    <span style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: ${s(10)}; font-weight: 500;">
                                         ${escapeHtml(strength.name)}
                                     </span>
                                 `).join('')}
@@ -276,7 +282,7 @@ export const renderHeaderDarkBanner = (
                                         <div style="font-size: 28px; margin-bottom: 4px;">
                                             ${interest.icon || getInterestIcon(interest.name)}
                                         </div>
-                                        <div style="font-size: 9px; color: #4b5563;">
+                                        <div style="font-size: ${s(9)}; color: #4b5563;">
                                             ${escapeHtml(interest.name)}
                                         </div>
                                     </div>
@@ -291,12 +297,12 @@ export const renderHeaderDarkBanner = (
                             ${SectionHeader(t.sections.credentials)}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: 10px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
+                                    <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${certifications.map(cert => `
                                             <div>
-                                                <div style="font-weight: 600; font-size: 10pt; color: #1f2937;">${escapeHtml(cert.name)}</div>
-                                                <div style="font-size: 9px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                                <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(cert.name)}</div>
+                                                <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -304,12 +310,12 @@ export const renderHeaderDarkBanner = (
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div>
-                                    <h4 style="font-size: 10px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
+                                    <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${awards.map(award => `
                                             <div>
-                                                <div style="font-weight: 600; font-size: 10pt; color: #1f2937;">${escapeHtml(award.title)}</div>
-                                                <div style="font-size: 9px; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                                <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(award.title)}</div>
+                                                <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -325,9 +331,9 @@ export const renderHeaderDarkBanner = (
                             <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
                                 ${data.references.map(ref => `
                                     <div>
-                                        <div style="font-weight: 600; font-size: 10pt; color: #1f2937;">${escapeHtml(ref.name)}</div>
-                                        <div style="font-size: 9px; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                        ${ref.email ? `<div style="font-size: 9px; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                        <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(ref.name)}</div>
+                                        <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                        ${ref.email ? `<div style="font-size: ${s(9)}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -338,10 +344,10 @@ export const renderHeaderDarkBanner = (
                     ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                         <section style="margin-top: 20px;">
                             ${SectionHeader(t.sections.additionalInfo)}
-                            <div style="font-size: 9pt; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
+                            <div style="font-size: ${s(12)}; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
                                 ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
-                                    <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                    <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                                 ` : ''}
                             </div>
                         </section>
@@ -351,7 +357,7 @@ export const renderHeaderDarkBanner = (
                     ${customFields.map(field => `
                         <section style="margin-top: 20px;">
                             ${SectionHeader(field.label)}
-                            <p style="font-size: 9pt; color: #4b5563; line-height: 1.6;">
+                            <p style="font-size: ${s(12)}; color: #4b5563; line-height: 1.6;">
                                 ${formatDescription(field.content)}
                             </p>
                         </section>
@@ -361,7 +367,7 @@ export const renderHeaderDarkBanner = (
                     ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <section style="margin-top: 20px;">
                             ${SectionHeader(t.sections.socialLinks)}
-                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 9pt;">
+                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(12)};">
                                 ${personalInfo.github ? `<div style="color: #374151;">&#128187; ${escapeHtml(personalInfo.github)}</div>` : ''}
                                 ${personalInfo.x ? `<div style="color: #374151;">&#128038; ${escapeHtml(personalInfo.x)}</div>` : ''}
                                 ${personalInfo.dribbble ? `<div style="color: #374151;">&#127936; ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
@@ -375,7 +381,7 @@ export const renderHeaderDarkBanner = (
                     ${(personalInfo.nationality || personalInfo.idType) ? `
                         <section style="margin-top: 20px;">
                             ${SectionHeader(t.sections.personalDetails)}
-                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 9pt;">
+                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(12)};">
                                 ${personalInfo.nationality ? `<div style="color: #374151;">&#127757; Nationality: ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `<div style="color: #374151;">&#128196; ${escapeHtml(personalInfo.idType)}: ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
                             </div>

@@ -132,6 +132,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                             {contactItems.map((item, idx) => (
                                 <div
                                     key={idx}
+                                    data-paginate="item"
                                     style={{
                                         display: 'flex',
                                         alignItems: 'center',
@@ -170,7 +171,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                 padding: sp.xl,
                                 borderRadius: 12 * scale,
                                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-                                marginBottom: sp.xxl,
+                                marginBottom: sp.lg,
                             }}
                         >
                             <h3
@@ -193,7 +194,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Experience */}
                     {experience.length > 0 && (
-                        <div style={{ marginBottom: sp.xxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.experience} icon="💼" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.xl }}>
                                 {experience.map((exp) => (
@@ -242,7 +243,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Education */}
                     {education.length > 0 && (
-                        <div style={{ marginBottom: sp.xxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.education} icon="🎓" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.lg }}>
                                 {education.map((edu) => (
@@ -268,7 +269,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                 <div style={{ width: 240 * scale, flexShrink: 0, paddingTop: 20 * scale }}>
                     {/* Skills - Tags */}
                     {skills.length > 0 && (
-                        <div style={{ marginBottom: sp.xxxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.skills} icon="💻" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp.sm }}>
                                 {skills.map((skill) => (
@@ -295,7 +296,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Languages - Progress Bars */}
                     {data.languages && data.languages.length > 0 && (
-                        <div style={{ marginBottom: sp.xxxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.languages} icon="🌍" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.md }}>
                                 {data.languages.map((lang) => (
@@ -313,7 +314,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Interests - Bullets */}
                     {data.interests && data.interests.length > 0 && (
-                        <div style={{ marginBottom: sp.xxxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.interests} icon="❤️" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
                                 {data.interests.map((int) => (
@@ -328,7 +329,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Credentials */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <div style={{ marginBottom: sp.xxxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.credentials} icon="🏆" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
 
                             {certifications && certifications.length > 0 && (
@@ -363,21 +364,21 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Social Links */}
                     {(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <div style={{ marginBottom: sp.xxxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.socialLinks} icon="👥" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm, fontSize: fs.small }}>
-                                {personalInfo.github && <SocialLink icon="💻" label="GitHub" url={personalInfo.github} primary={primaryColor} />}
-                                {personalInfo.x && <SocialLink icon="𝕏" label="X" url={personalInfo.x} primary={primaryColor} />}
-                                {personalInfo.dribbble && <SocialLink icon="🎨" label="Dribbble" url={personalInfo.dribbble} primary={primaryColor} />}
-                                {personalInfo.behance && <SocialLink icon="🎨" label="Behance" url={personalInfo.behance} primary={primaryColor} />}
-                                {personalInfo.instagram && <SocialLink icon="📷" label="Instagram" url={personalInfo.instagram} primary={primaryColor} />}
+                                {personalInfo.github && <SocialLink icon="💻" label="GitHub" url={personalInfo.github} primary={primaryColor} data-paginate="item" />}
+                                {personalInfo.x && <SocialLink icon="𝕏" label="X" url={personalInfo.x} primary={primaryColor} data-paginate="item" />}
+                                {personalInfo.dribbble && <SocialLink icon="🎨" label="Dribbble" url={personalInfo.dribbble} primary={primaryColor} data-paginate="item" />}
+                                {personalInfo.behance && <SocialLink icon="🎨" label="Behance" url={personalInfo.behance} primary={primaryColor} data-paginate="item" />}
+                                {personalInfo.instagram && <SocialLink icon="📷" label="Instagram" url={personalInfo.instagram} primary={primaryColor} data-paginate="item" />}
                             </div>
                         </div>
                     )}
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <div style={{ marginBottom: sp.xxxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.references} icon="👥" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.lg }}>
                                 {references.map((ref) => (
@@ -394,7 +395,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Personal Details */}
                     {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                        <div style={{ marginBottom: sp.xxxl }}>
+                        <div style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={t.sections.personalDetails} icon="👤" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm, fontSize: fs.small, color: '#4b5563' }}>
                                 {personalInfo.nationality && (
@@ -413,7 +414,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <div key={field.id} style={{ marginBottom: sp.xxxl }}>
+                        <div key={field.id} style={{ marginBottom: sp.lg }}>
                             <SectionHeader title={field.label} icon="📝" primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <p style={{ fontSize: fs.small, color: '#4b5563', lineHeight: 1.6 }}>{field.content}</p>
                         </div>

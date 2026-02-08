@@ -10,6 +10,7 @@ import {
     getBackgroundCSS,
     escapeHtml,
     formatDescription,
+    getFontScale,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -39,6 +40,10 @@ export const renderMinimalBlueSections = (
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+
     // Theme
     const mainText = '#1f2937';
     // Use customThemeColor if available, otherwise default to Blue 500 (#3b82f6)
@@ -48,7 +53,7 @@ export const renderMinimalBlueSections = (
     const ProgressBar = (label: string, value: number) => `
         <div style="margin-bottom: 10px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                <span style="font-size: 12px; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
+                <span style="font-size: ${s(12)}; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
             </div>
             <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
                 <div style="width: ${value}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
@@ -58,7 +63,7 @@ export const renderMinimalBlueSections = (
 
     // Helper for Section Headers
     const SectionHeader = (title: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; color: #fff; text-transform: uppercase; background-color: ${accentColor}; padding: 4px 12px; margin-bottom: 16px; letter-spacing: 0.05em; border-radius: 2px;">
+        <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; color: #fff; text-transform: uppercase; background-color: ${accentColor}; padding: 4px 12px; margin-bottom: 16px; letter-spacing: 0.05em; border-radius: 2px;">
             ${title}
         </h3>
     `;
@@ -85,7 +90,7 @@ export const renderMinimalBlueSections = (
                         </p>
                     </div>
                     <!-- Contact - Compact Right -->
-                    <div style="font-size: 12px; text-align: right; color: #4b5563; display: flex; flex-direction: column; gap: 2px;">
+                    <div style="font-size: ${s(12)}; text-align: right; color: #4b5563; display: flex; flex-direction: column; gap: 2px;">
                         ${contactItems.map(item => `<span>${escapeHtml(item!)}</span>`).join('')}
                     </div>
                 </div>
@@ -109,13 +114,13 @@ export const renderMinimalBlueSections = (
                         ${experience.map(exp => `
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 2px;">
-                                    <h4 style="font-weight: 700; font-size: 14px; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
-                                    <span style="font-size: 12px; color: #4b5563;">${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
+                                    <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
+                                    <span style="font-size: ${s(12)}; color: #4b5563;">${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                 </div>
-                                <div style="font-size: 12px; color: ${accentColor}; font-weight: 600; margin-bottom: 4px;">
+                                <div style="font-size: ${s(12)}; color: ${accentColor}; font-weight: 600; margin-bottom: 4px;">
                                     ${escapeHtml(exp.company)}${exp.city ? `, ${escapeHtml(exp.city)}` : ''}
                                 </div>
-                                <div style="font-size: 14px; line-height: 1.6; color: #374151;">
+                                <div style="font-size: ${s(14)}; line-height: 1.6; color: #374151;">
                                     ${formatDescription(exp.description || '')}
                                 </div>
                             </div>
@@ -133,9 +138,9 @@ export const renderMinimalBlueSections = (
                         <div style="display: flex; flex-direction: column; gap: 16px; padding-left: 8px;">
                             ${education.map(edu => `
                                 <div>
-                                    <h4 style="font-weight: 700; font-size: 14px; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
-                                    <div style="font-size: 14px; color: #4b5563;">${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}</div>
-                                    <div style="font-size: 12px; color: #6b7280;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
+                                    <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
+                                    <div style="font-size: ${s(14)}; color: #4b5563;">${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}</div>
+                                    <div style="font-size: ${s(12)}; color: #6b7280;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
                                 </div>
                             `).join('')}
                         </div>
@@ -161,9 +166,9 @@ export const renderMinimalBlueSections = (
                             ${SectionHeader(t.sections.languages)}
                             <div style="display: flex; flex-direction: column; gap: 8px; padding-left: 8px;">
                                 ${languages.map(lang => `
-                                    <div style="font-size: 14px; color: #374151;">
+                                    <div style="font-size: ${s(14)}; color: #374151;">
                                         <span style="font-weight: 600;">${escapeHtml(lang.name)}</span> 
-                                        <span style="color: #6b7280; font-size: 12px;">(${escapeHtml(lang.proficiency)})</span>
+                                        <span style="color: #6b7280; font-size: ${s(12)};">(${escapeHtml(lang.proficiency)})</span>
                                     </div>
                                 `).join('')}
                             </div>
@@ -185,7 +190,7 @@ export const renderMinimalBlueSections = (
             ${interests && interests.length > 0 ? `
                 <section style="margin-top: 40px;">
                     ${SectionHeader(t.sections.interests)}
-                    <p style="line-height: 1.6; font-size: 14px; color: #374151; padding-left: 8px;">
+                    <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${interests.map(i => escapeHtml(i.name)).join(' • ')}
                     </p>
                 </section>
@@ -198,12 +203,12 @@ export const renderMinimalBlueSections = (
                     <div style="padding-left: 8px;">
                         ${certifications && certifications.length > 0 ? `
                             <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                <h4 style="font-size: 14px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                                <h4 style="font-size: ${s(14)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${certifications.map(cert => `
                                         <div>
-                                            <div style="font-weight: 600; font-size: 14px; color: #000;">${escapeHtml(cert.name)}</div>
-                                            <div style="font-size: 12px; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                            <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(cert.name)}</div>
+                                            <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -211,12 +216,12 @@ export const renderMinimalBlueSections = (
                         ` : ''}
                         ${awards && awards.length > 0 ? `
                             <div>
-                                <h4 style="font-size: 14px; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                                <h4 style="font-size: ${s(14)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${awards.map(award => `
                                         <div>
-                                            <div style="font-weight: 600; font-size: 14px; color: #000;">${escapeHtml(award.title)}</div>
-                                            <div style="font-size: 12px; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                            <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(award.title)}</div>
+                                            <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -233,10 +238,10 @@ export const renderMinimalBlueSections = (
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 8px;">
                         ${data.references.map(ref => `
                             <div>
-                                <div style="font-weight: 600; font-size: 14px; color: #000;">${escapeHtml(ref.name)}</div>
-                                <div style="font-size: 13px; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                ${ref.email ? `<div style="font-size: 12px; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
-                                ${ref.phone ? `<div style="font-size: 12px; color: ${accentColor};">${escapeHtml(ref.phone)}</div>` : ''}
+                                <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(ref.name)}</div>
+                                <div style="font-size: ${s(13)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                ${ref.email ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                ${ref.phone ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${escapeHtml(ref.phone)}</div>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -251,17 +256,17 @@ export const renderMinimalBlueSections = (
 
                         <!-- Personal Details -->
                         ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                            <div style="font-size: 14px; color: #374151;">
+                            <div style="font-size: ${s(14)}; color: #374151;">
                                 ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
-                                    <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                    <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                                 ` : ''}
                             </div>
                         ` : ''}
 
                         <!-- Social Links -->
                         ${(personalInfo.github || personalInfo.x || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
-                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
                                 ${personalInfo.linkedin ? `<div><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.linkedin)}</span></div>` : ''}
                                 ${personalInfo.github ? `<div><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
                                 ${personalInfo.x ? `<div><span style="font-weight: 600; color: #1f2937;">X:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.x)}</span></div>` : ''}
@@ -279,7 +284,7 @@ export const renderMinimalBlueSections = (
             ${customFields.map(field => `
                 <section style="margin-top: 40px;">
                     ${SectionHeader(field.label)}
-                    <p style="line-height: 1.6; font-size: 14px; color: #374151; padding-left: 8px;">
+                    <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${formatDescription(field.content)}
                     </p>
                 </section>

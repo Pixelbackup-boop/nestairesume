@@ -18,6 +18,7 @@ interface SendEmailOptions {
   subject: string;
   htmlContent: string;
   textContent?: string;
+  replyTo?: string;
 }
 
 export const sendEmail = async (options: SendEmailOptions): Promise<boolean> => {
@@ -38,6 +39,10 @@ export const sendEmail = async (options: SendEmailOptions): Promise<boolean> => 
 
     sendSmtpEmail.subject = options.subject;
     sendSmtpEmail.htmlContent = options.htmlContent;
+
+    if (options.replyTo) {
+      sendSmtpEmail.replyTo = { email: options.replyTo };
+    }
 
     if (options.textContent) {
       sendSmtpEmail.textContent = options.textContent;

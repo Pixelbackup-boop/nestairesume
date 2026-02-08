@@ -69,9 +69,9 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
     return `
         <!-- Fixed background that covers full page on ALL pages -->
-        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; width: 30%;"></div>
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; position: fixed; top: -2px; left: 0; width: 30%; height: calc(100% + 4px); min-height: 100vh; z-index: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
         <!-- Fixed accent stripe at 30% position (right edge of sidebar) - full page height -->
-        <div style="position: fixed; top: 0; left: 30%; width: 8px; height: 100%; background-color: ${accentColor}; z-index: 2;"></div>
+        <div style="position: fixed; top: -2px; left: 30%; width: 8px; height: calc(100% + 4px); min-height: 100vh; background-color: ${accentColor}; z-index: 2;"></div>
 
         <!-- Table layout for content structure -->
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: table; table-layout: fixed; position: relative;">
@@ -126,7 +126,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         <div style="font-size: 12px; display: flex; flex-direction: column; gap: 8px;">
                             ${personalInfo.nationality ? `<div><span style="color: ${accentColor}; font-weight: 500;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
-                                <div><span style="color: ${accentColor}; font-weight: 500;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                <div><span style="color: ${accentColor}; font-weight: 500;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                             ` : ''}
                         </div>
                     </div>
@@ -181,7 +181,13 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
             </aside>
 
             <!-- Main Content (70%) - table-cell for equal height -->
-            <main style="display: table-cell; width: 70%; padding: 64px 48px; vertical-align: top;">
+            <main style="display: table-cell; width: 70%; vertical-align: top;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead><tr><td style="height: 20px;"></td></tr></thead>
+                    <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 44px 48px; vertical-align: top;">
 
                 <!-- Header -->
                 <div style="margin-bottom: 48px; border-bottom: 1px solid ${accentColor}; padding-bottom: 16px;">
@@ -349,6 +355,10 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                     </div>
                 `).join('')}
 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </main>
         </div>
     `;

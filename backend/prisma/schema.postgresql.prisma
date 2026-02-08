@@ -25,7 +25,6 @@ model User {
   verificationCode        String?   // 6-digit verification code
   verificationCodeExpires DateTime? // When the code expires
   subscriptionTier        String    @default("free") // "free" | "starter" | "gold" | "diamond" | "platinum"
-  creditsRemaining        Int       @default(3)
   stripeCustomerId        String?   // Stripe customer ID
   subscriptionId          String?   // Active Stripe subscription ID
   subscriptionStatus      String?   // "active" | "canceled" | "past_due" | "trialing"

@@ -226,7 +226,6 @@ describe('Auth API Integration Tests', () => {
         subscriptionTier: user.subscriptionTier,
         subscriptionStatus: user.subscriptionStatus,
         trialEndsAt: user.trialEndsAt,
-        creditsRemaining: 10,
         isSuspended: false,
         createdAt: user.createdAt,
       });

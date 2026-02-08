@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useMemo, useEffect, Suspense } from 'react';
+import NextImage from 'next/image';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import PersonalForm from '@/components/editor/PersonalForm';
@@ -154,9 +155,10 @@ function BuilderContent() {
                 pdfTranslations,
                 locale
             );
-        } catch (error) {
-            console.error('PDF download failed:', error);
-            alert('Failed to generate PDF. Please try again.');
+        } catch (error: any) {
+            const msg = error?.message || error?.response?.data?.error || 'Unknown error';
+            console.error('PDF download failed:', msg, error);
+            alert(`Failed to generate PDF: ${msg}`);
         }
     };
 
@@ -210,9 +212,13 @@ function BuilderContent() {
                 {/* Logo */}
                 <div className="p-4 border-b border-gray-200 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-accent-green rounded-md flex items-center justify-center font-bold text-gray-900">
-                            R
-                        </div>
+                        <NextImage
+                            src="/logo.png"
+                            alt="Best AI Resume Logo"
+                            width={32}
+                            height={32}
+                            className="rounded-md"
+                        />
                         <span className="font-bold text-lg text-gray-900">Best AI Resume</span>
                     </Link>
                     {/* Close button for mobile */}

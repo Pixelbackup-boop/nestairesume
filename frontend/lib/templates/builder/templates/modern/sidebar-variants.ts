@@ -10,8 +10,8 @@ export const sidebarDarkNavyTemplate: BuilderTemplate = {
     layout: 'sidebar',
     layoutPresetId: 'sidebar-left-normal-normal',
     category: 'professional',
-    accentColor: '#1e3a5f',
-    gradientColors: 'from-blue-900 to-slate-800',
+    accentColor: '#059669',
+    gradientColors: 'from-emerald-600 to-emerald-800',
     templateId: 'sidebar-dark-navy',
 };
 

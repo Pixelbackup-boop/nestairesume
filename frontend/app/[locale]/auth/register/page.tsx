@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { signIn } from 'next-auth/react';
 import { useAuthStore } from '@/store/useAuthStore';
@@ -36,6 +36,7 @@ export default function RegisterPage() {
     const router = useRouter();
     const locale = useLocale();
     const t = useTranslations('Auth');
+    const searchParams = useSearchParams();
     const { register, isLoading, error } = useAuthStore();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -43,12 +44,22 @@ export default function RegisterPage() {
 
     const localizedHref = (path: string) => `/${locale}${path}`;
 
+    // Read redirect param (validated to prevent open redirect)
+    const redirectParam = searchParams.get('redirect');
+    const redirectTo = redirectParam?.startsWith('/') ? redirectParam : null;
+
+    // Build OAuth callback URL preserving redirect + registered flag
+    const oauthCallbackUrl = redirectTo
+        ? redirectTo + (redirectTo.includes('?') ? '&' : '?') + 'registered=true'
+        : localizedHref('/builder?registered=true');
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             await register(email, password, name);
-            // Redirect to verify email page
-            router.push(localizedHref('/auth/verify-email') + `?email=${encodeURIComponent(email)}`);
+            // Redirect to verify email page, forwarding redirect param
+            const verifyUrl = localizedHref('/auth/verify-email') + `?email=${encodeURIComponent(email)}` + (redirectTo ? `&redirect=${encodeURIComponent(redirectTo)}` : '');
+            router.push(verifyUrl);
         } catch (err) {
             // Error handled in store
         }
@@ -73,21 +84,21 @@ export default function RegisterPage() {
                     {/* OAuth Buttons */}
                     <div className="space-y-3 mb-6">
                         <button
-                            onClick={() => signIn('google', { callbackUrl: localizedHref('/builder?registered=true') })}
+                            onClick={() => signIn('google', { callbackUrl: oauthCallbackUrl })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GoogleIcon />
                             {t('continueWithGoogle') || 'Continue with Google'}
                         </button>
                         <button
-                            onClick={() => signIn('github', { callbackUrl: localizedHref('/builder?registered=true') })}
+                            onClick={() => signIn('github', { callbackUrl: oauthCallbackUrl })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GitHubIcon />
                             {t('continueWithGitHub') || 'Continue with GitHub'}
                         </button>
                         <button
-                            onClick={() => signIn('linkedin', { callbackUrl: localizedHref('/builder?registered=true') })}
+                            onClick={() => signIn('linkedin', { callbackUrl: oauthCallbackUrl })}
                             className="w-full flex items-center justify-center gap-3 bg-[#0A66C2] text-white font-medium py-3 rounded-lg hover:bg-[#004182] transition"
                         >
                             <LinkedInIcon />
@@ -153,7 +164,7 @@ export default function RegisterPage() {
 
                     <p className="text-center mt-6 text-gray-400 text-sm">
                         {t('hasAccount')}{' '}
-                        <Link href={localizedHref('/auth/login')} className="text-accent-green hover:underline">
+                        <Link href={localizedHref('/auth/login') + (redirectTo ? `?redirect=${encodeURIComponent(redirectTo)}` : '')} className="text-accent-green hover:underline">
                             {t('signIn')}
                         </Link>
                     </p>

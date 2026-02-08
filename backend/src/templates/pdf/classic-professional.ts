@@ -13,6 +13,7 @@ import {
     escapeHtml,
     formatDescription,
     getLanguageLevel,
+    getFontScale,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -40,6 +41,10 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+
     // Custom Theme Color Override
     const primaryColor = data.customThemeColor || theme.primary;
     const accentColor = data.customThemeColor || theme.accent; // Usually accent is same as primary in this theme logic or secondary? 
@@ -61,7 +66,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     ` : '';
 
     const idInfo = personalInfo.idType && personalInfo.idNumber ? `
-        <div style="color: ${theme.text}; font-size: 11px; margin-top: 4px; opacity: 0.8;">
+        <div style="color: ${theme.text}; font-size: ${s(11)}; margin-top: 4px; opacity: 0.8;">
             ${formatIdType(personalInfo.idType)}: ${escapeHtml(personalInfo.idNumber)}
         </div>
     ` : '';
@@ -80,7 +85,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const summarySection = personalInfo.summary ? `
         <section class="mb-5 resume-section">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.summary}
             </h2>
             <p style="color: ${theme.text}; line-height: 1.5; font-size: ${sizeConfig.base};">
@@ -91,7 +96,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const experienceSection = experience.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.experience}
             </h2>
             <div class="space-y-3">
@@ -101,15 +106,15 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                                 ${escapeHtml(exp.title)}
                             </h3>
-                            <span style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                            <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                             </span>
                         </div>
-                        <p style="color: ${theme.secondary}; font-size: 12px; margin-bottom: 4px;">
+                        <p style="color: ${theme.secondary}; font-size: ${s(12)}; margin-bottom: 4px;">
                             ${escapeHtml(exp.company)}${(exp.city || exp.country) ? `, ${[exp.city, exp.country].filter(Boolean).map(s => escapeHtml(s)).join(', ')}` : ''}
                         </p>
                         ${exp.description ? `
-                            <p style="color: ${theme.text}; opacity: 0.8; font-size: 12px; line-height: 1.4;">
+                            <p style="color: ${theme.text}; opacity: 0.8; font-size: ${s(12)}; line-height: 1.4;">
                                 ${formatDescription(exp.description)}
                             </p>
                         ` : ''}
@@ -121,7 +126,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const educationSection = education.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.education}
             </h2>
             <div class="space-y-2">
@@ -131,16 +136,16 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                                 ${escapeHtml(edu.school)}
                             </h3>
-                            <span style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                            <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${formatLocalizedDate(edu.startDate, locale)} – ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
                             </span>
                         </div>
-                        <p style="color: ${theme.secondary}; font-size: 12px;">
+                        <p style="color: ${theme.secondary}; font-size: ${s(12)};">
                             ${escapeHtml(edu.degree)}
                             ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
                         </p>
-                        ${edu.honors ? `<p style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">${escapeHtml(edu.honors)}</p>` : ''}
-                        ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: 10px;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+                        ${edu.honors ? `<p style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">${escapeHtml(edu.honors)}</p>` : ''}
+                        ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: ${s(10)};">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -149,13 +154,13 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const skillsSection = skills.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.skills}
             </h2>
             <div class="space-y-1">
                 ${skills.map(skill => `
                     <div class="flex items-center gap-2 resume-entry">
-                        <span style="color: ${theme.text}; font-size: 12px; min-width: 100px;">
+                        <span style="color: ${theme.text}; font-size: ${s(12)}; min-width: 100px;">
                             ${escapeHtml(skill.name)}
                         </span>
                         <div class="flex gap-1">
@@ -171,21 +176,21 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const languagesSection = languages && languages.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.languages}
             </h2>
             <div class="space-y-1">
                 ${languages.map(lang => `
                     <div class="flex items-center justify-between resume-entry">
-                        <span style="color: ${theme.text}; font-size: 12px;">${escapeHtml(lang.name)}</span>
-                        <div class="flex items-center gap-2">
-                            <div style="width: 80px; height: 6px; background-color: ${effectivePrimary}30; border-radius: 3px; overflow: hidden;">
-                                <div style="width: ${getLanguageLevel(lang)}%; height: 100%; background-color: ${effectivePrimary};"></div>
+                        <span style="color: ${theme.text}; font-size: ${s(12)};">${escapeHtml(lang.name)}</span>
+                            <div class="flex items-center gap-2">
+                                <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(10)}; text-transform: capitalize;">
+                                    ${escapeHtml(lang.proficiency)}
+                                </span>
+                                <div style="width: 80px; height: 6px; background-color: ${effectivePrimary}30; border-radius: 3px; overflow: hidden;">
+                                    <div style="width: ${getLanguageLevel(lang)}%; height: 100%; background-color: ${effectivePrimary};"></div>
+                                </div>
                             </div>
-                            <span style="color: ${theme.text}; opacity: 0.7; font-size: 10px; text-transform: capitalize;">
-                                ${escapeHtml(lang.proficiency)}
-                            </span>
-                        </div>
                     </div>
                 `).join('')}
             </div>
@@ -194,12 +199,12 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const strengthsSection = strengths && strengths.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.strengths}
             </h2>
             <div class="flex flex-wrap gap-1">
                 ${strengths.map(strength => `
-                    <span class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: 11px;">
+                    <span class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: ${s(11)};">
                         ${escapeHtml(strength.name)}
                     </span>
                 `).join('')}
@@ -209,14 +214,14 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const certificationsSection = certifications && certifications.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.certifications}
             </h2>
             <div class="space-y-1">
                 ${certifications.map(cert => `
                     <div class="resume-entry">
-                        <span style="color: ${theme.text}; font-weight: 500; font-size: 12px;">${escapeHtml(cert.name)}</span>
-                        <span style="color: ${theme.text}; opacity: 0.7; font-size: 11px; margin-left: 8px;">
+                        <span style="color: ${theme.text}; font-weight: 500; font-size: ${s(12)};">${escapeHtml(cert.name)}</span>
+                        <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)}; margin-left: 8px;">
                             ${escapeHtml(cert.issuer)} &bull; ${formatLocalizedDate(cert.date, locale)}
                         </span>
                     </div>
@@ -227,7 +232,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const awardsSection = awards.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.awards}
             </h2>
             <div class="space-y-2">
@@ -236,11 +241,11 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                         <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                             ${escapeHtml(award.title)}
                         </div>
-                        <div style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                        <div style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                             ${escapeHtml(award.issuer)} &bull; ${formatLocalizedDate(award.date, locale)}
                         </div>
                         ${award.description ? `
-                            <p style="color: ${theme.text}; opacity: 0.8; font-size: 12px; line-height: 1.4;">
+                            <p style="color: ${theme.text}; opacity: 0.8; font-size: ${s(12)}; line-height: 1.4;">
                                 ${formatDescription(award.description)}
                             </p>
                         ` : ''}
@@ -252,10 +257,10 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     const interestsSection = interests && interests.length > 0 ? `
         <section>
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.interests}
             </h2>
-            <p style="color: ${theme.text}; font-size: 12px;">
+            <p style="color: ${theme.text}; font-size: ${s(12)};">
                 ${interests.map(i => escapeHtml(i.name)).join(' &bull; ')}
             </p>
         </section>
@@ -265,10 +270,10 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     const hasSocialLinks = personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
     const socialLinksSection = hasSocialLinks ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.socialLinks}
             </h2>
-            <div class="flex flex-wrap gap-3" style="font-size: 12px;">
+            <div class="flex flex-wrap gap-3" style="font-size: ${s(12)};">
                 ${personalInfo.linkedin ? `<span style="color: ${theme.text};"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                 ${personalInfo.x ? `<span style="color: ${theme.text};"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</span>` : ''}
                 ${personalInfo.github ? `<span style="color: ${theme.text};"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</span>` : ''}
@@ -282,7 +287,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     // References section
     const referencesSection = references && references.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.references}
             </h2>
             <div class="space-y-2">
@@ -291,11 +296,11 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                         <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                             ${escapeHtml(ref.name)}
                         </div>
-                        <div style="color: ${theme.secondary}; font-size: 12px;">
+                        <div style="color: ${theme.secondary}; font-size: ${s(12)};">
                             ${escapeHtml(ref.title)}${ref.company ? `, ${escapeHtml(ref.company)}` : ''}
                         </div>
                         ${(ref.phone || ref.email) ? `
-                            <div style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                            <div style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${ref.phone ? `<span>${escapeHtml(ref.phone)}</span>` : ''}
                                 ${ref.phone && ref.email ? '<span> &bull; </span>' : ''}
                                 ${ref.email ? `<span>${escapeHtml(ref.email)}</span>` : ''}
@@ -310,10 +315,10 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     // Custom Fields section
     const customFieldsSection = customFields.map(field => `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${escapeHtml(field.label)}
             </h2>
-            <p style="color: ${theme.text}; font-size: 12px; line-height: 1.5; white-space: pre-line;">
+            <p style="color: ${theme.text}; font-size: ${s(12)}; line-height: 1.5; white-space: pre-line;">
                 ${formatDescription(field.content)}
             </p>
         </section>
@@ -330,7 +335,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                 <p style="color: ${theme.secondary}; font-size: ${sizeConfig.subheading}; margin-bottom: 8px;">
                     ${escapeHtml(personalInfo.jobTitle || 'Job Title')}
                 </p>
-                <div class="flex flex-wrap justify-center gap-3" style="color: ${theme.text}; font-size: 12px;">
+                <div class="flex flex-wrap justify-center gap-3" style="color: ${theme.text}; font-size: ${s(12)};">
                     ${contactHtml}
                 </div>
                 ${idInfo}

@@ -64,6 +64,7 @@ export const config = {
   // Email (Brevo)
   brevoApiKey: process.env.BREVO_API_KEY || "",
   emailFromAddress: process.env.EMAIL_FROM_ADDRESS || "noreply@bestairesumes.com",
+  contactEmail: process.env.CONTACT_EMAIL || "support@bestairesumes.com",
 
   // Sentry (optional)
   sentryDsn: process.env.SENTRY_DSN,

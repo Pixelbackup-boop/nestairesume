@@ -200,9 +200,9 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
             // This works for any template - current and future
             // Includes common wrapper elements to ensure page 2+ top margin is applied
             const elements = Array.from(container.querySelectorAll(
-                '[data-paginate], .section-header, .resume-entry, .resume-section, section, h2, h3, ' +
+                '[data-paginate], .section-header, .resume-entry, h2, h3, ' +
                 '.credential-item, .reference-item, .language-item, .skill-item, ' +
-                '[class*="entry"], [class*="item"], [class*="section"]'
+                '[class*="entry"], [class*="item"]'
             ));
 
             // Reset styles first - COMPREHENSIVE RESET

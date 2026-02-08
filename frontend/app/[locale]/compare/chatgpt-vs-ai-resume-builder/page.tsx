@@ -469,6 +469,23 @@ export default function ChatGPTComparisonPage() {
                     </div>
                 </div>
             </section>
+            {/* External Resources */}
+            <section className="py-8 bg-gray-50 border-t border-gray-100">
+                <div className="max-w-4xl mx-auto px-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">External Resources</h3>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                        <a href="https://openai.com/chatgpt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
+                            <span className="text-gray-400">↗</span>
+                            <span className="text-sm text-gray-700">ChatGPT by OpenAI</span>
+                        </a>
+                        <a href="https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
+                            <span className="text-gray-400">↗</span>
+                            <span className="text-sm text-gray-700">BLS Career Outlook: Resume Tips</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
 
             {/* Bottom CTA */}
             <section className="py-20 bg-gray-50">

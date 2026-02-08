@@ -9,6 +9,10 @@ interface WrapperOptions {
     headingFont: string;
     bodyFont: string;
     locale?: string;
+    // 'sidebar': 20px uniform (allows bleed with negative margin)
+    // 'full-bleed': 0px (headers/banners handling own padding)
+    // 'standard': 40px (default safe margin)
+    marginStrategy?: 'sidebar' | 'full-bleed' | 'standard';
 }
 
 // RTL locales list
@@ -48,14 +52,26 @@ const generateFontLinks = (headingFont: string, bodyFont: string, locale: string
         .join('\n');
 };
 
-/**
- * Wraps template HTML content with a complete HTML document
- */
 export const wrapHtml = (content: string, options: WrapperOptions): string => {
-    const { headingFont, bodyFont, locale = 'en' } = options;
+    const { headingFont, bodyFont, locale = 'en', marginStrategy = 'standard' } = options;
     const fontLinks = generateFontLinks(headingFont, bodyFont, locale);
     const dir = getDirection(locale);
     const isRtlLocale = isRtl(locale);
+
+    // Margin logic
+    let pageMargin = '40px 0 40px 0';
+    let firstPageMargin = '0 0 40px 0'; // Default: Top handled by content/padding on P1
+
+    if (marginStrategy === 'sidebar') {
+        // Sidebar templates: Use 0 page margin for full bleed. 
+        // Text safety is handled by internal Table Spacers (thead/tfoot).
+        pageMargin = '0';
+        firstPageMargin = '0';
+    } else if (marginStrategy === 'full-bleed') {
+        // Header templates usually want full control
+        pageMargin = '0';
+        firstPageMargin = '0';
+    }
 
     return `<!DOCTYPE html>
 <html lang="${locale}" dir="${dir}">
@@ -69,11 +85,11 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         /* A4 Page Setup */
         @page {
             size: A4;
-            margin: 40px 0 40px 0; /* 40px top and bottom for consistent page spacing */
+            margin: ${pageMargin};
         }
 
         @page :first {
-            margin: 0 0 40px 0; /* First page: no top margin (header templates), 40px bottom */
+            margin: ${firstPageMargin};
         }
 
         * {
