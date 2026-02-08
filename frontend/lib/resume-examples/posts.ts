@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import { resolveContentPath } from '../content-utils';
 
 // Author type for E-E-A-T structured data
 export interface Author {
@@ -285,10 +286,10 @@ export async function getAllResumeExamples(): Promise<ResumeExampleMeta[]> {
   }
 }
 
-// Get single resume example by slug
-export async function getResumeExampleBySlug(slug: string): Promise<ResumeExample | null> {
+// Get single resume example by slug (locale-aware with English fallback)
+export async function getResumeExampleBySlug(slug: string, locale: string = 'en'): Promise<ResumeExample | null> {
   try {
-    const filePath = path.join(CONTENT_DIR, `${slug}.mdx`);
+    const filePath = resolveContentPath(CONTENT_DIR, slug, locale);
 
     if (!fs.existsSync(filePath)) {
       return null;

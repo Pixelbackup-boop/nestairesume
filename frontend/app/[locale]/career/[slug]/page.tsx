@@ -17,16 +17,18 @@ interface CareerPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
-// Generate static paths for all career posts
+// Generate static paths for all career posts across all locales
+const locales = ['en', 'es', 'fr', 'de', 'ar'];
+
 export async function generateStaticParams() {
   const slugs = await getAllCareerPostSlugs();
-  return slugs.map(slug => ({ slug }));
+  return locales.flatMap(locale => slugs.map(slug => ({ locale, slug })));
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: CareerPostPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = await getPostBySlug(slug);
+  const post = await getPostBySlug(slug, locale);
 
   if (!post) {
     return {
@@ -83,8 +85,8 @@ function JsonLd({ data }: { data: object }) {
 }
 
 export default async function CareerPostPage({ params }: CareerPostPageProps) {
-  const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const { locale, slug } = await params;
+  const post = await getPostBySlug(slug, locale);
 
   if (!post) {
     notFound();

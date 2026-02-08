@@ -11,6 +11,7 @@ import {
     AlertCircle,
     LogIn,
     TrendingUp,
+    Clock,
 } from 'lucide-react';
 import { useAuthStore } from '@/store/useAuthStore';
 import { useUsageStore, formatUsage, formatRemaining } from '@/store/useUsageStore';
@@ -36,6 +37,10 @@ export default function DownloadModal({
     const { isAuthenticated, user } = useAuthStore();
     const { usage, isLoading: usageLoading, fetchUsage, checkLimit } = useUsageStore();
     const [isDownloading, setIsDownloading] = useState(false);
+    const [downloadError, setDownloadError] = useState<{
+        type: 'rate_limit' | 'server_busy' | 'generic';
+        message: string;
+    } | null>(null);
 
     // Fetch usage data when modal opens
     useEffect(() => {
@@ -48,6 +53,7 @@ export default function DownloadModal({
     useEffect(() => {
         if (!isOpen) {
             setIsDownloading(false);
+            setDownloadError(null);
         }
     }, [isOpen]);
 
@@ -73,15 +79,36 @@ export default function DownloadModal({
 
     const handleDownload = async () => {
         setIsDownloading(true);
+        setDownloadError(null);
         try {
             await onDownload();
             // Refresh usage after download
             fetchUsage();
-        } catch (error) {
+            onClose();
+        } catch (error: unknown) {
             console.error('Download failed:', error);
+            const err = error as { response?: { data?: { message?: string; retryAfterFormatted?: string }; status?: number } };
+            const status = err?.response?.status;
+            const data = err?.response?.data;
+
+            if (status === 429) {
+                setDownloadError({
+                    type: 'rate_limit',
+                    message: data?.message || `You're generating resumes too quickly. Please wait ${data?.retryAfterFormatted || 'a moment'} and try again.`,
+                });
+            } else if (status === 503) {
+                setDownloadError({
+                    type: 'server_busy',
+                    message: data?.message || 'Our servers are busy right now. Please try again in a few seconds.',
+                });
+            } else {
+                setDownloadError({
+                    type: 'generic',
+                    message: 'Something went wrong. Please try again.',
+                });
+            }
         } finally {
             setIsDownloading(false);
-            onClose();
         }
     };
 
@@ -230,7 +257,7 @@ export default function DownloadModal({
                     )}
 
                     {/* Can Download */}
-                    {userState === 'can_download' && !isDownloading && (
+                    {userState === 'can_download' && !isDownloading && !downloadError && (
                         <div className="space-y-4">
                             {/* Usage Info */}
                             {usage && downloadCheck.limit !== -1 && (
@@ -286,6 +313,50 @@ export default function DownloadModal({
                         <div className="text-center py-8">
                             <Loader2 className="mx-auto text-accent-green animate-spin mb-4" size={40} />
                             <p className="text-gray-600">Preparing your download...</p>
+                        </div>
+                    )}
+
+                    {/* Error State (rate limit / server busy) */}
+                    {downloadError && !isDownloading && (
+                        <div className="space-y-4">
+                            <div className={`rounded-xl p-4 flex items-start gap-3 ${
+                                downloadError.type === 'rate_limit'
+                                    ? 'bg-amber-50 border border-amber-200'
+                                    : downloadError.type === 'server_busy'
+                                    ? 'bg-blue-50 border border-blue-200'
+                                    : 'bg-red-50 border border-red-200'
+                            }`}>
+                                <Clock className={`mt-0.5 shrink-0 ${
+                                    downloadError.type === 'rate_limit' ? 'text-amber-600'
+                                    : downloadError.type === 'server_busy' ? 'text-blue-600'
+                                    : 'text-red-600'
+                                }`} size={20} />
+                                <div>
+                                    <p className={`text-sm font-medium ${
+                                        downloadError.type === 'rate_limit' ? 'text-amber-900'
+                                        : downloadError.type === 'server_busy' ? 'text-blue-900'
+                                        : 'text-red-900'
+                                    }`}>
+                                        {downloadError.type === 'rate_limit' ? 'Slow down a bit'
+                                         : downloadError.type === 'server_busy' ? 'Server is busy'
+                                         : 'Download failed'}
+                                    </p>
+                                    <p className={`text-sm mt-1 ${
+                                        downloadError.type === 'rate_limit' ? 'text-amber-700'
+                                        : downloadError.type === 'server_busy' ? 'text-blue-700'
+                                        : 'text-red-700'
+                                    }`}>
+                                        {downloadError.message}
+                                    </p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={() => { setDownloadError(null); handleDownload(); }}
+                                className="w-full py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition flex items-center justify-center gap-2"
+                            >
+                                <Download size={18} />
+                                Try Again
+                            </button>
                         </div>
                     )}
                 </div>

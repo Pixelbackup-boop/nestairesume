@@ -570,6 +570,7 @@
     "privacy": "Datenschutz",
     "terms": "AGB",
     "contact": "Kontakt",
+    "help": "Hilfe-Leitfaden",
     "copyright": "© {year} Best AI Resume. Alle Rechte vorbehalten.",
     "resources": "Ressourcen",
     "resumeFormatGuide": "Lebenslauf-Format Leitfaden",
@@ -1093,7 +1094,7 @@
     "inquiryTypes": {
       "general": "Allgemeine Anfrage",
       "billing": "Abrechnungsproblem",
-      "cvCreation": "Problem bei der CV-Erstellung"
+      "cvCreation": "Problem bei der Lebenslauf/CV-Erstellung"
     },
     "name": "Ihr Name",
     "namePlaceholder": "Max Mustermann",
@@ -1110,5 +1111,178 @@
     "sendAnother": "Weitere Nachricht Senden",
     "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut.",
     "errorRateLimit": "Zu viele Einreichungen. Bitte warten Sie, bevor Sie es erneut versuchen."
+  },
+  "Help": {
+    "title": "So Funktioniert Es",
+    "subtitle": "Eine Schritt-für-Schritt-Anleitung zur Erstellung Ihres professionellen Lebenslaufs, von der Anmeldung bis zum Download Ihres fertigen Dokuments.",
+    "quickNav": "Springe zu:",
+    "tipLabel": "Tipp",
+    "faqLabel": "Häufige Fragen",
+    "troubleshootingLabel": "Fehlerbehebung",
+    "gettingStarted": {
+      "title": "Erste Schritte",
+      "steps": {
+        "1": {
+          "title": "Erstellen Sie Ihr Konto",
+          "description": "Klicken Sie auf den Button Loslegen auf der Startseite oder auf den Link Registrieren in der Navigationsleiste. Sie können sich sofort mit Ihrem Google-, GitHub- oder LinkedIn-Konto anmelden — kein Passwort erforderlich. Bevorzugen Sie E-Mail? Geben Sie Ihren Namen, Ihre E-Mail und ein Passwort ein.",
+          "tip": "Die Anmeldung mit Google oder LinkedIn ist am schnellsten — Ihr Name und Ihre E-Mail werden automatisch ausgefüllt."
+        },
+        "2": {
+          "title": "Bestätigen Sie Ihre E-Mail",
+          "description": "Wenn Sie sich per E-Mail registriert haben, prüfen Sie Ihren Posteingang auf eine Nachricht von Best AI Resume. Geben Sie den 6-stelligen Bestätigungscode auf der Verifizierungsseite ein. Der Code läuft nach 10 Minuten ab — wenn er abläuft, klicken Sie auf 'Code erneut senden', um einen neuen zu erhalten.",
+          "tip": "Prüfen Sie Ihren Spam- oder Junk-Ordner, wenn Sie die E-Mail nicht innerhalb einer Minute sehen."
+        },
+        "3": {
+          "title": "Sie Sind Drin!",
+          "description": "Nach der Bestätigung werden Sie zum Onboarding-Bildschirm weitergeleitet, wo Sie wählen, wie Sie Ihren ersten Lebenslauf erstellen möchten. Ihr Konto speichert automatisch jede Änderung, die Sie vornehmen, sodass Sie Ihre Arbeit nie verlieren — selbst wenn Sie den Browser schließen."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Brauche ich eine Kreditkarte zur Anmeldung?",
+          "a": "Nein. Sie können ein Konto erstellen und Ihren Lebenslauf völlig kostenlos erstellen. Eine Kreditkarte ist nur erforderlich, wenn Sie einen kostenpflichtigen Plan wählen."
+        },
+        "2": {
+          "q": "Was tun, wenn ich den Bestätigungscode nicht erhalte?",
+          "a": "Prüfen Sie zuerst Ihren Spam-/Junk-Ordner. Wenn er nicht dort ist, klicken Sie auf 'Code erneut senden' auf der Verifizierungsseite. Wenn Sie ihn immer noch nicht erhalten, versuchen Sie die Anmeldung mit Google oder LinkedIn."
+        },
+        "3": {
+          "q": "Kann ich dasselbe Konto auf mehreren Geräten nutzen?",
+          "a": "Ja. Ihr Konto und alle Ihre Lebensläufe sind in der Cloud gespeichert. Melden Sie sich von jedem Gerät an und machen Sie dort weiter, wo Sie aufgehört haben."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Ihren Lebenslauf Erstellen",
+      "steps": {
+        "1": {
+          "title": "Wählen Sie Ihre Methode",
+          "description": "Auf der Onboarding-Seite sehen Sie vier Optionen: KI-Generierung (empfohlen für die meisten Nutzer), Lebenslauf hochladen (ein vorhandenes PDF analysieren), Von LinkedIn importieren (Ihre Profildaten übernehmen) oder Von vorne beginnen (leere Vorlage). Jede Option führt Sie durch einen kurzen Einrichtungsprozess, bevor der Generator geöffnet wird.",
+          "tip": "KI-Generierung ist der schnellste Weg zu einem vollständigen, professionellen Lebenslauf — Sie können ihn danach jederzeit bearbeiten."
+        },
+        "2": {
+          "title": "Lassen Sie die KI Arbeiten",
+          "description": "Wenn Sie KI-Generierung gewählt haben, geben Sie Ihren vollständigen Namen, die angestrebte Berufsbezeichnung und Ihr Erfahrungsniveau (Einsteiger, Mittelstufe oder Senior) ein. Klicken Sie auf Generieren und unsere KI erstellt einen vollständigen Lebenslauf mit professioneller Zusammenfassung, Berufserfahrung, Ausbildung und Fähigkeiten — alles auf Ihre Zielposition zugeschnitten."
+        },
+        "3": {
+          "title": "Wählen Sie eine Vorlage",
+          "description": "Nach der Generierung durchsuchen Sie unsere Galerie mit über 16 Vorlagen. Die Vorlagen sind in Kategorien organisiert: Professionell, Kreativ, Minimalistisch und ATS-kompatibel. Klicken Sie auf eine Vorlage, um sie mit Ihren Daten in der Vorschau zu sehen. Wechseln Sie jederzeit zwischen Vorlagen, ohne Ihre Inhalte zu verlieren.",
+          "tip": "Sie können Ihre Vorlage jederzeit im Generator ändern — Ihre Inhalte bleiben gleich, nur das Design ändert sich."
+        },
+        "4": {
+          "title": "Bearbeiten und Anpassen",
+          "description": "Der Generator hat Registerkarten auf der linken Seite (Persönliche Daten, Erfahrung, Ausbildung, Fähigkeiten usw.) und eine Live-Vorschau auf der rechten Seite. Bearbeiten Sie jedes Feld und sehen Sie die Änderungen sofort. Sie können Abschnitte neu anordnen, benutzerdefinierte Abschnitte hinzufügen, Schriftgrößen anpassen und Akzentfarben nach Ihrem Stil ändern."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Kann ich mehrere Lebensläufe erstellen?",
+          "a": "Ja. Sie können mehrere Lebensläufe erstellen und speichern, die auf verschiedene Bewerbungen zugeschnitten sind. Wechseln Sie zwischen ihnen über Ihr Dashboard."
+        },
+        "2": {
+          "q": "Funktioniert die KI-Generierung in allen Sprachen?",
+          "a": "Die KI generiert derzeit Inhalte auf Englisch. Sie können den generierten Inhalt nach der Erstellung manuell in jeder Sprache bearbeiten."
+        },
+        "3": {
+          "q": "Kann ich mein LinkedIn-Profil importieren?",
+          "a": "Ja. Wählen Sie die Option 'Von LinkedIn importieren' beim Onboarding. Sie werden angeleitet, Ihr LinkedIn-Profil zu verbinden und Ihren beruflichen Werdegang zu übernehmen."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Einen Plan Wählen",
+      "steps": {
+        "1": {
+          "title": "Besuchen Sie die Preisseite",
+          "description": "Klicken Sie auf Preise in der Navigationsleiste oder besuchen Sie die Preisseite direkt. Sie sehen vier Pläne: Starter (kostenlos, begrenzte Downloads), Gold, Diamond und Platinum. Verwenden Sie den Schalter oben, um zwischen monatlicher und jährlicher Abrechnung zu wechseln — Jahrespläne sparen bis zu 40%."
+        },
+        "2": {
+          "title": "Starten Sie eine Kostenlose Testphase",
+          "description": "Gold- und Diamond-Pläne bieten eine 7-tägige kostenlose Testphase bei monatlicher Abrechnung. Während der Testphase haben Sie vollen Zugriff auf alle Plan-Funktionen. Es fallen keine Gebühren an, bis die Testphase endet, und Sie können jederzeit vorher kündigen.",
+          "tip": "Jährliche Abrechnung spart bis zu 40% im Vergleich zur monatlichen — und Sie erhalten die gleichen Funktionen."
+        },
+        "3": {
+          "title": "Schließen Sie die Zahlung Ab",
+          "description": "Klicken Sie auf den Button Loslegen bei Ihrem gewählten Plan. Sie werden zu einer sicheren Stripe-Zahlungsseite weitergeleitet, wo Sie Ihre Kartendaten eingeben. Nach der Zahlung wird Ihr Konto sofort aufgewertet und Sie können sofort mit dem Herunterladen beginnen."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Kann ich mein Abonnement jederzeit kündigen?",
+          "a": "Ja. Sie können jederzeit über Ihre Kontoeinstellungen kündigen. Sie behalten den Zugang bis zum Ende Ihres aktuellen Abrechnungszeitraums."
+        },
+        "2": {
+          "q": "Was passiert, wenn meine kostenlose Testphase endet?",
+          "a": "Wenn Sie nicht kündigen, wird Ihre Karte für den ersten Abrechnungszeitraum belastet. Wenn Sie vor Ende der Testphase kündigen, werden Ihnen keine Kosten berechnet."
+        },
+        "3": {
+          "q": "Kann ich später den Plan wechseln?",
+          "a": "Ja. Sie können Ihren Plan jederzeit über Ihre Kontoeinstellungen hoch- oder herunterstufen. Änderungen treten sofort in Kraft."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Ihren Lebenslauf Herunterladen",
+      "steps": {
+        "1": {
+          "title": "Klicken Sie auf Herunterladen",
+          "description": "Suchen Sie im Generator den grünen Button PDF Herunterladen in der oberen rechten Ecke der Seite. Klicken Sie darauf, um das Download-Fenster zu öffnen, das Ihre verbleibenden Downloads für den Monat anzeigt und Ihnen ermöglicht, den Export zu bestätigen."
+        },
+        "2": {
+          "title": "Holen Sie Sich Ihr PDF",
+          "description": "Ihr Lebenslauf wird als hochwertiges PDF erstellt, das genau dem entspricht, was Sie in der Vorschau sehen. Das PDF ist sowohl für die digitale Ansicht (E-Mail, Jobportale) als auch für den Druck auf Standard-Letter- oder A4-Papier optimiert.",
+          "tip": "Für beste Ergebnisse verwenden Sie ATS-kompatible Vorlagen, wenn Sie sich über Online-Jobportale bewerben — sie werden zuverlässiger analysiert."
+        },
+        "3": {
+          "title": "Verfolgen Sie Ihre Nutzung",
+          "description": "Jeder Plan hat ein monatliches Download-Limit, das sich an Ihrem Abrechnungsdatum zurücksetzt. Sie können Ihre verbleibenden Downloads im Download-Fenster oder in Ihren Kontoeinstellungen überprüfen. Wenn Sie Ihr Limit erreichen, können Sie Ihren Plan jederzeit upgraden, um sofort mehr Downloads freizuschalten."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Kann ich im Word/DOCX-Format herunterladen?",
+          "a": "Ja. Neben PDF können Sie Ihren Lebenslauf als DOCX-Datei exportieren, die mit Microsoft Word und Google Docs kompatibel ist."
+        },
+        "2": {
+          "q": "Warum sieht mein PDF etwas anders aus als die Vorschau?",
+          "a": "Die Vorschau ist eine Annäherung. Das PDF ist das endgültige, perfekte Ergebnis. Kleine Unterschiede bei der Schriftdarstellung zwischen Browser-Vorschau und PDF sind normal."
+        },
+        "3": {
+          "q": "Was passiert, wenn mir die Downloads ausgehen?",
+          "a": "Ihr Download-Zähler wird monatlich zurückgesetzt. Wenn Sie vor dem Zurücksetzen mehr Downloads benötigen, können Sie Ihren Plan für sofortigen Zugang zu einem höheren Limit upgraden."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Fehlerbehebung",
+      "items": {
+        "1": {
+          "title": "Kann mich nicht in mein Konto einloggen",
+          "description": "Versuchen Sie, Ihr Passwort über den Link 'Passwort Vergessen' auf der Anmeldeseite zurückzusetzen. Wenn Sie sich mit Google, GitHub oder LinkedIn registriert haben, stellen Sie sicher, dass Sie denselben Anbieter verwenden. Löschen Sie die Browser-Cookies, wenn das Problem weiterhin besteht."
+        },
+        "2": {
+          "title": "Bestätigungscode kommt nicht an",
+          "description": "Prüfen Sie Ihren Spam-/Junk-Ordner. Codes laufen nach 10 Minuten ab — klicken Sie auf 'Code erneut senden', um einen neuen zu erhalten. Wenn Sie eine Firmen-E-Mail verwenden, kann die IT-Firewall automatisierte E-Mails blockieren. Versuchen Sie es mit einer persönlichen E-Mail-Adresse."
+        },
+        "3": {
+          "title": "Zahlung wurde abgelehnt",
+          "description": "Überprüfen Sie Ihre Kartennummer, Ablaufdatum und CVV. Stellen Sie sicher, dass Ihre Karte internationale oder Online-Transaktionen erlaubt. Wenn das Problem weiterhin besteht, versuchen Sie eine andere Karte oder kontaktieren Sie Ihre Bank. Alle Zahlungen werden sicher über Stripe abgewickelt."
+        },
+        "4": {
+          "title": "PDF sieht anders aus als die Vorschau",
+          "description": "Die Vorschau zeigt eine Annäherung des Endergebnisses. Wenn bestimmte Elemente falsch aussehen, versuchen Sie die Vorlage zu wechseln oder die Schriftgrößen in den Design-Einstellungen des Generators anzupassen. Stellen Sie sicher, dass Ihr Browser auf dem neuesten Stand ist."
+        },
+        "5": {
+          "title": "Änderungen werden nicht gespeichert",
+          "description": "Ihre Arbeit wird automatisch in der Cloud gespeichert. Wenn Sie ungespeicherte Änderungen bemerken, überprüfen Sie Ihre Internetverbindung. Versuchen Sie, die Seite neu zu laden — Ihre letzten Bearbeitungen sollten erscheinen. Bei einer langsamen Verbindung warten Sie einige Sekunden zwischen den Bearbeitungen."
+        }
+      }
+    },
+    "cta": {
+      "title": "Bereit Loszulegen?",
+      "subtitle": "Erstellen Sie Ihren professionellen Lebenslauf in wenigen Minuten mit unserem KI-gestützten Generator.",
+      "buildButton": "Jetzt Erstellen",
+      "contactButton": "Support Kontaktieren"
+    }
   }
 }

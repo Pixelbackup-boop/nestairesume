@@ -101,22 +101,16 @@ function GdocsBuilderContent() {
         setShowDownloadModal(true);
     };
 
+    // Errors propagate to DownloadModal which shows user-friendly error UI
     const handleConfirmDownload = async () => {
-        try {
-            await downloadGdocs(
-                resumeData,
-                gdocsTemplateId,
-                selectedTheme,
-                resumeData.customThemeColor,
-                pdfTranslations,
-                locale
-            );
-        } catch (error: unknown) {
-            const err = error as { message?: string; response?: { status?: number } };
-            const msg = err?.message || (error instanceof Error ? error.message : 'Unknown error');
-            console.error('Google Docs download failed:', msg, error);
-            alert(`Failed to generate Google Docs file: ${msg}`);
-        }
+        await downloadGdocs(
+            resumeData,
+            gdocsTemplateId,
+            selectedTheme,
+            resumeData.customThemeColor,
+            pdfTranslations,
+            locale
+        );
     };
 
     const sectionStatus = useMemo(() => {

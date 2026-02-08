@@ -44,6 +44,7 @@ router.get("/", async (req: Request, res: Response) => {
       );
     }
 
+    res.set("Cache-Control", "public, max-age=60, stale-while-revalidate=300");
     res.json({
       posts: filteredPosts,
       total: tag ? filteredPosts.length : total,

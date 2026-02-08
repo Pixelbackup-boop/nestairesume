@@ -12,6 +12,40 @@ import { getTranslations } from '../templates/pdf/shared/translations';
 // Browser singleton for performance
 let browser: Browser | null = null;
 
+// Concurrency control — limits simultaneous Puppeteer pages to prevent OOM on 4GB Cloud Run
+const MAX_CONCURRENT_PAGES = 8;
+const QUEUE_TIMEOUT_MS = 30_000;
+let activePages = 0;
+const waitQueue: Array<{ resolve: () => void; reject: (err: Error) => void }> = [];
+
+async function acquirePageSlot(): Promise<void> {
+    if (activePages < MAX_CONCURRENT_PAGES) {
+        activePages++;
+        return;
+    }
+    // Queue this request — it will be resolved when a slot frees up
+    return new Promise<void>((resolve, reject) => {
+        const timer = setTimeout(() => {
+            const idx = waitQueue.findIndex(w => w.resolve === resolve);
+            if (idx !== -1) waitQueue.splice(idx, 1);
+            reject(new Error('PDF queue timeout — server busy, please try again'));
+        }, QUEUE_TIMEOUT_MS);
+
+        waitQueue.push({
+            resolve: () => { clearTimeout(timer); activePages++; resolve(); },
+            reject,
+        });
+    });
+}
+
+function releasePageSlot(): void {
+    activePages--;
+    if (waitQueue.length > 0) {
+        const next = waitQueue.shift()!;
+        next.resolve();
+    }
+}
+
 /**
  * Get or create a shared Puppeteer browser instance
  */
@@ -45,31 +79,27 @@ export async function closeBrowser(): Promise<void> {
  * Generate PDF from HTML string
  */
 export async function generatePdfFromHtml(html: string): Promise<Buffer> {
+    await acquirePageSlot();
+
     const browserInstance = await getBrowser();
     let page: Page | null = null;
 
     try {
         page = await browserInstance.newPage();
 
-        // Set viewport for consistent rendering
         await page.setViewport({
-            width: 794, // A4 width in pixels at 96 DPI
-            height: 1123, // A4 height in pixels at 96 DPI
+            width: 794,  // A4 width at 96 DPI
+            height: 1123, // A4 height at 96 DPI
         });
 
-        // Load HTML and wait for fonts/resources
         await page.setContent(html, {
-            waitUntil: 'networkidle0',
-            timeout: 30000,
+            waitUntil: 'networkidle2',
+            timeout: 15000,
         });
 
-        // Wait for fonts to load (networkidle0 usually covers this, but add small buffer)
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Wait for base64 @font-face fonts to decode
+        await page.evaluate('document.fonts.ready');
 
-        // Generate PDF
-        // Note: Don't specify margins here - let CSS @page rules control them
-        // @page { margin: 20px 0 0 0 } for page 2+
-        // @page :first { margin: 0 } for first page
         const pdfBuffer = await page.pdf({
             format: 'A4',
             printBackground: true,
@@ -81,6 +111,7 @@ export async function generatePdfFromHtml(html: string): Promise<Buffer> {
         if (page) {
             await page.close();
         }
+        releasePageSlot();
     }
 }
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { memo } from 'react';
-import { Phone, Mail, MapPin, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -27,11 +27,12 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
     const fs = getScaledFontSizes(sizeConfig, scale);
     const t = useTemplateTranslations();
 
-    // Colors
-    const sidebarBg = '#facc15'; // Yellow 400
+    // Colors — sidebar is always yellow (template identity), accent is user-customizable
+    const sidebarBg = '#facc15';
     const mainBg = '#FFFFFF';
-    const sidebarText = '#1f2937';
+    const sidebarText = getContrastColor(sidebarBg);
     const mainText = '#1f2937';
+    const accentColor = customThemeColor || theme?.primary || '#b45309';
 
     // Dimensions
     const photoSize = scale < 1 ? 60 : 100;
@@ -75,7 +76,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                                 height: photoSize,
                                 borderRadius: '50%',
                                 objectFit: 'cover',
-                                border: `4px solid #1f2937`,
+                                border: `4px solid ${sidebarText}`,
                             }}
                         />
                     ) : (
@@ -84,12 +85,12 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                                 width: photoSize,
                                 height: photoSize,
                                 borderRadius: '50%',
-                                backgroundColor: '#1f2937',
+                                backgroundColor: sidebarText,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 fontSize: fs.name,
-                                color: '#facc15',
+                                color: sidebarBg,
                             }}
                         >
                             {personalInfo.fullName?.charAt(0) || '?'}
@@ -124,6 +125,12 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                                 <span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span>
                             </div>
                         )}
+                        {personalInfo.linkedin && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <Linkedin size={14} color={sidebarText} />
+                                <span style={{ wordBreak: 'break-all' }}>{personalInfo.linkedin}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -139,8 +146,8 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                                         value={skill.level || 3}
                                         maxValue={5}
                                         variant="solid"
-                                        color="#1f2937"
-                                        trackColor="rgba(31, 41, 55, 0.2)"
+                                        color={sidebarText}
+                                        trackColor={`${sidebarText}33`} // 20% opacity approx
                                         height={6}
                                         scale={1}
                                     />
@@ -157,7 +164,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.small }}>
                             {data.interests.map((int) => (
                                 <div key={int.id} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                    <span style={{ color: '#1f2937', fontSize: '8px' }}>●</span>
+                                    <span style={{ color: sidebarText, fontSize: '8px' }}>●</span>
                                     <span style={{ fontWeight: 500 }}>{int.name}</span>
                                 </div>
                             ))}
@@ -194,7 +201,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                     <p
                         style={{
                             fontSize: fs.jobTitle,
-                            color: '#ca8a04', // Darker yellow
+                            color: accentColor, // Theme Color
                             textTransform: 'uppercase',
                             fontWeight: 700,
                             letterSpacing: '0.2em'
@@ -207,7 +214,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Profile */}
                 {personalInfo.summary && (
                     <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.profile} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={t.sections.profile} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>
                             {personalInfo.summary}
                         </p>
@@ -217,7 +224,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Experience */}
                 {experience.length > 0 && (
                     <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.experience} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={t.sections.experience} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <div className="space-y-8">
                             {experience.map((exp) => (
                                 <div key={exp.id}>
@@ -225,7 +232,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000', textTransform: 'uppercase' }}>
                                             {exp.title}
                                         </h4>
-                                        <span style={{ fontSize: fs.small, color: '#ca8a04', fontWeight: 700 }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
+                                        <span style={{ fontSize: fs.small, color: accentColor, fontWeight: 700 }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
                                     <div style={{ fontSize: fs.small, color: '#4b5563', marginBottom: 6, fontWeight: 600 }}>
                                         {exp.company}, {exp.city}
@@ -242,7 +249,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Education */}
                 {education.length > 0 && (
                     <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.education} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={t.sections.education} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <div className="space-y-4">
                             {education.map((edu) => (
                                 <div key={edu.id}>
@@ -263,14 +270,14 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Certifications */}
                 {certifications && certifications.length > 0 && (
                     <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.certifications} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={t.sections.certifications} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <div className="space-y-3">
                             {certifications.map((cert) => (
                                 <div key={cert.id} data-paginate="item">
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
                                         {cert.name}
                                     </h4>
-                                    <div style={{ fontSize: fs.body, color: '#ca8a04', fontWeight: 500 }}>
+                                    <div style={{ fontSize: fs.body, color: accentColor, fontWeight: 500 }}>
                                         {cert.issuer}
                                     </div>
                                     <div style={{ fontSize: fs.small, color: '#666' }}>
@@ -285,14 +292,14 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Awards */}
                 {awards && awards.length > 0 && (
                     <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.awards} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={t.sections.awards} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <div className="space-y-3">
                             {awards.map((award) => (
                                 <div key={award.id} data-paginate="item">
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
                                         {award.title}
                                     </h4>
-                                    <div style={{ fontSize: fs.body, color: '#ca8a04', fontWeight: 500 }}>
+                                    <div style={{ fontSize: fs.body, color: accentColor, fontWeight: 500 }}>
                                         {award.issuer}
                                     </div>
                                     <div style={{ fontSize: fs.small, color: '#666' }}>
@@ -312,7 +319,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Languages */}
                 {languages && languages.length > 0 && (
                     <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.languages} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={t.sections.languages} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}>
                             {languages.map((lang) => (
                                 <div key={lang.id} style={{ fontSize: fs.body, fontWeight: 700, color: '#374151' }} data-paginate="item">
@@ -323,63 +330,10 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
-                {/* Strengths */}
-                {data.strengths && data.strengths.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.strengths} color={'#1f2937'} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                            {data.strengths.map((str) => (
-                                <span key={str.id} style={{
-                                    backgroundColor: '#facc15',
-                                    color: '#1f2937',
-                                    padding: '4px 12px',
-                                    borderRadius: 20,
-                                    fontSize: fs.small,
-                                    fontWeight: 700
-                                }}>
-                                    {str.name}
-                                </span>
-                            ))}
-                        </div>
-                    </section>
-                )}
-
-                {/* Social Links */}
-                {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.socialLinks} color={'#1f2937'} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
-                            {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
-                            {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
-                            {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
-                            {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
-                            {personalInfo.instagram && <div><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
-                        </div>
-                    </section>
-                )}
-
-                {/* References */}
-                {references && references.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.references} color={'#1f2937'} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                            {references.map((ref) => (
-                                <div key={ref.id} data-paginate="item">
-                                    <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
-                                    {ref.email && <div style={{ fontSize: fs.small, color: '#666' }}>{ref.email}</div>}
-                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#666' }}>{ref.phone}</div>}
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                )}
-
-                {/* Personal Details */}
+                {/* Personal Details - Moved here */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
                     <section className="mb-5 resume-section">
-                        <MainHeader title={t.sections.personalDetails} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={t.sections.personalDetails} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
                             {personalInfo.nationality && (
                                 <div><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
@@ -397,10 +351,64 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
+                {/* Strengths */}
+                {data.strengths && data.strengths.length > 0 && (
+                    <section className="mb-5 resume-section">
+                        <MainHeader title={t.sections.strengths} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            {data.strengths.map((str) => (
+                                <span key={str.id} style={{
+                                    backgroundColor: accentColor,
+                                    color: '#1f2937',
+                                    padding: '4px 12px',
+                                    borderRadius: 20,
+                                    fontSize: fs.small,
+                                    fontWeight: 700
+                                }}>
+                                    {str.name}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Social Links */}
+                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    <section className="mb-5 resume-section">
+                        <MainHeader title={t.sections.socialLinks} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
+                            {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
+                            {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
+                            {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
+                            {personalInfo.instagram && <div><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
+                        </div>
+                    </section>
+                )}
+
+                {/* References */}
+                {references && references.length > 0 && (
+                    <section className="mb-5 resume-section">
+                        <MainHeader title={t.sections.references} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                            {references.map((ref) => (
+                                <div key={ref.id} data-paginate="item">
+                                    <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
+                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
+                                    {ref.email && <div style={{ fontSize: fs.small, color: '#666' }}>{ref.email}</div>}
+                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#666' }}>{ref.phone}</div>}
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+
+
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
                     <section key={field.id} className="mb-5 resume-section">
-                        <MainHeader title={field.label} color={'#1f2937'} fs={fs} headingFont={headingFont} />
+                        <MainHeader title={field.label} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} />
                         <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{field.content}</p>
                     </section>
                 ))}
@@ -417,7 +425,7 @@ function SidebarHeader({ title }: { title: string }) {
             fontWeight: 800,
             textTransform: 'uppercase',
             marginBottom: 12,
-            borderBottom: '2px solid #1f2937',
+            borderBottom: '2px solid currentColor', // Use currentColor
             paddingBottom: 4,
             fontSize: '12px',
             letterSpacing: '0.05em'
@@ -427,7 +435,7 @@ function SidebarHeader({ title }: { title: string }) {
     );
 }
 
-function MainHeader({ title, color, fs, headingFont }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string }) {
+function MainHeader({ title, color, fs, headingFont, accentColor }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string, accentColor: string }) {
     return (
         <h3
             style={{
@@ -437,7 +445,7 @@ function MainHeader({ title, color, fs, headingFont }: { title: string, color: s
                 color: color,
                 textTransform: 'uppercase',
                 marginBottom: 20,
-                borderBottom: `4px solid #facc15`, // Thick yellow underline
+                borderBottom: `4px solid ${accentColor}`,
                 display: 'inline-block',
                 paddingBottom: 4
             }}
@@ -446,6 +454,24 @@ function MainHeader({ title, color, fs, headingFont }: { title: string, color: s
         </h3>
     );
 }
+
+// Color Helpers
+const hexToRgb = (hex: string) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+};
+
+const getContrastColor = (hex: string) => {
+    const rgb = hexToRgb(hex);
+    if (!rgb) return '#1f2937';
+    // YIQ equation
+    const yiq = ((rgb.r * 299) + (rgb.g * 587) + (rgb.b * 114)) / 1000;
+    return yiq >= 128 ? '#1f2937' : '#ffffff';
+};
 
 export default memo(SidebarNarrowYellow);
 

@@ -30,7 +30,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const example = await getCoverLetterExampleBySlug(slug);
+  const example = await getCoverLetterExampleBySlug(slug, locale);
 
   if (!example) {
     return { title: "Not Found" };
@@ -130,7 +130,7 @@ export default async function CoverLetterExamplePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const example = await getCoverLetterExampleBySlug(slug);
+  const example = await getCoverLetterExampleBySlug(slug, locale);
 
   if (!example) {
     notFound();

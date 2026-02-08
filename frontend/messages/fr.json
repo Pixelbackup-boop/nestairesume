@@ -570,6 +570,7 @@
     "privacy": "Confidentialité",
     "terms": "Conditions",
     "contact": "Contact",
+    "help": "Guide d'Aide",
     "copyright": "© {year} Best AI Resume. Tous droits réservés.",
     "resources": "Ressources",
     "resumeFormatGuide": "Guide de Format de CV",
@@ -1093,7 +1094,7 @@
     "inquiryTypes": {
       "general": "Demande Générale",
       "billing": "Problème de Facturation",
-      "cvCreation": "Problème de Création de CV"
+      "cvCreation": "Problème de Création de CV/Résumé"
     },
     "name": "Votre Nom",
     "namePlaceholder": "Jean Dupont",
@@ -1110,5 +1111,178 @@
     "sendAnother": "Envoyer un Autre Message",
     "errorGeneric": "Une erreur est survenue. Veuillez réessayer plus tard.",
     "errorRateLimit": "Trop de soumissions. Veuillez patienter avant de réessayer."
+  },
+  "Help": {
+    "title": "Comment Ça Marche",
+    "subtitle": "Un guide étape par étape pour créer votre CV professionnel, de l'inscription au téléchargement de votre document terminé.",
+    "quickNav": "Aller à :",
+    "tipLabel": "Astuce",
+    "faqLabel": "Questions Fréquentes",
+    "troubleshootingLabel": "Dépannage",
+    "gettingStarted": {
+      "title": "Pour Commencer",
+      "steps": {
+        "1": {
+          "title": "Créez Votre Compte",
+          "description": "Cliquez sur le bouton Commencer sur la page d'accueil ou sur le lien S'inscrire dans la barre de navigation. Vous pouvez vous inscrire instantanément avec votre compte Google, GitHub ou LinkedIn — sans mot de passe nécessaire. Vous préférez l'e-mail ? Entrez votre nom, e-mail et choisissez un mot de passe.",
+          "tip": "Se connecter avec Google ou LinkedIn est le plus rapide — votre nom et e-mail sont remplis automatiquement."
+        },
+        "2": {
+          "title": "Vérifiez Votre E-mail",
+          "description": "Si vous vous êtes inscrit par e-mail, vérifiez votre boîte de réception pour un message de Best AI Resume. Entrez le code de vérification à 6 chiffres sur la page de vérification. Le code expire en 10 minutes — s'il expire, cliquez sur 'Renvoyer le Code' pour en obtenir un nouveau.",
+          "tip": "Vérifiez votre dossier spam ou courrier indésirable si vous ne voyez pas l'e-mail en une minute."
+        },
+        "3": {
+          "title": "Vous Êtes Prêt !",
+          "description": "Après la vérification, vous serez dirigé vers l'écran d'accueil où vous choisissez comment construire votre premier CV. Votre compte sauvegarde automatiquement chaque modification, vous ne perdrez jamais votre travail — même si vous fermez le navigateur."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Ai-je besoin d'une carte de crédit pour m'inscrire ?",
+          "a": "Non. Vous pouvez créer un compte et construire votre CV entièrement gratuitement. Une carte de crédit n'est requise que lorsque vous choisissez un forfait payant."
+        },
+        "2": {
+          "q": "Que faire si je ne reçois pas le code de vérification ?",
+          "a": "Vérifiez d'abord votre dossier spam/courrier indésirable. S'il n'y est pas, cliquez sur 'Renvoyer le Code' sur la page de vérification. Si vous ne le recevez toujours pas, essayez de vous inscrire avec Google ou LinkedIn."
+        },
+        "3": {
+          "q": "Puis-je utiliser le même compte sur plusieurs appareils ?",
+          "a": "Oui. Votre compte et tous vos CV sont stockés dans le cloud. Connectez-vous depuis n'importe quel appareil et reprenez là où vous vous êtes arrêté."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Construire Votre CV",
+      "steps": {
+        "1": {
+          "title": "Choisissez Votre Méthode",
+          "description": "Sur la page d'accueil, vous verrez quatre options : Génération IA (recommandé pour la plupart des utilisateurs), Télécharger un CV (analyser un PDF existant), Importer depuis LinkedIn (récupérer les données de votre profil), ou Partir de Zéro (modèle vierge). Chaque option vous guide à travers un court processus de configuration avant d'ouvrir le créateur.",
+          "tip": "La Génération IA est le moyen le plus rapide d'obtenir un CV complet et professionnel — vous pouvez toujours le modifier ensuite."
+        },
+        "2": {
+          "title": "Laissez l'IA Travailler",
+          "description": "Si vous avez choisi la Génération IA, entrez votre nom complet, le poste visé et votre niveau d'expérience (débutant, intermédiaire ou senior). Cliquez sur Générer et notre IA créera un CV complet avec un résumé professionnel, une expérience professionnelle, une formation et des compétences — le tout adapté à votre poste cible."
+        },
+        "3": {
+          "title": "Choisissez un Modèle",
+          "description": "Après la génération, parcourez notre galerie de plus de 16 modèles. Les modèles sont organisés en catégories : Professionnel, Créatif, Minimaliste et Compatible ATS. Cliquez sur n'importe quel modèle pour le prévisualiser avec vos données. Changez de modèle à tout moment sans perdre votre contenu.",
+          "tip": "Vous pouvez changer de modèle à tout moment depuis le créateur — votre contenu reste le même, seul le design change."
+        },
+        "4": {
+          "title": "Éditez et Personnalisez",
+          "description": "Le créateur a des sections à onglets à gauche (Informations Personnelles, Expérience, Formation, Compétences, etc.) et un aperçu en direct à droite. Modifiez n'importe quel champ et voyez les changements reflétés instantanément. Vous pouvez réorganiser les sections, ajouter des sections personnalisées, ajuster les tailles de police et changer les couleurs d'accent selon votre style."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Puis-je créer plusieurs CV ?",
+          "a": "Oui. Vous pouvez créer et sauvegarder plusieurs CV adaptés à différentes candidatures. Passez de l'un à l'autre depuis votre tableau de bord."
+        },
+        "2": {
+          "q": "La génération IA fonctionne-t-elle dans toutes les langues ?",
+          "a": "L'IA génère actuellement du contenu en anglais. Vous pouvez modifier manuellement le contenu généré dans n'importe quelle langue après la création."
+        },
+        "3": {
+          "q": "Puis-je importer mon profil LinkedIn ?",
+          "a": "Oui. Choisissez l'option 'Importer depuis LinkedIn' lors de l'inscription. Vous serez guidé pour connecter votre profil LinkedIn et récupérer votre parcours professionnel."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Choisir un Forfait",
+      "steps": {
+        "1": {
+          "title": "Visitez la Page des Tarifs",
+          "description": "Cliquez sur Tarifs dans la barre de navigation ou visitez directement la page des tarifs. Vous verrez quatre forfaits : Starter (gratuit, téléchargements limités), Gold, Diamond et Platinum. Utilisez le bouton bascule en haut pour alterner entre la facturation mensuelle et annuelle — les forfaits annuels économisent jusqu'à 40%."
+        },
+        "2": {
+          "title": "Commencez un Essai Gratuit",
+          "description": "Les forfaits Gold et Diamond offrent un essai gratuit de 7 jours en facturation mensuelle. Pendant l'essai, vous avez un accès complet à toutes les fonctionnalités du forfait. Vous ne serez pas facturé avant la fin de l'essai, et vous pouvez annuler à tout moment.",
+          "tip": "La facturation annuelle économise jusqu'à 40% par rapport à la mensuelle — et vous obtenez les mêmes fonctionnalités."
+        },
+        "3": {
+          "title": "Finalisez le Paiement",
+          "description": "Cliquez sur le bouton Commencer sur le forfait choisi. Vous serez redirigé vers une page de paiement sécurisée Stripe où vous entrez vos informations de carte. Après le paiement, votre compte est mis à niveau instantanément et vous pouvez commencer à télécharger immédiatement."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Puis-je annuler mon abonnement à tout moment ?",
+          "a": "Oui. Vous pouvez annuler depuis les paramètres de votre compte à tout moment. Vous conserverez l'accès jusqu'à la fin de votre période de facturation en cours."
+        },
+        "2": {
+          "q": "Que se passe-t-il quand mon essai gratuit se termine ?",
+          "a": "Si vous n'annulez pas, votre carte sera débitée pour la première période de facturation. Si vous annulez avant la fin de l'essai, vous ne serez pas facturé du tout."
+        },
+        "3": {
+          "q": "Puis-je changer de forfait plus tard ?",
+          "a": "Oui. Vous pouvez passer à un forfait supérieur ou inférieur à tout moment depuis les paramètres de votre compte. Les changements prennent effet immédiatement."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Télécharger Votre CV",
+      "steps": {
+        "1": {
+          "title": "Cliquez sur Télécharger",
+          "description": "Dans le créateur, cherchez le bouton vert Télécharger PDF dans le coin supérieur droit de la page. Cliquez dessus pour ouvrir la fenêtre de téléchargement, qui affiche vos téléchargements restants du mois et vous permet de confirmer l'exportation."
+        },
+        "2": {
+          "title": "Obtenez Votre PDF",
+          "description": "Votre CV est généré en PDF haute qualité qui correspond exactement à ce que vous voyez dans l'aperçu. Le PDF est optimisé pour la visualisation numérique (e-mail, portails d'emploi) et l'impression sur papier lettre ou A4 standard.",
+          "tip": "Pour de meilleurs résultats, utilisez les modèles compatibles ATS lorsque vous postulez via des portails d'emploi en ligne — ils sont analysés plus fiablement."
+        },
+        "3": {
+          "title": "Suivez Votre Utilisation",
+          "description": "Chaque forfait a une limite mensuelle de téléchargements qui se réinitialise à votre date de facturation. Vous pouvez vérifier vos téléchargements restants dans la fenêtre de téléchargement ou dans les paramètres de votre compte. Si vous atteignez votre limite, passez à un forfait supérieur à tout moment pour débloquer plus de téléchargements instantanément."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Puis-je télécharger au format Word/DOCX ?",
+          "a": "Oui. En plus du PDF, vous pouvez exporter votre CV en fichier DOCX compatible avec Microsoft Word et Google Docs."
+        },
+        "2": {
+          "q": "Pourquoi mon PDF semble-t-il légèrement différent de l'aperçu ?",
+          "a": "L'aperçu est une approximation. Le PDF est le résultat final parfait. De légères différences de rendu des polices sont normales entre l'aperçu du navigateur et le PDF."
+        },
+        "3": {
+          "q": "Que faire si je n'ai plus de téléchargements ?",
+          "a": "Votre compteur de téléchargements se réinitialise mensuellement. Si vous avez besoin de plus de téléchargements avant la réinitialisation, vous pouvez passer à un forfait supérieur pour un accès immédiat à une limite plus élevée."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Dépannage",
+      "items": {
+        "1": {
+          "title": "Impossible de me connecter à mon compte",
+          "description": "Essayez de réinitialiser votre mot de passe en utilisant le lien 'Mot de Passe Oublié' sur la page de connexion. Si vous vous êtes inscrit avec Google, GitHub ou LinkedIn, assurez-vous d'utiliser le même fournisseur. Effacez les cookies de votre navigateur si le problème persiste."
+        },
+        "2": {
+          "title": "Le code de vérification n'arrive pas",
+          "description": "Vérifiez votre dossier spam/courrier indésirable. Les codes expirent après 10 minutes — cliquez sur 'Renvoyer le Code' pour en obtenir un nouveau. Si vous utilisez un e-mail professionnel, le pare-feu de votre entreprise peut bloquer les e-mails automatisés. Essayez avec une adresse e-mail personnelle."
+        },
+        "3": {
+          "title": "Le paiement a été refusé",
+          "description": "Vérifiez votre numéro de carte, date d'expiration et CVV. Assurez-vous que votre carte autorise les transactions internationales ou en ligne. Si le problème persiste, essayez une autre carte ou contactez votre banque. Tous les paiements sont traités en toute sécurité via Stripe."
+        },
+        "4": {
+          "title": "Le PDF semble différent de l'aperçu",
+          "description": "L'aperçu montre une approximation du résultat final. Si des éléments spécifiques semblent incorrects, essayez de changer de modèle ou d'ajuster les tailles de police dans les paramètres de design du créateur. Assurez-vous que votre navigateur est à jour."
+        },
+        "5": {
+          "title": "Les modifications ne sont pas sauvegardées",
+          "description": "Votre travail est sauvegardé automatiquement dans le cloud. Si vous remarquez des modifications non sauvegardées, vérifiez votre connexion internet. Essayez de rafraîchir la page — vos dernières modifications devraient apparaître. Si votre connexion est lente, attendez quelques secondes entre les modifications."
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à Commencer ?",
+      "subtitle": "Créez votre CV professionnel en quelques minutes avec notre créateur alimenté par l'IA.",
+      "buildButton": "Commencer à Créer",
+      "contactButton": "Contacter le Support"
+    }
   }
 }

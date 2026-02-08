@@ -18,6 +18,7 @@ import {
     fontSizes,
     escapeHtml,
     formatDescription,
+    getFontScale
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -43,6 +44,20 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+
+    const fs = {
+        name: s(32),
+        jobTitle: s(14),
+        sectionHeading: s(14),
+        entryTitle: s(12),
+        body: s(11),
+        small: s(10),
+        tiny: s(9)
+    };
+
     // Colors matching frontend
     const darkBg = '#18181b';
     const accentColor = theme.primary || '#facc15';
@@ -50,7 +65,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Simple section header matching frontend
     const SectionHeader = (title: string) => `
-        <h3 style="font-size: 14px; font-weight: 900; color: #18181b; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">
+        <h3 style="font-size: ${fs.sectionHeading}; font-weight: 900; color: #18181b; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">
             ${title}
         </h3>
     `;
@@ -59,7 +74,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     const ProgressBar = (label: string, value: number) => `
         <div style="margin-bottom: 8px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 2px;">
-                <span style="font-size: 10px; font-weight: 700; color: #18181b;">${escapeHtml(label)}</span>
+                <span style="font-size: ${fs.small}; font-weight: 700; color: #18181b;">${escapeHtml(label)}</span>
             </div>
             <div style="width: 100%; height: 10px; background-color: #e4e4e7; border-radius: 4px;">
                 <div style="width: ${value}%; height: 100%; background-color: ${accentColor}; border-radius: 4px;"></div>
@@ -80,7 +95,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     const aboutMeHtml = personalInfo.summary ? `
         <div data-paginate style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.profile)}
-            <p style="line-height: 1.6; font-size: 11px; color: ${textColor};">
+            <p style="line-height: 1.6; font-size: ${fs.body}; color: ${textColor};">
                 ${formatDescription(personalInfo.summary)}
             </p>
         </div>
@@ -93,15 +108,15 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             <div style="display: flex; flex-direction: column; gap: 16px;">
                 ${experience.map(exp => `
                     <div data-paginate="item">
-                        <h4 style="font-size: 12px; font-weight: 800; color: #18181b; text-transform: uppercase;">
+                        <h4 style="font-size: ${fs.entryTitle}; font-weight: 800; color: #18181b; text-transform: uppercase;">
                             ${escapeHtml(exp.title)}
                         </h4>
-                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: #52525b; margin-bottom: 4px; font-weight: 600;">
+                        <div style="display: flex; justify-content: space-between; font-size: ${fs.small}; color: #52525b; margin-bottom: 4px; font-weight: 600;">
                             <span>${escapeHtml(exp.company)}</span>
                             <span>${formatLocalizedDate(exp.startDate, locale)} - ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                         </div>
                         ${exp.description ? `
-                            <div style="font-size: 11px; line-height: 1.5; color: ${textColor};">
+                            <div style="font-size: ${fs.body}; line-height: 1.5; color: ${textColor};">
                                 ${formatDescription(exp.description)}
                             </div>
                         ` : ''}
@@ -118,10 +133,10 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             <div style="display: flex; flex-direction: column; gap: 16px;">
                 ${education.map(edu => `
                     <div data-paginate="item">
-                        <h4 style="font-size: 12px; font-weight: 800; color: #18181b; text-transform: uppercase;">
+                        <h4 style="font-size: ${fs.entryTitle}; font-weight: 800; color: #18181b; text-transform: uppercase;">
                             ${escapeHtml(edu.degree)}
                         </h4>
-                        <div style="font-size: 10px; color: #52525b; font-weight: 600;">
+                        <div style="font-size: ${fs.small}; color: #52525b; font-weight: 600;">
                             ${escapeHtml(edu.school)}, ${formatLocalizedDate(edu.startDate, locale)} - ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
                         </div>
                     </div>
@@ -150,7 +165,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             ${SectionHeader(t.sections.strengths)}
             <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                 ${strengths.map(str => `
-                    <span data-paginate="item" style="background-color: ${accentColor}; color: #18181b; padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 600;">
+                    <span data-paginate="item" style="background-color: ${accentColor}; color: #18181b; padding: 4px 12px; border-radius: 4px; font-size: ${fs.small}; font-weight: 600;">
                         ${escapeHtml(str.name)}
                     </span>
                 `).join('')}
@@ -164,7 +179,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             ${SectionHeader(t.sections.interests)}
             <div style="display: flex; flex-wrap: wrap; gap: 8px 16px;">
                 ${interests.map(int => `
-                    <span style="font-size: 11px; font-weight: 500;">
+                    <span style="font-size: ${fs.body}; font-weight: 500;">
                         ★ ${escapeHtml(int.name)}
                     </span>
                 `).join('')}
@@ -178,12 +193,12 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             ${SectionHeader(t.sections.credentials)}
             ${certifications && certifications.length > 0 ? `
                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                    <h4 style="font-size: 10px; font-weight: 600; color: #52525b; margin-bottom: 8px;">${t.sections.certifications}</h4>
+                    <h4 style="font-size: ${fs.small}; font-weight: 600; color: #52525b; margin-bottom: 8px;">${t.sections.certifications}</h4>
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         ${certifications.map(cert => `
                             <div data-paginate="item">
-                                <div style="font-weight: 600; font-size: 11px; color: #18181b;">${escapeHtml(cert.name)}</div>
-                                <div style="font-size: 10px; color: #52525b;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                <div style="font-weight: 600; font-size: ${fs.body}; color: #18181b;">${escapeHtml(cert.name)}</div>
+                                <div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                             </div>
                         `).join('')}
                     </div>
@@ -191,12 +206,12 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             ` : ''}
             ${awards && awards.length > 0 ? `
                 <div>
-                    <h4 style="font-size: 10px; font-weight: 600; color: #52525b; margin-bottom: 8px;">${t.sections.awards}</h4>
+                    <h4 style="font-size: ${fs.small}; font-weight: 600; color: #52525b; margin-bottom: 8px;">${t.sections.awards}</h4>
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         ${awards.map(award => `
                             <div data-paginate="item">
-                                <div style="font-weight: 600; font-size: 11px; color: #18181b;">${escapeHtml(award.title)}</div>
-                                <div style="font-size: 10px; color: #52525b;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                <div style="font-weight: 600; font-size: ${fs.body}; color: #18181b;">${escapeHtml(award.title)}</div>
+                                <div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                             </div>
                         `).join('')}
                     </div>
@@ -211,7 +226,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             ${SectionHeader(t.sections.languages)}
             <div style="display: flex; flex-direction: column;">
                 ${languages.map(lang => `
-                    <div data-paginate="item" style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 11px; font-weight: 600; border-bottom: 1px solid #e4e4e7; padding-bottom: 2px;">
+                    <div data-paginate="item" style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: ${fs.body}; font-weight: 600; border-bottom: 1px solid #e4e4e7; padding-bottom: 2px;">
                         <span>${escapeHtml(lang.name)}</span>
                         <span style="color: #52525b;">${escapeHtml(lang.proficiency || '')}</span>
                     </div>
@@ -225,7 +240,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     const socialLinksHtml = hasSocialLinks ? `
         <div data-paginate style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.socialLinks)}
-            <div style="display: flex; flex-direction: column; gap: 4px; font-size: 11px;">
+            <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${fs.body};">
                 ${personalInfo.linkedin ? `<div data-paginate="item"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
                 ${personalInfo.x ? `<div data-paginate="item"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</div>` : ''}
                 ${personalInfo.github ? `<div data-paginate="item"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</div>` : ''}
@@ -243,10 +258,10 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             <div style="display: flex; flex-direction: column; gap: 12px;">
                 ${references.map(ref => `
                     <div data-paginate="item">
-                        <div style="font-weight: 700; font-size: 11px; color: #18181b;">${escapeHtml(ref.name)}</div>
-                        <div style="font-size: 10px; color: #52525b;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                        ${ref.email ? `<div style="font-size: 10px; color: #52525b;">${escapeHtml(ref.email)}</div>` : ''}
-                        ${ref.phone ? `<div style="font-size: 10px; color: #52525b;">${escapeHtml(ref.phone)}</div>` : ''}
+                        <div style="font-weight: 700; font-size: ${fs.body}; color: #18181b;">${escapeHtml(ref.name)}</div>
+                        <div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                        ${ref.email ? `<div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(ref.email)}</div>` : ''}
+                        ${ref.phone ? `<div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(ref.phone)}</div>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -266,7 +281,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     const personalDetailsHtml = hasPersonalDetails ? `
         <div data-paginate style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.personalDetails)}
-            <div style="display: flex; flex-direction: column; gap: 4px; font-size: 11px;">
+            <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${fs.body};">
                 ${personalInfo.nationality ? `<div data-paginate="item"><strong>Nationality:</strong> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                 ${personalInfo.idType && personalInfo.idNumber ? `<div data-paginate="item"><strong>${formatIdType(personalInfo.idType)}:</strong> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
             </div>
@@ -277,13 +292,13 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     const customFieldsHtml = customFields.map(field => `
         <div data-paginate style="margin-bottom: 24px;">
             ${SectionHeader(field.label)}
-            <p style="font-size: 11px; line-height: 1.6;">${formatDescription(field.content)}</p>
+            <p style="font-size: ${fs.body}; line-height: 1.6;">${formatDescription(field.content)}</p>
         </div>
     `).join('');
 
     // Contact items for header - matches frontend fs.small (10px)
     const contactHtml = `
-        <div style="text-align: right; font-size: 10px; color: #18181b; font-weight: 600; z-index: 10;">
+        <div style="text-align: right; font-size: ${fs.small}; color: #18181b; font-weight: 600; z-index: 10;">
             ${personalInfo.phone ? `<div style="margin-bottom: 4px;">${escapeHtml(personalInfo.phone)}</div>` : ''}
             ${personalInfo.email ? `<div style="margin-bottom: 4px;">${escapeHtml(personalInfo.email)}</div>` : ''}
             ${personalInfo.location ? `<div style="margin-bottom: 4px;">${escapeHtml(personalInfo.location)}</div>` : ''}
@@ -311,10 +326,10 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
                     <!-- Name - Left side -->
                     <div style="width: 60%; padding-top: 20px;">
-                        <h1 style="font-family: ${headingFont}; font-size: 32px; font-weight: 400; color: #ffffff; text-transform: uppercase; line-height: 1.1; margin: 0 0 16px 0;">
+                        <h1 style="font-family: ${headingFont}; font-size: ${fs.name}; font-weight: 400; color: #ffffff; text-transform: uppercase; line-height: 1.1; margin: 0 0 16px 0;">
                             ${escapeHtml(personalInfo.fullName)}
                         </h1>
-                        <p style="font-size: 14px; color: ${accentColor}; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin: 0;">
+                        <p style="font-size: ${fs.jobTitle}; color: ${accentColor}; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin: 0;">
                             ${escapeHtml(personalInfo.jobTitle)}
                         </p>
                     </div>

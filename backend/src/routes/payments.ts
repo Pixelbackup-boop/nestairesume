@@ -93,6 +93,7 @@ router.get("/usage", authenticateToken, async (req: AuthRequest, res: Response):
 
 // Public endpoint: plan limits (no auth required)
 router.get("/plans", (_req: Request, res: Response): void => {
+  res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=1200");
   res.json(getPublicPlanLimits());
 });
 

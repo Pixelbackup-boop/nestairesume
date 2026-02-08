@@ -143,23 +143,17 @@ function BuilderContent() {
     };
 
     // Called when download is confirmed - calls backend PDF API
+    // Errors propagate to DownloadModal which shows user-friendly error UI
     const handleConfirmDownload = async () => {
-        try {
-            // Use exact template ID if available, otherwise fall back to layout type
-            const templateForPdf = selectedTemplateId || selectedTemplate;
-            await downloadPdf(
-                resumeData,
-                templateForPdf,
-                selectedTheme,
-                resumeData.customThemeColor,
-                pdfTranslations,
-                locale
-            );
-        } catch (error: any) {
-            const msg = error?.message || error?.response?.data?.error || 'Unknown error';
-            console.error('PDF download failed:', msg, error);
-            alert(`Failed to generate PDF: ${msg}`);
-        }
+        const templateForPdf = selectedTemplateId || selectedTemplate;
+        await downloadPdf(
+            resumeData,
+            templateForPdf,
+            selectedTheme,
+            resumeData.customThemeColor,
+            pdfTranslations,
+            locale
+        );
     };
 
     // Calculate section completion status

@@ -258,7 +258,20 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                     <div style={{ fontSize: fs.small, color: '#64748b', fontWeight: 600, marginBottom: 8 }}>
                                         {exp.company}{exp.city ? ` | ${exp.city}` : ''}
                                     </div>
-                                    <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563' }}>{exp.description}</p>
+                                    <div style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563' }}>
+                                        {exp.description?.split('\n').map((line, i) => {
+                                            const bulletMatch = line.match(/^([•\-·]\s*)(.*)/);
+                                            if (bulletMatch) {
+                                                return (
+                                                    <div key={i} style={{ display: 'flex' }}>
+                                                        <span style={{ flexShrink: 0 }}>{bulletMatch[1]}</span>
+                                                        <span>{bulletMatch[2]}</span>
+                                                    </div>
+                                                );
+                                            }
+                                            return line ? <div key={i}>{line}</div> : <div key={i} style={{ height: '0.5em' }} />;
+                                        })}
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -272,9 +285,17 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                         <div style={{ display: 'grid', gap: 16 }}>
                             {education.map((edu) => (
                                 <div key={edu.id} data-paginate="item">
-                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{edu.degree}</h4>
-                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}, {edu.city}</div>
-                                    <div style={{ fontSize: fs.small, color: '#64748b' }}>{edu.startDate} – {edu.endDate || t.labels.present}</div>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a', margin: 0, textTransform: 'uppercase' }}>
+                                            {edu.degree}
+                                        </h4>
+                                        <span style={{ fontSize: fs.small, color: accentColor, fontWeight: 600 }}>
+                                            {edu.startDate} – {edu.endDate || t.labels.present}
+                                        </span>
+                                    </div>
+                                    <div style={{ fontSize: fs.body, color: '#64748b', fontWeight: 600 }}>
+                                        {edu.school}{edu.city ? `, ${edu.city}` : ''}
+                                    </div>
                                 </div>
                             ))}
                         </div>

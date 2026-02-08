@@ -22,6 +22,7 @@ router.get("/settings", async (_req: Request, res: Response) => {
       slots: settings.slots,
     };
 
+    res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=600");
     res.json(publicSettings);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to get ad settings";

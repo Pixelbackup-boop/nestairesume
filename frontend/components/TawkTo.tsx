@@ -39,15 +39,22 @@ export default function TawkTo() {
       };
     }
 
-    // Load the script
-    const s1 = document.createElement("script");
-    s1.async = true;
-    s1.src = `https://embed.tawk.to/${settings.propertyId}/${settings.widgetId}`;
-    s1.charset = "UTF-8";
-    s1.setAttribute("crossorigin", "*");
-    document.head.appendChild(s1);
+    // Delay chat widget load until browser is idle (non-critical for initial experience)
+    const loadScript = () => {
+      const s1 = document.createElement("script");
+      s1.async = true;
+      s1.src = `https://embed.tawk.to/${settings.propertyId}/${settings.widgetId}`;
+      s1.charset = "UTF-8";
+      s1.setAttribute("crossorigin", "*");
+      document.head.appendChild(s1);
+      setScriptLoaded(true);
+    };
 
-    setScriptLoaded(true);
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(loadScript, { timeout: 5000 });
+    } else {
+      setTimeout(loadScript, 3000);
+    }
   }, [settings, isAuthenticated, user, scriptLoaded]);
 
   // Update visitor attributes when auth state changes after script is loaded

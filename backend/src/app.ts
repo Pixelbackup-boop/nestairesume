@@ -4,6 +4,7 @@
  */
 
 import express from "express";
+import compression from "compression";
 import cors from "cors";
 import helmet from "helmet";
 import { config } from "./config/env";
@@ -31,6 +32,14 @@ const app = express();
 
 // Trust proxy for rate limiting behind reverse proxy
 app.set('trust proxy', 1);
+
+// Gzip/Brotli compression (skip PDFs — already compressed binary)
+app.use(compression({
+    filter: (req, res) => {
+        if (res.getHeader('Content-Type') === 'application/pdf') return false;
+        return compression.filter(req, res);
+    }
+}));
 
 // Security headers with helmet
 // Configured for API server with cross-origin requests

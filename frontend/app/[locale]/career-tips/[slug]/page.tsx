@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = await getCareerTipBySlug(slug);
+  const post = await getCareerTipBySlug(slug, locale);
 
   if (!post) {
     return {
@@ -127,7 +127,7 @@ function renderMarkdown(content: string): string {
 
 export default async function CareerTipArticlePage({ params }: PageProps) {
   const { locale, slug } = await params;
-  const post = await getCareerTipBySlug(slug);
+  const post = await getCareerTipBySlug(slug, locale);
 
   if (!post) {
     notFound();

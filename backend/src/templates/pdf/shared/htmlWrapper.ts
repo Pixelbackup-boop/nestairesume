@@ -3,7 +3,7 @@
  * Wraps template content with proper document structure, fonts, and CSS
  */
 
-import { getGoogleFontUrl } from './helpers';
+import { getCachedFontStyles } from './fontCache';
 
 interface WrapperOptions {
     headingFont: string;
@@ -29,32 +29,30 @@ const isRtl = (locale: string): boolean => RTL_LOCALES.includes(locale);
 const getDirection = (locale: string): 'ltr' | 'rtl' => isRtl(locale) ? 'rtl' : 'ltr';
 
 /**
- * Generates Google Fonts link tags for the specified fonts
+ * Generates inline @font-face CSS from cached fonts (no network requests)
  */
-const generateFontLinks = (headingFont: string, bodyFont: string, locale: string): string => {
-    const fonts = new Set<string>();
+const generateFontStyles = (headingFont: string, bodyFont: string, locale: string): string => {
+    const styles: string[] = [];
 
-    const headingUrl = getGoogleFontUrl(headingFont);
-    const bodyUrl = getGoogleFontUrl(bodyFont);
+    const headingStyles = getCachedFontStyles(headingFont);
+    if (headingStyles) styles.push(headingStyles);
 
-    if (headingUrl) fonts.add(headingUrl);
-    if (bodyUrl) fonts.add(bodyUrl);
-
-    // Add Arabic font for RTL locales
-    if (isRtl(locale)) {
-        fonts.add('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+    if (bodyFont !== headingFont) {
+        const bodyStyles = getCachedFontStyles(bodyFont);
+        if (bodyStyles) styles.push(bodyStyles);
     }
 
-    return Array.from(fonts)
-        .map(url => `<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="${url}" rel="stylesheet">`)
-        .join('\n');
+    if (isRtl(locale)) {
+        const arabicStyles = getCachedFontStyles('Noto Sans Arabic');
+        if (arabicStyles) styles.push(arabicStyles);
+    }
+
+    return styles.length > 0 ? `<style>${styles.join('\n')}</style>` : '';
 };
 
 export const wrapHtml = (content: string, options: WrapperOptions): string => {
     const { headingFont, bodyFont, locale = 'en', marginStrategy = 'standard' } = options;
-    const fontLinks = generateFontLinks(headingFont, bodyFont, locale);
+    const fontStyles = generateFontStyles(headingFont, bodyFont, locale);
     const dir = getDirection(locale);
     const isRtlLocale = isRtl(locale);
 
@@ -79,8 +77,7 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
-    ${fontLinks}
-    <script src="https://cdn.tailwindcss.com"></script>
+    ${fontStyles}
     <style>
         /* A4 Page Setup */
         @page {

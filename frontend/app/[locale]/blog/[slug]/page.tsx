@@ -18,16 +18,16 @@ interface PostPageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
-// Generate static paths for all posts
+// Generate static paths for all posts across all locales
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs();
-  return slugs.map(slug => ({ slug }));
+  return locales.flatMap(locale => slugs.map(slug => ({ locale, slug })));
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = await getPostBySlug(slug);
+  const post = await getPostBySlug(slug, locale);
 
   if (!post) {
     return {
@@ -83,8 +83,8 @@ function JsonLd({ data, id = 'json-ld' }: { data: object; id?: string }) {
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const { locale, slug } = await params;
+  const post = await getPostBySlug(slug, locale);
 
   if (!post) {
     notFound();

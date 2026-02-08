@@ -74,20 +74,14 @@ function WordBuilderContent() {
         setShowDownloadModal(true);
     };
 
+    // Errors propagate to DownloadModal which shows user-friendly error UI
     const handleConfirmDownload = async () => {
-        try {
-            await downloadDocx(
-                resumeData,
-                docxTemplateId,
-                selectedTheme,
-                resumeData.customThemeColor
-            );
-        } catch (error: unknown) {
-            const err = error as { message?: string; response?: { status?: number } };
-            const msg = err?.message || (error instanceof Error ? error.message : 'Unknown error');
-            console.error('DOCX download failed:', msg, error);
-            alert(`Failed to generate Word document: ${msg}`);
-        }
+        await downloadDocx(
+            resumeData,
+            docxTemplateId,
+            selectedTheme,
+            resumeData.customThemeColor
+        );
     };
 
     const sectionStatus = useMemo(() => {

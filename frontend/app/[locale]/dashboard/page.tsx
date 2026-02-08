@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { useAuthStore } from '@/store/useAuthStore';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -105,11 +106,22 @@ function UsageCard({ icon, iconBg, label, usage, percentage, barColor, loading, 
 
 export default function DashboardPage() {
     const router = useRouter();
+    const locale = useLocale();
     const { user, isAuthenticated, refreshUser } = useAuthStore();
     const { usage, isLoading: usageLoading, fetchUsage, getUsagePercentage } = useUsageStore();
     const [resumes, setResumes] = useState<Resume[]>([]);
     const [loading, setLoading] = useState(true);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+    // Auth guard — redirect to home if not logged in
+    useEffect(() => {
+        if (!isAuthenticated && typeof window !== 'undefined') {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                router.push(`/${locale}`);
+            }
+        }
+    }, [isAuthenticated, locale, router]);
 
     // Refresh user + usage data on mount for fresh subscription status
     useEffect(() => {
@@ -218,6 +230,11 @@ export default function DashboardPage() {
         { label: 'Data Scientist', icon: '🔬' },
         { label: 'Sales', icon: '🤝' },
     ];
+
+    // Don't flash dashboard content while redirecting unauthenticated users
+    if (!isAuthenticated && typeof window !== 'undefined' && !localStorage.getItem('token')) {
+        return null;
+    }
 
     return (
         <>

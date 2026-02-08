@@ -11,7 +11,9 @@ import {
     escapeHtml,
     formatDescription,
     getIconSVG,
-    IconName
+    IconName,
+    getFontScale,
+    parseDualColor
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -35,12 +37,28 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
     const headingFont = getFontFamily(fonts?.heading || 'Playfair Display');
     const bodyFont = getFontFamily(fonts?.body || 'Lato');
 
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px: number) => Math.max(5, Math.round(px * scale));
+
+    const fs = {
+        name: s(42),
+        jobTitle: s(16),
+        sidebarHeader: s(14),
+        mainHeader: s(16),
+        entryTitle: s(14),
+        body: s(12),
+        small: s(11),
+        initials: s(40)
+    };
+
     // Theme colors - matching frontend SidebarMonogram.tsx
     const sidebarBg = '#374151'; // Gray 700 (dark sidebar)
     const mainBg = '#FFFFFF';
     const sidebarText = '#f9fafb'; // Light text for dark background
     const mainText = '#1f2937'; // Gray 800
-    const accentColor = data.customThemeColor || '#facc15'; // Yellow 400 (gold)
+    const accentColor = parseDualColor(data.customThemeColor, { primary: '#374151', secondary: '#facc15' }).secondary;
 
     // Monogram helper
     const initials = personalInfo.fullName
@@ -49,13 +67,13 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
     // --- Helpers ---
     const SidebarHeader = (title: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; color: ${accentColor}; text-transform: uppercase; margin: 0 0 16px 0; letter-spacing: 0.1em;">
+        <h3 style="font-family: ${headingFont}; font-size: ${fs.sidebarHeader}; font-weight: 700; color: ${accentColor}; text-transform: uppercase; margin: 0 0 16px 0; letter-spacing: 0.1em;">
             ${title}
         </h3>
     `;
 
     const MainHeader = (title: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 16px; font-weight: 700; color: #374151; text-transform: uppercase; margin: 0 0 16px 0; padding-bottom: 4px; border-bottom: 2px solid #374151;">
+        <h3 style="font-family: ${headingFont}; font-size: ${fs.mainHeader}; font-weight: 700; color: #374151; text-transform: uppercase; margin: 0 0 16px 0; padding-bottom: 4px; border-bottom: 2px solid #374151;">
             ${title}
         </h3>
     `;
@@ -64,20 +82,21 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
         { value: personalInfo.phone, icon: 'phone' },
         { value: personalInfo.email, icon: 'email' },
         { value: personalInfo.location, icon: 'location' },
-        { value: personalInfo.website, icon: 'website' }
+        { value: personalInfo.website, icon: 'website' },
+        { value: personalInfo.linkedin, icon: 'linkedin' }
     ].filter(item => item.value);
 
     return `
         <!-- Fixed background that covers full page on ALL pages -->
-        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; position: fixed; top: -2px; left: 0; width: 30%; height: calc(100% + 4px); min-height: 100vh; z-index: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
+        <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; position: fixed; top: 0; left: 0; width: 30%; height: 297mm; z-index: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
         <!-- Fixed accent stripe at 30% position (right edge of sidebar) - full page height -->
-        <div style="position: fixed; top: -2px; left: 30%; width: 8px; height: calc(100% + 4px); min-height: 100vh; background-color: ${accentColor}; z-index: 2;"></div>
+        <div style="position: fixed; top: 0; left: 30%; width: 8px; height: 297mm; background-color: ${accentColor}; z-index: 2;"></div>
 
         <!-- Table layout for content structure -->
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; background-color: ${mainBg}; color: ${mainText}; display: table; table-layout: fixed; position: relative;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: ${mainText}; display: table; table-layout: fixed; position: relative;">
 
             <!-- Sidebar (30%) - table-cell, no border (handled by fixed stripe) -->
-            <aside style="display: table-cell; width: 30%; background-color: ${sidebarBg}; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
+            <aside style="display: table-cell; width: 30%; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
 
                 <!-- Profile Image or Monogram -->
                 <div style="margin-bottom: 48px; display: flex; justify-content: center;">
@@ -88,7 +107,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                             style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid ${accentColor}; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
                         />
                     ` : `
-                        <div style="width: 100px; height: 100px; border-radius: 50%; background-color: ${mainBg}; display: flex; align-items: center; justify-content: center; color: ${sidebarBg}; font-family: ${headingFont}; font-size: 40px; font-weight: 700; border: 4px solid ${accentColor};">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background-color: ${mainBg}; display: flex; align-items: center; justify-content: center; color: ${sidebarBg}; font-family: ${headingFont}; font-size: ${fs.initials}; font-weight: 700; border: 4px solid ${accentColor};">
                             ${initials}
                         </div>
                     `}
@@ -97,25 +116,13 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                 <!-- Contact -->
                 <div style="margin-bottom: 40px;">
                     ${SidebarHeader(t.sections.contact)}
-                    <div style="font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="font-size: ${fs.body}; display: flex; flex-direction: column; gap: 12px;">
                         ${contactItems.map(item => `
                             <div style="display: flex; gap: 10px; align-items: flex-start;">
-                                <span style="color: ${accentColor}; margin-top: 2px;">${getIconSVG(item.icon as IconName, accentColor, 14)}</span>
+                                <span style="color: ${accentColor}; margin-top: 2px;">${getIconSVG(item.icon as IconName, accentColor, sNum(14))}</span>
                                 <span style="word-break: break-all;">${escapeHtml(item.value!)}</span>
                             </div>
                         `).join('')}
-                    </div>
-                        <!-- Extra Socials -->
-                        ${['github', 'x', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
-        const val = (personalInfo as any)[network];
-        if (!val || contactItems.find(c => c.value === val)) return '';
-        return `
-                                <div style="display: flex; gap: 10px; align-items: flex-start;">
-                                    <span style="color: ${accentColor}; margin-top: 2px;">${getIconSVG(network as IconName, accentColor, 14)}</span>
-                                    <span style="word-break: break-all;">${escapeHtml(val)}</span>
-                                </div>
-                            `;
-    }).join('')}
                     </div>
                 </div>
 
@@ -123,7 +130,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader(t.sections.personalDetails)}
-                        <div style="font-size: 12px; display: flex; flex-direction: column; gap: 8px;">
+                        <div style="font-size: ${fs.body}; display: flex; flex-direction: column; gap: 8px;">
                             ${personalInfo.nationality ? `<div><span style="color: ${accentColor}; font-weight: 500;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
                                 <div><span style="color: ${accentColor}; font-weight: 500;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
@@ -136,7 +143,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                 ${languages && languages.length > 0 ? `
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader(t.sections.languages)}
-                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
                             ${languages.map(lang => `
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <span>${escapeHtml(lang.name)}</span>
@@ -154,7 +161,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         <div style="display: flex; flex-direction: column; gap: 8px;">
                             ${strengths.map(str => `
                                 <div>
-                                    <div style="font-size: 12px; margin-bottom: 4px; color: ${sidebarText};">
+                                    <div style="font-size: ${fs.body}; margin-bottom: 4px; color: ${sidebarText};">
                                         ${escapeHtml(str.name)}
                                     </div>
                                     <div style="width: 100%; height: 5px; background-color: #6b7280; border-radius: 3px;">
@@ -170,7 +177,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                 ${interests && interests.length > 0 ? `
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader(t.sections.interests)}
-                        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px;">
+                        <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${fs.body};">
                             ${interests.map(int => `
                                 <div>• ${escapeHtml(int.name)}</div>
                             `).join('')}
@@ -181,7 +188,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
             </aside>
 
             <!-- Main Content (70%) - table-cell for equal height -->
-            <main style="display: table-cell; width: 70%; vertical-align: top;">
+            <main style="display: table-cell; width: 70%; vertical-align: top; background-color: ${mainBg};">
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead><tr><td style="height: 20px;"></td></tr></thead>
                     <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
@@ -191,10 +198,10 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Header -->
                 <div style="margin-bottom: 48px; border-bottom: 1px solid ${accentColor}; padding-bottom: 16px;">
-                    <h1 style="font-family: ${headingFont}; font-size: 42px; font-weight: 700; color: #111827; text-transform: uppercase; margin: 0 0 8px 0; letter-spacing: 0.05em;">
+                    <h1 style="font-family: ${headingFont}; font-size: ${fs.name}; font-weight: 700; color: #111827; text-transform: uppercase; margin: 0 0 8px 0; letter-spacing: 0.05em;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
-                    <p style="font-family: ${headingFont}; font-size: 16px; color: #4b5563; text-transform: uppercase; font-weight: 500; letter-spacing: 0.2em; margin: 0;">
+                    <p style="font-family: ${headingFont}; font-size: ${fs.jobTitle}; color: #4b5563; text-transform: uppercase; font-weight: 500; letter-spacing: 0.2em; margin: 0;">
                         ${escapeHtml(personalInfo.jobTitle || 'Job Title')}
                     </p>
                 </div>
@@ -203,7 +210,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                 ${personalInfo.summary ? `
                     <div style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.profile)}
-                        <p style="line-height: 1.6; font-size: 12px; color: #4b5563;">
+                        <p style="line-height: 1.6; font-size: ${fs.body}; color: #4b5563;">
                             ${formatDescription(personalInfo.summary)}
                         </p>
                     </div>
@@ -217,17 +224,17 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                             ${experience.map(exp => `
                                 <div>
                                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                                        <h4 style="font-weight: 800; font-size: 14px; color: ${mainText}; margin: 0; text-transform: uppercase;">
+                                        <h4 style="font-weight: 800; font-size: ${fs.entryTitle}; color: ${mainText}; margin: 0; text-transform: uppercase;">
                                             ${escapeHtml(exp.title)}
                                         </h4>
-                                        <span style="font-size: 11px; color: #374151; font-weight: 600;">
+                                        <span style="font-size: ${fs.small}; color: #374151; font-weight: 600;">
                                             ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                         </span>
                                     </div>
-                                    <div style="font-size: 12px; color: #6b7280; margin-bottom: 8px; font-weight: 600;">
+                                    <div style="font-size: ${fs.body}; color: #6b7280; margin-bottom: 8px; font-weight: 600;">
                                         ${escapeHtml(exp.company)}${exp.city ? ` | ${escapeHtml(exp.city)}` : ''}
                                     </div>
-                                    <div style="font-size: 12px; line-height: 1.6; color: #4b5563;">
+                                    <div style="font-size: ${fs.body}; line-height: 1.6; color: #4b5563;">
                                         ${formatDescription(exp.description || '')}
                                     </div>
                                 </div>
@@ -243,13 +250,13 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
                                 <div data-paginate="item">
-                                    <h4 style="font-weight: 700; font-size: 14px; color: #111827; margin: 0;">
+                                    <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #111827; margin: 0;">
                                         ${escapeHtml(edu.degree)}
                                     </h4>
-                                    <div style="font-size: 12px; color: #4b5563;">
+                                    <div style="font-size: ${fs.body}; color: #4b5563;">
                                         ${escapeHtml(edu.school)}${edu.city ? `, ${escapeHtml(edu.city)}` : ''}
                                     </div>
-                                    <div style="font-size: 11px; color: #6b7280;">
+                                    <div style="font-size: ${fs.small}; color: #6b7280;">
                                         ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                     </div>
                                 </div>
@@ -265,7 +272,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                             ${skills.map(skill => `
                                 <div>
-                                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                                    <div style="display: flex; justify-content: space-between; font-size: ${fs.body}; margin-bottom: 4px;">
                                         <span style="font-weight: 500; color: #374151;">${escapeHtml(skill.name)}</span>
                                     </div>
                                     <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
@@ -273,6 +280,21 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                                     </div>
                                 </div>
                             `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Social Links -->
+                ${(personalInfo.linkedin || (personalInfo as any).x || (personalInfo as any).github || (personalInfo as any).dribbble || (personalInfo as any).behance || (personalInfo as any).instagram) ? `
+                    <div style="margin-bottom: 40px;">
+                        ${MainHeader(t.sections.socialLinks)}
+                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
+                            ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
+                            ${(personalInfo as any).x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml((personalInfo as any).x)}</div>` : ''}
+                            ${(personalInfo as any).github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml((personalInfo as any).github)}</div>` : ''}
+                            ${(personalInfo as any).dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml((personalInfo as any).dribbble)}</div>` : ''}
+                            ${(personalInfo as any).behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml((personalInfo as any).behance)}</div>` : ''}
+                            ${(personalInfo as any).instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${escapeHtml((personalInfo as any).instagram)}</div>` : ''}
                         </div>
                     </div>
                 ` : ''}
@@ -290,10 +312,10 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                                 <div style="display: flex; flex-direction: column; gap: 12px;">
                                     ${certifications.map(cert => `
                                         <div data-paginate="item">
-                                            <div style="font-weight: 600; font-size: 12px; color: ${mainText};">
+                                            <div style="font-weight: 600; font-size: ${fs.body}; color: ${mainText};">
                                                 ${escapeHtml(cert.name)}
                                             </div>
-                                            <div style="font-size: 11px; color: #6b7280;">
+                                            <div style="font-size: ${fs.small}; color: #6b7280;">
                                                 ${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}
                                             </div>
                                         </div>
@@ -310,14 +332,14 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                                 <div style="display: flex; flex-direction: column; gap: 12px;">
                                     ${awards.map(award => `
                                         <div data-paginate="item">
-                                            <div style="font-weight: 600; font-size: 12px; color: ${mainText};">
+                                            <div style="font-weight: 600; font-size: ${fs.body}; color: ${mainText};">
                                                 ${escapeHtml(award.title)}
                                             </div>
-                                            <div style="font-size: 11px; color: #6b7280;">
+                                            <div style="font-size: ${fs.small}; color: #6b7280;">
                                                 ${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}
                                             </div>
                                             ${award.description ? `
-                                                <p style="font-size: 11px; color: #374151; margin: 4px 0 0 0; line-height: 1.5;">
+                                                <p style="font-size: ${fs.small}; color: #374151; margin: 4px 0 0 0; line-height: 1.5;">
                                                     ${formatDescription(award.description)}
                                                 </p>
                                             ` : ''}
@@ -337,8 +359,8 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                             ${data.references.map(ref => `
                                 <div>
                                     <div style="font-weight: 700; font-size: 13px; color: ${mainText};">${escapeHtml(ref.name)}</div>
-                                    <div style="font-size: 12px; color: #4b5563;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                    ${ref.email ? `<div style="font-size: 11px; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                    <div style="font-size: ${fs.body}; color: #4b5563;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                    ${ref.email ? `<div style="font-size: ${fs.small}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -349,7 +371,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                 ${customFields.map(field => `
                     <div style="margin-top: 40px;">
                         ${MainHeader(field.label)}
-                        <p style="line-height: 1.6; font-size: 12px; color: #4b5563;">
+                        <p style="line-height: 1.6; font-size: ${fs.body}; color: #4b5563;">
                             ${formatDescription(field.content)}
                         </p>
                     </div>

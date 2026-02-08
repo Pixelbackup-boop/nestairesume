@@ -6,6 +6,7 @@
 import { Router, Request, Response } from 'express';
 import { authenticateToken, AuthRequest } from '../middleware/auth';
 import { checkDownloadLimit, incrementDownloadCount } from '../middleware/subscriptionLimits';
+import { pdfLimiter, pdfHourlyLimiter } from '../middleware/rateLimiter';
 import { processPdfRequest } from '../services/pdfGeneratorService';
 import { PdfGenerateRequest } from '../types/pdf';
 
@@ -23,11 +24,10 @@ const router = Router();
  *
  * Response: PDF file (application/pdf)
  */
-router.post('/generate', authenticateToken, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
+router.post('/generate', pdfLimiter, pdfHourlyLimiter, authenticateToken, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
     try {
         const request = req.body as PdfGenerateRequest;
-        console.log(`[PDF] Generate request received for template: ${request.templateId}`);
-        console.log(`[PDF] Data size: ${JSON.stringify(request.data).length} chars`);
+        console.log(`[PDF] Generate request for template: ${request.templateId}, locale: ${request.locale || 'en'}`);
 
         // Validate required fields
         if (!request.data) {
@@ -62,9 +62,12 @@ router.post('/generate', authenticateToken, checkDownloadLimit, async (req: Auth
         res.send(pdfBuffer);
     } catch (error) {
         console.error('PDF generation error:', error);
-        res.status(500).json({
-            error: 'Failed to generate PDF',
-            message: error instanceof Error ? error.message : 'Unknown error',
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        const status = message.includes('queue timeout') ? 503 : 500;
+        res.status(status).json({
+            error: status === 503 ? 'Server busy' : 'Failed to generate PDF',
+            message,
+            retryAfter: status === 503 ? 5 : undefined,
         });
     }
 });
@@ -76,7 +79,7 @@ router.post('/generate', authenticateToken, checkDownloadLimit, async (req: Auth
  * Request body: same as /generate
  * Response: { pdf: string (base64) }
  */
-router.post('/preview', async (req: Request, res: Response): Promise<void> => {
+router.post('/preview', pdfLimiter, pdfHourlyLimiter, async (req: Request, res: Response): Promise<void> => {
     try {
         const request = req.body as PdfGenerateRequest;
 
@@ -96,9 +99,12 @@ router.post('/preview', async (req: Request, res: Response): Promise<void> => {
         });
     } catch (error) {
         console.error('PDF preview error:', error);
-        res.status(500).json({
-            error: 'Failed to generate PDF preview',
-            message: error instanceof Error ? error.message : 'Unknown error',
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        const status = message.includes('queue timeout') ? 503 : 500;
+        res.status(status).json({
+            error: status === 503 ? 'Server busy' : 'Failed to generate PDF preview',
+            message,
+            retryAfter: status === 503 ? 5 : undefined,
         });
     }
 });

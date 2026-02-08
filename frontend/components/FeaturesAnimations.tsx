@@ -264,3 +264,16 @@ export const FeaturesAnimations = {
   AnimatedLine,
   CTA,
 };
+
+// Individual named exports for server component imports
+export {
+  Hero as FeaturesHero,
+  FeaturesGrid,
+  FeatureCard,
+  StepsSection,
+  StepsHeader,
+  StepsGrid,
+  Step as FeaturesStep,
+  AnimatedLine as FeaturesAnimatedLine,
+  CTA as FeaturesCTA,
+};

@@ -10,7 +10,8 @@ import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
 import {
     getFontFamily,
     escapeHtml,
-    formatDescription
+    formatDescription,
+    getFontScale
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -40,13 +41,27 @@ export const renderHeaderRibbonYellow = (
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     // Note: header-ribbon-yellow always uses white body background; no bgStyle needed
 
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+
+    const fs = {
+        name: s(28),
+        sectionHeading: s(13),
+        sectionIcon: s(14),
+        entryTitle: s(14), // ~11pt
+        body: s(12),       // ~10pt
+        small: s(10),      // ~9px/10px
+        interestIcon: s(28)
+    };
+
     // Colors
     const accentColor = data.customThemeColor || theme.primary || '#eab308';
 
     // Helper for Section Headers with Yellow Circle Icon
     const SectionHeader = (title: string, icon: string) => `
-        <h3 style="font-family: ${headingFont}; font-size: 13px; font-weight: 700; color: #1f2937; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-            <span style="background-color: ${accentColor}; color: #ffffff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">
+        <h3 style="font-family: ${headingFont}; font-size: ${fs.sectionHeading}; font-weight: 700; color: #1f2937; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+            <span style="background-color: ${accentColor}; color: #ffffff; width: ${s(28)}; height: ${s(28)}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: ${fs.sectionIcon};">
                 ${icon}
             </span>
             ${title}
@@ -57,7 +72,7 @@ export const renderHeaderRibbonYellow = (
     const ProgressBar = (label: string, value: number) => `
         <div style="margin-bottom: 10px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                <span style="font-size: 10pt; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
+                <span style="font-size: ${fs.body}; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
             </div>
             <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
                 <div style="width: ${value}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
@@ -103,7 +118,7 @@ export const renderHeaderRibbonYellow = (
     `;
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: 10pt; background-color: #ffffff; position: relative; box-sizing: border-box;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; position: relative; box-sizing: border-box;">
 
             <!-- Header Area with Photo and Diagonal Ribbon - STATIC SIZES -->
             <header style="text-align: center; padding-top: 32px; padding-bottom: 16px;">
@@ -117,14 +132,14 @@ export const renderHeaderRibbonYellow = (
                 <div style="display: flex; justify-content: center; margin-left: 0; margin-right: 0;">
                     <div style="background-color: ${accentColor}; height: 72px; padding-left: 180px; padding-right: 180px; display: flex; align-items: center; justify-content: center; transform: skewX(-10deg);">
                         <!-- Name - counter-skew to keep text straight, STATIC size -->
-                        <h1 style="font-family: ${headingFont}; font-size: 28px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.1em; transform: skewX(10deg); margin: 0;">
+                        <h1 style="font-family: ${headingFont}; font-size: ${fs.name}; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.1em; transform: skewX(10deg); margin: 0;">
                             ${escapeHtml(personalInfo.fullName || 'Your Name')}
                         </h1>
                     </div>
                 </div>
 
                 <!-- Contact Info -->
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 10px; color: #6b7280; margin-top: 16px;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: ${fs.small}; color: #6b7280; margin-top: 16px;">
                     ${personalInfo.phone ? `<span>${escapeHtml(personalInfo.phone)}</span>` : ''}
                     ${personalInfo.email ? `<span>|</span><span>${escapeHtml(personalInfo.email)}</span>` : ''}
                     ${personalInfo.website ? `<span>|</span><span>${escapeHtml(personalInfo.website)}</span>` : ''}
@@ -135,7 +150,7 @@ export const renderHeaderRibbonYellow = (
 
                 <!-- Social Links Row -->
                 ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 9px; color: #6b7280; margin-top: 8px;">
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: ${fs.small}; color: #6b7280; margin-top: 8px;">
                         ${personalInfo.x ? `<span>X: ${escapeHtml(personalInfo.x)}</span>` : ''}
                         ${personalInfo.github ? `<span>GitHub: ${escapeHtml(personalInfo.github)}</span>` : ''}
                         ${personalInfo.dribbble ? `<span>Dribbble: ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
@@ -155,7 +170,7 @@ export const renderHeaderRibbonYellow = (
                     ${personalInfo.summary ? `
                         <section style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.profile, '&#128100;')}
-                            <p style="color: #374151; line-height: 1.6; font-size: 10pt;">
+                            <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(personalInfo.summary)}
                             </p>
                         </section>
@@ -168,20 +183,20 @@ export const renderHeaderRibbonYellow = (
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${experience.map(exp => `
                                     <div>
-                                        <p style="font-size: 9px; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
+                                        <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
                                             ${exp.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(exp.city.toUpperCase())}` : ''}
                                         </p>
-                                        <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                        <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${escapeHtml(exp.title)}
                                         </h4>
-                                        <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600; margin-bottom: 4px;">
+                                        <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600; margin-bottom: 4px;">
                                             ${escapeHtml(exp.company)}
                                         </p>
                                         ${exp.description ? `
                                             <ul style="padding-left: 14px; margin: 0; list-style: disc;">
                                                 ${exp.description.split('\n').filter(Boolean).map(line => `
-                                                    <li style="font-size: 9pt; color: #4b5563; margin-bottom: 1px; line-height: 1.4;">
+                                                    <li style="font-size: ${fs.small}; color: #4b5563; margin-bottom: 1px; line-height: 1.4;">
                                                         ${escapeHtml(line.replace(/^[-•]\s*/, ''))}
                                                     </li>
                                                 `).join('')}
@@ -200,18 +215,18 @@ export const renderHeaderRibbonYellow = (
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${education.map(edu => `
                                     <div>
-                                        <p style="font-size: 9px; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
+                                        <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${formatLocalizedDate(edu.startDate, locale)} – ${edu.current ? t.labels.present.toUpperCase() : formatLocalizedDate(edu.endDate, locale)}
                                             ${edu.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(edu.city.toUpperCase())}` : ''}
                                         </p>
-                                        <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                        <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${escapeHtml(edu.degree)}
                                         </h4>
-                                        <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600;">
+                                        <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600;">
                                             ${escapeHtml(edu.school)}
                                         </p>
                                         ${edu.description ? `
-                                            <p style="font-size: 9pt; color: #6b7280; margin-top: 2px;">
+                                            <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                 ${formatDescription(edu.description)}
                                             </p>
                                         ` : ''}
@@ -231,17 +246,17 @@ export const renderHeaderRibbonYellow = (
                             ${SectionHeader(t.sections.credentials, '&#127942;')}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.certifications}</h4>
+                                    <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${certifications.map(cert => `
                                             <div>
-                                                <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                                <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                                     ${escapeHtml(cert.name)}
                                                 </h4>
-                                                <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600;">
+                                                <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600;">
                                                     ${escapeHtml(cert.issuer)}
                                                 </p>
-                                                <p style="font-size: 9px; color: #6b7280; margin-top: 2px;">
+                                                <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                     ${formatLocalizedDate(cert.date, locale)}
                                                 </p>
                                             </div>
@@ -251,17 +266,17 @@ export const renderHeaderRibbonYellow = (
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div>
-                                    <h4 style="font-size: 9px; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.awards}</h4>
+                                    <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${awards.map(award => `
                                             <div>
-                                                <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                                <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                                     ${escapeHtml(award.title)}
                                                 </h4>
-                                                <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600;">
+                                                <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600;">
                                                     ${escapeHtml(award.issuer)}
                                                 </p>
-                                                <p style="font-size: 9px; color: #6b7280; margin-top: 2px;">
+                                                <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                     ${formatLocalizedDate(award.date, locale)}
                                                 </p>
                                             </div>
@@ -289,10 +304,10 @@ export const renderHeaderRibbonYellow = (
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
                                 ${interests.slice(0, 6).map(interest => `
                                     <div style="text-align: center;">
-                                        <div style="font-size: 28px; margin-bottom: 4px; color: ${accentColor};">
+                                        <div style="font-size: ${fs.interestIcon}; margin-bottom: 4px; color: ${accentColor};">
                                             ${getInterestIcon(interest.name)}
                                         </div>
-                                        <div style="font-size: 9px; color: #374151;">
+                                        <div style="font-size: ${fs.small}; color: #374151;">
                                             ${escapeHtml(interest.name)}
                                         </div>
                                     </div>
@@ -307,7 +322,7 @@ export const renderHeaderRibbonYellow = (
                             ${SectionHeader(t.sections.languages, '&#128483;')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
-                                    <div style="display: flex; justify-content: space-between; font-size: 10pt;">
+                                    <div style="display: flex; justify-content: space-between; font-size: ${fs.body};">
                                         <span style="font-weight: 600; color: #1f2937;">${escapeHtml(lang.name)}</span>
                                         <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
                                     </div>
@@ -322,7 +337,7 @@ export const renderHeaderRibbonYellow = (
                             ${SectionHeader(t.sections.strengths, '&#128170;')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(strength => `
-                                    <span style="background-color: ${accentColor}; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: 10px; font-weight: 500;">
+                                    <span style="background-color: ${accentColor}; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: ${fs.small}; font-weight: 500;">
                                         ${escapeHtml(strength.name)}
                                     </span>
                                 `).join('')}
@@ -337,13 +352,13 @@ export const renderHeaderRibbonYellow = (
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
                                     <div>
-                                        <h4 style="font-weight: 700; font-size: 11pt; color: #1f2937; margin-bottom: 1px;">
+                                        <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${escapeHtml(ref.name)}
                                         </h4>
-                                        <p style="font-size: 10pt; color: ${accentColor}; font-weight: 600; margin-bottom: 2px;">
+                                        <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600; margin-bottom: 2px;">
                                             ${escapeHtml(ref.title)}${ref.company ? ` at ${escapeHtml(ref.company)}` : ''}
                                         </p>
-                                        <div style="font-size: 9px; color: #6b7280;">
+                                        <div style="font-size: ${fs.small}; color: #6b7280;">
                                             ${ref.phone ? `<div>${escapeHtml(ref.phone)}</div>` : ''}
                                             ${ref.email ? `<div>${escapeHtml(ref.email)}</div>` : ''}
                                         </div>
@@ -357,7 +372,7 @@ export const renderHeaderRibbonYellow = (
                     ${customFields.map(field => `
                         <section style="margin-bottom: 20px;">
                             ${SectionHeader(field.label, '&#128221;')}
-                            <p style="color: #374151; line-height: 1.6; font-size: 10pt;">
+                            <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(field.content)}
                             </p>
                         </section>

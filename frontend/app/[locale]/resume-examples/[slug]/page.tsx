@@ -31,7 +31,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const example = await getResumeExampleBySlug(slug);
+  const example = await getResumeExampleBySlug(slug, locale);
 
   if (!example) {
     return { title: "Not Found" };
@@ -133,7 +133,7 @@ export default async function ResumeExamplePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const example = await getResumeExampleBySlug(slug);
+  const example = await getResumeExampleBySlug(slug, locale);
 
   if (!example) {
     notFound();

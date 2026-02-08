@@ -173,6 +173,10 @@ export default async function LocaleLayout({
           <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
         )}
 
+        {/* Preconnect to third-party origins for faster resource loading */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://embed.tawk.to" />
+
         {/* Organization Schema - Content is hardcoded, not user input */}
         <script
           type="application/ld+json"

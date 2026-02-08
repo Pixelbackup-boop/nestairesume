@@ -89,6 +89,7 @@ export default function Footer() {
         { label: t("about"), href: "/about" },
         { label: t("careers"), href: "/career" },
         { label: t("contact"), href: "/contact" },
+        { label: t("help"), href: "/help" },
       ],
       subSection: {
         heading: t("legal"),

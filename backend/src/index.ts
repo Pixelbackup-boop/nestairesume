@@ -23,6 +23,7 @@ import contactRoutes from "./routes/contact";
 // Import scheduler
 import { startScheduler } from "./services/schedulerService";
 import { reloadPlansFromDb } from "./services/stripeService";
+import { initFontCache } from "./templates/pdf/shared/fontCache";
 
 const app = express();
 
@@ -73,6 +74,9 @@ app.use("/api/v1/contact", contactRoutes);
 app.listen(config.port, config.host, async () => {
   console.log(`🚀 Server running at http://${config.host}:${config.port}`);
   console.log(`📚 API endpoints at http://${config.host}:${config.port}/api/v1`);
+
+  // Cache Google Fonts for PDF generation (eliminates CDN calls)
+  initFontCache();
 
   // Load plan limits from DB (falls back to hardcoded defaults if no rows)
   await reloadPlansFromDb();

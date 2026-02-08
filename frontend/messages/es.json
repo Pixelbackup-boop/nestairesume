@@ -570,6 +570,7 @@
     "privacy": "Privacidad",
     "terms": "Términos",
     "contact": "Contacto",
+    "help": "Guía de Ayuda",
     "copyright": "© {year} Best AI Resume. Todos los derechos reservados.",
     "resources": "Recursos",
     "resumeFormatGuide": "Guía de Formato de CV",
@@ -1093,7 +1094,7 @@
     "inquiryTypes": {
       "general": "Consulta General",
       "billing": "Problema de Facturación",
-      "cvCreation": "Problema con Creación de CV"
+      "cvCreation": "Problema con Creación de Currículum/CV"
     },
     "name": "Su Nombre",
     "namePlaceholder": "Juan Pérez",
@@ -1110,5 +1111,178 @@
     "sendAnother": "Enviar Otro Mensaje",
     "errorGeneric": "Algo salió mal. Por favor intente de nuevo más tarde.",
     "errorRateLimit": "Demasiados envíos. Por favor espere antes de intentar nuevamente."
+  },
+  "Help": {
+    "title": "Cómo Funciona",
+    "subtitle": "Una guía paso a paso para crear tu currículum profesional, desde el registro hasta la descarga de tu documento terminado.",
+    "quickNav": "Ir a:",
+    "tipLabel": "Consejo",
+    "faqLabel": "Preguntas Frecuentes",
+    "troubleshootingLabel": "Solución de Problemas",
+    "gettingStarted": {
+      "title": "Primeros Pasos",
+      "steps": {
+        "1": {
+          "title": "Crea Tu Cuenta",
+          "description": "Haz clic en el botón Comenzar en la página principal o en el enlace Registrarse en la barra de navegación. Puedes registrarte al instante con tu cuenta de Google, GitHub o LinkedIn — sin necesidad de contraseña. ¿Prefieres correo electrónico? Ingresa tu nombre, correo y elige una contraseña.",
+          "tip": "Iniciar sesión con Google o LinkedIn es lo más rápido — tu nombre y correo se completan automáticamente."
+        },
+        "2": {
+          "title": "Verifica Tu Correo",
+          "description": "Si te registraste con correo electrónico, revisa tu bandeja de entrada para un mensaje de Best AI Resume. Ingresa el código de verificación de 6 dígitos en la página de verificación. El código expira en 10 minutos — si expira, haz clic en 'Reenviar Código' para obtener uno nuevo.",
+          "tip": "Revisa tu carpeta de spam o correo no deseado si no ves el correo en un minuto."
+        },
+        "3": {
+          "title": "¡Estás Dentro!",
+          "description": "Después de la verificación, serás llevado a la pantalla de incorporación donde eliges cómo construir tu primer currículum. Tu cuenta guarda automáticamente cada cambio que hagas, así que nunca perderás tu trabajo — incluso si cierras el navegador."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "¿Necesito una tarjeta de crédito para registrarme?",
+          "a": "No. Puedes crear una cuenta y construir tu currículum completamente gratis. Solo se requiere tarjeta de crédito cuando eliges un plan de pago."
+        },
+        "2": {
+          "q": "¿Qué pasa si no recibo el código de verificación?",
+          "a": "Revisa tu carpeta de spam/correo no deseado primero. Si no está ahí, haz clic en 'Reenviar Código' en la página de verificación. Si aún no lo recibes, intenta registrarte con Google o LinkedIn."
+        },
+        "3": {
+          "q": "¿Puedo usar la misma cuenta en varios dispositivos?",
+          "a": "Sí. Tu cuenta y todos tus currículums se almacenan en la nube. Inicia sesión desde cualquier dispositivo y continúa donde lo dejaste."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Construyendo Tu Currículum",
+      "steps": {
+        "1": {
+          "title": "Elige Tu Método",
+          "description": "En la página de incorporación, verás cuatro opciones: Generación con IA (recomendado para la mayoría de usuarios), Subir Currículum (analizar un PDF existente), Importar desde LinkedIn (extraer datos de tu perfil), o Empezar desde Cero (plantilla en blanco). Cada opción te guía a través de un breve proceso de configuración antes de abrir el constructor.",
+          "tip": "La Generación con IA es la forma más rápida de obtener un currículum completo y profesional — siempre puedes editarlo después."
+        },
+        "2": {
+          "title": "Deja que la IA Trabaje",
+          "description": "Si elegiste Generación con IA, ingresa tu nombre completo, el título del puesto al que aspiras y tu nivel de experiencia (junior, medio o senior). Haz clic en Generar y nuestra IA creará un currículum completo con resumen profesional, experiencia laboral, educación y habilidades — todo adaptado a tu puesto objetivo."
+        },
+        "3": {
+          "title": "Elige una Plantilla",
+          "description": "Después de la generación, explora nuestra galería de más de 16 plantillas. Las plantillas están organizadas en categorías: Profesional, Creativa, Minimalista y Compatible con ATS. Haz clic en cualquier plantilla para previsualizarla con tus datos. Cambia entre plantillas en cualquier momento sin perder tu contenido.",
+          "tip": "Puedes cambiar tu plantilla en cualquier momento desde el constructor — tu contenido se mantiene igual, solo cambia el diseño."
+        },
+        "4": {
+          "title": "Edita y Personaliza",
+          "description": "El constructor tiene secciones con pestañas a la izquierda (Información Personal, Experiencia, Educación, Habilidades, etc.) y una vista previa en vivo a la derecha. Edita cualquier campo y ve los cambios reflejados al instante. Puedes reordenar secciones, agregar secciones personalizadas, ajustar tamaños de fuente y cambiar colores de acento a tu estilo."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "¿Puedo crear múltiples currículums?",
+          "a": "Sí. Puedes crear y guardar múltiples currículums adaptados a diferentes solicitudes de empleo. Cambia entre ellos desde tu panel de control."
+        },
+        "2": {
+          "q": "¿La generación con IA funciona en todos los idiomas?",
+          "a": "La IA actualmente genera contenido en inglés. Puedes editar manualmente el contenido generado en cualquier idioma después de la creación."
+        },
+        "3": {
+          "q": "¿Puedo importar mi perfil de LinkedIn?",
+          "a": "Sí. Elige la opción 'Importar desde LinkedIn' durante la incorporación. Se te guiará para conectar tu perfil de LinkedIn y extraer tu historial laboral."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Eligiendo un Plan",
+      "steps": {
+        "1": {
+          "title": "Visita la Página de Precios",
+          "description": "Haz clic en Precios en la barra de navegación o visita la página de precios directamente. Verás cuatro planes: Starter (gratis, descargas limitadas), Gold, Diamond y Platinum. Usa el interruptor en la parte superior para alternar entre facturación mensual y anual — los planes anuales ahorran hasta un 40%."
+        },
+        "2": {
+          "title": "Comienza una Prueba Gratuita",
+          "description": "Los planes Gold y Diamond ofrecen una prueba gratuita de 7 días cuando eliges facturación mensual. Durante la prueba, tienes acceso completo a todas las funciones del plan. No se te cobrará hasta que termine la prueba, y puedes cancelar en cualquier momento.",
+          "tip": "La facturación anual ahorra hasta un 40% comparado con la mensual — y obtienes las mismas funciones."
+        },
+        "3": {
+          "title": "Completa el Pago",
+          "description": "Haz clic en el botón Comenzar en tu plan elegido. Serás redirigido a una página de pago segura de Stripe donde ingresas los datos de tu tarjeta. Después del pago, tu cuenta se actualiza al instante y puedes empezar a descargar de inmediato."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "¿Puedo cancelar mi suscripción en cualquier momento?",
+          "a": "Sí. Puedes cancelar desde la configuración de tu cuenta en cualquier momento. Mantendrás el acceso hasta el final de tu período de facturación actual."
+        },
+        "2": {
+          "q": "¿Qué pasa cuando termina mi prueba gratuita?",
+          "a": "Si no cancelas, se cobrará a tu tarjeta el primer período de facturación. Si cancelas antes de que termine la prueba, no se te cobrará nada."
+        },
+        "3": {
+          "q": "¿Puedo cambiar de plan después?",
+          "a": "Sí. Puedes mejorar o reducir tu plan en cualquier momento desde la configuración de tu cuenta. Los cambios se aplican de inmediato."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Descargando Tu Currículum",
+      "steps": {
+        "1": {
+          "title": "Haz Clic en Descargar",
+          "description": "En el constructor, busca el botón verde Descargar PDF en la esquina superior derecha de la página. Haz clic para abrir el modal de descarga, que muestra tus descargas restantes del mes y te permite confirmar la exportación."
+        },
+        "2": {
+          "title": "Obtén Tu PDF",
+          "description": "Tu currículum se genera como un PDF de alta calidad que coincide exactamente con lo que ves en la vista previa. El PDF está optimizado tanto para visualización digital (correo electrónico, portales de empleo) como para impresión en papel carta o A4 estándar.",
+          "tip": "Para mejores resultados, usa las plantillas compatibles con ATS al postularte a través de portales de empleo en línea — se analizan de manera más confiable."
+        },
+        "3": {
+          "title": "Controla Tu Uso",
+          "description": "Cada plan tiene un límite mensual de descargas que se reinicia en tu fecha de facturación. Puedes consultar tus descargas restantes en el modal de descarga o en la configuración de tu cuenta. Si alcanzas tu límite, mejora tu plan en cualquier momento para desbloquear más descargas al instante."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "¿Puedo descargar en formato Word/DOCX?",
+          "a": "Sí. Además de PDF, puedes exportar tu currículum como archivo DOCX compatible con Microsoft Word y Google Docs."
+        },
+        "2": {
+          "q": "¿Por qué mi PDF se ve ligeramente diferente a la vista previa?",
+          "a": "La vista previa es una aproximación cercana. El PDF es el resultado final perfecto. Pequeñas diferencias en la renderización de fuentes son normales entre la vista previa del navegador y el PDF."
+        },
+        "3": {
+          "q": "¿Qué pasa si me quedo sin descargas?",
+          "a": "Tu conteo de descargas se reinicia mensualmente. Si necesitas más descargas antes del reinicio, puedes mejorar tu plan para acceso inmediato a un límite más alto."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Solución de Problemas",
+      "items": {
+        "1": {
+          "title": "No puedo iniciar sesión en mi cuenta",
+          "description": "Intenta restablecer tu contraseña usando el enlace 'Olvidé mi Contraseña' en la página de inicio de sesión. Si te registraste con Google, GitHub o LinkedIn, asegúrate de usar el mismo proveedor. Borra las cookies de tu navegador si el problema persiste."
+        },
+        "2": {
+          "title": "El código de verificación no llega",
+          "description": "Revisa tu carpeta de spam/correo no deseado. Los códigos expiran después de 10 minutos — haz clic en 'Reenviar Código' para obtener uno nuevo. Si usas un correo corporativo, el firewall de tu empresa puede bloquear correos automatizados. Intenta con una dirección de correo personal."
+        },
+        "3": {
+          "title": "El pago fue rechazado",
+          "description": "Verifica el número de tu tarjeta, fecha de vencimiento y CVV. Asegúrate de que tu tarjeta permita transacciones internacionales o en línea. Si el problema persiste, intenta con otra tarjeta o contacta a tu banco. Todos los pagos se procesan de forma segura a través de Stripe."
+        },
+        "4": {
+          "title": "El PDF se ve diferente a la vista previa",
+          "description": "La vista previa muestra una aproximación del resultado final. Si elementos específicos se ven mal, intenta cambiar de plantilla o ajustar los tamaños de fuente en la configuración de diseño del constructor. Asegúrate de que tu navegador esté actualizado."
+        },
+        "5": {
+          "title": "Los cambios no se guardan",
+          "description": "Tu trabajo se guarda automáticamente en la nube. Si notas cambios sin guardar, verifica tu conexión a internet. Intenta refrescar la página — tus últimas ediciones deberían aparecer. Si tienes una conexión lenta, espera unos segundos entre ediciones."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Comenzar?",
+      "subtitle": "Construye tu currículum profesional en minutos con nuestro constructor impulsado por IA.",
+      "buildButton": "Empezar a Construir",
+      "contactButton": "Contactar Soporte"
+    }
   }
 }

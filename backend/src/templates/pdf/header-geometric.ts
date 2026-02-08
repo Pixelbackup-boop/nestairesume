@@ -10,7 +10,8 @@ import {
     getBackgroundCSS,
     escapeHtml,
     formatDescription,
-    getLanguageLevel
+    getLanguageLevel,
+    getFontScale
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -45,20 +46,16 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
     // Dimensions
     const patternHeight = 120;
 
-    // Name font size calculation (matching frontend 32px base)
-    const sizeName = fonts?.size || 'medium';
-    const nameSize = sizeName === 'small' ? '28px' : sizeName === 'large' ? '36px' : '32px';
+    // Font Scaling
+    const scale = getFontScale(fonts?.size);
+    const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
 
-    // Parse base size for relative scaling
-    const baseSizeVal = parseInt(sizeConfig.base); // e.g. 14
-
-    // Derived sizes to match frontend hierarchy
-    const sizes = {
-        name: nameSize,
-        sectionHeading: `${baseSizeVal}px`,       // ~14px
-        entryTitle: `${baseSizeVal - 1}px`,       // ~13px
-        body: `${baseSizeVal - 2}px`,             // ~12px
-        small: `${baseSizeVal - 4}px`,            // ~10px
+    const fs = {
+        name: s(32),
+        sectionHeading: s(14),
+        entryTitle: s(13),
+        body: s(12),
+        small: s(10)
     };
 
     const SectionRow = (label: string, content: string) => `
@@ -66,7 +63,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
             <div style="width: 25%; padding-right: 20px;">
                 <h3 style="
                     font-family: ${headingFont};
-                    font-size: ${sizes.sectionHeading};
+                    font-size: ${fs.sectionHeading};
                     color: ${accentColor};
                     text-transform: uppercase;
                     border-bottom: 2px solid ${accentColor};
@@ -126,7 +123,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 14px;
+                    font-size: ${fs.sectionHeading};
                     font-weight: 600;
                     color: #374151;
                 ">
@@ -135,7 +132,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
             </div>
             <!-- Label -->
             <span style="
-                font-size: 12px;
+                font-size: ${fs.body};
                 color: #374151;
                 text-align: center;
                 word-break: break-word;
@@ -148,7 +145,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
     };
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${sizeConfig.base}; background-color: #ffffff; color: ${textColor}; position: relative;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; color: ${textColor}; position: relative;">
             
             <!-- Geometric Pattern Decoration -->
             <div style="height: ${patternHeight}px; background-color: #ffffff; position: relative; overflow: hidden;">
@@ -175,7 +172,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
             ">
                 <h1 style="
                     font-family: ${headingFont};
-                    font-size: ${sizes.name};
+                    font-size: ${fs.name};
                     font-weight: 400;
                     letter-spacing: 0.05em;
                     margin-bottom: 8px;
@@ -188,7 +185,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                     flex-wrap: wrap;
                     justify-content: center;
                     gap: 24px;
-                    font-size: ${sizes.small};
+                    font-size: ${fs.small};
                     color: rgba(255,255,255,0.9);
                 ">
                     ${personalInfo.email ? `<span>${escapeHtml(personalInfo.email)}</span>` : ''}
@@ -209,18 +206,18 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                         ${experience.map(exp => `
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
-                                    <h4 style="font-size: ${sizes.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
+                                    <h4 style="font-size: ${fs.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
                                         ${escapeHtml(exp.title)}
                                     </h4>
-                                    <span style="font-size: ${sizes.small}; color: #6b7280;">
+                                    <span style="font-size: ${fs.small}; color: #6b7280;">
                                         ${formatLocalizedDate(exp.startDate, locale)} - ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                     </span>
                                 </div>
-                                <p style="color: ${accentColor}; font-weight: 600; margin-bottom: 4px; font-size: ${sizes.body};">
+                                <p style="color: ${accentColor}; font-weight: 600; margin-bottom: 4px; font-size: ${fs.body};">
                                     ${escapeHtml(exp.company)} ${exp.city ? `| ${escapeHtml(exp.city)}` : ''}
                                 </p>
                                 ${exp.description ? `
-                                    <div style="font-size: ${sizes.body}; line-height: 1.5; color: #4b5563;">
+                                    <div style="font-size: ${fs.body}; line-height: 1.5; color: #4b5563;">
                                         ${formatDescription(exp.description)}
                                     </div>
                                 ` : ''}
@@ -234,17 +231,17 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                         ${education.map(edu => `
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
-                                    <h4 style="font-size: ${sizes.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
+                                    <h4 style="font-size: ${fs.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
                                         ${escapeHtml(edu.degree)}
                                     </h4>
-                                    <span style="font-size: ${sizes.small}; color: #6b7280;">
+                                    <span style="font-size: ${fs.small}; color: #6b7280;">
                                         ${formatLocalizedDate(edu.startDate, locale)} - ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
                                     </span>
                                 </div>
-                                <p style="color: ${accentColor}; font-weight: 600; font-size: ${sizes.body}; margin-bottom: 4px;">
+                                <p style="color: ${accentColor}; font-weight: 600; font-size: ${fs.body}; margin-bottom: 4px;">
                                     ${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}
                                 </p>
-                                ${edu.description ? `<p style="font-size: ${sizes.small}; margin-top: 2px;">${formatDescription(edu.description)}</p>` : ''}
+                                ${edu.description ? `<p style="font-size: ${fs.small}; margin-top: 2px;">${formatDescription(edu.description)}</p>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -266,7 +263,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
         return `
                                 <div>
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                        <span style="font-size: 11px; font-weight: 500; color: ${theme.heading};">${escapeHtml(skill.name)}</span>
+                                        <span style="font-size: ${fs.body}; font-weight: 500; color: ${theme.heading};">${escapeHtml(skill.name)}</span>
                                     </div>
                                     <div style="width: 100%; height: 6px; background-color: #f1f5f9; border-radius: 3px;">
                                         <div style="width: ${val}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
@@ -302,12 +299,12 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                     <div>
                         ${certifications.length > 0 ? `
                             <div style="margin-bottom: 16px;">
-                                <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
+                                <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${certifications.map(cert => `
                                         <div>
                                             <div style="font-weight: 600; color: #1f2937;">${escapeHtml(cert.name)}</div>
-                                            <div style="font-size: ${sizes.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                            <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -316,12 +313,12 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
 
                         ${awards.length > 0 ? `
                             <div>
-                                <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
+                                <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${awards.map(award => `
                                         <div>
                                             <div style="font-weight: 600; color: #1f2937;">${escapeHtml(award.title)}</div>
-                                            <div style="font-size: ${sizes.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                            <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -347,8 +344,8 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                             <div>
                                 <div style="font-weight: 700; color: #1f2937;">${escapeHtml(ref.name)}</div>
                                 <div style="color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                ${ref.email ? `<div style="font-size: ${sizes.small}; color: #4b5563;">${escapeHtml(ref.email)}</div>` : ''}
-                                ${ref.phone ? `<div style="font-size: ${sizes.small}; color: #4b5563;">${escapeHtml(ref.phone)}</div>` : ''}
+                                ${ref.email ? `<div style="font-size: ${fs.small}; color: #4b5563;">${escapeHtml(ref.email)}</div>` : ''}
+                                ${ref.phone ? `<div style="font-size: ${fs.small}; color: #4b5563;">${escapeHtml(ref.phone)}</div>` : ''}
                             </div>
                         `).join('')}
                     </div>

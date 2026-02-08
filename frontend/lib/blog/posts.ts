@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 import { Post, PostMeta, PostFrontmatter, PostType } from './types';
+import { resolveContentPath } from '../content-utils';
 
 const POSTS_PATH = path.join(process.cwd(), 'content/blog');
 const CAREER_TIPS_PATH = path.join(process.cwd(), 'content/career-tips');
@@ -138,20 +139,27 @@ export async function getAllPosts(): Promise<PostMeta[]> {
   );
 }
 
-// Get a single post by slug
-export async function getPostBySlug(slug: string): Promise<Post | null> {
-  // Try database first
+// Get a single post by slug (locale-aware with English fallback)
+export async function getPostBySlug(slug: string, locale: string = 'en'): Promise<Post | null> {
+  // Try database first (database posts are English-only for now)
   const dbPost = await fetchDbPostBySlug(slug);
-  if (dbPost) return dbPost;
+  if (dbPost && locale === 'en') return dbPost;
 
-  // Fallback to MDX files
-  const files = getPostFiles();
-  for (const filename of files) {
-    const post = parsePostFile(filename);
-    if (post.slug === slug) {
-      return post;
-    }
+  // Try locale-specific MDX file first, then fallback to English
+  const filePath = resolveContentPath(POSTS_PATH, slug, locale);
+  if (fs.existsSync(filePath)) {
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data, content } = matter(fileContent);
+    const frontmatter = data as PostFrontmatter;
+    return {
+      ...frontmatter,
+      content,
+      readingTime: readingTime(content).text,
+    };
   }
+
+  // If locale file not found and we have a DB post, return it as fallback
+  if (dbPost) return dbPost;
 
   return null;
 }
@@ -369,15 +377,22 @@ export async function getAllCareerTips(): Promise<PostMeta[]> {
   );
 }
 
-// Get a single career tip by slug
-export async function getCareerTipBySlug(slug: string): Promise<Post | null> {
-  const files = getCareerTipsFiles();
-  for (const filename of files) {
-    const post = parseCareerTipFile(filename);
-    if (post.slug === slug) {
-      return post;
-    }
+// Get a single career tip by slug (locale-aware with English fallback)
+export async function getCareerTipBySlug(slug: string, locale: string = 'en'): Promise<Post | null> {
+  // Try locale-specific file first
+  const filePath = resolveContentPath(CAREER_TIPS_PATH, slug, locale);
+  if (fs.existsSync(filePath)) {
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data, content } = matter(fileContent);
+    const frontmatter = data as PostFrontmatter;
+    return {
+      ...frontmatter,
+      content,
+      readingTime: readingTime(content).text,
+      postType: 'career',
+    };
   }
+
   return null;
 }
 

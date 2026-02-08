@@ -606,6 +606,7 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "contact": "Contact",
+    "help": "Help Guide",
     "copyright": "© {year} Best AI Resume. All rights reserved.",
     "resources": "Resources",
     "resumeFormatGuide": "Resume Format Guide",
@@ -1243,7 +1244,7 @@
     "inquiryTypes": {
       "general": "General Inquiry",
       "billing": "Billing Issue",
-      "cvCreation": "CV Creation Issue"
+      "cvCreation": "Resume/CV Creation Issue"
     },
     "name": "Your Name",
     "namePlaceholder": "John Doe",
@@ -1260,5 +1261,178 @@
     "sendAnother": "Send Another Message",
     "errorGeneric": "Something went wrong. Please try again later.",
     "errorRateLimit": "Too many submissions. Please wait before trying again."
+  },
+  "Help": {
+    "title": "How It Works",
+    "subtitle": "A step-by-step guide to creating your professional resume, from signing up to downloading your finished document.",
+    "quickNav": "Jump to:",
+    "tipLabel": "Pro Tip",
+    "faqLabel": "Common Questions",
+    "troubleshootingLabel": "Troubleshooting",
+    "gettingStarted": {
+      "title": "Getting Started",
+      "steps": {
+        "1": {
+          "title": "Create Your Account",
+          "description": "Click the Get Started button on the homepage or the Sign Up link in the navigation bar. You can register instantly with your Google, GitHub, or LinkedIn account — no password needed. Prefer email? Enter your name, email, and choose a password.",
+          "tip": "Signing in with Google or LinkedIn is fastest — your name and email are filled in automatically."
+        },
+        "2": {
+          "title": "Verify Your Email",
+          "description": "If you registered with email, check your inbox for a message from Best AI Resume. Enter the 6-digit verification code on the verification page. The code expires in 10 minutes — if it expires, click 'Resend Code' to get a new one.",
+          "tip": "Check your spam or junk folder if you don't see the email within a minute."
+        },
+        "3": {
+          "title": "You're In",
+          "description": "After verification, you'll be taken to the onboarding screen where you choose how to build your first resume. Your account automatically saves every change you make, so you'll never lose your work — even if you close the browser."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Do I need a credit card to sign up?",
+          "a": "No. You can create an account and build your resume completely free. A credit card is only required when you choose a paid plan."
+        },
+        "2": {
+          "q": "What if I don't receive the verification code?",
+          "a": "Check your spam/junk folder first. If it's not there, click 'Resend Code' on the verification page. If you still don't receive it, try signing up with Google or LinkedIn instead."
+        },
+        "3": {
+          "q": "Can I use the same account on multiple devices?",
+          "a": "Yes. Your account and all your resumes are stored in the cloud. Log in from any device and pick up right where you left off."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Building Your Resume",
+      "steps": {
+        "1": {
+          "title": "Choose Your Method",
+          "description": "On the onboarding page, you'll see four options: AI Generation (recommended for most users), Upload Resume (parse an existing PDF), Import from LinkedIn (pull your profile data), or Start from Scratch (blank template). Each option leads you through a short setup flow before opening the builder.",
+          "tip": "AI Generation is the fastest way to get a complete, professional resume — you can always edit it afterward."
+        },
+        "2": {
+          "title": "Let AI Do the Work",
+          "description": "If you chose AI Generation, enter your full name, the job title you're applying for, and your experience level (entry, mid, or senior). Click Generate and our AI will create a complete resume with a professional summary, work experience, education, and skills sections — all tailored to your target role."
+        },
+        "3": {
+          "title": "Pick a Template",
+          "description": "After generation, browse our gallery of 16+ templates. Templates are organized into categories: Professional, Creative, Minimal, and ATS-Friendly. Click any template to preview it with your data. Switch between templates anytime without losing your content.",
+          "tip": "You can change your template at any time from the builder — your content stays the same, only the design changes."
+        },
+        "4": {
+          "title": "Edit & Customize",
+          "description": "The builder has tabbed sections on the left (Personal Info, Experience, Education, Skills, etc.) and a live preview on the right. Edit any field and see changes reflected instantly. You can reorder sections, add custom sections, adjust font sizes, and change accent colors to match your style."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Can I create multiple resumes?",
+          "a": "Yes. You can create and save multiple resumes tailored to different job applications. Switch between them from your dashboard."
+        },
+        "2": {
+          "q": "Does the AI generation work in all languages?",
+          "a": "The AI currently generates content in English. You can manually edit the generated content in any language after creation."
+        },
+        "3": {
+          "q": "Can I import my LinkedIn profile?",
+          "a": "Yes. Choose the 'Import from LinkedIn' option during onboarding. You'll be guided through connecting your LinkedIn profile to pull in your work history."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Choosing a Plan",
+      "steps": {
+        "1": {
+          "title": "Visit the Pricing Page",
+          "description": "Click Pricing in the navigation bar or visit the pricing page directly. You'll see four plans: Starter (free, limited downloads), Gold, Diamond, and Platinum. Use the toggle at the top to switch between monthly and annual billing — annual plans save up to 40%."
+        },
+        "2": {
+          "title": "Start a Free Trial",
+          "description": "Gold and Diamond plans offer a 7-day free trial when you choose monthly billing. During the trial, you get full access to all plan features. You won't be charged until the trial ends, and you can cancel anytime before that.",
+          "tip": "Annual billing saves up to 40% compared to monthly — and you still get the same features."
+        },
+        "3": {
+          "title": "Complete Checkout",
+          "description": "Click the Get Started button on your chosen plan. You'll be redirected to a secure Stripe checkout page where you enter your card details. After payment, your account is upgraded instantly and you can start downloading right away."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Can I cancel my subscription anytime?",
+          "a": "Yes. You can cancel from your account settings at any time. You'll keep access until the end of your current billing period."
+        },
+        "2": {
+          "q": "What happens when my free trial ends?",
+          "a": "If you don't cancel, your card will be charged for the first billing period. If you cancel before the trial ends, you won't be charged at all."
+        },
+        "3": {
+          "q": "Can I switch plans later?",
+          "a": "Yes. You can upgrade or downgrade your plan anytime from your account settings. Changes take effect immediately."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Downloading Your Resume",
+      "steps": {
+        "1": {
+          "title": "Click Download",
+          "description": "In the builder, look for the green Download PDF button in the top-right corner of the page. Click it to open the download modal, which shows your remaining downloads for the month and lets you confirm the export."
+        },
+        "2": {
+          "title": "Get Your PDF",
+          "description": "Your resume is rendered as a pixel-perfect, high-quality PDF that matches exactly what you see in the preview. The PDF is optimized for both digital viewing (email, job portals) and printing on standard letter or A4 paper.",
+          "tip": "For best results, use the ATS-friendly templates when applying through online job portals — they parse more reliably."
+        },
+        "3": {
+          "title": "Track Your Usage",
+          "description": "Each plan has a monthly download limit that resets on your billing date. You can check your remaining downloads in the download modal or in your account settings. If you hit your limit, upgrade your plan anytime to unlock more downloads instantly."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Can I download in Word/DOCX format?",
+          "a": "Yes. In addition to PDF, you can export your resume as a DOCX file compatible with Microsoft Word and Google Docs."
+        },
+        "2": {
+          "q": "Why does my PDF look slightly different from the preview?",
+          "a": "The preview is a close approximation. The PDF is the final, pixel-perfect output. Minor differences in font rendering are normal between browser preview and PDF."
+        },
+        "3": {
+          "q": "What if I run out of downloads?",
+          "a": "Your download count resets monthly. If you need more downloads before the reset, you can upgrade your plan for immediate access to a higher limit."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Troubleshooting",
+      "items": {
+        "1": {
+          "title": "Can't log in to my account",
+          "description": "Try resetting your password using the 'Forgot Password' link on the login page. If you signed up with Google, GitHub, or LinkedIn, make sure you're using the same provider. Clear your browser cookies if the issue persists."
+        },
+        "2": {
+          "title": "Verification code not arriving",
+          "description": "Check your spam/junk folder. Codes expire after 10 minutes — click 'Resend Code' to get a fresh one. If using a corporate email, your IT firewall may block automated emails. Try a personal email address instead."
+        },
+        "3": {
+          "title": "Payment was declined",
+          "description": "Verify your card number, expiry date, and CVV. Ensure your card allows international or online transactions. If the issue persists, try a different card or contact your bank. All payments are processed securely through Stripe."
+        },
+        "4": {
+          "title": "PDF looks different from preview",
+          "description": "The preview shows an approximation of the final output. If specific elements look off, try switching templates or adjusting font sizes in the builder's design settings. Ensure your browser is up to date."
+        },
+        "5": {
+          "title": "Changes not saving",
+          "description": "Your work saves automatically to the cloud. If you notice unsaved changes, check your internet connection. Try refreshing the page — your latest edits should appear. If you're on a slow connection, wait a few seconds between edits."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Build your professional resume in minutes with our AI-powered builder.",
+      "buildButton": "Start Building",
+      "contactButton": "Contact Support"
+    }
   }
 }

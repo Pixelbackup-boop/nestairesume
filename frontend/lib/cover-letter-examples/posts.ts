@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import { resolveContentPath } from '../content-utils';
 
 // Re-use authors from resume-examples
 import { AUTHORS, getAuthor } from '../resume-examples/posts';
@@ -132,10 +133,10 @@ export async function getAllCoverLetterExamples(): Promise<CoverLetterExampleMet
   }
 }
 
-// Get single cover letter example by slug
-export async function getCoverLetterExampleBySlug(slug: string): Promise<CoverLetterExample | null> {
+// Get single cover letter example by slug (locale-aware with English fallback)
+export async function getCoverLetterExampleBySlug(slug: string, locale: string = 'en'): Promise<CoverLetterExample | null> {
   try {
-    const filePath = path.join(CONTENT_DIR, `${slug}.mdx`);
+    const filePath = resolveContentPath(CONTENT_DIR, slug, locale);
 
     if (!fs.existsSync(filePath)) {
       return null;

@@ -13,9 +13,13 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
 
-  // Optimize tree-shaking for large icon libraries
+  // Tree-shaking for large libraries + client-side router cache
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'recharts'],
+    staleTimes: {
+      dynamic: 30,   // cache dynamic pages for 30s (back/forward navigation)
+      static: 300,   // cache static pages for 5min (content pages, blog, examples)
+    },
   },
 
   // Webpack configuration for bundle splitting
@@ -37,6 +41,13 @@ const nextConfig: NextConfig = {
           jspdf: {
             test: /[\\/]node_modules[\\/]jspdf[\\/]/,
             name: 'jspdf',
+            chunks: 'async',
+            priority: 30,
+          },
+          // recharts (~200KB) - only used in admin dashboard
+          recharts: {
+            test: /[\\/]node_modules[\\/]recharts[\\/]/,
+            name: 'recharts',
             chunks: 'async',
             priority: 30,
           },
