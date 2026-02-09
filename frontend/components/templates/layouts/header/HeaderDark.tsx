@@ -135,6 +135,27 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     </div>
                 </div>
 
+                {/* Personal Details (Dark Sidebar) */}
+                {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                    <div style={{ width: '100%', marginBottom: 20 }}>
+                        <SidebarSectionHeader title={t.sections.personalDetails} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} />
+                        <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 8, color: sidebarText }}>
+                            {personalInfo.nationality && (
+                                <div><span style={{ fontWeight: 600, color: accentColor }}>Nationality:</span> {personalInfo.nationality}</div>
+                            )}
+                            {personalInfo.idType && personalInfo.idNumber && (
+                                <div>
+                                    <span style={{ fontWeight: 600, color: accentColor }}>
+                                        {personalInfo.idType === 'id' ? 'ID' :
+                                            personalInfo.idType === 'passport' ? 'Passport' :
+                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                    </span> {personalInfo.idNumber}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+
                 {/* Skills (Dark Sidebar) */}
                 {skills.length > 0 && (
                     <div style={{ width: '100%', marginBottom: 20 }}>
@@ -198,13 +219,13 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
             <main
                 style={{
                     flex: 1,
-                    padding: scale < 1 ? '32px 24px' : '64px 48px',
+                    padding: scale < 1 ? '20px 24px 30px 24px' : '40px 48px 60px 48px',
                     display: 'flex',
                     flexDirection: 'column',
                 }}
             >
                 {/* Name Header */}
-                <div style={{ marginBottom: scale < 1 ? 32 : 50 }}>
+                <div style={{ marginBottom: scale < 1 ? 16 : 24 }}>
                     <h1
                         style={{
                             fontFamily: headingFont,
@@ -260,9 +281,20 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                         <span>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
 
-                                    <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>
-                                        {exp.description}
-                                    </p>
+                                    <div style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>
+                                        {exp.description?.split('\n').map((line, i) => {
+                                            const bulletMatch = line.match(/^([•\-·]\s*)(.*)/);
+                                            if (bulletMatch) {
+                                                return (
+                                                    <div key={i} style={{ display: 'flex' }}>
+                                                        <span style={{ flexShrink: 0 }}>{bulletMatch[1]}</span>
+                                                        <span>{bulletMatch[2]}</span>
+                                                    </div>
+                                                );
+                                            }
+                                            return line ? <div key={i}>{line}</div> : <div key={i} style={{ height: '0.5em' }} />;
+                                        })}
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -302,6 +334,20 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                     <span style={{ color: '#64748b', marginLeft: 6 }}>({lang.proficiency})</span>
                                 </div>
                             ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Social Links */}
+                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    <section className="mb-5 resume-section">
+                        <SectionHeaderMain title={t.sections.socialLinks} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
+                            {personalInfo.x && <div data-paginate="item"><span style={{ fontWeight: 600, color: '#0f172a' }}>X:</span> <span style={{ color: '#334155' }}>{personalInfo.x}</span></div>}
+                            {personalInfo.github && <div data-paginate="item"><span style={{ fontWeight: 600, color: '#0f172a' }}>GitHub:</span> <span style={{ color: '#334155' }}>{personalInfo.github}</span></div>}
+                            {personalInfo.dribbble && <div data-paginate="item"><span style={{ fontWeight: 600, color: '#0f172a' }}>Dribbble:</span> <span style={{ color: '#334155' }}>{personalInfo.dribbble}</span></div>}
+                            {personalInfo.behance && <div data-paginate="item"><span style={{ fontWeight: 600, color: '#0f172a' }}>Behance:</span> <span style={{ color: '#334155' }}>{personalInfo.behance}</span></div>}
+                            {personalInfo.instagram && <div data-paginate="item"><span style={{ fontWeight: 600, color: '#0f172a' }}>Instagram:</span> <span style={{ color: '#334155' }}>{personalInfo.instagram}</span></div>}
                         </div>
                     </section>
                 )}
@@ -367,40 +413,9 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
-                {/* Social Links */}
-                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <section className="mb-5 resume-section">
-                        <SectionHeaderMain title={t.sections.socialLinks} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
-                            {personalInfo.x && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>X:</span> <span style={{ color: '#334155' }}>{personalInfo.x}</span></div>}
-                            {personalInfo.github && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>GitHub:</span> <span style={{ color: '#334155' }}>{personalInfo.github}</span></div>}
-                            {personalInfo.dribbble && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Dribbble:</span> <span style={{ color: '#334155' }}>{personalInfo.dribbble}</span></div>}
-                            {personalInfo.behance && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Behance:</span> <span style={{ color: '#334155' }}>{personalInfo.behance}</span></div>}
-                            {personalInfo.instagram && <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Instagram:</span> <span style={{ color: '#334155' }}>{personalInfo.instagram}</span></div>}
-                        </div>
-                    </section>
-                )}
 
-                {/* Personal Details */}
-                {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                    <section className="mb-5 resume-section">
-                        <SectionHeaderMain title={t.sections.personalDetails} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: fs.body }}>
-                            {personalInfo.nationality && (
-                                <div><span style={{ fontWeight: 600, color: '#0f172a' }}>Nationality:</span> <span style={{ color: '#334155' }}>{personalInfo.nationality}</span></div>
-                            )}
-                            {personalInfo.idType && personalInfo.idNumber && (
-                                <div>
-                                    <span style={{ fontWeight: 600, color: '#0f172a' }}>
-                                        {personalInfo.idType === 'id' ? 'ID' :
-                                            personalInfo.idType === 'passport' ? 'Passport' :
-                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
-                                    </span> <span style={{ color: '#334155' }}>{personalInfo.idNumber}</span>
-                                </div>
-                            )}
-                        </div>
-                    </section>
-                )}
+
+
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (

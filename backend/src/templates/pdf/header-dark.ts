@@ -8,6 +8,7 @@ import {
     getFontFamily,
     escapeHtml,
     formatDescription,
+    formatDescriptionWithBullets,
     getIconSVG,
     IconName,
     parseDualColor,
@@ -129,38 +130,21 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                                 <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.linkedin)}</span>
                             </div>
                         ` : ''}
-                        ${personalInfo.github ? `
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="opacity: 0.9;">${getIconSVG('github', sidebarText, 14)}</span>
-                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.github)}</span>
-                            </div>
-                        ` : ''}
-                        ${personalInfo.x ? `
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="opacity: 0.9;">${getIconSVG('users', sidebarText, 14)}</span>
-                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.x)}</span>
-                            </div>
-                        ` : ''}
-                        ${personalInfo.dribbble ? `
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="opacity: 0.9;">${getIconSVG('palette', sidebarText, 14)}</span>
-                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.dribbble)}</span>
-                            </div>
-                        ` : ''}
-                        ${personalInfo.behance ? `
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="opacity: 0.9;">${getIconSVG('palette', sidebarText, 14)}</span>
-                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.behance)}</span>
-                            </div>
-                        ` : ''}
-                        ${personalInfo.instagram ? `
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="opacity: 0.9;">${getIconSVG('camera', sidebarText, 14)}</span>
-                                <span style="word-break: break-all; opacity: 0.9;">${escapeHtml(personalInfo.instagram)}</span>
-                            </div>
-                        ` : ''}
                     </div>
                 </div>
+
+                <!-- Personal Details -->
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                    <div style="width: 100%; margin-bottom: 40px;">
+                        ${SidebarSectionHeader(t.sections.personalDetails)}
+                        <div style="font-size: ${s(12)}; display: flex; flex-direction: column; gap: 8px; color: ${sidebarText};">
+                            ${personalInfo.nationality ? `<div><span style="font-weight: 500; color: ${accentColor};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                            ${personalInfo.idType && personalInfo.idNumber ? `
+                                <div><span style="font-weight: 500; color: ${accentColor};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                            ` : ''}
+                        </div>
+                    </div>
+                ` : ''}
 
                 <!-- Skills -->
                 ${skills.length > 0 ? `
@@ -216,10 +200,10 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                     <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
                     <tbody>
                         <tr>
-                            <td style="padding: 36px 40px; vertical-align: top;">
+                            <td style="padding: 40px 40px 60px 40px; vertical-align: top;">
                 
                 <!-- Name Header -->
-                <div style="margin-bottom: 50px;">
+                <div style="margin-bottom: 24px;">
                     <h1 style="font-family: ${headingFont}; font-size: ${s(36)}; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; line-height: 1;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
@@ -255,7 +239,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                                         <span>${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                     </div>
                                     <div style="font-size: ${s(13)}; line-height: 1.6; color: #334155;">
-                                        ${formatDescription(exp.description || '')}
+                                        ${formatDescriptionWithBullets(exp.description || '')}
                                     </div>
                                 </div>
                             `).join('')}
@@ -296,6 +280,20 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                                     <span style="color: #64748b; margin-left: 6px;">(${escapeHtml(lang.proficiency)})</span>
                                 </div>
                             `).join('')}
+                        </div>
+                    </section>
+                ` : ''}
+
+                <!-- Social Links -->
+                ${((personalInfo as any).x || (personalInfo as any).github || (personalInfo as any).dribbble || (personalInfo as any).behance || (personalInfo as any).instagram) ? `
+                    <section style="margin-bottom: 40px;">
+                        ${MainSectionHeader(t.sections.socialLinks || 'Social Links')}
+                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
+                            ${(personalInfo as any).x ? `<div><span style="font-weight: 600; color: #0f172a;">X:</span> <span style="color: #334155;">${escapeHtml((personalInfo as any).x)}</span></div>` : ''}
+                            ${(personalInfo as any).github ? `<div><span style="font-weight: 600; color: #0f172a;">GitHub:</span> <span style="color: #334155;">${escapeHtml((personalInfo as any).github)}</span></div>` : ''}
+                            ${(personalInfo as any).dribbble ? `<div><span style="font-weight: 600; color: #0f172a;">Dribbble:</span> <span style="color: #334155;">${escapeHtml((personalInfo as any).dribbble)}</span></div>` : ''}
+                            ${(personalInfo as any).behance ? `<div><span style="font-weight: 600; color: #0f172a;">Behance:</span> <span style="color: #334155;">${escapeHtml((personalInfo as any).behance)}</span></div>` : ''}
+                            ${(personalInfo as any).instagram ? `<div><span style="font-weight: 600; color: #0f172a;">Instagram:</span> <span style="color: #334155;">${escapeHtml((personalInfo as any).instagram)}</span></div>` : ''}
                         </div>
                     </section>
                 ` : ''}
@@ -352,18 +350,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                     </section>
                 ` : ''}
 
-                <!-- Personal Details -->
-                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                    <section>
-                        ${MainSectionHeader(t.sections.additionalInfo)}
-                        <div style="font-size: ${s(13)}; color: #334155; display: flex; flex-direction: column; gap: 12px;">
-                            ${personalInfo.nationality ? `<div><span style="font-weight: 700; color: #0f172a;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                            ${personalInfo.idType && personalInfo.idNumber ? `
-                                <div><span style="font-weight: 700; color: #0f172a;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
-                            ` : ''}
-                        </div>
-                    </section>
-                ` : ''}
+
 
                 <!-- Custom Fields -->
                 ${customFields.map(field => `

@@ -288,13 +288,13 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                 ${(personalInfo.linkedin || (personalInfo as any).x || (personalInfo as any).github || (personalInfo as any).dribbble || (personalInfo as any).behance || (personalInfo as any).instagram) ? `
                     <div style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.socialLinks)}
-                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
-                            ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                            ${(personalInfo as any).x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml((personalInfo as any).x)}</div>` : ''}
-                            ${(personalInfo as any).github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml((personalInfo as any).github)}</div>` : ''}
-                            ${(personalInfo as any).dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml((personalInfo as any).dribbble)}</div>` : ''}
-                            ${(personalInfo as any).behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml((personalInfo as any).behance)}</div>` : ''}
-                            ${(personalInfo as any).instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${escapeHtml((personalInfo as any).instagram)}</div>` : ''}
+                        <div style="font-size: ${fs.body};">
+                            ${personalInfo.linkedin ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
+                            ${(personalInfo as any).x ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">X:</span> ${escapeHtml((personalInfo as any).x)}</div>` : ''}
+                            ${(personalInfo as any).github ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">GitHub:</span> ${escapeHtml((personalInfo as any).github)}</div>` : ''}
+                            ${(personalInfo as any).dribbble ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml((personalInfo as any).dribbble)}</div>` : ''}
+                            ${(personalInfo as any).behance ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">Behance:</span> ${escapeHtml((personalInfo as any).behance)}</div>` : ''}
+                            ${(personalInfo as any).instagram ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">Instagram:</span> ${escapeHtml((personalInfo as any).instagram)}</div>` : ''}
                         </div>
                     </div>
                 ` : ''}

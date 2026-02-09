@@ -282,6 +282,19 @@ export const formatDescription = (text: string | undefined | null): string => {
     return escapeHtml(text).replace(/\n/g, '<br>');
 };
 
+// Format descriptions with proper bullet point alignment
+export const formatDescriptionWithBullets = (text: string | undefined | null): string => {
+    if (!text) return '';
+    const escaped = escapeHtml(text);
+    return escaped.split('\n').map(line => {
+        const bulletMatch = line.match(/^([•\-·]\s*)(.*)/);
+        if (bulletMatch) {
+            return `<div style="display: flex;"><span style="flex-shrink: 0;">${bulletMatch[1]}</span><span>${bulletMatch[2]}</span></div>`;
+        }
+        return line ? `<div>${line}</div>` : '<div style="height: 0.5em;"></div>';
+    }).join('');
+};
+
 // --- SVG Icons (Lucide Replication) ---
 
 export type IconName = 'email' | 'phone' | 'location' | 'linkedin' | 'website' | 'github' | 'calendar' | 'building' | 'briefcase' | 'graduation-cap' | 'award' | 'users' | 'lightbulb' | 'globe' | 'star' | 'heart' | 'music' | 'camera' | 'plane' | 'book' | 'coffee' | 'code' | 'zap' | 'flag' | 'user' | 'wrench' | 'palette' | 'tent' | 'languages' | 'instagram' | 'x' | 'dribbble' | 'behance';
