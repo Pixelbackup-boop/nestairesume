@@ -16,7 +16,9 @@ import {
     getLanguageLevel,
     parseDualColor,
     getContrastText,
-    getFontScale
+    getFontScale,
+    getIconSVG,
+    IconName
 } from './shared/helpers';
 
 export const renderHeaderDarkBanner = (
@@ -58,6 +60,11 @@ export const renderHeaderDarkBanner = (
     const headerText = getContrastText(headerBgColor);
     const headerTextMuted = headerText === '#f8fafc' ? '#d1d5db' : '#6b7280';
 
+    // Icon helper shorthand
+    const icon = (name: IconName, size: number = 12) => getIconSVG(name, headerTextMuted, size);
+    const bodyIcon = (name: IconName, color: string = '#374151', size: number = 12) => getIconSVG(name, color, size);
+    const accentIcon = (name: IconName, size: number = 10) => getIconSVG(name, accentColor, size);
+
     // Helper for Section Headers
     const SectionHeader = (title: string) => `
         <h3 style="font-family: ${headingFont}; font-size: ${s(13)}; font-weight: 500; color: ${accentColor}; margin-bottom: 12px;">
@@ -96,25 +103,29 @@ export const renderHeaderDarkBanner = (
         </div>
     `;
 
-    // Interest icon helper
+    // Interest icon helper — returns SVG icon based on interest name
     const getInterestIcon = (name: string): string => {
         const nameLower = name.toLowerCase();
-        if (nameLower.includes('music') || nameLower.includes('rock')) return '&#127925;';
-        if (nameLower.includes('football') || nameLower.includes('soccer')) return '&#9917;';
-        if (nameLower.includes('photo')) return '&#128247;';
-        if (nameLower.includes('hiking') || nameLower.includes('hike')) return '&#129406;';
-        if (nameLower.includes('biking') || nameLower.includes('bike') || nameLower.includes('cycling')) return '&#128692;';
-        if (nameLower.includes('tennis')) return '&#127934;';
-        if (nameLower.includes('travel')) return '&#9992;';
-        if (nameLower.includes('reading') || nameLower.includes('book')) return '&#128218;';
-        if (nameLower.includes('cooking') || nameLower.includes('food')) return '&#127859;';
-        if (nameLower.includes('gaming') || nameLower.includes('game')) return '&#127918;';
-        if (nameLower.includes('film') || nameLower.includes('movie')) return '&#127916;';
-        if (nameLower.includes('art') || nameLower.includes('paint')) return '&#127912;';
-        if (nameLower.includes('yoga') || nameLower.includes('meditation')) return '&#129495;';
-        if (nameLower.includes('swim')) return '&#127946;';
-        if (nameLower.includes('run')) return '&#127939;';
-        return '&#11088;';
+        const color = '#4b5563';
+        const size = 24;
+
+        if (nameLower.includes('music') || nameLower.includes('rock')) return getIconSVG('music', color, size);
+        if (nameLower.includes('football') || nameLower.includes('soccer')) return getIconSVG('football', color, size);
+        if (nameLower.includes('photo')) return getIconSVG('camera', color, size);
+        if (nameLower.includes('hiking') || nameLower.includes('hike')) return getIconSVG('hiking', color, size);
+        if (nameLower.includes('biking') || nameLower.includes('bike') || nameLower.includes('cycling')) return getIconSVG('bike', color, size);
+        if (nameLower.includes('tennis')) return getIconSVG('tennis', color, size);
+        if (nameLower.includes('travel')) return getIconSVG('plane', color, size);
+        if (nameLower.includes('reading') || nameLower.includes('book')) return getIconSVG('book-open', color, size);
+        if (nameLower.includes('cooking') || nameLower.includes('food')) return getIconSVG('cooking-pot', color, size);
+        if (nameLower.includes('gaming') || nameLower.includes('game')) return getIconSVG('gamepad', color, size);
+        if (nameLower.includes('film') || nameLower.includes('movie')) return getIconSVG('film', color, size);
+        if (nameLower.includes('art') || nameLower.includes('paint')) return getIconSVG('palette', color, size);
+        if (nameLower.includes('yoga') || nameLower.includes('meditation')) return getIconSVG('yoga', color, size);
+        if (nameLower.includes('swim')) return getIconSVG('swimming', color, size);
+        if (nameLower.includes('run')) return getIconSVG('running', color, size);
+        if (nameLower.includes('sleep') || nameLower.includes('rest') || nameLower.includes('nap')) return getIconSVG('moon', color, size);
+        return getIconSVG('star', color, size);
     };
 
     // Profile Image
@@ -128,7 +139,6 @@ export const renderHeaderDarkBanner = (
 
     return `
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${s(13)}; background-color: #ffffff; box-sizing: border-box;">
-
             <!-- Dark Header Banner -->
             <header style="background-color: ${headerBgColor}; height: 160px; padding: 24px 32px; display: flex; justify-content: space-between; align-items: center;">
 
@@ -137,17 +147,12 @@ export const renderHeaderDarkBanner = (
                     <h1 style="font-family: ${headingFont}; font-size: ${s(28)}; font-weight: 400; color: ${headerText}; letter-spacing: 0.02em; margin-bottom: 12px;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
-                    <div style="display: flex; gap: 16px; font-size: ${s(10)}; color: ${headerTextMuted}; flex-wrap: wrap;">
-                        ${personalInfo.phone ? `<span>&#128241; ${escapeHtml(personalInfo.phone)}</span>` : ''}
-                        ${personalInfo.email ? `<span>&#9993; ${escapeHtml(personalInfo.email)}</span>` : ''}
-                        ${personalInfo.location ? `<span>&#128205; ${escapeHtml(personalInfo.location)}</span>` : ''}
-                        ${personalInfo.website ? `<span>&#127760; ${escapeHtml(personalInfo.website)}</span>` : ''}
-                        ${personalInfo.linkedin ? `<span>&#128279; ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
-                        ${personalInfo.github ? `<span>&#128187; ${escapeHtml(personalInfo.github)}</span>` : ''}
-                        ${personalInfo.x ? `<span>&#128038; ${escapeHtml(personalInfo.x)}</span>` : ''}
-                        ${personalInfo.dribbble ? `<span>&#127936; ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
-                        ${personalInfo.behance ? `<span>&#127912; ${escapeHtml(personalInfo.behance)}</span>` : ''}
-                        ${personalInfo.instagram ? `<span>&#128247; ${escapeHtml(personalInfo.instagram)}</span>` : ''}
+                    <div style="display: flex; gap: 16px; font-size: ${s(10)}; color: ${headerTextMuted}; flex-wrap: wrap; align-items: center;">
+                        ${personalInfo.phone ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${icon('phone')} ${escapeHtml(personalInfo.phone)}</span>` : ''}
+                        ${personalInfo.email ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${icon('email')} ${escapeHtml(personalInfo.email)}</span>` : ''}
+                        ${personalInfo.location ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${icon('location')} ${escapeHtml(personalInfo.location)}</span>` : ''}
+                        ${personalInfo.website ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${icon('website')} ${escapeHtml(personalInfo.website)}</span>` : ''}
+                        ${personalInfo.linkedin ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${icon('linkedin')} ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                     </div>
                 </div>
 
@@ -155,240 +160,235 @@ export const renderHeaderDarkBanner = (
                 ${profileImage}
             </header>
 
-            <!-- Two-Column Body -->
-            <div style="display: flex; padding: 24px; gap: 24px;">
-
+            <!-- Page-margin table: thead/tfoot repeat on every printed page -->
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead><tr><td style="height: 30px;"></td></tr></thead>
+                <tfoot><tr><td style="height: 30px;"></td></tr></tfoot>
+                <tbody><tr><td style="padding: 0 24px;">
+                    <div style="display: flex; gap: 24px;">
                 <!-- LEFT COLUMN - Summary, Experience, Education -->
                 <div style="width: 55%;">
+                            
+                            <!-- Resume Summary -->
+                            ${personalInfo.summary ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.summary)}
+                                    <p style="color: #374151; line-height: 1.6; font-size: ${s(13)};">
+                                        ${formatDescription(personalInfo.summary)}
+                                    </p>
+                                </section>
+                            ` : ''}
 
-                    <!-- Resume Summary -->
-                    ${personalInfo.summary ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.summary)}
-                            <p style="color: #374151; line-height: 1.6; font-size: ${s(13)};">
-                                ${formatDescription(personalInfo.summary)}
-                            </p>
-                        </section>
-                    ` : ''}
-
-                    <!-- Work Experience -->
-                    ${experience.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.workExperience)}
-                            <div style="display: flex; flex-direction: column; gap: 16px;">
-                                ${experience.map(exp => `
-                                    <div>
-                                        <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px;">
-                                            &#128197; ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
-                                            ${exp.city ? ` &#128205; ${escapeHtml(exp.city.toUpperCase())}` : ''}
-                                        </p>
-                                        <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
-                                            ${escapeHtml(exp.title)}
-                                        </h4>
-                                        <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600; margin-bottom: 4px;">
-                                            ${escapeHtml(exp.company)}
-                                        </p>
-                                        ${exp.description ? `
-                                            <ul style="padding-left: 16px; margin: 0; list-style: disc;">
-                                                ${exp.description.split('\n').filter(Boolean).map(line => `
-                                                    <li style="font-size: ${s(12)}; color: #4b5563; margin-bottom: 2px; line-height: 1.5;">
-                                                        ${escapeHtml(line.replace(/^[-•]\s*/, ''))}
-                                                    </li>
-                                                `).join('')}
-                                            </ul>
-                                        ` : ''}
+                            <!-- Work Experience -->
+                            ${experience.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.workExperience)}
+                                    <div style="display: block;">
+                                        ${experience.map((exp, index) => `
+                                            <div class="resume-entry" style="margin-bottom: ${index === experience.length - 1 ? 0 : 16}px;">
+                                                <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+                                                    ${accentIcon('calendar')} ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
+                                                    ${exp.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml(exp.city.toUpperCase())}</span>` : ''}
+                                                </p>
+                                                <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
+                                                    ${escapeHtml(exp.title)}
+                                                </h4>
+                                                <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600; margin-bottom: 4px;">
+                                                    ${escapeHtml(exp.company)}
+                                                </p>
+                                                ${exp.description ? `
+                                                    <ul style="padding-left: 16px; margin: 0; list-style: disc;">
+                                                        ${exp.description.split('\n').filter(Boolean).map(line => `
+                                                            <li style="font-size: ${s(12)}; color: #4b5563; margin-bottom: 2px; line-height: 1.5;">
+                                                                ${escapeHtml(line.replace(/^[-•]\s*/, ''))}
+                                                            </li>
+                                                        `).join('')}
+                                                    </ul>
+                                                ` : ''}
+                                            </div>
+                                        `).join('')}
                                     </div>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
+                                </section>
+                            ` : ''}
 
-                    <!-- Education -->
-                    ${education.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.education)}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${education.map(edu => `
-                                    <div>
-                                        <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px;">
-                                            &#128197; ${formatLocalizedDate(edu.startDate, locale)}
-                                            ${edu.city ? ` &#128205; ${escapeHtml(edu.city.toUpperCase())}` : ''}
-                                        </p>
-                                        <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
-                                            ${escapeHtml(edu.degree)}
-                                        </h4>
-                                        <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600;">
-                                            ${escapeHtml(edu.school)}
-                                        </p>
-                                        ${edu.description ? `
-                                            <p style="font-size: ${s(12)}; color: #6b7280; margin-top: 4px;">
-                                                ${formatDescription(edu.description)}
-                                            </p>
-                                        ` : ''}
+                            <!-- Education -->
+                            ${education.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.education)}
+                                    <div style="display: block;">
+                                        ${education.map((edu, index) => `
+                                            <div class="resume-entry" style="margin-bottom: ${index === education.length - 1 ? 0 : 12}px;">
+                                                <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+                                                    ${accentIcon('calendar')} ${formatLocalizedDate(edu.startDate, locale)}
+                                                    ${edu.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml(edu.city.toUpperCase())}</span>` : ''}
+                                                </p>
+                                                <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
+                                                    ${escapeHtml(edu.degree)}
+                                                </h4>
+                                                <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600;">
+                                                    ${escapeHtml(edu.school)}
+                                                </p>
+                                                ${edu.description ? `
+                                                    <p style="font-size: ${s(12)}; color: #6b7280; margin-top: 4px;">
+                                                        ${formatDescription(edu.description)}
+                                                    </p>
+                                                ` : ''}
+                                            </div>
+                                        `).join('')}
                                     </div>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
+                                </section>
+                            ` : ''}
                 </div>
 
                 <!-- RIGHT COLUMN - Skills, Languages, Strengths, Interests -->
                 <div style="width: 45%;">
-
-                    <!-- Skills with Progress Bars -->
-                    ${skills.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.skills)}
-                            <p style="font-size: ${s(8)}; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">
-                                &#128187; SOFTWARE
-                            </p>
-                            <div>
-                                ${skills.map(skill => ProgressBar(skill.name, skill.level * 20)).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
-                    <!-- Languages with Circular Indicators -->
-                    ${languages && languages.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.languages)}
-                            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                                ${languages.map(lang => CircularProgress(getLanguageLevel(lang), lang.name)).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
-                    <!-- Strengths as Pill Badges -->
-                    ${strengths && strengths.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.strengths)}
-                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                ${strengths.map(strength => `
-                                    <span style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: ${s(10)}; font-weight: 500;">
-                                        ${escapeHtml(strength.name)}
-                                    </span>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
-                    <!-- Interests with Icons -->
-                    ${interests && interests.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.interests)}
-                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-                                ${interests.slice(0, 6).map(interest => `
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 28px; margin-bottom: 4px;">
-                                            ${interest.icon || getInterestIcon(interest.name)}
-                                        </div>
-                                        <div style="font-size: ${s(9)}; color: #4b5563;">
-                                            ${escapeHtml(interest.name)}
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
-                    <!-- Credentials -->
-                    ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section>
-                            ${SectionHeader(t.sections.credentials)}
-                            ${certifications && certifications.length > 0 ? `
-                                <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        ${certifications.map(cert => `
-                                            <div>
-                                                <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(cert.name)}</div>
-                                                <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                </div>
-                            ` : ''}
-                            ${awards && awards.length > 0 ? `
-                                <div>
-                                    <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        ${awards.map(award => `
-                                            <div>
-                                                <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(award.title)}</div>
-                                                <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                </div>
-                            ` : ''}
-                        </section>
-                    ` : ''}
-
-                    <!-- References -->
-                    ${data.references && data.references.length > 0 ? `
-                        <section>
-                            ${SectionHeader(t.sections.references)}
-                            <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
-                                ${data.references.map(ref => `
+                            
+                            <!-- Skills with Progress Bars -->
+                            ${skills.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.skills)}
+                                    <p style="font-size: ${s(8)}; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 4px;">
+                                        ${bodyIcon('monitor', '#6b7280', 10)} SOFTWARE
+                                    </p>
                                     <div>
-                                        <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(ref.name)}</div>
-                                        <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                        ${ref.email ? `<div style="font-size: ${s(9)}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
+                                        ${skills.map(skill => ProgressBar(skill.name, skill.level * 20)).join('')}
                                     </div>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-                    
-                    <!-- Personal Details -->
-                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                        <section style="margin-top: 20px;">
-                            ${SectionHeader(t.sections.additionalInfo)}
-                            <div style="font-size: ${s(12)}; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
-                                ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                                ${personalInfo.idType && personalInfo.idNumber ? `
-                                    <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
-                                ` : ''}
-                            </div>
-                        </section>
-                    ` : ''}
+                                </section>
+                            ` : ''}
 
-                    <!-- Custom Fields -->
-                    ${customFields.map(field => `
-                        <section style="margin-top: 20px;">
-                            ${SectionHeader(field.label)}
-                            <p style="font-size: ${s(12)}; color: #4b5563; line-height: 1.6;">
-                                ${formatDescription(field.content)}
-                            </p>
-                        </section>
-                    `).join('')}
+                            <!-- Languages with Circular Indicators -->
+                            ${languages && languages.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.languages)}
+                                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                                        ${languages.map(lang => CircularProgress(getLanguageLevel(lang), lang.name)).join('')}
+                                    </div>
+                                </section>
+                            ` : ''}
 
-                    <!-- Social Links -->
-                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section style="margin-top: 20px;">
-                            ${SectionHeader(t.sections.socialLinks)}
-                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(12)};">
-                                ${personalInfo.github ? `<div style="color: #374151;">&#128187; ${escapeHtml(personalInfo.github)}</div>` : ''}
-                                ${personalInfo.x ? `<div style="color: #374151;">&#128038; ${escapeHtml(personalInfo.x)}</div>` : ''}
-                                ${personalInfo.dribbble ? `<div style="color: #374151;">&#127936; ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
-                                ${personalInfo.behance ? `<div style="color: #374151;">&#127912; ${escapeHtml(personalInfo.behance)}</div>` : ''}
-                                ${personalInfo.instagram ? `<div style="color: #374151;">&#128247; ${escapeHtml(personalInfo.instagram)}</div>` : ''}
-                            </div>
-                        </section>
-                    ` : ''}
+                            <!-- Strengths as Pill Badges -->
+                            ${strengths && strengths.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.strengths)}
+                                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                        ${strengths.map(strength => `
+                                            <span style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: ${s(10)}; font-weight: 500;">
+                                                ${escapeHtml(strength.name)}
+                                            </span>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                            ` : ''}
 
-                    <!-- Personal Details -->
-                    ${(personalInfo.nationality || personalInfo.idType) ? `
-                        <section style="margin-top: 20px;">
-                            ${SectionHeader(t.sections.personalDetails)}
-                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(12)};">
-                                ${personalInfo.nationality ? `<div style="color: #374151;">&#127757; Nationality: ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                                ${personalInfo.idType && personalInfo.idNumber ? `<div style="color: #374151;">&#128196; ${escapeHtml(personalInfo.idType)}: ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
-                            </div>
-                        </section>
-                    ` : ''}
-                </div>
-            </div>
+                            <!-- Interests with Icons -->
+                            ${interests && interests.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.interests)}
+                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                                        ${interests.slice(0, 6).map(interest => `
+                                            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                                                <div style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
+                                                    ${getInterestIcon(interest.name)}
+                                                </div>
+                                                <div style="font-size: ${s(9)}; color: #4b5563; line-height: 1.2; word-break: break-word; max-width: 100%;">
+                                                    ${escapeHtml(interest.name)}
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                            ` : ''}
+
+                            <!-- Credentials -->
+                            ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
+                                <section class="resume-section">
+                                    ${SectionHeader(t.sections.credentials)}
+                                    ${certifications && certifications.length > 0 ? `
+                                        <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'}; display: block;">
+                                            <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
+                                            <div style="display: block;">
+                                                ${certifications.map((cert, index) => `
+                                                    <div class="resume-entry" style="margin-bottom: ${index === certifications.length - 1 ? 0 : 8}px;">
+                                                        <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(cert.name)}</div>
+                                                        <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                    ${awards && awards.length > 0 ? `
+                                        <div style="display: block;">
+                                            <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
+                                            <div style="display: block;">
+                                                ${awards.map((award, index) => `
+                                                    <div class="resume-entry" style="margin-bottom: ${index === awards.length - 1 ? 0 : 8}px;">
+                                                        <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(award.title)}</div>
+                                                        <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                </section>
+                            ` : ''}
+
+                            <!-- References -->
+                            ${data.references && data.references.length > 0 ? `
+                                <section class="resume-section" style="margin-top: 20px;">
+                                    ${SectionHeader(t.sections.references)}
+                                    <div style="display: block;">
+                                        ${data.references.map((ref, index) => `
+                                            <div class="resume-entry" style="margin-bottom: ${index === data.references!.length - 1 ? 0 : 12}px;">
+                                                <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(ref.name)}</div>
+                                                <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
+                                                ${ref.email ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('email', '#6b7280', 10)} ${escapeHtml(ref.email)}</div>` : ''}
+                                                ${ref.phone ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('smartphone', '#6b7280', 10)} ${escapeHtml(ref.phone)}</div>` : ''}
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                            ` : ''}
+
+                            <!-- Personal Details -->
+                            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                                <section class="resume-section" style="margin-top: 20px;">
+                                    ${SectionHeader(t.sections.additionalInfo)}
+                                    <div style="font-size: ${s(12)}; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
+                                        ${personalInfo.nationality ? `<div style="display: flex; align-items: center; gap: 4px;">${bodyIcon('globe', '#4b5563', 12)} <span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                        ${personalInfo.idType && personalInfo.idNumber ? `
+                                            <div style="display: flex; align-items: center; gap: 4px;">${bodyIcon('id-card', '#4b5563', 12)} <span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                        ` : ''}
+                                    </div>
+                                </section>
+                            ` : ''}
+
+                            <!-- Custom Fields -->
+                            ${customFields.map(field => `
+                                <section class="resume-section" style="margin-top: 20px;">
+                                    ${SectionHeader(field.label)}
+                                    <p style="font-size: ${s(12)}; color: #4b5563; line-height: 1.6;">
+                                        ${formatDescription(field.content)}
+                                    </p>
+                                </section>
+                            `).join('')}
+
+                            <!-- Social Links -->
+                            ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                                <section class="resume-section" style="margin-top: 20px;">
+                                    ${SectionHeader(t.sections.socialLinks)}
+                                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(12)};">
+                                        ${personalInfo.github ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('github')} ${escapeHtml(personalInfo.github)}</div>` : ''}
+                                        ${personalInfo.x ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('x')} ${escapeHtml(personalInfo.x)}</div>` : ''}
+                                        ${personalInfo.dribbble ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('dribbble')} ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
+                                        ${personalInfo.behance ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('behance')} ${escapeHtml(personalInfo.behance)}</div>` : ''}
+                                        ${personalInfo.instagram ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('instagram')} ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                                    </div>
+                                </section>
+                            ` : ''}
+                        </div>
+                    </div>
+                </td></tr></tbody>
+            </table>
         </div>
     `;
 };
