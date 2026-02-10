@@ -28,6 +28,8 @@ type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
 function WordBuilderContent() {
     const searchParams = useSearchParams();
     const t = useTranslations('Resume');
+    const tBuilder = useTranslations('Builder');
+    const tWord = useTranslations('WordBuilder');
     const locale = useLocale();
     const [activeTab, setActiveTab] = useState<TabId>('personal');
     const [previewScale, setPreviewScale] = useState(0.75);
@@ -132,11 +134,11 @@ function WordBuilderContent() {
     }, [sectionStatus]);
 
     const tabs: { id: TabId; label: string; icon: typeof User; description: string }[] = [
-        { id: 'personal', label: 'Personal', icon: User, description: 'Basic info & summary' },
-        { id: 'experience', label: 'Experience', icon: Briefcase, description: 'Work history' },
-        { id: 'education', label: 'Education', icon: GraduationCap, description: 'Academic background' },
-        { id: 'skills', label: 'Skills', icon: Wrench, description: 'Your expertise' },
-        { id: 'design', label: 'Design', icon: PaintBucket, description: 'Style & layout' },
+        { id: 'personal', label: tBuilder('tabs.personal'), icon: User, description: tBuilder('tabs.personalDesc') },
+        { id: 'experience', label: tBuilder('tabs.experience'), icon: Briefcase, description: tBuilder('tabs.experienceDesc') },
+        { id: 'education', label: tBuilder('tabs.education'), icon: GraduationCap, description: tBuilder('tabs.educationDesc') },
+        { id: 'skills', label: tBuilder('tabs.skills'), icon: Wrench, description: tBuilder('tabs.skillsDesc') },
+        { id: 'design', label: tBuilder('tabs.design'), icon: PaintBucket, description: tBuilder('tabs.designDesc') },
     ];
 
     const zoomIn = () => setPreviewScale(Math.min(previewScale + 0.1, 1.2));
@@ -176,7 +178,7 @@ function WordBuilderContent() {
 
                 <div className="px-4 py-3 border-b border-gray-200">
                     <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
-                        <span>Progress</span>
+                        <span>{tBuilder('ui.progress')}</span>
                         <span className="font-semibold text-accent-green">{progress}%</span>
                     </div>
                     <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
@@ -229,14 +231,14 @@ function WordBuilderContent() {
                         className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
                     >
                         <Sparkles size={16} />
-                        Canvas Editor
+                        {tBuilder('ui.canvasEditor')}
                     </Link>
                     <Link
                         href="/"
                         className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
                     >
                         <Home size={16} />
-                        Back to Home
+                        {tBuilder('ui.backToHome')}
                     </Link>
                 </div>
             </aside>
@@ -254,10 +256,10 @@ function WordBuilderContent() {
                         <div className="flex items-center gap-2 text-gray-500">
                             <FileText size={18} className="hidden sm:block" />
                             <span className="text-sm font-medium text-gray-900 truncate max-w-[150px] sm:max-w-none">
-                                {resumeData.personalInfo.fullName || 'Untitled Resume'}
+                                {resumeData.personalInfo.fullName || tBuilder('ui.untitledResume')}
                             </span>
                             <span className="text-xs text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full font-medium">
-                                DOCX
+                                {tWord('badge')}
                             </span>
                         </div>
                     </div>
@@ -268,7 +270,7 @@ function WordBuilderContent() {
                             className="flex items-center gap-2 bg-accent-green text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition"
                         >
                             <Download size={16} />
-                            <span className="hidden sm:inline">Download MS Word</span>
+                            <span className="hidden sm:inline">{tWord('downloadButton')}</span>
                         </button>
                     </div>
                 </header>
@@ -307,18 +309,18 @@ function WordBuilderContent() {
                     {showPreview && (
                         <div className="w-full lg:w-1/2 flex flex-col bg-gray-50 relative">
                             <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-gray-50">
-                                <span className="text-sm font-medium text-gray-600">Live Preview</span>
+                                <span className="text-sm font-medium text-gray-600">{tBuilder('ui.livePreview')}</span>
                                 <div className="flex items-center gap-2">
-                                    <button onClick={zoomOut} className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition" title="Zoom Out">
+                                    <button onClick={zoomOut} className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition" title={tBuilder('ui.zoomOut')}>
                                         <ZoomOut size={16} />
                                     </button>
                                     <span className="text-xs text-gray-500 w-12 text-center">
                                         {Math.round(previewScale * 100)}%
                                     </span>
-                                    <button onClick={zoomIn} className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition" title="Zoom In">
+                                    <button onClick={zoomIn} className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition" title={tBuilder('ui.zoomIn')}>
                                         <ZoomIn size={16} />
                                     </button>
-                                    <button onClick={resetZoom} className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition" title="Reset Zoom">
+                                    <button onClick={resetZoom} className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition" title={tBuilder('ui.resetZoom')}>
                                         <RotateCcw size={16} />
                                     </button>
                                 </div>
@@ -336,17 +338,17 @@ function WordBuilderContent() {
             <button
                 onClick={() => setShowPreview(!showPreview)}
                 className="fixed bottom-6 right-6 p-4 bg-accent-green text-gray-900 rounded-full shadow-lg hover:bg-accent-teal transition lg:hidden z-30 flex items-center gap-2"
-                title={showPreview ? 'Edit Resume' : 'Preview Resume'}
+                title={showPreview ? tBuilder('ui.editResume') : tBuilder('ui.previewResume')}
             >
                 {showPreview ? (
                     <>
                         <EyeOff size={20} />
-                        <span className="text-sm font-medium">Edit</span>
+                        <span className="text-sm font-medium">{tBuilder('ui.edit')}</span>
                     </>
                 ) : (
                     <>
                         <Eye size={20} />
-                        <span className="text-sm font-medium">Preview</span>
+                        <span className="text-sm font-medium">{tBuilder('ui.preview')}</span>
                     </>
                 )}
             </button>
@@ -372,7 +374,7 @@ export default function WordBuilderPage() {
         <Suspense
             fallback={
                 <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                    <div className="text-gray-500">Loading Word builder...</div>
+                    <div className="text-gray-500">Loading...</div>
                 </div>
             }
         >

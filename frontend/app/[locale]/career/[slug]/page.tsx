@@ -12,6 +12,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
+import { getCareerArticleContent } from '@/lib/content/career-pages';
 
 interface CareerPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -31,9 +32,8 @@ export async function generateMetadata({ params }: CareerPostPageProps): Promise
   const post = await getPostBySlug(slug, locale);
 
   if (!post) {
-    return {
-      title: 'Post Not Found',
-    };
+    const c = getCareerArticleContent(locale);
+    return { title: c.notFound };
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
@@ -115,7 +115,7 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
 
   // Build URL for sharing
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
-  const postUrl = `${siteUrl}/career/${post.slug}`;
+  const postUrl = `${siteUrl}/${locale}/career/${post.slug}`;
 
   // JSON-LD structured data for SEO
   const jsonLd = {
@@ -166,7 +166,7 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3">
-            <BlogHeader post={post} basePath="/career" />
+            <BlogHeader post={post} basePath={`/${locale}/career`} />
 
             {/* Article Content — First Half */}
             <div className="prose-custom">
@@ -189,7 +189,7 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
             </div>
 
             {/* Related Posts */}
-            <RelatedPosts posts={relatedPosts} basePath="/career" />
+            <RelatedPosts posts={relatedPosts} basePath={`/${locale}/career`} />
           </div>
 
           {/* Sidebar with TOC */}

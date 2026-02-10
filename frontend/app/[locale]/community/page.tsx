@@ -8,6 +8,7 @@ import { Users, Loader2, ChevronLeft, ChevronRight, Trash2, Eye, EyeOff, FolderO
 import TemplateCard from '@/components/community/TemplateCard';
 import api from '@/lib/api';
 import { useAuthStore } from '@/store/useAuthStore';
+import { getContent } from '@/lib/content/community-page';
 
 interface CommunityTemplate {
   id: string;
@@ -33,19 +34,12 @@ interface CommunityResponse {
   totalPages: number;
 }
 
-const CATEGORIES = [
-  { value: '', label: 'All' },
-  { value: 'professional', label: 'Professional' },
-  { value: 'creative', label: 'Creative' },
-  { value: 'ats', label: 'ATS-Friendly' },
-  { value: 'bold', label: 'Bold' },
-];
-
 type TabType = 'browse' | 'my-templates';
 
 export default function CommunityPage() {
   const router = useRouter();
   const locale = useLocale();
+  const c = getContent(locale);
   const { isAuthenticated, user } = useAuthStore();
 
   // Tab state
@@ -85,11 +79,11 @@ export default function CommunityPage() {
       setTotal(response.data.total);
     } catch (err) {
       console.error('Failed to fetch templates:', err);
-      setError('Failed to load templates. Please try again.');
+      setError(c.errorMessage);
     } finally {
       setLoading(false);
     }
-  }, [page, category]);
+  }, [page, category, c.errorMessage]);
 
   // Fetch user's templates
   const fetchMyTemplates = useCallback(async () => {
@@ -117,10 +111,7 @@ export default function CommunityPage() {
   // Handle using a template
   const handleUseTemplate = useCallback(async (templateId: string) => {
     try {
-      // Increment download count
       await api.post(`/community/${templateId}/use`);
-
-      // Navigate to canvas editor with the template
       router.push(`/${locale}/canvas-editor?community=${templateId}`);
     } catch (err) {
       console.error('Failed to use template:', err);
@@ -129,7 +120,7 @@ export default function CommunityPage() {
 
   // Handle deleting a template
   const handleDeleteTemplate = useCallback(async (templateId: string) => {
-    if (!confirm('Are you sure you want to delete this template? This cannot be undone.')) {
+    if (!confirm(c.deleteConfirm)) {
       return;
     }
 
@@ -139,11 +130,11 @@ export default function CommunityPage() {
       setMyTemplates((prev) => prev.filter((t) => t.id !== templateId));
     } catch (err) {
       console.error('Failed to delete template:', err);
-      alert('Failed to delete template. Please try again.');
+      alert(c.deleteError);
     } finally {
       setDeletingId(null);
     }
-  }, []);
+  }, [c.deleteConfirm, c.deleteError]);
 
   // Handle toggling visibility
   const handleToggleVisibility = useCallback(async (templateId: string, currentlyPublic: boolean) => {
@@ -154,9 +145,9 @@ export default function CommunityPage() {
       );
     } catch (err) {
       console.error('Failed to update visibility:', err);
-      alert('Failed to update visibility. Please try again.');
+      alert(c.visibilityError);
     }
-  }, []);
+  }, [c.visibilityError]);
 
   // Handle category change
   const handleCategoryChange = (newCategory: string) => {
@@ -182,10 +173,8 @@ export default function CommunityPage() {
               <Users className="text-accent-green" size={24} />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Community Templates</h1>
-              <p className="text-gray-500">
-                Browse and use templates shared by the community
-              </p>
+              <h1 className="text-2xl font-bold text-gray-900">{c.title}</h1>
+              <p className="text-gray-500">{c.subtitle}</p>
             </div>
           </div>
 
@@ -199,7 +188,7 @@ export default function CommunityPage() {
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
-              Browse Templates
+              {c.browseTab}
             </button>
             {isAuthenticated && (
               <button
@@ -210,7 +199,7 @@ export default function CommunityPage() {
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
               >
-                My Templates
+                {c.myTemplatesTab}
                 {myTemplates.length > 0 && (
                   <span className="ml-2 px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">
                     {myTemplates.length}
@@ -223,7 +212,7 @@ export default function CommunityPage() {
           {/* Category Tabs (only for Browse) */}
           {activeTab === 'browse' && (
             <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
-              {CATEGORIES.map((cat) => (
+              {c.categories.map((cat) => (
                 <button
                   key={cat.value}
                   onClick={() => handleCategoryChange(cat.value)}
@@ -249,13 +238,15 @@ export default function CommunityPage() {
             {/* Stats */}
             <div className="flex items-center justify-between mb-6">
               <p className="text-sm text-gray-500">
-                {total} template{total !== 1 ? 's' : ''} available
+                {total !== 1
+                  ? c.templatesAvailable.replace('{count}', String(total))
+                  : c.templateAvailable.replace('{count}', String(total))}
               </p>
               <Link
                 href={`/${locale}/canvas-editor`}
                 className="text-sm text-accent-green hover:underline"
               >
-                Create your own →
+                {c.createYourOwn}
               </Link>
             </div>
 
@@ -274,7 +265,7 @@ export default function CommunityPage() {
                   onClick={fetchTemplates}
                   className="px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-medium hover:bg-accent-teal transition"
                 >
-                  Try Again
+                  {c.tryAgain}
                 </button>
               </div>
             )}
@@ -285,15 +276,13 @@ export default function CommunityPage() {
                 <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="text-gray-400" size={28} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">No templates yet</h3>
-                <p className="text-gray-500 mb-6">
-                  Be the first to share a template with the community!
-                </p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{c.noTemplatesTitle}</h3>
+                <p className="text-gray-500 mb-6">{c.noTemplatesSub}</p>
                 <Link
                   href={`/${locale}/canvas-editor`}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition"
                 >
-                  Create Template
+                  {c.createTemplate}
                 </Link>
               </div>
             )}
@@ -330,7 +319,7 @@ export default function CommunityPage() {
                       <ChevronLeft size={20} />
                     </button>
                     <span className="px-4 py-2 text-sm text-gray-600">
-                      Page {page} of {totalPages}
+                      {c.pageOf.replace('{page}', String(page)).replace('{total}', String(totalPages))}
                     </span>
                     <button
                       onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
@@ -351,13 +340,15 @@ export default function CommunityPage() {
           <>
             <div className="flex items-center justify-between mb-6">
               <p className="text-sm text-gray-500">
-                {myTemplates.length} template{myTemplates.length !== 1 ? 's' : ''} posted
+                {myTemplates.length !== 1
+                  ? c.templatesPosted.replace('{count}', String(myTemplates.length))
+                  : c.templatePosted.replace('{count}', String(myTemplates.length))}
               </p>
               <Link
                 href={`/${locale}/canvas-editor`}
                 className="text-sm text-accent-green hover:underline"
               >
-                Create new template →
+                {c.createNewTemplate}
               </Link>
             </div>
 
@@ -374,15 +365,13 @@ export default function CommunityPage() {
                 <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FolderOpen className="text-gray-400" size={28} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">No templates posted yet</h3>
-                <p className="text-gray-500 mb-6">
-                  Create a design in the canvas editor and share it with the community!
-                </p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{c.noPostedTitle}</h3>
+                <p className="text-gray-500 mb-6">{c.noPostedSub}</p>
                 <Link
                   href={`/${locale}/canvas-editor`}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition"
                 >
-                  Create Template
+                  {c.createTemplate}
                 </Link>
               </div>
             )}
@@ -405,7 +394,7 @@ export default function CommunityPage() {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
-                          No preview
+                          {c.noPreview}
                         </div>
                       )}
                     </div>
@@ -421,11 +410,11 @@ export default function CommunityPage() {
                               : 'bg-gray-100 text-gray-600'
                           }`}
                         >
-                          {template.isPublic ? 'Public' : 'Private'}
+                          {template.isPublic ? c.publicLabel : c.privateLabel}
                         </span>
                       </div>
                       <p className="text-sm text-gray-500 mt-1">
-                        {template.downloads} download{template.downloads !== 1 ? 's' : ''} • {template.category}
+                        {template.downloads} {template.downloads !== 1 ? c.downloads : c.download} • {template.category}
                       </p>
                       {template.description && (
                         <p className="text-sm text-gray-400 mt-1 truncate">{template.description}</p>
@@ -437,7 +426,7 @@ export default function CommunityPage() {
                       <button
                         onClick={() => handleToggleVisibility(template.id, template.isPublic ?? true)}
                         className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition"
-                        title={template.isPublic ? 'Make private' : 'Make public'}
+                        title={template.isPublic ? c.makePrivate : c.makePublic}
                       >
                         {template.isPublic ? <EyeOff size={18} /> : <Eye size={18} />}
                       </button>
@@ -445,13 +434,13 @@ export default function CommunityPage() {
                         onClick={() => handleUseTemplate(template.id)}
                         className="px-3 py-1.5 text-sm font-medium text-accent-green hover:bg-accent-green/10 rounded-lg transition"
                       >
-                        Edit
+                        {c.edit}
                       </button>
                       <button
                         onClick={() => handleDeleteTemplate(template.id)}
                         disabled={deletingId === template.id}
                         className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition disabled:opacity-50"
-                        title="Delete template"
+                        title={c.deleteBtn}
                       >
                         {deletingId === template.id ? (
                           <Loader2 size={18} className="animate-spin" />
@@ -473,15 +462,13 @@ export default function CommunityPage() {
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="text-gray-400" size={28} />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Sign in to view your templates</h3>
-            <p className="text-gray-500 mb-6">
-              You need to be signed in to see and manage your posted templates.
-            </p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">{c.signInTitle}</h3>
+            <p className="text-gray-500 mb-6">{c.signInSub}</p>
             <Link
               href={`/${locale}/auth/login?redirect=/${locale}/community`}
               className="inline-flex items-center gap-2 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition"
             >
-              Sign In
+              {c.signIn}
             </Link>
           </div>
         )}

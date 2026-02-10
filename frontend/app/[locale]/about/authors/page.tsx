@@ -3,43 +3,39 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AUTHORS } from "@/lib/resume-examples/posts";
+import { getAuthorsContent } from '@/lib/content/about-pages';
 
 const siteUrl = "https://www.bestairesumes.com";
+const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const locales = ['en', 'es', 'fr', 'de', 'ar'];
-  const alternateLanguages: Record<string, string> = {
-    'x-default': `${siteUrl}/en/about/authors`,
-  };
-  locales.forEach((loc) => {
-    alternateLanguages[loc] = `${siteUrl}/${loc}/about/authors`;
-  });
+  const c = getAuthorsContent(locale);
 
   return {
-    title: "Our Expert Authors | Best AI Resume",
-    description:
-      "Meet the career experts, recruiters, and coaches behind our resume guides. Our authors bring real-world hiring experience to help you land your dream job.",
+    title: c.meta.title,
+    description: c.meta.description,
     openGraph: {
-      title: "Our Expert Authors | Best AI Resume",
-      description:
-        "Meet the career experts, recruiters, and coaches behind our resume guides.",
+      title: c.meta.title,
+      description: c.meta.ogDescription,
       type: "website",
       url: `${siteUrl}/${locale}/about/authors`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: "Our Expert Authors | Best AI Resume",
-      description: "Meet the career experts, recruiters, and coaches behind our resume guides.",
+      title: c.meta.title,
+      description: c.meta.ogDescription,
     },
     alternates: {
       canonical: `${siteUrl}/${locale}/about/authors`,
-      languages: alternateLanguages,
+      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/about/authors`])),
     },
   };
 }
 
-export default function AuthorsPage() {
+export default async function AuthorsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const c = getAuthorsContent(locale);
   const authors = Object.values(AUTHORS);
 
   return (
@@ -50,24 +46,23 @@ export default function AuthorsPage() {
       <section className="pt-32 pb-12 bg-light-teal">
         <div className="max-w-6xl mx-auto px-6">
           <nav className="flex items-center gap-2 text-sm text-dark-teal/60 mb-8">
-            <Link href="/" className="hover:text-teal-primary">
-              Home
+            <Link href={`/${locale}`} className="hover:text-teal-primary">
+              {c.breadcrumb.home}
             </Link>
             <span>/</span>
-            <Link href="/about" className="hover:text-teal-primary">
-              About
+            <Link href={`/${locale}/about`} className="hover:text-teal-primary">
+              {c.breadcrumb.about}
             </Link>
             <span>/</span>
-            <span className="text-dark-teal">Authors</span>
+            <span className="text-dark-teal">{c.breadcrumb.authors}</span>
           </nav>
 
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-dark-teal mb-4">
-              Meet Our Expert Authors
+              {c.hero.title}
             </h1>
             <p className="text-lg text-dark-teal/70">
-              Our team of career coaches, recruiters, and industry specialists
-              create actionable resume guides backed by real hiring experience.
+              {c.hero.subtitle}
             </p>
           </div>
         </div>
@@ -80,7 +75,7 @@ export default function AuthorsPage() {
             {authors.map((author) => (
               <Link
                 key={author.slug}
-                href={`/about/${author.slug}`}
+                href={`/${locale}/about/${author.slug}`}
                 className="group block bg-light-teal rounded-2xl p-6 border border-gray-200 hover:border-teal-primary/30 hover:shadow-lg transition-all duration-300"
               >
                 {/* Avatar */}
@@ -122,7 +117,7 @@ export default function AuthorsPage() {
                 {/* View Profile Link */}
                 <div className="mt-4 text-center">
                   <span className="inline-flex items-center gap-1 text-sm text-teal-primary font-medium group-hover:underline">
-                    View Profile
+                    {c.viewProfile}
                     <svg
                       className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                       fill="none"
@@ -148,17 +143,16 @@ export default function AuthorsPage() {
       <section className="py-16 bg-teal-gradient">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Build Your Resume with Expert Guidance
+            {c.cta.title}
           </h2>
           <p className="text-white/80 mb-8 max-w-lg mx-auto">
-            Our AI builder applies the same strategies our experts recommend.
-            Create a professional resume in minutes.
+            {c.cta.subtitle}
           </p>
           <Link
-            href="/onboarding"
+            href={`/${locale}/onboarding`}
             className="inline-flex items-center gap-2 bg-accent-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition shadow-lg"
           >
-            Create My Resume — Free
+            {c.cta.button}
             <svg
               className="w-5 h-5"
               fill="none"

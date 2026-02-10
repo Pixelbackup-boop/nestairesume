@@ -8,45 +8,56 @@ import SearchBar from '@/components/blog/SearchBar';
 import { Folder, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { getContent } from '@/lib/content/blog-pages';
+
+const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
+const BASE_URL = 'https://www.bestairesumes.com';
 
 interface CategoryPageProps {
-  params: Promise<{ category: string }>;
+  params: Promise<{ locale: string; category: string }>;
   searchParams: Promise<{ page?: string }>;
 }
 
-// Generate static paths for all categories
 export async function generateStaticParams() {
   const categories = await getAllCategories();
-  return categories.map(category => ({
-    category: category.toLowerCase().replace(/\s+/g, '-'),
-  }));
+  return locales.flatMap(locale =>
+    categories.map(category => ({
+      locale,
+      category: category.toLowerCase().replace(/\s+/g, '-'),
+    }))
+  );
 }
 
-// Generate metadata
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const { category } = await params;
-  const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const { locale, category } = await params;
+  const c = getContent(locale).category;
+  const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase());
 
   return {
-    title: `${categoryName} Articles | Best AI Resume Blog`,
-    description: `Browse our ${categoryName.toLowerCase()} articles for expert advice, tips, and guides.`,
+    title: `${categoryName} ${c.metaTitleSuffix}`,
+    description: c.metaDescTemplate.replace('{category}', categoryName.toLowerCase()),
     openGraph: {
-      title: `${categoryName} Articles | Best AI Resume Blog`,
-      description: `Browse our ${categoryName.toLowerCase()} articles for expert advice, tips, and guides.`,
+      title: `${categoryName} ${c.metaTitleSuffix}`,
+      description: c.metaDescTemplate.replace('{category}', categoryName.toLowerCase()),
+    },
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/blog/category/${category}`,
+      languages: Object.fromEntries(
+        locales.map(l => [l, `${BASE_URL}/${l}/blog/category/${category}`])
+      ),
     },
   };
 }
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
-  const { category } = await params;
+  const { locale, category } = await params;
   const { page } = await searchParams;
   const currentPage = Number(page) || 1;
+  const c = getContent(locale).category;
 
-  // Convert slug back to category name
   const categorySlug = category.toLowerCase();
   const allCategories = await getAllCategories();
 
-  // Find matching category (case-insensitive)
   const matchedCategory = allCategories.find(
     cat => cat.toLowerCase().replace(/\s+/g, '-') === categorySlug
   );
@@ -58,19 +69,22 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const categoryPosts = await getPostsByCategory(matchedCategory);
   const { posts, totalPages } = paginatePosts(categoryPosts, currentPage, 9);
   const categories = await getAllCategories();
-
   const displayName = matchedCategory;
+
+  const articleCountText = categoryPosts.length === 1
+    ? c.articleCount.replace('{count}', '1')
+    : c.articlesCount.replace('{count}', String(categoryPosts.length));
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       {/* Header */}
       <div className="mb-12">
         <Link
-          href="/blog"
+          href={`/${locale}/blog`}
           className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-accent-green transition-colors mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Blog
+          {c.backToBlog}
         </Link>
 
         <div className="flex items-center gap-3 mb-4">
@@ -82,14 +96,14 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           </h1>
         </div>
         <p className="text-gray-600">
-          {categoryPosts.length} article{categoryPosts.length !== 1 ? 's' : ''} in this category
+          {articleCountText}
         </p>
       </div>
 
       {/* Search Bar */}
       <div className="max-w-xl mb-12">
         <Suspense fallback={<div className="h-12 bg-gray-100 rounded-xl animate-pulse" />}>
-          <SearchBar placeholder={`Search in ${displayName}...`} />
+          <SearchBar />
         </Suspense>
       </div>
 
@@ -114,7 +128,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
-                basePath={`/blog/category/${category}`}
+                basePath={`/${locale}/blog/category/${category}`}
               />
             </>
           ) : (
@@ -122,8 +136,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Folder size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No articles yet</h3>
-              <p className="text-gray-600">Check back soon for new content in this category!</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">{c.noArticlesTitle}</h3>
+              <p className="text-gray-600">{c.noArticlesSubtitle}</p>
             </div>
           )}
         </div>

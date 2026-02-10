@@ -12,7 +12,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Builder.meta' });
+  const t = await getTranslations({ locale, namespace: 'CanvasEditor.meta' });
 
   const title = t('title');
   const description = t('description');
@@ -21,28 +21,20 @@ export async function generateMetadata({
     title,
     description,
     keywords: [
-      'resume builder',
-      'CV maker',
-      'online resume editor',
-      'create resume online',
-      'professional resume builder',
-      'AI resume creator',
+      'canvas resume editor',
+      'visual resume builder',
+      'drag and drop resume',
+      'custom resume design',
+      'creative resume maker',
+      'resume design tool',
     ],
     openGraph: {
       type: 'website',
       locale: locale === 'ar' ? 'ar_SA' : `${locale}_${locale.toUpperCase()}`,
-      url: `${siteConfig.url}/${locale}/builder`,
+      url: `${siteConfig.url}/${locale}/canvas-editor`,
       siteName: siteConfig.name,
       title,
       description,
-      images: [
-        {
-          url: '/og-builder.png',
-          width: 1200,
-          height: 630,
-          alt: 'AI Resume Builder',
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -50,16 +42,12 @@ export async function generateMetadata({
       description,
     },
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/builder`,
-      languages: Object.fromEntries([
-        ['x-default', `${siteConfig.url}/en/builder`],
-        ...['en', 'es', 'fr', 'de', 'ar'].map(l => [l, `${siteConfig.url}/${l}/builder`]),
-      ]),
+      canonical: `${siteConfig.url}/${locale}/canvas-editor`,
     },
   };
 }
 
-export default function BuilderLayout({
+export default function CanvasEditorLayout({
   children,
 }: {
   children: React.ReactNode;

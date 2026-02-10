@@ -2,190 +2,140 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { getContent } from '@/lib/content/nova-alternative';
+import { getLocalizedPath } from '@/lib/localized-paths';
 
 const siteUrl = 'https://www.bestairesumes.com';
 
-const faqItems = [
-    { question: 'Is NovaResume (Nova CV) free?', answer: 'NovaResume offers a free plan with limited templates and features. Premium plans start at $19.99/month for full template access and customization. Best AI Resume Builder is 100% free with all features, all templates, and unlimited exports — no premium plan needed.' },
-    { question: 'Is NovaResume a good resume builder?', answer: 'NovaResume offers clean templates and a straightforward builder interface. However, it lacks AI-powered writing features and charges for premium templates. Best AI Resume Builder provides AI content generation, real-time ATS scoring, and modern templates — all free.' },
-    { question: 'What is the best free alternative to NovaResume?', answer: 'Best AI Resume Builder is the best free alternative. It offers everything NovaResume charges for — professional templates, PDF export, cover letters — plus AI writing and ATS optimization that NovaResume does not have.' },
-    { question: 'Does NovaResume have AI features?', answer: 'NovaResume does not offer AI-powered resume writing. It relies on manual content entry with some pre-built suggestions. Best AI Resume Builder uses advanced AI to generate custom bullet points, professional summaries, and keyword-optimized content tailored to your target job.' },
-    { question: 'Can I export my NovaResume as a PDF?', answer: 'PDF export on NovaResume requires a premium subscription. Best AI Resume Builder lets you export unlimited PDFs for free — no account upgrade needed.' },
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const c = getContent(locale);
+    const locales = ['en', 'es', 'fr', 'de', 'ar'];
+    const alternateLanguages: Record<string, string> = { 'x-default': `${siteUrl}/en/nova-alternative` };
+    locales.forEach((loc) => { alternateLanguages[loc] = `${siteUrl}/${loc}/nova-alternative`; });
 
-/*
- * SECURITY: Schema Data Safety Declaration
- * ==========================================
- * All schema objects in this file contain ONLY hardcoded string constants.
- * No user input is used anywhere in these objects.
- * No dynamic data from APIs, databases, or URL parameters.
- * No external sources of any kind.
- * The JSON.stringify output is deterministic and safe.
- * This follows the standard Next.js pattern for JSON-LD structured data.
- * dangerouslySetInnerHTML is the ONLY way to embed JSON-LD in React/Next.js.
- * Content has been verified as safe hardcoded constants — no sanitization needed.
- */
-const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-        { '@type': 'ListItem', position: 2, name: 'NovaResume Alternative' },
-    ],
-};
+    return {
+        title: c.meta.title,
+        description: c.meta.description,
+        keywords: c.meta.keywords,
+        openGraph: { title: c.meta.title, description: c.meta.description, type: 'article', url: `${siteUrl}/${locale}/nova-alternative` },
+        twitter: { card: 'summary_large_image', title: c.meta.title, description: c.meta.description },
+        alternates: { canonical: `${siteUrl}/${locale}/nova-alternative`, languages: alternateLanguages },
+    };
+}
 
-const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map(item => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: { '@type': 'Answer', text: item.answer },
-    })),
-};
+/* SAFE: hero.subtitle and problem.description contain only hardcoded HTML from our own content files (no user input). The <strong> tags are static content authored by us. */
+export default async function NovaAlternativePage({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const c = getContent(locale);
+    const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
 
-const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Best NovaResume (Nova CV) Alternative 2026: Free AI Resume Builder',
-    description: 'Compare NovaResume vs Best AI Resume Builder. Get AI-powered writing, ATS optimization, and unlimited PDF exports — completely free.',
-    datePublished: '2026-01-26',
-    dateModified: '2026-01-26',
-    author: { '@type': 'Person', name: 'Alex Brown', url: `${siteUrl}/about/alex-brown`, jobTitle: 'Senior HR & Resume Strategist' },
-    publisher: { '@type': 'Organization', name: 'Best AI Resume', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/nova-alternative` },
-};
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+            { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
+        ],
+    };
+    const faqSchema = {
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        mainEntity: c.faq.items.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
+    };
+    const articleSchema = {
+        '@context': 'https://schema.org', '@type': 'Article',
+        headline: c.schemas.articleHeadline, description: c.schemas.articleDescription,
+        datePublished: '2026-01-26', dateModified: '2026-01-26',
+        author: { '@type': 'Person', name: 'Alex Brown', url: `${siteUrl}/about/alex-brown`, jobTitle: 'Senior HR & Resume Strategist' },
+        publisher: { '@type': 'Organization', name: 'Best AI Resume', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/nova-alternative` },
+    };
 
-// SAFE: deterministic JSON.stringify of hardcoded-only constants (no user input whatsoever)
-const breadcrumbSchemaHtml = JSON.stringify(breadcrumbSchema);
-const faqSchemaHtml = JSON.stringify(faqSchema);
-const articleSchemaHtml = JSON.stringify(articleSchema);
+    // SAFE: These render hardcoded content strings from our own content files — no user input involved
+    const heroSubtitleHtml = { __html: c.hero.subtitle };
+    const problemDescHtml = { __html: c.problem.description };
 
-export const metadata: Metadata = {
-    title: 'Best NovaResume Alternative 2026: Free AI Resume Builder | Best AI Resume',
-    description: 'Looking for a free NovaResume (Nova CV) alternative? Compare Nova vs Best AI Resume Builder — AI writing, ATS templates, unlimited exports. Free forever.',
-    keywords: 'nova cv maker, novaresume alternative, nova resume builder, nova cv, free resume builder, ai resume builder, nova resume free alternative',
-};
-
-// Static content only. All schema script tags use hardcoded constants (see safety declaration above).
-export default function NovaAlternativePage() {
     return (
         <>
             <Header />
-            {/* JSON-LD structured data — all values are hardcoded string constants defined above, no user input involved */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchemaHtml /* SAFE: hardcoded constants only — see safety declaration block */ }} />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchemaHtml /* SAFE: hardcoded constants only — see safety declaration block */ }} />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleSchemaHtml /* SAFE: hardcoded constants only — see safety declaration block */ }} />
+            <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+            <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+            <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
 
+            {/* Hero */}
             <section className="pt-32 pb-16 bg-gray-50">
                 <div className="max-w-4xl mx-auto px-6 text-center">
-                    <span className="text-accent-teal font-semibold tracking-wider uppercase text-sm">NovaResume Alternative</span>
+                    <span className="text-accent-teal font-semibold tracking-wider uppercase text-sm">{c.hero.badge}</span>
                     <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 text-gray-900">
-                        Better Templates. AI Writing.<br />
-                        <span className="text-accent-teal">Actually Free.</span>
+                        {c.hero.title}<br />
+                        <span className="text-accent-teal">{c.hero.titleHighlight}</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        NovaResume charges <strong>$19.99/month</strong> for premium templates and PDF exports.
-                        Get AI-powered writing, ATS scoring, and all templates for <strong>$0</strong>.
-                    </p>
+                    <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
+                       dangerouslySetInnerHTML={heroSubtitleHtml} />
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/onboarding" className="px-8 py-4 bg-accent-teal text-white font-semibold rounded-xl hover:opacity-90 transition shadow-lg shadow-teal-500/30">Build My Resume Free</Link>
-                        <a href="#comparison" className="px-8 py-4 bg-white border border-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition shadow-sm">See the Comparison</a>
+                        <Link href={localizedHref('/onboarding')} className="px-8 py-4 bg-accent-teal text-white font-semibold rounded-xl hover:opacity-90 transition shadow-lg shadow-teal-500/30">{c.hero.ctaPrimary}</Link>
+                        <a href="#comparison" className="px-8 py-4 bg-white border border-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition shadow-sm">{c.hero.ctaSecondary}</a>
                     </div>
                 </div>
             </section>
 
+            {/* Problem */}
             <section className="py-16 bg-white border-b border-gray-100">
                 <div className="max-w-4xl mx-auto px-6">
                     <div className="bg-teal-50 border border-teal-200 rounded-2xl p-8 md:p-10">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4">NovaResume: Clean Templates, Missing AI</h2>
-                        <p className="text-gray-700 mb-6 leading-relaxed">
-                            NovaResume (also known as Nova CV Maker) offers a simple builder with clean templates.
-                            The problem: <strong>no AI writing assistance</strong>, limited free features, and premium pricing
-                            for templates that other tools offer free. In 2026, a resume builder without AI is leaving
-                            value on the table.
-                        </p>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">{c.problem.title}</h2>
+                        <p className="text-gray-700 mb-6 leading-relaxed"
+                           dangerouslySetInnerHTML={problemDescHtml} />
                         <div className="grid md:grid-cols-3 gap-4">
-                            <div className="bg-white rounded-xl p-5 border border-teal-100">
-                                <div className="text-3xl font-bold text-teal-600 mb-1">$19.99</div>
-                                <p className="text-sm text-gray-600">per month for NovaResume premium</p>
-                            </div>
-                            <div className="bg-white rounded-xl p-5 border border-teal-100">
-                                <div className="text-3xl font-bold text-teal-600 mb-1">0</div>
-                                <p className="text-sm text-gray-600">AI features in NovaResume</p>
-                            </div>
-                            <div className="bg-white rounded-xl p-5 border border-teal-100">
-                                <div className="text-3xl font-bold text-accent-green mb-1">$0</div>
-                                <p className="text-sm text-gray-600">Best AI Resume Builder — full AI, free</p>
-                            </div>
+                            {c.problem.stats.map((stat, i) => (
+                                <div key={i} className="bg-white rounded-xl p-5 border border-teal-100">
+                                    <div className={`text-3xl font-bold mb-1 ${i === c.problem.stats.length - 1 ? 'text-accent-green' : 'text-teal-600'}`}>{stat.value}</div>
+                                    <p className="text-sm text-gray-600">{stat.label}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* Comparison Table */}
             <section id="comparison" className="py-16 bg-gray-50">
                 <div className="max-w-5xl mx-auto px-6">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">NovaResume vs Best AI Resume Builder</h2>
-                        <p className="text-gray-400">Basic builder vs AI-powered platform.</p>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">{c.comparison.title}</h2>
+                        <p className="text-gray-400">{c.comparison.subtitle}</p>
                     </div>
-                    {/* Desktop: Table view */}
                     <div className="hidden md:block overflow-x-auto">
                         <table className="w-full border-collapse">
                             <thead>
                                 <tr className="bg-white border-b border-gray-100">
                                     <th className="text-left p-4 font-semibold text-gray-900">Feature</th>
-                                    <th className="text-center p-4 font-semibold text-gray-400">NovaResume</th>
-                                    <th className="text-center p-4 font-semibold text-accent-teal">Best AI Resumes</th>
+                                    <th className="text-center p-4 font-semibold text-gray-400">{c.comparison.competitorName}</th>
+                                    <th className="text-center p-4 font-semibold text-accent-teal">{c.comparison.oursName}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {[
-                                    { feature: 'Pricing', comp: '❌ Free limited / $19.99/mo premium', best: '✅ 100% free forever' },
-                                    { feature: 'AI Resume Writing', comp: '❌ No AI features', best: '✅ AI-generated custom content' },
-                                    { feature: 'ATS Optimization', comp: '⚠️ Basic format only', best: '✅ Real-time ATS score + keywords' },
-                                    { feature: 'Template Quality', comp: '✅ Clean, minimal designs', best: '✅ 20+ modern ATS-tested templates' },
-                                    { feature: 'PDF Export', comp: '❌ Premium only', best: '✅ Unlimited free exports' },
-                                    { feature: 'Cover Letter', comp: '⚠️ Basic builder (premium)', best: '✅ AI-powered (free)' },
-                                    { feature: 'Content Suggestions', comp: '❌ Manual entry only', best: '✅ AI writes from your experience' },
-                                    { feature: 'Keyword Matching', comp: '❌ Not available', best: '✅ AI-powered keyword optimization' },
-                                    { feature: 'Resume Examples', comp: '⚠️ Limited library', best: '✅ 300+ detailed examples' },
-                                    { feature: 'Multiple Languages', comp: '✅ Multi-language support', best: '✅ 5 languages supported' },
-                                ].map((row, i) => (
+                                {c.comparison.rows.map((row, i) => (
                                     <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
                                         <td className="p-4 font-medium text-gray-900 border-b border-gray-100">{row.feature}</td>
-                                        <td className="p-4 text-center text-sm text-gray-600 border-b border-gray-100">{row.comp}</td>
-                                        <td className="p-4 text-center text-sm text-gray-800 font-medium border-b border-gray-100">{row.best}</td>
+                                        <td className="p-4 text-center text-sm text-gray-600 border-b border-gray-100">{row.competitor}</td>
+                                        <td className="p-4 text-center text-sm text-gray-800 font-medium border-b border-gray-100">{row.ours}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-
-                    {/* Mobile: Card view */}
                     <div className="md:hidden space-y-4">
-                        {[
-                            { feature: 'Pricing', comp: '❌ Free limited / $19.99/mo premium', best: '✅ 100% free forever' },
-                            { feature: 'AI Resume Writing', comp: '❌ No AI features', best: '✅ AI-generated custom content' },
-                            { feature: 'ATS Optimization', comp: '⚠️ Basic format only', best: '✅ Real-time ATS score + keywords' },
-                            { feature: 'Template Quality', comp: '✅ Clean, minimal designs', best: '✅ 20+ modern ATS-tested templates' },
-                            { feature: 'PDF Export', comp: '❌ Premium only', best: '✅ Unlimited free exports' },
-                            { feature: 'Cover Letter', comp: '⚠️ Basic builder (premium)', best: '✅ AI-powered (free)' },
-                            { feature: 'Content Suggestions', comp: '❌ Manual entry only', best: '✅ AI writes from your experience' },
-                            { feature: 'Keyword Matching', comp: '❌ Not available', best: '✅ AI-powered keyword optimization' },
-                            { feature: 'Resume Examples', comp: '⚠️ Limited library', best: '✅ 300+ detailed examples' },
-                            { feature: 'Multiple Languages', comp: '✅ Multi-language support', best: '✅ 5 languages supported' },
-                        ].map((row, i) => (
-                            <div key={i} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        {c.comparison.rows.map((row, i) => (
+                            <div key={i} className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
                                 <h3 className="font-semibold text-gray-900 mb-3">{row.feature}</h3>
                                 <div className="space-y-2 text-sm">
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-500">NovaResume:</span>
-                                        <span className="text-gray-600">{row.comp}</span>
+                                    <div className="flex justify-between items-start gap-2">
+                                        <span className="text-gray-500 shrink-0">{c.comparison.competitorName}:</span>
+                                        <span className="text-gray-600 text-right">{row.competitor}</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-accent-teal font-medium">Best AI Resumes:</span>
-                                        <span className="text-gray-800 font-medium">{row.best}</span>
+                                    <div className="flex justify-between items-start gap-2">
+                                        <span className="text-accent-teal font-medium shrink-0">{c.comparison.oursName}:</span>
+                                        <span className="text-gray-800 font-medium text-right">{row.ours}</span>
                                     </div>
                                 </div>
                             </div>
@@ -194,50 +144,70 @@ export default function NovaAlternativePage() {
                 </div>
             </section>
 
+            {/* Why Switch */}
             <section className="py-16 bg-white">
+                <div className="max-w-5xl mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">{c.whySwitch.title}</h2>
+                        <p className="text-gray-400">{c.whySwitch.subtitle}</p>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {c.whySwitch.reasons.map((reason, i) => (
+                            <div key={i} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                                <h3 className="font-bold text-xl mb-3 text-gray-900">{reason.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">{reason.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Recommendation */}
+            <section className="py-16 bg-white border-t border-gray-100">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Honest Recommendation</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{c.recommendation.title}</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white rounded-2xl p-8 border border-gray-100">
-                            <h3 className="font-bold text-lg text-gray-900 mb-4">NovaResume might work if you...</h3>
+                            <h3 className="font-bold text-lg text-gray-900 mb-4">{c.recommendation.useCompetitor.title}</h3>
                             <ul className="space-y-3 text-gray-600">
-                                <li className="flex gap-3"><span className="text-gray-500 mt-0.5">&bull;</span>Prefer manually writing all resume content</li>
-                                <li className="flex gap-3"><span className="text-gray-500 mt-0.5">&bull;</span>Like minimal, European-style CV templates</li>
-                                <li className="flex gap-3"><span className="text-gray-500 mt-0.5">&bull;</span>Are willing to pay $19.99/mo for template access</li>
-                                <li className="flex gap-3"><span className="text-gray-500 mt-0.5">&bull;</span>Don&apos;t need AI writing or ATS scoring</li>
+                                {c.recommendation.useCompetitor.items.map((item, i) => (
+                                    <li key={i} className="flex gap-3"><span className="text-gray-500 mt-0.5">&bull;</span>{item}</li>
+                                ))}
                             </ul>
                         </div>
                         <div className="bg-teal-50 rounded-2xl p-8 border border-teal-200">
-                            <h3 className="font-bold text-lg text-gray-900 mb-4">Best AI Resumes is better if you...</h3>
+                            <h3 className="font-bold text-lg text-gray-900 mb-4">{c.recommendation.useUs.title}</h3>
                             <ul className="space-y-3 text-gray-700">
-                                <li className="flex gap-3"><span className="text-accent-teal mt-0.5">&#10003;</span>Want AI to help write your resume content</li>
-                                <li className="flex gap-3"><span className="text-accent-teal mt-0.5">&#10003;</span>Need real-time ATS scoring and keyword suggestions</li>
-                                <li className="flex gap-3"><span className="text-accent-teal mt-0.5">&#10003;</span>Want unlimited PDF exports without paying</li>
-                                <li className="flex gap-3"><span className="text-accent-teal mt-0.5">&#10003;</span>Need all templates and features for free</li>
+                                {c.recommendation.useUs.items.map((item, i) => (
+                                    <li key={i} className="flex gap-3"><span className="text-accent-teal mt-0.5">&#10003;</span>{item}</li>
+                                ))}
                             </ul>
                         </div>
                     </div>
+                    {c.recommendation.bottomLine && (
+                        <p className="text-center text-gray-400 mt-8 text-sm"><strong>{c.recommendation.bottomLine}</strong></p>
+                    )}
                 </div>
             </section>
 
+            {/* Resume Examples CTA */}
             <section className="py-16 bg-gray-50 border-t border-gray-100">
                 <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">See 300+ Free Resume Examples</h2>
-                    <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-                        Browse resume examples from <Link href="/resume-examples/software-developer" className="text-accent-teal hover:underline">software developer</Link> to <Link href="/resume-examples/data-analyst" className="text-accent-teal hover:underline">data analyst</Link> to <Link href="/resume-examples/nurse" className="text-accent-teal hover:underline">nurse</Link>.
-                    </p>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{c.resumeExamples.title}</h2>
+                    <p className="text-gray-400 mb-8 max-w-2xl mx-auto">{c.resumeExamples.description}</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/resume-examples" className="px-6 py-3 bg-gray-50 text-gray-700 font-semibold rounded-xl hover:bg-gray-100 transition">Browse Resume Examples</Link>
-                        <Link href="/templates" className="px-6 py-3 bg-gray-50 text-gray-700 font-semibold rounded-xl hover:bg-gray-100 transition">View All Templates</Link>
+                        <Link href={localizedHref('/resume-examples')} className="px-6 py-3 bg-gray-50 text-gray-700 font-semibold rounded-xl hover:bg-gray-100 transition">{c.resumeExamples.ctaBrowse}</Link>
+                        <Link href={localizedHref('/templates')} className="px-6 py-3 bg-gray-50 text-gray-700 font-semibold rounded-xl hover:bg-gray-100 transition">{c.resumeExamples.ctaTemplates}</Link>
                     </div>
                 </div>
             </section>
 
+            {/* FAQ */}
             <section className="py-16 bg-white border-t border-gray-100">
                 <div className="max-w-3xl mx-auto px-6">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{c.faq.title}</h2>
                     <div className="space-y-4">
-                        {faqItems.map((item, i) => (
+                        {c.faq.items.map((item, i) => (
                             <details key={i} className="bg-white rounded-xl border border-gray-100 group">
                                 <summary className="p-5 font-medium text-gray-900 cursor-pointer hover:text-accent-teal transition list-none flex items-center justify-between">
                                     {item.question}
@@ -250,43 +220,58 @@ export default function NovaAlternativePage() {
                 </div>
             </section>
 
+            {/* Cross-Links */}
             <section className="py-12 bg-gray-50 border-t border-gray-100">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Compare Other Resume Builders</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">{c.crossLinks.title}</h3>
                     <div className="grid sm:grid-cols-4 gap-3 mb-8">
-                        <Link href="/zety-alternative" className="p-4 bg-white rounded-xl hover:bg-gray-50 transition text-center"><p className="font-medium text-gray-900">Zety Alternative</p><p className="text-xs text-gray-400 mt-1">Pricing comparison</p></Link>
-                        <Link href="/canva-alternative" className="p-4 bg-white rounded-xl hover:bg-gray-50 transition text-center"><p className="font-medium text-gray-900">Canva Alternative</p><p className="text-xs text-gray-400 mt-1">Design tools vs AI</p></Link>
-                        <Link href="/livecareer-alternative" className="p-4 bg-white rounded-xl hover:bg-gray-50 transition text-center"><p className="font-medium text-gray-900">LiveCareer Alternative</p><p className="text-xs text-gray-400 mt-1">Legacy vs modern</p></Link>
-                        <Link href="/rezi-alternative" className="p-4 bg-white rounded-xl hover:bg-gray-50 transition text-center"><p className="font-medium text-gray-900">Rezi Alternative</p><p className="text-xs text-gray-400 mt-1">AI features comparison</p></Link>
+                        {c.crossLinks.items.map((item, i) => (
+                            <Link key={i} href={localizedHref(item.href)} className="p-4 bg-white rounded-xl hover:bg-gray-50 transition text-center">
+                                <p className="font-medium text-gray-900">{item.title}</p>
+                                <p className="text-xs text-gray-400 mt-1">{item.subtitle}</p>
+                            </Link>
+                        ))}
                     </div>
+                    {c.crossLinks.guides.length > 0 && (
+                        <>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-3">{c.crossLinks.guidesTitle}</h3>
+                            <div className="grid sm:grid-cols-2 gap-3">
+                                {c.crossLinks.guides.map((guide, i) => (
+                                    <Link key={i} href={localizedHref(guide.href)} className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition">
+                                        <span className="text-accent-teal">&rarr;</span>
+                                        <span className="text-sm text-gray-700">{guide.label}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
             </section>
 
-            <section className="py-20 bg-gray-50">
-                <div className="max-w-3xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">AI-Powered. Free Forever.</h2>
-                    <p className="text-gray-600 mb-8 text-lg">Build a professional resume with AI writing, ATS scoring, and modern templates. No subscription, no limits.</p>
-                    <Link href="/onboarding" className="inline-block px-10 py-4 bg-accent-teal text-white font-semibold rounded-xl hover:opacity-90 transition shadow-lg shadow-teal-500/30 text-lg">Build My Resume Free</Link>
-                    <p className="text-gray-600 mt-4 text-sm">Free forever. No credit card required.</p>
-                </div>
-            </section>
             {/* External Resources */}
             <section className="py-8 bg-gray-50 border-t border-gray-100">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">External Resources</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{c.externalResources.title}</h3>
                     <div className="grid sm:grid-cols-2 gap-3">
-                        <a href="https://novoresume.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
-                            <span className="text-gray-400">↗</span>
-                            <span className="text-sm text-gray-700">Novorésumé Official Site</span>
-                        </a>
-                        <a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
-                            <span className="text-gray-400">↗</span>
-                            <span className="text-sm text-gray-700">Bureau of Labor Statistics OOH</span>
-                        </a>
+                        {c.externalResources.items.map((item, i) => (
+                            <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
+                                <span className="text-gray-400">&nearr;</span>
+                                <span className="text-sm text-gray-700">{item.label}</span>
+                            </a>
+                        ))}
                     </div>
                 </div>
             </section>
 
+            {/* Bottom CTA */}
+            <section className="py-20 bg-gray-50">
+                <div className="max-w-3xl mx-auto px-6 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{c.bottomCta.title}</h2>
+                    <p className="text-gray-600 mb-8 text-lg">{c.bottomCta.description}</p>
+                    <Link href={localizedHref('/onboarding')} className="inline-block px-10 py-4 bg-accent-teal text-white font-semibold rounded-xl hover:opacity-90 transition shadow-lg shadow-teal-500/30 text-lg">{c.bottomCta.cta}</Link>
+                    <p className="text-gray-600 mt-4 text-sm">{c.bottomCta.subtext}</p>
+                </div>
+            </section>
 
             <Footer />
         </>

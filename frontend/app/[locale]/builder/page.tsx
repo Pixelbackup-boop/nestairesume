@@ -23,6 +23,7 @@ import {
     colorPresets
 } from '@/lib/templates/builder';
 import Link from 'next/link';
+import FontLoader from '@/components/FontLoader';
 import { downloadPdf, PdfTranslations } from '@/lib/pdfService';
 import {
     Download, ChevronDown, Layout, Palette, Sparkles,
@@ -30,12 +31,15 @@ import {
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
     FileText, Image, X, ChevronRight, Menu, CheckCircle, Crown
 } from 'lucide-react';
+import WelcomeModal from './WelcomeModal';
+import MobileSidebar from './MobileSidebar';
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
 
 function BuilderContent() {
     const searchParams = useSearchParams();
     const t = useTranslations('Resume');
+    const tBuilder = useTranslations('Builder');
     const locale = useLocale();
     const [activeTab, setActiveTab] = useState<TabId>('personal');
     const [showTemplateDropdown, setShowTemplateDropdown] = useState(false);
@@ -176,11 +180,11 @@ function BuilderContent() {
     }, [sectionStatus]);
 
     const tabs: { id: TabId; label: string; icon: typeof User; description: string }[] = [
-        { id: 'personal', label: 'Personal', icon: User, description: 'Basic info & summary' },
-        { id: 'experience', label: 'Experience', icon: Briefcase, description: 'Work history' },
-        { id: 'education', label: 'Education', icon: GraduationCap, description: 'Academic background' },
-        { id: 'skills', label: 'Skills', icon: Wrench, description: 'Your expertise' },
-        { id: 'design', label: 'Design', icon: PaintBucket, description: 'Style & layout' },
+        { id: 'personal', label: tBuilder('tabs.personal'), icon: User, description: tBuilder('tabs.personalDesc') },
+        { id: 'experience', label: tBuilder('tabs.experience'), icon: Briefcase, description: tBuilder('tabs.experienceDesc') },
+        { id: 'education', label: tBuilder('tabs.education'), icon: GraduationCap, description: tBuilder('tabs.educationDesc') },
+        { id: 'skills', label: tBuilder('tabs.skills'), icon: Wrench, description: tBuilder('tabs.skillsDesc') },
+        { id: 'design', label: tBuilder('tabs.design'), icon: PaintBucket, description: tBuilder('tabs.designDesc') },
     ];
 
     const zoomIn = () => setPreviewScale(Math.min(previewScale + 0.1, 1.2));
@@ -189,110 +193,16 @@ function BuilderContent() {
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900 flex">
-            {/* Mobile Sidebar Overlay */}
-            {mobileSidebarOpen && (
-                <div
-                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-                    onClick={() => setMobileSidebarOpen(false)}
-                />
-            )}
-
-            {/* Left Sidebar - Vertical Tabs */}
-            <aside className={`
-                fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 flex flex-col transform transition-transform duration-300 ease-in-out
-                lg:relative lg:translate-x-0
-                ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-            `}>
-                {/* Logo */}
-                <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-                    <Link href="/" className="flex items-center gap-2">
-                        <NextImage
-                            src="/logo.png"
-                            alt="Best AI Resume Logo"
-                            width={32}
-                            height={32}
-                            className="rounded-md"
-                        />
-                        <span className="font-bold text-lg text-gray-900">Best AI Resume</span>
-                    </Link>
-                    {/* Close button for mobile */}
-                    <button
-                        onClick={() => setMobileSidebarOpen(false)}
-                        className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition lg:hidden"
-                    >
-                        <X size={20} />
-                    </button>
-                </div>
-
-                {/* Progress */}
-                <div className="px-4 py-3 border-b border-gray-200">
-                    <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
-                        <span>Progress</span>
-                        <span className="font-semibold text-accent-green">{progress}%</span>
-                    </div>
-                    <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                        <div
-                            className="h-full bg-gradient-to-r from-accent-green to-accent-teal rounded-full transition-all duration-500"
-                            style={{ width: `${progress}%` }}
-                        />
-                    </div>
-                </div>
-
-                {/* Vertical Tabs */}
-                <nav className="flex-1 py-2 overflow-y-auto">
-                    {tabs.map((tab) => {
-                        const Icon = tab.icon;
-                        const isComplete = sectionStatus[tab.id];
-                        const isActive = activeTab === tab.id;
-                        return (
-                            <button
-                                key={tab.id}
-                                onClick={() => {
-                                    setActiveTab(tab.id);
-                                    setMobileSidebarOpen(false); // Close sidebar on mobile after selection
-                                }}
-                                className={`w-full flex items-center gap-3 px-4 py-3.5 text-left transition-all ${
-                                    isActive
-                                        ? 'bg-accent-green/10 border-l-4 border-accent-green text-gray-900'
-                                        : 'border-l-4 border-transparent text-gray-500 hover:bg-gray-100 hover:text-gray-700'
-                                }`}
-                            >
-                                <div className={`relative ${isActive ? 'text-accent-green' : ''}`}>
-                                    <Icon size={20} />
-                                    {isComplete && !isActive && (
-                                        <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-accent-green rounded-full border-2 border-gray-200" />
-                                    )}
-                                </div>
-                                <div className="flex-1">
-                                    <div className={`font-medium text-sm ${isActive ? 'text-gray-900' : ''}`}>
-                                        {tab.label}
-                                    </div>
-                                    <div className="text-xs text-gray-400">{tab.description}</div>
-                                </div>
-                                {isActive && <Check size={16} className="text-accent-green" />}
-                            </button>
-                        );
-                    })}
-                </nav>
-
-                {/* Bottom Actions */}
-                <div className="p-4 border-t border-gray-200 space-y-2">
-                    <Link
-                        href="/templates"
-                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
-                    >
-                        <Sparkles size={16} />
-                        Canvas Editor
-                    </Link>
-                    <Link
-                        href="/"
-                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
-                    >
-                        <Home size={16} />
-                        Back to Home
-                    </Link>
-                </div>
-            </aside>
+            <FontLoader />
+            <MobileSidebar
+                isOpen={mobileSidebarOpen}
+                onClose={() => setMobileSidebarOpen(false)}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+                tabs={tabs}
+                sectionStatus={sectionStatus}
+                progress={progress}
+            />
 
             {/* Main Content Area */}
             <div className="flex-1 flex flex-col min-w-0">
@@ -309,7 +219,7 @@ function BuilderContent() {
                         <div className="flex items-center gap-2 text-gray-500">
                             <FileText size={18} className="hidden sm:block" />
                             <span className="text-sm font-medium text-gray-900 truncate max-w-[150px] sm:max-w-none">
-                                {resumeData.personalInfo.fullName || 'Untitled Resume'}
+                                {resumeData.personalInfo.fullName || tBuilder('ui.untitledResume')}
                             </span>
                         </div>
                     </div>
@@ -321,7 +231,7 @@ function BuilderContent() {
                             className="flex items-center gap-2 bg-accent-green text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition"
                         >
                             <Download size={16} />
-                            <span className="hidden sm:inline">Download PDF</span>
+                            <span className="hidden sm:inline">{tBuilder('ui.downloadPdf')}</span>
                         </button>
                     </div>
                 </header>
@@ -366,7 +276,7 @@ function BuilderContent() {
                         <div className="w-full lg:w-1/2 flex flex-col bg-gray-50 relative">
                             {/* Preview Header */}
                             <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-gray-50">
-                                <span className="text-sm font-medium text-gray-600">Live Preview</span>
+                                <span className="text-sm font-medium text-gray-600">{tBuilder('ui.livePreview')}</span>
                                 <div className="flex items-center gap-2">
                                     {/* Reference Image Toggle - Only show if template has thumbnail */}
                                     {templateThumbnail && (
@@ -377,17 +287,17 @@ function BuilderContent() {
                                                     ? 'text-accent-green bg-accent-green/10'
                                                     : 'text-gray-500 hover:text-gray-900 hover:bg-gray-200'
                                             }`}
-                                            title="Show Reference Image"
+                                            title={tBuilder('ui.showReference')}
                                         >
                                             <Image size={16} />
-                                            <span className="text-xs">Reference</span>
+                                            <span className="text-xs">{tBuilder('ui.reference')}</span>
                                         </button>
                                     )}
                                     <div className="w-px h-4 bg-gray-200 mx-1" />
                                     <button
                                         onClick={zoomOut}
                                         className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
-                                        title="Zoom Out"
+                                        title={tBuilder('ui.zoomOut')}
                                     >
                                         <ZoomOut size={16} />
                                     </button>
@@ -397,14 +307,14 @@ function BuilderContent() {
                                     <button
                                         onClick={zoomIn}
                                         className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
-                                        title="Zoom In"
+                                        title={tBuilder('ui.zoomIn')}
                                     >
                                         <ZoomIn size={16} />
                                     </button>
                                     <button
                                         onClick={resetZoom}
                                         className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
-                                        title="Reset Zoom"
+                                        title={tBuilder('ui.resetZoom')}
                                     >
                                         <RotateCcw size={16} />
                                     </button>
@@ -423,7 +333,7 @@ function BuilderContent() {
                                     <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-white">
                                         <div className="flex items-center gap-2">
                                             <Image size={16} className="text-accent-green" />
-                                            <span className="text-sm font-medium text-gray-900">Reference Design</span>
+                                            <span className="text-sm font-medium text-gray-900">{tBuilder('ui.referenceDesign')}</span>
                                         </div>
                                         <button
                                             onClick={() => setShowReferencePanel(false)}
@@ -443,7 +353,7 @@ function BuilderContent() {
                                             />
                                         </div>
                                         <p className="text-xs text-gray-400 mt-3 text-center">
-                                            Original template design for reference
+                                            {tBuilder('ui.referenceCaption')}
                                         </p>
                                     </div>
                                 </div>
@@ -457,17 +367,17 @@ function BuilderContent() {
             <button
                 onClick={() => setShowPreview(!showPreview)}
                 className="fixed bottom-6 right-6 p-4 bg-accent-green text-gray-900 rounded-full shadow-lg hover:bg-accent-teal transition lg:hidden z-30 flex items-center gap-2"
-                title={showPreview ? 'Edit Resume' : 'Preview Resume'}
+                title={showPreview ? tBuilder('ui.editResume') : tBuilder('ui.previewResume')}
             >
                 {showPreview ? (
                     <>
                         <EyeOff size={20} />
-                        <span className="text-sm font-medium">Edit</span>
+                        <span className="text-sm font-medium">{tBuilder('ui.edit')}</span>
                     </>
                 ) : (
                     <>
                         <Eye size={20} />
-                        <span className="text-sm font-medium">Preview</span>
+                        <span className="text-sm font-medium">{tBuilder('ui.preview')}</span>
                     </>
                 )}
             </button>
@@ -481,47 +391,13 @@ function BuilderContent() {
 
             {/* Welcome Modal - shown after new registration */}
             {showWelcomeModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center">
-                    <div
-                        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                        onClick={() => setShowWelcomeModal(false)}
-                    />
-                    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-[fadeIn_0.2s_ease-out]">
-                        <button
-                            onClick={() => setShowWelcomeModal(false)}
-                            className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
-                        >
-                            <X size={20} />
-                        </button>
-                        <div className="px-8 pt-8 pb-6 text-center">
-                            <div className="w-14 h-14 bg-accent-green/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <CheckCircle className="text-accent-green" size={28} />
-                            </div>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-2">Account Created!</h2>
-                            <p className="text-gray-500 text-sm">
-                                Your resume is saved. You can continue editing or choose a plan to download.
-                            </p>
-                        </div>
-                        <div className="px-8 pb-8 space-y-3">
-                            <button
-                                onClick={() => {
-                                    setShowWelcomeModal(false);
-                                    router.push(`/${locale}/pricing`);
-                                }}
-                                className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
-                            >
-                                <Crown size={18} />
-                                Choose a Plan
-                            </button>
-                            <button
-                                onClick={() => setShowWelcomeModal(false)}
-                                className="w-full py-3 border border-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition"
-                            >
-                                Back to Editor
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <WelcomeModal
+                    onClose={() => setShowWelcomeModal(false)}
+                    onChoosePlan={() => {
+                        setShowWelcomeModal(false);
+                        router.push(`/${locale}/pricing`);
+                    }}
+                />
             )}
         </div>
     );
@@ -533,7 +409,7 @@ export default function BuilderPage() {
         <Suspense
             fallback={
                 <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                    <div className="text-gray-500">Loading builder...</div>
+                    <div className="text-gray-500">Loading...</div>
                 </div>
             }
         >

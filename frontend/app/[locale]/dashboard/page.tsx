@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useAuthStore } from '@/store/useAuthStore';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -58,6 +58,7 @@ interface UsageCardProps {
 }
 
 function UsageCard({ icon, iconBg, label, usage, percentage, barColor, loading, tier, className = '' }: UsageCardProps) {
+    const t = useTranslations('Dashboard');
     const isFree = !tier || tier === 'free' || tier === 'expired';
     const isUnlimited = usage?.limit === -1;
 
@@ -75,8 +76,8 @@ function UsageCard({ icon, iconBg, label, usage, percentage, barColor, loading, 
                 </div>
             ) : isFree ? (
                 <>
-                    <div className="text-sm font-semibold text-text-secondary">No plan</div>
-                    <div className="text-xs text-text-muted mt-1">Subscribe to unlock</div>
+                    <div className="text-sm font-semibold text-text-secondary">{t('usage.noPlan')}</div>
+                    <div className="text-xs text-text-muted mt-1">{t('usage.subscribeToUnlock')}</div>
                 </>
             ) : (
                 <>
@@ -96,7 +97,7 @@ function UsageCard({ icon, iconBg, label, usage, percentage, barColor, loading, 
                         </div>
                     )}
                     {isUnlimited && (
-                        <div className="text-xs text-accent-green font-medium mt-2">Unlimited</div>
+                        <div className="text-xs text-accent-green font-medium mt-2">{t('usage.unlimited')}</div>
                     )}
                 </>
             )}
@@ -107,6 +108,7 @@ function UsageCard({ icon, iconBg, label, usage, percentage, barColor, loading, 
 export default function DashboardPage() {
     const router = useRouter();
     const locale = useLocale();
+    const t = useTranslations('Dashboard');
     const { user, isAuthenticated, refreshUser } = useAuthStore();
     const { usage, isLoading: usageLoading, fetchUsage, getUsagePercentage } = useUsageStore();
     const [resumes, setResumes] = useState<Resume[]>([]);
@@ -115,7 +117,7 @@ export default function DashboardPage() {
 
     // Auth guard — redirect to home if not logged in
     useEffect(() => {
-        if (!isAuthenticated && typeof window !== 'undefined') {
+        if (!isAuthenticated) {
             const token = localStorage.getItem('token');
             if (!token) {
                 router.push(`/${locale}`);
@@ -125,7 +127,7 @@ export default function DashboardPage() {
 
     // Refresh user + usage data on mount for fresh subscription status
     useEffect(() => {
-        const hasToken = typeof window !== 'undefined' && localStorage.getItem('token');
+        const hasToken = localStorage.getItem('token');
         if (isAuthenticated && hasToken) {
             refreshUser();
             fetchUsage();
@@ -149,8 +151,7 @@ export default function DashboardPage() {
             }
         };
 
-        // Only fetch if we have a token (not just isAuthenticated from NextAuth)
-        const hasToken = typeof window !== 'undefined' && localStorage.getItem('token');
+        const hasToken = localStorage.getItem('token');
         if (isAuthenticated && hasToken) {
             fetchResumes();
         } else {
@@ -181,7 +182,7 @@ export default function DashboardPage() {
         { layout: 'CREATIVE', count: stats.templates['CREATIVE'] || 0, color: 'bg-pink-500' },
     ];
 
-    const maxTemplateCount = Math.max(...templateStats.map(t => t.count), 1);
+    const maxTemplateCount = Math.max(...templateStats.map(ts => ts.count), 1);
 
     // Format date
     const formatDate = (dateString: string) => {
@@ -190,15 +191,15 @@ export default function DashboardPage() {
         const diffMs = now.getTime() - date.getTime();
         const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-        if (diffDays === 0) return 'Today';
-        if (diffDays === 1) return 'Yesterday';
-        if (diffDays < 7) return `${diffDays} days ago`;
-        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        if (diffDays === 0) return t('resumeCard.today');
+        if (diffDays === 1) return t('resumeCard.yesterday');
+        if (diffDays < 7) return t('resumeCard.daysAgo', { days: diffDays });
+        return date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' });
     };
 
     // Delete resume
     const handleDelete = async (id: string) => {
-        if (!confirm('Are you sure you want to delete this resume?')) return;
+        if (!confirm(t('resumeCard.deleteConfirm'))) return;
         try {
             await api.delete(`/resumes/${id}`);
             setResumes(resumes.filter(r => r.id !== id));
@@ -223,17 +224,25 @@ export default function DashboardPage() {
     };
 
     const quickActions = [
-        { label: 'Software Engineer', icon: '💻' },
-        { label: 'Product Manager', icon: '📊' },
-        { label: 'Designer', icon: '🎨' },
-        { label: 'Marketing', icon: '📈' },
-        { label: 'Data Scientist', icon: '🔬' },
-        { label: 'Sales', icon: '🤝' },
+        { label: t('quickActions.softwareEngineer'), icon: '💻' },
+        { label: t('quickActions.productManager'), icon: '📊' },
+        { label: t('quickActions.designer'), icon: '🎨' },
+        { label: t('quickActions.marketing'), icon: '📈' },
+        { label: t('quickActions.dataScientist'), icon: '🔬' },
+        { label: t('quickActions.sales'), icon: '🤝' },
     ];
 
-    // Don't flash dashboard content while redirecting unauthenticated users
-    if (!isAuthenticated && typeof window !== 'undefined' && !localStorage.getItem('token')) {
-        return null;
+    // Show loading skeleton while data is being fetched (hydration-safe: loading=true on both server & client)
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="min-h-screen bg-bg-primary pt-20 flex items-center justify-center">
+                    <div className="animate-pulse text-gray-400">{t('loading')}</div>
+                </div>
+                <Footer />
+            </>
+        );
     }
 
     return (
@@ -253,10 +262,10 @@ export default function DashboardPage() {
                             {/* Welcome Message */}
                             <div className="flex-1">
                                 <h1 className="text-4xl md:text-5xl font-bold text-dark-teal mb-4">
-                                    Welcome back{user?.name ? `, ${user.name}` : ''}! 👋
+                                    {t('welcome', { name: user?.name ? `, ${user.name}` : '' })} 👋
                                 </h1>
                                 <p className="text-xl text-text-secondary">
-                                    Ready to land your dream job? Let's create a resume that stands out.
+                                    {t('subtitle')}
                                 </p>
                             </div>
 
@@ -265,7 +274,7 @@ export default function DashboardPage() {
                                 <UsageCard
                                     icon={<FileText size={20} className="text-accent-green" />}
                                     iconBg="bg-accent-green/20"
-                                    label="Resumes Created"
+                                    label={t('stats.resumesCreated')}
                                     usage={usage?.usage.cv}
                                     percentage={getUsagePercentage('cv')}
                                     barColor="bg-accent-green"
@@ -275,7 +284,7 @@ export default function DashboardPage() {
                                 <UsageCard
                                     icon={<Download size={20} className="text-accent-teal" />}
                                     iconBg="bg-accent-teal/20"
-                                    label="Downloads"
+                                    label={t('stats.downloads')}
                                     usage={usage?.usage.download}
                                     percentage={getUsagePercentage('download')}
                                     barColor="bg-accent-teal"
@@ -285,7 +294,7 @@ export default function DashboardPage() {
                                 <UsageCard
                                     icon={<FileText size={20} className="text-amber-400" />}
                                     iconBg="bg-amber-500/20"
-                                    label="Cover Letters"
+                                    label={t('stats.coverLetters')}
                                     usage={usage?.usage.coverLetter}
                                     percentage={getUsagePercentage('coverLetter')}
                                     barColor="bg-amber-500"
@@ -307,10 +316,10 @@ export default function DashboardPage() {
                                         <div className="flex-1 text-center md:text-left">
                                             <div className="inline-flex items-center gap-2 bg-accent-green/10 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-4">
                                                 <Sparkles size={16} />
-                                                AI-Powered Resume Builder
+                                                {t('cta.badge')}
                                             </div>
                                             <h2 className="text-2xl md:text-3xl font-bold text-dark-teal mb-3">
-                                                Create Your Perfect Resume
+                                                {t('cta.title')}
                                             </h2>
 
                                             {/* Quick role suggestions */}
@@ -331,14 +340,14 @@ export default function DashboardPage() {
                                         {/* Right side - CTA Button */}
                                         <div className="flex-shrink-0">
                                             <Link href="/builder">
-                                                <button className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-accent-green to-accent-teal text-bg-primary px-8 py-5 rounded-xl font-bold text-lg shadow-lg shadow-accent-green/25 hover:shadow-accent-green/40 transition-all duration-300 hover:scale-105">
-                                                    <Plus size={24} className="group-hover:rotate-90 transition-transform duration-300" />
-                                                    <span>Create New Resume</span>
-                                                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                                <button className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-accent-green to-accent-teal text-bg-primary px-8 py-5 rounded-xl font-bold text-lg shadow-lg shadow-accent-green/25 hover:shadow-accent-green/40 transition-all duration-300 motion-safe:hover:scale-105">
+                                                    <Plus size={24} className="motion-safe:group-hover:rotate-90 motion-safe:transition-transform duration-300" />
+                                                    <span>{t('cta.createNew')}</span>
+                                                    <ArrowRight size={20} className="motion-safe:group-hover:translate-x-1 motion-safe:transition-transform" />
 
                                                     {/* Shine effect */}
                                                     <div className="absolute inset-0 rounded-xl overflow-hidden">
-                                                        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                                                        <div className="absolute inset-0 translate-x-[-100%] motion-safe:group-hover:translate-x-[100%] motion-safe:transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                                                     </div>
                                                 </button>
                                             </Link>
@@ -375,10 +384,10 @@ export default function DashboardPage() {
                                         <div className="flex items-center gap-2">
                                             <h3 className="text-lg font-semibold text-dark-teal capitalize">
                                                 {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired'
-                                                    ? `${user.subscriptionTier} Plan`
+                                                    ? t('subscription.plan', { tier: user.subscriptionTier })
                                                     : user.subscriptionTier === 'expired'
-                                                        ? 'Expired Plan'
-                                                        : 'No Active Plan'}
+                                                        ? t('subscription.expiredPlan')
+                                                        : t('subscription.noActivePlan')}
                                             </h3>
                                             {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && (
                                                 <span className={`px-2 py-0.5 text-xs rounded-full font-medium ${
@@ -386,16 +395,16 @@ export default function DashboardPage() {
                                                         ? 'bg-blue-500/20 text-blue-600'
                                                         : 'bg-accent-green/20 text-accent-green'
                                                 }`}>
-                                                    {user.subscriptionStatus === 'trialing' ? 'Trial' : 'Active'}
+                                                    {user.subscriptionStatus === 'trialing' ? t('subscription.trial') : t('subscription.active')}
                                                 </span>
                                             )}
                                         </div>
                                         <p className="text-sm text-text-secondary">
                                             {user.subscriptionStatus === 'trialing' && user.trialEndsAt
-                                                ? `Trial ends ${new Date(user.trialEndsAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
+                                                ? t('subscription.trialEnds', { date: new Date(user.trialEndsAt).toLocaleDateString(locale, { month: 'short', day: 'numeric' }) })
                                                 : user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && user.subscriptionStatus === 'active'
-                                                    ? 'Your plan is active'
-                                                    : 'Subscribe to unlock downloads'
+                                                    ? t('subscription.planActive')
+                                                    : t('subscription.subscribePrompt')
                                             }
                                         </p>
                                     </div>
@@ -405,7 +414,7 @@ export default function DashboardPage() {
                                         <Link href="/pricing">
                                             <button className="flex items-center gap-2 bg-accent-green text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition">
                                                 <Zap size={16} />
-                                                {user.subscriptionTier === 'expired' ? 'Resubscribe' : 'Subscribe'}
+                                                {user.subscriptionTier === 'expired' ? t('subscription.resubscribe') : t('subscription.subscribe')}
                                             </button>
                                         </Link>
                                     )}
@@ -422,7 +431,7 @@ export default function DashboardPage() {
                                             className="flex items-center gap-2 border border-border-subtle text-text-secondary px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition"
                                         >
                                             <CreditCard size={16} />
-                                            Manage Subscription
+                                            {t('subscription.manage')}
                                         </button>
                                     )}
                                 </div>
@@ -437,7 +446,7 @@ export default function DashboardPage() {
                         <div className="bg-bg-card border border-border-subtle rounded-xl p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
                                 <BarChart3 size={24} className="text-accent-green" />
-                                <h3 className="text-xl font-bold text-dark-teal">Template Usage</h3>
+                                <h3 className="text-xl font-bold text-dark-teal">{t('templateUsage')}</h3>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                                 {templateStats.map((template) => (
@@ -465,15 +474,15 @@ export default function DashboardPage() {
                 <div className="max-w-7xl mx-auto px-6 py-8">
                     <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center gap-3">
-                            <h3 className="text-2xl font-bold text-dark-teal">Your Resumes</h3>
+                            <h3 className="text-2xl font-bold text-dark-teal">{t('resumes.title')}</h3>
                             {resumes.length > 0 && (
                                 <span className="bg-accent-green/20 text-accent-green px-3 py-1 rounded-full text-sm font-medium">
-                                    {resumes.length} total
+                                    {t('resumes.total', { count: resumes.length })}
                                 </span>
                             )}
                         </div>
                         <Link href="/builder" className="text-accent-green hover:text-accent-teal transition flex items-center gap-2 text-sm font-medium">
-                            <Plus size={16} /> New Resume
+                            <Plus size={16} /> {t('resumes.newResume')}
                         </Link>
                     </div>
 
@@ -495,14 +504,14 @@ export default function DashboardPage() {
                             <div className="w-20 h-20 bg-accent-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <FileText size={32} className="text-accent-green" />
                             </div>
-                            <h4 className="text-xl font-semibold text-dark-teal mb-2">No resumes yet</h4>
+                            <h4 className="text-xl font-semibold text-dark-teal mb-2">{t('resumes.noResumes')}</h4>
                             <p className="text-text-secondary mb-6 max-w-md mx-auto">
-                                Create your first AI-powered resume and start applying to your dream jobs today.
+                                {t('resumes.noResumesDesc')}
                             </p>
                             <Link href="/builder">
                                 <button className="inline-flex items-center gap-2 bg-accent-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-teal transition">
                                     <Sparkles size={18} />
-                                    Create Your First Resume
+                                    {t('resumes.createFirst')}
                                 </button>
                             </Link>
                         </div>
@@ -532,9 +541,9 @@ export default function DashboardPage() {
                                         <div className="flex items-start justify-between">
                                             <div className="flex-1 min-w-0">
                                                 <h4 className="font-semibold text-dark-teal group-hover:text-accent-green transition truncate">
-                                                    {resume.title || 'Untitled Resume'}
+                                                    {resume.title || t('resumeCard.untitled')}
                                                 </h4>
-                                                <p className="text-sm text-text-muted truncate">{resume.fullName || 'No name'}</p>
+                                                <p className="text-sm text-text-muted truncate">{resume.fullName || t('resumeCard.noName')}</p>
                                                 <p className="text-xs text-text-secondary flex items-center gap-1 mt-1">
                                                     <Clock size={12} />
                                                     {formatDate(resume.updatedAt)}
@@ -555,13 +564,13 @@ export default function DashboardPage() {
                                                             onClick={() => handleDuplicate(resume)}
                                                             className="w-full flex items-center gap-2 px-4 py-2 text-sm text-text-secondary hover:bg-gray-50 transition"
                                                         >
-                                                            <Copy size={14} /> Duplicate
+                                                            <Copy size={14} /> {t('resumeCard.duplicate')}
                                                         </button>
                                                         <button
                                                             onClick={() => handleDelete(resume.id)}
                                                             className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 transition"
                                                         >
-                                                            <Trash2 size={14} /> Delete
+                                                            <Trash2 size={14} /> {t('resumeCard.delete')}
                                                         </button>
                                                     </div>
                                                 )}
@@ -571,7 +580,7 @@ export default function DashboardPage() {
                                         <div className="flex gap-2 mt-4">
                                             <Link href={`/builder?id=${resume.id}`} className="flex-1">
                                                 <button className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-text-secondary py-2 rounded-lg text-sm transition">
-                                                    <Edit3 size={14} /> Edit
+                                                    <Edit3 size={14} /> {t('resumeCard.edit')}
                                                 </button>
                                             </Link>
                                             <button className="flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-text-secondary px-4 py-2 rounded-lg text-sm transition">
@@ -585,10 +594,10 @@ export default function DashboardPage() {
                             {/* Add New Card */}
                             <Link href="/builder">
                                 <div className="bg-bg-card border border-border-subtle border-dashed rounded-xl h-full min-h-[280px] flex flex-col items-center justify-center hover:border-accent-green/50 transition cursor-pointer group">
-                                    <div className="w-16 h-16 bg-accent-green/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                                    <div className="w-16 h-16 bg-accent-green/10 rounded-full flex items-center justify-center mb-4 motion-safe:group-hover:scale-110 transition">
                                         <Plus size={28} className="text-accent-green" />
                                     </div>
-                                    <p className="text-text-secondary group-hover:text-accent-green transition">Create New Resume</p>
+                                    <p className="text-text-secondary group-hover:text-accent-green transition">{t('resumes.createNew')}</p>
                                 </div>
                             </Link>
                         </div>
@@ -602,24 +611,23 @@ export default function DashboardPage() {
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 text-accent-green mb-2">
                                     <Zap size={20} />
-                                    <span className="font-semibold">Pro Tip</span>
+                                    <span className="font-semibold">{t('proTip.label')}</span>
                                 </div>
                                 <h4 className="text-2xl font-bold text-dark-teal mb-2">
-                                    Tailor your resume for each job
+                                    {t('proTip.title')}
                                 </h4>
                                 <p className="text-text-secondary">
-                                    Resumes tailored to specific job descriptions are 3x more likely to get interviews.
-                                    Use our AI to quickly customize your resume for each application.
+                                    {t('proTip.description')}
                                 </p>
                             </div>
                             <div className="flex gap-6">
                                 <div className="text-center">
-                                    <div className="text-4xl font-bold text-accent-green">3x</div>
-                                    <div className="text-sm text-text-secondary">More Interviews</div>
+                                    <div className="text-4xl font-bold text-accent-green">{t('proTip.stat1Value')}</div>
+                                    <div className="text-sm text-text-secondary">{t('proTip.stat1Label')}</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-4xl font-bold text-accent-teal">85%</div>
-                                    <div className="text-sm text-text-secondary">ATS Pass Rate</div>
+                                    <div className="text-4xl font-bold text-accent-teal">{t('proTip.stat2Value')}</div>
+                                    <div className="text-sm text-text-secondary">{t('proTip.stat2Label')}</div>
                                 </div>
                             </div>
                         </div>

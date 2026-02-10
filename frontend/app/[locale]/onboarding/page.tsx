@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
     Sparkles,
     Upload,
@@ -206,6 +206,7 @@ function TemplatePreview({ template }: { template: BuilderTemplate }) {
 export default function OnboardingPage() {
     const router = useRouter();
     const locale = useLocale();
+    const t = useTranslations('Onboarding');
     const { setResumeData, setTemplate, setTheme, setCustomThemeColor } = useResumeStore();
     const [step, setStep] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
@@ -220,22 +221,20 @@ export default function OnboardingPage() {
 
     const localizedHref = (path: string) => `/${locale}${path}`;
 
-    // Processing messages (always English)
     const aiProcessingMessages = [
-        'Analyzing your profile...',
-        'Crafting professional summary...',
-        'Generating work experience...',
-        'Adding relevant skills...',
-        'Polishing final details...',
-        'Almost there...',
+        t('main.processingAnalyzing'),
+        t('main.processingCrafting'),
+        t('main.processingExperience'),
+        t('main.processingSkills'),
+        t('main.processingPolishing'),
+        t('main.processingAlmost'),
     ];
 
-    // Experience levels (always English)
     const experienceLevels: { value: ExperienceLevel; label: string; description: string }[] = [
-        { value: 'entry', label: 'Entry Level', description: '0-2 years experience' },
-        { value: 'mid', label: 'Mid Level', description: '3-5 years experience' },
-        { value: 'senior', label: 'Senior', description: '6-10 years experience' },
-        { value: 'executive', label: 'Executive', description: '10+ years experience' },
+        { value: 'entry', label: t('levels.entry'), description: t('levels.entryDesc') },
+        { value: 'mid', label: t('levels.mid'), description: t('levels.midDesc') },
+        { value: 'senior', label: t('levels.senior'), description: t('levels.seniorDesc') },
+        { value: 'executive', label: t('levels.executive'), description: t('levels.executiveDesc') },
     ];
 
     // Cycle through processing messages
@@ -365,7 +364,7 @@ export default function OnboardingPage() {
                 className="fixed top-6 left-6 z-50 flex items-center gap-2 text-white font-semibold text-sm px-5 py-2.5 bg-white/15 backdrop-blur-md rounded-full hover:bg-white/25 transition-all hover:-translate-x-1"
             >
                 <ArrowLeft size={18} />
-                Back
+                {t('main.goBack')}
             </Link>
 
             {/* Decorative clouds */}
@@ -407,10 +406,10 @@ export default function OnboardingPage() {
 
                             <div className="text-center mb-8">
                                 <h1 className="text-2xl md:text-3xl font-extrabold text-dark-teal mb-3">
-                                    How would you like to start?
+                                    {t('main.step1Title')}
                                 </h1>
                                 <p className="text-gray-500 text-base">
-                                    Choose the method that works best for you
+                                    {t('main.step1Subtitle')}
                                 </p>
                             </div>
 
@@ -418,45 +417,45 @@ export default function OnboardingPage() {
                                 {/* AI Option - Primary */}
                                 <button
                                     onClick={() => handleMethodSelect('ai')}
-                                    className="group relative bg-gradient-to-br from-accent-green/10 to-accent-teal/10 border-2 border-accent-green rounded-2xl p-6 text-left hover:scale-[1.02] transition-all duration-200"
+                                    className="group relative bg-gradient-to-br from-accent-green/10 to-accent-teal/10 border-2 border-accent-green rounded-2xl p-6 text-left motion-safe:hover:scale-[1.02] transition-all duration-200"
                                 >
                                     <div className="absolute top-3 right-3 bg-accent-orange text-white text-[10px] font-bold px-2 py-1 rounded-full">
-                                        Recommended
+                                        {t('main.recommended')}
                                     </div>
                                     <div className="w-12 h-12 bg-gradient-to-br from-accent-green to-accent-teal rounded-xl flex items-center justify-center mb-3">
                                         <Wand2 className="text-white" size={24} />
                                     </div>
-                                    <h3 className="text-lg font-bold text-dark-teal mb-1">AI Generation</h3>
+                                    <h3 className="text-lg font-bold text-dark-teal mb-1">{t('main.aiTitle')}</h3>
                                     <p className="text-gray-500 text-sm">
-                                        Let AI create your professional resume
+                                        {t('main.aiDescription')}
                                     </p>
                                 </button>
 
                                 {/* Upload Option */}
                                 <button
                                     onClick={() => handleMethodSelect('upload')}
-                                    className="group bg-[#f8fffe] border-2 border-[#e0f2ef] rounded-2xl p-6 text-left hover:border-accent-green hover:scale-[1.02] transition-all duration-200"
+                                    className="group bg-[#f8fffe] border-2 border-[#e0f2ef] rounded-2xl p-6 text-left hover:border-accent-green motion-safe:hover:scale-[1.02] transition-all duration-200"
                                 >
                                     <div className="w-12 h-12 bg-gradient-to-br from-accent-green to-accent-teal rounded-xl flex items-center justify-center mb-3">
                                         <Upload className="text-white" size={24} />
                                     </div>
-                                    <h3 className="text-lg font-bold text-dark-teal mb-1">Upload Existing</h3>
+                                    <h3 className="text-lg font-bold text-dark-teal mb-1">{t('main.uploadTitle')}</h3>
                                     <p className="text-gray-500 text-sm">
-                                        Import and enhance your resume
+                                        {t('main.uploadDescription')}
                                     </p>
                                 </button>
 
                                 {/* LinkedIn Option */}
                                 <button
                                     onClick={() => handleMethodSelect('linkedin')}
-                                    className="group bg-[#f8fffe] border-2 border-[#e0f2ef] rounded-2xl p-6 text-left hover:border-accent-green hover:scale-[1.02] transition-all duration-200"
+                                    className="group bg-[#f8fffe] border-2 border-[#e0f2ef] rounded-2xl p-6 text-left hover:border-accent-green motion-safe:hover:scale-[1.02] transition-all duration-200"
                                 >
                                     <div className="w-12 h-12 bg-gradient-to-br from-accent-green to-accent-teal rounded-xl flex items-center justify-center mb-3">
                                         <Linkedin className="text-white" size={24} />
                                     </div>
-                                    <h3 className="text-lg font-bold text-dark-teal mb-1">Import LinkedIn</h3>
+                                    <h3 className="text-lg font-bold text-dark-teal mb-1">{t('step1.linkedin.title')}</h3>
                                     <p className="text-gray-500 text-sm">
-                                        Convert your LinkedIn profile
+                                        {t('main.linkedinDescription')}
                                     </p>
                                 </button>
                             </div>
@@ -468,7 +467,7 @@ export default function OnboardingPage() {
                                     className="text-gray-400 hover:text-accent-green text-sm inline-flex items-center gap-2 transition-colors"
                                 >
                                     <FileText size={16} />
-                                    Start with a blank resume
+                                    {t('main.startBlank')}
                                 </Link>
                             </div>
                         </div>
@@ -507,9 +506,9 @@ export default function OnboardingPage() {
                             {formData.method === 'ai' && (
                                 <>
                                     <div className="text-center mb-8">
-                                        <h2 className="text-2xl font-extrabold text-dark-teal mb-2">Tell us about yourself</h2>
+                                        <h2 className="text-2xl font-extrabold text-dark-teal mb-2">{t('title')}</h2>
                                         <p className="text-gray-500">
-                                            We&apos;ll use this to create your personalized resume
+                                            {t('main.step2Subtitle')}
                                         </p>
                                     </div>
 
@@ -517,7 +516,7 @@ export default function OnboardingPage() {
                                         {/* Full Name */}
                                         <div>
                                             <label className="block text-sm font-bold text-dark-teal mb-2">
-                                                Full Name
+                                                {t('main.fullName')}
                                             </label>
                                             <input
                                                 type="text"
@@ -525,7 +524,7 @@ export default function OnboardingPage() {
                                                 onChange={(e) =>
                                                     setFormData((prev) => ({ ...prev, fullName: e.target.value }))
                                                 }
-                                                placeholder="e.g. John Smith"
+                                                placeholder={t('main.fullNamePlaceholder')}
                                                 className="input-teal"
                                                 autoFocus
                                             />
@@ -534,7 +533,7 @@ export default function OnboardingPage() {
                                         {/* Job Title */}
                                         <div>
                                             <label className="block text-sm font-bold text-dark-teal mb-2">
-                                                Target Job Title
+                                                {t('main.targetJobTitle')}
                                             </label>
                                             <input
                                                 type="text"
@@ -542,7 +541,7 @@ export default function OnboardingPage() {
                                                 onChange={(e) =>
                                                     setFormData((prev) => ({ ...prev, jobTitle: e.target.value }))
                                                 }
-                                                placeholder="e.g. Software Engineer"
+                                                placeholder={t('main.jobTitlePlaceholder')}
                                                 className="input-teal"
                                             />
                                         </div>
@@ -550,7 +549,7 @@ export default function OnboardingPage() {
                                         {/* Experience Level */}
                                         <div>
                                             <label className="block text-sm font-bold text-dark-teal mb-3">
-                                                Experience Level
+                                                {t('experienceLevel')}
                                             </label>
                                             <div className="grid grid-cols-2 gap-3">
                                                 {experienceLevels.map((level) => (
@@ -581,7 +580,7 @@ export default function OnboardingPage() {
                                             className="w-full mt-4 py-4 bg-accent-orange text-white rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-[#e85a2a] transition-colors shadow-lg shadow-accent-orange/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
                                         >
                                             <Wand2 size={20} />
-                                            Generate My Resume
+                                            {t('generate')}
                                             <ArrowRight size={20} />
                                         </button>
 
@@ -590,7 +589,7 @@ export default function OnboardingPage() {
                                             onClick={() => setStep(1)}
                                             className="w-full py-3 text-gray-500 hover:text-dark-teal font-semibold transition-colors"
                                         >
-                                            Go back
+                                            {t('main.goBack')}
                                         </button>
                                     </div>
                                 </>
@@ -600,9 +599,9 @@ export default function OnboardingPage() {
                             {formData.method === 'upload' && (
                                 <>
                                     <div className="text-center mb-8">
-                                        <h2 className="text-2xl font-extrabold text-dark-teal mb-2">Upload Your Resume</h2>
+                                        <h2 className="text-2xl font-extrabold text-dark-teal mb-2">{t('upload.title')}</h2>
                                         <p className="text-gray-500">
-                                            AI will analyze your resume and create an enhanced version
+                                            {t('main.uploadSubtitle')}
                                         </p>
                                     </div>
 
@@ -612,7 +611,7 @@ export default function OnboardingPage() {
                                     />
 
                                     <p className="text-center text-gray-400 text-sm mt-6">
-                                        Your file is processed securely and not stored on our servers
+                                        {t('main.secureNotice')}
                                     </p>
 
                                     {/* Back button */}
@@ -620,7 +619,7 @@ export default function OnboardingPage() {
                                         onClick={() => setStep(1)}
                                         className="w-full mt-4 py-3 text-gray-500 hover:text-dark-teal font-semibold transition-colors"
                                     >
-                                        Go back
+                                        {t('main.goBack')}
                                     </button>
                                 </>
                             )}
@@ -629,31 +628,31 @@ export default function OnboardingPage() {
                             {formData.method === 'linkedin' && (
                                 <>
                                     <div className="text-center mb-6">
-                                        <h2 className="text-2xl font-extrabold text-dark-teal mb-2">Import from LinkedIn</h2>
+                                        <h2 className="text-2xl font-extrabold text-dark-teal mb-2">{t('linkedin.title')}</h2>
                                         <p className="text-gray-500">
-                                            Download your profile as PDF from LinkedIn, then upload it here
+                                            {t('main.linkedinSubtitle')}
                                         </p>
                                     </div>
 
                                     {/* Instructions */}
                                     <div className="bg-[#f8fffe] rounded-xl p-5 mb-6 border-2 border-[#e0f2ef]">
-                                        <h3 className="font-bold text-dark-teal mb-3 text-sm">How to export your LinkedIn profile:</h3>
+                                        <h3 className="font-bold text-dark-teal mb-3 text-sm">{t('main.linkedinHowTo')}</h3>
                                         <ol className="space-y-2 text-gray-600 text-sm">
                                             <li className="flex gap-3">
                                                 <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-accent-green to-accent-teal text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                                                <span>Go to your <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="text-accent-green hover:underline font-semibold">LinkedIn profile</a></span>
+                                                <span>{t('main.linkedinStep1')}</span>
                                             </li>
                                             <li className="flex gap-3">
                                                 <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-accent-green to-accent-teal text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                                                <span>Click the <strong>&quot;More&quot;</strong> button below your profile photo</span>
+                                                <span>{t('main.linkedinStep2')}</span>
                                             </li>
                                             <li className="flex gap-3">
                                                 <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-accent-green to-accent-teal text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                                                <span>Select <strong>&quot;Save to PDF&quot;</strong></span>
+                                                <span>{t('main.linkedinStep3')}</span>
                                             </li>
                                             <li className="flex gap-3">
                                                 <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-accent-green to-accent-teal text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
-                                                <span>Upload the downloaded PDF below</span>
+                                                <span>{t('main.linkedinStep4')}</span>
                                             </li>
                                         </ol>
                                     </div>
@@ -664,7 +663,7 @@ export default function OnboardingPage() {
                                     />
 
                                     <p className="text-center text-gray-400 text-sm mt-6">
-                                        Your file is processed securely and not stored on our servers
+                                        {t('main.secureNotice')}
                                     </p>
 
                                     {/* Back button */}
@@ -672,7 +671,7 @@ export default function OnboardingPage() {
                                         onClick={() => setStep(1)}
                                         className="w-full mt-4 py-3 text-gray-500 hover:text-dark-teal font-semibold transition-colors"
                                     >
-                                        Go back
+                                        {t('main.goBack')}
                                     </button>
                                 </>
                             )}
@@ -719,7 +718,7 @@ export default function OnboardingPage() {
                                 </div>
                             </div>
 
-                            <h2 className="text-xl font-extrabold text-dark-teal mb-6 text-center">Creating your resume...</h2>
+                            <h2 className="text-xl font-extrabold text-dark-teal mb-6 text-center">{t('main.generatingTitle')}</h2>
 
                             {/* Progress items */}
                             <div className="space-y-3 max-w-xs mx-auto">
@@ -780,9 +779,9 @@ export default function OnboardingPage() {
                             </div>
 
                             <div className="text-center mb-8">
-                                <h2 className="text-2xl font-extrabold text-dark-teal mb-2">Choose Your Template</h2>
+                                <h2 className="text-2xl font-extrabold text-dark-teal mb-2">{t('step4.title')}</h2>
                                 <p className="text-gray-500">
-                                    Select a design that matches your style
+                                    {t('main.step4Subtitle')}
                                 </p>
                             </div>
 
@@ -794,7 +793,7 @@ export default function OnboardingPage() {
                                         onClick={() => handleTemplateSelect(template.id)}
                                         className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${formData.selectedTemplate === template.id
                                             ? 'ring-2 ring-accent-green ring-offset-2 scale-[1.02]'
-                                            : 'hover:scale-[1.02] ring-1 ring-[#e0f2ef] hover:ring-accent-green'
+                                            : 'motion-safe:hover:scale-[1.02] ring-1 ring-[#e0f2ef] hover:ring-accent-green'
                                             }`}
                                     >
                                         {/* Template Preview */}
@@ -824,7 +823,7 @@ export default function OnboardingPage() {
                                     href={localizedHref('/templates')}
                                     className="text-gray-400 hover:text-accent-green text-sm inline-flex items-center gap-2 transition-colors"
                                 >
-                                    Browse all templates
+                                    {t('step4.browseAll')}
                                     <ArrowRight size={14} />
                                 </Link>
                             </div>
@@ -834,7 +833,7 @@ export default function OnboardingPage() {
                                 onClick={handleFinish}
                                 className="w-full py-4 bg-accent-orange text-white rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-[#e85a2a] transition-colors shadow-lg shadow-accent-orange/30"
                             >
-                                Continue to Editor
+                                {t('step4.continue')}
                                 <ArrowRight size={20} />
                             </button>
 
@@ -843,7 +842,7 @@ export default function OnboardingPage() {
                                 onClick={() => setStep(2)}
                                 className="w-full mt-3 py-3 text-gray-500 hover:text-dark-teal font-semibold transition-colors"
                             >
-                                Go back
+                                {t('main.goBack')}
                             </button>
                         </div>
                     </div>

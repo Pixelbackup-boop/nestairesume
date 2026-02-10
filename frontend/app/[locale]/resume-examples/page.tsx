@@ -4,19 +4,37 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ResumeExamplesGrid from '@/components/ResumeExamplesGrid';
 import { getAllResumeExamples, getAllDisplayCategories } from '@/lib/resume-examples/posts';
+import { getContent } from '@/lib/content/resume-examples-index';
+import { getLocalizedPath } from '@/lib/localized-paths';
 
-export const metadata: Metadata = {
-  title: 'Browse 300+ Resume Examples by Job Title (2026) | Best AI Resume',
-  description: 'Browse 300+ free resume examples organized by industry and job title. Professional resume format templates with ATS-friendly tips. Find your role and build your resume.',
-};
+const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
+const BASE_URL = 'https://www.bestairesume.com';
 
-export default async function ResumeExamplesIndex() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const c = getContent(locale);
+  return {
+    title: c.meta.title,
+    description: c.meta.description,
+    alternates: {
+      canonical: `${BASE_URL}/${locale}${getLocalizedPath('/resume-examples', locale)}`,
+      languages: Object.fromEntries(
+        locales.map(l => [l, `${BASE_URL}/${l}${getLocalizedPath('/resume-examples', l)}`])
+      ),
+    },
+  };
+}
+
+export default async function ResumeExamplesIndex({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const c = getContent(locale);
+  const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+
   const [allExamples, categories] = await Promise.all([
     getAllResumeExamples(),
     getAllDisplayCategories(),
   ]);
 
-  // Slim down data passed to client component
   const examples = allExamples.map(e => ({
     slug: e.slug,
     jobTitle: e.jobTitle,
@@ -33,14 +51,14 @@ export default async function ResumeExamplesIndex() {
       <section className="pt-32 pb-16 bg-gray-50 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <span className="text-accent-blue font-semibold tracking-wider uppercase text-sm mb-2 block">
-            Resume Examples 2026
+            {c.hero.badge}
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mt-2 mb-6 text-gray-900">
-            Resume Examples<br />
-            <span className="text-accent-primary">by Job Title</span>
+            {c.hero.title}<br />
+            <span className="text-accent-primary">{c.hero.titleHighlight}</span>
           </h1>
           <p className="text-lg text-gray-600 mb-4 max-w-2xl mx-auto">
-            Browse {allExamples.length}+ professional resume examples organized by industry. Find your role, study the resume format, and build yours with our AI builder.
+            {c.hero.subtitle.replace('{count}', String(allExamples.length))}
           </p>
         </div>
       </section>
@@ -50,10 +68,10 @@ export default async function ResumeExamplesIndex() {
           <ResumeExamplesGrid examples={examples} categories={categories} />
 
           <div className="mt-16 text-center p-8 bg-gray-50 rounded-2xl border border-gray-100">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Don&apos;t see your job title?</h3>
-            <p className="text-gray-600 mb-6">Our AI can write a custom resume for ANY job title in seconds.</p>
-            <Link href="/onboarding" className="inline-block bg-accent-green text-gray-900 px-6 py-3 rounded-xl font-bold hover:bg-accent-teal transition">
-              Generate Custom Resume
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{c.bottomCta.title}</h3>
+            <p className="text-gray-600 mb-6">{c.bottomCta.description}</p>
+            <Link href={localizedHref('/onboarding')} className="inline-block bg-accent-green text-gray-900 px-6 py-3 rounded-xl font-bold hover:bg-accent-teal transition">
+              {c.bottomCta.ctaText}
             </Link>
           </div>
         </div>

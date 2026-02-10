@@ -6,24 +6,41 @@ import SearchBar from '@/components/blog/SearchBar';
 import CategoryFilter from '@/components/blog/CategoryFilter';
 import Pagination from '@/components/blog/Pagination';
 import { BookOpen, Sparkles } from 'lucide-react';
+import { getContent } from '@/lib/content/blog-pages';
 
-export const metadata: Metadata = {
-  title: 'Blog - Resume Tips & Career Advice | Best AI Resume',
-  description: 'Expert resume writing tips, career advice, and job search strategies to help you land your dream job. Free guides and tutorials.',
-  openGraph: {
-    title: 'Blog - Resume Tips & Career Advice | Best AI Resume',
-    description: 'Expert resume writing tips, career advice, and job search strategies.',
-    type: 'website',
-  },
-};
+const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
+const BASE_URL = 'https://www.bestairesumes.com';
 
 interface BlogPageProps {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ page?: string }>;
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const params = await searchParams;
-  const currentPage = Number(params.page) || 1;
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const c = getContent(locale).listing;
+  return {
+    title: c.meta.title,
+    description: c.meta.description,
+    openGraph: {
+      title: c.meta.title,
+      description: c.meta.ogDescription,
+      type: 'website',
+    },
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/blog`,
+      languages: Object.fromEntries(
+        locales.map(l => [l, `${BASE_URL}/${l}/blog`])
+      ),
+    },
+  };
+}
+
+export default async function BlogPage({ params, searchParams }: BlogPageProps) {
+  const { locale } = await params;
+  const sp = await searchParams;
+  const currentPage = Number(sp.page) || 1;
+  const c = getContent(locale).listing;
 
   const allPosts = await getAllPosts();
   const categories = await getAllCategories();
@@ -36,14 +53,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-green/10 rounded-full border border-accent-green/20 mb-6">
           <BookOpen size={16} className="text-accent-green" />
-          <span className="text-sm text-accent-green font-medium">Our Blog</span>
+          <span className="text-sm text-accent-green font-medium">{c.heroBadge}</span>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Resume Tips &{' '}
-          <span className="gradient-text">Career Advice</span>
+          {c.heroTitle}
+          <span className="gradient-text">{c.heroTitleHighlight}</span>
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Expert guides, tips, and strategies to help you create standout resumes and advance your career.
+          {c.heroSubtitle}
         </p>
       </div>
 
@@ -59,7 +76,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <section className="mb-16">
           <div className="flex items-center gap-2 mb-6">
             <Sparkles size={20} className="text-accent-green" />
-            <h2 className="text-xl font-semibold text-gray-900">Featured Articles</h2>
+            <h2 className="text-xl font-semibold text-gray-900">{c.featuredArticles}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredPosts.map(post => (
@@ -90,7 +107,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
-                basePath="/blog"
+                basePath={`/${locale}/blog`}
               />
             </>
           ) : (
@@ -98,8 +115,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No articles yet</h3>
-              <p className="text-gray-600">Check back soon for new content!</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">{c.noArticlesTitle}</h3>
+              <p className="text-gray-600">{c.noArticlesSubtitle}</p>
             </div>
           )}
         </div>

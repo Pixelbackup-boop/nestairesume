@@ -50,6 +50,10 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${siteConfig.url}/${locale}/onboarding`,
+      languages: Object.fromEntries([
+        ['x-default', `${siteConfig.url}/en/onboarding`],
+        ...['en', 'es', 'fr', 'de', 'ar'].map(l => [l, `${siteConfig.url}/${l}/onboarding`]),
+      ]),
     },
   };
 }

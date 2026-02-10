@@ -8,24 +8,39 @@ import Pagination from '@/components/blog/Pagination';
 import { Briefcase, Sparkles } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { getCareerListingContent } from '@/lib/content/career-pages';
 
-export const metadata: Metadata = {
-  title: 'Career Resources & Job Opportunities | Best AI Resume',
-  description: 'Discover career resources, job opportunities, industry insights, and professional development tips to advance your career.',
-  openGraph: {
-    title: 'Career Resources & Job Opportunities | Best AI Resume',
-    description: 'Discover career resources, job opportunities, and professional development tips.',
-    type: 'website',
-  },
-};
+const siteUrl = 'https://www.bestairesumes.com';
+const locales = ['en', 'es', 'fr', 'de', 'ar'];
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const c = getCareerListingContent(locale);
+  return {
+    title: c.meta.title,
+    description: c.meta.description,
+    openGraph: {
+      title: c.meta.ogTitle,
+      description: c.meta.ogDescription,
+      type: 'website',
+    },
+    alternates: {
+      canonical: `${siteUrl}/${locale}/career`,
+      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/career`])),
+    },
+  };
+}
 
 interface CareerPageProps {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ page?: string }>;
 }
 
-export default async function CareerPage({ searchParams }: CareerPageProps) {
-  const params = await searchParams;
-  const currentPage = Number(params.page) || 1;
+export default async function CareerPage({ params, searchParams }: CareerPageProps) {
+  const { locale } = await params;
+  const sp = await searchParams;
+  const currentPage = Number(sp.page) || 1;
+  const c = getCareerListingContent(locale);
 
   const allPosts = await getAllCareerPosts();
   const categories = await getAllCareerCategories();
@@ -40,21 +55,21 @@ export default async function CareerPage({ searchParams }: CareerPageProps) {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-green/10 rounded-full border border-accent-green/20 mb-6">
             <Briefcase size={16} className="text-accent-green" />
-            <span className="text-sm text-accent-green font-medium">Career Center</span>
+            <span className="text-sm text-accent-green font-medium">{c.badge}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Career Resources &{' '}
-            <span className="gradient-text">Opportunities</span>
+            {c.title}{' '}
+            <span className="gradient-text">{c.titleHighlight}</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Explore job opportunities, career insights, and professional development resources to help you advance your career.
+            {c.subtitle}
           </p>
         </div>
 
         {/* Search Bar */}
         <div className="max-w-xl mx-auto mb-12">
           <Suspense fallback={<div className="h-12 bg-bg-card rounded-xl animate-pulse" />}>
-            <SearchBar basePath="/career" />
+            <SearchBar basePath={`/${locale}/career`} />
           </Suspense>
         </div>
 
@@ -63,11 +78,11 @@ export default async function CareerPage({ searchParams }: CareerPageProps) {
           <section className="mb-16">
             <div className="flex items-center gap-2 mb-6">
               <Sparkles size={20} className="text-accent-green" />
-              <h2 className="text-xl font-semibold text-white">Featured Opportunities</h2>
+              <h2 className="text-xl font-semibold text-white">{c.featured}</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featuredPosts.map(post => (
-                <BlogCard key={post.slug} post={post} featured basePath="/career" />
+                <BlogCard key={post.slug} post={post} featured basePath={`/${locale}/career`} />
               ))}
             </div>
           </section>
@@ -78,7 +93,7 @@ export default async function CareerPage({ searchParams }: CareerPageProps) {
           {/* Sidebar */}
           <aside className="lg:col-span-1 order-2 lg:order-1">
             <div className="sticky top-24 space-y-6">
-              <CategoryFilter categories={categories} basePath="/career" />
+              <CategoryFilter categories={categories} basePath={`/${locale}/career`} />
             </div>
           </aside>
 
@@ -88,13 +103,13 @@ export default async function CareerPage({ searchParams }: CareerPageProps) {
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {posts.map(post => (
-                    <BlogCard key={post.slug} post={post} basePath="/career" />
+                    <BlogCard key={post.slug} post={post} basePath={`/${locale}/career`} />
                   ))}
                 </div>
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}
-                  basePath="/career"
+                  basePath={`/${locale}/career`}
                 />
               </>
             ) : (
@@ -102,8 +117,8 @@ export default async function CareerPage({ searchParams }: CareerPageProps) {
                 <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Briefcase size={24} className="text-gray-500" />
                 </div>
-                <h3 className="text-lg font-medium text-white mb-2">No career posts yet</h3>
-                <p className="text-gray-400">Check back soon for career resources and opportunities!</p>
+                <h3 className="text-lg font-medium text-white mb-2">{c.noPostsTitle}</h3>
+                <p className="text-gray-400">{c.noPostsSub}</p>
               </div>
             )}
           </div>

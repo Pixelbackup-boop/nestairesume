@@ -26,6 +26,7 @@ import {
     generateTheme,
 } from '@/lib/templates/builder';
 import OnboardingModal from '@/components/OnboardingModal';
+import FontLoader from '@/components/FontLoader';
 import UnifiedTemplate from '@/components/templates/UnifiedTemplate';
 
 // Featured templates with unique layouts (16 total)
@@ -318,6 +319,7 @@ export default function TemplatesPage() {
 
     return (
         <div className="min-h-screen">
+            <FontLoader />
             <Header />
 
             {/* Hero - Animated */}

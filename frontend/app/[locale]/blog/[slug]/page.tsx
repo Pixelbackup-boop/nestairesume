@@ -10,6 +10,8 @@ import RelatedPosts from '@/components/blog/RelatedPosts';
 import ShareButtons from '@/components/blog/ShareButtons';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
+import { getLocalizedUrl } from '@/lib/localized-paths';
+import { getContent } from '@/lib/content/blog-pages';
 
 const siteUrl = 'https://www.bestairesumes.com';
 const locales = ['en', 'de', 'fr', 'es', 'ar'];
@@ -31,16 +33,16 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
   if (!post) {
     return {
-      title: 'Post Not Found',
+      title: getContent(locale).article.notFound,
     };
   }
 
-  const url = `${siteUrl}/${locale}/blog/${post.slug}`;
+  const url = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, locale);
   const languages: Record<string, string> = {
     'x-default': `${siteUrl}/en/blog/${post.slug}`,
   };
   locales.forEach((loc) => {
-    languages[loc] = `${siteUrl}/${loc}/blog/${post.slug}`;
+    languages[loc] = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, loc);
   });
 
   return {
@@ -85,6 +87,7 @@ function JsonLd({ data, id = 'json-ld' }: { data: object; id?: string }) {
 export default async function PostPage({ params }: PostPageProps) {
   const { locale, slug } = await params;
   const post = await getPostBySlug(slug, locale);
+  const c = getContent(locale).article;
 
   if (!post) {
     notFound();
@@ -206,7 +209,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {/* FAQ Section */}
             {post.faq && post.faq.length > 0 && (
               <div className="mt-12 pt-8 border-t border-gray-200">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold mb-6 text-gray-900">{c.faqTitle}</h2>
                 <div className="space-y-4">
                   {post.faq.map((item: { question: string; answer: string }, index: number) => (
                     <details key={index} className="group border border-gray-200 rounded-lg">
@@ -232,57 +235,29 @@ export default async function PostPage({ params }: PostPageProps) {
             {/* Cross-Content Internal Links */}
             <section className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Resume Tools & Resources
+                {c.resourcesTitle}
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
-                <a
-                  href="/resume-examples"
-                  className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group"
-                >
-                  <span className="text-blue-500">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">300+ Resume Examples</p>
-                    <p className="text-xs text-gray-500">Job-specific writing guides</p>
-                  </div>
-                </a>
-                <a
-                  href="/resume-format"
-                  className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group"
-                >
-                  <span className="text-blue-500">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">Resume Format Guide 2026</p>
-                    <p className="text-xs text-gray-500">Chronological, functional & combination</p>
-                  </div>
-                </a>
-                <a
-                  href="/templates"
-                  className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group"
-                >
-                  <span className="text-blue-500">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">Free Resume Templates</p>
-                    <p className="text-xs text-gray-500">ATS-friendly professional designs</p>
-                  </div>
-                </a>
-                <a
-                  href="/"
-                  className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group"
-                >
-                  <span className="text-blue-500">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">AI Resume Builder</p>
-                    <p className="text-xs text-gray-500">Create your resume in minutes</p>
-                  </div>
-                </a>
+                {[
+                  { href: `/${locale}/resume-examples`, icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', idx: 0 },
+                  { href: `/${locale}/resume-format`, icon: 'M4 6h16M4 10h16M4 14h16M4 18h16', idx: 1 },
+                  { href: `/${locale}/templates`, icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z', idx: 2 },
+                  { href: `/${locale}`, icon: 'M13 10V3L4 14h7v7l9-11h-7z', idx: 3 },
+                ].map((link) => (
+                  <a
+                    key={link.idx}
+                    href={link.href}
+                    className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group"
+                  >
+                    <span className="text-blue-500">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={link.icon} /></svg>
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">{c.resources[link.idx].title}</p>
+                      <p className="text-xs text-gray-500">{c.resources[link.idx].subtitle}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </section>
           </div>

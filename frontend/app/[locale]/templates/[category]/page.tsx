@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,70 +8,97 @@ import { getCategoryBySlug, getAllCategorySlugs } from '@/lib/templates/categori
 import { docxTemplates } from '@/lib/templates/docxTemplates';
 import { gdocsTemplates } from '@/lib/templates/gdocsTemplates';
 import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
+import { getContent } from '@/lib/content/templates-category';
 
 // Categories that use builder templates (vs docx/gdocs)
 const BUILDER_TEMPLATE_CATEGORIES = ['creative', 'modern', 'simple', 'ats-friendly'];
+const locales = ['en', 'es', 'fr', 'de', 'ar'];
 
 interface Props {
-    params: {
-        category: string;
-        locale: string;
-    };
+    params: Promise<{ category: string; locale: string }>;
 }
 
 export async function generateStaticParams() {
     const slugs = getAllCategorySlugs();
-    return slugs.map((slug) => ({
-        category: slug,
-    }));
+    return locales.flatMap(locale =>
+        slugs.map(slug => ({ locale, category: slug }))
+    );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { category } = await params;
+    const { category, locale } = await params;
     const catData = getCategoryBySlug(category);
+    const c = getContent(locale);
 
     if (!catData) {
-        return {
-            title: 'Resume Templates | Best AI Resume',
-        };
+        return { title: c.fallbackTitle };
     }
 
+    const siteUrl = 'https://www.bestairesumes.com';
     return {
         title: catData.seoTitle,
         description: catData.seoDescription,
+        alternates: {
+            canonical: `${siteUrl}/${locale}/templates/${category}`,
+            languages: Object.fromEntries([
+                ['x-default', `${siteUrl}/en/templates/${category}`],
+                ...locales.map(l => [l, `${siteUrl}/${l}/templates/${category}`]),
+            ]),
+        },
     };
 }
 
+// Render JSON-LD structured data safely via next/script
+function JsonLd({ data }: { data: object }) {
+    return (
+        <Script
+            id="json-ld-breadcrumb"
+            type="application/ld+json"
+            strategy="afterInteractive"
+        >
+            {JSON.stringify(data)}
+        </Script>
+    );
+}
+
 export default async function TemplateCategoryPage({ params }: Props) {
-    const { category } = await params;
+    const { category, locale } = await params;
     const catData = getCategoryBySlug(category);
+    const c = getContent(locale);
 
     if (!catData) {
         notFound();
     }
+
+    const siteUrl = 'https://www.bestairesumes.com';
 
     // BreadcrumbList schema — all values are hardcoded string constants, no user input involved
     const breadcrumbSchema = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.bestairesumes.com' },
-            { '@type': 'ListItem', position: 2, name: 'Templates', item: 'https://www.bestairesumes.com/templates' },
+            { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: siteUrl },
+            { '@type': 'ListItem', position: 2, name: c.breadcrumbTemplates, item: `${siteUrl}/${locale}/templates` },
             { '@type': 'ListItem', position: 3, name: catData.title },
         ],
     };
 
+    const onboardingPath = category === 'microsoftword'
+        ? `/${locale}/word-onboarding`
+        : category === 'google-docs'
+            ? `/${locale}/gdocs-onboarding`
+            : `/${locale}/onboarding`;
+
     return (
         <>
             <Header />
-            {/* BreadcrumbList schema — hardcoded constants only */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <JsonLd data={breadcrumbSchema} />
 
             {/* Hero Section */}
             <section className="pt-32 pb-16 bg-gray-50 border-b border-gray-100">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <div className="mb-4 inline-block px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-sm font-semibold uppercase tracking-wider">
-                        {catData.slug.replace('-', ' ')} Collection
+                        {catData.slug.replace('-', ' ')} {c.collectionSuffix}
                     </div>
                     <h1 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900">
                         {catData.title}
@@ -84,11 +112,11 @@ export default async function TemplateCategoryPage({ params }: Props) {
             {/* Templates Grid */}
             <section id="templates" className={`py-16 ${BUILDER_TEMPLATE_CATEGORIES.includes(category) ? 'templates-section-dark' : 'bg-gray-50'}`}>
                 {BUILDER_TEMPLATE_CATEGORIES.includes(category) ? (
-                    <BuilderTemplatesGrid initialCategory={category} useTemplateLabel="Use Template" />
+                    <BuilderTemplatesGrid initialCategory={category} useTemplateLabel={c.editInAI} />
                 ) : (
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                        Available Templates
+                        {c.availableTemplates}
                     </h2>
 
                     {category === 'microsoftword' ? (
@@ -104,8 +132,8 @@ export default async function TemplateCategoryPage({ params }: Props) {
                                             <span className="text-gray-400 text-xs mt-1">{tpl.style}</span>
                                         </div>
                                         <div className="absolute inset-0 bg-gray-50/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-4 p-6">
-                                            <Link href={`/word-onboarding?template=${tpl.id}`} className="w-full bg-accent-green text-gray-900 font-bold py-3 rounded-lg text-center hover:bg-accent-teal transition">
-                                                Edit in AI
+                                            <Link href={`/${locale}/word-onboarding?template=${tpl.id}`} className="w-full bg-accent-green text-gray-900 font-bold py-3 rounded-lg text-center hover:bg-accent-teal transition">
+                                                {c.editInAI}
                                             </Link>
                                         </div>
                                     </div>
@@ -129,8 +157,8 @@ export default async function TemplateCategoryPage({ params }: Props) {
                                             <span className="text-gray-400 text-xs mt-1">{tpl.style}</span>
                                         </div>
                                         <div className="absolute inset-0 bg-gray-50/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-4 p-6">
-                                            <Link href={`/gdocs-onboarding?template=${tpl.id}`} className="w-full bg-accent-green text-gray-900 font-bold py-3 rounded-lg text-center hover:bg-accent-teal transition">
-                                                Edit in AI
+                                            <Link href={`/${locale}/gdocs-onboarding?template=${tpl.id}`} className="w-full bg-accent-green text-gray-900 font-bold py-3 rounded-lg text-center hover:bg-accent-teal transition">
+                                                {c.editInAI}
                                             </Link>
                                         </div>
                                     </div>
@@ -148,13 +176,12 @@ export default async function TemplateCategoryPage({ params }: Props) {
 
             {/* Conversion Section */}
             <section className="py-24 bg-gray-50 text-center px-6">
-                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Tired of formatting files?</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">{c.tiredTitle}</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto mb-10 text-lg">
-                    Downloading templates is great, but filling them out is a pain.
-                    Our AI Resume Builder does the formatting for you instantly.
+                    {c.tiredSubtitle}
                 </p>
-                <Link href={category === 'microsoftword' ? '/word-onboarding' : category === 'google-docs' ? '/gdocs-onboarding' : '/onboarding'} className="inline-flex items-center gap-2 bg-accent-green text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-green-400 transition transform hover:scale-105">
-                    Build With AI Instead
+                <Link href={onboardingPath} className="inline-flex items-center gap-2 bg-accent-green text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-green-400 transition transform motion-safe:hover:scale-105">
+                    {c.buildWithAI}
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </Link>
             </section>

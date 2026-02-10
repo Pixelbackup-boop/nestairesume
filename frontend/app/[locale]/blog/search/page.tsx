@@ -6,32 +6,53 @@ import BlogCard from '@/components/blog/BlogCard';
 import SearchBar from '@/components/blog/SearchBar';
 import CategoryFilter from '@/components/blog/CategoryFilter';
 import { Search, ArrowLeft } from 'lucide-react';
+import { getContent } from '@/lib/content/blog-pages';
+
+const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
+const BASE_URL = 'https://www.bestairesumes.com';
 
 interface SearchPageProps {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ q?: string }>;
 }
 
-export const metadata: Metadata = {
-  title: 'Search Blog | Best AI Resume',
-  description: 'Search our blog for resume tips, career advice, and job search strategies.',
-};
+export async function generateMetadata({ params }: SearchPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const c = getContent(locale).search;
+  return {
+    title: c.meta.title,
+    description: c.meta.description,
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/blog/search`,
+      languages: Object.fromEntries(
+        locales.map(l => [l, `${BASE_URL}/${l}/blog/search`])
+      ),
+    },
+  };
+}
 
-export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const params = await searchParams;
-  const query = params.q || '';
+export default async function SearchPage({ params, searchParams }: SearchPageProps) {
+  const { locale } = await params;
+  const sp = await searchParams;
+  const query = sp.q || '';
   const results = query ? await searchPosts(query) : [];
   const categories = await getAllCategories();
+  const c = getContent(locale).search;
+
+  const resultCountText = results.length === 1
+    ? c.resultCount.replace('{count}', '1')
+    : c.resultsCount.replace('{count}', String(results.length));
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       {/* Header */}
       <div className="mb-12">
         <Link
-          href="/blog"
+          href={`/${locale}/blog`}
           className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-accent-green transition-colors mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Blog
+          {c.backToBlog}
         </Link>
 
         <div className="flex items-center gap-3 mb-4">
@@ -39,12 +60,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             <Search size={24} className="text-accent-green" />
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Search Results
+            {c.title}
           </h1>
         </div>
         {query && (
           <p className="text-gray-600">
-            {results.length} result{results.length !== 1 ? 's' : ''} for &quot;{query}&quot;
+            {resultCountText} &quot;{query}&quot;
           </p>
         )}
       </div>
@@ -72,8 +93,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Start searching</h3>
-              <p className="text-gray-600">Enter a search term to find articles</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">{c.startSearchTitle}</h3>
+              <p className="text-gray-600">{c.startSearchSubtitle}</p>
             </div>
           ) : results.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -86,16 +107,16 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search size={24} className="text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No results found</h3>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">{c.noResultsTitle}</h3>
               <p className="text-gray-600 mb-6">
-                We couldn&apos;t find any articles matching &quot;{query}&quot;
+                {c.noResultsText} &quot;{query}&quot;
               </p>
               <div className="text-sm text-gray-500">
-                <p className="mb-2">Try:</p>
+                <p className="mb-2">{c.tryLabel}</p>
                 <ul className="list-disc list-inside space-y-1">
-                  <li>Using different keywords</li>
-                  <li>Checking your spelling</li>
-                  <li>Browsing categories instead</li>
+                  {c.trySuggestions.map((suggestion, i) => (
+                    <li key={i}>{suggestion}</li>
+                  ))}
                 </ul>
               </div>
             </div>

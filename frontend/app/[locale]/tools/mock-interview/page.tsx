@@ -257,12 +257,14 @@ export default function MockInterviewPage() {
           </div>
 
           {/* Error Display */}
-          {error && (
-            <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg flex items-center gap-3">
-              <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-              <p className="text-red-300">{error}</p>
-            </div>
-          )}
+          <div role="alert" aria-live="polite">
+            {error && (
+              <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg flex items-center gap-3">
+                <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
+                <p className="text-red-300">{error}</p>
+              </div>
+            )}
+          </div>
 
           {/* Stage: Setup */}
           {stage === 'setup' && (
@@ -295,10 +297,12 @@ export default function MockInterviewPage() {
                   <label className="block text-sm font-medium text-gray-300 mb-2">
                     {t('setup.experienceLevel')}
                   </label>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-3 gap-3" role="radiogroup" aria-label={t('setup.experienceLevel')}>
                     {EXPERIENCE_LEVELS.map(exp => (
                       <button
                         key={exp.value}
+                        role="radio"
+                        aria-checked={level === exp.value}
                         onClick={() => setLevel(exp.value as 'entry' | 'mid' | 'senior')}
                         className={`p-4 rounded-lg border transition-all text-left ${
                           level === exp.value
@@ -607,15 +611,15 @@ export default function MockInterviewPage() {
             {/* External Resources */}
             <section className="py-8 bg-gray-50 border-t border-gray-100">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">External Resources</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{t('externalResources.title')}</h3>
                     <div className="grid sm:grid-cols-2 gap-3">
                         <a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
                             <span className="text-gray-400">↗</span>
-                            <span className="text-sm text-gray-700">Bureau of Labor Statistics: Career Outlook</span>
+                            <span className="text-sm text-gray-700">{t('externalResources.blsCareerOutlook')}</span>
                         </a>
                         <a href="https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
                             <span className="text-gray-400">↗</span>
-                            <span className="text-sm text-gray-700">SHRM: Interview Best Practices</span>
+                            <span className="text-sm text-gray-700">{t('externalResources.shrmInterviewPractices')}</span>
                         </a>
                     </div>
                 </div>

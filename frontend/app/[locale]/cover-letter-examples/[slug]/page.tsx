@@ -11,6 +11,8 @@ import {
   getRelatedCoverLetterExamples,
   getAuthor,
 } from "@/lib/cover-letter-examples/posts";
+import { getLocalizedUrl } from "@/lib/localized-paths";
+import { getContent } from "@/lib/content/cover-letter-article";
 
 const siteUrl = "https://www.bestairesumes.com";
 const locales = ["en", "de", "fr", "es", "ar"];
@@ -33,17 +35,17 @@ export async function generateMetadata({
   const example = await getCoverLetterExampleBySlug(slug, locale);
 
   if (!example) {
-    return { title: "Not Found" };
+    return { title: getContent(locale).notFound };
   }
 
   const title = `${example.jobTitle} Cover Letter Example & Writing Guide 2026`;
   const description = example.description;
-  const url = `${siteUrl}/${locale}/cover-letter-examples/${slug}`;
+  const url = getLocalizedUrl(siteUrl, `/cover-letter-examples/${slug}`, locale);
   const languages: Record<string, string> = {
     'x-default': `${siteUrl}/en/cover-letter-examples/${slug}`,
   };
   locales.forEach((loc) => {
-    languages[loc] = `${siteUrl}/${loc}/cover-letter-examples/${slug}`;
+    languages[loc] = getLocalizedUrl(siteUrl, `/cover-letter-examples/${slug}`, loc);
   });
 
   return {
@@ -57,6 +59,7 @@ export async function generateMetadata({
       type: "article",
       url,
       siteName: "Best AI Resume",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: title }],
       publishedTime: example.date,
       authors: [example.author],
       tags: example.tags,
@@ -65,6 +68,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
+      images: ["/og-image.png"],
     },
     alternates: {
       canonical: url,
@@ -131,6 +135,7 @@ export default async function CoverLetterExamplePage({
 }) {
   const { locale, slug } = await params;
   const example = await getCoverLetterExampleBySlug(slug, locale);
+  const c = getContent(locale);
 
   if (!example) {
     notFound();
@@ -231,11 +236,11 @@ export default async function CoverLetterExamplePage({
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Link href={localizedHref("/")} className="hover:text-teal-primary">
-              Home
+              {c.breadcrumb.home}
             </Link>
             <span>/</span>
             <Link href={localizedHref("/cover-letter-examples")} className="hover:text-teal-primary">
-              Cover Letter Examples
+              {c.breadcrumb.coverLetterExamples}
             </Link>
             <span>/</span>
             <span className="text-dark-teal">{example.jobTitle}</span>
@@ -250,7 +255,7 @@ export default async function CoverLetterExamplePage({
             {example.category}
           </span>
           <h1 className="text-4xl font-bold text-dark-teal mb-4">
-            {example.jobTitle} Cover Letter Example
+            {example.jobTitle} {c.coverLetterSuffix}
           </h1>
           <p className="text-lg text-dark-teal/70 mb-6">{example.description}</p>
 
@@ -270,7 +275,7 @@ export default async function CoverLetterExamplePage({
             <span>•</span>
             <span>{example.readingTime}</span>
             <span>•</span>
-            <span>Updated {new Date(example.date).toLocaleDateString()}</span>
+            <span>{c.updated} {new Date(example.date).toLocaleDateString(locale === 'es' ? 'es-ES' : locale === 'fr' ? 'fr-FR' : locale === 'de' ? 'de-DE' : locale === 'ar' ? 'ar-SA' : 'en-US')}</span>
           </div>
         </div>
       </section>
@@ -285,7 +290,7 @@ export default async function CoverLetterExamplePage({
               {example.keySkills.length > 0 && (
                 <div className="bg-light-teal rounded-xl p-6 mb-8">
                   <h2 className="text-xl font-semibold text-dark-teal mb-4">
-                    Key Skills to Highlight
+                    {c.keySkillsTitle}
                   </h2>
                   <div className="flex flex-wrap gap-2">
                     {example.keySkills.map((skill) => (
@@ -321,7 +326,7 @@ export default async function CoverLetterExamplePage({
               {example.tags.length > 0 && (
                 <div className="mt-8 pt-8 border-t border-gray-200">
                   <h3 className="text-sm font-semibold text-gray-500 mb-3">
-                    Related Topics
+                    {c.relatedTopics}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {example.tags.map((tag) => (
@@ -340,7 +345,7 @@ export default async function CoverLetterExamplePage({
               {example.faq && example.faq.length > 0 && (
                 <div className="mt-10 pt-8 border-t border-gray-200">
                   <h2 className="text-2xl font-bold text-dark-teal mb-6">
-                    Frequently Asked Questions
+                    {c.faqTitle}
                   </h2>
                   <div className="space-y-3">
                     {example.faq.map((item: { question: string; answer: string }, index: number) => (
@@ -371,7 +376,7 @@ export default async function CoverLetterExamplePage({
               {/* Internal Links */}
               <div className="mt-10 pt-8 border-t border-gray-200">
                 <h3 className="text-lg font-semibold text-dark-teal mb-4">
-                  Related Resources
+                  {c.relatedResourcesTitle}
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-3">
                   <Link
@@ -383,7 +388,7 @@ export default async function CoverLetterExamplePage({
                     </span>
                     <div>
                       <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">{example.jobTitle} Resume Example</p>
-                      <p className="text-xs text-dark-teal/60 mt-0.5">See the matching resume format</p>
+                      <p className="text-xs text-dark-teal/60 mt-0.5">{c.resumeExampleSubtext}</p>
                     </div>
                   </Link>
                   <Link
@@ -394,8 +399,8 @@ export default async function CoverLetterExamplePage({
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">AI Cover Letter Generator</p>
-                      <p className="text-xs text-dark-teal/60 mt-0.5">Create your cover letter in seconds</p>
+                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">{c.coverLetterGenerator}</p>
+                      <p className="text-xs text-dark-teal/60 mt-0.5">{c.coverLetterGeneratorSubtext}</p>
                     </div>
                   </Link>
                 </div>
@@ -407,22 +412,22 @@ export default async function CoverLetterExamplePage({
               <div className="sticky top-24 z-10 space-y-6">
                 {/* CTA Card */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-                  <h3 className="font-semibold text-dark-teal mb-4">Create Your Cover Letter</h3>
+                  <h3 className="font-semibold text-dark-teal mb-4">{c.sidebar.ctaTitle}</h3>
                   <p className="text-sm text-dark-teal/70 mb-4">
-                    Use our AI to generate a personalized {example.jobTitle} cover letter in seconds.
+                    {c.sidebar.ctaSubtitle.replace('{jobTitle}', example.jobTitle)}
                   </p>
                   <Link
                     href={localizedHref("/tools/cover-letter")}
                     className="block w-full text-center bg-teal-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-secondary transition"
                   >
-                    Generate Cover Letter
+                    {c.sidebar.ctaButton}
                   </Link>
                 </div>
 
                 {/* Table of Contents */}
                 {headings.length > 0 && (
                   <div className="bg-light-teal rounded-xl p-6">
-                    <h3 className="font-semibold text-dark-teal mb-4">Table of Contents</h3>
+                    <h3 className="font-semibold text-dark-teal mb-4">{c.sidebar.tocTitle}</h3>
                     <nav className="space-y-2">
                       {headings.map((heading, index) => (
                         <a
@@ -448,7 +453,7 @@ export default async function CoverLetterExamplePage({
       {relatedExamples.length > 0 && (
         <section className="py-12 bg-light-teal">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl font-bold text-dark-teal mb-6">Related Cover Letters</h2>
+            <h2 className="text-2xl font-bold text-dark-teal mb-6">{c.relatedCoverLetters}</h2>
             <div className="grid sm:grid-cols-3 gap-4">
               {relatedExamples.map((related) => (
                 <Link
@@ -469,16 +474,16 @@ export default async function CoverLetterExamplePage({
       <section className="py-16 bg-gradient-to-r from-teal-primary to-teal-secondary">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Create Your {example.jobTitle} Cover Letter
+            {c.sidebar.ctaTitle} — {example.jobTitle}
           </h2>
           <p className="text-white/80 mb-8">
-            Join thousands of professionals who landed their dream jobs with Best AI Resume.
+            {c.bottomCta.subtitle}
           </p>
           <Link
             href={localizedHref("/tools/cover-letter")}
             className="inline-flex items-center gap-2 bg-white text-teal-primary px-8 py-4 rounded-full font-semibold hover:bg-light-teal transition shadow-lg"
           >
-            Generate Cover Letter — Free
+            {c.bottomCta.button}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"

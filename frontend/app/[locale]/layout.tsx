@@ -3,6 +3,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Poppins, Noto_Sans_Arabic } from 'next/font/google';
 import { locales, Locale, isRtl, getDirection } from '@/i18n.config';
+import { prisma } from '@/lib/prisma'; // Import prisma
 
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -162,15 +163,21 @@ export default async function LocaleLayout({
   const rtl = isRtl(locale as Locale);
   const dir = getDirection(locale as Locale);
 
+  // Fetch Global Settings
+  const settings = await prisma.globalSettings.findFirst();
+
   return (
     <html lang={locale} dir={dir} className="scroll-smooth">
       <head>
-        {/* Search Console Verification — set via env vars: NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION and NEXT_PUBLIC_BING_VERIFICATION */}
-        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
-          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        {/* Search Console Verification — set via DB or env vars */}
+        {(settings?.googleSiteVerification || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION) && (
+          <meta name="google-site-verification" content={settings?.googleSiteVerification || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         )}
-        {process.env.NEXT_PUBLIC_BING_VERIFICATION && (
-          <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
+        {(settings?.bingSiteVerification || process.env.NEXT_PUBLIC_BING_VERIFICATION) && (
+          <meta name="msvalidate.01" content={settings?.bingSiteVerification || process.env.NEXT_PUBLIC_BING_VERIFICATION} />
+        )}
+        {(settings?.yandexSiteVerification || process.env.NEXT_PUBLIC_YANDEX_VERIFICATION) && (
+          <meta name="yandex-verification" content={settings?.yandexSiteVerification || process.env.NEXT_PUBLIC_YANDEX_VERIFICATION} />
         )}
 
         {/* Preconnect to third-party origins for faster resource loading */}
@@ -194,19 +201,26 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${notoArabic.variable} antialiased ${
-          rtl ? 'font-arabic' : ''
-        }`}
+        className={`${poppins.variable} ${notoArabic.variable} antialiased ${rtl ? 'font-arabic' : ''
+          }`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent-green focus:text-white focus:rounded-lg focus:font-semibold focus:text-sm"
+        >
+          Skip to content
+        </a>
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
             <AuthSyncProvider>
               <Suspense fallback={null}>
-                <GoogleAnalytics />
+                <GoogleAnalytics measurementId={settings?.googleAnalyticsId || undefined} />
               </Suspense>
               <WebVitals />
               <TawkTo />
-              {children}
+              <main id="main-content">
+                {children}
+              </main>
             </AuthSyncProvider>
           </SessionProvider>
         </NextIntlClientProvider>

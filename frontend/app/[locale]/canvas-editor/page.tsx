@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { ArrowLeft, Sparkles, Loader2, Share2 } from 'lucide-react';
 import type Konva from 'konva';
 import { useCanvasStore, TextElement } from '@/store/useCanvasStore';
@@ -36,11 +36,12 @@ const CanvasWorkspace = dynamic(
 );
 
 function CanvasLoading() {
+    const t = useTranslations('CanvasEditor');
     return (
         <div className="flex-1 flex items-center justify-center bg-white">
             <div className="text-center">
                 <div className="w-12 h-12 border-4 border-accent-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                <p className="text-gray-500">Loading Canvas Editor...</p>
+                <p className="text-gray-500">{t('loading')}</p>
             </div>
         </div>
     );
@@ -48,6 +49,7 @@ function CanvasLoading() {
 
 export default function CanvasEditorPage() {
     const locale = useLocale();
+    const t = useTranslations('CanvasEditor');
     const searchParams = useSearchParams();
     const stageRef = useRef<Konva.Stage>(null);
     const [editingText, setEditingText] = useState<{
@@ -96,7 +98,7 @@ export default function CanvasEditorPage() {
                 loadCommunityTemplate(response.data.designData, response.data.name);
             } catch (error) {
                 console.error('Failed to load community template:', error);
-                alert('Failed to load template. It may have been removed.');
+                alert(t('alerts.templateLoadFailed'));
             } finally {
                 setLoadingTemplate(false);
             }
@@ -134,7 +136,7 @@ export default function CanvasEditorPage() {
     const handleExport = useCallback(async (format: 'pdf' | 'png' | 'jpeg') => {
         const stage = stageRef.current;
         if (!stage) {
-            alert('Canvas not ready. Please try again.');
+            alert(t('alerts.canvasNotReady'));
             return;
         }
 
@@ -195,7 +197,7 @@ export default function CanvasEditorPage() {
     const handleOpenPostModal = useCallback(async () => {
         const stage = stageRef.current;
         if (!stage) {
-            alert('Canvas not ready. Please try again.');
+            alert(t('alerts.canvasNotReady'));
             return;
         }
 
@@ -236,27 +238,26 @@ export default function CanvasEditorPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <h1 className="text-2xl font-bold text-dark-teal mb-3">Desktop Required</h1>
+                <h1 className="text-2xl font-bold text-dark-teal mb-3">{t('desktop.title')}</h1>
                 <p className="text-text-secondary mb-6 max-w-sm">
-                    The Canvas Editor requires a larger screen for precise design work.
-                    Please use a laptop or desktop computer to access this feature.
+                    {t('desktop.description')}
                 </p>
                 <div className="space-y-3 w-full max-w-xs">
                     <Link
                         href={`/${locale}/builder`}
                         className="block w-full px-6 py-3 bg-gradient-to-r from-accent-green to-accent-teal text-white font-semibold rounded-xl text-center"
                     >
-                        Use Standard Builder Instead
+                        {t('desktop.useBuilder')}
                     </Link>
                     <Link
                         href={`/${locale}/dashboard`}
                         className="block w-full px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-xl text-center"
                     >
-                        Back to Dashboard
+                        {t('desktop.backToDashboard')}
                     </Link>
                 </div>
                 <p className="mt-8 text-xs text-text-muted">
-                    The standard resume builder works great on mobile!
+                    {t('desktop.mobileNote')}
                 </p>
             </div>
 
@@ -268,19 +269,19 @@ export default function CanvasEditorPage() {
                         className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
                     >
                         <ArrowLeft size={20} />
-                        <span className="text-sm">Back to Builder</span>
+                        <span className="text-sm">{t('header.backToBuilder')}</span>
                     </Link>
                     <div className="w-px h-6 bg-gray-200" />
                     <div className="flex items-center gap-2">
                         <Sparkles className="text-accent-green" size={20} />
-                        <span className="text-gray-900 font-semibold">Canvas Editor</span>
-                        <span className="text-xs text-gray-500 bg-gray-200 px-2 py-0.5 rounded">Beta</span>
+                        <span className="text-gray-900 font-semibold">{t('header.title')}</span>
+                        <span className="text-xs text-gray-500 bg-gray-200 px-2 py-0.5 rounded">{t('header.beta')}</span>
                     </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                     <span className="text-sm text-gray-500">
-                        {elements.length} element{elements.length !== 1 ? 's' : ''}
+                        {t('header.elements', { count: elements.length })}
                     </span>
                     <button
                         onClick={handleOpenPostModal}
@@ -288,7 +289,7 @@ export default function CanvasEditorPage() {
                         className="flex items-center gap-2 px-3 py-1.5 bg-accent-green text-gray-900 rounded-lg text-sm font-medium hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <Share2 size={16} />
-                        Post to Community
+                        {t('header.postToCommunity')}
                     </button>
                 </div>
             </header>
@@ -323,14 +324,7 @@ export default function CanvasEditorPage() {
 
             {/* Tips footer */}
             <footer className="h-8 bg-gray-50 border-t border-gray-200 flex items-center justify-center text-xs text-gray-400 shrink-0">
-                <span>
-                    <strong>V</strong> Select &nbsp;|&nbsp;
-                    <strong>T</strong> Text &nbsp;|&nbsp;
-                    <strong>Delete</strong> Remove &nbsp;|&nbsp;
-                    <strong>Cmd+D</strong> Duplicate &nbsp;|&nbsp;
-                    <strong>Cmd+Z</strong> Undo &nbsp;|&nbsp;
-                    Double-click text to edit
-                </span>
+                <span>{t('shortcuts')}</span>
             </footer>
 
             {/* Post to Community Modal */}

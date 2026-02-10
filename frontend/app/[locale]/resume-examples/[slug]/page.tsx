@@ -12,6 +12,7 @@ import {
   getRelatedResumeExamples,
   getAuthor,
 } from "@/lib/resume-examples/posts";
+import { getLocalizedUrl } from "@/lib/localized-paths";
 
 const siteUrl = "https://www.bestairesumes.com";
 const locales = ["en", "de", "fr", "es", "ar"];
@@ -39,12 +40,12 @@ export async function generateMetadata({
 
   const title = `${example.jobTitle} Resume: Examples & Writing Guide 2026`;
   const description = example.description;
-  const url = `${siteUrl}/${locale}/resume-examples/${slug}`;
+  const url = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, locale);
   const languages: Record<string, string> = {
     'x-default': `${siteUrl}/en/resume-examples/${slug}`,
   };
   locales.forEach((loc) => {
-    languages[loc] = `${siteUrl}/${loc}/resume-examples/${slug}`;
+    languages[loc] = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, loc);
   });
 
   return {

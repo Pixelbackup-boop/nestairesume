@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuthStore } from "@/store/useAuthStore";
 import api from "@/lib/api";
 import Header from "@/components/Header";
@@ -11,73 +12,75 @@ import Link from "next/link";
 
 type PlanType = "starter" | "gold" | "diamond" | "platinum";
 
-const PLAN_DETAILS: Record<PlanType, {
-  name: string;
-  price: string;
-  priceValue: number;
-  description: string;
-  features: string[];
-  hasTrial: boolean;
-  color: string;
-  bgColor: string;
-  icon: typeof Zap;
-}> = {
-  starter: {
-    name: "Starter",
-    price: "$3/month",
-    priceValue: 3,
-    description: "Perfect for job seekers",
-    features: ["30 CV creations/month", "3 AI generations/month", "3 PDF downloads/month", "All freemium templates", "No ads"],
-    hasTrial: false,
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-50",
-    icon: Download,
-  },
-  gold: {
-    name: "Gold",
-    price: "$6/month",
-    priceValue: 6,
-    description: "For active job hunters",
-    features: ["150 CV creations/month", "10 AI generations/month", "10 PDF downloads/month", "ATS optimization", "Cover letter builder"],
-    hasTrial: true,
-    color: "text-amber-600",
-    bgColor: "bg-amber-50",
-    icon: Zap,
-  },
-  diamond: {
-    name: "Diamond",
-    price: "$10/month",
-    priceValue: 10,
-    description: "Best for professionals",
-    features: ["300 CV creations/month", "30 AI generations/month", "25 PDF downloads/month", "All premium templates", "Priority support"],
-    hasTrial: true,
-    color: "text-violet-600",
-    bgColor: "bg-violet-50",
-    icon: Crown,
-  },
-  platinum: {
-    name: "Platinum",
-    price: "$30/month",
-    priceValue: 30,
-    description: "For power users & agencies",
-    features: ["Unlimited CV creations", "100 AI generations/month", "Unlimited PDF downloads", "All premium templates", "Priority support", "Early access features"],
-    hasTrial: false,
-    color: "text-slate-700",
-    bgColor: "bg-slate-100",
-    icon: Crown,
-  },
-};
-
-// Calculate trial end date (7 days from now)
-const getTrialEndDate = () => {
-  const date = new Date();
-  date.setDate(date.getDate() + 7);
-  return date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-};
-
 function CheckoutContent() {
   const searchParams = useSearchParams();
   const { isAuthenticated, user } = useAuthStore();
+  const t = useTranslations("Checkout");
+  const locale = useLocale();
+
+  // Calculate trial end date (7 days from now)
+  const getTrialEndDate = () => {
+    const date = new Date();
+    date.setDate(date.getDate() + 7);
+    return date.toLocaleDateString(locale, { month: "long", day: "numeric", year: "numeric" });
+  };
+
+  const PLAN_DETAILS: Record<PlanType, {
+    name: string;
+    price: string;
+    priceValue: number;
+    description: string;
+    features: string[];
+    hasTrial: boolean;
+    color: string;
+    bgColor: string;
+    icon: typeof Zap;
+  }> = {
+    starter: {
+      name: t("plans.starter.name"),
+      price: t("plans.starter.price"),
+      priceValue: 3,
+      description: t("plans.starter.description"),
+      features: t.raw("plans.starter.features") as string[],
+      hasTrial: false,
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
+      icon: Download,
+    },
+    gold: {
+      name: t("plans.gold.name"),
+      price: t("plans.gold.price"),
+      priceValue: 6,
+      description: t("plans.gold.description"),
+      features: t.raw("plans.gold.features") as string[],
+      hasTrial: true,
+      color: "text-amber-600",
+      bgColor: "bg-amber-50",
+      icon: Zap,
+    },
+    diamond: {
+      name: t("plans.diamond.name"),
+      price: t("plans.diamond.price"),
+      priceValue: 10,
+      description: t("plans.diamond.description"),
+      features: t.raw("plans.diamond.features") as string[],
+      hasTrial: true,
+      color: "text-violet-600",
+      bgColor: "bg-violet-50",
+      icon: Crown,
+    },
+    platinum: {
+      name: t("plans.platinum.name"),
+      price: t("plans.platinum.price"),
+      priceValue: 30,
+      description: t("plans.platinum.description"),
+      features: t.raw("plans.platinum.features") as string[],
+      hasTrial: false,
+      color: "text-slate-700",
+      bgColor: "bg-slate-100",
+      icon: Crown,
+    },
+  };
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -86,16 +89,16 @@ function CheckoutContent() {
 
   useEffect(() => {
     if (paymentStatus === "cancelled") {
-      setError("Payment was cancelled. You can try again when you're ready.");
+      setError(t("errors.cancelled"));
     }
-  }, [paymentStatus]);
+  }, [paymentStatus, t]);
 
   const handleCheckout = async () => {
     if (!plan) return;
 
     const token = localStorage.getItem('token');
     if (!token) {
-      setError("Your session has expired. Please sign in again.");
+      setError(t("errors.sessionExpired"));
       return;
     }
 
@@ -114,10 +117,10 @@ function CheckoutContent() {
         message?: string;
       };
 
-      let errorMessage = "Failed to start checkout. Please try again.";
+      let errorMessage = t("errors.failedCheckout");
 
       if (apiError?.response?.status === 401) {
-        errorMessage = "Your session has expired. Please sign in again.";
+        errorMessage = t("errors.sessionExpired");
       } else if (apiError?.response?.data?.detail) {
         errorMessage = apiError.response.data.detail;
       } else if (apiError?.response?.data?.error) {
@@ -126,7 +129,7 @@ function CheckoutContent() {
         errorMessage = apiError.response.data.message;
       } else if (apiError?.message) {
         errorMessage = apiError.message === 'Network error'
-          ? "Unable to connect to server. Please check your internet connection."
+          ? t("errors.networkError")
           : apiError.message;
       }
 
@@ -146,16 +149,16 @@ function CheckoutContent() {
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <AlertCircle className="w-8 h-8 text-red-500" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-3">Invalid Plan</h1>
+              <h1 className="text-2xl font-bold text-gray-900 mb-3">{t("invalidPlan.title")}</h1>
               <p className="text-gray-600 mb-8">
-                The selected plan is not valid. Please choose a plan from our pricing page.
+                {t("invalidPlan.description")}
               </p>
               <Link
                 href="/pricing"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition shadow-lg shadow-emerald-200"
               >
                 <ArrowLeft size={18} />
-                Back to Pricing
+                {t("invalidPlan.backBtn")}
               </Link>
             </div>
           </div>
@@ -180,9 +183,9 @@ function CheckoutContent() {
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <CreditCard className="w-8 h-8 text-violet-500" />
                 </div>
-                <h1 className="text-2xl font-bold text-white mb-2">Sign in to Continue</h1>
+                <h1 className="text-2xl font-bold text-white mb-2">{t("signIn.title")}</h1>
                 <p className="text-violet-100">
-                  Sign in to purchase the {planDetails.name} plan
+                  {t("signIn.subtitle", { plan: planDetails.name })}
                 </p>
               </div>
               <div className="p-8">
@@ -191,13 +194,13 @@ function CheckoutContent() {
                     href={`/auth/login?redirect=/checkout?plan=${plan}`}
                     className="flex items-center justify-center w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition shadow-lg shadow-emerald-200"
                   >
-                    Sign In
+                    {t("signIn.signInBtn")}
                   </Link>
                   <Link
                     href={`/auth/register?redirect=/checkout?plan=${plan}`}
                     className="flex items-center justify-center w-full bg-gray-100 text-gray-700 py-4 rounded-xl font-semibold hover:bg-gray-200 transition"
                   >
-                    Create Account
+                    {t("signIn.createAccountBtn")}
                   </Link>
                 </div>
               </div>
@@ -220,7 +223,7 @@ function CheckoutContent() {
             className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 transition-colors mb-6"
           >
             <ArrowLeft size={16} />
-            Back to Pricing
+            {t("invalidPlan.backBtn")}
           </Link>
 
           {/* Checkout Card */}
@@ -231,12 +234,12 @@ function CheckoutContent() {
                 <CreditCard className="w-8 h-8 text-emerald-500" />
               </div>
               <h1 className="text-2xl font-bold text-white mb-2">
-                {planDetails.hasTrial ? "Start Your Free Trial" : "Complete Your Purchase"}
+                {planDetails.hasTrial ? t("header.startTrial") : t("header.completePurchase")}
               </h1>
               <p className="text-emerald-100">
                 {planDetails.hasTrial
-                  ? `Try the ${planDetails.name} plan free for 7 days`
-                  : `Subscribe to the ${planDetails.name} plan`
+                  ? t("header.tryPlan", { plan: planDetails.name })
+                  : t("header.subscribePlan", { plan: planDetails.name })
                 }
               </p>
             </div>
@@ -250,8 +253,8 @@ function CheckoutContent() {
                       <Clock className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div>
-                      <p className="text-emerald-700 font-semibold">7-Day Free Trial</p>
-                      <p className="text-emerald-600 text-sm">You won&apos;t be charged until {getTrialEndDate()}</p>
+                      <p className="text-emerald-700 font-semibold">{t("trial.badge")}</p>
+                      <p className="text-emerald-600 text-sm">{t("trial.notChargedUntil", { date: getTrialEndDate() })}</p>
                     </div>
                   </div>
                 </div>
@@ -295,18 +298,18 @@ function CheckoutContent() {
               {/* Account Info */}
               <div className="bg-gray-50 rounded-xl p-4 mb-6">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-600">Account</span>
+                  <span className="text-gray-600">{t("billing.account")}</span>
                   <span className="text-gray-900 font-medium">{user?.email}</span>
                 </div>
                 {planDetails.hasTrial ? (
                   <div className="flex items-center justify-between text-sm mt-2">
-                    <span className="text-gray-600">After trial</span>
+                    <span className="text-gray-600">{t("billing.afterTrial")}</span>
                     <span className="text-gray-900 font-medium">{planDetails.price}</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-between text-sm mt-2">
-                    <span className="text-gray-600">Billing</span>
-                    <span className="text-gray-900 font-medium">Monthly, starting today</span>
+                    <span className="text-gray-600">{t("billing.billing")}</span>
+                    <span className="text-gray-900 font-medium">{t("billing.monthlyStarting")}</span>
                   </div>
                 )}
               </div>
@@ -328,12 +331,12 @@ function CheckoutContent() {
                 {loading ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    Redirecting to Stripe...
+                    {t("submit.redirecting")}
                   </>
                 ) : (
                   <>
                     <CreditCard size={20} />
-                    {planDetails.hasTrial ? "Start Free Trial" : "Subscribe Now"}
+                    {planDetails.hasTrial ? t("submit.startTrial") : t("submit.subscribeNow")}
                   </>
                 )}
               </button>
@@ -343,12 +346,12 @@ function CheckoutContent() {
             <div className="px-8 py-5 bg-gray-50 border-t border-gray-100">
               <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
                 <Shield className="w-4 h-4" />
-                <span>Secure payment powered by Stripe</span>
+                <span>{t("secure")}</span>
               </div>
               <p className="text-center text-xs text-gray-400 mt-2">
                 {planDetails.hasTrial
-                  ? "Cancel anytime during your trial at no cost"
-                  : "Cancel anytime. No long-term commitment."
+                  ? t("cancelTrialNote")
+                  : t("cancelNote")
                 }
               </p>
             </div>
@@ -361,13 +364,14 @@ function CheckoutContent() {
 }
 
 function CheckoutLoading() {
+  const t = useTranslations("Checkout");
   return (
     <>
       <Header />
       <div className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-md mx-auto px-6 text-center">
           <Loader2 className="w-8 h-8 text-emerald-500 animate-spin mx-auto" />
-          <p className="text-gray-600 mt-4">Loading checkout...</p>
+          <p className="text-gray-600 mt-4">{t("loading")}</p>
         </div>
       </div>
       <Footer />

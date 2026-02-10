@@ -38,11 +38,11 @@ function getScoreColor(score: number): string {
     return '#ef4444';
 }
 
-function getScoreLabel(score: number): string {
-    if (score >= 80) return 'Excellent';
-    if (score >= 60) return 'Good';
-    if (score >= 40) return 'Needs Work';
-    return 'Poor';
+function getScoreLabel(score: number, t: (key: string) => string): string {
+    if (score >= 80) return t('results.scoreExcellent');
+    if (score >= 60) return t('results.scoreGood');
+    if (score >= 40) return t('results.scoreNeedsWork');
+    return t('results.scorePoor');
 }
 
 function getStatusIcon(status: 'pass' | 'warning' | 'fail') {
@@ -63,7 +63,7 @@ function getStatusBg(status: 'pass' | 'warning' | 'fail') {
 
 // ── Score Circle Component ─────────────────────────────
 
-function ScoreCircle({ score }: { score: number }) {
+function ScoreCircle({ score, t }: { score: number; t: (key: string) => string }) {
     const [animatedScore, setAnimatedScore] = useState(0);
     const color = getScoreColor(score);
     const size = 180;
@@ -102,7 +102,7 @@ function ScoreCircle({ score }: { score: number }) {
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <span className="text-5xl font-bold" style={{ color }}>{animatedScore}%</span>
-                <span className="text-sm font-medium text-gray-500 mt-1">{getScoreLabel(score)}</span>
+                <span className="text-sm font-medium text-gray-500 mt-1">{getScoreLabel(score, t)}</span>
             </div>
         </div>
     );
@@ -121,8 +121,8 @@ export default function ATSCheckerPage() {
     const resultRef = useRef<HTMLDivElement>(null);
 
     const validateFile = (f: File): string | null => {
-        if (!ALLOWED_TYPES.includes(f.type)) return 'Only PDF and DOCX files are supported.';
-        if (f.size > MAX_FILE_SIZE) return 'File size must be under 10MB.';
+        if (!ALLOWED_TYPES.includes(f.type)) return t('validation.unsupportedFormat');
+        if (f.size > MAX_FILE_SIZE) return t('validation.fileTooLarge');
         return null;
     };
 
@@ -179,7 +179,7 @@ export default function ATSCheckerPage() {
                 resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+            setError(err instanceof Error ? err.message : t('validation.genericError'));
             setState('error');
         }
     };
@@ -256,6 +256,8 @@ export default function ATSCheckerPage() {
                     {/* Upload Zone */}
                     {state !== 'results' && (
                         <div
+                            role="region"
+                            aria-label={t('tool.uploadBtn')}
                             className={`rounded-2xl p-8 md:p-12 border-2 border-dashed transition-colors ${
                                 dragActive
                                     ? 'border-blue-500 bg-blue-50'
@@ -296,12 +298,14 @@ export default function ATSCheckerPage() {
                                     </p>
                                 )}
 
+                                <div role="alert" aria-live="polite">
                                 {error && (
                                     <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-700 rounded-lg text-sm">
                                         <XCircle className="w-4 h-4" />
                                         {error}
                                     </div>
                                 )}
+                                </div>
 
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                                     {!file && (
@@ -362,10 +366,10 @@ export default function ATSCheckerPage() {
                         <div ref={resultRef} className="space-y-8">
                             {/* Score Header */}
                             <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 text-center">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">Your ATS Compatibility Score</h2>
-                                <ScoreCircle score={result.score} />
+                                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('results.scoreTitle')}</h2>
+                                <ScoreCircle score={result.score} t={t} />
                                 {result.pageCount && (
-                                    <p className="text-sm text-gray-400 mt-4">{result.pageCount} page{result.pageCount > 1 ? 's' : ''} analyzed</p>
+                                    <p className="text-sm text-gray-400 mt-4">{t('results.pagesAnalyzed', { count: result.pageCount })}</p>
                                 )}
                             </div>
 
@@ -411,7 +415,7 @@ export default function ATSCheckerPage() {
                                 <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
                                     <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                                         <AlertTriangle className="w-5 h-5 text-blue-600" />
-                                        Recommendations
+                                        {t('results.recommendations')}
                                     </h3>
                                     <ul className="space-y-2">
                                         {result.recommendations.map((rec, i) => (
@@ -431,13 +435,13 @@ export default function ATSCheckerPage() {
                                     className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-200 rounded-xl font-semibold text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition"
                                 >
                                     <RefreshCw className="w-4 h-4" />
-                                    Check Another Resume
+                                    {t('results.checkAnother')}
                                 </button>
                                 <Link
                                     href="/builder"
                                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30"
                                 >
-                                    Build an ATS-Optimized Resume
+                                    {t('results.buildAtsResume')}
                                     <ArrowRight className="w-5 h-5" />
                                 </Link>
                             </div>
@@ -569,15 +573,15 @@ export default function ATSCheckerPage() {
             {/* External Resources */}
             <section className="py-8 bg-gray-50 border-t border-gray-100">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">External Resources</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{t('externalResources.title')}</h3>
                     <div className="grid sm:grid-cols-2 gap-3">
                         <a href="https://www.jobscan.co/blog/ats-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
                             <span className="text-gray-400">↗</span>
-                            <span className="text-sm text-gray-700">Understanding ATS: How They Work</span>
+                            <span className="text-sm text-gray-700">{t('externalResources.atsHowTheyWork')}</span>
                         </a>
                         <a href="https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-100">
                             <span className="text-gray-400">↗</span>
-                            <span className="text-sm text-gray-700">BLS Career Outlook: Resume Tips</span>
+                            <span className="text-sm text-gray-700">{t('externalResources.blsResumeTips')}</span>
                         </a>
                     </div>
                 </div>
@@ -588,7 +592,7 @@ export default function ATSCheckerPage() {
             <section className="py-24 bg-gradient-to-r from-blue-600 to-indigo-600 text-center px-6">
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">{t('cta.title')}</h2>
                 <p className="text-blue-100 max-w-2xl mx-auto mb-10 text-lg">{t('cta.description')}</p>
-                <Link href="/onboarding" className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition transform hover:scale-105 shadow-lg">
+                <Link href="/onboarding" className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition transform motion-safe:hover:scale-105 shadow-lg">
                     {t('cta.button')}
                     <ArrowRight className="w-5 h-5" />
                 </Link>

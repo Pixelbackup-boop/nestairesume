@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
     Sparkles,
     Upload,
@@ -34,21 +34,6 @@ interface OnboardingState {
     selectedTemplate: string;
 }
 
-const experienceLevels: { value: ExperienceLevel; label: string; description: string }[] = [
-    { value: 'entry', label: 'Entry Level', description: '0-2 years of experience' },
-    { value: 'mid', label: 'Mid Level', description: '3-5 years of experience' },
-    { value: 'senior', label: 'Senior Level', description: '6-10 years of experience' },
-    { value: 'executive', label: 'Executive', description: '10+ years of experience' },
-];
-
-const aiProcessingMessages = [
-    'Analyzing your profession...',
-    'Generating professional summary...',
-    'Creating work experience...',
-    'Adding relevant skills...',
-    'Polishing your resume...',
-    'Almost there...',
-];
 
 function GdocsTemplatePreview({ template }: { template: GdocsTemplate }) {
     const accent = template.accentColor;
@@ -185,6 +170,22 @@ function GdocsTemplatePreview({ template }: { template: GdocsTemplate }) {
 export default function GdocsOnboardingPage() {
     const router = useRouter();
     const locale = useLocale();
+    const t = useTranslations('Onboarding');
+    const tc = useTranslations('Common');
+    const experienceLevels: { value: ExperienceLevel; label: string; description: string }[] = [
+        { value: 'entry', label: t('levels.entry'), description: t('levels.entryDesc') },
+        { value: 'mid', label: t('levels.mid'), description: t('levels.midDesc') },
+        { value: 'senior', label: t('levels.senior'), description: t('levels.seniorDesc') },
+        { value: 'executive', label: t('levels.executive'), description: t('levels.executiveDesc') },
+    ];
+    const aiProcessingMessages = [
+        t('generating.analyzing'),
+        t('generating.summary'),
+        t('generating.experience'),
+        t('generating.skills'),
+        t('generating.polishing'),
+        t('generating.almostThere'),
+    ];
     const { setResumeData } = useResumeStore();
     const [step, setStep] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
@@ -293,30 +294,30 @@ export default function GdocsOnboardingPage() {
                     <div className="animate-fadeIn">
                         <div className="text-center mb-12">
                             <div className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-4">
-                                Google Docs Resume
+                                {t('gdocs.badge')}
                             </div>
                             <h1 className="text-4xl font-bold mb-4">
-                                How would you like to create your Google Docs resume?
+                                {t('gdocs.step1Title')}
                             </h1>
                             <p className="text-gray-500 text-lg">
-                                Choose your preferred method to get started
+                                {t('step1.subtitle')}
                             </p>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
                             <button
                                 onClick={() => handleMethodSelect('ai')}
-                                className="group relative bg-gradient-to-br from-accent-green/20 to-accent-teal/20 border-2 border-accent-green/50 rounded-2xl p-8 text-left hover:border-accent-green hover:scale-[1.02] transition-all duration-200"
+                                className="group relative bg-gradient-to-br from-accent-green/20 to-accent-teal/20 border-2 border-accent-green/50 rounded-2xl p-8 text-left hover:border-accent-green motion-safe:hover:scale-[1.02] transition-all duration-200"
                             >
                                 <div className="absolute top-3 right-3 bg-accent-green text-gray-900 text-xs font-bold px-2 py-1 rounded-full">
-                                    RECOMMENDED
+                                    {t('step1.recommended')}
                                 </div>
                                 <div className="w-14 h-14 bg-accent-green/20 rounded-xl flex items-center justify-center mb-4">
                                     <Wand2 className="text-accent-green" size={28} />
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">Create with AI</h3>
+                                <h3 className="text-xl font-semibold mb-2">{t('step1.ai.title')}</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Tell us your profession and we&apos;ll generate a Google Docs resume in seconds
+                                    {t('gdocs.aiDescription')}
                                 </p>
                             </button>
 
@@ -327,11 +328,11 @@ export default function GdocsOnboardingPage() {
                                 <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
                                     <Upload className="text-gray-500" size={28} />
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">Upload Resume</h3>
+                                <h3 className="text-xl font-semibold mb-2">{t('step1.upload.title')}</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Upload your existing resume and we&apos;ll enhance it
+                                    {t('step1.upload.description')}
                                 </p>
-                                <span className="text-xs text-gray-400 mt-2 block">Coming soon</span>
+                                <span className="text-xs text-gray-400 mt-2 block">{t('step1.comingSoon')}</span>
                             </button>
 
                             <button
@@ -341,11 +342,11 @@ export default function GdocsOnboardingPage() {
                                 <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
                                     <Linkedin className="text-gray-500" size={28} />
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">Import LinkedIn</h3>
+                                <h3 className="text-xl font-semibold mb-2">{t('step1.linkedin.title')}</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Import your profile from LinkedIn automatically
+                                    {t('step1.linkedin.description')}
                                 </p>
-                                <span className="text-xs text-gray-400 mt-2 block">Coming soon</span>
+                                <span className="text-xs text-gray-400 mt-2 block">{t('step1.comingSoon')}</span>
                             </button>
                         </div>
 
@@ -355,7 +356,7 @@ export default function GdocsOnboardingPage() {
                                 className="text-gray-500 hover:text-gray-900 text-sm inline-flex items-center gap-2 transition-colors"
                             >
                                 <FileText size={16} />
-                                Or start with a blank Google Docs resume
+                                {t('gdocs.startBlank')}
                             </Link>
                         </div>
                     </div>
@@ -369,16 +370,16 @@ export default function GdocsOnboardingPage() {
                             className="flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-8 transition-colors"
                         >
                             <ArrowLeft size={18} />
-                            Back
+                            {tc('back')}
                         </button>
 
                         <div className="text-center mb-10">
                             <div className="w-16 h-16 bg-accent-green/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                 <Sparkles className="text-accent-green" size={32} />
                             </div>
-                            <h1 className="text-3xl font-bold mb-3">Tell us about yourself</h1>
+                            <h1 className="text-3xl font-bold mb-3">{t('title')}</h1>
                             <p className="text-gray-500">
-                                Just 2 questions and AI will create your perfect Google Docs resume
+                                {t('gdocs.subtitle')}
                             </p>
                         </div>
 
@@ -386,13 +387,13 @@ export default function GdocsOnboardingPage() {
                             <div>
                                 <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                     <User size={16} />
-                                    Your Full Name
+                                    {t('fullName')}
                                 </label>
                                 <input
                                     type="text"
                                     value={formData.fullName}
                                     onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
-                                    placeholder="e.g., John Smith"
+                                    placeholder={t('fullNamePlaceholder')}
                                     className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors text-lg"
                                     autoFocus
                                 />
@@ -401,13 +402,13 @@ export default function GdocsOnboardingPage() {
                             <div>
                                 <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                     <Briefcase size={16} />
-                                    Job Title You&apos;re Applying For
+                                    {t('jobTitle')}
                                 </label>
                                 <input
                                     type="text"
                                     value={formData.jobTitle}
                                     onChange={(e) => setFormData((prev) => ({ ...prev, jobTitle: e.target.value }))}
-                                    placeholder="e.g., Software Engineer, Marketing Manager"
+                                    placeholder={t('jobTitlePlaceholder')}
                                     className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green transition-colors text-lg"
                                 />
                             </div>
@@ -415,7 +416,7 @@ export default function GdocsOnboardingPage() {
                             <div>
                                 <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-3">
                                     <Clock size={16} />
-                                    Experience Level
+                                    {t('experienceLevel')}
                                 </label>
                                 <div className="grid grid-cols-2 gap-3">
                                     {experienceLevels.map((level) => (
@@ -441,7 +442,7 @@ export default function GdocsOnboardingPage() {
                                 className="w-full mt-4 py-4 bg-accent-green text-gray-900 rounded-xl font-semibold text-lg flex items-center justify-center gap-2 hover:bg-accent-teal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <Wand2 size={20} />
-                                Generate My Resume
+                                {t('generate')}
                                 <ArrowRight size={20} />
                             </button>
                         </div>
@@ -458,7 +459,7 @@ export default function GdocsOnboardingPage() {
                                 <Sparkles className="text-accent-green animate-pulse" size={40} />
                             </div>
                         </div>
-                        <h2 className="text-2xl font-bold mb-4">Creating Your Resume</h2>
+                        <h2 className="text-2xl font-bold mb-4">{t('generating.title')}</h2>
                         <div className="h-8">
                             <p className="text-gray-500 text-lg animate-pulse">
                                 {aiProcessingMessages[processingMessageIndex]}
@@ -475,7 +476,7 @@ export default function GdocsOnboardingPage() {
                             ))}
                         </div>
                         <p className="text-gray-400 text-sm mt-8">
-                            This usually takes just a few seconds...
+                            {t('generating.wait')}
                         </p>
                     </div>
                 )}
@@ -488,16 +489,16 @@ export default function GdocsOnboardingPage() {
                             className="flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-8 transition-colors"
                         >
                             <ArrowLeft size={18} />
-                            Back to edit info
+                            {t('step4.backToEdit')}
                         </button>
 
                         <div className="text-center mb-10">
                             <div className="w-16 h-16 bg-accent-green/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                 <Layout className="text-accent-green" size={32} />
                             </div>
-                            <h1 className="text-3xl font-bold mb-3">Choose Your Google Docs Template</h1>
+                            <h1 className="text-3xl font-bold mb-3">{t('gdocs.step4Title')}</h1>
                             <p className="text-gray-500">
-                                Your resume is ready! Pick a template optimized for Google Docs.
+                                {t('gdocs.step4Subtitle')}
                             </p>
                         </div>
 
@@ -509,7 +510,7 @@ export default function GdocsOnboardingPage() {
                                     className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${
                                         formData.selectedTemplate === template.id
                                             ? 'ring-2 ring-accent-green ring-offset-2 ring-offset-white scale-[1.02]'
-                                            : 'hover:scale-[1.02] hover:ring-1 hover:ring-gray-300'
+                                            : 'motion-safe:hover:scale-[1.02] hover:ring-1 hover:ring-gray-300'
                                     }`}
                                 >
                                     <div className="aspect-[3/4] bg-white p-2">
@@ -533,7 +534,7 @@ export default function GdocsOnboardingPage() {
                             className="w-full max-w-md mx-auto block py-4 bg-accent-green text-gray-900 rounded-xl font-semibold text-lg hover:bg-accent-teal transition-colors"
                         >
                             <span className="flex items-center justify-center gap-2">
-                                Continue to Google Docs Editor
+                                {t('gdocs.continue')}
                                 <ArrowRight size={20} />
                             </span>
                         </button>

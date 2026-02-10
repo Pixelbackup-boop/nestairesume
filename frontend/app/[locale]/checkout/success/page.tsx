@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/store/useAuthStore";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,65 +15,41 @@ const Confetti = dynamic(() => import("react-confetti"), { ssr: false });
 
 type PlanType = "starter" | "gold" | "diamond" | "platinum";
 
-const PLAN_BENEFITS: Record<PlanType, { name: string; icon: typeof Zap; color: string; bgColor: string; benefits: string[] }> = {
-  starter: {
-    name: "Starter",
-    icon: Download,
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-50",
-    benefits: [
-      "30 CV creations per month",
-      "3 AI generations per month",
-      "3 PDF downloads per month",
-      "All freemium templates",
-      "No ads",
-    ],
-  },
-  gold: {
-    name: "Gold",
-    icon: Zap,
-    color: "text-amber-600",
-    bgColor: "bg-amber-50",
-    benefits: [
-      "150 CV creations per month",
-      "10 AI generations per month",
-      "10 PDF downloads per month",
-      "ATS optimization",
-      "Cover letter builder",
-    ],
-  },
-  diamond: {
-    name: "Diamond",
-    icon: Crown,
-    color: "text-violet-600",
-    bgColor: "bg-violet-50",
-    benefits: [
-      "300 CV creations per month",
-      "30 AI generations per month",
-      "25 PDF downloads per month",
-      "All premium templates",
-      "Priority support",
-    ],
-  },
-  platinum: {
-    name: "Platinum",
-    icon: Crown,
-    color: "text-slate-700",
-    bgColor: "bg-slate-100",
-    benefits: [
-      "Unlimited CV creations",
-      "100 AI generations per month",
-      "Unlimited PDF downloads",
-      "All premium templates",
-      "Priority support",
-      "Early access to new features",
-    ],
-  },
-};
-
 function SuccessContent() {
   const searchParams = useSearchParams();
+  const t = useTranslations('CheckoutSuccess');
   const { refreshUser } = useAuthStore();
+
+  const PLAN_BENEFITS: Record<PlanType, { name: string; icon: typeof Zap; color: string; bgColor: string; benefits: string[] }> = {
+    starter: {
+      name: t('plans.starter.name'),
+      icon: Download,
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
+      benefits: t.raw('plans.starter.benefits') as string[],
+    },
+    gold: {
+      name: t('plans.gold.name'),
+      icon: Zap,
+      color: "text-amber-600",
+      bgColor: "bg-amber-50",
+      benefits: t.raw('plans.gold.benefits') as string[],
+    },
+    diamond: {
+      name: t('plans.diamond.name'),
+      icon: Crown,
+      color: "text-violet-600",
+      bgColor: "bg-violet-50",
+      benefits: t.raw('plans.diamond.benefits') as string[],
+    },
+    platinum: {
+      name: t('plans.platinum.name'),
+      icon: Crown,
+      color: "text-slate-700",
+      bgColor: "bg-slate-100",
+      benefits: t.raw('plans.platinum.benefits') as string[],
+    },
+  };
   const [showConfetti, setShowConfetti] = useState(true);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
@@ -136,10 +113,10 @@ function SuccessContent() {
                 <CheckCircle className="w-10 h-10 text-emerald-500" />
               </div>
               <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Payment Successful!
+                {t('title')}
               </h1>
               <p className="text-emerald-100 text-lg">
-                Welcome to {planDetails?.name || "your new plan"}!
+                {t('welcome', { plan: planDetails?.name || 'your new plan' })}
               </p>
             </div>
 
@@ -152,8 +129,8 @@ function SuccessContent() {
                       <Icon className={`w-5 h-5 ${planDetails.color}`} />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900">{planDetails.name} Plan</h3>
-                      <p className="text-sm text-gray-600">Your new benefits</p>
+                      <h3 className="font-bold text-gray-900">{t('planLabel', { plan: planDetails.name })}</h3>
+                      <p className="text-sm text-gray-600">{t('yourBenefits')}</p>
                     </div>
                   </div>
 
@@ -175,7 +152,7 @@ function SuccessContent() {
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition shadow-lg shadow-emerald-200"
                 >
                   <Sparkles size={20} />
-                  Create Your Resume
+                  {t('createResume')}
                   <ArrowRight size={20} />
                 </Link>
 
@@ -184,7 +161,7 @@ function SuccessContent() {
                   className="flex items-center justify-center gap-2 w-full bg-gray-100 text-gray-700 py-4 rounded-xl font-semibold hover:bg-gray-200 transition"
                 >
                   <Settings size={18} />
-                  Go to Dashboard
+                  {t('goToDashboard')}
                 </Link>
               </div>
             </div>
@@ -194,9 +171,9 @@ function SuccessContent() {
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-gray-600">
-                  A receipt has been sent to your email. You can manage your subscription anytime from your{" "}
+                  {t('receiptNote')}{" "}
                   <Link href="/dashboard" className="text-emerald-600 font-medium hover:underline">
-                    dashboard
+                    {t('dashboardLink')}
                   </Link>.
                 </p>
               </div>
@@ -205,7 +182,7 @@ function SuccessContent() {
 
           {/* Additional Info */}
           <p className="text-center text-sm text-gray-500 mt-6">
-            Questions? Contact us at{" "}
+            {t('supportText')}{" "}
             <a href="mailto:support@bestairesumes.com" className="text-emerald-600 hover:underline">
               support@bestairesumes.com
             </a>
@@ -218,13 +195,14 @@ function SuccessContent() {
 }
 
 function SuccessLoading() {
+  const t = useTranslations('CheckoutSuccess');
   return (
     <>
       <Header />
       <div className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-emerald-50/50 to-white">
         <div className="max-w-md mx-auto px-6 text-center">
           <Loader2 className="w-8 h-8 text-emerald-500 animate-spin mx-auto" />
-          <p className="text-gray-600 mt-4">Loading your subscription details...</p>
+          <p className="text-gray-600 mt-4">{t('loading')}</p>
         </div>
       </div>
       <Footer />

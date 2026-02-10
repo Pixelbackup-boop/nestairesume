@@ -7,7 +7,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
 import { splitHtmlAtMiddle } from '@/lib/splitContent';
-import { Clock, Calendar, User, ChevronRight, ArrowRight, Share2, Bookmark } from 'lucide-react';
+import { Clock, Calendar, User, ChevronRight, ArrowRight } from 'lucide-react';
+import { getLocalizedUrl } from '@/lib/localized-paths';
+import { getTranslations } from 'next-intl/server';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -32,8 +34,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getCareerTipBySlug(slug, locale);
 
   if (!post) {
+    const t = await getTranslations({ locale, namespace: 'CareerTips' });
     return {
-      title: 'Article Not Found',
+      title: t('article.notFound'),
     };
   }
 
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       type: 'article',
       locale: locale === 'ar' ? 'ar_SA' : `${locale}_${locale.toUpperCase()}`,
-      url: `${siteConfig.url}/${locale}/career-tips/${slug}`,
+      url: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale),
       siteName: siteConfig.name,
       title: post.title,
       description: post.description,
@@ -67,7 +70,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: post.image ? [post.image] : [],
     },
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/career-tips/${slug}`,
+      canonical: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale),
+      languages: {
+        'x-default': `${siteConfig.url}/en/career-tips/${slug}`,
+        en: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'en'),
+        es: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'es'),
+        fr: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'fr'),
+        de: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'de'),
+        ar: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'ar'),
+      },
     },
   };
 }
@@ -128,6 +139,7 @@ function renderMarkdown(content: string): string {
 export default async function CareerTipArticlePage({ params }: PageProps) {
   const { locale, slug } = await params;
   const post = await getCareerTipBySlug(slug, locale);
+  const t = await getTranslations('CareerTips');
 
   if (!post) {
     notFound();
@@ -138,7 +150,8 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
   const contentHtml = renderMarkdown(post.content);
   const [firstHalfHtml, secondHalfHtml] = splitHtmlAtMiddle(contentHtml);
 
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+  const dateLocale = locale === 'es' ? 'es-ES' : locale === 'fr' ? 'fr-FR' : locale === 'de' ? 'de-DE' : locale === 'ar' ? 'ar-SA' : 'en-US';
+  const formattedDate = new Date(post.date).toLocaleDateString(dateLocale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -153,11 +166,11 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
         <div className="max-w-6xl mx-auto px-6 mb-8">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
             <Link href={`/${locale}`} className="hover:text-teal-primary transition-colors">
-              Home
+              {t('article.breadcrumbHome')}
             </Link>
             <ChevronRight size={14} />
             <Link href={`/${locale}/career-tips`} className="hover:text-teal-primary transition-colors">
-              Career Tips
+              {t('article.breadcrumbCareerTips')}
             </Link>
             <ChevronRight size={14} />
             <span className="text-gray-400 truncate max-w-[200px]">{post.title}</span>
@@ -228,7 +241,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
               {/* Tags */}
               <div className="mt-10 pt-6 border-t border-gray-200">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm text-gray-500">Tags:</span>
+                  <span className="text-sm text-gray-500">{t('article.tags')}</span>
                   {post.tags.map(tag => (
                     <span
                       key={tag}
@@ -240,35 +253,17 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Share Section */}
-              <div className="mt-8 p-6 bg-gray-50 rounded-2xl">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Found this helpful?</h3>
-                    <p className="text-sm text-gray-500">Share it with others who might benefit</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <button className="p-3 bg-white rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors">
-                      <Share2 size={20} className="text-gray-600" />
-                    </button>
-                    <button className="p-3 bg-white rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors">
-                      <Bookmark size={20} className="text-gray-600" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
               {/* CTA Section */}
               <div className="mt-10 p-8 bg-gradient-to-r from-teal-primary to-teal-secondary rounded-2xl text-white">
-                <h3 className="text-2xl font-bold mb-3">Ready to Build Your Resume?</h3>
+                <h3 className="text-2xl font-bold mb-3">{t('cta.title')}</h3>
                 <p className="text-white/80 mb-6">
-                  Put these tips into action with our AI-powered resume builder. Create a professional resume in minutes.
+                  {t('cta.subtitle')}
                 </p>
                 <Link
                   href={`/${locale}/onboarding`}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-teal-primary rounded-xl font-semibold hover:bg-gray-100 transition-colors"
                 >
-                  Build Your Resume Now
+                  {t('cta.button')}
                   <ArrowRight size={20} />
                 </Link>
               </div>
@@ -281,7 +276,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                 {headings.length > 0 && (
                   <div className="bg-white rounded-2xl border border-gray-100 p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                      Table of Contents
+                      {t('article.tableOfContents')}
                     </h3>
                     <nav className="space-y-2">
                       {headings.map((heading, index) => (
@@ -303,7 +298,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                 {relatedPosts.length > 0 && (
                   <div className="bg-white rounded-2xl border border-gray-100 p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                      Related Articles
+                      {t('article.relatedArticles')}
                     </h3>
                     <div className="space-y-4">
                       {relatedPosts.map(related => (
@@ -326,15 +321,15 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
 
                 {/* Quick CTA */}
                 <div className="bg-gradient-to-br from-teal-primary to-teal-secondary rounded-2xl p-6 text-white">
-                  <h4 className="font-semibold text-lg mb-2">Build Your Resume</h4>
+                  <h4 className="font-semibold text-lg mb-2">{t('cta.sidebarTitle')}</h4>
                   <p className="text-white/80 text-sm mb-4">
-                    Create a professional resume with AI in minutes.
+                    {t('cta.sidebarSubtitle')}
                   </p>
                   <Link
                     href={`/${locale}/onboarding`}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-white text-teal-primary rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors"
                   >
-                    Get Started
+                    {t('cta.sidebarButton')}
                     <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -347,7 +342,7 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
         {relatedPosts.length > 0 && (
           <section className="max-w-6xl mx-auto px-6 mt-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">
-              More Career Tips
+              {t('article.moreCareerTips')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedPosts.map(related => (
@@ -362,7 +357,8 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                         src={related.image}
                         alt={related.imageAlt || related.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="object-cover motion-safe:group-hover:scale-105 motion-safe:transition-transform duration-300"
+                        loading="lazy"
                       />
                     </div>
                   )}
