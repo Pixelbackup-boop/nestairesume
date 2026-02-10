@@ -57,6 +57,11 @@
     "byStyle": "By Style",
     "byFormat": "By Format",
     "allTemplates": "All Templates",
+    "modern": "Modern",
+    "creative": "Creative",
+    "simpleClean": "Simple & Clean",
+    "atsFriendly": "ATS-Friendly",
+    "microsoftWord": "Microsoft Word",
     "buildResumeFree": "Build Your Resume Free",
     "chooseFromTemplates": "Choose from 20+ professional templates",
     "technology": "Technology",
@@ -417,6 +422,59 @@
       "step3": "Upload the downloaded PDF below",
       "openLinkedIn": "Open LinkedIn Profile",
       "tip": "LinkedIn PDFs work best for importing your complete work history"
+    },
+    "word": {
+      "badge": "Microsoft Word Resume",
+      "step1Title": "How would you like to create your Word resume?",
+      "aiDescription": "Tell us your profession and we'll generate a Word resume in seconds",
+      "subtitle": "Just 2 questions and AI will create your perfect Word resume",
+      "startBlank": "Or start with a blank Word resume",
+      "step4Title": "Choose Your Word Template",
+      "step4Subtitle": "Your resume is ready! Pick a Microsoft Word template.",
+      "continue": "Continue to Word Editor"
+    },
+    "gdocs": {
+      "badge": "Google Docs Resume",
+      "step1Title": "How would you like to create your Google Docs resume?",
+      "aiDescription": "Tell us your profession and we'll generate a Google Docs resume in seconds",
+      "subtitle": "Just 2 questions and AI will create your perfect Google Docs resume",
+      "startBlank": "Or start with a blank Google Docs resume",
+      "step4Title": "Choose Your Google Docs Template",
+      "step4Subtitle": "Your resume is ready! Pick a template optimized for Google Docs.",
+      "continue": "Continue to Google Docs Editor"
+    },
+    "main": {
+      "step1Title": "How would you like to start?",
+      "step1Subtitle": "Choose the method that works best for you",
+      "recommended": "Recommended",
+      "aiTitle": "AI Generation",
+      "aiDescription": "Let AI create your professional resume",
+      "uploadTitle": "Upload Existing",
+      "uploadDescription": "Import and enhance your resume",
+      "linkedinDescription": "Convert your LinkedIn profile",
+      "startBlank": "Start with a blank resume",
+      "step2Subtitle": "We'll use this to create your personalized resume",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "e.g. John Smith",
+      "targetJobTitle": "Target Job Title",
+      "jobTitlePlaceholder": "e.g. Software Engineer",
+      "goBack": "Go back",
+      "generatingTitle": "Creating your resume...",
+      "processingAnalyzing": "Analyzing your profile...",
+      "processingCrafting": "Crafting professional summary...",
+      "processingExperience": "Generating work experience...",
+      "processingSkills": "Adding relevant skills...",
+      "processingPolishing": "Polishing final details...",
+      "processingAlmost": "Almost there...",
+      "step4Subtitle": "Select a design that matches your style",
+      "uploadSubtitle": "AI will analyze your resume and create an enhanced version",
+      "secureNotice": "Your file is processed securely and not stored on our servers",
+      "linkedinSubtitle": "Download your profile as PDF from LinkedIn, then upload it here",
+      "linkedinHowTo": "How to export your LinkedIn profile:",
+      "linkedinStep1": "Go to your LinkedIn profile",
+      "linkedinStep2": "Click the \"More\" button below your profile photo",
+      "linkedinStep3": "Select \"Save to PDF\"",
+      "linkedinStep4": "Upload the downloaded PDF below"
     }
   },
 
@@ -703,7 +761,76 @@
     "meta": {
       "title": "Dashboard - My Resumes",
       "description": "Manage your resumes, track downloads, and access your subscription settings."
-    }
+    },
+    "welcome": "Welcome back{name}!",
+    "subtitle": "Ready to land your dream job? Let's create a resume that stands out.",
+    "stats": {
+      "resumesCreated": "Resumes Created",
+      "downloads": "Downloads",
+      "coverLetters": "Cover Letters"
+    },
+    "usage": {
+      "noPlan": "No plan",
+      "subscribeToUnlock": "Subscribe to unlock",
+      "unlimited": "Unlimited"
+    },
+    "cta": {
+      "badge": "AI-Powered Resume Builder",
+      "title": "Create Your Perfect Resume",
+      "createNew": "Create New Resume"
+    },
+    "subscription": {
+      "plan": "{tier} Plan",
+      "expiredPlan": "Expired Plan",
+      "noActivePlan": "No Active Plan",
+      "trial": "Trial",
+      "active": "Active",
+      "trialEnds": "Trial ends {date}",
+      "planActive": "Your plan is active",
+      "subscribePrompt": "Subscribe to unlock downloads",
+      "resubscribe": "Resubscribe",
+      "subscribe": "Subscribe",
+      "manage": "Manage Subscription"
+    },
+    "templateUsage": "Template Usage",
+    "resumes": {
+      "title": "Your Resumes",
+      "total": "{count} total",
+      "newResume": "New Resume",
+      "noResumes": "No resumes yet",
+      "noResumesDesc": "Create your first AI-powered resume and start applying to your dream jobs today.",
+      "createFirst": "Create Your First Resume",
+      "createNew": "Create New Resume"
+    },
+    "resumeCard": {
+      "untitled": "Untitled Resume",
+      "noName": "No name",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "daysAgo": "{days} days ago",
+      "duplicate": "Duplicate",
+      "delete": "Delete",
+      "deleteConfirm": "Are you sure you want to delete this resume?",
+      "edit": "Edit"
+    },
+    "quickActions": {
+      "softwareEngineer": "Software Engineer",
+      "productManager": "Product Manager",
+      "designer": "Designer",
+      "marketing": "Marketing",
+      "dataScientist": "Data Scientist",
+      "sales": "Sales"
+    },
+    "proTip": {
+      "label": "Pro Tip",
+      "title": "Tailor your resume for each job",
+      "description": "Resumes tailored to specific job descriptions are 3x more likely to get interviews. Use our AI to quickly customize your resume for each application.",
+      "stat1Value": "3x",
+      "stat1Label": "More Interviews",
+      "stat2Value": "85%",
+      "stat2Label": "ATS Pass Rate"
+    },
+    "loading": "Loading..."
   },
 
   "Profile": {
@@ -756,6 +883,162 @@
     "meta": {
       "title": "Checkout - Complete Your Subscription",
       "description": "Complete your subscription to unlock unlimited resume features. Secure payment via Stripe."
+    },
+    "invalidPlan": {
+      "title": "Invalid Plan",
+      "description": "The selected plan is not valid. Please choose a plan from our pricing page.",
+      "backBtn": "Back to Pricing"
+    },
+    "signIn": {
+      "title": "Sign in to Continue",
+      "subtitle": "Sign in to purchase the {plan} plan",
+      "signInBtn": "Sign In",
+      "createAccountBtn": "Create Account"
+    },
+    "header": {
+      "startTrial": "Start Your Free Trial",
+      "completePurchase": "Complete Your Purchase",
+      "tryPlan": "Try the {plan} plan free for 7 days",
+      "subscribePlan": "Subscribe to the {plan} plan"
+    },
+    "trial": {
+      "badge": "7-Day Free Trial",
+      "notChargedUntil": "You won't be charged until {date}"
+    },
+    "billing": {
+      "account": "Account",
+      "afterTrial": "After trial",
+      "billing": "Billing",
+      "monthlyStarting": "Monthly, starting today"
+    },
+    "submit": {
+      "redirecting": "Redirecting to Stripe...",
+      "startTrial": "Start Free Trial",
+      "subscribeNow": "Subscribe Now"
+    },
+    "secure": "Secure payment powered by Stripe",
+    "cancelTrialNote": "Cancel anytime during your trial at no cost",
+    "cancelNote": "Cancel anytime. No long-term commitment.",
+    "loading": "Loading checkout...",
+    "errors": {
+      "cancelled": "Payment was cancelled. You can try again when you're ready.",
+      "sessionExpired": "Your session has expired. Please sign in again.",
+      "failedCheckout": "Failed to start checkout. Please try again.",
+      "networkError": "Unable to connect to server. Please check your internet connection."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/month",
+        "description": "Perfect for job seekers",
+        "features": ["30 CV creations/month", "3 AI generations/month", "3 PDF downloads/month", "All freemium templates", "No ads"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/month",
+        "description": "For active job hunters",
+        "features": ["150 CV creations/month", "10 AI generations/month", "10 PDF downloads/month", "ATS optimization", "Cover letter builder"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/month",
+        "description": "Best for professionals",
+        "features": ["300 CV creations/month", "30 AI generations/month", "25 PDF downloads/month", "All premium templates", "Priority support"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/month",
+        "description": "For power users & agencies",
+        "features": ["Unlimited CV creations", "100 AI generations/month", "Unlimited PDF downloads", "All premium templates", "Priority support", "Early access features"]
+      }
+    }
+  },
+
+  "CheckoutSuccess": {
+    "title": "Payment Successful!",
+    "welcome": "Welcome to {plan}!",
+    "planLabel": "{plan} Plan",
+    "yourBenefits": "Your new benefits",
+    "createResume": "Create Your Resume",
+    "goToDashboard": "Go to Dashboard",
+    "receiptNote": "A receipt has been sent to your email. You can manage your subscription anytime from your",
+    "dashboardLink": "dashboard",
+    "supportText": "Questions? Contact us at",
+    "loading": "Loading your subscription details...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["30 CV creations per month", "3 AI generations per month", "3 PDF downloads per month", "All freemium templates", "No ads"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["150 CV creations per month", "10 AI generations per month", "10 PDF downloads per month", "ATS optimization", "Cover letter builder"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["300 CV creations per month", "30 AI generations per month", "25 PDF downloads per month", "All premium templates", "Priority support"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["Unlimited CV creations", "100 AI generations per month", "Unlimited PDF downloads", "All premium templates", "Priority support", "Early access to new features"]
+      }
+    }
+  },
+
+  "CanvasEditor": {
+    "meta": {
+      "title": "Canvas Resume Editor - Design Your Resume Visually | Best AI Resume",
+      "description": "Design your resume with a visual canvas editor. Drag and drop text, images, and shapes to create a unique, custom resume layout."
+    },
+    "loading": "Loading Canvas Editor...",
+    "desktop": {
+      "title": "Desktop Required",
+      "description": "The Canvas Editor requires a larger screen for precise design work. Please use a laptop or desktop computer to access this feature.",
+      "useBuilder": "Use Standard Builder Instead",
+      "backToDashboard": "Back to Dashboard",
+      "mobileNote": "The standard resume builder works great on mobile!"
+    },
+    "header": {
+      "backToBuilder": "Back to Builder",
+      "title": "Canvas Editor",
+      "beta": "Beta",
+      "elements": "{count} elements",
+      "postToCommunity": "Post to Community"
+    },
+    "shortcuts": "V Select | T Text | Delete Remove | Cmd+D Duplicate | Cmd+Z Undo | Double-click text to edit",
+    "toolbar": {
+      "select": "Select (V)",
+      "text": "Text (T)",
+      "image": "Image (I)",
+      "shape": "Shape (S)",
+      "rectangle": "Rectangle",
+      "circle": "Circle",
+      "star": "Star",
+      "line": "Line",
+      "undo": "Undo (Cmd+Z)",
+      "redo": "Redo (Cmd+Shift+Z)",
+      "duplicate": "Duplicate (Cmd+D)",
+      "delete": "Delete",
+      "bringToFront": "Bring to Front",
+      "sendToBack": "Send to Back",
+      "zoomOut": "Zoom Out",
+      "zoomIn": "Zoom In",
+      "aiGenerate": "AI Generate",
+      "aiGenerateTitle": "AI Summary Generator",
+      "save": "Save Project (Cmd+S)",
+      "load": "Load Project",
+      "export": "Export",
+      "downloadPdf": "Download PDF",
+      "downloadPng": "Download PNG",
+      "downloadJpeg": "Download JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "Failed to load template. It may have been removed.",
+      "canvasNotReady": "Canvas not ready. Please try again.",
+      "projectSaved": "Project saved successfully!",
+      "noSavedProject": "No saved project found.",
+      "projectLoaded": "Project loaded successfully!",
+      "projectLoadFailed": "Failed to load project."
     }
   },
 
@@ -869,7 +1152,57 @@
       "languages": "Languages",
       "strengths": "Strengths",
       "interests": "Interests & Hobbies"
+    },
+    "tabs": {
+      "personal": "Personal",
+      "personalDesc": "Basic info & summary",
+      "experience": "Experience",
+      "experienceDesc": "Work history",
+      "education": "Education",
+      "educationDesc": "Academic background",
+      "skills": "Skills",
+      "skillsDesc": "Your expertise",
+      "design": "Design",
+      "designDesc": "Style & layout"
+    },
+    "ui": {
+      "progress": "Progress",
+      "canvasEditor": "Canvas Editor",
+      "backToHome": "Back to Home",
+      "untitledResume": "Untitled Resume",
+      "downloadPdf": "Download PDF",
+      "livePreview": "Live Preview",
+      "showReference": "Show Reference Image",
+      "reference": "Reference",
+      "zoomOut": "Zoom Out",
+      "zoomIn": "Zoom In",
+      "resetZoom": "Reset Zoom",
+      "referenceDesign": "Reference Design",
+      "referenceCaption": "Original template design for reference",
+      "editResume": "Edit Resume",
+      "previewResume": "Preview Resume",
+      "edit": "Edit",
+      "preview": "Preview",
+      "loadingBuilder": "Loading builder..."
+    },
+    "welcome": {
+      "title": "Account Created!",
+      "description": "Your resume is saved. You can continue editing or choose a plan to download.",
+      "choosePlan": "Choose a Plan",
+      "backToEditor": "Back to Editor"
     }
+  },
+
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Download for Google Docs",
+    "loading": "Loading Google Docs builder..."
+  },
+
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "Download MS Word",
+    "loading": "Loading Word builder..."
   },
 
   "CoverLetter": {
@@ -898,7 +1231,15 @@
       "friendly": "Friendly",
       "confident": "Confident",
       "enthusiastic": "Enthusiastic",
-      "generate": "Generate Cover Letter"
+      "generate": "Generate Cover Letter",
+      "generating": "Generating...",
+      "fullNamePlaceholder": "John Doe",
+      "emailPlaceholder": "john@example.com",
+      "jobTitlePlaceholder": "Software Engineer",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Jane Smith",
+      "skillsPlaceholder": "React, Node.js, Team Leadership",
+      "experiencePlaceholder": "I led a team of 5 developers to deliver a major product launch..."
     },
     "preview": {
       "title": "Preview",
@@ -923,6 +1264,18 @@
       "title": "Need a Resume Too?",
       "subtitle": "Pair your cover letter with a professionally designed resume built with AI.",
       "button": "Build Your Resume"
+    },
+    "errors": {
+      "signInRequired": "Please sign in to generate a cover letter",
+      "limitReached": "You have reached your cover letter limit. Upgrade your plan for more.",
+      "subscriptionRequired": "A subscription is required to generate cover letters. Please upgrade your plan.",
+      "signInNow": "Sign in now",
+      "viewPlans": "View plans"
+    },
+    "externalResources": {
+      "title": "External Resources",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Career Outlook",
+      "shrmHrResources": "SHRM: HR & Career Resources"
     }
   },
 
@@ -934,9 +1287,10 @@
     "hero": {
       "badge": "AI-Powered Resignation Letter Generator",
       "title": "Write a",
-      "titleHighlight": "Professional Resignation",
+      "titleHighlight": "Professional Resignation Letter",
       "subtitle": "Leave your job on good terms with a professionally written resignation letter. Maintain positive relationships and protect your professional reputation."
     },
+    "noticeLabel": "Tip",
     "notice": "Standard notice period is usually 2 weeks. Check your employment contract for specific requirements.",
     "form": {
       "yourDetails": "Your Details",
@@ -954,9 +1308,20 @@
       "brief": "Brief",
       "warm": "Warm",
       "offerHelp": "Offer to help with transition",
-      "generate": "Generate Resignation Letter"
+      "generate": "Generate Resignation Letter",
+      "generating": "Generating...",
+      "yourNamePlaceholder": "John Doe",
+      "currentPositionPlaceholder": "Software Engineer",
+      "companyPlaceholder": "Acme Corp",
+      "managerPlaceholder": "Jane Smith",
+      "positiveExperiencesPlaceholder": "I really enjoyed working on the product launch project and appreciated the mentorship from the senior team...",
+      "professionalDesc": "Formal and business-like",
+      "gratefulDesc": "Expressing appreciation",
+      "briefDesc": "Short and to the point",
+      "warmDesc": "Friendly and personal"
     },
     "reasons": {
+      "selectReason": "Select a reason (optional)",
       "newOpportunity": "Pursuing a new opportunity",
       "careerChange": "Career change",
       "relocation": "Relocation",
@@ -964,7 +1329,47 @@
       "education": "Returning to education",
       "family": "Family commitments",
       "health": "Health reasons",
-      "retirement": "Retirement"
+      "retirement": "Retirement",
+      "other": "Other"
+    },
+    "preview": {
+      "title": "Preview",
+      "subtitle": "Your generated letter",
+      "noLetter": "No letter generated yet",
+      "fillAndGenerate": "Fill in your details and click Generate",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "download": "Download"
+    },
+    "reasonText": {
+      "newOpportunity": "I have accepted a position at another company",
+      "careerChange": "I have decided to pursue a different career path",
+      "relocation": "I will be relocating",
+      "personal": "due to personal reasons",
+      "education": "I have decided to return to further my education",
+      "family": "due to family commitments that require my full attention",
+      "health": "due to health reasons",
+      "retirement": "I have decided to retire",
+      "other": "for personal reasons"
+    },
+    "letter": {
+      "dearManager": "Dear {name},",
+      "defaultManager": "Manager",
+      "lastWorkingDayPlaceholder": "[Last Working Day]",
+      "briefBody": "Please accept this letter as formal notification of my resignation from the position of {position} at {company}. My last day of work will be {lastDay}.",
+      "briefReason": "I am resigning because {reason}.",
+      "briefClosing": "Thank you for the opportunities provided during my time here.",
+      "sincerely": "Sincerely,",
+      "formalBody": "I am writing to formally notify you of my resignation from my position as {position} at {company}. My last day of work will be {lastDay}.",
+      "reasonPrefix": "After careful consideration, {reason}.",
+      "notEasyDecision": "This was not an easy decision to make, as I have genuinely valued my time with the company.",
+      "gratefulDefault": "I am incredibly grateful for the opportunities I have had to grow professionally and personally during my time here.",
+      "warmDefault": "Working with you and the team has been a wonderful experience that I will always cherish.",
+      "learnedAppreciate": "I have learned so much and will always appreciate the support and guidance I have received.",
+      "transitionHelp": "During the transition period, I am committed to ensuring a smooth handover of my responsibilities. I am happy to help train my replacement or document my current projects and processes.",
+      "thankYouClosing": "Thank you for the opportunities for professional and personal development that you have provided me during my tenure. I wish {company} continued success, and I hope to stay in touch.",
+      "warmRegards": "With warm regards,",
+      "sincereGratitude": "With sincere gratitude,"
     },
     "tips": {
       "title": "Resignation",
@@ -982,6 +1387,11 @@
       "title": "Ready for Your Next Opportunity?",
       "subtitle": "Build a professional resume for your job search with our AI-powered resume builder.",
       "button": "Build Your Resume"
+    },
+    "externalResources": {
+      "title": "External Resources",
+      "shrmWorkplace": "SHRM: HR & Workplace Resources",
+      "blsCareerData": "Bureau of Labor Statistics: Career Data"
     }
   },
 
@@ -1054,6 +1464,11 @@
       "generateFailed": "Failed to generate interview questions. Please try again.",
       "startFailed": "Failed to start the interview. Please try again.",
       "detailedAnswer": "Please provide a more detailed answer (at least 20 characters)."
+    },
+    "externalResources": {
+      "title": "External Resources",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Career Outlook",
+      "shrmInterviewPractices": "SHRM: Interview Best Practices"
     }
   },
 
@@ -1069,8 +1484,10 @@
       "subtitle": "Master resume writing, ace interviews, and accelerate your career with our expert guides."
     },
     "featured": "Featured Articles",
+    "featuredBadge": "Featured",
     "allArticles": "All Articles",
     "searchPlaceholder": "Search articles...",
+    "articleCount": "{count, plural, one {# article} other {# articles}}",
     "noArticles": "No articles found",
     "noArticlesHint": "Try adjusting your search or filter",
     "categories": {
@@ -1090,7 +1507,10 @@
       "moreCareerTips": "More Career Tips",
       "shareHelpful": "Found this helpful?",
       "shareWithOthers": "Share it with others who might benefit",
-      "tags": "Tags"
+      "tags": "Tags:",
+      "breadcrumbHome": "Home",
+      "breadcrumbCareerTips": "Career Tips",
+      "notFound": "Article Not Found"
     },
     "cta": {
       "title": "Ready to Build Your Resume?",
@@ -1125,6 +1545,10 @@
     }
   },
   "AtsChecker": {
+    "meta": {
+      "title": "Free ATS Resume Checker | Score Your Resume Instantly | Best AI Resume",
+      "description": "Check your resume against ATS systems for free. Get instant scoring, keyword analysis, and optimization tips to pass automated screening."
+    },
     "hero": {
       "badge": "Free ATS Resume Checker",
       "title": "Is Your Resume",
@@ -1235,6 +1659,27 @@
       "title": "Stop Getting Rejected by ATS",
       "description": "Build a professional, ATS-optimized resume in minutes with our AI-powered builder. Every template is tested for ATS compatibility.",
       "button": "Build My ATS Resume — Free"
+    },
+    "validation": {
+      "unsupportedFormat": "Only PDF and DOCX files are supported.",
+      "fileTooLarge": "File size must be under 10MB.",
+      "genericError": "Something went wrong. Please try again."
+    },
+    "results": {
+      "scoreTitle": "Your ATS Compatibility Score",
+      "recommendations": "Recommendations",
+      "checkAnother": "Check Another Resume",
+      "buildAtsResume": "Build an ATS-Optimized Resume",
+      "pagesAnalyzed": "{count, plural, one {# page analyzed} other {# pages analyzed}}",
+      "scoreExcellent": "Excellent",
+      "scoreGood": "Good",
+      "scoreNeedsWork": "Needs Work",
+      "scorePoor": "Poor"
+    },
+    "externalResources": {
+      "title": "External Resources",
+      "atsHowTheyWork": "Understanding ATS: How They Work",
+      "blsResumeTips": "BLS Career Outlook: Resume Tips"
     }
   },
   "Contact": {

@@ -55,6 +55,11 @@
     "byStyle": "Nach Stil",
     "byFormat": "Nach Format",
     "allTemplates": "Alle Vorlagen",
+    "modern": "Modern",
+    "creative": "Kreativ",
+    "simpleClean": "Schlicht & Sauber",
+    "atsFriendly": "ATS-freundlich",
+    "microsoftWord": "Microsoft Word",
     "buildResumeFree": "Lebenslauf kostenlos erstellen",
     "chooseFromTemplates": "Wählen Sie aus 20+ Vorlagen",
     "technology": "Technologie",
@@ -387,6 +392,59 @@
       "openLinkedIn": "LinkedIn-Profil öffnen",
       "tip": "LinkedIn-PDFs eignen sich am besten für den Import Ihres vollständigen Werdegangs"
     },
+    "word": {
+      "badge": "Microsoft Word Lebenslauf",
+      "step1Title": "Wie möchten Sie Ihren Word-Lebenslauf erstellen?",
+      "aiDescription": "Nennen Sie uns Ihren Beruf und wir erstellen in Sekunden einen Word-Lebenslauf",
+      "subtitle": "Nur 2 Fragen und die KI erstellt Ihren perfekten Word-Lebenslauf",
+      "startBlank": "Oder mit einem leeren Word-Lebenslauf beginnen",
+      "step4Title": "Wählen Sie Ihre Word-Vorlage",
+      "step4Subtitle": "Ihr Lebenslauf ist fertig! Wählen Sie eine Microsoft Word-Vorlage.",
+      "continue": "Weiter zum Word-Editor"
+    },
+    "gdocs": {
+      "badge": "Google Docs Lebenslauf",
+      "step1Title": "Wie möchten Sie Ihren Google Docs-Lebenslauf erstellen?",
+      "aiDescription": "Nennen Sie uns Ihren Beruf und wir erstellen in Sekunden einen Google Docs-Lebenslauf",
+      "subtitle": "Nur 2 Fragen und die KI erstellt Ihren perfekten Google Docs-Lebenslauf",
+      "startBlank": "Oder mit einem leeren Google Docs-Lebenslauf beginnen",
+      "step4Title": "Wählen Sie Ihre Google Docs-Vorlage",
+      "step4Subtitle": "Ihr Lebenslauf ist fertig! Wählen Sie eine für Google Docs optimierte Vorlage.",
+      "continue": "Weiter zum Google Docs-Editor"
+    },
+    "main": {
+      "step1Title": "Wie möchten Sie beginnen?",
+      "step1Subtitle": "Wählen Sie die Methode, die am besten zu Ihnen passt",
+      "recommended": "Empfohlen",
+      "aiTitle": "KI-Generierung",
+      "aiDescription": "Lassen Sie die KI Ihren professionellen Lebenslauf erstellen",
+      "uploadTitle": "Vorhandenen hochladen",
+      "uploadDescription": "Importieren und verbessern Sie Ihren Lebenslauf",
+      "linkedinDescription": "Konvertieren Sie Ihr LinkedIn-Profil",
+      "startBlank": "Mit einem leeren Lebenslauf beginnen",
+      "step2Subtitle": "Wir verwenden diese Informationen, um Ihren personalisierten Lebenslauf zu erstellen",
+      "fullName": "Vollständiger Name",
+      "fullNamePlaceholder": "z.B. Max Mustermann",
+      "targetJobTitle": "Gewünschte Stellenbezeichnung",
+      "jobTitlePlaceholder": "z.B. Software-Entwickler",
+      "goBack": "Zurück",
+      "generatingTitle": "Ihr Lebenslauf wird erstellt...",
+      "processingAnalyzing": "Analyse Ihres Profils...",
+      "processingCrafting": "Berufszusammenfassung wird erstellt...",
+      "processingExperience": "Berufserfahrung wird generiert...",
+      "processingSkills": "Relevante Fähigkeiten werden hinzugefügt...",
+      "processingPolishing": "Letzte Details werden verfeinert...",
+      "processingAlmost": "Fast fertig...",
+      "step4Subtitle": "Wählen Sie ein Design, das zu Ihrem Stil passt",
+      "uploadSubtitle": "Die KI analysiert Ihren Lebenslauf und erstellt eine verbesserte Version",
+      "secureNotice": "Ihre Datei wird sicher verarbeitet und nicht auf unseren Servern gespeichert",
+      "linkedinSubtitle": "Laden Sie Ihr LinkedIn-Profil als PDF herunter und importieren Sie es hier",
+      "linkedinHowTo": "So exportieren Sie Ihr LinkedIn-Profil:",
+      "linkedinStep1": "Gehen Sie zu Ihrem LinkedIn-Profil",
+      "linkedinStep2": "Klicken Sie auf die Schaltfläche „Mehr“ unter Ihrem Profilfoto",
+      "linkedinStep3": "Wählen Sie „Als PDF speichern“",
+      "linkedinStep4": "Laden Sie die heruntergeladene PDF-Datei unten hoch"
+    },
     "meta": {
       "title": "Erstellen Sie Ihren Lebenslauf - KI-Lebenslauf-Generator",
       "description": "Erstellen Sie Ihren professionellen Lebenslauf in Sekunden. Beantworten Sie 2 Fragen und lassen Sie die KI einen maßgeschneiderten Lebenslauf erstellen."
@@ -643,6 +701,62 @@
   "LanguageSwitcher": {
     "label": "Sprache wählen"
   },
+  "CanvasEditor": {
+    "meta": {
+      "title": "Canvas-Lebenslauf-Editor - Gestalten Sie Ihren Lebenslauf visuell | Best AI Resume",
+      "description": "Gestalten Sie Ihren Lebenslauf mit einem visuellen Canvas-Editor. Ziehen Sie Text, Bilder und Formen per Drag-and-Drop für ein einzigartiges Layout."
+    },
+    "loading": "Canvas-Editor wird geladen...",
+    "desktop": {
+      "title": "Desktop Erforderlich",
+      "description": "Der Canvas-Editor benötigt einen größeren Bildschirm für präzises Gestalten. Bitte verwenden Sie einen Laptop oder Desktop-Computer.",
+      "useBuilder": "Standard-Builder Verwenden",
+      "backToDashboard": "Zurück zum Dashboard",
+      "mobileNote": "Der Standard-Lebenslauf-Builder funktioniert hervorragend auf dem Handy!"
+    },
+    "header": {
+      "backToBuilder": "Zurück zum Builder",
+      "title": "Canvas-Editor",
+      "beta": "Beta",
+      "elements": "{count} Elemente",
+      "postToCommunity": "In der Community Posten"
+    },
+    "shortcuts": "V Auswählen | T Text | Entf Löschen | Cmd+D Duplizieren | Cmd+Z Rückgängig | Doppelklick auf Text zum Bearbeiten",
+    "toolbar": {
+      "select": "Auswählen (V)",
+      "text": "Text (T)",
+      "image": "Bild (I)",
+      "shape": "Form (S)",
+      "rectangle": "Rechteck",
+      "circle": "Kreis",
+      "star": "Stern",
+      "line": "Linie",
+      "undo": "Rückgängig (Cmd+Z)",
+      "redo": "Wiederherstellen (Cmd+Umschalt+Z)",
+      "duplicate": "Duplizieren (Cmd+D)",
+      "delete": "Löschen",
+      "bringToFront": "In den Vordergrund",
+      "sendToBack": "In den Hintergrund",
+      "zoomOut": "Verkleinern",
+      "zoomIn": "Vergrößern",
+      "aiGenerate": "KI-Generierung",
+      "aiGenerateTitle": "KI-Zusammenfassungsgenerator",
+      "save": "Projekt Speichern (Cmd+S)",
+      "load": "Projekt Laden",
+      "export": "Exportieren",
+      "downloadPdf": "Als PDF Herunterladen",
+      "downloadPng": "Als PNG Herunterladen",
+      "downloadJpeg": "Als JPEG Herunterladen"
+    },
+    "alerts": {
+      "templateLoadFailed": "Vorlage konnte nicht geladen werden. Sie wurde möglicherweise entfernt.",
+      "canvasNotReady": "Canvas ist nicht bereit. Bitte versuchen Sie es erneut.",
+      "projectSaved": "Projekt erfolgreich gespeichert!",
+      "noSavedProject": "Kein gespeichertes Projekt gefunden.",
+      "projectLoaded": "Projekt erfolgreich geladen!",
+      "projectLoadFailed": "Projekt konnte nicht geladen werden."
+    }
+  },
   "Builder": {
     "personalInfo": {
       "title": "Persönliche Informationen",
@@ -755,6 +869,16 @@
       "description": "Erstellen Sie Ihren professionellen Lebenslauf mit unserem einfach zu bedienenden Editor. Echtzeit-Vorschau, KI-Vorschläge und sofortiger PDF-Download."
     }
   },
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Für Google Docs Herunterladen",
+    "loading": "Google Docs-Builder wird geladen..."
+  },
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "Für MS Word Herunterladen",
+    "loading": "Word-Builder wird geladen..."
+  },
   "ResignationLetter": {
     "meta": {
       "title": "Kostenloser KI-Kündigungsschreiben-Generator - Professionelle Kündigungen",
@@ -766,6 +890,7 @@
       "titleHighlight": "Professionelle Kündigung",
       "subtitle": "Verlassen Sie Ihren Job im Guten mit einem professionell verfassten Kündigungsschreiben. Pflegen Sie positive Beziehungen und schützen Sie Ihren beruflichen Ruf."
     },
+    "noticeLabel": "Tipp",
     "notice": "Die Standard-Kündigungsfrist beträgt in der Regel 2 Wochen. Prüfen Sie Ihren Arbeitsvertrag für spezifische Anforderungen.",
     "form": {
       "yourDetails": "Ihre Angaben",
@@ -783,9 +908,20 @@
       "brief": "Kurz",
       "warm": "Herzlich",
       "offerHelp": "Hilfe bei der Übergabe anbieten",
-      "generate": "Kündigungsschreiben Erstellen"
+      "generate": "Kündigungsschreiben Erstellen",
+      "generating": "Wird erstellt...",
+      "yourNamePlaceholder": "Max Mustermann",
+      "currentPositionPlaceholder": "Software-Ingenieur",
+      "companyPlaceholder": "Acme GmbH",
+      "managerPlaceholder": "Maria Schmidt",
+      "positiveExperiencesPlaceholder": "Ich habe die Arbeit am Produktlaunch-Projekt und die Betreuung durch das Senior-Team sehr geschätzt...",
+      "professionalDesc": "Formell und geschäftsmäßig",
+      "gratefulDesc": "Dankbarkeit ausdrücken",
+      "briefDesc": "Kurz und prägnant",
+      "warmDesc": "Freundlich und persönlich"
     },
     "reasons": {
+      "selectReason": "Grund auswählen (optional)",
       "newOpportunity": "Neue Möglichkeit verfolgen",
       "careerChange": "Berufswechsel",
       "relocation": "Umzug",
@@ -793,7 +929,47 @@
       "education": "Rückkehr zur Ausbildung",
       "family": "Familiäre Verpflichtungen",
       "health": "Gesundheitliche Gründe",
-      "retirement": "Ruhestand"
+      "retirement": "Ruhestand",
+      "other": "Sonstiges"
+    },
+    "preview": {
+      "title": "Vorschau",
+      "subtitle": "Ihr generiertes Schreiben",
+      "noLetter": "Noch kein Schreiben generiert",
+      "fillAndGenerate": "Füllen Sie Ihre Daten aus und klicken Sie auf Erstellen",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "download": "Herunterladen"
+    },
+    "reasonText": {
+      "newOpportunity": "Ich habe eine Stelle bei einem anderen Unternehmen angenommen",
+      "careerChange": "Ich habe mich entschieden, einen anderen Karriereweg einzuschlagen",
+      "relocation": "Ich werde umziehen",
+      "personal": "aus persönlichen Gründen",
+      "education": "Ich habe mich entschieden, meine Ausbildung fortzusetzen",
+      "family": "aufgrund familiärer Verpflichtungen, die meine volle Aufmerksamkeit erfordern",
+      "health": "aus gesundheitlichen Gründen",
+      "retirement": "Ich habe mich entschieden, in den Ruhestand zu gehen",
+      "other": "aus persönlichen Gründen"
+    },
+    "letter": {
+      "dearManager": "Sehr geehrte/r {name},",
+      "defaultManager": "Vorgesetzte/r",
+      "lastWorkingDayPlaceholder": "[Letzter Arbeitstag]",
+      "briefBody": "Bitte betrachten Sie dieses Schreiben als offizielle Kündigung meiner Position als {position} bei {company}. Mein letzter Arbeitstag wird der {lastDay} sein.",
+      "briefReason": "Ich kündige, weil {reason}.",
+      "briefClosing": "Vielen Dank für die Möglichkeiten, die mir während meiner Zeit hier geboten wurden.",
+      "sincerely": "Mit freundlichen Grüßen,",
+      "formalBody": "Hiermit teile ich Ihnen offiziell meine Kündigung als {position} bei {company} mit. Mein letzter Arbeitstag wird der {lastDay} sein.",
+      "reasonPrefix": "Nach reiflicher Überlegung {reason}.",
+      "notEasyDecision": "Diese Entscheidung ist mir nicht leicht gefallen, da ich die Zeit im Unternehmen sehr geschätzt habe.",
+      "gratefulDefault": "Ich bin ungemein dankbar für die Möglichkeiten zur beruflichen und persönlichen Weiterentwicklung während meiner Zeit hier.",
+      "warmDefault": "Die Zusammenarbeit mit Ihnen und dem Team war eine wunderbare Erfahrung, die ich immer in Erinnerung behalten werde.",
+      "learnedAppreciate": "Ich habe so viel gelernt und werde die Unterstützung und Anleitung, die ich erhalten habe, immer zu schätzen wissen.",
+      "transitionHelp": "Während der Übergangszeit bin ich bestrebt, eine reibungslose Übergabe meiner Aufgaben sicherzustellen. Ich helfe gerne bei der Einarbeitung meines Nachfolgers oder der Dokumentation meiner aktuellen Projekte.",
+      "thankYouClosing": "Vielen Dank für die Möglichkeiten zur beruflichen und persönlichen Entwicklung während meiner Beschäftigung. Ich wünsche {company} weiterhin viel Erfolg und hoffe, in Kontakt zu bleiben.",
+      "warmRegards": "Herzliche Grüße,",
+      "sincereGratitude": "Mit aufrichtiger Dankbarkeit,"
     },
     "tips": {
       "title": "Kündigungs-",
@@ -811,6 +987,11 @@
       "title": "Bereit für Ihre Nächste Chance?",
       "subtitle": "Erstellen Sie einen professionellen Lebenslauf für Ihre Jobsuche mit unserem KI-gestützten Lebenslauf-Generator.",
       "button": "Lebenslauf Erstellen"
+    },
+    "externalResources": {
+      "title": "Externe Ressourcen",
+      "shrmWorkplace": "SHRM: HR- und Arbeitsplatz-Ressourcen",
+      "blsCareerData": "Bureau of Labor Statistics: Karrieredaten"
     }
   },
 
@@ -883,6 +1064,11 @@
       "generateFailed": "Fehler beim Generieren der Interviewfragen. Bitte versuchen Sie es erneut.",
       "startFailed": "Fehler beim Starten des Interviews. Bitte versuchen Sie es erneut.",
       "detailedAnswer": "Bitte geben Sie eine ausführlichere Antwort (mindestens 20 Zeichen)."
+    },
+    "externalResources": {
+      "title": "Externe Ressourcen",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Karriereausblick",
+      "shrmInterviewPractices": "SHRM: Bewährte Interview-Methoden"
     }
   },
 
@@ -898,7 +1084,9 @@
       "subtitle": "Meistern Sie das Schreiben von Lebensläufen, glänzen Sie bei Vorstellungsgesprächen und beschleunigen Sie Ihre Karriere."
     },
     "featured": "Empfohlene Artikel",
+    "featuredBadge": "Empfohlen",
     "allArticles": "Alle Artikel",
+    "articleCount": "{count, plural, one {# Artikel} other {# Artikel}}",
     "searchPlaceholder": "Artikel suchen...",
     "noArticles": "Keine Artikel gefunden",
     "noArticlesHint": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
@@ -919,7 +1107,10 @@
       "moreCareerTips": "Weitere Karrieretipps",
       "shareHelpful": "War das hilfreich?",
       "shareWithOthers": "Teilen Sie es mit anderen",
-      "tags": "Tags"
+      "tags": "Tags:",
+      "breadcrumbHome": "Startseite",
+      "breadcrumbCareerTips": "Karrieretipps",
+      "notFound": "Artikel Nicht Gefunden"
     },
     "cta": {
       "title": "Bereit, Ihren Lebenslauf zu erstellen?",
@@ -950,6 +1141,119 @@
       "title": "Bereit, Ihren erfolgreichen Lebenslauf zu erstellen?",
       "subtitle": "Nutzen Sie unseren KI-gestützten Builder, um in Minuten einen professionellen Lebenslauf zu erstellen.",
       "button": "Meinen Lebenslauf erstellen — Kostenlos"
+    }
+  },
+  "AtsChecker": {
+    "hero": {
+      "badge": "Kostenloser ATS-Lebenslauf-Check",
+      "title": "Ist Ihr Lebenslauf",
+      "titleHighlight": "ATS-kompatibel?",
+      "statistic": "75 % der Lebensläufe werden von ATS abgelehnt, bevor sie ein Mensch je zu sehen bekommt.",
+      "description": "Unser kostenloser ATS-Check analysiert Ihren Lebenslauf auf Formatierungsprobleme, fehlende Schlüsselwörter und Kompatibilitätsprobleme, die zu automatischen Ablehnungen führen."
+    },
+    "tool": {
+      "title": "Prüfen Sie Ihren ATS-Score",
+      "description": "Laden Sie Ihren Lebenslauf als PDF oder DOCX hoch und erhalten Sie sofort einen ATS-Kompatibilitätswert mit detailliertem Feedback.",
+      "uploadBtn": "Klicken zum Hochladen oder per Drag & Drop",
+      "formats": "PDF oder DOCX — Max. 10 MB",
+      "checkBtn": "Meinen Lebenslauf prüfen",
+      "changeFile": "Datei ändern",
+      "analyzing": "Ihr Lebenslauf wird analysiert…",
+      "cta": "ATS-freundlichen Lebenslauf erstellen",
+      "subtext": "Kostenlos — keine Kreditkarte erforderlich"
+    },
+    "checks": {
+      "title": "Worauf ATS-Systeme prüfen",
+      "subtitle": "Wenn Sie verstehen, was ATS-Software scannt, können Sie Ihren Lebenslauf für maximale Sichtbarkeit optimieren.",
+      "keywords": {
+        "title": "Schlüsselwort-Abgleich",
+        "description": "ATS sucht nach jobspezifischen Schlüsselwörtern aus der Stellenanzeige. Fehlen wichtige Begriffe, folgt die automatische Ablehnung."
+      },
+      "formatting": {
+        "title": "Saubere Formatierung",
+        "description": "Komplexe Layouts, Tabellen und Spalten verwirren ATS-Parser. Einfache, einspaltige Formate werden am besten erkannt."
+      },
+      "contact": {
+        "title": "Kontaktdaten",
+        "description": "ATS sucht nach Name, E-Mail, Telefonnummer und Standort in Standardformaten. Fehlende Angaben bedeuten verpasste Chancen."
+      },
+      "dates": {
+        "title": "Einheitliche Datumsformate",
+        "description": "ATS-Systeme lesen Beschäftigungsdaten, um die Berufserfahrung zu berechnen. Uneinheitliche Formate verursachen Parsing-Fehler."
+      }
+    },
+    "checklist": {
+      "title": "ATS-Optimierungs-Checkliste",
+      "subtitle": "Befolgen Sie diese Richtlinien, um die Chancen Ihres Lebenslaufs zu maximieren, das ATS-Screening zu bestehen.",
+      "doThis": "Das sollten Sie tun",
+      "avoidThis": "Das sollten Sie vermeiden",
+      "dos": {
+        "singleColumn": "Verwenden Sie ein einspaltiges Layout für maximale Kompatibilität",
+        "keywords": "Übernehmen Sie Schlüsselwörter aus der Stellenbeschreibung auf natürliche Weise",
+        "standardHeadings": "Verwenden Sie standardmäßige Abschnittsüberschriften (Berufserfahrung, Ausbildung, Fähigkeiten)",
+        "fileFormat": "Reichen Sie den Lebenslauf als PDF oder DOCX ein, wie vom Arbeitgeber angegeben",
+        "standardFonts": "Verwenden Sie Standardschriftarten wie Arial, Calibri oder Times New Roman",
+        "spellOut": "Schreiben Sie Abkürzungen zuerst aus, dann abkürzen (z. B. Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "Verwenden Sie keine Tabellen oder Textfelder für das Layout",
+        "images": "Fügen Sie keine Bilder, Logos oder Grafiken ein",
+        "headers": "Platzieren Sie keine wichtigen Informationen in Kopf- oder Fußzeilen",
+        "creativeTitles": "Verwenden Sie keine kreativen Abschnittstitel (z. B. \u201eMein Werdegang\u201C statt \u201EBerufserfahrung\u201C)",
+        "fancyFonts": "Verwenden Sie keine dekorativen oder unüblichen Schriftarten",
+        "lightText": "Verwenden Sie kein hellgraues oder kontrastarmes Schriftfarben"
+      }
+    },
+    "systems": {
+      "title": "Verbreitete ATS-Systeme",
+      "subtitle": "Unsere Vorlagen sind für alle gängigen Bewerbermanagementsysteme getestet und optimiert, die von Arbeitgebern weltweit eingesetzt werden."
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "whatIsAts": {
+        "question": "Was ist ein ATS (Applicant Tracking System)?",
+        "answer": "Ein ATS ist eine Software, die von Arbeitgebern eingesetzt wird, um Bewerbungen zu erfassen, zu scannen und zu bewerten. Es filtert Lebensläufe anhand von Schlüsselwörtern, Formatierung und Relevanz, bevor ein Recruiter sie überhaupt sieht. Über 98 % der Fortune-500-Unternehmen verwenden ein ATS."
+      },
+      "whyFail": {
+        "question": "Warum fallen Lebensläufe beim ATS-Screening durch?",
+        "answer": "Häufige Gründe sind komplexe Formatierung (Tabellen, Spalten, Grafiken), fehlende Schlüsselwörter aus der Stellenbeschreibung, nicht standardmäßige Abschnittsüberschriften, inkompatible Dateiformate und Informationen in Kopf- oder Fußzeilen, die das ATS nicht lesen kann."
+      },
+      "bestFormat": {
+        "question": "Welches Lebenslauf-Format ist am besten für ATS?",
+        "answer": "Ein sauberes, einspaltiges Layout mit standardmäßigen Abschnittsüberschriften funktioniert am besten. Verwenden Sie einfache Formatierung, Standardschriftarten und verzichten Sie auf Grafiken oder Tabellen. PDF und DOCX sind die am häufigsten akzeptierten Dateiformate."
+      },
+      "keywords": {
+        "question": "Wie finde ich die richtigen Schlüsselwörter für meinen Lebenslauf?",
+        "answer": "Lesen Sie die Stellenbeschreibung sorgfältig und identifizieren Sie wiederholt genannte Fähigkeiten, Qualifikationen und Fachbegriffe. Integrieren Sie diese Schlüsselwörter natürlich in Ihren Lebenslauf, insbesondere in Ihre Zusammenfassung, den Abschnitt Fähigkeiten und die Beschreibungen Ihrer Berufserfahrung."
+      },
+      "twoColumn": {
+        "question": "Kann ich einen zweispaltigen Lebenslauf mit ATS verwenden?",
+        "answer": "Zweispaltige Layouts können bei vielen ATS-Systemen zu Parsing-Problemen führen. Die Software liest möglicherweise quer über die Spalten statt von oben nach unten, wodurch Ihre Informationen durcheinander geraten. Ein einspaltiges Layout ist die sicherste Wahl für ATS-Kompatibilität."
+      },
+      "jobTitle": {
+        "question": "Sollte ich die exakte Stellenbezeichnung in meinem Lebenslauf verwenden?",
+        "answer": "Ja, wenn Ihr tatsächlicher Titel ähnlich ist. Die exakte Stellenbezeichnung aus der Ausschreibung in Ihrem Lebenslauf zu verwenden (sofern wahrheitsgemäß) verbessert das ATS-Matching erheblich. Sie können sie in Ihrer Zusammenfassung oder als Zielposition angeben."
+      }
+    },
+    "resources": {
+      "title": "Weiterführende Ressourcen",
+      "guide": {
+        "title": "Leitfaden: ATS-gerechter Lebenslauf",
+        "description": "Schritt-für-Schritt-Anleitung zum Erstellen eines Lebenslaufs, der das ATS-Screening besteht."
+      },
+      "templates": {
+        "title": "ATS-freundliche Vorlagen",
+        "description": "Voroptimierte Lebenslauf-Vorlagen, die für ATS-Kompatibilität entwickelt wurden."
+      },
+      "examples": {
+        "title": "Lebenslauf-Beispiele",
+        "description": "Sehen Sie echte Lebenslauf-Beispiele für Ihren Beruf."
+      }
+    },
+    "cta": {
+      "title": "Schluss mit ATS-Ablehnungen",
+      "description": "Erstellen Sie in Minuten einen professionellen, ATS-optimierten Lebenslauf mit unserem KI-gestützten Builder. Jede Vorlage ist auf ATS-Kompatibilität getestet.",
+      "button": "Meinen ATS-Lebenslauf erstellen — Kostenlos"
     }
   },
   "About": {
@@ -990,7 +1294,15 @@
       "friendly": "Freundlich",
       "confident": "Selbstbewusst",
       "enthusiastic": "Enthusiastisch",
-      "generate": "Anschreiben Erstellen"
+      "generate": "Anschreiben Erstellen",
+      "generating": "Wird erstellt...",
+      "fullNamePlaceholder": "Max Mustermann",
+      "emailPlaceholder": "max@beispiel.de",
+      "jobTitlePlaceholder": "Software-Ingenieur",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Maria Schmidt",
+      "skillsPlaceholder": "React, Node.js, Teamführung",
+      "experiencePlaceholder": "Ich leitete ein Team von 5 Entwicklern bei einem großen Produktlaunch..."
     },
     "preview": {
       "title": "Vorschau",
@@ -1015,6 +1327,18 @@
       "title": "Brauchen Sie auch einen Lebenslauf?",
       "subtitle": "Kombinieren Sie Ihr Anschreiben mit einem professionell gestalteten Lebenslauf mit KI.",
       "button": "Lebenslauf Erstellen"
+    },
+    "errors": {
+      "signInRequired": "Bitte melden Sie sich an, um ein Anschreiben zu erstellen",
+      "limitReached": "Sie haben Ihr Anschreiben-Limit erreicht. Upgraden Sie Ihren Plan für mehr.",
+      "subscriptionRequired": "Ein Abonnement ist erforderlich, um Anschreiben zu erstellen. Bitte upgraden Sie Ihren Plan.",
+      "signInNow": "Jetzt anmelden",
+      "viewPlans": "Pläne ansehen"
+    },
+    "externalResources": {
+      "title": "Externe Ressourcen",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Karriereausblick",
+      "shrmHrResources": "SHRM: HR- und Karriere-Ressourcen"
     }
   },
   "Dashboard": {

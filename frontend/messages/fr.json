@@ -55,6 +55,11 @@
     "byStyle": "Par Style",
     "byFormat": "Par Format",
     "allTemplates": "Tous les Modèles",
+    "modern": "Moderne",
+    "creative": "Créatif",
+    "simpleClean": "Simple et Épuré",
+    "atsFriendly": "Compatible ATS",
+    "microsoftWord": "Microsoft Word",
     "buildResumeFree": "Créer votre CV gratuitement",
     "chooseFromTemplates": "Choisissez parmi 20+ modèles professionnels",
     "technology": "Technologie",
@@ -387,6 +392,59 @@
       "openLinkedIn": "Ouvrir le Profil LinkedIn",
       "tip": "Les PDFs LinkedIn fonctionnent mieux pour importer votre historique professionnel complet"
     },
+    "word": {
+      "badge": "CV Microsoft Word",
+      "step1Title": "Comment souhaitez-vous créer votre CV Word ?",
+      "aiDescription": "Indiquez-nous votre profession et nous générerons un CV Word en quelques secondes",
+      "subtitle": "Seulement 2 questions et l'IA créera votre CV Word parfait",
+      "startBlank": "Ou commencez avec un CV Word vierge",
+      "step4Title": "Choisissez Votre Modèle Word",
+      "step4Subtitle": "Votre CV est prêt ! Choisissez un modèle Microsoft Word.",
+      "continue": "Continuer vers l'éditeur Word"
+    },
+    "gdocs": {
+      "badge": "CV Google Docs",
+      "step1Title": "Comment souhaitez-vous créer votre CV Google Docs ?",
+      "aiDescription": "Indiquez-nous votre profession et nous générerons un CV Google Docs en quelques secondes",
+      "subtitle": "Seulement 2 questions et l'IA créera votre CV Google Docs parfait",
+      "startBlank": "Ou commencez avec un CV Google Docs vierge",
+      "step4Title": "Choisissez Votre Modèle Google Docs",
+      "step4Subtitle": "Votre CV est prêt ! Choisissez un modèle optimisé pour Google Docs.",
+      "continue": "Continuer vers l'éditeur Google Docs"
+    },
+    "main": {
+      "step1Title": "Comment souhaitez-vous commencer ?",
+      "step1Subtitle": "Choisissez la méthode qui vous convient le mieux",
+      "recommended": "Recommandé",
+      "aiTitle": "Génération IA",
+      "aiDescription": "Laissez l'IA créer votre CV professionnel",
+      "uploadTitle": "Télécharger un CV",
+      "uploadDescription": "Importez et améliorez votre CV",
+      "linkedinDescription": "Convertissez votre profil LinkedIn",
+      "startBlank": "Commencer avec un CV vierge",
+      "step2Subtitle": "Nous utiliserons ces informations pour créer votre CV personnalisé",
+      "fullName": "Nom Complet",
+      "fullNamePlaceholder": "ex. Jean Dupont",
+      "targetJobTitle": "Poste Recherché",
+      "jobTitlePlaceholder": "ex. Ingénieur Logiciel",
+      "goBack": "Retour",
+      "generatingTitle": "Création de votre CV...",
+      "processingAnalyzing": "Analyse de votre profil...",
+      "processingCrafting": "Rédaction du résumé professionnel...",
+      "processingExperience": "Génération de l'expérience professionnelle...",
+      "processingSkills": "Ajout des compétences pertinentes...",
+      "processingPolishing": "Peaufinage des détails...",
+      "processingAlmost": "Presque terminé...",
+      "step4Subtitle": "Sélectionnez un design qui correspond à votre style",
+      "uploadSubtitle": "L'IA analysera votre CV et en créera une version améliorée",
+      "secureNotice": "Votre fichier est traité de manière sécurisée et n'est pas stocké sur nos serveurs",
+      "linkedinSubtitle": "Téléchargez votre profil LinkedIn en PDF, puis importez-le ici",
+      "linkedinHowTo": "Comment exporter votre profil LinkedIn :",
+      "linkedinStep1": "Allez sur votre profil LinkedIn",
+      "linkedinStep2": "Cliquez sur le bouton « Plus » sous votre photo de profil",
+      "linkedinStep3": "Sélectionnez « Enregistrer au format PDF »",
+      "linkedinStep4": "Téléchargez le PDF ci-dessous"
+    },
     "meta": {
       "title": "Créez Votre CV - Générateur de CV IA",
       "description": "Commencez à créer votre CV professionnel en quelques secondes. Répondez à 2 questions et laissez l'IA créer un CV adapté."
@@ -643,6 +701,62 @@
   "LanguageSwitcher": {
     "label": "Sélectionner la langue"
   },
+  "CanvasEditor": {
+    "meta": {
+      "title": "Éditeur de CV Canvas - Créez Votre CV Visuellement | Best AI Resume",
+      "description": "Concevez votre CV avec un éditeur visuel Canvas. Glissez-déposez texte, images et formes pour créer une mise en page unique et personnalisée."
+    },
+    "loading": "Chargement de l'éditeur Canvas...",
+    "desktop": {
+      "title": "Ordinateur Requis",
+      "description": "L'éditeur Canvas nécessite un grand écran pour un travail de conception précis. Veuillez utiliser un ordinateur portable ou de bureau pour accéder à cette fonctionnalité.",
+      "useBuilder": "Utiliser le Générateur Standard",
+      "backToDashboard": "Retour au Tableau de Bord",
+      "mobileNote": "Le générateur de CV standard fonctionne parfaitement sur mobile !"
+    },
+    "header": {
+      "backToBuilder": "Retour au Générateur",
+      "title": "Éditeur Canvas",
+      "beta": "Bêta",
+      "elements": "{count} éléments",
+      "postToCommunity": "Publier dans la Communauté"
+    },
+    "shortcuts": "V Sélectionner | T Texte | Suppr Effacer | Cmd+D Dupliquer | Cmd+Z Annuler | Double-cliquez sur le texte pour éditer",
+    "toolbar": {
+      "select": "Sélectionner (V)",
+      "text": "Texte (T)",
+      "image": "Image (I)",
+      "shape": "Forme (S)",
+      "rectangle": "Rectangle",
+      "circle": "Cercle",
+      "star": "Étoile",
+      "line": "Ligne",
+      "undo": "Annuler (Cmd+Z)",
+      "redo": "Rétablir (Cmd+Maj+Z)",
+      "duplicate": "Dupliquer (Cmd+D)",
+      "delete": "Supprimer",
+      "bringToFront": "Mettre au Premier Plan",
+      "sendToBack": "Mettre en Arrière-Plan",
+      "zoomOut": "Dézoomer",
+      "zoomIn": "Zoomer",
+      "aiGenerate": "Génération IA",
+      "aiGenerateTitle": "Générateur de Résumé IA",
+      "save": "Enregistrer le Projet (Cmd+S)",
+      "load": "Charger un Projet",
+      "export": "Exporter",
+      "downloadPdf": "Télécharger en PDF",
+      "downloadPng": "Télécharger en PNG",
+      "downloadJpeg": "Télécharger en JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "Échec du chargement du modèle. Il a peut-être été supprimé.",
+      "canvasNotReady": "Le Canvas n'est pas prêt. Veuillez réessayer.",
+      "projectSaved": "Projet enregistré avec succès !",
+      "noSavedProject": "Aucun projet sauvegardé trouvé.",
+      "projectLoaded": "Projet chargé avec succès !",
+      "projectLoadFailed": "Échec du chargement du projet."
+    }
+  },
   "Builder": {
     "personalInfo": {
       "title": "Informations Personnelles",
@@ -755,6 +869,16 @@
       "description": "Créez votre CV professionnel avec notre éditeur facile à utiliser. Aperçu en temps réel, suggestions IA et téléchargement PDF."
     }
   },
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Télécharger pour Google Docs",
+    "loading": "Chargement du générateur Google Docs..."
+  },
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "Télécharger pour MS Word",
+    "loading": "Chargement du générateur Word..."
+  },
   "ResignationLetter": {
     "meta": {
       "title": "Générateur Gratuit de Lettre de Démission IA - Lettres Professionnelles",
@@ -766,6 +890,7 @@
       "titleHighlight": "Démission Professionnelle",
       "subtitle": "Quittez votre emploi en bons termes avec une lettre de démission rédigée professionnellement. Maintenez des relations positives et protégez votre réputation professionnelle."
     },
+    "noticeLabel": "Conseil",
     "notice": "Le préavis standard est généralement de 2 semaines. Vérifiez votre contrat de travail pour les exigences spécifiques.",
     "form": {
       "yourDetails": "Vos Coordonnées",
@@ -783,9 +908,20 @@
       "brief": "Bref",
       "warm": "Chaleureux",
       "offerHelp": "Proposer de l'aide pour la transition",
-      "generate": "Générer la Lettre de Démission"
+      "generate": "Générer la Lettre de Démission",
+      "generating": "Génération en cours...",
+      "yourNamePlaceholder": "Jean Dupont",
+      "currentPositionPlaceholder": "Ingénieur Logiciel",
+      "companyPlaceholder": "Acme Corp",
+      "managerPlaceholder": "Marie Martin",
+      "positiveExperiencesPlaceholder": "J'ai vraiment apprécié le projet de lancement produit et le mentorat de l'équipe senior...",
+      "professionalDesc": "Formel et professionnel",
+      "gratefulDesc": "Exprimer sa reconnaissance",
+      "briefDesc": "Court et direct",
+      "warmDesc": "Amical et personnel"
     },
     "reasons": {
+      "selectReason": "Sélectionner une raison (facultatif)",
       "newOpportunity": "Poursuite d'une nouvelle opportunité",
       "careerChange": "Changement de carrière",
       "relocation": "Déménagement",
@@ -793,7 +929,47 @@
       "education": "Retour aux études",
       "family": "Engagements familiaux",
       "health": "Raisons de santé",
-      "retirement": "Retraite"
+      "retirement": "Retraite",
+      "other": "Autre"
+    },
+    "preview": {
+      "title": "Aperçu",
+      "subtitle": "Votre lettre générée",
+      "noLetter": "Aucune lettre générée",
+      "fillAndGenerate": "Remplissez vos informations et cliquez sur Générer",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "download": "Télécharger"
+    },
+    "reasonText": {
+      "newOpportunity": "J'ai accepté un poste dans une autre entreprise",
+      "careerChange": "J'ai décidé de poursuivre une autre voie professionnelle",
+      "relocation": "Je vais déménager",
+      "personal": "pour des raisons personnelles",
+      "education": "J'ai décidé de reprendre mes études",
+      "family": "en raison d'engagements familiaux nécessitant toute mon attention",
+      "health": "pour des raisons de santé",
+      "retirement": "J'ai décidé de prendre ma retraite",
+      "other": "pour des raisons personnelles"
+    },
+    "letter": {
+      "dearManager": "Cher/Chère {name},",
+      "defaultManager": "Responsable",
+      "lastWorkingDayPlaceholder": "[Dernier Jour de Travail]",
+      "briefBody": "Veuillez accepter cette lettre comme notification officielle de ma démission du poste de {position} chez {company}. Mon dernier jour de travail sera le {lastDay}.",
+      "briefReason": "Je démissionne car {reason}.",
+      "briefClosing": "Merci pour les opportunités offertes durant mon passage ici.",
+      "sincerely": "Cordialement,",
+      "formalBody": "Je vous écris pour vous informer officiellement de ma démission de mon poste de {position} chez {company}. Mon dernier jour de travail sera le {lastDay}.",
+      "reasonPrefix": "Après mûre réflexion, {reason}.",
+      "notEasyDecision": "Cette décision n'a pas été facile à prendre, car j'ai sincèrement apprécié mon temps au sein de l'entreprise.",
+      "gratefulDefault": "Je suis extrêmement reconnaissant(e) pour les opportunités de développement professionnel et personnel durant mon passage ici.",
+      "warmDefault": "Travailler avec vous et l'équipe a été une expérience merveilleuse que je chérirai toujours.",
+      "learnedAppreciate": "J'ai énormément appris et j'apprécierai toujours le soutien et les conseils que j'ai reçus.",
+      "transitionHelp": "Durant la période de transition, je m'engage à assurer un transfert fluide de mes responsabilités. Je suis disponible pour former mon remplaçant ou documenter mes projets et processus en cours.",
+      "thankYouClosing": "Merci pour les opportunités de développement professionnel et personnel que vous m'avez offertes durant mon mandat. Je souhaite à {company} un succès continu et j'espère rester en contact.",
+      "warmRegards": "Bien cordialement,",
+      "sincereGratitude": "Avec ma sincère gratitude,"
     },
     "tips": {
       "title": "Bonnes Pratiques",
@@ -811,6 +987,11 @@
       "title": "Prêt pour Votre Prochaine Opportunité ?",
       "subtitle": "Créez un CV professionnel pour votre recherche d'emploi avec notre générateur de CV alimenté par l'IA.",
       "button": "Créer Votre CV"
+    },
+    "externalResources": {
+      "title": "Ressources Externes",
+      "shrmWorkplace": "SHRM : Ressources RH et Lieu de Travail",
+      "blsCareerData": "Bureau of Labor Statistics : Données sur les Carrières"
     }
   },
 
@@ -883,6 +1064,11 @@
       "generateFailed": "Échec de la génération des questions. Veuillez réessayer.",
       "startFailed": "Échec du démarrage de l'entretien. Veuillez réessayer.",
       "detailedAnswer": "Veuillez fournir une réponse plus détaillée (au moins 20 caractères)."
+    },
+    "externalResources": {
+      "title": "Ressources Externes",
+      "blsCareerOutlook": "Bureau of Labor Statistics : Perspectives de Carrière",
+      "shrmInterviewPractices": "SHRM : Bonnes Pratiques d'Entretien"
     }
   },
 
@@ -898,7 +1084,9 @@
       "subtitle": "Maîtrisez la rédaction de CV, réussissez vos entretiens et accélérez votre carrière."
     },
     "featured": "Articles en Vedette",
+    "featuredBadge": "En Vedette",
     "allArticles": "Tous les Articles",
+    "articleCount": "{count, plural, one {# article} other {# articles}}",
     "searchPlaceholder": "Rechercher des articles...",
     "noArticles": "Aucun article trouvé",
     "noArticlesHint": "Essayez d'ajuster votre recherche ou filtre",
@@ -919,7 +1107,10 @@
       "moreCareerTips": "Plus de Conseils Carrière",
       "shareHelpful": "Cela vous a aidé ?",
       "shareWithOthers": "Partagez avec d'autres",
-      "tags": "Tags"
+      "tags": "Tags :",
+      "breadcrumbHome": "Accueil",
+      "breadcrumbCareerTips": "Conseils Carrière",
+      "notFound": "Article Non Trouvé"
     },
     "cta": {
       "title": "Prêt à créer votre CV ?",
@@ -950,6 +1141,119 @@
       "title": "Prêt à créer votre CV gagnant ?",
       "subtitle": "Utilisez notre créateur alimenté par l'IA pour créer un CV professionnel en quelques minutes.",
       "button": "Créer Mon CV — Gratuit"
+    }
+  },
+  "AtsChecker": {
+    "hero": {
+      "badge": "Vérificateur ATS de CV Gratuit",
+      "title": "Votre CV est-il",
+      "titleHighlight": "Compatible ATS ?",
+      "statistic": "75 % des CV sont rejetés par les ATS avant qu'un humain ne les voie.",
+      "description": "Notre vérificateur ATS gratuit analyse votre CV pour détecter les problèmes de mise en forme, les mots-clés manquants et les incompatibilités qui entraînent des rejets automatiques."
+    },
+    "tool": {
+      "title": "Vérifiez le Score ATS de Votre CV",
+      "description": "Téléchargez votre CV au format PDF ou DOCX et obtenez instantanément un score de compatibilité ATS avec des retours détaillés.",
+      "uploadBtn": "Cliquez pour télécharger ou glissez-déposez",
+      "formats": "PDF ou DOCX — 10 Mo max",
+      "checkBtn": "Vérifier Mon CV",
+      "changeFile": "Changer de fichier",
+      "analyzing": "Analyse de votre CV en cours…",
+      "cta": "Créer un CV Compatible ATS",
+      "subtext": "Gratuit — aucune carte bancaire requise"
+    },
+    "checks": {
+      "title": "Ce Que les Systèmes ATS Vérifient",
+      "subtitle": "Comprendre ce que les logiciels ATS analysent vous aide à optimiser votre CV pour une visibilité maximale.",
+      "keywords": {
+        "title": "Correspondance des Mots-Clés",
+        "description": "Les ATS recherchent des mots-clés spécifiques au poste dans l'offre d'emploi. L'absence de termes essentiels entraîne un rejet automatique."
+      },
+      "formatting": {
+        "title": "Mise en Forme Claire",
+        "description": "Les mises en page complexes, tableaux et colonnes perturbent les analyseurs ATS. Les formats simples à une seule colonne sont les mieux interprétés."
+      },
+      "contact": {
+        "title": "Coordonnées",
+        "description": "Les ATS recherchent le nom, l'e-mail, le téléphone et la localisation dans des formats standards. Des informations manquantes signifient des opportunités perdues."
+      },
+      "dates": {
+        "title": "Formats de Dates Cohérents",
+        "description": "Les systèmes ATS analysent les dates d'emploi pour calculer l'expérience. Des formats incohérents provoquent des erreurs d'analyse."
+      }
+    },
+    "checklist": {
+      "title": "Liste de Contrôle pour l'Optimisation ATS",
+      "subtitle": "Suivez ces recommandations pour maximiser les chances de votre CV de passer le filtrage ATS.",
+      "doThis": "À Faire",
+      "avoidThis": "À Éviter",
+      "dos": {
+        "singleColumn": "Utilisez une mise en page à une seule colonne pour une compatibilité maximale",
+        "keywords": "Incluez naturellement les mots-clés de la description du poste",
+        "standardHeadings": "Utilisez des titres de sections standards (Expérience, Formation, Compétences)",
+        "fileFormat": "Soumettez en PDF ou DOCX selon les instructions de l'employeur",
+        "standardFonts": "Utilisez des polices standards comme Arial, Calibri ou Times New Roman",
+        "spellOut": "Écrivez les acronymes en toutes lettres d'abord, puis abrégez (ex. : Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "N'utilisez pas de tableaux ni de zones de texte pour la mise en page",
+        "images": "N'incluez pas d'images, de logos ou de graphiques",
+        "headers": "Ne placez pas d'informations importantes dans les en-têtes ou pieds de page",
+        "creativeTitles": "N'utilisez pas de titres de sections créatifs (ex. : « Mon Parcours » au lieu de « Expérience »)",
+        "fancyFonts": "N'utilisez pas de polices décoratives ou peu courantes",
+        "lightText": "N'utilisez pas de texte gris clair ou à faible contraste"
+      }
+    },
+    "systems": {
+      "title": "Systèmes ATS Populaires",
+      "subtitle": "Nos modèles sont testés et optimisés pour tous les principaux systèmes de suivi des candidatures utilisés par les employeurs dans le monde entier."
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "whatIsAts": {
+        "question": "Qu'est-ce qu'un ATS (Applicant Tracking System) ?",
+        "answer": "Un ATS est un logiciel utilisé par les employeurs pour collecter, analyser et classer les candidatures. Il filtre les CV en fonction des mots-clés, de la mise en forme et de la pertinence avant qu'un recruteur ne les voie. Plus de 98 % des entreprises du Fortune 500 utilisent un ATS."
+      },
+      "whyFail": {
+        "question": "Pourquoi les CV échouent-ils au filtrage ATS ?",
+        "answer": "Les raisons courantes incluent une mise en forme complexe (tableaux, colonnes, graphiques), l'absence de mots-clés de la description du poste, des titres de sections non standards, des formats de fichiers incompatibles et des informations placées dans les en-têtes ou pieds de page que l'ATS ne peut pas lire."
+      },
+      "bestFormat": {
+        "question": "Quel est le meilleur format de CV pour les ATS ?",
+        "answer": "Une mise en page claire à une seule colonne avec des titres de sections standards fonctionne le mieux. Utilisez une mise en forme simple, des polices standards et évitez les graphiques ou tableaux. Le PDF et le DOCX sont les formats de fichiers les plus universellement acceptés."
+      },
+      "keywords": {
+        "question": "Comment trouver les bons mots-clés pour mon CV ?",
+        "answer": "Lisez attentivement la description du poste et identifiez les compétences, qualifications et termes récurrents. Incluez ces mots-clés naturellement dans votre CV, en particulier dans votre résumé, la section compétences et les descriptions d'expérience professionnelle."
+      },
+      "twoColumn": {
+        "question": "Puis-je utiliser un CV à deux colonnes avec les ATS ?",
+        "answer": "Les mises en page à deux colonnes peuvent causer des problèmes d'analyse avec de nombreux systèmes ATS. Le logiciel peut lire en travers des colonnes au lieu de les lire de haut en bas, mélangeant vos informations. Une mise en page à une seule colonne est le choix le plus sûr pour la compatibilité ATS."
+      },
+      "jobTitle": {
+        "question": "Dois-je reprendre exactement l'intitulé du poste dans mon CV ?",
+        "answer": "Oui, si votre titre réel est similaire. Inclure l'intitulé exact du poste de l'annonce dans votre CV (si c'est véridique) améliore considérablement la correspondance ATS. Vous pouvez l'inclure dans votre résumé ou comme poste visé."
+      }
+    },
+    "resources": {
+      "title": "Ressources Associées",
+      "guide": {
+        "title": "Guide de Rédaction de CV ATS",
+        "description": "Guide étape par étape pour rédiger un CV qui passe le filtrage ATS."
+      },
+      "templates": {
+        "title": "Modèles Compatibles ATS",
+        "description": "Modèles de CV pré-optimisés conçus pour la compatibilité ATS."
+      },
+      "examples": {
+        "title": "Exemples de CV",
+        "description": "Consultez de vrais exemples de CV pour votre métier."
+      }
+    },
+    "cta": {
+      "title": "Arrêtez d'Être Rejeté par les ATS",
+      "description": "Créez un CV professionnel et optimisé pour les ATS en quelques minutes avec notre créateur alimenté par l'IA. Chaque modèle est testé pour la compatibilité ATS.",
+      "button": "Créer Mon CV ATS — Gratuit"
     }
   },
   "About": {
@@ -990,7 +1294,15 @@
       "friendly": "Amical",
       "confident": "Confiant",
       "enthusiastic": "Enthousiaste",
-      "generate": "Générer la Lettre de Motivation"
+      "generate": "Générer la Lettre de Motivation",
+      "generating": "Génération en cours...",
+      "fullNamePlaceholder": "Jean Dupont",
+      "emailPlaceholder": "jean@exemple.com",
+      "jobTitlePlaceholder": "Ingénieur Logiciel",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Marie Martin",
+      "skillsPlaceholder": "React, Node.js, Gestion d'Équipe",
+      "experiencePlaceholder": "J'ai dirigé une équipe de 5 développeurs pour livrer un lancement produit majeur..."
     },
     "preview": {
       "title": "Aperçu",
@@ -1015,6 +1327,18 @@
       "title": "Besoin d'un CV Aussi ?",
       "subtitle": "Associez votre lettre de motivation à un CV conçu professionnellement avec l'IA.",
       "button": "Créer Votre CV"
+    },
+    "errors": {
+      "signInRequired": "Veuillez vous connecter pour générer une lettre de motivation",
+      "limitReached": "Vous avez atteint votre limite de lettres de motivation. Passez à un forfait supérieur.",
+      "subscriptionRequired": "Un abonnement est nécessaire pour générer des lettres de motivation. Veuillez mettre à niveau votre forfait.",
+      "signInNow": "Se connecter",
+      "viewPlans": "Voir les forfaits"
+    },
+    "externalResources": {
+      "title": "Ressources Externes",
+      "blsCareerOutlook": "Bureau of Labor Statistics : Perspectives de Carrière",
+      "shrmHrResources": "SHRM : Ressources RH et Carrière"
     }
   },
   "Dashboard": {
