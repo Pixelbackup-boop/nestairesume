@@ -11,7 +11,8 @@ import {
     escapeHtml,
     formatDescription,
     getLanguageLevel,
-    getFontScale
+    getFontScale,
+    getIconSVG
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -39,7 +40,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
 
     // Fixed colors matching frontend
-    const headerBgColor = '#78350f'; // Amber-900 (Dark Brown)
+    const headerBgColor = customThemeColor || '#78350f'; // Follows accent color
     const accentColor = customThemeColor || '#92400e'; // Amber-800 (Copper)
     const textColor = '#374151'; // Gray-700
 
@@ -49,6 +50,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
     // Font Scaling
     const scale = getFontScale(fonts?.size);
     const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px: number) => Math.max(5, Math.round(px * scale));
 
     const fs = {
         name: s(32),
@@ -59,7 +61,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
     };
 
     const SectionRow = (label: string, content: string) => `
-        <div style="display: flex; margin-bottom: 20px; page-break-inside: avoid;">
+        <div style="display: flex; margin-bottom: 20px;">
             <div style="width: 25%; padding-right: 20px;">
                 <h3 style="
                     font-family: ${headingFont};
@@ -191,11 +193,13 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                     ${personalInfo.email ? `<span>${escapeHtml(personalInfo.email)}</span>` : ''}
                     ${personalInfo.phone ? `<span>${escapeHtml(personalInfo.phone)}</span>` : ''}
                     ${personalInfo.location ? `<span>${escapeHtml(personalInfo.location)}</span>` : ''}
+                    ${personalInfo.website ? `<span>${escapeHtml(personalInfo.website)}</span>` : ''}
+                    ${personalInfo.linkedin ? `<span>${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                 </div>
             </div>
 
             <!-- Main Content Body -->
-            <div style="padding: 20px 40px;">
+            <div style="padding: 20px 40px 40px 40px;">
 
                 ${personalInfo.summary ? SectionRow(t.sections.profile,
         `<p style="line-height: 1.6; margin-top: 0;">${formatDescription(personalInfo.summary)}</p>`
@@ -204,7 +208,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                 ${experience.length > 0 ? SectionRow(t.sections.experience, `
                     <div style="display: flex; flex-direction: column; gap: 24px;">
                         ${experience.map(exp => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
                                     <h4 style="font-size: ${fs.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
                                         ${escapeHtml(exp.title)}
@@ -229,7 +233,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                 ${education.length > 0 ? SectionRow(t.sections.education, `
                     <div style="display: flex; flex-direction: column; gap: 16px;">
                         ${education.map(edu => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
                                     <h4 style="font-size: ${fs.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
                                         ${escapeHtml(edu.degree)}
@@ -261,7 +265,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                         ${skills.map(skill => {
         const val = skill.level > 5 ? skill.level : (skill.level || 3) * 20;
         return `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                                         <span style="font-size: ${fs.body}; font-weight: 500; color: ${theme.heading};">${escapeHtml(skill.name)}</span>
                                     </div>
@@ -277,7 +281,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                 ${languages.length > 0 ? SectionRow(t.sections.languages, `
                      <div style="display: flex; flex-direction: column; gap: 8px;">
                         ${languages.map(lang => `
-                            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;">
+                            <div data-paginate="item" style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;">
                                 <span style="font-weight: 600; color: #1f2937;">${escapeHtml(lang.name)}</span>
                                 <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
                             </div>
@@ -288,8 +292,8 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                 ${interests.length > 0 ? SectionRow(t.sections.interests, `
                     <div style="display: flex; flex-wrap: wrap; gap: 16px;">
                         ${interests.map(int => `
-                            <span style="color: #374151; display: flex; align-items: center; gap: 6px;">
-                                <span style="color: ${accentColor};">◆</span> ${escapeHtml(int.name)}
+                            <span data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 6px;">
+                                ${getIconSVG('diamond', accentColor, sNum(10), true)} ${escapeHtml(int.name)}
                             </span>
                         `).join('')}
                     </div>
@@ -302,7 +306,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                                 <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${certifications.map(cert => `
-                                        <div>
+                                        <div data-paginate="item">
                                             <div style="font-weight: 600; color: #1f2937;">${escapeHtml(cert.name)}</div>
                                             <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                         </div>
@@ -316,7 +320,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                                 <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${awards.map(award => `
-                                        <div>
+                                        <div data-paginate="item">
                                             <div style="font-weight: 600; color: #1f2937;">${escapeHtml(award.title)}</div>
                                             <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                         </div>
@@ -327,21 +331,20 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                     </div>
                 `) : ''}
 
-                ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? SectionRow(t.sections.socialLinks, `
+                ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? SectionRow(t.sections.socialLinks, `
                     <div style="display: flex; flex-direction: column; gap: 6px;">
-                        ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                        ${personalInfo.x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
-                        ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
-                        ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
-                        ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
-                        ${personalInfo.instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                        ${personalInfo.x ? `<div data-paginate="item"><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
+                        ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
+                        ${personalInfo.dribbble ? `<div data-paginate="item"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
+                        ${personalInfo.behance ? `<div data-paginate="item"><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
+                        ${personalInfo.instagram ? `<div data-paginate="item"><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
                     </div>
                 `) : ''}
                 
                 ${references.length > 0 ? SectionRow(t.sections.references, `
                     <div style="display: flex; flex-direction: column; gap: 16px;">
                         ${references.map(ref => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="font-weight: 700; color: #1f2937;">${escapeHtml(ref.name)}</div>
                                 <div style="color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
                                 ${ref.email ? `<div style="font-size: ${fs.small}; color: #4b5563;">${escapeHtml(ref.email)}</div>` : ''}
@@ -353,9 +356,9 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
 
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? SectionRow(t.sections.personalDetails, `
                     <div style="display: flex; flex-direction: column; gap: 6px;">
-                        ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                        ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                         ${(personalInfo.idType && personalInfo.idNumber) ? `
-                            <div>
+                            <div data-paginate="item">
                                 <span style="font-weight: 600;">
                                     ${personalInfo.idType === 'id' ? 'ID' :
                 personalInfo.idType === 'passport' ? 'Passport' :

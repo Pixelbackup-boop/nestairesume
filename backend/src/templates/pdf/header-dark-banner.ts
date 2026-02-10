@@ -78,7 +78,7 @@ export const renderHeaderDarkBanner = (
         const circumference = 2 * Math.PI * radius;
         const strokeDashoffset = circumference - (value / 100) * circumference;
         return `
-            <div style="display: flex; flex-direction: column; align-items: center; width: 70px;">
+            <div data-paginate="item" style="display: flex; flex-direction: column; align-items: center; width: 70px;">
                 <svg width="70" height="70" viewBox="0 0 70 70">
                     <circle cx="35" cy="35" r="${radius}" fill="none" stroke="#e5e7eb" stroke-width="3"/>
                     <circle cx="35" cy="35" r="${radius}" fill="none" stroke="#374151" stroke-width="3"
@@ -93,7 +93,7 @@ export const renderHeaderDarkBanner = (
 
     // Helper for progress bars (skills)
     const ProgressBar = (label: string, value: number) => `
-        <div style="margin-bottom: 10px;">
+        <div data-paginate="item" style="margin-bottom: 10px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                 <span style="font-size: ${s(10)}; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
             </div>
@@ -185,7 +185,7 @@ export const renderHeaderDarkBanner = (
                                     ${SectionHeader(t.sections.workExperience)}
                                     <div style="display: block;">
                                         ${experience.map((exp, index) => `
-                                            <div class="resume-entry" style="margin-bottom: ${index === experience.length - 1 ? 0 : 16}px;">
+                                            <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === experience.length - 1 ? 0 : 16}px;">
                                                 <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
                                                     ${accentIcon('calendar')} ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
                                                     ${exp.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml(exp.city.toUpperCase())}</span>` : ''}
@@ -217,7 +217,7 @@ export const renderHeaderDarkBanner = (
                                     ${SectionHeader(t.sections.education)}
                                     <div style="display: block;">
                                         ${education.map((edu, index) => `
-                                            <div class="resume-entry" style="margin-bottom: ${index === education.length - 1 ? 0 : 12}px;">
+                                            <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === education.length - 1 ? 0 : 12}px;">
                                                 <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
                                                     ${accentIcon('calendar')} ${formatLocalizedDate(edu.startDate, locale)}
                                                     ${edu.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml(edu.city.toUpperCase())}</span>` : ''}
@@ -235,6 +235,19 @@ export const renderHeaderDarkBanner = (
                                                 ` : ''}
                                             </div>
                                         `).join('')}
+                                    </div>
+                                </section>
+                            ` : ''}
+
+                            <!-- Personal Details -->
+                            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.personalDetails)}
+                                    <div style="font-size: ${s(12)}; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
+                                        ${personalInfo.nationality ? `<div data-paginate="item" style="display: flex; align-items: center; gap: 4px;">${bodyIcon('globe', '#4b5563', 12)} <span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                        ${personalInfo.idType && personalInfo.idNumber ? `
+                                            <div data-paginate="item" style="display: flex; align-items: center; gap: 4px;">${bodyIcon('id-card', '#4b5563', 12)} <span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                        ` : ''}
                                     </div>
                                 </section>
                             ` : ''}
@@ -272,7 +285,7 @@ export const renderHeaderDarkBanner = (
                                     ${SectionHeader(t.sections.strengths)}
                                     <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                         ${strengths.map(strength => `
-                                            <span style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: ${s(10)}; font-weight: 500;">
+                                            <span data-paginate="item" style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: ${s(10)}; font-weight: 500;">
                                                 ${escapeHtml(strength.name)}
                                             </span>
                                         `).join('')}
@@ -286,7 +299,7 @@ export const renderHeaderDarkBanner = (
                                     ${SectionHeader(t.sections.interests)}
                                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
                                         ${interests.slice(0, 6).map(interest => `
-                                            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                                            <div data-paginate="item" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                                                 <div style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
                                                     ${getInterestIcon(interest.name)}
                                                 </div>
@@ -305,10 +318,10 @@ export const renderHeaderDarkBanner = (
                                     ${SectionHeader(t.sections.credentials)}
                                     ${certifications && certifications.length > 0 ? `
                                         <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'}; display: block;">
-                                            <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Certifications</h4>
+                                            <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.certifications}</h4>
                                             <div style="display: block;">
                                                 ${certifications.map((cert, index) => `
-                                                    <div class="resume-entry" style="margin-bottom: ${index === certifications.length - 1 ? 0 : 8}px;">
+                                                    <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === certifications.length - 1 ? 0 : 8}px;">
                                                         <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(cert.name)}</div>
                                                         <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                                     </div>
@@ -318,10 +331,10 @@ export const renderHeaderDarkBanner = (
                                     ` : ''}
                                     ${awards && awards.length > 0 ? `
                                         <div style="display: block;">
-                                            <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">Awards & Achievements</h4>
+                                            <h4 style="font-size: ${s(10)}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.awards}</h4>
                                             <div style="display: block;">
                                                 ${awards.map((award, index) => `
-                                                    <div class="resume-entry" style="margin-bottom: ${index === awards.length - 1 ? 0 : 8}px;">
+                                                    <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === awards.length - 1 ? 0 : 8}px;">
                                                         <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(award.title)}</div>
                                                         <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                                     </div>
@@ -332,32 +345,33 @@ export const renderHeaderDarkBanner = (
                                 </section>
                             ` : ''}
 
+                            <!-- Social Links -->
+                            ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                                <section class="resume-section" style="margin-top: 20px;">
+                                    ${SectionHeader(t.sections.socialLinks)}
+                                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(12)};">
+                                        ${personalInfo.github ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('github')} ${escapeHtml(personalInfo.github)}</div>` : ''}
+                                        ${personalInfo.x ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('x')} ${escapeHtml(personalInfo.x)}</div>` : ''}
+                                        ${personalInfo.dribbble ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('dribbble')} ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
+                                        ${personalInfo.behance ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('behance')} ${escapeHtml(personalInfo.behance)}</div>` : ''}
+                                        ${personalInfo.instagram ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('instagram')} ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                                    </div>
+                                </section>
+                            ` : ''}
+
                             <!-- References -->
                             ${data.references && data.references.length > 0 ? `
                                 <section class="resume-section" style="margin-top: 20px;">
                                     ${SectionHeader(t.sections.references)}
                                     <div style="display: block;">
                                         ${data.references.map((ref, index) => `
-                                            <div class="resume-entry" style="margin-bottom: ${index === data.references!.length - 1 ? 0 : 12}px;">
+                                            <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === data.references!.length - 1 ? 0 : 12}px;">
                                                 <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(ref.name)}</div>
                                                 <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
                                                 ${ref.email ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('email', '#6b7280', 10)} ${escapeHtml(ref.email)}</div>` : ''}
                                                 ${ref.phone ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('smartphone', '#6b7280', 10)} ${escapeHtml(ref.phone)}</div>` : ''}
                                             </div>
                                         `).join('')}
-                                    </div>
-                                </section>
-                            ` : ''}
-
-                            <!-- Personal Details -->
-                            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                                <section class="resume-section" style="margin-top: 20px;">
-                                    ${SectionHeader(t.sections.additionalInfo)}
-                                    <div style="font-size: ${s(12)}; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
-                                        ${personalInfo.nationality ? `<div style="display: flex; align-items: center; gap: 4px;">${bodyIcon('globe', '#4b5563', 12)} <span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                                        ${personalInfo.idType && personalInfo.idNumber ? `
-                                            <div style="display: flex; align-items: center; gap: 4px;">${bodyIcon('id-card', '#4b5563', 12)} <span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
-                                        ` : ''}
                                     </div>
                                 </section>
                             ` : ''}
@@ -371,20 +385,6 @@ export const renderHeaderDarkBanner = (
                                     </p>
                                 </section>
                             `).join('')}
-
-                            <!-- Social Links -->
-                            ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                                <section class="resume-section" style="margin-top: 20px;">
-                                    ${SectionHeader(t.sections.socialLinks)}
-                                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(12)};">
-                                        ${personalInfo.github ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('github')} ${escapeHtml(personalInfo.github)}</div>` : ''}
-                                        ${personalInfo.x ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('x')} ${escapeHtml(personalInfo.x)}</div>` : ''}
-                                        ${personalInfo.dribbble ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('dribbble')} ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
-                                        ${personalInfo.behance ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('behance')} ${escapeHtml(personalInfo.behance)}</div>` : ''}
-                                        ${personalInfo.instagram ? `<div style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('instagram')} ${escapeHtml(personalInfo.instagram)}</div>` : ''}
-                                    </div>
-                                </section>
-                            ` : ''}
                         </div>
                     </div>
                 </td></tr></tbody>

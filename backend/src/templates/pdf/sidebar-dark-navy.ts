@@ -33,8 +33,8 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
         fonts,
         background
     } = data;
-    const headingFont = getFontFamily(fonts?.heading || 'Roboto');
-    const bodyFont = getFontFamily(fonts?.body || 'Roboto');
+    const headingFont = getFontFamily(fonts?.heading || 'Roboto Slab');
+    const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
 
     // Font Scaling
     const scale = getFontScale(fonts?.size);
@@ -52,7 +52,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
     };
 
     // Fixed colors based on frontend
-    const sidebarBg = '#0f172a'; // Slate 900
+    const sidebarBg = '#1e293b'; // Slate 800 (matches frontend)
     const mainBg = '#FFFFFF';
     const sidebarText = '#e2e8f0'; // Slate 200
     const mainText = '#334155'; // Slate 700
@@ -142,7 +142,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${SidebarHeader(t.sections.skills)}
                         <div style="display: flex; flex-direction: column; gap: 10px; color: ${sidebarText};">
                             ${skills.map(skill => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; font-size: ${fs.entryTitle}; margin-bottom: 4px;">
                                         <span style="font-weight: 500; color: ${sidebarText};">${escapeHtml(skill.name)}</span>
                                     </div>
@@ -161,7 +161,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${SidebarHeader(t.sections.strengths)}
                         <div style="display: flex; flex-direction: column; gap: 10px; color: ${sidebarText};">
                             ${strengths.map(str => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; font-size: ${fs.entryTitle}; margin-bottom: 4px;">
                                         <span style="font-weight: 500; color: ${sidebarText};">${escapeHtml(str.name)}</span>
                                     </div>
@@ -211,7 +211,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.experience)}
                         <div style="display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: ${sidebarBg}; margin: 0; text-transform: uppercase;">
                                             ${escapeHtml(exp.title)}
@@ -238,7 +238,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: ${sidebarBg}; margin: 0; text-transform: uppercase;">
                                             ${escapeHtml(edu.degree)}
@@ -262,7 +262,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.certifications)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${certifications.map(cert => `
-                                <div>
+                                <div data-paginate="item">
                                     <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: ${sidebarBg}; margin: 0 0 4px 0;">
                                         ${escapeHtml(cert.name)}
                                     </h4>
@@ -284,7 +284,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.awards)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${awards.map(award => `
-                                <div>
+                                <div data-paginate="item">
                                     <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: ${sidebarBg}; margin: 0 0 4px 0;">
                                         ${escapeHtml(award.title)}
                                     </h4>
@@ -311,7 +311,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.languages)}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${languages.map(lang => `
-                                <span style="font-size: ${fs.body}; color: #475569; display: flex; align-items: center; gap: 8px;">
+                                <span data-paginate="item" style="font-size: ${fs.body}; color: #475569; display: flex; align-items: center; gap: 8px;">
                                     <span style="font-weight: 500; color: ${sidebarBg};">${escapeHtml(lang.name)}</span>
                                     <span style="color: ${accentColor};">(${escapeHtml(lang.proficiency)})</span>
                                 </span>
@@ -329,7 +329,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
         const val = (personalInfo as any)[network];
         if (!val) return '';
         return `
-                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div data-paginate="item" style="display: flex; align-items: center; gap: 10px;">
                                         <div style="width: 24px; height: 24px; border-radius: 50%; background-color: ${accentColor}; display: flex; align-items: center; justify-content: center;">
                                             <span style="color: #FFFFFF;">${getIconSVG(network as IconName, '#FFFFFF', 14)}</span>
                                         </div>
@@ -347,7 +347,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.interests)}
                          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${interests.map(int => `
-                                <span style="font-size: ${fs.body}; color: #475569; display: flex; align-items: center; gap: 6px;">
+                                <span data-paginate="item" style="font-size: ${fs.body}; color: #475569; display: flex; align-items: center; gap: 6px;">
                                     <span style="color: ${accentColor}; font-size: ${fs.small};">●</span>
                                     ${escapeHtml(int.name)}
                                 </span>
@@ -362,7 +362,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.references)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
                             ${data.references.map(ref => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="font-weight: 700; font-size: ${fs.sidebarHeading}; color: ${sidebarBg};">${escapeHtml(ref.name)}</div>
                                     <div style="font-size: ${fs.body}; color: #475569;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
                                     ${ref.email ? `<div style="font-size: ${fs.small}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}

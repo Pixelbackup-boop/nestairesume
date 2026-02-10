@@ -86,7 +86,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     const summarySection = personalInfo.summary ? `
         <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
-                ${t.sections.summary}
+                ${t.sections.profile}
             </h2>
             <p style="color: ${theme.text}; line-height: 1.5; font-size: ${sizeConfig.base};">
                 ${formatDescription(personalInfo.summary)}
@@ -101,7 +101,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="space-y-3">
                 ${experience.map(exp => `
-                    <div class="resume-entry">
+                    <div data-paginate="item" class="resume-entry">
                         <div class="flex justify-between items-baseline">
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                                 ${escapeHtml(exp.title)}
@@ -131,7 +131,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="space-y-2">
                 ${education.map(edu => `
-                    <div class="resume-entry">
+                    <div data-paginate="item" class="resume-entry">
                         <div class="flex justify-between items-baseline">
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                                 ${escapeHtml(edu.school)}
@@ -159,7 +159,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="space-y-1">
                 ${skills.map(skill => `
-                    <div class="flex items-center gap-2 resume-entry">
+                    <div data-paginate="item" class="flex items-center gap-2 resume-entry">
                         <span style="color: ${theme.text}; font-size: ${s(12)}; min-width: 100px;">
                             ${escapeHtml(skill.name)}
                         </span>
@@ -181,7 +181,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="space-y-1">
                 ${languages.map(lang => `
-                    <div class="flex items-center justify-between resume-entry">
+                    <div data-paginate="item" class="flex items-center justify-between resume-entry">
                         <span style="color: ${theme.text}; font-size: ${s(12)};">${escapeHtml(lang.name)}</span>
                             <div class="flex items-center gap-2">
                                 <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(10)}; text-transform: capitalize;">
@@ -204,7 +204,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="flex flex-wrap gap-1">
                 ${strengths.map(strength => `
-                    <span class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: ${s(11)};">
+                    <span data-paginate="item" class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: ${s(11)};">
                         ${escapeHtml(strength.name)}
                     </span>
                 `).join('')}
@@ -219,7 +219,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="space-y-1">
                 ${certifications.map(cert => `
-                    <div class="resume-entry">
+                    <div data-paginate="item" class="resume-entry">
                         <span style="color: ${theme.text}; font-weight: 500; font-size: ${s(12)};">${escapeHtml(cert.name)}</span>
                         <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)}; margin-left: 8px;">
                             ${escapeHtml(cert.issuer)} &bull; ${formatLocalizedDate(cert.date, locale)}
@@ -237,7 +237,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="space-y-2">
                 ${awards.map(award => `
-                    <div class="resume-entry">
+                    <div data-paginate="item" class="resume-entry">
                         <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                             ${escapeHtml(award.title)}
                         </div>
@@ -274,12 +274,12 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                 ${t.sections.socialLinks}
             </h2>
             <div class="flex flex-wrap gap-3" style="font-size: ${s(12)};">
-                ${personalInfo.linkedin ? `<span style="color: ${theme.text};"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
-                ${personalInfo.x ? `<span style="color: ${theme.text};"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</span>` : ''}
-                ${personalInfo.github ? `<span style="color: ${theme.text};"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</span>` : ''}
-                ${personalInfo.dribbble ? `<span style="color: ${theme.text};"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
-                ${personalInfo.behance ? `<span style="color: ${theme.text};"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</span>` : ''}
-                ${personalInfo.instagram ? `<span style="color: ${theme.text};"><strong>Instagram:</strong> ${escapeHtml(personalInfo.instagram)}</span>` : ''}
+                ${personalInfo.linkedin ? `<span data-paginate="item" style="color: ${theme.text};"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
+                ${personalInfo.x ? `<span data-paginate="item" style="color: ${theme.text};"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</span>` : ''}
+                ${personalInfo.github ? `<span data-paginate="item" style="color: ${theme.text};"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</span>` : ''}
+                ${personalInfo.dribbble ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
+                ${personalInfo.behance ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</span>` : ''}
+                ${personalInfo.instagram ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Instagram:</strong> ${escapeHtml(personalInfo.instagram)}</span>` : ''}
             </div>
         </section>
     ` : '';
@@ -292,7 +292,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             </h2>
             <div class="space-y-2">
                 ${references.map(ref => `
-                    <div>
+                    <div data-paginate="item">
                         <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                             ${escapeHtml(ref.name)}
                         </div>

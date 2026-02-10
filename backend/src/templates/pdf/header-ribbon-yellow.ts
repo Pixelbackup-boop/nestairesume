@@ -11,7 +11,9 @@ import {
     getFontFamily,
     escapeHtml,
     formatDescription,
-    getFontScale
+    getFontScale,
+    getIconSVG,
+    IconName
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -44,6 +46,7 @@ export const renderHeaderRibbonYellow = (
     // Font Scaling
     const scale = getFontScale(fonts?.size);
     const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px: number) => Math.max(5, Math.round(px * scale));
 
     const fs = {
         name: s(28),
@@ -80,28 +83,32 @@ export const renderHeaderRibbonYellow = (
         </div>
     `;
 
-    // Interest icon helper
+    // Interest icon helper - SVG icons matching frontend Lucide icons
     const getInterestIcon = (name: string): string => {
         const nameLower = name.toLowerCase();
-        if (nameLower.includes('travel')) return '&#9992;';
-        if (nameLower.includes('photo')) return '&#128247;';
-        if (nameLower.includes('novel') || nameLower.includes('book') || nameLower.includes('read')) return '&#128218;';
-        if (nameLower.includes('ballet') || nameLower.includes('dance')) return '&#128131;';
-        if (nameLower.includes('snowboard') || nameLower.includes('ski')) return '&#127938;';
-        if (nameLower.includes('climb') || nameLower.includes('hik')) return '&#129495;';
-        if (nameLower.includes('music') || nameLower.includes('guitar')) return '&#127925;';
-        if (nameLower.includes('cook') || nameLower.includes('food')) return '&#127859;';
-        if (nameLower.includes('game') || nameLower.includes('gaming')) return '&#127918;';
-        if (nameLower.includes('film') || nameLower.includes('movie')) return '&#127916;';
-        if (nameLower.includes('art') || nameLower.includes('paint')) return '&#127912;';
-        if (nameLower.includes('sport') || nameLower.includes('fitness')) return '&#127939;';
-        if (nameLower.includes('yoga')) return '&#129495;';
-        if (nameLower.includes('swim')) return '&#127946;';
-        if (nameLower.includes('cycle') || nameLower.includes('bike')) return '&#128692;';
-        if (nameLower.includes('garden')) return '&#127793;';
-        if (nameLower.includes('coffee')) return '&#9749;';
-        if (nameLower.includes('wine')) return '&#127863;';
-        return '&#11088;';
+        const color = accentColor;
+        const size = sNum(28);
+
+        if (nameLower.includes('music') || nameLower.includes('guitar') || nameLower.includes('rock')) return getIconSVG('music', color, size);
+        if (nameLower.includes('football') || nameLower.includes('soccer') || nameLower.includes('sport') || nameLower.includes('fitness')) return getIconSVG('football', color, size);
+        if (nameLower.includes('photo')) return getIconSVG('camera', color, size);
+        if (nameLower.includes('hiking') || nameLower.includes('hike') || nameLower.includes('climb')) return getIconSVG('hiking', color, size);
+        if (nameLower.includes('biking') || nameLower.includes('bike') || nameLower.includes('cycling') || nameLower.includes('cycle')) return getIconSVG('bike', color, size);
+        if (nameLower.includes('tennis')) return getIconSVG('tennis', color, size);
+        if (nameLower.includes('travel')) return getIconSVG('plane', color, size);
+        if (nameLower.includes('reading') || nameLower.includes('book') || nameLower.includes('novel') || nameLower.includes('read')) return getIconSVG('book-open', color, size);
+        if (nameLower.includes('cooking') || nameLower.includes('food') || nameLower.includes('cook')) return getIconSVG('cooking-pot', color, size);
+        if (nameLower.includes('gaming') || nameLower.includes('game')) return getIconSVG('gamepad', color, size);
+        if (nameLower.includes('film') || nameLower.includes('movie')) return getIconSVG('film', color, size);
+        if (nameLower.includes('art') || nameLower.includes('paint') || nameLower.includes('ballet') || nameLower.includes('dance')) return getIconSVG('palette', color, size);
+        if (nameLower.includes('yoga') || nameLower.includes('meditation')) return getIconSVG('yoga', color, size);
+        if (nameLower.includes('swim')) return getIconSVG('swimming', color, size);
+        if (nameLower.includes('run')) return getIconSVG('running', color, size);
+        if (nameLower.includes('sleep') || nameLower.includes('rest') || nameLower.includes('nap')) return getIconSVG('moon', color, size);
+        if (nameLower.includes('coffee')) return getIconSVG('coffee', color, size);
+        if (nameLower.includes('garden')) return getIconSVG('tent', color, size);
+        if (nameLower.includes('ski') || nameLower.includes('snowboard')) return getIconSVG('hiking', color, size);
+        return getIconSVG('star', color, size);
     };
 
     // Profile Image with yellow circle background - STATIC SIZE (not affected by text size)
@@ -118,10 +125,10 @@ export const renderHeaderRibbonYellow = (
     `;
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; position: relative; box-sizing: border-box;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; position: relative; box-sizing: border-box; padding: 40px;">
 
             <!-- Header Area with Photo and Diagonal Ribbon - STATIC SIZES -->
-            <header style="text-align: center; padding-top: 32px; padding-bottom: 16px;">
+            <header style="text-align: center; padding-bottom: 16px;">
 
                 <!-- Profile Photo - STATIC SIZE, no yellow background -->
                 <div style="display: flex; justify-content: center; margin-bottom: -5px; position: relative; z-index: 10;">
@@ -144,24 +151,12 @@ export const renderHeaderRibbonYellow = (
                     ${personalInfo.email ? `<span>|</span><span>${escapeHtml(personalInfo.email)}</span>` : ''}
                     ${personalInfo.website ? `<span>|</span><span>${escapeHtml(personalInfo.website)}</span>` : ''}
                     ${personalInfo.linkedin ? `<span>|</span><span>${escapeHtml(personalInfo.linkedin)}</span>` : ''}
-                    ${personalInfo.nationality ? `<span>|</span><span>${escapeHtml(personalInfo.nationality)}</span>` : ''}
-                    ${personalInfo.idType && personalInfo.idNumber ? `<span>|</span><span>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}: ${escapeHtml(personalInfo.idNumber)}</span>` : ''}
                 </div>
 
-                <!-- Social Links Row -->
-                ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: ${fs.small}; color: #6b7280; margin-top: 8px;">
-                        ${personalInfo.x ? `<span>X: ${escapeHtml(personalInfo.x)}</span>` : ''}
-                        ${personalInfo.github ? `<span>GitHub: ${escapeHtml(personalInfo.github)}</span>` : ''}
-                        ${personalInfo.dribbble ? `<span>Dribbble: ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
-                        ${personalInfo.behance ? `<span>Behance: ${escapeHtml(personalInfo.behance)}</span>` : ''}
-                        ${personalInfo.instagram ? `<span>Instagram: ${escapeHtml(personalInfo.instagram)}</span>` : ''}
-                    </div>
-                ` : ''}
             </header>
 
             <!-- Two-Column Body -->
-            <div style="display: flex; gap: 24px; padding: 0 32px 32px;">
+            <div style="display: flex; gap: 24px;">
 
                 <!-- LEFT COLUMN - Profile, Experience, Education -->
                 <div style="width: 55%;">
@@ -169,7 +164,7 @@ export const renderHeaderRibbonYellow = (
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.profile, '&#128100;')}
+                            ${SectionHeader(t.sections.profile, getIconSVG('user', 'white', sNum(14)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(personalInfo.summary)}
                             </p>
@@ -179,10 +174,10 @@ export const renderHeaderRibbonYellow = (
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.workExperience, '&#128188;')}
+                            ${SectionHeader(t.sections.experience, getIconSVG('briefcase', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${experience.map(exp => `
-                                    <div>
+                                    <div data-paginate="item">
                                         <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
                                             ${exp.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(exp.city.toUpperCase())}` : ''}
@@ -211,10 +206,10 @@ export const renderHeaderRibbonYellow = (
                     <!-- Education -->
                     ${education.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.education, '&#127891;')}
+                            ${SectionHeader(t.sections.education, getIconSVG('graduation-cap', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${education.map(edu => `
-                                    <div>
+                                    <div data-paginate="item">
                                         <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${formatLocalizedDate(edu.startDate, locale)} – ${edu.current ? t.labels.present.toUpperCase() : formatLocalizedDate(edu.endDate, locale)}
                                             ${edu.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(edu.city.toUpperCase())}` : ''}
@@ -235,6 +230,27 @@ export const renderHeaderRibbonYellow = (
                             </div>
                         </section>
                     ` : ''}
+
+                    <!-- Personal Details -->
+                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                        <section style="margin-bottom: 20px;">
+                            ${SectionHeader(t.sections.personalDetails, getIconSVG('user', 'white', sNum(14)))}
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body}; color: #1f2937;">
+                                ${personalInfo.nationality ? `
+                                    <div data-paginate="item">
+                                        <span style="font-weight: 700;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}
+                                    </div>
+                                ` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `
+                                    <div data-paginate="item">
+                                        <span style="font-weight: 700;">
+                                            ${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:
+                                        </span> ${escapeHtml(personalInfo.idNumber)}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </section>
+                    ` : ''}
                 </div>
 
                 <!-- RIGHT COLUMN - Awards, Skills, Interests -->
@@ -243,13 +259,13 @@ export const renderHeaderRibbonYellow = (
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.credentials, '&#127942;')}
+                            ${SectionHeader(t.sections.credentials, getIconSVG('award', 'white', sNum(14)))}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
                                     <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${certifications.map(cert => `
-                                            <div>
+                                            <div data-paginate="item">
                                                 <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                                     ${escapeHtml(cert.name)}
                                                 </h4>
@@ -269,7 +285,7 @@ export const renderHeaderRibbonYellow = (
                                     <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px; text-transform: uppercase;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${awards.map(award => `
-                                            <div>
+                                            <div data-paginate="item">
                                                 <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                                     ${escapeHtml(award.title)}
                                                 </h4>
@@ -290,9 +306,9 @@ export const renderHeaderRibbonYellow = (
                     <!-- Skills -->
                     ${skills.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.skills, '&#9881;')}
+                            ${SectionHeader(t.sections.skills, getIconSVG('wrench', 'white', sNum(14)))}
                             <div>
-                                ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
+                                ${skills.map(skill => `<div data-paginate="item">${ProgressBar(skill.name, (skill.level || 3) * 20)}</div>`).join('')}
                             </div>
                         </section>
                     ` : ''}
@@ -300,10 +316,10 @@ export const renderHeaderRibbonYellow = (
                     <!-- Interests with Icons Grid -->
                     ${interests && interests.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.interests, '&#11088;')}
+                            ${SectionHeader(t.sections.interests, getIconSVG('star', 'white', sNum(14)))}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
                                 ${interests.slice(0, 6).map(interest => `
-                                    <div style="text-align: center;">
+                                    <div data-paginate="item" style="text-align: center;">
                                         <div style="font-size: ${fs.interestIcon}; margin-bottom: 4px; color: ${accentColor};">
                                             ${getInterestIcon(interest.name)}
                                         </div>
@@ -319,10 +335,10 @@ export const renderHeaderRibbonYellow = (
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.languages, '&#128483;')}
+                            ${SectionHeader(t.sections.languages, getIconSVG('languages', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
-                                    <div style="display: flex; justify-content: space-between; font-size: ${fs.body};">
+                                    <div data-paginate="item" style="display: flex; justify-content: space-between; font-size: ${fs.body};">
                                         <span style="font-weight: 600; color: #1f2937;">${escapeHtml(lang.name)}</span>
                                         <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
                                     </div>
@@ -331,13 +347,34 @@ export const renderHeaderRibbonYellow = (
                         </section>
                     ` : ''}
 
+                    <!-- Social Links -->
+                    ${(personalInfo.x || personalInfo.github || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <section style="margin-bottom: 20px;">
+                            ${SectionHeader(t.sections.socialLinks, getIconSVG('link', 'white', sNum(14)))}
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                ${(['linkedin', 'x', 'github', 'dribbble', 'behance', 'instagram'] as IconName[]).map(network => {
+                                    const val = (personalInfo as any)[network];
+                                    if (!val) return '';
+                                    return `
+                                        <div data-paginate="item" style="display: flex; align-items: center; gap: 10px;">
+                                            <div style="width: ${s(24)}; height: ${s(24)}; border-radius: 50%; background-color: ${accentColor}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                                ${getIconSVG(network, '#FFFFFF', sNum(14))}
+                                            </div>
+                                            <span style="word-break: break-all; color: #374151; font-size: ${fs.small};">${escapeHtml(val)}</span>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </section>
+                    ` : ''}
+
                     <!-- Strengths -->
                     ${strengths && strengths.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.strengths, '&#128170;')}
+                            ${SectionHeader(t.sections.strengths, getIconSVG('zap', 'white', sNum(14)))}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(strength => `
-                                    <span style="background-color: ${accentColor}; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: ${fs.small}; font-weight: 500;">
+                                    <span data-paginate="item" style="background-color: ${accentColor}; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: ${fs.small}; font-weight: 500;">
                                         ${escapeHtml(strength.name)}
                                     </span>
                                 `).join('')}
@@ -348,10 +385,10 @@ export const renderHeaderRibbonYellow = (
                     <!-- References -->
                     ${references && references.length > 0 ? `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.references, '&#128203;')}
+                            ${SectionHeader(t.sections.references, getIconSVG('id-card', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
-                                    <div>
+                                    <div data-paginate="item">
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${escapeHtml(ref.name)}
                                         </h4>
@@ -371,7 +408,7 @@ export const renderHeaderRibbonYellow = (
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
                         <section style="margin-bottom: 20px;">
-                            ${SectionHeader(field.label, '&#128221;')}
+                            ${SectionHeader(field.label, getIconSVG('id-card', 'white', sNum(14)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(field.content)}
                             </p>

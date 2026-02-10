@@ -145,7 +145,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         ${SidebarHeader(t.sections.languages)}
                         <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
                             ${languages.map(lang => `
-                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div data-paginate="item" style="display: flex; justify-content: space-between; align-items: center;">
                                     <span>${escapeHtml(lang.name)}</span>
                                     ${lang.proficiency ? `<span style="color: ${accentColor}; font-weight: 500;">${escapeHtml(lang.proficiency)}</span>` : ''}
                                 </div>
@@ -160,7 +160,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         ${SidebarHeader(t.sections.strengths)}
                         <div style="display: flex; flex-direction: column; gap: 8px;">
                             ${strengths.map(str => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="font-size: ${fs.body}; margin-bottom: 4px; color: ${sidebarText};">
                                         ${escapeHtml(str.name)}
                                     </div>
@@ -222,7 +222,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.experience)}
                         <div style="display: flex; flex-direction: column; gap: 32px;">
                             ${experience.map(exp => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                                         <h4 style="font-weight: 800; font-size: ${fs.entryTitle}; color: ${mainText}; margin: 0; text-transform: uppercase;">
                                             ${escapeHtml(exp.title)}
@@ -271,7 +271,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.skills)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                             ${skills.map(skill => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; font-size: ${fs.body}; margin-bottom: 4px;">
                                         <span style="font-weight: 500; color: #374151;">${escapeHtml(skill.name)}</span>
                                     </div>
@@ -289,12 +289,12 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                     <div style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.socialLinks)}
                         <div style="font-size: ${fs.body};">
-                            ${personalInfo.linkedin ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                            ${(personalInfo as any).x ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">X:</span> ${escapeHtml((personalInfo as any).x)}</div>` : ''}
-                            ${(personalInfo as any).github ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">GitHub:</span> ${escapeHtml((personalInfo as any).github)}</div>` : ''}
-                            ${(personalInfo as any).dribbble ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml((personalInfo as any).dribbble)}</div>` : ''}
-                            ${(personalInfo as any).behance ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">Behance:</span> ${escapeHtml((personalInfo as any).behance)}</div>` : ''}
-                            ${(personalInfo as any).instagram ? `<div style="margin-bottom: 8px;"><span style="font-weight: 600;">Instagram:</span> ${escapeHtml((personalInfo as any).instagram)}</div>` : ''}
+                            ${personalInfo.linkedin ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
+                            ${(personalInfo as any).x ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">X:</span> ${escapeHtml((personalInfo as any).x)}</div>` : ''}
+                            ${(personalInfo as any).github ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">GitHub:</span> ${escapeHtml((personalInfo as any).github)}</div>` : ''}
+                            ${(personalInfo as any).dribbble ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml((personalInfo as any).dribbble)}</div>` : ''}
+                            ${(personalInfo as any).behance ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">Behance:</span> ${escapeHtml((personalInfo as any).behance)}</div>` : ''}
+                            ${(personalInfo as any).instagram ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">Instagram:</span> ${escapeHtml((personalInfo as any).instagram)}</div>` : ''}
                         </div>
                     </div>
                 ` : ''}
@@ -357,7 +357,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                         ${MainHeader(t.sections.references)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
                             ${data.references.map(ref => `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="font-weight: 700; font-size: 13px; color: ${mainText};">${escapeHtml(ref.name)}</div>
                                     <div style="font-size: ${fs.body}; color: #4b5563;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
                                     ${ref.email ? `<div style="font-size: ${fs.small}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}

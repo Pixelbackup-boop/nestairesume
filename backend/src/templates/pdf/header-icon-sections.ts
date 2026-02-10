@@ -3,7 +3,8 @@ import {
     getFontFamily,
     escapeHtml,
     formatDescription,
-    getFontScale
+    getFontScale,
+    getIconSVG
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -36,6 +37,7 @@ export const renderHeaderIconSections = (
     // Font Scaling
     const scale = getFontScale(fonts?.size);
     const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px: number) => Math.max(5, Math.round(px * scale));
 
     const fs = {
         name: s(32),
@@ -70,14 +72,16 @@ export const renderHeaderIconSections = (
     `;
 
     const BoxSection = (title: string, icon: string, content: string) => `
-        <section style="border: 1px solid ${borderColor}; background-color: #ffffff; padding: 44px 32px 32px 32px; margin-bottom: 32px; position: relative; box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);" data-paginate>
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; border-bottom: 2px solid ${orangeAccent}; padding-bottom: 8px;">
-                <span style="background-color: ${orangeAccent}; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px;">
-                    ${icon}
-                </span>
-                <h3 style="font-family: ${headingFont}; font-size: ${fs.sectionHeading}; font-weight: 700; text-transform: uppercase; color: #1f2937;">
-                    ${title}
-                </h3>
+        <section style="margin-bottom: 32px;">
+            <div>
+                <div style="display: flex; align-items: center; gap: 12px; border: 1px solid ${borderColor}; background-color: #ffffff; padding: 8px 24px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1); margin-bottom: 12px;">
+                    <span style="background-color: ${orangeAccent}; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        ${icon}
+                    </span>
+                    <span style="font-family: ${headingFont}; font-size: ${fs.sectionHeading}; font-weight: 700; text-transform: uppercase; color: #1f2937;">
+                        ${title}
+                    </span>
+                </div>
             </div>
             <div style="font-size: ${fs.body};">
                 ${content}
@@ -118,18 +122,20 @@ export const renderHeaderIconSections = (
                     </p>
 
                     <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: ${fs.small}; color: #4b5563;">
-                        ${personalInfo.email ? `<span>&#9993; ${escapeHtml(personalInfo.email)}</span>` : ''}
-                        ${personalInfo.phone ? `<span>&#128241; ${escapeHtml(personalInfo.phone)}</span>` : ''}
-                        ${personalInfo.location ? `<span>&#128205; ${escapeHtml(personalInfo.location)}</span>` : ''}
+                        ${personalInfo.email ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${getIconSVG('email', '#4b5563', 12)} ${escapeHtml(personalInfo.email)}</span>` : ''}
+                        ${personalInfo.phone ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${getIconSVG('phone', '#4b5563', 12)} ${escapeHtml(personalInfo.phone)}</span>` : ''}
+                        ${personalInfo.location ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${getIconSVG('location', '#4b5563', 12)} ${escapeHtml(personalInfo.location)}</span>` : ''}
+                        ${personalInfo.website ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${getIconSVG('website', '#4b5563', 12)} ${escapeHtml(personalInfo.website)}</span>` : ''}
+                        ${personalInfo.linkedin ? `<span style="display: inline-flex; align-items: center; gap: 4px;">${getIconSVG('linkedin', '#4b5563', 12)} ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                     </div>
                 </div>
             </header>
 
             <!-- Profile Section -->
-            ${personalInfo.summary ? BoxSection(t.sections.profile, '&#128100;', `<p style="line-height: 1.6;">${formatDescription(personalInfo.summary)}</p>`) : ''}
+            ${personalInfo.summary ? BoxSection(t.sections.profile, getIconSVG('user', '#ffffff', sNum(16)), `<p style="line-height: 1.6;">${formatDescription(personalInfo.summary)}</p>`) : ''}
 
             <!-- Experience Section -->
-            ${experience.length > 0 ? BoxSection(t.sections.experience, '&#128188;', `
+            ${experience.length > 0 ? BoxSection(t.sections.experience, getIconSVG('briefcase', '#ffffff', sNum(16)), `
                 <div style="display: flex; flex-direction: column; gap: 24px;">
                     ${experience.map(exp => `
                         <div data-paginate="item">
@@ -151,7 +157,7 @@ export const renderHeaderIconSections = (
             `) : ''}
 
             <!-- Education Section -->
-            ${education.length > 0 ? BoxSection(t.sections.education, '&#127891;', `
+            ${education.length > 0 ? BoxSection(t.sections.education, getIconSVG('graduation-cap', '#ffffff', sNum(16)), `
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     ${education.map(edu => `
                         <div data-paginate="item">
@@ -174,7 +180,7 @@ export const renderHeaderIconSections = (
                 <!-- Skills Section -->
                 ${skills.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection(t.sections.skills, '&#9881;', `
+                        ${BoxSection(t.sections.skills, getIconSVG('users', '#ffffff', sNum(16)), `
                             <div>
                                 ${skills.map(skill => ProgressBar(skill.name, skill.level ? skill.level * 20 : 80)).join('')}
                             </div>
@@ -185,10 +191,10 @@ export const renderHeaderIconSections = (
                 <!-- Strengths Section -->
                 ${strengths && strengths.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection(t.sections.strengths, '&#11088;', `
+                        ${BoxSection(t.sections.strengths, getIconSVG('code', '#ffffff', sNum(16)), `
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(str => `
-                                    <span style="background-color: #fff7ed; color: ${orangeAccent}; border: 1px solid ${orangeAccent}; padding: 4px 12px; border-radius: 4px; font-size: ${fs.small}; font-weight: 600; display: inline-block;">
+                                    <span data-paginate="item" style="background-color: #fff7ed; color: ${orangeAccent}; border: 1px solid ${orangeAccent}; padding: 4px 12px; border-radius: 4px; font-size: ${fs.small}; font-weight: 600; display: inline-block;">
                                         ${escapeHtml(str.name)}
                                     </span>
                                 `).join('')}
@@ -202,7 +208,7 @@ export const renderHeaderIconSections = (
             <div style="display: flex; gap: 32px;">
                 ${languages && languages.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection(t.sections.languages, '&#128483;', `
+                        ${BoxSection(t.sections.languages, getIconSVG('languages', '#ffffff', sNum(16)), `
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
                                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;" data-paginate="item">
@@ -217,11 +223,11 @@ export const renderHeaderIconSections = (
 
                 ${interests && interests.length > 0 ? `
                     <div style="flex: 1;">
-                        ${BoxSection(t.sections.interests, '&#127912;', `
+                        ${BoxSection(t.sections.interests, getIconSVG('star', '#ffffff', sNum(16)), `
                             <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                                 ${interests.map(int => `
-                                    <span style="display: flex; align-items: center; gap: 6px;">
-                                        <span style="color: ${orangeAccent};">&#9733;</span> ${escapeHtml(int.name)}
+                                    <span data-paginate="item" style="display: flex; align-items: center; gap: 6px;">
+                                        ${getIconSVG('star', orangeAccent, sNum(12))} ${escapeHtml(int.name)}
                                     </span>
                                 `).join('')}
                             </div>
@@ -230,8 +236,22 @@ export const renderHeaderIconSections = (
                 ` : ''}
             </div>
 
+            <!-- Personal Details (Boxed) -->
+            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? BoxSection(t.sections.personalDetails, getIconSVG('id-card', '#ffffff', sNum(16)), `
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                    ${personalInfo.idType && personalInfo.idNumber ? `
+                        <div data-paginate="item">
+                            <span style="font-weight: 600;">
+                                ${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                            </span> ${escapeHtml(personalInfo.idNumber)}
+                        </div>
+                    ` : ''}
+                </div>
+            `) : ''}
+
             <!-- Credentials Section -->
-            ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? BoxSection(t.sections.credentials, '&#127942;', `
+            ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? BoxSection(t.sections.credentials, getIconSVG('award', '#ffffff', sNum(16)), `
                 <div style="display: flex; gap: 32px;">
                     ${certifications && certifications.length > 0 ? `
                         <div style="flex: 1;">
@@ -263,19 +283,18 @@ export const renderHeaderIconSections = (
             `) : ''}
 
             <!-- Social Links (Boxed) -->
-            ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? BoxSection(t.sections.socialLinks, '&#128279;', `
+            ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? BoxSection(t.sections.socialLinks, getIconSVG('globe', '#ffffff', sNum(16)), `
                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                    ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                    ${personalInfo.x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
-                    ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
-                    ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
-                    ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
-                    ${personalInfo.instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                    ${personalInfo.x ? `<div data-paginate="item"><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
+                    ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
+                    ${personalInfo.dribbble ? `<div data-paginate="item"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
+                    ${personalInfo.behance ? `<div data-paginate="item"><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
+                    ${personalInfo.instagram ? `<div data-paginate="item"><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
                 </div>
             `) : ''}
 
             <!-- References (Boxed) -->
-            ${data.references && data.references.length > 0 ? BoxSection(t.sections.references, '&#128203;', `
+            ${data.references && data.references.length > 0 ? BoxSection(t.sections.references, getIconSVG('users', '#ffffff', sNum(16)), `
                 <div style="display: flex; flex-direction: column; gap: 16px;">
                     ${data.references.map(ref => `
                         <div data-paginate="item">
@@ -288,22 +307,8 @@ export const renderHeaderIconSections = (
                 </div>
             `) : ''}
 
-            <!-- Personal Details (Boxed) -->
-            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? BoxSection(t.sections.personalDetails, '&#128221;', `
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                    ${personalInfo.idType && personalInfo.idNumber ? `
-                        <div>
-                            <span style="font-weight: 600;">
-                                ${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
-                            </span> ${escapeHtml(personalInfo.idNumber)}
-                        </div>
-                    ` : ''}
-                </div>
-            `) : ''}
-
             <!-- Custom Fields (Boxed) -->
-            ${customFields.map(field => BoxSection(field.label, '&#128204;', `
+            ${customFields.map(field => BoxSection(field.label, getIconSVG('id-card', '#ffffff', sNum(16)), `
                 <p style="line-height: 1.6;">${formatDescription(field.content)}</p>
             `)).join('')}
 

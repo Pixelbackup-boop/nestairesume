@@ -51,7 +51,7 @@ export const renderMinimalBlueSections = (
 
     // Progress bar helper
     const ProgressBar = (label: string, value: number) => `
-        <div style="margin-bottom: 10px;">
+        <div data-paginate="item" style="margin-bottom: 10px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                 <span style="font-size: ${s(12)}; font-weight: 500; color: #374151;">${escapeHtml(label)}</span>
             </div>
@@ -72,7 +72,9 @@ export const renderMinimalBlueSections = (
     const contactItems = [
         personalInfo.email,
         personalInfo.phone,
-        personalInfo.location
+        personalInfo.location,
+        personalInfo.website,
+        personalInfo.linkedin,
     ].filter(Boolean);
 
     return `
@@ -80,7 +82,7 @@ export const renderMinimalBlueSections = (
             
             <!-- Header -->
             <header style="margin-bottom: 56px; border-bottom: 2px solid ${accentColor}; padding-bottom: 24px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <div>
                         <h1 style="font-family: ${headingFont}; font-size: 38px; font-weight: 700; color: #000; text-transform: uppercase; margin: 0 0 4px 0;">
                             ${escapeHtml(personalInfo.fullName || 'Your Name')}
@@ -112,7 +114,7 @@ export const renderMinimalBlueSections = (
                     ${SectionHeader(t.sections.experience)}
                     <div style="display: flex; flex-direction: column; gap: 32px; padding-left: 8px;">
                         ${experience.map(exp => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 2px;">
                                     <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
                                     <span style="font-size: ${s(12)}; color: #4b5563;">${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
@@ -130,6 +132,7 @@ export const renderMinimalBlueSections = (
             ` : ''}
 
             <!-- Two Column for Ed/Skills -->
+            <section style="margin-bottom: 40px;">
             <div style="display: flex; gap: 32px;">
                 <!-- Education -->
                 ${education.length > 0 ? `
@@ -137,7 +140,7 @@ export const renderMinimalBlueSections = (
                         ${SectionHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px; padding-left: 8px;">
                             ${education.map(edu => `
-                                <div>
+                                <div data-paginate="item">
                                     <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
                                     <div style="font-size: ${s(14)}; color: #4b5563;">${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}</div>
                                     <div style="font-size: ${s(12)}; color: #6b7280;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
@@ -157,16 +160,18 @@ export const renderMinimalBlueSections = (
                     </div>
                 ` : '<div style="flex: 1;"></div>'}
             </div>
+            </section>
 
             <!-- Languages and Strengths Row -->
             ${(languages && languages.length > 0) || (strengths && strengths.length > 0) ? `
-                <div style="display: flex; gap: 32px; margin-top: 40px;">
+                <section style="margin-bottom: 40px;">
+                <div style="display: flex; gap: 32px;">
                     ${languages && languages.length > 0 ? `
                         <div style="flex: 1;">
                             ${SectionHeader(t.sections.languages)}
                             <div style="display: flex; flex-direction: column; gap: 8px; padding-left: 8px;">
                                 ${languages.map(lang => `
-                                    <div style="font-size: ${s(14)}; color: #374151;">
+                                    <div data-paginate="item" style="font-size: ${s(14)}; color: #374151;">
                                         <span style="font-weight: 600;">${escapeHtml(lang.name)}</span> 
                                         <span style="color: #6b7280; font-size: ${s(12)};">(${escapeHtml(lang.proficiency)})</span>
                                     </div>
@@ -184,6 +189,7 @@ export const renderMinimalBlueSections = (
                         </div>
                     ` : '<div style="flex: 1;"></div>'}
                 </div>
+                </section>
             ` : ''}
 
             <!-- Interests -->
@@ -196,6 +202,20 @@ export const renderMinimalBlueSections = (
                 </section>
             ` : ''}
 
+            <!-- Social Links -->
+            ${(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                <section style="margin-top: 40px;">
+                    ${SectionHeader(t.sections.socialLinks)}
+                    <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
+                        ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
+                        ${personalInfo.x ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">X:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.x)}</span></div>` : ''}
+                        ${personalInfo.dribbble ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.dribbble)}</span></div>` : ''}
+                        ${personalInfo.behance ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.behance)}</span></div>` : ''}
+                        ${personalInfo.instagram ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.instagram)}</span></div>` : ''}
+                    </div>
+                </section>
+            ` : ''}
+
             <!-- Credentials -->
             ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                 <section style="margin-top: 40px;">
@@ -203,10 +223,10 @@ export const renderMinimalBlueSections = (
                     <div style="padding-left: 8px;">
                         ${certifications && certifications.length > 0 ? `
                             <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                <h4 style="font-size: ${s(14)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                                <h4 style="font-size: ${s(14)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${certifications.map(cert => `
-                                        <div>
+                                        <div data-paginate="item">
                                             <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(cert.name)}</div>
                                             <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                         </div>
@@ -216,10 +236,10 @@ export const renderMinimalBlueSections = (
                         ` : ''}
                         ${awards && awards.length > 0 ? `
                             <div>
-                                <h4 style="font-size: ${s(14)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                                <h4 style="font-size: ${s(14)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${awards.map(award => `
-                                        <div>
+                                        <div data-paginate="item">
                                             <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(award.title)}</div>
                                             <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                         </div>
@@ -237,7 +257,7 @@ export const renderMinimalBlueSections = (
                     ${SectionHeader(t.sections.references)}
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 8px;">
                         ${data.references.map(ref => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(ref.name)}</div>
                                 <div style="font-size: ${s(13)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
                                 ${ref.email ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
@@ -248,33 +268,14 @@ export const renderMinimalBlueSections = (
                 </section>
             ` : ''}
 
-            <!-- Additional Info (Personal & Social) -->
-            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) || personalInfo.github || personalInfo.x || personalInfo.linkedin) ? `
+            <!-- Personal Details -->
+            ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                 <section style="margin-top: 40px;">
-                    ${SectionHeader(t.sections.additionalInfo)}
-                    <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 16px;">
-
-                        <!-- Personal Details -->
-                        ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                            <div style="font-size: ${s(14)}; color: #374151;">
-                                ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                                ${personalInfo.idType && personalInfo.idNumber ? `
-                                    <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
-                                ` : ''}
-                            </div>
-                        ` : ''}
-
-                        <!-- Social Links -->
-                        ${(personalInfo.github || personalInfo.x || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
-                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
-                                ${personalInfo.linkedin ? `<div><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.linkedin)}</span></div>` : ''}
-                                ${personalInfo.github ? `<div><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
-                                ${personalInfo.x ? `<div><span style="font-weight: 600; color: #1f2937;">X:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.x)}</span></div>` : ''}
-                                ${personalInfo.dribbble ? `<div><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.dribbble)}</span></div>` : ''}
-                                ${personalInfo.behance ? `<div><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.behance)}</span></div>` : ''}
-                                ${personalInfo.instagram ? `<div><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.instagram)}</span></div>` : ''}
-                                ${personalInfo.website ? `<div><span style="font-weight: 600; color: #1f2937;">Website:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.website)}</span></div>` : ''}
-                            </div>
+                    ${SectionHeader(t.sections.personalDetails)}
+                    <div style="padding-left: 8px; font-size: ${s(14)}; color: #374151;">
+                        ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                        ${personalInfo.idType && personalInfo.idNumber ? `
+                            <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                         ` : ''}
                     </div>
                 </section>

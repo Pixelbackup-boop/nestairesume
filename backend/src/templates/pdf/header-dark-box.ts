@@ -13,7 +13,8 @@ import {
     escapeHtml,
     formatDescription,
     parseDualColor,
-    getFontScale
+    getFontScale,
+    getIconSVG
 } from './shared/helpers';
 import { formatLocalizedDate } from './shared/dateUtils';
 // Note: getBackgroundCSS removed - header-dark-box always uses white body background
@@ -52,6 +53,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
     // Font Scaling
     const scale = getFontScale(fonts?.size);
     const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px: number) => Math.max(5, Math.round(px * scale));
 
     const fs = {
         name: '28px', // Fixed - header name box doesn't scale
@@ -142,27 +144,30 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; padding: 40px; box-sizing: border-box;">
 
             <!-- Header Area -->
-            <header data-paginate style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px;">
+            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px;">
 
                 <!-- Profile Avatar - Circle with image or initials -->
                 ${ProfileAvatar(personalInfo.profileImage, personalInfo.fullName || 'Your Name', 120)}
 
-                <!-- Name Box - Bordered Outline Style -->
-                <div style="background-color: #ffffff; border: 4px solid ${boxBorderColor}; padding: 32px 48px; display: inline-block;">
+                <!-- Name + Job Title -->
+                <div style="text-align: center;">
                     <h1 style="font-family: ${headingFont}; font-size: ${fs.name}; font-weight: 900; color: #1f2937; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; line-height: 1;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
+                    ${personalInfo.jobTitle ? `
+                        <p style="font-family: ${bodyFont}; font-size: ${fs.body}; color: #6b7280; font-weight: 500; margin: 8px 0 0 0;">
+                            ${escapeHtml(personalInfo.jobTitle)}
+                        </p>
+                    ` : ''}
                 </div>
 
                 <!-- Contact Info - Right Aligned -->
                 <div style="text-align: right; font-size: ${fs.body}; color: #374151; line-height: 1.8; padding-top: 10px;">
                     ${personalInfo.phone ? `<div><strong>Phone:</strong> ${escapeHtml(personalInfo.phone)}</div>` : ''}
                     ${personalInfo.email ? `<div><strong>Email:</strong> ${escapeHtml(personalInfo.email)}</div>` : ''}
+                    ${personalInfo.location ? `<div><strong>Location:</strong> ${escapeHtml(personalInfo.location)}</div>` : ''}
                     ${personalInfo.website ? `<div><strong>Web:</strong> ${escapeHtml(personalInfo.website)}</div>` : ''}
-                    ${personalInfo.location ? `<div><strong>Loc:</strong> ${escapeHtml(personalInfo.location)}</div>` : ''}
                     ${personalInfo.linkedin ? `<div><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
-                    ${personalInfo.nationality ? `<div><strong>Nationality:</strong> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                    ${personalInfo.idType && personalInfo.idNumber ? `<div><strong>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</strong> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
                 </div>
             </header>
 
@@ -174,8 +179,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.profile, '&#128100;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.profile, getIconSVG('user', accentColor, sNum(16)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(personalInfo.summary)}
                             </p>
@@ -184,8 +189,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.experience, '&#128188;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.experience, getIconSVG('briefcase', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 20px;">
                                 ${experience.map(exp => `
                                     <div data-paginate="item">
@@ -213,8 +218,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Education (Left Column) -->
                     ${education.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.education, '&#127891;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.education, getIconSVG('graduation-cap', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(0, 2).map(edu => `
                                     <div data-paginate="item">
@@ -234,6 +239,25 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                             </div>
                         </section>
                     ` : ''}
+
+                    <!-- Personal Details -->
+                    ${personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) ? `
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.personalDetails, getIconSVG('id-card', accentColor, sNum(16)))}
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
+                                ${personalInfo.nationality ? `
+                                    <div><span style="font-weight: 600; color: #111827;">Nationality:</span> <span style="color: #374151;">${escapeHtml(personalInfo.nationality)}</span></div>
+                                ` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `
+                                    <div>
+                                        <span style="font-weight: 600; color: #111827;">
+                                            ${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:
+                                        </span> <span style="color: #374151;">${escapeHtml(personalInfo.idNumber)}</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </section>
+                    ` : ''}
                 </div>
 
                 <!-- RIGHT COLUMN -->
@@ -241,7 +265,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Education (Right Column - additional) -->
                     ${education.length > 2 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
+                        <section style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.education + ' (Cont.)', '&#127891;')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(2).map(edu => `
@@ -263,8 +287,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.languages, '&#128483;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.languages, getIconSVG('languages', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
                                     <div data-paginate="item">${ProgressBar(lang.name, lang.level || getLanguageLevelPercent(lang.proficiency))}</div>
@@ -275,8 +299,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Skills (Circular) -->
                     ${skills.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.skills, '&#129309;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.skills, getIconSVG('users', accentColor, sNum(16)))}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px;">
                                 ${skills.map(skill => `<div data-paginate="item">${CircularProgress(skill.level ? skill.level * 20 : 80, skill.name)}</div>`).join('')}
                             </div>
@@ -285,8 +309,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Strengths (Bars) -->
                     ${strengths && strengths.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.strengths, '&#128187;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.strengths, getIconSVG('code', accentColor, sNum(16)))}
                             <div>
                                 ${strengths.map(str => `<div data-paginate="item">${ProgressBar(str.name, (str as any).level ?? 80)}</div>`).join('')}
                             </div>
@@ -295,8 +319,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Interests -->
                     ${interests && interests.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.interests, '&#11088;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.interests, getIconSVG('star', accentColor, sNum(16)))}
                             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                                 ${interests.map(int => `
                                     <span data-paginate="item" style="font-size: ${fs.body}; font-weight: 500; color: #4b5563;">
@@ -309,11 +333,11 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.credentials, '&#127942;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.credentials, getIconSVG('award', accentColor, sNum(16)))}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${certifications.map(cert => `
                                             <div data-paginate="item">
@@ -326,7 +350,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div>
-                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${awards.map(award => `
                                             <div data-paginate="item">
@@ -342,36 +366,36 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Social Links -->
                     ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.socialLinks, '&#128279;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.socialLinks, getIconSVG('globe', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${personalInfo.x ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#128038;</span>
+                                        <span>${getIconSVG('x', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${escapeHtml(personalInfo.x)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.github ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#128187;</span>
+                                        <span>${getIconSVG('github', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${escapeHtml(personalInfo.github)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.dribbble ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#127936;</span>
+                                        <span>${getIconSVG('dribbble', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${escapeHtml(personalInfo.dribbble)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.behance ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#127912;</span>
+                                        <span>${getIconSVG('behance', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${escapeHtml(personalInfo.behance)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.instagram ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#128247;</span>
+                                        <span>${getIconSVG('instagram', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${escapeHtml(personalInfo.instagram)}</span>
                                     </div>
                                 ` : ''}
@@ -381,8 +405,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- References -->
                     ${references && references.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.references, '&#128101;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.references, getIconSVG('users', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
                                     <div data-paginate="item">
@@ -405,8 +429,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(escapeHtml(field.label), '&#128203;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(escapeHtml(field.label), getIconSVG('id-card', accentColor, sNum(16)))}
                             <p style="font-size: ${fs.body}; color: #374151; line-height: 1.6;">
                                 ${formatDescription(field.content)}
                             </p>

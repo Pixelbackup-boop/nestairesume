@@ -45,7 +45,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
 
     // Progress bar helper
     const ProgressBar = (label: string, value: number) => `
-        <div style="margin-bottom: 10px;">
+        <div data-paginate="item" style="margin-bottom: 10px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                 <span style="font-size: ${s(12)}; font-weight: 500; color: ${mainText};">${escapeHtml(label)}</span>
             </div>
@@ -81,7 +81,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
 
                 <!-- Contact -->
                 <div style="font-size: ${s(12)}; display: flex; gap: 16px; color: #000; flex-wrap: wrap;">
-                    ${[personalInfo.email, personalInfo.phone, personalInfo.location, personalInfo.website]
+                    ${[personalInfo.email, personalInfo.phone, personalInfo.location, personalInfo.website, personalInfo.linkedin]
             .filter(Boolean)
             .map(item => `<span>${escapeHtml(item!)}</span>`)
             .join('')}
@@ -106,9 +106,9 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                         </div>
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
-                                <div>
+                                <div data-paginate="item">
                                     <h4 style="font-weight: 600; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
-                                    <div style="font-size: ${s(14)}; color: ${labelText}; margin-bottom: 8px;">
+                                    <div style="font-size: ${s(14)}; color: ${data.customThemeColor || labelText}; margin-bottom: 8px;">
                                         ${escapeHtml(exp.company)}, ${formatLocalizedDate(exp.startDate, locale)}–${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                     </div>
                                     <p style="margin: 0; line-height: 1.6; font-size: ${s(14)};">
@@ -128,7 +128,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                         </div>
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
-                                <div>
+                                <div data-paginate="item">
                                     <h4 style="font-weight: 600; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
                                     <div style="font-size: ${s(14)}; color: ${labelText};">
                                         ${escapeHtml(edu.school)} | ${formatLocalizedDate(edu.startDate, locale)}–${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
@@ -185,10 +185,10 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                         <div style="flex: 1;">
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: ${s(12)}; font-weight: 600; color: ${labelText}; margin-bottom: 8px;">Certifications</h4>
+                                    <h4 style="font-size: ${s(12)}; font-weight: 600; color: ${labelText}; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${certifications.map(cert => `
-                                            <div>
+                                            <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(14)}; color: ${mainText};">${escapeHtml(cert.name)}</div>
                                                 <div style="font-size: ${s(12)}; color: ${labelText};">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
@@ -198,10 +198,10 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div>
-                                    <h4 style="font-size: ${s(12)}; font-weight: 600; color: ${labelText}; margin-bottom: 8px;">Awards & Achievements</h4>
+                                    <h4 style="font-size: ${s(12)}; font-weight: 600; color: ${labelText}; margin-bottom: 8px;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${awards.map(award => `
-                                            <div>
+                                            <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(14)}; color: ${mainText};">${escapeHtml(award.title)}</div>
                                                 <div style="font-size: ${s(12)}; color: ${labelText};">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
@@ -213,11 +213,22 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                     </div>
                 ` : ''}
 
+                <!-- Social Links -->
+                ${(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `
+                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${s(14)};">
+                        ${personalInfo.x ? `<div><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
+                        ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
+                        ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
+                        ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
+                        ${personalInfo.instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
+                    </div>
+                `) : ''}
+
                 <!-- References -->
                 ${data.references && data.references.length > 0 ? Row(t.sections.references, `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                         ${data.references.map(ref => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="font-weight: 600; font-size: ${s(14)}; color: ${mainText};">${escapeHtml(ref.name)}</div>
                                 <div style="font-size: ${s(12)}; color: ${labelText};">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
                                 ${ref.email ? `<div style="font-size: ${s(12)}; color: ${labelText};">${escapeHtml(ref.email)}</div>` : ''}
@@ -226,8 +237,8 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                     </div>
                 `) : ''}
 
-                <!-- Personal Info -->
-                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? Row(t.sections.additionalInfo, `
+                <!-- Personal Details -->
+                ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? Row(t.sections.personalDetails, `
                     <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${s(14)};">
                         ${personalInfo.nationality ? `<div><span style="color: ${labelText};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                         ${personalInfo.idType && personalInfo.idNumber ? `
@@ -242,19 +253,6 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                         ${formatDescription(field.content)}
                     </p>
                 `)).join('')}
-
-                <!-- Social Links (Extended) -->
-                ${(personalInfo.website || personalInfo.github || personalInfo.linkedin || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? Row(t.sections.socialLinks, `
-                    <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: ${s(14)};">
-                        ${personalInfo.website ? `<a href="${personalInfo.website}" style="color: ${labelText}; text-decoration: none;">Website</a>` : ''}
-                        ${personalInfo.linkedin ? `<a href="${personalInfo.linkedin}" style="color: ${labelText}; text-decoration: none;">LinkedIn</a>` : ''}
-                        ${personalInfo.github ? `<a href="${personalInfo.github}" style="color: ${labelText}; text-decoration: none;">GitHub</a>` : ''}
-                        ${personalInfo.x ? `<a href="${personalInfo.x}" style="color: ${labelText}; text-decoration: none;">Twitter</a>` : ''}
-                        ${personalInfo.dribbble ? `<a href="${personalInfo.dribbble}" style="color: ${labelText}; text-decoration: none;">Dribbble</a>` : ''}
-                        ${personalInfo.behance ? `<a href="${personalInfo.behance}" style="color: ${labelText}; text-decoration: none;">Behance</a>` : ''}
-                        ${personalInfo.instagram ? `<a href="${personalInfo.instagram}" style="color: ${labelText}; text-decoration: none;">Instagram</a>` : ''}
-                    </div>
-                `) : ''}
 
             </div>
         </div>

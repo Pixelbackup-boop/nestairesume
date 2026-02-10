@@ -18,7 +18,8 @@ import {
     fontSizes,
     escapeHtml,
     formatDescription,
-    getFontScale
+    getFontScale,
+    getIconSVG
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -47,6 +48,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     // Font Scaling
     const scale = getFontScale(fonts?.size);
     const s = (px: number) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px: number) => Math.max(5, Math.round(px * scale));
 
     const fs = {
         name: s(32),
@@ -93,7 +95,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // About Me section
     const aboutMeHtml = personalInfo.summary ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.profile)}
             <p style="line-height: 1.6; font-size: ${fs.body}; color: ${textColor};">
                 ${formatDescription(personalInfo.summary)}
@@ -103,7 +105,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Experience section - matches frontend space-y-4 (16px gap)
     const experienceHtml = experience.length > 0 ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.experience)}
             <div style="display: flex; flex-direction: column; gap: 16px;">
                 ${experience.map(exp => `
@@ -128,7 +130,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Education section - matches frontend space-y-4 (16px gap)
     const educationHtml = education.length > 0 ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.education)}
             <div style="display: flex; flex-direction: column; gap: 16px;">
                 ${education.map(edu => `
@@ -147,7 +149,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Skills section with progress bars
     const skillsHtml = skills.length > 0 ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.skills)}
             <div>
                 ${skills.map(skill => `
@@ -161,7 +163,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Strengths (tags/badges) - matches frontend fs.small (10px)
     const strengthsHtml = strengths && strengths.length > 0 ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.strengths)}
             <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                 ${strengths.map(str => `
@@ -175,12 +177,12 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Interests - matches frontend fs.body (11px)
     const interestsHtml = interests && interests.length > 0 ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.interests)}
             <div style="display: flex; flex-wrap: wrap; gap: 8px 16px;">
                 ${interests.map(int => `
-                    <span style="font-size: ${fs.body}; font-weight: 500;">
-                        ★ ${escapeHtml(int.name)}
+                    <span data-paginate="item" style="font-size: ${fs.body}; font-weight: 500; display: inline-flex; align-items: center; gap: 4px;">
+                        ${getIconSVG('star', accentColor, sNum(10), true)} ${escapeHtml(int.name)}
                     </span>
                 `).join('')}
             </div>
@@ -189,7 +191,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Credentials (Certifications & Awards) - matches frontend fs.small (10px) for sub-headers, fs.body (11px) for names
     const credentialsHtml = (certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.credentials)}
             ${certifications && certifications.length > 0 ? `
                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -222,7 +224,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Languages
     const languagesHtml = languages && languages.length > 0 ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.languages)}
             <div style="display: flex; flex-direction: column;">
                 ${languages.map(lang => `
@@ -236,12 +238,11 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     ` : '';
 
     // Social Links
-    const hasSocialLinks = personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
+    const hasSocialLinks = personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
     const socialLinksHtml = hasSocialLinks ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.socialLinks)}
             <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${fs.body};">
-                ${personalInfo.linkedin ? `<div data-paginate="item"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
                 ${personalInfo.x ? `<div data-paginate="item"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</div>` : ''}
                 ${personalInfo.github ? `<div data-paginate="item"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</div>` : ''}
                 ${personalInfo.dribbble ? `<div data-paginate="item"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
@@ -253,7 +254,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // References
     const referencesHtml = references && references.length > 0 ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.references)}
             <div style="display: flex; flex-direction: column; gap: 12px;">
                 ${references.map(ref => `
@@ -279,7 +280,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     };
     const hasPersonalDetails = personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber);
     const personalDetailsHtml = hasPersonalDetails ? `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.personalDetails)}
             <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${fs.body};">
                 ${personalInfo.nationality ? `<div data-paginate="item"><strong>Nationality:</strong> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
@@ -290,7 +291,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
 
     // Custom Fields
     const customFieldsHtml = customFields.map(field => `
-        <div data-paginate style="margin-bottom: 24px;">
+        <div style="margin-bottom: 24px;">
             ${SectionHeader(field.label)}
             <p style="font-size: ${fs.body}; line-height: 1.6;">${formatDescription(field.content)}</p>
         </div>
@@ -302,18 +303,14 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             ${personalInfo.phone ? `<div style="margin-bottom: 4px;">${escapeHtml(personalInfo.phone)}</div>` : ''}
             ${personalInfo.email ? `<div style="margin-bottom: 4px;">${escapeHtml(personalInfo.email)}</div>` : ''}
             ${personalInfo.location ? `<div style="margin-bottom: 4px;">${escapeHtml(personalInfo.location)}</div>` : ''}
-            ${personalInfo.website ? `<div>${escapeHtml(personalInfo.website)}</div>` : ''}
+            ${personalInfo.website ? `<div style="margin-bottom: 4px;">${escapeHtml(personalInfo.website)}</div>` : ''}
+            ${personalInfo.linkedin ? `<div>${escapeHtml(personalInfo.linkedin)}</div>` : ''}
         </div>
     `;
 
     // HTML Construction
     return `
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: ${textColor}; background-color: #ffffff; position: relative;">
-
-            <!-- Footer Diagonal Container - Fixed full page height, diagonal at bottom -->
-            <div style="position: fixed; top: 0; left: 0; width: 100%; height: 297mm; pointer-events: none; z-index: 0;">
-                <div style="position: absolute; bottom: 0; left: 0; width: 40%; height: 80px; background-color: ${accentColor}; clip-path: polygon(0 0, 70% 100%, 0% 100%); -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
-            </div>
 
             <!-- Header Area -->
             <div style="height: 220px; background-color: ${darkBg}; position: relative; margin-bottom: 80px;">
@@ -347,15 +344,16 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             <!-- Two Column Layout - 55/45 split matching frontend -->
             <div style="display: flex; padding: 0 40px 40px; gap: 30px;">
 
-                <!-- Left Column (55%) - About Me, Experience -->
+                <!-- Left Column (55%) - About Me, Experience, Education -->
                 <div style="width: 55%;">
                     ${aboutMeHtml}
                     ${experienceHtml}
+                    ${educationHtml}
+                    ${personalDetailsHtml}
                 </div>
 
-                <!-- Right Column (45%) - Education, Skills, Strengths, Interests, Languages, Credentials, Social Links, References, Personal Details, Custom Field -->
+                <!-- Right Column (45%) - Skills, Strengths, Interests, Languages, Credentials, Social Links, References, Personal Details, Custom Field -->
                 <div style="width: 45%;">
-                    ${educationHtml}
                     ${skillsHtml}
                     ${strengthsHtml}
                     ${interestsHtml}
@@ -363,7 +361,6 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                     ${credentialsHtml}
                     ${socialLinksHtml}
                     ${referencesHtml}
-                    ${personalDetailsHtml}
                     ${customFieldsHtml}
                 </div>
             </div>

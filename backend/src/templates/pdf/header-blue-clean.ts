@@ -78,7 +78,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: ${textColor}; background-color: #ffffff;">
             
             <!-- Header -->
-            <div style="background: linear-gradient(135deg, ${theme.primary}, ${theme.secondary}); color: white; padding: 48px 48px 64px 48px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);">
+            <div style="background: linear-gradient(135deg, ${theme.primary}, ${theme.secondary}); color: white; padding: 48px 48px 64px 48px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;">
                 <div style="display: flex; gap: 40px; align-items: center;">
                     ${profileImage}
                     <div style="flex: 1;">
@@ -102,7 +102,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
             </div>
 
             <!-- Content Two Columns -->
-            <div style="display: flex; gap: 48px; padding: 0 48px; margin-top: -20px;">
+            <div style="display: flex; gap: 48px; padding: 0 48px 40px; margin-top: -20px;">
                 
                 <!-- Main Column (Left) -->
                 <div style="flex: 1; min-width: 0;">
@@ -121,7 +121,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             ${SectionHeader(t.sections.experience, 'briefcase')}
                             <div style="display: flex; flex-direction: column; gap: 24px;">
                                 ${experience.map(exp => `
-                                    <div style="position: relative; padding-left: 20px; border-left: 2px solid ${theme.primary}20;">
+                                    <div data-paginate="item" style="position: relative; padding-left: 20px; border-left: 2px solid ${theme.primary}20;">
                                         <div style="position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: ${theme.primary}; border: 2px solid white;"></div>
                                         
                                         <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
@@ -147,7 +147,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             ${SectionHeader(t.sections.education, 'graduation-cap')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.map(edu => `
-                                    <div style="display: flex; gap: 16px; align-items: center;">
+                                    <div data-paginate="item" style="display: flex; gap: 16px; align-items: center;">
                                         <div style="width: 4px; height: 40px; background-color: ${theme.secondary}; border-radius: 2px;"></div>
                                         <div>
                                             <h4 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; color: ${theme.heading}; margin: 0;">${escapeHtml(edu.school)}</h4>
@@ -161,6 +161,19 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             </div>
                         </div>
                     ` : ''}
+
+                    <!-- Personal Details -->
+                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                        <div style="margin-bottom: 32px;">
+                            ${SectionHeader(t.sections.personalDetails, 'user')}
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(12)}; color: #4b5563;">
+                                ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600; color: ${theme.heading};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `
+                                    <div data-paginate="item"><span style="font-weight: 600; color: ${theme.heading};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    ` : ''}
                 </div>
 
                 <!-- Sidebar (Right) -->
@@ -171,7 +184,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             ${SectionHeader(t.sections.skills, 'code')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${skills.map(skill => `
-                                    <div style="background: white; border: 1px solid ${theme.primary}30; padding: 6px 12px; border-radius: 6px; font-size: ${s(11)}; font-weight: 600; color: ${theme.heading}; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                                    <div data-paginate="item" style="background: white; border: 1px solid ${theme.primary}30; padding: 6px 12px; border-radius: 6px; font-size: ${s(11)}; font-weight: 600; color: ${theme.heading}; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
                                         ${escapeHtml(skill.name)}
                                     </div>
                                 `).join('')}
@@ -184,7 +197,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             ${SectionHeader(t.sections.languages, 'globe')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
-                                    <div>
+                                    <div data-paginate="item">
                                         <div style="display: flex; justify-content: space-between; font-size: ${s(12)}; font-weight: 600; margin-bottom: 4px;">
                                             <span>${escapeHtml(lang.name)}</span>
                                             <span style="color: ${theme.primary};">${escapeHtml(lang.proficiency)}</span>
@@ -203,7 +216,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             ${SectionHeader(t.sections.interests, 'heart')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${interests.map(int => `
-                                    <div style="display: flex; align-items: center; gap: 8px; font-size: ${s(12)}; color: #4b5563;">
+                                    <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${s(12)}; color: #4b5563;">
                                         <span style="color: ${theme.secondary};">●</span>
                                         ${escapeHtml(int.name)}
                                     </div>
@@ -220,7 +233,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                     <h4 style="font-size: ${s(11)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${certifications.map(cert => `
-                                            <div>
+                                            <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(12)}; color: ${theme.heading};">${escapeHtml(cert.name)}</div>
                                                 <div style="font-size: ${s(11)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
                                             </div>
@@ -233,7 +246,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                     <h4 style="font-size: ${s(11)}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${awards.map(award => `
-                                            <div>
+                                            <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(12)}; color: ${theme.heading};">${escapeHtml(award.title)}</div>
                                                 <div style="font-size: ${s(11)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
                                             </div>
@@ -250,27 +263,27 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             ${SectionHeader(t.sections.socialLinks, 'users')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(12)};">
                                 ${personalInfo.github ? `
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div data-paginate="item" style="display: flex; align-items: center; gap: 8px;">
                                         ${getIconSVG('github', theme.primary, Math.round(14 * scale))}
                                         <a href="${personalInfo.github}" style="color: ${theme.heading}; text-decoration: none;">GitHub</a>
                                     </div>` : ''}
                                 ${personalInfo.x ? `
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div data-paginate="item" style="display: flex; align-items: center; gap: 8px;">
                                         ${getIconSVG('users', theme.primary, Math.round(14 * scale))}
                                         <a href="${personalInfo.x}" style="color: ${theme.heading}; text-decoration: none;">Twitter</a>
                                     </div>` : ''}
                                 ${personalInfo.dribbble ? `
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div data-paginate="item" style="display: flex; align-items: center; gap: 8px;">
                                         ${getIconSVG('palette', theme.primary, Math.round(14 * scale))}
                                         <a href="${personalInfo.dribbble}" style="color: ${theme.heading}; text-decoration: none;">Dribbble</a>
                                     </div>` : ''}
                                 ${personalInfo.behance ? `
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div data-paginate="item" style="display: flex; align-items: center; gap: 8px;">
                                         ${getIconSVG('palette', theme.primary, Math.round(14 * scale))}
                                         <a href="${personalInfo.behance}" style="color: ${theme.heading}; text-decoration: none;">Behance</a>
                                     </div>` : ''}
                                 ${personalInfo.instagram ? `
-                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div data-paginate="item" style="display: flex; align-items: center; gap: 8px;">
                                         ${getIconSVG('camera', theme.primary, Math.round(14 * scale))}
                                         <a href="${personalInfo.instagram}" style="color: ${theme.heading}; text-decoration: none;">Instagram</a>
                                     </div>` : ''}
@@ -284,26 +297,13 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                             ${SectionHeader(t.sections.references, 'users')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${data.references.map(ref => `
-                                    <div>
+                                    <div data-paginate="item">
                                         <div style="font-weight: 700; font-size: ${s(12)}; color: ${theme.heading};">${escapeHtml(ref.name)}</div>
                                         <div style="font-size: ${s(11)}; font-style: italic; color: #4b5563;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
                                         ${ref.email ? `<div style="font-size: ${s(11)}; color: ${theme.primary};">${escapeHtml(ref.email)}</div>` : ''}
                                         ${ref.phone ? `<div style="font-size: ${s(11)}; color: ${theme.primary};">${escapeHtml(ref.phone)}</div>` : ''}
                                     </div>
                                 `).join('')}
-                            </div>
-                        </div>
-                    ` : ''}
-
-                    <!-- Personal Details -->
-                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                        <div style="margin-bottom: 40px;">
-                            ${SectionHeader(t.sections.personalDetails, 'user')}
-                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(12)}; color: #4b5563;">
-                                ${personalInfo.nationality ? `<div><span style="font-weight: 600; color: ${theme.heading};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                                ${personalInfo.idType && personalInfo.idNumber ? `
-                                    <div><span style="font-weight: 600; color: ${theme.heading};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
-                                ` : ''}
                             </div>
                         </div>
                     ` : ''}
