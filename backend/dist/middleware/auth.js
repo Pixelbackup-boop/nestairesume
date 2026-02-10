@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.requireAdmin = exports.authenticateToken = void 0;
+exports.requireAdmin = exports.optionalAuth = exports.authenticateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const env_1 = require("../config/env");
 const authenticateToken = (req, res, next) => {
@@ -27,6 +27,26 @@ const authenticateToken = (req, res, next) => {
     }
 };
 exports.authenticateToken = authenticateToken;
+// Optional authentication - extracts user if token present, continues if not
+const optionalAuth = (req, _res, next) => {
+    const authHeader = req.headers["authorization"];
+    const token = authHeader && authHeader.split(" ")[1];
+    if (token) {
+        try {
+            const decoded = jsonwebtoken_1.default.verify(token, env_1.config.secretKey);
+            req.user = {
+                id: decoded.sub,
+                email: decoded.email,
+                role: decoded.role || "user",
+            };
+        }
+        catch {
+            // Invalid token - continue without user
+        }
+    }
+    next();
+};
+exports.optionalAuth = optionalAuth;
 // Admin-only middleware - must be used after authenticateToken
 const requireAdmin = (req, res, next) => {
     if (!req.user) {

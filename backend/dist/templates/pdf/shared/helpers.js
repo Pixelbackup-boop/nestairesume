@@ -4,7 +4,7 @@
  * Mirrors frontend theme generation and styling utilities
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getLanguageLevel = exports.getIconSVG = exports.formatDescription = exports.escapeHtml = exports.formatIdType = exports.getImageBorderRadius = exports.getBackgroundCSS = exports.fontSizes = exports.getGoogleFontUrl = exports.getFontFamily = exports.fontPresets = exports.themePresets = exports.generateThemeFromPrimary = exports.parseDualColor = exports.hexToRgba = exports.getContrastText = exports.getLuminance = exports.hexToRgb = void 0;
+exports.getLanguageLevel = exports.getIconSVG = exports.formatDescriptionWithBullets = exports.formatDescription = exports.escapeHtml = exports.formatIdType = exports.getImageBorderRadius = exports.getBackgroundCSS = exports.getFontScale = exports.fontSizes = exports.getGoogleFontUrl = exports.getFontFamily = exports.fontPresets = exports.themePresets = exports.generateThemeFromPrimary = exports.parseDualColor = exports.hexToRgba = exports.getContrastText = exports.getLuminance = exports.hexToRgb = void 0;
 // --- Color Helpers ---
 const hexToRgb = (hex) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -118,6 +118,12 @@ exports.fontPresets = [
     { name: 'Merriweather', fontFamily: "'Merriweather', serif", googleFont: 'Merriweather:wght@400;700' },
     { name: 'Georgia', fontFamily: "Georgia, serif" },
     { name: 'Times New Roman', fontFamily: "'Times New Roman', Times, serif" },
+    // Template-default fonts (used by specific templates, not shown in Design tab)
+    { name: 'Titan One', fontFamily: "'Titan One', cursive", googleFont: 'Titan+One' },
+    { name: 'Oswald', fontFamily: "'Oswald', sans-serif", googleFont: 'Oswald:wght@400;500;600;700' },
+    { name: 'Roboto Slab', fontFamily: "'Roboto Slab', serif", googleFont: 'Roboto+Slab:wght@400;500;600;700' },
+    { name: 'Roboto Condensed', fontFamily: "'Roboto Condensed', sans-serif", googleFont: 'Roboto+Condensed:wght@400;700' },
+    { name: 'Source Sans Pro', fontFamily: "'Source Sans 3', sans-serif", googleFont: 'Source+Sans+3:wght@400;600;700' },
 ];
 const getFontFamily = (fontName) => {
     const preset = exports.fontPresets.find(f => f.name === fontName);
@@ -150,6 +156,22 @@ exports.fontSizes = {
         subheading: '18px',
     },
 };
+/**
+ * Get font scale factor based on size preference.
+ * Matches frontend scaling logic:
+ * Small (12px base) -> 0.857 (12/14)
+ * Medium (14px base) -> 1.0 (14/14)
+ * Large (16px base) -> 1.143 (16/14)
+ */
+const getFontScale = (size) => {
+    switch (size) {
+        case 'small': return 0.857;
+        case 'large': return 1.143;
+        case 'medium':
+        default: return 1.0;
+    }
+};
+exports.getFontScale = getFontScale;
 // --- Background Helpers ---
 const getPatternSVG = (pattern, color, opacity) => {
     const opacityValue = opacity / 100;
@@ -219,7 +241,7 @@ const formatIdType = (idType) => {
     switch (idType) {
         case 'id': return 'ID';
         case 'passport': return 'Passport';
-        case 'driving_license': return 'License';
+        case 'driving_license': return 'Driving License';
         default: return '';
     }
 };
@@ -245,7 +267,21 @@ const formatDescription = (text) => {
     return (0, exports.escapeHtml)(text).replace(/\n/g, '<br>');
 };
 exports.formatDescription = formatDescription;
-const getIconSVG = (name, color = '#000000', size = 16) => {
+// Format descriptions with proper bullet point alignment
+const formatDescriptionWithBullets = (text) => {
+    if (!text)
+        return '';
+    const escaped = (0, exports.escapeHtml)(text);
+    return escaped.split('\n').map(line => {
+        const bulletMatch = line.match(/^([•\-·]\s*)(.*)/);
+        if (bulletMatch) {
+            return `<div style="display: flex;"><span style="flex-shrink: 0;">${bulletMatch[1]}</span><span>${bulletMatch[2]}</span></div>`;
+        }
+        return line ? `<div>${line}</div>` : '<div style="height: 0.5em;"></div>';
+    }).join('');
+};
+exports.formatDescriptionWithBullets = formatDescriptionWithBullets;
+const getIconSVG = (name, color = '#000000', size = 16, filled = false) => {
     const paths = {
         email: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
         phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
@@ -276,10 +312,31 @@ const getIconSVG = (name, color = '#000000', size = 16) => {
         palette: '<circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>',
         tent: '<path d="M3.5 21 14 3"/><path d="M20.5 21 10 3"/><path d="M15.5 21 12 15l-3.5 6"/><path d="M2 21h20"/>',
         languages: '<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>',
+        instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
+        x: '<path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>', // Approximation of X logo using strokes
+        dribbble: '<circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 13.25"/>',
+        behance: '<path d="M5 17V7h4a2 2 0 0 1 0 4H7v1h2a2 2 0 0 1 0 4H5"/><path d="M15 13h5a2.5 2.5 0 1 0-5 0v.5"/><path d="M16 9h4"/>',
+        smartphone: '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>',
+        'id-card': '<rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/><circle cx="8" cy="15" r="2"/><path d="M14 15h4"/>',
+        monitor: '<rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>',
+        bike: '<circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/>',
+        'cooking-pot': '<path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/>',
+        gamepad: '<line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/>',
+        film: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/>',
+        'book-open': '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+        running: '<circle cx="13" cy="4" r="2"/><path d="m6 21 3-9 3 2"/><path d="m10 14-1-4 5-3"/><path d="m15 7 3 5 3-1"/>',
+        swimming: '<circle cx="6" cy="6" r="2"/><path d="M8 8h6l-2 4"/><path d="M2 16c1.5-1 3-1.5 4.5-.5s3 1.5 4.5.5 3-1.5 4.5-.5 3 1.5 4.5.5"/><path d="M2 20c1.5-1 3-1.5 4.5-.5s3 1.5 4.5.5 3-1.5 4.5-.5 3 1.5 4.5.5"/>',
+        hiking: '<circle cx="13" cy="4" r="2"/><path d="m7 21 3-10"/><path d="m10 11-1-4h5l2 5"/><line x1="18" x2="18" y1="3" y2="21"/>',
+        football: '<circle cx="12" cy="12" r="10"/><path d="m12 8 4 3-1.5 5h-5L8 11z"/><path d="M12 2v6"/><path d="m20.5 7.5-5 3.5"/><path d="m3.5 7.5 5 3.5"/><path d="m5 18.5 4.5-2.5"/><path d="m19 18.5-4.5-2.5"/>',
+        tennis: '<circle cx="17" cy="5" r="3"/><path d="M3 21 14 7"/><circle cx="5" cy="19" r="3"/>',
+        yoga: '<circle cx="12" cy="4" r="2"/><path d="M4 20h16"/><path d="M8 20v-6l4-3 4 3v6"/><path d="M4 14h16"/>',
+        moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+        diamond: '<path d="M12 2l10 10-10 10L2 12z"/>',
+        link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
     };
     const path = paths[name] || paths.star;
     return `
-        <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${filled ? color : 'none'}" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
             ${path}
         </svg>
     `;

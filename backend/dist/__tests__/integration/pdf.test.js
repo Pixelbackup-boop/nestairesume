@@ -210,8 +210,7 @@ describe('PDF API Integration Tests', () => {
     });
     // ==================== Download Limit Tests ====================
     describe('Download Limits', () => {
-        it('should block download when limit reached (via middleware)', async () => {
-            // Override the mock to simulate limit reached
+        it('should block download when limit reached', async () => {
             mockSubscriptionLimits.checkDownloadLimit.mockImplementationOnce((req, res, next) => {
                 res.status(429).json({
                     error: 'Download limit reached',

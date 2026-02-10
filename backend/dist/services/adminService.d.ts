@@ -22,11 +22,11 @@ export declare const getDashboardStats: () => Promise<{
         createdAt: Date;
         userId: string;
         type: string;
+        status: string;
+        plan: string | null;
         stripePaymentId: string;
         amount: number;
         currency: string;
-        status: string;
-        plan: string | null;
     })[];
 }>;
 export declare const getAllUsers: (skip?: number, limit?: number, search?: string) => Promise<{
@@ -38,7 +38,6 @@ export declare const getAllUsers: (skip?: number, limit?: number, search?: strin
         role: string;
         id: string;
         subscriptionTier: string;
-        creditsRemaining: number;
         subscriptionStatus: string | null;
         isSuspended: boolean;
         createdAt: Date;
@@ -53,10 +52,15 @@ export declare const getUserWithResumes: (userId: string) => Promise<{
     role: string;
     id: string;
     subscriptionTier: string;
-    creditsRemaining: number;
     stripeCustomerId: string | null;
     subscriptionStatus: string | null;
     isSuspended: boolean;
+    trialEndsAt: Date | null;
+    hasUsedTrial: boolean;
+    cvCreatedCount: number;
+    aiUsedCount: number;
+    downloadCount: number;
+    coverLetterCount: number;
     createdAt: Date;
     updatedAt: Date;
     resumes: {
@@ -71,16 +75,16 @@ export declare const getUserWithResumes: (userId: string) => Promise<{
         id: string;
         createdAt: Date;
         type: string;
-        amount: number;
         status: string;
         plan: string | null;
+        amount: number;
+        currency: string;
     }[];
 } | null>;
 export declare const updateUser: (userId: string, data: {
     name?: string;
     role?: string;
     subscriptionTier?: string;
-    creditsRemaining?: number;
     isSuspended?: boolean;
 }) => Promise<{
     name: string;
@@ -88,7 +92,6 @@ export declare const updateUser: (userId: string, data: {
     role: string;
     id: string;
     subscriptionTier: string;
-    creditsRemaining: number;
     isSuspended: boolean;
 }>;
 export declare const deleteUser: (userId: string) => Promise<boolean>;
@@ -195,6 +198,33 @@ export declare const getPaymentStats: () => Promise<{
     totalPayments: number;
     averageOrderValue: number;
 }>;
+export declare const getPaymentAnalytics: () => Promise<{
+    dailyRevenue: {
+        date: string;
+        revenue: number;
+        count: number;
+    }[];
+    monthlyRevenue: {
+        month: string;
+        revenue: number;
+        count: number;
+    }[];
+    revenueByPlan: Record<string, {
+        revenue: number;
+        count: number;
+    }>;
+    growth: {
+        currentMonth: number;
+        previousMonth: number;
+        percentChange: number;
+    };
+    topCustomers: {
+        name: string;
+        email: string;
+        totalSpent: number;
+        count: number;
+    }[];
+}>;
 export declare const getAllPayments: (page?: number, limit?: number) => Promise<{
     payments: ({
         user: {
@@ -207,11 +237,11 @@ export declare const getAllPayments: (page?: number, limit?: number) => Promise<
         createdAt: Date;
         userId: string;
         type: string;
+        status: string;
+        plan: string | null;
         stripePaymentId: string;
         amount: number;
         currency: string;
-        status: string;
-        plan: string | null;
     })[];
     total: number;
     page: number;

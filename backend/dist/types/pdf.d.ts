@@ -70,6 +70,11 @@ export interface PdfReference {
     phone?: string;
     email?: string;
 }
+export interface PdfCustomField {
+    id: string;
+    label: string;
+    content: string;
+}
 export type ImageShape = 'circle' | 'rounded' | 'square';
 export type IdDocumentType = 'id' | 'passport' | 'driving_license' | '';
 export type BackgroundType = 'solid' | 'gradient' | 'pattern';
@@ -101,7 +106,7 @@ export interface PdfPersonalInfo {
     nationality: string;
     idType: IdDocumentType;
     idNumber: string;
-    twitter?: string;
+    x?: string;
     github?: string;
     dribbble?: string;
     behance?: string;
@@ -120,6 +125,7 @@ export interface PdfResumeData {
     certifications: PdfCertification[];
     awards: PdfAward[];
     references: PdfReference[];
+    customFields: PdfCustomField[];
     background: PdfBackgroundSettings;
     fonts: PdfFontSettings;
     customThemeColor?: string;

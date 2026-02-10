@@ -23,8 +23,8 @@ describe('Stripe Service', () => {
             it('should have correct CV limit (30)', () => {
                 expect(stripeService_1.PLANS.starter.cvLimit).toBe(30);
             });
-            it('should have correct AI limit (3)', () => {
-                expect(stripeService_1.PLANS.starter.aiLimit).toBe(3);
+            it('should have correct AI limit (50)', () => {
+                expect(stripeService_1.PLANS.starter.aiLimit).toBe(50);
             });
             it('should have correct download limit (3)', () => {
                 expect(stripeService_1.PLANS.starter.downloadLimit).toBe(3);
@@ -40,8 +40,8 @@ describe('Stripe Service', () => {
             it('should have correct CV limit (150)', () => {
                 expect(stripeService_1.PLANS.gold.cvLimit).toBe(150);
             });
-            it('should have correct AI limit (10)', () => {
-                expect(stripeService_1.PLANS.gold.aiLimit).toBe(10);
+            it('should have correct AI limit (100)', () => {
+                expect(stripeService_1.PLANS.gold.aiLimit).toBe(100);
             });
             it('should have correct download limit (10)', () => {
                 expect(stripeService_1.PLANS.gold.downloadLimit).toBe(10);
@@ -57,8 +57,8 @@ describe('Stripe Service', () => {
             it('should have correct CV limit (300)', () => {
                 expect(stripeService_1.PLANS.diamond.cvLimit).toBe(300);
             });
-            it('should have correct AI limit (30)', () => {
-                expect(stripeService_1.PLANS.diamond.aiLimit).toBe(30);
+            it('should have correct AI limit (200)', () => {
+                expect(stripeService_1.PLANS.diamond.aiLimit).toBe(200);
             });
             it('should have correct download limit (25)', () => {
                 expect(stripeService_1.PLANS.diamond.downloadLimit).toBe(25);
@@ -74,11 +74,11 @@ describe('Stripe Service', () => {
             it('should have UNLIMITED CV creations (-1)', () => {
                 expect(stripeService_1.PLANS.platinum.cvLimit).toBe(-1);
             });
-            it('should have correct AI limit (100)', () => {
-                expect(stripeService_1.PLANS.platinum.aiLimit).toBe(100);
+            it('should have correct AI limit (500)', () => {
+                expect(stripeService_1.PLANS.platinum.aiLimit).toBe(500);
             });
-            it('should have UNLIMITED downloads (-1)', () => {
-                expect(stripeService_1.PLANS.platinum.downloadLimit).toBe(-1);
+            it('should have 120 downloads/month', () => {
+                expect(stripeService_1.PLANS.platinum.downloadLimit).toBe(120);
             });
             it('should have UNLIMITED cover letters (-1)', () => {
                 expect(stripeService_1.PLANS.platinum.coverLetterLimit).toBe(-1);
@@ -102,8 +102,7 @@ describe('Stripe Service', () => {
             it('should have increasing download limits', () => {
                 expect(stripeService_1.PLANS.starter.downloadLimit).toBeLessThan(stripeService_1.PLANS.gold.downloadLimit);
                 expect(stripeService_1.PLANS.gold.downloadLimit).toBeLessThan(stripeService_1.PLANS.diamond.downloadLimit);
-                // Platinum is -1 (unlimited)
-                expect(stripeService_1.PLANS.platinum.downloadLimit).toBe(-1);
+                expect(stripeService_1.PLANS.diamond.downloadLimit).toBeLessThan(stripeService_1.PLANS.platinum.downloadLimit);
             });
         });
         describe('All Plans', () => {
@@ -152,7 +151,7 @@ describe('Stripe Service', () => {
                 coverLetterCount: 3,
                 limits: {
                     cvLimit: 30,
-                    aiLimit: 10,
+                    aiLimit: 50,
                     downloadLimit: 3,
                     coverLetterLimit: 10,
                 },
@@ -190,7 +189,7 @@ describe('Stripe Service', () => {
             mockPrisma.user.findUnique.mockResolvedValue(platinumUser);
             const status = await (0, stripeService_1.getSubscriptionStatus)(platinumUser.id);
             expect(status?.limits?.cvLimit).toBe(-1);
-            expect(status?.limits?.downloadLimit).toBe(-1);
+            expect(status?.limits?.downloadLimit).toBe(120);
             expect(status?.limits?.coverLetterLimit).toBe(-1);
         });
     });

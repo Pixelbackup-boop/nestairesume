@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const auth_1 = require("../middleware/auth");
 const asyncHandler_1 = require("../middleware/asyncHandler");
+const subscriptionLimits_1 = require("../middleware/subscriptionLimits");
 const resumeService_1 = require("../services/resumeService");
 const router = (0, express_1.Router)();
 // GET /api/v1/resumes/templates (public)
@@ -11,13 +12,15 @@ router.get("/templates", (_req, res) => {
     res.json(templates);
 });
 // POST /api/v1/resumes
-router.post("/", auth_1.authenticateToken, asyncHandler_1.requireAuth, (0, asyncHandler_1.asyncHandler)(async (req, res) => {
+router.post("/", auth_1.authenticateToken, asyncHandler_1.requireAuth, subscriptionLimits_1.checkCvLimit, (0, asyncHandler_1.asyncHandler)(async (req, res) => {
     const { title, fullName } = req.body;
     if (!title || !fullName) {
         res.status(400).json((0, asyncHandler_1.errorResponse)("Title and fullName are required"));
         return;
     }
     const resume = await (0, resumeService_1.createResume)(req.user.id, req.body);
+    // Increment CV count after successful creation
+    await (0, subscriptionLimits_1.incrementCvCount)(req.user.id);
     res.status(201).json(resume);
 }));
 // GET /api/v1/resumes

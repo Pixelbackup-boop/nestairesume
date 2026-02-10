@@ -6,10 +6,8 @@ interface WrapperOptions {
     headingFont: string;
     bodyFont: string;
     locale?: string;
+    marginStrategy?: 'sidebar' | 'full-bleed' | 'standard';
 }
-/**
- * Wraps template HTML content with a complete HTML document
- */
 export declare const wrapHtml: (content: string, options: WrapperOptions) => string;
 export {};
 //# sourceMappingURL=htmlWrapper.d.ts.map

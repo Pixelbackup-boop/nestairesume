@@ -11,7 +11,7 @@ interface PlanConfig {
     trialDailyLimit: number;
     hasTrial: boolean;
 }
-declare const PLANS: Record<PlanType, PlanConfig>;
+export declare const PLANS: Record<PlanType, PlanConfig>;
 export declare const getOrCreateCustomer: (userId: string, email: string, name: string) => Promise<string>;
 export declare const createCheckoutSession: (userId: string, email: string, name: string, plan: PlanType) => Promise<string>;
 export declare const createPortalSession: (userId: string) => Promise<string>;
@@ -33,6 +33,13 @@ export declare const getSubscriptionStatus: (userId: string) => Promise<{
     aiUsedCount: number;
     aiUsedToday: number;
 } | null>;
-export { PLANS };
+export declare const reloadPlansFromDb: () => Promise<void>;
+export declare const getPublicPlanLimits: () => Record<string, {
+    cvLimit: number;
+    aiLimit: number;
+    downloadLimit: number;
+    coverLetterLimit: number;
+}>;
 export declare const constructWebhookEvent: (payload: Buffer, signature: string) => Stripe.Event;
+export {};
 //# sourceMappingURL=stripeService.d.ts.map

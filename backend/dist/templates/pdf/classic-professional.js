@@ -10,12 +10,15 @@ const translations_1 = require("./shared/translations");
 const dateUtils_1 = require("./shared/dateUtils");
 const renderClassicProfessional = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], interests = [], strengths = [], certifications = [], references = [], background, fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], interests = [], strengths = [], certifications = [], awards = [], references = [], customFields = [], background, fonts } = data;
     // Force white background - no background customization in builder UI
     const bgStyle = 'background-color: #ffffff;';
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Inter');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
     const sizeConfig = helpers_1.fontSizes[fonts?.size || 'medium'];
+    // Font Scaling
+    const scale = (0, helpers_1.getFontScale)(fonts?.size);
+    const s = (px) => `${Math.max(5, Math.round(px * scale))}px`;
     // Custom Theme Color Override
     const primaryColor = data.customThemeColor || theme.primary;
     const accentColor = data.customThemeColor || theme.accent; // Usually accent is same as primary in this theme logic or secondary? 
@@ -35,7 +38,7 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
         </div>
     ` : '';
     const idInfo = personalInfo.idType && personalInfo.idNumber ? `
-        <div style="color: ${theme.text}; font-size: 11px; margin-top: 4px; opacity: 0.8;">
+        <div style="color: ${theme.text}; font-size: ${s(11)}; margin-top: 4px; opacity: 0.8;">
             ${(0, helpers_1.formatIdType)(personalInfo.idType)}: ${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}
         </div>
     ` : '';
@@ -44,12 +47,13 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
         personalInfo.phone,
         personalInfo.location,
         personalInfo.nationality,
+        personalInfo.website,
     ].filter(Boolean);
     const contactHtml = contactItems.map((item, i) => `${i > 0 ? '<span>&bull;</span>' : ''}<span>${(0, helpers_1.escapeHtml)(item)}</span>`).join('');
     const summarySection = personalInfo.summary ? `
         <section class="mb-5 resume-section">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
-                ${t.sections.summary}
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                ${t.sections.profile}
             </h2>
             <p style="color: ${theme.text}; line-height: 1.5; font-size: ${sizeConfig.base};">
                 ${(0, helpers_1.formatDescription)(personalInfo.summary)}
@@ -58,25 +62,25 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
     ` : '';
     const experienceSection = experience.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.experience}
             </h2>
             <div class="space-y-3">
                 ${experience.map(exp => `
-                    <div class="resume-entry">
+                    <div data-paginate="item" class="resume-entry">
                         <div class="flex justify-between items-baseline">
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                                 ${(0, helpers_1.escapeHtml)(exp.title)}
                             </h3>
-                            <span style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                            <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} – ${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}
                             </span>
                         </div>
-                        <p style="color: ${theme.secondary}; font-size: 12px; margin-bottom: 4px;">
+                        <p style="color: ${theme.secondary}; font-size: ${s(12)}; margin-bottom: 4px;">
                             ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${[exp.city, exp.country].filter(Boolean).map(s => (0, helpers_1.escapeHtml)(s)).join(', ')}` : ''}
                         </p>
                         ${exp.description ? `
-                            <p style="color: ${theme.text}; opacity: 0.8; font-size: 12px; line-height: 1.4;">
+                            <p style="color: ${theme.text}; opacity: 0.8; font-size: ${s(12)}; line-height: 1.4;">
                                 ${(0, helpers_1.formatDescription)(exp.description)}
                             </p>
                         ` : ''}
@@ -87,26 +91,26 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
     ` : '';
     const educationSection = education.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.education}
             </h2>
             <div class="space-y-2">
                 ${education.map(edu => `
-                    <div class="resume-entry">
+                    <div data-paginate="item" class="resume-entry">
                         <div class="flex justify-between items-baseline">
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                                 ${(0, helpers_1.escapeHtml)(edu.school)}
                             </h3>
-                            <span style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                            <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale)}
                             </span>
                         </div>
-                        <p style="color: ${theme.secondary}; font-size: 12px;">
+                        <p style="color: ${theme.secondary}; font-size: ${s(12)};">
                             ${(0, helpers_1.escapeHtml)(edu.degree)}
                             ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                         </p>
-                        ${edu.honors ? `<p style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
-                        ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: 10px;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+                        ${edu.honors ? `<p style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                        ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: ${s(10)};">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -114,13 +118,13 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
     ` : '';
     const skillsSection = skills.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.skills}
             </h2>
             <div class="space-y-1">
                 ${skills.map(skill => `
-                    <div class="flex items-center gap-2 resume-entry">
-                        <span style="color: ${theme.text}; font-size: 12px; min-width: 100px;">
+                    <div data-paginate="item" class="flex items-center gap-2 resume-entry">
+                        <span style="color: ${theme.text}; font-size: ${s(12)}; min-width: 100px;">
                             ${(0, helpers_1.escapeHtml)(skill.name)}
                         </span>
                         <div class="flex gap-1">
@@ -135,21 +139,21 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
     ` : '';
     const languagesSection = languages && languages.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.languages}
             </h2>
             <div class="space-y-1">
                 ${languages.map(lang => `
-                    <div class="flex items-center justify-between resume-entry">
-                        <span style="color: ${theme.text}; font-size: 12px;">${(0, helpers_1.escapeHtml)(lang.name)}</span>
-                        <div class="flex items-center gap-2">
-                            <div style="width: 80px; height: 6px; background-color: ${effectivePrimary}30; border-radius: 3px; overflow: hidden;">
-                                <div style="width: ${(0, helpers_1.getLanguageLevel)(lang)}%; height: 100%; background-color: ${effectivePrimary};"></div>
+                    <div data-paginate="item" class="flex items-center justify-between resume-entry">
+                        <span style="color: ${theme.text}; font-size: ${s(12)};">${(0, helpers_1.escapeHtml)(lang.name)}</span>
+                            <div class="flex items-center gap-2">
+                                <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(10)}; text-transform: capitalize;">
+                                    ${(0, helpers_1.escapeHtml)(lang.proficiency)}
+                                </span>
+                                <div style="width: 80px; height: 6px; background-color: ${effectivePrimary}30; border-radius: 3px; overflow: hidden;">
+                                    <div style="width: ${(0, helpers_1.getLanguageLevel)(lang)}%; height: 100%; background-color: ${effectivePrimary};"></div>
+                                </div>
                             </div>
-                            <span style="color: ${theme.text}; opacity: 0.7; font-size: 10px; text-transform: capitalize;">
-                                ${(0, helpers_1.escapeHtml)(lang.proficiency)}
-                            </span>
-                        </div>
                     </div>
                 `).join('')}
             </div>
@@ -157,12 +161,12 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
     ` : '';
     const strengthsSection = strengths && strengths.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.strengths}
             </h2>
             <div class="flex flex-wrap gap-1">
                 ${strengths.map(strength => `
-                    <span class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: 11px;">
+                    <span data-paginate="item" class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: ${s(11)};">
                         ${(0, helpers_1.escapeHtml)(strength.name)}
                     </span>
                 `).join('')}
@@ -171,14 +175,14 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
     ` : '';
     const certificationsSection = certifications && certifications.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.certifications}
             </h2>
             <div class="space-y-1">
                 ${certifications.map(cert => `
-                    <div class="resume-entry">
-                        <span style="color: ${theme.text}; font-weight: 500; font-size: 12px;">${(0, helpers_1.escapeHtml)(cert.name)}</span>
-                        <span style="color: ${theme.text}; opacity: 0.7; font-size: 11px; margin-left: 8px;">
+                    <div data-paginate="item" class="resume-entry">
+                        <span style="color: ${theme.text}; font-weight: 500; font-size: ${s(12)};">${(0, helpers_1.escapeHtml)(cert.name)}</span>
+                        <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)}; margin-left: 8px;">
                             ${(0, helpers_1.escapeHtml)(cert.issuer)} &bull; ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
                         </span>
                     </div>
@@ -186,50 +190,74 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
             </div>
         </section>
     ` : '';
+    const awardsSection = awards.length > 0 ? `
+        <section class="mb-5">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                ${t.sections.awards}
+            </h2>
+            <div class="space-y-2">
+                ${awards.map(award => `
+                    <div data-paginate="item" class="resume-entry">
+                        <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
+                            ${(0, helpers_1.escapeHtml)(award.title)}
+                        </div>
+                        <div style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
+                            ${(0, helpers_1.escapeHtml)(award.issuer)} &bull; ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}
+                        </div>
+                        ${award.description ? `
+                            <p style="color: ${theme.text}; opacity: 0.8; font-size: ${s(12)}; line-height: 1.4;">
+                                ${(0, helpers_1.formatDescription)(award.description)}
+                            </p>
+                        ` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    ` : '';
     const interestsSection = interests && interests.length > 0 ? `
         <section>
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.interests}
             </h2>
-            <p style="color: ${theme.text}; font-size: 12px;">
+            <p style="color: ${theme.text}; font-size: ${s(12)};">
                 ${interests.map(i => (0, helpers_1.escapeHtml)(i.name)).join(' &bull; ')}
             </p>
         </section>
     ` : '';
     // Social Links section
-    const hasSocialLinks = personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
+    const hasSocialLinks = personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
     const socialLinksSection = hasSocialLinks ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.socialLinks}
             </h2>
-            <div class="flex flex-wrap gap-3" style="font-size: 12px;">
-                ${personalInfo.linkedin ? `<span style="color: ${theme.text};"><strong>LinkedIn:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</span>` : ''}
-                ${personalInfo.twitter ? `<span style="color: ${theme.text};"><strong>Twitter:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.twitter)}</span>` : ''}
-                ${personalInfo.github ? `<span style="color: ${theme.text};"><strong>GitHub:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</span>` : ''}
-                ${personalInfo.dribbble ? `<span style="color: ${theme.text};"><strong>Dribbble:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</span>` : ''}
-                ${personalInfo.behance ? `<span style="color: ${theme.text};"><strong>Behance:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</span>` : ''}
-                ${personalInfo.instagram ? `<span style="color: ${theme.text};"><strong>Instagram:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</span>` : ''}
+            <div class="flex flex-wrap gap-3" style="font-size: ${s(12)};">
+                ${personalInfo.linkedin ? `<span data-paginate="item" style="color: ${theme.text};"><strong>LinkedIn:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</span>` : ''}
+                ${personalInfo.x ? `<span data-paginate="item" style="color: ${theme.text};"><strong>X:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.x)}</span>` : ''}
+                ${personalInfo.github ? `<span data-paginate="item" style="color: ${theme.text};"><strong>GitHub:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</span>` : ''}
+                ${personalInfo.dribbble ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Dribbble:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</span>` : ''}
+                ${personalInfo.behance ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Behance:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</span>` : ''}
+                ${personalInfo.instagram ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Instagram:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</span>` : ''}
             </div>
         </section>
     ` : '';
     // References section
     const referencesSection = references && references.length > 0 ? `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.references}
             </h2>
             <div class="space-y-2">
                 ${references.map(ref => `
-                    <div>
+                    <div data-paginate="item">
                         <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
                             ${(0, helpers_1.escapeHtml)(ref.name)}
                         </div>
-                        <div style="color: ${theme.secondary}; font-size: 12px;">
+                        <div style="color: ${theme.secondary}; font-size: ${s(12)};">
                             ${(0, helpers_1.escapeHtml)(ref.title)}${ref.company ? `, ${(0, helpers_1.escapeHtml)(ref.company)}` : ''}
                         </div>
                         ${(ref.phone || ref.email) ? `
-                            <div style="color: ${theme.text}; opacity: 0.7; font-size: 11px;">
+                            <div style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${ref.phone ? `<span>${(0, helpers_1.escapeHtml)(ref.phone)}</span>` : ''}
                                 ${ref.phone && ref.email ? '<span> &bull; </span>' : ''}
                                 ${ref.email ? `<span>${(0, helpers_1.escapeHtml)(ref.email)}</span>` : ''}
@@ -240,17 +268,17 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
             </div>
         </section>
     ` : '';
-    // Custom Field section
-    const customFieldSection = personalInfo.customField ? `
+    // Custom Fields section
+    const customFieldsSection = customFields.map(field => `
         <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: 14px; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
-                ${(0, helpers_1.escapeHtml)(personalInfo.customFieldLabel || t.sections.additionalInfo)}
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                ${(0, helpers_1.escapeHtml)(field.label)}
             </h2>
-            <p style="color: ${theme.text}; font-size: 12px; line-height: 1.5; white-space: pre-line;">
-                ${(0, helpers_1.formatDescription)(personalInfo.customField)}
+            <p style="color: ${theme.text}; font-size: ${s(12)}; line-height: 1.5; white-space: pre-line;">
+                ${(0, helpers_1.formatDescription)(field.content)}
             </p>
         </section>
-    ` : '';
+    `).join('');
     return `
         <div class="w-full h-full" style="font-family: ${bodyFont}; font-size: ${sizeConfig.base}; ${bgStyle} padding: 40px;">
             <!-- Header -->
@@ -262,7 +290,7 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
                 <p style="color: ${theme.secondary}; font-size: ${sizeConfig.subheading}; margin-bottom: 8px;">
                     ${(0, helpers_1.escapeHtml)(personalInfo.jobTitle || 'Job Title')}
                 </p>
-                <div class="flex flex-wrap justify-center gap-3" style="color: ${theme.text}; font-size: 12px;">
+                <div class="flex flex-wrap justify-center gap-3" style="color: ${theme.text}; font-size: ${s(12)};">
                     ${contactHtml}
                 </div>
                 ${idInfo}
@@ -275,10 +303,11 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
             ${languagesSection}
             ${strengthsSection}
             ${certificationsSection}
+            ${awardsSection}
             ${interestsSection}
             ${socialLinksSection}
             ${referencesSection}
-            ${customFieldSection}
+            ${customFieldsSection}
         </div>
     `;
 };

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setPassword = exports.changePassword = exports.resetPassword = exports.requestPasswordReset = exports.resendVerificationCode = exports.verifyEmailCode = exports.registerUserWithVerification = exports.handleOAuthSignIn = exports.getUserById = exports.loginUser = exports.registerUser = exports.createAccessToken = exports.verifyPassword = exports.hashPassword = void 0;
+exports.verifyEmailChange = exports.requestEmailChange = exports.updateProfile = exports.setPassword = exports.changePassword = exports.resetPassword = exports.requestPasswordReset = exports.resendVerificationCode = exports.verifyEmailCode = exports.registerUserWithVerification = exports.handleOAuthSignIn = exports.getUserById = exports.loginUser = exports.registerUser = exports.createAccessToken = exports.verifyPassword = exports.hashPassword = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const database_1 = __importDefault(require("../config/database"));
@@ -76,11 +76,11 @@ const getUserById = async (userId) => {
             id: true,
             email: true,
             name: true,
+            image: true,
             role: true,
             subscriptionTier: true,
             subscriptionStatus: true,
             trialEndsAt: true,
-            creditsRemaining: true,
             isSuspended: true,
             createdAt: true,
         },
@@ -364,4 +364,110 @@ const setPassword = async (userId, newPassword) => {
     return { message: "Password set successfully" };
 };
 exports.setPassword = setPassword;
+const updateProfile = async (userId, data) => {
+    // Build update object
+    const updateData = {};
+    if (data.name)
+        updateData.name = data.name;
+    if (data.avatarId)
+        updateData.image = `avatar-${data.avatarId}`;
+    // Update user
+    const user = await database_1.default.user.update({
+        where: { id: userId },
+        data: updateData,
+        select: {
+            id: true,
+            email: true,
+            name: true,
+            image: true,
+            role: true,
+        },
+    });
+    return user;
+};
+exports.updateProfile = updateProfile;
+// ==================== Email Change Functions ====================
+const requestEmailChange = async (userId, newEmail) => {
+    // Check if new email is already in use
+    const existing = await database_1.default.user.findFirst({
+        where: {
+            email: newEmail,
+            NOT: { id: userId },
+        },
+    });
+    if (existing) {
+        throw new Error("Email already in use");
+    }
+    // Get current user
+    const user = await database_1.default.user.findUnique({ where: { id: userId } });
+    if (!user) {
+        throw new Error("User not found");
+    }
+    // Generate verification code and expiry
+    const verificationCode = (0, emailService_1.generateVerificationCode)();
+    const verificationCodeExpires = new Date(Date.now() + VERIFICATION_CODE_EXPIRY_MINUTES * 60 * 1000);
+    // Store pending email and code in user record
+    await database_1.default.user.update({
+        where: { id: userId },
+        data: {
+            pendingEmail: newEmail,
+            verificationCode,
+            verificationCodeExpires,
+        },
+    });
+    // Send verification email to the NEW email address
+    await (0, emailService_1.sendEmailChangeVerification)(newEmail, user.name, verificationCode);
+    return { message: "Verification code sent to your new email address" };
+};
+exports.requestEmailChange = requestEmailChange;
+const verifyEmailChange = async (userId, newEmail, code) => {
+    const user = await database_1.default.user.findUnique({ where: { id: userId } });
+    if (!user) {
+        throw new Error("User not found");
+    }
+    // Verify the pending email matches
+    if (!user.pendingEmail || user.pendingEmail !== newEmail) {
+        throw new Error("Email change request not found or email mismatch");
+    }
+    // Verify the code
+    if (!user.verificationCode || user.verificationCode !== code) {
+        throw new Error("Invalid verification code");
+    }
+    // Check expiry
+    if (!user.verificationCodeExpires || user.verificationCodeExpires < new Date()) {
+        throw new Error("Verification code has expired");
+    }
+    // Double-check email is still available (race condition protection)
+    const existing = await database_1.default.user.findFirst({
+        where: {
+            email: newEmail,
+            NOT: { id: userId },
+        },
+    });
+    if (existing) {
+        throw new Error("Email is no longer available");
+    }
+    // Update email and clear verification fields
+    const updatedUser = await database_1.default.user.update({
+        where: { id: userId },
+        data: {
+            email: newEmail,
+            pendingEmail: null,
+            verificationCode: null,
+            verificationCodeExpires: null,
+        },
+        select: {
+            id: true,
+            email: true,
+            name: true,
+            image: true,
+            role: true,
+            subscriptionTier: true,
+            subscriptionStatus: true,
+            trialEndsAt: true,
+        },
+    });
+    return updatedUser;
+};
+exports.verifyEmailChange = verifyEmailChange;
 //# sourceMappingURL=authService.js.map

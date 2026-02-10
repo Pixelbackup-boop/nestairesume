@@ -1,6 +1,7 @@
 export declare const config: {
     nodeEnv: string;
     isProduction: boolean;
+    isTest: boolean;
     port: number;
     host: string;
     secretKey: string;
@@ -19,6 +20,7 @@ export declare const config: {
     frontendUrl: string;
     brevoApiKey: string;
     emailFromAddress: string;
+    contactEmail: string;
     sentryDsn: string | undefined;
 };
 //# sourceMappingURL=env.d.ts.map

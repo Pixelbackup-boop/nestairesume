@@ -120,7 +120,7 @@ describe('Auth API Integration Tests', () => {
                 .post('/api/v1/auth/verify-email')
                 .send({
                 email: user.email,
-                code: 'wrong-code',
+                code: '000000', // Valid format but wrong code
             });
             expect(response.status).toBe(testUtils_1.HTTP_STATUS.BAD_REQUEST);
             expect(response.body.detail).toContain('Invalid');
@@ -194,7 +194,6 @@ describe('Auth API Integration Tests', () => {
                 subscriptionTier: user.subscriptionTier,
                 subscriptionStatus: user.subscriptionStatus,
                 trialEndsAt: user.trialEndsAt,
-                creditsRemaining: 10,
                 isSuspended: false,
                 createdAt: user.createdAt,
             });

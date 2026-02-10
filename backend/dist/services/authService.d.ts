@@ -15,8 +15,8 @@ export declare const getUserById: (userId: string) => Promise<{
     email: string;
     role: string;
     id: string;
+    image: string | null;
     subscriptionTier: string;
-    creditsRemaining: number;
     subscriptionStatus: string | null;
     isSuspended: boolean;
     trialEndsAt: Date | null;
@@ -71,6 +71,30 @@ export declare const changePassword: (userId: string, currentPassword: string, n
 }>;
 export declare const setPassword: (userId: string, newPassword: string) => Promise<{
     message: string;
+}>;
+interface UpdateProfileData {
+    name?: string;
+    avatarId?: number;
+}
+export declare const updateProfile: (userId: string, data: UpdateProfileData) => Promise<{
+    name: string;
+    email: string;
+    role: string;
+    id: string;
+    image: string | null;
+}>;
+export declare const requestEmailChange: (userId: string, newEmail: string) => Promise<{
+    message: string;
+}>;
+export declare const verifyEmailChange: (userId: string, newEmail: string, code: string) => Promise<{
+    name: string;
+    email: string;
+    role: string;
+    id: string;
+    image: string | null;
+    subscriptionTier: string;
+    subscriptionStatus: string | null;
+    trialEndsAt: Date | null;
 }>;
 export {};
 //# sourceMappingURL=authService.d.ts.map

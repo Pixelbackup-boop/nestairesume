@@ -29,21 +29,20 @@ function getLanguageLevelPercent(proficiency) {
 }
 const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], certifications = [], awards = [], references = [], fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], certifications = [], awards = [], references = [], customFields = [], fonts } = data;
     // Note: 'background' not destructured - this template always uses white body
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Inter');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
-    // Font size scaling based on user's size preference (small/medium/large)
-    // MUST match frontend styleHelpers.ts getScaledFontSizes() for identical content flow
-    // small: 12px base (0.857x), medium: 14px base (1x), large: 16px base (1.143x)
-    // Note: Header name stays fixed at 28px - only body content scales
-    const sizeMultiplier = fonts?.size === 'small' ? 0.857 : fonts?.size === 'large' ? 1.143 : 1;
+    // Font Scaling
+    const scale = (0, helpers_1.getFontScale)(fonts?.size);
+    const s = (px) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px) => Math.max(5, Math.round(px * scale));
     const fs = {
         name: '28px', // Fixed - header name box doesn't scale
-        sectionHeading: `${Math.round(14 * sizeMultiplier)}px`,
-        entryTitle: `${Math.round(12 * sizeMultiplier)}px`, // 12px matches frontend
-        body: `${Math.round(11 * sizeMultiplier)}px`, // 11px matches frontend
-        small: `${Math.round(10 * sizeMultiplier)}px`, // 10px matches frontend
+        sectionHeading: s(14),
+        entryTitle: s(12), // 12px matches frontend
+        body: s(11), // 11px matches frontend
+        small: s(10), // 10px matches frontend
     };
     // Parse dual color: primary = box BORDER, secondary = accent highlights
     // This makes both colors visually distinct in the template
@@ -57,8 +56,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
         </h3>
     `;
     // Circular progress for skills
-    const circleTextSize = `${Math.round(12 * sizeMultiplier)}px`;
-    const circleLabelSize = `${Math.round(11 * sizeMultiplier)}px`;
+    const circleTextSize = s(12);
+    const circleLabelSize = s(11);
     const CircularProgress = (value, label) => {
         const radius = 32;
         const circumference = 2 * Math.PI * radius;
@@ -116,27 +115,30 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; padding: 40px; box-sizing: border-box;">
 
             <!-- Header Area -->
-            <header data-paginate style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px;">
+            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px;">
 
                 <!-- Profile Avatar - Circle with image or initials -->
                 ${ProfileAvatar(personalInfo.profileImage, personalInfo.fullName || 'Your Name', 120)}
 
-                <!-- Name Box - Bordered Outline Style -->
-                <div style="background-color: #ffffff; border: 4px solid ${boxBorderColor}; padding: 32px 48px; display: inline-block;">
+                <!-- Name + Job Title -->
+                <div style="text-align: center;">
                     <h1 style="font-family: ${headingFont}; font-size: ${fs.name}; font-weight: 900; color: #1f2937; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; line-height: 1;">
                         ${(0, helpers_1.escapeHtml)(personalInfo.fullName || 'Your Name')}
                     </h1>
+                    ${personalInfo.jobTitle ? `
+                        <p style="font-family: ${bodyFont}; font-size: ${fs.body}; color: #6b7280; font-weight: 500; margin: 8px 0 0 0;">
+                            ${(0, helpers_1.escapeHtml)(personalInfo.jobTitle)}
+                        </p>
+                    ` : ''}
                 </div>
 
                 <!-- Contact Info - Right Aligned -->
                 <div style="text-align: right; font-size: ${fs.body}; color: #374151; line-height: 1.8; padding-top: 10px;">
                     ${personalInfo.phone ? `<div><strong>Phone:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.phone)}</div>` : ''}
                     ${personalInfo.email ? `<div><strong>Email:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.email)}</div>` : ''}
+                    ${personalInfo.location ? `<div><strong>Location:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.location)}</div>` : ''}
                     ${personalInfo.website ? `<div><strong>Web:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.website)}</div>` : ''}
-                    ${personalInfo.location ? `<div><strong>Loc:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.location)}</div>` : ''}
                     ${personalInfo.linkedin ? `<div><strong>LinkedIn:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</div>` : ''}
-                    ${personalInfo.nationality ? `<div><strong>Nationality:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
-                    ${personalInfo.idType && personalInfo.idNumber ? `<div><strong>${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}</div>` : ''}
                 </div>
             </header>
 
@@ -148,8 +150,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.profile, '&#128100;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.profile, (0, helpers_1.getIconSVG)('user', accentColor, sNum(16)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${(0, helpers_1.formatDescription)(personalInfo.summary)}
                             </p>
@@ -158,8 +160,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.experience, '&#128188;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.experience, (0, helpers_1.getIconSVG)('briefcase', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 20px;">
                                 ${experience.map(exp => `
                                     <div data-paginate="item">
@@ -187,8 +189,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Education (Left Column) -->
                     ${education.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.education, '&#127891;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.education, (0, helpers_1.getIconSVG)('graduation-cap', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(0, 2).map(edu => `
                                     <div data-paginate="item">
@@ -208,6 +210,25 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                             </div>
                         </section>
                     ` : ''}
+
+                    <!-- Personal Details -->
+                    ${personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) ? `
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.personalDetails, (0, helpers_1.getIconSVG)('id-card', accentColor, sNum(16)))}
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
+                                ${personalInfo.nationality ? `
+                                    <div><span style="font-weight: 600; color: #111827;">Nationality:</span> <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</span></div>
+                                ` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `
+                                    <div>
+                                        <span style="font-weight: 600; color: #111827;">
+                                            ${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:
+                                        </span> <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </section>
+                    ` : ''}
                 </div>
 
                 <!-- RIGHT COLUMN -->
@@ -215,7 +236,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Education (Right Column - additional) -->
                     ${education.length > 2 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
+                        <section style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.education + ' (Cont.)', '&#127891;')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(2).map(edu => `
@@ -237,8 +258,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.languages, '&#128483;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.languages, (0, helpers_1.getIconSVG)('languages', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
                                     <div data-paginate="item">${ProgressBar(lang.name, lang.level || getLanguageLevelPercent(lang.proficiency))}</div>
@@ -249,8 +270,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Skills (Circular) -->
                     ${skills.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.skills, '&#129309;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.skills, (0, helpers_1.getIconSVG)('users', accentColor, sNum(16)))}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px;">
                                 ${skills.map(skill => `<div data-paginate="item">${CircularProgress(skill.level ? skill.level * 20 : 80, skill.name)}</div>`).join('')}
                             </div>
@@ -259,8 +280,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Strengths (Bars) -->
                     ${strengths && strengths.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.strengths, '&#128187;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.strengths, (0, helpers_1.getIconSVG)('code', accentColor, sNum(16)))}
                             <div>
                                 ${strengths.map(str => `<div data-paginate="item">${ProgressBar(str.name, str.level ?? 80)}</div>`).join('')}
                             </div>
@@ -269,8 +290,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Interests -->
                     ${interests && interests.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.interests, '&#11088;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.interests, (0, helpers_1.getIconSVG)('star', accentColor, sNum(16)))}
                             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                                 ${interests.map(int => `
                                     <span data-paginate="item" style="font-size: ${fs.body}; font-weight: 500; color: #4b5563;">
@@ -283,11 +304,11 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.credentials, '&#127942;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.credentials, (0, helpers_1.getIconSVG)('award', accentColor, sNum(16)))}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
-                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Certifications</h4>
+                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${certifications.map(cert => `
                                             <div data-paginate="item">
@@ -300,7 +321,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                             ` : ''}
                             ${awards && awards.length > 0 ? `
                                 <div>
-                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">Awards & Achievements</h4>
+                                    <h4 style="font-size: ${fs.body}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 8px;">
                                         ${awards.map(award => `
                                             <div data-paginate="item">
@@ -315,37 +336,37 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.socialLinks, '&#128279;')}
+                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.socialLinks, (0, helpers_1.getIconSVG)('globe', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                ${personalInfo.twitter ? `
+                                ${personalInfo.x ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#128038;</span>
-                                        <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.twitter)}</span>
+                                        <span>${(0, helpers_1.getIconSVG)('x', accentColor, sNum(14))}</span>
+                                        <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.x)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.github ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#128187;</span>
+                                        <span>${(0, helpers_1.getIconSVG)('github', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.github)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.dribbble ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#127936;</span>
+                                        <span>${(0, helpers_1.getIconSVG)('dribbble', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.behance ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#127912;</span>
+                                        <span>${(0, helpers_1.getIconSVG)('behance', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.behance)}</span>
                                     </div>
                                 ` : ''}
                                 ${personalInfo.instagram ? `
                                     <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
-                                        <span>&#128247;</span>
+                                        <span>${(0, helpers_1.getIconSVG)('instagram', accentColor, sNum(14))}</span>
                                         <span style="color: #374151;">${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</span>
                                     </div>
                                 ` : ''}
@@ -355,8 +376,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- References -->
                     ${references && references.length > 0 ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.references, '&#128101;')}
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader(t.sections.references, (0, helpers_1.getIconSVG)('users', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
                                     <div data-paginate="item">
@@ -377,15 +398,15 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                         </section>
                     ` : ''}
 
-                    <!-- Custom Field -->
-                    ${personalInfo.customField && personalInfo.customFieldLabel ? `
-                        <section data-paginate style="margin-bottom: 24px;">
-                            ${SectionHeader((0, helpers_1.escapeHtml)(personalInfo.customFieldLabel), '&#128203;')}
+                    <!-- Custom Fields -->
+                    ${customFields.map(field => `
+                        <section style="margin-bottom: 24px;">
+                            ${SectionHeader((0, helpers_1.escapeHtml)(field.label), (0, helpers_1.getIconSVG)('id-card', accentColor, sNum(16)))}
                             <p style="font-size: ${fs.body}; color: #374151; line-height: 1.6;">
-                                ${(0, helpers_1.formatDescription)(personalInfo.customField)}
+                                ${(0, helpers_1.formatDescription)(field.content)}
                             </p>
                         </section>
-                    ` : ''}
+                    `).join('')}
                 </div>
             </div>
         </div>

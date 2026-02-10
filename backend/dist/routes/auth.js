@@ -3,16 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const authService_1 = require("../services/authService");
 const auth_1 = require("../middleware/auth");
+const validation_1 = require("../middleware/validation");
 const router = (0, express_1.Router)();
 // ==================== Registration ====================
 // POST /api/v1/auth/register - Register with email verification
-router.post("/register", async (req, res) => {
+router.post("/register", (0, validation_1.validateBody)(validation_1.registerSchema), async (req, res) => {
     try {
         const { email, password, name } = req.body;
-        if (!email || !password || !name) {
-            res.status(400).json({ detail: "Email, password, and name are required" });
-            return;
-        }
         const result = await (0, authService_1.registerUserWithVerification)(email, password, name);
         res.status(201).json(result);
     }
@@ -28,13 +25,9 @@ router.post("/register", async (req, res) => {
 });
 // ==================== Email Verification ====================
 // POST /api/v1/auth/verify-email
-router.post("/verify-email", async (req, res) => {
+router.post("/verify-email", (0, validation_1.validateBody)(validation_1.verifyEmailSchema), async (req, res) => {
     try {
         const { email, code } = req.body;
-        if (!email || !code) {
-            res.status(400).json({ detail: "Email and code are required" });
-            return;
-        }
         const result = await (0, authService_1.verifyEmailCode)(email, code);
         res.json(result);
     }
@@ -44,13 +37,9 @@ router.post("/verify-email", async (req, res) => {
     }
 });
 // POST /api/v1/auth/resend-code
-router.post("/resend-code", async (req, res) => {
+router.post("/resend-code", (0, validation_1.validateBody)(validation_1.resendCodeSchema), async (req, res) => {
     try {
         const { email } = req.body;
-        if (!email) {
-            res.status(400).json({ detail: "Email is required" });
-            return;
-        }
         const result = await (0, authService_1.resendVerificationCode)(email);
         res.json(result);
     }
@@ -61,15 +50,11 @@ router.post("/resend-code", async (req, res) => {
 });
 // ==================== Login ====================
 // POST /api/v1/auth/token - Login
-router.post("/token", async (req, res) => {
+router.post("/token", (0, validation_1.validateBody)(validation_1.loginSchema), async (req, res) => {
     try {
         // Support both form-urlencoded (OAuth2) and JSON
         const email = req.body.username || req.body.email;
         const password = req.body.password;
-        if (!email || !password) {
-            res.status(400).json({ detail: "Email and password are required" });
-            return;
-        }
         const token = await (0, authService_1.loginUser)(email, password);
         res.json(token);
     }
@@ -80,13 +65,9 @@ router.post("/token", async (req, res) => {
 });
 // ==================== OAuth ====================
 // POST /api/v1/auth/oauth - Handle OAuth sign-in from NextAuth
-router.post("/oauth", async (req, res) => {
+router.post("/oauth", (0, validation_1.validateBody)(validation_1.oauthSchema), async (req, res) => {
     try {
         const { provider, providerAccountId, email, name, image, accessToken, refreshToken } = req.body;
-        if (!provider || !providerAccountId || !email) {
-            res.status(400).json({ detail: "Provider, providerAccountId, and email are required" });
-            return;
-        }
         const result = await (0, authService_1.handleOAuthSignIn)({
             provider,
             providerAccountId,
@@ -106,13 +87,9 @@ router.post("/oauth", async (req, res) => {
 });
 // ==================== Password Reset ====================
 // POST /api/v1/auth/forgot-password
-router.post("/forgot-password", async (req, res) => {
+router.post("/forgot-password", (0, validation_1.validateBody)(validation_1.forgotPasswordSchema), async (req, res) => {
     try {
         const { email } = req.body;
-        if (!email) {
-            res.status(400).json({ detail: "Email is required" });
-            return;
-        }
         const result = await (0, authService_1.requestPasswordReset)(email);
         res.json(result);
     }
@@ -122,13 +99,9 @@ router.post("/forgot-password", async (req, res) => {
     }
 });
 // POST /api/v1/auth/reset-password
-router.post("/reset-password", async (req, res) => {
+router.post("/reset-password", (0, validation_1.validateBody)(validation_1.resetPasswordSchema), async (req, res) => {
     try {
         const { email, code, newPassword } = req.body;
-        if (!email || !code || !newPassword) {
-            res.status(400).json({ detail: "Email, code, and newPassword are required" });
-            return;
-        }
         const result = await (0, authService_1.resetPassword)(email, code, newPassword);
         res.json(result);
     }
@@ -156,18 +129,62 @@ router.get("/me", auth_1.authenticateToken, async (req, res) => {
         res.status(500).json({ detail: "Failed to get user" });
     }
 });
+// PATCH /api/v1/auth/profile - Update user profile (name and avatar only)
+router.patch("/profile", auth_1.authenticateToken, (0, validation_1.validateBody)(validation_1.updateProfileSchema), async (req, res) => {
+    try {
+        if (!req.user) {
+            res.status(401).json({ detail: "Not authenticated" });
+            return;
+        }
+        const { name, avatarId } = req.body;
+        const user = await (0, authService_1.updateProfile)(req.user.id, { name, avatarId });
+        res.json(user);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Profile update failed";
+        res.status(400).json({ detail: message });
+    }
+});
+// POST /api/v1/auth/request-email-change - Request email change with verification
+router.post("/request-email-change", auth_1.authenticateToken, (0, validation_1.validateBody)(validation_1.requestEmailChangeSchema), async (req, res) => {
+    try {
+        if (!req.user) {
+            res.status(401).json({ detail: "Not authenticated" });
+            return;
+        }
+        const { newEmail } = req.body;
+        const result = await (0, authService_1.requestEmailChange)(req.user.id, newEmail);
+        res.json(result);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Email change request failed";
+        res.status(400).json({ detail: message });
+    }
+});
+// POST /api/v1/auth/verify-email-change - Verify code and complete email change
+router.post("/verify-email-change", auth_1.authenticateToken, (0, validation_1.validateBody)(validation_1.verifyEmailChangeSchema), async (req, res) => {
+    try {
+        if (!req.user) {
+            res.status(401).json({ detail: "Not authenticated" });
+            return;
+        }
+        const { newEmail, code } = req.body;
+        const user = await (0, authService_1.verifyEmailChange)(req.user.id, newEmail, code);
+        res.json(user);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Email verification failed";
+        res.status(400).json({ detail: message });
+    }
+});
 // POST /api/v1/auth/change-password
-router.post("/change-password", auth_1.authenticateToken, async (req, res) => {
+router.post("/change-password", auth_1.authenticateToken, (0, validation_1.validateBody)(validation_1.changePasswordSchema), async (req, res) => {
     try {
         if (!req.user) {
             res.status(401).json({ detail: "Not authenticated" });
             return;
         }
         const { currentPassword, newPassword } = req.body;
-        if (!currentPassword || !newPassword) {
-            res.status(400).json({ detail: "Current password and new password are required" });
-            return;
-        }
         const result = await (0, authService_1.changePassword)(req.user.id, currentPassword, newPassword);
         res.json(result);
     }
@@ -177,17 +194,13 @@ router.post("/change-password", auth_1.authenticateToken, async (req, res) => {
     }
 });
 // POST /api/v1/auth/set-password - For OAuth users who want to add a password
-router.post("/set-password", auth_1.authenticateToken, async (req, res) => {
+router.post("/set-password", auth_1.authenticateToken, (0, validation_1.validateBody)(validation_1.setPasswordSchema), async (req, res) => {
     try {
         if (!req.user) {
             res.status(401).json({ detail: "Not authenticated" });
             return;
         }
         const { password } = req.body;
-        if (!password) {
-            res.status(400).json({ detail: "Password is required" });
-            return;
-        }
         const result = await (0, authService_1.setPassword)(req.user.id, password);
         res.json(result);
     }

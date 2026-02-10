@@ -156,9 +156,9 @@ describe('Subscription Limits Middleware', () => {
                 }));
             });
         });
-        describe('PLATINUM tier (Unlimited downloads)', () => {
-            it('should allow unlimited downloads', async () => {
-                const user = (0, testUtils_1.createPlatinumUser)({ downloadCount: 500 });
+        describe('PLATINUM tier (120 downloads/month)', () => {
+            it('should allow downloads under limit', async () => {
+                const user = (0, testUtils_1.createPlatinumUser)({ downloadCount: 100 });
                 mockReq = { user: { userId: user.id, id: user.id, email: user.email, role: user.role } };
                 mockPrisma.user.findUnique.mockResolvedValue(user);
                 await (0, subscriptionLimits_1.checkDownloadLimit)(mockReq, mockRes, mockNext);
@@ -177,15 +177,15 @@ describe('Subscription Limits Middleware', () => {
     // ==================== AI LIMIT TESTS ====================
     describe('checkAiLimit', () => {
         describe('Monthly limits by tier', () => {
-            it('STARTER: should allow up to 2 AI generations', async () => {
-                const user = (0, testUtils_1.createStarterUser)({ aiUsedCount: 2 });
+            it('STARTER: should allow up to 49 AI generations', async () => {
+                const user = (0, testUtils_1.createStarterUser)({ aiUsedCount: 49 });
                 mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
                 mockPrisma.user.findUnique.mockResolvedValue(user);
                 await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
                 expect(mockNext).toHaveBeenCalled();
             });
-            it('STARTER: should BLOCK at 3 AI generations', async () => {
-                const user = (0, testUtils_1.createStarterUser)({ aiUsedCount: 3 });
+            it('STARTER: should BLOCK at 50 AI generations', async () => {
+                const user = (0, testUtils_1.createStarterUser)({ aiUsedCount: 50 });
                 mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
                 mockPrisma.user.findUnique.mockResolvedValue(user);
                 await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
@@ -195,15 +195,15 @@ describe('Subscription Limits Middleware', () => {
                     code: testUtils_1.ERROR_CODES.AI_LIMIT_REACHED,
                 }));
             });
-            it('PLATINUM: should allow up to 99 AI generations', async () => {
-                const user = (0, testUtils_1.createPlatinumUser)({ aiUsedCount: 99 });
+            it('PLATINUM: should allow up to 499 AI generations', async () => {
+                const user = (0, testUtils_1.createPlatinumUser)({ aiUsedCount: 499 });
                 mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
                 mockPrisma.user.findUnique.mockResolvedValue(user);
                 await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
                 expect(mockNext).toHaveBeenCalled();
             });
-            it('PLATINUM: should BLOCK at 100 AI generations', async () => {
-                const user = (0, testUtils_1.createPlatinumUser)({ aiUsedCount: 100 });
+            it('PLATINUM: should BLOCK at 500 AI generations', async () => {
+                const user = (0, testUtils_1.createPlatinumUser)({ aiUsedCount: 500 });
                 mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
                 mockPrisma.user.findUnique.mockResolvedValue(user);
                 await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
@@ -273,7 +273,7 @@ describe('Subscription Limits Middleware', () => {
                 tier: 'starter',
                 usage: expect.objectContaining({
                     cv: { used: 10, limit: 30 },
-                    ai: { used: 5, limit: 10 },
+                    ai: { used: 5, limit: 50 },
                     download: { used: 2, limit: 3 },
                     coverLetter: { used: 3, limit: 10 },
                 }),

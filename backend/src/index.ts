@@ -70,6 +70,16 @@ app.use("/api/v1/tawk", tawkRoutes);
 app.use("/api/v1/interview", mockInterviewRoutes);
 app.use("/api/v1/contact", contactRoutes);
 
+// Process-level error handlers
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled promise rejection:', reason);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err);
+  process.exit(1);
+});
+
 // Start server
 app.listen(config.port, config.host, async () => {
   console.log(`🚀 Server running at http://${config.host}:${config.port}`);

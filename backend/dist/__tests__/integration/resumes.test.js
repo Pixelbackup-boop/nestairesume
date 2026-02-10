@@ -101,8 +101,8 @@ describe('Resumes API Integration Tests', () => {
             });
             expect(response.status).toBe(testUtils_1.HTTP_STATUS.UNAUTHORIZED);
         });
+        // CV limit checking is handled by checkCvLimit middleware
         it('should return 429 when CV limit reached', async () => {
-            // User at CV limit
             const userAtLimit = (0, testUtils_1.createStarterUser)({
                 cvCreatedCount: testUtils_1.PLAN_LIMITS.starter.cvLimit,
             });

@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wrapHtml = void 0;
-const helpers_1 = require("./helpers");
+const fontCache_1 = require("./fontCache");
 // RTL locales list
 const RTL_LOCALES = ['ar', 'he', 'fa', 'ur'];
 /**
@@ -17,51 +17,60 @@ const isRtl = (locale) => RTL_LOCALES.includes(locale);
  */
 const getDirection = (locale) => isRtl(locale) ? 'rtl' : 'ltr';
 /**
- * Generates Google Fonts link tags for the specified fonts
+ * Generates inline @font-face CSS from cached fonts (no network requests)
  */
-const generateFontLinks = (headingFont, bodyFont, locale) => {
-    const fonts = new Set();
-    const headingUrl = (0, helpers_1.getGoogleFontUrl)(headingFont);
-    const bodyUrl = (0, helpers_1.getGoogleFontUrl)(bodyFont);
-    if (headingUrl)
-        fonts.add(headingUrl);
-    if (bodyUrl)
-        fonts.add(bodyUrl);
-    // Add Arabic font for RTL locales
-    if (isRtl(locale)) {
-        fonts.add('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+const generateFontStyles = (headingFont, bodyFont, locale) => {
+    const styles = [];
+    const headingStyles = (0, fontCache_1.getCachedFontStyles)(headingFont);
+    if (headingStyles)
+        styles.push(headingStyles);
+    if (bodyFont !== headingFont) {
+        const bodyStyles = (0, fontCache_1.getCachedFontStyles)(bodyFont);
+        if (bodyStyles)
+            styles.push(bodyStyles);
     }
-    return Array.from(fonts)
-        .map(url => `<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="${url}" rel="stylesheet">`)
-        .join('\n');
+    if (isRtl(locale)) {
+        const arabicStyles = (0, fontCache_1.getCachedFontStyles)('Noto Sans Arabic');
+        if (arabicStyles)
+            styles.push(arabicStyles);
+    }
+    return styles.length > 0 ? `<style>${styles.join('\n')}</style>` : '';
 };
-/**
- * Wraps template HTML content with a complete HTML document
- */
 const wrapHtml = (content, options) => {
-    const { headingFont, bodyFont, locale = 'en' } = options;
-    const fontLinks = generateFontLinks(headingFont, bodyFont, locale);
+    const { headingFont, bodyFont, locale = 'en', marginStrategy = 'standard' } = options;
+    const fontStyles = generateFontStyles(headingFont, bodyFont, locale);
     const dir = getDirection(locale);
     const isRtlLocale = isRtl(locale);
+    // Margin logic
+    let pageMargin = '40px 0 40px 0';
+    let firstPageMargin = '0 0 40px 0'; // Default: Top handled by content/padding on P1
+    if (marginStrategy === 'sidebar') {
+        // Sidebar templates: Use 0 page margin for full bleed. 
+        // Text safety is handled by internal Table Spacers (thead/tfoot).
+        pageMargin = '0';
+        firstPageMargin = '0';
+    }
+    else if (marginStrategy === 'full-bleed') {
+        // Header templates usually want full control
+        pageMargin = '0';
+        firstPageMargin = '0';
+    }
     return `<!DOCTYPE html>
 <html lang="${locale}" dir="${dir}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
-    ${fontLinks}
-    <script src="https://cdn.tailwindcss.com"></script>
+    ${fontStyles}
     <style>
         /* A4 Page Setup */
         @page {
             size: A4;
-            margin: 40px 0 40px 0; /* 40px top and bottom for consistent page spacing */
+            margin: ${pageMargin};
         }
 
         @page :first {
-            margin: 0 0 40px 0; /* First page: no top margin (header templates), 40px bottom */
+            margin: ${firstPageMargin};
         }
 
         * {

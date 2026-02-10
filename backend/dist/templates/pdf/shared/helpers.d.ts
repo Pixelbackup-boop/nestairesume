@@ -58,13 +58,22 @@ export declare const fontSizes: {
         subheading: string;
     };
 };
+/**
+ * Get font scale factor based on size preference.
+ * Matches frontend scaling logic:
+ * Small (12px base) -> 0.857 (12/14)
+ * Medium (14px base) -> 1.0 (14/14)
+ * Large (16px base) -> 1.143 (16/14)
+ */
+export declare const getFontScale: (size?: "small" | "medium" | "large") => number;
 export declare const getBackgroundCSS: (bg?: PdfBackgroundSettings) => string;
 export declare const getImageBorderRadius: (shape?: "circle" | "rounded" | "square") => string;
 export declare const formatIdType: (idType?: string) => string;
 export declare const escapeHtml: (text: string | undefined | null) => string;
 export declare const formatDescription: (text: string | undefined | null) => string;
-export type IconName = 'email' | 'phone' | 'location' | 'linkedin' | 'website' | 'github' | 'calendar' | 'building' | 'briefcase' | 'graduation-cap' | 'award' | 'users' | 'lightbulb' | 'globe' | 'star' | 'heart' | 'music' | 'camera' | 'plane' | 'book' | 'coffee' | 'code' | 'zap' | 'flag' | 'user' | 'wrench' | 'palette' | 'tent' | 'languages';
-export declare const getIconSVG: (name: IconName, color?: string, size?: number) => string;
+export declare const formatDescriptionWithBullets: (text: string | undefined | null) => string;
+export type IconName = 'email' | 'phone' | 'location' | 'linkedin' | 'website' | 'github' | 'calendar' | 'building' | 'briefcase' | 'graduation-cap' | 'award' | 'users' | 'lightbulb' | 'globe' | 'star' | 'heart' | 'music' | 'camera' | 'plane' | 'book' | 'coffee' | 'code' | 'zap' | 'flag' | 'user' | 'wrench' | 'palette' | 'tent' | 'languages' | 'instagram' | 'x' | 'dribbble' | 'behance' | 'smartphone' | 'id-card' | 'monitor' | 'bike' | 'cooking-pot' | 'gamepad' | 'film' | 'book-open' | 'running' | 'swimming' | 'hiking' | 'football' | 'tennis' | 'yoga' | 'moon' | 'diamond' | 'link';
+export declare const getIconSVG: (name: IconName, color?: string, size?: number, filled?: boolean) => string;
 /**
  * Convert language proficiency string to numeric level (0-100)
  * Handles cases where level might be undefined/missing

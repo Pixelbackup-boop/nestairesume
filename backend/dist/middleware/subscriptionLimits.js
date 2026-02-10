@@ -9,7 +9,7 @@ const stripeService_1 = require("../services/stripeService");
 // Check if user has reached their CV creation limit
 const checkCvLimit = async (req, res, next) => {
     try {
-        const userId = req.user?.userId;
+        const userId = req.user?.userId || req.user?.id;
         if (!userId) {
             return res.status(401).json({ error: "Unauthorized" });
         }
@@ -54,7 +54,7 @@ exports.checkCvLimit = checkCvLimit;
 // Check if user has reached their AI generation limit
 const checkAiLimit = async (req, res, next) => {
     try {
-        const userId = req.user?.userId;
+        const userId = req.user?.userId || req.user?.id;
         if (!userId) {
             return res.status(401).json({ error: "Unauthorized" });
         }
@@ -124,17 +124,13 @@ const checkAiLimit = async (req, res, next) => {
 };
 exports.checkAiLimit = checkAiLimit;
 // Check if user has reached their download limit
-// For anonymous users with optionalAuthenticate, skip the check
+// Authentication is now required for downloads
 const checkDownloadLimit = async (req, res, next) => {
     try {
         const userId = req.user?.userId || req.user?.id;
-        // If no user (anonymous), skip limit check - allow limited anonymous downloads
-        // or require auth depending on your business model
+        // Require authentication for downloads
         if (!userId) {
-            // Option 1: Allow anonymous downloads (no tracking)
-            return next();
-            // Option 2: Require authentication
-            // return res.status(401).json({ error: "Please sign in to download" });
+            return res.status(401).json({ error: "Please sign in to download", code: "AUTH_REQUIRED" });
         }
         const user = await database_1.default.user.findUnique({
             where: { id: userId },
@@ -177,7 +173,7 @@ exports.checkDownloadLimit = checkDownloadLimit;
 // Check if user has reached their cover letter limit
 const checkCoverLetterLimit = async (req, res, next) => {
     try {
-        const userId = req.user?.userId;
+        const userId = req.user?.userId || req.user?.id;
         if (!userId) {
             return res.status(401).json({ error: "Unauthorized" });
         }

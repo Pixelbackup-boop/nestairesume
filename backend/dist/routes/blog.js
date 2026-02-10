@@ -38,6 +38,7 @@ router.get("/", async (req, res) => {
         if (tag) {
             filteredPosts = filteredPosts.filter(post => post.tags.some((t) => t.toLowerCase() === tag.toLowerCase()));
         }
+        res.set("Cache-Control", "public, max-age=60, stale-while-revalidate=300");
         res.json({
             posts: filteredPosts,
             total: tag ? filteredPosts.length : total,

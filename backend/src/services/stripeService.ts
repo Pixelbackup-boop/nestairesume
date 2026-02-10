@@ -115,6 +115,16 @@ export const createCheckoutSession = async (
   const user = await prisma.user.findUnique({ where: { id: userId } });
   const canUseTrial = planConfig.hasTrial && !user?.hasUsedTrial;
 
+  // Cancel existing subscription to prevent double-charging
+  if (user?.subscriptionId) {
+    try {
+      await stripe.subscriptions.cancel(user.subscriptionId);
+    } catch (err) {
+      // Old sub may already be cancelled — safe to ignore
+      console.warn("Could not cancel old subscription:", (err as Error).message);
+    }
+  }
+
   const session = await stripe.checkout.sessions.create({
     customer: customerId,
     mode: "subscription",
@@ -241,6 +251,8 @@ const handleCheckoutComplete = async (session: Stripe.Checkout.Session): Promise
       cvCreatedCount: 0,
       aiUsedCount: 0,
       aiUsedToday: 0,
+      downloadCount: 0,
+      coverLetterCount: 0,
       lastAiResetDate: new Date(),
     },
   });
@@ -319,6 +331,8 @@ const handleInvoicePaid = async (invoice: Stripe.Invoice): Promise<void> => {
       cvCreatedCount: 0,
       aiUsedCount: 0,
       aiUsedToday: 0,
+      downloadCount: 0,
+      coverLetterCount: 0,
       lastAiResetDate: new Date(),
       subscriptionStatus: "active", // No longer trialing after first payment
       trialEndsAt: null,

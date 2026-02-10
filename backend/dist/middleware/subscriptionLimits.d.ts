@@ -10,7 +10,7 @@ interface AuthenticatedRequest extends Request {
 }
 export declare const checkCvLimit: (req: AuthenticatedRequest, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>;
 export declare const checkAiLimit: (req: AuthenticatedRequest, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>;
-export declare const checkDownloadLimit: (req: AuthenticatedRequest, res: Response, next: NextFunction) => Promise<void | Response<any, Record<string, any>>>;
+export declare const checkDownloadLimit: (req: AuthenticatedRequest, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>;
 export declare const checkCoverLetterLimit: (req: AuthenticatedRequest, res: Response, next: NextFunction) => Promise<Response<any, Record<string, any>> | undefined>;
 export declare const incrementCvCount: (userId: string) => Promise<void>;
 export declare const incrementAiCount: (userId: string) => Promise<void>;

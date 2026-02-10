@@ -28,37 +28,31 @@ const icons = {
 };
 const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], awards = [], certifications = [], references = [], fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], awards = [], certifications = [], references = [], customFields = [], fonts } = data;
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Merriweather');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
     const sizeConfig = data.fonts?.size || 'medium'; // 'small' | 'medium' | 'large'
-    // Calculate font sizes matching frontend styleHelpers.tsx
-    // multiplier: small=0.857, medium=1, large=1.143 (approx)
-    // based on styleHelpers: sizeMult = baseSize / 14.
-    // We can simplify by pre-calculating or using a helper if available, but here we can derive.
-    const getSizes = (size) => {
-        const mult = size === 'small' ? 0.857 : size === 'large' ? 1.143 : 1;
-        const calc = (val) => `${Math.round(val * mult)}px`;
-        return {
-            name: calc(32),
-            jobTitle: calc(14),
-            sectionHeading: calc(14),
-            entryTitle: calc(12),
-            body: calc(11),
-            small: calc(10)
-        };
+    // Font Scaling
+    const scale = (0, helpers_1.getFontScale)(fonts?.size);
+    const s = (px) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sizes = {
+        name: s(32),
+        jobTitle: s(14),
+        sectionHeading: s(14),
+        entryTitle: s(12),
+        body: s(11),
+        small: s(10)
     };
-    const sizes = getSizes(sizeConfig);
-    // Colors
-    const headerBg = '#1f1f1f'; // Dark Grey/Black
-    const accentColor = data.customThemeColor || theme.primary || '#eab308'; // Yellow 500
+    // Colors — dual color: primary = header bg, secondary = accent
+    const { primary: headerBgColor, secondary: accentColor } = (0, helpers_1.parseDualColor)(data.customThemeColor, { primary: '#1f1f1f', secondary: '#eab308' });
+    const headerText = (0, helpers_1.getContrastText)(headerBgColor);
     // Dimensions
     const headerHeight = 180;
     const photoSize = 150;
     const photoOffset = photoSize / 3;
     // Helper for Section Headers
     const SectionHeader = (title, iconName) => `
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; border-bottom: 2px solid #f3f4f6; padding-bottom: 8px; page-break-after: avoid;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; border-bottom: 2px solid #f3f4f6; padding-bottom: 8px;">
             <span style="display: flex; align-items: center; justify-content: center; color: ${accentColor};">${icons[iconName] || icons.star}</span>
             <h3 style="font-family: ${headingFont}; font-size: ${sizes.sectionHeading}; font-weight: 800; color: #111827; text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">
                 ${title}
@@ -67,7 +61,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
     `;
     // Progress bar with striped pattern
     const StripedProgressBar = (label, value) => `
-        <div style="margin-bottom: 12px; page-break-inside: avoid;">
+        <div data-paginate="item" style="margin-bottom: 12px; page-break-inside: avoid;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: ${sizes.body};">
                 <span style="font-weight: 500;">${(0, helpers_1.escapeHtml)(label)}</span>
             </div>
@@ -88,46 +82,20 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
             ${(0, helpers_1.escapeHtml)(personalInfo.fullName?.charAt(0) || '?')}
         </div>
     `;
-    const styles = `
-        <style>
-            @page {
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-            @page :first {
-                margin-top: 0;
-            }
-        </style>
-    `;
     return `
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${sizes.body}; background-color: #ffffff; color: #374151; position: relative; box-sizing: border-box;">
-            ${styles}
             <!-- Header Area -->
-            <header style="height: ${headerHeight}px; background-color: ${headerBg}; position: relative; margin-bottom: ${photoOffset + 40}px; overflow: visible;">
-
-                <!-- Decorative Pattern - Chain Link (dynamic color from theme, scaled for PDF) -->
-                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.4; pointer-events: none;">
-                    <defs>
-                        <pattern id="pattern-chain-link" x="0" y="0" width="16" height="13" patternUnits="userSpaceOnUse">
-                            <path
-                                d="M7 0v1.997C7 3.932 5.429 5.5 3.5 5.5c-1.933 0-3.5-1.569-3.5-3.503V0h1v2.003C1 3.383 2.12 4.5 3.5 4.5c1.378 0 2.5-1.118 2.5-2.498V0h1zm0 13v-2.997C7 8.069 5.433 6.5 3.5 6.5c-1.929 0-3.5 1.569-3.5 3.503V13h1v-3.003C1 8.618 2.122 7.5 3.5 7.5c1.38 0 2.5 1.118 2.5 2.498V13h1zm1-9.497C8 1.568 9.571 0 11.5 0c1.933 0 3.5 1.569 3.5 3.503v4.994C15 10.432 13.429 12 11.5 12c-1.933 0-3.5-1.569-3.5-3.503V3.503zm1-.005C9 2.118 10.122 1 11.5 1c1.38 0 2.5 1.118 2.5 2.498v5.005C14 9.883 12.878 11 11.5 11c-1.38 0-2.5-1.118-2.5-2.498V3.498z"
-                                fill="${accentColor}"
-                                fill-rule="evenodd"
-                            />
-                        </pattern>
-                    </defs>
-                    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-chain-link)"/>
-                </svg>
+            <header style="height: ${headerHeight}px; background: radial-gradient(ellipse at 10% 0%, ${accentColor}44, transparent 60%), radial-gradient(ellipse at 90% 100%, ${accentColor}22, transparent 60%), linear-gradient(160deg, ${headerBgColor}, ${headerBgColor}); position: relative; margin-bottom: ${photoOffset + 40}px; overflow: visible;">
 
                 <div style="padding: 32px 40px; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; position: relative; z-index: 10;">
-                    <h1 style="font-family: ${headingFont}; font-size: ${sizes.name}; font-weight: 700; color: white; text-align: right; margin-bottom: 4px; letter-spacing: 0.05em;">
+                    <h1 style="font-family: ${headingFont}; font-size: ${sizes.name}; font-weight: 700; color: ${headerText}; text-align: right; margin-bottom: 4px; letter-spacing: 0.05em;">
                         ${(0, helpers_1.escapeHtml)(personalInfo.fullName || 'Your Name')}
                     </h1>
-                    <p style="font-size: ${sizes.jobTitle}; color: white; font-weight: 600; text-transform: uppercase; text-align: right; margin-bottom: 12px;">
+                    <p style="font-size: ${sizes.jobTitle}; color: ${headerText}; font-weight: 600; text-transform: uppercase; text-align: right; margin-bottom: 12px;">
                         ${(0, helpers_1.escapeHtml)(personalInfo.jobTitle || 'Job Title')}
                     </p>
 
-                    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; color: #d1d5db; font-size: ${sizes.small};">
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; color: ${headerText}cc; font-size: ${sizes.small};">
                         ${personalInfo.email ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.email)}</span>` : ''}
                         ${personalInfo.phone ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.phone)}</span>` : ''}
                         ${personalInfo.location ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.location)}</span>` : ''}
@@ -159,7 +127,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                             ${SectionHeader(t.sections.experience, 'briefcase')}
                             <div style="display: flex; flex-direction: column; gap: 24px;">
                                 ${experience.map(exp => `
-                                    <div style="page-break-inside: avoid;">
+                                    <div data-paginate="item" style="page-break-inside: avoid;">
                                         <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 2px;">
                                             <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}; color: #111827;">${(0, helpers_1.escapeHtml)(exp.title)}</h4>
                                             <span style="font-size: ${sizes.small}; color: #6b7280; font-style: italic;">
@@ -183,7 +151,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                             ${SectionHeader(t.sections.education, 'graduationCap')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.map(edu => `
-                                    <div style="page-break-inside: avoid;">
+                                    <div data-paginate="item" style="page-break-inside: avoid;">
                                         <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}; color: #111827;">${(0, helpers_1.escapeHtml)(edu.degree)}</h4>
                                         <p style="font-size: ${sizes.body}; font-weight: 500; color: ${accentColor};">
                                             ${(0, helpers_1.escapeHtml)(edu.school)}, ${(0, helpers_1.escapeHtml)(edu.city)}
@@ -193,6 +161,25 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                                         </p>
                                     </div>
                                 `).join('')}
+                            </div>
+                        </section>
+                    ` : ''}
+
+                    <!-- Personal Details -->
+                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                        <section style="margin-bottom: 32px;">
+                            ${SectionHeader(t.sections.personalDetails, 'fileText')}
+                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
+                                ${personalInfo.nationality ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
+                                ${personalInfo.idType && personalInfo.idNumber ? `
+                                    <div data-paginate="item" style="page-break-inside: avoid;">
+                                        <span style="font-weight: 600;">
+                                            ${personalInfo.idType === 'id' ? 'ID' :
+        personalInfo.idType === 'passport' ? 'Passport' :
+            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        </span> ${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}
+                                    </div>
+                                ` : ''}
                             </div>
                         </section>
                     ` : ''}
@@ -217,7 +204,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                             ${SectionHeader(t.sections.languages, 'messageCircle')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
-                                    <div style="display: flex; justify-content: space-between; font-size: ${sizes.body}; page-break-inside: avoid;">
+                                    <div data-paginate="item" style="display: flex; justify-content: space-between; font-size: ${sizes.body}; page-break-inside: avoid;">
                                         <span style="font-weight: 500;">${(0, helpers_1.escapeHtml)(lang.name)}</span>
                                         <span style="font-size: ${sizes.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(lang.proficiency)}</span>
                                     </div>
@@ -232,7 +219,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                             ${SectionHeader(t.sections.strengths, 'zap')}
                             <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                                 ${strengths.map(str => `
-                                    <span style="font-size: ${sizes.small}; font-weight: 600; color: ${accentColor}; border: 1px solid ${accentColor}; padding: 2px 8px; border-radius: 12px; page-break-inside: avoid; display: inline-block;">
+                                    <span data-paginate="item" style="font-size: ${sizes.small}; font-weight: 600; color: ${accentColor}; border: 1px solid ${accentColor}; padding: 2px 8px; border-radius: 12px; page-break-inside: avoid; display: inline-block;">
                                         ${(0, helpers_1.escapeHtml)(str.name)}
                                     </span>
                                 `).join('')}
@@ -246,7 +233,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                             ${SectionHeader(t.sections.interests, 'star')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${interests.map(int => `
-                                    <span style="font-size: ${sizes.small}; background-color: #f3f4f6; padding: 4px 8px; border-radius: 4px; color: #374151; border-left: 3px solid ${accentColor};">
+                                    <span data-paginate="item" style="font-size: ${sizes.small}; background-color: #f3f4f6; padding: 4px 8px; border-radius: 4px; color: #374151; border-left: 3px solid ${accentColor}; page-break-inside: avoid; display: inline-block;">
                                         ${(0, helpers_1.escapeHtml)(int.name)}
                                     </span>
                                 `).join('')}
@@ -263,7 +250,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                                     <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${certifications.map(cert => `
-                                            <div style="font-size: ${sizes.body}; page-break-inside: avoid;">
+                                            <div data-paginate="item" style="font-size: ${sizes.body}; page-break-inside: avoid;">
                                                 <p style="font-weight: 700; color: #111827;">${(0, helpers_1.escapeHtml)(cert.name)}</p>
                                                 <p style="font-size: ${sizes.small}; color: #6b7280;">
                                                     ${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
@@ -278,7 +265,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                                     <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                     <div style="display: flex; flex-direction: column; gap: 12px;">
                                         ${awards.map(awr => `
-                                            <div style="font-size: ${sizes.body}; page-break-inside: avoid;">
+                                            <div data-paginate="item" style="font-size: ${sizes.body}; page-break-inside: avoid;">
                                                 <p style="font-weight: 700; color: #111827;">${(0, helpers_1.escapeHtml)(awr.title)}</p>
                                                 <p style="font-size: ${sizes.small}; color: #6b7280;">
                                                     ${(0, helpers_1.escapeHtml)(awr.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(awr.date, locale)}
@@ -292,16 +279,16 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
                         <section style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.socialLinks, 'link')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
-                                ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</div>` : ''}
-                                ${personalInfo.twitter ? `<div><span style="font-weight: 600;">Twitter:</span> ${(0, helpers_1.escapeHtml)(personalInfo.twitter)}</div>` : ''}
-                                ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</div>` : ''}
-                                ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
-                                ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</div>` : ''}
-                                ${personalInfo.instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</div>` : ''}
+                                ${personalInfo.linkedin ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">LinkedIn:</span> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</div>` : ''}
+                                ${personalInfo.x ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">X:</span> ${(0, helpers_1.escapeHtml)(personalInfo.x)}</div>` : ''}
+                                ${personalInfo.github ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">GitHub:</span> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</div>` : ''}
+                                ${personalInfo.dribbble ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Dribbble:</span> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
+                                ${personalInfo.behance ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Behance:</span> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</div>` : ''}
+                                ${personalInfo.instagram ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Instagram:</span> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</div>` : ''}
                             </div>
                         </section>
                     ` : ''}
@@ -312,7 +299,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                             ${SectionHeader(t.sections.references, 'clipboardList')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
-                                    <div style="page-break-inside: avoid;">
+                                    <div data-paginate="item" style="page-break-inside: avoid;">
                                         <div style="font-weight: 700; font-size: ${sizes.body}; color: #111827;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
                                         <div style="font-size: ${sizes.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
                                         ${ref.email ? `<div style="font-size: ${sizes.small}; color: #374151;">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
@@ -323,32 +310,13 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                         </section>
                     ` : ''}
 
-                    <!-- Personal Details -->
-                    ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
+                    <!-- Custom Fields -->
+                    ${customFields.map(field => `
                         <section style="margin-bottom: 32px;">
-                            ${SectionHeader(t.sections.personalDetails, 'fileText')}
-                            <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
-                                ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
-                                ${personalInfo.idType && personalInfo.idNumber ? `
-                                    <div>
-                                        <span style="font-weight: 600;">
-                                            ${personalInfo.idType === 'id' ? 'ID' :
-        personalInfo.idType === 'passport' ? 'Passport' :
-            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
-                                        </span> ${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}
-                                    </div>
-                                ` : ''}
-                            </div>
+                            ${SectionHeader((0, helpers_1.escapeHtml)(field.label), 'pin')}
+                            <p data-paginate="item" style="font-size: ${sizes.body}; line-height: 1.6; page-break-inside: avoid;">${(0, helpers_1.formatDescription)(field.content)}</p>
                         </section>
-                    ` : ''}
-
-                    <!-- Custom Field -->
-                    ${personalInfo.customField && personalInfo.customFieldLabel ? `
-                        <section style="margin-bottom: 32px;">
-                            ${SectionHeader((0, helpers_1.escapeHtml)(personalInfo.customFieldLabel), 'pin')}
-                            <p style="font-size: ${sizes.body}; line-height: 1.6;">${(0, helpers_1.formatDescription)(personalInfo.customField)}</p>
-                        </section>
-                    ` : ''}
+                    `).join('')}
                 </div>
             </div>
         </div>

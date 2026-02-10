@@ -2,10 +2,10 @@ export declare const getSettings: () => Promise<{
     id: string;
     createdAt: Date;
     updatedAt: Date;
+    enabled: boolean;
     postsPerDay: number;
     startHour: number;
     endHour: number;
-    enabled: boolean;
     authorName: string;
 }>;
 export declare const updateSettings: (data: {
@@ -18,10 +18,10 @@ export declare const updateSettings: (data: {
     id: string;
     createdAt: Date;
     updatedAt: Date;
+    enabled: boolean;
     postsPerDay: number;
     startHour: number;
     endHour: number;
-    enabled: boolean;
     authorName: string;
 }>;
 export declare const generateRandomPostTimes: (count: number, startHour: number, endHour: number, date?: Date) => Date[];

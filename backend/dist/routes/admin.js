@@ -36,6 +36,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const auth_1 = require("../middleware/auth");
 const adminService = __importStar(require("../services/adminService"));
+const adSettingsService = __importStar(require("../services/adSettingsService"));
+const tawkSettingsService = __importStar(require("../services/tawkSettingsService"));
+const subscriptionLimits_1 = require("../middleware/subscriptionLimits");
+const stripeService_1 = require("../services/stripeService");
+const client_1 = require("@prisma/client");
+const prisma = new client_1.PrismaClient();
 const router = (0, express_1.Router)();
 // All admin routes require authentication + admin role
 router.use(auth_1.authenticateToken);
@@ -54,11 +60,17 @@ router.get("/dashboard", async (_req, res) => {
 // User management
 router.get("/users", async (req, res) => {
     try {
-        const skip = parseInt(req.query.skip) || 0;
+        const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 20;
         const search = req.query.search;
+        const skip = (page - 1) * limit;
         const result = await adminService.getAllUsers(skip, limit, search);
-        res.json(result);
+        res.json({
+            ...result,
+            page,
+            limit,
+            totalPages: Math.ceil(result.total / limit),
+        });
     }
     catch (error) {
         const message = error instanceof Error ? error.message : "Failed to get users";
@@ -67,12 +79,15 @@ router.get("/users", async (req, res) => {
 });
 router.get("/users/:id", async (req, res) => {
     try {
-        const user = await adminService.getUserWithResumes(req.params.id);
+        const [user, usageStatus] = await Promise.all([
+            adminService.getUserWithResumes(req.params.id),
+            (0, subscriptionLimits_1.getUsageStatus)(req.params.id),
+        ]);
         if (!user) {
             res.status(404).json({ detail: "User not found" });
             return;
         }
-        res.json(user);
+        res.json({ ...user, usageStatus });
     }
     catch (error) {
         const message = error instanceof Error ? error.message : "Failed to get user";
@@ -81,7 +96,7 @@ router.get("/users/:id", async (req, res) => {
 });
 router.put("/users/:id", async (req, res) => {
     try {
-        const { name, role, subscriptionTier, creditsRemaining, isSuspended } = req.body;
+        const { name, role, subscriptionTier, isSuspended } = req.body;
         // Prevent admin from demoting themselves
         if (req.params.id === req.user?.id && role && role !== "admin") {
             res.status(400).json({ detail: "Cannot demote your own admin account" });
@@ -91,7 +106,6 @@ router.put("/users/:id", async (req, res) => {
             name,
             role,
             subscriptionTier,
-            creditsRemaining,
             isSuspended,
         });
         res.json(user);
@@ -205,6 +219,16 @@ router.get("/payments/stats", async (_req, res) => {
         res.status(500).json({ detail: message });
     }
 });
+router.get("/payments/analytics", async (_req, res) => {
+    try {
+        const analytics = await adminService.getPaymentAnalytics();
+        res.json(analytics);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to get payment analytics";
+        res.status(500).json({ detail: message });
+    }
+});
 router.get("/payments", async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
@@ -214,6 +238,85 @@ router.get("/payments", async (req, res) => {
     }
     catch (error) {
         const message = error instanceof Error ? error.message : "Failed to get payments";
+        res.status(500).json({ detail: message });
+    }
+});
+// Plan limits management
+router.get("/plans", (_req, res) => {
+    const plans = {};
+    for (const [key, config] of Object.entries(stripeService_1.PLANS)) {
+        plans[key] = {
+            name: config.name,
+            cvLimit: config.cvLimit,
+            aiLimit: config.aiLimit,
+            downloadLimit: config.downloadLimit,
+            coverLetterLimit: config.coverLetterLimit,
+            trialDailyLimit: config.trialDailyLimit,
+        };
+    }
+    res.json(plans);
+});
+router.put("/plans/:planType", async (req, res) => {
+    try {
+        const { planType } = req.params;
+        const validPlans = ["starter", "gold", "diamond", "platinum"];
+        if (!validPlans.includes(planType)) {
+            res.status(400).json({ detail: "Invalid plan type" });
+            return;
+        }
+        const { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit } = req.body;
+        await prisma.planConfig.upsert({
+            where: { planType },
+            update: { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
+            create: { planType, cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
+        });
+        await (0, stripeService_1.reloadPlansFromDb)();
+        res.json({ success: true, plan: stripeService_1.PLANS[planType] });
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to update plan";
+        res.status(500).json({ detail: message });
+    }
+});
+// Ad settings management
+router.get("/ads/settings", async (_req, res) => {
+    try {
+        const settings = await adSettingsService.getAdSettings();
+        res.json(settings);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to get ad settings";
+        res.status(500).json({ detail: message });
+    }
+});
+router.post("/ads/settings", async (req, res) => {
+    try {
+        const settings = await adSettingsService.saveAdSettings(req.body);
+        res.json(settings);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to save ad settings";
+        res.status(500).json({ detail: message });
+    }
+});
+// Tawk.to live chat settings
+router.get("/tawk/settings", async (_req, res) => {
+    try {
+        const settings = await tawkSettingsService.getTawkSettings();
+        res.json(settings);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to get tawk settings";
+        res.status(500).json({ detail: message });
+    }
+});
+router.post("/tawk/settings", async (req, res) => {
+    try {
+        const settings = await tawkSettingsService.saveTawkSettings(req.body);
+        res.json(settings);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to save tawk settings";
         res.status(500).json({ detail: message });
     }
 });

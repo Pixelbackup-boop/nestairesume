@@ -16,8 +16,8 @@ export declare const getScheduledPosts: (status?: string) => Promise<({
     id: string;
     createdAt: Date;
     updatedAt: Date;
-    title: string;
     status: string;
+    title: string;
     description: string;
     slug: string;
     content: string;
@@ -35,8 +35,8 @@ export declare const getScheduledPostById: (id: string) => Promise<({
     id: string;
     createdAt: Date;
     updatedAt: Date;
-    title: string;
     status: string;
+    title: string;
     description: string;
     slug: string;
     content: string;
@@ -59,8 +59,8 @@ export declare const updateScheduledPost: (id: string, data: Partial<{
     id: string;
     createdAt: Date;
     updatedAt: Date;
-    title: string;
     status: string;
+    title: string;
     description: string;
     slug: string;
     content: string;
@@ -74,8 +74,8 @@ export declare const approvePost: (id: string) => Promise<{
     id: string;
     createdAt: Date;
     updatedAt: Date;
-    title: string;
     status: string;
+    title: string;
     description: string;
     slug: string;
     content: string;
@@ -89,8 +89,8 @@ export declare const deleteScheduledPost: (id: string) => Promise<{
     id: string;
     createdAt: Date;
     updatedAt: Date;
-    title: string;
     status: string;
+    title: string;
     description: string;
     slug: string;
     content: string;

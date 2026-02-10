@@ -10,35 +10,33 @@ const translations_1 = require("./shared/translations");
 const dateUtils_1 = require("./shared/dateUtils");
 const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], strengths = [], languages = [], interests = [], certifications = [], awards = [], references = [], fonts, customThemeColor } = data;
+    const { personalInfo, experience = [], education = [], skills = [], strengths = [], languages = [], interests = [], certifications = [], awards = [], references = [], customFields = [], fonts, customThemeColor } = data;
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Merriweather');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
     const sizeConfig = helpers_1.fontSizes[fonts?.size || 'medium'];
     // Fixed colors matching frontend
-    const headerBgColor = '#78350f'; // Amber-900 (Dark Brown)
+    const headerBgColor = customThemeColor || '#78350f'; // Follows accent color
     const accentColor = customThemeColor || '#92400e'; // Amber-800 (Copper)
     const textColor = '#374151'; // Gray-700
     // Dimensions
     const patternHeight = 120;
-    // Name font size calculation (matching frontend 32px base)
-    const sizeName = fonts?.size || 'medium';
-    const nameSize = sizeName === 'small' ? '28px' : sizeName === 'large' ? '36px' : '32px';
-    // Parse base size for relative scaling
-    const baseSizeVal = parseInt(sizeConfig.base); // e.g. 14
-    // Derived sizes to match frontend hierarchy
-    const sizes = {
-        name: nameSize,
-        sectionHeading: `${baseSizeVal}px`, // ~14px
-        entryTitle: `${baseSizeVal - 1}px`, // ~13px
-        body: `${baseSizeVal - 2}px`, // ~12px
-        small: `${baseSizeVal - 4}px`, // ~10px
+    // Font Scaling
+    const scale = (0, helpers_1.getFontScale)(fonts?.size);
+    const s = (px) => `${Math.max(5, Math.round(px * scale))}px`;
+    const sNum = (px) => Math.max(5, Math.round(px * scale));
+    const fs = {
+        name: s(32),
+        sectionHeading: s(14),
+        entryTitle: s(13),
+        body: s(12),
+        small: s(10)
     };
     const SectionRow = (label, content) => `
-        <div style="display: flex; margin-bottom: 20px; page-break-inside: avoid;">
+        <div style="display: flex; margin-bottom: 20px;">
             <div style="width: 25%; padding-right: 20px;">
                 <h3 style="
                     font-family: ${headingFont};
-                    font-size: ${sizes.sectionHeading};
+                    font-size: ${fs.sectionHeading};
                     color: ${accentColor};
                     text-transform: uppercase;
                     border-bottom: 2px solid ${accentColor};
@@ -96,7 +94,7 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 14px;
+                    font-size: ${fs.sectionHeading};
                     font-weight: 600;
                     color: #374151;
                 ">
@@ -105,7 +103,7 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
             </div>
             <!-- Label -->
             <span style="
-                font-size: 12px;
+                font-size: ${fs.body};
                 color: #374151;
                 text-align: center;
                 word-break: break-word;
@@ -117,7 +115,7 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
         `;
     };
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${sizeConfig.base}; background-color: #ffffff; color: ${textColor}; position: relative;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; color: ${textColor}; position: relative;">
             
             <!-- Geometric Pattern Decoration -->
             <div style="height: ${patternHeight}px; background-color: #ffffff; position: relative; overflow: hidden;">
@@ -144,7 +142,7 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
             ">
                 <h1 style="
                     font-family: ${headingFont};
-                    font-size: ${sizes.name};
+                    font-size: ${fs.name};
                     font-weight: 400;
                     letter-spacing: 0.05em;
                     margin-bottom: 8px;
@@ -157,37 +155,39 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                     flex-wrap: wrap;
                     justify-content: center;
                     gap: 24px;
-                    font-size: ${sizes.small};
+                    font-size: ${fs.small};
                     color: rgba(255,255,255,0.9);
                 ">
                     ${personalInfo.email ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.email)}</span>` : ''}
                     ${personalInfo.phone ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.phone)}</span>` : ''}
                     ${personalInfo.location ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.location)}</span>` : ''}
+                    ${personalInfo.website ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.website)}</span>` : ''}
+                    ${personalInfo.linkedin ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</span>` : ''}
                 </div>
             </div>
 
             <!-- Main Content Body -->
-            <div style="padding: 20px 40px;">
+            <div style="padding: 20px 40px 40px 40px;">
 
                 ${personalInfo.summary ? SectionRow(t.sections.profile, `<p style="line-height: 1.6; margin-top: 0;">${(0, helpers_1.formatDescription)(personalInfo.summary)}</p>`) : ''}
 
                 ${experience.length > 0 ? SectionRow(t.sections.experience, `
                     <div style="display: flex; flex-direction: column; gap: 24px;">
                         ${experience.map(exp => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
-                                    <h4 style="font-size: ${sizes.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
+                                    <h4 style="font-size: ${fs.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
                                         ${(0, helpers_1.escapeHtml)(exp.title)}
                                     </h4>
-                                    <span style="font-size: ${sizes.small}; color: #6b7280;">
+                                    <span style="font-size: ${fs.small}; color: #6b7280;">
                                         ${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} - ${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}
                                     </span>
                                 </div>
-                                <p style="color: ${accentColor}; font-weight: 600; margin-bottom: 4px; font-size: ${sizes.body};">
+                                <p style="color: ${accentColor}; font-weight: 600; margin-bottom: 4px; font-size: ${fs.body};">
                                     ${(0, helpers_1.escapeHtml)(exp.company)} ${exp.city ? `| ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}
                                 </p>
                                 ${exp.description ? `
-                                    <div style="font-size: ${sizes.body}; line-height: 1.5; color: #4b5563;">
+                                    <div style="font-size: ${fs.body}; line-height: 1.5; color: #4b5563;">
                                         ${(0, helpers_1.formatDescription)(exp.description)}
                                     </div>
                                 ` : ''}
@@ -199,19 +199,19 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                 ${education.length > 0 ? SectionRow(t.sections.education, `
                     <div style="display: flex; flex-direction: column; gap: 16px;">
                         ${education.map(edu => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
-                                    <h4 style="font-size: ${sizes.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
+                                    <h4 style="font-size: ${fs.entryTitle}; font-weight: 700; color: #1f2937; margin: 0;">
                                         ${(0, helpers_1.escapeHtml)(edu.degree)}
                                     </h4>
-                                    <span style="font-size: ${sizes.small}; color: #6b7280;">
+                                    <span style="font-size: ${fs.small}; color: #6b7280;">
                                         ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} - ${edu.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale)}
                                     </span>
                                 </div>
-                                <p style="color: ${accentColor}; font-weight: 600; font-size: ${sizes.body}; margin-bottom: 4px;">
+                                <p style="color: ${accentColor}; font-weight: 600; font-size: ${fs.body}; margin-bottom: 4px;">
                                     ${(0, helpers_1.escapeHtml)(edu.school)}, ${(0, helpers_1.escapeHtml)(edu.city)}
                                 </p>
-                                ${edu.description ? `<p style="font-size: ${sizes.small}; margin-top: 2px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
+                                ${edu.description ? `<p style="font-size: ${fs.small}; margin-top: 2px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -231,9 +231,9 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                         ${skills.map(skill => {
         const val = skill.level > 5 ? skill.level : (skill.level || 3) * 20;
         return `
-                                <div>
+                                <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                        <span style="font-size: 11px; font-weight: 500; color: ${theme.heading};">${(0, helpers_1.escapeHtml)(skill.name)}</span>
+                                        <span style="font-size: ${fs.body}; font-weight: 500; color: ${theme.heading};">${(0, helpers_1.escapeHtml)(skill.name)}</span>
                                     </div>
                                     <div style="width: 100%; height: 6px; background-color: #f1f5f9; border-radius: 3px;">
                                         <div style="width: ${val}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
@@ -247,7 +247,7 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                 ${languages.length > 0 ? SectionRow(t.sections.languages, `
                      <div style="display: flex; flex-direction: column; gap: 8px;">
                         ${languages.map(lang => `
-                            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;">
+                            <div data-paginate="item" style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;">
                                 <span style="font-weight: 600; color: #1f2937;">${(0, helpers_1.escapeHtml)(lang.name)}</span>
                                 <span style="color: #6b7280;">${(0, helpers_1.escapeHtml)(lang.proficiency)}</span>
                             </div>
@@ -258,8 +258,8 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                 ${interests.length > 0 ? SectionRow(t.sections.interests, `
                     <div style="display: flex; flex-wrap: wrap; gap: 16px;">
                         ${interests.map(int => `
-                            <span style="color: #374151; display: flex; align-items: center; gap: 6px;">
-                                <span style="color: ${accentColor};">◆</span> ${(0, helpers_1.escapeHtml)(int.name)}
+                            <span data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 6px;">
+                                ${(0, helpers_1.getIconSVG)('diamond', accentColor, sNum(10), true)} ${(0, helpers_1.escapeHtml)(int.name)}
                             </span>
                         `).join('')}
                     </div>
@@ -269,12 +269,12 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                     <div>
                         ${certifications.length > 0 ? `
                             <div style="margin-bottom: 16px;">
-                                <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
+                                <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.certifications}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${certifications.map(cert => `
-                                        <div>
+                                        <div data-paginate="item">
                                             <div style="font-weight: 600; color: #1f2937;">${(0, helpers_1.escapeHtml)(cert.name)}</div>
-                                            <div style="font-size: ${sizes.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                            <div style="font-size: ${fs.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -283,12 +283,12 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
 
                         ${awards.length > 0 ? `
                             <div>
-                                <h4 style="font-size: ${sizes.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
+                                <h4 style="font-size: ${fs.small}; font-weight: 600; color: #6b7280; margin-bottom: 8px;">${t.sections.awards}</h4>
                                 <div style="display: flex; flex-direction: column; gap: 8px;">
                                     ${awards.map(award => `
-                                        <div>
+                                        <div data-paginate="item">
                                             <div style="font-weight: 600; color: #1f2937;">${(0, helpers_1.escapeHtml)(award.title)}</div>
-                                            <div style="font-size: ${sizes.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                                            <div style="font-size: ${fs.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -297,25 +297,24 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                     </div>
                 `) : ''}
 
-                ${(personalInfo.linkedin || personalInfo.twitter || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? SectionRow(t.sections.socialLinks, `
+                ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? SectionRow(t.sections.socialLinks, `
                     <div style="display: flex; flex-direction: column; gap: 6px;">
-                        ${personalInfo.linkedin ? `<div><span style="font-weight: 600;">LinkedIn:</span> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</div>` : ''}
-                        ${personalInfo.twitter ? `<div><span style="font-weight: 600;">Twitter:</span> ${(0, helpers_1.escapeHtml)(personalInfo.twitter)}</div>` : ''}
-                        ${personalInfo.github ? `<div><span style="font-weight: 600;">GitHub:</span> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</div>` : ''}
-                        ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
-                        ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</div>` : ''}
-                        ${personalInfo.instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</div>` : ''}
+                        ${personalInfo.x ? `<div data-paginate="item"><span style="font-weight: 600;">X:</span> ${(0, helpers_1.escapeHtml)(personalInfo.x)}</div>` : ''}
+                        ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600;">GitHub:</span> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</div>` : ''}
+                        ${personalInfo.dribbble ? `<div data-paginate="item"><span style="font-weight: 600;">Dribbble:</span> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
+                        ${personalInfo.behance ? `<div data-paginate="item"><span style="font-weight: 600;">Behance:</span> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</div>` : ''}
+                        ${personalInfo.instagram ? `<div data-paginate="item"><span style="font-weight: 600;">Instagram:</span> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</div>` : ''}
                     </div>
                 `) : ''}
                 
                 ${references.length > 0 ? SectionRow(t.sections.references, `
                     <div style="display: flex; flex-direction: column; gap: 16px;">
                         ${references.map(ref => `
-                            <div>
+                            <div data-paginate="item">
                                 <div style="font-weight: 700; color: #1f2937;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
                                 <div style="color: #6b7280;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                ${ref.email ? `<div style="font-size: ${sizes.small}; color: #4b5563;">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                ${ref.phone ? `<div style="font-size: ${sizes.small}; color: #4b5563;">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
+                                ${ref.email ? `<div style="font-size: ${fs.small}; color: #4b5563;">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
+                                ${ref.phone ? `<div style="font-size: ${fs.small}; color: #4b5563;">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -323,9 +322,9 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
 
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? SectionRow(t.sections.personalDetails, `
                     <div style="display: flex; flex-direction: column; gap: 6px;">
-                        ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
+                        ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
                         ${(personalInfo.idType && personalInfo.idNumber) ? `
-                            <div>
+                            <div data-paginate="item">
                                 <span style="font-weight: 600;">
                                     ${personalInfo.idType === 'id' ? 'ID' :
         personalInfo.idType === 'passport' ? 'Passport' :
@@ -336,9 +335,9 @@ const renderHeaderGeometric = (data, theme, translations, locale = 'en') => {
                     </div>
                 `) : ''}
 
-                ${(personalInfo.customField && personalInfo.customFieldLabel) ? SectionRow(personalInfo.customFieldLabel, `
-                    <p style="line-height: 1.6; margin: 0;">${(0, helpers_1.escapeHtml)(personalInfo.customField)}</p>
-                `) : ''}
+                ${customFields.map(field => SectionRow(field.label, `
+                    <p style="line-height: 1.6; margin: 0;">${(0, helpers_1.formatDescription)(field.content)}</p>
+                `)).join('')}
 
             </div>
         </div>

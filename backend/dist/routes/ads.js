@@ -53,6 +53,7 @@ router.get("/settings", async (_req, res) => {
             publisherId: settings.adsensePublisherId || "",
             slots: settings.slots,
         };
+        res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=600");
         res.json(publicSettings);
     }
     catch (error) {

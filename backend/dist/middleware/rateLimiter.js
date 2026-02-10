@@ -7,7 +7,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AI_LIMITS = exports.aiRateLimiters = exports.aiGlobalLimiter = exports.aiLimiter = exports.uploadLimiter = exports.webhookLimiter = exports.authLimiter = exports.pdfHourlyLimiter = exports.pdfLimiter = exports.generalLimiter = void 0;
+exports.AI_LIMITS = exports.contactLimiter = exports.aiRateLimiters = exports.aiGlobalLimiter = exports.aiLimiter = exports.uploadLimiter = exports.webhookLimiter = exports.authLimiter = exports.pdfHourlyLimiter = exports.pdfLimiter = exports.generalLimiter = void 0;
 const express_rate_limit_1 = __importDefault(require("express-rate-limit"));
 // AI limits synced with stripeService.ts PLANS and pricing page
 const AI_LIMITS = {
@@ -87,7 +87,7 @@ exports.generalLimiter = (0, express_rate_limit_1.default)({
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: getClientId,
-    handler: (req, res) => {
+    handler: (_req, res) => {
         const retryAfter = Number(res.getHeader('Retry-After')) || 60;
         res.status(429).json({
             error: 'Too many requests',
@@ -107,7 +107,7 @@ exports.pdfLimiter = (0, express_rate_limit_1.default)({
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: getClientId,
-    handler: (req, res) => {
+    handler: (_req, res) => {
         const retryAfter = Number(res.getHeader('Retry-After')) || 60;
         res.status(429).json({
             error: 'PDF generation limit reached',
@@ -126,7 +126,7 @@ exports.pdfHourlyLimiter = (0, express_rate_limit_1.default)({
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: getClientId,
-    handler: (req, res) => {
+    handler: (_req, res) => {
         const retryAfter = Number(res.getHeader('Retry-After')) || 3600;
         res.status(429).json({
             error: 'Hourly PDF limit reached',
@@ -146,7 +146,7 @@ exports.authLimiter = (0, express_rate_limit_1.default)({
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: getClientId,
-    handler: (req, res) => {
+    handler: (_req, res) => {
         res.status(429).json({
             error: 'Too many login attempts',
             message: 'Too many authentication attempts. Please wait 15 minutes before trying again.',
@@ -174,7 +174,7 @@ exports.uploadLimiter = (0, express_rate_limit_1.default)({
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: getClientId,
-    handler: (req, res) => {
+    handler: (_req, res) => {
         const retryAfter = Number(res.getHeader('Retry-After')) || 60;
         res.status(429).json({
             error: 'Upload limit reached',
@@ -322,7 +322,7 @@ exports.aiGlobalLimiter = (0, express_rate_limit_1.default)({
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: () => 'global-ai',
-    handler: (req, res) => {
+    handler: (_req, res) => {
         res.status(429).json({
             error: 'Server AI capacity reached',
             message: 'Our AI service is experiencing high demand. Please try again in a moment.',
@@ -336,4 +336,23 @@ exports.aiGlobalLimiter = (0, express_rate_limit_1.default)({
  * Use this for AI endpoints
  */
 exports.aiRateLimiters = [exports.aiGlobalLimiter, exports.aiLimiter];
+/**
+ * Contact form rate limiter
+ * 3 submissions per 15 minutes per IP
+ */
+exports.contactLimiter = (0, express_rate_limit_1.default)({
+    windowMs: 15 * 60 * 1000,
+    max: 3,
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: getClientId,
+    handler: (_req, res) => {
+        res.status(429).json({
+            error: 'Too many contact submissions',
+            message: 'You can submit up to 3 messages per 15 minutes. Please wait before trying again.',
+            retryAfter: 900,
+            retryAfterFormatted: '15 minutes',
+        });
+    },
+});
 //# sourceMappingURL=rateLimiter.js.map

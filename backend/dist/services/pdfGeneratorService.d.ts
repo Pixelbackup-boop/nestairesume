@@ -9,8 +9,10 @@ import { PdfResumeData, PdfTheme, PdfGenerateRequest, PdfTranslations } from '..
 export declare function closeBrowser(): Promise<void>;
 /**
  * Generate PDF from HTML string
+ * Includes a JS-based pagination pass (ported from frontend PagedPreview.tsx)
+ * that measures elements and adds margin-top to prevent content splitting at page boundaries.
  */
-export declare function generatePdfFromHtml(html: string): Promise<Buffer>;
+export declare function generatePdfFromHtml(html: string, marginStrategy?: 'sidebar' | 'full-bleed' | 'standard'): Promise<Buffer>;
 /**
  * Render resume data to PDF
  */
