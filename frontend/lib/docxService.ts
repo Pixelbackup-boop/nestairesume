@@ -4,7 +4,7 @@
  */
 
 import api from './api';
-import { getThemeById, ThemeColor } from './templates/builder/colorPresets';
+import { getThemeById, generateTheme, ThemeColor } from './templates/builder/colorPresets';
 import type { ResumeData } from '@/store/useResumeStore';
 import type { PdfTranslations } from './pdfService';
 
@@ -19,7 +19,14 @@ export async function downloadDocx(
     translations?: PdfTranslations,
     locale?: string
 ): Promise<void> {
-    const theme: ThemeColor = getThemeById(themeId, customColor);
+    // Handle pipe-delimited dual-color format (e.g., "#5b21b6|#a78bfa")
+    let theme: ThemeColor;
+    if (customColor && customColor.includes('|')) {
+        const [primary, secondary] = customColor.split('|');
+        theme = { ...generateTheme(primary), secondary };
+    } else {
+        theme = getThemeById(themeId, customColor);
+    }
 
     const response = await api.post('/docx/generate', {
         data: resumeData,

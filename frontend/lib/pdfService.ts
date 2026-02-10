@@ -4,7 +4,7 @@
  */
 
 import api from './api';
-import { getThemeById, ThemeColor } from './templates/builder/colorPresets';
+import { getThemeById, generateTheme, ThemeColor } from './templates/builder/colorPresets';
 import type { ResumeData } from '@/store/useResumeStore';
 
 /**
@@ -88,8 +88,14 @@ export async function downloadPdf(
     translations?: PdfTranslations,
     locale?: string
 ): Promise<void> {
-    // Get theme colors
-    const theme: ThemeColor = getThemeById(themeId, customColor);
+    // Get theme colors — handle pipe-delimited dual-color format (e.g., "#5b21b6|#a78bfa")
+    let theme: ThemeColor;
+    if (customColor && customColor.includes('|')) {
+        const [primary, secondary] = customColor.split('|');
+        theme = { ...generateTheme(primary), secondary };
+    } else {
+        theme = getThemeById(themeId, customColor);
+    }
 
     // Get backend template ID
     const backendTemplateId = getBackendTemplateId(templateId);
@@ -147,7 +153,14 @@ export async function previewPdf(
     translations?: PdfTranslations,
     locale?: string
 ): Promise<string> {
-    const theme: ThemeColor = getThemeById(themeId, customColor);
+    // Handle pipe-delimited dual-color format
+    let theme: ThemeColor;
+    if (customColor && customColor.includes('|')) {
+        const [primary, secondary] = customColor.split('|');
+        theme = { ...generateTheme(primary), secondary };
+    } else {
+        theme = getThemeById(themeId, customColor);
+    }
     const backendTemplateId = getBackendTemplateId(templateId);
 
     const response = await api.post('/pdf/preview', {

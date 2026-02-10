@@ -1,14 +1,15 @@
 import { MetadataRoute } from 'next';
-import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerCategories, getAllCareerTips, getAllCareerTipsCategories } from '@/lib/blog/posts';
+import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerCategories, getAllCareerTips, getAllCareerTipsCategories, getLocaleOnlyPostSlugs } from '@/lib/blog/posts';
 import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
+import { getLocalizedPath } from '@/lib/localized-paths';
 
 const locales = ['en', 'es', 'fr', 'de', 'ar'];
 
 function localizedUrls(baseUrl: string, path: string, options: { lastModified: Date; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }): MetadataRoute.Sitemap {
   return locales.map(locale => ({
-    url: `${baseUrl}/${locale}${path}`,
+    url: `${baseUrl}/${locale}${getLocalizedPath(path, locale)}`,
     lastModified: options.lastModified,
     changeFrequency: options.changeFrequency,
     priority: options.priority,
@@ -122,10 +123,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     localizedUrls(baseUrl, `/templates/${slug}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.7 })
   );
 
+  // Locale-only blog posts (e.g., Spanish posts with unique slugs not in English)
+  const localeOnlyBlogPages: MetadataRoute.Sitemap = [];
+  for (const locale of locales) {
+    if (locale === 'en') continue;
+    const localePosts = getLocaleOnlyPostSlugs(locale);
+    for (const post of localePosts) {
+      localeOnlyBlogPages.push({
+        url: `${baseUrl}/${locale}${getLocalizedPath(`/blog/${post.slug}`, locale)}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      });
+    }
+  }
+
   return [
     ...staticPages,
     ...authorPages,
     ...blogPages,
+    ...localeOnlyBlogPages,
     ...careerPages,
     ...careerTipsPages,
     ...categoryPages,

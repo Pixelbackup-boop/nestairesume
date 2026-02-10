@@ -232,6 +232,32 @@ export async function getAllPostSlugs(): Promise<string[]> {
   return posts.map(post => post.slug);
 }
 
+// Get locale-specific MDX posts that don't exist in the English/DB set.
+// Used by the sitemap to include Spanish-only blog posts.
+export function getLocaleOnlyPostSlugs(locale: string): PostMeta[] {
+  if (locale === 'en') return [];
+  const localeDir = path.join(POSTS_PATH, locale);
+  if (!fs.existsSync(localeDir)) return [];
+
+  const files = fs.readdirSync(localeDir).filter(f => f.endsWith('.mdx'));
+  const englishSlugs = new Set(getPostFiles().map(f => f.replace(/\.mdx$/, '')));
+
+  const localeOnlyPosts: PostMeta[] = [];
+  for (const file of files) {
+    const slug = file.replace(/\.mdx$/, '');
+    if (englishSlugs.has(slug)) continue; // shared slug — already in sitemap via localizedUrls
+    const filePath = path.join(localeDir, file);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data, content } = matter(fileContent);
+    const frontmatter = data as PostFrontmatter;
+    localeOnlyPosts.push({
+      ...frontmatter,
+      readingTime: readingTime(content).text,
+    });
+  }
+  return localeOnlyPosts;
+}
+
 // Search posts by query (title, description, tags)
 export async function searchPosts(query: string): Promise<PostMeta[]> {
   const searchTerm = query.toLowerCase().trim();

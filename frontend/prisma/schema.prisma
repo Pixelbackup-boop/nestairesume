@@ -1,0 +1,189 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String    @id @default(uuid())
+  email              String    @unique
+  hashedPassword     String?   // Optional for OAuth-only users
+  name               String
+  image              String?   // Profile image URL
+  emailVerified      DateTime? // When email was verified
+  role               String    @default("user") // "user" | "admin"
+  subscriptionTier   String    @default("free") // "free" | "starter" | "gold" | "diamond" | "platinum"
+  stripeCustomerId   String?   // Stripe customer ID
+  subscriptionId     String?   // Active Stripe subscription ID
+  subscriptionStatus String?   // "active" | "canceled" | "past_due" | "trialing"
+  isSuspended        Boolean   @default(false)
+  // Trial tracking
+  trialEndsAt        DateTime? // When trial period ends
+  hasUsedTrial       Boolean   @default(false) // Prevent multiple trials
+  // Usage limits (internal tracking)
+  cvCreatedCount     Int       @default(0) // CVs created this billing period
+  aiUsedCount        Int       @default(0) // AI generations this month
+  aiUsedToday        Int       @default(0) // AI generations today (for trial daily limit)
+  lastAiResetDate    DateTime? // When daily/monthly counters were last reset
+  downloadCount      Int       @default(0) // PDF/DOCX downloads this month
+  coverLetterCount   Int       @default(0) // Cover letters created this month
+  // Verification codes (used for password reset and email change)
+  verificationCode        String?   // 6-digit verification code
+  verificationCodeExpires DateTime? // When code expires
+  pendingEmail            String?   // New email awaiting verification
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  resumes            Resume[]
+  payments           Payment[]
+  accounts           Account[] // OAuth accounts
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type              String  // "oauth" | "credentials"
+  provider          String  // "google" | "github" etc
+  providerAccountId String
+  access_token      String?
+  refresh_token     String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime? @updatedAt
+
+  @@unique([provider, providerAccountId])
+}
+
+model Resume {
+  id               String   @id @default(uuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title            String
+  targetRole       String?
+  targetCompany    String?
+  fullName         String
+  email            String?
+  phone            String?
+  location         String?
+  linkedinUrl      String?
+  portfolioUrl     String?
+  summary          String?
+  experiences      String?
+  education        String?
+  skills           String?
+  certifications   String?
+  projects         String?
+  languages        String?
+  templateLayout   String   @default("CLASSIC")
+  templateTheme    String   @default("NAVY")
+  customThemeColor String?
+  atsScore         Int?
+  isMaster         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model BlogPost {
+  id          String    @id @default(uuid())
+  slug        String    @unique
+  title       String
+  description String
+  content     String    // MDX/Markdown content
+  image       String?
+  imageAlt    String?
+  category    String
+  tags        String    // JSON array stored as string
+  author      String
+  featured    Boolean   @default(false)
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Payment {
+  id              String   @id @default(uuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stripePaymentId String   @unique
+  amount          Int      // Amount in cents
+  currency        String   @default("usd")
+  status          String   // "succeeded" | "pending" | "failed"
+  type            String   // "subscription" | "one_time"
+  plan            String?  // "starter" | "gold" | "diamond" | "platinum"
+  createdAt       DateTime @default(now())
+}
+
+model PlanConfig {
+  id               String   @id @default(uuid())
+  planType         String   @unique // "starter" | "gold" | "diamond" | "platinum"
+  cvLimit          Int
+  aiLimit          Int
+  downloadLimit    Int
+  coverLetterLimit Int
+  trialDailyLimit  Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+// ============ AUTO-BLOGGING MODELS ============
+
+model ContentSource {
+  id             String          @id @default(uuid())
+  name           String          // "Marketing Book 2024"
+  filename       String          // Original filename
+  type           String          @default("pdf") // "pdf"
+  content        String          // Extracted text content
+  pageCount      Int?            // Number of pages
+  metadata       String?         // JSON: additional info
+  createdAt      DateTime        @default(now())
+  scheduledPosts ScheduledPost[]
+}
+
+model ScheduledPost {
+  id           String         @id @default(uuid())
+  title        String
+  slug         String
+  description  String
+  content      String         // Generated markdown
+  category     String
+  tags         String         // JSON array
+  scheduledFor DateTime
+  status       String         @default("pending") // "pending" | "approved" | "published" | "failed"
+  sourceId     String?
+  source       ContentSource? @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  blogPostId   String?        // Set after publishing
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+
+model AutoBlogSettings {
+  id          String   @id @default(uuid())
+  postsPerDay Int      @default(5)
+  startHour   Int      @default(8)  // 8 AM
+  endHour     Int      @default(20) // 8 PM
+  enabled     Boolean  @default(false)
+  authorName  String   @default("ResumeAI Team")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GlobalSettings {
+  id                       String   @id @default(uuid())
+  // SEO & Analytics
+  googleAnalyticsId        String?
+  googleSiteVerification   String?
+  bingSiteVerification     String?
+  yandexSiteVerification   String?
+  sitemapUrl               String?
+
+  updatedAt                DateTime @updatedAt
+}

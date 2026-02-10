@@ -4,13 +4,23 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { ArrowLeft, Sparkles } from 'lucide-react';
-import { jsPDF } from 'jspdf';
-import Konva from 'konva';
+import type Konva from 'konva';
 import { useCanvasStore, TextElement } from '@/store/useCanvasStore';
-import CanvasToolbar from '@/components/canvas/CanvasToolbar';
-import CanvasSidebar from '@/components/canvas/CanvasSidebar';
-import TextEditor from '@/components/canvas/TextEditor';
-import PropertiesPanel from '@/components/canvas/PropertiesPanel';
+
+// Dynamic imports with ssr: false for all canvas components (browser-only APIs)
+const CanvasToolbar = dynamic(() => import('@/components/canvas/CanvasToolbar'), {
+    ssr: false,
+    loading: () => <div className="h-12 bg-slate-800 border-b border-slate-700 animate-pulse" />
+});
+const CanvasSidebar = dynamic(() => import('@/components/canvas/CanvasSidebar'), {
+    ssr: false,
+    loading: () => <div className="w-64 bg-slate-800 border-r border-slate-700 animate-pulse" />
+});
+const TextEditor = dynamic(() => import('@/components/canvas/TextEditor'), { ssr: false });
+const PropertiesPanel = dynamic(() => import('@/components/canvas/PropertiesPanel'), {
+    ssr: false,
+    loading: () => <div className="w-72 bg-slate-800 border-l border-slate-700 animate-pulse" />
+});
 
 // Dynamically import CanvasWorkspace to avoid SSR issues with Konva
 const CanvasWorkspace = dynamic(
@@ -119,6 +129,8 @@ export default function CanvasEditorPage() {
         stage.scale({ x: oldScaleX, y: oldScaleY });
 
         if (format === 'pdf') {
+            // Dynamic import to avoid SSR issues — jsPDF is browser-only
+            const { jsPDF } = await import('jspdf');
             // Create PDF with A4 dimensions
             const pdf = new jsPDF({
                 orientation: 'portrait',
