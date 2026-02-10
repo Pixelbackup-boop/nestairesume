@@ -1,7 +1,7 @@
 'use client';
 
 import { memo } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -147,6 +147,8 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                         {personalInfo.email && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Mail size={12} color="#4b5563" /> {personalInfo.email}</span>}
                         {personalInfo.phone && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Phone size={12} color="#4b5563" /> {personalInfo.phone}</span>}
                         {personalInfo.location && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><MapPin size={12} color="#4b5563" /> {personalInfo.location}</span>}
+                        {personalInfo.website && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Globe size={12} color="#4b5563" /> {personalInfo.website}</span>}
+                        {personalInfo.linkedin && <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Linkedin size={12} color="#4b5563" /> {personalInfo.linkedin}</span>}
                     </div>
                 </div>
             </header>
@@ -163,7 +165,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                 <BoxSection borderColor={borderColor} title={t.sections.experience} icon="💼" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: sp.xl }}>
                         {experience.map((exp) => (
-                            <div key={exp.id}>
+                            <div key={exp.id} data-paginate="item">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp.xs }}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{exp.title}</h4>
                                     <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
@@ -187,7 +189,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                 <BoxSection borderColor={borderColor} title={t.sections.education} icon="🎓" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 * scale }}>
                         {education.map((edu) => (
-                            <div key={edu.id}>
+                            <div key={edu.id} data-paginate="item">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp.xs }}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{edu.degree}</h4>
                                     <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
@@ -258,7 +260,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                                 {data.languages.map((lang) => (
                                     <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f3f4f6', paddingBottom: 4 * scale }}>
                                         <span style={{ fontWeight: 600 }}>{lang.name}</span>
-                                        <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                                        <span style={{ color: '#6b7280', textTransform: 'capitalize' }}>{lang.proficiency}</span>
                                     </div>
                                 ))}
                             </div>
@@ -272,7 +274,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                         <BoxSection borderColor={borderColor} title={t.sections.interests} icon="🎨" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp.md }}>
                                 {data.interests.map((int) => (
-                                    <span key={int.id} style={{ display: 'flex', alignItems: 'center', gap: 6 * scale }}>
+                                    <span key={int.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 6 * scale }}>
                                         <span style={{ color: orangeAccent }}>★</span> {int.name}
                                     </span>
                                 ))}
@@ -281,6 +283,26 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                     </div>
                 )}
             </div>
+
+            {/* Personal Details */}
+            {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                <BoxSection borderColor={borderColor} title={t.sections.personalDetails} icon="📝" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
+                        {personalInfo.nationality && (
+                            <div data-paginate="item"><span style={{ fontWeight: 600 }}>{t.labels.nationality}:</span> {personalInfo.nationality}</div>
+                        )}
+                        {personalInfo.idType && personalInfo.idNumber && (
+                            <div data-paginate="item">
+                                <span style={{ fontWeight: 600 }}>
+                                    {personalInfo.idType === 'id' ? t.labels.id :
+                                        personalInfo.idType === 'passport' ? t.labels.passport :
+                                            personalInfo.idType === 'driving_license' ? t.labels.drivingLicense : t.labels.id}:
+                                </span> {personalInfo.idNumber}
+                            </div>
+                        )}
+                    </div>
+                </BoxSection>
+            )}
 
             {/* Credentials (Certifications & Awards) */}
             {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
@@ -322,15 +344,14 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
             )}
 
             {/* Social Links */}
-            {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+            {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                 <BoxSection borderColor={borderColor} title={t.sections.socialLinks} icon="🔗" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
-                        {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                        {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
-                        {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
-                        {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
-                        {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
-                        {personalInfo.instagram && <div><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
+                        {personalInfo.x && <div data-paginate="item"><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
+                        {personalInfo.github && <div data-paginate="item"><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
+                        {personalInfo.dribbble && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
+                        {personalInfo.behance && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
+                        {personalInfo.instagram && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
                     </div>
                 </BoxSection>
             )}
@@ -347,26 +368,6 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                                 {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.phone}</div>}
                             </div>
                         ))}
-                    </div>
-                </BoxSection>
-            )}
-
-            {/* Personal Details */}
-            {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                <BoxSection borderColor={borderColor} title={t.sections.personalDetails} icon="📝" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp.sm }}>
-                        {personalInfo.nationality && (
-                            <div><span style={{ fontWeight: 600 }}>{t.labels.nationality}:</span> {personalInfo.nationality}</div>
-                        )}
-                        {personalInfo.idType && personalInfo.idNumber && (
-                            <div>
-                                <span style={{ fontWeight: 600 }}>
-                                    {personalInfo.idType === 'id' ? t.labels.id :
-                                        personalInfo.idType === 'passport' ? t.labels.passport :
-                                            personalInfo.idType === 'driving_license' ? t.labels.drivingLicense : t.labels.id}:
-                                </span> {personalInfo.idNumber}
-                            </div>
-                        )}
                     </div>
                 </BoxSection>
             )}
@@ -398,48 +399,43 @@ interface BoxSectionProps {
 function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, sp, children }: BoxSectionProps) {
     return (
         <section
-            className="resume-section"
-            data-paginate
-            style={{
-                border: `1px solid ${borderColor}`,
-                backgroundColor: '#ffffff',
-                padding: `${sp.xxl}px`, // Base padding (paddingTop gets reset by pagination system)
-                marginBottom: sp.lg,
-                position: 'relative',
-                boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.1)',
-            }}
+            style={{ marginBottom: sp.lg }}
         >
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: sp.md,
-                marginTop: sp.md, // Extra top spacing for gap between border and icon (moved from section paddingTop)
-                marginBottom: sp.xl,
-                borderBottom: `2px solid ${accent}`,
-                paddingBottom: sp.sm
-            }}>
-                <span style={{
-                    backgroundColor: accent,
-                    color: 'white',
-                    width: 32 * scale,
-                    height: 32 * scale,
-                    borderRadius: '50%',
+            <div data-paginate="item">
+                <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 16 * scale
+                    gap: sp.md,
+                    border: `1px solid ${borderColor}`,
+                    backgroundColor: '#ffffff',
+                    padding: `${sp.sm}px ${sp.lg}px`,
+                    boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.1)',
+                    marginBottom: sp.md,
                 }}>
-                    {icon}
-                </span>
-                <h3 style={{
-                    fontFamily: headingFont,
-                    fontSize: fs.sectionHeading,
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    color: '#1f2937'
-                }}>
-                    {title}
-                </h3>
+                    <span style={{
+                        backgroundColor: accent,
+                        color: 'white',
+                        width: 32 * scale,
+                        height: 32 * scale,
+                        minWidth: 32 * scale,
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: 16 * scale
+                    }}>
+                        {icon}
+                    </span>
+                    <span style={{
+                        fontFamily: headingFont,
+                        fontSize: fs.sectionHeading,
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        color: '#1f2937'
+                    }}>
+                        {title}
+                    </span>
+                </div>
             </div>
             <div style={{ fontSize: fs.body }}>
                 {children}

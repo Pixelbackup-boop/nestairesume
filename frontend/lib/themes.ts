@@ -345,27 +345,47 @@ export const getBackgroundStyle = (bg: BackgroundSettings): React.CSSProperties 
     }
 };
 
-export const fontPresets = [
-    { name: 'Inter', fontFamily: "'Inter', sans-serif" },
-    { name: 'Roboto', fontFamily: "'Roboto', sans-serif" },
-    { name: 'Open Sans', fontFamily: "'Open Sans', sans-serif" },
-    { name: 'Lato', fontFamily: "'Lato', sans-serif" },
-    { name: 'Poppins', fontFamily: "'Poppins', sans-serif" },
-    { name: 'Montserrat', fontFamily: "'Montserrat', sans-serif" },
-    { name: 'Playfair Display', fontFamily: "'Playfair Display', serif" },
-    { name: 'Merriweather', fontFamily: "'Merriweather', serif" },
+export interface FontPreset {
+    name: string;
+    fontFamily: string;
+    googleFont?: string;
+}
+
+export const fontPresets: FontPreset[] = [
+    { name: 'Inter', fontFamily: "'Inter', sans-serif", googleFont: 'Inter:wght@400;500;600;700' },
+    { name: 'Roboto', fontFamily: "'Roboto', sans-serif", googleFont: 'Roboto:wght@400;500;700' },
+    { name: 'Open Sans', fontFamily: "'Open Sans', sans-serif", googleFont: 'Open+Sans:wght@400;600;700' },
+    { name: 'Lato', fontFamily: "'Lato', sans-serif", googleFont: 'Lato:wght@400;700' },
+    { name: 'Poppins', fontFamily: "'Poppins', sans-serif", googleFont: 'Poppins:wght@400;500;600;700' },
+    { name: 'Montserrat', fontFamily: "'Montserrat', sans-serif", googleFont: 'Montserrat:wght@400;500;600;700' },
+    { name: 'Playfair Display', fontFamily: "'Playfair Display', serif", googleFont: 'Playfair+Display:wght@400;700' },
+    { name: 'Merriweather', fontFamily: "'Merriweather', serif", googleFont: 'Merriweather:wght@400;700' },
     { name: 'Georgia', fontFamily: "Georgia, serif" },
     { name: 'Times New Roman', fontFamily: "'Times New Roman', Times, serif" },
+    // Template-default fonts (used by specific templates, not shown in Design tab picker)
+    { name: 'Titan One', fontFamily: "'Titan One', cursive", googleFont: 'Titan+One' },
+    { name: 'Oswald', fontFamily: "'Oswald', sans-serif", googleFont: 'Oswald:wght@400;500;600;700' },
+    { name: 'Roboto Slab', fontFamily: "'Roboto Slab', serif", googleFont: 'Roboto+Slab:wght@400;500;600;700' },
+    { name: 'Roboto Condensed', fontFamily: "'Roboto Condensed', sans-serif", googleFont: 'Roboto+Condensed:wght@400;700' },
+    { name: 'Source Sans Pro', fontFamily: "'Source Sans 3', sans-serif", googleFont: 'Source+Sans+3:wght@400;600;700' },
 ];
+
+// User-selectable fonts shown in Design tab (excludes template-default-only fonts)
+export const userFontPresets = fontPresets.slice(0, 10);
 
 export const getFontFamily = (fontName: string): string => {
     const preset = fontPresets.find(f => f.name === fontName);
     return preset?.fontFamily || "'Inter', sans-serif";
 };
 
-export const getGoogleFontsUrl = (headingFont: string, bodyFont: string): string | null => {
-    // Simplified for now, in real app we'd map to google font names
-    return null;
+export const getGoogleFontsUrl = (...fontNames: string[]): string | null => {
+    const families = fontNames
+        .map(name => fontPresets.find(f => f.name === name)?.googleFont)
+        .filter((g): g is string => !!g);
+    // Deduplicate
+    const unique = [...new Set(families)];
+    if (unique.length === 0) return null;
+    return `https://fonts.googleapis.com/css2?${unique.map(f => `family=${f}`).join('&')}&display=swap`;
 };
 
 export const fontSizes = {

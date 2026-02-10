@@ -1,6 +1,13 @@
 'use client';
 
-import { memo } from 'react';
+import React, { memo } from 'react';
+import {
+    User, Briefcase, GraduationCap, Award, Settings, Star, Languages, Zap, Link,
+    ClipboardList, FileText, Music, Camera, BookOpen, Plane, CookingPot,
+    Gamepad2, Film, Palette, Bike, Sprout, Coffee, Wine
+} from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPersonRunning, faPersonSwimming, faPersonHiking, faPersonPraying, faPersonSkiing } from '@fortawesome/free-solid-svg-icons';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -31,8 +38,14 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
         defaultBodyFont: 'Inter',
     });
 
-    // Single color preset
-    const accentColor = colors.primary;
+    const sizeMult = parseInt(sizeConfig.base) / 14;
+    const sp = (px: number) => Math.round(px * sizeMult);
+
+    const iconSm = scale < 1 ? 8 : sp(10);
+    const iconMd = scale < 1 ? 10 : sp(14);
+
+    // Single color preset — use customThemeColor directly (parseDualColor puts single colors in secondary, not primary)
+    const accentColor = customThemeColor || '#eab308';
 
     return (
         <div
@@ -44,22 +57,21 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                 position: 'relative',
             }}
         >
-            {/* Header Area with Photo and Diagonal Ribbon - STATIC SIZES (not affected by text size) */}
+            {/* Header Area with Photo and Diagonal Ribbon */}
             <header
                 className="resume-section"
-                data-paginate
                 style={{
                     textAlign: 'center',
-                    paddingTop: scale < 1 ? 16 : 32,
-                    paddingBottom: scale < 1 ? 8 : 16,
+                    paddingTop: scale < 1 ? 16 : sp(32),
+                    paddingBottom: scale < 1 ? 8 : sp(16),
                 }}
             >
-                {/* Profile Photo - STATIC SIZE, no yellow background */}
+                {/* Profile Photo */}
                 <div
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
-                        marginBottom: scale < 1 ? -5 : -5, // 2px gap above ribbon
+                        marginBottom: scale < 1 ? -5 : -5,
                         position: 'relative',
                         zIndex: 10,
                     }}
@@ -70,25 +82,25 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}
                             style={{
-                                width: scale < 1 ? 60 : 120, // STATIC
-                                height: scale < 1 ? 60 : 120,
+                                width: scale < 1 ? 60 : sp(120),
+                                height: scale < 1 ? 60 : sp(120),
                                 borderRadius: '50%',
                                 objectFit: 'cover',
-                                border: `${scale < 1 ? 3 : 5}px solid #374151`,
+                                border: `${scale < 1 ? 3 : sp(5)}px solid #374151`,
                             }}
                         />
                     ) : (
                         <div
                             style={{
-                                width: scale < 1 ? 60 : 120, // STATIC
-                                height: scale < 1 ? 60 : 120,
+                                width: scale < 1 ? 60 : sp(120),
+                                height: scale < 1 ? 60 : sp(120),
                                 borderRadius: '50%',
                                 backgroundColor: '#e5e7eb',
-                                border: `${scale < 1 ? 3 : 5}px solid #374151`,
+                                border: `${scale < 1 ? 3 : sp(5)}px solid #374151`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                fontSize: scale < 1 ? '24px' : '42px', // STATIC
+                                fontSize: scale < 1 ? '24px' : sp(42) + 'px',
                                 color: '#9ca3af',
                                 fontWeight: 700,
                             }}
@@ -98,7 +110,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                     )}
                 </div>
 
-                {/* Diagonal Parallelogram Ribbon - STATIC SIZE, WIDER */}
+                {/* Diagonal Parallelogram Ribbon */}
                 <div
                     style={{
                         display: 'flex',
@@ -110,25 +122,25 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                     <div
                         style={{
                             backgroundColor: accentColor,
-                            height: scale < 1 ? 36 : 72, // STATIC
-                            paddingLeft: scale < 1 ? 90 : 180, // +20px wider on each side
-                            paddingRight: scale < 1 ? 90 : 180,
+                            height: scale < 1 ? 36 : sp(72),
+                            paddingLeft: scale < 1 ? 90 : sp(180),
+                            paddingRight: scale < 1 ? 90 : sp(180),
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            transform: 'skewX(-10deg)', // Creates diagonal parallelogram
+                            transform: 'skewX(-10deg)',
                         }}
                     >
-                        {/* Name - counter-skew to keep text straight, STATIC size */}
+                        {/* Name - counter-skew to keep text straight */}
                         <h1
                             style={{
                                 fontFamily: headingFont,
-                                fontSize: scale < 1 ? '14px' : '28px', // STATIC - not affected by text size setting
+                                fontSize: scale < 1 ? '14px' : sp(28) + 'px',
                                 fontWeight: 700,
                                 color: '#ffffff',
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.1em',
-                                transform: 'skewX(10deg)', // Counter-skew text
+                                transform: 'skewX(10deg)',
                                 margin: 0,
                             }}
                         >
@@ -143,10 +155,10 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                         display: 'flex',
                         flexWrap: 'wrap',
                         justifyContent: 'center',
-                        gap: scale < 1 ? '6px' : '12px',
+                        gap: scale < 1 ? '6px' : sp(12) + 'px',
                         fontSize: fs.small,
                         color: '#6b7280',
-                        marginTop: scale < 1 ? 8 : 16,
+                        marginTop: scale < 1 ? 8 : sp(16),
                     }}
                 >
                     {personalInfo.phone && (
@@ -170,56 +182,24 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                             <span>{personalInfo.linkedin}</span>
                         </>
                     )}
-                    {personalInfo.nationality && (
-                        <>
-                            <span>|</span>
-                            <span>{personalInfo.nationality}</span>
-                        </>
-                    )}
-                    {personalInfo.idType && personalInfo.idNumber && (
-                        <>
-                            <span>|</span>
-                            <span>{personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}: {personalInfo.idNumber}</span>
-                        </>
-                    )}
                 </div>
 
-                {/* Social Links Row */}
-                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            justifyContent: 'center',
-                            gap: scale < 1 ? '6px' : '12px',
-                            fontSize: fs.small,
-                            color: '#6b7280',
-                            marginTop: scale < 1 ? 4 : 8,
-                        }}
-                    >
-                        {personalInfo.x && <span>X: {personalInfo.x}</span>}
-                        {personalInfo.github && <span>GitHub: {personalInfo.github}</span>}
-                        {personalInfo.dribbble && <span>Dribbble: {personalInfo.dribbble}</span>}
-                        {personalInfo.behance && <span>Behance: {personalInfo.behance}</span>}
-                        {personalInfo.instagram && <span>Instagram: {personalInfo.instagram}</span>}
-                    </div>
-                )}
             </header>
 
             {/* Two-Column Body */}
             <div
                 style={{
                     display: 'flex',
-                    gap: scale < 1 ? 12 : 24,
-                    padding: scale < 1 ? '0 16px 16px' : '0 32px 32px',
+                    gap: scale < 1 ? 12 : sp(24),
+                    padding: scale < 1 ? '0 16px 16px' : `0 ${sp(32)}px ${sp(32)}px`,
                 }}
             >
                 {/* LEFT COLUMN - Profile, Experience, Education */}
                 <div style={{ width: '55%' }}>
                     {/* Profile / Summary */}
                     {personalInfo.summary && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="👤">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<User size={iconMd} color="#ffffff" />}>
                                 {t.sections.profile}
                             </SectionHeader>
                             <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
@@ -230,27 +210,27 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Work Experience */}
                     {experience.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💼">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Briefcase size={iconMd} color="#ffffff" />}>
                                 {t.sections.experience}
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) + 'px' }}>
                                 {experience.map((exp) => (
                                     <div key={exp.id} className="resume-entry" data-paginate="item">
-                                        <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: '2px', textTransform: 'uppercase' }}>
+                                        <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: sp(2), textTransform: 'uppercase' }}>
                                             {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                             {exp.city && `    ${exp.city.toUpperCase()}`}
                                         </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(1) }}>
                                             {exp.title}
                                         </h4>
-                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600, marginBottom: '4px' }}>
+                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600, marginBottom: sp(4) }}>
                                             {exp.company}
                                         </p>
                                         {exp.description && (
-                                            <ul style={{ paddingLeft: scale < 1 ? '10px' : '14px', margin: 0, listStyle: 'disc' }}>
+                                            <ul style={{ paddingLeft: scale < 1 ? '10px' : sp(14) + 'px', margin: 0, listStyle: 'disc' }}>
                                                 {exp.description.split('\n').filter(Boolean).map((line, idx) => (
-                                                    <li key={idx} style={{ fontSize: fs.small, color: '#4b5563', marginBottom: '1px', lineHeight: 1.4 }}>
+                                                    <li key={idx} style={{ fontSize: fs.small, color: '#4b5563', marginBottom: sp(1), lineHeight: 1.4 }}>
                                                         {line.replace(/^[-•]\s*/, '')}
                                                     </li>
                                                 ))}
@@ -264,30 +244,55 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Education */}
                     {education.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🎓">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<GraduationCap size={iconMd} color="#ffffff" />}>
                                 {t.sections.education}
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) + 'px' }}>
                                 {education.map((edu) => (
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
-                                        <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: '2px', textTransform: 'uppercase' }}>
+                                        <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: sp(2), textTransform: 'uppercase' }}>
                                             {edu.startDate} – {edu.current ? t.labels.present : edu.endDate}
                                             {edu.city && `    ${edu.city.toUpperCase()}`}
                                         </p>
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(1) }}>
                                             {edu.degree}
                                         </h4>
                                         <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600 }}>
                                             {edu.school}
                                         </p>
                                         {edu.description && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: '2px' }}>
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: sp(2) }}>
                                                 {edu.description}
                                             </p>
                                         )}
                                     </div>
                                 ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Personal Details */}
+                    {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<User size={iconMd} color="#ffffff" />}>
+                                {t.sections.personalDetails}
+                            </SectionHeader>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px', fontSize: fs.body, color: '#1f2937' }}>
+                                {personalInfo.nationality && (
+                                    <div>
+                                        <span style={{ fontWeight: 700 }}>Nationality:</span> {personalInfo.nationality}
+                                    </div>
+                                )}
+                                {personalInfo.idType && personalInfo.idNumber && (
+                                    <div>
+                                        <span style={{ fontWeight: 700 }}>
+                                            {personalInfo.idType === 'id' ? 'ID' :
+                                                personalInfo.idType === 'passport' ? 'Passport' :
+                                                    personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        </span> {personalInfo.idNumber}
+                                    </div>
+                                )}
                             </div>
                         </section>
                     )}
@@ -297,17 +302,17 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                 <div style={{ width: '45%' }}>
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🏆">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Award size={iconMd} color="#ffffff" />}>
                                 {t.sections.credentials}
                             </SectionHeader>
 
                             {certifications && certifications.length > 0 && (
-                                <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
-                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                <div style={{ marginBottom: awards && awards.length > 0 ? sp(16) : 0 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: sp(8) }}>
                                         {t.sections.certifications}
                                     </h4>
-                                    <div className="space-y-2">
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px' }}>
                                         {certifications.map((cert) => (
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
@@ -320,16 +325,16 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                             {awards && awards.length > 0 && (
                                 <div>
-                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: sp(8) }}>
                                         {t.sections.awards}
                                     </h4>
-                                    <div className="space-y-2">
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px' }}>
                                         {awards.map((award) => (
                                             <div key={award.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
                                                 <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
                                                 {award.description && (
-                                                    <p style={{ fontSize: fs.small, color: '#4b5563', marginTop: 2 }}>
+                                                    <p style={{ fontSize: fs.small, color: '#4b5563', marginTop: sp(2) }}>
                                                         {award.description}
                                                     </p>
                                                 )}
@@ -343,18 +348,18 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Skills */}
                     {skills.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⚙️">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Settings size={iconMd} color="#ffffff" />}>
                                 {t.sections.skills}
                             </SectionHeader>
-                            <div className="space-y-2">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px' }}>
                                 {skills.map((skill) => (
                                     <div key={skill.id} data-paginate="item">
                                         <ProgressBar
                                             label={skill.name}
                                             value={(skill.level || 3) * 20}
                                             color={accentColor}
-                                            height={scale < 1 ? 4 : 6}
+                                            height={scale < 1 ? 4 : sp(6)}
                                             scale={1}
                                         />
                                     </div>
@@ -366,14 +371,14 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                     {/* Interests with Icons Grid */}
                     {interests && interests.length > 0 && (
                         <section className="resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="⭐">
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Star size={iconMd} color="#ffffff" />}>
                                 {t.sections.interests}
                             </SectionHeader>
                             <div
                                 style={{
                                     display: 'grid',
                                     gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: scale < 1 ? '8px' : '16px',
+                                    gap: scale < 1 ? '8px' : sp(16) + 'px',
                                 }}
                             >
                                 {interests.slice(0, 6).map((interest) => (
@@ -386,12 +391,13 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                     >
                                         <div
                                             style={{
-                                                fontSize: scale < 1 ? '16px' : '28px',
-                                                marginBottom: scale < 1 ? '2px' : '4px',
+                                                marginBottom: scale < 1 ? '2px' : sp(4) + 'px',
                                                 color: accentColor,
+                                                display: 'flex',
+                                                justifyContent: 'center',
                                             }}
                                         >
-                                            {getInterestIcon(interest.name)}
+                                            {getInterestIcon(interest.name, scale < 1 ? 16 : sp(28))}
                                         </div>
                                         <div style={{ fontSize: fs.tiny, color: '#374151' }}>
                                             {interest.name}
@@ -404,32 +410,49 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Languages */}
                     {data.languages && data.languages.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="🗣️">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Languages size={iconMd} color="#ffffff" />}>
                                 {t.sections.languages}
                             </SectionHeader>
-                            <div className="space-y-2">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px' }}>
                                 {data.languages.map((lang) => (
                                     <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
                                         <span style={{ fontWeight: 600, color: '#1f2937' }}>{lang.name}</span>
-                                        <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                                        <span style={{ color: '#6b7280', textTransform: 'capitalize' }}>{lang.proficiency}</span>
                                     </div>
                                 ))}
                             </div>
                         </section>
                     )}
 
+                    {/* Social Links */}
+                    {(personalInfo.x || personalInfo.github || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Link size={iconMd} color="#ffffff" />}>
+                                {t.sections.socialLinks}
+                            </SectionHeader>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px' }}>
+                                {personalInfo.linkedin && <div data-paginate="item"><SocialRow icon="linkedin" value={personalInfo.linkedin} color={accentColor} sp={sp} /></div>}
+                                {personalInfo.x && <div data-paginate="item"><SocialRow icon="x" value={personalInfo.x} color={accentColor} sp={sp} /></div>}
+                                {personalInfo.github && <div data-paginate="item"><SocialRow icon="github" value={personalInfo.github} color={accentColor} sp={sp} /></div>}
+                                {personalInfo.dribbble && <div data-paginate="item"><SocialRow icon="dribbble" value={personalInfo.dribbble} color={accentColor} sp={sp} /></div>}
+                                {personalInfo.behance && <div data-paginate="item"><SocialRow icon="behance" value={personalInfo.behance} color={accentColor} sp={sp} /></div>}
+                                {personalInfo.instagram && <div data-paginate="item"><SocialRow icon="instagram" value={personalInfo.instagram} color={accentColor} sp={sp} /></div>}
+                            </div>
+                        </section>
+                    )}
+
                     {/* Strengths */}
                     {data.strengths && data.strengths.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="💪">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Zap size={iconMd} color="#ffffff" />}>
                                 {t.sections.strengths}
                             </SectionHeader>
                             <div
                                 style={{
                                     display: 'flex',
                                     flexWrap: 'wrap',
-                                    gap: scale < 1 ? '4px' : '8px',
+                                    gap: scale < 1 ? '4px' : sp(8) + 'px',
                                 }}
                             >
                                 {data.strengths.map((strength) => (
@@ -439,7 +462,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                         style={{
                                             backgroundColor: accentColor,
                                             color: '#ffffff',
-                                            padding: scale < 1 ? '2px 6px' : '4px 12px',
+                                            padding: scale < 1 ? '2px 6px' : `${sp(4)}px ${sp(12)}px`,
                                             borderRadius: '9999px',
                                             fontSize: fs.small,
                                             fontWeight: 500,
@@ -454,17 +477,17 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📋">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<ClipboardList size={iconMd} color="#ffffff" />}>
                                 {t.sections.references}
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) + 'px' }}>
                                 {references.map((ref) => (
                                     <div key={ref.id} className="resume-entry" data-paginate="item">
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '1px' }}>
+                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(1) }}>
                                             {ref.name}
                                         </h4>
-                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600, marginBottom: '2px' }}>
+                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600, marginBottom: sp(2) }}>
                                             {ref.title}{ref.company && ` at ${ref.company}`}
                                         </p>
                                         <div style={{ fontSize: fs.small, color: '#6b7280' }}>
@@ -479,8 +502,8 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <section key={field.id} className="resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon="📝">
+                        <section key={field.id} className="resume-section">
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<FileText size={iconMd} color="#ffffff" />}>
                                 {field.label}
                             </SectionHeader>
                             <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
@@ -499,14 +522,12 @@ interface SectionHeaderProps {
     fs: ScaledFontSizes;
     headingFont: string;
     accentColor: string;
-    icon: string;
+    sp: (px: number) => number;
+    icon: React.ReactNode;
     children: React.ReactNode;
 }
 
-function SectionHeader({ fs, headingFont, accentColor, icon, children }: SectionHeaderProps) {
-    const basePx = parseInt(fs.body);
-    const isSmall = basePx < 10;
-
+function SectionHeader({ fs, headingFont, accentColor, sp, icon, children }: SectionHeaderProps) {
     return (
         <h3
             style={{
@@ -514,54 +535,104 @@ function SectionHeader({ fs, headingFont, accentColor, icon, children }: Section
                 fontSize: fs.sectionHeading,
                 fontWeight: 700,
                 color: '#1f2937',
-                marginBottom: isSmall ? '6px' : '12px',
+                marginBottom: sp(12),
                 display: 'flex',
                 alignItems: 'center',
-                gap: isSmall ? '6px' : '10px',
+                gap: sp(10),
             }}
         >
-            <span
+            <div
                 style={{
                     backgroundColor: accentColor,
                     color: '#ffffff',
-                    width: isSmall ? '18px' : '28px',
-                    height: isSmall ? '18px' : '28px',
+                    width: sp(28),
+                    height: sp(28),
+                    minWidth: sp(28),
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: isSmall ? '10px' : '14px',
                 }}
             >
                 {icon}
-            </span>
+            </div>
             {children}
         </h3>
     );
 }
 
 // Get interest icon based on name
-function getInterestIcon(name: string): string {
+function getInterestIcon(name: string, size: number): React.ReactNode {
     const nameLower = name.toLowerCase();
-    if (nameLower.includes('travel')) return '✈️';
-    if (nameLower.includes('photo')) return '📷';
-    if (nameLower.includes('novel') || nameLower.includes('book') || nameLower.includes('read')) return '📚';
-    if (nameLower.includes('ballet') || nameLower.includes('dance')) return '💃';
-    if (nameLower.includes('snowboard') || nameLower.includes('ski')) return '🏂';
-    if (nameLower.includes('climb') || nameLower.includes('hik')) return '🧗';
-    if (nameLower.includes('music') || nameLower.includes('guitar')) return '🎵';
-    if (nameLower.includes('cook') || nameLower.includes('food')) return '🍳';
-    if (nameLower.includes('game') || nameLower.includes('gaming')) return '🎮';
-    if (nameLower.includes('film') || nameLower.includes('movie')) return '🎬';
-    if (nameLower.includes('art') || nameLower.includes('paint')) return '🎨';
-    if (nameLower.includes('sport') || nameLower.includes('fitness')) return '🏃';
-    if (nameLower.includes('yoga')) return '🧘';
-    if (nameLower.includes('swim')) return '🏊';
-    if (nameLower.includes('cycle') || nameLower.includes('bike')) return '🚴';
-    if (nameLower.includes('garden')) return '🌱';
-    if (nameLower.includes('coffee')) return '☕';
-    if (nameLower.includes('wine')) return '🍷';
-    return '⭐';
+    const faSize = size < 20 ? size * 0.6 : size * 0.7;
+
+    if (nameLower.includes('travel')) return <Plane size={size} />;
+    if (nameLower.includes('photo')) return <Camera size={size} />;
+    if (nameLower.includes('novel') || nameLower.includes('book') || nameLower.includes('read')) return <BookOpen size={size} />;
+    if (nameLower.includes('ballet') || nameLower.includes('dance')) return <FontAwesomeIcon icon={faPersonRunning} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('snowboard') || nameLower.includes('ski')) return <FontAwesomeIcon icon={faPersonSkiing} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('climb') || nameLower.includes('hik')) return <FontAwesomeIcon icon={faPersonHiking} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('music') || nameLower.includes('guitar')) return <Music size={size} />;
+    if (nameLower.includes('cook') || nameLower.includes('food')) return <CookingPot size={size} />;
+    if (nameLower.includes('game') || nameLower.includes('gaming')) return <Gamepad2 size={size} />;
+    if (nameLower.includes('film') || nameLower.includes('movie')) return <Film size={size} />;
+    if (nameLower.includes('art') || nameLower.includes('paint')) return <Palette size={size} />;
+    if (nameLower.includes('sport') || nameLower.includes('fitness')) return <FontAwesomeIcon icon={faPersonRunning} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('yoga') || nameLower.includes('meditation')) return <FontAwesomeIcon icon={faPersonPraying} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('swim')) return <FontAwesomeIcon icon={faPersonSwimming} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('cycle') || nameLower.includes('bike')) return <Bike size={size} />;
+    if (nameLower.includes('garden')) return <Sprout size={size} />;
+    if (nameLower.includes('coffee')) return <Coffee size={size} />;
+    if (nameLower.includes('wine')) return <Wine size={size} />;
+    return <Star size={size} />;
+}
+
+// Social link row with circular icon badge
+function SocialRow({ icon, value, color, sp }: { icon: string; value: string; color: string; sp: (px: number) => number }) {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}>
+            <div style={{
+                width: sp(24),
+                height: sp(24),
+                minWidth: sp(24),
+                borderRadius: '50%',
+                backgroundColor: color,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+            }}>
+                <span style={{ color: '#FFFFFF', display: 'flex' }}>{getSocialIcon(icon, sp(14))}</span>
+            </div>
+            <span style={{ wordBreak: 'break-all', color: '#374151', fontSize: '0.85em' }}>{value}</span>
+        </div>
+    );
+}
+
+// SVG icons for social networks
+function getSocialIcon(name: string, size: number = 14) {
+    const props = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+    switch (name) {
+        case 'github': return (
+            <svg {...props}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+        );
+        case 'linkedin': return (
+            <svg {...props}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
+        );
+        case 'instagram': return (
+            <svg {...props}><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+        );
+        case 'x': return (
+            <svg {...props}><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+        );
+        case 'dribbble': return (
+            <svg {...props}><circle cx="12" cy="12" r="10" /><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" /><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" /><path d="M8.56 2.75c4.37 6 6 9.42 8 13.25" /></svg>
+        );
+        case 'behance': return (
+            <svg {...props}><path d="M5 17V7h4a2 2 0 0 1 0 4H7v1h2a2 2 0 0 1 0 4H5" /><path d="M15 13h5a2.5 2.5 0 1 0-5 0v.5" /><path d="M16 9h4" /></svg>
+        );
+        default: return <Star size={size} />;
+    }
 }
 
 // Wrap with memo to prevent unnecessary re-renders

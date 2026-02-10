@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Star } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -28,6 +29,13 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
     // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
 
+    // Spacing helper for responsive scaling
+    const sizeMult = parseInt(sizeConfig.base) / 14;
+    const sp = (px: number) => Math.round(px * sizeMult);
+
+    // Icon helpers
+    const iconSm = scale < 1 ? 8 : sp(10);
+
     const t = useTemplateTranslations();
 
     // Fixed colors based on reference
@@ -36,8 +44,8 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
     const textColor = '#3f3f46'; // Zinc-700
 
     // Dimensions
-    const headerHeight = scale < 1 ? 120 : 220;
-    const photoSize = scale < 1 ? 80 : 150;
+    const headerHeight = scale < 1 ? 120 : sp(220);
+    const photoSize = scale < 1 ? 80 : sp(150);
 
     return (
         <div
@@ -57,7 +65,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                     height: headerHeight,
                     backgroundColor: darkBg,
                     position: 'relative',
-                    marginBottom: scale < 1 ? 40 : 80, // Space for overlapping photo
+                    marginBottom: scale < 1 ? 40 : sp(80), // Space for overlapping photo
                 }}
             >
                 {/* Yellow Diagonal Shape Top-Right */}
@@ -76,7 +84,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Content Container */}
                 <div
                     style={{
-                        padding: scale < 1 ? '20px' : '40px',
+                        padding: scale < 1 ? '20px' : `${sp(40)}px`,
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'flex-start',
@@ -84,7 +92,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                     }}
                 >
                     {/* Name - Left side */}
-                    <div style={{ width: '60%', paddingTop: scale < 1 ? 10 : 20 }}>
+                    <div style={{ width: '60%', paddingTop: scale < 1 ? 10 : sp(20) }}>
                         <h1
                             style={{
                                 fontFamily: headingFont,
@@ -93,7 +101,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                                 color: '#ffffff',
                                 textTransform: 'uppercase',
                                 lineHeight: 1.1,
-                                marginBottom: scale < 1 ? 8 : 16,
+                                marginBottom: scale < 1 ? 8 : sp(16),
                             }}
                         >
                             {personalInfo.fullName || 'Your Name'}
@@ -122,10 +130,11 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                             zIndex: 10,
                         }}
                     >
-                        {personalInfo.phone && <div style={{ marginBottom: 4 }}>{personalInfo.phone}</div>}
-                        {personalInfo.email && <div style={{ marginBottom: 4 }}>{personalInfo.email}</div>}
-                        {personalInfo.location && <div style={{ marginBottom: 4 }}>{personalInfo.location}</div>}
-                        {personalInfo.website && <div>{personalInfo.website}</div>}
+                        {personalInfo.phone && <div style={{ marginBottom: sp(4) }}>{personalInfo.phone}</div>}
+                        {personalInfo.email && <div style={{ marginBottom: sp(4) }}>{personalInfo.email}</div>}
+                        {personalInfo.location && <div style={{ marginBottom: sp(4) }}>{personalInfo.location}</div>}
+                        {personalInfo.website && <div style={{ marginBottom: sp(4) }}>{personalInfo.website}</div>}
+                        {personalInfo.linkedin && <div>{personalInfo.linkedin}</div>}
                     </div>
                 </div>
 
@@ -140,7 +149,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                             width: photoSize,
                             height: photoSize,
                             borderRadius: '50%',
-                            border: '5px solid #ffffff',
+                            border: `${sp(5)}px solid #ffffff`,
                             overflow: 'hidden',
                             backgroundColor: '#fff',
                             zIndex: 20,
@@ -160,15 +169,15 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
             <div
                 style={{
                     display: 'flex',
-                    padding: scale < 1 ? '0 20px 20px' : '0 40px 40px',
-                    gap: scale < 1 ? 15 : 30,
+                    padding: scale < 1 ? '0 20px 20px' : `0 ${sp(40)}px ${sp(40)}px`,
+                    gap: scale < 1 ? 15 : sp(30),
                 }}
             >
                 {/* Left Column (55%) */}
                 <div style={{ width: '55%' }}>
                     {personalInfo.summary && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.profile} />
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.profile} sp={sp} />
                             <p style={{ lineHeight: 1.6, fontSize: fs.body }}>
                                 {personalInfo.summary}
                             </p>
@@ -176,15 +185,15 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {experience.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.experience} />
-                            <div className="space-y-4">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.experience} sp={sp} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                                 {experience.map((exp) => (
                                     <div key={exp.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 800, color: '#18181b', textTransform: 'uppercase' }}>
                                             {exp.title}
                                         </h4>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.small, color: '#52525b', marginBottom: 4, fontWeight: 600 }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.small, color: '#52525b', marginBottom: sp(4), fontWeight: 600 }}>
                                             <span>{exp.company}</span>
                                             <span>{exp.startDate} - {exp.current ? t.labels.present : exp.endDate}</span>
                                         </div>
@@ -198,14 +207,11 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                             </div>
                         </section>
                     )}
-                </div>
 
-                {/* Right Column (45%) */}
-                <div style={{ width: '45%' }}>
                     {education.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.education} />
-                            <div className="space-y-4">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.education} sp={sp} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                                 {education.map((edu) => (
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 800, color: '#18181b', textTransform: 'uppercase' }}>
@@ -220,19 +226,39 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
+                    {/* Personal Details (Nationality, ID) */}
+                    {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.personalDetails} sp={sp} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(4), fontSize: fs.body }}>
+                                {personalInfo.nationality && (
+                                    <div data-paginate="item"><strong>Nationality:</strong> {personalInfo.nationality}</div>
+                                )}
+                                {personalInfo.idType && personalInfo.idNumber && (
+                                    <div data-paginate="item">
+                                        <strong>{personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:</strong> {personalInfo.idNumber}
+                                    </div>
+                                )}
+                            </div>
+                        </section>
+                    )}
+                </div>
+
+                {/* Right Column (45%) */}
+                <div style={{ width: '45%' }}>
                     {skills.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.skills} />
-                            <div className="space-y-2">
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.skills} sp={sp} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) }}>
                                 {skills.map((skill) => (
                                     <div key={skill.id} data-paginate="item">
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2, fontSize: fs.small, fontWeight: 700, color: '#18181b' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: sp(2), fontSize: fs.small, fontWeight: 700, color: '#18181b' }}>
                                             <span>{skill.name}</span>
                                         </div>
                                         <ProgressBar
                                             value={skill.level * 20}
                                             color={accentColor}
-                                            height={scale < 1 ? 6 : 10}
+                                            height={scale < 1 ? 6 : sp(10)}
                                             scale={scale}
                                             trackColor="#e4e4e7" // Zinc-200
                                         />
@@ -244,15 +270,15 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Strengths */}
                     {strengths && strengths.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.strengths} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.strengths} sp={sp} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(6) }}>
                                 {strengths.map((str) => (
                                     <span key={str.id} data-paginate="item" style={{
                                         backgroundColor: accentColor,
                                         color: '#18181b',
-                                        padding: scale < 1 ? '2px 8px' : '4px 12px',
-                                        borderRadius: 4,
+                                        padding: scale < 1 ? '2px 8px' : `${sp(4)}px ${sp(12)}px`,
+                                        borderRadius: sp(4),
                                         fontSize: fs.small,
                                         fontWeight: 600
                                     }}>
@@ -265,12 +291,12 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Interests */}
                     {interests && interests.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.interests} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.interests} sp={sp} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(8)}px ${sp(16)}px` }}>
                                 {interests.map((int) => (
-                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500 }} data-paginate="item">
-                                        ★ {int.name}
+                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500, display: 'flex', alignItems: 'center', gap: sp(4) }} data-paginate="item">
+                                        <Star size={iconSm} color={accentColor} fill={accentColor} /> {int.name}
                                     </span>
                                 ))}
                             </div>
@@ -279,13 +305,13 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Languages */}
                     {languages && languages.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.languages} />
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.languages} sp={sp} />
                             <ul style={{ listStyle: 'none', padding: 0 }}>
                                 {languages.map((lang) => (
-                                    <li key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: fs.body, fontWeight: 600, borderBottom: '1px solid #e4e4e7', paddingBottom: 2 }}>
+                                    <li key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: sp(4), fontSize: fs.body, fontWeight: 600, borderBottom: `${sp(1)}px solid #e4e4e7`, paddingBottom: sp(2) }}>
                                         <span>{lang.name}</span>
-                                        <span style={{ color: '#52525b' }}>{lang.proficiency}</span>
+                                        <span style={{ color: '#52525b', textTransform: 'capitalize' }}>{lang.proficiency}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -294,15 +320,15 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.credentials} />
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.credentials} sp={sp} />
 
                             {certifications && certifications.length > 0 && (
-                                <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
-                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#52525b', marginBottom: 8 }}>
+                                <div style={{ marginBottom: awards && awards.length > 0 ? sp(16) : 0 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#52525b', marginBottom: sp(8) }}>
                                         {t.sections.certifications}
                                     </h4>
-                                    <div className="space-y-2">
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) }}>
                                         {certifications.map((cert) => (
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#18181b' }}>{cert.name}</div>
@@ -315,10 +341,10 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                             {awards && awards.length > 0 && (
                                 <div>
-                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#52525b', marginBottom: 8 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#52525b', marginBottom: sp(8) }}>
                                         {t.sections.awards}
                                     </h4>
-                                    <div className="space-y-2">
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) }}>
                                         {awards.map((award) => (
                                             <div key={award.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#18181b' }}>{award.title}</div>
@@ -332,13 +358,10 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.socialLinks} />
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: fs.body }}>
-                                {personalInfo.linkedin && (
-                                    <div data-paginate="item"><strong>LinkedIn:</strong> {personalInfo.linkedin}</div>
-                                )}
+                    {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.socialLinks} sp={sp} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(4), fontSize: fs.body }}>
                                 {personalInfo.x && (
                                     <div data-paginate="item"><strong>X:</strong> {personalInfo.x}</div>
                                 )}
@@ -360,9 +383,9 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.references} />
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={t.sections.references} sp={sp} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) }}>
                                 {references.map((ref) => (
                                     <div key={ref.id} data-paginate="item">
                                         <div style={{ fontWeight: 700, fontSize: fs.body, color: '#18181b' }}>{ref.name}</div>
@@ -375,27 +398,10 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* Personal Details (Nationality, ID) */}
-                    {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={t.sections.personalDetails} />
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: fs.body }}>
-                                {personalInfo.nationality && (
-                                    <div data-paginate="item"><strong>Nationality:</strong> {personalInfo.nationality}</div>
-                                )}
-                                {personalInfo.idType && personalInfo.idNumber && (
-                                    <div data-paginate="item">
-                                        <strong>{personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:</strong> {personalInfo.idNumber}
-                                    </div>
-                                )}
-                            </div>
-                        </section>
-                    )}
-
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <section key={field.id} className="mb-4 resume-section">
-                            <SectionHeader fs={fs} title={field.label} />
+                        <section key={field.id} className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} title={field.label} sp={sp} />
                             <p style={{ fontSize: fs.body, lineHeight: 1.6 }}>{field.content}</p>
                         </section>
                     ))}
@@ -407,7 +413,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
     );
 }
 
-function SectionHeader({ fs, title }: { fs: ScaledFontSizes, title: string }) {
+function SectionHeader({ fs, title, sp }: { fs: ScaledFontSizes, title: string, sp: (px: number) => number }) {
     return (
         <h3
             style={{
@@ -415,7 +421,7 @@ function SectionHeader({ fs, title }: { fs: ScaledFontSizes, title: string }) {
                 fontWeight: 900,
                 color: '#18181b', // Zinc-900
                 textTransform: 'uppercase',
-                marginBottom: parseInt(fs.body) < 10 ? 8 : 12,
+                marginBottom: sp(12),
                 letterSpacing: '0.05em',
             }}
         >

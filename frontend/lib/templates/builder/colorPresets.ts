@@ -75,13 +75,13 @@ const adjustColor = (hex: string, amount: number): string => {
     if (r > 255) r = 255;
     else if (r < 0) r = 0;
 
-    let b = ((num >> 8) & 0x00FF) + amount;
-    if (b > 255) b = 255;
-    else if (b < 0) b = 0;
-
-    let g = (num & 0x0000FF) + amount;
+    let g = ((num >> 8) & 0x00FF) + amount;
     if (g > 255) g = 255;
     else if (g < 0) g = 0;
+
+    let b = (num & 0x0000FF) + amount;
+    if (b > 255) b = 255;
+    else if (b < 0) b = 0;
 
     return (usePound ? '#' : '') + (b | (g << 8) | (r << 16)).toString(16).padStart(6, '0');
 };

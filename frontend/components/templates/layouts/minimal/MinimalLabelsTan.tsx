@@ -10,7 +10,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 /**
  * Minimal Labels Tan Template
  * Reference: minimal-labels-tan.webp
- * 
+ *
  * Layout:
  * - Two Column Layout (Left: Labels/Dates, Right: Content).
  * - Background: Light Tan/Off-white (#fefce8 or #fffbeb).
@@ -24,6 +24,8 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
 
     // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
+    const sizeMult = parseInt(sizeConfig.base) / 14;
+    const sp = (px: number) => Math.round(px * sizeMult);
 
     const t = useTemplateTranslations();
 
@@ -40,14 +42,14 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 fontSize: sizeConfig.base,
                 backgroundColor: mainBg,
                 color: mainText,
-                padding: scale < 1 ? '32px' : '64px',
+                padding: scale < 1 ? '32px' : sp(64)+'px',
                 boxSizing: 'border-box',
                 display: 'flex',
                 flexDirection: 'column',
             }}
         >
             {/* Header */}
-            <header style={{ marginLeft: '30%', marginBottom: 32 }}>
+            <header style={{ marginLeft: '30%', marginBottom: sp(32) }}>
                 <h1
                     style={{
                         fontFamily: headingFont,
@@ -55,7 +57,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                         fontWeight: 400,
                         color: '#000',
                         margin: 0,
-                        marginBottom: 4,
+                        marginBottom: sp(4),
                     }}
                 >
                     {personalInfo.fullName}
@@ -65,7 +67,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                         fontSize: fs.jobTitle,
                         color: '#000',
                         fontWeight: 400,
-                        marginBottom: 16
+                        marginBottom: sp(16)
                     }}
                 >
                     {personalInfo.jobTitle}
@@ -75,7 +77,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 <div style={{
                     fontSize: fs.small,
                     display: 'flex',
-                    gap: '16px',
+                    gap: sp(16)+'px',
                     color: '#000',
                     flexWrap: 'wrap'
                 }}>
@@ -83,17 +85,18 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                     {personalInfo.phone && <span>{personalInfo.phone}</span>}
                     {personalInfo.location && <span>{personalInfo.location}</span>}
                     {personalInfo.website && <span>{personalInfo.website}</span>}
+                    {personalInfo.linkedin && <span>{personalInfo.linkedin}</span>}
                 </div>
             </header>
 
             {/* Sections Wrapper */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(24) }}>
 
                 {/* Profile */}
                 {personalInfo.summary && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.profile}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.profile}</h3>
                         </div>
                         <div style={{ flex: 1 }}>
                             <p style={{ margin: 0, lineHeight: 1.6, fontSize: fs.body }}>{personalInfo.summary}</p>
@@ -104,17 +107,17 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Experience */}
                 {experience.length > 0 && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.experience}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.experience}</h3>
                         </div>
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24 }}>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(24) }}>
                             {experience.map((exp) => (
                                 <ResumeEntry key={exp.id}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: sp(2) }}>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{exp.title}</h4>
                                         <span style={{ fontSize: fs.small, color: '#4b5563' }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
-                                    <div style={{ fontSize: fs.small, color: '#d97706', fontWeight: 600, marginBottom: 4 }}>
+                                    <div style={{ fontSize: fs.small, color: customThemeColor || '#d97706', fontWeight: 600, marginBottom: sp(4) }}>
                                         {exp.company}, {exp.city}
                                     </div>
                                     <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>
@@ -129,10 +132,10 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Education */}
                 {education.length > 0 && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.education}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.education}</h3>
                         </div>
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                             {education.map((edu) => (
                                 <ResumeEntry key={edu.id}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{edu.degree}</h4>
@@ -147,17 +150,17 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Skills */}
                 {skills.length > 0 && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.skills}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.skills}</h3>
                         </div>
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(8) }}>
                             {skills.map((skill) => (
                                 <div key={skill.id} data-paginate="item">
                                     <ProgressBar
                                         label={skill.name}
                                         value={(skill.level || 3) * 20}
                                         color={customThemeColor || '#a8a29e'}
-                                        height={6}
+                                        height={scale < 1 ? 4 : sp(6)}
                                         scale={1}
                                     />
                                 </div>
@@ -169,12 +172,12 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Languages */}
                 {languages && languages.length > 0 && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.languages}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.languages}</h3>
                         </div>
                         <div style={{ flex: 1 }}>
                             <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
-                                {languages.map(l => `${l.name} (${l.proficiency})`).join(', ')}
+                                {languages.map(l => `${l.name} (${l.proficiency ? l.proficiency.charAt(0).toUpperCase() + l.proficiency.slice(1) : ''})`).join(', ')}
                             </p>
                         </div>
                     </div>
@@ -183,17 +186,17 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Strengths */}
                 {data.strengths && data.strengths.length > 0 && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.strengths}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.strengths}</h3>
                         </div>
-                        <div style={{ flex: 1, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                        <div style={{ flex: 1, display: 'flex', gap: sp(8), flexWrap: 'wrap' }}>
                             {data.strengths.map((str) => (
                                 <span key={str.id} style={{
                                     fontSize: fs.small,
                                     color: mainText,
                                     backgroundColor: '#f5f5f4',
-                                    padding: '4px 8px',
-                                    borderRadius: 4
+                                    padding: `${sp(4)}px ${sp(8)}px`,
+                                    borderRadius: sp(4)
                                 }}>
                                     {str.name}
                                 </span>
@@ -205,8 +208,8 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Interests */}
                 {data.interests && data.interests.length > 0 && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.interests}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.interests}</h3>
                         </div>
                         <div style={{ flex: 1 }}>
                             <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
@@ -219,16 +222,16 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Credentials (Certifications & Awards) */}
                 {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.credentials}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.credentials}</h3>
                         </div>
                         <div style={{ flex: 1 }}>
                             {certifications && certifications.length > 0 && (
-                                <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
-                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: labelText, marginBottom: 8 }}>
+                                <div style={{ marginBottom: awards && awards.length > 0 ? sp(16) : 0 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: labelText, marginBottom: sp(8) }}>
                                         {t.sections.certifications}
                                     </h4>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) }}>
                                         {certifications.map((cert) => (
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{cert.name}</div>
@@ -240,10 +243,10 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                             )}
                             {awards && awards.length > 0 && (
                                 <div>
-                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: labelText, marginBottom: 8 }}>
+                                    <h4 style={{ fontSize: fs.small, fontWeight: 600, color: labelText, marginBottom: sp(8) }}>
                                         {t.sections.awards}
                                     </h4>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) }}>
                                         {awards.map((award) => (
                                             <div key={award.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{award.title}</div>
@@ -258,14 +261,12 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 )}
 
                 {/* Social Links */}
-                {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) && (
+                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.socialLinks}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.socialLinks}</h3>
                         </div>
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
-                            {personalInfo.website && <div><span style={{ fontWeight: 600 }}>Website:</span> {personalInfo.website}</div>}
-                            {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(6), fontSize: fs.body }}>
                             {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                             {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
@@ -278,10 +279,10 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* References */}
                 {references && references.length > 0 && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.references}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.references}</h3>
                         </div>
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                             {references.map((ref) => (
                                 <div key={ref.id} data-paginate="item">
                                     <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
@@ -297,10 +298,10 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Personal Details */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
                     <div style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.personalDetails}</h3>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.personalDetails}</h3>
                         </div>
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(6), fontSize: fs.body }}>
                             {personalInfo.nationality && (
                                 <div><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
                             )}
@@ -319,9 +320,9 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
-                    <div key={field.id} style={{ display: 'flex', marginTop: 24 }}>
-                        <div style={{ width: '30%', paddingRight: 24, flexShrink: 0 }}>
-                            <h3 style={{ fontSize: 18, fontWeight: 600, color: '#000', margin: 0 }}>{field.label}</h3>
+                    <div key={field.id} style={{ display: 'flex', marginTop: sp(24) }}>
+                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
+                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{field.label}</h3>
                         </div>
                         <div style={{ flex: 1 }}>
                             <p style={{ margin: 0, lineHeight: 1.6, fontSize: fs.body }}>{field.content}</p>

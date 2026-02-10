@@ -7,6 +7,7 @@ export interface TemplateColorSchema {
     templateId: string;
     schemaType: ColorSchemaType;
     colorAreas: string[]; // Where colors are applied
+    displayHint?: 'gradient' | 'stacked'; // How dual-color swatches render in DesignTab
 }
 
 /**
@@ -65,6 +66,24 @@ export const dualColorPresets: DualColorPreset[] = [
 ];
 
 /**
+ * 10 gradient presets — smooth analogous/monochromatic transitions
+ * Designed for header gradients on CVs (white text on top).
+ * Primary = deeper shade, Secondary = lighter shade of the same hue family.
+ */
+export const gradientPresets: DualColorPreset[] = [
+    { id: 'deep-ocean', name: 'Deep Ocean', primary: '#1e3a5f', secondary: '#3b82f6' },
+    { id: 'royal-violet', name: 'Royal Violet', primary: '#5b21b6', secondary: '#a78bfa' },
+    { id: 'emerald-mist', name: 'Emerald', primary: '#065f46', secondary: '#34d399' },
+    { id: 'steel', name: 'Steel', primary: '#1e293b', secondary: '#64748b' },
+    { id: 'sapphire', name: 'Sapphire', primary: '#1e1b4b', secondary: '#6366f1' },
+    { id: 'crimson-rose', name: 'Crimson', primary: '#9f1239', secondary: '#fb7185' },
+    { id: 'teal-wave', name: 'Teal Wave', primary: '#115e59', secondary: '#2dd4bf' },
+    { id: 'golden-dusk', name: 'Golden', primary: '#78350f', secondary: '#f59e0b' },
+    { id: 'midnight', name: 'Midnight', primary: '#0f172a', secondary: '#3b82f6' },
+    { id: 'plum-berry', name: 'Plum Berry', primary: '#701a75', secondary: '#d946ef' },
+];
+
+/**
  * Template color schema definitions
  * Maps each template to its color type
  */
@@ -97,8 +116,8 @@ export const templateColorSchemas: Record<string, TemplateColorSchema> = {
     },
     'header-decorative': {
         templateId: 'header-decorative',
-        schemaType: 'single',
-        colorAreas: ['decorative elements', 'accents'],
+        schemaType: 'dual',
+        colorAreas: ['header background', 'accents'],
     },
     'header-green-centered': {
         templateId: 'header-green-centered',
@@ -122,8 +141,9 @@ export const templateColorSchemas: Record<string, TemplateColorSchema> = {
     },
     'header-blue-clean': {
         templateId: 'header-blue-clean',
-        schemaType: 'single',
-        colorAreas: ['header background', 'accents'],
+        schemaType: 'dual',
+        colorAreas: ['header gradient', 'accents'],
+        displayHint: 'gradient',
     },
     'header-dark-variant': {
         templateId: 'header-dark-variant',
@@ -184,5 +204,6 @@ export function getTemplateColorSchema(templateId: string): TemplateColorSchema 
  */
 export function getPresetsForTemplate(templateId: string): SingleColorPreset[] | DualColorPreset[] {
     const schema = getTemplateColorSchema(templateId);
+    if (schema.displayHint === 'gradient') return gradientPresets;
     return schema.schemaType === 'dual' ? dualColorPresets : singleColorPresets;
 }

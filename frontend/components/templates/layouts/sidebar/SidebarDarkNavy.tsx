@@ -10,7 +10,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 /**
  * Sidebar Dark Navy Template
  * Reference: sidebar-dark-navy.jpg
- * 
+ *
  * Layout:
  * - Sidebar: 35% width, Left. Slate 800 (#1e293b).
  * - Main: 65% width. White (#FFFFFF).
@@ -27,6 +27,9 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
     // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
 
+    const sizeMult = parseInt(sizeConfig.base) / 14;
+    const sp = (px: number) => Math.round(px * sizeMult);
+
     const t = useTemplateTranslations();
 
     // Colors
@@ -37,8 +40,11 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
     const accentColor = customThemeColor || theme?.primary || '#059669'; // Emerald 600 default
 
     // Dimensions
-    const photoSize = scale < 1 ? 80 : 120;
+    const photoSize = scale < 1 ? 80 : sp(120);
     const sidebarWidth = '35%';
+
+    // Icon helpers
+    const iconSm = scale < 1 ? 8 : sp(14);
 
     return (
         <div
@@ -61,13 +67,13 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                     color: sidebarText,
                     display: 'flex',
                     flexDirection: 'column',
-                    padding: scale < 1 ? '24px 16px' : '48px 32px', // Reduced padding
+                    padding: scale < 1 ? '24px 16px' : `${sp(48)}px ${sp(32)}px`,
                     flexShrink: 0,
                     alignItems: 'center'
                 }}
             >
                 {/* Photo */}
-                <div style={{ marginBottom: scale < 1 ? 24 : 32 }}> {/* Reduced margin */}
+                <div style={{ marginBottom: scale < 1 ? 24 : sp(32) }}>
                     {personalInfo.profileImage ? (
                         <img
                             src={personalInfo.profileImage}
@@ -77,7 +83,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                 height: photoSize,
                                 borderRadius: '50%',
                                 objectFit: 'cover',
-                                border: `4px solid ${accentColor}`,
+                                border: `${sp(4)}px solid ${accentColor}`,
                             }}
                         />
                     ) : (
@@ -87,7 +93,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                 height: photoSize,
                                 borderRadius: '50%',
                                 backgroundColor: '#0f172a',
-                                border: `4px solid ${accentColor}`,
+                                border: `${sp(4)}px solid ${accentColor}`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -101,13 +107,13 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                 </div>
 
                 {/* Contact */}
-                <div style={{ width: '100%', marginBottom: 16 }}> {/* Reduced margin */}
-                    <SidebarSectionHeader title={t.sections.contact} color={accentColor} fs={fs} headingFont={headingFont} />
-                    <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 10 }}> {/* Reduced gap */}
-                        {personalInfo.phone && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 10 }}><Phone size={14} color={accentColor} /><span>{personalInfo.phone}</span></div>}
-                        {personalInfo.email && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 10 }}><Mail size={14} color={accentColor} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span></div>}
-                        {personalInfo.location && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 10 }}><MapPin size={14} color={accentColor} /><span>{personalInfo.location}</span></div>}
-                        {personalInfo.website && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 10 }}><Globe size={14} color={accentColor} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span></div>}
+                <div style={{ width: '100%', marginBottom: sp(16) }}>
+                    <SidebarSectionHeader title={t.sections.contact} color={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
+                    <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: sp(10) }}>
+                        {personalInfo.phone && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><Phone size={iconSm} color={accentColor} /><span>{personalInfo.phone}</span></div>}
+                        {personalInfo.email && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><Mail size={iconSm} color={accentColor} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span></div>}
+                        {personalInfo.location && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><MapPin size={iconSm} color={accentColor} /><span>{personalInfo.location}</span></div>}
+                        {personalInfo.website && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><Globe size={iconSm} color={accentColor} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span></div>}
 
 
                     </div>
@@ -115,9 +121,9 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Personal Details (Moved to Sidebar) */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                    <div style={{ width: '100%', marginBottom: 32 }}> {/* Reduced margin */}
-                        <SidebarSectionHeader title={t.sections.personalDetails} color={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: 6, color: sidebarText }}> {/* Reduced gap */}
+                    <div style={{ width: '100%', marginBottom: sp(32) }}>
+                        <SidebarSectionHeader title={t.sections.personalDetails} color={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
+                        <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: sp(6), color: sidebarText }}>
                             {personalInfo.nationality && (
                                 <div data-paginate="item"><span style={{ fontWeight: 500, color: accentColor }}>Nationality:</span> {personalInfo.nationality}</div>
                             )}
@@ -136,17 +142,17 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Skills */}
                 {skills.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: 32 }}> {/* Reduced margin */}
-                        <SidebarSectionHeader title={t.sections.skills} color={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}> {/* Reduced gap */}
+                    <div style={{ width: '100%', marginBottom: sp(32) }}>
+                        <SidebarSectionHeader title={t.sections.skills} color={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(10) }}>
                             {skills.map((skill) => (
                                 <div key={skill.id} data-paginate="item">
-                                    <div style={{ marginBottom: 4, fontSize: fs.body, fontWeight: 500 }}>{skill.name}</div>
+                                    <div style={{ marginBottom: sp(4), fontSize: fs.body, fontWeight: 500 }}>{skill.name}</div>
                                     <ProgressBar
                                         value={skill.level * 20}
                                         color={accentColor}
                                         trackColor="#334155"
-                                        height={6}
+                                        height={scale < 1 ? 4 : sp(6)}
                                         scale={1}
                                     />
                                 </div>
@@ -157,17 +163,17 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Strengths */}
                 {data.strengths && data.strengths.length > 0 && (
-                    <div style={{ width: '100%', marginTop: 16 }}> {/* Reduced margin */}
-                        <SidebarSectionHeader title={t.sections.strengths} color={accentColor} fs={fs} headingFont={headingFont} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}> {/* Reduced gap */}
+                    <div style={{ width: '100%', marginTop: sp(16) }}>
+                        <SidebarSectionHeader title={t.sections.strengths} color={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(10) }}>
                             {data.strengths.map((str) => (
                                 <div key={str.id} data-paginate="item">
-                                    <div style={{ marginBottom: 4, fontSize: fs.body, fontWeight: 500 }}>{str.name}</div>
+                                    <div style={{ marginBottom: sp(4), fontSize: fs.body, fontWeight: 500 }}>{str.name}</div>
                                     <ProgressBar
                                         value={str.level}
                                         color={accentColor}
                                         trackColor="#334155"
-                                        height={6}
+                                        height={scale < 1 ? 4 : sp(6)}
                                         scale={1}
                                     />
                                 </div>
@@ -182,13 +188,13 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
             <main
                 style={{
                     flex: 1,
-                    padding: scale < 1 ? '24px 24px' : '20px 48px', // Reduced padding to match backend (was 48px 40px)
+                    padding: scale < 1 ? '24px 24px' : `${sp(20)}px ${sp(48)}px`,
                     display: 'flex',
                     flexDirection: 'column',
                 }}
             >
                 {/* Header */}
-                <div style={{ marginBottom: scale < 1 ? 32 : 48, borderBottom: `2px solid ${accentColor}`, paddingBottom: 20 }}> {/* Reduced margin/padding */}
+                <div style={{ marginBottom: scale < 1 ? 32 : sp(48), borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(20) }}>
                     <h1
                         style={{
                             fontFamily: headingFont,
@@ -197,7 +203,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                             color: '#0f172a',
                             textTransform: 'uppercase',
                             margin: 0,
-                            marginBottom: 8,
+                            marginBottom: sp(8),
                             letterSpacing: '0.05em'
                         }}
                     >
@@ -218,36 +224,36 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Profile */}
                 {personalInfo.summary && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.profile}</h3>
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.profile}</h3>
                         <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#334155' }}>{personalInfo.summary}</p>
                     </section>
                 )}
 
                 {/* Experience with Timeline */}
                 {experience.length > 0 && (
-                    <section className="mb-4 resume-section"> {/* Reduced section margin */}
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 20, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.experience}</h3> {/* Reduced header margin */}
+                    <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(20), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.experience}</h3>
                         <div style={{
                             position: 'relative',
-                            paddingLeft: 20,
-                            borderLeft: '2px solid #e2e8f0'
+                            paddingLeft: sp(20),
+                            borderLeft: `${sp(2)}px solid #e2e8f0`
                         }}>
                             {experience.map((exp) => (
-                                <div key={exp.id} data-paginate="item" style={{ position: 'relative', marginBottom: 24 }}> {/* Reduced item margin from 32 to 24 */}
+                                <div key={exp.id} data-paginate="item" style={{ position: 'relative', marginBottom: sp(24) }}>
                                     {/* Timeline Dot */}
                                     <div style={{
                                         position: 'absolute',
-                                        left: -25,
-                                        top: 4,
-                                        width: 12,
-                                        height: 12,
+                                        left: -sp(25),
+                                        top: sp(4),
+                                        width: sp(12),
+                                        height: sp(12),
                                         borderRadius: '50%',
                                         backgroundColor: accentColor,
-                                        border: '2px solid white'
+                                        border: `${sp(2)}px solid white`
                                     }}></div>
 
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(4) }}>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a', margin: 0, textTransform: 'uppercase' }}>
                                             {exp.title}
                                         </h4>
@@ -255,7 +261,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                             {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
                                         </span>
                                     </div>
-                                    <div style={{ fontSize: fs.small, color: '#64748b', fontWeight: 600, marginBottom: 8 }}>
+                                    <div style={{ fontSize: fs.small, color: '#64748b', fontWeight: 600, marginBottom: sp(8) }}>
                                         {exp.company}{exp.city ? ` | ${exp.city}` : ''}
                                     </div>
                                     <div style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563' }}>
@@ -280,12 +286,12 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Education */}
                 {education.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.education}</h3>
-                        <div style={{ display: 'grid', gap: 16 }}>
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.education}</h3>
+                        <div style={{ display: 'grid', gap: sp(16) }}>
                             {education.map((edu) => (
                                 <div key={edu.id} data-paginate="item">
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(4) }}>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a', margin: 0, textTransform: 'uppercase' }}>
                                             {edu.degree}
                                         </h4>
@@ -304,9 +310,9 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Certifications */}
                 {certifications && certifications.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.certifications}</h3>
-                        <div style={{ display: 'grid', gap: 16 }}>
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.certifications}</h3>
+                        <div style={{ display: 'grid', gap: sp(16) }}>
                             {certifications.map((cert) => (
                                 <div key={cert.id} data-paginate="item">
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{cert.name}</h4>
@@ -320,16 +326,16 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Awards */}
                 {awards && awards.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.awards}</h3>
-                        <div style={{ display: 'grid', gap: 16 }}>
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.awards}</h3>
+                        <div style={{ display: 'grid', gap: sp(16) }}>
                             {awards.map((award) => (
                                 <div key={award.id} data-paginate="item">
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{award.title}</h4>
                                     <div style={{ fontSize: fs.body, color: accentColor, fontWeight: 500 }}>{award.issuer}</div>
                                     <div style={{ fontSize: fs.small, color: '#64748b' }}>{award.date}</div>
                                     {award.description && (
-                                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563', marginTop: 4 }}>{award.description}</p>
+                                        <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563', marginTop: sp(4) }}>{award.description}</p>
                                     )}
                                 </div>
                             ))}
@@ -339,11 +345,11 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Languages */}
                 {languages && languages.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.languages}</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.languages}</h3>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) }}>
                             {languages.map((lang) => (
-                                <div key={lang.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: fs.body }}>
+                                <div key={lang.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
                                     <span style={{ fontWeight: 500, color: '#0f172a' }}>{lang.name}</span>
                                     <span style={{ fontSize: fs.small, color: accentColor, textTransform: 'capitalize' }}>({lang.proficiency})</span>
                                 </div>
@@ -354,27 +360,27 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Social Links (Moved to Main) */}
                 {(personalInfo.github || personalInfo.x || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.socialLinks || 'Social Links'}</h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px 24px' }}>
-                            {personalInfo.github && <div data-paginate="item"><SocialRow icon="github" value={personalInfo.github} color={accentColor} textColor={mainText} /></div>}
-                            {personalInfo.x && <div data-paginate="item"><SocialRow icon="x" value={personalInfo.x} color={accentColor} textColor={mainText} /></div>}
-                            {personalInfo.linkedin && <div data-paginate="item"><SocialRow icon="linkedin" value={personalInfo.linkedin} color={accentColor} textColor={mainText} /></div>}
-                            {personalInfo.dribbble && <div data-paginate="item"><SocialRow icon="dribbble" value={personalInfo.dribbble} color={accentColor} textColor={mainText} /></div>}
-                            {personalInfo.behance && <div data-paginate="item"><SocialRow icon="behance" value={personalInfo.behance} color={accentColor} textColor={mainText} /></div>}
-                            {personalInfo.instagram && <div data-paginate="item"><SocialRow icon="instagram" value={personalInfo.instagram} color={accentColor} textColor={mainText} /></div>}
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.socialLinks || 'Social Links'}</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: `${sp(12)}px ${sp(24)}px` }}>
+                            {personalInfo.github && <div data-paginate="item"><SocialRow icon="github" value={personalInfo.github} color={accentColor} textColor={mainText} sp={sp} /></div>}
+                            {personalInfo.x && <div data-paginate="item"><SocialRow icon="x" value={personalInfo.x} color={accentColor} textColor={mainText} sp={sp} /></div>}
+                            {personalInfo.linkedin && <div data-paginate="item"><SocialRow icon="linkedin" value={personalInfo.linkedin} color={accentColor} textColor={mainText} sp={sp} /></div>}
+                            {personalInfo.dribbble && <div data-paginate="item"><SocialRow icon="dribbble" value={personalInfo.dribbble} color={accentColor} textColor={mainText} sp={sp} /></div>}
+                            {personalInfo.behance && <div data-paginate="item"><SocialRow icon="behance" value={personalInfo.behance} color={accentColor} textColor={mainText} sp={sp} /></div>}
+                            {personalInfo.instagram && <div data-paginate="item"><SocialRow icon="instagram" value={personalInfo.instagram} color={accentColor} textColor={mainText} sp={sp} /></div>}
                         </div>
                     </section>
                 )}
 
                 {/* Interests / Hobbies */}
                 {interests && interests.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.interests}</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.interests}</h3>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) }}>
                             {interests.map((int) => (
-                                <span key={int.id} data-paginate="item" style={{ fontSize: fs.body, color: '#475569', display: 'flex', alignItems: 'center', gap: 6 }}>
-                                    <span style={{ color: accentColor, fontSize: '10px' }}>●</span>
+                                <span key={int.id} data-paginate="item" style={{ fontSize: fs.body, color: '#475569', display: 'flex', alignItems: 'center', gap: sp(6) }}>
+                                    <span style={{ color: accentColor, fontSize: sp(10) + 'px' }}>●</span>
                                     {int.name}
                                 </span>
                             ))}
@@ -386,9 +392,9 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* References */}
                 {references && references.length > 0 && (
-                    <section className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{t.sections.references}</h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.references}</h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                             {references.map((ref) => (
                                 <div key={ref.id} data-paginate="item">
                                     <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{ref.name}</div>
@@ -405,8 +411,8 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
-                    <section key={field.id} className="mb-5 resume-section">
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700, borderBottom: `2px solid ${accentColor}`, paddingBottom: 4 }}>{field.label}</h3>
+                    <section key={field.id} className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{field.label}</h3>
                         <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#334155' }}>{field.content}</p>
                     </section>
                 ))}
@@ -419,7 +425,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
 }
 
 // Helpers
-function SidebarSectionHeader({ title, color, fs, headingFont }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string }) {
+function SidebarSectionHeader({ title, color, fs, headingFont, sp }: { title: string, color: string, fs: ScaledFontSizes, headingFont: string, sp: (px: number) => number }) {
     return (
         <h3
             style={{
@@ -428,9 +434,9 @@ function SidebarSectionHeader({ title, color, fs, headingFont }: { title: string
                 fontWeight: 700,
                 color: '#FFFFFF',
                 textTransform: 'uppercase',
-                marginBottom: 16,
-                paddingBottom: 4,
-                borderBottom: `2px solid ${color}`
+                marginBottom: sp(16),
+                paddingBottom: sp(4),
+                borderBottom: `${sp(2)}px solid ${color}`
             }}
         >
             {title}
@@ -450,13 +456,13 @@ export const sidebarDarkNavyMeta: TemplateMeta = {
 };
 
 // Helper for Social Icons matched to Backend logic
-function SocialRow({ icon, value, color, textColor }: { icon: string, value: string, color: string, textColor: string }) {
+function SocialRow({ icon, value, color, textColor, sp }: { icon: string, value: string, color: string, textColor: string, sp: (px: number) => number }) {
     if (!value) return null;
     return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}>
             <div style={{
-                width: 24,
-                height: 24,
+                width: sp(24),
+                height: sp(24),
                 borderRadius: '50%',
                 backgroundColor: color,
                 display: 'flex',
@@ -464,15 +470,14 @@ function SocialRow({ icon, value, color, textColor }: { icon: string, value: str
                 justifyContent: 'center',
                 flexShrink: 0
             }}>
-                <span style={{ color: '#FFFFFF', display: 'flex' }}>{getSocialIcon(icon)}</span>
+                <span style={{ color: '#FFFFFF', display: 'flex' }}>{getSocialIcon(icon, sp(14))}</span>
             </div>
             <span style={{ wordBreak: 'break-all', color: textColor }}>{value}</span>
         </div>
     );
 }
 
-function getSocialIcon(name: string) {
-    const size = 14;
+function getSocialIcon(name: string, size: number = 14) {
     const props = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
 
     switch (name) {

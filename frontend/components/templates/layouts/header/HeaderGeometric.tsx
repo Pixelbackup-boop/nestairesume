@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { Diamond } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
@@ -28,17 +29,19 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
     // Get scaled font sizes
     const fs = getScaledFontSizes(sizeConfig, scale);
+    const sizeMult = parseInt(sizeConfig.base) / 14;
+    const sp = (px: number) => Math.round(px * sizeMult);
 
     const t = useTemplateTranslations();
 
     // Fixed colors
-    const headerBgColor = '#78350f'; // Amber-900 (Dark Brown)
+    const headerBgColor = customThemeColor || '#78350f'; // Follows accent color
     const accentColor = customThemeColor || '#92400e'; // Amber-800 (Copper)
     const textColor = '#374151'; // Gray-700
 
     // Dimensions
-    const patternHeight = scale < 1 ? 60 : 120;
-    const headerHeight = scale < 1 ? 60 : 100;
+    const patternHeight = scale < 1 ? 60 : sp(120);
+    const headerHeight = scale < 1 ? 60 : sp(100);
 
     return (
         <div
@@ -79,12 +82,10 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Header Bar - Dark Brown */}
             <header
-                className="resume-section"
-                data-paginate
                 style={{
                     backgroundColor: headerBgColor,
                     color: '#ffffff',
-                    padding: scale < 1 ? '10px 20px' : '20px 40px',
+                    padding: scale < 1 ? '10px 20px' : `${sp(20)}px ${sp(40)}px`,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -98,7 +99,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                         fontSize: fs.name,
                         fontWeight: 400,
                         letterSpacing: '0.05em',
-                        marginBottom: scale < 1 ? 4 : 8,
+                        marginBottom: scale < 1 ? 4 : sp(8),
                     }}
                 >
                     {personalInfo.fullName || 'Your Name'}
@@ -109,7 +110,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                         display: 'flex',
                         flexWrap: 'wrap',
                         justifyContent: 'center',
-                        gap: scale < 1 ? '12px' : '24px',
+                        gap: scale < 1 ? '12px' : sp(24)+'px',
                         fontSize: fs.small,
                         color: 'rgba(255,255,255,0.9)',
                     }}
@@ -117,26 +118,28 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                     {personalInfo.email && <span>{personalInfo.email}</span>}
                     {personalInfo.phone && <span>{personalInfo.phone}</span>}
                     {personalInfo.location && <span>{personalInfo.location}</span>}
+                    {personalInfo.website && <span>{personalInfo.website}</span>}
+                    {personalInfo.linkedin && <span>{personalInfo.linkedin}</span>}
                 </div>
             </header>
 
             {/* Main Content Body */}
-            <div style={{ padding: scale < 1 ? '20px' : '40px' }}>
+            <div style={{ padding: scale < 1 ? '20px' : sp(40)+'px' }}>
 
                 {/* Summary */}
                 {personalInfo.summary && (
-                    <SectionRow label={t.sections.profile} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
+                    <SectionRow label={t.sections.profile} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
                         <p style={{ lineHeight: 1.6 }}>{personalInfo.summary}</p>
                     </SectionRow>
                 )}
 
                 {/* Experience */}
                 {experience.length > 0 && (
-                    <SectionRow label={t.sections.experience} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div className="space-y-6">
+                    <SectionRow label={t.sections.experience} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(24)+'px' }}>
                             {experience.map((exp) => (
                                 <div key={exp.id} data-paginate="item">
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 2 }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(2) }}>
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 700, color: '#1f2937' }}>
                                             {exp.title}
                                         </h4>
@@ -144,7 +147,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                                             {exp.startDate} - {exp.current ? t.labels.present : exp.endDate}
                                         </span>
                                     </div>
-                                    <p style={{ color: accentColor, fontWeight: 600, fontSize: fs.body, marginBottom: 4 }}>
+                                    <p style={{ color: accentColor, fontWeight: 600, fontSize: fs.body, marginBottom: sp(4) }}>
                                         {exp.company} {exp.city && `| ${exp.city}`}
                                     </p>
                                     {exp.description && (
@@ -160,11 +163,11 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Education */}
                 {education.length > 0 && (
-                    <SectionRow label={t.sections.education} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div className="space-y-4">
+                    <SectionRow label={t.sections.education} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16)+'px' }}>
                             {education.map((edu) => (
                                 <div key={edu.id} data-paginate="item">
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 2 }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(2) }}>
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 700, color: '#1f2937' }}>
                                             {edu.degree}
                                         </h4>
@@ -176,7 +179,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                                         {edu.school}, {edu.city}
                                     </p>
                                     {edu.description && (
-                                        <p style={{ fontSize: fs.small, marginTop: 2 }}>{edu.description}</p>
+                                        <p style={{ fontSize: fs.small, marginTop: sp(2) }}>{edu.description}</p>
                                     )}
                                 </div>
                             ))}
@@ -186,17 +189,17 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Core Strengths - Circular */}
                 {strengths && strengths.length > 0 && (
-                    <SectionRow label={t.sections.strengths} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} keepTogether={true}>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: scale < 1 ? 15 : 30 }}>
+                    <SectionRow label={t.sections.strengths} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp} keepTogether={true}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: scale < 1 ? 15 : sp(30) }}>
                             {strengths.slice(0, 4).map((strength) => (
                                 <div key={strength.id}>
                                     <CircularProgress
                                         value={strength.level > 5 ? strength.level : strength.level * 20}
-                                        size={scale < 1 ? 50 : 80}
+                                        size={scale < 1 ? 50 : sp(80)}
                                         color={accentColor}
-                                        strokeWidth={4}
+                                        strokeWidth={scale < 1 ? 3 : sp(4)}
                                         label={strength.name}
-                                        fontSize={scale < 1 ? 9 : 14}
+                                        fontSize={scale < 1 ? 9 : sp(14)}
                                         scale={scale}
                                     />
                                 </div>
@@ -207,15 +210,15 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Skills */}
                 {skills.length > 0 && (
-                    <SectionRow label={t.sections.skills} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div className="space-y-2">
+                    <SectionRow label={t.sections.skills} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8)+'px' }}>
                             {skills.map((skill) => (
                                 <div key={skill.id} data-paginate="item">
                                     <ProgressBar
                                         label={skill.name}
                                         value={(skill.level || 3) * 20}
                                         color={accentColor}
-                                        height={scale < 1 ? 4 : 6}
+                                        height={scale < 1 ? 4 : sp(6)}
                                         scale={1}
                                     />
                                 </div>
@@ -226,12 +229,12 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Languages */}
                 {data.languages && data.languages.length > 0 && (
-                    <SectionRow label={t.sections.languages} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div className="space-y-2">
+                    <SectionRow label={t.sections.languages} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8)+'px' }}>
                             {data.languages.map((lang) => (
-                                <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body, borderBottom: '1px solid #f3f4f6', paddingBottom: 4 }}>
+                                <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body, borderBottom: `${sp(1)}px solid #f3f4f6`, paddingBottom: sp(4) }}>
                                     <span style={{ fontWeight: 600, color: '#1f2937' }}>{lang.name}</span>
-                                    <span style={{ color: '#6b7280' }}>{lang.proficiency}</span>
+                                    <span style={{ color: '#6b7280', textTransform: 'capitalize' }}>{lang.proficiency}</span>
                                 </div>
                             ))}
                         </div>
@@ -240,11 +243,11 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Interests */}
                 {data.interests && data.interests.length > 0 && (
-                    <SectionRow label={t.sections.interests} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} keepTogether={true}>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+                    <SectionRow label={t.sections.interests} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(16) }}>
                             {data.interests.map((int) => (
-                                <span key={int.id} style={{ fontSize: fs.body, color: '#374151', display: 'flex', alignItems: 'center', gap: 6 }}>
-                                    <span style={{ color: accentColor }}>◆</span> {int.name}
+                                <span key={int.id} data-paginate="item" style={{ fontSize: fs.body, color: '#374151', display: 'flex', alignItems: 'center', gap: sp(6) }}>
+                                    <Diamond size={sp(10)} color={accentColor} fill={accentColor} /> {int.name}
                                 </span>
                             ))}
                         </div>
@@ -253,13 +256,13 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Credentials (Certifications & Awards) */}
                 {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                    <SectionRow label={t.sections.credentials} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
+                    <SectionRow label={t.sections.credentials} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
                         {certifications && certifications.length > 0 && (
-                            <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
-                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                            <div style={{ marginBottom: awards && awards.length > 0 ? sp(16) : 0 }}>
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: sp(8) }}>
                                     {t.sections.certifications}
                                 </h4>
-                                <div className="space-y-2">
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8)+'px' }}>
                                     {certifications.map((cert) => (
                                         <div key={cert.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
@@ -272,10 +275,10 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                         {awards && awards.length > 0 && (
                             <div>
-                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
+                                <h4 style={{ fontSize: fs.small, fontWeight: 600, color: '#6b7280', marginBottom: sp(8) }}>
                                     {t.sections.awards}
                                 </h4>
-                                <div className="space-y-2">
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8)+'px' }}>
                                     {awards.map((award) => (
                                         <div key={award.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
@@ -289,23 +292,22 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                 )}
 
                 {/* Social Links */}
-                {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                    <SectionRow label={t.sections.socialLinks} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
-                            {personalInfo.linkedin && <div><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
-                            {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
-                            {personalInfo.github && <div><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
-                            {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
-                            {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
-                            {personalInfo.instagram && <div><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
+                {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    <SectionRow label={t.sections.socialLinks} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(6), fontSize: fs.body }}>
+                            {personalInfo.x && <div data-paginate="item"><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
+                            {personalInfo.github && <div data-paginate="item"><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
+                            {personalInfo.dribbble && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
+                            {personalInfo.behance && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
+                            {personalInfo.instagram && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
                         </div>
                     </SectionRow>
                 )}
 
                 {/* References */}
                 {references && references.length > 0 && (
-                    <SectionRow label={t.sections.references} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div className="space-y-4">
+                    <SectionRow label={t.sections.references} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16)+'px' }}>
                             {references.map((ref) => (
                                 <div key={ref.id} data-paginate="item">
                                     <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937' }}>{ref.name}</div>
@@ -320,13 +322,13 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Personal Details */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                    <SectionRow label={t.sections.personalDetails} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: fs.body }}>
+                    <SectionRow label={t.sections.personalDetails} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(6), fontSize: fs.body }}>
                             {personalInfo.nationality && (
-                                <div><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
+                                <div data-paginate="item"><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
                             )}
                             {personalInfo.idType && personalInfo.idNumber && (
-                                <div>
+                                <div data-paginate="item">
                                     <span style={{ fontWeight: 600 }}>
                                         {personalInfo.idType === 'id' ? 'ID' :
                                             personalInfo.idType === 'passport' ? 'Passport' :
@@ -340,7 +342,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
-                    <SectionRow key={field.id} label={field.label} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale}>
+                    <SectionRow key={field.id} label={field.label} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
                         <p style={{ lineHeight: 1.6 }}>{field.content}</p>
                     </SectionRow>
                 ))}
@@ -351,12 +353,13 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 }
 
 // Helper: Two-Column Section with Left Label
-function SectionRow({ label, fs, headingFont, accentColor, scale, children, keepTogether = false }: {
+function SectionRow({ label, fs, headingFont, accentColor, scale, sp, children, keepTogether = false }: {
     label: string,
     fs: ScaledFontSizes,
     headingFont: string,
     accentColor: string,
     scale: number,
+    sp: (px: number) => number,
     children: React.ReactNode,
     keepTogether?: boolean
 }) {
@@ -366,26 +369,28 @@ function SectionRow({ label, fs, headingFont, accentColor, scale, children, keep
             {...(keepTogether ? { 'data-paginate': true } : {})}
             style={{
                 display: 'flex',
-                marginBottom: scale < 1 ? 10 : 20,
+                marginBottom: scale < 1 ? 10 : sp(20),
                 // Removed pageBreakInside: 'avoid' to allow granular splitting unless keepTogether is set by PagedPreview logic
             }}
         >
             {/* Left Column: Label */}
-            <div style={{ width: '25%', paddingRight: 20 }}>
-                <h3
+            <div style={{ width: '25%', paddingRight: sp(20) }}>
+                <div
+                    role="heading"
+                    aria-level={3}
                     style={{
                         fontFamily: headingFont,
                         fontSize: fs.sectionHeading,
                         color: accentColor,
                         textTransform: 'uppercase',
-                        borderBottom: `2px solid ${accentColor}`,
-                        paddingBottom: 4,
+                        borderBottom: `${sp(2)}px solid ${accentColor}`,
+                        paddingBottom: sp(4),
                         display: 'inline-block',
                         marginBottom: 0,
                     }}
                 >
                     {label}
-                </h3>
+                </div>
             </div>
 
             {/* Right Column: Content */}

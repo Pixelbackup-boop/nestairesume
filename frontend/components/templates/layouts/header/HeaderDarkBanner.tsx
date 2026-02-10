@@ -1,7 +1,13 @@
 'use client';
 
-import { memo } from 'react';
-import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
+import React, { memo } from 'react';
+import {
+    Phone, Mail, MapPin, Globe, Linkedin, Calendar, Monitor, Twitter,
+    Dribbble, Palette, Camera, IdCard, Smartphone, Github, Music, Bike,
+    Plane, BookOpen, CookingPot, Gamepad2, Film, Star, Moon
+} from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPersonRunning, faPersonSwimming, faPersonHiking, faFutbol, faTableTennisPaddleBall, faPersonPraying } from '@fortawesome/free-solid-svg-icons';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
@@ -32,6 +38,11 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
     // Get scaled font sizes that respect user's size preference + scale
     const fs = getScaledFontSizes(sizeConfig, scale);
 
+    // Spacing helper: scales all dimensions proportionally with font size preference
+    // Small (12/14 = 0.857x), Medium (14/14 = 1.0x), Large (16/14 = 1.143x)
+    const sizeMult = parseInt(sizeConfig.base) / 14;
+    const sp = (px: number) => Math.round(px * sizeMult);
+
     const t = useTemplateTranslations();
 
     // Parse dual color: primary = header bg, secondary = accent
@@ -45,8 +56,12 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
     const headerTextMuted = headerText === '#f8fafc' ? '#d1d5db' : '#6b7280';
 
     // Calculate responsive sizes
-    const headerHeight = scale < 1 ? 80 : 160;
-    const photoSize = scale < 1 ? 50 : 100;
+    const headerHeight = scale < 1 ? 80 : sp(160);
+    const photoSize = scale < 1 ? 50 : sp(100);
+
+    // Icon size helpers
+    const iconSm = scale < 1 ? 8 : sp(10);
+    const iconMd = scale < 1 ? 10 : sp(12);
 
     return (
         <div
@@ -60,11 +75,10 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
             {/* Dark Header Banner */}
             <header
                 className="resume-section"
-                data-paginate
                 style={{
                     backgroundColor: headerBgColor,
                     height: headerHeight,
-                    padding: scale < 1 ? '12px 16px' : '24px 32px',
+                    padding: scale < 1 ? '12px 16px' : `${sp(24)}px ${sp(32)}px`,
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
@@ -79,7 +93,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                             fontWeight: 400,
                             color: headerText,
                             letterSpacing: '0.02em',
-                            marginBottom: scale < 1 ? '6px' : '12px',
+                            marginBottom: scale < 1 ? '6px' : `${sp(12)}px`,
                         }}
                     >
                         {personalInfo.fullName || 'Your Name'}
@@ -87,7 +101,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                     <div
                         style={{
                             display: 'flex',
-                            gap: scale < 1 ? '8px' : '16px',
+                            gap: scale < 1 ? '8px' : `${sp(16)}px`,
                             fontSize: fs.small,
                             color: headerTextMuted,
                             flexWrap: 'wrap',
@@ -95,19 +109,19 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                         }}
                     >
                         {personalInfo.phone && (
-                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Phone size={12} color={headerTextMuted} /> {personalInfo.phone}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: sp(4) }}><Phone size={sp(12)} color={headerTextMuted} /> {personalInfo.phone}</span>
                         )}
                         {personalInfo.email && (
-                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Mail size={12} color={headerTextMuted} /> {personalInfo.email}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: sp(4) }}><Mail size={sp(12)} color={headerTextMuted} /> {personalInfo.email}</span>
                         )}
                         {personalInfo.location && (
-                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><MapPin size={12} color={headerTextMuted} /> {personalInfo.location}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: sp(4) }}><MapPin size={sp(12)} color={headerTextMuted} /> {personalInfo.location}</span>
                         )}
                         {personalInfo.website && (
-                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Globe size={12} color={headerTextMuted} /> {personalInfo.website}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: sp(4) }}><Globe size={sp(12)} color={headerTextMuted} /> {personalInfo.website}</span>
                         )}
                         {personalInfo.linkedin && (
-                            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Linkedin size={12} color={headerTextMuted} /> {personalInfo.linkedin}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: sp(4) }}><Linkedin size={sp(12)} color={headerTextMuted} /> {personalInfo.linkedin}</span>
                         )}
                     </div>
                 </div>
@@ -122,7 +136,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                             height: photoSize,
                             borderRadius: '50%',
                             objectFit: 'cover',
-                            border: `3px solid ${headerText}`,
+                            border: `${sp(3)}px solid ${headerText}`,
                         }}
                     />
                 )}
@@ -132,16 +146,18 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
             <div
                 style={{
                     display: 'flex',
-                    padding: scale < 1 ? '12px' : '24px',
-                    gap: scale < 1 ? '12px' : '24px',
+                    padding: scale < 1 ? '12px' : `${sp(24)}px`,
+                    gap: scale < 1 ? '12px' : `${sp(24)}px`,
+                    WebkitBoxDecorationBreak: 'clone',
+                    boxDecorationBreak: 'clone',
                 }}
             >
                 {/* LEFT COLUMN - Summary, Experience, Education */}
                 <div style={{ width: '55%' }}>
                     {/* Resume Summary */}
                     {personalInfo.summary && (
-                        <section className="mb-4 resume-section" data-paginate>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.summary}
                             </SectionHeader>
                             <p style={{ color: '#374151', lineHeight: 1.6, fontSize: fs.body }}>
@@ -152,25 +168,25 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Work Experience */}
                     {experience.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.workExperience}
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(12)}px` }}>
                                 {experience.map((exp) => (
                                     <div key={exp.id} className="resume-entry" data-paginate="item">
-                                        <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px' }}>
-                                            📅 {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
-                                            {exp.city && ` 📍 ${exp.city.toUpperCase()}`}
+                                        <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px', display: 'flex', alignItems: 'center', gap: `${sp(4)}px`, flexWrap: 'wrap' }}>
+                                            <Calendar size={iconSm} /> {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
+                                            {exp.city && <><MapPin size={iconSm} style={{ marginLeft: `${sp(4)}px` }} /> {exp.city.toUpperCase()}</>}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
                                             {exp.title}
                                         </h4>
-                                        <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600, marginBottom: '4px' }}>
+                                        <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600, marginBottom: `${sp(4)}px` }}>
                                             {exp.company}
                                         </p>
                                         {exp.description && (
-                                            <ul style={{ paddingLeft: scale < 1 ? '12px' : '16px', margin: 0, listStyle: 'disc' }}>
+                                            <ul style={{ paddingLeft: scale < 1 ? '12px' : `${sp(16)}px`, margin: 0, listStyle: 'disc' }}>
                                                 {exp.description.split('\n').filter(Boolean).map((line, idx) => (
                                                     <li key={idx} style={{ fontSize: fs.small, color: '#4b5563', marginBottom: '2px', lineHeight: 1.5 }}>
                                                         {line.replace(/^[-•]\s*/, '')}
@@ -186,16 +202,16 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Education */}
                     {education.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.education}
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(12)}px` }}>
                                 {education.map((edu) => (
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
-                                        <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px' }}>
-                                            📅 {edu.startDate}
-                                            {edu.city && ` 📍 ${edu.city.toUpperCase()}`}
+                                        <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px', display: 'flex', alignItems: 'center', gap: `${sp(4)}px`, flexWrap: 'wrap' }}>
+                                            <Calendar size={iconSm} /> {edu.startDate}
+                                            {edu.city && <><MapPin size={iconSm} style={{ marginLeft: `${sp(4)}px` }} /> {edu.city.toUpperCase()}</>}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
                                             {edu.degree}
@@ -204,12 +220,29 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                             {edu.school}
                                         </p>
                                         {edu.description && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: '4px' }}>
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: `${sp(4)}px` }}>
                                                 {edu.description}
                                             </p>
                                         )}
                                     </div>
                                 ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Personal Details */}
+                    {(personalInfo.nationality || personalInfo.idType) && (
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
+                                {t.sections.personalDetails}
+                            </SectionHeader>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(4)}px`, fontSize: fs.small, color: '#374151' }}>
+                                {personalInfo.nationality && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Globe size={iconMd} /> Nationality: {personalInfo.nationality}</div>}
+                                {personalInfo.idType && personalInfo.idNumber && (
+                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><IdCard size={iconMd} /> {personalInfo.idType === 'id' ? 'ID' :
+                                        personalInfo.idType === 'passport' ? 'Passport' :
+                                            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}: {personalInfo.idNumber}</div>
+                                )}
                             </div>
                         </section>
                     )}
@@ -219,21 +252,21 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                 <div style={{ width: '45%' }}>
                     {/* Skills with Progress Bars */}
                     {skills.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.skills}
                             </SectionHeader>
-                            <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: scale < 1 ? '4px' : '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                💻 SOFTWARE
+                            <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: scale < 1 ? '4px' : `${sp(8)}px`, textTransform: 'uppercase', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}>
+                                <Monitor size={iconSm} /> SOFTWARE
                             </p>
-                            <div className="space-y-2">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(8)}px` }}>
                                 {skills.map((skill) => (
                                     <div key={skill.id} data-paginate="item">
                                         <ProgressBar
                                             label={skill.name}
                                             value={skill.level * 20}
                                             color={accentColor}
-                                            height={scale < 1 ? 4 : 6}
+                                            height={scale < 1 ? 4 : sp(6)}
                                             scale={1}
                                         />
                                     </div>
@@ -244,14 +277,14 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Languages with Circular Indicators */}
                     {languages && languages.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.languages}
                             </SectionHeader>
                             <div
                                 style={{
                                     display: 'flex',
-                                    gap: scale < 1 ? '8px' : '16px',
+                                    gap: scale < 1 ? '8px' : `${sp(16)}px`,
                                     flexWrap: 'wrap',
                                 }}
                             >
@@ -259,12 +292,12 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                     <div key={lang.id} data-paginate="item">
                                         <CircularProgress
                                             value={lang.level}
-                                            size={scale < 1 ? 40 : 70}
+                                            size={scale < 1 ? 40 : sp(70)}
                                             color="#374151"
-                                            strokeWidth={scale < 1 ? 2 : 3}
-                                            fontSize={scale < 1 ? 10 : 16}
+                                            strokeWidth={scale < 1 ? 2 : sp(3)}
+                                            fontSize={scale < 1 ? 10 : sp(16)}
                                             label={lang.name}
-                                            labelFontSize={scale < 1 ? 6 : 10}
+                                            labelFontSize={scale < 1 ? 6 : sp(10)}
                                             scale={1}
                                         />
                                     </div>
@@ -275,15 +308,15 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Strengths as Pill Badges */}
                     {strengths && strengths.length > 0 && (
-                        <section className="mb-4 resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.strengths}
                             </SectionHeader>
                             <div
                                 style={{
                                     display: 'flex',
                                     flexWrap: 'wrap',
-                                    gap: scale < 1 ? '4px' : '8px',
+                                    gap: scale < 1 ? '4px' : `${sp(8)}px`,
                                 }}
                             >
                                 {strengths.map((strength) => (
@@ -293,8 +326,8 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                         style={{
                                             backgroundColor: accentColor,
                                             color: getContrastText(accentColor),
-                                            padding: scale < 1 ? '2px 6px' : '4px 12px',
-                                            borderRadius: '4px',
+                                            padding: scale < 1 ? '2px 6px' : `${sp(4)}px ${sp(12)}px`,
+                                            borderRadius: `${sp(4)}px`,
                                             fontSize: fs.small,
                                             fontWeight: 500,
                                         }}
@@ -309,33 +342,46 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                     {/* Interests with Icons */}
                     {interests && interests.length > 0 && (
                         <section className="resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.interests}
                             </SectionHeader>
                             <div
                                 style={{
                                     display: 'grid',
                                     gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: scale < 1 ? '8px' : '16px',
+                                    gap: scale < 1 ? '6px' : `${sp(12)}px`,
                                 }}
                             >
                                 {interests.slice(0, 6).map((interest) => (
                                     <div
                                         key={interest.id}
-                                        data-paginate="item"
                                         style={{
                                             textAlign: 'center',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
                                         }}
                                     >
                                         <div
                                             style={{
-                                                fontSize: scale < 1 ? '16px' : '28px',
-                                                marginBottom: '4px',
+                                                width: scale < 1 ? 20 : sp(32),
+                                                height: scale < 1 ? 20 : sp(32),
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                marginBottom: `${sp(4)}px`,
+                                                color: '#4b5563',
                                             }}
                                         >
-                                            {interest.icon || getInterestIcon(interest.name)}
+                                            {getInterestIcon(interest.name, scale < 1 ? 16 : sp(28))}
                                         </div>
-                                        <div style={{ fontSize: fs.tiny, color: '#4b5563' }}>
+                                        <div style={{
+                                            fontSize: fs.tiny,
+                                            color: '#4b5563',
+                                            lineHeight: 1.2,
+                                            wordBreak: 'break-word',
+                                            maxWidth: '100%',
+                                        }}>
                                             {interest.name}
                                         </div>
                                     </div>
@@ -344,42 +390,58 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* Certifications & Awards */}
+                    {/* Certifications & Awards — anti-orphan grouping */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <section className="resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                {t.sections.credentials}
-                            </SectionHeader>
-
+                        <section className="resume-section" style={{ marginTop: sp(16) }}>
                             {certifications && certifications.length > 0 && (
-                                <div style={{ marginBottom: awards && awards.length > 0 ? 16 : 0 }}>
-                                    <p style={{ fontSize: fs.tiny, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                        {t.sections.certifications}
-                                    </p>
-                                    <div className="space-y-2">
-                                        {certifications.map((cert) => (
-                                            <div key={cert.id} data-paginate="item">
-                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
-                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
-                                            </div>
-                                        ))}
+                                <div style={{ marginBottom: awards && awards.length > 0 ? sp(16) : 0 }}>
+                                    {/* Group: heading + subheading + first cert → prevents orphan heading */}
+                                    <div data-paginate="item">
+                                        <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
+                                            {t.sections.credentials}
+                                        </SectionHeader>
+                                        <p style={{ fontSize: fs.tiny, fontWeight: 600, color: '#6b7280', marginBottom: sp(8) }}>
+                                            {t.sections.certifications}
+                                        </p>
+                                        <div>
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{certifications[0].name}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{certifications[0].issuer} • {certifications[0].date}</div>
+                                        </div>
                                     </div>
+                                    {/* Remaining certs paginate individually */}
+                                    {certifications.slice(1).map((cert) => (
+                                        <div key={cert.id} data-paginate="item" style={{ marginTop: `${sp(8)}px` }}>
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                        </div>
+                                    ))}
                                 </div>
                             )}
 
                             {awards && awards.length > 0 && (
                                 <div>
-                                    <p style={{ fontSize: fs.tiny, fontWeight: 600, color: '#6b7280', marginBottom: 8 }}>
-                                        {t.sections.awards}
-                                    </p>
-                                    <div className="space-y-2">
-                                        {awards.map((award) => (
-                                            <div key={award.id} data-paginate="item">
-                                                <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
-                                                <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
-                                            </div>
-                                        ))}
+                                    {/* Group: awards subheading + first award (+ section heading if no certs) */}
+                                    <div data-paginate="item">
+                                        {(!certifications || certifications.length === 0) && (
+                                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
+                                                {t.sections.credentials}
+                                            </SectionHeader>
+                                        )}
+                                        <p style={{ fontSize: fs.tiny, fontWeight: 600, color: '#6b7280', marginBottom: sp(8) }}>
+                                            {t.sections.awards}
+                                        </p>
+                                        <div>
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{awards[0].title}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{awards[0].issuer} • {awards[0].date}</div>
+                                        </div>
                                     </div>
+                                    {/* Remaining awards paginate individually */}
+                                    {awards.slice(1).map((award) => (
+                                        <div key={award.id} data-paginate="item" style={{ marginTop: `${sp(8)}px` }}>
+                                            <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
+                                            <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                        </div>
+                                    ))}
                                 </div>
                             )}
                         </section>
@@ -387,50 +449,33 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Social Links */}
                     {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <section className="resume-section mt-4">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginTop: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.socialLinks}
                             </SectionHeader>
-                            <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
-                                {personalInfo.github && <div data-paginate="item">💻 {personalInfo.github}</div>}
-                                {personalInfo.x && <div data-paginate="item">🐦 {personalInfo.x}</div>}
-                                {personalInfo.dribbble && <div data-paginate="item">🏀 {personalInfo.dribbble}</div>}
-                                {personalInfo.behance && <div data-paginate="item">🎨 {personalInfo.behance}</div>}
-                                {personalInfo.instagram && <div data-paginate="item">📷 {personalInfo.instagram}</div>}
-                            </div>
-                        </section>
-                    )}
-
-                    {/* Personal Details */}
-                    {(personalInfo.nationality || personalInfo.idType) && (
-                        <section className="resume-section mt-4">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
-                                {t.sections.personalDetails}
-                            </SectionHeader>
-                            <div className="space-y-1" style={{ fontSize: fs.small, color: '#374151' }}>
-                                {personalInfo.nationality && <div data-paginate="item">🌍 Nationality: {personalInfo.nationality}</div>}
-                                {personalInfo.idType && personalInfo.idNumber && (
-                                    <div data-paginate="item">🪪 {personalInfo.idType === 'id' ? 'ID' :
-                                        personalInfo.idType === 'passport' ? 'Passport' :
-                                            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}: {personalInfo.idNumber}</div>
-                                )}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(4)}px`, fontSize: fs.small, color: '#374151' }}>
+                                {personalInfo.github && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Github size={iconMd} /> {personalInfo.github}</div>}
+                                {personalInfo.x && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Twitter size={iconMd} /> {personalInfo.x}</div>}
+                                {personalInfo.dribbble && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Dribbble size={iconMd} /> {personalInfo.dribbble}</div>}
+                                {personalInfo.behance && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Palette size={iconMd} /> {personalInfo.behance}</div>}
+                                {personalInfo.instagram && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Camera size={iconMd} /> {personalInfo.instagram}</div>}
                             </div>
                         </section>
                     )}
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <section className="resume-section mt-4">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section className="resume-section" style={{ marginTop: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {t.sections.references}
                             </SectionHeader>
-                            <div className="space-y-3">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(12)}px` }}>
                                 {references.map((ref) => (
                                     <div key={ref.id} data-paginate="item">
                                         <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{ref.name}</div>
                                         <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.title}, {ref.company}</div>
-                                        {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>✉️ {ref.email}</div>}
-                                        {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>📱 {ref.phone}</div>}
+                                        {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280', display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Mail size={iconSm} /> {ref.email}</div>}
+                                        {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280', display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Smartphone size={iconSm} /> {ref.phone}</div>}
                                     </div>
                                 ))}
                             </div>
@@ -439,8 +484,8 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <section key={field.id} className="resume-section mt-4">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor}>
+                        <section key={field.id} className="resume-section" style={{ marginTop: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
                                 {field.label}
                             </SectionHeader>
                             <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>{field.content}</p>
@@ -457,13 +502,11 @@ interface SectionHeaderProps {
     fs: ScaledFontSizes;
     headingFont: string;
     accentColor: string;
+    sp: (px: number) => number;
     children: React.ReactNode;
 }
 
-function SectionHeader({ fs, headingFont, accentColor, children }: SectionHeaderProps) {
-    const basePx = parseInt(fs.body);
-    const isSmall = basePx < 10;
-
+function SectionHeader({ fs, headingFont, accentColor, sp, children }: SectionHeaderProps) {
     return (
         <h3
             style={{
@@ -471,7 +514,7 @@ function SectionHeader({ fs, headingFont, accentColor, children }: SectionHeader
                 fontSize: fs.sectionHeading,
                 fontWeight: 500,
                 color: accentColor,
-                marginBottom: isSmall ? '6px' : '12px',
+                marginBottom: `${sp(12)}px`,
             }}
         >
             {children}
@@ -479,25 +522,28 @@ function SectionHeader({ fs, headingFont, accentColor, children }: SectionHeader
     );
 }
 
-// Interest Icon Helper
-function getInterestIcon(name: string): string {
+// Interest Icon Helper — returns Lucide or Font Awesome icon based on interest name
+function getInterestIcon(name: string, size: number): React.ReactNode {
     const nameLower = name.toLowerCase();
-    if (nameLower.includes('music') || nameLower.includes('rock')) return '🎵';
-    if (nameLower.includes('football') || nameLower.includes('soccer')) return '⚽';
-    if (nameLower.includes('photo')) return '📷';
-    if (nameLower.includes('hiking') || nameLower.includes('hike')) return '🥾';
-    if (nameLower.includes('biking') || nameLower.includes('bike') || nameLower.includes('cycling')) return '🚴';
-    if (nameLower.includes('tennis')) return '🎾';
-    if (nameLower.includes('travel')) return '✈️';
-    if (nameLower.includes('reading') || nameLower.includes('book')) return '📚';
-    if (nameLower.includes('cooking') || nameLower.includes('food')) return '🍳';
-    if (nameLower.includes('gaming') || nameLower.includes('game')) return '🎮';
-    if (nameLower.includes('film') || nameLower.includes('movie')) return '🎬';
-    if (nameLower.includes('art') || nameLower.includes('paint')) return '🎨';
-    if (nameLower.includes('yoga') || nameLower.includes('meditation')) return '🧘';
-    if (nameLower.includes('swim')) return '🏊';
-    if (nameLower.includes('run')) return '🏃';
-    return '⭐';
+    const faSize = size < 20 ? size * 0.6 : size * 0.7;
+
+    if (nameLower.includes('music') || nameLower.includes('rock')) return <Music size={size} />;
+    if (nameLower.includes('football') || nameLower.includes('soccer')) return <FontAwesomeIcon icon={faFutbol} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('photo')) return <Camera size={size} />;
+    if (nameLower.includes('hiking') || nameLower.includes('hike')) return <FontAwesomeIcon icon={faPersonHiking} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('biking') || nameLower.includes('bike') || nameLower.includes('cycling')) return <Bike size={size} />;
+    if (nameLower.includes('tennis')) return <FontAwesomeIcon icon={faTableTennisPaddleBall} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('travel')) return <Plane size={size} />;
+    if (nameLower.includes('reading') || nameLower.includes('book')) return <BookOpen size={size} />;
+    if (nameLower.includes('cooking') || nameLower.includes('food')) return <CookingPot size={size} />;
+    if (nameLower.includes('gaming') || nameLower.includes('game')) return <Gamepad2 size={size} />;
+    if (nameLower.includes('film') || nameLower.includes('movie')) return <Film size={size} />;
+    if (nameLower.includes('art') || nameLower.includes('paint')) return <Palette size={size} />;
+    if (nameLower.includes('yoga') || nameLower.includes('meditation')) return <FontAwesomeIcon icon={faPersonPraying} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('swim')) return <FontAwesomeIcon icon={faPersonSwimming} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('run')) return <FontAwesomeIcon icon={faPersonRunning} style={{ width: faSize, height: faSize }} />;
+    if (nameLower.includes('sleep') || nameLower.includes('rest') || nameLower.includes('nap')) return <Moon size={size} />;
+    return <Star size={size} />;
 }
 
 // Wrap with memo to prevent unnecessary re-renders

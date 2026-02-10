@@ -32,6 +32,7 @@ export {
 export {
     singleColorPresets,
     dualColorPresets,
+    gradientPresets,
     templateColorSchemas,
     getTemplateColorSchema,
     getPresetsForTemplate,
