@@ -17,6 +17,7 @@ import { useResumeStore } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
 import { getLayoutPresetId, getTemplateTheme } from '@/lib/templates/builder';
 import { OnboardingAnimations } from './OnboardingAnimations';
+import { useDialogA11y } from '@/hooks/useDialogA11y';
 
 type ExperienceLevel = 'entry' | 'mid' | 'senior' | 'executive';
 
@@ -142,6 +143,8 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
 
     const canProceed = formData.fullName.trim().length >= 2 && formData.jobTitle.trim().length >= 2;
 
+    const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'onboarding-modal-title' });
+
     if (!isOpen) return null;
 
     return (
@@ -154,11 +157,12 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                 />
 
                 {/* Modal - Animated */}
-                <OnboardingAnimations.Modal className="relative w-full max-w-xl mx-4 bg-gradient-to-br from-gray-50 via-white to-gray-50 rounded-2xl border border-gray-200 shadow-2xl overflow-hidden">
+                <OnboardingAnimations.Modal {...dialogProps} className="relative w-full max-w-xl mx-4 bg-gradient-to-br from-gray-50 via-white to-gray-50 rounded-2xl border border-gray-200 shadow-2xl overflow-hidden">
                 {/* Close button */}
                 {!isGenerating && (
                     <button
                         onClick={onClose}
+                        aria-label="Close"
                         className="absolute top-4 right-4 p-2 text-gray-500 hover:text-white transition-colors z-10"
                     >
                         <X size={20} />
@@ -174,7 +178,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                                 <div className="w-14 h-14 bg-accent-green/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <Sparkles className="text-accent-green" size={28} />
                                 </div>
-                                <h2 className="text-2xl font-bold text-gray-900 mb-2">Tell us about yourself</h2>
+                                <h2 id="onboarding-modal-title" className="text-2xl font-bold text-gray-900 mb-2">Tell us about yourself</h2>
                                 <p className="text-gray-500 text-sm">
                                     Just 2 questions and AI will create your perfect resume
                                 </p>

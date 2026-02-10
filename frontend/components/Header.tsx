@@ -161,6 +161,8 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`lg:hidden p-2 transition-colors ${textColorMuted} ${textColorHover}`}
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,9 +187,9 @@ export default function Header() {
             <div>
               <h3 className={megaSectionHeader}>{t("byStyle")}</h3>
               <div className="space-y-1">
-                <Link href={localizedHref("/templates/modern")} onClick={closeMenu} className={megaLinkClass}>Modern</Link>
-                <Link href={localizedHref("/templates/creative")} onClick={closeMenu} className={megaLinkClass}>Creative</Link>
-                <Link href={localizedHref("/templates/simple")} onClick={closeMenu} className={megaLinkClass}>Simple &amp; Clean</Link>
+                <Link href={localizedHref("/templates/modern")} onClick={closeMenu} className={megaLinkClass}>{t("modern")}</Link>
+                <Link href={localizedHref("/templates/creative")} onClick={closeMenu} className={megaLinkClass}>{t("creative")}</Link>
+                <Link href={localizedHref("/templates/simple")} onClick={closeMenu} className={megaLinkClass}>{t("simpleClean")}</Link>
               </div>
               <Link href={localizedHref("/templates")} onClick={closeMenu} className={megaViewAll}>
                 {t("allTemplates")} <ArrowRight size={14} />
@@ -196,8 +198,8 @@ export default function Header() {
             <div>
               <h3 className={megaSectionHeader}>{t("byFormat")}</h3>
               <div className="space-y-1">
-                <Link href={localizedHref("/templates/ats-friendly")} onClick={closeMenu} className={megaLinkClass}>ATS-Friendly</Link>
-                <Link href={localizedHref("/templates/microsoftword")} onClick={closeMenu} className={megaLinkClass}>Microsoft Word</Link>
+                <Link href={localizedHref("/templates/ats-friendly")} onClick={closeMenu} className={megaLinkClass}>{t("atsFriendly")}</Link>
+                <Link href={localizedHref("/templates/microsoftword")} onClick={closeMenu} className={megaLinkClass}>{t("microsoftWord")}</Link>
               </div>
             </div>
             <div className="bg-gradient-to-br from-teal-primary/10 to-teal-secondary/10 rounded-xl p-6 flex flex-col justify-center">
@@ -311,15 +313,15 @@ export default function Header() {
                 <span className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">{t("templates")}</span>
               </div>
               {[
-                { href: "/templates/modern", label: "Modern" },
-                { href: "/templates/creative", label: "Creative" },
-                { href: "/templates/simple", label: "Simple & Clean" },
-                { href: "/templates/ats-friendly", label: "ATS-Friendly" },
-                { href: "/templates/microsoftword", label: "Microsoft Word" },
+                { href: "/templates/modern", labelKey: "modern" as const },
+                { href: "/templates/creative", labelKey: "creative" as const },
+                { href: "/templates/simple", labelKey: "simpleClean" as const },
+                { href: "/templates/ats-friendly", labelKey: "atsFriendly" as const },
+                { href: "/templates/microsoftword", labelKey: "microsoftWord" as const },
               ].map(link => (
                 <Link key={link.href} href={localizedHref(link.href)} onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-2.5 rounded-lg text-sm font-medium text-dark-teal/70 hover:text-dark-teal hover:bg-gray-50 transition-colors">
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
               <Link href={localizedHref("/templates")} onClick={() => setMobileMenuOpen(false)}

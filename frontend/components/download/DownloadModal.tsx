@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useAuthStore } from '@/store/useAuthStore';
 import { useUsageStore, formatUsage, formatRemaining } from '@/store/useUsageStore';
+import { useDialogA11y } from '@/hooks/useDialogA11y';
 
 interface DownloadModalProps {
     isOpen: boolean;
@@ -56,6 +57,8 @@ export default function DownloadModal({
             setDownloadError(null);
         }
     }, [isOpen]);
+
+    const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'download-modal-title' });
 
     if (!isOpen) return null;
 
@@ -142,11 +145,12 @@ export default function DownloadModal({
             />
 
             {/* Modal */}
-            <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden animate-fadeIn">
+            <div {...dialogProps} className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden animate-fadeIn">
                 {/* Close Button */}
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
+                    aria-label="Close"
                 >
                     <X size={20} />
                 </button>
@@ -156,7 +160,7 @@ export default function DownloadModal({
                     <div className="w-14 h-14 bg-accent-green/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                         <Download className="text-accent-green" size={28} />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Download Your Resume</h2>
+                    <h2 id="download-modal-title" className="text-2xl font-bold text-gray-900 mb-2">Download Your Resume</h2>
                     <p className="text-gray-500 text-sm">
                         {format === 'PDF' ? 'Download as a high-quality PDF file' : `Download as ${format}`}
                     </p>

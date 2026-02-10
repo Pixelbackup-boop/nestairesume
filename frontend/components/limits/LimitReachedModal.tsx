@@ -13,6 +13,7 @@ import {
   Crown,
 } from 'lucide-react';
 import { LimitType, UPGRADE_PATH } from '@/hooks/useLimitCheck';
+import { useDialogA11y } from '@/hooks/useDialogA11y';
 
 interface LimitReachedModalProps {
   isOpen: boolean;
@@ -80,6 +81,7 @@ export default function LimitReachedModal({
   isTrialing = false,
 }: LimitReachedModalProps) {
   const router = useRouter();
+  const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'limit-modal-title' });
 
   if (!isOpen || !limitType) return null;
 
@@ -112,7 +114,7 @@ export default function LimitReachedModal({
       />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-fadeIn">
+      <div {...dialogProps} className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-fadeIn">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -127,7 +129,7 @@ export default function LimitReachedModal({
           <div className={`w-16 h-16 ${config.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
             <IconComponent className={config.color} size={32} />
           </div>
-          <h2 className="text-xl font-bold text-gray-900 mb-2">
+          <h2 id="limit-modal-title" className="text-xl font-bold text-gray-900 mb-2">
             {config.title}
           </h2>
           <p className="text-gray-500 text-sm">

@@ -90,8 +90,12 @@ export default function SkillsForm() {
                     >
                         {/* Skill Header */}
                         <div
+                            role="button"
+                            tabIndex={0}
                             className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-white/5 transition"
                             onClick={() => setExpandedSkillId(expandedSkillId === skill.id ? null : skill.id)}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpandedSkillId(expandedSkillId === skill.id ? null : skill.id); } }}
+                            aria-expanded={expandedSkillId === skill.id}
                         >
                             <div className="flex items-center gap-3">
                                 <span className="text-gray-900 font-medium">{skill.name}</span>

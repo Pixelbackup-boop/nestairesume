@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { X, Sparkles, Copy, RefreshCw, Loader2, Check, Lightbulb } from 'lucide-react';
 import { useCanvasStore, TextElement } from '@/store/useCanvasStore';
+import { useDialogA11y } from '@/hooks/useDialogA11y';
 
 interface AIPopupProps {
     isOpen: boolean;
@@ -197,6 +198,8 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
         }
     };
 
+    const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'ai-popup-title' });
+
     if (!isOpen) return null;
 
     return (
@@ -208,7 +211,7 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
             />
 
             {/* Popup Modal */}
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 overflow-hidden">
+            <div {...dialogProps} className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 overflow-hidden">
                 {/* Header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 bg-gradient-to-r from-purple-500/10 to-blue-500/10">
                     <div className="flex items-center gap-3">
@@ -216,12 +219,13 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
                             <Sparkles size={20} className="text-white" />
                         </div>
                         <div>
-                            <h2 className="font-semibold text-white">AI Summary Generator</h2>
+                            <h2 id="ai-popup-title" className="font-semibold text-white">AI Summary Generator</h2>
                             <p className="text-xs text-gray-500">Generate a professional summary using AI</p>
                         </div>
                     </div>
                     <button
                         onClick={onClose}
+                        aria-label="Close"
                         className="p-2 text-gray-500 hover:text-white hover:bg-gray-200 rounded-lg transition-colors"
                     >
                         <X size={20} />

@@ -68,19 +68,6 @@ interface FooterDecorationConfig {
 const getFooterDecorationConfig = (templateId: string | null, customThemeColor?: string): FooterDecorationConfig | null => {
     if (!templateId) return null;
 
-    if (templateId === 'header-diagonal-yellow') {
-        // Uses theme color or default yellow
-        const accentColor = customThemeColor || '#facc15';
-        return {
-            type: 'diagonal',
-            width: '40%',
-            height: 80,
-            bgColor: accentColor,
-            clipPath: 'polygon(0 0, 70% 100%, 0% 100%)',
-            position: 'bottom-left',
-        };
-    }
-
     return null;
 };
 
@@ -136,7 +123,9 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 const preset = colorPresets.find(c => c.id === selectedTheme);
                 if (preset) return preset.primary;
             }
-            return resumeData.customThemeColor || '#1e3a8a';
+            // Extract primary color from pipe-delimited dual-color string (e.g., "#5b21b6|#a78bfa")
+            const rawColor = resumeData.customThemeColor || '#1e3a8a';
+            return rawColor.split('|')[0];
         };
 
         const theme = generateTheme(getThemeColor());
@@ -235,6 +224,10 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
             // We need to account for this when checking if element B needs pushing
             let cumulativeOffset = 0;
 
+            // Track history of offsets by Y-position to handle multi-column layouts
+            // This allows us to "reset" the offset when jumping back up to a new column
+            const offsetHistory: { originalTop: number, offsetAtThatPoint: number }[] = [];
+
             for (const el of elements) {
                 const element = el as HTMLElement;
                 const rect = element.getBoundingClientRect();
@@ -246,10 +239,42 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 const rawRelativeTop = (rect.top - containerRect.top) / scale;
                 const height = rect.height / scale;
 
+                // MULTI-COLUMN SUPPORT:
+                // Detect "Jumps" (backward movement in Y position) which indicate a new column
+                // When jumping, we should reset our cumulative offset to what it was at that Y-position
+                // This prevents Left Column pushes from affecting Right Column positions
+
+                // 1. Check for jump (is current element ABOVE the previous element?)
+                if (offsetHistory.length > 0) {
+                    const prevElementTop = offsetHistory[offsetHistory.length - 1].originalTop;
+                    // If we jumped back up significantly (more than 50px), it's a new column
+                    if (rawRelativeTop < prevElementTop - 50) {
+                        // Find the offset we should use for this Y-position
+                        // We want the MINIMUM offset seen at this level (or above) to respect shared headers
+                        // but ignore sibling column pushes
+                        const bestHistoricalOffset = offsetHistory.reduce((min, entry) => {
+                            // Only consider history that is ABOVE or AT our current level
+                            if (entry.originalTop <= rawRelativeTop + 5) { // +5 fuzz factor
+                                return Math.max(min, entry.offsetAtThatPoint);
+                            }
+                            return min;
+                        }, 0);
+
+                        // Reset cumulative offset for this new column
+                        cumulativeOffset = bestHistoricalOffset;
+                    }
+                }
+
                 // Adjust position by cumulative offset from previous pushes
                 // This simulates where the element WILL BE after prior pushes are applied
                 const relativeTop = rawRelativeTop + cumulativeOffset;
                 const bottom = relativeTop + height;
+
+                // Record this position in history for future column jumps
+                offsetHistory.push({
+                    originalTop: rawRelativeTop,
+                    offsetAtThatPoint: cumulativeOffset
+                });
 
                 // OVERSIZED ELEMENT PROTECTION: If element > 90% of page height, let it span naturally
                 if (height > A4_HEIGHT_PX * 0.9) {
@@ -271,12 +296,18 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                     if (distanceFromPageTop < PAGE_MARGIN_TOP) {
                         // Element starts within top margin zone - push it down
                         const pushNeeded = PAGE_MARGIN_TOP - distanceFromPageTop;
+                        const newMargin = `${pushNeeded}px`;
+
                         updates.push({
                             element,
-                            margin: `${pushNeeded}px`,
+                            margin: newMargin,
                             rawMargin: true // Just apply margin directly, no CSS extra
                         });
                         cumulativeOffset += pushNeeded;
+
+                        // Update history for this push
+                        offsetHistory[offsetHistory.length - 1].offsetAtThatPoint = cumulativeOffset;
+
                         continue; // Skip the rest of the checks for this element
                     }
                 }
@@ -307,14 +338,19 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
 
                     // Only push if we actually need to move forward
                     if (pushDistance > 0) {
+                        const newMargin = `${pushDistance}px`;
+
                         updates.push({
                             element,
-                            margin: `${pushDistance}px`,
+                            margin: newMargin,
                             rawMargin: true // Apply exact calculated margin, no CSS extra
                         });
 
                         // Track this push for subsequent elements
                         cumulativeOffset += pushDistance;
+
+                        // Update history for this push
+                        offsetHistory[offsetHistory.length - 1].offsetAtThatPoint = cumulativeOffset;
                     }
                 }
             }

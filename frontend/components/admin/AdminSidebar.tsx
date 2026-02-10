@@ -33,6 +33,7 @@ const navItems: NavItem[] = [
   { href: "/admin/payments", label: "Payments", icon: <CreditCard size={20} /> },
   { href: "/admin/plans", label: "Plans", icon: <Settings size={20} /> },
   { href: "/admin/ads", label: "Ads", icon: <Megaphone size={20} /> },
+  { href: "/admin/seo", label: "SEO & Analytics", icon: <Bot size={20} /> },
   { href: "/admin/live-chat", label: "Live Chat", icon: <MessageCircle size={20} /> },
 ];
 
@@ -96,11 +97,10 @@ export default function AdminSidebar({ isOpen = false, onClose }: AdminSidebarPr
             key={item.href}
             href={item.href}
             onClick={onClose}
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-              isActive(item.href)
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${isActive(item.href)
                 ? "bg-accent-purple/10 text-accent-purple"
                 : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-            }`}
+              }`}
           >
             <span className={isActive(item.href) ? "text-accent-purple" : ""}>
               {item.icon}

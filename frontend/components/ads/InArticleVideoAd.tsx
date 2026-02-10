@@ -77,7 +77,7 @@ export default function InArticleVideoAd({
                 {/* Play Button */}
                 <button
                   onClick={() => setIsPlaying(true)}
-                  className="w-20 h-20 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 mb-4"
+                  className="w-20 h-20 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200 motion-safe:hover:scale-110 mb-4"
                 >
                   <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>

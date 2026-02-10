@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import api from '@/lib/api';
 import { useAuthStore } from '@/store/useAuthStore';
+import { useDialogA11y } from '@/hooks/useDialogA11y';
 
 // Placeholder values for personal data
 const PLACEHOLDERS = {
@@ -152,6 +153,8 @@ export default function PostToCommunityModal({
     }
   }, [isOpen]);
 
+  const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'post-community-modal-title' });
+
   if (!isOpen) return null;
 
   // Show login prompt if not authenticated
@@ -258,11 +261,12 @@ export default function PostToCommunityModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden">
+      <div {...dialogProps} className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden">
         {/* Header */}
         <div className="px-6 pt-6 pb-4 border-b border-gray-100">
           <button
             onClick={onClose}
+            aria-label="Close"
             className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-lg transition"
           >
             <X size={20} />
@@ -272,7 +276,7 @@ export default function PostToCommunityModal({
               <Upload className="text-accent-green" size={20} />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-gray-900">Post to Community</h2>
+              <h2 id="post-community-modal-title" className="text-lg font-bold text-gray-900">Post to Community</h2>
               <p className="text-sm text-gray-500">Share your design with others</p>
             </div>
           </div>

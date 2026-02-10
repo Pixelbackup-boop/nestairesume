@@ -12,6 +12,7 @@ import {
     Github,
     Chrome,
 } from 'lucide-react';
+import { useDialogA11y } from '@/hooks/useDialogA11y';
 
 interface AuthModalProps {
     isOpen: boolean;
@@ -39,6 +40,8 @@ export default function AuthModal({
         email: '',
         password: '',
     });
+
+    const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'auth-modal-title' });
 
     if (!isOpen) return null;
 
@@ -101,11 +104,12 @@ export default function AuthModal({
             />
 
             {/* Modal */}
-            <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-fadeIn">
+            <div {...dialogProps} className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-fadeIn">
                 {/* Close Button */}
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
+                    aria-label="Close"
                 >
                     <X size={20} />
                 </button>
@@ -117,7 +121,7 @@ export default function AuthModal({
                             R
                         </div>
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h2 id="auth-modal-title" className="text-2xl font-bold text-gray-900 mb-2">
                         {mode === 'login' ? 'Welcome Back' : 'Create Account'}
                     </h2>
                     <p className="text-gray-500 text-sm">

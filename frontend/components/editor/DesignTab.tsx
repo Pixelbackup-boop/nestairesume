@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { useResumeStore } from '../../store/useResumeStore';
-import { fontPresets, fontSizes } from '../../lib/themes';
+import { userFontPresets, fontPresets, fontSizes } from '../../lib/themes';
 import {
     singleColorPresets,
     dualColorPresets,
+    gradientPresets,
     getTemplateColorSchema,
 } from '@/lib/templates/builder';
 import { Check } from 'lucide-react';
@@ -21,6 +22,7 @@ export default function DesignTab() {
     const templateId = selectedTemplateId || 'header-bold';
     const colorSchema = getTemplateColorSchema(templateId);
     const isDualColor = colorSchema.schemaType === 'dual';
+    const isGradient = colorSchema.displayHint === 'gradient';
 
     // For dual-color templates, we store both colors as "primary|secondary"
     const handleSingleColorClick = (color: string) => {
@@ -63,9 +65,11 @@ export default function DesignTab() {
             {activeSection === 'color' && (
                 <div className="space-y-4">
                     <p className="text-sm text-gray-400 mb-2">
-                        {isDualColor
-                            ? 'Choose a color pair for your resume (header + sidebar)'
-                            : 'Choose an accent color for your resume'
+                        {isGradient
+                            ? 'Choose a gradient for your resume header'
+                            : isDualColor
+                                ? 'Choose a color pair for your resume (header + sidebar)'
+                                : 'Choose an accent color for your resume'
                         }
                     </p>
 
@@ -79,7 +83,7 @@ export default function DesignTab() {
                                         key={preset.id}
                                         onClick={() => handleSingleColorClick(preset.color)}
                                         className={`group relative w-full aspect-square rounded-lg border-2 transition-all flex items-center justify-center ${
-                                            isSelected ? 'border-white scale-105 ring-2 ring-white/30' : 'border-transparent hover:scale-105'
+                                            isSelected ? 'border-white scale-105 ring-2 ring-white/30' : 'border-transparent motion-safe:hover:scale-105'
                                         }`}
                                         style={{ backgroundColor: preset.color }}
                                         title={preset.name}
@@ -91,33 +95,43 @@ export default function DesignTab() {
                         </div>
                     )}
 
-                    {/* Dual-Color Presets */}
+                    {/* Dual-Color / Gradient Presets */}
                     {isDualColor && (
                         <div className="grid grid-cols-5 gap-2">
-                            {dualColorPresets.map((preset) => {
+                            {(isGradient ? gradientPresets : dualColorPresets).map((preset) => {
                                 const isSelected = selectedPrimary === preset.primary && selectedSecondary === preset.secondary;
                                 return (
                                     <button
                                         key={preset.id}
                                         onClick={() => handleDualColorClick(preset.primary, preset.secondary)}
                                         className={`group relative w-full rounded-lg border-2 transition-all overflow-hidden ${
-                                            isSelected ? 'border-white scale-105 ring-2 ring-white/30' : 'border-transparent hover:scale-105'
+                                            isSelected ? 'border-white scale-105 ring-2 ring-white/30' : 'border-transparent motion-safe:hover:scale-105'
                                         }`}
                                         title={preset.name}
                                     >
-                                        {/* Primary color (top) */}
-                                        <div
-                                            className="w-full h-6"
-                                            style={{ backgroundColor: preset.primary }}
-                                        />
-                                        {/* Secondary color (bottom) */}
-                                        <div
-                                            className="w-full h-4"
-                                            style={{ backgroundColor: preset.secondary }}
-                                        />
+                                        {isGradient ? (
+                                            /* Gradient swatch */
+                                            <div
+                                                className="w-full h-10 rounded-sm"
+                                                style={{ background: `linear-gradient(135deg, ${preset.primary}, ${preset.secondary})` }}
+                                            />
+                                        ) : (
+                                            <>
+                                                {/* Primary color (top) */}
+                                                <div
+                                                    className="w-full h-6"
+                                                    style={{ backgroundColor: preset.primary }}
+                                                />
+                                                {/* Secondary color (bottom) */}
+                                                <div
+                                                    className="w-full h-4"
+                                                    style={{ backgroundColor: preset.secondary }}
+                                                />
+                                            </>
+                                        )}
                                         {isSelected && (
                                             <div className="absolute inset-0 flex items-center justify-center">
-                                                <Check size={14} className="text-gray-900 drop-shadow-md" />
+                                                <Check size={14} className="text-white drop-shadow-md" />
                                             </div>
                                         )}
                                     </button>
@@ -132,11 +146,17 @@ export default function DesignTab() {
                             {isDualColor ? (
                                 <>
                                     <div className="flex rounded overflow-hidden">
-                                        <div className="w-4 h-4" style={{ backgroundColor: selectedPrimary }} />
-                                        <div className="w-4 h-4" style={{ backgroundColor: selectedSecondary }} />
+                                        {isGradient ? (
+                                            <div className="w-8 h-4 rounded" style={{ background: `linear-gradient(135deg, ${selectedPrimary}, ${selectedSecondary})` }} />
+                                        ) : (
+                                            <>
+                                                <div className="w-4 h-4" style={{ backgroundColor: selectedPrimary }} />
+                                                <div className="w-4 h-4" style={{ backgroundColor: selectedSecondary }} />
+                                            </>
+                                        )}
                                     </div>
                                     <span>
-                                        Selected: {dualColorPresets.find(p => p.primary === selectedPrimary)?.name || 'Custom'}
+                                        Selected: {(isGradient ? gradientPresets : dualColorPresets).find(p => p.primary === selectedPrimary)?.name || 'Custom'}
                                     </span>
                                 </>
                             ) : (
@@ -159,7 +179,7 @@ export default function DesignTab() {
                     <div className="bg-bg-card-light border border-border-subtle rounded-lg p-3">
                         <label className="text-xs font-medium text-gray-400 mb-2 block">Heading Font</label>
                         <div className="grid grid-cols-3 gap-1.5">
-                            {fontPresets.map((font) => {
+                            {userFontPresets.map((font) => {
                                 const isSelected = fonts.heading === font.name;
                                 return (
                                     <button
@@ -192,7 +212,7 @@ export default function DesignTab() {
                     <div className="bg-bg-card-light border border-border-subtle rounded-lg p-3">
                         <label className="text-xs font-medium text-gray-400 mb-2 block">Body Font</label>
                         <div className="grid grid-cols-3 gap-1.5">
-                            {fontPresets.map((font) => {
+                            {userFontPresets.map((font) => {
                                 const isSelected = fonts.body === font.name;
                                 return (
                                     <button

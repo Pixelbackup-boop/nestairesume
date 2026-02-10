@@ -26,8 +26,9 @@ export default function BlogCard({ post, featured = false, basePath = '/blog' }:
               src={post.image}
               alt={post.imageAlt || post.title}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover motion-safe:transition-transform duration-500 motion-safe:group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+              {...(featured ? { priority: true } : { loading: 'lazy' as const })}
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-accent-green/20 to-accent-teal/10 flex items-center justify-center">

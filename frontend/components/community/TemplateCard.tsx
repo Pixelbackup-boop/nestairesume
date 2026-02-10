@@ -43,7 +43,7 @@ function TemplateCard({
           <img
             src={thumbnail}
             alt={name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover motion-safe:group-hover:scale-105 motion-safe:transition-transform duration-300"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -55,7 +55,7 @@ function TemplateCard({
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
           <button
             onClick={() => onUse(id)}
-            className="px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform"
+            className="px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-semibold transform translate-y-4 motion-safe:group-hover:translate-y-0 motion-safe:transition-transform"
           >
             Use Template
           </button>

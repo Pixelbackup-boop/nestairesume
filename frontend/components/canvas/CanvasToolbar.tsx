@@ -23,6 +23,7 @@ import {
     FolderOpen,
     Sparkles,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import AIPopup from './AIPopup';
 import { useCanvasStore, ShapeElement, AnyCanvasElement } from '@/store/useCanvasStore';
 
@@ -46,6 +47,7 @@ interface CanvasToolbarProps {
 }
 
 export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
+    const t = useTranslations('CanvasEditor');
     const {
         activeTool,
         setActiveTool,
@@ -91,14 +93,14 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(project));
         setHasSavedProject(true);
         setShowSaveMenu(false);
-        alert('Project saved successfully!');
+        alert(t('alerts.projectSaved'));
     };
 
     // Load project from localStorage
     const handleLoad = () => {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (!saved) {
-            alert('No saved project found.');
+            alert(t('alerts.noSavedProject'));
             return;
         }
         try {
@@ -107,24 +109,24 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
             setBackgroundColor(project.backgroundColor);
             setBackgroundGradient(project.backgroundGradient);
             setShowSaveMenu(false);
-            alert('Project loaded successfully!');
+            alert(t('alerts.projectLoaded'));
         } catch {
-            alert('Failed to load project.');
+            alert(t('alerts.projectLoadFailed'));
         }
     };
 
     const tools = [
-        { id: 'select' as const, icon: MousePointer2, label: 'Select (V)' },
-        { id: 'text' as const, icon: Type, label: 'Text (T)' },
-        { id: 'image' as const, icon: Image, label: 'Image (I)' },
-        { id: 'shape' as const, icon: Square, label: 'Shape (S)' },
+        { id: 'select' as const, icon: MousePointer2, label: t('toolbar.select') },
+        { id: 'text' as const, icon: Type, label: t('toolbar.text') },
+        { id: 'image' as const, icon: Image, label: t('toolbar.image') },
+        { id: 'shape' as const, icon: Square, label: t('toolbar.shape') },
     ];
 
     const shapes: { id: ShapeElement['shapeType']; icon: React.ElementType; label: string }[] = [
-        { id: 'rectangle', icon: Square, label: 'Rectangle' },
-        { id: 'circle', icon: Circle, label: 'Circle' },
-        { id: 'star', icon: Star, label: 'Star' },
-        { id: 'line', icon: Minus, label: 'Line' },
+        { id: 'rectangle', icon: Square, label: t('toolbar.rectangle') },
+        { id: 'circle', icon: Circle, label: t('toolbar.circle') },
+        { id: 'star', icon: Star, label: t('toolbar.star') },
+        { id: 'line', icon: Minus, label: t('toolbar.line') },
     ];
 
     const canUndo = historyIndex > 0;
@@ -245,7 +247,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                             ? 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                             : 'text-gray-600 cursor-not-allowed'
                     }`}
-                    title="Undo (Cmd+Z)"
+                    title={t('toolbar.undo')}
                 >
                     <Undo2 size={20} />
                 </button>
@@ -257,7 +259,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                             ? 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                             : 'text-gray-600 cursor-not-allowed'
                     }`}
-                    title="Redo (Cmd+Shift+Z)"
+                    title={t('toolbar.redo')}
                 >
                     <Redo2 size={20} />
                 </button>
@@ -269,14 +271,14 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     <button
                         onClick={() => selectedElementIds.forEach((id) => duplicateElement(id))}
                         className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-                        title="Duplicate (Cmd+D)"
+                        title={t('toolbar.duplicate')}
                     >
                         <Copy size={20} />
                     </button>
                     <button
                         onClick={() => selectedElementIds.forEach((id) => removeElement(id))}
                         className="p-2.5 rounded-lg text-gray-500 hover:text-red-400 hover:bg-white transition-colors"
-                        title="Delete"
+                        title={t('toolbar.delete')}
                     >
                         <Trash2 size={20} />
                     </button>
@@ -286,14 +288,14 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     <button
                         onClick={() => selectedElementIds.forEach((id) => bringToFront(id))}
                         className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-                        title="Bring to Front"
+                        title={t('toolbar.bringToFront')}
                     >
                         <ChevronUp size={20} />
                     </button>
                     <button
                         onClick={() => selectedElementIds.forEach((id) => sendToBack(id))}
                         className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-                        title="Send to Back"
+                        title={t('toolbar.sendToBack')}
                     >
                         <ChevronDown size={20} />
                     </button>
@@ -306,7 +308,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     onClick={() => setZoom(zoom - 0.1)}
                     disabled={zoom <= 0.2}
                     className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors disabled:text-gray-600 disabled:cursor-not-allowed"
-                    title="Zoom Out"
+                    title={t('toolbar.zoomOut')}
                 >
                     <ZoomOut size={20} />
                 </button>
@@ -317,7 +319,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     onClick={() => setZoom(zoom + 0.1)}
                     disabled={zoom >= 3}
                     className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors disabled:text-gray-600 disabled:cursor-not-allowed"
-                    title="Zoom In"
+                    title={t('toolbar.zoomIn')}
                 >
                     <ZoomIn size={20} />
                 </button>
@@ -328,10 +330,10 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                 <button
                     onClick={() => setShowAIPopup(true)}
                     className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-medium hover:from-purple-600 hover:to-blue-600 transition-all shadow-lg shadow-purple-500/20"
-                    title="AI Summary Generator"
+                    title={t('toolbar.aiGenerateTitle')}
                 >
                     <Sparkles size={18} />
-                    <span>AI Generate</span>
+                    <span>{t('toolbar.aiGenerate')}</span>
                 </button>
 
                 <div className="w-px h-8 bg-gray-200 mx-2" />
@@ -340,7 +342,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                 <button
                     onClick={handleSave}
                     className="p-2.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-                    title="Save Project (Cmd+S)"
+                    title={t('toolbar.save')}
                 >
                     <Save size={20} />
                 </button>
@@ -352,7 +354,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                             ? 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                             : 'text-gray-600 cursor-not-allowed'
                     }`}
-                    title="Load Project"
+                    title={t('toolbar.load')}
                 >
                     <FolderOpen size={20} />
                 </button>
@@ -363,26 +365,26 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                 <div className="relative group">
                     <button className="flex items-center gap-2 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-medium hover:bg-accent-green/90 transition-colors">
                         <Download size={18} />
-                        Export
+                        {t('toolbar.export')}
                     </button>
                     <div className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 min-w-[140px]">
                         <button
                             onClick={() => onExport('pdf')}
                             className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                         >
-                            Download PDF
+                            {t('toolbar.downloadPdf')}
                         </button>
                         <button
                             onClick={() => onExport('png')}
                             className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                         >
-                            Download PNG
+                            {t('toolbar.downloadPng')}
                         </button>
                         <button
                             onClick={() => onExport('jpeg')}
                             className="w-full px-4 py-2.5 text-left text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                         >
-                            Download JPEG
+                            {t('toolbar.downloadJpeg')}
                         </button>
                     </div>
                 </div>
