@@ -30,7 +30,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "img-src 'self' data: blob: https:",
       "font-src 'self' https://fonts.gstatic.com",
-      `connect-src 'self' ${process.env.NODE_ENV === 'development' ? 'http://localhost:4444' : ''} ${process.env.NEXT_PUBLIC_API_URL || ''} https://*.bestairesumes.com https://www.google-analytics.com https://embed.tawk.to https://va.tawk.to wss://chat.tawk.to https://api.stripe.com`,
+      `connect-src 'self' ${process.env.NODE_ENV === 'development' ? 'http://localhost:4444' : ''} ${(process.env.NEXT_PUBLIC_API_URL || '').trim()} https://*.bestairesumes.com https://www.google-analytics.com https://embed.tawk.to https://va.tawk.to wss://chat.tawk.to https://api.stripe.com`,
       "frame-src https://embed.tawk.to https://js.stripe.com",
       "worker-src 'self' blob:",
     ].join('; '),
