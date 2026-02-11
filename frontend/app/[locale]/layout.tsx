@@ -3,8 +3,6 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Poppins, Noto_Sans_Arabic } from 'next/font/google';
 import { locales, Locale, isRtl, getDirection } from '@/i18n.config';
-import { prisma } from '@/lib/prisma'; // Import prisma
-
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import TawkTo from '@/components/TawkTo';
@@ -163,21 +161,18 @@ export default async function LocaleLayout({
   const rtl = isRtl(locale as Locale);
   const dir = getDirection(locale as Locale);
 
-  // Fetch Global Settings
-  const settings = await prisma.globalSettings.findFirst();
-
   return (
     <html lang={locale} dir={dir} className="scroll-smooth">
       <head>
-        {/* Search Console Verification — set via DB or env vars */}
-        {(settings?.googleSiteVerification || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION) && (
-          <meta name="google-site-verification" content={settings?.googleSiteVerification || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        {/* Search Console Verification — set via env vars */}
+        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         )}
-        {(settings?.bingSiteVerification || process.env.NEXT_PUBLIC_BING_VERIFICATION) && (
-          <meta name="msvalidate.01" content={settings?.bingSiteVerification || process.env.NEXT_PUBLIC_BING_VERIFICATION} />
+        {process.env.NEXT_PUBLIC_BING_VERIFICATION && (
+          <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
         )}
-        {(settings?.yandexSiteVerification || process.env.NEXT_PUBLIC_YANDEX_VERIFICATION) && (
-          <meta name="yandex-verification" content={settings?.yandexSiteVerification || process.env.NEXT_PUBLIC_YANDEX_VERIFICATION} />
+        {process.env.NEXT_PUBLIC_YANDEX_VERIFICATION && (
+          <meta name="yandex-verification" content={process.env.NEXT_PUBLIC_YANDEX_VERIFICATION} />
         )}
 
         {/* Preconnect to third-party origins for faster resource loading */}
@@ -214,7 +209,7 @@ export default async function LocaleLayout({
           <SessionProvider>
             <AuthSyncProvider>
               <Suspense fallback={null}>
-                <GoogleAnalytics measurementId={settings?.googleAnalyticsId || undefined} />
+                <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
               </Suspense>
               <WebVitals />
               <TawkTo />
