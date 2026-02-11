@@ -97,7 +97,7 @@ export default async function Home() {
                 <div className="flex flex-wrap gap-3 mb-4">
                   <Link
                     href={localizedHref("/onboarding")}
-                    className="inline-flex items-center gap-2 bg-accent-orange text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition shadow-lg shadow-orange-500/30"
+                    className="inline-flex items-center gap-2 bg-accent-orange-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition shadow-lg shadow-orange-500/30"
                   >
                     {t("hero.ctaPrimary")}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ export default async function Home() {
       {/* Company Logos Section - Trust Signals */}
       <section className="py-8 md:py-12 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-center text-dark-teal/60 text-sm mb-6">{t("companies.title")}</p>
+          <p className="text-center text-dark-teal/80 text-sm mb-6">{t("companies.title")}</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
             {/* Google */}
             <div className="flex items-center gap-2">
@@ -213,12 +213,12 @@ export default async function Home() {
       <section id="features" className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-8 md:mb-16">
-            <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{t("features.sectionTitle")}</span>
+            <span className="text-teal-text font-medium text-sm uppercase tracking-wider">{t("features.sectionTitle")}</span>
             <h2 className="text-4xl font-bold mt-3 mb-4 text-dark-teal">
               {t("features.title")}<br />
-              <span className="text-teal-primary">{t("features.titleHighlight")}</span>
+              <span className="text-teal-text">{t("features.titleHighlight")}</span>
             </h2>
-            <p className="text-dark-teal/70 max-w-xl mx-auto">
+            <p className="text-dark-teal/80 max-w-xl mx-auto">
               {t("features.subtitle")}
             </p>
           </div>
@@ -232,8 +232,8 @@ export default async function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("features.aiWriting.title")}</h3>
-              <p className="text-dark-teal/70 text-sm leading-relaxed mb-4">{t("features.aiWriting.description")}</p>
-              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
+              <p className="text-dark-teal/80 text-sm leading-relaxed mb-4">{t("features.aiWriting.description")}</p>
+              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium underline underline-offset-2">
                 Learn More →
               </Link>
             </FeatureCard>
@@ -246,8 +246,8 @@ export default async function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("features.templates.title")}</h3>
-              <p className="text-dark-teal/70 text-sm leading-relaxed mb-4">{t("features.templates.description")}</p>
-              <Link href={localizedHref("/templates")} className="text-accent-orange text-sm font-medium hover:underline">
+              <p className="text-dark-teal/80 text-sm leading-relaxed mb-4">{t("features.templates.description")}</p>
+              <Link href={localizedHref("/templates")} className="text-accent-orange text-sm font-medium underline underline-offset-2">
                 Learn More →
               </Link>
             </FeatureCard>
@@ -260,8 +260,8 @@ export default async function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("features.atsOptimization.title")}</h3>
-              <p className="text-dark-teal/70 text-sm leading-relaxed mb-4">{t("features.atsOptimization.description")}</p>
-              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
+              <p className="text-dark-teal/80 text-sm leading-relaxed mb-4">{t("features.atsOptimization.description")}</p>
+              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium underline underline-offset-2">
                 Learn More →
               </Link>
             </FeatureCard>
@@ -275,8 +275,8 @@ export default async function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("features.realTimePreview.title")}</h3>
-              <p className="text-dark-teal/70 text-sm leading-relaxed mb-4">{t("features.realTimePreview.description")}</p>
-              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
+              <p className="text-dark-teal/80 text-sm leading-relaxed mb-4">{t("features.realTimePreview.description")}</p>
+              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium underline underline-offset-2">
                 Learn More →
               </Link>
             </FeatureCard>
@@ -289,8 +289,8 @@ export default async function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("features.pdfExport.title")}</h3>
-              <p className="text-dark-teal/70 text-sm leading-relaxed mb-4">{t("features.pdfExport.description")}</p>
-              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
+              <p className="text-dark-teal/80 text-sm leading-relaxed mb-4">{t("features.pdfExport.description")}</p>
+              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium underline underline-offset-2">
                 Learn More →
               </Link>
             </FeatureCard>
@@ -303,8 +303,8 @@ export default async function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("features.smartSuggestions.title")}</h3>
-              <p className="text-dark-teal/70 text-sm leading-relaxed mb-4">{t("features.smartSuggestions.description")}</p>
-              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium hover:underline">
+              <p className="text-dark-teal/80 text-sm leading-relaxed mb-4">{t("features.smartSuggestions.description")}</p>
+              <Link href={localizedHref("/features")} className="text-accent-orange text-sm font-medium underline underline-offset-2">
                 Learn More →
               </Link>
             </FeatureCard>
@@ -316,10 +316,10 @@ export default async function Home() {
       <section className="py-12 md:py-24 bg-light-teal relative">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-8 md:mb-16">
-            <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{t("howItWorks.sectionTitle")}</span>
+            <span className="text-teal-text font-medium text-sm uppercase tracking-wider">{t("howItWorks.sectionTitle")}</span>
             <h2 className="text-4xl font-bold mt-3 text-dark-teal">
               {t("howItWorks.title")}<br />
-              <span className="text-teal-primary">{t("howItWorks.titleHighlight")}</span>
+              <span className="text-teal-text">{t("howItWorks.titleHighlight")}</span>
             </h2>
           </div>
 
@@ -330,10 +330,10 @@ export default async function Home() {
             {/* Step 1 */}
             <Step className="text-center">
               <div className="w-40 h-40 mx-auto rounded-full bg-white shadow-lg flex items-center justify-center mb-6 relative">
-                <span className="text-6xl font-bold text-teal-primary">01</span>
+                <span className="text-6xl font-bold text-teal-text">01</span>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("howItWorks.step1.title")}</h3>
-              <p className="text-dark-teal/70 text-sm">{t("howItWorks.step1.description")}</p>
+              <p className="text-dark-teal/80 text-sm">{t("howItWorks.step1.description")}</p>
             </Step>
 
             {/* Step 2 */}
@@ -342,7 +342,7 @@ export default async function Home() {
                 <span className="text-6xl font-bold text-teal-secondary">02</span>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("howItWorks.step2.title")}</h3>
-              <p className="text-dark-teal/70 text-sm">{t("howItWorks.step2.description")}</p>
+              <p className="text-dark-teal/80 text-sm">{t("howItWorks.step2.description")}</p>
             </Step>
 
             {/* Step 3 */}
@@ -351,7 +351,7 @@ export default async function Home() {
                 <span className="text-6xl font-bold text-accent-orange">03</span>
               </div>
               <h3 className="font-semibold text-lg mb-2 text-dark-teal">{t("howItWorks.step3.title")}</h3>
-              <p className="text-dark-teal/70 text-sm">{t("howItWorks.step3.description")}</p>
+              <p className="text-dark-teal/80 text-sm">{t("howItWorks.step3.description")}</p>
             </Step>
           </StepsGrid>
         </div>
@@ -362,13 +362,13 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{t("templates.sectionTitle")}</span>
+              <span className="text-teal-text font-medium text-sm uppercase tracking-wider">{t("templates.sectionTitle")}</span>
               <h2 className="text-4xl font-bold mt-3 text-dark-teal">
                 {t("templates.title")}<br />
-                <span className="text-teal-primary">{t("templates.titleHighlight")}</span>
+                <span className="text-teal-text">{t("templates.titleHighlight")}</span>
               </h2>
             </div>
-            <Link href={localizedHref("/templates")} className="mt-4 md:mt-0 inline-flex items-center gap-2 text-accent-orange hover:text-orange-600 transition text-sm font-medium">
+            <Link href={localizedHref("/templates")} className="mt-4 md:mt-0 inline-flex items-center gap-2 text-accent-orange hover:text-orange-600 transition text-sm font-medium underline underline-offset-2">
               {t("templates.viewAll")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -384,8 +384,8 @@ export default async function Home() {
                   <div className="h-full bg-white/10 rounded-lg border border-white/20"></div>
                 </div>
               </div>
-              <h4 className="font-medium text-sm text-dark-teal">Executive</h4>
-              <p className="text-xs text-dark-teal/60">Classic • Navy</p>
+              <h3 className="font-medium text-sm text-dark-teal">Executive</h3>
+              <p className="text-xs text-dark-teal/80">Classic • Navy</p>
             </div>
 
             {/* Template 2 */}
@@ -396,8 +396,8 @@ export default async function Home() {
                   <div className="flex-1"></div>
                 </div>
               </div>
-              <h4 className="font-medium text-sm text-dark-teal">Modern</h4>
-              <p className="text-xs text-dark-teal/60">Sidebar • Teal</p>
+              <h3 className="font-medium text-sm text-dark-teal">Modern</h3>
+              <p className="text-xs text-dark-teal/80">Sidebar • Teal</p>
             </div>
 
             {/* Template 3 */}
@@ -407,8 +407,8 @@ export default async function Home() {
                   <div className="h-12 bg-white/30"></div>
                 </div>
               </div>
-              <h4 className="font-medium text-sm text-dark-teal">Creative</h4>
-              <p className="text-xs text-dark-teal/60">Header • Purple</p>
+              <h3 className="font-medium text-sm text-dark-teal">Creative</h3>
+              <p className="text-xs text-dark-teal/80">Header • Purple</p>
             </div>
 
             {/* Template 4 */}
@@ -420,8 +420,8 @@ export default async function Home() {
                   <div className="h-2 bg-gray-300 rounded w-2/3"></div>
                 </div>
               </div>
-              <h4 className="font-medium text-sm text-dark-teal">Minimal</h4>
-              <p className="text-xs text-dark-teal/60">Clean • Light</p>
+              <h3 className="font-medium text-sm text-dark-teal">Minimal</h3>
+              <p className="text-xs text-dark-teal/80">Clean • Light</p>
             </div>
 
             {/* Template 5 */}
@@ -431,8 +431,8 @@ export default async function Home() {
                   <div className="h-full border-2 border-white/30 rounded-lg"></div>
                 </div>
               </div>
-              <h4 className="font-medium text-sm text-dark-teal">Professional</h4>
-              <p className="text-xs text-dark-teal/60">Traditional</p>
+              <h3 className="font-medium text-sm text-dark-teal">Professional</h3>
+              <p className="text-xs text-dark-teal/80">Traditional</p>
             </div>
           </div>
         </div>
@@ -462,7 +462,7 @@ export default async function Home() {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 flex items-center justify-center text-xs font-semibold text-white">SC</div>
                 <div>
                   <div className="font-medium text-sm text-dark-teal">Sarah Chen</div>
-                  <div className="text-xs text-dark-teal/60">Software Engineer at Google</div>
+                  <div className="text-xs text-dark-teal/80">Software Engineer at Google</div>
                 </div>
               </div>
             </Testimonial>
@@ -475,7 +475,7 @@ export default async function Home() {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-teal-400 flex items-center justify-center text-xs font-semibold text-white">MJ</div>
                 <div>
                   <div className="font-medium text-sm text-dark-teal">Marcus Johnson</div>
-                  <div className="text-xs text-dark-teal/60">Product Manager at Stripe</div>
+                  <div className="text-xs text-dark-teal/80">Product Manager at Stripe</div>
                 </div>
               </div>
             </Testimonial>
@@ -488,7 +488,7 @@ export default async function Home() {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center text-xs font-semibold text-white">ER</div>
                 <div>
                   <div className="font-medium text-sm text-dark-teal">Emily Rodriguez</div>
-                  <div className="text-xs text-dark-teal/60">UX Designer at Figma</div>
+                  <div className="text-xs text-dark-teal/80">UX Designer at Figma</div>
                 </div>
               </div>
             </Testimonial>
@@ -507,17 +507,17 @@ export default async function Home() {
       <section id="pricing" className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{tPricing("sectionTitle")}</span>
+            <span className="text-teal-text font-medium text-sm uppercase tracking-wider">{tPricing("sectionTitle")}</span>
             <h2 className="text-4xl font-bold mt-3 text-dark-teal">
               {tPricing("title")}<br />
-              <span className="text-teal-primary">{tPricing("titleHighlight")}</span>
+              <span className="text-teal-text">{tPricing("titleHighlight")}</span>
             </h2>
-            <p className="text-dark-teal/70 mt-4">{tPricing("subtitle")}</p>
+            <p className="text-dark-teal/80 mt-4">{tPricing("subtitle")}</p>
             <div className="mt-4 inline-flex items-center gap-2 bg-teal-primary/10 px-4 py-2 rounded-full">
               <svg className="w-5 h-5 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="text-teal-primary font-medium text-sm">{tPricing("trialBadge")} on Gold & Diamond • {tPricing("cancelAnytime")}</span>
+              <span className="text-teal-text font-medium text-sm">{tPricing("trialBadge")} on Gold & Diamond • {tPricing("cancelAnytime")}</span>
             </div>
           </div>
 
@@ -526,11 +526,11 @@ export default async function Home() {
             <div className="bg-white rounded-2xl p-5 border border-gray-200 shadow-md hover:shadow-lg transition-shadow">
               <div className="mb-5">
                 <h3 className="font-semibold text-lg mb-1 text-dark-teal">{tPricing("starter.name")}</h3>
-                <p className="text-dark-teal/60 text-xs">{tPricing("starter.description")}</p>
+                <p className="text-dark-teal/80 text-xs">{tPricing("starter.description")}</p>
               </div>
               <div className="mb-5">
                 <span className="text-3xl font-bold text-dark-teal">{tPricing("starter.price")}</span>
-                <span className="text-dark-teal/60 text-sm">{tPricing("starter.period")}</span>
+                <span className="text-dark-teal/80 text-sm">{tPricing("starter.period")}</span>
               </div>
               <ul className="space-y-2.5 mb-6 text-sm">
                 <li className="flex items-center gap-2 text-dark-teal/80">
@@ -559,13 +559,13 @@ export default async function Home() {
             <div className="bg-white rounded-2xl p-5 border border-gray-200 shadow-md hover:shadow-lg transition-shadow">
               <div className="mb-5">
                 <h3 className="font-semibold text-lg mb-1 text-dark-teal">{tPricing("gold.name")}</h3>
-                <p className="text-dark-teal/60 text-xs">{tPricing("gold.description")}</p>
+                <p className="text-dark-teal/80 text-xs">{tPricing("gold.description")}</p>
               </div>
               <div className="mb-3">
                 <span className="text-3xl font-bold text-dark-teal">{tPricing("gold.price")}</span>
-                <span className="text-dark-teal/60 text-sm">{tPricing("gold.period")}</span>
+                <span className="text-dark-teal/80 text-sm">{tPricing("gold.period")}</span>
               </div>
-              <div className="mb-4 inline-flex items-center gap-1.5 bg-teal-primary/10 text-teal-primary text-xs font-medium px-2.5 py-1 rounded-full">
+              <div className="mb-4 inline-flex items-center gap-1.5 bg-teal-primary/10 text-teal-text text-xs font-medium px-2.5 py-1 rounded-full">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -633,7 +633,7 @@ export default async function Home() {
                   {tPricing("diamond.features.support")}
                 </li>
               </ul>
-              <Link href={localizedHref("/checkout?plan=diamond")} className="block w-full text-center py-2.5 rounded-lg bg-white text-teal-primary font-semibold text-sm hover:bg-gray-50 transition">
+              <Link href={localizedHref("/checkout?plan=diamond")} className="block w-full text-center py-2.5 rounded-lg bg-white text-teal-text font-semibold text-sm hover:bg-gray-50 transition">
                 {tPricing("diamond.cta")}
               </Link>
             </div>
@@ -647,11 +647,11 @@ export default async function Home() {
               </div>
               <div className="mb-5 mt-2">
                 <h3 className="font-semibold text-lg mb-1 text-dark-teal">{tPricing("platinum.name")}</h3>
-                <p className="text-dark-teal/60 text-xs">{tPricing("platinum.description")}</p>
+                <p className="text-dark-teal/80 text-xs">{tPricing("platinum.description")}</p>
               </div>
               <div className="mb-5">
                 <span className="text-3xl font-bold text-dark-teal">{tPricing("platinum.price")}</span>
-                <span className="text-dark-teal/60 text-sm">{tPricing("platinum.period")}</span>
+                <span className="text-dark-teal/80 text-sm">{tPricing("platinum.period")}</span>
               </div>
               <ul className="space-y-2.5 mb-6 text-sm">
                 <li className="flex items-center gap-2 text-dark-teal/80">
@@ -677,8 +677,8 @@ export default async function Home() {
             </div>
           </div>
 
-          <p className="text-center text-dark-teal/60 text-sm mt-8">
-            <Link href={localizedHref("/pricing")} className="text-teal-primary hover:underline">{tPricing("viewComparison")}</Link> • {tPricing("securePayments")}
+          <p className="text-center text-dark-teal/80 text-sm mt-8">
+            <Link href={localizedHref("/pricing")} className="text-teal-text underline underline-offset-2">{tPricing("viewComparison")}</Link> • {tPricing("securePayments")}
           </p>
         </div>
       </section>
@@ -703,10 +703,10 @@ export default async function Home() {
       <section id="faq" className="py-12 md:py-24 bg-light-teal">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-8 md:mb-12">
-            <span className="text-teal-primary font-medium text-sm uppercase tracking-wider">{t("faq.sectionTitle")}</span>
+            <span className="text-teal-text font-medium text-sm uppercase tracking-wider">{t("faq.sectionTitle")}</span>
             <h2 className="text-4xl font-bold mt-3 text-dark-teal">
               {t("faq.title")}{" "}
-              <span className="text-teal-primary">{t("faq.titleHighlight")}</span>
+              <span className="text-teal-text">{t("faq.titleHighlight")}</span>
             </h2>
           </div>
 
@@ -722,7 +722,7 @@ export default async function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div className="px-5 pb-5 text-dark-teal/70 leading-relaxed">
+                <div className="px-5 pb-5 text-dark-teal/80 leading-relaxed">
                   <p>{item.answer}</p>
                 </div>
               </details>
@@ -746,7 +746,7 @@ export default async function Home() {
             <p className="text-white/80 mb-8 max-w-md mx-auto">{t("cta.subtitle")}</p>
             <Link
               href={localizedHref("/onboarding")}
-              className="inline-flex items-center gap-2 bg-accent-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition shadow-lg shadow-orange-500/30"
+              className="inline-flex items-center gap-2 bg-accent-orange-dark text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition shadow-lg shadow-orange-500/30"
             >
               {t("cta.button")}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

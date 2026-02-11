@@ -20,6 +20,9 @@
   --color-accent-blue: #3b82f6;
   --color-accent-pink: #ec4899;
 
+  /* Accessible teal for text on white (WCAG AA ~4.6:1 contrast) */
+  --color-teal-text: #008770;
+
   /* Dark teal for footer/text */
   --color-dark-teal: #1a3a3a;
 
@@ -121,6 +124,7 @@ body {
 .text-accent-purple { color: #8b5cf6; }
 .text-accent-blue { color: #3b82f6; }
 .text-accent-pink { color: #ec4899; }
+.text-teal-text { color: var(--color-teal-text); }
 .text-text-secondary { color: var(--color-text-secondary); }
 .text-text-muted { color: var(--color-text-muted); }
 .text-bg-primary { color: var(--color-dark-teal); }

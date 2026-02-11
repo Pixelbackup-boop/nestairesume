@@ -49,7 +49,10 @@ interface CanvasElement {
  */
 function replacePersonalData(designDataJson: string): string {
   try {
-    const elements = JSON.parse(designDataJson) as CanvasElement[];
+    const parsed = JSON.parse(designDataJson);
+    // Handle both formats: { elements, ... } object or flat element array
+    const isWrapped = !Array.isArray(parsed) && parsed.elements;
+    const elements: CanvasElement[] = isWrapped ? parsed.elements : parsed;
     let nameReplaced = false;
 
     const processedElements = elements.map((element) => {
@@ -101,6 +104,10 @@ function replacePersonalData(designDataJson: string): string {
       return { ...textElement, text };
     });
 
+    // Preserve wrapper object with background info if present
+    if (isWrapped) {
+      return JSON.stringify({ ...parsed, elements: processedElements });
+    }
     return JSON.stringify(processedElements);
   } catch (error) {
     console.error('Failed to process design data:', error);

@@ -67,6 +67,8 @@ export default function CanvasEditorPage() {
         updateElement,
         saveToHistory,
         elements,
+        backgroundColor,
+        backgroundGradient,
         deselectAll,
         loadCommunityTemplate,
     } = useCanvasStore();
@@ -226,8 +228,12 @@ export default function CanvasEditorPage() {
 
     // Get serialized design data for posting
     const getDesignData = useCallback(() => {
-        return JSON.stringify(elements);
-    }, [elements]);
+        return JSON.stringify({
+            elements,
+            backgroundColor,
+            backgroundGradient,
+        });
+    }, [elements, backgroundColor, backgroundGradient]);
 
     return (
         <div className="h-screen flex flex-col bg-gray-50 overflow-hidden">

@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -16,10 +15,7 @@ import {
     FileCheck,
     Sparkles,
     ArrowRight,
-    Check,
 } from 'lucide-react';
-import { canvasTemplates } from '@/lib/templates/canvas';
-import { useCanvasStore, CanvasTemplate } from '@/store/useCanvasStore';
 import {
     builderTemplates as sharedBuilderTemplates,
     getSampleResumeDataWithProfile,
@@ -55,8 +51,9 @@ const FEATURED_TEMPLATE_IDS = [
     'minimal-blue-sections',
 ];
 
-type EditorMode = 'builder' | 'canvas';
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'ats-friendly' | 'classic' | 'modern' | 'header' | 'sidebar';
+type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'ats-friendly';
+
+const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal', 'ats-friendly'];
 
 // Use shared builder templates with additional style property for display
 const builderTemplates = sharedBuilderTemplates.map(t => ({
@@ -75,11 +72,8 @@ const categoryIcons: Record<string, React.ElementType> = {
 };
 
 export default function TemplatesPage() {
-    const router = useRouter();
     const locale = useLocale();
     const t = useTranslations('Templates');
-    const { loadTemplate } = useCanvasStore();
-    const [editorMode, setEditorMode] = useState<EditorMode>('builder');
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
     const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
@@ -90,27 +84,13 @@ export default function TemplatesPage() {
 
     const localizedHref = (path: string) => `/${locale}${path}`;
 
-    // Get categories based on mode
-    const categories: CategoryFilter[] = editorMode === 'builder'
-        ? ['all', 'professional', 'creative', 'minimal', 'ats-friendly']
-        : ['all', 'professional', 'creative', 'minimal', 'ats-friendly'];
-
-    // Filter templates based on mode, search, category, and featured list
+    // Filter templates based on search, category, and featured list
     const filteredBuilderTemplates = useMemo(() => {
         return builderTemplates.filter((template) => {
-            // Only show featured templates (unique layouts)
             const isFeatured = FEATURED_TEMPLATE_IDS.includes(template.id);
             const matchesSearch = template.name.toLowerCase().includes(searchQuery.toLowerCase());
             const matchesCategory = selectedCategory === 'all' || template.category === selectedCategory;
             return isFeatured && matchesSearch && matchesCategory;
-        });
-    }, [searchQuery, selectedCategory]);
-
-    const filteredCanvasTemplates = useMemo(() => {
-        return canvasTemplates.filter((template) => {
-            const matchesSearch = template.name.toLowerCase().includes(searchQuery.toLowerCase());
-            const matchesCategory = selectedCategory === 'all' || template.category === selectedCategory;
-            return matchesSearch && matchesCategory;
         });
     }, [searchQuery, selectedCategory]);
 
@@ -125,18 +105,6 @@ export default function TemplatesPage() {
         setSelectedTemplateForModal(null);
     };
 
-    const handleSelectCanvasTemplate = (template: CanvasTemplate) => {
-        loadTemplate(template);
-        router.push(localizedHref('/canvas-editor'));
-    };
-
-    // Reset category when switching modes
-    const handleModeChange = (mode: EditorMode) => {
-        setEditorMode(mode);
-        setSelectedCategory('all');
-        setSearchQuery('');
-    };
-
     // Get translated category label
     const getCategoryLabel = (category: string): string => {
         try {
@@ -144,124 +112,6 @@ export default function TemplatesPage() {
         } catch {
             return category.charAt(0).toUpperCase() + category.slice(1);
         }
-    };
-
-    // Render canvas template preview
-    const renderCanvasPreview = (template: CanvasTemplate) => {
-        const scale = 0.28;
-        const previewWidth = 595 * scale;
-        const previewHeight = 842 * scale;
-
-        return (
-            <div
-                className="relative overflow-hidden rounded-lg mx-auto"
-                style={{
-                    width: previewWidth,
-                    height: previewHeight,
-                    backgroundColor: template.backgroundColor,
-                }}
-            >
-                <svg
-                    width={previewWidth}
-                    height={previewHeight}
-                    viewBox="0 0 595 842"
-                    className="absolute inset-0"
-                >
-                    {template.elements.map((element, index) => {
-                        if (element.type === 'shape') {
-                            if (element.shapeType === 'circle') {
-                                return (
-                                    <ellipse
-                                        key={index}
-                                        cx={element.x + element.width / 2}
-                                        cy={element.y + element.height / 2}
-                                        rx={element.width / 2}
-                                        ry={element.height / 2}
-                                        fill={element.fill}
-                                    />
-                                );
-                            }
-                            return (
-                                <rect
-                                    key={index}
-                                    x={element.x}
-                                    y={element.y}
-                                    width={element.width}
-                                    height={element.height}
-                                    fill={element.fill}
-                                    rx={element.cornerRadius || 0}
-                                />
-                            );
-                        }
-                        if (element.type === 'text') {
-                            const lines = element.text.split('\n');
-                            const lineHeight = element.fontSize * (element.lineHeight || 1.4);
-                            return (
-                                <text
-                                    key={index}
-                                    x={element.x}
-                                    y={element.y + element.fontSize}
-                                    fill={element.fill}
-                                    fontSize={element.fontSize}
-                                    fontFamily={element.fontFamily || 'Inter, sans-serif'}
-                                    fontWeight={element.fontWeight || 'normal'}
-                                    textAnchor={element.align === 'center' ? 'middle' : element.align === 'right' ? 'end' : 'start'}
-                                    dominantBaseline="auto"
-                                >
-                                    {lines.map((line, lineIndex) => (
-                                        <tspan
-                                            key={lineIndex}
-                                            x={element.align === 'center' ? element.x + element.width / 2 : element.align === 'right' ? element.x + element.width : element.x}
-                                            dy={lineIndex === 0 ? 0 : lineHeight}
-                                        >
-                                            {line}
-                                        </tspan>
-                                    ))}
-                                </text>
-                            );
-                        }
-                        if (element.type === 'icon') {
-                            return (
-                                <circle
-                                    key={index}
-                                    cx={element.x + element.width / 2}
-                                    cy={element.y + element.height / 2}
-                                    r={element.width / 2}
-                                    fill={element.fill}
-                                    opacity={0.8}
-                                />
-                            );
-                        }
-                        if (element.type === 'image') {
-                            const clipId = `clip-${index}`;
-                            return (
-                                <g key={index}>
-                                    <defs>
-                                        <clipPath id={clipId}>
-                                            <circle
-                                                cx={element.x + element.width / 2}
-                                                cy={element.y + element.height / 2}
-                                                r={Math.min(element.width, element.height) / 2}
-                                            />
-                                        </clipPath>
-                                    </defs>
-                                    <image
-                                        href={element.src}
-                                        x={element.x}
-                                        y={element.y}
-                                        width={element.width}
-                                        height={element.height}
-                                        clipPath={`url(#${clipId})`}
-                                        preserveAspectRatio="xMidYMid slice"
-                                    />
-                                </g>
-                            );
-                        }
-                        return null;
-                    })}
-                </svg>
-            </div>
-        );
     };
 
     // Render builder template preview using actual template components
@@ -315,7 +165,7 @@ export default function TemplatesPage() {
         );
     };
 
-    const templateCount = editorMode === 'builder' ? filteredBuilderTemplates.length : filteredCanvasTemplates.length;
+    const templateCount = filteredBuilderTemplates.length;
 
     return (
         <div className="min-h-screen">
@@ -338,70 +188,18 @@ export default function TemplatesPage() {
                 </TemplatesAnimations.Hero>
             </section>
 
-            {/* Mode Toggle - Animated */}
-            <section className="pb-8">
-                <TemplatesAnimations.ModeToggle>
-                    <div className="max-w-4xl mx-auto px-6">
-                        <div className="bg-bg-card border border-border-subtle rounded-2xl p-2 flex gap-2">
-                        {/* Form Builder Option */}
-                        <button
-                            type="button"
-                            onClick={() => handleModeChange('builder')}
-                            className={`group flex-1 p-4 rounded-xl transition-all ${
-                                editorMode === 'builder'
-                                    ? 'bg-accent-green text-bg-primary'
-                                    : 'bg-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                            }`}
-                        >
-                            <div className="flex items-center justify-center gap-3">
-                                <FileText size={24} />
-                                <div className="text-left">
-                                    <div className="font-semibold text-lg">{t('formBuilder.title')}</div>
-                                    <div className={`text-sm ${editorMode === 'builder' ? 'text-bg-primary/70' : 'text-gray-500 group-hover:text-gray-700'}`}>
-                                        {t('formBuilder.description')}
-                                    </div>
-                                </div>
-                                {editorMode === 'builder' && <Check size={20} className="ml-auto" />}
-                            </div>
-                        </button>
-
-                        {/* Canvas Editor Option */}
-                        <button
-                            type="button"
-                            onClick={() => handleModeChange('canvas')}
-                            className={`group flex-1 p-4 rounded-xl transition-all ${
-                                editorMode === 'canvas'
-                                    ? 'bg-accent-green text-bg-primary'
-                                    : 'bg-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                            }`}
-                        >
-                            <div className="flex items-center justify-center gap-3">
-                                <Palette size={24} />
-                                <div className="text-left">
-                                    <div className="font-semibold text-lg">{t('canvasEditor.title')}</div>
-                                    <div className={`text-sm ${editorMode === 'canvas' ? 'text-bg-primary/70' : 'text-gray-500 group-hover:text-gray-700'}`}>
-                                        {t('canvasEditor.description')}
-                                    </div>
-                                </div>
-                                {editorMode === 'canvas' && <Check size={20} className="ml-auto" />}
-                            </div>
-                        </button>
-                    </div>
-
-                        {/* Mode Description */}
-                        <div className="mt-4 text-center">
-                            {editorMode === 'builder' ? (
-                                <p className="text-gray-400 text-sm">
-                                    <span className="text-accent-green font-medium">{t('formBuilder.title')}</span> - {t('formBuilder.hint')}
-                                </p>
-                            ) : (
-                                <p className="text-gray-400 text-sm">
-                                    <span className="text-accent-green font-medium">{t('canvasEditor.title')}</span> - {t('canvasEditor.hint')}
-                                </p>
-                            )}
-                        </div>
-                    </div>
-                </TemplatesAnimations.ModeToggle>
+            {/* Canvas Editor Banner */}
+            <section className="pb-6">
+                <div className="max-w-6xl mx-auto px-6">
+                    <Link
+                        href={localizedHref('/canvas-templates')}
+                        className="flex items-center justify-center gap-2 px-4 py-3 bg-bg-card border border-border-subtle rounded-xl text-sm text-gray-600 hover:text-accent-green hover:border-accent-green transition-colors"
+                    >
+                        <Palette size={16} />
+                        {t('canvasEditor.title')} - {t('canvasEditor.description')}
+                        <ArrowRight size={14} />
+                    </Link>
+                </div>
             </section>
 
             {/* Templates Section - Dark Container */}
@@ -464,8 +262,7 @@ export default function TemplatesPage() {
                             <h3 className="text-xl font-medium text-gray-300 mb-2">{t('noResults')}</h3>
                             <p className="text-gray-500">{t('noResultsHint')}</p>
                         </TemplatesAnimations.NoResults>
-                    ) : editorMode === 'builder' ? (
-                        /* Builder Templates Grid - Staggered */
+                    ) : (
                         <TemplatesAnimations.TemplatesGrid className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                             {filteredBuilderTemplates.map((template, index) => (
                                 <TemplatesAnimations.TemplateCard
@@ -498,37 +295,6 @@ export default function TemplatesPage() {
                                 </TemplatesAnimations.TemplateCard>
                             ))}
                         </TemplatesAnimations.TemplatesGrid>
-                    ) : (
-                        /* Canvas Templates Grid - Staggered */
-                        <TemplatesAnimations.TemplatesGrid className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                            {filteredCanvasTemplates.map((template) => (
-                                <TemplatesAnimations.TemplateCard
-                                    key={template.id}
-                                    isHovered={hoveredTemplate === template.id}
-                                >
-                                    <div
-                                        className="group cursor-pointer"
-                                        onMouseEnter={() => setHoveredTemplate(template.id)}
-                                        onMouseLeave={() => setHoveredTemplate(null)}
-                                        onClick={() => handleSelectCanvasTemplate(template)}
-                                    >
-                                        <div className={`template-thumbnail-3d p-4 ${
-                                            hoveredTemplate === template.id ? 'active' : ''
-                                        }`}>
-                                            {renderCanvasPreview(template)}
-                                        </div>
-                                        <div className="mt-3 flex items-start justify-between">
-                                            <div>
-                                                <h4 className="font-medium text-sm text-white">{template.name}</h4>
-                                                <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-800 rounded text-xs text-gray-400 capitalize mt-1">
-                                                    {template.category}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </TemplatesAnimations.TemplateCard>
-                            ))}
-                        </TemplatesAnimations.TemplatesGrid>
                     )}
                 </div>
                 </section>
@@ -538,39 +304,19 @@ export default function TemplatesPage() {
             <section className="py-16">
                 <TemplatesAnimations.CTA className="max-w-6xl mx-auto px-6 text-center">
                     <div className="inline-flex flex-col items-center p-8 bg-bg-card rounded-2xl border border-border-subtle">
-                        {editorMode === 'canvas' ? (
-                            <>
-                                <Palette className="text-accent-green mb-4" size={32} />
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                                    {t('startFromScratch.canvas.title')}
-                                </h3>
-                                <p className="text-gray-600 mb-4 max-w-md">
-                                    {t('startFromScratch.canvas.description')}
-                                </p>
-                                <Link
-                                    href={localizedHref('/canvas-editor')}
-                                    className="px-6 py-2.5 bg-accent-green text-bg-primary rounded-lg font-medium hover:bg-accent-teal transition-colors flex items-center gap-2"
-                                >
-                                    {t('startFromScratch.canvas.button')} <ArrowRight size={18} />
-                                </Link>
-                            </>
-                        ) : (
-                            <>
-                                <FileText className="text-accent-green mb-4" size={32} />
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                                    {t('startFromScratch.builder.title')}
-                                </h3>
-                                <p className="text-gray-600 mb-4 max-w-md">
-                                    {t('startFromScratch.builder.description')}
-                                </p>
-                                <Link
-                                    href={localizedHref('/onboarding')}
-                                    className="px-6 py-2.5 bg-accent-green text-bg-primary rounded-lg font-medium hover:bg-accent-teal transition-colors flex items-center gap-2"
-                                >
-                                    {t('startFromScratch.builder.button')} <ArrowRight size={18} />
-                                </Link>
-                            </>
-                        )}
+                        <FileText className="text-accent-green mb-4" size={32} />
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                            {t('startFromScratch.builder.title')}
+                        </h3>
+                        <p className="text-gray-600 mb-4 max-w-md">
+                            {t('startFromScratch.builder.description')}
+                        </p>
+                        <Link
+                            href={localizedHref('/onboarding')}
+                            className="px-6 py-2.5 bg-accent-green text-bg-primary rounded-lg font-medium hover:bg-accent-teal transition-colors flex items-center gap-2"
+                        >
+                            {t('startFromScratch.builder.button')} <ArrowRight size={18} />
+                        </Link>
                     </div>
                 </TemplatesAnimations.CTA>
             </section>

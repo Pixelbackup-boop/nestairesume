@@ -1,8 +1,10 @@
 'use client';
 
 import { memo } from 'react';
-import { Download, User } from 'lucide-react';
+import { Download, User, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 
 interface TemplateCardProps {
   id: string;
@@ -10,6 +12,7 @@ interface TemplateCardProps {
   thumbnail: string | null;
   category: string;
   downloads: number;
+  commentCount: number;
   author: {
     name: string;
     image: string | null;
@@ -30,13 +33,18 @@ function TemplateCard({
   thumbnail,
   category,
   downloads,
+  commentCount,
   author,
   onUse,
 }: TemplateCardProps) {
+  const locale = useLocale();
   const categoryClass = CATEGORY_COLORS[category] || 'bg-gray-100 text-gray-700';
 
   return (
-    <div className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-accent-green/30 transition-all duration-200">
+    <Link
+      href={`/${locale}/community/${id}`}
+      className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-accent-green/30 transition-all duration-200 block"
+    >
       {/* Thumbnail */}
       <div className="aspect-[3/4] bg-gray-100 relative overflow-hidden">
         {thumbnail ? (
@@ -54,7 +62,11 @@ function TemplateCard({
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
           <button
-            onClick={() => onUse(id)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onUse(id);
+            }}
             className="px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-semibold transform translate-y-4 motion-safe:group-hover:translate-y-0 motion-safe:transition-transform"
           >
             Use Template
@@ -92,14 +104,20 @@ function TemplateCard({
             <span className="truncate max-w-[100px]">{author.name}</span>
           </div>
 
-          {/* Downloads */}
-          <div className="flex items-center gap-1 text-sm text-gray-400">
-            <Download size={14} />
-            <span>{downloads}</span>
+          {/* Stats */}
+          <div className="flex items-center gap-3 text-sm text-gray-400">
+            <div className="flex items-center gap-1">
+              <MessageCircle size={14} />
+              <span>{commentCount}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Download size={14} />
+              <span>{downloads}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

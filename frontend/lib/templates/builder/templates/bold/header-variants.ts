@@ -13,7 +13,7 @@ export const headerDarkTemplate: BuilderTemplate = {
     accentColor: '#facc15', // Yellow 400 - matches HeaderDark.tsx accent
     gradientColors: 'from-slate-600 to-slate-800',
     templateId: 'header-dark',
-    thumbnail: '/templates/header-dark.jpg',
+    thumbnail: '/templates/header-dark.webp',
 };
 
 // Dark banner header - modern style (UNIQUE LAYOUT: dark header, two-column with skills/interests right)
@@ -125,7 +125,7 @@ export const headerBlueCleanTemplate: BuilderTemplate = {
     accentColor: '#2563eb',
     gradientColors: 'from-blue-600 to-blue-800',
     templateId: 'header-blue-clean',
-    thumbnail: '/templates/header-blue.jpg',
+    thumbnail: '/templates/header-blue.webp',
 };
 
 // Export all featured header variants

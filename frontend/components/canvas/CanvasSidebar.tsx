@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import {
     LayoutTemplate,
     Palette,
@@ -23,6 +24,7 @@ import IconsLibrary from './IconsLibrary';
 type SidebarTab = 'templates' | 'elements' | 'uploads' | 'background' | 'layers' | 'icons';
 
 export default function CanvasSidebar() {
+    const locale = useLocale();
     const [activeTab, setActiveTab] = useState<SidebarTab>('templates');
     const [expandedCategory, setExpandedCategory] = useState<string | null>('creative');
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -262,7 +264,7 @@ export default function CanvasSidebar() {
         <div className="space-y-4">
             {/* Link to full templates page */}
             <Link
-                href="/canvas-templates"
+                href={`/${locale}/canvas-templates`}
                 className="flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-200 rounded-lg transition-colors group"
             >
                 <span className="text-sm font-medium text-gray-600 group-hover:text-white">

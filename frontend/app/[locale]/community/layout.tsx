@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Header from '@/components/Header';
 
 const siteUrl = 'https://www.bestairesumes.com';
 
@@ -34,5 +35,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default function CommunityLayout({ children }: { children: React.ReactNode }) {
-    return <>{children}</>;
+    return (
+        <>
+            <Header />
+            <main className="pt-20">
+                {children}
+            </main>
+        </>
+    );
 }

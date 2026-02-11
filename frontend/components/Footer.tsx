@@ -120,7 +120,7 @@ export default function Footer() {
               </div>
               <span className="font-bold text-xl text-white">Best AI Resume</span>
             </Link>
-            <p className="text-white/60 text-base max-w-sm">{t("tagline")}</p>
+            <p className="text-white/70 text-base max-w-sm">{t("tagline")}</p>
           </div>
           <Link href={localizedHref("/builder")}>
             <button className="flex items-center gap-2 bg-gradient-to-r from-teal-primary to-teal-secondary text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition shadow-lg shadow-teal-primary/20">
@@ -134,7 +134,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-12">
           {footerSections.map((section) => (
             <div key={section.heading}>
-              <h4 className="font-semibold mb-4 text-base text-white">
+              <h3 className="font-semibold mb-4 text-base text-white">
                 {section.heading}
               </h4>
               <ul className="space-y-2.5">
@@ -142,7 +142,7 @@ export default function Footer() {
                   <li key={link.href + link.label}>
                     <Link
                       href={localizedHref(link.href)}
-                      className="text-white/60 hover:text-teal-primary transition text-sm"
+                      className="text-white/70 hover:text-teal-primary transition text-sm"
                     >
                       {link.label}
                     </Link>
@@ -161,7 +161,7 @@ export default function Footer() {
                       <li key={link.href + link.label}>
                         <Link
                           href={localizedHref(link.href)}
-                          className="text-white/60 hover:text-teal-primary transition text-sm"
+                          className="text-white/70 hover:text-teal-primary transition text-sm"
                         >
                           {link.label}
                         </Link>
@@ -176,7 +176,7 @@ export default function Footer() {
 
         {/* Row 3: Copyright */}
         <div className="pt-8 border-t border-white/10 text-center">
-          <p className="text-white/50 text-sm">
+          <p className="text-white/70 text-sm">
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
         </div>

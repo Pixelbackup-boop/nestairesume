@@ -25,6 +25,7 @@ interface CommunityTemplate {
     name: string;
     image: string | null;
   };
+  _count?: { comments: number };
 }
 
 interface CommunityResponse {
@@ -299,6 +300,7 @@ export default function CommunityPage() {
                       thumbnail={template.thumbnail}
                       category={template.category}
                       downloads={template.downloads}
+                      commentCount={template._count?.comments ?? 0}
                       author={{
                         name: template.user.name,
                         image: template.user.image,
