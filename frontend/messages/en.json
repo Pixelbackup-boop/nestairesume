@@ -1042,6 +1042,35 @@
     }
   },
 
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Canvas Resume Templates - Design Your Resume Visually | Best AI Resume",
+      "description": "Browse creative canvas resume templates. Drag, drop, and customize every element with our visual editor."
+    },
+    "sectionTitle": "Canvas Templates",
+    "title": "Canvas Resume",
+    "titleHighlight": "Templates",
+    "subtitle": "Design your resume with full creative freedom. Drag, drop, and customize every element in our visual editor.",
+    "searchPlaceholder": "Search canvas templates...",
+    "noResults": "No templates found",
+    "noResultsHint": "Try adjusting your search or filter criteria",
+    "useTemplate": "Use Template",
+    "categories": {
+      "all": "All",
+      "professional": "Professional",
+      "creative": "Creative",
+      "minimal": "Minimal",
+      "ats-friendly": "ATS-Friendly"
+    },
+    "startFromScratch": {
+      "title": "Want to start from scratch?",
+      "description": "Create a completely custom resume using our Canvas Editor's powerful design tools.",
+      "button": "Open Blank Canvas"
+    },
+    "formBuilderBanner": "Looking for form-based templates?",
+    "viewFormTemplates": "View Form Builder Templates"
+  },
+
   "Builder": {
     "meta": {
       "title": "Resume Builder - Create Your Professional CV Online",

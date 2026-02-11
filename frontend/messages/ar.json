@@ -459,6 +459,11 @@
     "cancelAnytime": "إلغاء في أي وقت",
     "securePayments": "مدفوعات آمنة عبر Stripe",
     "mostPopular": "الأكثر شعبية",
+    "billingToggle": {
+      "monthly": "شهري",
+      "annual": "سنوي",
+      "savePercent": "وفّر 20%"
+    },
     "free": {
       "name": "مجاني",
       "description": "جرّب قبل الشراء",
@@ -480,7 +485,12 @@
       "description": "شراء لمرة واحدة",
       "price": "$3",
       "period": " لمرة واحدة",
+      "annualPrice": "$29",
+      "annualPeriod": "/سنة",
+      "annualMonthly": "$2.42/شهر",
       "features": {
+        "cvCreations": "30 إنشاء سيرة ذاتية/شهر",
+        "aiGenerations": "50 توليد بالذكاء الاصطناعي/شهر",
         "downloads": "10 تحميلات",
         "resumes": "5 سير ذاتية محفوظة",
         "templates": "جميع القوالب المجانية",
@@ -494,7 +504,12 @@
       "description": "اشتراك شهري",
       "price": "$6",
       "period": "/شهر",
+      "annualPrice": "$58",
+      "annualPeriod": "/سنة",
+      "annualMonthly": "$4.83/شهر",
       "features": {
+        "cvCreations": "100 إنشاء سيرة ذاتية/شهر",
+        "aiGenerations": "100 توليد بالذكاء الاصطناعي/شهر",
         "downloads": "50 تحميل/شهر",
         "resumes": "20 سيرة ذاتية محفوظة",
         "templates": "جميع القوالب المجانية",
@@ -508,7 +523,12 @@
       "description": "أفضل قيمة للمستخدمين المتقدمين",
       "price": "$10",
       "period": "/شهر",
+      "annualPrice": "$96",
+      "annualPeriod": "/سنة",
+      "annualMonthly": "$8/شهر",
       "features": {
+        "cvCreations": "200 إنشاء سيرة ذاتية/شهر",
+        "aiGenerations": "250 توليد بالذكاء الاصطناعي/شهر",
         "downloads": "150 تحميل/شهر",
         "resumes": "50 سيرة ذاتية محفوظة",
         "templates": "الكل + قوالب مميزة",
@@ -530,6 +550,7 @@
       "feature": "الميزة",
       "cvCreations": "إنشاءات السيرة الذاتية",
       "aiGenerations": "التوليدات بالذكاء الاصطناعي",
+      "downloads": "التنزيلات",
       "perMonth": "{count}/شهر",
       "unlimited": "غير محدود",
       "savedResumes": "السير الذاتية المحفوظة",
@@ -594,9 +615,13 @@
       "description": "للمستخدمين المتقدمين والوكالات",
       "price": "$30",
       "period": "/شهر",
+      "annualPrice": "$288",
+      "annualPeriod": "/سنة",
+      "annualMonthly": "$24/شهر",
       "features": {
         "cvCreations": "إنشاءات سيرة ذاتية غير محدودة",
         "aiGenerations": "100 توليد بالذكاء الاصطناعي/شهر",
+        "downloads": "100 تنزيل/شهر",
         "templates": "الكل + قوالب بريميوم",
         "support": "دعم أولوية",
         "coverLetter": "منشئ خطاب التقديم",
@@ -685,6 +710,22 @@
     "welcomeBackSubtitle": "سجّل دخولك لمتابعة إنشاء سيرتك الذاتية",
     "createAccount": "إنشاء حساب",
     "createAccountSubtitle": "ابدأ بإنشاء سيرتك الذاتية الاحترافية اليوم",
+    "continueWithGoogle": "المتابعة مع Google",
+    "continueWithGitHub": "المتابعة مع GitHub",
+    "continueWithLinkedIn": "المتابعة مع LinkedIn",
+    "orContinueWith": "أو المتابعة بالبريد الإلكتروني",
+    "verifyEmail": "تأكيد بريدك الإلكتروني",
+    "verificationCodeSent": "أرسلنا رمزاً مكوناً من 6 أرقام إلى",
+    "enterFullCode": "يرجى إدخال الرمز المكون من 6 أرقام كاملاً",
+    "verificationFailed": "فشل التحقق. يرجى المحاولة مرة أخرى.",
+    "resendFailed": "فشل إعادة إرسال الرمز. يرجى المحاولة مرة أخرى.",
+    "verifying": "جارٍ التحقق...",
+    "verifyAndContinue": "تحقق ومتابعة",
+    "didntReceiveCode": "لم تستلم الرمز؟",
+    "resendIn": "إعادة الإرسال خلال",
+    "resendCode": "إعادة إرسال الرمز",
+    "wrongEmail": "بريد إلكتروني خاطئ؟",
+    "changeEmail": "تغيير البريد الإلكتروني",
     "meta": {
       "loginTitle": "تسجيل الدخول - Best AI Resume",
       "loginDescription": "سجل الدخول إلى حسابك في Best AI Resume للوصول إلى سيرك الذاتية المحفوظة.",
@@ -757,7 +798,75 @@
       "projectLoadFailed": "فشل تحميل المشروع."
     }
   },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "قوالب السيرة الذاتية Canvas - صمم سيرتك الذاتية بصرياً | Best AI Resume",
+      "description": "تصفح قوالب السيرة الذاتية الإبداعية. اسحب وأفلت وخصص كل عنصر باستخدام محررنا البصري."
+    },
+    "sectionTitle": "قوالب Canvas",
+    "title": "قوالب السيرة الذاتية",
+    "titleHighlight": "Canvas",
+    "subtitle": "صمم سيرتك الذاتية بحرية إبداعية كاملة. اسحب وأفلت وخصص كل عنصر في محررنا البصري.",
+    "searchPlaceholder": "البحث في قوالب Canvas...",
+    "noResults": "لم يتم العثور على قوالب",
+    "noResultsHint": "حاول تعديل البحث أو معايير التصفية",
+    "useTemplate": "استخدم القالب",
+    "categories": {
+      "all": "الكل",
+      "professional": "احترافي",
+      "creative": "إبداعي",
+      "minimal": "بسيط",
+      "ats-friendly": "متوافق مع ATS"
+    },
+    "startFromScratch": {
+      "title": "تريد البدء من الصفر؟",
+      "description": "أنشئ سيرة ذاتية مخصصة بالكامل باستخدام أدوات التصميم القوية في محرر Canvas.",
+      "button": "فتح لوحة فارغة"
+    },
+    "formBuilderBanner": "تبحث عن قوالب النماذج؟",
+    "viewFormTemplates": "عرض قوالب المنشئ"
+  },
+
   "Builder": {
+    "tabs": {
+      "personal": "شخصي",
+      "personalDesc": "المعلومات الأساسية والملخص",
+      "experience": "الخبرة",
+      "experienceDesc": "التاريخ المهني",
+      "education": "التعليم",
+      "educationDesc": "الخلفية الأكاديمية",
+      "skills": "المهارات",
+      "skillsDesc": "خبراتك",
+      "design": "التصميم",
+      "designDesc": "النمط والتخطيط"
+    },
+    "ui": {
+      "progress": "التقدم",
+      "canvasEditor": "محرر Canvas",
+      "backToHome": "العودة للرئيسية",
+      "untitledResume": "سيرة ذاتية بدون عنوان",
+      "downloadPdf": "تحميل PDF",
+      "livePreview": "معاينة مباشرة",
+      "showReference": "عرض صورة المرجع",
+      "reference": "مرجع",
+      "zoomOut": "تصغير",
+      "zoomIn": "تكبير",
+      "resetZoom": "إعادة تعيين التكبير",
+      "referenceDesign": "تصميم مرجعي",
+      "referenceCaption": "التصميم الأصلي للقالب كمرجع",
+      "editResume": "تعديل السيرة الذاتية",
+      "previewResume": "معاينة السيرة الذاتية",
+      "edit": "تعديل",
+      "preview": "معاينة",
+      "loadingBuilder": "جارٍ تحميل المنشئ..."
+    },
+    "welcome": {
+      "title": "تم إنشاء الحساب!",
+      "description": "تم حفظ سيرتك الذاتية. يمكنك متابعة التعديل أو اختيار خطة للتحميل.",
+      "choosePlan": "اختيار خطة",
+      "backToEditor": "العودة للمحرر"
+    },
     "personalInfo": {
       "title": "المعلومات الشخصية",
       "subtitle": "ابدأ ببيانات الاتصال والملخص المهني."
@@ -1144,6 +1253,31 @@
     }
   },
   "AtsChecker": {
+    "meta": {
+      "title": "فاحص ATS مجاني للسيرة الذاتية | قيّم سيرتك الذاتية فوراً | Best AI Resume",
+      "description": "افحص سيرتك الذاتية مجاناً مقابل أنظمة ATS. احصل على تقييم فوري وتحليل الكلمات المفتاحية ونصائح التحسين."
+    },
+    "validation": {
+      "unsupportedFormat": "يتم دعم ملفات PDF و DOCX فقط.",
+      "fileTooLarge": "يجب أن يكون حجم الملف أقل من 10 ميجابايت.",
+      "genericError": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+    },
+    "results": {
+      "scoreTitle": "درجة توافق سيرتك الذاتية مع ATS",
+      "recommendations": "التوصيات",
+      "checkAnother": "فحص سيرة ذاتية أخرى",
+      "buildAtsResume": "إنشاء سيرة ذاتية محسّنة لـ ATS",
+      "pagesAnalyzed": "{count, plural, one {# صفحة تم تحليلها} other {# صفحات تم تحليلها}}",
+      "scoreExcellent": "ممتاز",
+      "scoreGood": "جيد",
+      "scoreNeedsWork": "يحتاج تحسين",
+      "scorePoor": "ضعيف"
+    },
+    "externalResources": {
+      "title": "مصادر خارجية",
+      "atsHowTheyWork": "فهم أنظمة ATS: كيف تعمل",
+      "blsResumeTips": "BLS آفاق مهنية: نصائح للسيرة الذاتية"
+    },
     "hero": {
       "badge": "أداة فحص ATS مجانية للسيرة الذاتية",
       "title": "هل سيرتك الذاتية",
@@ -1266,6 +1400,74 @@
     "meta": {
       "title": "الدفع - أكمل اشتراكك",
       "description": "أكمل اشتراكك لفتح جميع الميزات. دفع آمن عبر Stripe."
+    },
+    "invalidPlan": {
+      "title": "خطة غير صالحة",
+      "description": "الخطة المحددة غير صالحة. يرجى اختيار خطة من صفحة الأسعار.",
+      "backBtn": "العودة إلى الأسعار"
+    },
+    "signIn": {
+      "title": "سجّل الدخول للمتابعة",
+      "subtitle": "سجّل الدخول لشراء خطة {plan}",
+      "signInBtn": "تسجيل الدخول",
+      "createAccountBtn": "إنشاء حساب"
+    },
+    "header": {
+      "startTrial": "ابدأ تجربتك المجانية",
+      "completePurchase": "أكمل عملية الشراء",
+      "tryPlan": "جرّب خطة {plan} مجاناً لمدة 7 أيام",
+      "subscribePlan": "اشترك في خطة {plan}"
+    },
+    "trial": {
+      "badge": "تجربة مجانية لمدة 7 أيام",
+      "notChargedUntil": "لن يتم خصم أي مبلغ حتى {date}"
+    },
+    "billing": {
+      "account": "الحساب",
+      "afterTrial": "بعد التجربة",
+      "billing": "الفوترة",
+      "monthlyStarting": "شهرياً، ابتداءً من اليوم"
+    },
+    "submit": {
+      "redirecting": "جارٍ التحويل إلى Stripe...",
+      "startTrial": "بدء التجربة المجانية",
+      "subscribeNow": "اشترك الآن"
+    },
+    "secure": "دفع آمن عبر Stripe",
+    "cancelTrialNote": "يمكنك الإلغاء في أي وقت خلال فترة التجربة بدون تكلفة",
+    "cancelNote": "يمكنك الإلغاء في أي وقت. بدون التزام طويل الأمد.",
+    "loading": "جارٍ تحميل صفحة الدفع...",
+    "errors": {
+      "cancelled": "تم إلغاء الدفع. يمكنك المحاولة مرة أخرى عندما تكون مستعداً.",
+      "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.",
+      "failedCheckout": "فشل بدء عملية الدفع. يرجى المحاولة مرة أخرى.",
+      "networkError": "تعذر الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت."
+    },
+    "plans": {
+      "starter": {
+        "name": "ستارتر",
+        "price": "$3/شهر",
+        "description": "مثالي للباحثين عن عمل",
+        "features": ["30 إنشاء سيرة ذاتية/شهر", "3 توليد بالذكاء الاصطناعي/شهر", "3 تنزيلات PDF/شهر", "جميع القوالب المجانية", "بدون إعلانات"]
+      },
+      "gold": {
+        "name": "جولد",
+        "price": "$6/شهر",
+        "description": "للباحثين النشطين عن عمل",
+        "features": ["150 إنشاء سيرة ذاتية/شهر", "10 توليد بالذكاء الاصطناعي/شهر", "10 تنزيلات PDF/شهر", "تحسين ATS", "منشئ خطابات التقديم"]
+      },
+      "diamond": {
+        "name": "دايموند",
+        "price": "$10/شهر",
+        "description": "الأفضل للمحترفين",
+        "features": ["300 إنشاء سيرة ذاتية/شهر", "30 توليد بالذكاء الاصطناعي/شهر", "25 تنزيل PDF/شهر", "جميع القوالب المميزة", "دعم ذو أولوية"]
+      },
+      "platinum": {
+        "name": "بلاتينوم",
+        "price": "$30/شهر",
+        "description": "للمستخدمين المتقدمين والوكالات",
+        "features": ["إنشاء سير ذاتية غير محدود", "100 توليد بالذكاء الاصطناعي/شهر", "تنزيلات PDF غير محدودة", "جميع القوالب المميزة", "دعم ذو أولوية", "وصول مبكر للميزات الجديدة"]
+      }
     }
   },
   "CoverLetter": {
@@ -1341,11 +1543,110 @@
       "shrmHrResources": "SHRM: موارد الموارد البشرية والمهن"
     }
   },
+  "CheckoutSuccess": {
+    "title": "تم الدفع بنجاح!",
+    "welcome": "مرحباً بك في {plan}!",
+    "planLabel": "خطة {plan}",
+    "yourBenefits": "مزاياك الجديدة",
+    "createResume": "إنشاء سيرتك الذاتية",
+    "goToDashboard": "الذهاب إلى لوحة التحكم",
+    "receiptNote": "تم إرسال إيصال إلى بريدك الإلكتروني. يمكنك إدارة اشتراكك في أي وقت من",
+    "dashboardLink": "لوحة التحكم",
+    "supportText": "أسئلة؟ تواصل معنا على",
+    "loading": "جارٍ تحميل تفاصيل اشتراكك...",
+    "plans": {
+      "starter": {
+        "name": "ستارتر",
+        "benefits": ["30 إنشاء سيرة ذاتية شهرياً", "3 توليد بالذكاء الاصطناعي شهرياً", "3 تنزيلات PDF شهرياً", "جميع القوالب المجانية", "بدون إعلانات"]
+      },
+      "gold": {
+        "name": "جولد",
+        "benefits": ["150 إنشاء سيرة ذاتية شهرياً", "10 توليد بالذكاء الاصطناعي شهرياً", "10 تنزيلات PDF شهرياً", "تحسين ATS", "منشئ خطابات التقديم"]
+      },
+      "diamond": {
+        "name": "دايموند",
+        "benefits": ["300 إنشاء سيرة ذاتية شهرياً", "30 توليد بالذكاء الاصطناعي شهرياً", "25 تنزيل PDF شهرياً", "جميع القوالب المميزة", "دعم ذو أولوية"]
+      },
+      "platinum": {
+        "name": "بلاتينوم",
+        "benefits": ["إنشاء سير ذاتية غير محدود", "100 توليد بالذكاء الاصطناعي شهرياً", "تنزيلات PDF غير محدودة", "جميع القوالب المميزة", "دعم ذو أولوية", "وصول مبكر للميزات الجديدة"]
+      }
+    }
+  },
   "Dashboard": {
     "meta": {
       "title": "لوحة التحكم - سيرتي الذاتية",
       "description": "أدر سيرك الذاتية، تتبع التنزيلات، وصل إلى إعدادات اشتراكك."
-    }
+    },
+    "welcome": "مرحباً بعودتك{name}!",
+    "subtitle": "هل أنت مستعد للحصول على وظيفة أحلامك؟ لنقم بإنشاء سيرة ذاتية مميزة.",
+    "stats": {
+      "resumesCreated": "السير الذاتية المُنشأة",
+      "downloads": "التنزيلات",
+      "coverLetters": "خطابات التقديم"
+    },
+    "usage": {
+      "noPlan": "لا يوجد اشتراك",
+      "subscribeToUnlock": "اشترك لفتح الميزات",
+      "unlimited": "غير محدود"
+    },
+    "cta": {
+      "badge": "منشئ سيرة ذاتية بالذكاء الاصطناعي",
+      "title": "أنشئ سيرتك الذاتية المثالية",
+      "createNew": "إنشاء سيرة ذاتية جديدة"
+    },
+    "subscription": {
+      "plan": "خطة {tier}",
+      "expiredPlan": "خطة منتهية",
+      "noActivePlan": "لا يوجد اشتراك نشط",
+      "trial": "تجربة",
+      "active": "نشط",
+      "trialEnds": "تنتهي التجربة في {date}",
+      "planActive": "اشتراكك نشط",
+      "subscribePrompt": "اشترك لفتح التنزيلات",
+      "resubscribe": "إعادة الاشتراك",
+      "subscribe": "اشتراك",
+      "manage": "إدارة الاشتراك"
+    },
+    "templateUsage": "استخدام القوالب",
+    "resumes": {
+      "title": "سيرك الذاتية",
+      "total": "{count} إجمالي",
+      "newResume": "سيرة ذاتية جديدة",
+      "noResumes": "لا توجد سير ذاتية بعد",
+      "noResumesDesc": "أنشئ أول سيرة ذاتية بالذكاء الاصطناعي وابدأ بالتقدم لوظائف أحلامك اليوم.",
+      "createFirst": "إنشاء أول سيرة ذاتية",
+      "createNew": "إنشاء سيرة ذاتية جديدة"
+    },
+    "resumeCard": {
+      "untitled": "سيرة ذاتية بدون عنوان",
+      "noName": "بدون اسم",
+      "today": "اليوم",
+      "yesterday": "أمس",
+      "daysAgo": "منذ {days} أيام",
+      "duplicate": "نسخ",
+      "delete": "حذف",
+      "deleteConfirm": "هل أنت متأكد من حذف هذه السيرة الذاتية؟",
+      "edit": "تعديل"
+    },
+    "quickActions": {
+      "softwareEngineer": "مهندس برمجيات",
+      "productManager": "مدير منتجات",
+      "designer": "مصمم",
+      "marketing": "تسويق",
+      "dataScientist": "عالم بيانات",
+      "sales": "مبيعات"
+    },
+    "proTip": {
+      "label": "نصيحة احترافية",
+      "title": "خصّص سيرتك الذاتية لكل وظيفة",
+      "description": "السير الذاتية المخصصة لوصف وظيفي محدد تحصل على فرصة 3 أضعاف للحصول على مقابلة. استخدم الذكاء الاصطناعي لتخصيص سيرتك الذاتية بسرعة لكل طلب توظيف.",
+      "stat1Value": "3x",
+      "stat1Label": "مقابلات أكثر",
+      "stat2Value": "85%",
+      "stat2Label": "معدل نجاح ATS"
+    },
+    "loading": "جارٍ التحميل..."
   },
 
   "Profile": {

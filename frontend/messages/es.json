@@ -1335,6 +1335,35 @@
     }
   },
 
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Plantillas de Currículum Canvas - Diseña Tu Currículum Visualmente | Best AI Resume",
+      "description": "Explora plantillas creativas de currículum canvas. Arrastra, suelta y personaliza cada elemento con nuestro editor visual."
+    },
+    "sectionTitle": "Plantillas Canvas",
+    "title": "Plantillas de Currículum",
+    "titleHighlight": "Canvas",
+    "subtitle": "Diseña tu currículum con total libertad creativa. Arrastra, suelta y personaliza cada elemento en nuestro editor visual.",
+    "searchPlaceholder": "Buscar plantillas canvas...",
+    "noResults": "No se encontraron plantillas",
+    "noResultsHint": "Intenta ajustar tu búsqueda o criterios de filtro",
+    "useTemplate": "Usar Plantilla",
+    "categories": {
+      "all": "Todas",
+      "professional": "Profesional",
+      "creative": "Creativa",
+      "minimal": "Minimalista",
+      "ats-friendly": "Compatible con ATS"
+    },
+    "startFromScratch": {
+      "title": "¿Quieres empezar desde cero?",
+      "description": "Crea un currículum completamente personalizado usando las herramientas de diseño del Editor Canvas.",
+      "button": "Abrir Lienzo en Blanco"
+    },
+    "formBuilderBanner": "¿Buscas plantillas con formulario?",
+    "viewFormTemplates": "Ver Plantillas del Constructor"
+  },
+
   "CoverLetter": {
     "meta": {
       "title": "Generador Gratuito de Carta de Presentación con IA - Cree Cartas Profesionales",

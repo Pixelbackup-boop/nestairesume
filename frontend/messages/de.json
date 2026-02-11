@@ -459,6 +459,11 @@
     "cancelAnytime": "Jederzeit kündbar",
     "securePayments": "Sichere Zahlungen über Stripe",
     "mostPopular": "AM BELIEBTESTEN",
+    "billingToggle": {
+      "monthly": "Monatlich",
+      "annual": "Jährlich",
+      "savePercent": "20% sparen"
+    },
     "free": {
       "name": "Kostenlos",
       "description": "Vor dem Kauf testen",
@@ -480,12 +485,17 @@
       "description": "Einmaliger Kauf",
       "price": "3€",
       "period": " einmalig",
+      "annualPrice": "$29",
+      "annualPeriod": "/Jahr",
+      "annualMonthly": "$2,42/Monat",
       "features": {
         "downloads": "10 Downloads",
         "resumes": "5 gespeicherte Lebensläufe",
         "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
-        "export": "PDF- und PNG-Export"
+        "export": "PDF- und PNG-Export",
+        "cvCreations": "30 Lebenslauf-Erstellungen/Monat",
+        "aiGenerations": "50 KI-Generierungen/Monat"
       },
       "cta": "Starter Kaufen"
     },
@@ -494,12 +504,17 @@
       "description": "Monatliches Abo",
       "price": "6€",
       "period": "/Monat",
+      "annualPrice": "$58",
+      "annualPeriod": "/Jahr",
+      "annualMonthly": "$4,83/Monat",
       "features": {
         "downloads": "50 Downloads/Monat",
         "resumes": "20 gespeicherte Lebensläufe",
         "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
-        "ats": "ATS-Optimierung"
+        "ats": "ATS-Optimierung",
+        "cvCreations": "100 Lebenslauf-Erstellungen/Monat",
+        "aiGenerations": "100 KI-Generierungen/Monat"
       },
       "cta": "Gold Holen"
     },
@@ -508,12 +523,17 @@
       "description": "Bestes Preis-Leistungs-Verhältnis",
       "price": "10€",
       "period": "/Monat",
+      "annualPrice": "$96",
+      "annualPeriod": "/Jahr",
+      "annualMonthly": "$8/Monat",
       "features": {
         "downloads": "150 Downloads/Monat",
         "resumes": "50 gespeicherte Lebensläufe",
         "templates": "Alle + Premium-Vorlagen",
         "support": "Prioritäts-Support",
-        "coverLetter": "Anschreiben-Generator"
+        "coverLetter": "Anschreiben-Generator",
+        "cvCreations": "200 Lebenslauf-Erstellungen/Monat",
+        "aiGenerations": "250 KI-Generierungen/Monat"
       },
       "cta": "Diamant Holen"
     },
@@ -530,6 +550,7 @@
       "feature": "Funktion",
       "cvCreations": "CV-Erstellungen",
       "aiGenerations": "KI-Generierungen",
+      "downloads": "Downloads",
       "perMonth": "{count}/Monat",
       "unlimited": "Unbegrenzt",
       "savedResumes": "Gespeicherte Lebensläufe",
@@ -594,9 +615,13 @@
       "description": "Für Power-User & Agenturen",
       "price": "30$",
       "period": "/Monat",
+      "annualPrice": "$288",
+      "annualPeriod": "/Jahr",
+      "annualMonthly": "$24/Monat",
       "features": {
         "cvCreations": "Unbegrenzte CV-Erstellungen",
         "aiGenerations": "100 KI-Generierungen/Monat",
+        "downloads": "100 Downloads/Monat",
         "templates": "Alle + Premium-Vorlagen",
         "support": "Priority-Support",
         "coverLetter": "Anschreiben-Generator",
@@ -691,7 +716,23 @@
       "registerTitle": "Konto Erstellen - Best AI Resume",
       "registerDescription": "Erstellen Sie Ihr kostenloses Konto, um Lebensläufe zu speichern und KI-Funktionen freizuschalten."
     },
-    "fullName": "Vollständiger Name"
+    "fullName": "Vollständiger Name",
+    "continueWithGoogle": "Weiter mit Google",
+    "continueWithGitHub": "Weiter mit GitHub",
+    "continueWithLinkedIn": "Weiter mit LinkedIn",
+    "orContinueWith": "oder per E-Mail fortfahren",
+    "verifyEmail": "E-Mail bestätigen",
+    "verificationCodeSent": "Wir haben einen 6-stelligen Code gesendet an",
+    "enterFullCode": "Bitte geben Sie den vollständigen 6-stelligen Code ein",
+    "verificationFailed": "Bestätigung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "resendFailed": "Code konnte nicht erneut gesendet werden. Bitte versuchen Sie es erneut.",
+    "verifying": "Wird überprüft...",
+    "verifyAndContinue": "Bestätigen und fortfahren",
+    "didntReceiveCode": "Code nicht erhalten?",
+    "resendIn": "Erneut senden in",
+    "resendCode": "Code erneut senden",
+    "wrongEmail": "Falsche E-Mail?",
+    "changeEmail": "E-Mail ändern"
   },
   "Errors": {
     "notFound": "Seite nicht gefunden",
@@ -757,6 +798,36 @@
       "projectLoadFailed": "Projekt konnte nicht geladen werden."
     }
   },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Canvas-Lebenslauf-Vorlagen - Gestalten Sie Ihren Lebenslauf Visuell | Best AI Resume",
+      "description": "Durchstöbern Sie kreative Canvas-Lebenslauf-Vorlagen. Ziehen, ablegen und jedes Element mit unserem visuellen Editor anpassen."
+    },
+    "sectionTitle": "Canvas-Vorlagen",
+    "title": "Lebenslauf-Vorlagen",
+    "titleHighlight": "Canvas",
+    "subtitle": "Gestalten Sie Ihren Lebenslauf mit voller kreativer Freiheit. Ziehen, ablegen und passen Sie jedes Element in unserem visuellen Editor an.",
+    "searchPlaceholder": "Canvas-Vorlagen suchen...",
+    "noResults": "Keine Vorlagen gefunden",
+    "noResultsHint": "Versuchen Sie, Ihre Suche oder Filterkriterien anzupassen",
+    "useTemplate": "Vorlage Verwenden",
+    "categories": {
+      "all": "Alle",
+      "professional": "Professionell",
+      "creative": "Kreativ",
+      "minimal": "Minimalistisch",
+      "ats-friendly": "ATS-Freundlich"
+    },
+    "startFromScratch": {
+      "title": "Von Grund auf neu beginnen?",
+      "description": "Erstellen Sie einen komplett individuellen Lebenslauf mit den leistungsstarken Designwerkzeugen des Canvas-Editors.",
+      "button": "Leere Leinwand Öffnen"
+    },
+    "formBuilderBanner": "Suchen Sie formularbasierte Vorlagen?",
+    "viewFormTemplates": "Formular-Vorlagen Ansehen"
+  },
+
   "Builder": {
     "personalInfo": {
       "title": "Persönliche Informationen",
@@ -867,6 +938,44 @@
     "meta": {
       "title": "Lebenslauf-Editor - Erstellen Sie Ihren Professionellen Lebenslauf Online",
       "description": "Erstellen Sie Ihren professionellen Lebenslauf mit unserem einfach zu bedienenden Editor. Echtzeit-Vorschau, KI-Vorschläge und sofortiger PDF-Download."
+    },
+    "tabs": {
+      "personal": "Persönlich",
+      "personalDesc": "Grundinfos & Zusammenfassung",
+      "experience": "Erfahrung",
+      "experienceDesc": "Beruflicher Werdegang",
+      "education": "Bildung",
+      "educationDesc": "Akademischer Hintergrund",
+      "skills": "Fähigkeiten",
+      "skillsDesc": "Ihre Expertise",
+      "design": "Design",
+      "designDesc": "Stil & Layout"
+    },
+    "ui": {
+      "progress": "Fortschritt",
+      "canvasEditor": "Canvas-Editor",
+      "backToHome": "Zurück zur Startseite",
+      "untitledResume": "Unbenannter Lebenslauf",
+      "downloadPdf": "PDF herunterladen",
+      "livePreview": "Live-Vorschau",
+      "showReference": "Referenzbild anzeigen",
+      "reference": "Referenz",
+      "zoomOut": "Verkleinern",
+      "zoomIn": "Vergrößern",
+      "resetZoom": "Zoom zurücksetzen",
+      "referenceDesign": "Referenz-Design",
+      "referenceCaption": "Originales Vorlagendesign als Referenz",
+      "editResume": "Lebenslauf bearbeiten",
+      "previewResume": "Lebenslauf-Vorschau",
+      "edit": "Bearbeiten",
+      "preview": "Vorschau",
+      "loadingBuilder": "Ersteller wird geladen..."
+    },
+    "welcome": {
+      "title": "Konto erstellt!",
+      "description": "Ihr Lebenslauf ist gespeichert. Sie können weiter bearbeiten oder einen Tarif zum Herunterladen wählen.",
+      "choosePlan": "Tarif wählen",
+      "backToEditor": "Zurück zum Editor"
     }
   },
   "GDocsBuilder": {
@@ -1144,6 +1253,31 @@
     }
   },
   "AtsChecker": {
+    "meta": {
+      "title": "Kostenloser ATS-Lebenslauf-Checker | Bewerten Sie Ihren Lebenslauf sofort | Best AI Resume",
+      "description": "Prüfen Sie Ihren Lebenslauf kostenlos auf ATS-Kompatibilität. Sofortige Bewertung, Keyword-Analyse und Optimierungstipps."
+    },
+    "validation": {
+      "unsupportedFormat": "Nur PDF- und DOCX-Dateien werden unterstützt.",
+      "fileTooLarge": "Die Dateigröße muss unter 10 MB liegen.",
+      "genericError": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+    },
+    "results": {
+      "scoreTitle": "Ihr ATS-Kompatibilitätswert",
+      "recommendations": "Empfehlungen",
+      "checkAnother": "Einen weiteren Lebenslauf prüfen",
+      "buildAtsResume": "ATS-optimierten Lebenslauf erstellen",
+      "pagesAnalyzed": "{count, plural, one {# Seite analysiert} other {# Seiten analysiert}}",
+      "scoreExcellent": "Ausgezeichnet",
+      "scoreGood": "Gut",
+      "scoreNeedsWork": "Verbesserungsbedarf",
+      "scorePoor": "Unzureichend"
+    },
+    "externalResources": {
+      "title": "Externe Ressourcen",
+      "atsHowTheyWork": "ATS verstehen: Wie sie funktionieren",
+      "blsResumeTips": "BLS Karriereaussichten: Lebenslauf-Tipps"
+    },
     "hero": {
       "badge": "Kostenloser ATS-Lebenslauf-Check",
       "title": "Ist Ihr Lebenslauf",
@@ -1266,6 +1400,154 @@
     "meta": {
       "title": "Kasse - Abonnement Abschließen",
       "description": "Schließen Sie Ihr Abonnement ab, um alle Funktionen freizuschalten. Sichere Zahlung über Stripe."
+    },
+    "invalidPlan": {
+      "title": "Ungültiger Tarif",
+      "description": "Der ausgewählte Tarif ist ungültig. Bitte wählen Sie einen Tarif auf unserer Preisseite.",
+      "backBtn": "Zurück zu den Preisen"
+    },
+    "signIn": {
+      "title": "Anmelden um fortzufahren",
+      "subtitle": "Melden Sie sich an, um den {plan}-Tarif zu kaufen",
+      "signInBtn": "Anmelden",
+      "createAccountBtn": "Konto erstellen"
+    },
+    "header": {
+      "startTrial": "Starten Sie Ihre kostenlose Testphase",
+      "completePurchase": "Kauf abschließen",
+      "tryPlan": "Testen Sie den {plan}-Tarif 7 Tage kostenlos",
+      "subscribePlan": "Den {plan}-Tarif abonnieren"
+    },
+    "trial": {
+      "badge": "7 Tage kostenlos testen",
+      "notChargedUntil": "Ihnen wird erst am {date} berechnet"
+    },
+    "billing": {
+      "account": "Konto",
+      "afterTrial": "Nach der Testphase",
+      "billing": "Abrechnung",
+      "monthlyStarting": "Monatlich, ab heute"
+    },
+    "submit": {
+      "redirecting": "Weiterleitung zu Stripe...",
+      "startTrial": "Kostenlose Testphase starten",
+      "subscribeNow": "Jetzt abonnieren"
+    },
+    "secure": "Sichere Zahlung über Stripe",
+    "cancelTrialNote": "Jederzeit während der Testphase kostenlos kündbar",
+    "cancelNote": "Jederzeit kündbar. Keine langfristige Bindung.",
+    "loading": "Zahlungsvorgang wird geladen...",
+    "errors": {
+      "cancelled": "Die Zahlung wurde abgebrochen. Sie können es jederzeit erneut versuchen.",
+      "sessionExpired": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+      "failedCheckout": "Zahlungsvorgang konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
+      "networkError": "Verbindung zum Server nicht möglich. Bitte überprüfen Sie Ihre Internetverbindung."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "3 $/Monat",
+        "description": "Ideal für Jobsuchende",
+        "features": [
+          "30 Lebenslauf-Erstellungen/Monat",
+          "3 KI-Generierungen/Monat",
+          "3 PDF-Downloads/Monat",
+          "Alle Freemium-Vorlagen",
+          "Keine Werbung"
+        ]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "6 $/Monat",
+        "description": "Für aktive Jobsuchende",
+        "features": [
+          "150 Lebenslauf-Erstellungen/Monat",
+          "10 KI-Generierungen/Monat",
+          "10 PDF-Downloads/Monat",
+          "ATS-Optimierung",
+          "Anschreiben-Ersteller"
+        ]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "10 $/Monat",
+        "description": "Ideal für Profis",
+        "features": [
+          "300 Lebenslauf-Erstellungen/Monat",
+          "30 KI-Generierungen/Monat",
+          "25 PDF-Downloads/Monat",
+          "Alle Premium-Vorlagen",
+          "Prioritäts-Support"
+        ]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "30 $/Monat",
+        "description": "Für Vielnutzer und Agenturen",
+        "features": [
+          "Unbegrenzte Lebenslauf-Erstellungen",
+          "100 KI-Generierungen/Monat",
+          "Unbegrenzte PDF-Downloads",
+          "Alle Premium-Vorlagen",
+          "Prioritäts-Support",
+          "Frühzeitiger Zugang zu neuen Funktionen"
+        ]
+      }
+    }
+  },
+  "CheckoutSuccess": {
+    "title": "Zahlung erfolgreich!",
+    "welcome": "Willkommen bei {plan}!",
+    "planLabel": "{plan}-Tarif",
+    "yourBenefits": "Ihre neuen Vorteile",
+    "createResume": "Lebenslauf erstellen",
+    "goToDashboard": "Zum Dashboard",
+    "receiptNote": "Eine Quittung wurde an Ihre E-Mail gesendet. Sie können Ihr Abonnement jederzeit über Ihr",
+    "dashboardLink": "Dashboard",
+    "supportText": "Fragen? Kontaktieren Sie uns unter",
+    "loading": "Ihre Abonnement-Details werden geladen...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": [
+          "30 Lebenslauf-Erstellungen pro Monat",
+          "3 KI-Generierungen pro Monat",
+          "3 PDF-Downloads pro Monat",
+          "Alle Freemium-Vorlagen",
+          "Keine Werbung"
+        ]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": [
+          "150 Lebenslauf-Erstellungen pro Monat",
+          "10 KI-Generierungen pro Monat",
+          "10 PDF-Downloads pro Monat",
+          "ATS-Optimierung",
+          "Anschreiben-Ersteller"
+        ]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": [
+          "300 Lebenslauf-Erstellungen pro Monat",
+          "30 KI-Generierungen pro Monat",
+          "25 PDF-Downloads pro Monat",
+          "Alle Premium-Vorlagen",
+          "Prioritäts-Support"
+        ]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": [
+          "Unbegrenzte Lebenslauf-Erstellungen",
+          "100 KI-Generierungen pro Monat",
+          "Unbegrenzte PDF-Downloads",
+          "Alle Premium-Vorlagen",
+          "Prioritäts-Support",
+          "Frühzeitiger Zugang zu neuen Funktionen"
+        ]
+      }
     }
   },
   "CoverLetter": {
@@ -1345,7 +1627,76 @@
     "meta": {
       "title": "Dashboard - Meine Lebensläufe",
       "description": "Verwalten Sie Ihre Lebensläufe, verfolgen Sie Downloads und greifen Sie auf Ihre Abonnement-Einstellungen zu."
-    }
+    },
+    "welcome": "Willkommen zurück{name}!",
+    "subtitle": "Bereit für Ihren Traumjob? Erstellen wir einen Lebenslauf, der auffällt.",
+    "stats": {
+      "resumesCreated": "Erstellte Lebensläufe",
+      "downloads": "Downloads",
+      "coverLetters": "Anschreiben"
+    },
+    "usage": {
+      "noPlan": "Kein Tarif",
+      "subscribeToUnlock": "Abonnieren zum Freischalten",
+      "unlimited": "Unbegrenzt"
+    },
+    "cta": {
+      "badge": "KI-gestützter Lebenslauf-Ersteller",
+      "title": "Erstellen Sie Ihren perfekten Lebenslauf",
+      "createNew": "Neuen Lebenslauf erstellen"
+    },
+    "subscription": {
+      "plan": "{tier}-Tarif",
+      "expiredPlan": "Abgelaufener Tarif",
+      "noActivePlan": "Kein aktiver Tarif",
+      "trial": "Testphase",
+      "active": "Aktiv",
+      "trialEnds": "Testphase endet am {date}",
+      "planActive": "Ihr Tarif ist aktiv",
+      "subscribePrompt": "Abonnieren Sie, um Downloads freizuschalten",
+      "resubscribe": "Erneut abonnieren",
+      "subscribe": "Abonnieren",
+      "manage": "Abonnement verwalten"
+    },
+    "templateUsage": "Vorlagen-Nutzung",
+    "resumes": {
+      "title": "Ihre Lebensläufe",
+      "total": "{count} insgesamt",
+      "newResume": "Neuer Lebenslauf",
+      "noResumes": "Noch keine Lebensläufe",
+      "noResumesDesc": "Erstellen Sie Ihren ersten KI-gestützten Lebenslauf und bewerben Sie sich noch heute auf Ihren Traumjob.",
+      "createFirst": "Ersten Lebenslauf erstellen",
+      "createNew": "Neuen Lebenslauf erstellen"
+    },
+    "resumeCard": {
+      "untitled": "Unbenannter Lebenslauf",
+      "noName": "Kein Name",
+      "today": "Heute",
+      "yesterday": "Gestern",
+      "daysAgo": "Vor {days} Tagen",
+      "duplicate": "Duplizieren",
+      "delete": "Löschen",
+      "deleteConfirm": "Möchten Sie diesen Lebenslauf wirklich löschen?",
+      "edit": "Bearbeiten"
+    },
+    "quickActions": {
+      "softwareEngineer": "Softwareentwickler",
+      "productManager": "Produktmanager",
+      "designer": "Designer",
+      "marketing": "Marketing",
+      "dataScientist": "Data Scientist",
+      "sales": "Vertrieb"
+    },
+    "proTip": {
+      "label": "Profi-Tipp",
+      "title": "Passen Sie Ihren Lebenslauf für jede Stelle an",
+      "description": "Lebensläufe, die auf bestimmte Stellenbeschreibungen zugeschnitten sind, erhalten 3-mal häufiger ein Vorstellungsgespräch. Nutzen Sie unsere KI, um Ihren Lebenslauf schnell für jede Bewerbung anzupassen.",
+      "stat1Value": "3x",
+      "stat1Label": "Mehr Vorstellungsgespräche",
+      "stat2Value": "85%",
+      "stat2Label": "ATS-Erfolgsrate"
+    },
+    "loading": "Wird geladen..."
   },
 
   "Profile": {

@@ -3,3 +3,7 @@ node_modules/
 .env
 *.db
 .DS_Store
+.playwright-mcp/
+artifacts/
+test-results/
+frontend/From canvas/

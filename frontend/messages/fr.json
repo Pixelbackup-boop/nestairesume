@@ -455,6 +455,11 @@
     "title": "Tarification simple et",
     "titleHighlight": "transparente",
     "subtitle": "Commencez gratuitement, passez à un forfait supérieur quand vous en avez besoin. Sans frais cachés.",
+    "billingToggle": {
+      "monthly": "Mensuel",
+      "annual": "Annuel",
+      "savePercent": "Économisez 20%"
+    },
     "viewComparison": "Voir la comparaison complète",
     "cancelAnytime": "Annulez à tout moment",
     "securePayments": "Paiements sécurisés via Stripe",
@@ -480,12 +485,17 @@
       "description": "Achat unique",
       "price": "3€",
       "period": " unique",
+      "annualPrice": "$29",
+      "annualPeriod": "/an",
+      "annualMonthly": "$2.42/mois",
       "features": {
         "downloads": "10 téléchargements",
         "resumes": "5 CV sauvegardés",
         "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
-        "export": "Export PDF et PNG"
+        "export": "Export PDF et PNG",
+        "cvCreations": "30 créations de CV/mois",
+        "aiGenerations": "50 générations IA/mois"
       },
       "cta": "Acheter Starter"
     },
@@ -494,12 +504,17 @@
       "description": "Abonnement mensuel",
       "price": "6€",
       "period": "/mois",
+      "annualPrice": "$58",
+      "annualPeriod": "/an",
+      "annualMonthly": "$4.83/mois",
       "features": {
         "downloads": "50 téléchargements/mois",
         "resumes": "20 CV sauvegardés",
         "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
-        "ats": "Optimisation ATS"
+        "ats": "Optimisation ATS",
+        "cvCreations": "100 créations de CV/mois",
+        "aiGenerations": "100 générations IA/mois"
       },
       "cta": "Obtenir Or"
     },
@@ -508,12 +523,17 @@
       "description": "Meilleur rapport qualité-prix",
       "price": "10€",
       "period": "/mois",
+      "annualPrice": "$96",
+      "annualPeriod": "/an",
+      "annualMonthly": "$8/mois",
       "features": {
         "downloads": "150 téléchargements/mois",
         "resumes": "50 CV sauvegardés",
         "templates": "Tous + modèles Premium",
         "support": "Support prioritaire",
-        "coverLetter": "Créateur de lettre de motivation"
+        "coverLetter": "Créateur de lettre de motivation",
+        "cvCreations": "200 créations de CV/mois",
+        "aiGenerations": "250 générations IA/mois"
       },
       "cta": "Obtenir Diamant"
     },
@@ -530,6 +550,7 @@
       "feature": "Fonctionnalité",
       "cvCreations": "Créations de CV",
       "aiGenerations": "Générations IA",
+      "downloads": "Téléchargements",
       "perMonth": "{count}/mois",
       "unlimited": "Illimité",
       "savedResumes": "CV sauvegardés",
@@ -594,9 +615,13 @@
       "description": "Pour les utilisateurs avancés et agences",
       "price": "30$",
       "period": "/mois",
+      "annualPrice": "$288",
+      "annualPeriod": "/an",
+      "annualMonthly": "$24/mois",
       "features": {
         "cvCreations": "Créations de CV illimitées",
         "aiGenerations": "100 générations IA/mois",
+        "downloads": "100 téléchargements/mois",
         "templates": "Tous + modèles Premium",
         "support": "Support prioritaire",
         "coverLetter": "Générateur de lettre de motivation",
@@ -685,6 +710,22 @@
     "welcomeBackSubtitle": "Connectez-vous pour continuer à créer votre CV",
     "createAccount": "Créer un Compte",
     "createAccountSubtitle": "Commencez à créer votre CV professionnel aujourd'hui",
+    "continueWithGoogle": "Continuer avec Google",
+    "continueWithGitHub": "Continuer avec GitHub",
+    "continueWithLinkedIn": "Continuer avec LinkedIn",
+    "orContinueWith": "ou continuer par e-mail",
+    "verifyEmail": "Vérifiez votre e-mail",
+    "verificationCodeSent": "Nous avons envoyé un code à 6 chiffres à",
+    "enterFullCode": "Veuillez entrer le code complet à 6 chiffres",
+    "verificationFailed": "La vérification a échoué. Veuillez réessayer.",
+    "resendFailed": "Échec du renvoi du code. Veuillez réessayer.",
+    "verifying": "Vérification...",
+    "verifyAndContinue": "Vérifier et continuer",
+    "didntReceiveCode": "Vous n'avez pas reçu le code ?",
+    "resendIn": "Renvoyer dans",
+    "resendCode": "Renvoyer le code",
+    "wrongEmail": "Mauvaise adresse ?",
+    "changeEmail": "Changer d'e-mail",
     "meta": {
       "loginTitle": "Connexion - Best AI Resume",
       "loginDescription": "Connectez-vous à votre compte Best AI Resume pour accéder à vos CV sauvegardés.",
@@ -757,7 +798,75 @@
       "projectLoadFailed": "Échec du chargement du projet."
     }
   },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Modèles de CV Canvas - Concevez Votre CV Visuellement | Best AI Resume",
+      "description": "Parcourez les modèles de CV canvas créatifs. Glissez, déposez et personnalisez chaque élément avec notre éditeur visuel."
+    },
+    "sectionTitle": "Modèles Canvas",
+    "title": "Modèles de CV",
+    "titleHighlight": "Canvas",
+    "subtitle": "Concevez votre CV avec une liberté créative totale. Glissez, déposez et personnalisez chaque élément dans notre éditeur visuel.",
+    "searchPlaceholder": "Rechercher des modèles canvas...",
+    "noResults": "Aucun modèle trouvé",
+    "noResultsHint": "Essayez d'ajuster votre recherche ou vos critères de filtrage",
+    "useTemplate": "Utiliser ce Modèle",
+    "categories": {
+      "all": "Tous",
+      "professional": "Professionnel",
+      "creative": "Créatif",
+      "minimal": "Minimaliste",
+      "ats-friendly": "Compatible ATS"
+    },
+    "startFromScratch": {
+      "title": "Vous voulez partir de zéro ?",
+      "description": "Créez un CV entièrement personnalisé avec les outils de conception de l'Éditeur Canvas.",
+      "button": "Ouvrir un Canevas Vierge"
+    },
+    "formBuilderBanner": "Vous cherchez des modèles avec formulaire ?",
+    "viewFormTemplates": "Voir les Modèles du Constructeur"
+  },
+
   "Builder": {
+    "tabs": {
+      "personal": "Personnel",
+      "personalDesc": "Infos de base et résumé",
+      "experience": "Expérience",
+      "experienceDesc": "Parcours professionnel",
+      "education": "Formation",
+      "educationDesc": "Parcours académique",
+      "skills": "Compétences",
+      "skillsDesc": "Votre expertise",
+      "design": "Design",
+      "designDesc": "Style et mise en page"
+    },
+    "ui": {
+      "progress": "Progression",
+      "canvasEditor": "Éditeur Canvas",
+      "backToHome": "Retour à l'accueil",
+      "untitledResume": "CV sans titre",
+      "downloadPdf": "Télécharger le PDF",
+      "livePreview": "Aperçu en direct",
+      "showReference": "Afficher l'image de référence",
+      "reference": "Référence",
+      "zoomOut": "Dézoomer",
+      "zoomIn": "Zoomer",
+      "resetZoom": "Réinitialiser le zoom",
+      "referenceDesign": "Design de référence",
+      "referenceCaption": "Design original du modèle pour référence",
+      "editResume": "Modifier le CV",
+      "previewResume": "Aperçu du CV",
+      "edit": "Modifier",
+      "preview": "Aperçu",
+      "loadingBuilder": "Chargement du créateur..."
+    },
+    "welcome": {
+      "title": "Compte créé !",
+      "description": "Votre CV est sauvegardé. Vous pouvez continuer à le modifier ou choisir un forfait pour le télécharger.",
+      "choosePlan": "Choisir un forfait",
+      "backToEditor": "Retour à l'éditeur"
+    },
     "personalInfo": {
       "title": "Informations Personnelles",
       "subtitle": "Commencez par vos coordonnées et votre résumé professionnel."
@@ -1144,6 +1253,31 @@
     }
   },
   "AtsChecker": {
+    "meta": {
+      "title": "Vérificateur ATS de CV gratuit | Évaluez votre CV instantanément | Best AI Resume",
+      "description": "Vérifiez gratuitement votre CV par rapport aux systèmes ATS. Obtenez un score instantané, une analyse de mots-clés et des conseils d'optimisation."
+    },
+    "validation": {
+      "unsupportedFormat": "Seuls les fichiers PDF et DOCX sont pris en charge.",
+      "fileTooLarge": "La taille du fichier doit être inférieure à 10 Mo.",
+      "genericError": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "results": {
+      "scoreTitle": "Votre score de compatibilité ATS",
+      "recommendations": "Recommandations",
+      "checkAnother": "Vérifier un autre CV",
+      "buildAtsResume": "Créer un CV optimisé ATS",
+      "pagesAnalyzed": "{count, plural, one {# page analysée} other {# pages analysées}}",
+      "scoreExcellent": "Excellent",
+      "scoreGood": "Bon",
+      "scoreNeedsWork": "À améliorer",
+      "scorePoor": "Insuffisant"
+    },
+    "externalResources": {
+      "title": "Ressources externes",
+      "atsHowTheyWork": "Comprendre les ATS : Comment fonctionnent-ils",
+      "blsResumeTips": "BLS Perspectives de carrière : Conseils pour le CV"
+    },
     "hero": {
       "badge": "Vérificateur ATS de CV Gratuit",
       "title": "Votre CV est-il",
@@ -1266,6 +1400,154 @@
     "meta": {
       "title": "Paiement - Finalisez Votre Abonnement",
       "description": "Finalisez votre abonnement pour débloquer toutes les fonctionnalités. Paiement sécurisé via Stripe."
+    },
+    "invalidPlan": {
+      "title": "Forfait invalide",
+      "description": "Le forfait sélectionné n'est pas valide. Veuillez choisir un forfait sur notre page de tarifs.",
+      "backBtn": "Retour aux tarifs"
+    },
+    "signIn": {
+      "title": "Connectez-vous pour continuer",
+      "subtitle": "Connectez-vous pour acheter le forfait {plan}",
+      "signInBtn": "Se connecter",
+      "createAccountBtn": "Créer un compte"
+    },
+    "header": {
+      "startTrial": "Commencez votre essai gratuit",
+      "completePurchase": "Finalisez votre achat",
+      "tryPlan": "Essayez le forfait {plan} gratuitement pendant 7 jours",
+      "subscribePlan": "Abonnez-vous au forfait {plan}"
+    },
+    "trial": {
+      "badge": "Essai gratuit de 7 jours",
+      "notChargedUntil": "Vous ne serez pas débité avant le {date}"
+    },
+    "billing": {
+      "account": "Compte",
+      "afterTrial": "Après l'essai",
+      "billing": "Facturation",
+      "monthlyStarting": "Mensuel, à partir d'aujourd'hui"
+    },
+    "submit": {
+      "redirecting": "Redirection vers Stripe...",
+      "startTrial": "Commencer l'essai gratuit",
+      "subscribeNow": "S'abonner maintenant"
+    },
+    "secure": "Paiement sécurisé via Stripe",
+    "cancelTrialNote": "Annulez à tout moment pendant votre essai sans frais",
+    "cancelNote": "Annulez à tout moment. Sans engagement.",
+    "loading": "Chargement du paiement...",
+    "errors": {
+      "cancelled": "Le paiement a été annulé. Vous pouvez réessayer quand vous le souhaitez.",
+      "sessionExpired": "Votre session a expiré. Veuillez vous reconnecter.",
+      "failedCheckout": "Échec du démarrage du paiement. Veuillez réessayer.",
+      "networkError": "Impossible de se connecter au serveur. Vérifiez votre connexion internet."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "3 $/mois",
+        "description": "Idéal pour les chercheurs d'emploi",
+        "features": [
+          "30 créations de CV/mois",
+          "3 générations IA/mois",
+          "3 téléchargements PDF/mois",
+          "Tous les modèles freemium",
+          "Sans publicité"
+        ]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "6 $/mois",
+        "description": "Pour les chercheurs d'emploi actifs",
+        "features": [
+          "150 créations de CV/mois",
+          "10 générations IA/mois",
+          "10 téléchargements PDF/mois",
+          "Optimisation ATS",
+          "Créateur de lettres de motivation"
+        ]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "10 $/mois",
+        "description": "Idéal pour les professionnels",
+        "features": [
+          "300 créations de CV/mois",
+          "30 générations IA/mois",
+          "25 téléchargements PDF/mois",
+          "Tous les modèles premium",
+          "Support prioritaire"
+        ]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "30 $/mois",
+        "description": "Pour les utilisateurs avancés et agences",
+        "features": [
+          "Créations de CV illimitées",
+          "100 générations IA/mois",
+          "Téléchargements PDF illimités",
+          "Tous les modèles premium",
+          "Support prioritaire",
+          "Accès anticipé aux nouvelles fonctionnalités"
+        ]
+      }
+    }
+  },
+  "CheckoutSuccess": {
+    "title": "Paiement réussi !",
+    "welcome": "Bienvenue dans {plan} !",
+    "planLabel": "Forfait {plan}",
+    "yourBenefits": "Vos nouveaux avantages",
+    "createResume": "Créer votre CV",
+    "goToDashboard": "Aller au tableau de bord",
+    "receiptNote": "Un reçu a été envoyé à votre adresse e-mail. Vous pouvez gérer votre abonnement à tout moment depuis votre",
+    "dashboardLink": "tableau de bord",
+    "supportText": "Des questions ? Contactez-nous à",
+    "loading": "Chargement des détails de votre abonnement...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": [
+          "30 créations de CV par mois",
+          "3 générations IA par mois",
+          "3 téléchargements PDF par mois",
+          "Tous les modèles freemium",
+          "Sans publicité"
+        ]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": [
+          "150 créations de CV par mois",
+          "10 générations IA par mois",
+          "10 téléchargements PDF par mois",
+          "Optimisation ATS",
+          "Créateur de lettres de motivation"
+        ]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": [
+          "300 créations de CV par mois",
+          "30 générations IA par mois",
+          "25 téléchargements PDF par mois",
+          "Tous les modèles premium",
+          "Support prioritaire"
+        ]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": [
+          "Créations de CV illimitées",
+          "100 générations IA par mois",
+          "Téléchargements PDF illimités",
+          "Tous les modèles premium",
+          "Support prioritaire",
+          "Accès anticipé aux nouvelles fonctionnalités"
+        ]
+      }
     }
   },
   "CoverLetter": {
@@ -1345,7 +1627,76 @@
     "meta": {
       "title": "Tableau de Bord - Mes CV",
       "description": "Gérez vos CV, suivez les téléchargements et accédez aux paramètres de votre abonnement."
-    }
+    },
+    "welcome": "Bon retour{name} !",
+    "subtitle": "Prêt à décrocher l'emploi de vos rêves ? Créons un CV qui se démarque.",
+    "stats": {
+      "resumesCreated": "CV créés",
+      "downloads": "Téléchargements",
+      "coverLetters": "Lettres de motivation"
+    },
+    "usage": {
+      "noPlan": "Aucun forfait",
+      "subscribeToUnlock": "Abonnez-vous pour débloquer",
+      "unlimited": "Illimité"
+    },
+    "cta": {
+      "badge": "Créateur de CV propulsé par l'IA",
+      "title": "Créez votre CV parfait",
+      "createNew": "Créer un nouveau CV"
+    },
+    "subscription": {
+      "plan": "Forfait {tier}",
+      "expiredPlan": "Forfait expiré",
+      "noActivePlan": "Aucun forfait actif",
+      "trial": "Essai",
+      "active": "Actif",
+      "trialEnds": "L'essai se termine le {date}",
+      "planActive": "Votre forfait est actif",
+      "subscribePrompt": "Abonnez-vous pour débloquer les téléchargements",
+      "resubscribe": "Se réabonner",
+      "subscribe": "S'abonner",
+      "manage": "Gérer l'abonnement"
+    },
+    "templateUsage": "Utilisation des modèles",
+    "resumes": {
+      "title": "Vos CV",
+      "total": "{count} au total",
+      "newResume": "Nouveau CV",
+      "noResumes": "Aucun CV pour l'instant",
+      "noResumesDesc": "Créez votre premier CV propulsé par l'IA et commencez à postuler aux emplois de vos rêves.",
+      "createFirst": "Créer votre premier CV",
+      "createNew": "Créer un nouveau CV"
+    },
+    "resumeCard": {
+      "untitled": "CV sans titre",
+      "noName": "Sans nom",
+      "today": "Aujourd'hui",
+      "yesterday": "Hier",
+      "daysAgo": "Il y a {days} jours",
+      "duplicate": "Dupliquer",
+      "delete": "Supprimer",
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce CV ?",
+      "edit": "Modifier"
+    },
+    "quickActions": {
+      "softwareEngineer": "Ingénieur logiciel",
+      "productManager": "Chef de produit",
+      "designer": "Designer",
+      "marketing": "Marketing",
+      "dataScientist": "Data Scientist",
+      "sales": "Commercial"
+    },
+    "proTip": {
+      "label": "Conseil pro",
+      "title": "Adaptez votre CV pour chaque poste",
+      "description": "Les CV adaptés à des offres d'emploi spécifiques ont 3 fois plus de chances d'obtenir un entretien. Utilisez notre IA pour personnaliser rapidement votre CV pour chaque candidature.",
+      "stat1Value": "3x",
+      "stat1Label": "Plus d'entretiens",
+      "stat2Value": "85%",
+      "stat2Label": "Taux de passage ATS"
+    },
+    "loading": "Chargement..."
   },
 
   "Profile": {
