@@ -47,6 +47,7 @@ model User {
   accounts                Account[]
   sessions                Session[]
   communityTemplates      CommunityTemplate[]
+  templateComments        TemplateComment[]
 
   @@index([email])
   @@index([stripeCustomerId])
@@ -225,9 +226,26 @@ model CommunityTemplate {
   isPublic    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  comments    TemplateComment[]
 
   @@index([userId])
   @@index([category])
   @@index([isPublic])
   @@index([downloads])
+}
+
+// ============ TEMPLATE COMMENTS ============
+
+model TemplateComment {
+  id          String            @id @default(uuid())
+  templateId  String
+  template    CommunityTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content     String            @db.Text
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([templateId])
+  @@index([userId])
 }

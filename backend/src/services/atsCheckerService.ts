@@ -20,29 +20,72 @@ export interface AtsCheckResult {
 // ── Regex Patterns ─────────────────────────────────────
 
 const EMAIL_PATTERN = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-const PHONE_PATTERN = /(\+?\d{1,3}[-.\s]?)?\(?\d{2,4}\)?[-.\s]?\d{3,4}[-.\s]?\d{3,4}/;
+const PHONE_PATTERN = /(?:\+?\d{1,3}[\s.-]?)?\(?\d{2,4}\)?[\s.-]?\d{3,4}[\s.-]?\d{3,4}(?:\s*(?:ext|x)\.?\s*\d{1,5})?/i;
 const LINKEDIN_PATTERN = /linkedin\.com\/in\/[a-zA-Z0-9_-]+/i;
 const WEBSITE_PATTERN = /https?:\/\/[^\s]+\.[a-zA-Z]{2,}/;
-const DATE_RANGE_PATTERN = /\b(19|20)\d{2}\s*[-–—to]\s*((19|20)\d{2}|present|current|now)\b/gi;
+// English + Spanish + French + German month names (from dateUtils.ts)
+const MONTH_NAMES = [
+  // English
+  "jan(?:uary)?", "feb(?:ruary)?", "mar(?:ch)?", "apr(?:il)?", "may", "june?", "july?",
+  "aug(?:ust)?", "sep(?:t(?:ember)?)?", "oct(?:ober)?", "nov(?:ember)?", "dec(?:ember)?",
+  // Spanish
+  "ene(?:ro)?", "abr(?:il)?", "ago(?:sto)?", "dic(?:iembre)?",
+  // French (with optional period)
+  "janv\\.?", "f[eé]vr?\\.?", "mars", "avr\\.?", "mai", "juin", "juil\\.?",
+  "ao[uû]t", "sept\\.?", "nov\\.?", "d[eé]c\\.?",
+  // German (with optional period)
+  "m[aä]rz", "mai", "juni", "juli", "okt\\.?", "dez\\.?",
+].join("|");
+const MONTH_PATTERN = `(?:${MONTH_NAMES})`;
+const DATE_SEPARATOR = "\\s*(?:[-–—]|to)\\s*";
+const PRESENT_LABELS = "present|current|now|ongoing|presente|actuel(?:lement)?|aktuell|حالي";
+const END_DATE = `(?:(?:${MONTH_PATTERN}[.,]?\\s+)?(?:(?:19|20)\\d{2})|${PRESENT_LABELS})`;
+// Matches: "Jan 2020 - Dec 2023", "Ene 2020 - Presente", "janv. 2020 - Actuel", etc.
+const DATE_RANGE_PATTERN = new RegExp(
+  `(?:(?:${MONTH_PATTERN})[.,]?\\s+)?\\b(19|20)\\d{2}${DATE_SEPARATOR}${END_DATE}\\b`,
+  "gi"
+);
+// Matches: "01/2023 - 12/2024", "1/2023 - Present"
+const DATE_RANGE_NUMERIC = new RegExp(
+  `\\b\\d{1,2}\\/\\d{4}\\s*(?:[-–—]|to)\\s*(?:\\d{1,2}\\/\\d{4}|${PRESENT_LABELS})\\b`, "gi"
+);
+// Matches: "2020-01 – Present", "2015-05 – 2020-06" (ISO YYYY-MM format)
+const DATE_RANGE_ISO = new RegExp(
+  `\\b(19|20)\\d{2}-\\d{2}\\s*[–—-]\\s*(?:(19|20)\\d{2}-\\d{2}|${PRESENT_LABELS})\\b`, "gi"
+);
 const YEAR_PATTERN = /\b(19|20)\d{2}\b/g;
 
 const SECTION_HEADERS = [
-  { pattern: /\b(work\s*)?experience\b/i, name: "Experience" },
-  { pattern: /\beducation\b/i, name: "Education" },
-  { pattern: /\bskills?\b/i, name: "Skills" },
+  // Experience: en + es (Experiencia) + fr (Expérience) + de (Erfahrung/Berufserfahrung)
+  { pattern: /\b(work\s*)?experience|experiencia|exp[eé]rience|(?:berufs)?erfahrung\b/i, name: "Experience" },
+  // Education: en + es (Educación/Formación) + fr (Éducation/Formation) + de (Bildung/Ausbildung)
+  { pattern: /\beducation|educaci[oó]n|formaci[oó]n|[eé]ducation|formation|bildung|ausbildung\b/i, name: "Education" },
+  // Skills: en + es (Habilidades/Competencias) + fr (Compétences) + de (Fähigkeiten/Kenntnisse)
+  { pattern: /\bskills?|habilidades|competencias|comp[eé]tences|f[aä]higkeiten|kenntnisse\b/i, name: "Skills" },
   { pattern: /\bprofessional\s*(summary|profile|objective)\b/i, name: "Summary" },
-  { pattern: /\b(career\s*)?(summary|objective)\b/i, name: "Summary" },
+  // Summary/Profile: en + es (Perfil/Resumen) + fr (Profil/Résumé) + de (Profil/Zusammenfassung)
+  { pattern: /\b(career\s*)?(summary|objective)|perfil|resumen|r[eé]sum[eé]|zusammenfassung|profil\b/i, name: "Summary" },
   { pattern: /\bemployment(\s*history)?\b/i, name: "Employment" },
   { pattern: /\bwork\s*history\b/i, name: "Work History" },
   { pattern: /\bqualifications?\b/i, name: "Qualifications" },
-  { pattern: /\bcertifications?\b/i, name: "Certifications" },
-  { pattern: /\blanguages?\b/i, name: "Languages" },
-  { pattern: /\bprojects?\b/i, name: "Projects" },
-  { pattern: /\bvolunteer(ing)?\b/i, name: "Volunteer" },
-  { pattern: /\breferences?\b/i, name: "References" },
+  // Certifications: en + es (Certificaciones) + fr (Certifications) + de (Zertifizierungen)
+  { pattern: /\bcertifications?|certificaciones|zertifizierungen\b/i, name: "Certifications" },
+  // Languages: en + es (Idiomas) + fr (Langues) + de (Sprachen)
+  { pattern: /\blanguages?|idiomas|langues|sprachen\b/i, name: "Languages" },
+  // Projects: en + es (Proyectos) + fr (Projets) + de (Projekte)
+  { pattern: /\bprojects?|proyectos|projets|projekte\b/i, name: "Projects" },
+  // Volunteer: en + es (Voluntariado) + fr (Bénévolat) + de (Ehrenamt)
+  { pattern: /\bvolunteer(?:ing)?|voluntariado|b[eé]n[eé]volat|ehrenamt\b/i, name: "Volunteer" },
+  // References: en + es (Referencias) + fr (Références) + de (Referenzen)
+  { pattern: /\breferences?|referencias|r[eé]f[eé]rences|referenzen\b/i, name: "References" },
   { pattern: /\bcontact(\s*info(rmation)?)?\b/i, name: "Contact" },
   { pattern: /\bpublications?\b/i, name: "Publications" },
-  { pattern: /\bawards?\b/i, name: "Awards" },
+  // Awards: en + es (Premios) + fr (Prix/Récompenses) + de (Auszeichnungen)
+  { pattern: /\bawards?|premios|prix|r[eé]compenses|auszeichnungen\b/i, name: "Awards" },
+  // Interests: en + es (Intereses) + fr (Intérêts/Centres d'intérêt) + de (Interessen)
+  { pattern: /\binterests?|intereses|int[eé]r[eê]ts|interessen\b/i, name: "Interests" },
+  // Strengths: en + es (Fortalezas) + fr (Points forts) + de (Stärken)
+  { pattern: /\bstrengths?|fortalezas|points?\s*forts?|st[aä]rken\b/i, name: "Strengths" },
 ];
 
 const ACTION_VERBS = [
@@ -54,6 +97,30 @@ const ACTION_VERBS = [
 ];
 
 const QUANTIFIED_PATTERN = /\b\d+[%+]?\b|\$[\d,.]+|\b\d+\s*(percent|%|million|billion|thousand|k\b|employees?|clients?|customers?|users?|teams?|projects?|years?)/gi;
+
+// ── Text Normalization ────────────────────────────────
+
+/**
+ * Collapse spaced-out section headers from PDF text extraction.
+ * Templates using CSS letter-spacing produce text like "E D U C AT I O N"
+ * instead of "EDUCATION". Detects lines where >50% of tokens are single
+ * characters and collapses them.
+ */
+function normalizeSpacedHeaders(text: string): string {
+  return text.split("\n").map((line) => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.length > 50) return line;
+
+    const tokens = trimmed.split(/\s+/);
+    if (tokens.length < 3) return line;
+
+    const singleCharCount = tokens.filter((t) => t.length === 1).length;
+    if (singleCharCount / tokens.length > 0.5) {
+      return tokens.join("");
+    }
+    return line;
+  }).join("\n");
+}
 
 // ── Category Checkers ──────────────────────────────────
 
@@ -122,14 +189,17 @@ function checkContactInfo(text: string): AtsCategory {
     details.push("No phone number detected");
   }
 
-  // Name detection — check first few lines for a name-like pattern (3 pts)
-  const firstLines = text.split("\n").slice(0, 5).join(" ");
-  const namePattern = /^[A-Z][a-z]+\s+[A-Z][a-z]+/;
-  if (namePattern.test(firstLines.trim())) {
+  // Name detection — search first 30 non-empty lines for a name-like line (3 pts)
+  // Two-column PDFs extract sidebar first, so the name may not be on line 0
+  const lines = text.split("\n").map((l) => l.trim()).filter((l) => l.length > 0);
+  const namePattern = /^[a-z][a-z'-]+(?:\s+[a-z][a-z'-]+){1,2}$/i;
+  const sectionWords = /^(profile|experience|education|skills?|summary|contact|languages?|interests?|certifications?|references?|awards?|projects?|publications?|personal\s*details?|credentials?|social\s*links?|experiencia|educaci[oó]n|habilidades|competencias|idiomas|intereses|certificaciones|referencias|premios|proyectos|perfil|resumen|exp[eé]rience|formation|comp[eé]tences|langues|int[eé]r[eê]ts|r[eé]f[eé]rences|prix|projets|erfahrung|bildung|f[aä]higkeiten|kenntnisse|sprachen|interessen|referenzen|auszeichnungen|projekte|zusammenfassung)$/i;
+  const nameFound = lines.slice(0, 30).some((line) => namePattern.test(line) && !sectionWords.test(line));
+  if (nameFound) {
     score += 3;
-    details.push("Name detected at top of resume");
+    details.push("Name detected in resume");
   } else {
-    details.push("Name not clearly detected at top — ensure your full name is the first line");
+    details.push("Name not clearly detected — ensure your full name is on its own line");
   }
 
   // LinkedIn or website (3 pts)
@@ -211,14 +281,17 @@ function checkExperienceParsing(text: string): AtsCategory {
   let score = 0;
   const maxScore = 20;
 
-  // Date ranges (8 pts)
-  const dateRanges = text.match(DATE_RANGE_PATTERN);
+  // Date ranges (8 pts) — combine text, numeric, and ISO date patterns
+  const textDateRanges = text.match(DATE_RANGE_PATTERN) || [];
+  const numericDateRanges = text.match(DATE_RANGE_NUMERIC) || [];
+  const isoDateRanges = text.match(DATE_RANGE_ISO) || [];
+  const dateRanges = [...textDateRanges, ...numericDateRanges, ...isoDateRanges];
   const yearMentions = text.match(YEAR_PATTERN);
 
-  if (dateRanges && dateRanges.length >= 2) {
+  if (dateRanges.length >= 2) {
     score += 8;
     details.push(`${dateRanges.length} date ranges found — ATS can parse work history timeline`);
-  } else if (dateRanges && dateRanges.length === 1) {
+  } else if (dateRanges.length === 1) {
     score += 5;
     details.push("1 date range found — add dates to all positions (e.g., 'Jan 2020 - Present')");
   } else if (yearMentions && yearMentions.length >= 2) {
@@ -345,13 +418,20 @@ function checkSkillsAndKeywords(text: string): AtsCategory {
     details.push("No quantified achievements — add numbers and metrics to stand out");
   }
 
-  // Skills density (3 pts) — check for comma-separated or listed skills
-  const skillsListPattern = /[a-zA-Z+#]+(?:\s*[,|•]\s*[a-zA-Z+#]+){3,}/;
-  if (skillsListPattern.test(text)) {
+  // Skills density (3 pts) — check for listed skills (comma, pipe, bullet, or line-separated)
+  const commaOrPipeSkills = /[\w.#+/-]+(?:\s+[\w.#+/-]+)*(?:\s*[,|\t]\s*[\w.#+/-]+(?:\s+[\w.#+/-]+)*){3,}/;
+  const bulletSkills = text.match(/[•●○▪◦‣\-\*]\s+[\w.#+/][\w\s.#+/-]{1,40}/g);
+  // Detect line-separated skills after a "Skills" heading (most common resume builder format)
+  const skillsSectionMatch = text.match(/\b(?:skills?|habilidades|competencias|comp[eé]tences|f[aä]higkeiten|kenntnisse)\b.*\n([\s\S]*?)(?=\n\s*(?:experience|education|interests?|languages?|certifications?|references?|projects?|experiencia|educaci[oó]n|intereses|idiomas|certificaciones|referencias|proyectos|exp[eé]rience|formation|int[eé]r[eê]ts|langues|r[eé]f[eé]rences|projets|erfahrung|bildung|interessen|sprachen|referenzen|projekte|$))/i);
+  const lineSkillsCount = skillsSectionMatch
+    ? skillsSectionMatch[1].split("\n").filter((l) => l.trim().length > 0 && l.trim().length <= 40).length
+    : 0;
+  const hasSkillsList = commaOrPipeSkills.test(text) || (bulletSkills && bulletSkills.length >= 4) || lineSkillsCount >= 3;
+  if (hasSkillsList) {
     score += 3;
     details.push("Skills list detected — ATS can extract individual skills");
   } else {
-    details.push("No clear skills list — use comma-separated skills for better ATS parsing");
+    details.push("No clear skills list — list skills using commas, bullets, or a dedicated Skills section");
   }
 
   const status = score >= 8 ? "pass" : score >= 4 ? "warning" : "fail";
@@ -429,13 +509,13 @@ export async function checkAtsCompatibility(
     const { PDFParse } = await import("pdf-parse");
     const parser = new PDFParse({ data: buffer });
     const result = await parser.getText();
-    text = result.text;
+    text = normalizeSpacedHeaders(result.text);
     pageCount = result.total;
     await parser.destroy();
   } else if (
     mimeType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
   ) {
-    text = await extractTextFromDocx(buffer);
+    text = normalizeSpacedHeaders(await extractTextFromDocx(buffer));
   } else {
     return {
       score: 0,
