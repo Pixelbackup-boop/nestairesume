@@ -6,7 +6,7 @@ import AzureADProvider from "next-auth/providers/azure-ad";
 import AppleProvider from "next-auth/providers/apple";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:4444";
+const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:4444";
 
 // Build providers array dynamically based on available credentials
 const providers: NextAuthOptions["providers"] = [];
