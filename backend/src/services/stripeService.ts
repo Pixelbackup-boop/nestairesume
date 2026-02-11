@@ -404,19 +404,9 @@ export const getSubscriptionStatus = async (userId: string) => {
   };
 };
 
-// Load plan limits from DB and mutate in-memory PLANS (shared by reference across all modules)
+// Plan limits are now hardcoded in PLANS — no DB table needed
 export const reloadPlansFromDb = async () => {
-  const dbConfigs = await prisma.planConfig.findMany();
-  for (const config of dbConfigs) {
-    const plan = PLANS[config.planType as PlanType];
-    if (plan) {
-      plan.cvLimit = config.cvLimit;
-      plan.aiLimit = config.aiLimit;
-      plan.downloadLimit = config.downloadLimit;
-      plan.coverLetterLimit = config.coverLetterLimit;
-      plan.trialDailyLimit = config.trialDailyLimit;
-    }
-  }
+  // No-op: PlanConfig table removed, limits managed via hardcoded PLANS object
 };
 
 // Return plan limits only (no priceId/secrets) for public API

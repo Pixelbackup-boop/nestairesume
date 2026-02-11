@@ -24,6 +24,7 @@ model User {
   // Email verification
   verificationCode        String?   // 6-digit verification code
   verificationCodeExpires DateTime? // When the code expires
+  pendingEmail            String?   // New email awaiting verification
   subscriptionTier        String    @default("free") // "free" | "starter" | "gold" | "diamond" | "platinum"
   stripeCustomerId        String?   // Stripe customer ID
   subscriptionId          String?   // Active Stripe subscription ID

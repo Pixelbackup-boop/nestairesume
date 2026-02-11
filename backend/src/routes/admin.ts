@@ -4,10 +4,7 @@ import * as adminService from "../services/adminService";
 import * as adSettingsService from "../services/adSettingsService";
 import * as tawkSettingsService from "../services/tawkSettingsService";
 import { getUsageStatus } from "../middleware/subscriptionLimits";
-import { PLANS, PlanType, reloadPlansFromDb } from "../services/stripeService";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { PLANS, PlanType } from "../services/stripeService";
 
 const router = Router();
 
@@ -246,13 +243,15 @@ router.put("/plans/:planType", async (req: AuthRequest, res: Response): Promise<
 
     const { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit } = req.body;
 
-    await prisma.planConfig.upsert({
-      where: { planType },
-      update: { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
-      create: { planType, cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
-    });
-
-    await reloadPlansFromDb();
+    // Update in-memory plan limits directly (no DB table)
+    const plan = PLANS[planType as PlanType];
+    if (plan) {
+      if (cvLimit !== undefined) plan.cvLimit = cvLimit;
+      if (aiLimit !== undefined) plan.aiLimit = aiLimit;
+      if (downloadLimit !== undefined) plan.downloadLimit = downloadLimit;
+      if (coverLetterLimit !== undefined) plan.coverLetterLimit = coverLetterLimit;
+      if (trialDailyLimit !== undefined) plan.trialDailyLimit = trialDailyLimit;
+    }
 
     res.json({ success: true, plan: PLANS[planType as PlanType] });
   } catch (error) {
