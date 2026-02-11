@@ -54,8 +54,8 @@ test.describe('Navigation', () => {
         expect(url.includes('template') || url.includes('/')).toBe(true);
       }
     } else {
-      // Templates link not visible in header - page loaded successfully
-      expect(true).toBe(true);
+      // Templates link not visible in header — verify page itself loaded
+      await expect(page.locator('body')).toBeVisible();
     }
   });
 
@@ -74,8 +74,8 @@ test.describe('Navigation', () => {
         expect(url.includes('pricing') || url.includes('/')).toBe(true);
       }
     } else {
-      // Pricing link not visible - page loaded successfully
-      expect(true).toBe(true);
+      // Pricing link not visible — verify page itself loaded
+      await expect(page.locator('body')).toBeVisible();
     }
   });
 });

@@ -137,7 +137,7 @@ test.describe('Canvas Editor', () => {
     await page.waitForTimeout(2000);
 
     const isVisible = await editorUI.first().isVisible().catch(() => false);
-    // Canvas editor may require auth, so just check page loaded
-    expect(true).toBe(true);
+    // Canvas editor may require auth — verify page loaded without crash
+    await expect(page.locator('body')).toBeVisible();
   });
 });

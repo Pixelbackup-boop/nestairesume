@@ -77,9 +77,8 @@ test.describe('Subscription Purchase Flow', () => {
       try {
         await page.goto('/en/checkout?plan=gold', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
-        // Page may have navigation issues - test passes if navigation started
-        // This can happen when server is slow or page has hydration issues
-        expect(true).toBe(true);
+        // Page may have navigation issues — verify URL was at least requested
+        expect(page.url()).toContain('checkout');
         return;
       }
 
@@ -102,8 +101,8 @@ test.describe('Subscription Purchase Flow', () => {
       try {
         await page.goto('/en/checkout?plan=gold', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
-        // Page may have navigation issues - test passes if navigation started
-        expect(true).toBe(true);
+        // Page may have navigation issues — verify URL was at least requested
+        expect(page.url()).toContain('checkout');
         return;
       }
 
@@ -126,8 +125,8 @@ test.describe('Subscription Purchase Flow', () => {
       try {
         await page.goto('/en/checkout?plan=starter', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
-        // Page may have navigation issues - test passes if navigation started
-        expect(true).toBe(true);
+        // Page may have navigation issues — verify URL was at least requested
+        expect(page.url()).toContain('checkout');
         return;
       }
 
@@ -223,8 +222,8 @@ test.describe('Subscription Purchase Flow', () => {
       try {
         await page.goto('/en/checkout?plan=invalid-plan', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
-        // Navigation issue - page still handled the request (didn't crash the server)
-        expect(true).toBe(true);
+        // Navigation issue — verify page didn't crash (body loaded)
+        await expect(page.locator('body')).toBeVisible();
         return;
       }
 

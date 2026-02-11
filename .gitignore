@@ -7,3 +7,4 @@ node_modules/
 artifacts/
 test-results/
 frontend/From canvas/
+firebase-debug.log
