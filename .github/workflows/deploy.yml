@@ -110,12 +110,11 @@ jobs:
             --set-env-vars="STRIPE_PRICE_DIAMOND=${{ secrets.STRIPE_PRICE_DIAMOND }}" \
             --set-env-vars="STRIPE_PRICE_PLATINUM=${{ secrets.STRIPE_PRICE_PLATINUM }}" \
             --set-env-vars="FRONTEND_URL=${{ secrets.FRONTEND_URL }}" \
-            --set-secrets="DATABASE_URL=DATABASE_URL:latest" \
-            --set-secrets="JWT_SECRET=JWT_SECRET:latest" \
-            --set-secrets="STRIPE_SECRET_KEY=STRIPE_SECRET_KEY:latest" \
-            --set-secrets="STRIPE_WEBHOOK_SECRET=STRIPE_WEBHOOK_SECRET:latest" \
-            --set-secrets="DEEPSEEK_API_KEY=DEEPSEEK_API_KEY:latest" \
-            --set-secrets="SENTRY_DSN=SENTRY_DSN:latest" \
+            --set-env-vars="DATABASE_URL=${{ secrets.DATABASE_URL }}" \
+            --set-env-vars="JWT_SECRET=${{ secrets.JWT_SECRET }}" \
+            --set-env-vars="STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" \
+            --set-env-vars="STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" \
+            --set-env-vars="DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }}" \
             --add-cloudsql-instances="${{ secrets.GCP_PROJECT_ID }}:${{ env.GCP_REGION }}:resume-db"
 
       - name: Verify backend deployment
@@ -191,9 +190,9 @@ jobs:
             --set-env-vars="NODE_ENV=production" \
             --set-env-vars="NEXTAUTH_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}" \
             --set-env-vars="BACKEND_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" \
-            --set-secrets="NEXTAUTH_SECRET=NEXTAUTH_SECRET:latest" \
-            --set-secrets="GOOGLE_CLIENT_ID=GOOGLE_CLIENT_ID:latest" \
-            --set-secrets="GOOGLE_CLIENT_SECRET=GOOGLE_CLIENT_SECRET:latest"
+            --set-env-vars="NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}" \
+            --set-env-vars="GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" \
+            --set-env-vars="GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}"
 
       - name: Verify frontend deployment
         run: |
