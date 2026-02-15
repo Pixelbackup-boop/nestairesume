@@ -38,6 +38,17 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Redirects for removed pages
+  async redirects() {
+    return [
+      {
+        source: '/:locale/templates/ats-friendly',
+        destination: '/:locale/templates',
+        permanent: true,
+      },
+    ];
+  },
+
   // Security headers
   async headers() {
     return [

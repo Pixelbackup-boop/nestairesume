@@ -198,7 +198,7 @@ export default function Header() {
             <div>
               <h3 className={megaSectionHeader}>{t("byFormat")}</h3>
               <div className="space-y-1">
-                <Link href={localizedHref("/templates/ats-friendly")} onClick={closeMenu} className={megaLinkClass}>{t("atsFriendly")}</Link>
+                <Link href={localizedHref("/free-resume-builder")} onClick={closeMenu} className={megaLinkClass}>{t("freeResumeBuilder")}</Link>
                 <Link href={localizedHref("/templates/microsoftword")} onClick={closeMenu} className={megaLinkClass}>{t("microsoftWord")}</Link>
               </div>
             </div>
@@ -316,7 +316,7 @@ export default function Header() {
                 { href: "/templates/modern", labelKey: "modern" as const },
                 { href: "/templates/creative", labelKey: "creative" as const },
                 { href: "/templates/simple", labelKey: "simpleClean" as const },
-                { href: "/templates/ats-friendly", labelKey: "atsFriendly" as const },
+                { href: "/free-resume-builder", labelKey: "freeResumeBuilder" as const },
                 { href: "/templates/microsoftword", labelKey: "microsoftWord" as const },
               ].map(link => (
                 <Link key={link.href} href={localizedHref(link.href)} onClick={() => setMobileMenuOpen(false)}

@@ -35,7 +35,7 @@ const en: LandingPageContent = {
       { feature: 'Industry Keywords', description: 'AI suggestions' },
       { feature: 'Mobile Friendly', description: 'Build on any device' },
     ],
-    cta: 'Start Building Free',
+    cta: 'Build Premium Resume',
   },
   comparison: {
     title: 'Our Free vs. Their "Free"',
@@ -60,7 +60,7 @@ const en: LandingPageContent = {
       { step: 2, title: 'Add Your Info', description: 'Enter your details and let AI help write compelling content.' },
       { step: 3, title: 'Download Free', description: 'Export your polished resume as PDF instantly — no payment, no watermarks.' },
     ],
-    cta: 'Get Started Free',
+    cta: 'Build Premium Resume',
   },
   trust: {
     title: 'Trusted by Job Seekers Worldwide',
@@ -145,7 +145,7 @@ const es: LandingPageContent = {
       { feature: 'Palabras Clave', description: 'Sugerencias con IA' },
       { feature: 'Compatible con Móvil', description: 'Crea desde cualquier dispositivo' },
     ],
-    cta: 'Empezar a Crear Gratis',
+    cta: 'Crear Currículum Premium',
   },
   comparison: {
     title: 'Nuestro Gratis vs. Su "Gratis"',
@@ -170,7 +170,7 @@ const es: LandingPageContent = {
       { step: 2, title: 'Agrega Tu Información', description: 'Ingresa tus datos y deja que la IA te ayude a redactar contenido persuasivo.' },
       { step: 3, title: 'Descarga Gratis', description: 'Exporta tu currículum perfecto en PDF al instante — sin pago, sin marcas de agua.' },
     ],
-    cta: 'Empezar Gratis',
+    cta: 'Crear Currículum Premium',
   },
   trust: {
     title: 'La Confianza de Profesionales en Todo el Mundo',

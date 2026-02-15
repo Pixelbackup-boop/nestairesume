@@ -58,7 +58,7 @@ const en: LandingPageContent = {
       { step: 2, title: 'Add Your Information', description: 'Enter your experience and let AI suggest improvements, keywords, and professional phrasing.' },
       { step: 3, title: 'Download & Apply', description: 'Export your polished resume as PDF and start applying to jobs immediately.' },
     ],
-    cta: 'Start Building Now',
+    cta: 'Build Premium Resume',
   },
   trust: {
     title: '',
@@ -166,7 +166,7 @@ const es: LandingPageContent = {
       { step: 2, title: 'Agrega Tu Información', description: 'Ingresa tu experiencia y deja que la IA sugiera mejoras, palabras clave y redacción profesional.' },
       { step: 3, title: 'Descarga y Postúlate', description: 'Exporta tu currículum perfecto como PDF y comienza a postularte de inmediato.' },
     ],
-    cta: 'Empezar a Crear',
+    cta: 'Crear Currículum Premium',
   },
   trust: {
     title: '',

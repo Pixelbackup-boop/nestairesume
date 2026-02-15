@@ -171,12 +171,12 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
                     </h1>
                     <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={heroSubtitleHtml} />
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                        <Link href={localizedHref('/onboarding')} className="px-8 py-4 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition shadow-lg shadow-purple-500/30 text-lg">
-                            {c.hero.ctaPrimary}
+                        <Link href={localizedHref('/canvas-templates')} className="px-8 py-4 bg-accent-green text-white font-semibold rounded-xl hover:bg-green-600 transition shadow-lg shadow-green-500/30 text-lg">
+                            Build Free Resume
                         </Link>
-                        <a href="#how-it-works" className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition shadow-sm">
-                            {c.hero.ctaSecondary}
-                        </a>
+                        <Link href={localizedHref('/templates')} className="px-8 py-4 border-2 border-purple-500 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition text-lg">
+                            Build Premium Resume
+                        </Link>
                     </div>
                     <p className="text-sm text-gray-500">{c.hero.trustText}</p>
                 </div>
@@ -250,7 +250,7 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
 
                     <div className="text-center mt-10">
                         <Link href={localizedHref('/onboarding')} className="inline-block px-8 py-4 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition">
-                            {c.beforeAfter.title}
+                            {c.beforeAfter.cta}
                         </Link>
                     </div>
                 </div>
@@ -377,9 +377,14 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
                 <div className="max-w-3xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{c.bottomCta.title}</h2>
                     <p className="text-gray-600 mb-8 text-lg" dangerouslySetInnerHTML={bottomCtaDescHtml} />
-                    <Link href={localizedHref('/onboarding')} className="inline-block px-10 py-4 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition shadow-lg shadow-purple-500/30 text-lg">
-                        {c.bottomCta.cta}
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href={localizedHref('/canvas-templates')} className="px-10 py-4 bg-accent-green text-white font-semibold rounded-xl hover:bg-green-600 transition shadow-lg shadow-green-500/30 text-lg">
+                            Try Free Canvas Templates
+                        </Link>
+                        <Link href={localizedHref('/onboarding')} className="px-10 py-4 border-2 border-purple-500 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition text-lg">
+                            Build Premium Resume
+                        </Link>
+                    </div>
                     <p className="text-gray-500 mt-4 text-sm">{c.bottomCta.subtext}</p>
                 </div>
             </section>

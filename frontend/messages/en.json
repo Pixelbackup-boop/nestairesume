@@ -60,7 +60,7 @@
     "modern": "Modern",
     "creative": "Creative",
     "simpleClean": "Simple & Clean",
-    "atsFriendly": "ATS-Friendly",
+    "freeResumeBuilder": "Free Resume Builder",
     "microsoftWord": "Microsoft Word",
     "buildResumeFree": "Build Your Resume Free",
     "chooseFromTemplates": "Choose from 20+ professional templates",
@@ -264,7 +264,6 @@
       "professional": "Modern",
       "creative": "Creative",
       "minimal": "Simple and Clean",
-      "ats-friendly": "ATS-Friendly",
       "modern": "Modern",
       "classic": "Classic"
     },
@@ -677,7 +676,7 @@
     "compare": "Compare",
     "googleDocs": "Google Docs Templates",
     "simpleClean": "Simple & Clean",
-    "atsFriendly": "ATS-Friendly",
+    "freeResumeBuilder": "Free Resume Builder",
     "microsoftWord": "Word Templates",
     "modern": "Modern Templates",
     "creative": "Creative Templates",
@@ -1000,6 +999,7 @@
     },
     "header": {
       "backToBuilder": "Back to Builder",
+      "backToTemplates": "Back to Canvas Templates",
       "title": "Canvas Editor",
       "beta": "Beta",
       "elements": "{count} elements",
@@ -1039,6 +1039,16 @@
       "noSavedProject": "No saved project found.",
       "projectLoaded": "Project loaded successfully!",
       "projectLoadFailed": "Failed to load project."
+    },
+    "downloadModal": {
+      "title": "Log in to Download",
+      "description": "Create a free account to download your canvas design as {format}.",
+      "savedTitle": "Your work is saved",
+      "savedNotice": "Your canvas project has been saved to your browser. It will be right here when you return after signing in.",
+      "signUp": "Sign Up — It's Free",
+      "signInPrefix": "Already have an account?",
+      "signInLink": "Sign in",
+      "restored": "Your canvas project was restored! Click Export to download."
     }
   },
 
@@ -1059,8 +1069,7 @@
       "all": "All",
       "professional": "Professional",
       "creative": "Creative",
-      "minimal": "Minimal",
-      "ats-friendly": "ATS-Friendly"
+      "minimal": "Minimal"
     },
     "startFromScratch": {
       "title": "Want to start from scratch?",

@@ -2,7 +2,6 @@ import {
     Sparkles,
     Briefcase,
     Palette,
-    FileCheck,
 } from 'lucide-react';
 
 // Featured templates with unique layouts (16 total)
@@ -25,21 +24,19 @@ export const FEATURED_TEMPLATE_IDS: string[] = [
     'minimal-blue-sections',
 ];
 
-export type CategoryFilter = 'all' | 'professional' | 'creative' | 'ats-friendly';
+export type CategoryFilter = 'all' | 'professional' | 'creative';
 
 export const CATEGORY_ICONS: Record<CategoryFilter, React.ElementType> = {
     all: Sparkles,
     professional: Briefcase,
     creative: Palette,
-    'ats-friendly': FileCheck,
 };
 
-export const CATEGORIES: CategoryFilter[] = ['all', 'professional', 'creative', 'ats-friendly'];
+export const CATEGORIES: CategoryFilter[] = ['all', 'professional', 'creative'];
 
 // Map SEO category slugs to template filter categories
 export const SEO_SLUG_TO_FILTER: Record<string, CategoryFilter> = {
     'creative': 'creative',
     'modern': 'professional',
-    'simple': 'ats-friendly',
-    'ats-friendly': 'ats-friendly',
+    'simple': 'professional',
 };

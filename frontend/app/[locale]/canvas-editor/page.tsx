@@ -8,8 +8,13 @@ import { useLocale, useTranslations } from 'next-intl';
 import { ArrowLeft, Sparkles, Loader2, Share2 } from 'lucide-react';
 import type Konva from 'konva';
 import { useCanvasStore, TextElement } from '@/store/useCanvasStore';
+import { useAuthStore } from '@/store/useAuthStore';
 import PostToCommunityModal from '@/components/canvas/PostToCommunityModal';
+import CanvasDownloadModal from '@/components/canvas/CanvasDownloadModal';
 import api from '@/lib/api';
+
+const STORAGE_KEY = 'canvas-editor-project';
+const PENDING_DOWNLOAD_KEY = 'canvas-pending-download';
 
 // Dynamically import heavy canvas components to reduce initial bundle
 const CanvasToolbar = dynamic(() => import('@/components/canvas/CanvasToolbar'), {
@@ -59,6 +64,10 @@ export default function CanvasEditorPage() {
     const [showPostModal, setShowPostModal] = useState(false);
     const [postThumbnail, setPostThumbnail] = useState<string | null>(null);
     const [loadingTemplate, setLoadingTemplate] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [pendingExportFormat, setPendingExportFormat] = useState<'pdf' | 'png' | 'jpeg' | null>(null);
+    const [restoredNotice, setRestoredNotice] = useState(false);
+    const { isAuthenticated } = useAuthStore();
 
     const {
         canvasWidth,
@@ -71,6 +80,9 @@ export default function CanvasEditorPage() {
         backgroundGradient,
         deselectAll,
         loadCommunityTemplate,
+        setElements,
+        setBackgroundColor,
+        setBackgroundGradient,
     } = useCanvasStore();
 
     // Add meta tag to disable Dark Reader extension on this page
@@ -83,6 +95,31 @@ export default function CanvasEditorPage() {
             document.head.removeChild(meta);
         };
     }, []);
+
+    // Restore saved project after returning from login
+    useEffect(() => {
+        const pending = localStorage.getItem(PENDING_DOWNLOAD_KEY);
+        if (!pending) return;
+
+        // Clear the pending flag
+        localStorage.removeItem(PENDING_DOWNLOAD_KEY);
+
+        // Auto-load the saved project
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            try {
+                const project = JSON.parse(saved);
+                setElements(project.elements);
+                setBackgroundColor(project.backgroundColor);
+                setBackgroundGradient(project.backgroundGradient);
+                setRestoredNotice(true);
+                // Auto-dismiss after 5 seconds
+                setTimeout(() => setRestoredNotice(false), 5000);
+            } catch {
+                // Ignore parse errors
+            }
+        }
+    }, [setElements, setBackgroundColor, setBackgroundGradient]);
 
     // Load community template from URL param
     useEffect(() => {
@@ -136,6 +173,24 @@ export default function CanvasEditorPage() {
 
     // Export functionality using Konva's native export
     const handleExport = useCallback(async (format: 'pdf' | 'png' | 'jpeg') => {
+        // Auth gate: if not logged in, auto-save and show login modal
+        if (!isAuthenticated) {
+            // Auto-save current canvas state
+            const project = {
+                name: 'My Resume',
+                savedAt: new Date().toISOString(),
+                elements,
+                backgroundColor,
+                backgroundGradient,
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(project));
+            localStorage.setItem(PENDING_DOWNLOAD_KEY, format);
+
+            setPendingExportFormat(format);
+            setShowLoginModal(true);
+            return;
+        }
+
         const stage = stageRef.current;
         if (!stage) {
             alert(t('alerts.canvasNotReady'));
@@ -193,7 +248,7 @@ export default function CanvasEditorPage() {
             link.href = dataUrl;
             link.click();
         }
-    }, [canvasWidth, canvasHeight, deselectAll]);
+    }, [canvasWidth, canvasHeight, deselectAll, isAuthenticated, elements, backgroundColor, backgroundGradient]);
 
     // Handle posting to community
     const handleOpenPostModal = useCallback(async () => {
@@ -271,11 +326,11 @@ export default function CanvasEditorPage() {
             <header className="h-14 bg-gray-50 border-b border-gray-200 flex items-center justify-between px-4 shrink-0">
                 <div className="flex items-center gap-4">
                     <Link
-                        href={`/${locale}/builder`}
+                        href={`/${locale}/canvas-templates`}
                         className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
                     >
                         <ArrowLeft size={20} />
-                        <span className="text-sm">{t('header.backToBuilder')}</span>
+                        <span className="text-sm">{t('header.backToTemplates')}</span>
                     </Link>
                     <div className="w-px h-6 bg-gray-200" />
                     <div className="flex items-center gap-2">
@@ -340,6 +395,31 @@ export default function CanvasEditorPage() {
                 thumbnail={postThumbnail}
                 designData={getDesignData()}
             />
+
+            {/* Login required for download modal */}
+            <CanvasDownloadModal
+                isOpen={showLoginModal}
+                onClose={() => setShowLoginModal(false)}
+                format={pendingExportFormat}
+            />
+
+            {/* Restored project toast notification */}
+            {restoredNotice && (
+                <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-3 animate-slideUp">
+                    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm font-medium">{t('downloadModal.restored')}</span>
+                    <button
+                        onClick={() => setRestoredNotice(false)}
+                        className="ml-2 text-white/80 hover:text-white"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

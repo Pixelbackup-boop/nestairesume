@@ -24,7 +24,7 @@ test.describe('Subscription Purchase Flow', () => {
 
     test('should show plan features and pricing', async ({ page }) => {
       await page.goto('/en/pricing');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Check for pricing elements - prices are shown as $3, $6, etc.
       await expect(page.getByText('$3').first()).toBeVisible();
@@ -33,7 +33,7 @@ test.describe('Subscription Purchase Flow', () => {
 
     test('should have subscription buttons for each plan', async ({ page }) => {
       await page.goto('/en/pricing');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Pricing page uses Link elements for CTAs - look for plan links
       const planLinks = page.getByRole('link', { name: /get started|subscribe|start trial/i });
@@ -42,7 +42,7 @@ test.describe('Subscription Purchase Flow', () => {
 
     test('should toggle between monthly and annual pricing', async ({ page }) => {
       await page.goto('/en/pricing');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Look for billing toggle with specific aria-label
       const billingToggle = page.getByLabel('Toggle billing cycle');
@@ -168,7 +168,7 @@ test.describe('Subscription Purchase Flow', () => {
   test.describe('Post-Checkout Pages', () => {
     test('should have success page', async ({ page }) => {
       await page.goto('/en/checkout/success');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Success page shows "Payment Successful!" and "Create Your Resume" button
       const hasSuccess = await page.getByText(/Payment Successful/i).isVisible().catch(() => false);
@@ -181,7 +181,7 @@ test.describe('Subscription Purchase Flow', () => {
 
     test('success page should show subscription details or redirect to builder', async ({ page }) => {
       await page.goto('/en/checkout/success?session_id=test');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Either shows details or redirects
       const url = page.url();
@@ -197,7 +197,7 @@ test.describe('Subscription Purchase Flow', () => {
     test('should have account settings page', async ({ page }) => {
       // Navigate to pricing page as fallback (account settings may not exist)
       await page.goto('/en/pricing');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Should show pricing page content
       const hasPricingContent = await page.getByText(/starter|gold|diamond|platinum/i).first().isVisible().catch(() => false);
@@ -208,7 +208,7 @@ test.describe('Subscription Purchase Flow', () => {
     test('pricing page should show current plan for logged in users', async ({ page }) => {
       // This would require auth setup
       await page.goto('/en/pricing');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // For non-authenticated users, plan CTAs should be visible as links
       const planLinks = await page.getByRole('link', { name: /get started|subscribe|start trial/i }).all();
@@ -241,7 +241,7 @@ test.describe('Subscription Purchase Flow', () => {
 
     test('should handle missing session_id on success page', async ({ page }) => {
       await page.goto('/en/checkout/success');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Should not show error state or should redirect gracefully
       const status = await page.evaluate(() => document.readyState);

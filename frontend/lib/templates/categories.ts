@@ -27,14 +27,6 @@ export const TEMPLATE_CATEGORIES: TemplateCategory[] = [
         heroText: 'Sometimes less is more. These simple resume templates focus on whitespace, clear typography, and readability. Perfect for bypassing ATS filters and impressing traditional recruiters.'
     },
     {
-        slug: 'ats-friendly',
-        title: 'ATS-Friendly Resume Templates',
-        keyword: 'ats resume template',
-        seoTitle: 'ATS-Friendly Resume Templates (Optimized for 2026)',
-        seoDescription: 'Beat the bots with our ATS-friendly resume templates. Tested against major Applicant Tracking Systems to ensure 100% parse rate.',
-        heroText: '75% of resumes are rejected by robots before a human sees them. These templates are rigorously tested against major ATS platforms (Greenhouse, Lever, Workday) to ensure your data gets read correctly.'
-    },
-    {
         slug: 'microsoftword',
         title: 'Microsoft Word Resume Templates',
         keyword: 'cv template word',

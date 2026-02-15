@@ -58,7 +58,7 @@
     "modern": "Moderno",
     "creative": "Creativo",
     "simpleClean": "Simple y Limpio",
-    "atsFriendly": "Compatible con ATS",
+    "freeResumeBuilder": "Constructor de CV Gratuito",
     "microsoftWord": "Microsoft Word",
     "buildResumeFree": "Crea tu CV gratis",
     "chooseFromTemplates": "Elige entre 20+ plantillas profesionales",
@@ -256,7 +256,6 @@
       "professional": "Moderno",
       "creative": "Creativo",
       "minimal": "Simple y Limpio",
-      "ats-friendly": "Compatible con ATS",
       "modern": "Moderno",
       "classic": "Clásico"
     },
@@ -663,7 +662,7 @@
     "compare": "Comparar",
     "googleDocs": "Plantillas Google Docs",
     "simpleClean": "Simple y Limpio",
-    "atsFriendly": "Compatible con ATS",
+    "freeResumeBuilder": "Constructor de CV Gratuito",
     "microsoftWord": "Plantillas Word",
     "modern": "Plantillas Modernas",
     "creative": "Plantillas Creativas",
@@ -1293,6 +1292,7 @@
     },
     "header": {
       "backToBuilder": "Volver al Constructor",
+      "backToTemplates": "Volver a Plantillas Canvas",
       "title": "Editor de Lienzo",
       "beta": "Beta",
       "elements": "{count} elemento(s)",
@@ -1332,6 +1332,16 @@
       "noSavedProject": "No se encontró ningún proyecto guardado.",
       "projectLoaded": "¡Proyecto cargado exitosamente!",
       "projectLoadFailed": "Error al cargar el proyecto."
+    },
+    "downloadModal": {
+      "title": "Inicia sesión para descargar",
+      "description": "Crea una cuenta gratuita para descargar tu diseño de canvas como {format}.",
+      "savedTitle": "Tu trabajo está guardado",
+      "savedNotice": "Tu proyecto de canvas se ha guardado en tu navegador. Estará aquí cuando regreses después de iniciar sesión.",
+      "signUp": "Regístrate — Es gratis",
+      "signInPrefix": "¿Ya tienes una cuenta?",
+      "signInLink": "Iniciar sesión",
+      "restored": "¡Tu proyecto de canvas fue restaurado! Haz clic en Exportar para descargar."
     }
   },
 
@@ -1352,8 +1362,7 @@
       "all": "Todas",
       "professional": "Profesional",
       "creative": "Creativa",
-      "minimal": "Minimalista",
-      "ats-friendly": "Compatible con ATS"
+      "minimal": "Minimalista"
     },
     "startFromScratch": {
       "title": "¿Quieres empezar desde cero?",

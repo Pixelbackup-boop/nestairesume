@@ -136,7 +136,7 @@ export default function Footer() {
             <div key={section.heading}>
               <h3 className="font-semibold mb-4 text-base text-white">
                 {section.heading}
-              </h4>
+              </h3>
               <ul className="space-y-2.5">
                 {section.links.map((link) => (
                   <li key={link.href + link.label}>

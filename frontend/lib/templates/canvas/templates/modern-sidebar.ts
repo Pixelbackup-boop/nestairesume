@@ -1,6 +1,6 @@
 // Canvas Template: Modern Sidebar
 import type { CanvasTemplate } from '@/store/useCanvasStore';
-import { createText, createShape, createIcon, createImage } from '../helpers';
+import { createText, createShape, createIcon } from '../helpers';
 
 export const modernSidebarTemplate: CanvasTemplate = {
     id: 'modern-sidebar',
@@ -18,7 +18,7 @@ export const modernSidebarTemplate: CanvasTemplate = {
             fill: '#1a1a2e',
         }),
 
-        // Profile photo placeholder (circle)
+        // Profile photo placeholder (click → upload to fill)
         createShape({
             x: 50,
             y: 40,
@@ -28,14 +28,8 @@ export const modernSidebarTemplate: CanvasTemplate = {
             fill: '#2d2d44',
             stroke: '#00dc82',
             strokeWidth: 3,
-        }),
-        // Profile image
-        createImage({
-            src: '/Img/headshot.webp',
-            x: 50,
-            y: 40,
-            width: 100,
-            height: 100,
+            imageSrc: '/Img/sarah-johnson-canvas.png',
+            imageFit: 'cover',
         }),
 
         // Name on sidebar

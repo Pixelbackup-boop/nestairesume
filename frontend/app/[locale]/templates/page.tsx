@@ -12,7 +12,6 @@ import {
     Search,
     Briefcase,
     Minimize2,
-    FileCheck,
     Sparkles,
     ArrowRight,
 } from 'lucide-react';
@@ -51,9 +50,9 @@ const FEATURED_TEMPLATE_IDS = [
     'minimal-blue-sections',
 ];
 
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'ats-friendly';
+type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal';
 
-const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal', 'ats-friendly'];
+const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal'];
 
 // Use shared builder templates with additional style property for display
 const builderTemplates = sharedBuilderTemplates.map(t => ({
@@ -66,7 +65,6 @@ const categoryIcons: Record<string, React.ElementType> = {
     professional: Briefcase,
     creative: Palette,
     minimal: Minimize2,
-    'ats-friendly': FileCheck,
     modern: Sparkles,
     classic: FileText,
 };
@@ -186,20 +184,6 @@ export default function TemplatesPage() {
                         </p>
                     </div>
                 </TemplatesAnimations.Hero>
-            </section>
-
-            {/* Canvas Editor Banner */}
-            <section className="pb-6">
-                <div className="max-w-6xl mx-auto px-6">
-                    <Link
-                        href={localizedHref('/canvas-templates')}
-                        className="flex items-center justify-center gap-2 px-4 py-3 bg-bg-card border border-border-subtle rounded-xl text-sm text-gray-600 hover:text-accent-green hover:border-accent-green transition-colors"
-                    >
-                        <Palette size={16} />
-                        {t('canvasEditor.title')} - {t('canvasEditor.description')}
-                        <ArrowRight size={14} />
-                    </Link>
-                </div>
             </section>
 
             {/* Templates Section - Dark Container */}

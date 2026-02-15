@@ -38,6 +38,7 @@ export interface ResumeAIPageContent {
     beforeLabel: string;
     afterLabel: string;
     items: { before: string; after: string }[];
+    cta: string;
   };
   comparison: {
     title: string;
@@ -121,6 +122,7 @@ const en: ResumeAIPageContent = {
       { before: 'Helped increase sales', after: 'Drove 34% YoY revenue growth ($2.4M) by implementing data-driven outreach strategy' },
       { before: 'Good at customer service', after: 'Achieved 4.9/5 customer satisfaction rating, resolving 150+ inquiries daily with 95% first-contact resolution' },
     ],
+    cta: 'Build Premium Resume',
   },
   comparison: {
     title: 'Resume AI vs. Writing It Yourself',
@@ -233,6 +235,7 @@ const es: ResumeAIPageContent = {
       { before: 'Ayud\u00e9 a aumentar las ventas', after: 'Impuls\u00e9 un crecimiento interanual del 34% ($2.4M) implementando una estrategia de captaci\u00f3n basada en datos' },
       { before: 'Bueno en atenci\u00f3n al cliente', after: 'Logr\u00e9 una calificaci\u00f3n de satisfacci\u00f3n de 4.9/5, resolviendo m\u00e1s de 150 consultas diarias con un 95% de resoluci\u00f3n en primer contacto' },
     ],
+    cta: 'Crear Curr\u00edculum Premium',
   },
   comparison: {
     title: 'Curr\u00edculum con IA vs. Escribirlo T\u00fa Mismo',

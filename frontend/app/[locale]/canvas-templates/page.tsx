@@ -12,7 +12,6 @@ import {
     Briefcase,
     Palette,
     Minimize2,
-    FileCheck,
     Sparkles,
     ArrowRight,
     FileText,
@@ -20,16 +19,15 @@ import {
 import { canvasTemplates } from '@/lib/templates/canvas';
 import { useCanvasStore, CanvasTemplate } from '@/store/useCanvasStore';
 
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal' | 'ats-friendly';
+type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal';
 
-const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal', 'ats-friendly'];
+const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal'];
 
 const categoryIcons: Record<CategoryFilter, React.ElementType> = {
     all: Sparkles,
     professional: Briefcase,
     creative: Palette,
     minimal: Minimize2,
-    'ats-friendly': FileCheck,
 };
 
 export default function CanvasTemplatesPage() {
@@ -79,13 +77,43 @@ export default function CanvasTemplatesPage() {
                     {template.elements.map((element, index) => {
                         if (element.type === 'shape') {
                             if (element.shapeType === 'circle') {
+                                const cx = element.x + element.width / 2;
+                                const cy = element.y + element.height / 2;
+                                const rx = element.width / 2;
+                                const ry = element.height / 2;
+                                if (element.imageSrc) {
+                                    const clipId = `shape-clip-${template.id}-${index}`;
+                                    return (
+                                        <g key={index}>
+                                            <defs>
+                                                <clipPath id={clipId}>
+                                                    <ellipse cx={cx} cy={cy} rx={rx} ry={ry} />
+                                                </clipPath>
+                                            </defs>
+                                            <image
+                                                href={element.imageSrc}
+                                                x={element.x}
+                                                y={element.y}
+                                                width={element.width}
+                                                height={element.height}
+                                                clipPath={`url(#${clipId})`}
+                                                preserveAspectRatio="xMidYMid slice"
+                                            />
+                                            {element.stroke && element.stroke !== 'transparent' && (
+                                                <ellipse
+                                                    cx={cx} cy={cy} rx={rx} ry={ry}
+                                                    fill="none"
+                                                    stroke={element.stroke}
+                                                    strokeWidth={element.strokeWidth || 0}
+                                                />
+                                            )}
+                                        </g>
+                                    );
+                                }
                                 return (
                                     <ellipse
                                         key={index}
-                                        cx={element.x + element.width / 2}
-                                        cy={element.y + element.height / 2}
-                                        rx={element.width / 2}
-                                        ry={element.height / 2}
+                                        cx={cx} cy={cy} rx={rx} ry={ry}
                                         fill={element.fill}
                                     />
                                 );
@@ -142,7 +170,7 @@ export default function CanvasTemplatesPage() {
                             );
                         }
                         if (element.type === 'image') {
-                            const clipId = `clip-${index}`;
+                            const clipId = `clip-${template.id}-${index}`;
                             return (
                                 <g key={index}>
                                     <defs>

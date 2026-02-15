@@ -58,7 +58,7 @@
     "modern": "Modern",
     "creative": "Kreativ",
     "simpleClean": "Schlicht & Sauber",
-    "atsFriendly": "ATS-freundlich",
+    "freeResumeBuilder": "Kostenloser Lebenslauf-Ersteller",
     "microsoftWord": "Microsoft Word",
     "buildResumeFree": "Lebenslauf kostenlos erstellen",
     "chooseFromTemplates": "Wählen Sie aus 20+ Vorlagen",
@@ -256,7 +256,6 @@
       "professional": "Modern",
       "creative": "Kreativ",
       "minimal": "Schlicht und Sauber",
-      "ats-friendly": "ATS-freundlich",
       "modern": "Modern",
       "classic": "Klassisch"
     },
@@ -666,7 +665,7 @@
     "compare": "Vergleichen",
     "googleDocs": "Google Docs Vorlagen",
     "simpleClean": "Schlicht und Sauber",
-    "atsFriendly": "ATS-kompatibel",
+    "freeResumeBuilder": "Kostenloser Lebenslauf-Ersteller",
     "microsoftWord": "Word Vorlagen",
     "modern": "Moderne Vorlagen",
     "creative": "Kreative Vorlagen",
@@ -757,6 +756,7 @@
     },
     "header": {
       "backToBuilder": "Zurück zum Builder",
+      "backToTemplates": "Zurück zu Canvas-Vorlagen",
       "title": "Canvas-Editor",
       "beta": "Beta",
       "elements": "{count} Elemente",
@@ -796,6 +796,16 @@
       "noSavedProject": "Kein gespeichertes Projekt gefunden.",
       "projectLoaded": "Projekt erfolgreich geladen!",
       "projectLoadFailed": "Projekt konnte nicht geladen werden."
+    },
+    "downloadModal": {
+      "title": "Anmelden zum Herunterladen",
+      "description": "Erstellen Sie ein kostenloses Konto, um Ihr Canvas-Design als {format} herunterzuladen.",
+      "savedTitle": "Ihre Arbeit ist gespeichert",
+      "savedNotice": "Ihr Canvas-Projekt wurde in Ihrem Browser gespeichert. Es wird hier sein, wenn Sie nach der Anmeldung zurückkehren.",
+      "signUp": "Registrieren — Kostenlos",
+      "signInPrefix": "Haben Sie bereits ein Konto?",
+      "signInLink": "Anmelden",
+      "restored": "Ihr Canvas-Projekt wurde wiederhergestellt! Klicken Sie auf Exportieren zum Herunterladen."
     }
   },
 
@@ -816,8 +826,7 @@
       "all": "Alle",
       "professional": "Professionell",
       "creative": "Kreativ",
-      "minimal": "Minimalistisch",
-      "ats-friendly": "ATS-Freundlich"
+      "minimal": "Minimalistisch"
     },
     "startFromScratch": {
       "title": "Von Grund auf neu beginnen?",

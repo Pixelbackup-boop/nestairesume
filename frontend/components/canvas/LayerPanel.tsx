@@ -177,7 +177,7 @@ export default function LayerPanel() {
                                 <button
                                     onClick={(e) => toggleVisibility(element, e)}
                                     className={`p-1 rounded transition-colors ${
-                                        element.visible ? 'text-gray-400 hover:text-white' : 'text-yellow-500'
+                                        element.visible ? 'text-gray-400 hover:text-gray-700' : 'text-yellow-500'
                                     }`}
                                     title={element.visible ? 'Hide' : 'Show'}
                                 >
@@ -186,7 +186,7 @@ export default function LayerPanel() {
                                 <button
                                     onClick={(e) => toggleLock(element, e)}
                                     className={`p-1 rounded transition-colors ${
-                                        element.locked ? 'text-accent-green' : 'text-gray-400 hover:text-white'
+                                        element.locked ? 'text-accent-green' : 'text-gray-400 hover:text-gray-700'
                                     }`}
                                     title={element.locked ? 'Unlock' : 'Lock'}
                                 >

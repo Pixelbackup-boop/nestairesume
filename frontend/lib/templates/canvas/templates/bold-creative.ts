@@ -1,12 +1,12 @@
 // Canvas Template: Bold Creative
 import type { CanvasTemplate } from '@/store/useCanvasStore';
-import { createText, createShape, createIcon, createImage } from '../helpers';
+import { createText, createShape, createIcon } from '../helpers';
 
 export const boldCreativeTemplate: CanvasTemplate = {
     id: 'bold-creative',
     name: 'Bold Creative',
     thumbnail: '/templates/bold-creative.png',
-    category: 'modern',
+    category: 'creative',
     backgroundColor: '#0f0f23',
     elements: [
         // Accent shape
@@ -18,7 +18,7 @@ export const boldCreativeTemplate: CanvasTemplate = {
             fill: '#00dc82',
         }),
 
-        // Profile circle placeholder
+        // Profile photo placeholder (click → upload to fill)
         createShape({
             x: 40,
             y: 90,
@@ -28,19 +28,13 @@ export const boldCreativeTemplate: CanvasTemplate = {
             fill: '#0f0f23',
             stroke: '#ffffff',
             strokeWidth: 4,
-        }),
-        // Profile image
-        createImage({
-            src: '/Img/headshot.webp',
-            x: 40,
-            y: 90,
-            width: 140,
-            height: 140,
+            imageSrc: '/Img/mark-smith.png',
+            imageFit: 'cover',
         }),
 
         // Name
         createText({
-            text: 'EMMA',
+            text: 'MARK',
             x: 200,
             y: 50,
             width: 355,
@@ -49,7 +43,7 @@ export const boldCreativeTemplate: CanvasTemplate = {
             fill: '#0f0f23',
         }),
         createText({
-            text: 'RODRIGUEZ',
+            text: 'SMITH',
             x: 200,
             y: 100,
             width: 355,
@@ -70,7 +64,7 @@ export const boldCreativeTemplate: CanvasTemplate = {
         // Contact info
         createIcon({ iconName: 'Email', x: 40, y: 250, width: 18, height: 18, fill: '#00dc82' }),
         createText({
-            text: 'emma.rodriguez@email.com',
+            text: 'mark.smith@email.com',
             x: 68,
             y: 250,
             width: 200,

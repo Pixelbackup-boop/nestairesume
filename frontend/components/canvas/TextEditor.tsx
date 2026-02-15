@@ -441,7 +441,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                                                     <button
                                                         key={i}
                                                         onClick={() => generateAIText(suggestion)}
-                                                        className="px-2 py-1 text-xs bg-gray-200 text-gray-600 rounded hover:bg-gray-200 hover:text-white transition-colors truncate max-w-full"
+                                                        className="px-2 py-1 text-xs bg-gray-200 text-gray-600 rounded hover:bg-gray-300 hover:text-gray-900 transition-colors truncate max-w-full"
                                                     >
                                                         {suggestion}
                                                     </button>

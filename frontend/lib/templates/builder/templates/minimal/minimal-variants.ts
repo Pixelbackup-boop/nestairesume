@@ -2,27 +2,27 @@
 // 3 featured minimal templates
 import type { BuilderTemplate } from '../../types';
 
-// Timeline minimal - ATS-friendly style
+// Timeline minimal - simple clean style
 export const minimalTimelineTemplate: BuilderTemplate = {
     id: 'minimal-timeline',
     name: 'Timeline',
-    style: 'ATS-Friendly',
+    style: 'Simple & Clean',
     layout: 'minimal',
     layoutPresetId: 'minimal-normal-center',
-    category: 'ats-friendly',
+    category: 'minimal',
     accentColor: '#ef4444',
     gradientColors: 'from-red-500 to-red-700',
     templateId: 'minimal-timeline',
 };
 
-// Labels tan minimal - ATS-friendly style
+// Labels tan minimal - simple clean style
 export const minimalLabelsTanTemplate: BuilderTemplate = {
     id: 'minimal-labels-tan',
     name: 'Labels Tan',
-    style: 'ATS-Friendly',
+    style: 'Simple & Clean',
     layout: 'minimal',
     layoutPresetId: 'minimal-normal-center',
-    category: 'ats-friendly',
+    category: 'minimal',
     accentColor: '#b45309',
     gradientColors: 'from-amber-600 to-amber-800',
     templateId: 'minimal-labels-tan',

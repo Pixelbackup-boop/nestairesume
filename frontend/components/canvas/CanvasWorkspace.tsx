@@ -94,6 +94,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
     const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
     const [isReady, setIsReady] = useState(false);
     const [snapLines, setSnapLines] = useState<{ points: number[]; orientation: 'H' | 'V' }[]>([]);
+    const [editingImageShapeId, setEditingImageShapeId] = useState<string | null>(null);
 
     // Load images for ImageElements
     useEffect(() => {
@@ -113,10 +114,14 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
 
     // Load images for ShapeElements with imageSrc
     useEffect(() => {
-        const shapeElements = elements.filter((el): el is ShapeElement => el.type === 'shape' && !!el.imageSrc);
+        const shapeElements = elements.filter(
+            (el): el is ShapeElement => el.type === 'shape' && !!el.imageSrc
+        );
 
         shapeElements.forEach((el) => {
-            if (!loadedShapeImages[el.id] && el.imageSrc) {
+            const existing = loadedShapeImages[el.id];
+            // Load if no image yet OR if src changed (user uploaded new image)
+            if (el.imageSrc && (!existing || existing.src !== el.imageSrc)) {
                 const img = new window.Image();
                 img.crossOrigin = 'anonymous';
                 img.onload = () => {
@@ -125,7 +130,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                 img.src = el.imageSrc;
             }
         });
-    }, [elements, loadedShapeImages]);
+    }, [elements]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Update container size and mark as ready
     useEffect(() => {
@@ -167,6 +172,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
         // Click on empty space - deselect
         if (e.target === e.target.getStage()) {
             deselectAll();
+            setEditingImageShapeId(null);
             return;
         }
 
@@ -268,6 +274,24 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
             y: textPosition.y,
         });
     }, [onTextEdit]);
+
+    // Handle double-click on shape with image → enter reposition mode
+    const handleShapeImageDblClick = useCallback((e: Konva.KonvaEventObject<MouseEvent>, element: ShapeElement) => {
+        e.cancelBubble = true;
+        if (element.imageSrc) {
+            setEditingImageShapeId(element.id);
+        }
+    }, []);
+
+    // Exit image edit mode on Escape
+    useEffect(() => {
+        if (!editingImageShapeId) return;
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setEditingImageShapeId(null);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [editingImageShapeId]);
 
     // Calculate snap guides during drag
     const handleDragMove = useCallback((e: Konva.KonvaEventObject<DragEvent>, element: AnyCanvasElement) => {
@@ -487,10 +511,11 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
             case 'shape':
                 const shapeImage = loadedShapeImages[element.id];
                 const hasImageFill = element.imageSrc && shapeImage;
+                const isEditingImage = editingImageShapeId === element.id;
 
                 // Calculate image positioning for 'cover' fit
                 const getImageProps = () => {
-                    if (!shapeImage) return null;
+                    if (!shapeImage || shapeImage.width === 0 || shapeImage.height === 0) return null;
                     const { scaleX, scaleY, offsetX, offsetY } = calculateCoverScale(
                         shapeImage.width,
                         shapeImage.height,
@@ -502,26 +527,67 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
 
                 const imageProps = hasImageFill ? getImageProps() : null;
 
+                // Image position: convert image-space offsets to screen-space, then add user pan offset
+                const imgX = imageProps ? -(imageProps.offsetX * imageProps.scaleX) + (element.imageOffsetX ?? 0) : 0;
+                const imgY = imageProps ? -(imageProps.offsetY * imageProps.scaleY) + (element.imageOffsetY ?? 0) : 0;
+
+                // Clamp drag so image always covers the shape
+                const handleShapeImageDragMove = (e: Konva.KonvaEventObject<DragEvent>) => {
+                    if (!imageProps || !shapeImage) return;
+                    const node = e.target;
+                    const baseX = -(imageProps.offsetX * imageProps.scaleX);
+                    const baseY = -(imageProps.offsetY * imageProps.scaleY);
+                    const scaledW = shapeImage.width * imageProps.scaleX;
+                    const scaledH = shapeImage.height * imageProps.scaleY;
+                    const maxPanX = (scaledW - element.width) / 2;
+                    const maxPanY = (scaledH - element.height) / 2;
+                    const clampedX = Math.max(baseX - maxPanX, Math.min(baseX + maxPanX, node.x()));
+                    const clampedY = Math.max(baseY - maxPanY, Math.min(baseY + maxPanY, node.y()));
+                    node.x(clampedX);
+                    node.y(clampedY);
+                };
+
+                const handleShapeImageDragEnd = (e: Konva.KonvaEventObject<DragEvent>) => {
+                    if (!imageProps) return;
+                    e.cancelBubble = true;
+                    const baseX = -(imageProps.offsetX * imageProps.scaleX);
+                    const baseY = -(imageProps.offsetY * imageProps.scaleY);
+                    updateElement(element.id, {
+                        imageOffsetX: e.target.x() - baseX,
+                        imageOffsetY: e.target.y() - baseY,
+                    } as Partial<ShapeElement>);
+                    saveToHistory();
+                };
+
+                // Shared image props for all shape types
+                const shapeImgProps = {
+                    image: shapeImage!,
+                    x: imgX,
+                    y: imgY,
+                    scaleX: imageProps?.scaleX ?? 1,
+                    scaleY: imageProps?.scaleY ?? 1,
+                    ...(isEditingImage ? {
+                        draggable: true,
+                        onDragMove: handleShapeImageDragMove,
+                        onDragEnd: handleShapeImageDragEnd,
+                    } : {}),
+                };
+
                 switch (element.shapeType) {
                     case 'circle':
                         if (hasImageFill && imageProps) {
-                            // Image-filled circle using Group with clipFunc
                             const radius = Math.min(element.width, element.height) / 2;
                             return (
                                 <Group
                                     key={element.id}
                                     {...commonProps}
+                                    draggable={!isEditingImage && commonProps.draggable}
+                                    onDblClick={(e) => handleShapeImageDblClick(e, element)}
                                     clipFunc={(ctx) => {
                                         ctx.arc(element.width / 2, element.height / 2, radius, 0, Math.PI * 2, false);
                                     }}
                                 >
-                                    <Image
-                                        image={shapeImage}
-                                        x={-imageProps.offsetX}
-                                        y={-imageProps.offsetY}
-                                        scaleX={imageProps.scaleX}
-                                        scaleY={imageProps.scaleY}
-                                    />
+                                    <Image {...shapeImgProps} />
                                     {element.stroke !== 'transparent' && element.strokeWidth > 0 && (
                                         <Circle
                                             x={element.width / 2}
@@ -529,6 +595,18 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                             radius={radius}
                                             stroke={element.stroke}
                                             strokeWidth={element.strokeWidth}
+                                            listening={!isEditingImage}
+                                        />
+                                    )}
+                                    {isEditingImage && (
+                                        <Circle
+                                            x={element.width / 2}
+                                            y={element.height / 2}
+                                            radius={radius}
+                                            stroke="#3b82f6"
+                                            strokeWidth={2}
+                                            dash={[6, 3]}
+                                            listening={false}
                                         />
                                     )}
                                 </Group>
@@ -548,7 +626,6 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                         );
                     case 'star':
                         if (hasImageFill && imageProps) {
-                            // Image-filled star using Group with clipFunc
                             const outerRadius = Math.min(element.width, element.height) / 2;
                             const innerRadius = outerRadius * (element.innerRadius ?? 0.4);
                             const numPoints = 5;
@@ -556,6 +633,8 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                 <Group
                                     key={element.id}
                                     {...commonProps}
+                                    draggable={!isEditingImage && commonProps.draggable}
+                                    onDblClick={(e) => handleShapeImageDblClick(e, element)}
                                     clipFunc={(ctx) => {
                                         const centerX = element.width / 2;
                                         const centerY = element.height / 2;
@@ -574,13 +653,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                         ctx.closePath();
                                     }}
                                 >
-                                    <Image
-                                        image={shapeImage}
-                                        x={-imageProps.offsetX}
-                                        y={-imageProps.offsetY}
-                                        scaleX={imageProps.scaleX}
-                                        scaleY={imageProps.scaleY}
-                                    />
+                                    <Image {...shapeImgProps} />
                                     {element.stroke !== 'transparent' && element.strokeWidth > 0 && (
                                         <Star
                                             x={element.width / 2}
@@ -590,6 +663,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                             outerRadius={outerRadius}
                                             stroke={element.stroke}
                                             strokeWidth={element.strokeWidth}
+                                            listening={!isEditingImage}
                                         />
                                     )}
                                 </Group>
@@ -627,9 +701,10 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                 <Group
                                     key={element.id}
                                     {...commonProps}
+                                    draggable={!isEditingImage && commonProps.draggable}
+                                    onDblClick={(e) => handleShapeImageDblClick(e, element)}
                                     clipFunc={(ctx) => {
                                         if (cornerRadius > 0) {
-                                            // Rounded rectangle path
                                             const width = element.width;
                                             const height = element.height;
                                             const r = Math.min(cornerRadius, width / 2, height / 2);
@@ -649,13 +724,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                         }
                                     }}
                                 >
-                                    <Image
-                                        image={shapeImage}
-                                        x={-imageProps.offsetX}
-                                        y={-imageProps.offsetY}
-                                        scaleX={imageProps.scaleX}
-                                        scaleY={imageProps.scaleY}
-                                    />
+                                    <Image {...shapeImgProps} />
                                     {element.stroke !== 'transparent' && element.strokeWidth > 0 && (
                                         <Rect
                                             width={element.width}
@@ -663,6 +732,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                             stroke={element.stroke}
                                             strokeWidth={element.strokeWidth}
                                             cornerRadius={element.cornerRadius}
+                                            listening={!isEditingImage}
                                         />
                                     )}
                                 </Group>

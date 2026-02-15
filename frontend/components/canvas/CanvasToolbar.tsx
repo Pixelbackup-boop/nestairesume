@@ -277,7 +277,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
                     </button>
                     <button
                         onClick={() => selectedElementIds.forEach((id) => removeElement(id))}
-                        className="p-2.5 rounded-lg text-gray-500 hover:text-red-400 hover:bg-white transition-colors"
+                        className="p-2.5 rounded-lg text-gray-500 hover:text-red-400 hover:bg-gray-100 transition-colors"
                         title={t('toolbar.delete')}
                     >
                         <Trash2 size={20} />

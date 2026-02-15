@@ -58,7 +58,7 @@
     "modern": "Moderne",
     "creative": "Créatif",
     "simpleClean": "Simple et Épuré",
-    "atsFriendly": "Compatible ATS",
+    "freeResumeBuilder": "Créateur de CV Gratuit",
     "microsoftWord": "Microsoft Word",
     "buildResumeFree": "Créer votre CV gratuitement",
     "chooseFromTemplates": "Choisissez parmi 20+ modèles professionnels",
@@ -256,7 +256,6 @@
       "professional": "Moderne",
       "creative": "Créatif",
       "minimal": "Simple et Épuré",
-      "ats-friendly": "Compatible ATS",
       "modern": "Moderne",
       "classic": "Classique"
     },
@@ -666,7 +665,7 @@
     "compare": "Comparer",
     "googleDocs": "Modèles Google Docs",
     "simpleClean": "Simple et Propre",
-    "atsFriendly": "Compatible ATS",
+    "freeResumeBuilder": "Créateur de CV Gratuit",
     "microsoftWord": "Modèles Word",
     "modern": "Modèles Modernes",
     "creative": "Modèles Créatifs",
@@ -757,6 +756,7 @@
     },
     "header": {
       "backToBuilder": "Retour au Générateur",
+      "backToTemplates": "Retour aux Modèles Canvas",
       "title": "Éditeur Canvas",
       "beta": "Bêta",
       "elements": "{count} éléments",
@@ -796,6 +796,16 @@
       "noSavedProject": "Aucun projet sauvegardé trouvé.",
       "projectLoaded": "Projet chargé avec succès !",
       "projectLoadFailed": "Échec du chargement du projet."
+    },
+    "downloadModal": {
+      "title": "Connectez-vous pour télécharger",
+      "description": "Créez un compte gratuit pour télécharger votre design canvas en {format}.",
+      "savedTitle": "Votre travail est sauvegardé",
+      "savedNotice": "Votre projet canvas a été sauvegardé dans votre navigateur. Il sera là quand vous reviendrez après vous être connecté.",
+      "signUp": "S'inscrire — C'est gratuit",
+      "signInPrefix": "Vous avez déjà un compte ?",
+      "signInLink": "Se connecter",
+      "restored": "Votre projet canvas a été restauré ! Cliquez sur Exporter pour télécharger."
     }
   },
 
@@ -816,8 +826,7 @@
       "all": "Tous",
       "professional": "Professionnel",
       "creative": "Créatif",
-      "minimal": "Minimaliste",
-      "ats-friendly": "Compatible ATS"
+      "minimal": "Minimaliste"
     },
     "startFromScratch": {
       "title": "Vous voulez partir de zéro ?",

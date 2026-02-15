@@ -114,14 +114,14 @@ export const headerIconOrangeTemplate: BuilderTemplate = {
     thumbnail: '/templates/header-icon-sections.webp',
 };
 
-// Blue clean header - ATS-friendly style (UNIQUE LAYOUT: light blue header, photo left, two-column)
+// Blue clean header - simple clean style (UNIQUE LAYOUT: light blue header, photo left, two-column)
 export const headerBlueCleanTemplate: BuilderTemplate = {
     id: 'header-blue-clean',
     name: 'Blue Clean',
-    style: 'ATS-Friendly',
+    style: 'Simple & Clean',
     layout: 'header',
     layoutPresetId: 'header-normal-normal',
-    category: 'ats-friendly',
+    category: 'minimal',
     accentColor: '#2563eb',
     gradientColors: 'from-blue-600 to-blue-800',
     templateId: 'header-blue-clean',

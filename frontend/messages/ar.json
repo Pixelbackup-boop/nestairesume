@@ -58,7 +58,7 @@
     "modern": "عصري",
     "creative": "إبداعي",
     "simpleClean": "بسيط ونظيف",
-    "atsFriendly": "متوافق مع ATS",
+    "freeResumeBuilder": "منشئ السيرة الذاتية المجاني",
     "microsoftWord": "مايكروسوفت وورد",
     "buildResumeFree": "أنشئ سيرتك مجاناً",
     "chooseFromTemplates": "اختر من أكثر من 20 قالباً احترافياً",
@@ -256,7 +256,6 @@
       "professional": "عصري",
       "creative": "إبداعي",
       "minimal": "بسيط ونظيف",
-      "ats-friendly": "متوافق مع ATS",
       "modern": "عصري",
       "classic": "كلاسيكي"
     },
@@ -666,7 +665,7 @@
     "compare": "مقارنة",
     "googleDocs": "قوالب Google Docs",
     "simpleClean": "بسيط ونظيف",
-    "atsFriendly": "متوافق مع ATS",
+    "freeResumeBuilder": "منشئ السيرة الذاتية المجاني",
     "microsoftWord": "قوالب Word",
     "modern": "قوالب حديثة",
     "creative": "قوالب إبداعية",
@@ -757,6 +756,7 @@
     },
     "header": {
       "backToBuilder": "العودة إلى المنشئ",
+      "backToTemplates": "العودة إلى قوالب Canvas",
       "title": "محرر Canvas",
       "beta": "تجريبي",
       "elements": "{count} عناصر",
@@ -796,6 +796,16 @@
       "noSavedProject": "لم يتم العثور على مشروع محفوظ.",
       "projectLoaded": "تم تحميل المشروع بنجاح!",
       "projectLoadFailed": "فشل تحميل المشروع."
+    },
+    "downloadModal": {
+      "title": "سجّل الدخول للتحميل",
+      "description": "أنشئ حساباً مجانياً لتحميل تصميمك كـ {format}.",
+      "savedTitle": "تم حفظ عملك",
+      "savedNotice": "تم حفظ مشروعك في المتصفح. سيكون هنا عند عودتك بعد تسجيل الدخول.",
+      "signUp": "سجّل — مجاناً",
+      "signInPrefix": "لديك حساب بالفعل؟",
+      "signInLink": "تسجيل الدخول",
+      "restored": "تم استعادة مشروعك! انقر على تصدير للتحميل."
     }
   },
 
@@ -816,8 +826,7 @@
       "all": "الكل",
       "professional": "احترافي",
       "creative": "إبداعي",
-      "minimal": "بسيط",
-      "ats-friendly": "متوافق مع ATS"
+      "minimal": "بسيط"
     },
     "startFromScratch": {
       "title": "تريد البدء من الصفر؟",

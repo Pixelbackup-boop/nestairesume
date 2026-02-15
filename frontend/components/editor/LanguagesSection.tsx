@@ -61,6 +61,7 @@ export default function LanguagesSection() {
                 <button
                     type="submit"
                     disabled={!newLanguage.trim()}
+                    aria-label="Add language"
                     className="bg-accent-green text-bg-primary px-3 py-2 rounded-lg font-medium hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     <Plus size={18} />
@@ -81,6 +82,7 @@ export default function LanguagesSection() {
                                 <select
                                     value={lang.proficiency}
                                     onChange={(e) => handleProficiencyChange(lang.id, e.target.value as Language['proficiency'])}
+                                    aria-label={`${lang.name} proficiency level`}
                                     className="appearance-none bg-bg-card-light border border-border-subtle rounded-md px-2 py-1 pr-7 text-xs text-gray-700 focus:outline-none focus:border-accent-green cursor-pointer"
                                 >
                                     {proficiencyOptions.map((opt) => (
@@ -93,6 +95,7 @@ export default function LanguagesSection() {
                             </div>
                             <button
                                 onClick={() => removeLanguage(lang.id)}
+                                aria-label={`Remove ${lang.name}`}
                                 className="text-gray-500 hover:text-red-400 transition p-1"
                             >
                                 <X size={14} />

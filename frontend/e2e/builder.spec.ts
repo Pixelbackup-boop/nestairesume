@@ -15,7 +15,7 @@ test.describe('Resume Builder', () => {
   test.describe('Builder Page Access', () => {
     test('should load builder or show auth requirement', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Either shows builder content or requires auth
       const needsAuth = await checkAuthRequired(page);
@@ -33,7 +33,7 @@ test.describe('Resume Builder', () => {
   test.describe('Templates Page', () => {
     test('should display template options', async ({ page }) => {
       await page.goto('/en/templates');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Wait for templates to load
       await page.waitForTimeout(2000);
@@ -85,7 +85,7 @@ test.describe('Resume Builder', () => {
   test.describe('Onboarding Flow', () => {
     test('should display onboarding page', async ({ page }) => {
       await page.goto('/en/onboarding');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Onboarding should have form elements or template selection
       const hasContent = await page.locator('input, select, button, [class*="template"]').first().isVisible();
@@ -97,7 +97,7 @@ test.describe('Resume Builder', () => {
 test.describe('Pricing Page', () => {
   test('should display pricing plans', async ({ page }) => {
     await page.goto('/en/pricing');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Should show pricing cards
     const pricingContent = page.locator('[class*="pricing"], [class*="plan"], [data-testid="pricing"]');
@@ -106,7 +106,7 @@ test.describe('Pricing Page', () => {
 
   test('should show plan features', async ({ page }) => {
     await page.goto('/en/pricing');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Look for feature lists or checkmarks
     const features = page.locator('ul li, [class*="feature"]');
@@ -116,7 +116,7 @@ test.describe('Pricing Page', () => {
 
   test('should have subscribe/checkout buttons', async ({ page }) => {
     await page.goto('/en/pricing');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Pricing page uses Link elements for CTAs - look for plan links
     const planLinks = page.getByRole('link', { name: /get started|subscribe|start trial/i });
@@ -128,7 +128,7 @@ test.describe('Pricing Page', () => {
 test.describe('Canvas Editor', () => {
   test('should load canvas editor page', async ({ page }) => {
     await page.goto('/canvas-editor');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Canvas editor should have canvas element or editor UI
     const editorUI = page.locator('canvas, [class*="canvas"], [class*="editor"], [data-testid="canvas"]');

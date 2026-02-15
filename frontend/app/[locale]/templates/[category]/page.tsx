@@ -11,7 +11,7 @@ import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
 import { getContent } from '@/lib/content/templates-category';
 
 // Categories that use builder templates (vs docx/gdocs)
-const BUILDER_TEMPLATE_CATEGORIES = ['creative', 'modern', 'simple', 'ats-friendly'];
+const BUILDER_TEMPLATE_CATEGORIES = ['creative', 'modern', 'simple'];
 const locales = ['en', 'es', 'fr', 'de', 'ar'];
 
 interface Props {

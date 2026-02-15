@@ -14,7 +14,7 @@ test.describe('AI Generation Features', () => {
   test.describe('AI Feature Availability', () => {
     test('should show AI generation button in builder', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Look for AI-related buttons or features
       const aiButton = page.getByRole('button', { name: /ai|generate|magic|auto/i });
@@ -31,7 +31,7 @@ test.describe('AI Generation Features', () => {
 
     test('should show AI option for professional summary', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Navigate to summary section if needed
       const summaryTab = page.getByRole('tab', { name: /summary|about/i });
@@ -53,7 +53,7 @@ test.describe('AI Generation Features', () => {
 
     test('should show AI option for experience descriptions', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Navigate to experience section if needed
       const experienceTab = page.getByRole('tab', { name: /experience|work/i });
@@ -70,7 +70,7 @@ test.describe('AI Generation Features', () => {
   test.describe('AI Generation Process', () => {
     test('should show loading state during AI generation', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Find AI generate button - may not be visible if not in right section
       const aiButton = page.getByRole('button', { name: /generate|ai|magic/i }).first();
@@ -88,7 +88,7 @@ test.describe('AI Generation Features', () => {
 
     test('should display generated content in appropriate field', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // This tests that the content areas exist and are editable
       const textareas = await page.locator('textarea').all();
@@ -102,7 +102,7 @@ test.describe('AI Generation Features', () => {
   test.describe('Usage Limit Enforcement', () => {
     test('should show usage indicator or limit info', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Look for usage indicators
       const usageIndicator = page.getByText(/remaining|used|limit|credits/i);
@@ -131,7 +131,7 @@ test.describe('AI Generation Features', () => {
 
     test('should differentiate between free and paid AI features', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Look for premium/pro indicators
       const premiumBadge = page.getByText(/pro|premium|paid/i);
@@ -150,7 +150,7 @@ test.describe('AI Generation Features', () => {
   test.describe('AI Generation Options', () => {
     test('should allow selecting different AI tones/styles', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Look for tone/style selector
       const toneSelector = page.getByRole('combobox', { name: /tone|style|voice/i });
@@ -166,7 +166,7 @@ test.describe('AI Generation Features', () => {
 
     test('should support regeneration of AI content', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Look for regenerate/retry button
       const regenerateButton = page.getByRole('button', { name: /regenerate|retry|again|refresh/i });
@@ -181,7 +181,7 @@ test.describe('AI Generation Features', () => {
   test.describe('AI Error Handling', () => {
     test('should handle AI service errors gracefully', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // The page should not show unhandled errors
       const errorMessage = page.getByText(/something went wrong|error occurred|try again/i);
@@ -193,7 +193,7 @@ test.describe('AI Generation Features', () => {
 
     test('should show helpful message when AI is unavailable', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Verify the builder is functional even without AI
       const formFields = await page.locator('input, textarea').all();
@@ -213,7 +213,7 @@ test.describe('AI Generation Features', () => {
     for (const section of sections) {
       test(`should have form fields for ${section.name} section`, async ({ page }) => {
         await page.goto('/en/builder');
-        await page.waitForLoadState('networkidle');
+        await page.waitForLoadState('domcontentloaded');
 
         // Try to find the section
         let sectionFound = false;
@@ -237,7 +237,7 @@ test.describe('AI Generation Features', () => {
 test.describe('AI Feature Access Control', () => {
   test('anonymous users should see upgrade prompts for AI', async ({ page }) => {
     await page.goto('/en/builder');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Anonymous users might see limited AI or upgrade prompts
     const upgradeLink = page.getByRole('link', { name: /upgrade|pricing|subscribe/i });
@@ -252,7 +252,7 @@ test.describe('AI Feature Access Control', () => {
 
   test('should track AI usage in session', async ({ page }) => {
     await page.goto('/en/builder');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check if there's any usage tracking visible
     const usageDisplay = page.getByText(/\d+.*remaining|\d+.*used|\d+.*left/i);

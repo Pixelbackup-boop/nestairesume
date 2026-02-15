@@ -101,7 +101,7 @@ export default function CanvasSidebar() {
 
             if (selectedShapeId) {
                 // Fill the shape with the image (clip image to shape)
-                updateElement(selectedShapeId, { imageSrc: src, imageFit: 'cover' } as Partial<ShapeElement>);
+                updateElement(selectedShapeId, { imageSrc: src, imageFit: 'cover', imageOffsetX: 0, imageOffsetY: 0 } as Partial<ShapeElement>);
                 return;
             }
 
@@ -267,7 +267,7 @@ export default function CanvasSidebar() {
                 href={`/${locale}/canvas-templates`}
                 className="flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-200 rounded-lg transition-colors group"
             >
-                <span className="text-sm font-medium text-gray-600 group-hover:text-white">
+                <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900">
                     Browse All Templates
                 </span>
                 <ExternalLink size={16} className="text-gray-500 group-hover:text-accent-green" />
@@ -283,7 +283,7 @@ export default function CanvasSidebar() {
                     <div key={category.id}>
                         <button
                             onClick={() => setExpandedCategory(isExpanded ? null : category.id)}
-                            className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-600 hover:text-white hover:bg-white rounded-lg transition-colors"
+                            className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
                         >
                             <span className="flex items-center gap-2">
                                 {category.label}
@@ -347,7 +347,7 @@ export default function CanvasSidebar() {
                             className="w-full px-4 py-3 bg-white hover:bg-gray-200 rounded-lg text-left transition-colors group"
                         >
                             <span
-                                className="text-gray-700 group-hover:text-white"
+                                className="text-gray-700 group-hover:text-gray-900"
                                 style={{
                                     fontSize: Math.min(preset.fontSize * 0.6, 20),
                                     fontWeight: preset.fontWeight,
@@ -410,7 +410,7 @@ export default function CanvasSidebar() {
                 className="w-full p-6 border-2 border-dashed border-gray-300 hover:border-accent-green rounded-xl text-center transition-colors group"
             >
                 <Upload size={32} className="mx-auto mb-2 text-gray-500 group-hover:text-accent-green transition-colors" />
-                <span className="text-sm text-gray-600 group-hover:text-white transition-colors">
+                <span className="text-sm text-gray-600 group-hover:text-accent-green transition-colors">
                     Upload Image
                 </span>
                 <p className="text-xs text-gray-400 mt-1">PNG, JPG up to 5MB</p>
@@ -562,7 +562,7 @@ export default function CanvasSidebar() {
                         className={`flex-1 py-3 flex flex-col items-center gap-1 text-xs transition-colors ${
                             activeTab === tab.id
                                 ? 'text-accent-green border-b-2 border-accent-green bg-gray-50'
-                                : 'text-gray-500 hover:text-white hover:bg-white'
+                                : 'text-gray-500 hover:text-accent-green hover:bg-gray-100'
                         }`}
                     >
                         <tab.icon size={20} />

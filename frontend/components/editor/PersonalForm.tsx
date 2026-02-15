@@ -129,6 +129,7 @@ export default function PersonalForm() {
           </div>
           <button
             onClick={() => fileInputRef.current?.click()}
+            aria-label="Upload profile photo"
             className={`absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity ${getShapeClass(personalInfo.imageShape || 'circle')}`}
           >
             <Camera size={18} className="text-gray-900" />
@@ -136,6 +137,7 @@ export default function PersonalForm() {
           {personalInfo.profileImage && (
             <button
               onClick={handleRemoveImage}
+              aria-label="Remove profile photo"
               className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-gray-900 hover:bg-red-600 transition shadow-lg z-10"
             >
               <X size={12} />
@@ -251,6 +253,7 @@ export default function PersonalForm() {
                 name="idType"
                 value={personalInfo.idType || ''}
                 onChange={handleChange}
+                aria-label="Document type"
                 className="w-full bg-bg-card-light border border-border-subtle rounded-lg pl-10 pr-8 py-2.5 text-gray-900 focus:outline-none focus:border-accent-green transition appearance-none cursor-pointer"
               >
                 {idDocumentTypes.map((type) => (

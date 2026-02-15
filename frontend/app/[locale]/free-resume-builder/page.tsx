@@ -83,12 +83,12 @@ export default async function FreeResumeBuilderPage({ params }: { params: Promis
                     <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
                        dangerouslySetInnerHTML={heroSubtitleHtml} />
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                        <Link href={localizedHref('/onboarding')} className="px-8 py-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition shadow-lg shadow-green-500/30 text-lg">
-                            {c.hero.ctaPrimary}
+                        <Link href={localizedHref('/canvas-templates')} className="px-8 py-4 bg-accent-green text-white font-semibold rounded-xl hover:bg-green-600 transition shadow-lg shadow-green-500/30 text-lg">
+                            Build Free Resume
                         </Link>
-                        <a href="#whats-free" className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition shadow-sm">
-                            {c.hero.ctaSecondary}
-                        </a>
+                        <Link href={localizedHref('/templates')} className="px-8 py-4 border-2 border-green-600 text-green-700 font-semibold rounded-xl hover:bg-green-50 transition text-lg">
+                            Build Premium Resume
+                        </Link>
                     </div>
                     {c.hero.trustBadges && (
                         <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
@@ -303,9 +303,14 @@ export default async function FreeResumeBuilderPage({ params }: { params: Promis
                 <div className="max-w-3xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{c.bottomCta.title}</h2>
                     <p className="text-gray-600 mb-8 text-lg">{c.bottomCta.description}</p>
-                    <Link href={localizedHref('/onboarding')} className="inline-block px-10 py-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition shadow-lg shadow-green-500/30 text-lg">
-                        {c.bottomCta.cta}
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href={localizedHref('/canvas-templates')} className="px-10 py-4 bg-accent-green text-white font-semibold rounded-xl hover:bg-green-600 transition shadow-lg shadow-green-500/30 text-lg">
+                            Try Free Canvas Templates
+                        </Link>
+                        <Link href={localizedHref('/onboarding')} className="px-10 py-4 border-2 border-green-600 text-green-700 font-semibold rounded-xl hover:bg-green-50 transition text-lg">
+                            Build Premium Resume
+                        </Link>
+                    </div>
                     <p className="text-gray-500 mt-4 text-sm">{c.bottomCta.subtext}</p>
                 </div>
             </section>

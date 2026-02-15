@@ -9,7 +9,7 @@ test.describe('SEO Content Pages', () => {
   test.describe('Blog', () => {
     test('should load blog listing page', async ({ page }) => {
       await page.goto('/en/blog');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Blog page should have heading and article cards
       const heading = page.locator('h1');
@@ -23,13 +23,13 @@ test.describe('SEO Content Pages', () => {
 
     test('should navigate to individual blog post', async ({ page }) => {
       await page.goto('/en/blog');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Find and click first blog link
       const blogLink = page.locator('a[href*="/blog/"]').first();
       if (await blogLink.isVisible()) {
         await blogLink.click();
-        await page.waitForLoadState('networkidle');
+        await page.waitForLoadState('domcontentloaded');
 
         // Should be on a blog post page
         expect(page.url()).toContain('/blog/');
@@ -54,7 +54,7 @@ test.describe('SEO Content Pages', () => {
   test.describe('Resume Examples', () => {
     test('should load resume examples listing', async ({ page }) => {
       await page.goto('/en/resume-examples');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Should have heading
       const heading = page.locator('h1');
@@ -68,7 +68,7 @@ test.describe('SEO Content Pages', () => {
 
     test('should navigate to specific resume example', async ({ page }) => {
       await page.goto('/en/resume-examples/software-engineer');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Should have the job title in heading
       const heading = page.locator('h1, h2').first();
@@ -82,7 +82,7 @@ test.describe('SEO Content Pages', () => {
 
     test('should have author attribution on resume examples', async ({ page }) => {
       await page.goto('/en/resume-examples/software-engineer');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Should have author info
       const authorSection = page.locator('[class*="author"], [data-testid="author"]');
@@ -92,15 +92,15 @@ test.describe('SEO Content Pages', () => {
       const authorMeta = page.locator('meta[name="author"]');
       const hasAuthorMeta = await authorMeta.isVisible().catch(() => false);
 
-      // At least one should exist for E-E-A-T
-      expect(hasAuthor || hasAuthorMeta || true).toBe(true); // Soft check
+      // Page should at least have content sections visible
+      await expect(page.locator('main, article, [class*="content"]').first()).toBeVisible();
     });
   });
 
   test.describe('Career Tips', () => {
     test('should load career tips page', async ({ page }) => {
       await page.goto('/en/career-tips');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Should have content
       const content = page.locator('main, article, [class*="content"]').first();
@@ -118,7 +118,7 @@ test.describe('SEO Content Pages', () => {
     for (const alt of alternatives) {
       test(`should load ${alt} page`, async ({ page }) => {
         await page.goto(`/en/${alt}`);
-        await page.waitForLoadState('networkidle');
+        await page.waitForLoadState('domcontentloaded');
 
         // Should have heading
         const heading = page.locator('h1');
@@ -127,7 +127,7 @@ test.describe('SEO Content Pages', () => {
         // Should have comparison content or CTA
         const cta = page.getByRole('link', { name: /build|start|create|try/i }).first();
         const hasCta = await cta.isVisible().catch(() => false);
-        expect(hasCta || true).toBe(true); // Soft check - page loaded is success
+        // Heading visible is the real assertion (line 125) — CTA is optional
       });
     }
   });
@@ -135,7 +135,7 @@ test.describe('SEO Content Pages', () => {
   test.describe('About/Authors', () => {
     test('should load authors listing page', async ({ page }) => {
       await page.goto('/en/about/authors');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
 
       // Should have author cards or list
       const authorLinks = page.locator('a[href*="/about/"]');
@@ -168,7 +168,7 @@ test.describe('SEO Technical Checks', () => {
 
   test('should have proper heading hierarchy', async ({ page }) => {
     await page.goto('/en/resume-examples/software-engineer');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Should have exactly one H1
     const h1s = page.locator('h1');
@@ -184,7 +184,7 @@ test.describe('SEO Technical Checks', () => {
   test('should be mobile responsive', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/en/resume-examples');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Page should render without horizontal overflow
     const body = page.locator('body');

@@ -95,7 +95,7 @@ test.describe('Email Verification Flow', () => {
   test('should display verification page after registration', async ({ page }) => {
     // This test simulates the verification page
     await page.goto('/en/auth/verify-email?email=test@example.com');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check for verification content - verify the page loads
     const hasVerifyContent = await page.getByText(/verify|code|email|check/i).first().isVisible().catch(() => false);
@@ -106,7 +106,7 @@ test.describe('Email Verification Flow', () => {
 
   test('should show error for invalid verification code', async ({ page }) => {
     await page.goto('/en/auth/verify-email?email=test@example.com');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Enter invalid code if input exists
     const codeInput = page.locator('input').first();
@@ -194,7 +194,7 @@ test.describe('First Resume Creation', () => {
 
   test('should show onboarding modal for new users', async ({ page }) => {
     await page.goto('/en/onboarding');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check for onboarding content - page has form or template content
     const hasContent = await page.locator('input, select, [class*="template"]').first().isVisible().catch(() => false);
@@ -214,7 +214,7 @@ test.describe('First Resume Creation', () => {
     await page.goto('/en/builder');
 
     // Wait for page to load
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check for form inputs
     const inputs = await page.locator('input').all();
@@ -228,7 +228,7 @@ test.describe('Complete User Journey', () => {
   test('homepage to builder navigation', async ({ page }) => {
     // Start at homepage
     await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Look for CTA button - actual text is "Get Started Free"
     const ctaButton = page.getByRole('link', { name: /get started/i }).first();
@@ -239,7 +239,7 @@ test.describe('Complete User Journey', () => {
       await ctaButton.click();
 
       // Should navigate somewhere - either same page with modal or different page
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
       await page.waitForTimeout(1000); // Allow time for navigation
 
       // Just verify the page loaded successfully without errors

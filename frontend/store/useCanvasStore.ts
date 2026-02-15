@@ -56,6 +56,8 @@ export interface ShapeElement extends CanvasElement {
     // Image fill properties for clipping images to shapes
     imageSrc?: string; // Base64 or URL of image to fill the shape
     imageFit?: 'cover' | 'contain' | 'fill'; // How the image fits within the shape
+    imageOffsetX?: number; // User-adjustable X pan within shape (0 = centered)
+    imageOffsetY?: number; // User-adjustable Y pan within shape (0 = centered)
 }
 
 export interface IconElement extends CanvasElement {
@@ -72,7 +74,7 @@ export interface CanvasTemplate {
     id: string;
     name: string;
     thumbnail: string;
-    category: 'creative' | 'professional' | 'minimal' | 'modern' | 'ats-friendly';
+    category: 'creative' | 'professional' | 'minimal' | 'modern';
     backgroundColor: string;
     backgroundGradient?: {
         start: string;

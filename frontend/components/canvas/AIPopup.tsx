@@ -226,7 +226,7 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
                     <button
                         onClick={onClose}
                         aria-label="Close"
-                        className="p-2 text-gray-500 hover:text-white hover:bg-gray-200 rounded-lg transition-colors"
+                        className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                     >
                         <X size={20} />
                     </button>

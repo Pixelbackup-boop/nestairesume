@@ -8,7 +8,7 @@ import AxeBuilder from '@axe-core/playwright';
 test.describe('Accessibility', () => {
   test('homepage has no critical or serious axe violations', async ({ page }) => {
     await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa'])
@@ -29,7 +29,7 @@ test.describe('Accessibility', () => {
 
   test('homepage heading hierarchy has no skipped levels', async ({ page }) => {
     await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Scope to main content only — footer/nav have independent heading hierarchies
     const headingLevels = await page.$$eval(
@@ -49,7 +49,7 @@ test.describe('Accessibility', () => {
 
   test('homepage images have alt text', async ({ page }) => {
     await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     const imagesWithoutAlt = await page.$$eval('img', (images) =>
       images
@@ -65,13 +65,11 @@ test.describe('Accessibility', () => {
 
   test('builder page has no critical axe violations', async ({ page }) => {
     await page.goto('/en/builder');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa'])
       .disableRules(['color-contrast'])
-      // Builder has known label issues on dynamically rendered form controls
-      .disableRules(['button-name', 'select-name'])
       .analyze();
 
     const critical = results.violations.filter((v) => v.impact === 'critical');
@@ -86,7 +84,7 @@ test.describe('Accessibility', () => {
 
   test('homepage interactive elements are keyboard-accessible', async ({ page }) => {
     await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check that focusable elements exist
     const focusableSelectors = 'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
@@ -106,7 +104,7 @@ test.describe('Accessibility', () => {
 
   test('homepage links are distinguishable from surrounding text', async ({ page }) => {
     await page.goto('/en');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check inline links within content paragraphs (not nav/footer list links)
     const inlineLinks = await page.$$eval(
