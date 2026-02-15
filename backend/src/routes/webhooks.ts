@@ -50,4 +50,9 @@ router.post("/stripe", async (req: Request, res: Response): Promise<void> => {
   }
 });
 
+// For testing: clear processed events between test runs
+export function clearProcessedEvents(): void {
+  processedEvents.clear();
+}
+
 export default router;

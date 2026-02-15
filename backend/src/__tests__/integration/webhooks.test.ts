@@ -6,6 +6,7 @@
 import request from 'supertest';
 import app from '../../app';
 import { HTTP_STATUS } from '../helpers/testUtils';
+import { clearProcessedEvents } from '../../routes/webhooks';
 
 // Mock Stripe service
 jest.mock('../../services/stripeService', () => ({
@@ -18,6 +19,7 @@ const mockStripeService = jest.requireMock('../../services/stripeService');
 describe('Webhooks API Integration Tests', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    clearProcessedEvents();
   });
 
   // ==================== POST /api/v1/webhooks/stripe ====================

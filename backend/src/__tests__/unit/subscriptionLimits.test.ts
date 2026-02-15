@@ -246,13 +246,14 @@ describe('Subscription Limits Middleware', () => {
     });
 
     describe('Anonymous users', () => {
-      it('should allow anonymous downloads (no user)', async () => {
+      it('should require authentication for downloads', async () => {
         mockReq = { user: undefined };
 
         await checkDownloadLimit(mockReq as any, mockRes as Response, mockNext);
 
-        // Current implementation allows anonymous downloads
-        expect(mockNext).toHaveBeenCalled();
+        // Implementation requires authentication
+        expect(mockRes.status).toHaveBeenCalledWith(401);
+        expect(mockNext).not.toHaveBeenCalled();
       });
     });
   });

@@ -99,6 +99,7 @@ export const generalLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: getClientId,
+  validate: false,
   handler: (_req: Request, res: Response) => {
     const retryAfter = Number(res.getHeader('Retry-After')) || 60;
     res.status(429).json({
@@ -120,6 +121,7 @@ export const pdfLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: getClientId,
+  validate: false,
   handler: (_req: Request, res: Response) => {
     const retryAfter = Number(res.getHeader('Retry-After')) || 60;
     res.status(429).json({
@@ -140,6 +142,7 @@ export const pdfHourlyLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: getClientId,
+  validate: false,
   handler: (_req: Request, res: Response) => {
     const retryAfter = Number(res.getHeader('Retry-After')) || 3600;
     res.status(429).json({
@@ -161,6 +164,7 @@ export const authLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: getClientId,
+  validate: false,
   handler: (_req: Request, res: Response) => {
     res.status(429).json({
       error: 'Too many login attempts',
@@ -191,6 +195,7 @@ export const uploadLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: getClientId,
+  validate: false,
   handler: (_req: Request, res: Response) => {
     const retryAfter = Number(res.getHeader('Retry-After')) || 60;
     res.status(429).json({
@@ -382,6 +387,7 @@ export const contactLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: getClientId,
+  validate: false,
   handler: (_req: Request, res: Response) => {
     res.status(429).json({
       error: 'Too many contact submissions',
