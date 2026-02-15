@@ -217,7 +217,7 @@ router.get("/payments", async (req: AuthRequest, res: Response) => {
 
 // Plan limits management
 router.get("/plans", (_req: AuthRequest, res: Response) => {
-  const plans: Record<string, { name: string; cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number; trialDailyLimit: number }> = {};
+  const plans: Record<string, { name: string; cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number }> = {};
   for (const [key, config] of Object.entries(PLANS)) {
     plans[key] = {
       name: config.name,
@@ -225,7 +225,6 @@ router.get("/plans", (_req: AuthRequest, res: Response) => {
       aiLimit: config.aiLimit,
       downloadLimit: config.downloadLimit,
       coverLetterLimit: config.coverLetterLimit,
-      trialDailyLimit: config.trialDailyLimit,
     };
   }
   res.json(plans);
@@ -241,7 +240,7 @@ router.put("/plans/:planType", async (req: AuthRequest, res: Response): Promise<
       return;
     }
 
-    const { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit } = req.body;
+    const { cvLimit, aiLimit, downloadLimit, coverLetterLimit } = req.body;
 
     // Update in-memory plan limits directly (no DB table)
     const plan = PLANS[planType as PlanType];
@@ -250,7 +249,6 @@ router.put("/plans/:planType", async (req: AuthRequest, res: Response): Promise<
       if (aiLimit !== undefined) plan.aiLimit = aiLimit;
       if (downloadLimit !== undefined) plan.downloadLimit = downloadLimit;
       if (coverLetterLimit !== undefined) plan.coverLetterLimit = coverLetterLimit;
-      if (trialDailyLimit !== undefined) plan.trialDailyLimit = trialDailyLimit;
     }
 
     res.json({ success: true, plan: PLANS[planType as PlanType] });

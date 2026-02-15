@@ -31,10 +31,10 @@ jest.mock('../../services/stripeService', () => ({
   handleWebhookEvent: jest.fn(),
   constructWebhookEvent: jest.fn(),
   PLANS: {
-    starter: { cvLimit: 30, aiLimit: 50, downloadLimit: 3, coverLetterLimit: 10, trialDailyLimit: 3, hasTrial: false },
-    gold: { cvLimit: 150, aiLimit: 100, downloadLimit: 10, coverLetterLimit: 30, trialDailyLimit: 5, hasTrial: true },
-    diamond: { cvLimit: 300, aiLimit: 200, downloadLimit: 25, coverLetterLimit: 50, trialDailyLimit: 10, hasTrial: true },
-    platinum: { cvLimit: -1, aiLimit: 500, downloadLimit: 120, coverLetterLimit: -1, trialDailyLimit: 15, hasTrial: false },
+    starter: { cvLimit: 30, aiLimit: 50, downloadLimit: 3, coverLetterLimit: 10 },
+    gold: { cvLimit: 150, aiLimit: 100, downloadLimit: 10, coverLetterLimit: 30 },
+    diamond: { cvLimit: 300, aiLimit: 200, downloadLimit: 25, coverLetterLimit: 50 },
+    platinum: { cvLimit: -1, aiLimit: 500, downloadLimit: 120, coverLetterLimit: -1 },
   },
 }));
 
@@ -125,18 +125,17 @@ describe('Complete Subscription Purchase Flow', () => {
   });
 
   // ================================================================
-  // SCENARIO 2: New user purchases GOLD plan with 7-day trial
+  // SCENARIO 2: New user purchases GOLD plan with immediate billing
   // ================================================================
-  describe('Scenario: New user purchases GOLD plan (with trial)', () => {
-    it('Step 1: User initiates checkout for GOLD (includes trial)', async () => {
+  describe('Scenario: New user purchases GOLD plan (immediate billing)', () => {
+    it('Step 1: User initiates checkout for GOLD', async () => {
       const freeUser = createTestUser({
         subscriptionTier: 'free',
-        hasUsedTrial: false,
       });
       const token = generateTestToken(freeUser);
 
       mockStripeService.createCheckoutSession.mockResolvedValue(
-        'https://checkout.stripe.com/pay/cs_test_gold_trial123'
+        'https://checkout.stripe.com/pay/cs_test_gold123'
       );
 
       const response = await request(app)
@@ -147,59 +146,45 @@ describe('Complete Subscription Purchase Flow', () => {
       expect(response.status).toBe(HTTP_STATUS.OK);
     });
 
-    it('Step 2: After signup, user is in TRIALING status', async () => {
-      const trialEndsAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-
-      const goldTrialUser = createTestUser({
-        subscriptionTier: 'gold',
-        subscriptionStatus: 'trialing',
-        trialEndsAt,
-        hasUsedTrial: true,
-        aiUsedToday: 0,
-      });
-
-      expect(goldTrialUser.subscriptionStatus).toBe('trialing');
-      expect(goldTrialUser.hasUsedTrial).toBe(true);
-    });
-
-    it('Step 3: Trial user has DAILY AI limit (5/day) instead of monthly', async () => {
-      const goldTrialUser = createTestUser({
-        subscriptionTier: 'gold',
-        subscriptionStatus: 'trialing',
-        aiUsedToday: 4, // Used 4 today
-      });
-
-      // Trial daily limit is 5
-      expect(goldTrialUser.aiUsedToday).toBeLessThan(PLAN_LIMITS.gold.trialDailyLimit);
-
-      // At limit
-      const userAtDailyLimit = { ...goldTrialUser, aiUsedToday: 5 };
-      expect(userAtDailyLimit.aiUsedToday >= PLAN_LIMITS.gold.trialDailyLimit).toBe(true);
-    });
-
-    it('Step 4: After trial ends, user has MONTHLY limit (10/month)', async () => {
+    it('Step 2: After payment, user is immediately ACTIVE', async () => {
       const goldActiveUser = createTestUser({
         subscriptionTier: 'gold',
-        subscriptionStatus: 'active', // No longer trialing
-        trialEndsAt: null,
-        aiUsedCount: 9,
+        subscriptionStatus: 'active',
+        stripeCustomerId: 'cus_test_gold123',
+        subscriptionId: 'sub_test_gold123',
+        aiUsedCount: 0,
       });
 
-      // Monthly limit is 10
-      expect(goldActiveUser.aiUsedCount).toBeLessThan(PLAN_LIMITS.gold.aiLimit);
+      expect(goldActiveUser.subscriptionStatus).toBe('active');
+      expect(goldActiveUser.subscriptionTier).toBe('gold');
     });
 
-    it('Step 5: User who already used trial does NOT get another trial', async () => {
-      const returningUser = createTestUser({
-        subscriptionTier: 'expired',
-        hasUsedTrial: true, // Already used trial before
+    it('Step 3: GOLD user has MONTHLY AI limit (100/month)', async () => {
+      const goldActiveUser = createTestUser({
+        subscriptionTier: 'gold',
+        subscriptionStatus: 'active',
+        aiUsedCount: 99,
       });
 
-      // Plan config shows gold has trial
-      expect(mockStripeService.PLANS.gold.hasTrial).toBe(true);
-      // But user already used it
-      expect(returningUser.hasUsedTrial).toBe(true);
-      // So they won't get trial again (business logic)
+      // Monthly limit is 100
+      expect(goldActiveUser.aiUsedCount).toBeLessThan(PLAN_LIMITS.gold.aiLimit);
+
+      // At limit
+      const userAtLimit = { ...goldActiveUser, aiUsedCount: 100 };
+      expect(userAtLimit.aiUsedCount >= PLAN_LIMITS.gold.aiLimit).toBe(true);
+    });
+
+    it('Step 4: GOLD user can create up to 150 CVs', async () => {
+      const goldUser = createTestUser({
+        subscriptionTier: 'gold',
+        subscriptionStatus: 'active',
+        cvCreatedCount: 149,
+      });
+
+      expect(goldUser.cvCreatedCount).toBeLessThan(PLAN_LIMITS.gold.cvLimit);
+
+      const userAtLimit = { ...goldUser, cvCreatedCount: 150 };
+      expect(userAtLimit.cvCreatedCount >= PLAN_LIMITS.gold.cvLimit).toBe(true);
     });
   });
 
@@ -386,7 +371,6 @@ describe('Complete Subscription Purchase Flow', () => {
           downloadLimit: 3,
           coverLetterLimit: 10,
         },
-        isTrialing: false,
       });
 
       const response = await request(app)
@@ -399,24 +383,22 @@ describe('Complete Subscription Purchase Flow', () => {
       expect(response.body.limits.aiLimit).toBe(50);
     });
 
-    it('GET /payments/status returns correct limits for GOLD trial', async () => {
-      const goldTrialUser = createTestUser({
+    it('GET /payments/status returns correct limits for GOLD active', async () => {
+      const goldUser = createTestUser({
         subscriptionTier: 'gold',
-        subscriptionStatus: 'trialing',
+        subscriptionStatus: 'active',
       });
-      const token = generateTestToken(goldTrialUser);
+      const token = generateTestToken(goldUser);
 
       mockStripeService.getSubscriptionStatus.mockResolvedValue({
         subscriptionTier: 'gold',
-        subscriptionStatus: 'trialing',
+        subscriptionStatus: 'active',
         limits: {
           cvLimit: 150,
           aiLimit: 100,
           downloadLimit: 10,
           coverLetterLimit: 30,
-          dailyLimit: 5, // Trial daily limit
         },
-        isTrialing: true,
       });
 
       const response = await request(app)
@@ -424,8 +406,9 @@ describe('Complete Subscription Purchase Flow', () => {
         .set('Authorization', `Bearer ${token}`);
 
       expect(response.status).toBe(HTTP_STATUS.OK);
-      expect(response.body.isTrialing).toBe(true);
-      expect(response.body.limits.dailyLimit).toBe(5);
+      expect(response.body.subscriptionTier).toBe('gold');
+      expect(response.body.limits.cvLimit).toBe(150);
+      expect(response.body.limits.aiLimit).toBe(100);
     });
 
     it('GET /payments/status returns UNLIMITED (-1) for PLATINUM', async () => {
@@ -444,7 +427,6 @@ describe('Complete Subscription Purchase Flow', () => {
           downloadLimit: 120,
           coverLetterLimit: -1,
         },
-        isTrialing: false,
       });
 
       const response = await request(app)

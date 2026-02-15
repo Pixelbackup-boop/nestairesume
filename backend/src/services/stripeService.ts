@@ -17,8 +17,6 @@ interface PlanConfig {
   aiLimit: number;       // AI CV generations per month
   downloadLimit: number; // PDF downloads per month (-1 = unlimited)
   coverLetterLimit: number; // Cover letters per month (-1 = unlimited)
-  trialDailyLimit: number; // AI generations per day during trial
-  hasTrial: boolean;     // Whether plan offers free trial
 }
 
 export const PLANS: Record<PlanType, PlanConfig> = {
@@ -30,8 +28,6 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     aiLimit: 50,
     downloadLimit: 3,
     coverLetterLimit: 10,
-    trialDailyLimit: 3,
-    hasTrial: false, // No trial - charges immediately
   },
   gold: {
     name: "Gold",
@@ -41,8 +37,6 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     aiLimit: 100,
     downloadLimit: 10,
     coverLetterLimit: 30,
-    trialDailyLimit: 5,
-    hasTrial: true, // 7-day free trial
   },
   diamond: {
     name: "Diamond",
@@ -52,8 +46,6 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     aiLimit: 200,
     downloadLimit: 25,
     coverLetterLimit: 50,
-    trialDailyLimit: 10,
-    hasTrial: true, // 7-day free trial
   },
   platinum: {
     name: "Platinum",
@@ -63,13 +55,8 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     aiLimit: 500,
     downloadLimit: 120,
     coverLetterLimit: -1, // Unlimited
-    trialDailyLimit: 15,
-    hasTrial: false, // No trial - charges immediately
   },
 };
-
-// Trial period in days
-const TRIAL_PERIOD_DAYS = 7;
 
 // Create or get Stripe customer
 export const getOrCreateCustomer = async (userId: string, email: string, name: string): Promise<string> => {
@@ -111,11 +98,8 @@ export const createCheckoutSession = async (
 
   const customerId = await getOrCreateCustomer(userId, email, name);
 
-  // Check if plan offers trial AND user hasn't used trial before
-  const user = await prisma.user.findUnique({ where: { id: userId } });
-  const canUseTrial = planConfig.hasTrial && !user?.hasUsedTrial;
-
   // Cancel existing subscription to prevent double-charging
+  const user = await prisma.user.findUnique({ where: { id: userId } });
   if (user?.subscriptionId) {
     try {
       await stripe.subscriptions.cancel(user.subscriptionId);
@@ -134,9 +118,6 @@ export const createCheckoutSession = async (
         quantity: 1,
       },
     ],
-    subscription_data: canUseTrial ? {
-      trial_period_days: TRIAL_PERIOD_DAYS,
-    } : undefined,
     success_url: `${config.frontendUrl}/checkout/success?plan=${plan}`,
     cancel_url: `${config.frontendUrl}/checkout?plan=${plan}&payment=cancelled`,
     metadata: {
@@ -224,29 +205,13 @@ const handleCheckoutComplete = async (session: Stripe.Checkout.Session): Promise
     },
   });
 
-  // Calculate trial end date if on trial
-  let trialEndsAt: Date | null = null;
-  let subscriptionStatus = "active";
-
-  if (session.subscription) {
-    // Fetch subscription to check trial status
-    const subscription = await stripe?.subscriptions.retrieve(session.subscription as string);
-    if (subscription?.trial_end) {
-      trialEndsAt = new Date(subscription.trial_end * 1000);
-      subscriptionStatus = "trialing";
-    }
-  }
-
-  // Update user with subscription info and trial tracking
+  // Update user with subscription info
   await prisma.user.update({
     where: { id: userId },
     data: {
       subscriptionTier: plan,
       subscriptionId: session.subscription as string || null,
-      subscriptionStatus,
-      // Trial tracking
-      trialEndsAt,
-      hasUsedTrial: trialEndsAt ? true : undefined,
+      subscriptionStatus: "active",
       // Reset usage counters for new subscription
       cvCreatedCount: 0,
       aiUsedCount: 0,
@@ -294,7 +259,6 @@ const handleSubscriptionDeleted = async (subscription: Stripe.Subscription): Pro
       subscriptionTier: "expired", // No "free" tier - must resubscribe
       subscriptionId: null,
       subscriptionStatus: "canceled",
-      trialEndsAt: null,
     },
   });
 };
@@ -334,8 +298,7 @@ const handleInvoicePaid = async (invoice: Stripe.Invoice): Promise<void> => {
       downloadCount: 0,
       coverLetterCount: 0,
       lastAiResetDate: new Date(),
-      subscriptionStatus: "active", // No longer trialing after first payment
-      trialEndsAt: null,
+      subscriptionStatus: "active",
     },
   });
 };
@@ -378,7 +341,6 @@ export const getSubscriptionStatus = async (userId: string) => {
       subscriptionTier: true,
       subscriptionStatus: true,
       stripeCustomerId: true,
-      trialEndsAt: true,
       cvCreatedCount: true,
       aiUsedCount: true,
       aiUsedToday: true,
@@ -388,7 +350,6 @@ export const getSubscriptionStatus = async (userId: string) => {
   if (!user) return null;
 
   const plan = PLANS[user.subscriptionTier as PlanType];
-  const isTrialing = user.subscriptionStatus === "trialing";
 
   return {
     ...user,
@@ -398,9 +359,7 @@ export const getSubscriptionStatus = async (userId: string) => {
       aiLimit: plan.aiLimit,
       downloadLimit: plan.downloadLimit,
       coverLetterLimit: plan.coverLetterLimit,
-      dailyLimit: isTrialing ? plan.trialDailyLimit : plan.aiLimit,
     } : null,
-    isTrialing,
   };
 };
 

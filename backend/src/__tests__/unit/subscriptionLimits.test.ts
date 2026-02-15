@@ -21,7 +21,6 @@ import {
   createGoldUser,
   createDiamondUser,
   createPlatinumUser,
-  createTrialUser,
   PLAN_LIMITS,
   HTTP_STATUS,
   ERROR_CODES,
@@ -308,66 +307,6 @@ describe('Subscription Limits Middleware', () => {
       });
     });
 
-    describe('Trial daily limits', () => {
-      it('GOLD TRIAL: should allow up to 4 AI/day', async () => {
-        const user = createTrialUser({
-          subscriptionTier: 'gold',
-          aiUsedToday: 4,
-          aiUsedCount: 4,
-          lastAiResetDate: new Date(),
-        });
-        mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
-        (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
-
-        await checkAiLimit(mockReq as any, mockRes as Response, mockNext);
-
-        expect(mockNext).toHaveBeenCalled();
-      });
-
-      it('GOLD TRIAL: should BLOCK at 5 AI/day', async () => {
-        const user = createTrialUser({
-          subscriptionTier: 'gold',
-          aiUsedToday: 5,
-          aiUsedCount: 5,
-          lastAiResetDate: new Date(),
-        });
-        mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
-        (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
-
-        await checkAiLimit(mockReq as any, mockRes as Response, mockNext);
-
-        expect(mockNext).not.toHaveBeenCalled();
-        expect(jsonMock).toHaveBeenCalledWith(
-          expect.objectContaining({
-            code: ERROR_CODES.TRIAL_DAILY_LIMIT_REACHED,
-          })
-        );
-      });
-
-      it('TRIAL: should reset daily counter on new day', async () => {
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-
-        const user = createTrialUser({
-          aiUsedToday: 5, // Was at limit yesterday
-          aiUsedCount: 5,
-          lastAiResetDate: yesterday,
-        });
-        mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
-        (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(user);
-        (mockPrisma.user.update as jest.Mock).mockResolvedValue({ ...user, aiUsedToday: 0 });
-
-        await checkAiLimit(mockReq as any, mockRes as Response, mockNext);
-
-        // Should have reset the counter
-        expect(mockPrisma.user.update).toHaveBeenCalledWith(
-          expect.objectContaining({
-            data: expect.objectContaining({ aiUsedToday: 0 }),
-          })
-        );
-        expect(mockNext).toHaveBeenCalled();
-      });
-    });
   });
 
   // ==================== USAGE STATUS TESTS ====================

@@ -42,14 +42,6 @@ export const createDiamondUser = (overrides = {}) =>
 export const createPlatinumUser = (overrides = {}) =>
   createTestUser({ subscriptionTier: 'platinum', subscriptionStatus: 'active', ...overrides });
 
-export const createTrialUser = (overrides = {}) =>
-  createTestUser({
-    subscriptionTier: 'gold',
-    subscriptionStatus: 'trialing',
-    trialEndsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
-    ...overrides,
-  });
-
 export const createAdminUser = (overrides = {}) =>
   createTestUser({ role: 'admin', ...overrides });
 
@@ -117,28 +109,24 @@ export const PLAN_LIMITS = {
     aiLimit: 50,
     downloadLimit: 3,
     coverLetterLimit: 10,
-    trialDailyLimit: 3,
   },
   gold: {
     cvLimit: 150,
     aiLimit: 100,
     downloadLimit: 10,
     coverLetterLimit: 30,
-    trialDailyLimit: 5,
   },
   diamond: {
     cvLimit: 300,
     aiLimit: 200,
     downloadLimit: 25,
     coverLetterLimit: 50,
-    trialDailyLimit: 10,
   },
   platinum: {
     cvLimit: -1, // Unlimited
     aiLimit: 500,
     downloadLimit: 120,
     coverLetterLimit: -1, // Unlimited
-    trialDailyLimit: 15,
   },
 };
 
@@ -160,6 +148,5 @@ export const ERROR_CODES = {
   AI_LIMIT_REACHED: 'AI_LIMIT_REACHED',
   DOWNLOAD_LIMIT_REACHED: 'DOWNLOAD_LIMIT_REACHED',
   COVER_LETTER_LIMIT_REACHED: 'COVER_LETTER_LIMIT_REACHED',
-  TRIAL_DAILY_LIMIT_REACHED: 'TRIAL_DAILY_LIMIT_REACHED',
   SUBSCRIPTION_REQUIRED: 'SUBSCRIPTION_REQUIRED',
 };

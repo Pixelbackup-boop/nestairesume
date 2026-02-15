@@ -13,7 +13,6 @@ import {
   createStarterUser,
   createGoldUser,
   createPlatinumUser,
-  createTrialUser,
   PLAN_LIMITS,
 } from '../helpers/testUtils';
 
@@ -46,9 +45,6 @@ describe('Stripe Service', () => {
         expect(PLANS.starter.coverLetterLimit).toBe(10);
       });
 
-      it('should NOT have trial (hasTrial: false)', () => {
-        expect(PLANS.starter.hasTrial).toBe(false);
-      });
     });
 
     describe('Gold Plan', () => {
@@ -64,13 +60,6 @@ describe('Stripe Service', () => {
         expect(PLANS.gold.downloadLimit).toBe(10);
       });
 
-      it('should have correct trial daily limit (5)', () => {
-        expect(PLANS.gold.trialDailyLimit).toBe(5);
-      });
-
-      it('should have 7-day trial (hasTrial: true)', () => {
-        expect(PLANS.gold.hasTrial).toBe(true);
-      });
     });
 
     describe('Diamond Plan', () => {
@@ -86,13 +75,6 @@ describe('Stripe Service', () => {
         expect(PLANS.diamond.downloadLimit).toBe(25);
       });
 
-      it('should have correct trial daily limit (10)', () => {
-        expect(PLANS.diamond.trialDailyLimit).toBe(10);
-      });
-
-      it('should have 7-day trial (hasTrial: true)', () => {
-        expect(PLANS.diamond.hasTrial).toBe(true);
-      });
     });
 
     describe('Platinum Plan', () => {
@@ -112,9 +94,6 @@ describe('Stripe Service', () => {
         expect(PLANS.platinum.coverLetterLimit).toBe(-1);
       });
 
-      it('should NOT have trial (hasTrial: false)', () => {
-        expect(PLANS.platinum.hasTrial).toBe(false);
-      });
     });
 
     describe('Plan Hierarchy', () => {
@@ -148,8 +127,6 @@ describe('Stripe Service', () => {
           'aiLimit',
           'downloadLimit',
           'coverLetterLimit',
-          'trialDailyLimit',
-          'hasTrial',
         ];
 
         Object.values(PLANS).forEach((plan) => {
@@ -203,40 +180,6 @@ describe('Stripe Service', () => {
       const status = await getSubscriptionStatus('non-existent-id');
 
       expect(status).toBeNull();
-    });
-
-    it('should indicate trial status', async () => {
-      const trialUser = createTrialUser({
-        trialEndsAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), // 5 days left
-      });
-
-      (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(trialUser);
-
-      const status = await getSubscriptionStatus(trialUser.id);
-
-      expect(status?.isTrialing).toBe(true);
-      expect(status?.trialEndsAt).toBeDefined();
-    });
-
-    it('should return daily limit for trial users', async () => {
-      const trialUser = createTrialUser({ subscriptionTier: 'gold' });
-
-      (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(trialUser);
-
-      const status = await getSubscriptionStatus(trialUser.id);
-
-      expect(status?.limits?.dailyLimit).toBe(PLANS.gold.trialDailyLimit);
-    });
-
-    it('should return monthly limit for non-trial users', async () => {
-      const activeUser = createGoldUser();
-
-      (mockPrisma.user.findUnique as jest.Mock).mockResolvedValue(activeUser);
-
-      const status = await getSubscriptionStatus(activeUser.id);
-
-      expect(status?.isTrialing).toBe(false);
-      expect(status?.limits?.dailyLimit).toBe(PLANS.gold.aiLimit);
     });
 
     it('should handle platinum unlimited limits', async () => {
@@ -300,7 +243,7 @@ describe('Stripe Webhook Handlers', () => {
     it('should reset usage counters on invoice paid', () => {
       // This tests that after invoice.paid webhook:
       // 1. All monthly counters reset to 0
-      // 2. Trial ends (subscriptionStatus -> active)
+      // 2. subscriptionStatus confirmed as active
       expect(true).toBe(true); // Placeholder
     });
   });

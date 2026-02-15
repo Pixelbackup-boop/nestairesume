@@ -21,7 +21,6 @@ import {
   createGoldUser,
   createDiamondUser,
   createPlatinumUser,
-  createTrialUser,
   createSuspendedUser,
   generateTestToken,
   PLAN_LIMITS,
@@ -295,47 +294,6 @@ describe('Subscription Limits Integration Tests', () => {
   });
 
   // ================================================================
-  // TRIAL USER LIMITS (Daily limits during trial period)
-  // ================================================================
-  describe('Trial User Daily Limits', () => {
-    describe('GOLD Trial - 5 AI/day', () => {
-      it('should ALLOW AI when trial user has 4 AI/day (limit-1)', async () => {
-        const user = createTrialUser({
-          subscriptionTier: 'gold',
-          aiUsedToday: 4,
-        });
-        expect(user.aiUsedToday).toBeLessThan(PLAN_LIMITS.gold.trialDailyLimit);
-      });
-
-      it('should BLOCK AI when trial user has 5 AI/day (at limit)', async () => {
-        const user = createTrialUser({
-          subscriptionTier: 'gold',
-          aiUsedToday: 5,
-        });
-        expect(user.aiUsedToday).toBeGreaterThanOrEqual(PLAN_LIMITS.gold.trialDailyLimit);
-      });
-    });
-
-    describe('DIAMOND Trial - 10 AI/day', () => {
-      it('should ALLOW AI when trial user has 9 AI/day (limit-1)', async () => {
-        const user = createTrialUser({
-          subscriptionTier: 'diamond',
-          aiUsedToday: 9,
-        });
-        expect(user.aiUsedToday).toBeLessThan(PLAN_LIMITS.diamond.trialDailyLimit);
-      });
-
-      it('should BLOCK AI when trial user has 10 AI/day (at limit)', async () => {
-        const user = createTrialUser({
-          subscriptionTier: 'diamond',
-          aiUsedToday: 10,
-        });
-        expect(user.aiUsedToday).toBeGreaterThanOrEqual(PLAN_LIMITS.diamond.trialDailyLimit);
-      });
-    });
-  });
-
-  // ================================================================
   // SUSPENDED USER ACCESS
   // ================================================================
   describe('Suspended User Access', () => {
@@ -369,7 +327,6 @@ describe('Subscription Limits Integration Tests', () => {
         aiLimit: 50,
         downloadLimit: 3,
         coverLetterLimit: 10,
-        trialDailyLimit: 3,
       });
     });
 
@@ -379,7 +336,6 @@ describe('Subscription Limits Integration Tests', () => {
         aiLimit: 100,
         downloadLimit: 10,
         coverLetterLimit: 30,
-        trialDailyLimit: 5,
       });
     });
 
@@ -389,7 +345,6 @@ describe('Subscription Limits Integration Tests', () => {
         aiLimit: 200,
         downloadLimit: 25,
         coverLetterLimit: 50,
-        trialDailyLimit: 10,
       });
     });
 
@@ -399,7 +354,6 @@ describe('Subscription Limits Integration Tests', () => {
         aiLimit: 500,
         downloadLimit: 120,
         coverLetterLimit: -1, // Unlimited
-        trialDailyLimit: 15,
       });
     });
   });

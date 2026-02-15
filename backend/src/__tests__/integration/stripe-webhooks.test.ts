@@ -6,7 +6,6 @@
  * - Subscription creation/updates
  * - Payment success/failure
  * - Subscription cancellation
- * - Trial handling
  *
  * NOTE: These tests mock Stripe - they don't require real Stripe credentials.
  * For real Stripe testing with test cards, use the E2E tests manually.
@@ -19,7 +18,6 @@ import {
   createTestUser,
   createStarterUser,
   createGoldUser,
-  createTrialUser,
   generateTestToken,
   HTTP_STATUS,
   PLAN_LIMITS,
@@ -47,8 +45,6 @@ jest.mock('../../services/stripeService', () => ({
       aiLimit: 50,
       downloadLimit: 3,
       coverLetterLimit: 10,
-      trialDailyLimit: 3,
-      hasTrial: false,
     },
     gold: {
       name: 'Gold',
@@ -58,8 +54,6 @@ jest.mock('../../services/stripeService', () => ({
       aiLimit: 100,
       downloadLimit: 10,
       coverLetterLimit: 30,
-      trialDailyLimit: 5,
-      hasTrial: true,
     },
     diamond: {
       name: 'Diamond',
@@ -69,8 +63,6 @@ jest.mock('../../services/stripeService', () => ({
       aiLimit: 200,
       downloadLimit: 25,
       coverLetterLimit: 50,
-      trialDailyLimit: 10,
-      hasTrial: true,
     },
     platinum: {
       name: 'Platinum',
@@ -80,8 +72,6 @@ jest.mock('../../services/stripeService', () => ({
       aiLimit: 500,
       downloadLimit: 120,
       coverLetterLimit: -1,
-      trialDailyLimit: 15,
-      hasTrial: false,
     },
   },
 }));
@@ -119,8 +109,8 @@ describe('Stripe Integration Tests', () => {
       );
     });
 
-    it('should create checkout session for GOLD plan with trial', async () => {
-      const user = createTestUser({ hasUsedTrial: false });
+    it('should create checkout session for GOLD plan', async () => {
+      const user = createTestUser();
       const token = generateTestToken(user);
       const checkoutUrl = 'https://checkout.stripe.com/test-session-gold';
 
@@ -215,12 +205,9 @@ describe('Stripe Integration Tests', () => {
           aiLimit: PLAN_LIMITS.starter.aiLimit,
           downloadLimit: PLAN_LIMITS.starter.downloadLimit,
           coverLetterLimit: PLAN_LIMITS.starter.coverLetterLimit,
-          dailyLimit: PLAN_LIMITS.starter.aiLimit,
         },
         cvCreatedCount: 10,
         aiUsedCount: 1,
-        aiUsedToday: 0,
-        isTrialing: false,
       });
 
       const response = await request(app)
@@ -233,23 +220,19 @@ describe('Stripe Integration Tests', () => {
       expect(response.body.limits.cvLimit).toBe(30);
     });
 
-    it('should return status for GOLD trial user', async () => {
-      const trialEndsAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-      const user = createTrialUser({ subscriptionTier: 'gold' });
+    it('should return status for GOLD active user', async () => {
+      const user = createGoldUser();
       const token = generateTestToken(user);
 
       (mockStripeService.getSubscriptionStatus as jest.Mock).mockResolvedValue({
         subscriptionTier: 'gold',
-        subscriptionStatus: 'trialing',
-        trialEndsAt,
+        subscriptionStatus: 'active',
         limits: {
           cvLimit: PLAN_LIMITS.gold.cvLimit,
           aiLimit: PLAN_LIMITS.gold.aiLimit,
           downloadLimit: PLAN_LIMITS.gold.downloadLimit,
           coverLetterLimit: PLAN_LIMITS.gold.coverLetterLimit,
-          dailyLimit: PLAN_LIMITS.gold.trialDailyLimit, // Trial daily limit
         },
-        isTrialing: true,
       });
 
       const response = await request(app)
@@ -258,8 +241,7 @@ describe('Stripe Integration Tests', () => {
 
       expect(response.status).toBe(HTTP_STATUS.OK);
       expect(response.body.subscriptionTier).toBe('gold');
-      expect(response.body.isTrialing).toBe(true);
-      expect(response.body.limits.dailyLimit).toBe(PLAN_LIMITS.gold.trialDailyLimit);
+      expect(response.body.subscriptionStatus).toBe('active');
     });
 
     it('should return status for PLATINUM user with unlimited limits', async () => {
@@ -274,9 +256,7 @@ describe('Stripe Integration Tests', () => {
           aiLimit: 500,
           downloadLimit: 120,
           coverLetterLimit: -1, // Unlimited
-          dailyLimit: 100,
         },
-        isTrialing: false,
       });
 
       const response = await request(app)
@@ -302,41 +282,28 @@ describe('Stripe Integration Tests', () => {
   // ================================================================
   describe('Subscription Lifecycle', () => {
     describe('New Subscription', () => {
-      it('should activate STARTER subscription immediately (no trial)', () => {
+      it('should activate STARTER subscription immediately', () => {
         const plan = (mockStripeService as any).PLANS.starter;
-        expect(plan.hasTrial).toBe(false);
+        expect(plan.cvLimit).toBe(30);
+        expect(plan.aiLimit).toBe(50);
       });
 
-      it('should start GOLD subscription with 7-day trial', () => {
+      it('should activate GOLD subscription immediately', () => {
         const plan = (mockStripeService as any).PLANS.gold;
-        expect(plan.hasTrial).toBe(true);
+        expect(plan.cvLimit).toBe(150);
+        expect(plan.aiLimit).toBe(100);
       });
 
-      it('should start DIAMOND subscription with 7-day trial', () => {
+      it('should activate DIAMOND subscription immediately', () => {
         const plan = (mockStripeService as any).PLANS.diamond;
-        expect(plan.hasTrial).toBe(true);
+        expect(plan.cvLimit).toBe(300);
+        expect(plan.aiLimit).toBe(200);
       });
 
-      it('should activate PLATINUM subscription immediately (no trial)', () => {
+      it('should activate PLATINUM subscription immediately', () => {
         const plan = (mockStripeService as any).PLANS.platinum;
-        expect(plan.hasTrial).toBe(false);
-      });
-    });
-
-    describe('Trial to Active Transition', () => {
-      it('trial user should have daily AI limits', () => {
-        // During trial, daily limit applies
-        const goldTrialDailyLimit = PLAN_LIMITS.gold.trialDailyLimit;
-        const goldMonthlyLimit = PLAN_LIMITS.gold.aiLimit;
-
-        expect(goldTrialDailyLimit).toBe(5);
-        expect(goldMonthlyLimit).toBe(100);
-        expect(goldTrialDailyLimit).toBeLessThan(goldMonthlyLimit);
-      });
-
-      it('active user should have monthly AI limits', () => {
-        const goldMonthlyLimit = PLAN_LIMITS.gold.aiLimit;
-        expect(goldMonthlyLimit).toBe(100);
+        expect(plan.cvLimit).toBe(-1);
+        expect(plan.aiLimit).toBe(500);
       });
     });
 

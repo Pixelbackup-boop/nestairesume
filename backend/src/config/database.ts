@@ -15,6 +15,10 @@ const prisma = new PrismaClient({
 function appendPoolParams(url: string): string {
   if (!url || url.startsWith("file:")) return url; // SQLite dev DB
   if (url.includes("connection_limit")) return url; // Already configured
+  // Cloud SQL socket URLs (host=/cloudsql/...) contain colons that break
+  // Prisma's URL parser when additional query params are appended.
+  // Prisma's built-in pool (num_cpus * 2 + 1) is sufficient for Cloud Run.
+  if (url.includes("/cloudsql/")) return url;
   const separator = url.includes("?") ? "&" : "?";
   return `${url}${separator}connection_limit=5&pool_timeout=10`;
 }
