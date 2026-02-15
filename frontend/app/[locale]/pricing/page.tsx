@@ -12,6 +12,15 @@ import api from "@/lib/api";
 
 type PlanType = "starter" | "gold" | "diamond" | "platinum";
 
+type PlanLimitValues = { cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number };
+
+const DEFAULT_PLAN_LIMITS: Record<string, PlanLimitValues> = {
+  starter:  { cvLimit: 30,  aiLimit: 50,  downloadLimit: 3,   coverLetterLimit: 10 },
+  gold:     { cvLimit: 150, aiLimit: 100, downloadLimit: 10,  coverLetterLimit: 30 },
+  diamond:  { cvLimit: 300, aiLimit: 200, downloadLimit: 25,  coverLetterLimit: 50 },
+  platinum: { cvLimit: -1,  aiLimit: 500, downloadLimit: 120, coverLetterLimit: -1 },
+};
+
 export default function PricingPage() {
   const t = useTranslations("Pricing");
   const locale = useLocale();
@@ -21,9 +30,7 @@ export default function PricingPage() {
   const [loadingPlan, setLoadingPlan] = useState<PlanType | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<PlanType>('diamond');
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
-  const [planLimits, setPlanLimits] = useState<Record<string, {
-    cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number;
-  }> | null>(null);
+  const [planLimits, setPlanLimits] = useState<Record<string, PlanLimitValues>>(DEFAULT_PLAN_LIMITS);
 
   // Fetch plan limits from backend (single source of truth)
   useEffect(() => {

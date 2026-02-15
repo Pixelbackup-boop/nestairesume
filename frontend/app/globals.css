@@ -1132,22 +1132,6 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
   animation: ambient-glow-alt 2.5s ease-in-out 0.5s infinite;
 }
 
-/* Free badge — static eye-catching pill */
-.free-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.625rem 1.75rem;
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #fff;
-  background: linear-gradient(135deg, #00dc82, #00f5c4);
-  border-radius: 9999px;
-  box-shadow: 0 4px 16px rgba(0, 220, 130, 0.4);
-}
-
 /* Stagger delay classes for sequential animations */
 .delay-0 { animation-delay: 0ms; }
 .delay-75 { animation-delay: 75ms; }
