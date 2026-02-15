@@ -62,7 +62,9 @@ export function useModalState<T>({
 
   // Store initial state in ref to avoid stale closure issues
   const initialStateRef = useRef(initialState);
-  initialStateRef.current = initialState;
+  useEffect(() => {
+    initialStateRef.current = initialState;
+  }, [initialState]);
 
   // Reset state when modal opens
   useEffect(() => {
