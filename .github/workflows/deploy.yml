@@ -122,17 +122,22 @@ jobs:
         run: |
           BACKEND_URL=$(gcloud run services describe resume-backend --region ${{ env.GCP_REGION }} --format 'value(status.url)')
           echo "Backend URL: $BACKEND_URL"
-          # Wait for the new revision to be ready
-          sleep 10
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$BACKEND_URL/health" --max-time 30)
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "Health check failed with HTTP $HTTP_CODE. Rolling back..."
-            gcloud run services update-traffic resume-backend \
-              --region ${{ env.GCP_REGION }} \
-              --to-revisions=LATEST=0
-            exit 1
-          fi
-          echo "Health check passed (HTTP $HTTP_CODE)"
+          # Retry health check up to 5 times (cold start + DB connection can take 30-60s)
+          for i in 1 2 3 4 5; do
+            echo "Health check attempt $i..."
+            sleep 15
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$BACKEND_URL/health" --max-time 30)
+            echo "HTTP $HTTP_CODE"
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "Health check passed"
+              exit 0
+            fi
+          done
+          echo "Health check failed after 5 attempts. Rolling back..."
+          gcloud run services update-traffic resume-backend \
+            --region ${{ env.GCP_REGION }} \
+            --to-revisions=LATEST=0
+          exit 1
 
   # ============================================
   # Deploy Frontend to Cloud Run
@@ -203,13 +208,18 @@ jobs:
         run: |
           FRONTEND_URL=$(gcloud run services describe resume-frontend --region ${{ env.GCP_REGION }} --format 'value(status.url)')
           echo "Frontend URL: $FRONTEND_URL"
-          sleep 10
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$FRONTEND_URL" --max-time 30)
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "Health check failed with HTTP $HTTP_CODE. Rolling back..."
-            gcloud run services update-traffic resume-frontend \
-              --region ${{ env.GCP_REGION }} \
-              --to-revisions=LATEST=0
-            exit 1
-          fi
-          echo "Health check passed (HTTP $HTTP_CODE)"
+          for i in 1 2 3 4 5; do
+            echo "Health check attempt $i..."
+            sleep 15
+            HTTP_CODE=$(curl -s -L -o /dev/null -w "%{http_code}" "$FRONTEND_URL" --max-time 30)
+            echo "HTTP $HTTP_CODE"
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "Health check passed"
+              exit 0
+            fi
+          done
+          echo "Health check failed after 5 attempts. Rolling back..."
+          gcloud run services update-traffic resume-frontend \
+            --region ${{ env.GCP_REGION }} \
+            --to-revisions=LATEST=0
+          exit 1

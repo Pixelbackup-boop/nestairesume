@@ -3,24 +3,25 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient({
   datasources: {
     db: {
-      // Append connection pool params if not already in DATABASE_URL
-      // connection_limit=5: max 5 connections per Cloud Run instance (20 instances × 5 = 100 max)
-      // pool_timeout=10: wait 10s for a free connection before erroring
-      url: appendPoolParams(process.env.DATABASE_URL || ""),
+      url: normalizeDbUrl(process.env.DATABASE_URL || ""),
     },
   },
   log: process.env.NODE_ENV === "production" ? ["error"] : ["query", "error", "warn"],
 });
 
-function appendPoolParams(url: string): string {
-  if (!url || url.startsWith("file:")) return url; // SQLite dev DB
-  if (url.includes("connection_limit")) return url; // Already configured
-  // Cloud SQL socket URLs (host=/cloudsql/...) contain colons that break
-  // Prisma's URL parser when additional query params are appended.
-  // Prisma's built-in pool (num_cpus * 2 + 1) is sufficient for Cloud Run.
-  if (url.includes("/cloudsql/")) return url;
-  const separator = url.includes("?") ? "&" : "?";
-  return `${url}${separator}connection_limit=5&pool_timeout=10`;
+/**
+ * Normalize DATABASE_URL for Prisma compatibility.
+ * Cloud SQL socket URLs like postgresql://user:pass@/dbname?host=/cloudsql/...
+ * have an empty host field. Prisma requires a placeholder host even for Unix
+ * socket connections — insert "localhost" so the URL parses correctly.
+ */
+function normalizeDbUrl(url: string): string {
+  if (!url || url.startsWith("file:")) return url;
+  // Fix empty host: ://@/ → ://@localhost/
+  if (url.includes("@/") && url.includes("/cloudsql/")) {
+    url = url.replace("@/", "@localhost/");
+  }
+  return url;
 }
 
 export default prisma;
