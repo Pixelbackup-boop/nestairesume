@@ -12,8 +12,6 @@ import api from '../../lib/api';
 
 const mockUsageData = {
   tier: 'pro',
-  isTrialing: false,
-  trialEndsAt: null,
   usage: {
     cv: { used: 3, limit: 10 },
     ai: { used: 50, limit: -1 },

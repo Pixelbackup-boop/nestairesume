@@ -33,7 +33,6 @@ export async function generateMetadata({
       'CV maker plans',
       'AI resume subscription',
       'affordable resume builder',
-      'resume builder free trial',
       'professional resume pricing',
     ],
     openGraph: {

@@ -8,7 +8,6 @@ import {
   Sparkles,
   Download,
   Mail,
-  AlertCircle,
   ArrowRight,
   Crown,
 } from 'lucide-react';
@@ -22,7 +21,6 @@ interface LimitReachedModalProps {
   used: number;
   limit: number;
   currentTier: string;
-  isTrialing?: boolean;
 }
 
 // Type-specific configuration
@@ -78,7 +76,6 @@ export default function LimitReachedModal({
   used,
   limit,
   currentTier,
-  isTrialing = false,
 }: LimitReachedModalProps) {
   const router = useRouter();
   const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'limit-modal-title' });
@@ -157,16 +154,6 @@ export default function LimitReachedModal({
             </p>
           </div>
         </div>
-
-        {/* Trial Notice */}
-        {isTrialing && (
-          <div className="mx-6 mb-4 flex items-start gap-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
-            <AlertCircle className="text-amber-500 flex-shrink-0 mt-0.5" size={18} />
-            <p className="text-sm text-amber-700">
-              You're on a trial. Upgrade now to unlock higher limits and continue without interruption.
-            </p>
-          </div>
-        )}
 
         {/* Upgrade CTA */}
         {nextTier && nextPlanInfo && (

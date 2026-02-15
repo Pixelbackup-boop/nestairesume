@@ -116,6 +116,7 @@ jobs:
             --set-env-vars="STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" \
             --set-env-vars="STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" \
             --set-env-vars="DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }}" \
+            --set-env-vars="CORS_ORIGINS=${{ secrets.CORS_ORIGINS }}" \
             --add-cloudsql-instances="${{ secrets.GCP_PROJECT_ID }}:${{ env.GCP_REGION }}:resume-db"
 
       - name: Verify backend deployment

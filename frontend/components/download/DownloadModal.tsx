@@ -65,8 +65,7 @@ export default function DownloadModal({
     const downloadCheck = checkLimit('download');
     const subscriptionStatus = user?.subscriptionStatus;
     const subscriptionTier = user?.subscriptionTier;
-    const isTrialing = subscriptionStatus === 'trialing';
-    const isActive = subscriptionStatus === 'active' || isTrialing;
+    const isActive = subscriptionStatus === 'active';
     const hasValidSubscription = isActive && subscriptionTier && subscriptionTier !== 'free';
 
     // Determine user state
@@ -218,7 +217,7 @@ export default function DownloadModal({
                                 <div>
                                     <p className="text-sm font-medium text-amber-900">Choose a Plan to Download</p>
                                     <p className="text-sm text-amber-700 mt-1">
-                                        Your resume is ready! Pick a plan to download it as a high-quality PDF. Free trial and paid plans available.
+                                        Your resume is ready! Pick a plan to download it as a high-quality PDF.
                                     </p>
                                 </div>
                             </div>
@@ -284,11 +283,6 @@ export default function DownloadModal({
                                     </div>
                                     <p className="text-xs text-gray-500 mt-2">
                                         {formatRemaining(downloadCheck.remaining, downloadCheck.limit)}
-                                        {isTrialing && user?.trialEndsAt && (
-                                            <span className="ml-2">
-                                                • Trial ends {new Date(user.trialEndsAt).toLocaleDateString()}
-                                            </span>
-                                        )}
                                     </p>
                                 </div>
                             )}

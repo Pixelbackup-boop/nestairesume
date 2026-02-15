@@ -453,7 +453,7 @@
     "sectionTitle": "Precios",
     "title": "Precios simples y",
     "titleHighlight": "transparentes",
-    "subtitle": "Empieza gratis, mejora cuando necesites más. Sin cargos ocultos.",
+    "subtitle": "Sin cargos ocultos, cancele en cualquier momento.",
     "viewComparison": "Ver comparación completa",
     "cancelAnytime": "Cancela cuando quieras",
     "securePayments": "Pagos seguros vía Stripe",
@@ -508,7 +508,7 @@
         "noAds": "Sin anuncios",
         "ats": "Optimización ATS"
       },
-      "cta": "Comenzar prueba gratuita"
+      "cta": "Comenzar"
     },
     "diamond": {
       "name": "Diamante",
@@ -526,7 +526,7 @@
         "support": "Soporte prioritario",
         "coverLetter": "Creador de carta de presentación"
       },
-      "cta": "Comenzar prueba gratuita"
+      "cta": "Comenzar"
     },
     "platinum": {
       "name": "Platino",
@@ -549,12 +549,11 @@
     },
     "meta": {
       "title": "Precios - Generador de CV con IA desde $3/mes",
-      "description": "Elija el plan perfecto para su búsqueda de empleo. Prueba gratuita de 7 días. Sin compromiso."
+      "description": "Elija el plan perfecto para su búsqueda de empleo. Sin compromiso, cancele en cualquier momento."
     },
     "allPlansInclude": "Todos los planes incluyen: Sin anuncios • Todas las plantillas freemium",
     "bestValue": "MEJOR VALOR",
-    "trialBadge": "Prueba gratuita de 7 días",
-    "trialNote": "Cancele en cualquier momento sin costo.",
+    "billedImmediately": "Facturación inmediata",
     "billingToggle": {
       "monthly": "Mensual",
       "annual": "Anual",
@@ -577,7 +576,7 @@
     },
     "cta": {
       "title": "¿Listo para comenzar?",
-      "subtitle": "Prueba gratuita de 7 días en planes Gold y Diamond. Todos los planes se cancelan en cualquier momento.",
+      "subtitle": "Todos los planes se facturan inmediatamente. Cancele en cualquier momento.",
       "button": "Ver Planes",
       "contactSupport": "Contactar Soporte"
     },
@@ -585,15 +584,15 @@
       "title": "Preguntas Frecuentes",
       "cancelAnytime": {
         "question": "¿Puedo cancelar mi suscripción en cualquier momento?",
-        "answer": "Sí, puede cancelar su suscripción en cualquier momento, incluyendo durante su prueba gratuita."
+        "answer": "Sí, puede cancelar su suscripción en cualquier momento."
       },
       "paymentMethods": {
         "question": "¿Qué métodos de pago aceptan?",
         "answer": "Aceptamos todas las tarjetas de crédito principales (Visa, MasterCard, American Express) a través de Stripe."
       },
       "starterOneTime": {
-        "question": "¿Cómo funciona la prueba gratuita?",
-        "answer": "Todos los planes incluyen una prueba gratuita de 7 días. Agregue su tarjeta para comenzar, no se le cobrará hasta que termine la prueba."
+        "question": "¿Cómo funciona la facturación?",
+        "answer": "Todos los planes se facturan inmediatamente al suscribirse. Puede cancelar en cualquier momento desde la configuración de su cuenta."
       },
       "runOutDownloads": {
         "question": "¿Qué pasa cuando alcanzo mis límites?",
@@ -605,7 +604,7 @@
       },
       "refunds": {
         "question": "¿Ofrecen reembolsos?",
-        "answer": "Dado que todos los planes incluyen una prueba gratuita de 7 días, no ofrecemos reembolsos después del cobro."
+        "answer": "Ofrecemos reembolsos caso por caso. Contacte a nuestro equipo de soporte si no está satisfecho."
       }
     },
     "page": {
@@ -888,19 +887,16 @@
       "backToEditor": "Volver al Editor"
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Descargar para Google Docs",
     "loading": "Cargando editor de Google Docs..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "Descargar MS Word",
     "loading": "Cargando editor de Word..."
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "Generador Gratuito de Carta de Renuncia con IA - Cartas Profesionales",
@@ -1016,7 +1012,6 @@
       "blsCareerData": "Oficina de Estadísticas Laborales: Datos Profesionales"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Práctica de Entrevista con IA Gratis | Best AI Resume",
@@ -1033,9 +1028,18 @@
       "jobTitlePlaceholder": "ej. Ingeniero de Software, Gerente de Marketing...",
       "experienceLevel": "Nivel de Experiencia",
       "levels": {
-        "entry": { "label": "Nivel Inicial", "description": "0–2 años de experiencia" },
-        "mid": { "label": "Nivel Medio", "description": "3–6 años de experiencia" },
-        "senior": { "label": "Nivel Senior", "description": "7+ años de experiencia" }
+        "entry": {
+          "label": "Nivel Inicial",
+          "description": "0–2 años de experiencia"
+        },
+        "mid": {
+          "label": "Nivel Medio",
+          "description": "3–6 años de experiencia"
+        },
+        "senior": {
+          "label": "Nivel Senior",
+          "description": "7+ años de experiencia"
+        }
       },
       "questionCount": "Número de Preguntas: {count}",
       "quick": "Rápida (3)",
@@ -1093,7 +1097,6 @@
       "shrmInterviewPractices": "SHRM: Mejores Prácticas de Entrevista"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Consejos de Carrera & Currículum - Guías de Expertos | Best AI Resume",
@@ -1188,28 +1191,19 @@
       "createAccountBtn": "Crear Cuenta"
     },
     "header": {
-      "startTrial": "Comienza Tu Prueba Gratuita",
       "completePurchase": "Completa Tu Compra",
-      "tryPlan": "Prueba el plan {plan} gratis por 7 días",
       "subscribePlan": "Suscríbete al plan {plan}"
-    },
-    "trial": {
-      "badge": "Prueba Gratuita de 7 Días",
-      "notChargedUntil": "No se te cobrará hasta {date}"
     },
     "billing": {
       "account": "Cuenta",
-      "afterTrial": "Después de la prueba",
       "billing": "Facturación",
       "monthlyStarting": "Mensual, comenzando hoy"
     },
     "submit": {
       "redirecting": "Redirigiendo a Stripe...",
-      "startTrial": "Comenzar Prueba Gratuita",
       "subscribeNow": "Suscribirse Ahora"
     },
     "secure": "Pago seguro con Stripe",
-    "cancelTrialNote": "Cancela en cualquier momento durante tu prueba sin costo",
     "cancelNote": "Cancela cuando quieras. Sin compromiso a largo plazo.",
     "loading": "Cargando pago...",
     "errors": {
@@ -1223,29 +1217,53 @@
         "name": "Inicial",
         "price": "$3/mes",
         "description": "Perfecto para buscadores de empleo",
-        "features": ["30 creaciones de CV/mes", "3 generaciones con IA/mes", "3 descargas de PDF/mes", "Todas las plantillas gratuitas", "Sin anuncios"]
+        "features": [
+          "30 creaciones de CV/mes",
+          "3 generaciones con IA/mes",
+          "3 descargas de PDF/mes",
+          "Todas las plantillas gratuitas",
+          "Sin anuncios"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/mes",
         "description": "Para cazadores de empleo activos",
-        "features": ["150 creaciones de CV/mes", "10 generaciones con IA/mes", "10 descargas de PDF/mes", "Optimización ATS", "Constructor de cartas de presentación"]
+        "features": [
+          "150 creaciones de CV/mes",
+          "10 generaciones con IA/mes",
+          "10 descargas de PDF/mes",
+          "Optimización ATS",
+          "Constructor de cartas de presentación"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/mes",
         "description": "Lo mejor para profesionales",
-        "features": ["300 creaciones de CV/mes", "30 generaciones con IA/mes", "25 descargas de PDF/mes", "Todas las plantillas premium", "Soporte prioritario"]
+        "features": [
+          "300 creaciones de CV/mes",
+          "30 generaciones con IA/mes",
+          "25 descargas de PDF/mes",
+          "Todas las plantillas premium",
+          "Soporte prioritario"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/mes",
         "description": "Para usuarios avanzados y agencias",
-        "features": ["Creaciones de CV ilimitadas", "100 generaciones con IA/mes", "Descargas de PDF ilimitadas", "Todas las plantillas premium", "Soporte prioritario", "Acceso anticipado a nuevas funciones"]
+        "features": [
+          "Creaciones de CV ilimitadas",
+          "100 generaciones con IA/mes",
+          "Descargas de PDF ilimitadas",
+          "Todas las plantillas premium",
+          "Soporte prioritario",
+          "Acceso anticipado a nuevas funciones"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "¡Pago Exitoso!",
     "welcome": "¡Bienvenido a {plan}!",
@@ -1260,23 +1278,47 @@
     "plans": {
       "starter": {
         "name": "Inicial",
-        "benefits": ["30 creaciones de CV por mes", "3 generaciones con IA por mes", "3 descargas de PDF por mes", "Todas las plantillas gratuitas", "Sin anuncios"]
+        "benefits": [
+          "30 creaciones de CV por mes",
+          "3 generaciones con IA por mes",
+          "3 descargas de PDF por mes",
+          "Todas las plantillas gratuitas",
+          "Sin anuncios"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["150 creaciones de CV por mes", "10 generaciones con IA por mes", "10 descargas de PDF por mes", "Optimización ATS", "Constructor de cartas de presentación"]
+        "benefits": [
+          "150 creaciones de CV por mes",
+          "10 generaciones con IA por mes",
+          "10 descargas de PDF por mes",
+          "Optimización ATS",
+          "Constructor de cartas de presentación"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["300 creaciones de CV por mes", "30 generaciones con IA por mes", "25 descargas de PDF por mes", "Todas las plantillas premium", "Soporte prioritario"]
+        "benefits": [
+          "300 creaciones de CV por mes",
+          "30 generaciones con IA por mes",
+          "25 descargas de PDF por mes",
+          "Todas las plantillas premium",
+          "Soporte prioritario"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["Creaciones de CV ilimitadas", "100 generaciones con IA por mes", "Descargas de PDF ilimitadas", "Todas las plantillas premium", "Soporte prioritario", "Acceso anticipado a nuevas funciones"]
+        "benefits": [
+          "Creaciones de CV ilimitadas",
+          "100 generaciones con IA por mes",
+          "Descargas de PDF ilimitadas",
+          "Todas las plantillas premium",
+          "Soporte prioritario",
+          "Acceso anticipado a nuevas funciones"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "Editor de Lienzo para Currículum - Diseña Tu CV Visualmente | Best AI Resume",
@@ -1344,7 +1386,6 @@
       "restored": "¡Tu proyecto de canvas fue restaurado! Haz clic en Exportar para descargar."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Plantillas de Currículum Canvas - Diseña Tu Currículum Visualmente | Best AI Resume",
@@ -1354,6 +1395,7 @@
     "title": "Plantillas de Currículum",
     "titleHighlight": "Canvas",
     "subtitle": "Diseña tu currículum con total libertad creativa. Arrastra, suelta y personaliza cada elemento en nuestro editor visual.",
+    "freeBadge": "Es Gratis",
     "searchPlaceholder": "Buscar plantillas canvas...",
     "noResults": "No se encontraron plantillas",
     "noResultsHint": "Intenta ajustar tu búsqueda o criterios de filtro",
@@ -1372,7 +1414,6 @@
     "formBuilderBanner": "¿Buscas plantillas con formulario?",
     "viewFormTemplates": "Ver Plantillas del Constructor"
   },
-
   "CoverLetter": {
     "meta": {
       "title": "Generador Gratuito de Carta de Presentación con IA - Cree Cartas Profesionales",
@@ -1472,9 +1513,7 @@
       "plan": "Plan {tier}",
       "expiredPlan": "Plan Expirado",
       "noActivePlan": "Sin Plan Activo",
-      "trial": "Prueba",
       "active": "Activo",
-      "trialEnds": "La prueba termina el {date}",
       "planActive": "Tu plan está activo",
       "subscribePrompt": "Suscríbete para desbloquear descargas",
       "resubscribe": "Resuscribirse",
@@ -1521,7 +1560,6 @@
     },
     "loading": "Cargando..."
   },
-
   "Profile": {
     "meta": {
       "title": "Configuración de Perfil - Best AI Resume",
@@ -1833,8 +1871,8 @@
           "description": "Haz clic en Precios en la barra de navegación o visita la página de precios directamente. Verás cuatro planes: Starter (gratis, descargas limitadas), Gold, Diamond y Platinum. Usa el interruptor en la parte superior para alternar entre facturación mensual y anual — los planes anuales ahorran hasta un 40%."
         },
         "2": {
-          "title": "Comienza una Prueba Gratuita",
-          "description": "Los planes Gold y Diamond ofrecen una prueba gratuita de 7 días cuando eliges facturación mensual. Durante la prueba, tienes acceso completo a todas las funciones del plan. No se te cobrará hasta que termine la prueba, y puedes cancelar en cualquier momento.",
+          "title": "Elija su plan",
+          "description": "Todos los planes se facturan inmediatamente al suscribirse. Tienes acceso completo a todas las funciones del plan desde el primer momento. Puedes cancelar en cualquier momento desde la configuración de tu cuenta.",
           "tip": "La facturación anual ahorra hasta un 40% comparado con la mensual — y obtienes las mismas funciones."
         },
         "3": {
@@ -1848,8 +1886,8 @@
           "a": "Sí. Puedes cancelar desde la configuración de tu cuenta en cualquier momento. Mantendrás el acceso hasta el final de tu período de facturación actual."
         },
         "2": {
-          "q": "¿Qué pasa cuando termina mi prueba gratuita?",
-          "a": "Si no cancelas, se cobrará a tu tarjeta el primer período de facturación. Si cancelas antes de que termine la prueba, no se te cobrará nada."
+          "q": "¿Puedo cancelar en cualquier momento?",
+          "a": "Sí. Puedes cancelar desde la configuración de tu cuenta en cualquier momento. Mantendrás el acceso hasta el final de tu período de facturación actual."
         },
         "3": {
           "q": "¿Puedo cambiar de plan después?",
@@ -1919,6 +1957,153 @@
       "subtitle": "Construye tu currículum profesional en minutos con nuestro constructor impulsado por IA.",
       "buildButton": "Empezar a Construir",
       "contactButton": "Contactar Soporte"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Plantillas de CV Compatibles con ATS Gratis (2026) | Pasa Cada Escaneo",
+      "description": "Explora 16 plantillas de CV compatibles con ATS disenadas para pasar los sistemas de seguimiento de candidatos. Formato limpio, fuentes estandar y disenos analizables."
+    },
+    "breadcrumb": {
+      "home": "Inicio",
+      "current": "Plantillas Compatibles con ATS"
+    },
+    "hero": {
+      "badge": "100% Compatible con ATS",
+      "title": "Plantillas de CV Compatibles con ATS",
+      "subtitle": "El 97% de las empresas Fortune 500 usan Sistemas de Seguimiento de Candidatos para filtrar CVs antes de que un humano los vea (Jobscan, 2024). Cada plantilla esta disenada para pasar el escaneo ATS — para que tu CV llegue a una persona real.",
+      "check1": "Pasa el analisis ATS",
+      "check2": "Gratis",
+      "check3": "Descarga PDF instantanea"
+    },
+    "whatMakes": {
+      "title": "Que Hace que una Plantilla de CV Sea Compatible con ATS?",
+      "p1": "Una plantilla de CV compatible con ATS esta disenada para que los Sistemas de Seguimiento de Candidatos — el software que los empleadores usan para recopilar, ordenar y clasificar solicitudes — puedan leer con precision cada seccion de tu CV. Cuando un ATS no puede analizar tu CV, tu nombre, experiencia y habilidades pueden no llegar a la pantalla del reclutador. Segun un estudio de Harvard Business School de 2023, mas del 75% de los CVs son rechazados por ATS antes de que un humano los revise.",
+      "p2": "La razon mas comun por la que los CVs fallan en el analisis ATS es el formato. Tablas, disenos de multiples columnas, cuadros de texto, fuentes personalizadas y graficos incrustados causan errores de analisis. Un ATS lee tu CV como un flujo de texto de arriba a abajo. Si ese flujo se interrumpe por formato complejo, el sistema asigna mal tus datos.",
+      "p3": "Nuestras 16 plantillas de CV estan disenadas desde cero con la compatibilidad ATS como requisito principal. Usan encabezados de seccion estandar, disenos de una sola columna, fuentes web seguras y renderizado limpio de HTML a PDF. Cada plantilla ha sido probada contra las cinco plataformas ATS mas usadas: Workday, Greenhouse, Lever, iCIMS y Taleo.",
+      "link1": "Como Escribir un CV Compatible con ATS",
+      "link2": "Que es un ATS? Guia Completa",
+      "link3": "Entender las Tasas de Analisis ATS"
+    },
+    "features": {
+      "title": "Por Que Nuestras Plantillas Pasan el Escaneo ATS",
+      "subtitle": "La mayoria de los CVs son rechazados antes de que un humano los vea. Nuestras plantillas estan disenadas para evitar las trampas de formato que causan fallos en ATS.",
+      "parseable": {
+        "title": "Diseno Analizable por Maquinas",
+        "description": "Estructura de una sola columna con jerarquia clara que el software ATS lee de arriba a abajo sin confusion. Sin disenos de multiples columnas que mezclen el contenido."
+      },
+      "standardHeaders": {
+        "title": "Encabezados de Seccion Estandar",
+        "description": "Usa encabezados como 'Experiencia' y 'Educacion' que todo ATS reconoce — sin etiquetas creativas que confundan los analizadores."
+      },
+      "testedATS": {
+        "title": "Probado con ATS Reales",
+        "description": "Cada plantilla esta probada con Workday, Greenhouse, Lever, iCIMS y Taleo — las cinco plataformas que procesan la mayoria de las solicitudes de empleo en linea."
+      },
+      "cleanFormatting": {
+        "title": "Formato Limpio y Seguro",
+        "description": "Sin tablas, cuadros de texto, encabezados/pies de pagina ni imagenes incrustadas que rompan el analisis ATS. Solo texto limpio y fuentes estandar renderizadas como texto PDF seleccionable."
+      }
+    },
+    "grid": {
+      "title": "Elige Tu Plantilla Compatible con ATS",
+      "subtitle": "Las 16 plantillas son totalmente compatibles con ATS. Elige cualquier estilo — tu CV se analizara correctamente.",
+      "useTemplate": "Usar Esta Plantilla"
+    },
+    "mistakes": {
+      "title": "5 Errores de Formato que Hacen que los ATS Rechacen CVs",
+      "intro": "Incluso los candidatos fuertes son filtrados cuando el formato de su CV confunde al analizador ATS. Aqui estan los cinco errores mas comunes — y que nuestras plantillas eliminan automaticamente.",
+      "items": {
+        "1": {
+          "title": "Usar tablas o disenos de multiples columnas",
+          "description": "ATS lee el texto en un solo flujo. Las tablas y columnas hacen que mezcle contenido no relacionado — tu numero de telefono podria terminar en el campo de titulo de trabajo."
+        },
+        "2": {
+          "title": "Poner informacion de contacto en encabezados o pies de pagina",
+          "description": "Muchas plataformas ATS omiten completamente los encabezados y pies de pagina del documento. Si tu nombre, email o telefono solo esta en el encabezado, desaparece de tu perfil analizado."
+        },
+        "3": {
+          "title": "Usar etiquetas de seccion creativas",
+          "description": "Etiquetas como 'Donde He Estado' en lugar de 'Experiencia' o 'Mi Caja de Herramientas' en lugar de 'Habilidades' hacen que ATS omita toda la seccion."
+        },
+        "4": {
+          "title": "Guardar como PDF basado en imagen o usar fuentes no estandar",
+          "description": "Si el texto no se puede seleccionar en tu PDF, ATS no puede leerlo. Documentos escaneados, exportaciones de herramientas de diseno y fuentes poco comunes producen archivos ilegibles."
+        },
+        "5": {
+          "title": "Agregar graficos, iconos o barras de habilidades",
+          "description": "Las barras de progreso, calificaciones con estrellas e iconos para informacion de contacto son invisibles para ATS. Una calificacion de '4 de 5 estrellas' se convierte en texto en blanco que puntua cero."
+        }
+      },
+      "cta": "No estas seguro si tu CV actual pasa?",
+      "ctaLink": "Ejecuta una verificacion gratuita de compatibilidad ATS"
+    },
+    "howATS": {
+      "title": "Como los Sistemas de Seguimiento de Candidatos Analizan tu CV",
+      "intro": "Entender el proceso ATS te ayuda a ver por que el formato importa mas de lo que la mayoria de los candidatos creen. Esto es lo que sucede en los segundos despues de hacer clic en Aplicar.",
+      "step1": {
+        "title": "Tu archivo de CV es recibido y convertido",
+        "description": "El ATS recibe tu archivo PDF o DOCX y lo pasa por un motor de extraccion de texto. Intenta convertir el documento en datos estructurados — separando tu nombre, informacion de contacto, historial laboral, educacion y habilidades en campos discretos. Si el archivo usa tablas, columnas o imagenes, este paso produce datos confusos o faltantes."
+      },
+      "step2": {
+        "title": "El contenido se analiza, mapea y puntua",
+        "description": "Una vez extraido, el ATS mapea tu contenido contra la descripcion del puesto. Busca coincidencias de palabras clave en tus habilidades, titulos de trabajo y descripciones de experiencia. Sistemas como Workday y Greenhouse asignan una puntuacion de relevancia basada en que tan bien tu CV coincide con los requisitos del puesto."
+      },
+      "step3": {
+        "title": "Los reclutadores revisan candidatos clasificados",
+        "description": "Los reclutadores tipicamente revisan los 10-20 CVs mejor clasificados para cada posicion. Si tu formato causo errores de analisis, puedes clasificar por debajo de candidatos menos cualificados cuyos CVs se analizaron correctamente. Nuestras plantillas aseguran que tus cualificaciones se representen con precision."
+      },
+      "warning": "Importante: La compatibilidad ATS es necesaria pero no suficiente. Aun necesitas adaptar las palabras clave de tu CV a cada descripcion de trabajo. Usa nuestra herramienta de Verificacion ATS para probar tu CV contra ofertas especificas despues de elegir una plantilla."
+    },
+    "checklist": {
+      "title": "Lista de Verificacion de Compatibilidad ATS",
+      "intro": "Antes de enviar cualquier CV, verifica que cumple estos ocho requisitos. Cada plantilla en esta pagina satisface los ocho automaticamente — pero si modificas el contenido, ten en cuenta estas reglas.",
+      "items": {
+        "1": "Usa encabezados de seccion estandar (Experiencia, Educacion, Habilidades)",
+        "2": "Diseno de una sola columna con orden de lectura claro de arriba a abajo",
+        "3": "Sin tablas, cuadros de texto o elementos flotantes",
+        "4": "Informacion de contacto en el cuerpo, no en encabezados/pies de pagina",
+        "5": "Fuentes web seguras estandar (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Salida PDF con texto seleccionable (no basada en imagenes)",
+        "7": "Sin graficos, iconos o barras de habilidades reemplazando contenido de texto",
+        "8": "Fechas en formato consistente (MM/AAAA o Mes AAAA)"
+      },
+      "outro": "Necesitas ayuda para adaptar tu CV a un trabajo especifico? Explora nuestros",
+      "outroLink": "300+ ejemplos de CV por profesion"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes Sobre Plantillas Compatibles con ATS",
+      "items": {
+        "1": {
+          "q": "Que significa compatible con ATS para una plantilla de CV?",
+          "a": "Una plantilla compatible con ATS esta disenada para que los Sistemas de Seguimiento de Candidatos puedan extraer con precision tu nombre, informacion de contacto, historial laboral, educacion y habilidades. Evita tablas, disenos de multiples columnas, imagenes incrustadas y fuentes personalizadas que causan fallos de analisis. Las 16 plantillas en esta pagina estan probadas contra Workday, Greenhouse, Lever, iCIMS y Taleo."
+        },
+        "2": {
+          "q": "Puede un CV creativo o moderno ser compatible con ATS?",
+          "a": "Si. La compatibilidad ATS depende de la estructura subyacente, no del diseno visual. Un CV puede usar acentos de color, espaciado personalizado y tipografia estilizada mientras mantiene un diseno de una sola columna con texto seleccionable que ATS lee correctamente."
+        },
+        "3": {
+          "q": "Debo enviar mi CV como PDF o DOCX para ATS?",
+          "a": "PDF es generalmente la opcion mas segura en 2026. Las plataformas ATS modernas (Workday, Greenhouse, Lever) analizan PDFs bien estructurados de manera confiable. DOCX puede introducir inconsistencias de formato entre diferentes versiones de Word. Nuestro constructor exporta PDFs con texto seleccionable optimizados para analisis ATS."
+        },
+        "4": {
+          "q": "Como se si mi CV pasa el escaneo ATS?",
+          "a": "Usa nuestra herramienta gratuita de Verificacion ATS para subir tu CV y ver como un ATS lo lee. La herramienta te muestra que campos fueron correctamente analizados, que palabras clave coincidieron con la descripcion del trabajo y donde ocurrieron errores de analisis."
+        },
+        "5": {
+          "q": "Necesito una plantilla diferente para cada solicitud de empleo?",
+          "a": "No — una plantilla compatible con ATS funciona para todas las solicitudes. Lo que debes cambiar entre solicitudes es el contenido: adapta tu seccion de habilidades, resumen profesional y logros para coincidir con las palabras clave de cada descripcion de trabajo. La estructura de la plantilla permanece igual; las palabras clave cambian."
+        }
+      }
+    },
+    "cta": {
+      "title": "Crea Tu CV Compatible con ATS Ahora",
+      "subtitle": "Elige una plantilla, agrega tu informacion y descarga un CV que pasa cada escaneo ATS. Gratis, sin registro.",
+      "buildButton": "Crear Mi CV",
+      "checkButton": "Verificar Mi CV Actual",
+      "browseAll": "Ver Todas las Plantillas",
+      "formatGuide": "Guia de Formato de CV",
+      "examples": "300+ Ejemplos de CV"
     }
   }
 }

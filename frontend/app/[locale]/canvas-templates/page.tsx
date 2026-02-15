@@ -210,11 +210,14 @@ export default function CanvasTemplatesPage() {
                 <TemplatesAnimations.Hero>
                     <div className="max-w-6xl mx-auto px-6 text-center">
                         <span className="text-accent-green font-medium text-sm uppercase tracking-wider">{t('sectionTitle')}</span>
-                        <h1 className="text-5xl font-bold mt-3 mb-6 text-gray-900">
+                        <h1 className="text-5xl font-bold mt-3 mb-4 text-gray-900">
                             {t('title')}<br />
                             <span className="gradient-text">{t('titleHighlight')}</span>
                         </h1>
-                        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                        <span className="inline-block px-5 py-2 text-lg font-extrabold uppercase tracking-wide text-white rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 shadow-[0_4px_20px_rgba(0,220,130,0.4)] mb-5">
+                            {t('freeBadge')}
+                        </span>
+                        <p className="text-gray-600 max-w-2xl mx-auto text-lg mt-1">
                             {t('subtitle')}
                         </p>
                     </div>

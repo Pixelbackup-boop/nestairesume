@@ -480,19 +480,18 @@
   "Pricing": {
     "meta": {
       "title": "Pricing Plans - AI Resume Builder Starting at $3/month",
-      "description": "Choose the perfect plan for your job search. 7-day free trial on Gold & Diamond plans. No hidden fees, cancel anytime. Starting at just $3/month."
+      "description": "Choose the perfect plan for your job search. No hidden fees, cancel anytime. Starting at just $3/month."
     },
     "sectionTitle": "Pricing",
     "title": "Simple, transparent",
     "titleHighlight": "pricing",
-    "subtitle": "Gold & Diamond include 7-day free trial. No hidden fees, cancel anytime.",
+    "subtitle": "No hidden fees, cancel anytime.",
     "viewComparison": "View full comparison",
     "cancelAnytime": "Cancel anytime",
     "securePayments": "Secure payments via Stripe",
     "mostPopular": "MOST POPULAR",
     "bestValue": "BEST VALUE",
-    "trialBadge": "7-day free trial",
-    "trialNote": "Cancel anytime at no cost.",
+    "billedImmediately": "Billed immediately",
     "allPlansInclude": "All plans include: No ads • All freemium templates",
     "billingToggle": {
       "monthly": "Monthly",
@@ -535,15 +534,15 @@
       "title": "Frequently Asked Questions",
       "cancelAnytime": {
         "question": "Can I cancel my subscription anytime?",
-        "answer": "Yes, you can cancel your subscription at any time, including during your free trial. You won't be charged if you cancel before the trial ends."
+        "answer": "Yes, you can cancel your subscription at any time. You'll keep access until the end of your current billing period."
       },
       "paymentMethods": {
         "question": "What payment methods do you accept?",
         "answer": "We accept all major credit cards (Visa, MasterCard, American Express) via Stripe. PayPal coming soon."
       },
       "starterOneTime": {
-        "question": "How does the free trial work?",
-        "answer": "Gold & Diamond plans include a 7-day free trial. Add your card to start, and you won't be charged until the trial ends. During the trial, you have daily limits on AI resume generation."
+        "question": "How does billing work?",
+        "answer": "All plans are billed immediately when you subscribe. Monthly plans renew each month, and annual plans renew yearly. You can cancel anytime from your account settings."
       },
       "runOutDownloads": {
         "question": "What happens when I reach my limits?",
@@ -555,12 +554,12 @@
       },
       "refunds": {
         "question": "Do you offer refunds?",
-        "answer": "Gold & Diamond plans include a 7-day free trial. For plans without a trial, we don't offer refunds after purchase. Make sure to cancel during your trial if it's not right for you."
+        "answer": "We don't offer refunds after purchase. You can cancel anytime from your account settings and keep access until the end of your billing period."
       }
     },
     "cta": {
       "title": "Ready to get started?",
-      "subtitle": "7-day free trial on Gold & Diamond plans. All plans cancel anytime.",
+      "subtitle": "All plans billed immediately. Cancel anytime.",
       "button": "View Plans",
       "contactSupport": "Contact Support"
     },
@@ -598,7 +597,7 @@
         "noAds": "No ads",
         "ats": "ATS optimization"
       },
-      "cta": "Start Free Trial"
+      "cta": "Get Started"
     },
     "diamond": {
       "name": "Diamond",
@@ -616,7 +615,7 @@
         "support": "Priority support",
         "coverLetter": "Cover letter builder"
       },
-      "cta": "Start Free Trial"
+      "cta": "Get Started"
     },
     "platinum": {
       "name": "Platinum",
@@ -782,9 +781,7 @@
       "plan": "{tier} Plan",
       "expiredPlan": "Expired Plan",
       "noActivePlan": "No Active Plan",
-      "trial": "Trial",
       "active": "Active",
-      "trialEnds": "Trial ends {date}",
       "planActive": "Your plan is active",
       "subscribePrompt": "Subscribe to unlock downloads",
       "resubscribe": "Resubscribe",
@@ -895,28 +892,19 @@
       "createAccountBtn": "Create Account"
     },
     "header": {
-      "startTrial": "Start Your Free Trial",
       "completePurchase": "Complete Your Purchase",
-      "tryPlan": "Try the {plan} plan free for 7 days",
       "subscribePlan": "Subscribe to the {plan} plan"
-    },
-    "trial": {
-      "badge": "7-Day Free Trial",
-      "notChargedUntil": "You won't be charged until {date}"
     },
     "billing": {
       "account": "Account",
-      "afterTrial": "After trial",
       "billing": "Billing",
       "monthlyStarting": "Monthly, starting today"
     },
     "submit": {
       "redirecting": "Redirecting to Stripe...",
-      "startTrial": "Start Free Trial",
       "subscribeNow": "Subscribe Now"
     },
     "secure": "Secure payment powered by Stripe",
-    "cancelTrialNote": "Cancel anytime during your trial at no cost",
     "cancelNote": "Cancel anytime. No long-term commitment.",
     "loading": "Loading checkout...",
     "errors": {
@@ -1061,6 +1049,7 @@
     "title": "Canvas Resume",
     "titleHighlight": "Templates",
     "subtitle": "Design your resume with full creative freedom. Drag, drop, and customize every element in our visual editor.",
+    "freeBadge": "It's Free",
     "searchPlaceholder": "Search canvas templates...",
     "noResults": "No templates found",
     "noResultsHint": "Try adjusting your search or filter criteria",
@@ -1830,8 +1819,8 @@
           "description": "Click Pricing in the navigation bar or visit the pricing page directly. You'll see four plans: Starter (free, limited downloads), Gold, Diamond, and Platinum. Use the toggle at the top to switch between monthly and annual billing — annual plans save up to 40%."
         },
         "2": {
-          "title": "Start a Free Trial",
-          "description": "Gold and Diamond plans offer a 7-day free trial when you choose monthly billing. During the trial, you get full access to all plan features. You won't be charged until the trial ends, and you can cancel anytime before that.",
+          "title": "Choose Your Plan",
+          "description": "Compare the four plans — Starter, Gold, Diamond, and Platinum — and pick the one that fits your needs. All plans are billed immediately and give you instant access to all features.",
           "tip": "Annual billing saves up to 40% compared to monthly — and you still get the same features."
         },
         "3": {
@@ -1845,8 +1834,8 @@
           "a": "Yes. You can cancel from your account settings at any time. You'll keep access until the end of your current billing period."
         },
         "2": {
-          "q": "What happens when my free trial ends?",
-          "a": "If you don't cancel, your card will be charged for the first billing period. If you cancel before the trial ends, you won't be charged at all."
+          "q": "What happens if I cancel?",
+          "a": "You'll keep access to your plan until the end of your current billing period. After that, your account reverts to expired status."
         },
         "3": {
           "q": "Can I switch plans later?",
@@ -1916,6 +1905,153 @@
       "subtitle": "Build your professional resume in minutes with our AI-powered builder.",
       "buildButton": "Start Building",
       "contactButton": "Contact Support"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Free ATS-Friendly Resume Templates (2026) | Pass Every ATS Scan",
+      "description": "Browse 16 free ATS-friendly resume templates designed to pass applicant tracking systems. Clean formatting, standard fonts, and parseable layouts tested against real ATS software."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "current": "ATS-Friendly Templates"
+    },
+    "hero": {
+      "badge": "100% ATS Compatible",
+      "title": "ATS-Friendly Resume Templates",
+      "subtitle": "97% of Fortune 500 companies use Applicant Tracking Systems to filter resumes before a human sees them (Jobscan, 2024). Every template below is built to pass ATS screening — so your resume reaches a real person, every time.",
+      "check1": "Passes ATS parsing",
+      "check2": "Free to use",
+      "check3": "Instant PDF download"
+    },
+    "features": {
+      "title": "Why Our Templates Pass ATS Screening",
+      "subtitle": "Most resumes get rejected before a human ever sees them. Our templates are engineered to avoid the common formatting traps that cause ATS failures.",
+      "parseable": {
+        "title": "Machine-Parseable Layout",
+        "description": "Single-column structure with clear section hierarchy that ATS software reads top-to-bottom without confusion. No multi-column layouts that scramble content order."
+      },
+      "standardHeaders": {
+        "title": "Standard Section Headers",
+        "description": "Uses headers like \"Experience\" and \"Education\" that every ATS recognizes — no creative labels that confuse parsers."
+      },
+      "testedATS": {
+        "title": "Tested Against Real ATS",
+        "description": "Every template is tested against Workday, Greenhouse, Lever, iCIMS, and Taleo — the five platforms that process the majority of online job applications."
+      },
+      "cleanFormatting": {
+        "title": "Clean, Safe Formatting",
+        "description": "No tables, text boxes, headers/footers, or embedded images that break ATS parsing. Just clean text and standard fonts rendered as selectable PDF text."
+      }
+    },
+    "grid": {
+      "title": "Choose Your ATS-Friendly Template",
+      "subtitle": "All 16 templates are fully ATS-compatible. Pick any style — your resume will parse correctly.",
+      "useTemplate": "Use This Template"
+    },
+    "howATS": {
+      "title": "How Applicant Tracking Systems Screen Your Resume",
+      "intro": "Understanding the ATS pipeline helps you see why formatting matters more than most candidates realize. Here is what happens in the seconds after you click Apply.",
+      "step1": {
+        "title": "Your resume file is received and converted",
+        "description": "The ATS receives your PDF or DOCX file and runs it through a text extraction engine. It attempts to convert the document into structured data — separating your name, contact info, work history, education, and skills into discrete fields. If the file uses tables, columns, or images, this extraction step produces garbled or missing data."
+      },
+      "step2": {
+        "title": "Content is parsed, mapped, and scored",
+        "description": "Once extracted, the ATS maps your content against the job description. It looks for keyword matches in your skills, job titles, and experience descriptions. Systems like Workday and Greenhouse assign a relevancy score based on how closely your resume matches the role's requirements. A poorly parsed resume scores low even if you have every qualification."
+      },
+      "step3": {
+        "title": "Recruiters review ranked candidates",
+        "description": "Recruiters typically review the top 10-20 ranked resumes for each position. If your formatting caused parsing errors, you may rank below less-qualified candidates whose resumes parsed correctly. Our ATS-friendly templates ensure your qualifications are accurately represented in the ranking."
+      },
+      "warning": "Important: ATS compatibility is necessary but not sufficient. You still need to tailor your resume keywords to each job description. Use our ATS Checker tool to test your resume against specific job postings after choosing a template."
+    },
+    "cta": {
+      "title": "Build Your ATS-Friendly Resume Now",
+      "subtitle": "Pick a template, add your info, and download a resume that passes every ATS scan. Free, no signup required.",
+      "buildButton": "Build My Resume",
+      "checkButton": "Check My Existing Resume",
+      "browseAll": "Browse All Templates",
+      "formatGuide": "Resume Format Guide",
+      "examples": "300+ Resume Examples"
+    },
+    "whatMakes": {
+      "title": "What Makes a Resume Template ATS-Friendly?",
+      "p1": "An ATS-friendly resume template is designed so that Applicant Tracking Systems — the software employers use to collect, sort, and rank job applications — can accurately read every section of your resume. When an ATS fails to parse your resume, your name, experience, and skills may not reach the recruiter's screen at all. According to a 2023 Harvard Business School study, over 75% of resumes are rejected by ATS before a human reviews them.",
+      "p2": "The most common reason resumes fail ATS parsing is formatting. Tables, multi-column layouts, text boxes, custom fonts, and embedded graphics all cause parsing errors. An ATS reads your resume as a stream of text from top to bottom. If that stream is interrupted by complex formatting, the system misassigns your data — putting your job title where your company name should be, or dropping your skills section entirely.",
+      "p3": "Our 16 resume templates are designed from the ground up with ATS compatibility as the primary requirement. They use standard section headers, single-column layouts, web-safe fonts, and clean HTML-to-PDF rendering. Every template has been tested against the five most-used ATS platforms: Workday, Greenhouse, Lever, iCIMS, and Taleo. The result is a resume that looks professional to recruiters and parses perfectly for machines.",
+      "link1": "How to Write an ATS-Friendly Resume",
+      "link2": "What Is an ATS? Complete Guide",
+      "link3": "Understanding ATS Parse Rates"
+    },
+    "mistakes": {
+      "title": "5 Formatting Mistakes That Get Resumes Rejected by ATS",
+      "intro": "Even strong candidates get filtered out when their resume formatting confuses the ATS parser. Here are the five most common mistakes we see — and that our templates eliminate automatically.",
+      "items": {
+        "1": {
+          "title": "Using tables or multi-column layouts",
+          "description": "ATS reads text in a single stream. Tables and columns cause it to merge unrelated content — your phone number might end up in your job title field."
+        },
+        "2": {
+          "title": "Embedding contact info in headers or footers",
+          "description": "Many ATS platforms skip document headers and footers entirely. If your name, email, or phone number is only in the header, it disappears from your parsed profile."
+        },
+        "3": {
+          "title": "Using creative section labels",
+          "description": "Labels like \"Where I've Been\" instead of \"Experience\" or \"My Toolbox\" instead of \"Skills\" cause ATS to skip the entire section. Stick to standard labels."
+        },
+        "4": {
+          "title": "Saving as image-based PDF or using non-standard fonts",
+          "description": "If text can't be selected in your PDF, ATS can't read it. Scanned documents, design-tool exports, and uncommon fonts all produce unreadable files."
+        },
+        "5": {
+          "title": "Adding graphics, icons, or skill bars",
+          "description": "Progress bars, star ratings, and icons for contact info are invisible to ATS. A \"4 out of 5 stars\" skill rating becomes blank text that scores zero."
+        }
+      },
+      "cta": "Not sure if your current resume passes?",
+      "ctaLink": "Run a free ATS compatibility check"
+    },
+    "checklist": {
+      "title": "ATS Compatibility Checklist",
+      "intro": "Before submitting any resume, verify it meets these eight requirements. Every template on this page satisfies all eight automatically — but if you modify the content, keep these rules in mind.",
+      "items": {
+        "1": "Uses standard section headers (Experience, Education, Skills)",
+        "2": "Single-column layout with clear top-to-bottom reading order",
+        "3": "No tables, text boxes, or floating elements",
+        "4": "Contact information in the body, not in headers/footers",
+        "5": "Standard web-safe fonts (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Text-selectable PDF output (not image-based)",
+        "7": "No graphics, icons, or skill bars replacing text content",
+        "8": "Dates in consistent format (MM/YYYY or Month YYYY)"
+      },
+      "outro": "Need help tailoring your resume for a specific job? Browse our",
+      "outroLink": "300+ profession-specific resume examples"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions About ATS-Friendly Templates",
+      "items": {
+        "1": {
+          "q": "What does ATS-friendly mean for a resume template?",
+          "a": "An ATS-friendly template is designed so Applicant Tracking Systems can accurately extract your name, contact info, work history, education, and skills. It avoids tables, multi-column layouts, embedded images, and custom fonts that cause parsing failures. All 16 templates on this page are tested against Workday, Greenhouse, Lever, iCIMS, and Taleo."
+        },
+        "2": {
+          "q": "Can a creative or modern resume still be ATS-compatible?",
+          "a": "Yes. ATS compatibility depends on the underlying structure, not the visual design. A resume can use color accents, custom spacing, and stylish typography while still maintaining a single-column, text-selectable layout that ATS reads correctly. Our modern and creative templates achieve this balance — they look distinctive to recruiters while parsing perfectly for machines."
+        },
+        "3": {
+          "q": "Should I submit my resume as PDF or DOCX for ATS?",
+          "a": "PDF is generally the safest choice in 2026. Modern ATS platforms (Workday, Greenhouse, Lever) parse well-structured PDFs reliably. DOCX can introduce formatting inconsistencies across different Word versions. Our builder exports text-selectable PDFs optimized for ATS parsing — we recommend using PDF unless the job posting explicitly requests DOCX."
+        },
+        "4": {
+          "q": "How do I know if my resume passes ATS screening?",
+          "a": "Use our free ATS Checker tool to upload your resume and see how an ATS reads it. The tool shows you which fields were correctly parsed, which keywords matched the job description, and where parsing errors occurred. You can test as many times as you need before submitting your application."
+        },
+        "5": {
+          "q": "Do I need a different template for each job application?",
+          "a": "No — one ATS-friendly template works for all applications. What you should change between applications is the content: tailor your skills section, professional summary, and achievement bullets to match each job description's keywords. The template structure stays the same; the keywords change."
+        }
+      }
     }
   }
 }

@@ -453,7 +453,7 @@
     "sectionTitle": "Preise",
     "title": "Einfache, transparente",
     "titleHighlight": "Preisgestaltung",
-    "subtitle": "Kostenlos starten, upgraden wenn Sie mehr brauchen. Keine versteckten Gebühren.",
+    "subtitle": "Keine versteckten Gebühren, jederzeit kündbar.",
     "viewComparison": "Vollständigen Vergleich anzeigen",
     "cancelAnytime": "Jederzeit kündbar",
     "securePayments": "Sichere Zahlungen über Stripe",
@@ -515,7 +515,7 @@
         "cvCreations": "100 Lebenslauf-Erstellungen/Monat",
         "aiGenerations": "100 KI-Generierungen/Monat"
       },
-      "cta": "Gold Holen"
+      "cta": "Loslegen"
     },
     "diamond": {
       "name": "Diamant",
@@ -534,16 +534,15 @@
         "cvCreations": "200 Lebenslauf-Erstellungen/Monat",
         "aiGenerations": "250 KI-Generierungen/Monat"
       },
-      "cta": "Diamant Holen"
+      "cta": "Loslegen"
     },
     "meta": {
       "title": "Preise - KI-Lebenslauf-Generator ab 3$/Monat",
-      "description": "Wählen Sie den perfekten Plan für Ihre Jobsuche. 7-Tage kostenlose Testversion. Jederzeit kündbar."
+      "description": "Wählen Sie den perfekten Plan für Ihre Jobsuche. Keine versteckten Gebühren, jederzeit kündbar."
     },
     "allPlansInclude": "Alle Pläne beinhalten: Werbefrei • Alle Freemium-Vorlagen",
     "bestValue": "BESTES ANGEBOT",
-    "trialBadge": "7-Tage kostenlose Testversion",
-    "trialNote": "Jederzeit kostenlos kündbar.",
+    "billedImmediately": "Sofortige Abrechnung",
     "comparison": {
       "title": "Pläne Vergleichen",
       "feature": "Funktion",
@@ -561,7 +560,7 @@
     },
     "cta": {
       "title": "Bereit loszulegen?",
-      "subtitle": "7-Tage kostenlose Testversion bei Gold- & Diamond-Plänen. Alle Pläne jederzeit kündbar.",
+      "subtitle": "Alle Pläne werden sofort abgerechnet. Jederzeit kündbar.",
       "button": "Pläne Ansehen",
       "contactSupport": "Support Kontaktieren"
     },
@@ -569,15 +568,15 @@
       "title": "Häufig Gestellte Fragen",
       "cancelAnytime": {
         "question": "Kann ich mein Abonnement jederzeit kündigen?",
-        "answer": "Ja, Sie können Ihr Abonnement jederzeit kündigen, auch während der kostenlosen Testphase."
+        "answer": "Ja, Sie können Ihr Abonnement jederzeit kündigen. Sie behalten den Zugang bis zum Ende Ihres aktuellen Abrechnungszeitraums."
       },
       "paymentMethods": {
         "question": "Welche Zahlungsmethoden akzeptieren Sie?",
         "answer": "Wir akzeptieren alle gängigen Kreditkarten (Visa, MasterCard, American Express) über Stripe."
       },
       "starterOneTime": {
-        "question": "Wie funktioniert die kostenlose Testversion?",
-        "answer": "Alle Pläne beinhalten eine 7-tägige kostenlose Testversion. Fügen Sie Ihre Karte hinzu, um zu starten - Sie werden erst nach Ablauf der Testphase belastet."
+        "question": "Wie funktioniert die Abrechnung?",
+        "answer": "Alle Pläne werden sofort nach dem Abonnieren abgerechnet. Monatspläne verlängern sich jeden Monat, Jahrespläne jährlich. Sie können jederzeit über Ihre Kontoeinstellungen kündigen."
       },
       "runOutDownloads": {
         "question": "Was passiert, wenn ich meine Limits erreiche?",
@@ -589,7 +588,7 @@
       },
       "refunds": {
         "question": "Bieten Sie Rückerstattungen an?",
-        "answer": "Da alle Pläne eine 7-tägige kostenlose Testversion beinhalten, bieten wir nach Belastung keine Rückerstattungen an."
+        "answer": "Wir bieten nach dem Kauf keine Rückerstattungen an. Sie können jederzeit über Ihre Kontoeinstellungen kündigen und behalten den Zugang bis zum Ende Ihres Abrechnungszeitraums."
       }
     },
     "page": {
@@ -808,7 +807,6 @@
       "restored": "Ihr Canvas-Projekt wurde wiederhergestellt! Klicken Sie auf Exportieren zum Herunterladen."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Canvas-Lebenslauf-Vorlagen - Gestalten Sie Ihren Lebenslauf Visuell | Best AI Resume",
@@ -818,6 +816,7 @@
     "title": "Lebenslauf-Vorlagen",
     "titleHighlight": "Canvas",
     "subtitle": "Gestalten Sie Ihren Lebenslauf mit voller kreativer Freiheit. Ziehen, ablegen und passen Sie jedes Element in unserem visuellen Editor an.",
+    "freeBadge": "Kostenlos",
     "searchPlaceholder": "Canvas-Vorlagen suchen...",
     "noResults": "Keine Vorlagen gefunden",
     "noResultsHint": "Versuchen Sie, Ihre Suche oder Filterkriterien anzupassen",
@@ -836,7 +835,6 @@
     "formBuilderBanner": "Suchen Sie formularbasierte Vorlagen?",
     "viewFormTemplates": "Formular-Vorlagen Ansehen"
   },
-
   "Builder": {
     "personalInfo": {
       "title": "Persönliche Informationen",
@@ -1112,7 +1110,6 @@
       "blsCareerData": "Bureau of Labor Statistics: Karrieredaten"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Kostenloses KI-Vorstellungsgespräch | Best AI Resume",
@@ -1129,9 +1126,18 @@
       "jobTitlePlaceholder": "z.B. Software-Ingenieur, Marketing-Manager...",
       "experienceLevel": "Erfahrungsstufe",
       "levels": {
-        "entry": { "label": "Einsteiger", "description": "0–2 Jahre Erfahrung" },
-        "mid": { "label": "Mittelstufe", "description": "3–6 Jahre Erfahrung" },
-        "senior": { "label": "Senior", "description": "7+ Jahre Erfahrung" }
+        "entry": {
+          "label": "Einsteiger",
+          "description": "0–2 Jahre Erfahrung"
+        },
+        "mid": {
+          "label": "Mittelstufe",
+          "description": "3–6 Jahre Erfahrung"
+        },
+        "senior": {
+          "label": "Senior",
+          "description": "7+ Jahre Erfahrung"
+        }
       },
       "questionCount": "Anzahl der Fragen: {count}",
       "quick": "Schnell (3)",
@@ -1172,7 +1178,7 @@
           "description": "Lernen Sie, wie Sie Ihre Antworten für verhaltensbasierte Interviewfragen strukturieren."
         },
         "tellMe": {
-          "title": "Wie Antwortet Man auf \u201EErzählen Sie von Sich\u201C",
+          "title": "Wie Antwortet Man auf „Erzählen Sie von Sich“",
           "description": "Formulieren Sie die perfekte Eröffnungsantwort, die den Ton für Ihr Interview setzt."
         }
       }
@@ -1189,7 +1195,6 @@
       "shrmInterviewPractices": "SHRM: Bewährte Interview-Methoden"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Karrieretipps & Lebenslauf-Ratschläge - Experten-Leitfäden | Best AI Resume",
@@ -1342,7 +1347,7 @@
         "tables": "Verwenden Sie keine Tabellen oder Textfelder für das Layout",
         "images": "Fügen Sie keine Bilder, Logos oder Grafiken ein",
         "headers": "Platzieren Sie keine wichtigen Informationen in Kopf- oder Fußzeilen",
-        "creativeTitles": "Verwenden Sie keine kreativen Abschnittstitel (z. B. \u201eMein Werdegang\u201C statt \u201EBerufserfahrung\u201C)",
+        "creativeTitles": "Verwenden Sie keine kreativen Abschnittstitel (z. B. „Mein Werdegang“ statt „Berufserfahrung“)",
         "fancyFonts": "Verwenden Sie keine dekorativen oder unüblichen Schriftarten",
         "lightText": "Verwenden Sie kein hellgraues oder kontrastarmes Schriftfarben"
       }
@@ -1422,28 +1427,19 @@
       "createAccountBtn": "Konto erstellen"
     },
     "header": {
-      "startTrial": "Starten Sie Ihre kostenlose Testphase",
       "completePurchase": "Kauf abschließen",
-      "tryPlan": "Testen Sie den {plan}-Tarif 7 Tage kostenlos",
       "subscribePlan": "Den {plan}-Tarif abonnieren"
-    },
-    "trial": {
-      "badge": "7 Tage kostenlos testen",
-      "notChargedUntil": "Ihnen wird erst am {date} berechnet"
     },
     "billing": {
       "account": "Konto",
-      "afterTrial": "Nach der Testphase",
       "billing": "Abrechnung",
       "monthlyStarting": "Monatlich, ab heute"
     },
     "submit": {
       "redirecting": "Weiterleitung zu Stripe...",
-      "startTrial": "Kostenlose Testphase starten",
       "subscribeNow": "Jetzt abonnieren"
     },
     "secure": "Sichere Zahlung über Stripe",
-    "cancelTrialNote": "Jederzeit während der Testphase kostenlos kündbar",
     "cancelNote": "Jederzeit kündbar. Keine langfristige Bindung.",
     "loading": "Zahlungsvorgang wird geladen...",
     "errors": {
@@ -1658,9 +1654,7 @@
       "plan": "{tier}-Tarif",
       "expiredPlan": "Abgelaufener Tarif",
       "noActivePlan": "Kein aktiver Tarif",
-      "trial": "Testphase",
       "active": "Aktiv",
-      "trialEnds": "Testphase endet am {date}",
       "planActive": "Ihr Tarif ist aktiv",
       "subscribePrompt": "Abonnieren Sie, um Downloads freizuschalten",
       "resubscribe": "Erneut abonnieren",
@@ -1707,7 +1701,6 @@
     },
     "loading": "Wird geladen..."
   },
-
   "Profile": {
     "meta": {
       "title": "Profileinstellungen - Best AI Resume",
@@ -1881,8 +1874,8 @@
           "description": "Klicken Sie auf Preise in der Navigationsleiste oder besuchen Sie die Preisseite direkt. Sie sehen vier Pläne: Starter (kostenlos, begrenzte Downloads), Gold, Diamond und Platinum. Verwenden Sie den Schalter oben, um zwischen monatlicher und jährlicher Abrechnung zu wechseln — Jahrespläne sparen bis zu 40%."
         },
         "2": {
-          "title": "Starten Sie eine Kostenlose Testphase",
-          "description": "Gold- und Diamond-Pläne bieten eine 7-tägige kostenlose Testphase bei monatlicher Abrechnung. Während der Testphase haben Sie vollen Zugriff auf alle Plan-Funktionen. Es fallen keine Gebühren an, bis die Testphase endet, und Sie können jederzeit vorher kündigen.",
+          "title": "Wählen Sie Ihren Plan",
+          "description": "Vergleichen Sie die vier Pläne — Starter, Gold, Diamond und Platinum — und wählen Sie den passenden für Ihre Bedürfnisse. Alle Pläne werden sofort abgerechnet und geben Ihnen sofortigen Zugang zu allen Funktionen.",
           "tip": "Jährliche Abrechnung spart bis zu 40% im Vergleich zur monatlichen — und Sie erhalten die gleichen Funktionen."
         },
         "3": {
@@ -1896,8 +1889,8 @@
           "a": "Ja. Sie können jederzeit über Ihre Kontoeinstellungen kündigen. Sie behalten den Zugang bis zum Ende Ihres aktuellen Abrechnungszeitraums."
         },
         "2": {
-          "q": "Was passiert, wenn meine kostenlose Testphase endet?",
-          "a": "Wenn Sie nicht kündigen, wird Ihre Karte für den ersten Abrechnungszeitraum belastet. Wenn Sie vor Ende der Testphase kündigen, werden Ihnen keine Kosten berechnet."
+          "q": "Was passiert, wenn ich kündige?",
+          "a": "Sie behalten den Zugang zu Ihrem Plan bis zum Ende Ihres aktuellen Abrechnungszeitraums. Danach wechselt Ihr Konto in den abgelaufenen Status."
         },
         "3": {
           "q": "Kann ich später den Plan wechseln?",
@@ -1967,6 +1960,153 @@
       "subtitle": "Erstellen Sie Ihren professionellen Lebenslauf in wenigen Minuten mit unserem KI-gestützten Generator.",
       "buildButton": "Jetzt Erstellen",
       "contactButton": "Support Kontaktieren"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Kostenlose ATS-Freundliche Lebenslauf-Vorlagen (2026) | Jeden ATS-Scan Bestehen",
+      "description": "Durchsuchen Sie 16 kostenlose ATS-freundliche Lebenslauf-Vorlagen, die fuer Bewerbermanagementsysteme optimiert sind. Saubere Formatierung, Standardschriften und analysierbare Layouts."
+    },
+    "breadcrumb": {
+      "home": "Startseite",
+      "current": "ATS-Freundliche Vorlagen"
+    },
+    "hero": {
+      "badge": "100% ATS-Kompatibel",
+      "title": "ATS-Freundliche Lebenslauf-Vorlagen",
+      "subtitle": "97% der Fortune-500-Unternehmen verwenden Bewerbermanagementsysteme zum Filtern von Lebenslaeufen, bevor ein Mensch sie sieht (Jobscan, 2024). Jede Vorlage hier ist so gebaut, dass sie ATS-Screenings besteht — damit Ihr Lebenslauf einen echten Menschen erreicht.",
+      "check1": "Besteht ATS-Analyse",
+      "check2": "Kostenlos",
+      "check3": "Sofortiger PDF-Download"
+    },
+    "whatMakes": {
+      "title": "Was Macht eine Lebenslauf-Vorlage ATS-Freundlich?",
+      "p1": "Eine ATS-freundliche Lebenslauf-Vorlage ist so gestaltet, dass Bewerbermanagementsysteme — die Software, die Arbeitgeber zum Sammeln, Sortieren und Bewerten von Bewerbungen verwenden — jeden Abschnitt Ihres Lebenslaufs korrekt lesen koennen. Wenn ein ATS Ihren Lebenslauf nicht analysieren kann, erreichen Ihr Name, Ihre Erfahrung und Ihre Faehigkeiten moeglicherweise nie den Bildschirm des Recruiters. Laut einer Studie der Harvard Business School von 2023 werden ueber 75% der Lebenslaeufe von ATS abgelehnt, bevor ein Mensch sie prueft.",
+      "p2": "Der haeufigste Grund fuer das Scheitern von Lebenslaeufen beim ATS-Parsing ist die Formatierung. Tabellen, mehrspaltige Layouts, Textfelder, benutzerdefinierte Schriften und eingebettete Grafiken verursachen Analysefehler. Ein ATS liest Ihren Lebenslauf als Textstrom von oben nach unten. Wenn dieser Strom durch komplexe Formatierung unterbrochen wird, ordnet das System Ihre Daten falsch zu.",
+      "p3": "Unsere 16 Lebenslauf-Vorlagen sind von Grund auf mit ATS-Kompatibilitaet als primaerer Anforderung gestaltet. Sie verwenden Standard-Abschnittsueberschriften, einspaltige Layouts, websichere Schriften und sauberes HTML-zu-PDF-Rendering. Jede Vorlage wurde gegen die fuenf meistgenutzten ATS-Plattformen getestet: Workday, Greenhouse, Lever, iCIMS und Taleo.",
+      "link1": "Wie Man einen ATS-Freundlichen Lebenslauf Schreibt",
+      "link2": "Was Ist ein ATS? Kompletter Leitfaden",
+      "link3": "ATS-Parse-Raten Verstehen"
+    },
+    "features": {
+      "title": "Warum Unsere Vorlagen das ATS-Screening Bestehen",
+      "subtitle": "Die meisten Lebenslaeufe werden abgelehnt, bevor ein Mensch sie sieht. Unsere Vorlagen vermeiden die haeufigen Formatierungsfallen, die ATS-Fehler verursachen.",
+      "parseable": {
+        "title": "Maschinenlesbares Layout",
+        "description": "Einspaltige Struktur mit klarer Abschnittshierarchie, die ATS-Software von oben nach unten ohne Verwirrung liest. Keine mehrspaltigen Layouts, die die Inhaltsreihenfolge durcheinanderbringen."
+      },
+      "standardHeaders": {
+        "title": "Standard-Abschnittsueberschriften",
+        "description": "Verwendet Ueberschriften wie 'Erfahrung' und 'Ausbildung', die jedes ATS erkennt — keine kreativen Bezeichnungen, die Parser verwirren."
+      },
+      "testedATS": {
+        "title": "Mit Echten ATS Getestet",
+        "description": "Jede Vorlage wird gegen Workday, Greenhouse, Lever, iCIMS und Taleo getestet — die fuenf Plattformen, die die Mehrheit der Online-Bewerbungen verarbeiten."
+      },
+      "cleanFormatting": {
+        "title": "Saubere, Sichere Formatierung",
+        "description": "Keine Tabellen, Textfelder, Kopf-/Fusszeilen oder eingebetteten Bilder, die die ATS-Analyse stoeren. Nur sauberer Text und Standardschriften als auswahlbarer PDF-Text."
+      }
+    },
+    "grid": {
+      "title": "Waehlen Sie Ihre ATS-Freundliche Vorlage",
+      "subtitle": "Alle 16 Vorlagen sind vollstaendig ATS-kompatibel. Waehlen Sie einen Stil — Ihr Lebenslauf wird korrekt analysiert.",
+      "useTemplate": "Diese Vorlage Verwenden"
+    },
+    "mistakes": {
+      "title": "5 Formatierungsfehler, die Lebenslaeufe von ATS Ablehnen Lassen",
+      "intro": "Selbst starke Kandidaten werden herausgefiltert, wenn die Formatierung ihres Lebenslaufs den ATS-Parser verwirrt. Hier sind die fuenf haeufigsten Fehler — und die unsere Vorlagen automatisch beseitigen.",
+      "items": {
+        "1": {
+          "title": "Tabellen oder mehrspaltige Layouts verwenden",
+          "description": "ATS liest Text in einem einzigen Strom. Tabellen und Spalten verursachen das Zusammenfuehren unzusammenhaengender Inhalte — Ihre Telefonnummer koennte im Feld fuer den Jobtitel landen."
+        },
+        "2": {
+          "title": "Kontaktdaten in Kopf- oder Fusszeilen einbetten",
+          "description": "Viele ATS-Plattformen ueberspringen Dokumentkopf- und Fusszeilen vollstaendig. Wenn Ihr Name, Ihre E-Mail oder Telefonnummer nur in der Kopfzeile steht, verschwindet sie aus Ihrem geparsten Profil."
+        },
+        "3": {
+          "title": "Kreative Abschnittsbeschriftungen verwenden",
+          "description": "Beschriftungen wie 'Mein Werdegang' statt 'Erfahrung' oder 'Mein Werkzeugkasten' statt 'Faehigkeiten' fuehren dazu, dass ATS den gesamten Abschnitt ueberspringt."
+        },
+        "4": {
+          "title": "Als bildbasiertes PDF speichern oder Nicht-Standard-Schriften verwenden",
+          "description": "Wenn Text in Ihrem PDF nicht ausgewaehlt werden kann, kann ATS ihn nicht lesen. Gescannte Dokumente, Design-Tool-Exporte und ungewoehnliche Schriften erzeugen unlesbare Dateien."
+        },
+        "5": {
+          "title": "Grafiken, Icons oder Kompetenzbalken hinzufuegen",
+          "description": "Fortschrittsbalken, Sternebewertungen und Icons fuer Kontaktinformationen sind fuer ATS unsichtbar. Eine '4 von 5 Sternen'-Bewertung wird zu leerem Text, der null Punkte erzielt."
+        }
+      },
+      "cta": "Nicht sicher, ob Ihr aktueller Lebenslauf besteht?",
+      "ctaLink": "Fuehren Sie eine kostenlose ATS-Kompatibilitaetspruefung durch"
+    },
+    "howATS": {
+      "title": "Wie Bewerbermanagementsysteme Ihren Lebenslauf Pruefen",
+      "intro": "Das Verstaendnis der ATS-Pipeline hilft Ihnen zu erkennen, warum Formatierung wichtiger ist, als die meisten Bewerber denken. Folgendes passiert in den Sekunden nach dem Klick auf Bewerben.",
+      "step1": {
+        "title": "Ihre Lebenslauf-Datei wird empfangen und konvertiert",
+        "description": "Das ATS empfaengt Ihre PDF- oder DOCX-Datei und fuehrt sie durch eine Textextraktions-Engine. Es versucht, das Dokument in strukturierte Daten umzuwandeln — Ihren Namen, Kontaktdaten, Berufserfahrung, Ausbildung und Faehigkeiten in einzelne Felder zu trennen. Wenn die Datei Tabellen, Spalten oder Bilder verwendet, produziert dieser Schritt fehlerhafte oder fehlende Daten."
+      },
+      "step2": {
+        "title": "Inhalt wird analysiert, zugeordnet und bewertet",
+        "description": "Nach der Extraktion ordnet das ATS Ihren Inhalt der Stellenbeschreibung zu. Es sucht nach Keyword-Uebereinstimmungen in Ihren Faehigkeiten, Jobtiteln und Erfahrungsbeschreibungen. Systeme wie Workday und Greenhouse vergeben einen Relevanzscore basierend darauf, wie gut Ihr Lebenslauf den Anforderungen der Stelle entspricht."
+      },
+      "step3": {
+        "title": "Recruiter pruefen die bewerteten Kandidaten",
+        "description": "Recruiter pruefen in der Regel die 10-20 bestbewerteten Lebenslaeufe fuer jede Position. Wenn Ihre Formatierung Analysefehler verursacht hat, koennen Sie unter weniger qualifizierten Kandidaten rangieren, deren Lebenslaeufe korrekt geparst wurden. Unsere Vorlagen stellen sicher, dass Ihre Qualifikationen korrekt dargestellt werden."
+      },
+      "warning": "Wichtig: ATS-Kompatibilitaet ist notwendig, aber nicht ausreichend. Sie muessen Ihre Lebenslauf-Keywords noch an jede Stellenbeschreibung anpassen. Nutzen Sie unser ATS-Pruefungstool, um Ihren Lebenslauf gegen bestimmte Stellenausschreibungen zu testen, nachdem Sie eine Vorlage gewaehlt haben."
+    },
+    "checklist": {
+      "title": "ATS-Kompatibilitaets-Checkliste",
+      "intro": "Vor dem Einreichen eines Lebenslaufs ueberpruefen Sie, ob er diese acht Anforderungen erfuellt. Jede Vorlage auf dieser Seite erfuellt alle acht automatisch — aber wenn Sie den Inhalt aendern, behalten Sie diese Regeln im Kopf.",
+      "items": {
+        "1": "Verwendet Standard-Abschnittsueberschriften (Erfahrung, Ausbildung, Faehigkeiten)",
+        "2": "Einspaltiges Layout mit klarer Lesereihenfolge von oben nach unten",
+        "3": "Keine Tabellen, Textfelder oder schwebenden Elemente",
+        "4": "Kontaktdaten im Textkoerper, nicht in Kopf-/Fusszeilen",
+        "5": "Websichere Standardschriften (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Textauswahlbares PDF (nicht bildbasiert)",
+        "7": "Keine Grafiken, Icons oder Kompetenzbalken, die Textinhalt ersetzen",
+        "8": "Daten in einheitlichem Format (MM/JJJJ oder Monat JJJJ)"
+      },
+      "outro": "Brauchen Sie Hilfe bei der Anpassung Ihres Lebenslaufs fuer eine bestimmte Stelle? Durchsuchen Sie unsere",
+      "outroLink": "300+ berufsspezifischen Lebenslauf-Beispiele"
+    },
+    "faq": {
+      "title": "Haeufig Gestellte Fragen zu ATS-Freundlichen Vorlagen",
+      "items": {
+        "1": {
+          "q": "Was bedeutet ATS-freundlich fuer eine Lebenslauf-Vorlage?",
+          "a": "Eine ATS-freundliche Vorlage ist so gestaltet, dass Bewerbermanagementsysteme Ihren Namen, Kontaktdaten, Berufserfahrung, Ausbildung und Faehigkeiten korrekt extrahieren koennen. Sie vermeidet Tabellen, mehrspaltige Layouts, eingebettete Bilder und benutzerdefinierte Schriften. Alle 16 Vorlagen auf dieser Seite sind gegen Workday, Greenhouse, Lever, iCIMS und Taleo getestet."
+        },
+        "2": {
+          "q": "Kann ein kreativer oder moderner Lebenslauf ATS-kompatibel sein?",
+          "a": "Ja. ATS-Kompatibilitaet haengt von der zugrunde liegenden Struktur ab, nicht vom visuellen Design. Ein Lebenslauf kann Farbakzente, individuellen Abstand und stilvolle Typografie verwenden und dabei ein einspaltiges, textauswahlbares Layout beibehalten, das ATS korrekt liest."
+        },
+        "3": {
+          "q": "Sollte ich meinen Lebenslauf als PDF oder DOCX fuer ATS einreichen?",
+          "a": "PDF ist 2026 generell die sicherste Wahl. Moderne ATS-Plattformen (Workday, Greenhouse, Lever) analysieren gut strukturierte PDFs zuverlaessig. DOCX kann Formatierungsinkonsistenzen zwischen verschiedenen Word-Versionen einfuehren. Unser Builder exportiert textauswahlbare PDFs, die fuer ATS-Analyse optimiert sind."
+        },
+        "4": {
+          "q": "Wie weiss ich, ob mein Lebenslauf das ATS-Screening besteht?",
+          "a": "Nutzen Sie unser kostenloses ATS-Pruefungstool, um Ihren Lebenslauf hochzuladen und zu sehen, wie ein ATS ihn liest. Das Tool zeigt Ihnen, welche Felder korrekt analysiert wurden, welche Keywords mit der Stellenbeschreibung uebereinstimmten und wo Analysefehler auftraten."
+        },
+        "5": {
+          "q": "Brauche ich fuer jede Bewerbung eine andere Vorlage?",
+          "a": "Nein — eine ATS-freundliche Vorlage funktioniert fuer alle Bewerbungen. Was Sie zwischen Bewerbungen aendern sollten, ist der Inhalt: Passen Sie Ihre Faehigkeiten, Ihr berufliches Profil und Ihre Erfolge an die Keywords jeder Stellenbeschreibung an. Die Vorlagenstruktur bleibt gleich; die Keywords aendern sich."
+        }
+      }
+    },
+    "cta": {
+      "title": "Erstellen Sie Jetzt Ihren ATS-Freundlichen Lebenslauf",
+      "subtitle": "Waehlen Sie eine Vorlage, fuegen Sie Ihre Daten hinzu und laden Sie einen Lebenslauf herunter, der jeden ATS-Scan besteht. Kostenlos, ohne Anmeldung.",
+      "buildButton": "Meinen Lebenslauf Erstellen",
+      "checkButton": "Meinen Lebenslauf Pruefen",
+      "browseAll": "Alle Vorlagen Durchsuchen",
+      "formatGuide": "Lebenslauf-Format Leitfaden",
+      "examples": "300+ Lebenslauf-Beispiele"
     }
   }
 }

@@ -9,7 +9,6 @@ interface User {
     role: 'user' | 'admin';
     subscriptionTier?: string;
     subscriptionStatus?: string;
-    trialEndsAt?: string;
 }
 
 interface AuthState {
@@ -45,7 +44,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
             // 2. Fetch user profile to get role and other details
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string };
+            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string };
 
             set({
                 isAuthenticated: true,
@@ -57,7 +56,6 @@ export const useAuthStore = create<AuthState>((set) => ({
                     role: (userData.role as 'user' | 'admin') || 'user',
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
-                    trialEndsAt: userData.trialEndsAt,
                 },
                 isLoading: false
             });
@@ -100,7 +98,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
         try {
             const userResponse = await api.get('/auth/me');
-            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string; trialEndsAt?: string };
+            const userData = userResponse.data as { id: string; email: string; name?: string; image?: string | null; role?: string; subscriptionTier?: string; subscriptionStatus?: string };
 
             set({
                 isAuthenticated: true,
@@ -112,7 +110,6 @@ export const useAuthStore = create<AuthState>((set) => ({
                     role: (userData.role as 'user' | 'admin') || 'user',
                     subscriptionTier: userData.subscriptionTier,
                     subscriptionStatus: userData.subscriptionStatus,
-                    trialEndsAt: userData.trialEndsAt,
                 },
             });
         } catch (error) {

@@ -119,7 +119,7 @@ test.describe('Pricing Page', () => {
     await page.waitForLoadState('domcontentloaded');
 
     // Pricing page uses Link elements for CTAs - look for plan links
-    const planLinks = page.getByRole('link', { name: /get started|subscribe|start trial/i });
+    const planLinks = page.getByRole('link', { name: /get started|subscribe/i });
     const count = await planLinks.count();
     expect(count).toBeGreaterThan(0);
   });

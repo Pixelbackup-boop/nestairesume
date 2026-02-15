@@ -7,7 +7,7 @@ import { useAuthStore } from "@/store/useAuthStore";
 import api from "@/lib/api";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Loader2, CreditCard, AlertCircle, ArrowLeft, Clock, Shield, Check, Zap, Crown, Download } from "lucide-react";
+import { Loader2, CreditCard, AlertCircle, ArrowLeft, Shield, Check, Zap, Crown, Download } from "lucide-react";
 import Link from "next/link";
 
 type PlanType = "starter" | "gold" | "diamond" | "platinum";
@@ -18,20 +18,12 @@ function CheckoutContent() {
   const t = useTranslations("Checkout");
   const locale = useLocale();
 
-  // Calculate trial end date (7 days from now)
-  const getTrialEndDate = () => {
-    const date = new Date();
-    date.setDate(date.getDate() + 7);
-    return date.toLocaleDateString(locale, { month: "long", day: "numeric", year: "numeric" });
-  };
-
   const PLAN_DETAILS: Record<PlanType, {
     name: string;
     price: string;
     priceValue: number;
     description: string;
     features: string[];
-    hasTrial: boolean;
     color: string;
     bgColor: string;
     icon: typeof Zap;
@@ -42,7 +34,6 @@ function CheckoutContent() {
       priceValue: 3,
       description: t("plans.starter.description"),
       features: t.raw("plans.starter.features") as string[],
-      hasTrial: false,
       color: "text-emerald-600",
       bgColor: "bg-emerald-50",
       icon: Download,
@@ -53,7 +44,6 @@ function CheckoutContent() {
       priceValue: 6,
       description: t("plans.gold.description"),
       features: t.raw("plans.gold.features") as string[],
-      hasTrial: true,
       color: "text-amber-600",
       bgColor: "bg-amber-50",
       icon: Zap,
@@ -64,7 +54,6 @@ function CheckoutContent() {
       priceValue: 10,
       description: t("plans.diamond.description"),
       features: t.raw("plans.diamond.features") as string[],
-      hasTrial: true,
       color: "text-violet-600",
       bgColor: "bg-violet-50",
       icon: Crown,
@@ -75,7 +64,6 @@ function CheckoutContent() {
       priceValue: 30,
       description: t("plans.platinum.description"),
       features: t.raw("plans.platinum.features") as string[],
-      hasTrial: false,
       color: "text-slate-700",
       bgColor: "bg-slate-100",
       icon: Crown,
@@ -234,32 +222,14 @@ function CheckoutContent() {
                 <CreditCard className="w-8 h-8 text-emerald-500" />
               </div>
               <h1 className="text-2xl font-bold text-white mb-2">
-                {planDetails.hasTrial ? t("header.startTrial") : t("header.completePurchase")}
+                {t("header.completePurchase")}
               </h1>
               <p className="text-emerald-100">
-                {planDetails.hasTrial
-                  ? t("header.tryPlan", { plan: planDetails.name })
-                  : t("header.subscribePlan", { plan: planDetails.name })
-                }
+                {t("header.subscribePlan", { plan: planDetails.name })}
               </p>
             </div>
 
             <div className="p-8">
-              {/* Trial Banner */}
-              {planDetails.hasTrial && (
-                <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-emerald-600" />
-                    </div>
-                    <div>
-                      <p className="text-emerald-700 font-semibold">{t("trial.badge")}</p>
-                      <p className="text-emerald-600 text-sm">{t("trial.notChargedUntil", { date: getTrialEndDate() })}</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
               {/* Plan Summary */}
               <div className={`${planDetails.bgColor} rounded-2xl p-6 mb-6`}>
                 <div className="flex items-center justify-between mb-4">
@@ -273,14 +243,7 @@ function CheckoutContent() {
                     </div>
                   </div>
                   <div className="text-right">
-                    {planDetails.hasTrial ? (
-                      <>
-                        <p className="text-sm text-gray-400 line-through">{planDetails.price}</p>
-                        <p className="text-2xl font-bold text-emerald-600">$0 today</p>
-                      </>
-                    ) : (
-                      <p className="text-2xl font-bold text-gray-900">${planDetails.priceValue}</p>
-                    )}
+                    <p className="text-2xl font-bold text-gray-900">${planDetails.priceValue}</p>
                   </div>
                 </div>
 
@@ -301,17 +264,10 @@ function CheckoutContent() {
                   <span className="text-gray-600">{t("billing.account")}</span>
                   <span className="text-gray-900 font-medium">{user?.email}</span>
                 </div>
-                {planDetails.hasTrial ? (
-                  <div className="flex items-center justify-between text-sm mt-2">
-                    <span className="text-gray-600">{t("billing.afterTrial")}</span>
-                    <span className="text-gray-900 font-medium">{planDetails.price}</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-between text-sm mt-2">
-                    <span className="text-gray-600">{t("billing.billing")}</span>
-                    <span className="text-gray-900 font-medium">{t("billing.monthlyStarting")}</span>
-                  </div>
-                )}
+                <div className="flex items-center justify-between text-sm mt-2">
+                  <span className="text-gray-600">{t("billing.billing")}</span>
+                  <span className="text-gray-900 font-medium">{t("billing.monthlyStarting")}</span>
+                </div>
               </div>
 
               {/* Error Message */}
@@ -336,7 +292,7 @@ function CheckoutContent() {
                 ) : (
                   <>
                     <CreditCard size={20} />
-                    {planDetails.hasTrial ? t("submit.startTrial") : t("submit.subscribeNow")}
+                    {t("submit.subscribeNow")}
                   </>
                 )}
               </button>
@@ -349,10 +305,7 @@ function CheckoutContent() {
                 <span>{t("secure")}</span>
               </div>
               <p className="text-center text-xs text-gray-400 mt-2">
-                {planDetails.hasTrial
-                  ? t("cancelTrialNote")
-                  : t("cancelNote")
-                }
+                {t("cancelNote")}
               </p>
             </div>
           </div>

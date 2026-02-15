@@ -35,14 +35,12 @@ interface UseLimitCheckReturn {
   closeModal: () => void;
   isLoading: boolean;
   currentTier: string;
-  isTrialing: boolean;
 }
 
 // Map API error codes to limit types
 const ERROR_CODE_TO_TYPE: Record<string, LimitType> = {
   CV_LIMIT_REACHED: 'cv',
   AI_LIMIT_REACHED: 'ai',
-  TRIAL_DAILY_LIMIT_REACHED: 'ai',
   DOWNLOAD_LIMIT_REACHED: 'download',
   COVER_LETTER_LIMIT_REACHED: 'coverLetter',
 };
@@ -147,6 +145,5 @@ export function useLimitCheck(): UseLimitCheckReturn {
     closeModal,
     isLoading,
     currentTier: usage?.tier ?? 'free',
-    isTrialing: usage?.isTrialing ?? false,
   };
 }

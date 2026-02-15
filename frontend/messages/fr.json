@@ -453,7 +453,7 @@
     "sectionTitle": "Tarifs",
     "title": "Tarification simple et",
     "titleHighlight": "transparente",
-    "subtitle": "Commencez gratuitement, passez à un forfait supérieur quand vous en avez besoin. Sans frais cachés.",
+    "subtitle": "Pas de frais cachés, annulez à tout moment.",
     "billingToggle": {
       "monthly": "Mensuel",
       "annual": "Annuel",
@@ -515,7 +515,7 @@
         "cvCreations": "100 créations de CV/mois",
         "aiGenerations": "100 générations IA/mois"
       },
-      "cta": "Obtenir Or"
+      "cta": "Commencer"
     },
     "diamond": {
       "name": "Diamant",
@@ -534,16 +534,15 @@
         "cvCreations": "200 créations de CV/mois",
         "aiGenerations": "250 générations IA/mois"
       },
-      "cta": "Obtenir Diamant"
+      "cta": "Commencer"
     },
     "meta": {
       "title": "Tarifs - Générateur de CV IA à partir de 3$/mois",
-      "description": "Choisissez le forfait parfait pour votre recherche d'emploi. Essai gratuit de 7 jours. Sans engagement."
+      "description": "Choisissez le forfait parfait pour votre recherche d'emploi. Pas de frais cachés, annulez à tout moment. À partir de 3$/mois."
     },
     "allPlansInclude": "Tous les forfaits incluent : Sans publicité • Tous les modèles freemium",
     "bestValue": "MEILLEURE OFFRE",
-    "trialBadge": "Essai gratuit de 7 jours",
-    "trialNote": "Annulez à tout moment sans frais.",
+    "billedImmediately": "Facturation immédiate",
     "comparison": {
       "title": "Comparer les Forfaits",
       "feature": "Fonctionnalité",
@@ -561,7 +560,7 @@
     },
     "cta": {
       "title": "Prêt à commencer ?",
-      "subtitle": "Essai gratuit de 7 jours sur les forfaits Gold et Diamond. Annulation possible à tout moment.",
+      "subtitle": "Tous les plans sont facturés immédiatement. Annulez à tout moment.",
       "button": "Voir les Forfaits",
       "contactSupport": "Contacter le Support"
     },
@@ -569,15 +568,15 @@
       "title": "Questions Fréquentes",
       "cancelAnytime": {
         "question": "Puis-je annuler mon abonnement à tout moment ?",
-        "answer": "Oui, vous pouvez annuler votre abonnement à tout moment, y compris pendant votre essai gratuit."
+        "answer": "Oui, vous pouvez annuler votre abonnement à tout moment. Vous conserverez l'accès jusqu'à la fin de votre période de facturation en cours."
       },
       "paymentMethods": {
         "question": "Quels moyens de paiement acceptez-vous ?",
         "answer": "Nous acceptons toutes les cartes de crédit majeures (Visa, MasterCard, American Express) via Stripe."
       },
       "starterOneTime": {
-        "question": "Comment fonctionne l'essai gratuit ?",
-        "answer": "Tous les forfaits incluent un essai gratuit de 7 jours. Ajoutez votre carte pour commencer, vous ne serez pas facturé avant la fin de l'essai."
+        "question": "Comment fonctionne la facturation ?",
+        "answer": "Tous les forfaits sont facturés immédiatement lors de l'abonnement. Les forfaits mensuels se renouvellent chaque mois et les forfaits annuels chaque année. Vous pouvez annuler à tout moment depuis les paramètres de votre compte."
       },
       "runOutDownloads": {
         "question": "Que se passe-t-il quand j'atteins mes limites ?",
@@ -589,7 +588,7 @@
       },
       "refunds": {
         "question": "Offrez-vous des remboursements ?",
-        "answer": "Tous les forfaits incluent un essai gratuit de 7 jours, nous n'offrons pas de remboursement après facturation."
+        "answer": "Nous n'offrons pas de remboursement après achat. Vous pouvez annuler à tout moment depuis les paramètres de votre compte et conserver l'accès jusqu'à la fin de votre période de facturation."
       }
     },
     "page": {
@@ -808,7 +807,6 @@
       "restored": "Votre projet canvas a été restauré ! Cliquez sur Exporter pour télécharger."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Modèles de CV Canvas - Concevez Votre CV Visuellement | Best AI Resume",
@@ -818,6 +816,7 @@
     "title": "Modèles de CV",
     "titleHighlight": "Canvas",
     "subtitle": "Concevez votre CV avec une liberté créative totale. Glissez, déposez et personnalisez chaque élément dans notre éditeur visuel.",
+    "freeBadge": "C'est Gratuit",
     "searchPlaceholder": "Rechercher des modèles canvas...",
     "noResults": "Aucun modèle trouvé",
     "noResultsHint": "Essayez d'ajuster votre recherche ou vos critères de filtrage",
@@ -836,7 +835,6 @@
     "formBuilderBanner": "Vous cherchez des modèles avec formulaire ?",
     "viewFormTemplates": "Voir les Modèles du Constructeur"
   },
-
   "Builder": {
     "tabs": {
       "personal": "Personnel",
@@ -1112,7 +1110,6 @@
       "blsCareerData": "Bureau of Labor Statistics : Données sur les Carrières"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Pratique d'Entretien avec IA Gratuite | Best AI Resume",
@@ -1129,9 +1126,18 @@
       "jobTitlePlaceholder": "ex. Ingénieur Logiciel, Responsable Marketing...",
       "experienceLevel": "Niveau d'Expérience",
       "levels": {
-        "entry": { "label": "Débutant", "description": "0–2 ans d'expérience" },
-        "mid": { "label": "Intermédiaire", "description": "3–6 ans d'expérience" },
-        "senior": { "label": "Senior", "description": "7+ ans d'expérience" }
+        "entry": {
+          "label": "Débutant",
+          "description": "0–2 ans d'expérience"
+        },
+        "mid": {
+          "label": "Intermédiaire",
+          "description": "3–6 ans d'expérience"
+        },
+        "senior": {
+          "label": "Senior",
+          "description": "7+ ans d'expérience"
+        }
       },
       "questionCount": "Nombre de Questions : {count}",
       "quick": "Rapide (3)",
@@ -1189,7 +1195,6 @@
       "shrmInterviewPractices": "SHRM : Bonnes Pratiques d'Entretien"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Conseils Carrière & CV - Guides d'Experts | Best AI Resume",
@@ -1422,28 +1427,19 @@
       "createAccountBtn": "Créer un compte"
     },
     "header": {
-      "startTrial": "Commencez votre essai gratuit",
       "completePurchase": "Finalisez votre achat",
-      "tryPlan": "Essayez le forfait {plan} gratuitement pendant 7 jours",
       "subscribePlan": "Abonnez-vous au forfait {plan}"
-    },
-    "trial": {
-      "badge": "Essai gratuit de 7 jours",
-      "notChargedUntil": "Vous ne serez pas débité avant le {date}"
     },
     "billing": {
       "account": "Compte",
-      "afterTrial": "Après l'essai",
       "billing": "Facturation",
       "monthlyStarting": "Mensuel, à partir d'aujourd'hui"
     },
     "submit": {
       "redirecting": "Redirection vers Stripe...",
-      "startTrial": "Commencer l'essai gratuit",
       "subscribeNow": "S'abonner maintenant"
     },
     "secure": "Paiement sécurisé via Stripe",
-    "cancelTrialNote": "Annulez à tout moment pendant votre essai sans frais",
     "cancelNote": "Annulez à tout moment. Sans engagement.",
     "loading": "Chargement du paiement...",
     "errors": {
@@ -1658,9 +1654,7 @@
       "plan": "Forfait {tier}",
       "expiredPlan": "Forfait expiré",
       "noActivePlan": "Aucun forfait actif",
-      "trial": "Essai",
       "active": "Actif",
-      "trialEnds": "L'essai se termine le {date}",
       "planActive": "Votre forfait est actif",
       "subscribePrompt": "Abonnez-vous pour débloquer les téléchargements",
       "resubscribe": "Se réabonner",
@@ -1707,7 +1701,6 @@
     },
     "loading": "Chargement..."
   },
-
   "Profile": {
     "meta": {
       "title": "Paramètres du Profil - Best AI Resume",
@@ -1881,8 +1874,8 @@
           "description": "Cliquez sur Tarifs dans la barre de navigation ou visitez directement la page des tarifs. Vous verrez quatre forfaits : Starter (gratuit, téléchargements limités), Gold, Diamond et Platinum. Utilisez le bouton bascule en haut pour alterner entre la facturation mensuelle et annuelle — les forfaits annuels économisent jusqu'à 40%."
         },
         "2": {
-          "title": "Commencez un Essai Gratuit",
-          "description": "Les forfaits Gold et Diamond offrent un essai gratuit de 7 jours en facturation mensuelle. Pendant l'essai, vous avez un accès complet à toutes les fonctionnalités du forfait. Vous ne serez pas facturé avant la fin de l'essai, et vous pouvez annuler à tout moment.",
+          "title": "Choisissez Votre Forfait",
+          "description": "Comparez les quatre forfaits — Starter, Gold, Diamond et Platinum — et choisissez celui qui correspond à vos besoins. Tous les forfaits sont facturés immédiatement et vous donnent un accès instantané à toutes les fonctionnalités.",
           "tip": "La facturation annuelle économise jusqu'à 40% par rapport à la mensuelle — et vous obtenez les mêmes fonctionnalités."
         },
         "3": {
@@ -1896,8 +1889,8 @@
           "a": "Oui. Vous pouvez annuler depuis les paramètres de votre compte à tout moment. Vous conserverez l'accès jusqu'à la fin de votre période de facturation en cours."
         },
         "2": {
-          "q": "Que se passe-t-il quand mon essai gratuit se termine ?",
-          "a": "Si vous n'annulez pas, votre carte sera débitée pour la première période de facturation. Si vous annulez avant la fin de l'essai, vous ne serez pas facturé du tout."
+          "q": "Que se passe-t-il si j'annule ?",
+          "a": "Vous conserverez l'accès à votre forfait jusqu'à la fin de votre période de facturation en cours. Après cela, votre compte passera au statut expiré."
         },
         "3": {
           "q": "Puis-je changer de forfait plus tard ?",
@@ -1967,6 +1960,153 @@
       "subtitle": "Créez votre CV professionnel en quelques minutes avec notre créateur alimenté par l'IA.",
       "buildButton": "Commencer à Créer",
       "contactButton": "Contacter le Support"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Modeles de CV Compatibles ATS Gratuits (2026) | Passez Chaque Scan ATS",
+      "description": "Parcourez 16 modeles de CV compatibles ATS concus pour passer les systemes de suivi des candidatures. Mise en forme propre, polices standard et mises en page analysables."
+    },
+    "breadcrumb": {
+      "home": "Accueil",
+      "current": "Modeles Compatibles ATS"
+    },
+    "hero": {
+      "badge": "100% Compatible ATS",
+      "title": "Modeles de CV Compatibles ATS",
+      "subtitle": "97% des entreprises Fortune 500 utilisent des Systemes de Suivi des Candidatures pour filtrer les CV avant qu'un humain ne les voie (Jobscan, 2024). Chaque modele ci-dessous est concu pour passer le scan ATS — pour que votre CV atteigne une vraie personne.",
+      "check1": "Passe l'analyse ATS",
+      "check2": "Gratuit",
+      "check3": "Telechargement PDF instantane"
+    },
+    "whatMakes": {
+      "title": "Qu'est-ce Qui Rend un Modele de CV Compatible ATS ?",
+      "p1": "Un modele de CV compatible ATS est concu pour que les Systemes de Suivi des Candidatures — le logiciel que les employeurs utilisent pour collecter, trier et classer les candidatures — puissent lire avec precision chaque section de votre CV. Lorsqu'un ATS ne parvient pas a analyser votre CV, votre nom, votre experience et vos competences peuvent ne jamais apparaitre sur l'ecran du recruteur. Selon une etude de Harvard Business School de 2023, plus de 75% des CV sont rejetes par les ATS avant qu'un humain ne les examine.",
+      "p2": "La raison la plus courante de l'echec des CV lors de l'analyse ATS est la mise en forme. Les tableaux, les mises en page multi-colonnes, les zones de texte, les polices personnalisees et les graphiques integres causent tous des erreurs d'analyse. Un ATS lit votre CV comme un flux de texte du haut vers le bas. Si ce flux est interrompu par une mise en forme complexe, le systeme attribue mal vos donnees.",
+      "p3": "Nos 16 modeles de CV sont concus des le depart avec la compatibilite ATS comme exigence principale. Ils utilisent des en-tetes de section standard, des mises en page a colonne unique, des polices web securisees et un rendu HTML-vers-PDF propre. Chaque modele a ete teste contre les cinq plateformes ATS les plus utilisees : Workday, Greenhouse, Lever, iCIMS et Taleo.",
+      "link1": "Comment Rediger un CV Compatible ATS",
+      "link2": "Qu'est-ce qu'un ATS ? Guide Complet",
+      "link3": "Comprendre les Taux d'Analyse ATS"
+    },
+    "features": {
+      "title": "Pourquoi Nos Modeles Passent le Scan ATS",
+      "subtitle": "La plupart des CV sont rejetes avant qu'un humain ne les voie. Nos modeles sont concus pour eviter les pieges de mise en forme qui causent les echecs ATS.",
+      "parseable": {
+        "title": "Mise en Page Analysable",
+        "description": "Structure a colonne unique avec une hierarchie claire que le logiciel ATS lit de haut en bas sans confusion. Pas de mise en page multi-colonnes qui melange l'ordre du contenu."
+      },
+      "standardHeaders": {
+        "title": "En-tetes de Section Standard",
+        "description": "Utilise des en-tetes comme 'Experience' et 'Formation' que tout ATS reconnait — pas d'etiquettes creatives qui confondent les analyseurs."
+      },
+      "testedATS": {
+        "title": "Teste avec de Vrais ATS",
+        "description": "Chaque modele est teste avec Workday, Greenhouse, Lever, iCIMS et Taleo — les cinq plateformes qui traitent la majorite des candidatures en ligne."
+      },
+      "cleanFormatting": {
+        "title": "Mise en Forme Propre et Sure",
+        "description": "Pas de tableaux, zones de texte, en-tetes/pieds de page ou images integrees qui cassent l'analyse ATS. Juste du texte propre et des polices standard rendues en texte PDF selectionnable."
+      }
+    },
+    "grid": {
+      "title": "Choisissez Votre Modele Compatible ATS",
+      "subtitle": "Les 16 modeles sont entierement compatibles ATS. Choisissez n'importe quel style — votre CV sera analyse correctement.",
+      "useTemplate": "Utiliser Ce Modele"
+    },
+    "mistakes": {
+      "title": "5 Erreurs de Mise en Forme qui Font Rejeter les CV par les ATS",
+      "intro": "Meme les candidats solides sont filtres lorsque la mise en forme de leur CV confond l'analyseur ATS. Voici les cinq erreurs les plus courantes — et que nos modeles eliminent automatiquement.",
+      "items": {
+        "1": {
+          "title": "Utiliser des tableaux ou mises en page multi-colonnes",
+          "description": "L'ATS lit le texte en un seul flux. Les tableaux et colonnes melangent le contenu — votre numero de telephone pourrait se retrouver dans le champ du titre de poste."
+        },
+        "2": {
+          "title": "Mettre les coordonnees dans les en-tetes ou pieds de page",
+          "description": "Beaucoup de plateformes ATS ignorent completement les en-tetes et pieds de page du document. Si votre nom, email ou telephone est uniquement dans l'en-tete, il disparait de votre profil analyse."
+        },
+        "3": {
+          "title": "Utiliser des etiquettes de section creatives",
+          "description": "Des etiquettes comme 'Mon Parcours' au lieu de 'Experience' ou 'Ma Boite a Outils' au lieu de 'Competences' font que l'ATS ignore toute la section."
+        },
+        "4": {
+          "title": "Sauvegarder en PDF image ou utiliser des polices non standard",
+          "description": "Si le texte ne peut pas etre selectionne dans votre PDF, l'ATS ne peut pas le lire. Les documents scannes, les exports d'outils de design et les polices rares produisent des fichiers illisibles."
+        },
+        "5": {
+          "title": "Ajouter des graphiques, icones ou barres de competences",
+          "description": "Les barres de progression, les notes en etoiles et les icones pour les coordonnees sont invisibles pour l'ATS. Une note '4 sur 5 etoiles' devient du texte vide qui obtient un score de zero."
+        }
+      },
+      "cta": "Pas sur que votre CV actuel passe ?",
+      "ctaLink": "Lancez une verification gratuite de compatibilite ATS"
+    },
+    "howATS": {
+      "title": "Comment les Systemes de Suivi des Candidatures Analysent Votre CV",
+      "intro": "Comprendre le processus ATS vous aide a voir pourquoi la mise en forme compte plus que la plupart des candidats ne le pensent. Voici ce qui se passe dans les secondes apres avoir clique sur Postuler.",
+      "step1": {
+        "title": "Votre fichier CV est recu et converti",
+        "description": "L'ATS recoit votre fichier PDF ou DOCX et le fait passer par un moteur d'extraction de texte. Il tente de convertir le document en donnees structurees — separant votre nom, coordonnees, parcours professionnel, formation et competences en champs distincts. Si le fichier utilise des tableaux, colonnes ou images, cette etape produit des donnees confuses ou manquantes."
+      },
+      "step2": {
+        "title": "Le contenu est analyse, mappe et note",
+        "description": "Une fois extrait, l'ATS mappe votre contenu par rapport a la description du poste. Il cherche des correspondances de mots-cles dans vos competences, titres de poste et descriptions d'experience. Des systemes comme Workday et Greenhouse attribuent un score de pertinence base sur la correspondance de votre CV avec les exigences du poste."
+      },
+      "step3": {
+        "title": "Les recruteurs examinent les candidats classes",
+        "description": "Les recruteurs examinent generalement les 10 a 20 CV les mieux classes pour chaque poste. Si votre mise en forme a cause des erreurs d'analyse, vous pouvez etre classe en dessous de candidats moins qualifies dont les CV ont ete correctement analyses. Nos modeles garantissent que vos qualifications sont representees avec precision."
+      },
+      "warning": "Important : La compatibilite ATS est necessaire mais pas suffisante. Vous devez encore adapter les mots-cles de votre CV a chaque description de poste. Utilisez notre outil de Verification ATS pour tester votre CV contre des offres specifiques apres avoir choisi un modele."
+    },
+    "checklist": {
+      "title": "Liste de Verification de Compatibilite ATS",
+      "intro": "Avant de soumettre un CV, verifiez qu'il repond a ces huit exigences. Chaque modele sur cette page satisfait les huit automatiquement — mais si vous modifiez le contenu, gardez ces regles en tete.",
+      "items": {
+        "1": "Utilise des en-tetes de section standard (Experience, Formation, Competences)",
+        "2": "Mise en page a colonne unique avec un ordre de lecture clair du haut vers le bas",
+        "3": "Pas de tableaux, zones de texte ou elements flottants",
+        "4": "Coordonnees dans le corps du texte, pas dans les en-tetes/pieds de page",
+        "5": "Polices web securisees standard (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Sortie PDF avec texte selectionnable (pas basee sur des images)",
+        "7": "Pas de graphiques, icones ou barres de competences remplacant le contenu textuel",
+        "8": "Dates dans un format coherent (MM/AAAA ou Mois AAAA)"
+      },
+      "outro": "Besoin d'aide pour adapter votre CV a un poste specifique ? Parcourez nos",
+      "outroLink": "300+ exemples de CV par profession"
+    },
+    "faq": {
+      "title": "Questions Frequentes Sur les Modeles Compatibles ATS",
+      "items": {
+        "1": {
+          "q": "Que signifie compatible ATS pour un modele de CV ?",
+          "a": "Un modele compatible ATS est concu pour que les Systemes de Suivi des Candidatures puissent extraire avec precision votre nom, coordonnees, parcours professionnel, formation et competences. Il evite les tableaux, mises en page multi-colonnes, images integrees et polices personnalisees qui causent des echecs d'analyse. Les 16 modeles sur cette page sont testes contre Workday, Greenhouse, Lever, iCIMS et Taleo."
+        },
+        "2": {
+          "q": "Un CV creatif ou moderne peut-il etre compatible ATS ?",
+          "a": "Oui. La compatibilite ATS depend de la structure sous-jacente, pas du design visuel. Un CV peut utiliser des accents de couleur, un espacement personnalise et une typographie elegante tout en maintenant une mise en page a colonne unique avec texte selectionnable que l'ATS lit correctement."
+        },
+        "3": {
+          "q": "Dois-je soumettre mon CV en PDF ou DOCX pour l'ATS ?",
+          "a": "Le PDF est generalement le choix le plus sur en 2026. Les plateformes ATS modernes (Workday, Greenhouse, Lever) analysent les PDF bien structures de maniere fiable. Le DOCX peut introduire des incoherences de formatage entre les differentes versions de Word. Notre constructeur exporte des PDF avec texte selectionnable optimises pour l'analyse ATS."
+        },
+        "4": {
+          "q": "Comment savoir si mon CV passe le scan ATS ?",
+          "a": "Utilisez notre outil gratuit de Verification ATS pour telecharger votre CV et voir comment un ATS le lit. L'outil vous montre quels champs ont ete correctement analyses, quels mots-cles correspondent a la description du poste et ou des erreurs d'analyse se sont produites."
+        },
+        "5": {
+          "q": "Ai-je besoin d'un modele different pour chaque candidature ?",
+          "a": "Non — un modele compatible ATS fonctionne pour toutes les candidatures. Ce que vous devez changer entre les candidatures est le contenu : adaptez votre section competences, resume professionnel et realisations pour correspondre aux mots-cles de chaque description de poste. La structure du modele reste la meme ; les mots-cles changent."
+        }
+      }
+    },
+    "cta": {
+      "title": "Creez Votre CV Compatible ATS Maintenant",
+      "subtitle": "Choisissez un modele, ajoutez vos informations et telechargez un CV qui passe chaque scan ATS. Gratuit, sans inscription.",
+      "buildButton": "Creer Mon CV",
+      "checkButton": "Verifier Mon CV Actuel",
+      "browseAll": "Voir Tous les Modeles",
+      "formatGuide": "Guide de Format de CV",
+      "examples": "300+ Exemples de CV"
     }
   }
 }

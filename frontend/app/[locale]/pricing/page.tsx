@@ -82,7 +82,6 @@ export default function PricingPage() {
         { text: t("page.coverLetters", { count: formatLimit(planLimits?.starter?.coverLetterLimit) }), included: true },
       ],
       highlighted: false,
-      hasTrial: false,
     },
     {
       key: "gold" as PlanType,
@@ -101,7 +100,6 @@ export default function PricingPage() {
         { text: t("page.coverLetters", { count: formatLimit(planLimits?.gold?.coverLetterLimit) }), included: true },
       ],
       highlighted: false,
-      hasTrial: !isAnnual,
     },
     {
       key: "diamond" as PlanType,
@@ -122,7 +120,6 @@ export default function PricingPage() {
         { text: t("diamond.features.support"), included: true },
       ],
       highlighted: true,
-      hasTrial: !isAnnual,
     },
     {
       key: "platinum" as PlanType,
@@ -144,7 +141,6 @@ export default function PricingPage() {
         { text: t("platinum.features.earlyAccess"), included: true },
       ],
       highlighted: false,
-      hasTrial: false,
     },
   ];
 
@@ -160,7 +156,6 @@ export default function PricingPage() {
     { feature: t("comparison.aiGenerations"), starter: fmtCell(planLimits?.starter?.aiLimit), gold: fmtCell(planLimits?.gold?.aiLimit), diamond: fmtCell(planLimits?.diamond?.aiLimit), platinum: fmtCell(planLimits?.platinum?.aiLimit) },
     { feature: t("comparison.downloads"), starter: fmtCell(planLimits?.starter?.downloadLimit), gold: fmtCell(planLimits?.gold?.downloadLimit), diamond: fmtCell(planLimits?.diamond?.downloadLimit), platinum: fmtCell(planLimits?.platinum?.downloadLimit) },
     { feature: t("page.coverLetterBuilder"), starter: fmtCell(planLimits?.starter?.coverLetterLimit), gold: fmtCell(planLimits?.gold?.coverLetterLimit), diamond: fmtCell(planLimits?.diamond?.coverLetterLimit), platinum: fmtCell(planLimits?.platinum?.coverLetterLimit) },
-    { feature: "Free Trial", starter: "✗", gold: "7 days", diamond: "7 days", platinum: "✗" },
     { feature: t("page.formBuilder"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
     { feature: t("comparison.adFree"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
     { feature: t("page.atsOptimization"), starter: "✓", gold: "✓", diamond: "✓", platinum: "✓" },
@@ -231,12 +226,6 @@ export default function PricingPage() {
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
               {t("subtitle")}
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 bg-accent-green/10 border border-accent-green/30 px-4 py-2 rounded-full">
-              <svg className="w-5 h-5 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="text-accent-green font-medium text-sm">{t("trialBadge")} on Gold & Diamond</span>
-            </div>
           </div>
         </PricingAnimations.Hero>
       </section>
@@ -318,16 +307,7 @@ export default function PricingPage() {
                     </div>
                   )}
                 </div>
-                {plan.hasTrial ? (
-                  <div className="mb-4 inline-flex items-center gap-1.5 bg-accent-green/10 text-accent-green text-xs font-medium px-2.5 py-1 rounded-full">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    {t("trialBadge")}
-                  </div>
-                ) : (
-                  <div className="mb-4 text-xs text-gray-500">Billed immediately</div>
-                )}
+                <div className="mb-4 text-xs text-gray-500">{t("billedImmediately")}</div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li

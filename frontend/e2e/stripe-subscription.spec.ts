@@ -36,7 +36,7 @@ test.describe('Subscription Purchase Flow', () => {
       await page.waitForLoadState('domcontentloaded');
 
       // Pricing page uses Link elements for CTAs - look for plan links
-      const planLinks = page.getByRole('link', { name: /get started|subscribe|start trial/i });
+      const planLinks = page.getByRole('link', { name: /get started|subscribe/i });
       await expect(planLinks.first()).toBeVisible();
     });
 
@@ -136,7 +136,7 @@ test.describe('Subscription Purchase Flow', () => {
       const hasSignInPrompt = await page.getByText(/Sign in to Continue/i).isVisible().catch(() => false);
       const hasSignInButton = await page.getByRole('link', { name: 'Sign In' }).isVisible().catch(() => false);
       // For authenticated users, shows checkout content
-      const hasCheckoutContent = await page.getByText(/Complete Your Purchase|Start Your Free Trial|Subscribe Now/i).isVisible().catch(() => false);
+      const hasCheckoutContent = await page.getByText(/Complete Your Purchase|Subscribe Now/i).isVisible().catch(() => false);
       // Also check for plan-specific content
       const hasStarterPlan = await page.getByText(/starter/i).first().isVisible().catch(() => false);
       const hasBody = await page.locator('body').isVisible().catch(() => false);
@@ -211,7 +211,7 @@ test.describe('Subscription Purchase Flow', () => {
       await page.waitForLoadState('domcontentloaded');
 
       // For non-authenticated users, plan CTAs should be visible as links
-      const planLinks = await page.getByRole('link', { name: /get started|subscribe|start trial/i }).all();
+      const planLinks = await page.getByRole('link', { name: /get started|subscribe/i }).all();
       expect(planLinks.length).toBeGreaterThan(0);
     });
   });

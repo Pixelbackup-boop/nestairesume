@@ -8,8 +8,6 @@ interface UsageLimit {
 
 interface UsageData {
   tier: string;
-  isTrialing: boolean;
-  trialEndsAt: string | null;
   usage: {
     cv: UsageLimit;
     ai: UsageLimit;

@@ -10,7 +10,6 @@ interface PlanLimits {
   aiLimit: number;
   downloadLimit: number;
   coverLetterLimit: number;
-  trialDailyLimit: number;
 }
 
 type PlansData = Record<string, PlanLimits>;
@@ -29,7 +28,6 @@ const LIMIT_LABELS = [
   { key: "aiLimit", label: "AI Generations / month" },
   { key: "downloadLimit", label: "Downloads / month" },
   { key: "coverLetterLimit", label: "Cover Letters / month" },
-  { key: "trialDailyLimit", label: "Trial Daily AI Limit" },
 ] as const;
 
 export default function AdminPlansPage() {
@@ -88,13 +86,12 @@ export default function AdminPlansPage() {
   const handleSave = async (planType: string) => {
     setSaving((prev) => ({ ...prev, [planType]: true }));
     try {
-      const { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit } = edited[planType];
+      const { cvLimit, aiLimit, downloadLimit, coverLetterLimit } = edited[planType];
       await api.put(`/admin/plans/${planType}`, {
         cvLimit,
         aiLimit,
         downloadLimit,
         coverLetterLimit,
-        trialDailyLimit,
       });
       const res = await api.get("/admin/plans");
       setPlans(res.data as PlansData);

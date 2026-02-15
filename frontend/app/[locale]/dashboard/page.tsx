@@ -390,21 +390,15 @@ export default function DashboardPage() {
                                                         : t('subscription.noActivePlan')}
                                             </h3>
                                             {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && (
-                                                <span className={`px-2 py-0.5 text-xs rounded-full font-medium ${
-                                                    user.subscriptionStatus === 'trialing'
-                                                        ? 'bg-blue-500/20 text-blue-600'
-                                                        : 'bg-accent-green/20 text-accent-green'
-                                                }`}>
-                                                    {user.subscriptionStatus === 'trialing' ? t('subscription.trial') : t('subscription.active')}
+                                                <span className="px-2 py-0.5 text-xs rounded-full font-medium bg-accent-green/20 text-accent-green">
+                                                    {t('subscription.active')}
                                                 </span>
                                             )}
                                         </div>
                                         <p className="text-sm text-text-secondary">
-                                            {user.subscriptionStatus === 'trialing' && user.trialEndsAt
-                                                ? t('subscription.trialEnds', { date: new Date(user.trialEndsAt).toLocaleDateString(locale, { month: 'short', day: 'numeric' }) })
-                                                : user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && user.subscriptionStatus === 'active'
-                                                    ? t('subscription.planActive')
-                                                    : t('subscription.subscribePrompt')
+                                            {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && user.subscriptionStatus === 'active'
+                                                ? t('subscription.planActive')
+                                                : t('subscription.subscribePrompt')
                                             }
                                         </p>
                                     </div>

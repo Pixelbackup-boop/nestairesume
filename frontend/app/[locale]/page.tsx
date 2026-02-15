@@ -517,7 +517,7 @@ export default async function Home() {
               <svg className="w-5 h-5 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="text-teal-text font-medium text-sm">{tPricing("trialBadge")} on Gold & Diamond • {tPricing("cancelAnytime")}</span>
+              <span className="text-teal-text font-medium text-sm">{tPricing("billedImmediately")} • {tPricing("cancelAnytime")}</span>
             </div>
           </div>
 
@@ -565,12 +565,6 @@ export default async function Home() {
                 <span className="text-3xl font-bold text-dark-teal">{tPricing("gold.price")}</span>
                 <span className="text-dark-teal/80 text-sm">{tPricing("gold.period")}</span>
               </div>
-              <div className="mb-4 inline-flex items-center gap-1.5 bg-teal-primary/10 text-teal-text text-xs font-medium px-2.5 py-1 rounded-full">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                {tPricing("trialBadge")}
-              </div>
               <ul className="space-y-2.5 mb-6 text-sm">
                 <li className="flex items-center gap-2 text-dark-teal/80">
                   <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -608,12 +602,6 @@ export default async function Home() {
               <div className="mb-3">
                 <span className="text-3xl font-bold text-white">{tPricing("diamond.price")}</span>
                 <span className="text-white/70 text-sm">{tPricing("diamond.period")}</span>
-              </div>
-              <div className="mb-4 inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-medium px-2.5 py-1 rounded-full">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                {tPricing("trialBadge")}
               </div>
               <ul className="space-y-2.5 mb-6 text-sm">
                 <li className="flex items-center gap-2 text-white/90">
