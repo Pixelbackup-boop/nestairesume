@@ -3,6 +3,24 @@ import { constructWebhookEvent, handleWebhookEvent } from "../services/stripeSer
 
 const router = Router();
 
+// Track processed event IDs to prevent duplicate processing on retries
+// Stripe retries webhooks up to 3 times — without this, duplicate payments can occur
+const processedEvents = new Map<string, number>();
+const MAX_PROCESSED_EVENTS = 1000;
+
+function isAlreadyProcessed(eventId: string): boolean {
+  if (processedEvents.has(eventId)) return true;
+
+  // Evict old entries if map gets too large
+  if (processedEvents.size >= MAX_PROCESSED_EVENTS) {
+    const oldestKey = processedEvents.keys().next().value;
+    if (oldestKey) processedEvents.delete(oldestKey);
+  }
+
+  processedEvents.set(eventId, Date.now());
+  return false;
+}
+
 // Stripe webhook endpoint
 // Note: This route must use raw body parsing, configured in index.ts
 router.post("/stripe", async (req: Request, res: Response): Promise<void> => {
@@ -14,10 +32,14 @@ router.post("/stripe", async (req: Request, res: Response): Promise<void> => {
   }
 
   try {
-    // req.body should be a Buffer when using express.raw()
     const event = constructWebhookEvent(req.body as Buffer, signature);
 
-    // Handle the event
+    // Skip if already processed (Stripe retry)
+    if (isAlreadyProcessed(event.id)) {
+      res.json({ received: true, duplicate: true });
+      return;
+    }
+
     await handleWebhookEvent(event);
 
     res.json({ received: true });

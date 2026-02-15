@@ -38,6 +38,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Standalone output for Docker/Cloud Run deployment
+  output: 'standalone',
+
   // Redirects for removed pages
   async redirects() {
     return [
@@ -49,12 +52,33 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Security headers
+  // Security + caching headers
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: securityHeaders,
+      },
+      // Cache Next.js static assets (immutable hashed filenames)
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      // Cache public images (30 days)
+      {
+        source: '/Img/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=2592000' },
+        ],
+      },
+      // Cache fonts (1 year, immutable)
+      {
+        source: '/fonts/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
       },
     ];
   },

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { config } from "./config/env";
+import { initSentry, setupSentryErrorHandler } from "./lib/sentry";
 
 // Import routes
 import authRoutes from "./routes/auth";
@@ -25,8 +26,12 @@ import communityRoutes from "./routes/community";
 import { startScheduler } from "./services/schedulerService";
 import { reloadPlansFromDb } from "./services/stripeService";
 import { initFontCache } from "./templates/pdf/shared/fontCache";
+import prisma from "./config/database";
 
 const app = express();
+
+// Initialize Sentry (must be before routes)
+initSentry(app);
 
 // Middleware
 app.use(cors({
@@ -49,8 +54,13 @@ app.get("/", (_req, res) => {
   });
 });
 
-app.get("/health", (_req, res) => {
-  res.json({ status: "healthy" });
+app.get("/health", async (_req, res) => {
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+    res.json({ status: "healthy", database: "connected" });
+  } catch {
+    res.status(503).json({ status: "unhealthy", database: "disconnected" });
+  }
 });
 
 // API Routes
@@ -72,6 +82,9 @@ app.use("/api/v1/interview", mockInterviewRoutes);
 app.use("/api/v1/contact", contactRoutes);
 app.use("/api/v1/community", communityRoutes);
 
+// Sentry error handler (must be after all routes)
+setupSentryErrorHandler(app);
+
 // Process-level error handlers
 process.on('unhandledRejection', (reason) => {
   console.error('Unhandled promise rejection:', reason);
@@ -83,7 +96,7 @@ process.on('uncaughtException', (err) => {
 });
 
 // Start server
-app.listen(config.port, config.host, async () => {
+const server = app.listen(config.port, config.host, async () => {
   console.log(`🚀 Server running at http://${config.host}:${config.port}`);
   console.log(`📚 API endpoints at http://${config.host}:${config.port}/api/v1`);
 
@@ -96,3 +109,25 @@ app.listen(config.port, config.host, async () => {
   // Start auto-blog scheduler
   startScheduler();
 });
+
+// Graceful shutdown — Cloud Run sends SIGTERM with 10s grace period
+const SHUTDOWN_TIMEOUT_MS = 8000;
+
+function gracefulShutdown(signal: string) {
+  console.log(`\n${signal} received. Shutting down gracefully...`);
+
+  // Stop accepting new connections
+  server.close(() => {
+    console.log('All in-flight requests completed. Exiting.');
+    process.exit(0);
+  });
+
+  // Force exit if in-flight requests don't finish in time
+  setTimeout(() => {
+    console.error('Shutdown timeout reached. Forcing exit.');
+    process.exit(1);
+  }, SHUTDOWN_TIMEOUT_MS);
+}
+
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));

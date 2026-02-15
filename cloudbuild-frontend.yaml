@@ -49,6 +49,8 @@ steps:
       - '0'
       - '--max-instances'
       - '20'
+      - '--concurrency'
+      - '100'
       - '--timeout'
       - '60'
       - '--set-secrets'
