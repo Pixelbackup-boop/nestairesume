@@ -463,22 +463,6 @@
       "annual": "Jährlich",
       "savePercent": "20% sparen"
     },
-    "free": {
-      "name": "Kostenlos",
-      "description": "Vor dem Kauf testen",
-      "price": "0€",
-      "period": "/für immer",
-      "features": {
-        "downloads": "5 Downloads (mit Werbung)",
-        "resumes": "3 gespeicherte Lebensläufe",
-        "templates": "15 Basis-Vorlagen",
-        "aiBuild": "KI-Schnellerstellung"
-      },
-      "limitations": {
-        "ads": "Enthält Werbung"
-      },
-      "cta": "Kostenlos Starten"
-    },
     "starter": {
       "name": "Starter",
       "description": "Einmaliger Kauf",
@@ -489,7 +473,6 @@
       "annualMonthly": "$2,42/Monat",
       "features": {
         "downloads": "10 Downloads",
-        "resumes": "5 gespeicherte Lebensläufe",
         "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
         "export": "PDF- und PNG-Export",
@@ -508,7 +491,6 @@
       "annualMonthly": "$4,83/Monat",
       "features": {
         "downloads": "50 Downloads/Monat",
-        "resumes": "20 gespeicherte Lebensläufe",
         "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
         "ats": "ATS-Optimierung",
@@ -527,7 +509,6 @@
       "annualMonthly": "$8/Monat",
       "features": {
         "downloads": "150 Downloads/Monat",
-        "resumes": "50 gespeicherte Lebensläufe",
         "templates": "Alle + Premium-Vorlagen",
         "support": "Prioritäts-Support",
         "coverLetter": "Anschreiben-Generator",
@@ -554,7 +535,7 @@
       "savedResumes": "Gespeicherte Lebensläufe",
       "templates": "Vorlagen",
       "all50": "Alle Freemium",
-      "premiumPlus": "50+ & Premium",
+      "premiumPlus": "50+ & Premium-Vorlagen",
       "aiBuild": "KI-Lebenslauf-Generator",
       "adFree": "Werbefrei"
     },

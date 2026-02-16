@@ -458,22 +458,6 @@
     "cancelAnytime": "Cancela cuando quieras",
     "securePayments": "Pagos seguros vía Stripe",
     "mostPopular": "MÁS POPULAR",
-    "free": {
-      "name": "Gratis",
-      "description": "Prueba antes de comprar",
-      "price": "$0",
-      "period": "/siempre",
-      "features": {
-        "downloads": "5 descargas (ver anuncio)",
-        "resumes": "3 currículums guardados",
-        "templates": "15 plantillas básicas",
-        "aiBuild": "Creación rápida con IA"
-      },
-      "limitations": {
-        "ads": "Contiene anuncios"
-      },
-      "cta": "Comenzar Gratis"
-    },
     "starter": {
       "name": "Inicial",
       "description": "Perfecto para buscadores de empleo",
@@ -570,7 +554,7 @@
       "savedResumes": "CVs Guardados",
       "templates": "Plantillas",
       "all50": "Todas freemium",
-      "premiumPlus": "50+ & Premium",
+      "premiumPlus": "50+ y Premium",
       "aiBuild": "Generador de CV con IA",
       "adFree": "Sin Anuncios"
     },

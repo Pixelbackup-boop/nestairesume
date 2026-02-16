@@ -463,22 +463,6 @@
     "cancelAnytime": "Annulez à tout moment",
     "securePayments": "Paiements sécurisés via Stripe",
     "mostPopular": "LE PLUS POPULAIRE",
-    "free": {
-      "name": "Gratuit",
-      "description": "Essayez avant d'acheter",
-      "price": "0€",
-      "period": "/à vie",
-      "features": {
-        "downloads": "5 téléchargements (avec pub)",
-        "resumes": "3 CV sauvegardés",
-        "templates": "15 modèles de base",
-        "aiBuild": "Création rapide avec IA"
-      },
-      "limitations": {
-        "ads": "Contient des publicités"
-      },
-      "cta": "Commencer Gratuitement"
-    },
     "starter": {
       "name": "Starter",
       "description": "Achat unique",
@@ -489,7 +473,6 @@
       "annualMonthly": "$2.42/mois",
       "features": {
         "downloads": "10 téléchargements",
-        "resumes": "5 CV sauvegardés",
         "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
         "export": "Export PDF et PNG",
@@ -508,7 +491,6 @@
       "annualMonthly": "$4.83/mois",
       "features": {
         "downloads": "50 téléchargements/mois",
-        "resumes": "20 CV sauvegardés",
         "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
         "ats": "Optimisation ATS",
@@ -527,7 +509,6 @@
       "annualMonthly": "$8/mois",
       "features": {
         "downloads": "150 téléchargements/mois",
-        "resumes": "50 CV sauvegardés",
         "templates": "Tous + modèles Premium",
         "support": "Support prioritaire",
         "coverLetter": "Créateur de lettre de motivation",
@@ -554,7 +535,7 @@
       "savedResumes": "CV sauvegardés",
       "templates": "Modèles",
       "all50": "Tous freemium",
-      "premiumPlus": "50+ & Premium",
+      "premiumPlus": "50+ et Premium",
       "aiBuild": "Générateur de CV IA",
       "adFree": "Sans Publicité"
     },
