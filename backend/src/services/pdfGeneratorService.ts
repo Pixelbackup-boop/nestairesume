@@ -67,15 +67,9 @@ async function getBrowser(): Promise<Browser> {
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
             '--disable-gpu',
-            '--single-process',
-            '--disable-extensions',
-            '--disable-background-networking',
-            '--disable-default-apps',
-            '--disable-translate',
             '--no-first-run',
-            '--no-zygote',
+            '--disable-extensions',
         ],
     };
 
