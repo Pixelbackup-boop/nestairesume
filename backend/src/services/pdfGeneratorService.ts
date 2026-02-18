@@ -47,22 +47,51 @@ function releasePageSlot(): void {
 }
 
 /**
- * Get or create a shared Puppeteer browser instance
+ * Get or create a shared Puppeteer browser instance.
+ * Retries once on launch failure (handles transient OOM / cold-start).
  */
 async function getBrowser(): Promise<Browser> {
-    if (!browser || !browser.connected) {
-        browser = await puppeteer.launch({
-            headless: true,
-            args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-accelerated-2d-canvas',
-                '--disable-gpu',
-            ],
-        });
+    if (browser && browser.connected) {
+        return browser;
     }
-    return browser;
+
+    // Clean up stale reference
+    if (browser) {
+        try { await browser.close(); } catch { /* already dead */ }
+        browser = null;
+    }
+
+    const launchOptions = {
+        headless: true as const,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--disable-gpu',
+            '--single-process',
+            '--disable-extensions',
+            '--disable-background-networking',
+            '--disable-default-apps',
+            '--disable-translate',
+            '--no-first-run',
+            '--no-zygote',
+        ],
+    };
+
+    // Attempt launch with one retry
+    for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+            browser = await puppeteer.launch(launchOptions);
+            return browser;
+        } catch (err) {
+            console.error(`[PDF] Browser launch attempt ${attempt} failed:`, err);
+            if (attempt === 2) throw err;
+            await new Promise(r => setTimeout(r, 1000));
+        }
+    }
+
+    throw new Error('Failed to launch browser after 2 attempts');
 }
 
 /**

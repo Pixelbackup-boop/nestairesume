@@ -30,24 +30,23 @@ RUN npx prisma generate
 # ============================================
 FROM node:20-slim AS production
 
-# Install Puppeteer dependencies (Chrome/Chromium for PDF generation)
+# Install Chrome dependencies (shared libs needed by any Chrome/Chromium binary)
+# Puppeteer will install its own compatible Chrome — we just need the system libs
 RUN apt-get update && apt-get install -y \
-    chromium \
+    libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
+    libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
+    libpango-1.0-0 libcairo2 libasound2 libxshmfence1 \
     fonts-ipafont-gothic \
     fonts-wqy-zenhei \
     fonts-thai-tlwg \
     fonts-kacst \
     fonts-freefont-ttf \
     fonts-liberation \
-    libxss1 \
     dumb-init \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-# Set Puppeteer to use installed Chromium
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 ENV NODE_ENV=production
 
 WORKDIR /app
@@ -55,8 +54,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install production dependencies only
+# Install production dependencies and puppeteer's compatible Chrome
 RUN npm ci --only=production --ignore-scripts \
+    && npx puppeteer browsers install chrome \
     && npm cache clean --force
 
 # Copy Prisma schema and generate client
@@ -70,8 +70,11 @@ COPY --from=builder /app/dist ./dist
 COPY src/templates ./dist/templates
 
 # Create non-root user for security
-RUN groupadd -r appuser && useradd -r -g appuser appuser \
-    && chown -R appuser:appuser /app
+# Include puppeteer's Chrome cache (~/.cache/puppeteer) in ownership
+RUN groupadd -r appuser && useradd -r -g appuser -m appuser \
+    && chown -R appuser:appuser /app \
+    && cp -r /root/.cache/puppeteer /home/appuser/.cache/puppeteer 2>/dev/null || true \
+    && chown -R appuser:appuser /home/appuser/.cache
 
 USER appuser
 
