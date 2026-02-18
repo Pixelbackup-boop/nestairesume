@@ -99,7 +99,7 @@ export default function VerifyEmailPage() {
             // Redirect back to original page (or builder) with registered flag
             const postVerifyUrl = redirectTo
                 ? redirectTo + (redirectTo.includes('?') ? '&' : '?') + 'registered=true'
-                : localizedHref('/builder?registered=true');
+                : localizedHref('/?registered=true');
             router.push(postVerifyUrl);
         } catch (err: any) {
             setError(err.response?.data?.detail || t('verificationFailed'));

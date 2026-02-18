@@ -17,7 +17,7 @@ export default function RegisterPage() {
         e.preventDefault();
         try {
             await register(email, password, name);
-            router.push('/auth/login');
+            router.push('/');
         } catch (err) {
             // Error handled in store
         }

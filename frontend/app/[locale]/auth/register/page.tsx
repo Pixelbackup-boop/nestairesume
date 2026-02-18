@@ -51,7 +51,7 @@ export default function RegisterPage() {
     // Build OAuth callback URL preserving redirect + registered flag
     const oauthCallbackUrl = redirectTo
         ? redirectTo + (redirectTo.includes('?') ? '&' : '?') + 'registered=true'
-        : localizedHref('/builder?registered=true');
+        : localizedHref('/?registered=true');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
