@@ -60,9 +60,9 @@ steps:
       - '--timeout'
       - '300'
       - '--set-secrets'
-      - 'DATABASE_URL=DATABASE_URL:latest,JWT_SECRET=JWT_SECRET:latest,STRIPE_SECRET_KEY=STRIPE_SECRET_KEY:latest,STRIPE_WEBHOOK_SECRET=STRIPE_WEBHOOK_SECRET:latest,OPENAI_API_KEY=OPENAI_API_KEY:latest,BREVO_API_KEY=BREVO_API_KEY:latest,SENTRY_DSN=SENTRY_DSN:latest'
+      - 'DATABASE_URL=DATABASE_URL:latest,JWT_SECRET=JWT_SECRET:latest,STRIPE_SECRET_KEY=STRIPE_SECRET_KEY:latest,STRIPE_WEBHOOK_SECRET=STRIPE_WEBHOOK_SECRET:latest,STRIPE_PRICE_STARTER=STRIPE_PRICE_STARTER:latest,STRIPE_PRICE_GOLD=STRIPE_PRICE_GOLD:latest,STRIPE_PRICE_DIAMOND=STRIPE_PRICE_DIAMOND:latest,STRIPE_PRICE_PLATINUM=STRIPE_PRICE_PLATINUM:latest,OPENAI_API_KEY=OPENAI_API_KEY:latest,BREVO_API_KEY=BREVO_API_KEY:latest,SENTRY_DSN=SENTRY_DSN:latest'
       - '--set-env-vars'
-      - 'NODE_ENV=production,PORT=4444,HOST=0.0.0.0,CORS_ORIGINS=${_FRONTEND_URL}'
+      - 'NODE_ENV=production,PORT=4444,HOST=0.0.0.0,CORS_ORIGINS=${_FRONTEND_URL},FRONTEND_URL=https://bestairesumes.com'
       - '--allow-unauthenticated'
     id: 'deploy'
     waitFor: ['push-image']
@@ -71,7 +71,7 @@ substitutions:
   _REGION: 'us-central1'
   _ARTIFACT_REPO: 'resume-builder'
   # Update with your Vercel URL (supports multiple comma-separated origins)
-  _FRONTEND_URL: 'https://your-app.vercel.app,https://www.bestairesumes.com'
+  _FRONTEND_URL: 'https://bestairesumes.com,https://www.bestairesumes.com'
 
 options:
   logging: CLOUD_LOGGING_ONLY

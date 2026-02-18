@@ -14,6 +14,11 @@ export function AuthSyncProvider({ children }: Props) {
 
   useEffect(() => {
     if (status === "authenticated" && session) {
+      // Sync backend JWT to localStorage so api.ts can use it for Authorization header
+      const accessToken = (session as any).accessToken;
+      if (accessToken) {
+        localStorage.setItem("token", accessToken);
+      }
       setFromNextAuth(session);
     } else if (status === "unauthenticated") {
       const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
