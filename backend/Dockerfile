@@ -31,7 +31,7 @@ RUN npx prisma generate
 FROM node:20-slim AS production
 
 # Install Chrome dependencies (shared libs needed by any Chrome/Chromium binary)
-# Puppeteer will install its own compatible Chrome — we just need the system libs
+# Puppeteer will install its own compatible Chrome — we just need the system libs + openssl for Prisma
 RUN apt-get update && apt-get install -y \
     libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
     libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
@@ -42,12 +42,15 @@ RUN apt-get update && apt-get install -y \
     fonts-kacst \
     fonts-freefont-ttf \
     fonts-liberation \
+    openssl \
     dumb-init \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
+# Store puppeteer's Chrome inside /app so it's covered by the appuser chown
 ENV NODE_ENV=production
+ENV PUPPETEER_CACHE_DIR=/app/.cache/puppeteer
 
 WORKDIR /app
 
@@ -70,11 +73,9 @@ COPY --from=builder /app/dist ./dist
 COPY src/templates ./dist/templates
 
 # Create non-root user for security
-# Include puppeteer's Chrome cache (~/.cache/puppeteer) in ownership
-RUN groupadd -r appuser && useradd -r -g appuser -m appuser \
-    && chown -R appuser:appuser /app \
-    && cp -r /root/.cache/puppeteer /home/appuser/.cache/puppeteer 2>/dev/null || true \
-    && chown -R appuser:appuser /home/appuser/.cache
+# Chrome is in /app/.cache/puppeteer — covered by the /app chown
+RUN groupadd -r appuser && useradd -r -g appuser appuser \
+    && chown -R appuser:appuser /app
 
 USER appuser
 
