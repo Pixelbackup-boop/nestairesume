@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { AlertTriangle, X, ArrowRight } from 'lucide-react';
 import { LimitType } from '@/hooks/useLimitCheck';
@@ -32,6 +33,7 @@ export default function LimitWarningBanner({
   onDismiss,
   className = '',
 }: LimitWarningBannerProps) {
+  const t = useTranslations('Common');
   const [isDismissed, setIsDismissed] = useState(false);
 
   if (isDismissed) return null;
@@ -117,7 +119,7 @@ export default function LimitWarningBanner({
         <button
           onClick={handleDismiss}
           className={`p-1 ${colors.text} hover:bg-white/50 rounded transition`}
-          aria-label="Dismiss"
+          aria-label={t('dismiss')}
         >
           <X size={16} />
         </button>
@@ -162,7 +164,7 @@ export default function LimitWarningBanner({
           <button
             onClick={handleDismiss}
             className={`ml-2 p-1 ${colors.text} hover:bg-white/50 rounded transition`}
-            aria-label="Dismiss"
+            aria-label={t('dismiss')}
           >
             <X size={14} />
           </button>

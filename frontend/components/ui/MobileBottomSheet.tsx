@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 
 interface MobileBottomSheetProps {
@@ -26,6 +27,7 @@ export default function MobileBottomSheet({
   showCloseButton = true,
   className = "",
 }: MobileBottomSheetProps) {
+  const t = useTranslations('Common');
   const sheetRef = useRef<HTMLDivElement>(null);
   const startY = useRef<number>(0);
   const currentY = useRef<number>(0);
@@ -135,7 +137,7 @@ export default function MobileBottomSheet({
               <button
                 onClick={onClose}
                 className="p-2 -mr-2 text-text-secondary hover:text-dark-teal transition-colors"
-                aria-label="Close"
+                aria-label={t('close')}
               >
                 <X size={20} />
               </button>

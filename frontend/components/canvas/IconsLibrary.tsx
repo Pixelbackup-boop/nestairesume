@@ -83,6 +83,7 @@ import {
     Video,
     LucideIcon,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useCanvasStore, ShapeElement } from '@/store/useCanvasStore';
 
 interface IconItem {
@@ -198,6 +199,7 @@ interface IconsLibraryProps {
 }
 
 export default function IconsLibrary({ onClose }: IconsLibraryProps) {
+    const t = useTranslations('Common');
     const [selectedCategory, setSelectedCategory] = useState<string>('all');
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedColor, setSelectedColor] = useState('#ffffff');
@@ -255,7 +257,7 @@ export default function IconsLibrary({ onClose }: IconsLibraryProps) {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search icons..."
+                    placeholder={t('searchIcons')}
                     className="w-full pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent-green"
                 />
             </div>

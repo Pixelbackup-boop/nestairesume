@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { X, FileText } from "lucide-react";
 
 export default function ReturningUserBanner() {
+  const t = useTranslations('Common');
   const [showBanner, setShowBanner] = useState(false);
   const [draftInfo, setDraftInfo] = useState<{ lastEdited?: string } | null>(null);
 
@@ -68,7 +70,7 @@ export default function ReturningUserBanner() {
         <button
           onClick={dismissBanner}
           className="p-1.5 text-gray-500 hover:text-white transition flex-shrink-0"
-          aria-label="Dismiss"
+          aria-label={t('dismiss')}
         >
           <X className="w-5 h-5" />
         </button>

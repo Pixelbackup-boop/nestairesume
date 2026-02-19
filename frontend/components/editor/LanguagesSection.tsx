@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useResumeStore, Language } from '../../store/useResumeStore';
 import { Plus, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
@@ -14,6 +15,7 @@ const proficiencyOptions: { value: Language['proficiency']; label: string; level
 ];
 
 export default function LanguagesSection() {
+    const t = useTranslations('Common');
     const { resumeData, addLanguage, updateLanguage, removeLanguage } = useResumeStore();
     const { languages } = resumeData;
     const [newLanguage, setNewLanguage] = useState('');
@@ -55,13 +57,13 @@ export default function LanguagesSection() {
                     type="text"
                     value={newLanguage}
                     onChange={(e) => setNewLanguage(e.target.value)}
-                    placeholder="e.g. Spanish, French, Mandarin"
+                    placeholder={t('languagePlaceholder')}
                     className="flex-1 bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-gray-900 text-sm focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green outline-none transition"
                 />
                 <button
                     type="submit"
                     disabled={!newLanguage.trim()}
-                    aria-label="Add language"
+                    aria-label={t('addLanguage')}
                     className="bg-accent-green text-bg-primary px-3 py-2 rounded-lg font-medium hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     <Plus size={18} />

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { X, Sparkles, Copy, RefreshCw, Loader2, Check, Lightbulb } from 'lucide-react';
 import { useCanvasStore, TextElement } from '@/store/useCanvasStore';
 import { useDialogA11y } from '@/hooks/useDialogA11y';
@@ -11,6 +12,7 @@ interface AIPopupProps {
 }
 
 export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
+    const t = useTranslations('Common');
     const [generatedSummary, setGeneratedSummary] = useState<string>('');
     const [isGenerating, setIsGenerating] = useState(false);
     const [showCopied, setShowCopied] = useState(false);
@@ -225,7 +227,7 @@ export default function AIPopup({ isOpen, onClose }: AIPopupProps) {
                     </div>
                     <button
                         onClick={onClose}
-                        aria-label="Close"
+                        aria-label={t('close')}
                         className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                     >
                         <X size={20} />

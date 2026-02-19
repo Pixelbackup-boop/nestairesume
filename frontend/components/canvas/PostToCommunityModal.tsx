@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { X, Upload, Loader2, Check, ExternalLink, AlertTriangle, Shield } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import api from '@/lib/api';
 import { useAuthStore } from '@/store/useAuthStore';
@@ -138,6 +138,7 @@ export default function PostToCommunityModal({
   designData,
 }: PostToCommunityModalProps) {
   const locale = useLocale();
+  const t = useTranslations('Common');
   const { isAuthenticated } = useAuthStore();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -273,7 +274,7 @@ export default function PostToCommunityModal({
         <div className="px-6 pt-6 pb-4 border-b border-gray-100">
           <button
             onClick={onClose}
-            aria-label="Close"
+            aria-label={t('close')}
             className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-lg transition"
           >
             <X size={20} />
@@ -313,7 +314,7 @@ export default function PostToCommunityModal({
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g., Modern Developer Resume"
+              placeholder={t('templateNamePlaceholder')}
               maxLength={100}
               className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green transition"
             />
@@ -327,7 +328,7 @@ export default function PostToCommunityModal({
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Describe your template..."
+              placeholder={t('describeTemplate')}
               rows={3}
               maxLength={500}
               className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-green/20 focus:border-accent-green transition resize-none"

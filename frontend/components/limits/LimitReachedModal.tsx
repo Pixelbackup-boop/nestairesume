@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import {
   X,
   FileText,
@@ -78,6 +79,7 @@ export default function LimitReachedModal({
   currentTier,
 }: LimitReachedModalProps) {
   const router = useRouter();
+  const t = useTranslations('Common');
   const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'limit-modal-title' });
 
   if (!isOpen || !limitType) return null;
@@ -116,7 +118,7 @@ export default function LimitReachedModal({
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition z-10"
-          aria-label="Close"
+          aria-label={t('close')}
         >
           <X size={20} />
         </button>

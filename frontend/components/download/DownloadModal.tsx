@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
     X,
     Download,
@@ -35,6 +35,7 @@ export default function DownloadModal({
 }: DownloadModalProps) {
     const router = useRouter();
     const locale = useLocale();
+    const t = useTranslations('Common');
     const { isAuthenticated, user } = useAuthStore();
     const { usage, isLoading: usageLoading, fetchUsage, checkLimit } = useUsageStore();
     const [isDownloading, setIsDownloading] = useState(false);
@@ -149,7 +150,7 @@ export default function DownloadModal({
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
-                    aria-label="Close"
+                    aria-label={t('close')}
                 >
                     <X size={20} />
                 </button>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { AnimatePresence } from 'framer-motion';
 import {
     Sparkles,
@@ -47,6 +47,7 @@ const aiProcessingMessages = [
 export default function OnboardingModal({ isOpen, onClose, templateId, templateName }: OnboardingModalProps) {
     const router = useRouter();
     const locale = useLocale();
+    const t = useTranslations('Common');
     const { setResumeData, setTemplate, setTheme, setCustomThemeColor } = useResumeStore();
     const [isGenerating, setIsGenerating] = useState(false);
     const [processingMessageIndex, setProcessingMessageIndex] = useState(0);
@@ -162,7 +163,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId, templateN
                 {!isGenerating && (
                     <button
                         onClick={onClose}
-                        aria-label="Close"
+                        aria-label={t('close')}
                         className="absolute top-4 right-4 p-2 text-gray-500 hover:text-white transition-colors z-10"
                     >
                         <X size={20} />

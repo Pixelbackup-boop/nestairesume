@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { TextElement } from '@/store/useCanvasStore';
+import { useTranslations } from 'next-intl';
 import {
     Bold,
     Italic,
@@ -41,6 +42,7 @@ const fontFamilies = [
 const fontSizes = [10, 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 42, 48, 56, 64, 72, 80];
 
 export default function TextEditor({ element, position, zoom, onUpdate, onClose }: TextEditorProps) {
+    const t = useTranslations('Common');
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [text, setText] = useState(element.text);
     const [showFontMenu, setShowFontMenu] = useState(false);
@@ -427,7 +429,7 @@ export default function TextEditor({ element, position, zoom, onUpdate, onClose 
                                                         generateAIText(aiPrompt);
                                                     }
                                                 }}
-                                                placeholder="Describe what to write..."
+                                                placeholder={t('describeTemplate')}
                                                 className="w-full px-3 py-2 bg-gray-200 text-gray-900 text-sm rounded-lg border border-gray-300 focus:border-purple-500 focus:outline-none placeholder-gray-400"
                                                 autoFocus
                                             />

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
     X,
     Mail,
@@ -29,6 +30,7 @@ export default function AuthModal({
     onSuccess,
     initialMode = 'login',
 }: AuthModalProps) {
+    const t = useTranslations('Common');
     const [mode, setMode] = useState<AuthMode>(initialMode);
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -109,7 +111,7 @@ export default function AuthModal({
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
-                    aria-label="Close"
+                    aria-label={t('close')}
                 >
                     <X size={20} />
                 </button>

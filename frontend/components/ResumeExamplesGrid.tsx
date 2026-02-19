@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 interface ExampleItem {
@@ -23,6 +24,7 @@ interface Props {
 }
 
 export default function ResumeExamplesGrid({ examples, categories }: Props) {
+  const t = useTranslations('Common');
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -57,7 +59,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
           </svg>
           <input
             type="text"
-            placeholder="Search by job title or skill..."
+            placeholder={t('searchByJobTitle')}
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-3 border border-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent bg-white text-gray-900 placeholder:text-gray-500"

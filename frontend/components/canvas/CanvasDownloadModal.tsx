@@ -20,6 +20,7 @@ export default function CanvasDownloadModal({
     const router = useRouter();
     const locale = useLocale();
     const t = useTranslations('CanvasEditor.downloadModal');
+    const tc = useTranslations('Common');
     const { dialogProps } = useDialogA11y({ isOpen, onClose, labelId: 'canvas-download-modal-title' });
 
     if (!isOpen) return null;
@@ -52,7 +53,7 @@ export default function CanvasDownloadModal({
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition z-10"
-                    aria-label="Close"
+                    aria-label={tc('close')}
                 >
                     <X size={20} />
                 </button>
