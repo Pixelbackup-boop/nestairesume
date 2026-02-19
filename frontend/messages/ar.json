@@ -263,7 +263,7 @@
     },
     "categories": {
       "all": "الكل",
-      "professional": "عصري",
+      "professional": "احترافي",
       "creative": "إبداعي",
       "minimal": "بسيط ونظيف",
       "modern": "عصري",
@@ -450,7 +450,7 @@
       "linkedinSubtitle": "قم بتنزيل ملفك الشخصي على LinkedIn كملف PDF، ثم ارفعه هنا",
       "linkedinHowTo": "كيفية تصدير ملفك الشخصي على LinkedIn:",
       "linkedinStep1": "اذهب إلى ملفك الشخصي على LinkedIn",
-      "linkedinStep2": "انقر على زر \"المزيد\" أسفل صورة ملفك الشخصي",
+      "linkedinStep2": "انقر على زر \"الموارد\" في ملفك الشخصي",
       "linkedinStep3": "اختر \"حفظ كملف PDF\"",
       "linkedinStep4": "ارفع ملف PDF الذي تم تنزيله أدناه"
     },

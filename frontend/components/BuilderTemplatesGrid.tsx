@@ -9,6 +9,7 @@ import {
     Sparkles,
     Palette,
     ArrowRight,
+    Monitor,
 } from 'lucide-react';
 import {
     builderTemplates as sharedBuilderTemplates,
@@ -40,15 +41,16 @@ const FEATURED_TEMPLATE_IDS = [
 // Map SEO category slugs to template filter categories
 const SEO_SLUG_TO_FILTER: Record<string, string> = {
     'creative': 'creative',
-    'modern': 'professional', // modern SEO page shows professional templates
+    'modern': 'modern',
     'simple': 'minimal',
 };
 
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal';
+type CategoryFilter = 'all' | 'professional' | 'modern' | 'creative' | 'minimal';
 
 const categoryIcons: Record<string, React.ElementType> = {
     all: Sparkles,
     professional: Briefcase,
+    modern: Monitor,
     creative: Palette,
     minimal: Minimize2,
 };
@@ -82,7 +84,7 @@ export default function BuilderTemplatesGrid({
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedTemplateForModal, setSelectedTemplateForModal] = useState<{ id: string; name: string } | null>(null);
 
-    const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal'];
+    const categories: CategoryFilter[] = ['all', 'professional', 'modern', 'creative', 'minimal'];
 
     const filteredTemplates = useMemo(() => {
         return builderTemplates.filter((template) => {

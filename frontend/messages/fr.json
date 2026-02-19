@@ -263,7 +263,7 @@
     },
     "categories": {
       "all": "Tous",
-      "professional": "Moderne",
+      "professional": "Professionnel",
       "creative": "Créatif",
       "minimal": "Simple et Épuré",
       "modern": "Moderne",
@@ -450,7 +450,7 @@
       "linkedinSubtitle": "Téléchargez votre profil LinkedIn en PDF, puis importez-le ici",
       "linkedinHowTo": "Comment exporter votre profil LinkedIn :",
       "linkedinStep1": "Allez sur votre profil LinkedIn",
-      "linkedinStep2": "Cliquez sur le bouton « Plus » sous votre photo de profil",
+      "linkedinStep2": "Cliquez sur le bouton « Ressources » sur votre profil",
       "linkedinStep3": "Sélectionnez « Enregistrer au format PDF »",
       "linkedinStep4": "Téléchargez le PDF ci-dessous"
     },

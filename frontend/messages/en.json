@@ -271,7 +271,7 @@
     },
     "categories": {
       "all": "All",
-      "professional": "Modern",
+      "professional": "Professional",
       "creative": "Creative",
       "minimal": "Simple and Clean",
       "modern": "Modern",
@@ -427,7 +427,7 @@
       "title": "Import from LinkedIn",
       "subtitle": "Export your LinkedIn profile as PDF and upload it here",
       "step1": "Go to your LinkedIn profile",
-      "step2": "Click \"More\" → \"Save to PDF\"",
+      "step2": "Click \"Resources\" → \"Save to PDF\"",
       "step3": "Upload the downloaded PDF below",
       "openLinkedIn": "Open LinkedIn Profile",
       "tip": "LinkedIn PDFs work best for importing your complete work history"
@@ -481,7 +481,7 @@
       "linkedinSubtitle": "Download your profile as PDF from LinkedIn, then upload it here",
       "linkedinHowTo": "How to export your LinkedIn profile:",
       "linkedinStep1": "Go to your LinkedIn profile",
-      "linkedinStep2": "Click the \"More\" button below your profile photo",
+      "linkedinStep2": "Click the \"Resources\" button on your profile",
       "linkedinStep3": "Select \"Save to PDF\"",
       "linkedinStep4": "Upload the downloaded PDF below"
     }

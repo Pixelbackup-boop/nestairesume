@@ -16,6 +16,7 @@ import {
     Briefcase,
     Minimize2,
     Palette,
+    Monitor,
 } from 'lucide-react';
 import { useResumeStore, ResumeData } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
@@ -35,11 +36,12 @@ interface OnboardingState {
     selectedTemplate: string;
 }
 
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal';
+type CategoryFilter = 'all' | 'professional' | 'modern' | 'creative' | 'minimal';
 
 const categoryIcons: Record<CategoryFilter, React.ElementType> = {
     all: Sparkles,
     professional: Briefcase,
+    modern: Monitor,
     creative: Palette,
     minimal: Minimize2,
 };
@@ -47,6 +49,7 @@ const categoryIcons: Record<CategoryFilter, React.ElementType> = {
 const categoryLabels: Record<CategoryFilter, string> = {
     all: 'All',
     professional: 'Professional',
+    modern: 'Modern',
     creative: 'Creative',
     minimal: 'Minimal',
 };
@@ -638,7 +641,7 @@ export default function OnboardingPage() {
 
                             {/* Category Filters */}
                             <div className="flex flex-wrap justify-center gap-2 mb-6">
-                                {(['all', 'professional', 'creative', 'minimal'] as const).map((cat) => {
+                                {(['all', 'professional', 'modern', 'creative', 'minimal'] as const).map((cat) => {
                                     const Icon = categoryIcons[cat];
                                     return (
                                         <button
