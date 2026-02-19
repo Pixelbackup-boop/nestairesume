@@ -56,7 +56,13 @@ app.get("/", (_req, res) => {
 
 app.get("/health", async (_req, res) => {
   try {
-    await prisma.$queryRaw`SELECT 1`;
+    const HEALTH_CHECK_TIMEOUT_MS = 2000;
+    await Promise.race([
+      prisma.$queryRaw`SELECT 1`,
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("DB health check timeout")), HEALTH_CHECK_TIMEOUT_MS)
+      ),
+    ]);
     res.json({ status: "healthy", database: "connected" });
   } catch {
     res.status(503).json({ status: "unhealthy", database: "disconnected" });
@@ -88,6 +94,8 @@ setupSentryErrorHandler(app);
 // Process-level error handlers
 process.on('unhandledRejection', (reason) => {
   console.error('Unhandled promise rejection:', reason);
+  // Exit so Cloud Run restarts the container instead of leaving a zombie
+  process.exit(1);
 });
 
 process.on('uncaughtException', (err) => {
@@ -117,14 +125,17 @@ function gracefulShutdown(signal: string) {
   console.log(`\n${signal} received. Shutting down gracefully...`);
 
   // Stop accepting new connections
-  server.close(() => {
-    console.log('All in-flight requests completed. Exiting.');
+  server.close(async () => {
+    console.log('All in-flight requests completed. Disconnecting DB...');
+    await prisma.$disconnect();
+    console.log('DB disconnected. Exiting.');
     process.exit(0);
   });
 
   // Force exit if in-flight requests don't finish in time
-  setTimeout(() => {
+  setTimeout(async () => {
     console.error('Shutdown timeout reached. Forcing exit.');
+    await prisma.$disconnect().catch(() => {});
     process.exit(1);
   }, SHUTDOWN_TIMEOUT_MS);
 }
