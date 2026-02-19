@@ -37,7 +37,7 @@ export default async function Home() {
             reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
             author: { '@type': 'Person', name: 'Sarah Chen' },
             reviewBody: 'Best AI Resume helped me land interviews at 5 FAANG companies. The AI suggestions transformed my bullet points from basic descriptions to impactful achievements.',
-            itemReviewed: { '@type': 'SoftwareApplication', name: 'Best AI Resume Builder', url: 'https://www.bestairesumes.com' },
+            itemReviewed: { '@type': 'SoftwareApplication', name: 'Best AI Resume Builder', url: 'https://bestairesumes.com' },
           },
           {
             '@context': 'https://schema.org',
@@ -45,7 +45,7 @@ export default async function Home() {
             reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
             author: { '@type': 'Person', name: 'Marcus Johnson' },
             reviewBody: 'The ATS optimization feature is a game-changer. I went from getting ghosted to receiving callbacks within days of updating my resume.',
-            itemReviewed: { '@type': 'SoftwareApplication', name: 'Best AI Resume Builder', url: 'https://www.bestairesumes.com' },
+            itemReviewed: { '@type': 'SoftwareApplication', name: 'Best AI Resume Builder', url: 'https://bestairesumes.com' },
           },
           {
             '@context': 'https://schema.org',
@@ -53,7 +53,7 @@ export default async function Home() {
             reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
             author: { '@type': 'Person', name: 'Emily Rodriguez' },
             reviewBody: "Beautiful templates that actually work. I've recommended Best AI Resume to everyone in my design community. It's simply the best.",
-            itemReviewed: { '@type': 'SoftwareApplication', name: 'Best AI Resume Builder', url: 'https://www.bestairesumes.com' },
+            itemReviewed: { '@type': 'SoftwareApplication', name: 'Best AI Resume Builder', url: 'https://bestairesumes.com' },
           },
         ]) }}
       />
@@ -377,63 +377,26 @@ export default async function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {/* Template 1 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-gray-200 to-gray-300 border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
-                <div className="h-full p-3">
-                  <div className="h-full bg-white/10 rounded-lg border border-white/20"></div>
+            {[
+              { name: 'Executive', style: 'Classic • Dark', thumbnail: '/templates/header-dark.webp' },
+              { name: 'Modern', style: 'Clean • Blue', thumbnail: '/templates/header-blue.webp' },
+              { name: 'Creative', style: 'Decorative • Pink', thumbnail: '/templates/header-decorative.webp' },
+              { name: 'Minimal', style: 'Light • Clean', thumbnail: '/templates/header-light-gray.webp' },
+              { name: 'Professional', style: 'Bold • Yellow', thumbnail: '/templates/header-diagonal-yellow.webp' },
+            ].map((template) => (
+              <Link key={template.name} href={localizedHref("/templates")} className="group cursor-pointer">
+                <div className="aspect-[3/4] rounded-xl overflow-hidden border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow bg-gray-100">
+                  <img
+                    src={template.thumbnail}
+                    alt={`${template.name} resume template`}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
                 </div>
-              </div>
-              <h3 className="font-medium text-sm text-dark-teal">Executive</h3>
-              <p className="text-xs text-dark-teal/80">Classic • Navy</p>
-            </div>
-
-            {/* Template 2 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-teal-500 to-teal-700 border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
-                <div className="h-full flex">
-                  <div className="w-1/3 bg-white/20"></div>
-                  <div className="flex-1"></div>
-                </div>
-              </div>
-              <h3 className="font-medium text-sm text-dark-teal">Modern</h3>
-              <p className="text-xs text-dark-teal/80">Sidebar • Teal</p>
-            </div>
-
-            {/* Template 3 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-purple-500 to-purple-700 border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
-                <div className="h-full">
-                  <div className="h-12 bg-white/30"></div>
-                </div>
-              </div>
-              <h3 className="font-medium text-sm text-dark-teal">Creative</h3>
-              <p className="text-xs text-dark-teal/80">Header • Purple</p>
-            </div>
-
-            {/* Template 4 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
-                <div className="h-full p-4 space-y-2">
-                  <div className="h-2 bg-gray-300 rounded w-3/4"></div>
-                  <div className="h-2 bg-gray-300 rounded w-1/2"></div>
-                  <div className="h-2 bg-gray-300 rounded w-2/3"></div>
-                </div>
-              </div>
-              <h3 className="font-medium text-sm text-dark-teal">Minimal</h3>
-              <p className="text-xs text-dark-teal/80">Clean • Light</p>
-            </div>
-
-            {/* Template 5 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-amber-500 to-amber-700 border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
-                <div className="h-full p-3">
-                  <div className="h-full border-2 border-white/30 rounded-lg"></div>
-                </div>
-              </div>
-              <h3 className="font-medium text-sm text-dark-teal">Professional</h3>
-              <p className="text-xs text-dark-teal/80">Traditional</p>
-            </div>
+                <h3 className="font-medium text-sm text-dark-teal">{template.name}</h3>
+                <p className="text-xs text-dark-teal/80">{template.style}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -98,6 +98,7 @@ body {
 }
 
 .bg-teal-light { background-color: #f8fffe; }
+.bg-light-teal { background-color: #f8fffe; }
 .bg-dark-teal { background-color: #1a3a3a; }
 .bg-accent-orange { background-color: #ff6b35; }
 .bg-accent-green { background-color: #00d4aa; }
@@ -382,7 +383,7 @@ body {
 .blob {
   position: absolute;
   border-radius: 50%; /* Static border-radius (no layout thrashing) */
-  animation: morph-optimized 15s ease-in-out infinite;
+  animation: morph-optimized 15s ease-in-out 3;
   pointer-events: none;
   will-change: transform; /* GPU acceleration hint */
 }
@@ -419,6 +420,10 @@ body {
 @keyframes cloud-float {
   0%, 100% { transform: translateY(0) translateX(0); }
   50% { transform: translateY(-20px) translateX(10px); }
+}
+
+.animate-cloud {
+  animation: cloud-float 8s ease-in-out 3;
 }
 
 /* Leaf decorative element */
@@ -1125,11 +1130,11 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
 }
 
 .animate-ambient-glow {
-  animation: ambient-glow 3s ease-in-out infinite;
+  animation: ambient-glow 3s ease-in-out 5;
 }
 
 .animate-ambient-glow-alt {
-  animation: ambient-glow-alt 2.5s ease-in-out 0.5s infinite;
+  animation: ambient-glow-alt 2.5s ease-in-out 0.5s 5;
 }
 
 /* Stagger delay classes for sequential animations */

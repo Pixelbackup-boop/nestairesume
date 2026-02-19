@@ -8,8 +8,7 @@ import Image from 'next/image';
 // These are ~180 lines of Framer Motion SVG — deferring them improves LCP
 const HeroAnimationOverlays = React.lazy(() => import('./HeroAnimationOverlays'));
 
-// Animation timing (4 seconds per cycle)
-const ANIMATION_DURATION = 4;
+// Animation timing
 const SECTION_DELAY = 0.25;
 
 // Demo CV Data
@@ -50,25 +49,16 @@ const CV_DATA = {
 };
 
 export function HeroResumeAnimation({ className = '' }: { className?: string }) {
-  const [cycle, setCycle] = useState(0);
   const [showComplete, setShowComplete] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShowComplete(false);
-      setCycle(c => c + 1);
-    }, ANIMATION_DURATION * 1000 + 1500);
-
     const completeTimeout = setTimeout(() => {
       setShowComplete(true);
     }, SECTION_DELAY * 8 * 1000);
 
-    return () => {
-      clearInterval(interval);
-      clearTimeout(completeTimeout);
-    };
-  }, [cycle]);
+    return () => clearTimeout(completeTimeout);
+  }, []);
 
   if (prefersReducedMotion) {
     return <StaticResume className={className} />;
@@ -88,7 +78,6 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
       <div className="relative w-80 h-[520px]">
         {/* A4 Paper */}
         <motion.div
-          key={`paper-${cycle}`}
           className="absolute inset-0 rounded-xl overflow-hidden"
           data-theme-preserve="light"
           style={{
@@ -102,7 +91,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
           {/* Paper content */}
           <div className="p-5 pb-6 h-full overflow-hidden text-left">
             {/* Header - Blue Background with Photo, Name & Title */}
-            <TypewriterSection delay={0} cycle={cycle}>
+            <TypewriterSection delay={0}>
               <div className="-m-5 mb-[10px] p-4 bg-gradient-to-r from-blue-600 to-blue-500">
                 <div className="flex items-center gap-3">
                   <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/30 shadow-lg flex-shrink-0">
@@ -127,7 +116,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             </TypewriterSection>
 
             {/* Summary */}
-            <TypewriterSection delay={SECTION_DELAY} cycle={cycle}>
+            <TypewriterSection delay={SECTION_DELAY}>
               <div className="mt-4">
                 <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Professional Summary
@@ -139,7 +128,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             </TypewriterSection>
 
             {/* Experience */}
-            <TypewriterSection delay={SECTION_DELAY * 2} cycle={cycle}>
+            <TypewriterSection delay={SECTION_DELAY * 2}>
               <div className="mt-3">
                 <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Experience
@@ -148,7 +137,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             </TypewriterSection>
 
             {/* Job 1 */}
-            <TypewriterSection delay={SECTION_DELAY * 3} cycle={cycle}>
+            <TypewriterSection delay={SECTION_DELAY * 3}>
               <div className="mt-2">
                 <div className="flex justify-between items-baseline">
                   <span className="text-[10px] font-semibold text-gray-700">{CV_DATA.experience[0].role}</span>
@@ -167,7 +156,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             </TypewriterSection>
 
             {/* Job 2 */}
-            <TypewriterSection delay={SECTION_DELAY * 4} cycle={cycle}>
+            <TypewriterSection delay={SECTION_DELAY * 4}>
               <div className="mt-2">
                 <div className="flex justify-between items-baseline">
                   <span className="text-[10px] font-semibold text-gray-700">{CV_DATA.experience[1].role}</span>
@@ -186,7 +175,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             </TypewriterSection>
 
             {/* Skills */}
-            <TypewriterSection delay={SECTION_DELAY * 5} cycle={cycle}>
+            <TypewriterSection delay={SECTION_DELAY * 5}>
               <div className="mt-3">
                 <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Skills
@@ -202,7 +191,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
             </TypewriterSection>
 
             {/* Education */}
-            <TypewriterSection delay={SECTION_DELAY * 6} cycle={cycle}>
+            <TypewriterSection delay={SECTION_DELAY * 6}>
               <div className="mt-3">
                 <h3 className="text-[10px] font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-1">
                   Education
@@ -236,7 +225,7 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
 
         {/* Decorative overlays — lazy-loaded to reduce initial JS bundle */}
         <Suspense fallback={null}>
-          <HeroAnimationOverlays cycle={cycle} />
+          <HeroAnimationOverlays />
         </Suspense>
       </div>
     </div>
@@ -247,15 +236,12 @@ export function HeroResumeAnimation({ className = '' }: { className?: string }) 
 function TypewriterSection({
   children,
   delay,
-  cycle
 }: {
   children: React.ReactNode;
   delay: number;
-  cycle: number;
 }) {
   return (
     <motion.div
-      key={`section-${delay}-${cycle}`}
       initial={{ opacity: 0, x: -10, filter: 'blur(4px)' }}
       animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
       transition={{ delay, duration: 0.3, ease: 'easeOut' }}

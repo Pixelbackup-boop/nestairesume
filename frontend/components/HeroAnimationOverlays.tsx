@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 // AI Robot Pen
-function AIRobotPen({ cycle }: { cycle: number }) {
+function AIRobotPen() {
   const penPositions = [
     { x: 120, y: 40 },
     { x: 200, y: 130 },
@@ -17,7 +17,6 @@ function AIRobotPen({ cycle }: { cycle: number }) {
 
   return (
     <motion.div
-      key={`pen-${cycle}`}
       className="absolute pointer-events-none z-30"
       style={{ width: 80, height: 100 }}
       initial={{ x: 350, y: 80, opacity: 0, rotate: 25 }}
@@ -66,19 +65,9 @@ function AIRobotPen({ cycle }: { cycle: number }) {
           <path d="M30 28 C34 24, 38 28, 42 24 C46 28, 50 24, 52 28" stroke="#fff" strokeWidth="1.5" fill="none" opacity="0.3" />
           <text x="40" y="28" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="bold" fontFamily="system-ui, sans-serif">AI</text>
           <line x1="40" y1="6" x2="40" y2="12" stroke="#94a3b8" strokeWidth="2" />
-          <motion.circle
-            cx="40" cy="4" r="3" fill="#22d3ee"
-            animate={{ opacity: [1, 0.5, 1], scale: [1, 1.2, 1] }}
-            transition={{ duration: 0.5, repeat: Infinity }}
-          />
-          <motion.circle cx="18" cy="24" r="2" fill="#22d3ee"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 0.3, repeat: Infinity }}
-          />
-          <motion.circle cx="62" cy="24" r="2" fill="#22d3ee"
-            animate={{ opacity: [1, 0.5, 1] }}
-            transition={{ duration: 0.3, repeat: Infinity }}
-          />
+          <circle cx="40" cy="4" r="3" fill="#22d3ee" opacity="0.8" />
+          <circle cx="18" cy="24" r="2" fill="#22d3ee" opacity="0.7" />
+          <circle cx="62" cy="24" r="2" fill="#22d3ee" opacity="0.7" />
         </g>
 
         <g>
@@ -89,10 +78,7 @@ function AIRobotPen({ cycle }: { cycle: number }) {
 
         <g filter="url(#penTipGlow)">
           <path d="M36 80 L40 98 L44 80 Z" fill="url(#robotGradient)" />
-          <motion.circle cx="40" cy="96" r="4" fill="#3b82f6"
-            animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.3, 1] }}
-            transition={{ duration: 0.2, repeat: Infinity }}
-          />
+          <circle cx="40" cy="96" r="4" fill="#3b82f6" opacity="0.8" />
         </g>
       </svg>
     </motion.div>
@@ -100,7 +86,7 @@ function AIRobotPen({ cycle }: { cycle: number }) {
 }
 
 // Sparkle effects
-function WritingSparkles({ cycle }: { cycle: number }) {
+function WritingSparkles() {
   const sparklePositions = [
     { x: 140, y: 60, delay: 0.1, size: 16 },
     { x: 220, y: 150, delay: 0.35, size: 18 },
@@ -118,7 +104,7 @@ function WritingSparkles({ cycle }: { cycle: number }) {
     <>
       {sparklePositions.map((pos, i) => (
         <motion.div
-          key={`sparkle-${i}-${cycle}`}
+          key={`sparkle-${i}`}
           className="absolute pointer-events-none"
           style={{ left: pos.x, top: pos.y, width: pos.size, height: pos.size }}
           initial={{ opacity: 0, scale: 0, rotate: 0 }}
@@ -139,7 +125,7 @@ function WritingSparkles({ cycle }: { cycle: number }) {
 }
 
 // Magic floating particles
-function MagicParticles({ cycle }: { cycle: number }) {
+function MagicParticles() {
   const particles = [
     { x: 280, y: 90, delay: 0.2 },
     { x: 290, y: 180, delay: 0.5 },
@@ -155,7 +141,7 @@ function MagicParticles({ cycle }: { cycle: number }) {
     <>
       {particles.map((p, i) => (
         <motion.div
-          key={`particle-${i}-${cycle}`}
+          key={`particle-${i}`}
           className="absolute w-2 h-2 rounded-full pointer-events-none"
           style={{
             left: p.x,
@@ -172,12 +158,12 @@ function MagicParticles({ cycle }: { cycle: number }) {
   );
 }
 
-export default function HeroAnimationOverlays({ cycle }: { cycle: number }) {
+export default function HeroAnimationOverlays() {
   return (
     <>
-      <AIRobotPen cycle={cycle} />
-      <WritingSparkles cycle={cycle} />
-      <MagicParticles cycle={cycle} />
+      <AIRobotPen />
+      <WritingSparkles />
+      <MagicParticles />
     </>
   );
 }
