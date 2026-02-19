@@ -6,14 +6,13 @@ import { useLocale } from 'next-intl';
 import { builderTemplates } from '@/lib/templates/builder';
 import BuilderTemplatePreview from '@/components/templates/previews/BuilderTemplatePreview';
 
-// Same order as FEATURED_TEMPLATE_IDS in BuilderTemplatesGrid
-// Index here must match position in that list for identical sample data
-const SHOWCASE_TEMPLATES = [
-    { id: 'sidebar-dark-navy', index: 0 },
-    { id: 'header-dark', index: 3 },
-    { id: 'header-decorative', index: 8 },
-    { id: 'minimal-timeline', index: 13 },
-    { id: 'classic-pro', index: 12 },
+// 5 diverse templates for the homepage (mix of all categories)
+const SHOWCASE_IDS = [
+    'sidebar-dark-navy',
+    'header-dark',
+    'header-decorative',
+    'minimal-timeline',
+    'classic-pro',
 ];
 
 function TemplateSkeleton() {
@@ -34,8 +33,9 @@ export default function HomeTemplateShowcase() {
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {SHOWCASE_TEMPLATES.map(({ id, index }) => {
-                const template = builderTemplates.find(t => t.id === id);
+            {SHOWCASE_IDS.map((id) => {
+                const templateIndex = builderTemplates.findIndex(t => t.id === id);
+                const template = builderTemplates[templateIndex];
                 if (!template) return null;
 
                 return (
@@ -44,7 +44,7 @@ export default function HomeTemplateShowcase() {
                             <Suspense fallback={<div className="w-full h-full bg-gray-100" />}>
                                 <BuilderTemplatePreview
                                     template={template}
-                                    templateIndex={index}
+                                    templateIndex={templateIndex}
                                 />
                             </Suspense>
                         </div>
