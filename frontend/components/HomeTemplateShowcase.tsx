@@ -15,19 +15,6 @@ const SHOWCASE_IDS = [
     'classic-pro',
 ];
 
-function TemplateSkeleton() {
-    return (
-        <div className="animate-pulse">
-            <div
-                className="rounded-xl bg-gray-200 mb-3"
-                style={{ width: '100%', aspectRatio: '3/4' }}
-            />
-            <div className="h-4 bg-gray-200 rounded w-3/4 mb-1" />
-            <div className="h-3 bg-gray-200 rounded w-1/2" />
-        </div>
-    );
-}
-
 export default function HomeTemplateShowcase() {
     const locale = useLocale();
 
@@ -40,8 +27,8 @@ export default function HomeTemplateShowcase() {
 
                 return (
                     <Link key={id} href={`/${locale}/templates`} className="group cursor-pointer">
-                        <div className="aspect-[3/4] rounded-xl overflow-hidden border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
-                            <Suspense fallback={<div className="w-full h-full bg-gray-100" />}>
+                        <div className="rounded-xl overflow-hidden border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
+                            <Suspense fallback={<div className="w-full bg-gray-100" style={{ aspectRatio: '794 / 1123' }} />}>
                                 <BuilderTemplatePreview
                                     template={template}
                                     templateIndex={templateIndex}

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import UnifiedTemplate from '@/components/templates/UnifiedTemplate';
 import { getSampleResumeDataWithProfile, generateTheme } from '@/lib/templates/builder';
 
@@ -15,8 +15,10 @@ interface TemplateData {
 interface BuilderTemplatePreviewProps {
     template: TemplateData;
     templateIndex: number;
-    thumbnailWidth?: number;
 }
+
+const A4_WIDTH = 794;
+const A4_HEIGHT = 1123;
 
 const getTemplateIdForLayout = (layout: string): string => {
     switch (layout) {
@@ -32,41 +34,50 @@ const getTemplateIdForLayout = (layout: string): string => {
 export default function BuilderTemplatePreview({
     template,
     templateIndex,
-    thumbnailWidth = 254,
 }: BuilderTemplatePreviewProps) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [containerWidth, setContainerWidth] = useState(0);
+
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const ro = new ResizeObserver(([entry]) => {
+            const w = entry.contentRect.width;
+            if (w > 0) setContainerWidth(w);
+        });
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, []);
+
     const sampleData = getSampleResumeDataWithProfile(templateIndex);
     const theme = generateTheme(template.accentColor || '#374151');
-
     const resolvedTemplateId = template.templateId || getTemplateIdForLayout(template.layout);
-
-    const a4Width = 794;
-    const a4Height = 1123;
-    const cssScale = thumbnailWidth / a4Width;
-    const thumbnailHeight = Math.round(a4Height * cssScale);
+    const scale = containerWidth / A4_WIDTH;
 
     return (
         <div
-            className="rounded-lg overflow-hidden bg-white relative"
-            style={{
-                width: `${thumbnailWidth}px`,
-                height: `${thumbnailHeight}px`,
-            }}
+            ref={containerRef}
+            className="w-full rounded-lg overflow-hidden bg-white"
+            style={{ aspectRatio: `${A4_WIDTH} / ${A4_HEIGHT}` }}
         >
-            <div
-                style={{
-                    width: `${a4Width}px`,
-                    height: `${a4Height}px`,
-                    transform: `scale(${cssScale})`,
-                    transformOrigin: 'top left',
-                }}
-            >
-                <UnifiedTemplate
-                    data={sampleData}
-                    theme={theme}
-                    templateId={resolvedTemplateId}
-                    scale={1}
-                />
-            </div>
+            {containerWidth > 0 && (
+                <div
+                    style={{
+                        width: `${A4_WIDTH}px`,
+                        height: `${A4_HEIGHT}px`,
+                        transform: `scale(${scale})`,
+                        transformOrigin: 'top left',
+                    }}
+                >
+                    <UnifiedTemplate
+                        data={sampleData}
+                        theme={theme}
+                        templateId={resolvedTemplateId}
+                        scale={1}
+                    />
+                </div>
+            )}
         </div>
     );
 }
