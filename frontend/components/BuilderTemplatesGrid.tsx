@@ -12,11 +12,9 @@ import {
 } from 'lucide-react';
 import {
     builderTemplates as sharedBuilderTemplates,
-    getSampleResumeDataWithProfile,
-    generateTheme,
 } from '@/lib/templates/builder';
 import OnboardingModal from '@/components/OnboardingModal';
-import UnifiedTemplate from '@/components/templates/UnifiedTemplate';
+import BuilderTemplatePreview from '@/components/templates/previews/BuilderTemplatePreview';
 import { TemplatesAnimations } from '@/components/TemplatesAnimations';
 
 // Featured templates with unique layouts (16 total)
@@ -113,56 +111,6 @@ export default function BuilderTemplatesGrid({
         }
     };
 
-    const renderBuilderPreview = (template: typeof builderTemplates[0], templateIndex: number) => {
-        const sampleData = getSampleResumeDataWithProfile(templateIndex);
-        const theme = generateTheme(template.accentColor || '#374151');
-
-        const getTemplateIdForLayout = (layout: string): string => {
-            switch (layout) {
-                case 'sidebar': return 'sidebar-modern';
-                case 'header': return 'header-bold';
-                case 'classic': return 'classic-professional';
-                case 'minimal': return 'minimal-clean';
-                case 'europass': return 'europass-classic';
-                default: return 'classic-professional';
-            }
-        };
-
-        const resolvedTemplateId = (template as { templateId?: string }).templateId || getTemplateIdForLayout(template.layout);
-
-        const a4Width = 794;
-        const a4Height = 1123;
-        const thumbnailWidth = 254;
-        const cssScale = thumbnailWidth / a4Width;
-        const thumbnailHeight = Math.round(a4Height * cssScale);
-
-        return (
-            <div
-                className="rounded-lg overflow-hidden bg-white relative"
-                style={{
-                    width: `${thumbnailWidth}px`,
-                    height: `${thumbnailHeight}px`,
-                }}
-            >
-                <div
-                    style={{
-                        width: `${a4Width}px`,
-                        height: `${a4Height}px`,
-                        transform: `scale(${cssScale})`,
-                        transformOrigin: 'top left',
-                    }}
-                >
-                    <UnifiedTemplate
-                        data={sampleData}
-                        theme={theme}
-                        templateId={resolvedTemplateId}
-                        scale={1}
-                    />
-                </div>
-            </div>
-        );
-    };
-
     return (
         <>
             {/* Search and Filters */}
@@ -238,7 +186,7 @@ export default function BuilderTemplatesGrid({
                                         <div className={`template-thumbnail-3d relative ${
                                             hoveredTemplate === template.id ? 'active' : ''
                                         }`}>
-                                            {renderBuilderPreview(template, index)}
+                                            <BuilderTemplatePreview template={template} templateIndex={index} />
                                             <TemplatesAnimations.HoverOverlay
                                                 isVisible={hoveredTemplate === template.id}
                                                 className="absolute inset-0 flex items-center justify-center bg-black/40"
