@@ -15,11 +15,39 @@ interface ApiError {
   message: string;
 }
 
+// Prevent multiple simultaneous refresh attempts
+let refreshPromise: Promise<string | null> | null = null;
+
+async function tryRefreshToken(): Promise<string | null> {
+  // Deduplicate concurrent refresh calls
+  if (refreshPromise) return refreshPromise;
+
+  refreshPromise = (async () => {
+    try {
+      const res = await fetch('/api/auth/refresh-token', { method: 'POST' });
+      if (!res.ok) return null;
+      const { accessToken } = await res.json();
+      if (accessToken) {
+        localStorage.setItem('token', accessToken);
+        return accessToken;
+      }
+      return null;
+    } catch {
+      return null;
+    } finally {
+      refreshPromise = null;
+    }
+  })();
+
+  return refreshPromise;
+}
+
 async function request<T>(
   method: string,
   endpoint: string,
   data?: unknown,
-  config: RequestConfig = {}
+  config: RequestConfig = {},
+  isRetry = false
 ): Promise<{ data: T }> {
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
@@ -49,6 +77,11 @@ async function request<T>(
     // Handle blob responses (for PDF/DOCX downloads)
     if (config.responseType === 'blob') {
       if (!response.ok) {
+        // On 401 blob request, try refresh then retry once
+        if (response.status === 401 && !isRetry && typeof window !== 'undefined') {
+          const newToken = await tryRefreshToken();
+          if (newToken) return request<T>(method, endpoint, data, config, true);
+        }
         // Try to parse error as JSON for blob requests
         const errorText = await response.text();
         let errorData;
@@ -70,8 +103,12 @@ async function request<T>(
     const responseData = await response.json().catch(() => ({}));
 
     if (!response.ok) {
-      // Auto-redirect to login on 401 (expired/invalid token)
-      if (response.status === 401 && typeof window !== 'undefined') {
+      // On 401: try refresh once, then retry the original request
+      if (response.status === 401 && !isRetry && typeof window !== 'undefined') {
+        const newToken = await tryRefreshToken();
+        if (newToken) return request<T>(method, endpoint, data, config, true);
+
+        // Refresh failed — clear token and redirect admin users
         localStorage.removeItem('token');
         if (window.location.pathname.startsWith('/admin') && !window.location.pathname.includes('/admin/login')) {
           window.location.href = '/admin/login';

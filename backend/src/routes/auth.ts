@@ -14,6 +14,7 @@ import {
   updateProfile,
   requestEmailChange,
   verifyEmailChange,
+  refreshAccessToken,
 } from "../services/authService";
 import { authenticateToken, AuthRequest } from "../middleware/auth";
 import {
@@ -117,6 +118,25 @@ router.post("/oauth", validateBody(oauthSchema), async (req: Request, res: Respo
     console.error("OAuth sign-in error:", error);
     const message = error instanceof Error ? error.message : "OAuth sign-in failed";
     res.status(500).json({ detail: message });
+  }
+});
+
+// ==================== Token Refresh ====================
+
+// POST /api/v1/auth/refresh - Refresh an expired JWT
+router.post("/refresh", async (req: Request, res: Response) => {
+  try {
+    const { token } = req.body;
+    if (!token) {
+      res.status(400).json({ detail: "Token is required" });
+      return;
+    }
+
+    const newToken = await refreshAccessToken(token);
+    res.json({ access_token: newToken, token_type: "bearer" });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Token refresh failed";
+    res.status(401).json({ detail: message });
   }
 });
 

@@ -29,6 +29,23 @@ export const createAccessToken = (userId: string, email: string, role: string): 
   );
 };
 
+export const refreshAccessToken = async (expiredToken: string): Promise<string> => {
+  // Verify signature but allow expired tokens
+  const decoded = jwt.verify(expiredToken, config.secretKey, {
+    ignoreExpiration: true,
+  }) as { sub: string; email: string; role: string };
+
+  const user = await prisma.user.findUnique({
+    where: { id: decoded.sub },
+    select: { id: true, email: true, role: true, isSuspended: true },
+  });
+
+  if (!user) throw new Error("User not found");
+  if (user.isSuspended) throw new Error("Account suspended");
+
+  return createAccessToken(user.id, user.email, user.role);
+};
+
 export const registerUser = async (email: string, password: string, name: string) => {
   // Check if user exists
   const existingUser = await prisma.user.findUnique({ where: { email } });

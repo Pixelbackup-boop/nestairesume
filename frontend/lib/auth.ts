@@ -181,7 +181,35 @@ export const authOptions: NextAuthOptions = {
         token.id = (user as any).backendId || user.id;
         token.role = (user as any).role || "user";
         token.accessToken = (user as any).accessToken || "";
+        return token;
       }
+
+      // Proactive refresh: check if backend JWT is expiring within 5 minutes
+      if (token.accessToken && typeof token.accessToken === "string") {
+        try {
+          const payload = JSON.parse(
+            Buffer.from(token.accessToken.split(".")[1], "base64").toString()
+          );
+          const expiresAt = payload.exp * 1000;
+          const FIVE_MINUTES = 5 * 60 * 1000;
+
+          if (Date.now() > expiresAt - FIVE_MINUTES) {
+            const res = await fetch(`${BACKEND_URL}/api/v1/auth/refresh`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ token: token.accessToken }),
+            });
+
+            if (res.ok) {
+              const { access_token } = await res.json();
+              token.accessToken = access_token;
+            }
+          }
+        } catch {
+          // If refresh fails, keep existing token — will fail on next API call
+        }
+      }
+
       return token;
     },
 
