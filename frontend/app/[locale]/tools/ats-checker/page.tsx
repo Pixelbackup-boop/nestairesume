@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Upload, FileText, CheckCircle, AlertTriangle, XCircle, Loader2, RefreshCw, ArrowRight } from 'lucide-react';
 
 const API_BASE = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4444') + '/api/v1';
-const siteUrl = 'https://www.bestairesumes.com';
+const siteUrl = 'https://bestairesumes.com';
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_TYPES = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
 

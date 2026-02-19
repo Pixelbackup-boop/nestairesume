@@ -9,7 +9,7 @@ import { getAllCoverLetterExamples } from "@/lib/cover-letter-examples/posts";
 import { getAllPosts } from "@/lib/blog/posts";
 import { getAuthorProfileContent } from '@/lib/content/about-pages';
 
-const siteUrl = "https://www.bestairesumes.com";
+const siteUrl = "https://bestairesumes.com";
 const locales = ["en", "de", "fr", "es", "ar"];
 
 // Generate static params for all authors x locales

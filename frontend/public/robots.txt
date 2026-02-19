@@ -18,4 +18,4 @@ Disallow: /*/profile/
 Disallow: /*/canvas-editor/
 Disallow: /*/test-ads/
 
-Sitemap: https://www.bestairesumes.com/sitemap.xml
+Sitemap: https://bestairesumes.com/sitemap.xml

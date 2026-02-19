@@ -14,7 +14,7 @@ import {
 } from "@/lib/resume-examples/posts";
 import { getLocalizedUrl } from "@/lib/localized-paths";
 
-const siteUrl = "https://www.bestairesumes.com";
+const siteUrl = "https://bestairesumes.com";
 const locales = ["en", "de", "fr", "es", "ar"];
 
 // Generate static params for all examples and locales

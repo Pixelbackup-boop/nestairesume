@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-const siteUrl = 'https://www.bestairesumes.com';
+const siteUrl = 'https://bestairesumes.com';
 
 export async function generateMetadata({
   params,

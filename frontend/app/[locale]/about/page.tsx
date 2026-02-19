@@ -6,7 +6,7 @@ import { AUTHORS } from "@/lib/resume-examples/posts";
 import { getAboutContent } from '@/lib/content/about-pages';
 
 const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
-const BASE_URL = 'https://www.bestairesumes.com';
+const BASE_URL = 'https://bestairesumes.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;

@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: CareerPostPageProps): Promise
     return { title: c.notFound };
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
   const locales = ['en', 'es', 'fr', 'de', 'ar'];
   const alternateLanguages: Record<string, string> = {
     'x-default': `${siteUrl}/en/career/${post.slug}`,
@@ -114,7 +114,7 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
   const author = getAuthor(post.author);
 
   // Build URL for sharing
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
   const postUrl = `${siteUrl}/${locale}/career/${post.slug}`;
 
   // JSON-LD structured data for SEO

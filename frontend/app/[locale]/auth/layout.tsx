@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 const siteConfig = {
   name: 'Best AI Resume',
-  url: 'https://www.bestairesumes.com',
+  url: 'https://bestairesumes.com',
 };
 
 export const metadata: Metadata = {

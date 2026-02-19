@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     };
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://resumeai.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
 
   return {
     title: `${post.title} | Best AI Resume Blog`,
@@ -88,7 +88,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const relatedPosts = await getRelatedPosts(post.slug, 3);
 
   // Build URL for sharing
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://resumeai.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
   const postUrl = `${siteUrl}/blog/${post.slug}`;
 
   // Resolve author for E-E-A-T Person schema

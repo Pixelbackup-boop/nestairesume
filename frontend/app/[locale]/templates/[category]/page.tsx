@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         return { title: c.fallbackTitle };
     }
 
-    const siteUrl = 'https://www.bestairesumes.com';
+    const siteUrl = 'https://bestairesumes.com';
     return {
         title: catData.seoTitle,
         description: catData.seoDescription,
@@ -70,7 +70,7 @@ export default async function TemplateCategoryPage({ params }: Props) {
         notFound();
     }
 
-    const siteUrl = 'https://www.bestairesumes.com';
+    const siteUrl = 'https://bestairesumes.com';
 
     // BreadcrumbList schema — all values are hardcoded string constants, no user input involved
     const breadcrumbSchema = {

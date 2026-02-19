@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/chatgpt-comparison';
 import { getLocalizedPath } from '@/lib/localized-paths';
 
-const siteUrl = 'https://www.bestairesumes.com';
+const siteUrl = 'https://bestairesumes.com';
 const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

@@ -17,7 +17,7 @@ interface PageProps {
 
 const siteConfig = {
   name: 'Best AI Resume',
-  url: 'https://www.bestairesumes.com',
+  url: 'https://bestairesumes.com',
 };
 
 export async function generateStaticParams() {

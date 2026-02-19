@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/biodata-format';
 import { getLocalizedPath } from '@/lib/localized-paths';
 
-const siteUrl = 'https://www.bestairesumes.com';
+const siteUrl = 'https://bestairesumes.com';
 
 // ── Color lookup maps ────────────────────────────────────────────────
 const structureColorMap: Record<string, { border: string; bg: string; title: string; detail: string }> = {

@@ -13,7 +13,7 @@ import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import { getContent } from '@/lib/content/blog-pages';
 
-const siteUrl = 'https://www.bestairesumes.com';
+const siteUrl = 'https://bestairesumes.com';
 const locales = ['en', 'de', 'fr', 'es', 'ar'];
 
 interface PostPageProps {

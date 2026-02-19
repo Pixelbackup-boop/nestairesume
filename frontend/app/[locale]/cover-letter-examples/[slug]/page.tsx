@@ -14,7 +14,7 @@ import {
 import { getLocalizedUrl } from "@/lib/localized-paths";
 import { getContent } from "@/lib/content/cover-letter-article";
 
-const siteUrl = "https://www.bestairesumes.com";
+const siteUrl = "https://bestairesumes.com";
 const locales = ["en", "de", "fr", "es", "ar"];
 
 // Generate static params for all examples and locales

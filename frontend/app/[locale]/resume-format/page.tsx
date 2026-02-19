@@ -6,7 +6,7 @@ import { getContent } from '@/lib/content/resume-format';
 import type { FormatComparisonItem } from '@/lib/content/resume-format';
 import { getLocalizedPath } from '@/lib/localized-paths';
 
-const siteUrl = 'https://www.bestairesumes.com';
+const siteUrl = 'https://bestairesumes.com';
 
 // ── Color lookup maps ────────────────────────────────────────────────
 const badgeColorMap: Record<string, string> = {

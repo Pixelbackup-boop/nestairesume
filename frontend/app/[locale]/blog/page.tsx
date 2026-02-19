@@ -9,7 +9,7 @@ import { BookOpen, Sparkles } from 'lucide-react';
 import { getContent } from '@/lib/content/blog-pages';
 
 const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
-const BASE_URL = 'https://www.bestairesumes.com';
+const BASE_URL = 'https://bestairesumes.com';
 
 interface BlogPageProps {
   params: Promise<{ locale: string }>;

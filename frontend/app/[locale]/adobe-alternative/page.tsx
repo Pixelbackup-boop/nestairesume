@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/adobe-alternative';
 import { getLocalizedPath } from '@/lib/localized-paths';
 
-const siteUrl = 'https://www.bestairesumes.com';
+const siteUrl = 'https://bestairesumes.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
