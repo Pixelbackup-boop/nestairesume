@@ -606,7 +606,7 @@ export default function OnboardingPage() {
 
                 {/* Step 4: Template Selection */}
                 {step === 4 && !isGenerating && (
-                    <div className="animate-fadeIn w-full max-w-5xl">
+                    <div className="animate-fadeIn w-full max-w-5xl pb-20">
                         {/* White Card Container */}
                         <div className="bg-white rounded-[32px] shadow-2xl p-8 md:p-12">
                             {/* Logo */}
@@ -663,19 +663,18 @@ export default function OnboardingPage() {
                             {/* Template Grid */}
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
                                 {filteredTemplates.map((template) => {
-                                    const globalIndex = builderTemplates.indexOf(template);
                                     return (
                                         <button
                                             key={template.id}
                                             onClick={() => handleTemplateSelect(template.id)}
-                                            className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${formData.selectedTemplate === template.id
+                                            className={`group relative rounded-xl transition-all duration-200 ${formData.selectedTemplate === template.id
                                                 ? 'ring-2 ring-accent-green ring-offset-2 scale-[1.02]'
                                                 : 'motion-safe:hover:scale-[1.02] ring-1 ring-[#e0f2ef] hover:ring-accent-green'
                                                 }`}
                                         >
                                             {/* Template Preview */}
                                             <Suspense fallback={<div className="w-full bg-gray-100" style={{ aspectRatio: '794 / 1123' }} />}>
-                                                <BuilderTemplatePreview template={template} templateIndex={globalIndex} />
+                                                <BuilderTemplatePreview template={template} />
                                             </Suspense>
 
                                             {/* Template Info */}
@@ -695,26 +694,36 @@ export default function OnboardingPage() {
                                 })}
                             </div>
 
-                            {/* Continue Button */}
-                            <button
-                                onClick={handleFinish}
-                                className="w-full py-4 bg-accent-orange text-white rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-[#e85a2a] transition-colors shadow-lg shadow-accent-orange/30"
-                            >
-                                {t('step4.continue')}
-                                <ArrowRight size={20} />
-                            </button>
-
-                            {/* Back button */}
-                            <button
-                                onClick={() => setStep(2)}
-                                className="w-full mt-3 py-3 text-gray-500 hover:text-dark-teal font-semibold transition-colors"
-                            >
-                                {t('main.goBack')}
-                            </button>
                         </div>
                     </div>
                 )}
             </main>
+
+            {/* Sticky bottom bar — step 4 template selection */}
+            {step === 4 && !isGenerating && (
+                <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200 px-6 py-4">
+                    <div className="max-w-5xl mx-auto flex items-center justify-between gap-4">
+                        <button
+                            onClick={() => setStep(2)}
+                            className="px-6 py-3 text-gray-500 hover:text-dark-teal font-semibold transition-colors"
+                        >
+                            {t('main.goBack')}
+                        </button>
+                        <button
+                            onClick={handleFinish}
+                            disabled={!builderTemplates.some(t => t.id === formData.selectedTemplate)}
+                            className={`px-8 py-3.5 rounded-xl font-bold text-lg flex items-center gap-2 transition-colors ${
+                                builderTemplates.some(t => t.id === formData.selectedTemplate)
+                                    ? 'bg-accent-orange text-white hover:bg-[#e85a2a] shadow-lg shadow-accent-orange/30'
+                                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                            }`}
+                        >
+                            {t('step4.continue')}
+                            <ArrowRight size={20} />
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <style jsx>{`
                 @keyframes fadeIn {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import Header from '@/components/Header';
@@ -12,17 +12,16 @@ import {
     Search,
     Briefcase,
     Minimize2,
+    Monitor,
     Sparkles,
     ArrowRight,
 } from 'lucide-react';
 import {
     builderTemplates as sharedBuilderTemplates,
-    getSampleResumeDataWithProfile,
-    generateTheme,
 } from '@/lib/templates/builder';
 import OnboardingModal from '@/components/OnboardingModal';
 import FontLoader from '@/components/FontLoader';
-import UnifiedTemplate from '@/components/templates/UnifiedTemplate';
+import BuilderTemplatePreview from '@/components/templates/previews/BuilderTemplatePreview';
 
 // Featured templates with unique layouts (16 total)
 // These are the only templates shown in the gallery
@@ -50,9 +49,9 @@ const FEATURED_TEMPLATE_IDS = [
     'minimal-blue-sections',
 ];
 
-type CategoryFilter = 'all' | 'professional' | 'creative' | 'minimal';
+type CategoryFilter = 'all' | 'professional' | 'modern' | 'creative' | 'minimal';
 
-const categories: CategoryFilter[] = ['all', 'professional', 'creative', 'minimal'];
+const categories: CategoryFilter[] = ['all', 'professional', 'modern', 'creative', 'minimal'];
 
 // Use shared builder templates with additional style property for display
 const builderTemplates = sharedBuilderTemplates.map(t => ({
@@ -65,7 +64,7 @@ const categoryIcons: Record<string, React.ElementType> = {
     professional: Briefcase,
     creative: Palette,
     minimal: Minimize2,
-    modern: Sparkles,
+    modern: Monitor,
     classic: FileText,
 };
 
@@ -110,57 +109,6 @@ export default function TemplatesPage() {
         } catch {
             return category.charAt(0).toUpperCase() + category.slice(1);
         }
-    };
-
-    // Render builder template preview using actual template components
-    const renderBuilderPreview = (template: typeof builderTemplates[0], templateIndex: number) => {
-        const sampleData = getSampleResumeDataWithProfile(templateIndex);
-        const theme = generateTheme(template.accentColor || '#374151');
-
-        const getTemplateIdForLayout = (layout: string): string => {
-            switch (layout) {
-                case 'sidebar': return 'sidebar-modern';
-                case 'header': return 'header-bold';
-                case 'classic': return 'classic-professional';
-                case 'minimal': return 'minimal-clean';
-                case 'europass': return 'europass-classic';
-                default: return 'classic-professional';
-            }
-        };
-
-        const resolvedTemplateId = (template as { templateId?: string }).templateId || getTemplateIdForLayout(template.layout);
-
-        const a4Width = 794;
-        const a4Height = 1123;
-        const thumbnailWidth = 254;
-        const cssScale = thumbnailWidth / a4Width;
-        const thumbnailHeight = Math.round(a4Height * cssScale);
-
-        return (
-            <div
-                className="rounded-lg overflow-hidden bg-white relative"
-                style={{
-                    width: `${thumbnailWidth}px`,
-                    height: `${thumbnailHeight}px`,
-                }}
-            >
-                <div
-                    style={{
-                        width: `${a4Width}px`,
-                        height: `${a4Height}px`,
-                        transform: `scale(${cssScale})`,
-                        transformOrigin: 'top left',
-                    }}
-                >
-                    <UnifiedTemplate
-                        data={sampleData}
-                        theme={theme}
-                        templateId={resolvedTemplateId}
-                        scale={1}
-                    />
-                </div>
-            </div>
-        );
     };
 
     const templateCount = filteredBuilderTemplates.length;
@@ -262,7 +210,9 @@ export default function TemplatesPage() {
                                         <div className={`template-thumbnail-3d relative ${
                                             hoveredTemplate === template.id ? 'active' : ''
                                         }`}>
-                                            {renderBuilderPreview(template, index)}
+                                            <Suspense fallback={<div className="w-full bg-white rounded-lg" style={{ aspectRatio: '794 / 1123' }} />}>
+                                                <BuilderTemplatePreview template={template} />
+                                            </Suspense>
                                             {/* Hover overlay - Animated */}
                                             <TemplatesAnimations.HoverOverlay
                                                 isVisible={hoveredTemplate === template.id}

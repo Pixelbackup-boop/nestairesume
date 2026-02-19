@@ -188,7 +188,7 @@ export default function BuilderTemplatesGrid({
                                         <div className={`template-thumbnail-3d relative ${
                                             hoveredTemplate === template.id ? 'active' : ''
                                         }`}>
-                                            <BuilderTemplatePreview template={template} templateIndex={index} />
+                                            <BuilderTemplatePreview template={template} />
                                             <TemplatesAnimations.HoverOverlay
                                                 isVisible={hoveredTemplate === template.id}
                                                 className="absolute inset-0 flex items-center justify-center bg-black/40"

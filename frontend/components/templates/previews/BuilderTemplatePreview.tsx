@@ -2,7 +2,11 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import UnifiedTemplate from '@/components/templates/UnifiedTemplate';
-import { getSampleResumeDataWithProfile, generateTheme } from '@/lib/templates/builder';
+import {
+    builderTemplates,
+    getSampleResumeDataWithProfile,
+    generateTheme,
+} from '@/lib/templates/builder';
 
 interface TemplateData {
     id: string;
@@ -14,7 +18,6 @@ interface TemplateData {
 
 interface BuilderTemplatePreviewProps {
     template: TemplateData;
-    templateIndex: number;
 }
 
 const A4_WIDTH = 794;
@@ -33,7 +36,6 @@ const getTemplateIdForLayout = (layout: string): string => {
 
 export default function BuilderTemplatePreview({
     template,
-    templateIndex,
 }: BuilderTemplatePreviewProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [containerWidth, setContainerWidth] = useState(0);
@@ -50,7 +52,9 @@ export default function BuilderTemplatePreview({
         return () => ro.disconnect();
     }, []);
 
-    const sampleData = getSampleResumeDataWithProfile(templateIndex);
+    // Stable sample data: always use global index from builderTemplates
+    const globalIndex = builderTemplates.findIndex(t => t.id === template.id);
+    const sampleData = getSampleResumeDataWithProfile(globalIndex >= 0 ? globalIndex : 0);
     const theme = generateTheme(template.accentColor || '#374151');
     const resolvedTemplateId = template.templateId || getTemplateIdForLayout(template.layout);
     const scale = containerWidth / A4_WIDTH;
