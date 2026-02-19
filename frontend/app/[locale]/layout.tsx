@@ -9,6 +9,8 @@ import TawkTo from '@/components/TawkTo';
 import { SessionProvider } from '@/components/providers/SessionProvider';
 import { AuthSyncProvider } from '@/components/providers/AuthSyncProvider';
 import { Suspense } from 'react';
+import Script from 'next/script';
+import { getGlobalSettings } from '@/lib/getGlobalSettings';
 import '../globals.css';
 
 const poppins = Poppins({
@@ -26,7 +28,7 @@ const notoArabic = Noto_Sans_Arabic({
 // SEO Configuration
 const siteConfig = {
   name: 'Best AI Resume',
-  url: 'https://www.bestairesumes.com',
+  url: 'https://bestairesumes.com',
   ogImage: '/og-image.png',
 };
 
@@ -35,8 +37,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Best AI Resume',
-  url: 'https://www.bestairesumes.com',
-  logo: 'https://www.bestairesumes.com/logo.png',
+  url: 'https://bestairesumes.com',
+  logo: 'https://bestairesumes.com/logo.png',
   description: 'AI-powered resume builder that helps job seekers create professional, ATS-optimized resumes in minutes.',
   sameAs: [
     // Add social media URLs when available
@@ -55,7 +57,7 @@ const softwareAppSchema = {
   name: 'Best AI Resume Builder',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
-  url: 'https://www.bestairesumes.com',
+  url: 'https://bestairesumes.com',
   description: 'AI-powered resume builder that helps job seekers create professional, ATS-optimized resumes in minutes.',
   offers: {
     '@type': 'Offer',
@@ -76,12 +78,12 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Best AI Resume',
-  url: 'https://www.bestairesumes.com',
+  url: 'https://bestairesumes.com',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://www.bestairesumes.com/blog/search?q={search_term_string}',
+      urlTemplate: 'https://bestairesumes.com/blog/search?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },
@@ -161,23 +163,31 @@ export default async function LocaleLayout({
   const rtl = isRtl(locale as Locale);
   const dir = getDirection(locale as Locale);
 
+  // Fetch admin-configured settings from DB, fall back to env vars
+  const settings = await getGlobalSettings();
+  const googleVerification = settings?.googleSiteVerification || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+  const bingVerification = settings?.bingSiteVerification || process.env.NEXT_PUBLIC_BING_VERIFICATION;
+  const yandexVerification = settings?.yandexSiteVerification || process.env.NEXT_PUBLIC_YANDEX_VERIFICATION;
+  const gaId = settings?.googleAnalyticsId || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang={locale} dir={dir} className="scroll-smooth">
       <head>
-        {/* Search Console Verification — set via env vars */}
-        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
-          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        {/* Search Console Verification — from admin settings or env vars */}
+        {googleVerification && (
+          <meta name="google-site-verification" content={googleVerification} />
         )}
-        {process.env.NEXT_PUBLIC_BING_VERIFICATION && (
-          <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
+        {bingVerification && (
+          <meta name="msvalidate.01" content={bingVerification} />
         )}
-        {process.env.NEXT_PUBLIC_YANDEX_VERIFICATION && (
-          <meta name="yandex-verification" content={process.env.NEXT_PUBLIC_YANDEX_VERIFICATION} />
+        {yandexVerification && (
+          <meta name="yandex-verification" content={yandexVerification} />
         )}
 
         {/* Preconnect to third-party origins for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://embed.tawk.to" />
+        <link rel="dns-prefetch" href="https://widget.trustpilot.com" />
 
         {/* Organization Schema - Content is hardcoded, not user input */}
         <script
@@ -209,10 +219,14 @@ export default async function LocaleLayout({
           <SessionProvider>
             <AuthSyncProvider>
               <Suspense fallback={null}>
-                <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+                <GoogleAnalytics measurementId={gaId} />
               </Suspense>
               <WebVitals />
               <TawkTo />
+              <Script
+                src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+                strategy="afterInteractive"
+              />
               <main id="main-content">
                 {children}
               </main>

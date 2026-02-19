@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { ArrowRight } from "lucide-react";
@@ -22,6 +23,30 @@ export default function Footer() {
   const t = useTranslations("Footer");
   const tNav = useTranslations("Navigation");
   const locale = useLocale();
+  const trustpilotRef = useRef<HTMLDivElement>(null);
+
+  // Trustpilot bootstrap script loads via next/script afterInteractive.
+  // It may not be ready when this component mounts, so retry until available.
+  useEffect(() => {
+    const el = trustpilotRef.current;
+    if (!el) return;
+
+    const init = () => {
+      const tp = (window as unknown as { Trustpilot?: { loadFromElement: (el: HTMLElement) => void } }).Trustpilot;
+      if (tp) {
+        tp.loadFromElement(el);
+        return true;
+      }
+      return false;
+    };
+
+    if (!init()) {
+      const interval = setInterval(() => {
+        if (init()) clearInterval(interval);
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   const localizedHref = (path: string) => `/${locale}${path}`;
 
@@ -110,7 +135,23 @@ export default function Footer() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-12">
+      {/* Trustpilot Review Collector */}
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-6">
+        <div
+          ref={trustpilotRef}
+          className="trustpilot-widget"
+          data-locale="en-US"
+          data-template-id="56278e9abfbbba0bdcd568bc"
+          data-businessunit-id="6996e90345c20b813450f36a"
+          data-style-height="52px"
+          data-style-width="100%"
+          data-token="dd2246e6-b023-4d15-a0ba-eefb37c779c4"
+        >
+          <a href="https://www.trustpilot.com/review/bestairesumes.com" target="_blank" rel="noopener" className="text-white/70 hover:text-white transition text-sm">Trustpilot</a>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 pt-6 pb-12">
         {/* Row 1: Brand + CTA */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12 pb-10 border-b border-white/10">
           <div>
