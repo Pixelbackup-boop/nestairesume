@@ -17,7 +17,7 @@ function localizedUrls(baseUrl: string, path: string, options: { lastModified: D
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestairesumes.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
   const now = new Date();
 
   // Static pages (localized)
@@ -49,6 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/nova-alternative', priority: 0.7 },
     { path: '/europass-alternative', priority: 0.7 },
     { path: '/compare/chatgpt-vs-ai-resume-builder', priority: 0.7 },
+    { path: '/ats-friendly-templates', priority: 0.8 },
     { path: '/free-resume-builder', priority: 0.8 },
     { path: '/resume-ai', priority: 0.8 },
     { path: '/resume-maker', priority: 0.8 },
