@@ -17,7 +17,17 @@
     "back": "Retour",
     "download": "Télécharger",
     "preview": "Aperçu",
-    "scrollToExplore": "Faites défiler pour explorer"
+    "scrollToExplore": "Faites défiler pour explorer",
+    "dismiss": "Fermer",
+    "addLanguage": "Ajouter une langue",
+    "uploadProfilePhoto": "Télécharger la photo de profil",
+    "removeProfilePhoto": "Supprimer la photo de profil",
+    "documentType": "Type de document",
+    "searchByJobTitle": "Rechercher par poste ou compétence...",
+    "searchIcons": "Rechercher des icônes...",
+    "describeTemplate": "Décrivez votre modèle...",
+    "languagePlaceholder": "ex. Espagnol, Français, Mandarin",
+    "templateNamePlaceholder": "ex., CV Développeur Moderne"
   },
   "Navigation": {
     "features": "Fonctionnalités",
@@ -472,7 +482,7 @@
       "annualPeriod": "/an",
       "annualMonthly": "$2.42/mois",
       "features": {
-        "downloads": "10 téléchargements",
+        "downloads": "3 téléchargements/mois",
         "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
         "export": "Export PDF et PNG",
@@ -490,11 +500,11 @@
       "annualPeriod": "/an",
       "annualMonthly": "$4.83/mois",
       "features": {
-        "downloads": "50 téléchargements/mois",
+        "downloads": "10 téléchargements/mois",
         "templates": "Tous les modèles freemium",
         "noAds": "Sans publicité",
         "ats": "Optimisation ATS",
-        "cvCreations": "100 créations de CV/mois",
+        "cvCreations": "150 créations de CV/mois",
         "aiGenerations": "100 générations IA/mois"
       },
       "cta": "Commencer"
@@ -508,12 +518,12 @@
       "annualPeriod": "/an",
       "annualMonthly": "$8/mois",
       "features": {
-        "downloads": "150 téléchargements/mois",
+        "downloads": "25 téléchargements/mois",
         "templates": "Tous + modèles Premium",
         "support": "Support prioritaire",
         "coverLetter": "Créateur de lettre de motivation",
-        "cvCreations": "200 créations de CV/mois",
-        "aiGenerations": "250 générations IA/mois"
+        "cvCreations": "300 créations de CV/mois",
+        "aiGenerations": "200 générations IA/mois"
       },
       "cta": "Commencer"
     },
@@ -599,8 +609,8 @@
       "annualMonthly": "$24/mois",
       "features": {
         "cvCreations": "Créations de CV illimitées",
-        "aiGenerations": "100 générations IA/mois",
-        "downloads": "100 téléchargements/mois",
+        "aiGenerations": "500 générations IA/mois",
+        "downloads": "120 téléchargements/mois",
         "templates": "Tous + modèles Premium",
         "support": "Support prioritaire",
         "coverLetter": "Générateur de lettre de motivation",

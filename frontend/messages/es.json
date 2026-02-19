@@ -1,7 +1,7 @@
 {
   "Meta": {
-    "title": "Creador de Currículum IA Gratis | CV Optimizado ATS en Minutos | Best AI Resume",
-    "description": "Crea currículums profesionales optimizados para ATS en minutos con nuestro creador de CV con IA gratis. Más de 50,000 profesionales confían en nosotros. Sin registro."
+    "title": "Creador de Currículum Vitae Gratis con IA | Plantillas CV ATS | Best AI Resume",
+    "description": "Crea tu curriculum vitae gratis con IA. Plantillas y modelos de CV profesionales optimizados para ATS. Descarga en PDF y Word. Sin registro."
   },
   "Common": {
     "loading": "Cargando...",
@@ -17,7 +17,17 @@
     "back": "Atrás",
     "download": "Descargar",
     "preview": "Vista previa",
-    "scrollToExplore": "Desplaza para explorar"
+    "scrollToExplore": "Desplaza para explorar",
+    "dismiss": "Descartar",
+    "addLanguage": "Agregar idioma",
+    "uploadProfilePhoto": "Subir foto de perfil",
+    "removeProfilePhoto": "Eliminar foto de perfil",
+    "documentType": "Tipo de documento",
+    "searchByJobTitle": "Buscar por puesto o habilidad...",
+    "searchIcons": "Buscar iconos...",
+    "describeTemplate": "Describe tu plantilla...",
+    "languagePlaceholder": "ej. Español, Francés, Mandarín",
+    "templateNamePlaceholder": "ej., Currículum de Desarrollador Moderno"
   },
   "Navigation": {
     "features": "Funciones",
@@ -272,8 +282,8 @@
       }
     },
     "meta": {
-      "title": "50+ Plantillas de Currículum Profesionales - Gratis y Compatibles con ATS",
-      "description": "Explore más de 50 plantillas de currículum profesionales. Diseños modernos, creativos y minimalistas optimizados para ATS."
+      "title": "Plantillas de Currículum Vitae Gratis | Modelos de CV Profesionales 2026",
+      "description": "Descarga plantillas de curriculum vitae y modelos de CV gratis. Diseños modernos, creativos y compatibles con ATS. Formatos de hoja de vida profesionales."
     }
   },
   "Resume": {
@@ -392,8 +402,8 @@
       "tip": "Los PDFs de LinkedIn funcionan mejor para importar tu historial laboral completo"
     },
     "meta": {
-      "title": "Cree Su Currículum - Generador de CV con IA",
-      "description": "Comience a crear su currículum profesional en segundos. Responda 2 preguntas y deje que la IA cree un CV adaptado."
+      "title": "Crear Currículum Vitae Gratis | Generador de CV con IA 2026",
+      "description": "Crea tu curriculum vitae gratis en minutos. Nuestro generador de CV con IA crea un currículum profesional optimizado para ATS. Descarga en PDF y Word."
     },
     "word": {
       "badge": "Currículum en Microsoft Word",
@@ -485,7 +495,7 @@
       "annualPeriod": "/año",
       "annualMonthly": "$4.83/mes",
       "features": {
-        "cvCreations": "100 creaciones de CV/mes",
+        "cvCreations": "150 creaciones de CV/mes",
         "aiGenerations": "100 generaciones IA/mes",
         "downloads": "10 descargas/mes",
         "templates": "Todas las plantillas freemium",
@@ -503,8 +513,8 @@
       "annualPeriod": "/año",
       "annualMonthly": "$8/mes",
       "features": {
-        "cvCreations": "200 creaciones de CV/mes",
-        "aiGenerations": "250 generaciones IA/mes",
+        "cvCreations": "300 creaciones de CV/mes",
+        "aiGenerations": "200 generaciones IA/mes",
         "downloads": "25 descargas/mes",
         "templates": "Todas + plantillas Premium",
         "support": "Soporte prioritario",
@@ -521,9 +531,9 @@
       "annualPeriod": "/año",
       "annualMonthly": "$24/mes",
       "features": {
-        "cvCreations": "500 creaciones de CV/mes",
-        "aiGenerations": "700 generaciones IA/mes",
-        "downloads": "100 descargas/mes",
+        "cvCreations": "Creaciones de CV ilimitadas",
+        "aiGenerations": "500 generaciones IA/mes",
+        "downloads": "120 descargas/mes",
         "templates": "Todas + plantillas Premium",
         "support": "Soporte prioritario",
         "coverLetter": "Creador de carta de presentación",
@@ -1132,8 +1142,8 @@
   },
   "ResumeExamples": {
     "meta": {
-      "title": "Ejemplos de Currículum por Profesión | Plantillas Gratis & Guías 2026",
-      "description": "Explora 50+ ejemplos de currículum profesionales por título de trabajo. Cada uno incluye plantilla gratuita, habilidades clave y consejos de redacción."
+      "title": "Ejemplos de Currículum Vitae por Profesión | Modelos y Plantillas Gratis 2026",
+      "description": "Más de 500 ejemplos de curriculum vitae y hojas de vida por profesión. Modelos de CV con guías de redacción, habilidades clave y consejos para cada industria."
     },
     "hero": {
       "badge": "Guías por Profesión",
@@ -1592,7 +1602,7 @@
   "Features": {
     "meta": {
       "title": "Funciones del Generador de CV con IA - Escritura Inteligente y Optimización ATS",
-      "description": "Descubra funciones potentes: escritura con IA, puntuación ATS en tiempo real, 50+ plantillas, exportación PDF instantánea."
+      "description": "Descubra funciones potentes: escritura con IA, puntuación ATS en tiempo real, plantillas de curriculum vitae profesionales, exportación PDF instantánea."
     }
   },
   "Privacy": {
@@ -1945,8 +1955,8 @@
   },
   "ATSTemplates": {
     "meta": {
-      "title": "Plantillas de CV Compatibles con ATS Gratis (2026) | Pasa Cada Escaneo",
-      "description": "Explora 16 plantillas de CV compatibles con ATS disenadas para pasar los sistemas de seguimiento de candidatos. Formato limpio, fuentes estandar y disenos analizables."
+      "title": "Plantillas de CV ATS Gratis (2026) | Modelos de Currículum Vitae Compatibles",
+      "description": "Descarga plantillas de CV compatibles con ATS gratis. Modelos de curriculum vitae y formatos de hoja de vida diseñados para pasar sistemas de seguimiento de candidatos."
     },
     "breadcrumb": {
       "home": "Inicio",

@@ -17,7 +17,17 @@
     "back": "رجوع",
     "download": "تحميل",
     "preview": "معاينة",
-    "scrollToExplore": "مرر للاستكشاف"
+    "scrollToExplore": "مرر للاستكشاف",
+    "dismiss": "إغلاق",
+    "addLanguage": "إضافة لغة",
+    "uploadProfilePhoto": "تحميل صورة الملف الشخصي",
+    "removeProfilePhoto": "إزالة صورة الملف الشخصي",
+    "documentType": "نوع المستند",
+    "searchByJobTitle": "البحث حسب المسمى الوظيفي أو المهارة...",
+    "searchIcons": "البحث عن أيقونات...",
+    "describeTemplate": "صف قالبك...",
+    "languagePlaceholder": "مثال: إسباني، فرنسي، ماندرين",
+    "templateNamePlaceholder": "مثال: سيرة ذاتية مطور حديثة"
   },
   "Navigation": {
     "features": "المميزات",
@@ -474,7 +484,7 @@
       "features": {
         "cvCreations": "30 إنشاء سيرة ذاتية/شهر",
         "aiGenerations": "50 توليد بالذكاء الاصطناعي/شهر",
-        "downloads": "10 تحميلات",
+        "downloads": "3 تحميلات/شهر",
         "templates": "جميع القوالب المجانية",
         "noAds": "بدون إعلانات",
         "export": "تصدير PDF و PNG"
@@ -490,9 +500,9 @@
       "annualPeriod": "/سنة",
       "annualMonthly": "$4.83/شهر",
       "features": {
-        "cvCreations": "100 إنشاء سيرة ذاتية/شهر",
+        "cvCreations": "150 إنشاء سيرة ذاتية/شهر",
         "aiGenerations": "100 توليد بالذكاء الاصطناعي/شهر",
-        "downloads": "50 تحميل/شهر",
+        "downloads": "10 تحميل/شهر",
         "templates": "جميع القوالب المجانية",
         "noAds": "بدون إعلانات",
         "ats": "تحسين ATS"
@@ -508,9 +518,9 @@
       "annualPeriod": "/سنة",
       "annualMonthly": "$8/شهر",
       "features": {
-        "cvCreations": "200 إنشاء سيرة ذاتية/شهر",
-        "aiGenerations": "250 توليد بالذكاء الاصطناعي/شهر",
-        "downloads": "150 تحميل/شهر",
+        "cvCreations": "300 إنشاء سيرة ذاتية/شهر",
+        "aiGenerations": "200 توليد بالذكاء الاصطناعي/شهر",
+        "downloads": "25 تحميل/شهر",
         "templates": "الكل + قوالب مميزة",
         "support": "دعم أولوية",
         "coverLetter": "منشئ خطاب التغطية"
@@ -599,8 +609,8 @@
       "annualMonthly": "$24/شهر",
       "features": {
         "cvCreations": "إنشاءات سيرة ذاتية غير محدودة",
-        "aiGenerations": "100 توليد بالذكاء الاصطناعي/شهر",
-        "downloads": "100 تنزيل/شهر",
+        "aiGenerations": "500 توليد بالذكاء الاصطناعي/شهر",
+        "downloads": "120 تنزيل/شهر",
         "templates": "الكل + قوالب بريميوم",
         "support": "دعم أولوية",
         "coverLetter": "منشئ خطاب التقديم",

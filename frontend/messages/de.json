@@ -17,7 +17,17 @@
     "back": "Zurück",
     "download": "Herunterladen",
     "preview": "Vorschau",
-    "scrollToExplore": "Scrollen zum Erkunden"
+    "scrollToExplore": "Scrollen zum Erkunden",
+    "dismiss": "Schließen",
+    "addLanguage": "Sprache hinzufügen",
+    "uploadProfilePhoto": "Profilfoto hochladen",
+    "removeProfilePhoto": "Profilfoto entfernen",
+    "documentType": "Dokumenttyp",
+    "searchByJobTitle": "Nach Stellentitel oder Fähigkeit suchen...",
+    "searchIcons": "Symbole suchen...",
+    "describeTemplate": "Beschreiben Sie Ihre Vorlage...",
+    "languagePlaceholder": "z.B. Spanisch, Französisch, Mandarin",
+    "templateNamePlaceholder": "z.B., Moderner Entwickler-Lebenslauf"
   },
   "Navigation": {
     "features": "Funktionen",
@@ -472,7 +482,7 @@
       "annualPeriod": "/Jahr",
       "annualMonthly": "$2,42/Monat",
       "features": {
-        "downloads": "10 Downloads",
+        "downloads": "3 Downloads/Monat",
         "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
         "export": "PDF- und PNG-Export",
@@ -490,11 +500,11 @@
       "annualPeriod": "/Jahr",
       "annualMonthly": "$4,83/Monat",
       "features": {
-        "downloads": "50 Downloads/Monat",
+        "downloads": "10 Downloads/Monat",
         "templates": "Alle Freemium-Vorlagen",
         "noAds": "Keine Werbung",
         "ats": "ATS-Optimierung",
-        "cvCreations": "100 Lebenslauf-Erstellungen/Monat",
+        "cvCreations": "150 Lebenslauf-Erstellungen/Monat",
         "aiGenerations": "100 KI-Generierungen/Monat"
       },
       "cta": "Loslegen"
@@ -508,12 +518,12 @@
       "annualPeriod": "/Jahr",
       "annualMonthly": "$8/Monat",
       "features": {
-        "downloads": "150 Downloads/Monat",
+        "downloads": "25 Downloads/Monat",
         "templates": "Alle + Premium-Vorlagen",
         "support": "Prioritäts-Support",
         "coverLetter": "Anschreiben-Generator",
-        "cvCreations": "200 Lebenslauf-Erstellungen/Monat",
-        "aiGenerations": "250 KI-Generierungen/Monat"
+        "cvCreations": "300 Lebenslauf-Erstellungen/Monat",
+        "aiGenerations": "200 KI-Generierungen/Monat"
       },
       "cta": "Loslegen"
     },
@@ -599,8 +609,8 @@
       "annualMonthly": "$24/Monat",
       "features": {
         "cvCreations": "Unbegrenzte CV-Erstellungen",
-        "aiGenerations": "100 KI-Generierungen/Monat",
-        "downloads": "100 Downloads/Monat",
+        "aiGenerations": "500 KI-Generierungen/Monat",
+        "downloads": "120 Downloads/Monat",
         "templates": "Alle + Premium-Vorlagen",
         "support": "Priority-Support",
         "coverLetter": "Anschreiben-Generator",

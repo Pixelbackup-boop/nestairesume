@@ -15,6 +15,7 @@ import {
   TestimonialsGrid,
   Testimonial,
 } from "@/components/HomeAnimations";
+import HomeTemplateShowcase from "@/components/HomeTemplateShowcase";
 
 export default async function Home() {
   const t = await getTranslations("Home");
@@ -376,28 +377,7 @@ export default async function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { name: 'Executive', style: 'Classic • Dark', thumbnail: '/templates/header-dark.webp' },
-              { name: 'Modern', style: 'Clean • Blue', thumbnail: '/templates/header-blue.webp' },
-              { name: 'Creative', style: 'Decorative • Pink', thumbnail: '/templates/header-decorative.webp' },
-              { name: 'Minimal', style: 'Light • Clean', thumbnail: '/templates/header-light-gray.webp' },
-              { name: 'Professional', style: 'Bold • Yellow', thumbnail: '/templates/header-diagonal-yellow.webp' },
-            ].map((template) => (
-              <Link key={template.name} href={localizedHref("/templates")} className="group cursor-pointer">
-                <div className="aspect-[3/4] rounded-xl overflow-hidden border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow bg-gray-100">
-                  <img
-                    src={template.thumbnail}
-                    alt={`${template.name} resume template`}
-                    className="w-full h-full object-cover object-top"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="font-medium text-sm text-dark-teal">{template.name}</h3>
-                <p className="text-xs text-dark-teal/80">{template.style}</p>
-              </Link>
-            ))}
-          </div>
+          <HomeTemplateShowcase />
         </div>
       </section>
 

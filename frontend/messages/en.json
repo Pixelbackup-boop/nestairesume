@@ -18,7 +18,17 @@
     "back": "Back",
     "download": "Download",
     "preview": "Preview",
-    "scrollToExplore": "Scroll to explore"
+    "scrollToExplore": "Scroll to explore",
+    "dismiss": "Dismiss",
+    "addLanguage": "Add language",
+    "uploadProfilePhoto": "Upload profile photo",
+    "removeProfilePhoto": "Remove profile photo",
+    "documentType": "Document type",
+    "searchByJobTitle": "Search by job title or skill...",
+    "searchIcons": "Search icons...",
+    "describeTemplate": "Describe your template...",
+    "languagePlaceholder": "e.g. Spanish, French, Mandarin",
+    "templateNamePlaceholder": "e.g., Modern Developer Resume"
   },
 
   "Navigation": {
@@ -590,7 +600,7 @@
       "annualPeriod": "/year",
       "annualMonthly": "$4.83/mo",
       "features": {
-        "cvCreations": "100 CV creations/month",
+        "cvCreations": "150 CV creations/month",
         "aiGenerations": "100 AI generations/month",
         "downloads": "10 downloads/month",
         "templates": "All freemium templates",
@@ -608,8 +618,8 @@
       "annualPeriod": "/year",
       "annualMonthly": "$8/mo",
       "features": {
-        "cvCreations": "200 CV creations/month",
-        "aiGenerations": "250 AI generations/month",
+        "cvCreations": "300 CV creations/month",
+        "aiGenerations": "200 AI generations/month",
         "downloads": "25 downloads/month",
         "templates": "All + Premium templates",
         "support": "Priority support",
@@ -626,9 +636,9 @@
       "annualPeriod": "/year",
       "annualMonthly": "$24/mo",
       "features": {
-        "cvCreations": "500 CV creations/month",
-        "aiGenerations": "700 AI generations/month",
-        "downloads": "100 downloads/month",
+        "cvCreations": "Unlimited CV creations",
+        "aiGenerations": "500 AI generations/month",
+        "downloads": "120 downloads/month",
         "templates": "All + Premium templates",
         "support": "Priority support",
         "coverLetter": "Cover letter builder",
