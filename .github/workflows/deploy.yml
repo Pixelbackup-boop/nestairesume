@@ -99,6 +99,7 @@ jobs:
             --image "$IMAGE" \
             --region ${{ env.GCP_REGION }} \
             --platform managed \
+            --execution-environment gen2 \
             --allow-unauthenticated \
             --memory 4Gi \
             --cpu 2 \
@@ -106,6 +107,8 @@ jobs:
             --max-instances 5 \
             --concurrency 8 \
             --timeout 300 \
+            --startup-probe httpGet.path=/health,httpGet.port=8080,initialDelaySeconds=0,failureThreshold=5,timeoutSeconds=3,periodSeconds=10 \
+            --liveness-probe httpGet.path=/health,httpGet.port=8080,initialDelaySeconds=0,failureThreshold=3,timeoutSeconds=3,periodSeconds=30 \
             --set-env-vars="NODE_ENV=production,HOST=0.0.0.0" \
             --set-env-vars="STRIPE_PRICE_STARTER=${{ secrets.STRIPE_PRICE_STARTER }}" \
             --set-env-vars="STRIPE_PRICE_GOLD=${{ secrets.STRIPE_PRICE_GOLD }}" \
@@ -197,6 +200,8 @@ jobs:
             --max-instances 10 \
             --concurrency 100 \
             --timeout 60 \
+            --startup-probe httpGet.path=/api/health,httpGet.port=3000,initialDelaySeconds=0,failureThreshold=3,timeoutSeconds=3,periodSeconds=10 \
+            --liveness-probe httpGet.path=/api/health,httpGet.port=3000,initialDelaySeconds=0,failureThreshold=3,timeoutSeconds=3,periodSeconds=30 \
             --set-env-vars="NODE_ENV=production" \
             --set-env-vars="NEXTAUTH_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}" \
             --set-env-vars="BACKEND_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" \
@@ -215,7 +220,7 @@ jobs:
           for i in 1 2 3 4 5; do
             echo "Health check attempt $i..."
             sleep 15
-            HTTP_CODE=$(curl -s -L -o /dev/null -w "%{http_code}" "$FRONTEND_URL" --max-time 30)
+            HTTP_CODE=$(curl -s -L -o /dev/null -w "%{http_code}" "$FRONTEND_URL/api/health" --max-time 30)
             echo "HTTP $HTTP_CODE"
             if [ "$HTTP_CODE" = "200" ]; then
               echo "Health check passed"

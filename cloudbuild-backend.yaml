@@ -47,6 +47,8 @@ steps:
       - '${_REGION}'
       - '--platform'
       - 'managed'
+      - '--execution-environment'
+      - 'gen2'
       - '--memory'
       - '4Gi'
       - '--cpu'
@@ -64,6 +66,10 @@ steps:
       - '--set-env-vars'
       - 'NODE_ENV=production,PORT=4444,HOST=0.0.0.0,CORS_ORIGINS=${_FRONTEND_URL},FRONTEND_URL=https://bestairesumes.com'
       - '--allow-unauthenticated'
+      - '--startup-probe'
+      - 'httpGet.path=/health,httpGet.port=4444,initialDelaySeconds=0,failureThreshold=5,timeoutSeconds=3,periodSeconds=10'
+      - '--liveness-probe'
+      - 'httpGet.path=/health,httpGet.port=4444,initialDelaySeconds=0,failureThreshold=3,timeoutSeconds=3,periodSeconds=30'
     id: 'deploy'
     waitFor: ['push-image']
 
