@@ -111,9 +111,9 @@ const en: LandingPageContent = {
 
 const es: LandingPageContent = {
   meta: {
-    title: 'Crear Currículum Gratis | Creador de CV con IA 2026',
-    description: 'Crear curriculums gratis con inteligencia artificial. Plantillas ATS, escritura con IA y descarga PDF instantánea. Sin costos ocultos.',
-    keywords: 'crear curriculums gratis, curriculum hacer gratis, armar curriculum vitae gratis, creador de curriculums gratis, hacer curriculum online gratis, hacer curriculum vitae gratis, creador de cv',
+    title: 'Crear Currículum Vitae Gratis | Creador de CV con IA 2026',
+    description: 'Crear curriculum vitae gratis con inteligencia artificial. Plantillas y modelos de CV compatibles con ATS. Formatos de hoja de vida profesionales. Descarga en PDF y Word.',
+    keywords: 'crear curriculums gratis, curriculum hacer gratis, armar curriculum vitae gratis, creador de curriculums gratis, hacer curriculum online gratis, modelos de cv, hoja de vida gratis, formato curriculum vitae, plantillas curriculum vitae',
   },
   schemas: {
     breadcrumbName: 'Creador de Currículum',

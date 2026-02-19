@@ -186,8 +186,8 @@ const en: ResumeAIPageContent = {
 const es: ResumeAIPageContent = {
   meta: {
     title: 'Curr\u00edculum con IA | Generador de Curr\u00edculum con Inteligencia Artificial 2026',
-    description: 'Crea tu curr\u00edculum con inteligencia artificial gratis. Generador de curr\u00edculum con IA que escribe contenido profesional y optimiza para ATS.',
-    keywords: 'curriculum con inteligencia artificial, curriculum vitae con ia, generador de curriculum con ia, crear curriculum con ia gratis, curriculum ia, resume ai espanol, curriculum inteligencia artificial gratis, hacer curriculum con ia',
+    description: 'Crea tu curriculum vitae con inteligencia artificial gratis. Generador de CV con IA que escribe contenido profesional, optimiza para ATS y ofrece plantillas y modelos de hoja de vida.',
+    keywords: 'curriculum con inteligencia artificial, curriculum vitae con ia, generador de curriculum con ia, crear cv con ia, crear curriculum con ia gratis, modelos de cv con ia, hoja de vida con ia, plantillas curriculum vitae ia',
   },
   schemas: {
     breadcrumbName: 'Curr\u00edculum con IA',
