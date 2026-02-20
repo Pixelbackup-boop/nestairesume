@@ -59,9 +59,9 @@ steps:
       - 'NODE_ENV=production,NEXTAUTH_URL=${_FRONTEND_URL},BACKEND_URL=${_BACKEND_URL}'
       - '--allow-unauthenticated'
       - '--startup-probe'
-      - 'httpGet.path=/api/health,httpGet.port=3000,initialDelaySeconds=0,failureThreshold=12,timeoutSeconds=3,periodSeconds=10'
+      - 'httpGet.path=/api/health,httpGet.port=8080,initialDelaySeconds=0,failureThreshold=6,timeoutSeconds=3,periodSeconds=10'
       - '--liveness-probe'
-      - 'httpGet.path=/api/health,httpGet.port=3000,initialDelaySeconds=0,failureThreshold=3,timeoutSeconds=3,periodSeconds=30'
+      - 'httpGet.path=/api/health,httpGet.port=8080,initialDelaySeconds=0,failureThreshold=3,timeoutSeconds=3,periodSeconds=30'
     id: 'deploy'
     waitFor: ['push-image']
 
