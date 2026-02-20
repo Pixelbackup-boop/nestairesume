@@ -65,22 +65,16 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         </div>
     ` : '';
 
-    const idInfo = personalInfo.idType && personalInfo.idNumber ? `
-        <div style="color: ${theme.text}; font-size: ${s(11)}; margin-top: 4px; opacity: 0.8;">
-            ${formatIdType(personalInfo.idType)}: ${escapeHtml(personalInfo.idNumber)}
-        </div>
-    ` : '';
-
     const contactItems = [
         personalInfo.email,
         personalInfo.phone,
         personalInfo.location,
-        personalInfo.nationality,
         personalInfo.website,
+        personalInfo.linkedin,
     ].filter(Boolean);
 
     const contactHtml = contactItems.map((item, i) =>
-        `${i > 0 ? '<span>&bull;</span>' : ''}<span>${escapeHtml(item!)}</span>`
+        `${i > 0 ? '<span>&bull;</span>' : ''}<span style="word-break: break-all;">${escapeHtml(item!)}</span>`
     ).join('');
 
     const summarySection = personalInfo.summary ? `
@@ -256,7 +250,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     ` : '';
 
     const interestsSection = interests && interests.length > 0 ? `
-        <section>
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.interests}
             </h2>
@@ -266,15 +260,28 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         </section>
     ` : '';
 
-    // Social Links section
-    const hasSocialLinks = personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
+    // Personal Details section (nationality + ID/passport/driving license)
+    const hasPersonalDetails = personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber);
+    const personalDetailsSection = hasPersonalDetails ? `
+        <section class="mb-5 resume-section">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                ${t.sections.personalDetails}
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${s(12)};">
+                ${personalInfo.nationality ? `<div data-paginate="item"><strong>${t.labels.nationality}:</strong> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                ${personalInfo.idType && personalInfo.idNumber ? `<div data-paginate="item"><strong>${formatIdType(personalInfo.idType)}:</strong> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
+            </div>
+        </section>
+    ` : '';
+
+    // Social Links section (LinkedIn excluded — shown in header)
+    const hasSocialLinks = personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
     const socialLinksSection = hasSocialLinks ? `
-        <section class="mb-5">
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.socialLinks}
             </h2>
             <div class="flex flex-wrap gap-3" style="font-size: ${s(12)};">
-                ${personalInfo.linkedin ? `<span data-paginate="item" style="color: ${theme.text};"><strong>LinkedIn:</strong> ${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                 ${personalInfo.x ? `<span data-paginate="item" style="color: ${theme.text};"><strong>X:</strong> ${escapeHtml(personalInfo.x)}</span>` : ''}
                 ${personalInfo.github ? `<span data-paginate="item" style="color: ${theme.text};"><strong>GitHub:</strong> ${escapeHtml(personalInfo.github)}</span>` : ''}
                 ${personalInfo.dribbble ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</span>` : ''}
@@ -286,7 +293,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     // References section
     const referencesSection = references && references.length > 0 ? `
-        <section class="mb-5">
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.references}
             </h2>
@@ -314,7 +321,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
 
     // Custom Fields section
     const customFieldsSection = customFields.map(field => `
-        <section class="mb-5">
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${escapeHtml(field.label)}
             </h2>
@@ -338,7 +345,6 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                 <div class="flex flex-wrap justify-center gap-3" style="color: ${theme.text}; font-size: ${s(12)};">
                     ${contactHtml}
                 </div>
-                ${idInfo}
             </header>
 
             ${summarySection}
@@ -350,6 +356,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             ${certificationsSection}
             ${awardsSection}
             ${interestsSection}
+            ${personalDetailsSection}
             ${socialLinksSection}
             ${referencesSection}
             ${customFieldsSection}

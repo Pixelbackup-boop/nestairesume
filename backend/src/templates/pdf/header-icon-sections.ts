@@ -72,7 +72,7 @@ export const renderHeaderIconSections = (
     `;
 
     const BoxSection = (title: string, icon: string, content: string) => `
-        <section style="margin-bottom: 32px;">
+        <section class="resume-section" style="margin-bottom: 32px;">
             <div>
                 <div style="display: flex; align-items: center; gap: 12px; border: 1px solid ${borderColor}; background-color: #ffffff; padding: 8px 24px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1); margin-bottom: 12px;">
                     <span style="background-color: ${orangeAccent}; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">

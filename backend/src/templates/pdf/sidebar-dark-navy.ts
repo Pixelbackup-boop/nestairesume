@@ -89,7 +89,8 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
         { value: personalInfo.phone, icon: 'phone' },
         { value: personalInfo.email, icon: 'email' },
         { value: personalInfo.location, icon: 'location' },
-        { value: personalInfo.website, icon: 'website' }
+        { value: personalInfo.website, icon: 'website' },
+        { value: personalInfo.linkedin, icon: 'linkedin' }
     ].filter(item => item.value);
 
     return `
@@ -125,7 +126,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader(t.sections.personalDetails)}
-                        <div style="font-size: 11px; display: flex; flex-direction: column; gap: 8px; color: ${sidebarText};">
+                        <div style="font-size: ${fs.body}; display: flex; flex-direction: column; gap: 8px; color: ${sidebarText};">
                             ${personalInfo.nationality ? `<div><span style="font-weight: 500; color: ${accentColor};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
                                 <div><span style="font-weight: 500; color: ${accentColor};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
@@ -197,7 +198,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Profile -->
                 ${personalInfo.summary ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.profile)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #475569;">
                             ${formatDescription(personalInfo.summary)}
@@ -207,7 +208,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Experience -->
                 ${experience.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.experience)}
                         <div style="display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
@@ -234,7 +235,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Education (Moved to Main) -->
                 ${education.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
@@ -258,7 +259,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Certifications -->
                 ${certifications && certifications.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.certifications)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${certifications.map(cert => `
@@ -280,7 +281,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Awards -->
                 ${awards && awards.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.awards)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${awards.map(award => `
@@ -307,7 +308,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Languages -->
                 ${languages && languages.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.languages)}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${languages.map(lang => `
@@ -321,11 +322,11 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                 ` : ''}
 
                 <!-- Social Links (Moved to Main) -->
-                ${['github', 'x', 'linkedin', 'dribbble', 'behance', 'instagram'].some(net => (personalInfo as any)[net]) ? `
-                    <div style="margin-bottom: 24px;">
+                ${['github', 'x', 'dribbble', 'behance', 'instagram'].some(net => (personalInfo as any)[net]) ? `
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.socialLinks || 'Social Links')}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                            ${['github', 'x', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
+                            ${['github', 'x', 'dribbble', 'behance', 'instagram'].map(network => {
         const val = (personalInfo as any)[network];
         if (!val) return '';
         return `
@@ -343,7 +344,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Interests -->
                 ${interests && interests.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.interests)}
                          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${interests.map(int => `
@@ -358,7 +359,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                 
                 <!-- References -->
                 ${data.references && data.references.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.references)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
                             ${data.references.map(ref => `
@@ -377,7 +378,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                 
                 <!-- Custom Fields -->
                 ${customFields.map(field => `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(field.label)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #475569;">
                             ${formatDescription(field.content)}

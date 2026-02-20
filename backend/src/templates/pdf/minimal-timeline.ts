@@ -81,7 +81,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Experience with Timeline -->
             ${experience.length > 0 ? `
-                <section style="margin-bottom: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
                     ${SectionHeader(t.sections.experience)}
                     <div style="border-left: 2px solid ${timelineColor}; margin-left: 20px; padding-left: 24px;">
                         ${experience.map(exp => `
@@ -104,7 +104,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Education with Timeline -->
             ${education.length > 0 ? `
-                <section style="margin-bottom: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
                     ${SectionHeader(t.sections.education)}
                     <div style="border-left: 2px solid ${timelineColor}; margin-left: 20px; padding-left: 24px;">
                         ${education.map(edu => `
@@ -123,7 +123,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Skills -->
             ${skills.length > 0 ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.skills}</h3>
                     <div>
                         ${skills.map(skill => ProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
@@ -133,7 +133,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Languages -->
             ${languages && languages.length > 0 ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.languages}</h3>
                     <p style="line-height: 1.8; font-size: ${s(14)};">
                         ${languages.map(l => `${escapeHtml(l.name)} (${escapeHtml(l.proficiency)})`).join('  •  ')}
@@ -143,7 +143,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Personal Details -->
             ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.personalDetails}</h3>
                     <div style="font-size: ${s(14)}; color: #374151;">
                         ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
@@ -154,7 +154,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Strengths -->
             ${strengths && strengths.length > 0 ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.strengths}</h3>
                     <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                         ${strengths.map(str => `
@@ -168,7 +168,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Interests -->
             ${interests && interests.length > 0 ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.interests}</h3>
                     <p style="line-height: 1.8; font-size: ${s(14)};">
                         ${interests.map(i => escapeHtml(i.name)).join(' • ')}
@@ -178,7 +178,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Social Links -->
             ${(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.socialLinks}</h3>
                     <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
                         ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${dotColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
@@ -192,7 +192,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Credentials -->
             ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.credentials}</h3>
                     ${certifications && certifications.length > 0 ? `
                         <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -225,7 +225,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- References -->
             ${data.references && data.references.length > 0 ? `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.references}</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                         ${data.references.map(ref => `
@@ -241,7 +241,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
             <!-- Custom Fields -->
             ${customFields.map(field => `
-                <section style="margin-left: 20px; margin-bottom: 32px;">
+                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${escapeHtml(field.label)}</h3>
                     <div style="font-size: ${s(14)}; color: #374151; line-height: 1.6;">
                         ${formatDescription(field.content)}

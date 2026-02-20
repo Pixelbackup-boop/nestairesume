@@ -399,6 +399,7 @@ interface BoxSectionProps {
 function BoxSection({ borderColor, title, icon, accent, fs, headingFont, scale, sp, children }: BoxSectionProps) {
     return (
         <section
+            className="resume-section"
             style={{ marginBottom: sp.lg }}
         >
             <div data-paginate="item">

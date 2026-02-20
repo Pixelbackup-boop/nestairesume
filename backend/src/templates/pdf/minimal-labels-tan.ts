@@ -57,7 +57,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
 
     // Helper for Row Layout
     const Row = (label: string, content: string) => `
-        <div style="display: flex; margin-bottom: 0;">
+        <div class="resume-section" style="display: flex; margin-bottom: 0;">
             <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                 <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${label}</h3>
             </div>
@@ -100,7 +100,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
 
                 <!-- Experience -->
                 ${experience.length > 0 ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.experience}</h3>
                         </div>
@@ -122,7 +122,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
 
                 <!-- Education -->
                 ${education.length > 0 ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.education}</h3>
                         </div>
@@ -141,7 +141,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
 
                 <!-- Skills -->
                 ${skills.length > 0 ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.skills}</h3>
                         </div>
@@ -178,7 +178,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
 
                 <!-- Credentials -->
                 ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.credentials}</h3>
                         </div>

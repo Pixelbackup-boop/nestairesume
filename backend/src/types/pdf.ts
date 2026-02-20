@@ -183,6 +183,7 @@ export interface PdfTranslations {
     };
     labels: {
         present: string;
+        nationality?: string;
     };
 }
 

@@ -86,16 +86,11 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                     {personalInfo.phone && <span>{personalInfo.phone}</span>}
                     {personalInfo.location && <span>&bull;</span>}
                     {personalInfo.location && <span>{personalInfo.location}</span>}
-                    {personalInfo.nationality && <span>&bull;</span>}
-                    {personalInfo.nationality && <span>{personalInfo.nationality}</span>}
                     {personalInfo.website && <span>&bull;</span>}
-                    {personalInfo.website && <span>{personalInfo.website}</span>}
+                    {personalInfo.website && <span style={{ wordBreak: 'break-all' as const }}>{personalInfo.website}</span>}
+                    {personalInfo.linkedin && <span>&bull;</span>}
+                    {personalInfo.linkedin && <span style={{ wordBreak: 'break-all' as const }}>{personalInfo.linkedin}</span>}
                 </div>
-                {personalInfo.idType && personalInfo.idNumber && (
-                    <div style={{ color: theme.text, fontSize: scale < 1 ? '7px' : sp(11) + 'px', marginTop: sp(4), opacity: 0.8 }}>
-                        {formatIdType(personalInfo.idType)}: {personalInfo.idNumber}
-                    </div>
-                )}
             </header>
 
             {/* Summary */}
@@ -372,7 +367,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Interests */}
             {interests && interests.length > 0 && (
-                <section className="resume-section">
+                <section className="resume-section" style={{ marginBottom: sp(16) }}>
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -388,9 +383,36 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                 </section>
             )}
 
+            {/* Personal Details */}
+            {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
+                <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                    <SectionHeader
+                        theme={theme}
+                        headingFont={headingFont}
+                        scale={scale}
+                        variant="default"
+                        style={{ borderBottom: `${sp(1)}px solid ${theme.accent}`, paddingBottom: sp(4) }}
+                    >
+                        {t.sections.personalDetails}
+                    </SectionHeader>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(4) + 'px', fontSize: scale < 1 ? '9px' : sp(12) + 'px' }}>
+                        {personalInfo.nationality && (
+                            <div data-paginate="item">
+                                <strong>{t.labels.nationality}:</strong> {personalInfo.nationality}
+                            </div>
+                        )}
+                        {personalInfo.idType && personalInfo.idNumber && (
+                            <div data-paginate="item">
+                                <strong>{formatIdType(personalInfo.idType)}:</strong> {personalInfo.idNumber}
+                            </div>
+                        )}
+                    </div>
+                </section>
+            )}
+
             {/* Social Links */}
-            {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                <section style={{ marginBottom: sp(16) }}>
+            {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                <section className="resume-section" style={{ marginBottom: sp(16) }}>
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -401,11 +423,6 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                         {t.sections.socialLinks}
                     </SectionHeader>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) + 'px', fontSize: scale < 1 ? '9px' : sp(12) + 'px' }}>
-                        {personalInfo.linkedin && (
-                            <span style={{ color: theme.text }}>
-                                <strong>LinkedIn:</strong> {personalInfo.linkedin}
-                            </span>
-                        )}
                         {personalInfo.x && (
                             <span style={{ color: theme.text }}>
                                 <strong>X:</strong> {personalInfo.x}
@@ -437,7 +454,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* References */}
             {references && references.length > 0 && (
-                <section style={{ marginBottom: sp(16) }}>
+                <section className="resume-section" style={{ marginBottom: sp(16) }}>
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}
@@ -471,7 +488,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Custom Fields */}
             {customFields?.map((field) => (
-                <section key={field.id} style={{ marginBottom: sp(16) }}>
+                <section key={field.id} className="resume-section" style={{ marginBottom: sp(16) }}>
                     <SectionHeader
                         theme={theme}
                         headingFont={headingFont}

@@ -84,10 +84,10 @@ export const renderMinimalBlueSections = (
             <header style="margin-bottom: 56px; border-bottom: 2px solid ${accentColor}; padding-bottom: 24px;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <div>
-                        <h1 style="font-family: ${headingFont}; font-size: 38px; font-weight: 700; color: #000; text-transform: uppercase; margin: 0 0 4px 0;">
+                        <h1 style="font-family: ${headingFont}; font-size: ${s(38)}; font-weight: 700; color: #000; text-transform: uppercase; margin: 0 0 4px 0;">
                             ${escapeHtml(personalInfo.fullName || 'Your Name')}
                         </h1>
-                        <p style="font-size: 16px; color: ${accentColor}; font-weight: 600; margin: 0;">
+                        <p style="font-size: ${s(16)}; color: ${accentColor}; font-weight: 600; margin: 0;">
                             ${escapeHtml(personalInfo.jobTitle || 'Job Title')}
                         </p>
                     </div>
@@ -100,9 +100,9 @@ export const renderMinimalBlueSections = (
 
             <!-- Profile -->
             ${personalInfo.summary ? `
-                <section style="margin-bottom: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
                     ${SectionHeader(t.sections.profile)}
-                    <p style="line-height: 1.6; font-size: 14px; color: #374151; padding-left: 8px;">
+                    <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${formatDescription(personalInfo.summary)}
                     </p>
                 </section>
@@ -110,7 +110,7 @@ export const renderMinimalBlueSections = (
 
             <!-- Experience -->
             ${experience.length > 0 ? `
-                <section style="margin-bottom: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
                     ${SectionHeader(t.sections.experience)}
                     <div style="display: flex; flex-direction: column; gap: 32px; padding-left: 8px;">
                         ${experience.map(exp => `
@@ -132,7 +132,7 @@ export const renderMinimalBlueSections = (
             ` : ''}
 
             <!-- Two Column for Ed/Skills -->
-            <section style="margin-bottom: 40px;">
+            <section class="resume-section" style="margin-bottom: 40px;">
             <div style="display: flex; gap: 32px;">
                 <!-- Education -->
                 ${education.length > 0 ? `
@@ -164,7 +164,7 @@ export const renderMinimalBlueSections = (
 
             <!-- Languages and Strengths Row -->
             ${(languages && languages.length > 0) || (strengths && strengths.length > 0) ? `
-                <section style="margin-bottom: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
                 <div style="display: flex; gap: 32px;">
                     ${languages && languages.length > 0 ? `
                         <div style="flex: 1;">
@@ -194,7 +194,7 @@ export const renderMinimalBlueSections = (
 
             <!-- Interests -->
             ${interests && interests.length > 0 ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.interests)}
                     <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${interests.map(i => escapeHtml(i.name)).join(' • ')}
@@ -204,7 +204,7 @@ export const renderMinimalBlueSections = (
 
             <!-- Social Links -->
             ${(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.socialLinks)}
                     <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
                         ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${escapeHtml(personalInfo.github)}</span></div>` : ''}
@@ -218,7 +218,7 @@ export const renderMinimalBlueSections = (
 
             <!-- Credentials -->
             ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.credentials)}
                     <div style="padding-left: 8px;">
                         ${certifications && certifications.length > 0 ? `
@@ -253,7 +253,7 @@ export const renderMinimalBlueSections = (
 
             <!-- References -->
             ${data.references && data.references.length > 0 ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.references)}
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 8px;">
                         ${data.references.map(ref => `
@@ -270,7 +270,7 @@ export const renderMinimalBlueSections = (
 
             <!-- Personal Details -->
             ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.personalDetails)}
                     <div style="padding-left: 8px; font-size: ${s(14)}; color: #374151;">
                         ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
@@ -283,7 +283,7 @@ export const renderMinimalBlueSections = (
 
             <!-- Custom Fields -->
             ${customFields.map(field => `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(field.label)}
                     <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${formatDescription(field.content)}

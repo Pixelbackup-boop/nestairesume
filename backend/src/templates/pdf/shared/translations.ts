@@ -31,6 +31,7 @@ export const defaultTranslations: PdfTranslations = {
     },
     labels: {
         present: 'Present',
+        nationality: 'Nationality',
     },
 };
 

@@ -365,7 +365,7 @@ function SectionRow({ label, fs, headingFont, accentColor, scale, sp, children, 
 }) {
     return (
         <div
-            className="section-row"
+            className="section-row resume-section"
             {...(keepTogether ? { 'data-paginate': true } : {})}
             style={{
                 display: 'flex',

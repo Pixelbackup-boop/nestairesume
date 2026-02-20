@@ -426,13 +426,12 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.x || personalInfo.github || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                    {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                         <section className="resume-section" style={{ marginBottom: sp(16) }}>
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<Link size={iconMd} color="#ffffff" />}>
                                 {t.sections.socialLinks}
                             </SectionHeader>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px' }}>
-                                {personalInfo.linkedin && <div data-paginate="item"><SocialRow icon="linkedin" value={personalInfo.linkedin} color={accentColor} sp={sp} /></div>}
                                 {personalInfo.x && <div data-paginate="item"><SocialRow icon="x" value={personalInfo.x} color={accentColor} sp={sp} /></div>}
                                 {personalInfo.github && <div data-paginate="item"><SocialRow icon="github" value={personalInfo.github} color={accentColor} sp={sp} /></div>}
                                 {personalInfo.dribbble && <div data-paginate="item"><SocialRow icon="dribbble" value={personalInfo.dribbble} color={accentColor} sp={sp} /></div>}

@@ -61,7 +61,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
     };
 
     const SectionRow = (label: string, content: string) => `
-        <div style="display: flex; margin-bottom: 20px;">
+        <div class="resume-section" style="display: flex; margin-bottom: 20px;">
             <div style="width: 25%; padding-right: 20px;">
                 <h3 style="
                     font-family: ${headingFont};

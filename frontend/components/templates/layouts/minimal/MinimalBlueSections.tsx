@@ -97,7 +97,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Profile */}
             {personalInfo.summary && (
-                <section style={{ marginBottom: sp(20) }}>
+                <section className="resume-section" style={{ marginBottom: sp(20) }}>
                     <SectionHeader title={t.sections.profile} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151', paddingLeft: sp(8) }}>
                         {personalInfo.summary}
@@ -107,7 +107,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Experience */}
             {experience.length > 0 && (
-                <section style={{ marginBottom: sp(20) }}>
+                <section className="resume-section" style={{ marginBottom: sp(20) }}>
                     <SectionHeader title={t.sections.experience} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <div style={{ display: 'flex', flexDirection: 'column', gap: scale < 1 ? 20 : sp(32), paddingLeft: sp(8) }}>
                         {experience.map((exp) => (
@@ -129,7 +129,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
             )}
 
             {/* Two Column for Ed/Skills */}
-            <section style={{ marginBottom: sp(20) }}>
+            <section className="resume-section" style={{ marginBottom: sp(20) }}>
             <div style={{ display: 'flex', gap: sp(32) }}>
                 {education.length > 0 && (
                     <div style={{ flex: 1 }}>
@@ -169,7 +169,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Languages and Strengths Row */}
             {((languages && languages.length > 0) || (strengths && strengths.length > 0)) && (
-                <section style={{ marginBottom: sp(20) }}>
+                <section className="resume-section" style={{ marginBottom: sp(20) }}>
                 <div style={{ display: 'flex', gap: sp(32) }}>
                     {languages && languages.length > 0 && (
                         <div style={{ flex: 1 }}>
@@ -207,7 +207,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Interests */}
             {data.interests && data.interests.length > 0 && (
-                <section style={{ marginTop: sp(20) }}>
+                <section className="resume-section" style={{ marginTop: sp(20) }}>
                     <SectionHeader title={t.sections.interests} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <p style={{ lineHeight: 1.6, fontSize: fs.body, color: '#374151', paddingLeft: sp(8) }}>
                         {data.interests.map(int => int.name).join(' • ')}
@@ -217,7 +217,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Social Links */}
             {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                <section style={{ marginTop: sp(20) }}>
+                <section className="resume-section" style={{ marginTop: sp(20) }}>
                     <SectionHeader title={t.sections.socialLinks} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <div style={{ paddingLeft: sp(8), display: 'flex', flexDirection: 'column', gap: sp(8), fontSize: fs.body }}>
                         {personalInfo.x && <div><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
@@ -231,7 +231,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Credentials (Certifications & Awards) */}
             {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                <section style={{ marginTop: sp(20) }}>
+                <section className="resume-section" style={{ marginTop: sp(20) }}>
                     <SectionHeader title={t.sections.credentials} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <div style={{ paddingLeft: sp(8) }}>
                         {certifications && certifications.length > 0 && (
@@ -270,7 +270,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* References */}
             {references && references.length > 0 && (
-                <section style={{ marginTop: sp(20) }}>
+                <section className="resume-section" style={{ marginTop: sp(20) }}>
                     <SectionHeader title={t.sections.references} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <div style={{ paddingLeft: sp(8), display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                         {references.map((ref) => (
@@ -287,7 +287,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Personal Details */}
             {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                <section style={{ marginTop: sp(20) }}>
+                <section className="resume-section" style={{ marginTop: sp(20) }}>
                     <SectionHeader title={t.sections.personalDetails} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <div style={{ paddingLeft: sp(8), display: 'flex', flexDirection: 'column', gap: sp(8), fontSize: fs.body }}>
                         {personalInfo.nationality && (
@@ -308,7 +308,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
 
             {/* Custom Fields */}
             {customFields?.map((field) => (
-                <section key={field.id} style={{ marginTop: sp(20) }}>
+                <section key={field.id} className="resume-section" style={{ marginTop: sp(20) }}>
                     <SectionHeader title={field.label} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <p style={{ paddingLeft: sp(8), lineHeight: 1.6, fontSize: fs.body, color: '#374151' }}>{field.content}</p>
                 </section>

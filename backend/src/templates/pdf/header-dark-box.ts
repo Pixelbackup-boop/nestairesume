@@ -179,7 +179,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.profile, getIconSVG('user', accentColor, sNum(16)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(personalInfo.summary)}
@@ -189,7 +189,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.experience, getIconSVG('briefcase', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 20px;">
                                 ${experience.map(exp => `
@@ -218,7 +218,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Education (Left Column) -->
                     ${education.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.education, getIconSVG('graduation-cap', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(0, 2).map(edu => `
@@ -242,7 +242,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Personal Details -->
                     ${personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.personalDetails, getIconSVG('id-card', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
                                 ${personalInfo.nationality ? `
@@ -265,7 +265,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Education (Right Column - additional) -->
                     ${education.length > 2 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.education + ' (Cont.)', '&#127891;')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(2).map(edu => `
@@ -287,7 +287,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.languages, getIconSVG('languages', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
@@ -299,7 +299,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Skills (Circular) -->
                     ${skills.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.skills, getIconSVG('users', accentColor, sNum(16)))}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px;">
                                 ${skills.map(skill => `<div data-paginate="item">${CircularProgress(skill.level ? skill.level * 20 : 80, skill.name)}</div>`).join('')}
@@ -309,7 +309,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Strengths (Bars) -->
                     ${strengths && strengths.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.strengths, getIconSVG('code', accentColor, sNum(16)))}
                             <div>
                                 ${strengths.map(str => `<div data-paginate="item">${ProgressBar(str.name, (str as any).level ?? 80)}</div>`).join('')}
@@ -319,7 +319,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Interests -->
                     ${interests && interests.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.interests, getIconSVG('star', accentColor, sNum(16)))}
                             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                                 ${interests.map(int => `
@@ -333,7 +333,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.credentials, getIconSVG('award', accentColor, sNum(16)))}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -366,7 +366,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Social Links -->
                     ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.socialLinks, getIconSVG('globe', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${personalInfo.x ? `
@@ -405,7 +405,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- References -->
                     ${references && references.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.references, getIconSVG('users', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
@@ -429,7 +429,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
 
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(escapeHtml(field.label), getIconSVG('id-card', accentColor, sNum(16)))}
                             <p style="font-size: ${fs.body}; color: #374151; line-height: 1.6;">
                                 ${formatDescription(field.content)}

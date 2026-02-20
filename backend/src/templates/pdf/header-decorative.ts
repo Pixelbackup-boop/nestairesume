@@ -131,7 +131,8 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                         ${personalInfo.email ? `<span>${escapeHtml(personalInfo.email)}</span>` : ''}
                         ${personalInfo.phone ? `<span>${escapeHtml(personalInfo.phone)}</span>` : ''}
                         ${personalInfo.location ? `<span>${escapeHtml(personalInfo.location)}</span>` : ''}
-                        ${personalInfo.website ? `<span>${escapeHtml(personalInfo.website)}</span>` : ''}
+                        ${personalInfo.website ? `<span style="word-break: break-all;">${escapeHtml(personalInfo.website)}</span>` : ''}
+                        ${personalInfo.linkedin ? `<span style="word-break: break-all;">${escapeHtml(personalInfo.linkedin)}</span>` : ''}
                     </div>
                 </div>
 
@@ -148,14 +149,14 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                 <div style="width: 60%;">
 
                     ${personalInfo.summary ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.profile, 'user')}
                             <p style="line-height: 1.6; font-size: ${sizes.body};">${formatDescription(personalInfo.summary)}</p>
                         </section>
                     ` : ''}
 
                     ${experience.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.experience, 'briefcase')}
                             <div style="display: flex; flex-direction: column; gap: 24px;">
                                 ${experience.map(exp => `
@@ -179,7 +180,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                     ` : ''}
 
                     ${education.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.education, 'graduationCap')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.map(edu => `
@@ -199,7 +200,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- Personal Details -->
                     ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.personalDetails, 'fileText')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
                                 ${personalInfo.nationality ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
@@ -222,7 +223,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- Skills -->
                     ${skills.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.skills, 'wrench')}
                             <div>
                                 ${skills.map(skill => StripedProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
@@ -232,7 +233,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.languages, 'messageCircle')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
@@ -247,7 +248,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- Strengths -->
                     ${strengths && strengths.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.strengths, 'zap')}
                             <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                                 ${strengths.map(str => `
@@ -261,7 +262,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- Interests -->
                     ${interests && interests.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.interests, 'star')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${interests.map(int => `
@@ -275,7 +276,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.credentials, 'trophy')}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -311,11 +312,10 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section style="margin-bottom: 32px;">
+                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.socialLinks, 'link')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
-                                ${personalInfo.linkedin ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">LinkedIn:</span> ${escapeHtml(personalInfo.linkedin)}</div>` : ''}
                                 ${personalInfo.x ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">X:</span> ${escapeHtml(personalInfo.x)}</div>` : ''}
                                 ${personalInfo.github ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">GitHub:</span> ${escapeHtml(personalInfo.github)}</div>` : ''}
                                 ${personalInfo.dribbble ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
@@ -327,7 +327,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- References -->
                     ${references && references.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.references, 'clipboardList')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
@@ -344,7 +344,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
 
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(escapeHtml(field.label), 'pin')}
                             <p data-paginate="item" style="font-size: ${sizes.body}; line-height: 1.6; page-break-inside: avoid;">${formatDescription(field.content)}</p>
                         </section>

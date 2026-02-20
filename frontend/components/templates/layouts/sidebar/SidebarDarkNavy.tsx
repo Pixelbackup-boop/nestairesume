@@ -1,7 +1,7 @@
 'use client';
 
 import { memo } from 'react';
-import { Phone, Mail, MapPin, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
@@ -114,8 +114,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                         {personalInfo.email && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><Mail size={iconSm} color={accentColor} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.email}</span></div>}
                         {personalInfo.location && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><MapPin size={iconSm} color={accentColor} /><span>{personalInfo.location}</span></div>}
                         {personalInfo.website && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><Globe size={iconSm} color={accentColor} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.website}</span></div>}
-
-
+                        {personalInfo.linkedin && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(10) }}><Linkedin size={iconSm} color={accentColor} /><span style={{ wordBreak: 'break-all' }}>{personalInfo.linkedin}</span></div>}
                     </div>
                 </div>
 
@@ -359,13 +358,12 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                 )}
 
                 {/* Social Links (Moved to Main) */}
-                {(personalInfo.github || personalInfo.x || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                {(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>
                         <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.socialLinks || 'Social Links'}</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: `${sp(12)}px ${sp(24)}px` }}>
                             {personalInfo.github && <div data-paginate="item"><SocialRow icon="github" value={personalInfo.github} color={accentColor} textColor={mainText} sp={sp} /></div>}
                             {personalInfo.x && <div data-paginate="item"><SocialRow icon="x" value={personalInfo.x} color={accentColor} textColor={mainText} sp={sp} /></div>}
-                            {personalInfo.linkedin && <div data-paginate="item"><SocialRow icon="linkedin" value={personalInfo.linkedin} color={accentColor} textColor={mainText} sp={sp} /></div>}
                             {personalInfo.dribbble && <div data-paginate="item"><SocialRow icon="dribbble" value={personalInfo.dribbble} color={accentColor} textColor={mainText} sp={sp} /></div>}
                             {personalInfo.behance && <div data-paginate="item"><SocialRow icon="behance" value={personalInfo.behance} color={accentColor} textColor={mainText} sp={sp} /></div>}
                             {personalInfo.instagram && <div data-paginate="item"><SocialRow icon="instagram" value={personalInfo.instagram} color={accentColor} textColor={mainText} sp={sp} /></div>}

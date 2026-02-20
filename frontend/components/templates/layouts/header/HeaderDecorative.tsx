@@ -112,7 +112,8 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                         {personalInfo.email && <span>{personalInfo.email}</span>}
                         {personalInfo.phone && <span>{personalInfo.phone}</span>}
                         {personalInfo.location && <span>{personalInfo.location}</span>}
-                        {personalInfo.website && <span>{personalInfo.website}</span>}
+                        {personalInfo.website && <span style={{ wordBreak: 'break-all' as const }}>{personalInfo.website}</span>}
+                        {personalInfo.linkedin && <span style={{ wordBreak: 'break-all' as const }}>{personalInfo.linkedin}</span>}
                     </div>
                 </div>
 
@@ -160,14 +161,14 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Main Column (Left) */}
                 <div style={{ width: '60%' }}>
                     {personalInfo.summary && (
-                        <section style={{ marginBottom: sp(20) }}>
+                        <section className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.profile} icon={User} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <p style={{ lineHeight: 1.6, fontSize: fs.body }}>{personalInfo.summary}</p>
                         </section>
                     )}
 
                     {experience.length > 0 && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.experience} icon={Briefcase} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(24)+'px' }}>
                                 {experience.map((exp) => (
@@ -191,7 +192,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {education.length > 0 && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.education} icon={GraduationCap} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16)+'px' }}>
                                 {education.map((edu) => (
@@ -211,7 +212,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Personal Details */}
                     {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.personalDetails} icon={FileText} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(6), fontSize: fs.body }}>
                                 {personalInfo.nationality && (
@@ -236,7 +237,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Skills */}
                     {skills.length > 0 && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.skills} icon={Wrench} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12)+'px' }}>
                                 {skills.map((skill) => (
@@ -263,7 +264,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Languages */}
                     {data.languages && data.languages.length > 0 && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.languages} icon={MessageCircle} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8)+'px' }}>
                                 {data.languages.map((lang) => (
@@ -278,7 +279,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Strengths */}
                     {data.strengths && data.strengths.length > 0 && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.strengths} icon={Zap} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(6) }}>
                                 {data.strengths.map((str) => (
@@ -299,7 +300,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Interests */}
                     {interests && interests.length > 0 && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.interests} icon={Star} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
                                 {interests.map((int) => (
@@ -320,7 +321,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Credentials (Certifications & Awards) */}
                     {((certifications && certifications.length > 0) || (awards && awards.length > 0)) && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.credentials} icon={Trophy} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
 
                             {certifications && certifications.length > 0 && (
@@ -358,11 +359,10 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     )}
 
                     {/* Social Links */}
-                    {(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
-                        <div style={{ marginBottom: sp(20) }}>
+                    {(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) && (
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.socialLinks} icon={Link} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(6), fontSize: fs.body }}>
-                                {personalInfo.linkedin && <div data-paginate="item"><span style={{ fontWeight: 600 }}>LinkedIn:</span> {personalInfo.linkedin}</div>}
                                 {personalInfo.x && <div data-paginate="item"><span style={{ fontWeight: 600 }}>X:</span> {personalInfo.x}</div>}
                                 {personalInfo.github && <div data-paginate="item"><span style={{ fontWeight: 600 }}>GitHub:</span> {personalInfo.github}</div>}
                                 {personalInfo.dribbble && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
@@ -374,7 +374,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* References */}
                     {references && references.length > 0 && (
-                        <div style={{ marginBottom: sp(20) }}>
+                        <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.references} icon={ClipboardList} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) }}>
                                 {references.map((ref) => (
@@ -391,7 +391,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (
-                        <div key={field.id} style={{ marginBottom: sp(20) }}>
+                        <div key={field.id} className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={field.label} icon={Pin} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <p style={{ fontSize: fs.body, lineHeight: 1.6 }} data-paginate="item">{field.content}</p>
                         </div>

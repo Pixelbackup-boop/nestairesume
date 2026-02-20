@@ -163,7 +163,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.profile, getIconSVG('user', 'white', sNum(14)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(personalInfo.summary)}
@@ -173,7 +173,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.experience, getIconSVG('briefcase', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${experience.map(exp => `
@@ -205,7 +205,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Education -->
                     ${education.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.education, getIconSVG('graduation-cap', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${education.map(edu => `
@@ -233,7 +233,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Personal Details -->
                     ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.personalDetails, getIconSVG('user', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body}; color: #1f2937;">
                                 ${personalInfo.nationality ? `
@@ -258,7 +258,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.credentials, getIconSVG('award', 'white', sNum(14)))}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -305,7 +305,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Skills -->
                     ${skills.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.skills, getIconSVG('wrench', 'white', sNum(14)))}
                             <div>
                                 ${skills.map(skill => `<div data-paginate="item">${ProgressBar(skill.name, (skill.level || 3) * 20)}</div>`).join('')}
@@ -315,7 +315,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Interests with Icons Grid -->
                     ${interests && interests.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.interests, getIconSVG('star', 'white', sNum(14)))}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
                                 ${interests.slice(0, 6).map(interest => `
@@ -334,7 +334,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.languages, getIconSVG('languages', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
@@ -348,11 +348,11 @@ export const renderHeaderRibbonYellow = (
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.x || personalInfo.github || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section style="margin-bottom: 20px;">
+                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.socialLinks, getIconSVG('link', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                ${(['linkedin', 'x', 'github', 'dribbble', 'behance', 'instagram'] as IconName[]).map(network => {
+                                ${(['x', 'github', 'dribbble', 'behance', 'instagram'] as IconName[]).map(network => {
                                     const val = (personalInfo as any)[network];
                                     if (!val) return '';
                                     return `
@@ -370,7 +370,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Strengths -->
                     ${strengths && strengths.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.strengths, getIconSVG('zap', 'white', sNum(14)))}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(strength => `
@@ -384,7 +384,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- References -->
                     ${references && references.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.references, getIconSVG('id-card', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${references.map(ref => `
@@ -407,7 +407,7 @@ export const renderHeaderRibbonYellow = (
 
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(field.label, getIconSVG('id-card', 'white', sNum(14)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${formatDescription(field.content)}

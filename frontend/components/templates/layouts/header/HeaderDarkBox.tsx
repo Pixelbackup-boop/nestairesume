@@ -75,7 +75,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                     <h1
                         style={{
                             fontFamily: headingFont,
-                            fontSize: scale < 1 ? '18px' : '28px',
+                            fontSize: fs.name,
                             fontWeight: 900,
                             color: '#1f2937',
                             letterSpacing: '0.05em',
