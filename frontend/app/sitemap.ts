@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerCategories, getAllCareerTips, getAllCareerTipsCategories, getLocaleOnlyPostSlugs } from '@/lib/blog/posts';
+import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerCategories, getAllCareerTips, getAllCareerTipsCategories, getLocaleOnlyPostSlugs, getLocaleOnlyCareerTipSlugs } from '@/lib/blog/posts';
 import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
@@ -139,6 +139,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
+  // Locale-only career-tips (e.g., German career-tips with unique slugs)
+  const localeOnlyCareerTipsPages: MetadataRoute.Sitemap = [];
+  for (const locale of locales) {
+    if (locale === 'en') continue;
+    const localeTips = getLocaleOnlyCareerTipSlugs(locale);
+    for (const tip of localeTips) {
+      localeOnlyCareerTipsPages.push({
+        url: `${baseUrl}/${locale}${getLocalizedPath(`/career-tips/${tip.slug}`, locale)}`,
+        lastModified: new Date(tip.date),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      });
+    }
+  }
+
   return [
     ...staticPages,
     ...authorPages,
@@ -146,6 +161,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...localeOnlyBlogPages,
     ...careerPages,
     ...careerTipsPages,
+    ...localeOnlyCareerTipsPages,
     ...categoryPages,
     ...careerCategoryPages,
     ...careerTipsCategoryPages,

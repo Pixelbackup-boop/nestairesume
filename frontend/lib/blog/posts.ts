@@ -258,6 +258,32 @@ export function getLocaleOnlyPostSlugs(locale: string): PostMeta[] {
   return localeOnlyPosts;
 }
 
+// Get locale-specific career-tips that don't exist in the English set.
+// Used by the sitemap to include German-only career-tips pages.
+export function getLocaleOnlyCareerTipSlugs(locale: string): PostMeta[] {
+  if (locale === 'en') return [];
+  const localeDir = path.join(CAREER_TIPS_PATH, locale);
+  if (!fs.existsSync(localeDir)) return [];
+
+  const files = fs.readdirSync(localeDir).filter(f => f.endsWith('.mdx'));
+  const englishSlugs = new Set(getCareerTipsFiles().map(f => f.replace(/\.mdx$/, '')));
+
+  const localeOnlyTips: PostMeta[] = [];
+  for (const file of files) {
+    const slug = file.replace(/\.mdx$/, '');
+    if (englishSlugs.has(slug)) continue;
+    const filePath = path.join(localeDir, file);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data, content } = matter(fileContent);
+    const frontmatter = data as PostFrontmatter;
+    localeOnlyTips.push({
+      ...frontmatter,
+      readingTime: readingTime(content).text,
+    });
+  }
+  return localeOnlyTips;
+}
+
 // Search posts by query (title, description, tags)
 export async function searchPosts(query: string): Promise<PostMeta[]> {
   const searchTerm = query.toLowerCase().trim();
