@@ -1,37 +1,57 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { X, FileText } from "lucide-react";
 
+function hasDraftContent(state: Record<string, unknown>): boolean {
+  const resumeData = state?.resumeData as Record<string, unknown> | undefined;
+  if (!resumeData) return false;
+  const pi = resumeData.personalInfo as Record<string, string> | undefined;
+  if (pi?.fullName) return true;
+  if (Array.isArray(resumeData.experience) && resumeData.experience.length > 0) return true;
+  if (Array.isArray(resumeData.education) && resumeData.education.length > 0) return true;
+  return false;
+}
+
 export default function ReturningUserBanner() {
   const t = useTranslations('Common');
+  const locale = useLocale();
   const [showBanner, setShowBanner] = useState(false);
-  const [draftInfo, setDraftInfo] = useState<{ lastEdited?: string } | null>(null);
+  const [lastEdited, setLastEdited] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check for returning user with draft
-    const hasDraft = localStorage.getItem("resumeDraft");
-    const hasVisited = localStorage.getItem("hasVisitedCreate");
-    const bannerDismissed = sessionStorage.getItem("bannerDismissed");
+    // Clean up legacy key from old implementation
+    localStorage.removeItem("resumeDraft");
+    localStorage.removeItem("hasVisitedCreate");
 
-    if ((hasDraft || hasVisited) && !bannerDismissed) {
+    const bannerDismissed = sessionStorage.getItem("bannerDismissed");
+    if (bannerDismissed) return;
+
+    const raw = localStorage.getItem("resume-draft");
+    if (!raw) return;
+
+    try {
+      const parsed = JSON.parse(raw);
+      const state = parsed?.state;
+      if (!state || !hasDraftContent(state)) return;
+
       setShowBanner(true);
 
-      // Get draft info if available
-      if (hasDraft) {
-        try {
-          const draft = JSON.parse(hasDraft);
-          setDraftInfo({
-            lastEdited: draft.lastEdited || null,
-          });
-        } catch {
-          // Invalid JSON, ignore
-        }
+      if (typeof state.lastEdited === "number") {
+        setLastEdited(
+          new Date(state.lastEdited).toLocaleDateString(locale, {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          })
+        );
       }
+    } catch {
+      // Invalid JSON, ignore
     }
-  }, []);
+  }, [locale]);
 
   const dismissBanner = () => {
     setShowBanner(false);
@@ -50,20 +70,22 @@ export default function ReturningUserBanner() {
 
         {/* Text */}
         <div className="flex-1 min-w-0">
-          <h4 className="font-semibold text-white text-sm">Welcome back!</h4>
+          <h4 className="font-semibold text-white text-sm">
+            {t('returningBanner.welcomeBack')}
+          </h4>
           <p className="text-xs text-gray-400">
-            {draftInfo?.lastEdited
-              ? `Last edited ${draftInfo.lastEdited}`
-              : "You have an unsaved resume draft"}
+            {lastEdited
+              ? t('returningBanner.lastEdited', { date: lastEdited })
+              : t('returningBanner.unsavedDraft')}
           </p>
         </div>
 
         {/* Continue Button */}
         <Link
-          href="/create"
+          href={`/${locale}/builder`}
           className="px-4 py-2 bg-accent-green text-bg-primary rounded-lg font-semibold text-sm hover:bg-accent-teal transition flex-shrink-0"
         >
-          Continue Editing
+          {t('returningBanner.continueEditing')}
         </Link>
 
         {/* Dismiss Button */}
