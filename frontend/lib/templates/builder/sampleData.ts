@@ -263,7 +263,6 @@ export const sampleResumeData: ResumeData = {
         { id: 'cert-1', name: 'Google UX Design Certificate', issuer: 'Google', date: '2022-06' },
     ],
     awards: [],
-    references: [],
     customFields: [],
     background: {
         type: 'solid',

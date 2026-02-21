@@ -22,7 +22,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches reference: frontend/Resume-template/unique-layouts/09-geometric-header.webp
  */
 function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, strengths, interests, certifications, awards, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, strengths, interests, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather'); // Serif default
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -148,7 +148,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                                         </span>
                                     </div>
                                     <p style={{ color: accentColor, fontWeight: 600, fontSize: fs.body, marginBottom: sp(4) }}>
-                                        {exp.company} {exp.city && `| ${exp.city}`}
+                                        {exp.company} {(exp.city || exp.country) && `| ${[exp.city, exp.country].filter(Boolean).join(', ')}`}
                                     </p>
                                     {exp.description && (
                                         <p style={{ fontSize: fs.body, lineHeight: 1.5, color: '#4b5563' }}>
@@ -170,14 +170,21 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(2) }}>
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 700, color: '#1f2937' }}>
                                             {edu.degree}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
                                         </h4>
                                         <span style={{ fontSize: fs.small, color: '#6b7280' }}>
                                             {edu.startDate} - {edu.current ? t.labels.present : edu.endDate}
                                         </span>
                                     </div>
                                     <p style={{ color: accentColor, fontWeight: 600, fontSize: fs.body }}>
-                                        {edu.school}, {edu.city}
+                                        {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
                                     </p>
+                                    {edu.honors && (
+                                        <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
+                                    )}
+                                    {edu.clubs && (
+                                        <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                    )}
                                     {edu.description && (
                                         <p style={{ fontSize: fs.small, marginTop: sp(2) }}>{edu.description}</p>
                                     )}
@@ -267,6 +274,7 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                                         <div key={cert.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                            {cert.url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                         </div>
                                     ))}
                                 </div>
@@ -283,6 +291,10 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                                         <div key={award.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                        
+                                            {award.description && (
+                                                <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{award.description}</p>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
@@ -304,21 +316,6 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                     </SectionRow>
                 )}
 
-                {/* References */}
-                {references && references.length > 0 && (
-                    <SectionRow label={t.sections.references} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16)+'px' }}>
-                            {references.map((ref) => (
-                                <div key={ref.id} data-paginate="item">
-                                    <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937' }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.body, color: '#6b7280' }}>{ref.title}, {ref.company}</div>
-                                    {ref.email && <div style={{ fontSize: fs.small, color: '#4b5563' }}>{ref.email}</div>}
-                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#4b5563' }}>{ref.phone}</div>}
-                                </div>
-                            ))}
-                        </div>
-                    </SectionRow>
-                )}
 
                 {/* Personal Details */}
                 {(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) && (

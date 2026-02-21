@@ -120,7 +120,7 @@ export const renderMinimalBlueSections = (
                                     <span style="font-size: ${s(12)}; color: #4b5563;">${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                 </div>
                                 <div style="font-size: ${s(12)}; color: ${accentColor}; font-weight: 600; margin-bottom: 4px;">
-                                    ${escapeHtml(exp.company)}${exp.city ? `, ${escapeHtml(exp.city)}` : ''}
+                                    ${escapeHtml(exp.company)}${(exp.city || exp.country) ? `, ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                 </div>
                                 <div style="font-size: ${s(14)}; line-height: 1.6; color: #374151;">
                                     ${formatDescription(exp.description || '')}
@@ -141,9 +141,16 @@ export const renderMinimalBlueSections = (
                         <div style="display: flex; flex-direction: column; gap: 16px; padding-left: 8px;">
                             ${education.map(edu => `
                                 <div data-paginate="item">
-                                    <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
-                                    <div style="font-size: ${s(14)}; color: #4b5563;">${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}</div>
+                                    <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">
+                                        ${escapeHtml(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                                    </h4>
+                                    <div style="font-size: ${s(14)}; color: #4b5563;">${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}</div>
                                     <div style="font-size: ${s(12)}; color: #6b7280;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
+                                    ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                    ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+
+                                    ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -229,6 +236,7 @@ export const renderMinimalBlueSections = (
                                         <div data-paginate="item">
                                             <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(cert.name)}</div>
                                             <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                            ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                         </div>
                                     `).join('')}
                                 </div>
@@ -242,28 +250,13 @@ export const renderMinimalBlueSections = (
                                         <div data-paginate="item">
                                             <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(award.title)}</div>
                                             <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                        
+                                            ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                                         </div>
                                     `).join('')}
                                 </div>
                             </div>
                         ` : ''}
-                    </div>
-                </section>
-            ` : ''}
-
-            <!-- References -->
-            ${data.references && data.references.length > 0 ? `
-                <section class="resume-section" style="margin-top: 40px;">
-                    ${SectionHeader(t.sections.references)}
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 8px;">
-                        ${data.references.map(ref => `
-                            <div data-paginate="item">
-                                <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${escapeHtml(ref.name)}</div>
-                                <div style="font-size: ${s(13)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                ${ref.email ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${escapeHtml(ref.email)}</div>` : ''}
-                                ${ref.phone ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${escapeHtml(ref.phone)}</div>` : ''}
-                            </div>
-                        `).join('')}
                     </div>
                 </section>
             ` : ''}

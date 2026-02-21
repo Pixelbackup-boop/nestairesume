@@ -46,7 +46,6 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
         interests = [],
         awards = [],
         certifications = [],
-        references = [],
         customFields = [],
         fonts
     } = data;
@@ -168,7 +167,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                                             </span>
                                         </div>
                                         <p style="font-size: ${sizes.body}; font-weight: 500; color: ${accentColor}; margin-bottom: 4px;">
-                                            ${escapeHtml(exp.company)}, ${escapeHtml(exp.city)}
+                                            ${escapeHtml(exp.company)}${(exp.city || exp.country) ? `, ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
                                         <p style="font-size: ${sizes.body}; line-height: 1.5;">
                                             ${formatDescription(exp.description || '')}
@@ -185,13 +184,20 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.map(edu => `
                                     <div data-paginate="item" style="page-break-inside: avoid;">
-                                        <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}; color: #111827;">${escapeHtml(edu.degree)}</h4>
+                                        <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}; color: #111827;">
+                                            ${escapeHtml(edu.degree)}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                                        </h4>
                                         <p style="font-size: ${sizes.body}; font-weight: 500; color: ${accentColor};">
-                                            ${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}
+                                            ${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
                                         <p style="font-size: ${sizes.small}; color: #6b7280;">
                                             ${formatLocalizedDate(edu.startDate, locale)} – ${edu.current ? t.labels.present : (edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present)}
                                         </p>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+
+                                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -288,6 +294,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                                                 <p style="font-size: ${sizes.small}; color: #6b7280;">
                                                     ${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}
                                                 </p>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -303,6 +310,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                                                 <p style="font-size: ${sizes.small}; color: #6b7280;">
                                                     ${escapeHtml(awr.issuer)} • ${formatLocalizedDate(awr.date, locale)}
                                                 </p>
+                                                ${awr.description ? `<p style="font-size: ${sizes.small}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(awr.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -321,23 +329,6 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                                 ${personalInfo.dribbble ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                                 ${personalInfo.behance ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
                                 ${personalInfo.instagram ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
-                            </div>
-                        </section>
-                    ` : ''}
-
-                    <!-- References -->
-                    ${references && references.length > 0 ? `
-                        <section class="resume-section" style="margin-bottom: 32px;">
-                            ${SectionHeader(t.sections.references, 'clipboardList')}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${references.map(ref => `
-                                    <div data-paginate="item" style="page-break-inside: avoid;">
-                                        <div style="font-weight: 700; font-size: ${sizes.body}; color: #111827;">${escapeHtml(ref.name)}</div>
-                                        <div style="font-size: ${sizes.small}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                        ${ref.email ? `<div style="font-size: ${sizes.small}; color: #374151;">${escapeHtml(ref.email)}</div>` : ''}
-                                        ${ref.phone ? `<div style="font-size: ${sizes.small}; color: #374151;">${escapeHtml(ref.phone)}</div>` : ''}
-                                    </div>
-                                `).join('')}
                             </div>
                         </section>
                     ` : ''}

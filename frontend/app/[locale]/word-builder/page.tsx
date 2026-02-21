@@ -54,7 +54,6 @@ function WordBuilderContent() {
             strengths: t('sections.strengths'),
             certifications: t('sections.certifications'),
             awards: t('sections.awards'),
-            references: t('sections.references'),
             summary: t('sections.summary'),
             profile: t('sections.profile'),
             contact: t('sections.contact'),

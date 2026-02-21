@@ -129,7 +129,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                         </div>
                                         
                                         <div style="display: flex; justify-content: space-between; font-size: ${s(12)}; font-weight: 600; color: ${theme.primary}; margin-bottom: 8px;">
-                                            <span>${escapeHtml(exp.company)}</span>
+                                            <span>${escapeHtml(exp.company)}${(exp.city || exp.country) ? `, ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}</span>
                                             <span>${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                                         </div>
 
@@ -150,12 +150,17 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                     <div data-paginate="item" style="display: flex; gap: 16px; align-items: center;">
                                         <div style="width: 4px; height: 40px; background-color: ${theme.secondary}; border-radius: 2px;"></div>
                                         <div>
-                                            <h4 style="font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; color: ${theme.heading}; margin: 0;">${escapeHtml(edu.school)}</h4>
+                                            <h4 style="font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; color: ${theme.heading}; margin: 0;">${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}</h4>
                                             <div style="font-size: ${s(12)}; color: #4b5563;">
                                                 <span style="font-weight: 600; color: ${theme.primary};">${escapeHtml(edu.degree)}</span>
+                                                ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
                                                 <span style="color: #9ca3af;"> • ${formatLocalizedDate(edu.startDate, locale)} – ${formatLocalizedDate(edu.endDate, locale)}</span>
                                             </div>
+                                            ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                            ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
                                         </div>
+
+                                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -187,6 +192,19 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                     <div data-paginate="item" style="background: white; border: 1px solid ${theme.primary}30; padding: 6px 12px; border-radius: 6px; font-size: ${s(11)}; font-weight: 600; color: ${theme.heading}; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
                                         ${escapeHtml(skill.name)}
                                     </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${strengths && strengths.length > 0 ? `
+                        <div class="resume-section" style="margin-bottom: 40px;">
+                            ${SectionHeader(t.sections.strengths, 'zap')}
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                ${strengths.map(str => `
+                                    <span data-paginate="item" style="font-size: ${s(11)}; font-weight: 600; color: ${theme.primary}; border: 1px solid ${theme.primary}30; padding: 6px 12px; border-radius: 6px; display: inline-block;">
+                                        ${escapeHtml(str.name)}
+                                    </span>
                                 `).join('')}
                             </div>
                         </div>
@@ -236,6 +254,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(12)}; color: ${theme.heading};">${escapeHtml(cert.name)}</div>
                                                 <div style="font-size: ${s(11)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -249,6 +268,8 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(12)}; color: ${theme.heading};">${escapeHtml(award.title)}</div>
                                                 <div style="font-size: ${s(11)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -287,23 +308,6 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                         ${getIconSVG('camera', theme.primary, Math.round(14 * scale))}
                                         <a href="${personalInfo.instagram}" style="color: ${theme.heading}; text-decoration: none;">Instagram</a>
                                     </div>` : ''}
-                            </div>
-                        </div>
-                    ` : ''}
-
-                    <!-- References -->
-                    ${data.references && data.references.length > 0 ? `
-                        <div class="resume-section" style="margin-bottom: 40px;">
-                            ${SectionHeader(t.sections.references, 'users')}
-                            <div style="display: flex; flex-direction: column; gap: 16px;">
-                                ${data.references.map(ref => `
-                                    <div data-paginate="item">
-                                        <div style="font-weight: 700; font-size: ${s(12)}; color: ${theme.heading};">${escapeHtml(ref.name)}</div>
-                                        <div style="font-size: ${s(11)}; font-style: italic; color: #4b5563;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                        ${ref.email ? `<div style="font-size: ${s(11)}; color: ${theme.primary};">${escapeHtml(ref.email)}</div>` : ''}
-                                        ${ref.phone ? `<div style="font-size: ${s(11)}; color: ${theme.primary};">${escapeHtml(ref.phone)}</div>` : ''}
-                                    </div>
-                                `).join('')}
                             </div>
                         </div>
                     ` : ''}

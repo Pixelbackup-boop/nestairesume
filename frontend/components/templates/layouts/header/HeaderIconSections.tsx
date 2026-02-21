@@ -22,7 +22,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * (Note: Reference name implies icons, but description highlights the Boxes & Cyan)
  */
 function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -173,7 +173,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                                     </span>
                                 </div>
                                 <p style={{ fontSize: fs.body, fontStyle: 'italic', marginBottom: 6 * scale, color: '#525252' }}>
-                                    {exp.company}, {exp.city}
+                                    {exp.company}{(exp.city || exp.country) && `, ${[exp.city, exp.country].filter(Boolean).join(', ')}`}
                                 </p>
                                 <p style={{ fontSize: fs.body, lineHeight: 1.5 }}>
                                     {exp.description}
@@ -191,14 +191,26 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                         {education.map((edu) => (
                             <div key={edu.id} data-paginate="item">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp.xs }}>
-                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{edu.degree}</h4>
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>
+                                        {edu.degree}
+                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                    </h4>
                                     <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
                                         {edu.startDate} – {edu.endDate || t.labels.present}
                                     </span>
                                 </div>
                                 <p style={{ fontSize: fs.body, fontStyle: 'italic', color: '#525252' }}>
-                                    {edu.school}, {edu.city}
+                                    {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
                                 </p>
+                                {edu.honors && (
+                                    <p style={{ fontSize: fs.small, color: '#525252', opacity: 0.8 }}>{edu.honors}</p>
+                                )}
+                                {edu.clubs && (
+                                    <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                )}
+                                {edu.description && (
+                                    <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -318,6 +330,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                                         <div key={cert.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body }}>{cert.name}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                            {cert.url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                         </div>
                                     ))}
                                 </div>
@@ -334,6 +347,10 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                                         <div key={award.id} data-paginate="item">
                                             <div style={{ fontWeight: 600, fontSize: fs.body }}>{award.title}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                        
+                                            {award.description && (
+                                                <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{award.description}</p>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
@@ -352,22 +369,6 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                         {personalInfo.dribbble && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                         {personalInfo.behance && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
                         {personalInfo.instagram && <div data-paginate="item"><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
-                    </div>
-                </BoxSection>
-            )}
-
-            {/* References */}
-            {references && references.length > 0 && (
-                <BoxSection borderColor={borderColor} title={t.sections.references} icon="📋" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp.lg }}>
-                        {references.map((ref) => (
-                            <div key={ref.id} data-paginate="item">
-                                <div style={{ fontWeight: 700, fontSize: fs.entryTitle }}>{ref.name}</div>
-                                <div style={{ fontSize: fs.body, fontStyle: 'italic', color: '#525252' }}>{ref.title}, {ref.company}</div>
-                                {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
-                                {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.phone}</div>}
-                            </div>
-                        ))}
                     </div>
                 </BoxSection>
             )}

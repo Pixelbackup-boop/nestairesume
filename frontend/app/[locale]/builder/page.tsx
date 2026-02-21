@@ -33,6 +33,7 @@ import {
 } from 'lucide-react';
 import WelcomeModal from './WelcomeModal';
 import MobileSidebar from './MobileSidebar';
+import TemplateFeedbackButton from '@/components/feedback/TemplateFeedbackButton';
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
 
@@ -68,7 +69,6 @@ function BuilderContent() {
             strengths: t('sections.strengths'),
             certifications: t('sections.certifications'),
             awards: t('sections.awards'),
-            references: t('sections.references'),
             summary: t('sections.summary'),
             profile: t('sections.profile'),
             contact: t('sections.contact'),
@@ -277,6 +277,11 @@ function BuilderContent() {
                             {/* Preview Header */}
                             <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-gray-50">
                                 <span className="text-sm font-medium text-gray-600">{tBuilder('ui.livePreview')}</span>
+                                {/* Toolbar actions — feedback + future template switcher */}
+                                <div className="flex items-center gap-2">
+                                    <TemplateFeedbackButton />
+                                    {/* Future: template switcher dropdown */}
+                                </div>
                                 <div className="flex items-center gap-2">
                                     {/* Reference Image Toggle - Only show if template has thumbnail */}
                                     {templateThumbnail && (

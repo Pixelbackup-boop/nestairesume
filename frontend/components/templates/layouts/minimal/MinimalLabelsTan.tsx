@@ -17,7 +17,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * - Style: Very simple, similar to ClassicLabelsLeft but warmer minimal feel.
  */
 function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, certifications, awards, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Lato');
     const bodyFont = getFontFamily(fonts?.body || 'Lato');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -118,7 +118,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                                         <span style={{ fontSize: fs.small, color: '#4b5563' }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
                                     <div style={{ fontSize: fs.small, color: customThemeColor || '#d97706', fontWeight: 600, marginBottom: sp(4) }}>
-                                        {exp.company}, {exp.city}
+                                        {exp.company}{(exp.city || exp.country) && `, ${[exp.city, exp.country].filter(Boolean).join(', ')}`}
                                     </div>
                                     <p style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>
                                         {exp.description}
@@ -138,9 +138,21 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                             {education.map((edu) => (
                                 <ResumeEntry key={edu.id}>
-                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{edu.degree}</h4>
-                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}, {edu.city}</div>
+                                    <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
+                                        {edu.degree}
+                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                    </h4>
+                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}</div>
                                     <div style={{ fontSize: fs.small, color: '#6b7280' }}>{edu.startDate} – {edu.endDate || t.labels.present}</div>
+                                    {edu.honors && (
+                                        <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
+                                    )}
+                                    {edu.clubs && (
+                                        <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                    )}
+                                    {edu.description && (
+                                        <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>
+                                    )}
                                 </ResumeEntry>
                             ))}
                         </div>
@@ -236,6 +248,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{cert.name}</div>
                                                 <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                                {cert.url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                             </div>
                                         ))}
                                     </div>
@@ -251,6 +264,10 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                                             <div key={award.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#000' }}>{award.title}</div>
                                                 <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                            
+                                                {award.description && (
+                                                    <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{award.description}</p>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
@@ -272,25 +289,6 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                             {personalInfo.dribbble && <div><span style={{ fontWeight: 600 }}>Dribbble:</span> {personalInfo.dribbble}</div>}
                             {personalInfo.behance && <div><span style={{ fontWeight: 600 }}>Behance:</span> {personalInfo.behance}</div>}
                             {personalInfo.instagram && <div><span style={{ fontWeight: 600 }}>Instagram:</span> {personalInfo.instagram}</div>}
-                        </div>
-                    </div>
-                )}
-
-                {/* References */}
-                {references && references.length > 0 && (
-                    <div className="resume-section" style={{ display: 'flex' }}>
-                        <div style={{ width: '30%', paddingRight: sp(24), flexShrink: 0 }}>
-                            <h3 style={{ fontSize: sp(18), fontWeight: 600, color: '#000', margin: 0 }}>{t.sections.references}</h3>
-                        </div>
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: sp(16) }}>
-                            {references.map((ref) => (
-                                <div key={ref.id} data-paginate="item">
-                                    <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
-                                    {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
-                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.phone}</div>}
-                                </div>
-                            ))}
                         </div>
                     </div>
                 )}

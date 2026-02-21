@@ -14,7 +14,7 @@ import { parseDualColor } from '@/lib/templates/builder/colorUtils';
  * Matches backend PDF: header-blue-clean.ts
  */
 function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, certifications, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, certifications, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -228,7 +228,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                         </div>
 
                                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.small, fontWeight: 600, color: primaryColor, marginBottom: sp(8) }}>
-                                            <span>{exp.company}</span>
+                                            <span>{exp.company}{(exp.city || exp.country) && `, ${[exp.city, exp.country].filter(Boolean).join(', ')}`}</span>
                                             <span>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                         </div>
 
@@ -247,17 +247,29 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                             <SectionHeader title={t.sections.education} icon={<GraduationCap size={parseInt(fs.sectionHeading)} color={primaryColor} />} primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16) }}>
                                 {education.map((edu) => (
-                                    <div key={edu.id} data-paginate="item" style={{ display: 'flex', gap: sp(16), alignItems: 'center' }}>
-                                        <div style={{ width: sp(4), height: sp(40), backgroundColor: secondaryColor, borderRadius: sp(2) }} />
-                                        <div>
-                                            <h4 style={{ fontFamily: headingFont, fontSize: fs.entryTitle, fontWeight: 700, color: headingColor, margin: 0 }}>
-                                                {edu.school}
-                                            </h4>
-                                            <div style={{ fontSize: fs.small, color: '#4b5563' }}>
-                                                <span style={{ fontWeight: 600, color: primaryColor }}>{edu.degree}</span>
-                                                <span style={{ color: '#9ca3af' }}> • {edu.startDate} – {edu.endDate || t.labels.present}</span>
+                                    <div key={edu.id} data-paginate="item">
+                                        <div style={{ display: 'flex', gap: sp(16), alignItems: 'center' }}>
+                                            <div style={{ width: sp(4), height: sp(40), backgroundColor: secondaryColor, borderRadius: sp(2) }} />
+                                            <div>
+                                                <h4 style={{ fontFamily: headingFont, fontSize: fs.entryTitle, fontWeight: 700, color: headingColor, margin: 0 }}>
+                                                    {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
+                                                </h4>
+                                                <div style={{ fontSize: fs.small, color: '#4b5563' }}>
+                                                    <span style={{ fontWeight: 600, color: primaryColor }}>{edu.degree}</span>
+                                                    {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8 }}>GPA: {edu.gpa}</span>}
+                                                    <span style={{ color: '#9ca3af' }}> • {edu.startDate} – {edu.endDate || t.labels.present}</span>
+                                                </div>
                                             </div>
                                         </div>
+                                        {edu.honors && (
+                                            <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8, paddingLeft: sp(20) }}>{edu.honors}</p>
+                                        )}
+                                        {edu.clubs && (
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7, paddingLeft: sp(20) }}>Activities: {edu.clubs}</p>
+                                        )}
+                                        {edu.description && (
+                                            <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px', paddingLeft: sp(20) }}>{edu.description}</p>
+                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -359,6 +371,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.small, color: headingColor }}>{cert.name}</div>
                                                 <div style={{ fontSize: fs.tiny, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                                {cert.url && <div style={{ fontSize: fs.tiny, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                             </div>
                                         ))}
                                     </div>
@@ -373,6 +386,10 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                             <div key={award.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.small, color: headingColor }}>{award.title}</div>
                                                 <div style={{ fontSize: fs.tiny, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                            
+                                                {award.description && (
+                                                    <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{award.description}</p>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
@@ -395,22 +412,6 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                         </div>
                     )}
 
-                    {/* References */}
-                    {references && references.length > 0 && (
-                        <div className="resume-section" style={{ marginBottom: sp(16) }}>
-                            <SectionHeader title={t.sections.references} icon={<Users size={parseInt(fs.sectionHeading)} color={primaryColor} />} primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16) }}>
-                                {references.map((ref) => (
-                                    <div key={ref.id} data-paginate="item">
-                                        <div style={{ fontWeight: 700, fontSize: fs.small, color: headingColor }}>{ref.name}</div>
-                                        <div style={{ fontSize: fs.tiny, fontStyle: 'italic', color: '#4b5563' }}>{ref.title}, {ref.company}</div>
-                                        {ref.email && <div style={{ fontSize: fs.tiny, color: primaryColor }}>{ref.email}</div>}
-                                        {ref.phone && <div style={{ fontSize: fs.tiny, color: primaryColor }}>{ref.phone}</div>}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (

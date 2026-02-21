@@ -19,7 +19,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * - Timeline: Vertical line in experience section.
  */
 function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, certifications, awards, interests, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, interests, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto Slab'); // Serif for headers as per spec hint
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -261,7 +261,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                         </span>
                                     </div>
                                     <div style={{ fontSize: fs.small, color: '#64748b', fontWeight: 600, marginBottom: sp(8) }}>
-                                        {exp.company}{exp.city ? ` | ${exp.city}` : ''}
+                                        {exp.company}{(exp.city || exp.country) ? ` | ${[exp.city, exp.country].filter(Boolean).join(', ')}` : ''}
                                     </div>
                                     <div style={{ fontSize: fs.body, lineHeight: 1.6, color: '#4b5563' }}>
                                         {exp.description?.split('\n').map((line, i) => {
@@ -293,14 +293,24 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(4) }}>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a', margin: 0, textTransform: 'uppercase' }}>
                                             {edu.degree}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body, textTransform: 'none' }}>GPA: {edu.gpa}</span>}
                                         </h4>
                                         <span style={{ fontSize: fs.small, color: accentColor, fontWeight: 600 }}>
                                             {edu.startDate} – {edu.endDate || t.labels.present}
                                         </span>
                                     </div>
                                     <div style={{ fontSize: fs.body, color: '#64748b', fontWeight: 600 }}>
-                                        {edu.school}{edu.city ? `, ${edu.city}` : ''}
+                                        {edu.school}{(edu.city || edu.country) ? `, ${[edu.city, edu.country].filter(Boolean).join(', ')}` : ''}
                                     </div>
+                                    {edu.honors && (
+                                        <p style={{ fontSize: fs.small, color: '#475569', opacity: 0.8 }}>{edu.honors}</p>
+                                    )}
+                                    {edu.clubs && (
+                                        <p style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                    )}
+                                    {edu.description && (
+                                        <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -317,6 +327,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{cert.name}</h4>
                                     <div style={{ fontSize: fs.body, color: accentColor, fontWeight: 500 }}>{cert.issuer}</div>
                                     <div style={{ fontSize: fs.small, color: '#64748b' }}>{cert.date}</div>
+                                    {cert.url && <div style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>{cert.url}</div>}
                                 </div>
                             ))}
                         </div>
@@ -381,25 +392,6 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                     <span style={{ color: accentColor, fontSize: sp(10) + 'px' }}>●</span>
                                     {int.name}
                                 </span>
-                            ))}
-                        </div>
-                    </section>
-                )}
-
-
-
-                {/* References */}
-                {references && references.length > 0 && (
-                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
-                        <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.references}</h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16) }}>
-                            {references.map((ref) => (
-                                <div key={ref.id} data-paginate="item">
-                                    <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.body, color: '#64748b' }}>{ref.title}, {ref.company}</div>
-                                    {ref.email && <div style={{ fontSize: fs.small, color: '#475569' }}>{ref.email}</div>}
-                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#475569' }}>{ref.phone}</div>}
-                                </div>
                             ))}
                         </div>
                     </section>

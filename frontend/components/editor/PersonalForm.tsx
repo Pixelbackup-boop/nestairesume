@@ -3,13 +3,12 @@
 import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useResumeStore, ImageShape, IdDocumentType } from '../../store/useResumeStore';
-import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Flag, CreditCard, ChevronDown, Share2, Users, FileText } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Flag, CreditCard, ChevronDown, Share2, FileText } from 'lucide-react';
 import { generateSummaryOnly } from '../../lib/aiResumeGenerator';
 import Image from 'next/image';
 import ImageCropper from './ImageCropper';
 import CollapsibleSection from './CollapsibleSection';
 import SocialLinksSection from './SocialLinksSection';
-import ReferencesSection from './ReferencesSection';
 import CustomFieldsSection from './CustomFieldsSection';
 import IconInput from '../ui/IconInput';
 
@@ -17,7 +16,7 @@ export default function PersonalForm() {
   const t = useTranslations('Builder');
   const tc = useTranslations('Common');
   const { resumeData, updatePersonalInfo } = useResumeStore();
-  const { personalInfo, references, customFields = [] } = resumeData;
+  const { personalInfo, customFields = [] } = resumeData;
   const [isGenerating, setIsGenerating] = useState(false);
   const [showCropper, setShowCropper] = useState(false);
   const [tempImage, setTempImage] = useState<string>('');
@@ -311,15 +310,6 @@ export default function PersonalForm() {
           defaultOpen={false}
         >
           <SocialLinksSection />
-        </CollapsibleSection>
-
-        <CollapsibleSection
-          title={t('references')}
-          icon={Users}
-          badge={references.length}
-          defaultOpen={false}
-        >
-          <ReferencesSection />
         </CollapsibleSection>
 
         <CollapsibleSection

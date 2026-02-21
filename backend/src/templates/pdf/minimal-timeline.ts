@@ -91,7 +91,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
 
                                 <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(exp.title)}</h4>
                                 <div style="font-size: ${s(12)}; color: #6b7280; margin-bottom: 4px;">
-                                    ${escapeHtml(exp.company)} | ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
+                                    ${escapeHtml(exp.company)}${(exp.city || exp.country) ? `, ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''} | ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}
                                 </div>
                                 <p style="font-size: ${s(14)}; line-height: 1.6; margin: 0;">
                                     ${formatDescription(exp.description || '')}
@@ -112,9 +112,16 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
                                 <!-- Timeline Dot -->
                                 <div style="position: absolute; left: -31px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background-color: ${dotColor}; border: 2px solid white;"></div>
                                 
-                                <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${escapeHtml(edu.degree)}</h4>
-                                <div style="font-size: ${s(14)};">${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}</div>
+                                <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">
+                                    ${escapeHtml(edu.degree)}
+                                    ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                                </h4>
+                                <div style="font-size: ${s(14)};">${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}</div>
                                 <div style="font-size: ${s(12)}; color: #6b7280;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
+                                ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+
+                                ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -202,6 +209,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
                                     <div data-paginate="item">
                                         <div style="font-weight: 600; font-size: ${s(14)}; color: #1f2937;">${escapeHtml(cert.name)}</div>
                                         <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                        ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -215,27 +223,13 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
                                     <div data-paginate="item">
                                         <div style="font-weight: 600; font-size: ${s(14)}; color: #1f2937;">${escapeHtml(award.title)}</div>
                                         <div style="font-size: ${s(12)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                    
+                                        ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
                         </div>
                     ` : ''}
-                </section>
-            ` : ''}
-
-            <!-- References -->
-            ${data.references && data.references.length > 0 ? `
-                <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
-                    <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.references}</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                        ${data.references.map(ref => `
-                            <div data-paginate="item">
-                                <div style="font-weight: 600; font-size: ${s(14)}; color: #1f2937;">${escapeHtml(ref.name)}</div>
-                                <div style="font-size: ${s(13)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                ${ref.email ? `<div style="font-size: ${s(12)}; color: ${dotColor};">${escapeHtml(ref.email)}</div>` : ''}
-                            </div>
-                        `).join('')}
-                    </div>
                 </section>
             ` : ''}
 

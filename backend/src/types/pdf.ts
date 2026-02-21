@@ -71,15 +71,6 @@ export interface PdfAward {
     description?: string;
 }
 
-export interface PdfReference {
-    id: string;
-    name: string;
-    title: string;
-    company: string;
-    phone?: string;
-    email?: string;
-}
-
 export interface PdfCustomField {
     id: string;
     label: string;
@@ -140,7 +131,6 @@ export interface PdfResumeData {
     strengths: PdfStrength[];
     certifications: PdfCertification[];
     awards: PdfAward[];
-    references: PdfReference[];
     customFields: PdfCustomField[];
     background: PdfBackgroundSettings;
     fonts: PdfFontSettings;
@@ -172,7 +162,6 @@ export interface PdfTranslations {
         strengths: string;
         certifications: string;
         awards: string;
-        references: string;
         summary: string;
         profile: string;
         contact: string;

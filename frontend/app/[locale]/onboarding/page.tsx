@@ -135,7 +135,6 @@ export default function OnboardingPage() {
             interests: [],
             strengths: [],
             awards: [],
-            references: [],
         };
 
         // Load into store

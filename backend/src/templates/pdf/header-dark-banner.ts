@@ -188,7 +188,7 @@ export const renderHeaderDarkBanner = (
                                             <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === experience.length - 1 ? 0 : 16}px;">
                                                 <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
                                                     ${accentIcon('calendar')} ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
-                                                    ${exp.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml(exp.city.toUpperCase())}</span>` : ''}
+                                                    ${(exp.city || exp.country) ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', ').toUpperCase())}</span>` : ''}
                                                 </p>
                                                 <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
                                                     ${escapeHtml(exp.title)}
@@ -220,14 +220,17 @@ export const renderHeaderDarkBanner = (
                                             <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === education.length - 1 ? 0 : 12}px;">
                                                 <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
                                                     ${accentIcon('calendar')} ${formatLocalizedDate(edu.startDate, locale)}
-                                                    ${edu.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml(edu.city.toUpperCase())}</span>` : ''}
+                                                    ${(edu.city || edu.country) ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', ').toUpperCase())}</span>` : ''}
                                                 </p>
                                                 <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
                                                     ${escapeHtml(edu.degree)}
+                                                    ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-size: ${s(13)};">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
                                                 </h4>
                                                 <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600;">
                                                     ${escapeHtml(edu.school)}
                                                 </p>
+                                                ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                                ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
                                                 ${edu.description ? `
                                                     <p style="font-size: ${s(12)}; color: #6b7280; margin-top: 4px;">
                                                         ${formatDescription(edu.description)}
@@ -324,6 +327,7 @@ export const renderHeaderDarkBanner = (
                                                     <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === certifications.length - 1 ? 0 : 8}px;">
                                                         <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(cert.name)}</div>
                                                         <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                                        ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                                     </div>
                                                 `).join('')}
                                             </div>
@@ -337,6 +341,7 @@ export const renderHeaderDarkBanner = (
                                                     <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === awards.length - 1 ? 0 : 8}px;">
                                                         <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(award.title)}</div>
                                                         <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                                        ${award.description ? `<p style="font-size: ${s(9)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                                                     </div>
                                                 `).join('')}
                                             </div>
@@ -355,23 +360,6 @@ export const renderHeaderDarkBanner = (
                                         ${personalInfo.dribbble ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('dribbble')} ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                                         ${personalInfo.behance ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('behance')} ${escapeHtml(personalInfo.behance)}</div>` : ''}
                                         ${personalInfo.instagram ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('instagram')} ${escapeHtml(personalInfo.instagram)}</div>` : ''}
-                                    </div>
-                                </section>
-                            ` : ''}
-
-                            <!-- References -->
-                            ${data.references && data.references.length > 0 ? `
-                                <section class="resume-section" style="margin-top: 20px;">
-                                    ${SectionHeader(t.sections.references)}
-                                    <div style="display: block;">
-                                        ${data.references.map((ref, index) => `
-                                            <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === data.references!.length - 1 ? 0 : 12}px;">
-                                                <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${escapeHtml(ref.name)}</div>
-                                                <div style="font-size: ${s(9)}; color: #6b7280;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                                                ${ref.email ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('email', '#6b7280', 10)} ${escapeHtml(ref.email)}</div>` : ''}
-                                                ${ref.phone ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('smartphone', '#6b7280', 10)} ${escapeHtml(ref.phone)}</div>` : ''}
-                                            </div>
-                                        `).join('')}
                                     </div>
                                 </section>
                             ` : ''}

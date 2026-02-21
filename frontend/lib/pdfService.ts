@@ -22,7 +22,6 @@ export interface PdfTranslations {
         strengths: string;
         certifications: string;
         awards: string;
-        references: string;
         summary: string;
         profile: string;
         contact: string;

@@ -12,7 +12,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Traditional top-down professional resume layout with centered header.
  */
 function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, awards, references, customFields, background, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, interests, strengths, certifications, awards, customFields, background, fonts } = data;
     const bgStyle = getBackgroundStyle(background);
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
@@ -165,7 +165,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                             <ResumeEntry key={edu.id}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                                     <h3 style={{ color: theme.text, fontWeight: 600, fontSize: scale < 1 ? '10px' : sizeConfig.base }}>
-                                        {edu.school}
+                                        {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
                                     </h3>
                                     <span style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : sp(11) + 'px' }}>
                                         {edu.startDate} – {edu.current ? t.labels.present : edu.endDate}
@@ -184,6 +184,9 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                     <p style={{ color: theme.text, opacity: 0.6, fontSize: scale < 1 ? '7px' : sp(10) + 'px' }}>
                                         Activities: {edu.clubs}
                                     </p>
+                                )}
+                                {edu.description && (
+                                    <p style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : sp(11) + 'px', lineHeight: 1.5, marginTop: '4px' }}>{edu.description}</p>
                                 )}
                             </ResumeEntry>
                         ))}
@@ -286,23 +289,14 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                     >
                         {t.sections.strengths}
                     </SectionHeader>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(4) + 'px' }}>
-                        {strengths.map((strength) => (
-                            <span
-                                key={strength.id}
-                                data-paginate="item"
-                                style={{
-                                    backgroundColor: `${theme.primary}15`,
-                                    color: theme.primary,
-                                    padding: scale < 1 ? '2px 6px' : `${sp(4)}px ${sp(10)}px`,
-                                    borderRadius: sp(4) + 'px',
-                                    fontSize: scale < 1 ? '7px' : sp(11) + 'px',
-                                }}
-                            >
+                    <p style={{ color: theme.text, fontSize: sp(12) + 'px', lineHeight: 1.6 }}>
+                        {strengths.map((strength, i) => (
+                            <span key={strength.id}>
+                                {i > 0 && ' \u2022 '}
                                 {strength.name}
                             </span>
                         ))}
-                    </div>
+                    </p>
                 </section>
             )}
 
@@ -327,6 +321,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                 <span style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : sp(11) + 'px', marginLeft: sp(8) }}>
                                     {cert.issuer} &bull; {cert.date}
                                 </span>
+                                {cert.url && <div style={{ color: theme.text, opacity: 0.6, fontSize: scale < 1 ? '7px' : sp(10) + 'px' }}>{cert.url}</div>}
                             </div>
                         ))}
                     </div>
@@ -448,40 +443,6 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                 <strong>Instagram:</strong> {personalInfo.instagram}
                             </span>
                         )}
-                    </div>
-                </section>
-            )}
-
-            {/* References */}
-            {references && references.length > 0 && (
-                <section className="resume-section" style={{ marginBottom: sp(16) }}>
-                    <SectionHeader
-                        theme={theme}
-                        headingFont={headingFont}
-                        scale={scale}
-                        variant="default"
-                        style={{ borderBottom: `${sp(1)}px solid ${theme.accent}`, paddingBottom: sp(4) }}
-                    >
-                        {t.sections.references}
-                    </SectionHeader>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px' }}>
-                        {references.map((ref) => (
-                            <div key={ref.id} data-paginate="item">
-                                <div style={{ color: theme.text, fontWeight: 600, fontSize: scale < 1 ? '10px' : sizeConfig.base }}>
-                                    {ref.name}
-                                </div>
-                                <div style={{ color: theme.secondary, fontSize: scale < 1 ? '9px' : sp(12) + 'px' }}>
-                                    {ref.title}{ref.company && `, ${ref.company}`}
-                                </div>
-                                {(ref.phone || ref.email) && (
-                                    <div style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : sp(11) + 'px' }}>
-                                        {ref.phone && <span>{ref.phone}</span>}
-                                        {ref.phone && ref.email && <span> &bull; </span>}
-                                        {ref.email && <span>{ref.email}</span>}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
                     </div>
                 </section>
             )}

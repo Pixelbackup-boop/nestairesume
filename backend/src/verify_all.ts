@@ -79,7 +79,6 @@ const dummyData: PdfResumeData = {
         { id: '1', name: 'AWS Certified Solutions Architect', issuer: 'Amazon', date: '2021' },
     ],
     awards: [],
-    references: [],
     customFields: [],
     customThemeColor: '#3b82f6',
     fonts: {

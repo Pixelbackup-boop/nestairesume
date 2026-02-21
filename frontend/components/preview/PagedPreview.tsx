@@ -102,7 +102,6 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 strengths: t('sections.strengths'),
                 certifications: t('sections.certifications'),
                 awards: t('sections.awards'),
-                references: t('sections.references'),
                 summary: t('sections.summary'),
                 profile: t('sections.profile'),
                 contact: t('sections.contact'),
@@ -190,7 +189,7 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
             // Includes common wrapper elements to ensure page 2+ top margin is applied
             const elements = Array.from(container.querySelectorAll(
                 '[data-paginate], .section-header, .resume-entry, h2, h3, ' +
-                '.credential-item, .reference-item, .language-item, .skill-item, ' +
+                '.credential-item, .language-item, .skill-item, ' +
                 '[class*="entry"], [class*="item"]'
             ));
 

@@ -30,7 +30,6 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         strengths = [],
         certifications = [],
         awards = [],
-        references = [],
         customFields = [],
         background,
         fonts
@@ -128,7 +127,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                     <div data-paginate="item" class="resume-entry">
                         <div class="flex justify-between items-baseline">
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
-                                ${escapeHtml(edu.school)}
+                                ${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                             </h3>
                             <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${formatLocalizedDate(edu.startDate, locale)} – ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
@@ -140,6 +139,8 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                         </p>
                         ${edu.honors ? `<p style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">${escapeHtml(edu.honors)}</p>` : ''}
                         ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: ${s(10)};">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+                    
+                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -192,17 +193,13 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     ` : '';
 
     const strengthsSection = strengths && strengths.length > 0 ? `
-        <section class="mb-5">
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.strengths}
             </h2>
-            <div class="flex flex-wrap gap-1">
-                ${strengths.map(strength => `
-                    <span data-paginate="item" class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: ${s(11)};">
-                        ${escapeHtml(strength.name)}
-                    </span>
-                `).join('')}
-            </div>
+            <p style="color: ${theme.text}; font-size: ${s(12)}; line-height: 1.6;">
+                ${strengths.map(strength => escapeHtml(strength.name)).join(' &bull; ')}
+            </p>
         </section>
     ` : '';
 
@@ -218,6 +215,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                         <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)}; margin-left: 8px;">
                             ${escapeHtml(cert.issuer)} &bull; ${formatLocalizedDate(cert.date, locale)}
                         </span>
+                        ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -291,34 +289,6 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
         </section>
     ` : '';
 
-    // References section
-    const referencesSection = references && references.length > 0 ? `
-        <section class="mb-5 resume-section">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
-                ${t.sections.references}
-            </h2>
-            <div class="space-y-2">
-                ${references.map(ref => `
-                    <div data-paginate="item">
-                        <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
-                            ${escapeHtml(ref.name)}
-                        </div>
-                        <div style="color: ${theme.secondary}; font-size: ${s(12)};">
-                            ${escapeHtml(ref.title)}${ref.company ? `, ${escapeHtml(ref.company)}` : ''}
-                        </div>
-                        ${(ref.phone || ref.email) ? `
-                            <div style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
-                                ${ref.phone ? `<span>${escapeHtml(ref.phone)}</span>` : ''}
-                                ${ref.phone && ref.email ? '<span> &bull; </span>' : ''}
-                                ${ref.email ? `<span>${escapeHtml(ref.email)}</span>` : ''}
-                            </div>
-                        ` : ''}
-                    </div>
-                `).join('')}
-            </div>
-        </section>
-    ` : '';
-
     // Custom Fields section
     const customFieldsSection = customFields.map(field => `
         <section class="mb-5 resume-section">
@@ -358,7 +328,6 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
             ${interestsSection}
             ${personalDetailsSection}
             ${socialLinksSection}
-            ${referencesSection}
             ${customFieldsSection}
         </div>
     `;

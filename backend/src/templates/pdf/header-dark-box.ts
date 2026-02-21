@@ -42,7 +42,6 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
         interests = [],
         certifications = [],
         awards = [],
-        references = [],
         customFields = [],
         fonts
     } = data;
@@ -203,7 +202,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                                             </span>
                                         </div>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700; margin-bottom: 6px; text-transform: uppercase;">
-                                            ${escapeHtml(exp.company)} ${exp.city ? `| ${escapeHtml(exp.city)}` : ''}
+                                            ${escapeHtml(exp.company)} ${(exp.city || exp.country) ? `| ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
                                         ${exp.description ? `
                                             <p style="font-size: ${fs.body}; color: #4b5563; line-height: 1.5;">
@@ -226,14 +225,18 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                                         <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                                             <h4 style="font-weight: 800; font-size: ${fs.entryTitle}; color: #1f2937;">
                                                 ${escapeHtml(edu.degree)}
+                                                ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
                                             </h4>
                                             <span style="font-size: ${fs.small}; color: #6b7280; font-weight: 500;">
                                                 ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                             </span>
                                         </div>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700;">
-                                            ${escapeHtml(edu.school)} ${edu.city ? `| ${escapeHtml(edu.city)}` : ''}
+                                            ${escapeHtml(edu.school)} ${(edu.city || edu.country) ? `| ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+                                        ${edu.description ? `<p style="font-size: ${fs.small}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -272,6 +275,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                                     <div data-paginate="item">
                                         <h4 style="font-weight: 800; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 4px;">
                                             ${escapeHtml(edu.degree)}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
                                         </h4>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700; margin-bottom: 2px;">
                                             ${escapeHtml(edu.school)}
@@ -279,6 +283,9 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                                         <span style="font-size: ${fs.small}; color: #6b7280;">
                                             ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                         </span>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+                                        ${edu.description ? `<p style="font-size: ${fs.small}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -343,6 +350,7 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #1f2937;">${escapeHtml(cert.name)}</div>
                                                 <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -356,6 +364,8 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #1f2937;">${escapeHtml(award.title)}</div>
                                                 <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -399,30 +409,6 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                                         <span style="color: #374151;">${escapeHtml(personalInfo.instagram)}</span>
                                     </div>
                                 ` : ''}
-                            </div>
-                        </section>
-                    ` : ''}
-
-                    <!-- References -->
-                    ${references && references.length > 0 ? `
-                        <section class="resume-section" style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.references, getIconSVG('users', accentColor, sNum(16)))}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${references.map(ref => `
-                                    <div data-paginate="item">
-                                        <div style="font-weight: 700; font-size: ${fs.body}; color: #1f2937;">${escapeHtml(ref.name)}</div>
-                                        <div style="font-size: ${fs.small}; color: ${accentColor}; font-weight: 600;">
-                                            ${escapeHtml(ref.title)}${ref.company ? `, ${escapeHtml(ref.company)}` : ''}
-                                        </div>
-                                        ${(ref.email || ref.phone) ? `
-                                            <div style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
-                                                ${ref.email ? `<span>${escapeHtml(ref.email)}</span>` : ''}
-                                                ${ref.email && ref.phone ? ' • ' : ''}
-                                                ${ref.phone ? `<span>${escapeHtml(ref.phone)}</span>` : ''}
-                                            </div>
-                                        ` : ''}
-                                    </div>
-                                `).join('')}
                             </div>
                         </section>
                     ` : ''}

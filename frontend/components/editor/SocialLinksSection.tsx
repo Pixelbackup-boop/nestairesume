@@ -11,7 +11,7 @@ const BehanceIcon = ({ size = 16, className = '' }: { size?: number; className?:
 );
 
 const socialLinks = [
-    { key: 'twitter', label: 'X', icon: Twitter, placeholder: 'x.com/username' },
+    { key: 'x', label: 'X', icon: Twitter, placeholder: 'x.com/username' },
     { key: 'github', label: 'GitHub', icon: Github, placeholder: 'github.com/username' },
     { key: 'dribbble', label: 'Dribbble', icon: Dribbble, placeholder: 'dribbble.com/username' },
     { key: 'behance', label: 'Behance', icon: BehanceIcon, placeholder: 'behance.net/username' },

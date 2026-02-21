@@ -76,16 +76,6 @@ export interface Award {
     description?: string;
 }
 
-// References
-export interface Reference {
-    id: string;
-    name: string;
-    title: string;
-    company: string;
-    phone?: string;
-    email?: string;
-}
-
 // Custom Fields (user-defined sections)
 export interface CustomField {
     id: string;
@@ -148,7 +138,6 @@ export interface ResumeData {
     strengths: Strength[];
     certifications: Certification[];
     awards: Award[];
-    references: Reference[];
     customFields: CustomField[];
     // Styling
     background: BackgroundSettings;
@@ -162,6 +151,7 @@ interface ResumeState {
     selectedTemplate: string;
     selectedTheme: string;
     selectedTemplateId: string | null; // Exact React component ID (e.g., 'header-dark')
+    lastEdited: number | null; // Timestamp for "Continue Editing" banner
 
     // Actions
     setResumeData: (data: Partial<ResumeData>) => void; // Bulk setter for AI-populated data
@@ -194,9 +184,6 @@ interface ResumeState {
     addAward: (award: Award) => void;
     updateAward: (id: string, award: Partial<Award>) => void;
     removeAward: (id: string) => void;
-    addReference: (ref: Reference) => void;
-    updateReference: (id: string, ref: Partial<Reference>) => void;
-    removeReference: (id: string) => void;
     addCustomField: (field: CustomField) => void;
     updateCustomField: (id: string, field: Partial<CustomField>) => void;
     removeCustomField: (id: string) => void;
@@ -248,7 +235,6 @@ export const useResumeStore = create<ResumeState>()(
         strengths: [],
         certifications: [],
         awards: [],
-        references: [],
         customFields: [],
         background: {
             type: 'solid',
@@ -269,6 +255,7 @@ export const useResumeStore = create<ResumeState>()(
     selectedTemplate: 'classic',
     selectedTheme: 'navy',
     selectedTemplateId: null,
+    lastEdited: null,
 
     setResumeData: (data) =>
         set((state) => ({
@@ -524,33 +511,6 @@ export const useResumeStore = create<ResumeState>()(
             },
         })),
 
-    // Reference actions
-    addReference: (ref) =>
-        set((state) => ({
-            resumeData: {
-                ...state.resumeData,
-                references: [...state.resumeData.references, ref],
-            },
-        })),
-
-    updateReference: (id, ref) =>
-        set((state) => ({
-            resumeData: {
-                ...state.resumeData,
-                references: state.resumeData.references.map((r) =>
-                    r.id === id ? { ...r, ...ref } : r
-                ),
-            },
-        })),
-
-    removeReference: (id) =>
-        set((state) => ({
-            resumeData: {
-                ...state.resumeData,
-                references: state.resumeData.references.filter((r) => r.id !== id),
-            },
-        })),
-
     // Custom Field actions
     addCustomField: (field) =>
         set((state) => ({
@@ -657,7 +617,6 @@ export const useResumeStore = create<ResumeState>()(
             strengths: [],
             certifications: [],
             awards: [],
-            references: [],
             customFields: [],
             background: {
                 type: 'solid',
@@ -678,6 +637,7 @@ export const useResumeStore = create<ResumeState>()(
         selectedTemplate: 'classic',
         selectedTheme: 'navy',
         selectedTemplateId: null,
+        lastEdited: null,
     }),
 }),
         {
@@ -688,27 +648,45 @@ export const useResumeStore = create<ResumeState>()(
                 resumeData: state.resumeData,
                 selectedTemplate: state.selectedTemplate,
                 selectedTheme: state.selectedTheme,
+                lastEdited: state.lastEdited,
             }),
             // Deep merge so new fields (website, nationality, idType, idNumber)
             // get their defaults even when loading old localStorage data
             merge: (persistedState, currentState) => {
                 const persisted = persistedState as Partial<typeof currentState>;
+                const mergedPersonalInfo = {
+                    ...currentState.resumeData.personalInfo,
+                    ...persisted.resumeData?.personalInfo,
+                };
+                // Migrate old 'twitter' key → 'x' (renamed when Twitter rebranded)
+                const pi = mergedPersonalInfo as Record<string, unknown>;
+                if (pi.twitter && !mergedPersonalInfo.x) {
+                    mergedPersonalInfo.x = pi.twitter as string;
+                }
+                delete pi.twitter;
                 return {
                     ...currentState,
                     ...persisted,
+                    lastEdited: persisted.lastEdited ?? currentState.lastEdited,
                     resumeData: {
                         ...currentState.resumeData,
                         ...persisted.resumeData,
-                        personalInfo: {
-                            ...currentState.resumeData.personalInfo,
-                            ...persisted.resumeData?.personalInfo,
-                        },
+                        personalInfo: mergedPersonalInfo,
                     },
                 };
             },
         }
     )
 );
+
+// Auto-update lastEdited whenever resumeData changes
+let prevResumeData = useResumeStore.getState().resumeData;
+useResumeStore.subscribe((state) => {
+    if (state.resumeData !== prevResumeData) {
+        prevResumeData = state.resumeData;
+        useResumeStore.setState({ lastEdited: Date.now() });
+    }
+});
 
 // =============================================================================
 // SELECTOR HOOKS - Use these to prevent unnecessary re-renders
@@ -725,7 +703,6 @@ export const useInterests = () => useResumeStore((state) => state.resumeData.int
 export const useStrengths = () => useResumeStore((state) => state.resumeData.strengths);
 export const useCertifications = () => useResumeStore((state) => state.resumeData.certifications);
 export const useAwards = () => useResumeStore((state) => state.resumeData.awards);
-export const useReferences = () => useResumeStore((state) => state.resumeData.references);
 export const useCustomFields = () => useResumeStore((state) => state.resumeData.customFields);
 export const useBackground = () => useResumeStore((state) => state.resumeData.background);
 export const useFonts = () => useResumeStore((state) => state.resumeData.fonts);

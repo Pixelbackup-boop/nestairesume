@@ -20,7 +20,6 @@ export const defaultTranslations: PdfTranslations = {
         strengths: 'Strengths',
         certifications: 'Certifications',
         awards: 'Awards',
-        references: 'References',
         summary: 'Summary',
         profile: 'Profile',
         contact: 'Contact',

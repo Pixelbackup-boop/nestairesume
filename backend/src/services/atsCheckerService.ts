@@ -76,8 +76,6 @@ const SECTION_HEADERS = [
   { pattern: /\bprojects?|proyectos|projets|projekte\b/i, name: "Projects" },
   // Volunteer: en + es (Voluntariado) + fr (Bénévolat) + de (Ehrenamt)
   { pattern: /\bvolunteer(?:ing)?|voluntariado|b[eé]n[eé]volat|ehrenamt\b/i, name: "Volunteer" },
-  // References: en + es (Referencias) + fr (Références) + de (Referenzen)
-  { pattern: /\breferences?|referencias|r[eé]f[eé]rences|referenzen\b/i, name: "References" },
   { pattern: /\bcontact(\s*info(rmation)?)?\b/i, name: "Contact" },
   { pattern: /\bpublications?\b/i, name: "Publications" },
   // Awards: en + es (Premios) + fr (Prix/Récompenses) + de (Auszeichnungen)
@@ -422,7 +420,7 @@ function checkSkillsAndKeywords(text: string): AtsCategory {
   const commaOrPipeSkills = /[\w.#+/-]+(?:\s+[\w.#+/-]+)*(?:\s*[,|\t]\s*[\w.#+/-]+(?:\s+[\w.#+/-]+)*){3,}/;
   const bulletSkills = text.match(/[•●○▪◦‣\-\*]\s+[\w.#+/][\w\s.#+/-]{1,40}/g);
   // Detect line-separated skills after a "Skills" heading (most common resume builder format)
-  const skillsSectionMatch = text.match(/\b(?:skills?|habilidades|competencias|comp[eé]tences|f[aä]higkeiten|kenntnisse)\b.*\n([\s\S]*?)(?=\n\s*(?:experience|education|interests?|languages?|certifications?|references?|projects?|experiencia|educaci[oó]n|intereses|idiomas|certificaciones|referencias|proyectos|exp[eé]rience|formation|int[eé]r[eê]ts|langues|r[eé]f[eé]rences|projets|erfahrung|bildung|interessen|sprachen|referenzen|projekte|$))/i);
+  const skillsSectionMatch = text.match(/\b(?:skills?|habilidades|competencias|comp[eé]tences|f[aä]higkeiten|kenntnisse)\b.*\n([\s\S]*?)(?=\n\s*(?:experience|education|interests?|languages?|certifications?|projects?|experiencia|educaci[oó]n|intereses|idiomas|certificaciones|proyectos|exp[eé]rience|formation|int[eé]r[eê]ts|langues|projets|erfahrung|bildung|interessen|sprachen|projekte|$))/i);
   const lineSkillsCount = skillsSectionMatch
     ? skillsSectionMatch[1].split("\n").filter((l) => l.trim().length > 0 && l.trim().length <= 40).length
     : 0;

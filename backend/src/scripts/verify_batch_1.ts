@@ -68,7 +68,6 @@ const mockData: PdfResumeData = {
     strengths: [],
     certifications: [],
     awards: [],
-    references: [],
     customFields: [],
     background: {
         type: "solid",

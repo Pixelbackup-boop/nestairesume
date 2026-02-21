@@ -3,7 +3,7 @@
 import React, { memo } from 'react';
 import {
     Phone, Mail, MapPin, Globe, Linkedin, Calendar, Monitor, Twitter,
-    Dribbble, Palette, Camera, IdCard, Smartphone, Github, Music, Bike,
+    Dribbble, Palette, Camera, IdCard, Github, Music, Bike,
     Plane, BookOpen, CookingPot, Gamepad2, Film, Star, Moon
 } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,7 +30,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches reference: frontend/Resume-template/unique-layouts/10-dark-banner.webp
  */
 function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -177,7 +177,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                     <div key={exp.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px', display: 'flex', alignItems: 'center', gap: `${sp(4)}px`, flexWrap: 'wrap' }}>
                                             <Calendar size={iconSm} /> {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
-                                            {exp.city && <><MapPin size={iconSm} style={{ marginLeft: `${sp(4)}px` }} /> {exp.city.toUpperCase()}</>}
+                                            {(exp.city || exp.country) && <><MapPin size={iconSm} style={{ marginLeft: `${sp(4)}px` }} /> {[exp.city, exp.country].filter(Boolean).join(', ').toUpperCase()}</>}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
                                             {exp.title}
@@ -211,14 +211,21 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.small, color: accentColor, marginBottom: '2px', display: 'flex', alignItems: 'center', gap: `${sp(4)}px`, flexWrap: 'wrap' }}>
                                             <Calendar size={iconSm} /> {edu.startDate}
-                                            {edu.city && <><MapPin size={iconSm} style={{ marginLeft: `${sp(4)}px` }} /> {edu.city.toUpperCase()}</>}
+                                            {(edu.city || edu.country) && <><MapPin size={iconSm} style={{ marginLeft: `${sp(4)}px` }} /> {[edu.city, edu.country].filter(Boolean).join(', ').toUpperCase()}</>}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: '2px' }}>
                                             {edu.degree}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
                                         </h4>
                                         <p style={{ fontSize: fs.body, color: '#4b5563', fontWeight: 600 }}>
                                             {edu.school}
                                         </p>
+                                        {edu.honors && (
+                                            <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
+                                        )}
+                                        {edu.clubs && (
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        )}
                                         {edu.description && (
                                             <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: `${sp(4)}px` }}>
                                                 {edu.description}
@@ -406,6 +413,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                         <div>
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{certifications[0].name}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{certifications[0].issuer} • {certifications[0].date}</div>
+                                            {certifications[0].url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{certifications[0].url}</div>}
                                         </div>
                                     </div>
                                     {/* Remaining certs paginate individually */}
@@ -413,6 +421,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                         <div key={cert.id} data-paginate="item" style={{ marginTop: `${sp(8)}px` }}>
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                            {cert.url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                         </div>
                                     ))}
                                 </div>
@@ -433,6 +442,9 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                         <div>
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{awards[0].title}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{awards[0].issuer} • {awards[0].date}</div>
+                                            {awards[0].description && (
+                                                <p style={{ fontSize: fs.small, lineHeight: 1.5, color: '#4b5563', marginTop: '2px' }}>{awards[0].description}</p>
+                                            )}
                                         </div>
                                     </div>
                                     {/* Remaining awards paginate individually */}
@@ -440,6 +452,9 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                         <div key={award.id} data-paginate="item" style={{ marginTop: `${sp(8)}px` }}>
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                            {award.description && (
+                                                <p style={{ fontSize: fs.small, lineHeight: 1.5, color: '#4b5563', marginTop: '2px' }}>{award.description}</p>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
@@ -463,24 +478,6 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* References */}
-                    {references && references.length > 0 && (
-                        <section className="resume-section" style={{ marginTop: sp(16) }}>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
-                                {t.sections.references}
-                            </SectionHeader>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(12)}px` }}>
-                                {references.map((ref) => (
-                                    <div key={ref.id} data-paginate="item">
-                                        <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{ref.name}</div>
-                                        <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.title}, {ref.company}</div>
-                                        {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280', display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Mail size={iconSm} /> {ref.email}</div>}
-                                        {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280', display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Smartphone size={iconSm} /> {ref.phone}</div>}
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (

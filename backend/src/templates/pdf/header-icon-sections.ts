@@ -146,7 +146,7 @@ export const renderHeaderIconSections = (
                                 </span>
                             </div>
                             <p style="font-size: ${fs.body}; font-style: italic; margin-bottom: 6px; color: #525252;">
-                                ${escapeHtml(exp.company)}, ${escapeHtml(exp.city)}
+                                ${escapeHtml(exp.company)}${(exp.city || exp.country) ? `, ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                             </p>
                             <p style="font-size: ${fs.body}; line-height: 1.5;">
                                 ${formatDescription(exp.description || '')}
@@ -162,14 +162,21 @@ export const renderHeaderIconSections = (
                     ${education.map(edu => `
                         <div data-paginate="item">
                             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-                                <h4 style="font-weight: 700; font-size: ${fs.entryTitle};">${escapeHtml(edu.degree)}</h4>
+                                <h4 style="font-weight: 700; font-size: ${fs.entryTitle};">
+                                    ${escapeHtml(edu.degree)}
+                                    ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                                </h4>
                                 <span style="font-size: ${fs.small}; font-weight: 600; color: ${orangeAccent};">
                                     ${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}
                                 </span>
                             </div>
                             <p style="font-size: ${fs.body}; font-style: italic; color: #525252;">
-                                ${escapeHtml(edu.school)}, ${escapeHtml(edu.city)}
+                                ${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                             </p>
+                            ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                            ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+
+                            ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                         </div>
                     `).join('')}
                 </div>
@@ -261,6 +268,7 @@ export const renderHeaderIconSections = (
                                     <div data-paginate="item">
                                         <div style="font-weight: 600; font-size: ${fs.body};">${escapeHtml(cert.name)}</div>
                                         <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                        ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -274,6 +282,8 @@ export const renderHeaderIconSections = (
                                     <div data-paginate="item">
                                         <div style="font-weight: 600; font-size: ${fs.body};">${escapeHtml(award.title)}</div>
                                         <div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                                    
+                                        ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -290,20 +300,6 @@ export const renderHeaderIconSections = (
                     ${personalInfo.dribbble ? `<div data-paginate="item"><span style="font-weight: 600;">Dribbble:</span> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                     ${personalInfo.behance ? `<div data-paginate="item"><span style="font-weight: 600;">Behance:</span> ${escapeHtml(personalInfo.behance)}</div>` : ''}
                     ${personalInfo.instagram ? `<div data-paginate="item"><span style="font-weight: 600;">Instagram:</span> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
-                </div>
-            `) : ''}
-
-            <!-- References (Boxed) -->
-            ${data.references && data.references.length > 0 ? BoxSection(t.sections.references, getIconSVG('users', '#ffffff', sNum(16)), `
-                <div style="display: flex; flex-direction: column; gap: 16px;">
-                    ${data.references.map(ref => `
-                        <div data-paginate="item">
-                            <div style="font-weight: 700; font-size: ${fs.entryTitle};">${escapeHtml(ref.name)}</div>
-                            <div style="font-size: ${fs.body}; font-style: italic; color: #525252;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                            ${ref.email ? `<div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(ref.email)}</div>` : ''}
-                            ${ref.phone ? `<div style="font-size: ${fs.small}; color: #6b7280;">${escapeHtml(ref.phone)}</div>` : ''}
-                        </div>
-                    `).join('')}
                 </div>
             `) : ''}
 

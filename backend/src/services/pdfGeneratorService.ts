@@ -186,7 +186,7 @@ export async function generatePdfFromHtml(
             // Select all elements that should be kept together
             var elements = Array.from(container.querySelectorAll(
                 '[data-paginate], .section-header, .resume-entry, h2, h3, ' +
-                '.credential-item, .reference-item, .language-item, .skill-item, ' +
+                '.credential-item, .language-item, .skill-item, ' +
                 '[class*="entry"], [class*="item"]'
             ));
 

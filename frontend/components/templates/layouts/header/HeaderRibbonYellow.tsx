@@ -27,7 +27,7 @@ import { useTemplateSetup } from '@/hooks';
  * Matches reference: frontend/Resume-template/unique-layouts/22-ribbon-banner.webp
  */
 function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, awards, interests, certifications, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, awards, interests, certifications, customFields, customThemeColor, fonts } = data;
 
     const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
         customThemeColor,
@@ -219,7 +219,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                     <div key={exp.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: sp(2), textTransform: 'uppercase' }}>
                                             {exp.startDate} – {exp.current ? t.labels.present : exp.endDate}
-                                            {exp.city && `    ${exp.city.toUpperCase()}`}
+                                            {(exp.city || exp.country) && `    ${[exp.city, exp.country].filter(Boolean).join(', ').toUpperCase()}`}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(1) }}>
                                             {exp.title}
@@ -253,14 +253,21 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <p style={{ fontSize: fs.tiny, color: '#6b7280', marginBottom: sp(2), textTransform: 'uppercase' }}>
                                             {edu.startDate} – {edu.current ? t.labels.present : edu.endDate}
-                                            {edu.city && `    ${edu.city.toUpperCase()}`}
+                                            {(edu.city || edu.country) && `    ${[edu.city, edu.country].filter(Boolean).join(', ').toUpperCase()}`}
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(1) }}>
                                             {edu.degree}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
                                         </h4>
                                         <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600 }}>
                                             {edu.school}
                                         </p>
+                                        {edu.honors && (
+                                            <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
+                                        )}
+                                        {edu.clubs && (
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        )}
                                         {edu.description && (
                                             <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: sp(2) }}>
                                                 {edu.description}
@@ -317,6 +324,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
                                                 <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                                {cert.url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                             </div>
                                         ))}
                                     </div>
@@ -469,31 +477,6 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                     >
                                         {strength.name}
                                     </span>
-                                ))}
-                            </div>
-                        </section>
-                    )}
-
-                    {/* References */}
-                    {references && references.length > 0 && (
-                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} icon={<ClipboardList size={iconMd} color="#ffffff" />}>
-                                {t.sections.references}
-                            </SectionHeader>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) + 'px' }}>
-                                {references.map((ref) => (
-                                    <div key={ref.id} className="resume-entry" data-paginate="item">
-                                        <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(1) }}>
-                                            {ref.name}
-                                        </h4>
-                                        <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600, marginBottom: sp(2) }}>
-                                            {ref.title}{ref.company && ` at ${ref.company}`}
-                                        </p>
-                                        <div style={{ fontSize: fs.small, color: '#6b7280' }}>
-                                            {ref.phone && <div>{ref.phone}</div>}
-                                            {ref.email && <div>{ref.email}</div>}
-                                        </div>
-                                    </div>
                                 ))}
                             </div>
                         </section>

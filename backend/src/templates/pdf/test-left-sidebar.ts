@@ -154,9 +154,14 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
                         <div style="display: flex; flex-direction: column; gap: 12px;">
                             ${education.map(edu => `
                                 <div>
-                                    <div style="font-weight: 700; font-size: 12px; color: #ffffff;">${escapeHtml(edu.degree)}</div>
+                                    <div style="font-weight: 700; font-size: 12px; color: #ffffff;">
+                                        ${escapeHtml(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 6px; font-weight: 400; opacity: 0.8;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                                    </div>
                                     <div style="font-size: 11px; color: ${accentColor};">${escapeHtml(edu.school)}</div>
                                     <div style="font-size: 10px; opacity: 0.8;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
+                                    ${edu.honors ? `<div style="font-size: 10px; color: #cbd5e1; opacity: 0.8; margin-top: 2px;">${escapeHtml(edu.honors)}</div>` : ''}
+                                    ${edu.clubs ? `<div style="font-size: 9px; color: #94a3b8; opacity: 0.7; margin-top: 1px;">Activities: ${escapeHtml(edu.clubs)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -238,7 +243,7 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
                                         </span>
                                     </div>
                                     <div style="font-size: 11px; color: #64748b; margin-bottom: 6px; font-weight: 500;">
-                                        ${escapeHtml(exp.company)}${exp.city ? ` | ${escapeHtml(exp.city)}` : ''}
+                                        ${escapeHtml(exp.company)}${(exp.city || exp.country) ? ` | ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
                                     <div style="font-size: 11px; line-height: 1.5; color: #475569;">
                                         ${formatDescription(exp.description || '')}
@@ -259,6 +264,7 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
                                     <span style="font-weight: 700; font-size: 11px; color: ${sidebarBg};">${escapeHtml(cert.name)}</span>
                                     <span style="font-size: 10px; color: ${accentColor};"> - ${escapeHtml(cert.issuer)}</span>
                                     <span style="font-size: 10px; color: #64748b;"> (${formatLocalizedDate(cert.date, locale)})</span>
+                                    ${cert.url ? `<div style="font-size: 9px; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>

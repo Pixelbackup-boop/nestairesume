@@ -35,7 +35,6 @@ export const renderHeaderRibbonYellow = (
         interests = [],
         awards = [],
         certifications = [],
-        references = [],
         customFields = [],
         fonts
     } = data;
@@ -180,7 +179,7 @@ export const renderHeaderRibbonYellow = (
                                     <div data-paginate="item">
                                         <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${formatLocalizedDate(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : formatLocalizedDate(exp.endDate, locale)}
-                                            ${exp.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(exp.city.toUpperCase())}` : ''}
+                                            ${(exp.city || exp.country) ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml([exp.city, exp.country].filter(Boolean).join(', ').toUpperCase())}` : ''}
                                         </p>
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${escapeHtml(exp.title)}
@@ -212,14 +211,17 @@ export const renderHeaderRibbonYellow = (
                                     <div data-paginate="item">
                                         <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${formatLocalizedDate(edu.startDate, locale)} – ${edu.current ? t.labels.present.toUpperCase() : formatLocalizedDate(edu.endDate, locale)}
-                                            ${edu.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml(edu.city.toUpperCase())}` : ''}
+                                            ${(edu.city || edu.country) ? `&nbsp;&nbsp;&nbsp;&nbsp;${escapeHtml([edu.city, edu.country].filter(Boolean).join(', ').toUpperCase())}` : ''}
                                         </p>
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${escapeHtml(edu.degree)}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
                                         </h4>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600;">
                                             ${escapeHtml(edu.school)}
                                         </p>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
                                         ${edu.description ? `
                                             <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                 ${formatDescription(edu.description)}
@@ -275,6 +277,7 @@ export const renderHeaderRibbonYellow = (
                                                 <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                     ${formatLocalizedDate(cert.date, locale)}
                                                 </p>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -295,6 +298,8 @@ export const renderHeaderRibbonYellow = (
                                                 <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                     ${formatLocalizedDate(award.date, locale)}
                                                 </p>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -377,29 +382,6 @@ export const renderHeaderRibbonYellow = (
                                     <span data-paginate="item" style="background-color: ${accentColor}; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: ${fs.small}; font-weight: 500;">
                                         ${escapeHtml(strength.name)}
                                     </span>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
-                    <!-- References -->
-                    ${references && references.length > 0 ? `
-                        <section class="resume-section" style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.references, getIconSVG('id-card', 'white', sNum(14)))}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${references.map(ref => `
-                                    <div data-paginate="item">
-                                        <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
-                                            ${escapeHtml(ref.name)}
-                                        </h4>
-                                        <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600; margin-bottom: 2px;">
-                                            ${escapeHtml(ref.title)}${ref.company ? ` at ${escapeHtml(ref.company)}` : ''}
-                                        </p>
-                                        <div style="font-size: ${fs.small}; color: #6b7280;">
-                                            ${ref.phone ? `<div>${escapeHtml(ref.phone)}</div>` : ''}
-                                            ${ref.email ? `<div>${escapeHtml(ref.email)}</div>` : ''}
-                                        </div>
-                                    </div>
                                 `).join('')}
                             </div>
                         </section>

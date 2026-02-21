@@ -18,7 +18,7 @@ import { useTemplateSetup } from '@/hooks';
  * - Accent: Gold (#facc15).
  */
 function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts, certifications, awards, references, customFields } = data;
+    const { personalInfo, experience, education, skills, languages, customThemeColor, fonts, certifications, awards, customFields } = data;
 
     const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
         customThemeColor,
@@ -261,7 +261,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                                         <span style={{ fontSize: fs.small, color: '#374151', fontWeight: 600 }}>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
                                     <div style={{ fontSize: fs.small, color: '#6b7280', marginBottom: sp(6) }}>
-                                        {exp.company}, {exp.city}
+                                        {exp.company}{(exp.city || exp.country) && `, ${[exp.city, exp.country].filter(Boolean).join(', ')}`}
                                     </div>
                                     <div style={{ fontSize: fs.body, lineHeight: 1.6, color: '#374151' }}>
                                         {exp.description?.split('\n').map((line, i) => {
@@ -292,13 +292,23 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                                 <div key={edu.id} data-paginate="item">
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#111827' }}>
                                         {edu.degree}
+                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
                                     </h4>
                                     <div style={{ fontSize: fs.body, color: '#4b5563' }}>
-                                        {edu.school}, {edu.city}
+                                        {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
                                     </div>
                                     <div style={{ fontSize: fs.small, color: '#6b7280' }}>
                                         {edu.startDate} – {edu.endDate || t.labels.present}
                                     </div>
+                                    {edu.honors && (
+                                        <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
+                                    )}
+                                    {edu.clubs && (
+                                        <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                    )}
+                                    {edu.description && (
+                                        <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -361,6 +371,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                                             <div style={{ fontSize: fs.small, color: '#6b7280' }}>
                                                 {cert.issuer} • {cert.date}
                                             </div>
+                                            {cert.url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                         </div>
                                     ))}
                                 </div>
@@ -397,23 +408,6 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                                 </div>
                             </div>
                         )}
-                    </section>
-                )}
-
-                {/* References */}
-                {references && references.length > 0 && (
-                    <section className="resume-section" style={{ marginBottom: sp(16) }}>
-                        <MainHeader title={t.sections.references} color={'#374151'} fs={fs} headingFont={headingFont} sp={sp} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(16) }}>
-                            {references.map((ref) => (
-                                <div key={ref.id} data-paginate="item">
-                                    <div style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#111827' }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.body, color: '#4b5563' }}>{ref.title}, {ref.company}</div>
-                                    {ref.email && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.email}</div>}
-                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#6b7280' }}>{ref.phone}</div>}
-                                </div>
-                            ))}
-                        </div>
                     </section>
                 )}
 

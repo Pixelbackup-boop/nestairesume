@@ -17,7 +17,6 @@ export interface TemplateTranslations {
         strengths: string;
         certifications: string;
         awards: string;
-        references: string;
         summary: string;
         profile: string;
         contact: string;
@@ -51,7 +50,6 @@ export const defaultTranslations: TemplateTranslations = {
         strengths: 'Strengths',
         certifications: 'Certifications',
         awards: 'Awards',
-        references: 'References',
         summary: 'Summary',
         profile: 'Profile',
         contact: 'Contact',

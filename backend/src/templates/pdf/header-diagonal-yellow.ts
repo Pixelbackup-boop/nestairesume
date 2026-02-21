@@ -36,7 +36,6 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
         strengths = [],
         certifications = [],
         awards = [],
-        references = [],
         customFields = [],
         fonts
     } = data;
@@ -114,7 +113,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                             ${escapeHtml(exp.title)}
                         </h4>
                         <div style="display: flex; justify-content: space-between; font-size: ${fs.small}; color: #52525b; margin-bottom: 4px; font-weight: 600;">
-                            <span>${escapeHtml(exp.company)}</span>
+                            <span>${escapeHtml(exp.company)}${(exp.city || exp.country) ? `, ${escapeHtml([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}</span>
                             <span>${formatLocalizedDate(exp.startDate, locale)} - ${exp.current ? t.labels.present : formatLocalizedDate(exp.endDate, locale)}</span>
                         </div>
                         ${exp.description ? `
@@ -137,10 +136,15 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                     <div data-paginate="item">
                         <h4 style="font-size: ${fs.entryTitle}; font-weight: 800; color: #18181b; text-transform: uppercase;">
                             ${escapeHtml(edu.degree)}
+                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 600; text-transform: none;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
                         </h4>
                         <div style="font-size: ${fs.small}; color: #52525b; font-weight: 600;">
-                            ${escapeHtml(edu.school)}, ${formatLocalizedDate(edu.startDate, locale)} - ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
+                            ${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''} | ${formatLocalizedDate(edu.startDate, locale)} - ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
                         </div>
+                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
+                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+
+                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -201,6 +205,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                             <div data-paginate="item">
                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #18181b;">${escapeHtml(cert.name)}</div>
                                 <div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(cert.issuer)} • ${formatLocalizedDate(cert.date, locale)}</div>
+                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${escapeHtml(cert.url)}</div>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -214,6 +219,8 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                             <div data-paginate="item">
                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #18181b;">${escapeHtml(award.title)}</div>
                                 <div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(award.issuer)} • ${formatLocalizedDate(award.date, locale)}</div>
+                            
+                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${formatDescription(award.description)}</p>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -248,23 +255,6 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                 ${personalInfo.dribbble ? `<div data-paginate="item"><strong>Dribbble:</strong> ${escapeHtml(personalInfo.dribbble)}</div>` : ''}
                 ${personalInfo.behance ? `<div data-paginate="item"><strong>Behance:</strong> ${escapeHtml(personalInfo.behance)}</div>` : ''}
                 ${personalInfo.instagram ? `<div data-paginate="item"><strong>Instagram:</strong> ${escapeHtml(personalInfo.instagram)}</div>` : ''}
-            </div>
-        </div>
-    ` : '';
-
-    // References
-    const referencesHtml = references && references.length > 0 ? `
-        <div style="margin-bottom: 24px;">
-            ${SectionHeader(t.sections.references)}
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-                ${references.map(ref => `
-                    <div data-paginate="item">
-                        <div style="font-weight: 700; font-size: ${fs.body}; color: #18181b;">${escapeHtml(ref.name)}</div>
-                        <div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(ref.title)}, ${escapeHtml(ref.company)}</div>
-                        ${ref.email ? `<div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(ref.email)}</div>` : ''}
-                        ${ref.phone ? `<div style="font-size: ${fs.small}; color: #52525b;">${escapeHtml(ref.phone)}</div>` : ''}
-                    </div>
-                `).join('')}
             </div>
         </div>
     ` : '';
@@ -352,7 +342,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                     ${personalDetailsHtml}
                 </div>
 
-                <!-- Right Column (45%) - Skills, Strengths, Interests, Languages, Credentials, Social Links, References, Personal Details, Custom Field -->
+                <!-- Right Column (45%) - Skills, Strengths, Interests, Languages, Credentials, Social Links, Personal Details, Custom Field -->
                 <div style="width: 45%;">
                     ${skillsHtml}
                     ${strengthsHtml}
@@ -360,7 +350,6 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                     ${languagesHtml}
                     ${credentialsHtml}
                     ${socialLinksHtml}
-                    ${referencesHtml}
                     ${customFieldsHtml}
                 </div>
             </div>

@@ -21,7 +21,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches reference: frontend/Resume-template/unique-layouts/06-diagonal-header.webp
  */
 function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Titan One');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -194,7 +194,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                                             {exp.title}
                                         </h4>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.small, color: '#52525b', marginBottom: sp(4), fontWeight: 600 }}>
-                                            <span>{exp.company}</span>
+                                            <span>{exp.company}{(exp.city || exp.country) && `, ${[exp.city, exp.country].filter(Boolean).join(', ')}`}</span>
                                             <span>{exp.startDate} - {exp.current ? t.labels.present : exp.endDate}</span>
                                         </div>
                                         {exp.description && (
@@ -216,10 +216,20 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontSize: fs.entryTitle, fontWeight: 800, color: '#18181b', textTransform: 'uppercase' }}>
                                             {edu.degree}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body, textTransform: 'none' }}>GPA: {edu.gpa}</span>}
                                         </h4>
                                         <div style={{ fontSize: fs.small, color: '#52525b', fontWeight: 600 }}>
-                                            {edu.school}, {edu.startDate} - {edu.current ? t.labels.present : edu.endDate}
+                                            {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`} | {edu.startDate} - {edu.current ? t.labels.present : edu.endDate}
                                         </div>
+                                        {edu.honors && (
+                                            <p style={{ fontSize: fs.small, color: '#52525b', opacity: 0.8 }}>{edu.honors}</p>
+                                        )}
+                                        {edu.clubs && (
+                                            <p style={{ fontSize: fs.small, color: '#71717a', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        )}
+                                        {edu.description && (
+                                            <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>
+                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -333,6 +343,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#18181b' }}>{cert.name}</div>
                                                 <div style={{ fontSize: fs.small, color: '#52525b' }}>{cert.issuer} • {cert.date}</div>
+                                                {cert.url && <div style={{ fontSize: fs.small, color: '#52525b', opacity: 0.7 }}>{cert.url}</div>}
                                             </div>
                                         ))}
                                     </div>
@@ -349,6 +360,10 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                                             <div key={award.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#18181b' }}>{award.title}</div>
                                                 <div style={{ fontSize: fs.small, color: '#52525b' }}>{award.issuer} • {award.date}</div>
+                                            
+                                                {award.description && (
+                                                    <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{award.description}</p>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
@@ -381,22 +396,6 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* References */}
-                    {references && references.length > 0 && (
-                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
-                            <SectionHeader fs={fs} title={t.sections.references} sp={sp} />
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) }}>
-                                {references.map((ref) => (
-                                    <div key={ref.id} data-paginate="item">
-                                        <div style={{ fontWeight: 700, fontSize: fs.body, color: '#18181b' }}>{ref.name}</div>
-                                        <div style={{ fontSize: fs.small, color: '#52525b' }}>{ref.title}, {ref.company}</div>
-                                        {ref.email && <div style={{ fontSize: fs.small, color: '#52525b' }}>{ref.email}</div>}
-                                        {ref.phone && <div style={{ fontSize: fs.small, color: '#52525b' }}>{ref.phone}</div>}
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (

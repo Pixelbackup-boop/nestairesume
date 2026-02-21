@@ -20,7 +20,7 @@ import { useTemplateSetup } from '@/hooks';
  * Matches reference: frontend/Resume-template/unique-layouts/08-header-box.webp
  */
 function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, references, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, customFields, customThemeColor, fonts } = data;
 
     const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
         customThemeColor,
@@ -167,7 +167,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                         </div>
 
                                         <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 700, marginBottom: sp(6), textTransform: 'uppercase' }}>
-                                            {exp.company} {exp.city && `| ${exp.city}`}
+                                            {exp.company} {(exp.city || exp.country) && `| ${[exp.city, exp.country].filter(Boolean).join(', ')}`}
                                         </p>
                                         {exp.description && (
                                             <p style={{ fontSize: fs.body, color: '#4b5563', lineHeight: 1.5 }}>
@@ -192,14 +192,24 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(4) }}>
                                             <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937' }}>
                                                 {edu.degree}
+                                                {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
                                             </h4>
                                             <span style={{ fontSize: fs.small, color: '#6b7280', fontWeight: 500 }}>
                                                 {edu.startDate} – {edu.endDate || t.labels.present}
                                             </span>
                                         </div>
                                         <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 700 }}>
-                                            {edu.school} {edu.city && `| ${edu.city}`}
+                                            {edu.school} {(edu.city || edu.country) && `| ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
                                         </p>
+                                        {edu.honors && (
+                                            <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
+                                        )}
+                                        {edu.clubs && (
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        )}
+                                        {edu.description && (
+                                            <p style={{ fontSize: fs.small, lineHeight: 1.5, color: '#4b5563', marginTop: `${sp(4)}px` }}>{edu.description}</p>
+                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -243,6 +253,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(4) }}>
                                             {edu.degree}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
                                         </h4>
                                         <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 700, marginBottom: sp(2) }}>
                                             {edu.school}
@@ -250,6 +261,15 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                         <span style={{ fontSize: fs.small, color: '#6b7280' }}>
                                             {edu.startDate} – {edu.endDate || t.labels.present}
                                         </span>
+                                        {edu.honors && (
+                                            <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
+                                        )}
+                                        {edu.clubs && (
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        )}
+                                        {edu.description && (
+                                            <p style={{ fontSize: fs.small, lineHeight: 1.5, color: '#4b5563', marginTop: `${sp(4)}px` }}>{edu.description}</p>
+                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -365,6 +385,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                             <div key={cert.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{cert.name}</div>
                                                 <div style={{ fontSize: fs.small, color: '#6b7280' }}>{cert.issuer} • {cert.date}</div>
+                                                {cert.url && <div style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{cert.url}</div>}
                                             </div>
                                         ))}
                                     </div>
@@ -381,6 +402,10 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                             <div key={award.id} data-paginate="item">
                                                 <div style={{ fontWeight: 600, fontSize: fs.body, color: '#1f2937' }}>{award.title}</div>
                                                 <div style={{ fontSize: fs.small, color: '#6b7280' }}>{award.issuer} • {award.date}</div>
+                                            
+                                                {award.description && (
+                                                    <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{award.description}</p>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
@@ -430,31 +455,6 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
-                    {/* References */}
-                    {references && references.length > 0 && (
-                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Users size={parseInt(fs.sectionHeading)} color={accentColor} />} sp={sp}>
-                                {t.sections.references}
-                            </SectionHeader>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: sp(12) }}>
-                                {references.map((ref) => (
-                                    <div key={ref.id} data-paginate="item">
-                                        <div style={{ fontWeight: 700, fontSize: fs.body, color: '#1f2937' }}>{ref.name}</div>
-                                        <div style={{ fontSize: fs.small, color: accentColor, fontWeight: 600 }}>
-                                            {ref.title}{ref.company && `, ${ref.company}`}
-                                        </div>
-                                        {(ref.email || ref.phone) && (
-                                            <div style={{ fontSize: fs.small, color: '#6b7280', marginTop: sp(2) }}>
-                                                {ref.email && <span>{ref.email}</span>}
-                                                {ref.email && ref.phone && <span> • </span>}
-                                                {ref.phone && <span>{ref.phone}</span>}
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
 
                     {/* Custom Fields */}
                     {customFields?.map((field) => (

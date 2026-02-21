@@ -40,7 +40,7 @@ const SvgIcon = ({ name, color = '#ffffff', size = 14 }: { name: string; color?:
  * (Note: The file name says "header-dark" but the spec describes a dark sidebar layout similar to the image analysis).
  */
 function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, references, certifications, awards, customFields, customThemeColor, fonts } = data;
+    const { personalInfo, experience, education, skills, languages, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Montserrat'); // defaults to Montserrat/Inter
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -286,7 +286,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                         </h4>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: sp(6), fontSize: fs.small, color: '#64748b', fontWeight: 600 }}>
-                                        <span>{exp.company}, {exp.city}</span>
+                                        <span>{exp.company}{(exp.city || exp.country) && `, ${[exp.city, exp.country].filter(Boolean).join(', ')}`}</span>
                                         <span>{exp.startDate} – {exp.current ? t.labels.present : exp.endDate}</span>
                                     </div>
 
@@ -319,13 +319,23 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                 <div key={edu.id} data-paginate="item" className="resume-entry">
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>
                                         {edu.degree}
+                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
                                     </h4>
                                     <p style={{ fontSize: fs.body, color: '#475569', fontWeight: 500 }}>
-                                        {edu.school}, {edu.city}
+                                        {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
                                     </p>
                                     <p style={{ fontSize: fs.small, color: '#64748b' }}>
                                         {edu.startDate} – {edu.endDate || t.labels.present}
                                     </p>
+                                    {edu.honors && (
+                                        <p style={{ fontSize: fs.small, color: '#475569', opacity: 0.8 }}>{edu.honors}</p>
+                                    )}
+                                    {edu.clubs && (
+                                        <p style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                    )}
+                                    {edu.description && (
+                                        <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -376,6 +386,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                         <div key={cert.id} data-paginate="item" className="resume-entry">
                                             <div style={{ fontWeight: 600, fontSize: fs.body, color: '#0f172a' }}>{cert.name}</div>
                                             <div style={{ fontSize: fs.small, color: '#64748b' }}>{cert.issuer} • {cert.date}</div>
+                                            {cert.url && <div style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>{cert.url}</div>}
                                         </div>
                                     ))}
                                 </div>
@@ -405,22 +416,6 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     </section>
                 )}
 
-                {/* References */}
-                {references && references.length > 0 && (
-                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
-                        <SectionHeaderMain title={t.sections.references} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: sp(20) }}>
-                            {references.map((ref) => (
-                                <div key={ref.id} data-paginate="item">
-                                    <div style={{ fontWeight: 700, fontSize: fs.body, color: '#0f172a' }}>{ref.name}</div>
-                                    <div style={{ fontSize: fs.small, color: '#64748b' }}>{ref.title}, {ref.company}</div>
-                                    {ref.email && <div style={{ fontSize: fs.small, color: '#64748b' }}>{ref.email}</div>}
-                                    {ref.phone && <div style={{ fontSize: fs.small, color: '#64748b' }}>{ref.phone}</div>}
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                )}
 
                 {/* Custom Fields */}
                 {customFields?.map((field) => (
