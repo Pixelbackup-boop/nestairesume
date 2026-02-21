@@ -27,7 +27,13 @@
     "searchIcons": "Symbole suchen...",
     "describeTemplate": "Beschreiben Sie Ihre Vorlage...",
     "languagePlaceholder": "z.B. Spanisch, Französisch, Mandarin",
-    "templateNamePlaceholder": "z.B., Moderner Entwickler-Lebenslauf"
+    "templateNamePlaceholder": "z.B., Moderner Entwickler-Lebenslauf",
+    "returningBanner": {
+      "welcomeBack": "Willkommen zurück!",
+      "lastEdited": "Zuletzt bearbeitet {date}",
+      "unsavedDraft": "Sie haben einen ungespeicherten Lebenslauf-Entwurf",
+      "continueEditing": "Weiter bearbeiten"
+    }
   },
   "Navigation": {
     "features": "Funktionen",
@@ -302,7 +308,6 @@
       "certifications": "Zertifizierungen",
       "awards": "Auszeichnungen",
       "projects": "Projekte",
-      "references": "Referenzen",
       "summary": "Zusammenfassung",
       "professionalSummary": "Berufliche Zusammenfassung",
       "profile": "Profil",
@@ -861,7 +866,6 @@
     "generateWithAI": "Mit KI generieren",
     "additionalInfo": "Zusätzliche Informationen",
     "socialLinks": "Soziale Netzwerke",
-    "references": "Referenzen",
     "customFields": {
       "title": "Benutzerdefinierte Felder",
       "subtitle": "Fügen Sie benutzerdefinierte Abschnitte mit eigenen Bezeichnungen und Inhalten hinzu.",
@@ -974,6 +978,22 @@
       "description": "Ihr Lebenslauf ist gespeichert. Sie können weiter bearbeiten oder einen Tarif zum Herunterladen wählen.",
       "choosePlan": "Tarif wählen",
       "backToEditor": "Zurück zum Editor"
+    },
+    "feedback": {
+      "reportIssue": "Problem melden",
+      "title": "Vorlage-Feedback",
+      "forTemplate": "Vorlage",
+      "typeFeedback": "Feedback",
+      "typeBug": "Fehler",
+      "typeSuggestion": "Idee",
+      "placeholder": "Beschreiben Sie das Problem oder teilen Sie Ihr Feedback zu dieser Vorlage...",
+      "messageTooShort": "Nachricht muss mindestens 5 Zeichen lang sein",
+      "submitError": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "submit": "Absenden",
+      "cancel": "Abbrechen",
+      "close": "Schließen",
+      "thankYou": "Vielen Dank!",
+      "thankYouDesc": "Ihr Feedback wurde gesendet. Wir prüfen alle Meldungen, um unsere Vorlagen zu verbessern."
     }
   },
   "GDocsBuilder": {

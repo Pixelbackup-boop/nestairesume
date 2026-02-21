@@ -28,7 +28,13 @@
     "searchIcons": "Search icons...",
     "describeTemplate": "Describe your template...",
     "languagePlaceholder": "e.g. Spanish, French, Mandarin",
-    "templateNamePlaceholder": "e.g., Modern Developer Resume"
+    "templateNamePlaceholder": "e.g., Modern Developer Resume",
+    "returningBanner": {
+      "welcomeBack": "Welcome back!",
+      "lastEdited": "Last edited {date}",
+      "unsavedDraft": "You have an unsaved resume draft",
+      "continueEditing": "Continue Editing"
+    }
   },
 
   "Navigation": {
@@ -307,7 +313,6 @@
       "certifications": "Certifications",
       "awards": "Awards",
       "projects": "Projects",
-      "references": "References",
       "summary": "Summary",
       "professionalSummary": "Professional Summary",
       "profile": "Profile",
@@ -1118,7 +1123,6 @@
     "generateWithAI": "Generate with AI",
     "additionalInfo": "Additional Information",
     "socialLinks": "Social Links",
-    "references": "References",
     "customFields": {
       "title": "Custom Fields",
       "subtitle": "Add custom sections with your own labels and content.",
@@ -1227,6 +1231,22 @@
       "description": "Your resume is saved. You can continue editing or choose a plan to download.",
       "choosePlan": "Choose a Plan",
       "backToEditor": "Back to Editor"
+    },
+    "feedback": {
+      "reportIssue": "Report an Issue",
+      "title": "Template Feedback",
+      "forTemplate": "Template",
+      "typeFeedback": "Feedback",
+      "typeBug": "Bug",
+      "typeSuggestion": "Idea",
+      "placeholder": "Describe the issue or share your feedback about this template...",
+      "messageTooShort": "Message must be at least 5 characters",
+      "submitError": "Failed to submit feedback. Please try again.",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "close": "Close",
+      "thankYou": "Thank You!",
+      "thankYouDesc": "Your feedback has been submitted. We review all reports to improve our templates."
     }
   },
 

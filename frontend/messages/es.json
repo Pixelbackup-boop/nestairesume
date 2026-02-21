@@ -27,7 +27,13 @@
     "searchIcons": "Buscar iconos...",
     "describeTemplate": "Describe tu plantilla...",
     "languagePlaceholder": "ej. Español, Francés, Mandarín",
-    "templateNamePlaceholder": "ej., Currículum de Desarrollador Moderno"
+    "templateNamePlaceholder": "ej., Currículum de Desarrollador Moderno",
+    "returningBanner": {
+      "welcomeBack": "¡Bienvenido de nuevo!",
+      "lastEdited": "Última edición {date}",
+      "unsavedDraft": "Tienes un borrador de currículum sin guardar",
+      "continueEditing": "Continuar editando"
+    }
   },
   "Navigation": {
     "features": "Funciones",
@@ -302,7 +308,6 @@
       "certifications": "Certificaciones",
       "awards": "Premios",
       "projects": "Proyectos",
-      "references": "Referencias",
       "summary": "Resumen",
       "professionalSummary": "Resumen Profesional",
       "profile": "Perfil",
@@ -766,7 +771,6 @@
     "generateWithAI": "Generar con IA",
     "additionalInfo": "Información Adicional",
     "socialLinks": "Redes Sociales",
-    "references": "Referencias",
     "customFields": {
       "title": "Campos Personalizados",
       "subtitle": "Añade secciones personalizadas con tus propias etiquetas y contenido.",
@@ -879,6 +883,22 @@
       "description": "Tu currículum está guardado. Puedes seguir editando o elegir un plan para descargar.",
       "choosePlan": "Elegir un Plan",
       "backToEditor": "Volver al Editor"
+    },
+    "feedback": {
+      "reportIssue": "Reportar un Problema",
+      "title": "Comentarios sobre la Plantilla",
+      "forTemplate": "Plantilla",
+      "typeFeedback": "Comentario",
+      "typeBug": "Error",
+      "typeSuggestion": "Idea",
+      "placeholder": "Describe el problema o comparte tu opinión sobre esta plantilla...",
+      "messageTooShort": "El mensaje debe tener al menos 5 caracteres",
+      "submitError": "Error al enviar. Por favor, inténtalo de nuevo.",
+      "submit": "Enviar",
+      "cancel": "Cancelar",
+      "close": "Cerrar",
+      "thankYou": "¡Gracias!",
+      "thankYouDesc": "Tu comentario ha sido enviado. Revisamos todos los reportes para mejorar nuestras plantillas."
     }
   },
   "GDocsBuilder": {

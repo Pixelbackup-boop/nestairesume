@@ -27,7 +27,13 @@
     "searchIcons": "Rechercher des icônes...",
     "describeTemplate": "Décrivez votre modèle...",
     "languagePlaceholder": "ex. Espagnol, Français, Mandarin",
-    "templateNamePlaceholder": "ex., CV Développeur Moderne"
+    "templateNamePlaceholder": "ex., CV Développeur Moderne",
+    "returningBanner": {
+      "welcomeBack": "Bon retour !",
+      "lastEdited": "Dernière modification {date}",
+      "unsavedDraft": "Vous avez un brouillon de CV non enregistré",
+      "continueEditing": "Continuer l'édition"
+    }
   },
   "Navigation": {
     "features": "Fonctionnalités",
@@ -302,7 +308,6 @@
       "certifications": "Certifications",
       "awards": "Distinctions",
       "projects": "Projets",
-      "references": "Références",
       "summary": "Résumé",
       "professionalSummary": "Résumé Professionnel",
       "profile": "Profil",
@@ -899,7 +904,6 @@
     "generateWithAI": "Générer avec l'IA",
     "additionalInfo": "Informations Supplémentaires",
     "socialLinks": "Réseaux Sociaux",
-    "references": "Références",
     "customFields": {
       "title": "Champs Personnalisés",
       "subtitle": "Ajoutez des sections personnalisées avec vos propres libellés et contenus.",
@@ -974,6 +978,22 @@
     "meta": {
       "title": "Générateur de CV - Créez Votre CV Professionnel en Ligne",
       "description": "Créez votre CV professionnel avec notre éditeur facile à utiliser. Aperçu en temps réel, suggestions IA et téléchargement PDF."
+    },
+    "feedback": {
+      "reportIssue": "Signaler un problème",
+      "title": "Commentaires sur le modèle",
+      "forTemplate": "Modèle",
+      "typeFeedback": "Commentaire",
+      "typeBug": "Bug",
+      "typeSuggestion": "Idée",
+      "placeholder": "Décrivez le problème ou partagez vos commentaires sur ce modèle...",
+      "messageTooShort": "Le message doit contenir au moins 5 caractères",
+      "submitError": "Échec de l'envoi. Veuillez réessayer.",
+      "submit": "Envoyer",
+      "cancel": "Annuler",
+      "close": "Fermer",
+      "thankYou": "Merci !",
+      "thankYouDesc": "Votre commentaire a été envoyé. Nous examinons tous les rapports pour améliorer nos modèles."
     }
   },
   "GDocsBuilder": {

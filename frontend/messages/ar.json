@@ -27,7 +27,13 @@
     "searchIcons": "البحث عن أيقونات...",
     "describeTemplate": "صف قالبك...",
     "languagePlaceholder": "مثال: إسباني، فرنسي، ماندرين",
-    "templateNamePlaceholder": "مثال: سيرة ذاتية مطور حديثة"
+    "templateNamePlaceholder": "مثال: سيرة ذاتية مطور حديثة",
+    "returningBanner": {
+      "welcomeBack": "!مرحباً بعودتك",
+      "lastEdited": "آخر تعديل {date}",
+      "unsavedDraft": "لديك مسودة سيرة ذاتية غير محفوظة",
+      "continueEditing": "متابعة التحرير"
+    }
   },
   "Navigation": {
     "features": "المميزات",
@@ -302,7 +308,6 @@
       "certifications": "الشهادات",
       "awards": "الجوائز",
       "projects": "المشاريع",
-      "references": "المراجع",
       "summary": "الملخص",
       "professionalSummary": "الملخص المهني",
       "profile": "الملف الشخصي",
@@ -899,7 +904,6 @@
     "generateWithAI": "إنشاء بالذكاء الاصطناعي",
     "additionalInfo": "معلومات إضافية",
     "socialLinks": "روابط التواصل الاجتماعي",
-    "references": "المراجع",
     "customFields": {
       "title": "الحقول المخصصة",
       "subtitle": "أضف أقسامًا مخصصة بعناوينك ومحتواك الخاص.",
@@ -974,6 +978,22 @@
     "meta": {
       "title": "منشئ السيرة الذاتية - أنشئ سيرتك الذاتية المهنية عبر الإنترنت",
       "description": "أنشئ سيرتك الذاتية المهنية مع محررنا سهل الاستخدام. معاينة فورية، اقتراحات ذكاء اصطناعي وتنزيل PDF."
+    },
+    "feedback": {
+      "reportIssue": "الإبلاغ عن مشكلة",
+      "title": "ملاحظات على القالب",
+      "forTemplate": "القالب",
+      "typeFeedback": "ملاحظة",
+      "typeBug": "خطأ",
+      "typeSuggestion": "فكرة",
+      "placeholder": "صف المشكلة أو شارك ملاحظاتك حول هذا القالب...",
+      "messageTooShort": "يجب أن تكون الرسالة 5 أحرف على الأقل",
+      "submitError": "فشل الإرسال. يرجى المحاولة مرة أخرى.",
+      "submit": "إرسال",
+      "cancel": "إلغاء",
+      "close": "إغلاق",
+      "thankYou": "شكراً لك!",
+      "thankYouDesc": "تم إرسال ملاحظاتك. نراجع جميع التقارير لتحسين قوالبنا."
     }
   },
   "GDocsBuilder": {
