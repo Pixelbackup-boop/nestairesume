@@ -5,6 +5,7 @@ import * as adSettingsService from "../services/adSettingsService";
 import * as tawkSettingsService from "../services/tawkSettingsService";
 import { getUsageStatus } from "../middleware/subscriptionLimits";
 import { PLANS, PlanType } from "../services/stripeService";
+import prisma from "../config/database";
 
 const router = Router();
 
@@ -296,6 +297,85 @@ router.post("/tawk/settings", async (req: AuthRequest, res: Response) => {
     res.json(settings);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to save tawk settings";
+    res.status(500).json({ detail: message });
+  }
+});
+
+// Template feedback management
+router.get("/template-feedback", async (req: AuthRequest, res: Response) => {
+  try {
+    const page = Math.max(1, parseInt(req.query.page as string) || 1);
+    const limit = Math.min(50, Math.max(1, parseInt(req.query.limit as string) || 20));
+    const status = req.query.status as string;
+    const templateId = req.query.templateId as string;
+    const skip = (page - 1) * limit;
+
+    const where: Record<string, string> = {};
+    if (status && ["pending", "reviewed", "resolved"].includes(status)) {
+      where.status = status;
+    }
+    if (templateId) {
+      where.templateId = templateId;
+    }
+
+    const [feedback, total] = await Promise.all([
+      prisma.templateFeedback.findMany({
+        where,
+        select: {
+          id: true,
+          templateId: true,
+          type: true,
+          message: true,
+          status: true,
+          adminNote: true,
+          createdAt: true,
+          user: { select: { id: true, name: true, email: true } },
+        },
+        orderBy: { createdAt: "desc" },
+        skip,
+        take: limit,
+      }),
+      prisma.templateFeedback.count({ where }),
+    ]);
+
+    res.json({ feedback, total, page, totalPages: Math.ceil(total / limit) });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to get feedback";
+    res.status(500).json({ detail: message });
+  }
+});
+
+router.patch("/template-feedback/:id", async (req: AuthRequest, res: Response) => {
+  try {
+    const { status, adminNote } = req.body;
+    const updateData: Record<string, string> = {};
+
+    if (status && ["pending", "reviewed", "resolved"].includes(status)) {
+      updateData.status = status;
+    }
+    if (adminNote !== undefined) {
+      updateData.adminNote = adminNote;
+    }
+
+    const updated = await prisma.templateFeedback.update({
+      where: { id: req.params.id },
+      data: updateData,
+      select: { id: true, status: true, adminNote: true, updatedAt: true },
+    });
+
+    res.json(updated);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to update feedback";
+    res.status(500).json({ detail: message });
+  }
+});
+
+router.delete("/template-feedback/:id", async (req: AuthRequest, res: Response) => {
+  try {
+    await prisma.templateFeedback.delete({ where: { id: req.params.id } });
+    res.json({ success: true, message: "Feedback deleted" });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to delete feedback";
     res.status(500).json({ detail: message });
   }
 });

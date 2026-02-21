@@ -24,6 +24,7 @@ import mockInterviewRoutes from "./routes/mockInterview";
 import adsRoutes from "./routes/ads";
 import contactRoutes from "./routes/contact";
 import communityRoutes from "./routes/community";
+import templateFeedbackRoutes from "./routes/templateFeedback";
 import { authLimiter, generalLimiter } from "./middleware/rateLimiter";
 
 // Import middleware (only if not in test environment)
@@ -120,6 +121,7 @@ app.use("/api/v1/interview", mockInterviewRoutes);
 app.use("/api/v1/ads", adsRoutes);
 app.use("/api/v1/contact", contactRoutes);
 app.use("/api/v1/community", communityRoutes);
+app.use("/api/v1/template-feedback", templateFeedbackRoutes);
 
 // Generic error handler
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {

@@ -14,6 +14,7 @@ import {
   Settings,
   Megaphone,
   MessageCircle,
+  MessageSquare,
   X,
 } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -35,6 +36,7 @@ const navItems: NavItem[] = [
   { href: "/admin/ads", label: "Ads", icon: <Megaphone size={20} /> },
   { href: "/admin/seo", label: "SEO & Analytics", icon: <Bot size={20} /> },
   { href: "/admin/live-chat", label: "Live Chat", icon: <MessageCircle size={20} /> },
+  { href: "/admin/feedback", label: "Feedback", icon: <MessageSquare size={20} /> },
 ];
 
 interface AdminSidebarProps {
