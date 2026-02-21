@@ -1,0 +1,303 @@
+---
+title: 'CV LaTeX Overleaf : Guide Complet 2026'
+slug: cv-latex-overleaf
+description: >-
+  Créez un CV professionnel avec LaTeX et Overleaf en 2026. Templates, tutoriel
+  pas à pas, personnalisation et conseils pour les CV académiques et techniques.
+date: '2026-02-21'
+author: Marie Laurent
+authorBio: >-
+  Spécialiste en développement de carrière et rédaction de CV avec plus de 10
+  ans d'expérience dans l'accompagnement professionnel en France et en Suisse.
+category: Outils CV
+tags:
+  - cv latex overleaf
+  - cv latex
+  - overleaf cv
+  - template cv latex
+  - cv académique latex
+  - cv ingénieur latex
+  - cv chercheur latex
+  - modele cv latex
+image: /blog/fr-placeholder.jpg
+imageAlt: Créer un CV professionnel avec LaTeX et Overleaf en 2026
+featured: false
+faq:
+  - question: Faut-il savoir coder pour créer un CV avec LaTeX ?
+    answer: >-
+      Pas nécessairement. Overleaf propose des templates de CV prêts à
+      l'emploi que vous pouvez modifier en remplaçant simplement le texte
+      existant par vos informations. Les commandes de base (\section,
+      \textbf, \item) s'apprennent en quelques minutes. Si vous n'avez
+      jamais touché à LaTeX, commencez avec un template simple et modifiez-le
+      progressivement. La syntaxe devient intuitive après une heure de
+      pratique.
+  - question: Overleaf est-il gratuit pour créer un CV ?
+    answer: >-
+      Oui, le plan gratuit d'Overleaf est suffisant pour créer un CV. Vous
+      pouvez compiler un document, utiliser des templates et exporter en PDF
+      sans frais. Les limitations du plan gratuit (nombre de collaborateurs,
+      historique de versions) ne concernent pas la création d'un CV
+      individuel. Aucun filigrane n'est ajouté au PDF final.
+  - question: Un CV LaTeX est-il compatible avec les logiciels ATS ?
+    answer: >-
+      Oui, les CV LaTeX sont généralement bien lus par les ATS car ils
+      produisent des PDF avec un texte sélectionnable et structuré. Les
+      logiciels ATS peuvent extraire le contenu textuel sans problème.
+      Cependant, certains templates complexes avec des colonnes ou des
+      éléments graphiques avancés peuvent poser des difficultés. Privilégiez
+      un template simple et linéaire pour les candidatures en ligne.
+  - question: Quels templates LaTeX recommandez-vous pour un CV français ?
+    answer: >-
+      Les templates les plus populaires et adaptables au format français sont
+      moderncv, AltaCV et Awesome-CV. moderncv est le plus classique et
+      propose plusieurs styles (classic, casual, banking). AltaCV offre un
+      design moderne avec barre latérale. Awesome-CV est visuellement riche
+      avec des icônes et des couleurs. Pour un CV académique français,
+      moderncv style « banking » est le choix le plus sûr.
+  - question: Puis-je ajouter une photo sur mon CV LaTeX ?
+    answer: >-
+      Oui, la plupart des templates LaTeX prévoient l'ajout d'une photo via
+      la commande \photo ou \includegraphics. Sur Overleaf, uploadez votre
+      photo dans le projet et référencez-la dans le code. Le format JPEG ou
+      PNG est accepté. Pensez à recadrer la photo au format carré ou
+      portrait avant de l'uploader pour un rendu optimal.
+  - question: Comment exporter mon CV Overleaf en PDF ?
+    answer: >-
+      Cliquez sur le bouton « Recompile » (ou Ctrl+Enter) puis sur
+      « Download PDF » dans le panneau de prévisualisation. Le PDF généré est
+      immédiatement prêt à l'envoi. Overleaf compile le document LaTeX en
+      temps réel, vous voyez donc le résultat final avant de télécharger.
+      Aucun filigrane ni limitation de téléchargement, même sur le plan
+      gratuit.
+  - question: LaTeX est-il mieux que Word ou un éditeur en ligne pour un CV ?
+    answer: >-
+      LaTeX excelle pour les CV académiques (publications, enseignement,
+      communications), les profils techniques (ingénieurs, développeurs) et
+      les candidatures dans les grandes écoles ou laboratoires de recherche.
+      Pour les candidatures classiques dans le secteur privé, un éditeur de
+      CV en ligne est plus rapide et plus simple. Le choix dépend de votre
+      secteur et de votre public cible.
+---
+
+## Créer un CV Professionnel avec LaTeX et Overleaf
+
+Le **CV LaTeX** est un standard dans le monde académique, scientifique et technique français. Depuis les classes préparatoires jusqu'aux laboratoires du CNRS, en passant par les écoles d'ingénieurs et les directions techniques des grandes entreprises, LaTeX s'est imposé comme l'outil de référence pour produire des documents d'une qualité typographique irréprochable.
+
+En 2026, **Overleaf** rend LaTeX accessible à tous. Plus besoin d'installer une distribution locale (TeX Live, MiKTeX) : l'éditeur en ligne compile votre **CV** directement dans le navigateur. Ce guide vous accompagne de la sélection du template à l'export final en PDF, avec des conseils adaptés au marché français.
+
+## Pourquoi Choisir LaTeX pour Son Curriculum Vitae
+
+LaTeX n'est pas un outil de CV comme les autres. Son positionnement est unique et ses avantages spécifiques.
+
+### Qualité typographique inégalée
+
+LaTeX a été conçu par Donald Knuth, mathématicien de Stanford, pour la composition de documents scientifiques. Le rendu typographique — gestion des césures, espacement des caractères, alignement des colonnes — surpasse celui de Word, Google Docs et de la plupart des éditeurs de CV en ligne. Un CV LaTeX se distingue visuellement par sa précision et son élégance.
+
+### Séparation contenu et mise en forme
+
+En LaTeX, vous rédigez le contenu dans un fichier texte et la mise en page est gérée par le template. Ce principe fondamental présente un avantage majeur : vous pouvez changer de template sans retoucher votre contenu. Copiez vos informations dans un nouveau template et la mise en page s'adapte automatiquement.
+
+### Reproductibilité parfaite
+
+Un document LaTeX produit exactement le même PDF sur n'importe quel ordinateur, quel que soit le système d'exploitation. Pas de police manquante, pas de marge décalée, pas de saut de page imprévu. Ce déterminisme est précieux pour un CV que vous mettrez à jour régulièrement.
+
+### Signal professionnel
+
+Dans certains milieux — recherche, ingénierie, mathématiques, informatique — soumettre un CV en LaTeX est un signal de compétence technique. Les comités de recrutement des laboratoires du CNRS, de l'INRIA ou des départements R&D de Thales, Safran ou Airbus reconnaissent immédiatement un document LaTeX.
+
+## Overleaf : l'Éditeur LaTeX en Ligne
+
+Overleaf a démocratisé LaTeX en le rendant accessible depuis un navigateur web. Plus besoin de configurer une distribution locale ni de gérer les packages manuellement.
+
+### Fonctionnalités clés d'Overleaf
+
+**Compilation en temps réel.** Chaque modification se reflète instantanément dans le panneau de prévisualisation. Vous voyez le résultat final pendant que vous tapez.
+
+**Bibliothèque de templates.** Overleaf héberge des centaines de templates de CV, classés par style et par usage. La recherche « CV » ou « resume » donne accès à des dizaines de modèles prêts à l'emploi.
+
+**Gestion automatique des packages.** Les packages LaTeX nécessaires (fontawesome, tikz, geometry) sont chargés automatiquement. Plus de message d'erreur « Package not found ».
+
+**Collaboration.** Le plan gratuit permet le partage en lecture seule. Les plans payants offrent l'édition collaborative. Utile si un directeur de thèse ou un mentor souhaite relire votre CV.
+
+**Historique des versions.** Overleaf conserve l'historique de vos modifications, vous permettant de revenir à une version antérieure si nécessaire.
+
+### Créer un compte et commencer
+
+Rendez-vous sur overleaf.com et créez un compte gratuit. Cliquez sur « New Project > Browse Templates > CV/Resume ». Choisissez un template, cliquez sur « Open as Template » et commencez à le personnaliser. L'ensemble prend moins de deux minutes.
+
+## Les Meilleurs Templates LaTeX pour un CV Français
+
+Tous les templates ne conviennent pas au marché français. Voici les trois plus populaires, adaptables aux conventions hexagonales.
+
+### moderncv : le classique incontournable
+
+moderncv est le template LaTeX le plus utilisé pour les CV en France. Il propose quatre styles visuels : classic, casual, banking et oldstyle. Le style « banking » est le plus sobre et le plus adapté aux candidatures dans la banque, l'assurance, l'industrie et la recherche.
+
+**Personnalisation :** Changez les couleurs avec `\moderncvcolor{blue}` (bleu, orange, vert, rouge, gris). Ajoutez une photo avec `\photo[64pt]{photo.jpg}`. Les sections standards (expérience, formation, compétences) sont pré-formatées.
+
+**Point fort :** L'intitulé des sections se traduit facilement en français. Remplacez « Experience » par « Expérience professionnelle », « Education » par « Formation ».
+
+### AltaCV : moderne avec barre latérale
+
+AltaCV offre un design contemporain avec une barre latérale pour les informations de contact, les compétences et les langues. Le corps principal accueille l'expérience et la formation. Ce layout est visuellement attractif tout en restant structuré.
+
+**Personnalisation :** Les couleurs se modifient via `\definecolor`. Les icônes FontAwesome sont intégrées pour les contacts (téléphone, e-mail, LinkedIn, GitHub). La barre latérale est redimensionnable.
+
+**Point fort :** Le design se démarque des CV classiques sans sacrifier la lisibilité ATS. Le texte reste sélectionnable et structuré dans le PDF.
+
+### Awesome-CV : le plus visuel
+
+Awesome-CV est un template élégant avec des icônes colorées, des séparateurs visuels et une typographie soignée. Il convient aux profils tech et design qui veulent un CV distinctif.
+
+**Personnalisation :** Le fichier est modulaire (un fichier par section : experience.tex, education.tex, skills.tex). Cette structure facilite la maintenance et la réutilisation du contenu.
+
+**Point fort :** Le rendu est spectaculaire sans nécessiter de connaissances graphiques. Les couleurs et les icônes sont gérées automatiquement par le template.
+
+## Tutoriel : Personnaliser un Template Pas à Pas
+
+Prenons l'exemple de moderncv pour créer un CV français complet. Ouvrez le template sur Overleaf et suivez ces étapes.
+
+### Configurer les informations personnelles
+
+En haut du fichier `.tex`, vous trouverez les commandes de configuration. Modifiez-les avec vos informations :
+
+```
+\name{Jean}{Dupont}
+\title{Ingénieur Logiciel Senior}
+\address{75 rue de la République}{69002 Lyon}{France}
+\phone[mobile]{+33 6 12 34 56 78}
+\email{jean.dupont@gmail.com}
+\social[linkedin]{jean-dupont}
+\social[github]{jdupont}
+\photo[70pt]{photo.jpg}
+```
+
+Uploadez votre photo dans le projet Overleaf (panneau de gauche > Upload). Le format carré en JPEG ou PNG donne le meilleur résultat.
+
+### Rédiger les sections en français
+
+Remplacez les intitulés anglais par les équivalents français. La commande `\section{}` définit les titres de section :
+
+```
+\section{Expérience professionnelle}
+\section{Formation}
+\section{Compétences techniques}
+\section{Langues}
+\section{Publications}
+```
+
+Pour chaque expérience, utilisez `\cventry` :
+
+```
+\cventry{2022--Présent}{Ingénieur Logiciel Senior}
+{Dassault Systèmes}{Vélizy-Villacoublay}{}
+{Conception et développement d'API REST pour la plateforme 3DEXPERIENCE.
+Pilotage d'une équipe de 5 développeurs en méthode Scrum.
+Réduction du temps de réponse API de 40\% via l'optimisation des requêtes PostgreSQL.}
+```
+
+### Ajuster la mise en page
+
+Les marges se configurent dans le préambule avec le package geometry :
+
+```
+\usepackage[scale=0.85]{geometry}
+```
+
+La valeur `0.85` signifie que le texte occupe 85 % de la page. Augmentez à `0.88` ou `0.90` si vous manquez de place. Ne descendez pas sous `0.80` pour préserver la lisibilité.
+
+### Compiler et télécharger
+
+Appuyez sur Ctrl+Enter ou cliquez sur « Recompile ». Corrigez les éventuelles erreurs de compilation (indiquées en rouge dans le panneau de logs). Une fois le rendu satisfaisant, cliquez sur « Download PDF ».
+
+## LaTeX pour les CV Académiques Français
+
+Le CV académique (ou curriculum vitae universitaire) a des exigences spécifiques que LaTeX gère mieux que tout autre outil.
+
+### Sections propres au CV académique
+
+Un CV de chercheur ou d'enseignant-chercheur français inclut des sections que les éditeurs de CV classiques ne prévoient pas. Publications (articles, ouvrages, chapitres), communications (colloques, conférences), enseignement (cours dispensés, encadrements), responsabilités administratives et financements obtenus (ANR, ERC, bourses).
+
+LaTeX gère naturellement les listes bibliographiques grâce à BibTeX. Importez votre fichier `.bib` et les publications se formatent automatiquement selon le style choisi (APA, IEEE, Chicago).
+
+### Candidatures aux postes de maître de conférences
+
+Pour les concours de recrutement universitaire en France, le dossier de candidature exige un CV détaillé. Le format attendu est souvent de 4 à 10 pages, très différent du CV d'une page du secteur privé. LaTeX permet de gérer cette longueur sans perdre en cohérence visuelle.
+
+Les sections typiques incluent : état civil, situation actuelle, parcours académique, publications classées (ACL, ACLN, OS, DO, AP), encadrements doctoraux, responsabilités collectives, activités d'enseignement et projets de recherche financés.
+
+### Candidatures CNRS et INRIA
+
+Les instituts de recherche français ont leurs propres conventions. Le CNRS attend un CV structuré par sections normalisées. L'INRIA valorise les contributions logicielles en plus des publications. LaTeX s'adapte facilement à ces formats spécifiques grâce à la modularité des templates.
+
+## LaTeX pour les CV d'Ingénieurs et Profils Techniques
+
+Au-delà du monde académique, LaTeX est prisé par les ingénieurs diplômés des grandes écoles françaises et les profils techniques.
+
+### Pourquoi les ingénieurs utilisent LaTeX
+
+Les diplômés de Polytechnique, Centrale, Mines, ENSAE ou des INSA apprennent LaTeX dès les premières années de formation. Le réflexe persiste dans la vie professionnelle. Pour un poste technique chez Thales, Safran, Dassault Systèmes ou dans une ESN spécialisée, un CV LaTeX montre une culture technique que les recruteurs techniques apprécient.
+
+### Sections techniques spécifiques
+
+Un CV d'ingénieur en LaTeX peut inclure des sections dédiées : langages de programmation (avec niveaux), environnements techniques, certifications (AWS, GCP, Kubernetes), projets open source et contributions GitHub. La flexibilité de LaTeX permet de formater ces informations de manière dense et lisible.
+
+### Quand LaTeX n'est pas le bon choix
+
+Pour les candidatures dans le management, le commerce, le marketing ou les RH, un CV LaTeX peut paraître décalé. Le signal technique est positif dans un labo de R&D, mais inutile — voire intimidant — dans un département marketing. Évaluez votre audience avant de choisir votre outil.
+
+## Avantages et Inconvénients de LaTeX pour un CV
+
+### Les avantages
+
+- Qualité typographique professionnelle et précise
+- Contrôle total sur chaque détail de la mise en page
+- Templates réutilisables et maintenables
+- PDF parfaitement structuré, compatible ATS
+- Signal de compétence technique dans les milieux concernés
+- Gestion native des bibliographies et des listes structurées
+
+### Les inconvénients
+
+- Courbe d'apprentissage significative pour les débutants
+- Débogage des erreurs de compilation parfois frustrant
+- Pas d'interface visuelle (WYSIWYG) — tout passe par le code
+- Modification rapide moins intuitive qu'un éditeur en ligne
+- Inadapté si vous devez partager le fichier source avec un non-initié
+- Surqualifié pour un CV simple d'une page dans le secteur tertiaire
+
+## Alternatives à LaTeX pour les Non-Initiés
+
+Si LaTeX vous semble trop complexe pour vos besoins, plusieurs alternatives produisent des CV de qualité.
+
+Notre [créateur de CV gratuit](/fr/blog/cv-gratuit-en-ligne) offre des modèles professionnels testés ATS avec une interface visuelle intuitive. Pas de code, pas de compilation : vous remplissez les champs et le PDF se génère automatiquement. L'assistance IA vous aide à rédiger le contenu.
+
+[Google Docs](/fr/blog/faire-cv-google-docs) propose une solution minimaliste et gratuite pour les CV simples. Et les [modèles Word](/fr/blog/modele-cv-word-gratuit) offrent un bon compromis entre personnalisation et simplicité.
+
+Pour les profils académiques qui ne veulent pas toucher à LaTeX, notre plateforme permet de créer un CV structuré avec les sections universitaires standard (publications, enseignement, communications). Le résultat est moins élégant qu'un LaTeX pur, mais bien plus rapide à produire.
+
+## Migrer un CV Existant vers LaTeX
+
+Si vous avez déjà un CV sur Word ou un éditeur en ligne et souhaitez passer à LaTeX, voici la marche à suivre.
+
+**Choisissez votre template** sur Overleaf en fonction de votre profil (académique, technique, classique). **Copiez le contenu** de votre CV actuel section par section dans le template. **Adaptez le formatage** : remplacez les gras et italiques par les commandes LaTeX correspondantes (`\textbf{}`, `\textit{}`). **Vérifiez les caractères spéciaux** : les accents français fonctionnent nativement avec `\usepackage[utf8]{inputenc}`, mais les caractères comme &, %, $ doivent être échappés (`\&`, `\%`, `\$`).
+
+Prévoyez une à deux heures pour la migration initiale. Les mises à jour ultérieures seront beaucoup plus rapides, puisque vous ne modifierez que le contenu sans toucher à la structure.
+
+## Optimiser Son CV LaTeX pour les Candidatures Françaises
+
+Quelques ajustements rendent votre CV LaTeX plus adapté au marché français. Utilisez le package `babel` avec l'option `french` pour la typographie française (espaces avant les ponctuations doubles, guillemets français). Indiquez les niveaux de langue selon le CECRL. Mentionnez les diplômes avec leur intitulé complet et l'établissement.
+
+Pour les candidatures dans les grandes entreprises françaises qui utilisent des ATS, assurez-vous que le PDF généré contient du texte sélectionnable. Testez en copiant-collant le contenu depuis le PDF : si le texte est correctement extrait, l'ATS pourra le lire.
+
+Si vous postulez à la fois dans le monde académique et dans le privé, maintenez deux versions de votre CV : un CV académique complet (4-10 pages) et un CV [professionnel condensé](/fr/blog/cv-intelligence-artificielle-ml) (1-2 pages). La modularité de LaTeX facilite cette double gestion.
+
+---
+
+À lire également :
+
+- [CV gratuit en ligne : créer votre CV pro en 2026](/fr/blog/cv-gratuit-en-ligne)
+- [Faire un CV sur Google Docs gratuitement](/fr/blog/faire-cv-google-docs)
+- [Modèle CV Word gratuit à télécharger](/fr/blog/modele-cv-word-gratuit)
+- [CV Intelligence Artificielle et Machine Learning](/fr/blog/cv-intelligence-artificielle-ml)
