@@ -635,8 +635,8 @@
     "tagline": "Constructor de currículums con IA en el que confían profesionales de todo el mundo.",
     "product": "Producto",
     "company": "Empresa",
-    "legal": "Legal",
-    "social": "Social",
+    "legal": "Aspectos Legales",
+    "social": "Redes Sociales",
     "about": "Acerca de",
     "careers": "Empleos",
     "privacy": "Privacidad",
@@ -843,7 +843,7 @@
       "description": "Cree su currículum profesional con nuestro editor fácil de usar. Vista previa en tiempo real, sugerencias de IA y descarga PDF."
     },
     "tabs": {
-      "personal": "Personal",
+      "personal": "Información Personal",
       "personalDesc": "Información básica y resumen",
       "experience": "Experiencia",
       "experienceDesc": "Historial laboral",
