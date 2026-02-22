@@ -19,6 +19,7 @@ import {
     getTemplateById,
     getTemplateTheme,
     getTemplateThumbnail,
+    builderTemplates,
     sampleResumeData,
     colorPresets
 } from '@/lib/templates/builder';
@@ -141,6 +142,24 @@ function BuilderContent() {
         }
     }, [searchParams, setResumeData, setTemplate, setTemplateId, setTheme, setCustomThemeColor]);
 
+    // Derive current builder template ID for the switcher dropdown
+    const currentBuilderTemplateId = useMemo(() => {
+        const match = builderTemplates.find(t => t.templateId === selectedTemplateId);
+        return match?.id || '';
+    }, [selectedTemplateId]);
+
+    // Switch template while keeping all resume data intact
+    const handleTemplateSwitch = (id: string) => {
+        const tmpl = getTemplateById(id);
+        if (!tmpl) return;
+        setTemplate(tmpl.layoutPresetId);
+        setTemplateId((tmpl as { templateId?: string }).templateId || null);
+        const theme = getTemplateTheme(id);
+        if (theme.themeId) setTheme(theme.themeId);
+        else if (theme.customColor) setCustomThemeColor(theme.customColor);
+        setTemplateThumbnail(getTemplateThumbnail(id));
+    };
+
     // Handle download - show download modal (modal handles auth check internally)
     const handleDownloadClick = () => {
         setShowDownloadModal(true);
@@ -213,6 +232,7 @@ function BuilderContent() {
                         <button
                             onClick={() => setMobileSidebarOpen(true)}
                             className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition lg:hidden"
+                            aria-label="Open sidebar menu"
                         >
                             <Menu size={20} />
                         </button>
@@ -229,6 +249,7 @@ function BuilderContent() {
                         <button
                             onClick={handleDownloadClick}
                             className="flex items-center gap-2 bg-accent-green text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent-teal transition"
+                            aria-label={tBuilder('ui.downloadPdf')}
                         >
                             <Download size={16} />
                             <span className="hidden sm:inline">{tBuilder('ui.downloadPdf')}</span>
@@ -277,12 +298,38 @@ function BuilderContent() {
                             {/* Preview Header */}
                             <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-gray-50">
                                 <span className="text-sm font-medium text-gray-600">{tBuilder('ui.livePreview')}</span>
-                                {/* Toolbar actions — feedback + future template switcher */}
+                                {/* Template Switcher Dropdown */}
+                                <select
+                                    value={currentBuilderTemplateId}
+                                    onChange={(e) => handleTemplateSwitch(e.target.value)}
+                                    className="text-xs bg-white border border-gray-300 rounded-md px-2 py-1.5 text-gray-700 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-green/50 focus:border-accent-green cursor-pointer max-w-[160px] truncate"
+                                    aria-label="Select resume template"
+                                >
+                                    {!currentBuilderTemplateId && <option value="">Select template</option>}
+                                    <optgroup label="Professional">
+                                        {builderTemplates.filter(t => t.category === 'professional').map(t => (
+                                            <option key={t.id} value={t.id}>{t.name}</option>
+                                        ))}
+                                    </optgroup>
+                                    <optgroup label="Modern">
+                                        {builderTemplates.filter(t => t.category === 'modern').map(t => (
+                                            <option key={t.id} value={t.id}>{t.name}</option>
+                                        ))}
+                                    </optgroup>
+                                    <optgroup label="Creative">
+                                        {builderTemplates.filter(t => t.category === 'creative').map(t => (
+                                            <option key={t.id} value={t.id}>{t.name}</option>
+                                        ))}
+                                    </optgroup>
+                                    <optgroup label="Minimal">
+                                        {builderTemplates.filter(t => t.category === 'minimal').map(t => (
+                                            <option key={t.id} value={t.id}>{t.name}</option>
+                                        ))}
+                                    </optgroup>
+                                </select>
                                 <div className="flex items-center gap-2">
                                     <TemplateFeedbackButton />
-                                    {/* Future: template switcher dropdown */}
-                                </div>
-                                <div className="flex items-center gap-2">
+                                    <div className="w-px h-4 bg-gray-200 mx-1" />
                                     {/* Reference Image Toggle - Only show if template has thumbnail */}
                                     {templateThumbnail && (
                                         <button
