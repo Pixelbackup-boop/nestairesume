@@ -21,6 +21,7 @@ import tawkRoutes from "./routes/tawk";
 import mockInterviewRoutes from "./routes/mockInterview";
 import contactRoutes from "./routes/contact";
 import communityRoutes from "./routes/community";
+import templateFeedbackRoutes from "./routes/templateFeedback";
 
 // Import scheduler
 import { startScheduler } from "./services/schedulerService";
@@ -87,6 +88,7 @@ app.use("/api/v1/tawk", tawkRoutes);
 app.use("/api/v1/interview", mockInterviewRoutes);
 app.use("/api/v1/contact", contactRoutes);
 app.use("/api/v1/community", communityRoutes);
+app.use("/api/v1/template-feedback", templateFeedbackRoutes);
 
 // Sentry error handler (must be after all routes)
 setupSentryErrorHandler(app);
