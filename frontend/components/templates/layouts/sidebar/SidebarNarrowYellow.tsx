@@ -162,20 +162,6 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                     </div>
                 )}
 
-                {/* Interests */}
-                {data.interests && data.interests.length > 0 && (
-                    <div style={{ width: '100%' }}>
-                        <SidebarHeader title={t.sections.interests} sp={sp} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8), fontSize: fs.small }}>
-                            {data.interests.map((int) => (
-                                <div key={int.id} style={{ display: 'flex', alignItems: 'center', gap: sp(8) }}>
-                                    <span style={{ color: sidebarText, fontSize: sp(8) + 'px' }}>●</span>
-                                    <span style={{ fontWeight: 500 }}>{int.name}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
             </aside>
 
             {/* Main Content */}
@@ -282,6 +268,21 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                         </div>
                     </section>
                 )}
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <MainHeader title={t.sections.interests} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
+                            {data.interests.map((int) => (
+                                <div key={int.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
+                                    <span style={{ color: accentColor, fontSize: sp(8) + 'px' }}>●</span>
+                                    <span style={{ fontWeight: 500 }}>{int.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
                 {/* Certifications */}
                 {certifications && certifications.length > 0 && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>

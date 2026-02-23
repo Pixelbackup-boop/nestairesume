@@ -119,7 +119,7 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                                 <span style="word-break: break-all;">${escapeHtml(item.value!)}</span>
                             </div>
                         `).join('')}
-                        
+
                     </div>
                 </div>
 
@@ -140,21 +140,6 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                                     </div>
                                 `;
     }).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
-                <!-- Interests -->
-                ${interests && interests.length > 0 ? `
-                    <div style="width: 100%;">
-                        ${SidebarHeader(t.sections.interests)}
-                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.small};">
-                            ${interests.map(int => `
-                                <div data-paginate="item" style="display: flex; align-items: center; gap: 8px;">
-                                    <span style="color: ${sidebarText}; font-size: 8px;">●</span>
-                                    <span style="font-weight: 500;">${escapeHtml(int.name)}</span>
-                                </div>
-                            `).join('')}
                         </div>
                     </div>
                 ` : ''}
@@ -238,6 +223,21 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                                     ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
 
                                     ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Interests -->
+                ${interests && interests.length > 0 ? `
+                    <div style="margin-bottom: 32px;">
+                        ${MainHeader(t.sections.interests)}
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            ${interests.map(int => `
+                                <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
+                                    <span style="color: ${accentColor}; font-size: 8px;">●</span>
+                                    <span style="font-weight: 500;">${escapeHtml(int.name)}</span>
                                 </div>
                             `).join('')}
                         </div>
