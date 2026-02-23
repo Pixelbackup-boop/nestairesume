@@ -89,7 +89,7 @@ const renderSidebarNarrowYellow = (data, theme, translations, locale = 'en') => 
                                 <span style="word-break: break-all;">${(0, helpers_1.escapeHtml)(item.value)}</span>
                             </div>
                         `).join('')}
-                        
+
                     </div>
                 </div>
 
@@ -110,21 +110,6 @@ const renderSidebarNarrowYellow = (data, theme, translations, locale = 'en') => 
                                     </div>
                                 `;
     }).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
-                <!-- Interests -->
-                ${interests && interests.length > 0 ? `
-                    <div style="width: 100%;">
-                        ${SidebarHeader(t.sections.interests)}
-                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.small};">
-                            ${interests.map(int => `
-                                <div data-paginate="item" style="display: flex; align-items: center; gap: 8px;">
-                                    <span style="color: ${sidebarText}; font-size: 8px;">●</span>
-                                    <span style="font-weight: 500;">${(0, helpers_1.escapeHtml)(int.name)}</span>
-                                </div>
-                            `).join('')}
                         </div>
                     </div>
                 ` : ''}
@@ -176,7 +161,7 @@ const renderSidebarNarrowYellow = (data, theme, translations, locale = 'en') => 
                                         </span>
                                     </div>
                                     <div style="font-size: ${fs.body}; color: #4b5563; margin-bottom: 6px; font-weight: 600;">
-                                        ${(0, helpers_1.escapeHtml)(exp.company)}${exp.city ? `, ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}
+                                        ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
                                     <div style="font-size: ${fs.body}; line-height: 1.6; color: #374151;">
                                         ${(0, helpers_1.formatDescription)(exp.description || '')}
@@ -196,13 +181,33 @@ const renderSidebarNarrowYellow = (data, theme, translations, locale = 'en') => 
                                 <div data-paginate="item">
                                     <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: ${mainText}; margin: 0 0 2px 0; text-transform: uppercase;">
                                         ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500; text-transform: none;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                     </h4>
                                     <div style="font-size: ${fs.body}; color: #4b5563;">
-                                        ${(0, helpers_1.escapeHtml)(edu.school)}${edu.city ? `, ${(0, helpers_1.escapeHtml)(edu.city)}` : ''}
+                                        ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
                                     <div style="font-size: ${fs.small}; color: #666;">
                                         ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
                                     </div>
+                                    ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                    ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                                    ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Interests -->
+                ${interests && interests.length > 0 ? `
+                    <div style="margin-bottom: 32px;">
+                        ${MainHeader(t.sections.interests)}
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            ${interests.map(int => `
+                                <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
+                                    <span style="color: ${accentColor}; font-size: 8px;">●</span>
+                                    <span style="font-weight: 500;">${(0, helpers_1.escapeHtml)(int.name)}</span>
                                 </div>
                             `).join('')}
                         </div>
@@ -225,6 +230,7 @@ const renderSidebarNarrowYellow = (data, theme, translations, locale = 'en') => 
                                     <div style="font-size: ${fs.small}; color: #666;">
                                         ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
                                     </div>
+                                    ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -315,21 +321,6 @@ const renderSidebarNarrowYellow = (data, theme, translations, locale = 'en') => 
                 ` : '';
     })()}
 
-                <!-- References -->
-                ${data.references && data.references.length > 0 ? `
-                    <div style="margin-bottom: 32px;">
-                        ${MainHeader(t.sections.references)}
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            ${data.references.map(ref => `
-                                <div data-paginate="item">
-                                    <div style="font-weight: 700; font-size: ${fs.entryTitle}; color: ${mainText};">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                    <div style="font-size: ${fs.body}; color: #4b5563;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                    ${ref.email ? `<div style="font-size: ${fs.small}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
 
 
 

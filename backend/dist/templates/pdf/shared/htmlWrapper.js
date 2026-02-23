@@ -140,13 +140,11 @@ const wrapHtml = (content, options) => {
             position: relative;
         }
 
-        /* Section break control */
-        .resume-section {
-            page-break-inside: avoid;
-            break-inside: avoid;
-        }
-
-        .resume-entry {
+        /* Section break control — individual items stay together, sections can flow across pages.
+           The JS pagination script (pdfGeneratorService) handles item-level pushing via margin-top.
+           Matching frontend behavior where break-inside:avoid is NOT applied to section wrappers. */
+        .resume-entry,
+        [data-paginate="item"] {
             page-break-inside: avoid;
             break-inside: avoid;
         }

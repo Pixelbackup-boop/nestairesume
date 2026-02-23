@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.verifyEmailChange = exports.requestEmailChange = exports.updateProfile = exports.setPassword = exports.changePassword = exports.resetPassword = exports.requestPasswordReset = exports.resendVerificationCode = exports.verifyEmailCode = exports.registerUserWithVerification = exports.handleOAuthSignIn = exports.getUserById = exports.loginUser = exports.registerUser = exports.createAccessToken = exports.verifyPassword = exports.hashPassword = void 0;
+exports.verifyEmailChange = exports.requestEmailChange = exports.updateProfile = exports.setPassword = exports.changePassword = exports.resetPassword = exports.requestPasswordReset = exports.resendVerificationCode = exports.verifyEmailCode = exports.registerUserWithVerification = exports.handleOAuthSignIn = exports.getUserById = exports.loginUser = exports.registerUser = exports.refreshAccessToken = exports.createAccessToken = exports.verifyPassword = exports.hashPassword = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const database_1 = __importDefault(require("../config/database"));
@@ -24,6 +24,22 @@ const createAccessToken = (userId, email, role) => {
     return jsonwebtoken_1.default.sign({ sub: userId, email, role }, env_1.config.secretKey, { expiresIn });
 };
 exports.createAccessToken = createAccessToken;
+const refreshAccessToken = async (expiredToken) => {
+    // Verify signature but allow expired tokens
+    const decoded = jsonwebtoken_1.default.verify(expiredToken, env_1.config.secretKey, {
+        ignoreExpiration: true,
+    });
+    const user = await database_1.default.user.findUnique({
+        where: { id: decoded.sub },
+        select: { id: true, email: true, role: true, isSuspended: true },
+    });
+    if (!user)
+        throw new Error("User not found");
+    if (user.isSuspended)
+        throw new Error("Account suspended");
+    return (0, exports.createAccessToken)(user.id, user.email, user.role);
+};
+exports.refreshAccessToken = refreshAccessToken;
 const registerUser = async (email, password, name) => {
     // Check if user exists
     const existingUser = await database_1.default.user.findUnique({ where: { email } });

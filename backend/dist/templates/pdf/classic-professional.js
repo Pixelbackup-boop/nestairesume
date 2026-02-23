@@ -10,7 +10,7 @@ const translations_1 = require("./shared/translations");
 const dateUtils_1 = require("./shared/dateUtils");
 const renderClassicProfessional = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], interests = [], strengths = [], certifications = [], awards = [], references = [], customFields = [], background, fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], interests = [], strengths = [], certifications = [], awards = [], customFields = [], background, fonts } = data;
     // Force white background - no background customization in builder UI
     const bgStyle = 'background-color: #ffffff;';
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Inter');
@@ -37,19 +37,14 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
             />
         </div>
     ` : '';
-    const idInfo = personalInfo.idType && personalInfo.idNumber ? `
-        <div style="color: ${theme.text}; font-size: ${s(11)}; margin-top: 4px; opacity: 0.8;">
-            ${(0, helpers_1.formatIdType)(personalInfo.idType)}: ${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}
-        </div>
-    ` : '';
     const contactItems = [
         personalInfo.email,
         personalInfo.phone,
         personalInfo.location,
-        personalInfo.nationality,
         personalInfo.website,
+        personalInfo.linkedin,
     ].filter(Boolean);
-    const contactHtml = contactItems.map((item, i) => `${i > 0 ? '<span>&bull;</span>' : ''}<span>${(0, helpers_1.escapeHtml)(item)}</span>`).join('');
+    const contactHtml = contactItems.map((item, i) => `${i > 0 ? '<span>&bull;</span>' : ''}<span style="word-break: break-all;">${(0, helpers_1.escapeHtml)(item)}</span>`).join('');
     const summarySection = personalInfo.summary ? `
         <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
@@ -99,7 +94,7 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
                     <div data-paginate="item" class="resume-entry">
                         <div class="flex justify-between items-baseline">
                             <h3 style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
-                                ${(0, helpers_1.escapeHtml)(edu.school)}
+                                ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                             </h3>
                             <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
                                 ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale)}
@@ -111,6 +106,8 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
                         </p>
                         ${edu.honors ? `<p style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
                         ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: ${s(10)};">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+                    
+                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -160,17 +157,13 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
         </section>
     ` : '';
     const strengthsSection = strengths && strengths.length > 0 ? `
-        <section class="mb-5">
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.strengths}
             </h2>
-            <div class="flex flex-wrap gap-1">
-                ${strengths.map(strength => `
-                    <span data-paginate="item" class="resume-entry" style="background-color: ${effectivePrimary}15; color: ${effectivePrimary}; padding: 4px 10px; border-radius: 4px; font-size: ${s(11)};">
-                        ${(0, helpers_1.escapeHtml)(strength.name)}
-                    </span>
-                `).join('')}
-            </div>
+            <p style="color: ${theme.text}; font-size: ${s(12)}; line-height: 1.6;">
+                ${strengths.map(strength => (0, helpers_1.escapeHtml)(strength.name)).join(' &bull; ')}
+            </p>
         </section>
     ` : '';
     const certificationsSection = certifications && certifications.length > 0 ? `
@@ -185,6 +178,7 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
                         <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)}; margin-left: 8px;">
                             ${(0, helpers_1.escapeHtml)(cert.issuer)} &bull; ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
                         </span>
+                        ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -215,7 +209,7 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
         </section>
     ` : '';
     const interestsSection = interests && interests.length > 0 ? `
-        <section>
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.interests}
             </h2>
@@ -224,15 +218,27 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
             </p>
         </section>
     ` : '';
-    // Social Links section
-    const hasSocialLinks = personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
+    // Personal Details section (nationality + ID/passport/driving license)
+    const hasPersonalDetails = personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber);
+    const personalDetailsSection = hasPersonalDetails ? `
+        <section class="mb-5 resume-section">
+            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
+                ${t.sections.personalDetails}
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${s(12)};">
+                ${personalInfo.nationality ? `<div data-paginate="item"><strong>${t.labels.nationality}:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
+                ${personalInfo.idType && personalInfo.idNumber ? `<div data-paginate="item"><strong>${(0, helpers_1.formatIdType)(personalInfo.idType)}:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}</div>` : ''}
+            </div>
+        </section>
+    ` : '';
+    // Social Links section (LinkedIn excluded — shown in header)
+    const hasSocialLinks = personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram;
     const socialLinksSection = hasSocialLinks ? `
-        <section class="mb-5">
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${t.sections.socialLinks}
             </h2>
             <div class="flex flex-wrap gap-3" style="font-size: ${s(12)};">
-                ${personalInfo.linkedin ? `<span data-paginate="item" style="color: ${theme.text};"><strong>LinkedIn:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</span>` : ''}
                 ${personalInfo.x ? `<span data-paginate="item" style="color: ${theme.text};"><strong>X:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.x)}</span>` : ''}
                 ${personalInfo.github ? `<span data-paginate="item" style="color: ${theme.text};"><strong>GitHub:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</span>` : ''}
                 ${personalInfo.dribbble ? `<span data-paginate="item" style="color: ${theme.text};"><strong>Dribbble:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</span>` : ''}
@@ -241,36 +247,9 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
             </div>
         </section>
     ` : '';
-    // References section
-    const referencesSection = references && references.length > 0 ? `
-        <section class="mb-5">
-            <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
-                ${t.sections.references}
-            </h2>
-            <div class="space-y-2">
-                ${references.map(ref => `
-                    <div data-paginate="item">
-                        <div style="color: ${theme.text}; font-weight: 600; font-size: ${sizeConfig.base};">
-                            ${(0, helpers_1.escapeHtml)(ref.name)}
-                        </div>
-                        <div style="color: ${theme.secondary}; font-size: ${s(12)};">
-                            ${(0, helpers_1.escapeHtml)(ref.title)}${ref.company ? `, ${(0, helpers_1.escapeHtml)(ref.company)}` : ''}
-                        </div>
-                        ${(ref.phone || ref.email) ? `
-                            <div style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">
-                                ${ref.phone ? `<span>${(0, helpers_1.escapeHtml)(ref.phone)}</span>` : ''}
-                                ${ref.phone && ref.email ? '<span> &bull; </span>' : ''}
-                                ${ref.email ? `<span>${(0, helpers_1.escapeHtml)(ref.email)}</span>` : ''}
-                            </div>
-                        ` : ''}
-                    </div>
-                `).join('')}
-            </div>
-        </section>
-    ` : '';
     // Custom Fields section
     const customFieldsSection = customFields.map(field => `
-        <section class="mb-5">
+        <section class="mb-5 resume-section">
             <h2 style="color: ${effectivePrimary}; font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; border-bottom: 1px solid ${effectiveAccent}; padding-bottom: 4px; margin-bottom: 12px;">
                 ${(0, helpers_1.escapeHtml)(field.label)}
             </h2>
@@ -293,7 +272,6 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
                 <div class="flex flex-wrap justify-center gap-3" style="color: ${theme.text}; font-size: ${s(12)};">
                     ${contactHtml}
                 </div>
-                ${idInfo}
             </header>
 
             ${summarySection}
@@ -305,8 +283,8 @@ const renderClassicProfessional = (data, theme, translations, locale = 'en') => 
             ${certificationsSection}
             ${awardsSection}
             ${interestsSection}
+            ${personalDetailsSection}
             ${socialLinksSection}
-            ${referencesSection}
             ${customFieldsSection}
         </div>
     `;

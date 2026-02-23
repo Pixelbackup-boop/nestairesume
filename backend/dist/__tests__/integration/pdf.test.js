@@ -26,6 +26,32 @@ jest.mock('../../lib/sentry', () => ({
     setupSentryErrorHandler: jest.fn(),
     sentryContextMiddleware: jest.fn((req, res, next) => next()),
 }));
+// Mock auth middleware to pass through
+jest.mock('../../middleware/auth', () => ({
+    authenticateToken: jest.fn((req, _res, next) => {
+        req.user = { userId: 'test-user-123', id: 'test-user-123' };
+        next();
+    }),
+    optionalAuth: jest.fn((req, _res, next) => next()),
+    requireAdmin: jest.fn((req, _res, next) => next()),
+}));
+// Mock rate limiters to pass through
+jest.mock('../../middleware/rateLimiter', () => {
+    const passThrough = (_req, _res, next) => next();
+    return {
+        generalLimiter: jest.fn(passThrough),
+        pdfLimiter: jest.fn(passThrough),
+        pdfHourlyLimiter: jest.fn(passThrough),
+        authLimiter: jest.fn(passThrough),
+        webhookLimiter: jest.fn(passThrough),
+        uploadLimiter: jest.fn(passThrough),
+        contactLimiter: jest.fn(passThrough),
+        aiLimiter: jest.fn(passThrough),
+        aiGlobalLimiter: jest.fn(passThrough),
+        aiRateLimiters: [],
+        AI_LIMITS: {},
+    };
+});
 // Mock subscription limits
 jest.mock('../../middleware/subscriptionLimits', () => ({
     checkDownloadLimit: jest.fn((req, res, next) => next()),

@@ -60,7 +60,8 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
         { value: personalInfo.phone, icon: 'phone' },
         { value: personalInfo.email, icon: 'email' },
         { value: personalInfo.location, icon: 'location' },
-        { value: personalInfo.website, icon: 'website' }
+        { value: personalInfo.website, icon: 'website' },
+        { value: personalInfo.linkedin, icon: 'linkedin' }
     ].filter(item => item.value);
     return `
         <!-- Fixed sidebar background - OUTSIDE flex, repeats on all pages -->
@@ -95,7 +96,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader(t.sections.personalDetails)}
-                        <div style="font-size: 11px; display: flex; flex-direction: column; gap: 8px; color: ${sidebarText};">
+                        <div style="font-size: ${fs.body}; display: flex; flex-direction: column; gap: 8px; color: ${sidebarText};">
                             ${personalInfo.nationality ? `<div><span style="font-weight: 500; color: ${accentColor};">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
                                 <div><span style="font-weight: 500; color: ${accentColor};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${(0, helpers_1.escapeHtml)(personalInfo.idNumber)}</div>
@@ -167,7 +168,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
 
                 <!-- Profile -->
                 ${personalInfo.summary ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.profile)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #475569;">
                             ${(0, helpers_1.formatDescription)(personalInfo.summary)}
@@ -177,7 +178,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
 
                 <!-- Experience -->
                 ${experience.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.experience)}
                         <div style="display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
@@ -191,7 +192,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
                                         </span>
                                     </div>
                                     <div style="font-size: ${fs.body}; color: #64748b; margin-bottom: 8px; font-weight: 600;">
-                                        ${(0, helpers_1.escapeHtml)(exp.company)}${exp.city ? ` | ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}
+                                        ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? ` | ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
                                     <div style="font-size: ${fs.body}; line-height: 1.6; color: #475569;">
                                         ${(0, helpers_1.formatDescription)(exp.description || '')}
@@ -204,7 +205,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
 
                 <!-- Education (Moved to Main) -->
                 ${education.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
@@ -212,14 +213,19 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
                                     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: ${sidebarBg}; margin: 0; text-transform: uppercase;">
                                             ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500; text-transform: none;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                         </h4>
                                         <span style="font-size: ${fs.small}; color: ${accentColor}; font-weight: 600;">
                                             ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
                                         </span>
                                     </div>
                                     <div style="font-size: ${fs.body}; color: #64748b; margin-bottom: 2px; font-weight: 600;">
-                                        ${(0, helpers_1.escapeHtml)(edu.school)}
+                                        ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
+                                    ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                    ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                                    ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -228,7 +234,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
 
                 <!-- Certifications -->
                 ${certifications && certifications.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.certifications)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${certifications.map(cert => `
@@ -242,6 +248,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
                                     <div style="font-size: ${fs.small}; color: #64748b;">
                                         ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
                                     </div>
+                                    ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -250,7 +257,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
 
                 <!-- Awards -->
                 ${awards && awards.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.awards)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${awards.map(award => `
@@ -277,7 +284,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
 
                 <!-- Languages -->
                 ${languages && languages.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.languages)}
                         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${languages.map(lang => `
@@ -291,11 +298,11 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
                 ` : ''}
 
                 <!-- Social Links (Moved to Main) -->
-                ${['github', 'x', 'linkedin', 'dribbble', 'behance', 'instagram'].some(net => personalInfo[net]) ? `
-                    <div style="margin-bottom: 24px;">
+                ${['github', 'x', 'dribbble', 'behance', 'instagram'].some(net => personalInfo[net]) ? `
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.socialLinks || 'Social Links')}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                            ${['github', 'x', 'linkedin', 'dribbble', 'behance', 'instagram'].map(network => {
+                            ${['github', 'x', 'dribbble', 'behance', 'instagram'].map(network => {
         const val = personalInfo[network];
         if (!val)
             return '';
@@ -314,7 +321,7 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
 
                 <!-- Interests -->
                 ${interests && interests.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.interests)}
                          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                             ${interests.map(int => `
@@ -327,28 +334,12 @@ const renderSidebarDarkNavy = (data, theme, translations, locale = 'en') => {
                     </div>
                 ` : ''}
                 
-                <!-- References -->
-                ${data.references && data.references.length > 0 ? `
-                    <div style="margin-bottom: 24px;">
-                        ${MainHeader(t.sections.references)}
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                            ${data.references.map(ref => `
-                                <div data-paginate="item">
-                                    <div style="font-weight: 700; font-size: ${fs.sidebarHeading}; color: ${sidebarBg};">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                    <div style="font-size: ${fs.body}; color: #475569;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                    ${ref.email ? `<div style="font-size: ${fs.small}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                    ${ref.phone ? `<div style="font-size: ${fs.small}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
 
 
                 
                 <!-- Custom Fields -->
                 ${customFields.map(field => `
-                    <div style="margin-bottom: 24px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(field.label)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #475569;">
                             ${(0, helpers_1.formatDescription)(field.content)}

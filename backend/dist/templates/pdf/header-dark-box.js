@@ -29,7 +29,7 @@ function getLanguageLevelPercent(proficiency) {
 }
 const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], certifications = [], awards = [], references = [], customFields = [], fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], certifications = [], awards = [], customFields = [], fonts } = data;
     // Note: 'background' not destructured - this template always uses white body
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Inter');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
@@ -150,7 +150,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.profile, (0, helpers_1.getIconSVG)('user', accentColor, sNum(16)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${(0, helpers_1.formatDescription)(personalInfo.summary)}
@@ -160,7 +160,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.experience, (0, helpers_1.getIconSVG)('briefcase', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 20px;">
                                 ${experience.map(exp => `
@@ -174,7 +174,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                                             </span>
                                         </div>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700; margin-bottom: 6px; text-transform: uppercase;">
-                                            ${(0, helpers_1.escapeHtml)(exp.company)} ${exp.city ? `| ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}
+                                            ${(0, helpers_1.escapeHtml)(exp.company)} ${(exp.city || exp.country) ? `| ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
                                         ${exp.description ? `
                                             <p style="font-size: ${fs.body}; color: #4b5563; line-height: 1.5;">
@@ -189,7 +189,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Education (Left Column) -->
                     ${education.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.education, (0, helpers_1.getIconSVG)('graduation-cap', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(0, 2).map(edu => `
@@ -197,14 +197,18 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                                         <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                                             <h4 style="font-weight: 800; font-size: ${fs.entryTitle}; color: #1f2937;">
                                                 ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                                ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                             </h4>
                                             <span style="font-size: ${fs.small}; color: #6b7280; font-weight: 500;">
                                                 ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
                                             </span>
                                         </div>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700;">
-                                            ${(0, helpers_1.escapeHtml)(edu.school)} ${edu.city ? `| ${(0, helpers_1.escapeHtml)(edu.city)}` : ''}
+                                            ${(0, helpers_1.escapeHtml)(edu.school)} ${(edu.city || edu.country) ? `| ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+                                        ${edu.description ? `<p style="font-size: ${fs.small}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -213,7 +217,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Personal Details -->
                     ${personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber) ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.personalDetails, (0, helpers_1.getIconSVG)('id-card', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
                                 ${personalInfo.nationality ? `
@@ -236,13 +240,14 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Education (Right Column - additional) -->
                     ${education.length > 2 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.education + ' (Cont.)', '&#127891;')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.slice(2).map(edu => `
                                     <div data-paginate="item">
                                         <h4 style="font-weight: 800; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 4px;">
                                             ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                         </h4>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 700; margin-bottom: 2px;">
                                             ${(0, helpers_1.escapeHtml)(edu.school)}
@@ -250,6 +255,9 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                                         <span style="font-size: ${fs.small}; color: #6b7280;">
                                             ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
                                         </span>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+                                        ${edu.description ? `<p style="font-size: ${fs.small}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -258,7 +266,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.languages, (0, helpers_1.getIconSVG)('languages', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
@@ -270,7 +278,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Skills (Circular) -->
                     ${skills.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.skills, (0, helpers_1.getIconSVG)('users', accentColor, sNum(16)))}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px;">
                                 ${skills.map(skill => `<div data-paginate="item">${CircularProgress(skill.level ? skill.level * 20 : 80, skill.name)}</div>`).join('')}
@@ -280,7 +288,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Strengths (Bars) -->
                     ${strengths && strengths.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.strengths, (0, helpers_1.getIconSVG)('code', accentColor, sNum(16)))}
                             <div>
                                 ${strengths.map(str => `<div data-paginate="item">${ProgressBar(str.name, str.level ?? 80)}</div>`).join('')}
@@ -290,7 +298,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Interests -->
                     ${interests && interests.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.interests, (0, helpers_1.getIconSVG)('star', accentColor, sNum(16)))}
                             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                                 ${interests.map(int => `
@@ -304,7 +312,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.credentials, (0, helpers_1.getIconSVG)('award', accentColor, sNum(16)))}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -314,6 +322,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #1f2937;">${(0, helpers_1.escapeHtml)(cert.name)}</div>
                                                 <div style="font-size: ${fs.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -327,6 +336,8 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #1f2937;">${(0, helpers_1.escapeHtml)(award.title)}</div>
                                                 <div style="font-size: ${fs.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -337,7 +348,7 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
 
                     <!-- Social Links -->
                     ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader(t.sections.socialLinks, (0, helpers_1.getIconSVG)('globe', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${personalInfo.x ? `
@@ -374,33 +385,9 @@ const renderHeaderDarkBox = (data, theme, translations, locale = 'en') => {
                         </section>
                     ` : ''}
 
-                    <!-- References -->
-                    ${references && references.length > 0 ? `
-                        <section style="margin-bottom: 24px;">
-                            ${SectionHeader(t.sections.references, (0, helpers_1.getIconSVG)('users', accentColor, sNum(16)))}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${references.map(ref => `
-                                    <div data-paginate="item">
-                                        <div style="font-weight: 700; font-size: ${fs.body}; color: #1f2937;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                        <div style="font-size: ${fs.small}; color: ${accentColor}; font-weight: 600;">
-                                            ${(0, helpers_1.escapeHtml)(ref.title)}${ref.company ? `, ${(0, helpers_1.escapeHtml)(ref.company)}` : ''}
-                                        </div>
-                                        ${(ref.email || ref.phone) ? `
-                                            <div style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
-                                                ${ref.email ? `<span>${(0, helpers_1.escapeHtml)(ref.email)}</span>` : ''}
-                                                ${ref.email && ref.phone ? ' • ' : ''}
-                                                ${ref.phone ? `<span>${(0, helpers_1.escapeHtml)(ref.phone)}</span>` : ''}
-                                            </div>
-                                        ` : ''}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <section style="margin-bottom: 24px;">
+                        <section class="resume-section" style="margin-bottom: 24px;">
                             ${SectionHeader((0, helpers_1.escapeHtml)(field.label), (0, helpers_1.getIconSVG)('id-card', accentColor, sNum(16)))}
                             <p style="font-size: ${fs.body}; color: #374151; line-height: 1.6;">
                                 ${(0, helpers_1.formatDescription)(field.content)}

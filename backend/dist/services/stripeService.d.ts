@@ -8,8 +8,6 @@ interface PlanConfig {
     aiLimit: number;
     downloadLimit: number;
     coverLetterLimit: number;
-    trialDailyLimit: number;
-    hasTrial: boolean;
 }
 export declare const PLANS: Record<PlanType, PlanConfig>;
 export declare const getOrCreateCustomer: (userId: string, email: string, name: string) => Promise<string>;
@@ -22,13 +20,10 @@ export declare const getSubscriptionStatus: (userId: string) => Promise<{
         aiLimit: number;
         downloadLimit: number;
         coverLetterLimit: number;
-        dailyLimit: number;
     } | null;
-    isTrialing: boolean;
     subscriptionTier: string;
     stripeCustomerId: string | null;
     subscriptionStatus: string | null;
-    trialEndsAt: Date | null;
     cvCreatedCount: number;
     aiUsedCount: number;
     aiUsedToday: number;

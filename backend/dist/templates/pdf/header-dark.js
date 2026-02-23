@@ -203,7 +203,7 @@ const renderHeaderDark = (data, theme, translations, locale = 'en') => {
                                         </h4>
                                     </div>
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: ${s(12)}; color: #64748b; font-weight: 600;">
-                                        <span>${(0, helpers_1.escapeHtml)(exp.company)}${exp.city ? `, ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}</span>
+                                        <span>${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}</span>
                                         <span>${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} – ${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}</span>
                                     </div>
                                     <div style="font-size: ${s(13)}; line-height: 1.6; color: #334155;">
@@ -224,13 +224,18 @@ const renderHeaderDark = (data, theme, translations, locale = 'en') => {
                                 <div data-paginate="item" class="resume-entry">
                                     <h4 style="font-weight: 700; font-size: ${s(15)}; color: #0f172a; margin: 0;">
                                         ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-size: ${s(13)};">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                     </h4>
                                     <p style="font-size: ${s(13)}; color: #475569; font-weight: 500; margin: 2px 0;">
-                                        ${(0, helpers_1.escapeHtml)(edu.school)}${edu.city ? `, ${(0, helpers_1.escapeHtml)(edu.city)}` : ''}
+                                        ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                     </p>
                                     <p style="font-size: ${s(12)}; color: #64748b; margin: 0;">
                                         ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
                                     </p>
+                                    ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                    ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                                    ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -279,6 +284,7 @@ const renderHeaderDark = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item" class="resume-entry">
                                                 <div style="font-weight: 700; font-size: ${s(13)}; color: #0f172a;">${(0, helpers_1.escapeHtml)(cert.name)}</div>
                                                 <div style="font-size: ${s(12)}; color: #64748b;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -292,6 +298,8 @@ const renderHeaderDark = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item" class="resume-entry">
                                                 <div style="font-weight: 700; font-size: ${s(13)}; color: #0f172a;">${(0, helpers_1.escapeHtml)(award.title)}</div>
                                                 <div style="font-size: ${s(12)}; color: #64748b;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -301,22 +309,6 @@ const renderHeaderDark = (data, theme, translations, locale = 'en') => {
                     </section>
                 ` : ''}
 
-                <!-- References -->
-                ${data.references && data.references.length > 0 ? `
-                    <section class="resume-section" style="margin-bottom: 40px;">
-                        ${MainSectionHeader(t.sections.references)}
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            ${data.references.map(ref => `
-                                <div data-paginate="item" class="resume-entry">
-                                    <div style="font-weight: 700; font-size: ${s(13)}; color: #0f172a;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                    <div style="font-size: ${s(12)}; color: #64748b;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                    ${ref.email ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                    ${ref.phone ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </section>
-                ` : ''}
 
 
 

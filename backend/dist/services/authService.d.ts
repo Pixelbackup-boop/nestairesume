@@ -1,6 +1,7 @@
 export declare const hashPassword: (password: string) => Promise<string>;
 export declare const verifyPassword: (password: string, hashedPassword: string) => Promise<boolean>;
 export declare const createAccessToken: (userId: string, email: string, role: string) => string;
+export declare const refreshAccessToken: (expiredToken: string) => Promise<string>;
 export declare const registerUser: (email: string, password: string, name: string) => Promise<{
     id: string;
     email: string;

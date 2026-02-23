@@ -32,6 +32,9 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const auth_1 = require("../middleware/auth");
@@ -40,8 +43,7 @@ const adSettingsService = __importStar(require("../services/adSettingsService"))
 const tawkSettingsService = __importStar(require("../services/tawkSettingsService"));
 const subscriptionLimits_1 = require("../middleware/subscriptionLimits");
 const stripeService_1 = require("../services/stripeService");
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
+const database_1 = __importDefault(require("../config/database"));
 const router = (0, express_1.Router)();
 // All admin routes require authentication + admin role
 router.use(auth_1.authenticateToken);
@@ -251,7 +253,6 @@ router.get("/plans", (_req, res) => {
             aiLimit: config.aiLimit,
             downloadLimit: config.downloadLimit,
             coverLetterLimit: config.coverLetterLimit,
-            trialDailyLimit: config.trialDailyLimit,
         };
     }
     res.json(plans);
@@ -264,13 +265,19 @@ router.put("/plans/:planType", async (req, res) => {
             res.status(400).json({ detail: "Invalid plan type" });
             return;
         }
-        const { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit } = req.body;
-        await prisma.planConfig.upsert({
-            where: { planType },
-            update: { cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
-            create: { planType, cvLimit, aiLimit, downloadLimit, coverLetterLimit, trialDailyLimit },
-        });
-        await (0, stripeService_1.reloadPlansFromDb)();
+        const { cvLimit, aiLimit, downloadLimit, coverLetterLimit } = req.body;
+        // Update in-memory plan limits directly (no DB table)
+        const plan = stripeService_1.PLANS[planType];
+        if (plan) {
+            if (cvLimit !== undefined)
+                plan.cvLimit = cvLimit;
+            if (aiLimit !== undefined)
+                plan.aiLimit = aiLimit;
+            if (downloadLimit !== undefined)
+                plan.downloadLimit = downloadLimit;
+            if (coverLetterLimit !== undefined)
+                plan.coverLetterLimit = coverLetterLimit;
+        }
         res.json({ success: true, plan: stripeService_1.PLANS[planType] });
     }
     catch (error) {
@@ -317,6 +324,79 @@ router.post("/tawk/settings", async (req, res) => {
     }
     catch (error) {
         const message = error instanceof Error ? error.message : "Failed to save tawk settings";
+        res.status(500).json({ detail: message });
+    }
+});
+// Template feedback management
+router.get("/template-feedback", async (req, res) => {
+    try {
+        const page = Math.max(1, parseInt(req.query.page) || 1);
+        const limit = Math.min(50, Math.max(1, parseInt(req.query.limit) || 20));
+        const status = req.query.status;
+        const templateId = req.query.templateId;
+        const skip = (page - 1) * limit;
+        const where = {};
+        if (status && ["pending", "reviewed", "resolved"].includes(status)) {
+            where.status = status;
+        }
+        if (templateId) {
+            where.templateId = templateId;
+        }
+        const [feedback, total] = await Promise.all([
+            database_1.default.templateFeedback.findMany({
+                where,
+                select: {
+                    id: true,
+                    templateId: true,
+                    type: true,
+                    message: true,
+                    status: true,
+                    adminNote: true,
+                    createdAt: true,
+                    user: { select: { id: true, name: true, email: true } },
+                },
+                orderBy: { createdAt: "desc" },
+                skip,
+                take: limit,
+            }),
+            database_1.default.templateFeedback.count({ where }),
+        ]);
+        res.json({ feedback, total, page, totalPages: Math.ceil(total / limit) });
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to get feedback";
+        res.status(500).json({ detail: message });
+    }
+});
+router.patch("/template-feedback/:id", async (req, res) => {
+    try {
+        const { status, adminNote } = req.body;
+        const updateData = {};
+        if (status && ["pending", "reviewed", "resolved"].includes(status)) {
+            updateData.status = status;
+        }
+        if (adminNote !== undefined) {
+            updateData.adminNote = adminNote;
+        }
+        const updated = await database_1.default.templateFeedback.update({
+            where: { id: req.params.id },
+            data: updateData,
+            select: { id: true, status: true, adminNote: true, updatedAt: true },
+        });
+        res.json(updated);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to update feedback";
+        res.status(500).json({ detail: message });
+    }
+});
+router.delete("/template-feedback/:id", async (req, res) => {
+    try {
+        await database_1.default.templateFeedback.delete({ where: { id: req.params.id } });
+        res.json({ success: true, message: "Feedback deleted" });
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to delete feedback";
         res.status(500).json({ detail: message });
     }
 });

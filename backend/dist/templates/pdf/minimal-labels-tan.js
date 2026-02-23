@@ -35,7 +35,7 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
     `;
     // Helper for Row Layout
     const Row = (label, content) => `
-        <div style="display: flex; margin-bottom: 0;">
+        <div class="resume-section" style="display: flex; margin-bottom: 0;">
             <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                 <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${label}</h3>
             </div>
@@ -77,7 +77,7 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
 
                 <!-- Experience -->
                 ${experience.length > 0 ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.experience}</h3>
                         </div>
@@ -86,7 +86,7 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
                                 <div data-paginate="item">
                                     <h4 style="font-weight: 600; font-size: ${s(14)}; color: #000; margin: 0;">${(0, helpers_1.escapeHtml)(exp.title)}</h4>
                                     <div style="font-size: ${s(14)}; color: ${data.customThemeColor || labelText}; margin-bottom: 8px;">
-                                        ${(0, helpers_1.escapeHtml)(exp.company)}, ${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)}–${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}
+                                        ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''} | ${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)}–${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}
                                     </div>
                                     <p style="margin: 0; line-height: 1.6; font-size: ${s(14)};">
                                         ${(0, helpers_1.formatDescription)(exp.description || '')}
@@ -99,17 +99,24 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
 
                 <!-- Education -->
                 ${education.length > 0 ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.education}</h3>
                         </div>
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
                                 <div data-paginate="item">
-                                    <h4 style="font-weight: 600; font-size: ${s(14)}; color: #000; margin: 0;">${(0, helpers_1.escapeHtml)(edu.degree)}</h4>
+                                    <h4 style="font-weight: 600; font-size: ${s(14)}; color: #000; margin: 0;">
+                                        ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 400;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
+                                    </h4>
                                     <div style="font-size: ${s(14)}; color: ${labelText};">
-                                        ${(0, helpers_1.escapeHtml)(edu.school)} | ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)}–${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
+                                        ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''} | ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)}–${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
                                     </div>
+                                    ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                    ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                                    ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -118,7 +125,7 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
 
                 <!-- Skills -->
                 ${skills.length > 0 ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.skills}</h3>
                         </div>
@@ -155,7 +162,7 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
 
                 <!-- Credentials -->
                 ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                    <div style="display: flex;">
+                    <div class="resume-section" style="display: flex;">
                         <div style="width: 30%; padding-right: 24px; flex-shrink: 0;">
                             <h3 style="font-size: ${s(18)}; font-weight: 600; color: #000; margin: 0;">${t.sections.credentials}</h3>
                         </div>
@@ -168,6 +175,7 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(14)}; color: ${mainText};">${(0, helpers_1.escapeHtml)(cert.name)}</div>
                                                 <div style="font-size: ${s(12)}; color: ${labelText};">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -181,6 +189,8 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(14)}; color: ${mainText};">${(0, helpers_1.escapeHtml)(award.title)}</div>
                                                 <div style="font-size: ${s(12)}; color: ${labelText};">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -198,19 +208,6 @@ const renderMinimalLabelsTan = (data, theme, translations, locale = 'en') => {
                         ${personalInfo.dribbble ? `<div><span style="font-weight: 600;">Dribbble:</span> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
                         ${personalInfo.behance ? `<div><span style="font-weight: 600;">Behance:</span> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</div>` : ''}
                         ${personalInfo.instagram ? `<div><span style="font-weight: 600;">Instagram:</span> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</div>` : ''}
-                    </div>
-                `) : ''}
-
-                <!-- References -->
-                ${data.references && data.references.length > 0 ? Row(t.sections.references, `
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                        ${data.references.map(ref => `
-                            <div data-paginate="item">
-                                <div style="font-weight: 600; font-size: ${s(14)}; color: ${mainText};">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                <div style="font-size: ${s(12)}; color: ${labelText};">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                ${ref.email ? `<div style="font-size: ${s(12)}; color: ${labelText};">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                            </div>
-                        `).join('')}
                     </div>
                 `) : ''}
 

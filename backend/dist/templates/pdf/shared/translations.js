@@ -21,7 +21,6 @@ exports.defaultTranslations = {
         strengths: 'Strengths',
         certifications: 'Certifications',
         awards: 'Awards',
-        references: 'References',
         summary: 'Summary',
         profile: 'Profile',
         contact: 'Contact',
@@ -32,6 +31,7 @@ exports.defaultTranslations = {
     },
     labels: {
         present: 'Present',
+        nationality: 'Nationality',
     },
 };
 /**

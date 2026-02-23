@@ -18,8 +18,6 @@ export declare const incrementDownloadCount: (userId: string) => Promise<void>;
 export declare const incrementCoverLetterCount: (userId: string) => Promise<void>;
 export declare const getUsageStatus: (userId: string) => Promise<{
     tier: string;
-    isTrialing: boolean;
-    trialEndsAt: Date | null;
     usage: {
         cv: {
             used: number;

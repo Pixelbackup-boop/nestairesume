@@ -45,6 +45,7 @@ jest.mock('../../middleware/rateLimiter', () => {
         uploadLimiter: jest.fn(passThrough),
         aiLimiter: jest.fn(passThrough),
         aiGlobalLimiter: jest.fn(passThrough),
+        contactLimiter: jest.fn(passThrough),
         aiRateLimiters: [],
         AI_LIMITS: {},
     };

@@ -42,19 +42,21 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
     const contactItems = [
         personalInfo.email,
         personalInfo.phone,
-        personalInfo.location
+        personalInfo.location,
+        personalInfo.website,
+        personalInfo.linkedin,
     ].filter(Boolean);
     return `
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${sizeConfig.base}; background-color: #FFFFFF; color: ${mainText}; padding: 56px; box-sizing: border-box; display: flex; flex-direction: column;">
             
             <!-- Header -->
             <header style="margin-bottom: 56px; border-bottom: 2px solid ${accentColor}; padding-bottom: 24px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <div>
-                        <h1 style="font-family: ${headingFont}; font-size: 38px; font-weight: 700; color: #000; text-transform: uppercase; margin: 0 0 4px 0;">
+                        <h1 style="font-family: ${headingFont}; font-size: ${s(38)}; font-weight: 700; color: #000; text-transform: uppercase; margin: 0 0 4px 0;">
                             ${(0, helpers_1.escapeHtml)(personalInfo.fullName || 'Your Name')}
                         </h1>
-                        <p style="font-size: 16px; color: ${accentColor}; font-weight: 600; margin: 0;">
+                        <p style="font-size: ${s(16)}; color: ${accentColor}; font-weight: 600; margin: 0;">
                             ${(0, helpers_1.escapeHtml)(personalInfo.jobTitle || 'Job Title')}
                         </p>
                     </div>
@@ -67,9 +69,9 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
 
             <!-- Profile -->
             ${personalInfo.summary ? `
-                <section style="margin-bottom: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
                     ${SectionHeader(t.sections.profile)}
-                    <p style="line-height: 1.6; font-size: 14px; color: #374151; padding-left: 8px;">
+                    <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${(0, helpers_1.formatDescription)(personalInfo.summary)}
                     </p>
                 </section>
@@ -77,7 +79,7 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
 
             <!-- Experience -->
             ${experience.length > 0 ? `
-                <section style="margin-bottom: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
                     ${SectionHeader(t.sections.experience)}
                     <div style="display: flex; flex-direction: column; gap: 32px; padding-left: 8px;">
                         ${experience.map(exp => `
@@ -87,7 +89,7 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                                     <span style="font-size: ${s(12)}; color: #4b5563;">${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} – ${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}</span>
                                 </div>
                                 <div style="font-size: ${s(12)}; color: ${accentColor}; font-weight: 600; margin-bottom: 4px;">
-                                    ${(0, helpers_1.escapeHtml)(exp.company)}${exp.city ? `, ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}
+                                    ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                 </div>
                                 <div style="font-size: ${s(14)}; line-height: 1.6; color: #374151;">
                                     ${(0, helpers_1.formatDescription)(exp.description || '')}
@@ -99,6 +101,7 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
             ` : ''}
 
             <!-- Two Column for Ed/Skills -->
+            <section class="resume-section" style="margin-bottom: 40px;">
             <div style="display: flex; gap: 32px;">
                 <!-- Education -->
                 ${education.length > 0 ? `
@@ -107,9 +110,16 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                         <div style="display: flex; flex-direction: column; gap: 16px; padding-left: 8px;">
                             ${education.map(edu => `
                                 <div data-paginate="item">
-                                    <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">${(0, helpers_1.escapeHtml)(edu.degree)}</h4>
-                                    <div style="font-size: ${s(14)}; color: #4b5563;">${(0, helpers_1.escapeHtml)(edu.school)}, ${(0, helpers_1.escapeHtml)(edu.city)}</div>
+                                    <h4 style="font-weight: 700; font-size: ${s(14)}; color: #000; margin: 0;">
+                                        ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
+                                    </h4>
+                                    <div style="font-size: ${s(14)}; color: #4b5563;">${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}</div>
                                     <div style="font-size: ${s(12)}; color: #6b7280;">${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}</div>
+                                    ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                    ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                                    ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -126,10 +136,12 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                     </div>
                 ` : '<div style="flex: 1;"></div>'}
             </div>
+            </section>
 
             <!-- Languages and Strengths Row -->
             ${(languages && languages.length > 0) || (strengths && strengths.length > 0) ? `
-                <div style="display: flex; gap: 32px; margin-top: 40px;">
+                <section class="resume-section" style="margin-bottom: 40px;">
+                <div style="display: flex; gap: 32px;">
                     ${languages && languages.length > 0 ? `
                         <div style="flex: 1;">
                             ${SectionHeader(t.sections.languages)}
@@ -153,11 +165,12 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                         </div>
                     ` : '<div style="flex: 1;"></div>'}
                 </div>
+                </section>
             ` : ''}
 
             <!-- Interests -->
             ${interests && interests.length > 0 ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.interests)}
                     <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${interests.map(i => (0, helpers_1.escapeHtml)(i.name)).join(' • ')}
@@ -165,9 +178,23 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                 </section>
             ` : ''}
 
+            <!-- Social Links -->
+            ${(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                <section class="resume-section" style="margin-top: 40px;">
+                    ${SectionHeader(t.sections.socialLinks)}
+                    <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
+                        ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.github)}</span></div>` : ''}
+                        ${personalInfo.x ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">X:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.x)}</span></div>` : ''}
+                        ${personalInfo.dribbble ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</span></div>` : ''}
+                        ${personalInfo.behance ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.behance)}</span></div>` : ''}
+                        ${personalInfo.instagram ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</span></div>` : ''}
+                    </div>
+                </section>
+            ` : ''}
+
             <!-- Credentials -->
             ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.credentials)}
                     <div style="padding-left: 8px;">
                         ${certifications && certifications.length > 0 ? `
@@ -178,6 +205,7 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                                         <div data-paginate="item">
                                             <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${(0, helpers_1.escapeHtml)(cert.name)}</div>
                                             <div style="font-size: ${s(12)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                            ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                         </div>
                                     `).join('')}
                                 </div>
@@ -191,6 +219,8 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                                         <div data-paginate="item">
                                             <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${(0, helpers_1.escapeHtml)(award.title)}</div>
                                             <div style="font-size: ${s(12)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                                        
+                                            ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                                         </div>
                                     `).join('')}
                                 </div>
@@ -200,42 +230,9 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
                 </section>
             ` : ''}
 
-            <!-- Social Links -->
-            ${(personalInfo.github || personalInfo.x || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram || personalInfo.website) ? `
-                <section style="margin-top: 40px;">
-                    ${SectionHeader(t.sections.socialLinks)}
-                    <div style="padding-left: 8px; display: flex; flex-direction: column; gap: 8px; font-size: ${s(13)};">
-                        ${personalInfo.linkedin ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">LinkedIn:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</span></div>` : ''}
-                        ${personalInfo.github ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">GitHub:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.github)}</span></div>` : ''}
-                        ${personalInfo.x ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">X:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.x)}</span></div>` : ''}
-                        ${personalInfo.dribbble ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Dribbble:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</span></div>` : ''}
-                        ${personalInfo.behance ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Behance:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.behance)}</span></div>` : ''}
-                        ${personalInfo.instagram ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Instagram:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</span></div>` : ''}
-                        ${personalInfo.website ? `<div data-paginate="item"><span style="font-weight: 600; color: #1f2937;">Website:</span> <span style="color: ${accentColor};">${(0, helpers_1.escapeHtml)(personalInfo.website)}</span></div>` : ''}
-                    </div>
-                </section>
-            ` : ''}
-
-            <!-- References -->
-            ${data.references && data.references.length > 0 ? `
-                <section style="margin-top: 40px;">
-                    ${SectionHeader(t.sections.references)}
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 8px;">
-                        ${data.references.map(ref => `
-                            <div data-paginate="item">
-                                <div style="font-weight: 600; font-size: ${s(14)}; color: #000;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                <div style="font-size: ${s(13)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                ${ref.email ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                ${ref.phone ? `<div style="font-size: ${s(12)}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                            </div>
-                        `).join('')}
-                    </div>
-                </section>
-            ` : ''}
-
             <!-- Personal Details -->
             ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.personalDetails)}
                     <div style="padding-left: 8px; font-size: ${s(14)}; color: #374151;">
                         ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
@@ -248,7 +245,7 @@ const renderMinimalBlueSections = (data, theme, translations, locale = 'en') => 
 
             <!-- Custom Fields -->
             ${customFields.map(field => `
-                <section style="margin-top: 40px;">
+                <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(field.label)}
                     <p style="line-height: 1.6; font-size: ${s(14)}; color: #374151; padding-left: 8px;">
                         ${(0, helpers_1.formatDescription)(field.content)}

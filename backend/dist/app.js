@@ -26,6 +26,8 @@ const resumeParser_1 = __importDefault(require("./routes/resumeParser"));
 const mockInterview_1 = __importDefault(require("./routes/mockInterview"));
 const ads_1 = __importDefault(require("./routes/ads"));
 const contact_1 = __importDefault(require("./routes/contact"));
+const community_1 = __importDefault(require("./routes/community"));
+const templateFeedback_1 = __importDefault(require("./routes/templateFeedback"));
 const rateLimiter_1 = require("./middleware/rateLimiter");
 // Import middleware (only if not in test environment)
 const isTestEnv = process.env.NODE_ENV === 'test';
@@ -111,6 +113,8 @@ app.use("/api/v1/resume", resumeParser_1.default);
 app.use("/api/v1/interview", mockInterview_1.default);
 app.use("/api/v1/ads", ads_1.default);
 app.use("/api/v1/contact", contact_1.default);
+app.use("/api/v1/community", community_1.default);
+app.use("/api/v1/template-feedback", templateFeedback_1.default);
 // Generic error handler
 app.use((err, _req, res, _next) => {
     console.error('Unhandled error:', err);

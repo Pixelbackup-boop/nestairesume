@@ -28,7 +28,7 @@ const icons = {
 };
 const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], awards = [], certifications = [], references = [], customFields = [], fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], awards = [], certifications = [], customFields = [], fonts } = data;
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Merriweather');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
     const sizeConfig = data.fonts?.size || 'medium'; // 'small' | 'medium' | 'large'
@@ -99,7 +99,8 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                         ${personalInfo.email ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.email)}</span>` : ''}
                         ${personalInfo.phone ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.phone)}</span>` : ''}
                         ${personalInfo.location ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.location)}</span>` : ''}
-                        ${personalInfo.website ? `<span>${(0, helpers_1.escapeHtml)(personalInfo.website)}</span>` : ''}
+                        ${personalInfo.website ? `<span style="word-break: break-all;">${(0, helpers_1.escapeHtml)(personalInfo.website)}</span>` : ''}
+                        ${personalInfo.linkedin ? `<span style="word-break: break-all;">${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</span>` : ''}
                     </div>
                 </div>
 
@@ -116,14 +117,14 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                 <div style="width: 60%;">
 
                     ${personalInfo.summary ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.profile, 'user')}
                             <p style="line-height: 1.6; font-size: ${sizes.body};">${(0, helpers_1.formatDescription)(personalInfo.summary)}</p>
                         </section>
                     ` : ''}
 
                     ${experience.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.experience, 'briefcase')}
                             <div style="display: flex; flex-direction: column; gap: 24px;">
                                 ${experience.map(exp => `
@@ -135,7 +136,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                                             </span>
                                         </div>
                                         <p style="font-size: ${sizes.body}; font-weight: 500; color: ${accentColor}; margin-bottom: 4px;">
-                                            ${(0, helpers_1.escapeHtml)(exp.company)}, ${(0, helpers_1.escapeHtml)(exp.city)}
+                                            ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
                                         <p style="font-size: ${sizes.body}; line-height: 1.5;">
                                             ${(0, helpers_1.formatDescription)(exp.description || '')}
@@ -147,18 +148,25 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     ${education.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.education, 'graduationCap')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.map(edu => `
                                     <div data-paginate="item" style="page-break-inside: avoid;">
-                                        <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}; color: #111827;">${(0, helpers_1.escapeHtml)(edu.degree)}</h4>
+                                        <h4 style="font-weight: 700; font-size: ${sizes.entryTitle}; color: #111827;">
+                                            ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
+                                        </h4>
                                         <p style="font-size: ${sizes.body}; font-weight: 500; color: ${accentColor};">
-                                            ${(0, helpers_1.escapeHtml)(edu.school)}, ${(0, helpers_1.escapeHtml)(edu.city)}
+                                            ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                         </p>
                                         <p style="font-size: ${sizes.small}; color: #6b7280;">
                                             ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.current ? t.labels.present : (edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present)}
                                         </p>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -167,7 +175,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
 
                     <!-- Personal Details -->
                     ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.personalDetails, 'fileText')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
                                 ${personalInfo.nationality ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
@@ -190,7 +198,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
 
                     <!-- Skills -->
                     ${skills.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.skills, 'wrench')}
                             <div>
                                 ${skills.map(skill => StripedProgressBar(skill.name, (skill.level || 3) * 20)).join('')}
@@ -200,7 +208,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.languages, 'messageCircle')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
@@ -215,7 +223,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
 
                     <!-- Strengths -->
                     ${strengths && strengths.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.strengths, 'zap')}
                             <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                                 ${strengths.map(str => `
@@ -229,7 +237,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
 
                     <!-- Interests -->
                     ${interests && interests.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.interests, 'star')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${interests.map(int => `
@@ -243,7 +251,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.credentials, 'trophy')}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -255,6 +263,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                                                 <p style="font-size: ${sizes.small}; color: #6b7280;">
                                                     ${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
                                                 </p>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -270,6 +279,7 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                                                 <p style="font-size: ${sizes.small}; color: #6b7280;">
                                                     ${(0, helpers_1.escapeHtml)(awr.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(awr.date, locale)}
                                                 </p>
+                                                ${awr.description ? `<p style="font-size: ${sizes.small}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(awr.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -279,11 +289,10 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section style="margin-bottom: 32px;">
+                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.socialLinks, 'link')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
-                                ${personalInfo.linkedin ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">LinkedIn:</span> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</div>` : ''}
                                 ${personalInfo.x ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">X:</span> ${(0, helpers_1.escapeHtml)(personalInfo.x)}</div>` : ''}
                                 ${personalInfo.github ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">GitHub:</span> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</div>` : ''}
                                 ${personalInfo.dribbble ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Dribbble:</span> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
@@ -293,26 +302,9 @@ const renderHeaderDecorative = (data, theme, translations, locale = 'en') => {
                         </section>
                     ` : ''}
 
-                    <!-- References -->
-                    ${references && references.length > 0 ? `
-                        <section style="margin-bottom: 32px;">
-                            ${SectionHeader(t.sections.references, 'clipboardList')}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${references.map(ref => `
-                                    <div data-paginate="item" style="page-break-inside: avoid;">
-                                        <div style="font-weight: 700; font-size: ${sizes.body}; color: #111827;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                        <div style="font-size: ${sizes.small}; color: #6b7280;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                        ${ref.email ? `<div style="font-size: ${sizes.small}; color: #374151;">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                        ${ref.phone ? `<div style="font-size: ${sizes.small}; color: #374151;">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <section style="margin-bottom: 32px;">
+                        <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader((0, helpers_1.escapeHtml)(field.label), 'pin')}
                             <p data-paginate="item" style="font-size: ${sizes.body}; line-height: 1.6; page-break-inside: avoid;">${(0, helpers_1.formatDescription)(field.content)}</p>
                         </section>

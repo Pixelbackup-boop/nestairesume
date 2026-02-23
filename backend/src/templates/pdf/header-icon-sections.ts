@@ -73,7 +73,7 @@ export const renderHeaderIconSections = (
 
     const BoxSection = (title: string, icon: string, content: string) => `
         <section class="resume-section" style="margin-bottom: 32px;">
-            <div>
+            <div data-paginate="item">
                 <div style="display: flex; align-items: center; gap: 12px; border: 1px solid ${borderColor}; background-color: #ffffff; padding: 8px 24px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1); margin-bottom: 12px;">
                     <span style="background-color: ${orangeAccent}; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         ${icon}
@@ -182,66 +182,46 @@ export const renderHeaderIconSections = (
                 </div>
             `) : ''}
 
-            <!-- Skills & Strengths Row -->
-            <div style="display: flex; gap: 32px;">
-                <!-- Skills Section -->
-                ${skills.length > 0 ? `
-                    <div style="flex: 1;">
-                        ${BoxSection(t.sections.skills, getIconSVG('users', '#ffffff', sNum(16)), `
-                            <div>
-                                ${skills.map(skill => ProgressBar(skill.name, skill.level ? skill.level * 20 : 80)).join('')}
-                            </div>
-                        `)}
-                    </div>
-                ` : ''}
+            <!-- Skills Section -->
+            ${skills.length > 0 ? BoxSection(t.sections.skills, getIconSVG('users', '#ffffff', sNum(16)), `
+                <div>
+                    ${skills.map(skill => ProgressBar(skill.name, skill.level ? skill.level * 20 : 80)).join('')}
+                </div>
+            `) : ''}
 
-                <!-- Strengths Section -->
-                ${strengths && strengths.length > 0 ? `
-                    <div style="flex: 1;">
-                        ${BoxSection(t.sections.strengths, getIconSVG('code', '#ffffff', sNum(16)), `
-                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                ${strengths.map(str => `
-                                    <span data-paginate="item" style="background-color: #fff7ed; color: ${orangeAccent}; border: 1px solid ${orangeAccent}; padding: 4px 12px; border-radius: 4px; font-size: ${fs.small}; font-weight: 600; display: inline-block;">
-                                        ${escapeHtml(str.name)}
-                                    </span>
-                                `).join('')}
-                            </div>
-                        `)}
-                    </div>
-                ` : ''}
-            </div>
+            <!-- Strengths Section -->
+            ${strengths && strengths.length > 0 ? BoxSection(t.sections.strengths, getIconSVG('code', '#ffffff', sNum(16)), `
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    ${strengths.map(str => `
+                        <span data-paginate="item" style="background-color: #fff7ed; color: ${orangeAccent}; border: 1px solid ${orangeAccent}; padding: 4px 12px; border-radius: 4px; font-size: ${fs.small}; font-weight: 600; display: inline-block;">
+                            ${escapeHtml(str.name)}
+                        </span>
+                    `).join('')}
+                </div>
+            `) : ''}
 
-            <!-- Languages & Interests Row -->
-            <div style="display: flex; gap: 32px;">
-                ${languages && languages.length > 0 ? `
-                    <div style="flex: 1;">
-                        ${BoxSection(t.sections.languages, getIconSVG('languages', '#ffffff', sNum(16)), `
-                            <div style="display: flex; flex-direction: column; gap: 8px;">
-                                ${languages.map(lang => `
-                                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;" data-paginate="item">
-                                        <span style="font-weight: 600;">${escapeHtml(lang.name)}</span>
-                                        <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        `)}
-                    </div>
-                ` : ''}
+            <!-- Languages Section -->
+            ${languages && languages.length > 0 ? BoxSection(t.sections.languages, getIconSVG('languages', '#ffffff', sNum(16)), `
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    ${languages.map(lang => `
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;" data-paginate="item">
+                            <span style="font-weight: 600;">${escapeHtml(lang.name)}</span>
+                            <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `) : ''}
 
-                ${interests && interests.length > 0 ? `
-                    <div style="flex: 1;">
-                        ${BoxSection(t.sections.interests, getIconSVG('star', '#ffffff', sNum(16)), `
-                            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                                ${interests.map(int => `
-                                    <span data-paginate="item" style="display: flex; align-items: center; gap: 6px;">
-                                        ${getIconSVG('star', orangeAccent, sNum(12))} ${escapeHtml(int.name)}
-                                    </span>
-                                `).join('')}
-                            </div>
-                        `)}
-                    </div>
-                ` : ''}
-            </div>
+            <!-- Interests Section -->
+            ${interests && interests.length > 0 ? BoxSection(t.sections.interests, getIconSVG('star', '#ffffff', sNum(16)), `
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    ${interests.map(int => `
+                        <span data-paginate="item" style="display: flex; align-items: center; gap: 6px;">
+                            ${getIconSVG('star', orangeAccent, sNum(12))} ${escapeHtml(int.name)}
+                        </span>
+                    `).join('')}
+                </div>
+            `) : ''}
 
             <!-- Personal Details (Boxed) -->
             ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? BoxSection(t.sections.personalDetails, getIconSVG('id-card', '#ffffff', sNum(16)), `

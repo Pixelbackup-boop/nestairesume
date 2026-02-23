@@ -81,7 +81,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                 <div style="flex: 1; min-width: 0;">
                     
                     ${personalInfo.summary ? `
-                        <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin-bottom: 32px;">
+                        <div class="resume-section" style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin-bottom: 32px;">
                             <h3 style="font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; text-transform: uppercase; color: ${theme.primary}; margin-bottom: 12px;">${t.sections.profile}</h3>
                             <p style="font-size: ${s(13)}; line-height: 1.6; color: #4b5563;">
                                 ${(0, helpers_1.formatDescription)(personalInfo.summary)}
@@ -90,7 +90,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     ${experience.length > 0 ? `
-                        <div style="margin-bottom: 32px;">
+                        <div class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.experience, 'briefcase')}
                             <div style="display: flex; flex-direction: column; gap: 24px;">
                                 ${experience.map(exp => `
@@ -102,7 +102,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                                         </div>
                                         
                                         <div style="display: flex; justify-content: space-between; font-size: ${s(12)}; font-weight: 600; color: ${theme.primary}; margin-bottom: 8px;">
-                                            <span>${(0, helpers_1.escapeHtml)(exp.company)}</span>
+                                            <span>${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}</span>
                                             <span>${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} – ${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}</span>
                                         </div>
 
@@ -116,19 +116,24 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     ${education.length > 0 ? `
-                        <div style="margin-bottom: 32px;">
+                        <div class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.education, 'graduation-cap')}
                             <div style="display: flex; flex-direction: column; gap: 16px;">
                                 ${education.map(edu => `
                                     <div data-paginate="item" style="display: flex; gap: 16px; align-items: center;">
                                         <div style="width: 4px; height: 40px; background-color: ${theme.secondary}; border-radius: 2px;"></div>
                                         <div>
-                                            <h4 style="font-family: ${headingFont}; font-size: 14px; font-weight: 700; color: ${theme.heading}; margin: 0;">${(0, helpers_1.escapeHtml)(edu.school)}</h4>
-                                            <div style="font-size: 12px; color: #4b5563;">
+                                            <h4 style="font-family: ${headingFont}; font-size: ${s(14)}; font-weight: 700; color: ${theme.heading}; margin: 0;">${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}</h4>
+                                            <div style="font-size: ${s(12)}; color: #4b5563;">
                                                 <span style="font-weight: 600; color: ${theme.primary};">${(0, helpers_1.escapeHtml)(edu.degree)}</span>
+                                                ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                                 <span style="color: #9ca3af;"> • ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${(0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale)}</span>
                                             </div>
+                                            ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                            ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
                                         </div>
+
+                                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -137,7 +142,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
 
                     <!-- Personal Details -->
                     ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                        <div style="margin-bottom: 32px;">
+                        <div class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.personalDetails, 'user')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(12)}; color: #4b5563;">
                                 ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600; color: ${theme.heading};">Nationality:</span> ${(0, helpers_1.escapeHtml)(personalInfo.nationality)}</div>` : ''}
@@ -153,7 +158,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                 <div style="width: 240px; flex-shrink: 0; padding-top: 20px;">
                     
                     ${skills.length > 0 ? `
-                        <div style="margin-bottom: 40px;">
+                        <div class="resume-section" style="margin-bottom: 40px;">
                             ${SectionHeader(t.sections.skills, 'code')}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${skills.map(skill => `
@@ -165,8 +170,21 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                         </div>
                     ` : ''}
 
+                    ${strengths && strengths.length > 0 ? `
+                        <div class="resume-section" style="margin-bottom: 40px;">
+                            ${SectionHeader(t.sections.strengths, 'zap')}
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                ${strengths.map(str => `
+                                    <span data-paginate="item" style="font-size: ${s(11)}; font-weight: 600; color: ${theme.primary}; border: 1px solid ${theme.primary}30; padding: 6px 12px; border-radius: 6px; display: inline-block;">
+                                        ${(0, helpers_1.escapeHtml)(str.name)}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
                     ${languages && languages.length > 0 ? `
-                        <div style="margin-bottom: 40px;">
+                        <div class="resume-section" style="margin-bottom: 40px;">
                             ${SectionHeader(t.sections.languages, 'globe')}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${languages.map(lang => `
@@ -185,7 +203,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     ${interests && interests.length > 0 ? `
-                        <div style="margin-bottom: 40px;">
+                        <div class="resume-section" style="margin-bottom: 40px;">
                             ${SectionHeader(t.sections.interests, 'heart')}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${interests.map(int => `
@@ -199,7 +217,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <div style="margin-bottom: 40px;">
+                        <div class="resume-section" style="margin-bottom: 40px;">
                             ${SectionHeader(t.sections.credentials, 'award')}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -209,6 +227,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(12)}; color: ${theme.heading};">${(0, helpers_1.escapeHtml)(cert.name)}</div>
                                                 <div style="font-size: ${s(11)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -222,6 +241,8 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item">
                                                 <div style="font-weight: 600; font-size: ${s(12)}; color: ${theme.heading};">${(0, helpers_1.escapeHtml)(award.title)}</div>
                                                 <div style="font-size: ${s(11)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -232,7 +253,7 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
 
                     <!-- Social Links (Extended) -->
                     ${(personalInfo.github || personalInfo.x || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <div style="margin-bottom: 40px;">
+                        <div class="resume-section" style="margin-bottom: 40px;">
                             ${SectionHeader(t.sections.socialLinks, 'users')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(12)};">
                                 ${personalInfo.github ? `
@@ -264,26 +285,9 @@ const renderHeaderBlueClean = (data, theme, translations, locale = 'en') => {
                         </div>
                     ` : ''}
 
-                    <!-- References -->
-                    ${data.references && data.references.length > 0 ? `
-                        <div style="margin-bottom: 40px;">
-                            ${SectionHeader(t.sections.references, 'users')}
-                            <div style="display: flex; flex-direction: column; gap: 16px;">
-                                ${data.references.map(ref => `
-                                    <div data-paginate="item">
-                                        <div style="font-weight: 700; font-size: ${s(12)}; color: ${theme.heading};">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                        <div style="font-size: ${s(11)}; font-style: italic; color: #4b5563;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                        ${ref.email ? `<div style="font-size: ${s(11)}; color: ${theme.primary};">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                        ${ref.phone ? `<div style="font-size: ${s(11)}; color: ${theme.primary};">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    ` : ''}
-
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <div style="margin-bottom: 40px;">
+                        <div class="resume-section" style="margin-bottom: 40px;">
                             ${SectionHeader(field.label, 'user')}
                             <p style="font-size: ${s(12)}; color: #4b5563; line-height: 1.6;">
                                 ${(0, helpers_1.formatDescription)(field.content)}

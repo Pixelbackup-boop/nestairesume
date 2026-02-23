@@ -111,28 +111,6 @@ export declare const createPlatinumUser: (overrides?: {}) => {
     createdAt: Date;
     updatedAt: Date;
 };
-export declare const createTrialUser: (overrides?: {}) => {
-    id: string;
-    email: string;
-    name: string;
-    role: string;
-    hashedPassword: string;
-    emailVerified: Date;
-    subscriptionTier: string;
-    subscriptionStatus: null;
-    stripeCustomerId: null;
-    subscriptionId: null;
-    cvCreatedCount: number;
-    aiUsedCount: number;
-    aiUsedToday: number;
-    downloadCount: number;
-    coverLetterCount: number;
-    trialEndsAt: null;
-    hasUsedTrial: boolean;
-    isSuspended: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-};
 export declare const createAdminUser: (overrides?: {}) => {
     id: string;
     email: string;
@@ -210,28 +188,24 @@ export declare const PLAN_LIMITS: {
         aiLimit: number;
         downloadLimit: number;
         coverLetterLimit: number;
-        trialDailyLimit: number;
     };
     gold: {
         cvLimit: number;
         aiLimit: number;
         downloadLimit: number;
         coverLetterLimit: number;
-        trialDailyLimit: number;
     };
     diamond: {
         cvLimit: number;
         aiLimit: number;
         downloadLimit: number;
         coverLetterLimit: number;
-        trialDailyLimit: number;
     };
     platinum: {
         cvLimit: number;
         aiLimit: number;
         downloadLimit: number;
         coverLetterLimit: number;
-        trialDailyLimit: number;
     };
 };
 export declare const HTTP_STATUS: {
@@ -249,7 +223,6 @@ export declare const ERROR_CODES: {
     AI_LIMIT_REACHED: string;
     DOWNLOAD_LIMIT_REACHED: string;
     COVER_LETTER_LIMIT_REACHED: string;
-    TRIAL_DAILY_LIMIT_REACHED: string;
     SUBSCRIPTION_REQUIRED: string;
 };
 //# sourceMappingURL=testUtils.d.ts.map

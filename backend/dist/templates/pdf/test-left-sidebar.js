@@ -132,9 +132,14 @@ const renderTestLeftSidebar = (data, theme, translations, locale = 'en') => {
                         <div style="display: flex; flex-direction: column; gap: 12px;">
                             ${education.map(edu => `
                                 <div>
-                                    <div style="font-weight: 700; font-size: 12px; color: #ffffff;">${(0, helpers_1.escapeHtml)(edu.degree)}</div>
+                                    <div style="font-weight: 700; font-size: 12px; color: #ffffff;">
+                                        ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 6px; font-weight: 400; opacity: 0.8;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
+                                    </div>
                                     <div style="font-size: 11px; color: ${accentColor};">${(0, helpers_1.escapeHtml)(edu.school)}</div>
                                     <div style="font-size: 10px; opacity: 0.8;">${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}</div>
+                                    ${edu.honors ? `<div style="font-size: 10px; color: #cbd5e1; opacity: 0.8; margin-top: 2px;">${(0, helpers_1.escapeHtml)(edu.honors)}</div>` : ''}
+                                    ${edu.clubs ? `<div style="font-size: 9px; color: #94a3b8; opacity: 0.7; margin-top: 1px;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -216,7 +221,7 @@ const renderTestLeftSidebar = (data, theme, translations, locale = 'en') => {
                                         </span>
                                     </div>
                                     <div style="font-size: 11px; color: #64748b; margin-bottom: 6px; font-weight: 500;">
-                                        ${(0, helpers_1.escapeHtml)(exp.company)}${exp.city ? ` | ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}
+                                        ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? ` | ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
                                     <div style="font-size: 11px; line-height: 1.5; color: #475569;">
                                         ${(0, helpers_1.formatDescription)(exp.description || '')}
@@ -237,6 +242,7 @@ const renderTestLeftSidebar = (data, theme, translations, locale = 'en') => {
                                     <span style="font-weight: 700; font-size: 11px; color: ${sidebarBg};">${(0, helpers_1.escapeHtml)(cert.name)}</span>
                                     <span style="font-size: 10px; color: ${accentColor};"> - ${(0, helpers_1.escapeHtml)(cert.issuer)}</span>
                                     <span style="font-size: 10px; color: #64748b;"> (${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)})</span>
+                                    ${cert.url ? `<div style="font-size: 9px; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>

@@ -166,11 +166,12 @@ describe('Subscription Limits Middleware', () => {
             });
         });
         describe('Anonymous users', () => {
-            it('should allow anonymous downloads (no user)', async () => {
+            it('should require authentication for downloads', async () => {
                 mockReq = { user: undefined };
                 await (0, subscriptionLimits_1.checkDownloadLimit)(mockReq, mockRes, mockNext);
-                // Current implementation allows anonymous downloads
-                expect(mockNext).toHaveBeenCalled();
+                // Implementation requires authentication
+                expect(mockRes.status).toHaveBeenCalledWith(401);
+                expect(mockNext).not.toHaveBeenCalled();
             });
         });
     });
@@ -208,53 +209,6 @@ describe('Subscription Limits Middleware', () => {
                 mockPrisma.user.findUnique.mockResolvedValue(user);
                 await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
                 expect(mockNext).not.toHaveBeenCalled();
-            });
-        });
-        describe('Trial daily limits', () => {
-            it('GOLD TRIAL: should allow up to 4 AI/day', async () => {
-                const user = (0, testUtils_1.createTrialUser)({
-                    subscriptionTier: 'gold',
-                    aiUsedToday: 4,
-                    aiUsedCount: 4,
-                    lastAiResetDate: new Date(),
-                });
-                mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
-                mockPrisma.user.findUnique.mockResolvedValue(user);
-                await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
-                expect(mockNext).toHaveBeenCalled();
-            });
-            it('GOLD TRIAL: should BLOCK at 5 AI/day', async () => {
-                const user = (0, testUtils_1.createTrialUser)({
-                    subscriptionTier: 'gold',
-                    aiUsedToday: 5,
-                    aiUsedCount: 5,
-                    lastAiResetDate: new Date(),
-                });
-                mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
-                mockPrisma.user.findUnique.mockResolvedValue(user);
-                await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
-                expect(mockNext).not.toHaveBeenCalled();
-                expect(jsonMock).toHaveBeenCalledWith(expect.objectContaining({
-                    code: testUtils_1.ERROR_CODES.TRIAL_DAILY_LIMIT_REACHED,
-                }));
-            });
-            it('TRIAL: should reset daily counter on new day', async () => {
-                const yesterday = new Date();
-                yesterday.setDate(yesterday.getDate() - 1);
-                const user = (0, testUtils_1.createTrialUser)({
-                    aiUsedToday: 5, // Was at limit yesterday
-                    aiUsedCount: 5,
-                    lastAiResetDate: yesterday,
-                });
-                mockReq = { user: { userId: user.id, email: user.email, role: user.role } };
-                mockPrisma.user.findUnique.mockResolvedValue(user);
-                mockPrisma.user.update.mockResolvedValue({ ...user, aiUsedToday: 0 });
-                await (0, subscriptionLimits_1.checkAiLimit)(mockReq, mockRes, mockNext);
-                // Should have reset the counter
-                expect(mockPrisma.user.update).toHaveBeenCalledWith(expect.objectContaining({
-                    data: expect.objectContaining({ aiUsedToday: 0 }),
-                }));
-                expect(mockNext).toHaveBeenCalled();
             });
         });
     });

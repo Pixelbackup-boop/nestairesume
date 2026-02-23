@@ -85,6 +85,23 @@ router.post("/oauth", (0, validation_1.validateBody)(validation_1.oauthSchema), 
         res.status(500).json({ detail: message });
     }
 });
+// ==================== Token Refresh ====================
+// POST /api/v1/auth/refresh - Refresh an expired JWT
+router.post("/refresh", async (req, res) => {
+    try {
+        const { token } = req.body;
+        if (!token) {
+            res.status(400).json({ detail: "Token is required" });
+            return;
+        }
+        const newToken = await (0, authService_1.refreshAccessToken)(token);
+        res.json({ access_token: newToken, token_type: "bearer" });
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Token refresh failed";
+        res.status(401).json({ detail: message });
+    }
+});
 // ==================== Password Reset ====================
 // POST /api/v1/auth/forgot-password
 router.post("/forgot-password", (0, validation_1.validateBody)(validation_1.forgotPasswordSchema), async (req, res) => {

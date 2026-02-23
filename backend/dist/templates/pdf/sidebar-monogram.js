@@ -142,18 +142,6 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
                     </div>
                 ` : ''}
 
-                <!-- Interests -->
-                ${interests && interests.length > 0 ? `
-                    <div style="margin-bottom: 40px;">
-                        ${SidebarHeader(t.sections.interests)}
-                        <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${fs.body};">
-                            ${interests.map(int => `
-                                <div>• ${(0, helpers_1.escapeHtml)(int.name)}</div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
             </aside>
 
             <!-- Main Content (70%) - table-cell for equal height -->
@@ -177,7 +165,7 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
 
                 <!-- Profile -->
                 ${personalInfo.summary ? `
-                    <div style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.profile)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #4b5563;">
                             ${(0, helpers_1.formatDescription)(personalInfo.summary)}
@@ -187,7 +175,7 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
 
                 <!-- Experience -->
                 ${experience.length > 0 ? `
-                    <div style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.experience)}
                         <div style="display: flex; flex-direction: column; gap: 32px;">
                             ${experience.map(exp => `
@@ -201,7 +189,7 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
                                         </span>
                                     </div>
                                     <div style="font-size: ${fs.body}; color: #6b7280; margin-bottom: 8px; font-weight: 600;">
-                                        ${(0, helpers_1.escapeHtml)(exp.company)}${exp.city ? ` | ${(0, helpers_1.escapeHtml)(exp.city)}` : ''}
+                                        ${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? ` | ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
                                     <div style="font-size: ${fs.body}; line-height: 1.6; color: #4b5563;">
                                         ${(0, helpers_1.formatDescription)(exp.description || '')}
@@ -214,20 +202,25 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
 
                 <!-- Education -->
                 ${education.length > 0 ? `
-                    <div style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
                                 <div data-paginate="item">
                                     <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #111827; margin: 0;">
                                         ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                        ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                     </h4>
                                     <div style="font-size: ${fs.body}; color: #4b5563;">
-                                        ${(0, helpers_1.escapeHtml)(edu.school)}${edu.city ? `, ${(0, helpers_1.escapeHtml)(edu.city)}` : ''}
+                                        ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''}
                                     </div>
                                     <div style="font-size: ${fs.small}; color: #6b7280;">
                                         ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.endDate ? (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale) : t.labels.present}
                                     </div>
+                                    ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                    ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                                    ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -236,7 +229,7 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
 
                 <!-- Skills -->
                 ${skills.length > 0 ? `
-                    <div style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.skills)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                             ${skills.map(skill => `
@@ -253,12 +246,26 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
                     </div>
                 ` : ''}
 
+                <!-- Interests -->
+                ${interests && interests.length > 0 ? `
+                    <div class="resume-section" style="margin-bottom: 40px;">
+                        ${MainHeader(t.sections.interests)}
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            ${interests.map(int => `
+                                <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
+                                    <span style="color: ${accentColor}; font-size: 8px;">●</span>
+                                    <span style="font-weight: 500;">${(0, helpers_1.escapeHtml)(int.name)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
                 <!-- Social Links -->
-                ${(personalInfo.linkedin || personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                    <div style="margin-bottom: 40px;">
+                ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                    <div class="resume-section" style="margin-bottom: 40px;">
                         ${MainHeader(t.sections.socialLinks)}
                         <div style="font-size: ${fs.body};">
-                            ${personalInfo.linkedin ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">LinkedIn:</span> ${(0, helpers_1.escapeHtml)(personalInfo.linkedin)}</div>` : ''}
                             ${personalInfo.x ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">X:</span> ${(0, helpers_1.escapeHtml)(personalInfo.x)}</div>` : ''}
                             ${personalInfo.github ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">GitHub:</span> ${(0, helpers_1.escapeHtml)(personalInfo.github)}</div>` : ''}
                             ${personalInfo.dribbble ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">Dribbble:</span> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
@@ -270,7 +277,7 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
 
                 <!-- Credentials (Certifications & Awards) -->
                 ${(certifications.length > 0 || awards.length > 0) ? `
-                    <div style="margin-top: 40px;">
+                    <div class="resume-section" style="margin-top: 40px;">
                         ${MainHeader(t.sections.credentials)}
 
                         ${certifications.length > 0 ? `
@@ -287,6 +294,7 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
                                             <div style="font-size: ${fs.small}; color: #6b7280;">
                                                 ${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
                                             </div>
+                                            ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                         </div>
                                     `).join('')}
                                 </div>
@@ -320,25 +328,9 @@ const renderSidebarMonogram = (data, theme, translations, locale = 'en') => {
                     </div>
                 ` : ''}
 
-                <!-- References -->
-                ${data.references && data.references.length > 0 ? `
-                    <div style="margin-top: 40px;">
-                        ${MainHeader(t.sections.references)}
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                            ${data.references.map(ref => `
-                                <div data-paginate="item">
-                                    <div style="font-weight: 700; font-size: 13px; color: ${mainText};">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                    <div style="font-size: ${fs.body}; color: #4b5563;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                    ${ref.email ? `<div style="font-size: ${fs.small}; color: ${accentColor};">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
                 <!-- Custom Fields -->
                 ${customFields.map(field => `
-                    <div style="margin-top: 40px;">
+                    <div class="resume-section" style="margin-top: 40px;">
                         ${MainHeader(field.label)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #4b5563;">
                             ${(0, helpers_1.formatDescription)(field.content)}

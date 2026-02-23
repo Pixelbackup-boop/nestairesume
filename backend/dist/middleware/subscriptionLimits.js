@@ -62,11 +62,7 @@ const checkAiLimit = async (req, res, next) => {
             where: { id: userId },
             select: {
                 subscriptionTier: true,
-                subscriptionStatus: true,
                 aiUsedCount: true,
-                aiUsedToday: true,
-                lastAiResetDate: true,
-                trialEndsAt: true,
                 isSuspended: true,
             },
         });
@@ -82,29 +78,6 @@ const checkAiLimit = async (req, res, next) => {
                 error: "No active subscription",
                 code: "SUBSCRIPTION_REQUIRED"
             });
-        }
-        const isTrialing = user.subscriptionStatus === "trialing";
-        // Check trial daily limit
-        if (isTrialing) {
-            // Reset daily counter if new day
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const lastReset = user.lastAiResetDate ? new Date(user.lastAiResetDate) : null;
-            if (!lastReset || lastReset < today) {
-                // Reset daily counter
-                await database_1.default.user.update({
-                    where: { id: userId },
-                    data: { aiUsedToday: 0, lastAiResetDate: new Date() },
-                });
-            }
-            else if (user.aiUsedToday >= plan.trialDailyLimit) {
-                return res.status(429).json({
-                    error: "Daily AI limit reached during trial",
-                    code: "TRIAL_DAILY_LIMIT_REACHED",
-                    limit: plan.trialDailyLimit,
-                    used: user.aiUsedToday,
-                });
-            }
         }
         // Check monthly limit
         if (user.aiUsedCount >= plan.aiLimit) {
@@ -253,27 +226,22 @@ const getUsageStatus = async (userId) => {
         where: { id: userId },
         select: {
             subscriptionTier: true,
-            subscriptionStatus: true,
             cvCreatedCount: true,
             aiUsedCount: true,
             aiUsedToday: true,
             downloadCount: true,
             coverLetterCount: true,
-            trialEndsAt: true,
         },
     });
     if (!user)
         return null;
     const plan = stripeService_1.PLANS[user.subscriptionTier];
-    const isTrialing = user.subscriptionStatus === "trialing";
     return {
         tier: user.subscriptionTier,
-        isTrialing,
-        trialEndsAt: user.trialEndsAt,
         usage: {
             cv: { used: user.cvCreatedCount, limit: plan?.cvLimit ?? 0 },
             ai: { used: user.aiUsedCount, limit: plan?.aiLimit ?? 0 },
-            aiToday: { used: user.aiUsedToday, limit: isTrialing ? plan?.trialDailyLimit ?? 0 : plan?.aiLimit ?? 0 },
+            aiToday: { used: user.aiUsedToday, limit: plan?.aiLimit ?? 0 },
             download: { used: user.downloadCount, limit: plan?.downloadLimit ?? 0 },
             coverLetter: { used: user.coverLetterCount, limit: plan?.coverLetterLimit ?? 0 },
         },

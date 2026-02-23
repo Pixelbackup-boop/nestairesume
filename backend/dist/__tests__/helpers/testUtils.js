@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ERROR_CODES = exports.HTTP_STATUS = exports.PLAN_LIMITS = exports.createTestResume = exports.generateExpiredToken = exports.generateTestToken = exports.createSuspendedUser = exports.createAdminUser = exports.createTrialUser = exports.createPlatinumUser = exports.createDiamondUser = exports.createGoldUser = exports.createStarterUser = exports.createTestUser = void 0;
+exports.ERROR_CODES = exports.HTTP_STATUS = exports.PLAN_LIMITS = exports.createTestResume = exports.generateExpiredToken = exports.generateTestToken = exports.createSuspendedUser = exports.createAdminUser = exports.createPlatinumUser = exports.createDiamondUser = exports.createGoldUser = exports.createStarterUser = exports.createTestUser = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 // Test user data factory
 const createTestUser = (overrides = {}) => ({
@@ -42,13 +42,6 @@ const createDiamondUser = (overrides = {}) => (0, exports.createTestUser)({ subs
 exports.createDiamondUser = createDiamondUser;
 const createPlatinumUser = (overrides = {}) => (0, exports.createTestUser)({ subscriptionTier: 'platinum', subscriptionStatus: 'active', ...overrides });
 exports.createPlatinumUser = createPlatinumUser;
-const createTrialUser = (overrides = {}) => (0, exports.createTestUser)({
-    subscriptionTier: 'gold',
-    subscriptionStatus: 'trialing',
-    trialEndsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
-    ...overrides,
-});
-exports.createTrialUser = createTrialUser;
 const createAdminUser = (overrides = {}) => (0, exports.createTestUser)({ role: 'admin', ...overrides });
 exports.createAdminUser = createAdminUser;
 const createSuspendedUser = (overrides = {}) => (0, exports.createTestUser)({ isSuspended: true, ...overrides });
@@ -107,28 +100,24 @@ exports.PLAN_LIMITS = {
         aiLimit: 50,
         downloadLimit: 3,
         coverLetterLimit: 10,
-        trialDailyLimit: 3,
     },
     gold: {
         cvLimit: 150,
         aiLimit: 100,
         downloadLimit: 10,
         coverLetterLimit: 30,
-        trialDailyLimit: 5,
     },
     diamond: {
         cvLimit: 300,
         aiLimit: 200,
         downloadLimit: 25,
         coverLetterLimit: 50,
-        trialDailyLimit: 10,
     },
     platinum: {
         cvLimit: -1, // Unlimited
         aiLimit: 500,
         downloadLimit: 120,
         coverLetterLimit: -1, // Unlimited
-        trialDailyLimit: 15,
     },
 };
 // HTTP status codes for assertions
@@ -148,7 +137,6 @@ exports.ERROR_CODES = {
     AI_LIMIT_REACHED: 'AI_LIMIT_REACHED',
     DOWNLOAD_LIMIT_REACHED: 'DOWNLOAD_LIMIT_REACHED',
     COVER_LETTER_LIMIT_REACHED: 'COVER_LETTER_LIMIT_REACHED',
-    TRIAL_DAILY_LIMIT_REACHED: 'TRIAL_DAILY_LIMIT_REACHED',
     SUBSCRIPTION_REQUIRED: 'SUBSCRIPTION_REQUIRED',
 };
 //# sourceMappingURL=testUtils.js.map

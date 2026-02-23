@@ -13,7 +13,7 @@ const translations_1 = require("./shared/translations");
 const dateUtils_1 = require("./shared/dateUtils");
 const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], awards = [], certifications = [], references = [], customFields = [], fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], strengths = [], interests = [], awards = [], certifications = [], customFields = [], fonts } = data;
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Inter');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
     // Note: header-ribbon-yellow always uses white body background; no bgStyle needed
@@ -148,7 +148,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Profile / Summary -->
                     ${personalInfo.summary ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.profile, (0, helpers_1.getIconSVG)('user', 'white', sNum(14)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${(0, helpers_1.formatDescription)(personalInfo.summary)}
@@ -158,14 +158,14 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Work Experience -->
                     ${experience.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.experience, (0, helpers_1.getIconSVG)('briefcase', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${experience.map(exp => `
                                     <div data-paginate="item">
                                         <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}
-                                            ${exp.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${(0, helpers_1.escapeHtml)(exp.city.toUpperCase())}` : ''}
+                                            ${(exp.city || exp.country) ? `&nbsp;&nbsp;&nbsp;&nbsp;${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', ').toUpperCase())}` : ''}
                                         </p>
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${(0, helpers_1.escapeHtml)(exp.title)}
@@ -190,21 +190,24 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Education -->
                     ${education.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.education, (0, helpers_1.getIconSVG)('graduation-cap', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 ${education.map(edu => `
                                     <div data-paginate="item">
                                         <p style="font-size: ${fs.small}; color: #6b7280; margin-bottom: 2px; text-transform: uppercase;">
                                             ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} – ${edu.current ? t.labels.present.toUpperCase() : (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale)}
-                                            ${edu.city ? `&nbsp;&nbsp;&nbsp;&nbsp;${(0, helpers_1.escapeHtml)(edu.city.toUpperCase())}` : ''}
+                                            ${(edu.city || edu.country) ? `&nbsp;&nbsp;&nbsp;&nbsp;${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', ').toUpperCase())}` : ''}
                                         </p>
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                         </h4>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600;">
                                             ${(0, helpers_1.escapeHtml)(edu.school)}
                                         </p>
+                                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
                                         ${edu.description ? `
                                             <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                 ${(0, helpers_1.formatDescription)(edu.description)}
@@ -218,7 +221,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Personal Details -->
                     ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.personalDetails, (0, helpers_1.getIconSVG)('user', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body}; color: #1f2937;">
                                 ${personalInfo.nationality ? `
@@ -243,7 +246,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Credentials -->
                     ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.credentials, (0, helpers_1.getIconSVG)('award', 'white', sNum(14)))}
                             ${certifications && certifications.length > 0 ? `
                                 <div style="margin-bottom: ${awards && awards.length > 0 ? '16px' : '0'};">
@@ -260,6 +263,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
                                                 <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                     ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}
                                                 </p>
+                                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -280,6 +284,8 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
                                                 <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                     ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}
                                                 </p>
+                                            
+                                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                                             </div>
                                         `).join('')}
                                     </div>
@@ -290,7 +296,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Skills -->
                     ${skills.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.skills, (0, helpers_1.getIconSVG)('wrench', 'white', sNum(14)))}
                             <div>
                                 ${skills.map(skill => `<div data-paginate="item">${ProgressBar(skill.name, (skill.level || 3) * 20)}</div>`).join('')}
@@ -300,7 +306,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Interests with Icons Grid -->
                     ${interests && interests.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.interests, (0, helpers_1.getIconSVG)('star', 'white', sNum(14)))}
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
                                 ${interests.slice(0, 6).map(interest => `
@@ -319,7 +325,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Languages -->
                     ${languages && languages.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.languages, (0, helpers_1.getIconSVG)('languages', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${languages.map(lang => `
@@ -333,11 +339,11 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
                     ` : ''}
 
                     <!-- Social Links -->
-                    ${(personalInfo.x || personalInfo.github || personalInfo.linkedin || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
-                        <section style="margin-bottom: 20px;">
+                    ${(personalInfo.x || personalInfo.github || personalInfo.dribbble || personalInfo.behance || personalInfo.instagram) ? `
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.socialLinks, (0, helpers_1.getIconSVG)('link', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                ${['linkedin', 'x', 'github', 'dribbble', 'behance', 'instagram'].map(network => {
+                                ${['x', 'github', 'dribbble', 'behance', 'instagram'].map(network => {
         const val = personalInfo[network];
         if (!val)
             return '';
@@ -356,7 +362,7 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
 
                     <!-- Strengths -->
                     ${strengths && strengths.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(t.sections.strengths, (0, helpers_1.getIconSVG)('zap', 'white', sNum(14)))}
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                                 ${strengths.map(strength => `
@@ -368,32 +374,9 @@ const renderHeaderRibbonYellow = (data, theme, translations, locale = 'en') => {
                         </section>
                     ` : ''}
 
-                    <!-- References -->
-                    ${references && references.length > 0 ? `
-                        <section style="margin-bottom: 20px;">
-                            ${SectionHeader(t.sections.references, (0, helpers_1.getIconSVG)('id-card', 'white', sNum(14)))}
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-                                ${references.map(ref => `
-                                    <div data-paginate="item">
-                                        <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
-                                            ${(0, helpers_1.escapeHtml)(ref.name)}
-                                        </h4>
-                                        <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600; margin-bottom: 2px;">
-                                            ${(0, helpers_1.escapeHtml)(ref.title)}${ref.company ? ` at ${(0, helpers_1.escapeHtml)(ref.company)}` : ''}
-                                        </p>
-                                        <div style="font-size: ${fs.small}; color: #6b7280;">
-                                            ${ref.phone ? `<div>${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                                            ${ref.email ? `<div>${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </section>
-                    ` : ''}
-
                     <!-- Custom Fields -->
                     ${customFields.map(field => `
-                        <section style="margin-bottom: 20px;">
+                        <section class="resume-section" style="margin-bottom: 20px;">
                             ${SectionHeader(field.label, (0, helpers_1.getIconSVG)('id-card', 'white', sNum(14)))}
                             <p style="color: #374151; line-height: 1.6; font-size: ${fs.body};">
                                 ${(0, helpers_1.formatDescription)(field.content)}

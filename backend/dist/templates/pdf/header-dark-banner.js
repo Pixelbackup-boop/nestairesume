@@ -163,7 +163,7 @@ const renderHeaderDarkBanner = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === experience.length - 1 ? 0 : 16}px;">
                                                 <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
                                                     ${accentIcon('calendar')} ${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} – ${exp.current ? t.labels.present.toUpperCase() : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}
-                                                    ${exp.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${(0, helpers_1.escapeHtml)(exp.city.toUpperCase())}</span>` : ''}
+                                                    ${(exp.city || exp.country) ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', ').toUpperCase())}</span>` : ''}
                                                 </p>
                                                 <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
                                                     ${(0, helpers_1.escapeHtml)(exp.title)}
@@ -195,19 +195,37 @@ const renderHeaderDarkBanner = (data, theme, translations, locale = 'en') => {
                                             <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === education.length - 1 ? 0 : 12}px;">
                                                 <p style="font-size: ${s(9)}; color: ${accentColor}; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
                                                     ${accentIcon('calendar')} ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)}
-                                                    ${edu.city ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${(0, helpers_1.escapeHtml)(edu.city.toUpperCase())}</span>` : ''}
+                                                    ${(edu.city || edu.country) ? `<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 4px;">${accentIcon('location')} ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', ').toUpperCase())}</span>` : ''}
                                                 </p>
                                                 <h4 style="font-weight: 700; font-size: ${s(15)}; color: #1f2937; margin-bottom: 2px;">
                                                     ${(0, helpers_1.escapeHtml)(edu.degree)}
+                                                    ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-size: ${s(13)};">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                                                 </h4>
                                                 <p style="font-size: ${s(13)}; color: #4b5563; font-weight: 600;">
                                                     ${(0, helpers_1.escapeHtml)(edu.school)}
                                                 </p>
+                                                ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                                                ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
                                                 ${edu.description ? `
                                                     <p style="font-size: ${s(12)}; color: #6b7280; margin-top: 4px;">
                                                         ${(0, helpers_1.formatDescription)(edu.description)}
                                                     </p>
                                                 ` : ''}
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                            ` : ''}
+
+                            <!-- Interests -->
+                            ${interests && interests.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.interests)}
+                                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                        ${interests.map(interest => `
+                                            <div data-paginate="item" style="display: flex; align-items: center; gap: 6px; font-size: ${s(12)};">
+                                                <span style="color: ${accentColor}; font-size: 8px;">●</span>
+                                                <span style="font-weight: 500;">${(0, helpers_1.escapeHtml)(interest.name)}</span>
                                             </div>
                                         `).join('')}
                                     </div>
@@ -268,25 +286,6 @@ const renderHeaderDarkBanner = (data, theme, translations, locale = 'en') => {
                                 </section>
                             ` : ''}
 
-                            <!-- Interests with Icons -->
-                            ${interests && interests.length > 0 ? `
-                                <section class="resume-section" style="margin-bottom: 20px;">
-                                    ${SectionHeader(t.sections.interests)}
-                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                                        ${interests.slice(0, 6).map(interest => `
-                                            <div data-paginate="item" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                                                <div style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
-                                                    ${getInterestIcon(interest.name)}
-                                                </div>
-                                                <div style="font-size: ${s(9)}; color: #4b5563; line-height: 1.2; word-break: break-word; max-width: 100%;">
-                                                    ${(0, helpers_1.escapeHtml)(interest.name)}
-                                                </div>
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                </section>
-                            ` : ''}
-
                             <!-- Credentials -->
                             ${(certifications && certifications.length > 0) || (awards && awards.length > 0) ? `
                                 <section class="resume-section">
@@ -299,6 +298,7 @@ const renderHeaderDarkBanner = (data, theme, translations, locale = 'en') => {
                                                     <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === certifications.length - 1 ? 0 : 8}px;">
                                                         <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${(0, helpers_1.escapeHtml)(cert.name)}</div>
                                                         <div style="font-size: ${s(9)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                                        ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                                                     </div>
                                                 `).join('')}
                                             </div>
@@ -312,6 +312,7 @@ const renderHeaderDarkBanner = (data, theme, translations, locale = 'en') => {
                                                     <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === awards.length - 1 ? 0 : 8}px;">
                                                         <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${(0, helpers_1.escapeHtml)(award.title)}</div>
                                                         <div style="font-size: ${s(9)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                                                        ${award.description ? `<p style="font-size: ${s(9)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                                                     </div>
                                                 `).join('')}
                                             </div>
@@ -330,23 +331,6 @@ const renderHeaderDarkBanner = (data, theme, translations, locale = 'en') => {
                                         ${personalInfo.dribbble ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('dribbble')} ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
                                         ${personalInfo.behance ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('behance')} ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</div>` : ''}
                                         ${personalInfo.instagram ? `<div data-paginate="item" style="color: #374151; display: flex; align-items: center; gap: 4px;">${bodyIcon('instagram')} ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</div>` : ''}
-                                    </div>
-                                </section>
-                            ` : ''}
-
-                            <!-- References -->
-                            ${data.references && data.references.length > 0 ? `
-                                <section class="resume-section" style="margin-top: 20px;">
-                                    ${SectionHeader(t.sections.references)}
-                                    <div style="display: block;">
-                                        ${data.references.map((ref, index) => `
-                                            <div data-paginate="item" class="resume-entry" style="margin-bottom: ${index === data.references.length - 1 ? 0 : 12}px;">
-                                                <div style="font-weight: 600; font-size: ${s(13)}; color: #1f2937;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                                                <div style="font-size: ${s(9)}; color: #6b7280;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                                                ${ref.email ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('email', '#6b7280', 10)} ${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                                                ${ref.phone ? `<div style="font-size: ${s(9)}; color: #6b7280; display: flex; align-items: center; gap: 4px;">${bodyIcon('smartphone', '#6b7280', 10)} ${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                                            </div>
-                                        `).join('')}
                                     </div>
                                 </section>
                             ` : ''}

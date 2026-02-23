@@ -19,7 +19,7 @@ const translations_1 = require("./shared/translations");
 const dateUtils_1 = require("./shared/dateUtils");
 const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') => {
     const t = (0, translations_1.getTranslations)(translations);
-    const { personalInfo, experience = [], education = [], skills = [], languages = [], interests = [], strengths = [], certifications = [], awards = [], references = [], customFields = [], fonts } = data;
+    const { personalInfo, experience = [], education = [], skills = [], languages = [], interests = [], strengths = [], certifications = [], awards = [], customFields = [], fonts } = data;
     const headingFont = (0, helpers_1.getFontFamily)(fonts?.heading || 'Titan One');
     const bodyFont = (0, helpers_1.getFontFamily)(fonts?.body || 'Inter');
     const sizeConfig = helpers_1.fontSizes[fonts?.size || 'medium'];
@@ -85,7 +85,7 @@ const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') =>
                             ${(0, helpers_1.escapeHtml)(exp.title)}
                         </h4>
                         <div style="display: flex; justify-content: space-between; font-size: ${fs.small}; color: #52525b; margin-bottom: 4px; font-weight: 600;">
-                            <span>${(0, helpers_1.escapeHtml)(exp.company)}</span>
+                            <span>${(0, helpers_1.escapeHtml)(exp.company)}${(exp.city || exp.country) ? `, ${(0, helpers_1.escapeHtml)([exp.city, exp.country].filter(Boolean).join(', '))}` : ''}</span>
                             <span>${(0, dateUtils_1.formatLocalizedDate)(exp.startDate, locale)} - ${exp.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(exp.endDate, locale)}</span>
                         </div>
                         ${exp.description ? `
@@ -107,10 +107,15 @@ const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') =>
                     <div data-paginate="item">
                         <h4 style="font-size: ${fs.entryTitle}; font-weight: 800; color: #18181b; text-transform: uppercase;">
                             ${(0, helpers_1.escapeHtml)(edu.degree)}
+                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 600; text-transform: none;">GPA: ${(0, helpers_1.escapeHtml)(edu.gpa)}</span>` : ''}
                         </h4>
                         <div style="font-size: ${fs.small}; color: #52525b; font-weight: 600;">
-                            ${(0, helpers_1.escapeHtml)(edu.school)}, ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} - ${edu.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale)}
+                            ${(0, helpers_1.escapeHtml)(edu.school)}${(edu.city || edu.country) ? `, ${(0, helpers_1.escapeHtml)([edu.city, edu.country].filter(Boolean).join(', '))}` : ''} | ${(0, dateUtils_1.formatLocalizedDate)(edu.startDate, locale)} - ${edu.current ? t.labels.present : (0, dateUtils_1.formatLocalizedDate)(edu.endDate, locale)}
                         </div>
+                        ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${(0, helpers_1.escapeHtml)(edu.honors)}</p>` : ''}
+                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${(0, helpers_1.escapeHtml)(edu.clubs)}</p>` : ''}
+
+                        ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${(0, helpers_1.formatDescription)(edu.description)}</p>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -167,6 +172,7 @@ const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') =>
                             <div data-paginate="item">
                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #18181b;">${(0, helpers_1.escapeHtml)(cert.name)}</div>
                                 <div style="font-size: ${fs.small}; color: #52525b;">${(0, helpers_1.escapeHtml)(cert.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(cert.date, locale)}</div>
+                                ${cert.url ? `<div style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7;">${(0, helpers_1.escapeHtml)(cert.url)}</div>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -180,6 +186,8 @@ const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') =>
                             <div data-paginate="item">
                                 <div style="font-weight: 600; font-size: ${fs.body}; color: #18181b;">${(0, helpers_1.escapeHtml)(award.title)}</div>
                                 <div style="font-size: ${fs.small}; color: #52525b;">${(0, helpers_1.escapeHtml)(award.issuer)} • ${(0, dateUtils_1.formatLocalizedDate)(award.date, locale)}</div>
+                            
+                                ${award.description ? `<p style="font-size: ${s(11)}; line-height: 1.5; color: #4b5563; margin-top: 2px;">${(0, helpers_1.formatDescription)(award.description)}</p>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -212,22 +220,6 @@ const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') =>
                 ${personalInfo.dribbble ? `<div data-paginate="item"><strong>Dribbble:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.dribbble)}</div>` : ''}
                 ${personalInfo.behance ? `<div data-paginate="item"><strong>Behance:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.behance)}</div>` : ''}
                 ${personalInfo.instagram ? `<div data-paginate="item"><strong>Instagram:</strong> ${(0, helpers_1.escapeHtml)(personalInfo.instagram)}</div>` : ''}
-            </div>
-        </div>
-    ` : '';
-    // References
-    const referencesHtml = references && references.length > 0 ? `
-        <div style="margin-bottom: 24px;">
-            ${SectionHeader(t.sections.references)}
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-                ${references.map(ref => `
-                    <div data-paginate="item">
-                        <div style="font-weight: 700; font-size: ${fs.body}; color: #18181b;">${(0, helpers_1.escapeHtml)(ref.name)}</div>
-                        <div style="font-size: ${fs.small}; color: #52525b;">${(0, helpers_1.escapeHtml)(ref.title)}, ${(0, helpers_1.escapeHtml)(ref.company)}</div>
-                        ${ref.email ? `<div style="font-size: ${fs.small}; color: #52525b;">${(0, helpers_1.escapeHtml)(ref.email)}</div>` : ''}
-                        ${ref.phone ? `<div style="font-size: ${fs.small}; color: #52525b;">${(0, helpers_1.escapeHtml)(ref.phone)}</div>` : ''}
-                    </div>
-                `).join('')}
             </div>
         </div>
     ` : '';
@@ -311,7 +303,7 @@ const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') =>
                     ${personalDetailsHtml}
                 </div>
 
-                <!-- Right Column (45%) - Skills, Strengths, Interests, Languages, Credentials, Social Links, References, Personal Details, Custom Field -->
+                <!-- Right Column (45%) - Skills, Strengths, Interests, Languages, Credentials, Social Links, Personal Details, Custom Field -->
                 <div style="width: 45%;">
                     ${skillsHtml}
                     ${strengthsHtml}
@@ -319,7 +311,6 @@ const renderHeaderDiagonalYellow = (data, theme, translations, locale = 'en') =>
                     ${languagesHtml}
                     ${credentialsHtml}
                     ${socialLinksHtml}
-                    ${referencesHtml}
                     ${customFieldsHtml}
                 </div>
             </div>

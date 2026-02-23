@@ -324,7 +324,6 @@ const looksLikeResume = (text) => {
         /\bwork\s*history\b/i,
         /\bqualifications?\b/i,
         /\bcertifications?\b/i,
-        /\breferences?\b/i,
         /\bcareer\s*(objective|summary)\b/i,
         /\bcontact(\s*info(rmation)?)?\b/i,
     ];
