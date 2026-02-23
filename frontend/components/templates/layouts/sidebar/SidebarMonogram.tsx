@@ -182,20 +182,6 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                     </div>
                 )}
 
-                {/* Interests */}
-                {data.interests && data.interests.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: sp(16) }}>
-                        <SidebarHeader title={t.sections.interests} color={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: sp(6) }}>
-                            {data.interests.map((int) => (
-                                <div key={int.id} style={{ fontSize: fs.body }}>
-                                    • {int.name}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
             </aside>
 
             {/* Main Content */}
@@ -326,6 +312,21 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                                         <span style={{ fontWeight: 500, color: '#374151' }}>{skill.name}</span>
                                     </div>
                                     <ProgressBar value={(skill.level || 3) * 20} color={accentColor} height={scale < 1 ? 4 : sp(6)} />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                        <MainHeader title={t.sections.interests} color={'#374151'} fs={fs} headingFont={headingFont} sp={sp} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
+                            {data.interests.map((int) => (
+                                <div key={int.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
+                                    <span style={{ color: accentColor, fontSize: sp(8) + 'px' }}>●</span>
+                                    <span style={{ fontWeight: 500 }}>{int.name}</span>
                                 </div>
                             ))}
                         </div>

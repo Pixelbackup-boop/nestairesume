@@ -173,18 +173,6 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                     </div>
                 ` : ''}
 
-                <!-- Interests -->
-                ${interests && interests.length > 0 ? `
-                    <div style="margin-bottom: 40px;">
-                        ${SidebarHeader(t.sections.interests)}
-                        <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${fs.body};">
-                            ${interests.map(int => `
-                                <div>• ${escapeHtml(int.name)}</div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
             </aside>
 
             <!-- Main Content (70%) - table-cell for equal height -->
@@ -283,6 +271,21 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                                     <div style="width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 3px;">
                                         <div style="width: ${(skill.level || 3) * 20}%; height: 100%; background-color: ${accentColor}; border-radius: 3px;"></div>
                                     </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Interests -->
+                ${interests && interests.length > 0 ? `
+                    <div class="resume-section" style="margin-bottom: 40px;">
+                        ${MainHeader(t.sections.interests)}
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            ${interests.map(int => `
+                                <div data-paginate="item" style="display: flex; align-items: center; gap: 8px; font-size: ${fs.body};">
+                                    <span style="color: ${accentColor}; font-size: 8px;">●</span>
+                                    <span style="font-weight: 500;">${escapeHtml(int.name)}</span>
                                 </div>
                             `).join('')}
                         </div>
