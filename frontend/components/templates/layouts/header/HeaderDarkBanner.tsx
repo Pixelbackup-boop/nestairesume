@@ -237,6 +237,38 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                         </section>
                     )}
 
+                    {/* Interests */}
+                    {interests && interests.length > 0 && (
+                        <section className="resume-section" style={{ marginBottom: sp(16) }}>
+                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
+                                {t.sections.interests}
+                            </SectionHeader>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+                                    gap: scale < 1 ? '6px' : `${sp(8)}px`,
+                                }}
+                            >
+                                {interests.map((interest) => (
+                                    <div
+                                        key={interest.id}
+                                        data-paginate="item"
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: `${sp(6)}px`,
+                                            fontSize: fs.body,
+                                        }}
+                                    >
+                                        <span style={{ color: accentColor, fontSize: `${sp(8)}px` }}>●</span>
+                                        <span style={{ fontWeight: 500 }}>{interest.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
                     {/* Personal Details */}
                     {(personalInfo.nationality || personalInfo.idType) && (
                         <section className="resume-section" style={{ marginBottom: sp(16) }}>
@@ -341,57 +373,6 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                     >
                                         {strength.name}
                                     </span>
-                                ))}
-                            </div>
-                        </section>
-                    )}
-
-                    {/* Interests with Icons */}
-                    {interests && interests.length > 0 && (
-                        <section className="resume-section">
-                            <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp}>
-                                {t.sections.interests}
-                            </SectionHeader>
-                            <div
-                                style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: scale < 1 ? '6px' : `${sp(12)}px`,
-                                }}
-                            >
-                                {interests.slice(0, 6).map((interest) => (
-                                    <div
-                                        key={interest.id}
-                                        style={{
-                                            textAlign: 'center',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            alignItems: 'center',
-                                        }}
-                                    >
-                                        <div
-                                            style={{
-                                                width: scale < 1 ? 20 : sp(32),
-                                                height: scale < 1 ? 20 : sp(32),
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                marginBottom: `${sp(4)}px`,
-                                                color: '#4b5563',
-                                            }}
-                                        >
-                                            {getInterestIcon(interest.name, scale < 1 ? 16 : sp(28))}
-                                        </div>
-                                        <div style={{
-                                            fontSize: fs.tiny,
-                                            color: '#4b5563',
-                                            lineHeight: 1.2,
-                                            wordBreak: 'break-word',
-                                            maxWidth: '100%',
-                                        }}>
-                                            {interest.name}
-                                        </div>
-                                    </div>
                                 ))}
                             </div>
                         </section>

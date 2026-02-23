@@ -242,6 +242,21 @@ export const renderHeaderDarkBanner = (
                                 </section>
                             ` : ''}
 
+                            <!-- Interests -->
+                            ${interests && interests.length > 0 ? `
+                                <section class="resume-section" style="margin-bottom: 20px;">
+                                    ${SectionHeader(t.sections.interests)}
+                                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                        ${interests.map(interest => `
+                                            <div data-paginate="item" style="display: flex; align-items: center; gap: 6px; font-size: ${s(12)};">
+                                                <span style="color: ${accentColor}; font-size: 8px;">●</span>
+                                                <span style="font-weight: 500;">${escapeHtml(interest.name)}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                            ` : ''}
+
                             <!-- Personal Details -->
                             ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? `
                                 <section class="resume-section" style="margin-bottom: 20px;">
@@ -291,25 +306,6 @@ export const renderHeaderDarkBanner = (
                                             <span data-paginate="item" style="background-color: ${accentColor}; color: ${getContrastText(accentColor)}; padding: 4px 12px; border-radius: 4px; font-size: ${s(10)}; font-weight: 500;">
                                                 ${escapeHtml(strength.name)}
                                             </span>
-                                        `).join('')}
-                                    </div>
-                                </section>
-                            ` : ''}
-
-                            <!-- Interests with Icons -->
-                            ${interests && interests.length > 0 ? `
-                                <section class="resume-section" style="margin-bottom: 20px;">
-                                    ${SectionHeader(t.sections.interests)}
-                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                                        ${interests.slice(0, 6).map(interest => `
-                                            <div data-paginate="item" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                                                <div style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-bottom: 4px;">
-                                                    ${getInterestIcon(interest.name)}
-                                                </div>
-                                                <div style="font-size: ${s(9)}; color: #4b5563; line-height: 1.2; word-break: break-word; max-width: 100%;">
-                                                    ${escapeHtml(interest.name)}
-                                                </div>
-                                            </div>
                                         `).join('')}
                                     </div>
                                 </section>
