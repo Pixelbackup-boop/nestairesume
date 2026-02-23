@@ -329,7 +329,6 @@ function BuilderContent() {
                                 <PagedPreview ref={componentRef} scale={previewScale} />
                             </div>
 
-                            )}
                         </div>
                     )}
                 </div>
