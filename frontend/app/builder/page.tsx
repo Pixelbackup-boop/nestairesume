@@ -16,7 +16,6 @@ import {
     getLayoutPresetId,
     getTemplateById,
     getTemplateTheme,
-    getTemplateThumbnail,
     sampleResumeData,
     colorPresets
 } from '@/lib/templates/builder';
@@ -26,7 +25,7 @@ import {
     Download, ChevronDown, Layout, Palette, Sparkles,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
-    FileText, Image, X, ChevronRight
+    FileText, X, ChevronRight
 } from 'lucide-react';
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
@@ -41,8 +40,6 @@ function BuilderContent() {
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showDownloadModal, setShowDownloadModal] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [showReferencePanel, setShowReferencePanel] = useState(false);
-    const [templateThumbnail, setTemplateThumbnail] = useState<string | undefined>();
     const { resumeData, selectedTemplate, selectedTemplateId, selectedTheme, setTemplate, setTemplateId, setTheme, setCustomThemeColor, setResumeData } = useResumeStore();
     const componentRef = useRef<HTMLDivElement>(null);
 
@@ -83,14 +80,10 @@ function BuilderContent() {
                     setCustomThemeColor(themeSettings.customColor);
                 }
 
-                // Set template thumbnail for reference panel
-                const thumbnail = getTemplateThumbnail(templateId);
-                setTemplateThumbnail(thumbnail);
             } else {
                 // It's already a layout preset ID, use directly
                 setTemplate(templateId);
                 setTemplateId(null);
-                setTemplateThumbnail(undefined);
             }
         }
     }, [searchParams, setResumeData, setTemplate, setTemplateId, setTheme, setCustomThemeColor]);
@@ -303,21 +296,6 @@ function BuilderContent() {
                             <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-gray-50">
                                 <span className="text-sm font-medium text-gray-600">Live Preview</span>
                                 <div className="flex items-center gap-2">
-                                    {/* Reference Image Toggle - Only show if template has thumbnail */}
-                                    {templateThumbnail && (
-                                        <button
-                                            onClick={() => setShowReferencePanel(!showReferencePanel)}
-                                            className={`p-1.5 rounded transition flex items-center gap-1.5 ${
-                                                showReferencePanel
-                                                    ? 'text-accent-green bg-accent-green/10'
-                                                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-200'
-                                            }`}
-                                            title="Show Reference Image"
-                                        >
-                                            <Image size={16} />
-                                            <span className="text-xs">Reference</span>
-                                        </button>
-                                    )}
                                     <div className="w-px h-4 bg-gray-200 mx-1" />
                                     <button
                                         onClick={zoomOut}
@@ -351,37 +329,6 @@ function BuilderContent() {
                                 <PagedPreview ref={componentRef} scale={previewScale} />
                             </div>
 
-                            {/* Reference Image Panel - Sliding from right */}
-                            {templateThumbnail && showReferencePanel && (
-                                <div className="absolute top-12 right-0 bottom-0 w-80 bg-white border-l border-gray-200 shadow-xl z-20 flex flex-col">
-                                    {/* Panel Header */}
-                                    <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between bg-white">
-                                        <div className="flex items-center gap-2">
-                                            <Image size={16} className="text-accent-green" />
-                                            <span className="text-sm font-medium text-gray-900">Reference Design</span>
-                                        </div>
-                                        <button
-                                            onClick={() => setShowReferencePanel(false)}
-                                            className="p-1 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded transition"
-                                        >
-                                            <X size={16} />
-                                        </button>
-                                    </div>
-
-                                    {/* Reference Image */}
-                                    <div className="flex-1 overflow-auto p-4">
-                                        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                                            <img
-                                                src={templateThumbnail}
-                                                alt="Template reference"
-                                                className="w-full h-auto object-contain"
-                                            />
-                                        </div>
-                                        <p className="text-xs text-gray-400 mt-3 text-center">
-                                            Original template design for reference
-                                        </p>
-                                    </div>
-                                </div>
                             )}
                         </div>
                     )}
