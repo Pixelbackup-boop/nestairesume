@@ -102,8 +102,8 @@ export const headerGeometricTemplate: BuilderTemplate = {
 
 // Orange icon sections header - modern style (UNIQUE LAYOUT: labels-left, 3-column skills, hashtag strengths)
 export const headerIconOrangeTemplate: BuilderTemplate = {
-    id: 'header-icon-orange',
-    name: 'Icon Orange',
+    id: 'header-icon-sections',
+    name: 'Icon Sections',
     style: 'Modern',
     layout: 'header',
     layoutPresetId: 'header-normal-normal',

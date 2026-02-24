@@ -39,7 +39,7 @@ const FEATURED_TEMPLATE_IDS = [
     'header-ribbon-yellow',
     'header-decorative',
     'header-geometric',
-    'header-icon-orange',
+    'header-icon-sections',
     'header-blue-clean',
     // Classic layouts (1 unique)
     'classic-pro',

@@ -5,7 +5,7 @@ import type { BuilderTemplate } from '../../types';
 // Dark navy sidebar - corporate
 export const sidebarDarkNavyTemplate: BuilderTemplate = {
     id: 'sidebar-dark-navy',
-    name: 'Navy Corporate',
+    name: 'Dark Navy',
     style: 'Corporate',
     layout: 'sidebar',
     layoutPresetId: 'sidebar-left-normal-normal',

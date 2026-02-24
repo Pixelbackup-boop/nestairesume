@@ -476,7 +476,7 @@ export default memo(SidebarNarrowYellow);
 // Meta
 export const sidebarNarrowYellowMeta: TemplateMeta = {
     id: 'sidebar-narrow-yellow',
-    name: 'Narrow Yellow Sidebar',
+    name: 'Narrow Yellow',
     category: 'sidebar',
     thumbnail: '/templates/sidebar-narrow-yellow.webp',
     description: 'High impact narrow yellow sidebar with icon focus',

@@ -488,8 +488,8 @@ export default memo(HeaderDark);
 // Template metadata
 export const headerDarkMeta: TemplateMeta = {
     id: 'header-dark',
-    name: 'Dark Sidebar',
+    name: 'Dark Header',
     category: 'header',
     thumbnail: '/templates/header-dark.png',
-    description: 'Modern slate dark sidebar with gold accents',
+    description: 'Modern slate dark header with gold accents',
 };

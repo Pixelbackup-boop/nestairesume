@@ -301,7 +301,7 @@ export default memo(MinimalTimeline);
 // Meta
 export const minimalTimelineMeta: TemplateMeta = {
     id: 'minimal-timeline',
-    name: 'Minimal Timeline',
+    name: 'Timeline',
     category: 'minimal',
     thumbnail: '/templates/minimal-timeline.webp',
     description: 'Timeline-based layout for clear chronological progression',

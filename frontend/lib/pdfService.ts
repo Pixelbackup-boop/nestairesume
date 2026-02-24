@@ -42,7 +42,7 @@ const knownTemplates = new Set([
     // Header templates
     'header-dark', 'header-dark-banner', 'header-dark-box',
     'header-diagonal-yellow', 'header-ribbon-yellow', 'header-decorative',
-    'header-geometric', 'header-icon-sections', 'header-icon-orange', 'header-blue-clean',
+    'header-geometric', 'header-icon-sections', 'header-blue-clean',
     // Classic templates
     'classic-professional', 'classic-pro',
     // Minimal templates

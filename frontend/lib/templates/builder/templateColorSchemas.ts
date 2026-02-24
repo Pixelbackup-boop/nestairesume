@@ -129,8 +129,8 @@ export const templateColorSchemas: Record<string, TemplateColorSchema> = {
         schemaType: 'single',
         colorAreas: ['ribbon banner', 'accents'],
     },
-    'header-icon-orange': {
-        templateId: 'header-icon-orange',
+    'header-icon-sections': {
+        templateId: 'header-icon-sections',
         schemaType: 'single',
         colorAreas: ['header background', 'section icons'],
     },

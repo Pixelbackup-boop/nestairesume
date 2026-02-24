@@ -30,7 +30,7 @@ const FEATURED_TEMPLATE_IDS = [
     'header-ribbon-yellow',
     'header-decorative',
     'header-geometric',
-    'header-icon-orange',
+    'header-icon-sections',
     'header-blue-clean',
     'classic-pro',
     'minimal-timeline',

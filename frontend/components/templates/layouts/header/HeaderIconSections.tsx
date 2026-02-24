@@ -440,7 +440,7 @@ export default memo(HeaderIconSections);
 // Template metadata
 export const headerIconSectionsMeta: TemplateMeta = {
     id: 'header-icon-sections',
-    name: 'Boxed Sections',
+    name: 'Icon Sections',
     category: 'header',
     thumbnail: '/templates/header-icon-sections.png',
     description: 'Distinctive layout with boxed sections and cyan background',

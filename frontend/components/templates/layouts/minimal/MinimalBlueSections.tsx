@@ -344,7 +344,7 @@ export default memo(MinimalBlueSections);
 // Meta
 export const minimalBlueSectionsMeta: TemplateMeta = {
     id: 'minimal-blue-sections',
-    name: 'Minimal Blue Sections',
+    name: 'Blue Sections',
     category: 'minimal',
     thumbnail: '/templates/minimal-blue-sections.jpg',
     description: 'Clean layout with distinct colored section headers',

@@ -437,7 +437,7 @@ export default memo(HeaderDecorative);
 // Template metadata
 export const headerDecorativeMeta: TemplateMeta = {
     id: 'header-decorative',
-    name: 'Decorative',
+    name: 'Decorative Pink',
     category: 'header',
     thumbnail: '/templates/header-decorative.png',
     description: 'Modern dark header with geometric patterns',

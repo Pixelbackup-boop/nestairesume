@@ -468,7 +468,7 @@ export default memo(SidebarMonogram);
 // Meta
 export const sidebarMonogramMeta: TemplateMeta = {
     id: 'sidebar-monogram',
-    name: 'Monogram Sidebar',
+    name: 'Teal Monogram',
     category: 'sidebar',
     thumbnail: '/templates/sidebar-monogram.webp',
     description: 'Elegant layout using initials monogram instead of photo',

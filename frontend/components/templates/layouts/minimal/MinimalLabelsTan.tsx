@@ -338,7 +338,7 @@ export default memo(MinimalLabelsTan);
 // Meta
 export const minimalLabelsTanMeta: TemplateMeta = {
     id: 'minimal-labels-tan',
-    name: 'Minimal Labels Tan',
+    name: 'Labels Tan',
     category: 'minimal',
     thumbnail: '/templates/minimal-labels-tan.webp',
     description: 'Warm, understated layout with left-aligned labels',

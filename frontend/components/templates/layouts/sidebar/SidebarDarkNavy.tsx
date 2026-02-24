@@ -439,7 +439,7 @@ export default memo(SidebarDarkNavy);
 // Meta
 export const sidebarDarkNavyMeta: TemplateMeta = {
     id: 'sidebar-dark-navy',
-    name: 'Dark Navy Sidebar',
+    name: 'Dark Navy',
     category: 'sidebar',
     thumbnail: '/templates/sidebar-dark-navy.jpg',
     description: 'Navy sidebar with blue accents and timeline',

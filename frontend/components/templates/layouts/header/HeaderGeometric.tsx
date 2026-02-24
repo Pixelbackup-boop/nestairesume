@@ -404,7 +404,7 @@ export default memo(HeaderGeometric);
 // Template metadata
 export const headerGeometricMeta: TemplateMeta = {
     id: 'header-geometric',
-    name: 'Geometric',
+    name: 'Geometric Brown',
     category: 'header',
     thumbnail: '/templates/header-geometric.png',
     description: 'Professional layout with geometric pattern and side labels',
