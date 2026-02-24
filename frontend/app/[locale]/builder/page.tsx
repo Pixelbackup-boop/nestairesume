@@ -150,6 +150,11 @@ function BuilderContent() {
         const theme = getTemplateTheme(id);
         if (theme.themeId) setTheme(theme.themeId);
         else if (theme.customColor) setCustomThemeColor(theme.customColor);
+        // Update URL to reflect selected template (bookmarkable, no reload)
+        const url = new URL(window.location.href);
+        url.searchParams.set('template', id);
+        url.searchParams.delete('prefill');
+        router.replace(url.pathname + url.search, { scroll: false });
     };
 
     // Handle download - show download modal (modal handles auth check internally)
