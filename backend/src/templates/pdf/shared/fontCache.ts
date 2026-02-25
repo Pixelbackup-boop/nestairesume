@@ -5,6 +5,7 @@
  */
 
 import { fontPresets } from './helpers';
+import logger from '../../../lib/logger';
 
 const fontStyleCache = new Map<string, string>();
 
@@ -24,7 +25,7 @@ async function fetchAndCacheFont(fontName: string, googleFont: string): Promise<
     });
 
     if (!cssResponse.ok) {
-        console.warn(`[FontCache] Failed to fetch CSS for ${fontName}: ${cssResponse.status}`);
+        logger.warn({ fontName, status: cssResponse.status }, 'Failed to fetch CSS for font');
         return;
     }
 
@@ -45,7 +46,7 @@ async function fetchAndCacheFont(fontName: string, googleFont: string): Promise<
                 css = css.replace(fontUrl, `data:${mime};base64,${base64}`);
             }
         } catch {
-            console.warn(`[FontCache] Failed to download: ${fontUrl}`);
+            logger.warn({ fontUrl }, 'Failed to download font file');
         }
     }
 
@@ -58,7 +59,7 @@ async function fetchAndCacheFont(fontName: string, googleFont: string): Promise<
  */
 export async function initFontCache(): Promise<void> {
     const start = Date.now();
-    console.log('[FontCache] Caching Google Fonts...');
+    logger.info('Caching Google Fonts');
 
     const fontsToCache = [
         ...fontPresets.filter(f => f.googleFont).map(f => ({ name: f.name, googleFont: f.googleFont! })),
@@ -69,7 +70,7 @@ export async function initFontCache(): Promise<void> {
         fontsToCache.map(f => fetchAndCacheFont(f.name, f.googleFont))
     );
 
-    console.log(`[FontCache] Cached ${fontStyleCache.size}/${fontsToCache.length} fonts in ${Date.now() - start}ms`);
+    logger.info({ cached: fontStyleCache.size, total: fontsToCache.length, durationMs: Date.now() - start }, 'Font cache initialized');
 }
 
 /**

@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import prisma from "../config/database";
 import { PLANS, PlanType } from "../services/stripeService";
+import logger from "../lib/logger";
 
 // Extend Express Request to include user info
 interface AuthenticatedRequest extends Request {
@@ -62,7 +63,7 @@ export const checkCvLimit = async (
 
     next();
   } catch (error) {
-    console.error("CV limit check error:", error);
+    logger.error({ err: error }, 'CV limit check error');
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -116,7 +117,7 @@ export const checkAiLimit = async (
 
     next();
   } catch (error) {
-    console.error("AI limit check error:", error);
+    logger.error({ err: error }, 'AI limit check error');
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -173,7 +174,7 @@ export const checkDownloadLimit = async (
 
     next();
   } catch (error) {
-    console.error("Download limit check error:", error);
+    logger.error({ err: error }, 'Download limit check error');
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -227,7 +228,7 @@ export const checkCoverLetterLimit = async (
 
     next();
   } catch (error) {
-    console.error("Cover letter limit check error:", error);
+    logger.error({ err: error }, 'Cover letter limit check error');
     res.status(500).json({ error: "Internal server error" });
   }
 };

@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import logger from "../lib/logger";
 
 // Ad settings file path
 const AD_SETTINGS_FILE = path.join(__dirname, "../../data/ad-settings.json");
@@ -67,7 +68,7 @@ export async function getAdSettings(): Promise<AdSettings> {
     }
     return defaultSettings;
   } catch (error) {
-    console.error("Error reading ad settings:", error);
+    logger.error({ err: error }, 'Error reading ad settings');
     return defaultSettings;
   }
 }
@@ -95,7 +96,7 @@ export async function saveAdSettings(settings: Partial<AdSettings>): Promise<AdS
     fs.writeFileSync(AD_SETTINGS_FILE, JSON.stringify(updatedSettings, null, 2));
     return updatedSettings;
   } catch (error) {
-    console.error("Error saving ad settings:", error);
+    logger.error({ err: error }, 'Error saving ad settings');
     throw new Error("Failed to save ad settings");
   }
 }

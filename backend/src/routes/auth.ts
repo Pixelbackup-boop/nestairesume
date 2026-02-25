@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import logger from "../lib/logger";
 import {
   registerUser,
   loginUser,
@@ -115,7 +116,7 @@ router.post("/oauth", validateBody(oauthSchema), async (req: Request, res: Respo
 
     res.json(result);
   } catch (error) {
-    console.error("OAuth sign-in error:", error);
+    logger.error({ err: error }, 'OAuth sign-in error');
     const message = error instanceof Error ? error.message : "OAuth sign-in failed";
     res.status(500).json({ detail: message });
   }

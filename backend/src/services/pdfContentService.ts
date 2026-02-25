@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+ 
 const pdf = require("pdf-parse");
 import prisma from "../config/database";
 

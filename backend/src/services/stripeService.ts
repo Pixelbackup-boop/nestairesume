@@ -1,10 +1,12 @@
 import Stripe from "stripe";
 import { config } from "../config/env";
 import prisma from "../config/database";
+import logger from "../lib/logger";
+import { captureError } from "../lib/sentry";
 
 // Initialize Stripe (will be null if no API key)
 const stripe = config.stripeSecretKey
-  ? new Stripe(config.stripeSecretKey)
+  ? new Stripe(config.stripeSecretKey, { maxNetworkRetries: 2 })
   : null;
 
 export type PlanType = "starter" | "gold" | "diamond" | "platinum";
@@ -105,26 +107,35 @@ export const createCheckoutSession = async (
       await stripe.subscriptions.cancel(user.subscriptionId);
     } catch (err) {
       // Old sub may already be cancelled — safe to ignore
-      console.warn("Could not cancel old subscription:", (err as Error).message);
+      logger.warn({ err }, 'Could not cancel old subscription');
+      captureError(err instanceof Error ? err : new Error(String(err)), {
+        tags: { service: 'stripe', operation: 'cancel-old-subscription' },
+        extra: { userId, subscriptionId: user.subscriptionId },
+      });
     }
   }
 
-  const session = await stripe.checkout.sessions.create({
-    customer: customerId,
-    mode: "subscription",
-    line_items: [
-      {
-        price: planConfig.priceId,
-        quantity: 1,
+  const session = await stripe.checkout.sessions.create(
+    {
+      customer: customerId,
+      mode: "subscription",
+      line_items: [
+        {
+          price: planConfig.priceId,
+          quantity: 1,
+        },
+      ],
+      success_url: `${config.frontendUrl}/checkout/success?plan=${plan}`,
+      cancel_url: `${config.frontendUrl}/checkout?plan=${plan}&payment=cancelled`,
+      metadata: {
+        userId,
+        plan,
       },
-    ],
-    success_url: `${config.frontendUrl}/checkout/success?plan=${plan}`,
-    cancel_url: `${config.frontendUrl}/checkout?plan=${plan}&payment=cancelled`,
-    metadata: {
-      userId,
-      plan,
     },
-  });
+    {
+      idempotencyKey: `checkout_${userId}_${plan}_${Date.now()}`,
+    }
+  );
 
   if (!session.url) {
     throw new Error("Failed to create checkout session");
@@ -312,6 +323,13 @@ const handlePaymentFailed = async (invoice: Stripe.Invoice): Promise<void> => {
   });
 
   if (!user) return;
+
+  // Report payment failure to Sentry for visibility
+  captureError(new Error(`Payment failed for user ${user.id}`), {
+    user: { id: user.id, email: user.email ?? undefined },
+    tags: { service: 'stripe', operation: 'payment-failed' },
+    extra: { invoiceId: invoice.id, amountDue: invoice.amount_due, currency: invoice.currency },
+  });
 
   await prisma.user.update({
     where: { id: user.id },

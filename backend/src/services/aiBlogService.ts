@@ -1,7 +1,10 @@
 import OpenAI from "openai";
 import { config } from "../config/env";
 import prisma from "../config/database";
+import logger from "../lib/logger";
 import * as pdfService from "./pdfContentService";
+import { openaiCircuit } from "./aiContentService";
+import { withRetry } from "../lib/retry";
 
 // Initialize OpenAI client
 const openai = config.openaiApiKey
@@ -75,18 +78,22 @@ The content should:
 Respond ONLY with valid JSON array of posts, no additional text:
 [{"title": "...", "description": "...", "content": "...", "category": "...", "tags": ["...", "..."]}]`;
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-      {
-        role: "system",
-        content: "You are a professional blog content generator. Output only valid JSON.",
-      },
-      { role: "user", content: prompt },
-    ],
-    temperature: 0.7,
-    max_tokens: 16000,
-  });
+  const response = await openaiCircuit.execute(() =>
+    withRetry(() =>
+      openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: "You are a professional blog content generator. Output only valid JSON.",
+          },
+          { role: "user", content: prompt },
+        ],
+        temperature: 0.7,
+        max_tokens: 16000,
+      })
+    )
+  );
 
   const responseText = response.choices[0]?.message?.content || "[]";
 
@@ -100,7 +107,7 @@ Respond ONLY with valid JSON array of posts, no additional text:
     }
     posts = JSON.parse(jsonMatch[0]);
   } catch (error) {
-    console.error("Failed to parse AI response:", responseText);
+    logger.error({ responseText }, 'Failed to parse AI response for blog posts');
     throw new Error("Failed to parse AI-generated content");
   }
 

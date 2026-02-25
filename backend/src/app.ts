@@ -8,6 +8,7 @@ import compression from "compression";
 import cors from "cors";
 import helmet from "helmet";
 import { config } from "./config/env";
+import logger from "./lib/logger";
 
 // Import routes
 import authRoutes from "./routes/auth";
@@ -125,7 +126,7 @@ app.use("/api/v1/template-feedback", templateFeedbackRoutes);
 
 // Generic error handler
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
-  console.error('Unhandled error:', err);
+  logger.error({ err }, 'Unhandled error');
   res.status(500).json({
     error: 'Internal server error',
     message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong',

@@ -4,6 +4,7 @@
  */
 
 import { Router, Response } from "express";
+import logger from "../lib/logger";
 import { authenticateToken, AuthRequest } from "../middleware/auth";
 import {
   checkAiLimit,
@@ -47,7 +48,7 @@ router.post(
 
       res.json({ improved_content: improvedContent });
     } catch (error) {
-      console.error("AI improve-content error:", error);
+      logger.error({ err: error }, 'AI improve-content error');
       const message = error instanceof Error ? error.message : "Failed to improve content";
       res.status(500).json({ error: message });
     }
@@ -96,7 +97,7 @@ router.post(
 
       res.json({ cover_letter: coverLetter });
     } catch (error) {
-      console.error("AI generate-cover-letter error:", error);
+      logger.error({ err: error }, 'AI generate-cover-letter error');
       const message = error instanceof Error ? error.message : "Failed to generate cover letter";
       res.status(500).json({ error: message });
     }

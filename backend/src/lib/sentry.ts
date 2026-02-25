@@ -9,6 +9,7 @@
 
 import * as Sentry from '@sentry/node';
 import { Express, Request, Response, NextFunction } from 'express';
+import logger from './logger';
 
 /**
  * Initialize Sentry with configuration
@@ -17,8 +18,8 @@ export function initSentry(app: Express): void {
   const dsn = process.env.SENTRY_DSN;
 
   if (!dsn) {
-    console.log('⚠️  Sentry DSN not configured. Error monitoring disabled.');
-    console.log('   Add SENTRY_DSN to your .env file to enable error tracking.');
+    logger.warn('Sentry DSN not configured, error monitoring disabled');
+    logger.warn('Add SENTRY_DSN to your .env file to enable error tracking');
     return;
   }
 
@@ -85,7 +86,7 @@ export function initSentry(app: Express): void {
     ],
   });
 
-  console.log('✅ Sentry initialized for error monitoring');
+  logger.info('Sentry initialized for error monitoring');
 }
 
 /**
@@ -119,7 +120,7 @@ export function captureError(
   }
 ): string {
   if (!process.env.SENTRY_DSN) {
-    console.error('Error (Sentry disabled):', error);
+    logger.error({ err: error }, 'Error (Sentry disabled)');
     return 'sentry-disabled';
   }
 

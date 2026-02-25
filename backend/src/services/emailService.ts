@@ -1,11 +1,14 @@
 import * as brevo from "@getbrevo/brevo";
 import { config } from "../config/env";
+import logger from "../lib/logger";
+import { captureError } from "../lib/sentry";
+import { withRetry } from "../lib/retry";
 
 // Initialize Brevo API
 const apiInstance = new brevo.TransactionalEmailsApi();
 
 // Debug: Check if API key is loaded
-console.log("🔍 Brevo API Key loaded:", config.brevoApiKey ? `${config.brevoApiKey.substring(0, 20)}...` : "NOT SET");
+logger.info({ keyLoaded: !!config.brevoApiKey }, 'Brevo API key status');
 
 apiInstance.setApiKey(
   brevo.TransactionalEmailsApiApiKeys.apiKey,
@@ -48,14 +51,16 @@ export const sendEmail = async (options: SendEmailOptions): Promise<boolean> => 
       sendSmtpEmail.textContent = options.textContent;
     }
 
-    const result = await apiInstance.sendTransacEmail(sendSmtpEmail);
-    console.log(`✅ Email sent successfully to ${options.to}`, result);
+    await withRetry(() => apiInstance.sendTransacEmail(sendSmtpEmail));
+    logger.info({ to: options.to }, 'Email sent successfully');
     return true;
-  } catch (error: any) {
-    console.error("❌ Failed to send email:");
-    console.error("  Error message:", error?.message);
-    console.error("  Error body:", error?.body || error?.response?.body);
-    console.error("  Full error:", JSON.stringify(error, null, 2));
+  } catch (error: unknown) {
+    const err = error as { message?: string; body?: unknown; response?: { body?: unknown } };
+    logger.error({ err: error, to: options.to, body: err.body || err.response?.body }, 'Failed to send email');
+    captureError(error instanceof Error ? error : new Error(String(error)), {
+      tags: { service: 'email', operation: 'sendEmail' },
+      extra: { to: options.to, subject: options.subject },
+    });
     return false;
   }
 };

@@ -5,6 +5,7 @@
  */
 
 import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
+import logger from '../../lib/logger';
 import { renderDocxClassic } from './docx-classic';
 import { renderDocxSidebar } from './docx-sidebar';
 import { renderDocxHeader } from './docx-header';
@@ -37,7 +38,7 @@ export const docxTemplates: Record<string, DocxTemplateRenderer> = {
 export function getDocxTemplateRenderer(templateId: string): DocxTemplateRenderer {
     const renderer = docxTemplates[templateId];
     if (!renderer) {
-        console.warn(`DOCX template "${templateId}" not found, falling back to docx-classic`);
+        logger.warn({ templateId }, 'DOCX template not found, falling back to docx-classic');
         return renderDocxClassic;
     }
     return renderer;

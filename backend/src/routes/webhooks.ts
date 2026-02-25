@@ -1,4 +1,6 @@
 import { Router, Request, Response } from "express";
+import logger from "../lib/logger";
+import { captureError } from "../lib/sentry";
 import { constructWebhookEvent, handleWebhookEvent } from "../services/stripeService";
 
 const router = Router();
@@ -44,7 +46,10 @@ router.post("/stripe", async (req: Request, res: Response): Promise<void> => {
 
     res.json({ received: true });
   } catch (error: unknown) {
-    console.error("Webhook error:", error);
+    logger.error({ err: error }, 'Webhook error');
+    captureError(error instanceof Error ? error : new Error(String(error)), {
+      tags: { service: 'stripe', operation: 'webhook' },
+    });
     const message = error instanceof Error ? error.message : "Webhook handler failed";
     res.status(400).json({ detail: message });
   }

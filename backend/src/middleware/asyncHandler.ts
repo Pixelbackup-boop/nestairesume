@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
+import logger from '../lib/logger';
 import { AuthRequest } from './auth';
 
 /**
@@ -131,10 +132,10 @@ export const globalErrorHandler = (
   error: Error,
   req: Request,
   res: Response,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   _next: NextFunction
 ) => {
-  console.error('Unhandled error:', error);
+  logger.error({ err: error }, 'Unhandled error');
 
   // Prisma errors
   if (error.name === 'PrismaClientKnownRequestError') {

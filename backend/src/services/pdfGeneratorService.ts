@@ -4,6 +4,8 @@
  */
 
 import puppeteer, { Browser, Page } from 'puppeteer';
+import logger from '../lib/logger';
+import { captureError, trackPdfGeneration } from '../lib/sentry';
 import { PdfResumeData, PdfTheme, PdfGenerateRequest, PdfTranslations } from '../types/pdf';
 import { getTemplateRenderer } from '../templates/pdf';
 import { wrapHtml } from '../templates/pdf/shared/htmlWrapper';
@@ -79,7 +81,11 @@ async function getBrowser(): Promise<Browser> {
             browser = await puppeteer.launch(launchOptions);
             return browser;
         } catch (err) {
-            console.error(`[PDF] Browser launch attempt ${attempt} failed:`, err);
+            logger.error({ err, attempt }, 'Browser launch attempt failed');
+            captureError(err instanceof Error ? err : new Error(String(err)), {
+                tags: { service: 'pdf', operation: 'browser-launch' },
+                extra: { attempt },
+            });
             if (attempt === 2) throw err;
             await new Promise(r => setTimeout(r, 1000));
         }
@@ -111,6 +117,7 @@ export async function generatePdfFromHtml(
 
     const browserInstance = await getBrowser();
     let page: Page | null = null;
+    const startTime = Date.now();
 
     try {
         page = await browserInstance.newPage();
@@ -302,7 +309,18 @@ export async function generatePdfFromHtml(
             preferCSSPageSize: true,
         });
 
-        return Buffer.from(pdfBuffer);
+        const result = Buffer.from(pdfBuffer);
+        const durationMs = Date.now() - startTime;
+        trackPdfGeneration(marginStrategy, durationMs, true, result.length);
+        return result;
+    } catch (error) {
+        const durationMs = Date.now() - startTime;
+        trackPdfGeneration(marginStrategy, durationMs, false);
+        captureError(error instanceof Error ? error : new Error(String(error)), {
+            tags: { service: 'pdf', operation: 'generatePdfFromHtml' },
+            extra: { marginStrategy, durationMs },
+        });
+        throw error;
     } finally {
         if (page) {
             await page.close();

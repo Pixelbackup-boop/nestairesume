@@ -1,6 +1,7 @@
 import * as cron from "node-cron";
 import prisma from "../config/database";
 import * as aiBlogService from "./aiBlogService";
+import logger from "../lib/logger";
 
 let schedulerTask: ReturnType<typeof cron.schedule> | null = null;
 
@@ -68,7 +69,7 @@ export const scheduleApprovedPosts = async () => {
   const settings = await getSettings();
 
   if (!settings.enabled) {
-    console.log("[Scheduler] Auto-posting is disabled");
+    logger.info({ component: 'scheduler' }, 'Auto-posting is disabled');
     return;
   }
 
@@ -85,7 +86,7 @@ export const scheduleApprovedPosts = async () => {
   });
 
   if (approvedPosts.length === 0) {
-    console.log("[Scheduler] No approved posts to schedule");
+    logger.info({ component: 'scheduler' }, 'No approved posts to schedule');
     return;
   }
 
@@ -96,15 +97,17 @@ export const scheduleApprovedPosts = async () => {
     settings.endHour
   );
 
-  // Update posts with scheduled times
-  for (let i = 0; i < approvedPosts.length; i++) {
-    await prisma.scheduledPost.update({
-      where: { id: approvedPosts[i].id },
-      data: { scheduledFor: postTimes[i] },
-    });
-  }
+  // Update posts with scheduled times (batched in a single transaction)
+  await prisma.$transaction(
+    approvedPosts.map((post, i) =>
+      prisma.scheduledPost.update({
+        where: { id: post.id },
+        data: { scheduledFor: postTimes[i] },
+      })
+    )
+  );
 
-  console.log(`[Scheduler] Scheduled ${approvedPosts.length} posts for today`);
+  logger.info({ component: 'scheduler', count: approvedPosts.length }, 'Scheduled posts for today');
 };
 
 // Check and publish posts that are due
@@ -130,9 +133,9 @@ export const checkAndPublishDuePosts = async () => {
   for (const post of duePosts) {
     try {
       await aiBlogService.publishPost(post.id, settings.authorName);
-      console.log(`[Scheduler] Published: ${post.title}`);
+      logger.info({ component: 'scheduler', postId: post.id, title: post.title }, 'Published post');
     } catch (error) {
-      console.error(`[Scheduler] Failed to publish ${post.id}:`, error);
+      logger.error({ err: error, component: 'scheduler', postId: post.id }, 'Failed to publish post');
 
       // Mark as failed
       await prisma.scheduledPost.update({
@@ -146,7 +149,7 @@ export const checkAndPublishDuePosts = async () => {
 // Start the scheduler
 export const startScheduler = () => {
   if (schedulerTask) {
-    console.log("[Scheduler] Already running");
+    logger.info({ component: 'scheduler' }, 'Scheduler already running');
     return;
   }
 
@@ -155,7 +158,7 @@ export const startScheduler = () => {
     try {
       await checkAndPublishDuePosts();
     } catch (error) {
-      console.error("[Scheduler] Error:", error);
+      logger.error({ err: error, component: 'scheduler' }, 'Error checking due posts');
     }
   });
 
@@ -164,11 +167,11 @@ export const startScheduler = () => {
     try {
       await scheduleApprovedPosts();
     } catch (error) {
-      console.error("[Scheduler] Error scheduling posts:", error);
+      logger.error({ err: error, component: 'scheduler' }, 'Error scheduling posts');
     }
   });
 
-  console.log("[Scheduler] Started - checking every minute for posts to publish");
+  logger.info({ component: 'scheduler' }, 'Started - checking every minute for posts to publish');
 };
 
 // Stop the scheduler
@@ -176,7 +179,7 @@ export const stopScheduler = () => {
   if (schedulerTask) {
     schedulerTask.stop();
     schedulerTask = null;
-    console.log("[Scheduler] Stopped");
+    logger.info({ component: 'scheduler' }, 'Scheduler stopped');
   }
 };
 

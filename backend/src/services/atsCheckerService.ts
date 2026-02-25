@@ -300,7 +300,7 @@ function checkExperienceParsing(text: string): AtsCategory {
   }
 
   // Bullet points or line breaks suggesting job descriptions (6 pts)
-  const bulletPatterns = text.match(/[•●○▪◦‣\-\*]\s+\S/g);
+  const bulletPatterns = text.match(/[•●○▪◦‣\-*]\s+\S/g);
   const newlineDescriptions = text.split("\n").filter((line) => line.trim().length > 30).length;
 
   if (bulletPatterns && bulletPatterns.length >= 3) {
@@ -418,7 +418,7 @@ function checkSkillsAndKeywords(text: string): AtsCategory {
 
   // Skills density (3 pts) — check for listed skills (comma, pipe, bullet, or line-separated)
   const commaOrPipeSkills = /[\w.#+/-]+(?:\s+[\w.#+/-]+)*(?:\s*[,|\t]\s*[\w.#+/-]+(?:\s+[\w.#+/-]+)*){3,}/;
-  const bulletSkills = text.match(/[•●○▪◦‣\-\*]\s+[\w.#+/][\w\s.#+/-]{1,40}/g);
+  const bulletSkills = text.match(/[•●○▪◦‣\-*]\s+[\w.#+/][\w\s.#+/-]{1,40}/g);
   // Detect line-separated skills after a "Skills" heading (most common resume builder format)
   const skillsSectionMatch = text.match(/\b(?:skills?|habilidades|competencias|comp[eé]tences|f[aä]higkeiten|kenntnisse)\b.*\n([\s\S]*?)(?=\n\s*(?:experience|education|interests?|languages?|certifications?|projects?|experiencia|educaci[oó]n|intereses|idiomas|certificaciones|proyectos|exp[eé]rience|formation|int[eé]r[eê]ts|langues|projets|erfahrung|bildung|interessen|sprachen|projekte|$))/i);
   const lineSkillsCount = skillsSectionMatch

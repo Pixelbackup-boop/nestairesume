@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import logger from "../lib/logger";
 import multer from "multer";
 import * as resumeParserService from "../services/resumeParserService";
 
@@ -106,7 +107,7 @@ router.post(
         res.status(422).json(result);
       }
     } catch (error) {
-      console.error("Resume parse error:", error);
+      logger.error({ err: error }, 'Resume parse error');
       res.status(500).json({
         success: false,
         error: error instanceof Error ? error.message : "Failed to parse resume",

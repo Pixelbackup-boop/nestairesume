@@ -1,6 +1,18 @@
 import dotenv from "dotenv";
+import pino from "pino";
 
 dotenv.config();
+
+// Use pino directly here to avoid circular dependency with lib/logger
+const envLogger = pino({
+  level: process.env.LOG_LEVEL || 'info',
+  ...(process.env.NODE_ENV !== 'production' && {
+    transport: {
+      target: 'pino-pretty',
+      options: { colorize: true },
+    },
+  }),
+});
 
 const isProduction = process.env.NODE_ENV === "production";
 const isTest = process.env.NODE_ENV === "test";
@@ -18,9 +30,7 @@ function getJwtSecret(): string {
 
   // Allow fallback only in development/test for convenience
   if (!secret && !isProduction) {
-    console.warn(
-      "⚠️  WARNING: Using fallback JWT secret. Set JWT_SECRET in .env for security."
-    );
+    envLogger.warn('Using fallback JWT secret - set JWT_SECRET in .env for security');
     return "dev-fallback-secret-do-not-use-in-production";
   }
 

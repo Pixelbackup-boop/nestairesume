@@ -3,6 +3,7 @@ import { PDFParse } from "pdf-parse";
 import mammoth from "mammoth";
 import OpenAI from "openai";
 import { config } from "../config/env";
+import logger from "../lib/logger";
 
 // Initialize AI client (DeepSeek or OpenAI)
 // DeepSeek uses OpenAI-compatible API
@@ -296,7 +297,7 @@ export const generateEnhancedResume = async (
 
       resumeData = JSON.parse(cleanJson.trim());
     } catch (parseError) {
-      console.error("Failed to parse AI response:", responseText);
+      logger.error({ responseText }, 'Failed to parse AI response');
       return {
         success: false,
         error: "Failed to parse AI-generated resume data",
@@ -382,7 +383,7 @@ export const generateEnhancedResume = async (
       isLinkedIn: detectLinkedInPdf(extractedText),
     };
   } catch (error) {
-    console.error("AI enhancement error:", error);
+    logger.error({ err: error }, 'AI enhancement error');
     return {
       success: false,
       error: error instanceof Error ? error.message : "AI processing failed",
@@ -531,7 +532,7 @@ export const parseResume = async (
     if (extractedText.length > MAX_TEXT_LENGTH) {
       // For slightly over limit, truncate with warning
       if (extractedText.length < MAX_TEXT_LENGTH * 2) {
-        console.log(`Text truncated from ${extractedText.length} to ${MAX_TEXT_LENGTH} chars`);
+        logger.info({ originalLength: extractedText.length, truncatedTo: MAX_TEXT_LENGTH }, 'Text truncated');
         extractedText = extractedText.substring(0, MAX_TEXT_LENGTH);
       } else {
         // Way too long - reject outright
@@ -553,13 +554,13 @@ export const parseResume = async (
 
     // Log if low confidence but still proceeding
     if (resumeCheck.confidence < 40 && resumeCheck.reason) {
-      console.log(`Low confidence resume detection (${resumeCheck.confidence}%): ${resumeCheck.reason}`);
+      logger.info({ confidence: resumeCheck.confidence, reason: resumeCheck.reason }, 'Low confidence resume detection');
     }
 
     // Generate enhanced resume
     return await generateEnhancedResume(extractedText, locale);
   } catch (error) {
-    console.error("Resume parsing error:", error);
+    logger.error({ err: error }, 'Resume parsing error');
     return {
       success: false,
       error: error instanceof Error ? error.message : "Failed to parse resume",

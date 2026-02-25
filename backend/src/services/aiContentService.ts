@@ -5,6 +5,13 @@
 
 import OpenAI from "openai";
 import { config } from "../config/env";
+import logger from "../lib/logger";
+import { captureError, trackAiCall } from "../lib/sentry";
+import { CircuitBreaker } from "../lib/circuitBreaker";
+import { withRetry } from "../lib/retry";
+
+/** Shared circuit breaker for all OpenAI/DeepSeek API calls */
+export const openaiCircuit = new CircuitBreaker("openai");
 
 // Initialize AI client (DeepSeek uses OpenAI-compatible API)
 const aiClient = config.deepseekApiKey
@@ -17,7 +24,7 @@ const aiClient = config.deepseekApiKey
   : null;
 
 if (!aiClient) {
-  console.warn("⚠️  No AI API key configured. AI features will be unavailable.");
+  logger.warn('No AI API key configured, AI features will be unavailable');
 }
 
 export interface CoverLetterInput {
@@ -44,12 +51,17 @@ export async function improveContent(content: string): Promise<string> {
     throw new Error("Content is required");
   }
 
-  const response = await aiClient.chat.completions.create({
-    model: "deepseek-chat",
-    messages: [
-      {
-        role: "system",
-        content: `You are a professional resume writer with expertise in crafting impactful, ATS-friendly content.
+  const startTime = Date.now();
+
+  try {
+    const response = await openaiCircuit.execute(() =>
+      withRetry(() =>
+        aiClient.chat.completions.create({
+          model: "deepseek-chat",
+          messages: [
+            {
+              role: "system",
+              content: `You are a professional resume writer with expertise in crafting impactful, ATS-friendly content.
 Your task is to improve the given experience description.
 
 Guidelines:
@@ -62,23 +74,38 @@ Guidelines:
 - Format as bullet points using • character
 
 Return ONLY the improved content, no explanations.`,
-      },
-      {
-        role: "user",
-        content: `Improve this experience description:\n\n${content}`,
-      },
-    ],
-    temperature: 0.7,
-    max_tokens: 500,
-  });
+            },
+            {
+              role: "user",
+              content: `Improve this experience description:\n\n${content}`,
+            },
+          ],
+          temperature: 0.7,
+          max_tokens: 500,
+        })
+      )
+    );
 
-  const improvedContent = response.choices[0]?.message?.content?.trim();
+    const durationMs = Date.now() - startTime;
+    const tokensUsed = response.usage?.total_tokens;
+    trackAiCall('improveContent', durationMs, true, tokensUsed);
 
-  if (!improvedContent) {
-    throw new Error("Failed to generate improved content");
+    const improvedContent = response.choices[0]?.message?.content?.trim();
+
+    if (!improvedContent) {
+      throw new Error("Failed to generate improved content");
+    }
+
+    return improvedContent;
+  } catch (error) {
+    const durationMs = Date.now() - startTime;
+    trackAiCall('improveContent', durationMs, false);
+    captureError(error instanceof Error ? error : new Error(String(error)), {
+      tags: { service: 'ai', operation: 'improveContent' },
+      extra: { contentLength: content.length },
+    });
+    throw error;
   }
-
-  return improvedContent;
 }
 
 /**
@@ -98,12 +125,17 @@ export async function generateCoverLetter(input: CoverLetterInput): Promise<stri
     enthusiastic: "energetic, passionate, and showing genuine excitement",
   };
 
-  const response = await aiClient.chat.completions.create({
-    model: "deepseek-chat",
-    messages: [
-      {
-        role: "system",
-        content: `You are an expert cover letter writer with years of experience helping candidates land their dream jobs.
+  const startTime = Date.now();
+
+  try {
+    const response = await openaiCircuit.execute(() =>
+      withRetry(() =>
+        aiClient.chat.completions.create({
+          model: "deepseek-chat",
+          messages: [
+            {
+              role: "system",
+              content: `You are an expert cover letter writer with years of experience helping candidates land their dream jobs.
 Write compelling, personalized cover letters that stand out.
 
 Guidelines:
@@ -117,27 +149,42 @@ Guidelines:
 - Make it feel personal and genuine
 
 Return ONLY the cover letter text, properly formatted with paragraphs.`,
-      },
-      {
-        role: "user",
-        content: `Write a cover letter for:
+            },
+            {
+              role: "user",
+              content: `Write a cover letter for:
 Name: ${fullName}
 Position: ${jobTitle}
 Company: ${companyName}
 Hiring Manager: ${hiringManagerName || "Hiring Manager"}
 ${skills ? `Key Skills: ${skills}` : ""}
 ${experience ? `Experience Summary: ${experience}` : ""}`,
-      },
-    ],
-    temperature: 0.8,
-    max_tokens: 1000,
-  });
+            },
+          ],
+          temperature: 0.8,
+          max_tokens: 1000,
+        })
+      )
+    );
 
-  const coverLetter = response.choices[0]?.message?.content?.trim();
+    const durationMs = Date.now() - startTime;
+    const tokensUsed = response.usage?.total_tokens;
+    trackAiCall('generateCoverLetter', durationMs, true, tokensUsed);
 
-  if (!coverLetter) {
-    throw new Error("Failed to generate cover letter");
+    const coverLetter = response.choices[0]?.message?.content?.trim();
+
+    if (!coverLetter) {
+      throw new Error("Failed to generate cover letter");
+    }
+
+    return coverLetter;
+  } catch (error) {
+    const durationMs = Date.now() - startTime;
+    trackAiCall('generateCoverLetter', durationMs, false);
+    captureError(error instanceof Error ? error : new Error(String(error)), {
+      tags: { service: 'ai', operation: 'generateCoverLetter' },
+      extra: { jobTitle, companyName, tone },
+    });
+    throw error;
   }
-
-  return coverLetter;
 }

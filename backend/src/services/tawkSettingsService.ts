@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import logger from "../lib/logger";
 
 const TAWK_SETTINGS_FILE = path.join(__dirname, "../../data/tawk-settings.json");
 
@@ -30,7 +31,7 @@ export async function getTawkSettings(): Promise<TawkSettings> {
     }
     return defaultSettings;
   } catch (error) {
-    console.error("Error reading tawk settings:", error);
+    logger.error({ err: error }, 'Error reading tawk settings');
     return defaultSettings;
   }
 }
@@ -47,7 +48,7 @@ export async function saveTawkSettings(settings: Partial<TawkSettings>): Promise
     fs.writeFileSync(TAWK_SETTINGS_FILE, JSON.stringify(updatedSettings, null, 2));
     return updatedSettings;
   } catch (error) {
-    console.error("Error saving tawk settings:", error);
+    logger.error({ err: error }, 'Error saving tawk settings');
     throw new Error("Failed to save tawk settings");
   }
 }

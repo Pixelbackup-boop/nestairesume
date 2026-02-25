@@ -4,6 +4,7 @@
  */
 
 import { Router, Response } from 'express';
+import logger from '../lib/logger';
 import { authenticateToken, AuthRequest } from '../middleware/auth';
 import { checkDownloadLimit, incrementDownloadCount } from '../middleware/subscriptionLimits';
 import { processDocxRequest } from '../services/docxGeneratorService';
@@ -59,7 +60,7 @@ router.post('/generate', authenticateToken, checkDownloadLimit, async (req: Auth
         res.setHeader('Content-Length', docxBuffer.length);
         res.send(docxBuffer);
     } catch (error) {
-        console.error('DOCX generation error:', error);
+        logger.error({ err: error }, 'DOCX generation error');
         res.status(500).json({
             error: 'Failed to generate DOCX',
             message: error instanceof Error ? error.message : 'Unknown error',

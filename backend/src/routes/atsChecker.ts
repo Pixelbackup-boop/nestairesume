@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import logger from "../lib/logger";
 import multer from "multer";
 import { checkAtsCompatibility } from "../services/atsCheckerService";
 
@@ -53,7 +54,7 @@ router.post("/check", (req: Request, res: Response) => {
       const result = await checkAtsCompatibility(req.file.buffer, req.file.mimetype);
       res.json({ success: true, ...result });
     } catch (error) {
-      console.error("ATS check error:", error);
+      logger.error({ err: error }, 'ATS check error');
       res.status(500).json({
         success: false,
         error: "Failed to analyze resume. Please try again.",

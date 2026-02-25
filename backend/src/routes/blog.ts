@@ -22,6 +22,11 @@ router.get("/", async (req: Request, res: Response) => {
       where.featured = true;
     }
 
+    // Filter by tag at DB level (tags stored as JSON string)
+    if (tag) {
+      where.tags = { contains: tag, mode: "insensitive" };
+    }
+
     const [posts, total] = await Promise.all([
       prisma.blogPost.findMany({
         where,
@@ -32,23 +37,16 @@ router.get("/", async (req: Request, res: Response) => {
       prisma.blogPost.count({ where }),
     ]);
 
-    // Filter by tag if provided (since tags is JSON string)
-    let filteredPosts = posts.map(post => ({
+    const parsedPosts = posts.map(post => ({
       ...post,
       tags: JSON.parse(post.tags || "[]"),
     }));
 
-    if (tag) {
-      filteredPosts = filteredPosts.filter(post =>
-        post.tags.some((t: string) => t.toLowerCase() === tag.toLowerCase())
-      );
-    }
-
     res.set("Cache-Control", "public, max-age=60, stale-while-revalidate=300");
     res.json({
-      posts: filteredPosts,
-      total: tag ? filteredPosts.length : total,
-      pages: Math.ceil((tag ? filteredPosts.length : total) / limit),
+      posts: parsedPosts,
+      total,
+      pages: Math.ceil(total / limit),
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to get blog posts";

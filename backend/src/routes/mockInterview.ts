@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import logger from "../lib/logger";
 import * as mockInterviewService from "../services/mockInterviewService";
 
 const router = Router();
@@ -54,7 +55,7 @@ router.post("/questions", async (req: Request, res: Response) => {
         locale
       );
     } catch (aiError) {
-      console.error("AI generation failed, using fallback:", aiError);
+      logger.error({ err: aiError }, 'AI generation failed, using fallback');
       questions = mockInterviewService.getFallbackQuestions(jobTitle, level);
     }
 
@@ -70,7 +71,7 @@ router.post("/questions", async (req: Request, res: Response) => {
       },
     });
   } catch (error) {
-    console.error("Error generating interview questions:", error);
+    logger.error({ err: error }, 'Error generating interview questions');
     return res.status(500).json({
       success: false,
       error: error instanceof Error ? error.message : "Failed to generate questions",
@@ -147,7 +148,7 @@ router.post("/evaluate", async (req: Request, res: Response) => {
       data: feedback,
     });
   } catch (error) {
-    console.error("Error evaluating answer:", error);
+    logger.error({ err: error }, 'Error evaluating answer');
     return res.status(500).json({
       success: false,
       error: error instanceof Error ? error.message : "Failed to evaluate answer",

@@ -1,5 +1,8 @@
 import OpenAI from "openai";
 import { config } from "../config/env";
+import logger from "../lib/logger";
+import { openaiCircuit } from "./aiContentService";
+import { withRetry } from "../lib/retry";
 
 // Initialize AI client (DeepSeek or OpenAI)
 const aiClient = config.deepseekApiKey
@@ -84,15 +87,19 @@ Output format (JSON array only, no markdown):
 
   const model = config.deepseekApiKey ? "deepseek-chat" : "gpt-4o-mini";
 
-  const response = await aiClient.chat.completions.create({
-    model,
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt }
-    ],
-    temperature: 0.7,
-    max_tokens: 2000
-  });
+  const response = await openaiCircuit.execute(() =>
+    withRetry(() =>
+      aiClient.chat.completions.create({
+        model,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt }
+        ],
+        temperature: 0.7,
+        max_tokens: 2000
+      })
+    )
+  );
 
   const content = response.choices[0]?.message?.content || "[]";
 
@@ -110,7 +117,7 @@ Output format (JSON array only, no markdown):
       id: q.id || generateId()
     }));
   } catch {
-    console.error("Failed to parse AI response:", cleanedContent);
+    logger.error({ responseContent: cleanedContent }, 'Failed to parse AI response for interview questions');
     throw new Error("Failed to generate interview questions. Please try again.");
   }
 }
@@ -155,15 +162,19 @@ Output format (JSON only, no markdown):
 
   const model = config.deepseekApiKey ? "deepseek-chat" : "gpt-4o-mini";
 
-  const response = await aiClient.chat.completions.create({
-    model,
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt }
-    ],
-    temperature: 0.5,
-    max_tokens: 1500
-  });
+  const response = await openaiCircuit.execute(() =>
+    withRetry(() =>
+      aiClient.chat.completions.create({
+        model,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt }
+        ],
+        temperature: 0.5,
+        max_tokens: 1500
+      })
+    )
+  );
 
   const content = response.choices[0]?.message?.content || "{}";
 
@@ -176,7 +187,7 @@ Output format (JSON only, no markdown):
   try {
     return JSON.parse(cleanedContent) as AnswerFeedback;
   } catch {
-    console.error("Failed to parse feedback response:", cleanedContent);
+    logger.error({ responseContent: cleanedContent }, 'Failed to parse feedback response');
     return {
       score: 3,
       strengths: ["Answer provided"],

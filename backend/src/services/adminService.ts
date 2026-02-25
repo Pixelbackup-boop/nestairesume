@@ -131,6 +131,7 @@ export const getUserWithResumes = async (userId: string) => {
           updatedAt: true,
         },
         orderBy: { createdAt: "desc" },
+        take: 20,
       },
       payments: {
         select: {
@@ -143,6 +144,7 @@ export const getUserWithResumes = async (userId: string) => {
           createdAt: true,
         },
         orderBy: { createdAt: "desc" },
+        take: 20,
       },
     },
   });

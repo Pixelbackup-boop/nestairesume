@@ -4,6 +4,7 @@
  */
 
 import { Router, Request, Response } from 'express';
+import logger from '../lib/logger';
 import { authenticateToken, AuthRequest } from '../middleware/auth';
 import { checkDownloadLimit, incrementDownloadCount } from '../middleware/subscriptionLimits';
 import { pdfLimiter, pdfHourlyLimiter } from '../middleware/rateLimiter';
@@ -27,7 +28,7 @@ const router = Router();
 router.post('/generate', pdfLimiter, pdfHourlyLimiter, authenticateToken, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
     try {
         const request = req.body as PdfGenerateRequest;
-        console.log(`[PDF] Generate request for template: ${request.templateId}, locale: ${request.locale || 'en'}`);
+        logger.info({ templateId: request.templateId, locale: request.locale || 'en' }, 'PDF generate request');
 
         // Validate required fields
         if (!request.data) {
@@ -61,7 +62,7 @@ router.post('/generate', pdfLimiter, pdfHourlyLimiter, authenticateToken, checkD
         res.setHeader('Content-Length', pdfBuffer.length);
         res.send(pdfBuffer);
     } catch (error) {
-        console.error('PDF generation error:', error);
+        logger.error({ err: error }, 'PDF generation error');
         const message = error instanceof Error ? error.message : 'Unknown error';
         const status = message.includes('queue timeout') ? 503 : 500;
         res.status(status).json({
@@ -98,7 +99,7 @@ router.post('/preview', pdfLimiter, pdfHourlyLimiter, async (req: Request, res: 
             size: pdfBuffer.length,
         });
     } catch (error) {
-        console.error('PDF preview error:', error);
+        logger.error({ err: error }, 'PDF preview error');
         const message = error instanceof Error ? error.message : 'Unknown error';
         const status = message.includes('queue timeout') ? 503 : 500;
         res.status(status).json({

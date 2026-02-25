@@ -4,6 +4,7 @@
  */
 
 import { PdfResumeData, PdfTheme, PdfTranslations } from '../../types/pdf';
+import logger from '../../lib/logger';
 import { renderClassicProfessional } from './classic-professional';
 
 // Sidebar Templates (3)
@@ -66,7 +67,7 @@ export const templates: Record<string, TemplateRenderer> = {
 export const getTemplateRenderer = (templateId: string): TemplateRenderer => {
     const renderer = templates[templateId];
     if (!renderer) {
-        console.warn(`Template "${templateId}" not found, falling back to classic-professional`);
+        logger.warn({ templateId }, 'Template not found, falling back to classic-professional');
         return renderClassicProfessional;
     }
     return renderer;

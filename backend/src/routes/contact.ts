@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import logger from "../lib/logger";
 import { validateBody, contactFormSchema } from "../middleware/validation";
 import { contactLimiter } from "../middleware/rateLimiter";
 import { sendEmail } from "../services/emailService";
@@ -155,7 +156,7 @@ router.post(
       res.json({ success: true, message: "Your message has been sent successfully." });
     } catch (error) {
       const msg = error instanceof Error ? error.message : "Failed to send message";
-      console.error("Contact form error:", error);
+      logger.error({ err: error }, 'Contact form error');
       res.status(500).json({ detail: msg });
     }
   }

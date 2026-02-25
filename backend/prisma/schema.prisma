@@ -148,6 +148,7 @@ model BlogPost {
   @@index([slug])
   @@index([category])
   @@index([published])
+  @@index([published, category])
 }
 
 model Payment {
@@ -250,6 +251,7 @@ model TemplateComment {
 
   @@index([templateId])
   @@index([userId])
+  @@index([createdAt])
 }
 
 // ============ TEMPLATE FEEDBACK ============

@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import { config } from "./config/env";
 import { initSentry, setupSentryErrorHandler } from "./lib/sentry";
+import logger from "./lib/logger";
+import { requestIdMiddleware } from "./middleware/requestId";
 
 // Import routes
 import authRoutes from "./routes/auth";
@@ -46,6 +48,9 @@ app.use("/api/v1/webhooks/stripe", express.raw({ type: "application/json" }));
 app.use(express.json({ limit: '10mb' }));  // Increased for base64 images
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Request ID for log correlation (must be after body parsers, before routes)
+app.use(requestIdMiddleware);
+
 // Health check
 app.get("/", (_req, res) => {
   res.json({
@@ -68,6 +73,35 @@ app.get("/health", async (_req, res) => {
   } catch {
     res.status(503).json({ status: "unhealthy", database: "disconnected" });
   }
+});
+
+// Detailed health check for monitoring dashboards
+app.get("/health/detailed", async (_req, res) => {
+  const checks: Record<string, "ok" | "error"> = {};
+  const TIMEOUT_MS = 3000;
+
+  // Database
+  try {
+    await Promise.race([
+      prisma.$queryRaw`SELECT 1`,
+      new Promise((_, reject) => setTimeout(() => reject(new Error("timeout")), TIMEOUT_MS)),
+    ]);
+    checks.database = "ok";
+  } catch {
+    checks.database = "error";
+  }
+
+  // Stripe (just check SDK is configured)
+  checks.stripe = config.stripeSecretKey ? "ok" : "error";
+
+  // OpenAI (just check key exists)
+  checks.openai = process.env.OPENAI_API_KEY ? "ok" : "error";
+
+  // Brevo email (just check key exists)
+  checks.email = config.brevoApiKey ? "ok" : "error";
+
+  const allOk = Object.values(checks).every(v => v === "ok");
+  res.status(allOk ? 200 : 503).json({ status: allOk ? "healthy" : "degraded", checks });
 });
 
 // API Routes
@@ -95,20 +129,20 @@ setupSentryErrorHandler(app);
 
 // Process-level error handlers
 process.on('unhandledRejection', (reason) => {
-  console.error('Unhandled promise rejection:', reason);
+  logger.error({ err: reason }, 'Unhandled promise rejection');
   // Exit so Cloud Run restarts the container instead of leaving a zombie
   process.exit(1);
 });
 
 process.on('uncaughtException', (err) => {
-  console.error('Uncaught exception:', err);
+  logger.error({ err }, 'Uncaught exception');
   process.exit(1);
 });
 
 // Start server
 const server = app.listen(config.port, config.host, async () => {
-  console.log(`🚀 Server running at http://${config.host}:${config.port}`);
-  console.log(`📚 API endpoints at http://${config.host}:${config.port}/api/v1`);
+  logger.info({ host: config.host, port: config.port }, 'Server running');
+  logger.info({ host: config.host, port: config.port, path: '/api/v1' }, 'API endpoints available');
 
   // Cache Google Fonts for PDF generation (eliminates CDN calls)
   initFontCache();
@@ -124,19 +158,19 @@ const server = app.listen(config.port, config.host, async () => {
 const SHUTDOWN_TIMEOUT_MS = 8000;
 
 function gracefulShutdown(signal: string) {
-  console.log(`\n${signal} received. Shutting down gracefully...`);
+  logger.info({ signal }, 'Received shutdown signal, shutting down gracefully');
 
   // Stop accepting new connections
   server.close(async () => {
-    console.log('All in-flight requests completed. Disconnecting DB...');
+    logger.info('All in-flight requests completed, disconnecting DB');
     await prisma.$disconnect();
-    console.log('DB disconnected. Exiting.');
+    logger.info('DB disconnected, exiting');
     process.exit(0);
   });
 
   // Force exit if in-flight requests don't finish in time
   setTimeout(async () => {
-    console.error('Shutdown timeout reached. Forcing exit.');
+    logger.error('Shutdown timeout reached, forcing exit');
     await prisma.$disconnect().catch(() => {});
     process.exit(1);
   }, SHUTDOWN_TIMEOUT_MS);

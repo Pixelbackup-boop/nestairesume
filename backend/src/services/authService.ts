@@ -149,7 +149,9 @@ export const handleOAuthSignIn = async (data: OAuthData) => {
       ],
     },
     include: {
-      accounts: true,
+      accounts: {
+        select: { provider: true, providerAccountId: true },
+      },
     },
   });
 
@@ -208,7 +210,9 @@ export const handleOAuthSignIn = async (data: OAuthData) => {
         },
       },
       include: {
-        accounts: true,
+        accounts: {
+          select: { provider: true, providerAccountId: true },
+        },
       },
     });
   }

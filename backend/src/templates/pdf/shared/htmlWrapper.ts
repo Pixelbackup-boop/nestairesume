@@ -18,6 +18,14 @@ interface WrapperOptions {
 // RTL locales list
 const RTL_LOCALES = ['ar', 'he', 'fa', 'ur'];
 
+// Non-Latin locale font config (loaded via Google Fonts link, not base64 — CJK fonts are too large)
+const CJK_FONT_MAP: Record<string, { family: string; googleParam: string }> = {
+    ja: { family: 'Noto Sans JP', googleParam: 'Noto+Sans+JP:wght@400;500;600;700' },
+    ko: { family: 'Noto Sans KR', googleParam: 'Noto+Sans+KR:wght@400;500;600;700' },
+    zh: { family: 'Noto Sans SC', googleParam: 'Noto+Sans+SC:wght@400;500;600;700' },
+    th: { family: 'Noto Sans Thai', googleParam: 'Noto+Sans+Thai:wght@400;500;600;700' },
+};
+
 /**
  * Check if a locale is RTL (Right-to-Left)
  */
@@ -50,9 +58,29 @@ const generateFontStyles = (headingFont: string, bodyFont: string, locale: strin
     return styles.length > 0 ? `<style>${styles.join('\n')}</style>` : '';
 };
 
+/**
+ * Get Google Fonts link tag for CJK/Thai locales (loaded via network, not base64)
+ */
+const getCjkFontLink = (locale: string): string => {
+    const config = CJK_FONT_MAP[locale];
+    if (!config) return '';
+    return `<link href="https://fonts.googleapis.com/css2?family=${config.googleParam}&display=swap" rel="stylesheet">`;
+};
+
+/**
+ * Get the primary font-family for a locale's body text
+ */
+const getLocaleFontFamily = (locale: string): string => {
+    if (isRtl(locale)) return "'Noto Sans Arabic', 'Inter', sans-serif";
+    const config = CJK_FONT_MAP[locale];
+    if (config) return `'${config.family}', 'Inter', sans-serif`;
+    return "'Inter', sans-serif";
+};
+
 export const wrapHtml = (content: string, options: WrapperOptions): string => {
     const { headingFont, bodyFont, locale = 'en', marginStrategy = 'standard' } = options;
     const fontStyles = generateFontStyles(headingFont, bodyFont, locale);
+    const cjkFontLink = getCjkFontLink(locale);
     const dir = getDirection(locale);
     const isRtlLocale = isRtl(locale);
 
@@ -77,6 +105,7 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
+    ${cjkFontLink}
     ${fontStyles}
     <style>
         /* A4 Page Setup */
@@ -103,7 +132,7 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         }
 
         body {
-            font-family: ${isRtlLocale ? "'Noto Sans Arabic', 'Inter', sans-serif" : "'Inter', sans-serif"};
+            font-family: ${getLocaleFontFamily(locale)};
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
             color-adjust: exact !important;
