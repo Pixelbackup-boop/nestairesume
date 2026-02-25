@@ -8,3 +8,16 @@ artifacts/
 test-results/
 frontend/From canvas/
 firebase-debug.log
+
+# Test artifacts
+/*.png
+frontend/playwright-report/data/
+frontend/playwright-report/trace/
+frontend/lighthouse-*.json
+frontend/lighthouse-*.report.*
+
+# Source image assets (not for version control)
+frontend/Img/
+
+# SEO research
+seo/
