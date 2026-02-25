@@ -49,9 +49,8 @@ jobs:
       - name: Install Playwright browsers
         run: cd frontend && npx playwright install --with-deps chromium
 
-      - name: Run E2E tests
-        continue-on-error: true  # E2E tests run without backend — some API-dependent tests may fail
-        run: cd frontend && npx playwright test
+      - name: Run E2E tests (frontend-only, skips backend-dependent)
+        run: cd frontend && npx playwright test --grep-invert @requires-backend
         env:
           CI: true
           NEXT_PUBLIC_API_URL: http://localhost:4444
