@@ -17,7 +17,7 @@ export const sampleProfiles = [
         website: 'sarahjohnson.design',
         linkedin: 'linkedin.com/in/sarahjohnson',
         summary: 'Creative UX Designer with 6+ years of experience crafting user-centered digital experiences. Passionate about solving complex problems through intuitive design.',
-        profileImage: '/Img/sarah-johnson.jpg',
+        profileImage: '/Img/sarah-johnson.webp',
         dribbble: 'dribbble.com/sarahjohnson',
     },
     {
@@ -41,7 +41,7 @@ export const sampleProfiles = [
         website: 'emilywilliams.com',
         linkedin: 'linkedin.com/in/emilywilliams',
         summary: 'Strategic Marketing Director with 10+ years driving brand growth and digital transformation. Proven track record of increasing market share and ROI.',
-        profileImage: '/Img/emily-williams.jpg',
+        profileImage: '/Img/emily-williams.webp',
         x: 'x.com/emilywilliams',
     },
     {
@@ -53,7 +53,7 @@ export const sampleProfiles = [
         website: 'davidthompson.io',
         linkedin: 'linkedin.com/in/davidthompson',
         summary: 'Results-driven Product Manager with 7+ years of experience launching successful digital products. Skilled in agile methodologies and cross-functional leadership.',
-        profileImage: '/Img/david-thompson.jpg',
+        profileImage: '/Img/david-thompson.webp',
         github: 'github.com/davidthompson',
     },
     {
@@ -65,7 +65,7 @@ export const sampleProfiles = [
         website: 'jameschen.ai',
         linkedin: 'linkedin.com/in/jameschen',
         summary: 'Data Scientist with 5+ years of experience in machine learning and AI. Specialized in predictive analytics and natural language processing.',
-        profileImage: '/Img/james-chen.jpg',
+        profileImage: '/Img/james-chen.webp',
         github: 'github.com/jameschen',
     },
     {
@@ -77,7 +77,7 @@ export const sampleProfiles = [
         website: 'lisakim.design',
         linkedin: 'linkedin.com/in/lisakim',
         summary: 'Award-winning Graphic Designer with 6+ years creating compelling visual identities and brand experiences. Expert in Adobe Creative Suite and motion graphics.',
-        profileImage: '/Img/lisa-kim.jpg',
+        profileImage: '/Img/lisa-kim.webp',
         behance: 'behance.net/lisakim',
     },
     // New profiles with additional headshots

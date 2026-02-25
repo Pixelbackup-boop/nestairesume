@@ -18,7 +18,7 @@ const CV_DATA = {
   email: 'sarah.johnson@email.com',
   location: 'San Francisco, CA',
   phone: '+1 (555) 123-4567',
-  photo: '/Img/sarah-johnson.jpg',
+  photo: '/Img/sarah-johnson.webp',
   summary: 'Innovative software engineer with 8+ years of experience building scalable web applications and leading cross-functional teams.',
   experience: [
     {

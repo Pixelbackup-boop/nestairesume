@@ -84,7 +84,7 @@ export default function LanguageSwitcher({ scrolled = true, isHomePage = false }
 
       {isOpen && (
         <div
-          className="absolute top-full right-0 mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden z-50"
+          className="absolute top-full right-0 mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden z-50 max-h-80 overflow-y-auto"
           role="listbox"
           aria-label={t('label')}
         >

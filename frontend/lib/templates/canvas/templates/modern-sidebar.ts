@@ -28,7 +28,7 @@ export const modernSidebarTemplate: CanvasTemplate = {
             fill: '#2d2d44',
             stroke: '#00dc82',
             strokeWidth: 3,
-            imageSrc: '/Img/sarah-johnson-canvas.png',
+            imageSrc: '/Img/sarah-johnson-canvas.webp',
             imageFit: 'cover',
         }),
 

@@ -28,7 +28,7 @@ export const boldCreativeTemplate: CanvasTemplate = {
             fill: '#0f0f23',
             stroke: '#ffffff',
             strokeWidth: 4,
-            imageSrc: '/Img/mark-smith.png',
+            imageSrc: '/Img/mark-smith.webp',
             imageFit: 'cover',
         }),
 
