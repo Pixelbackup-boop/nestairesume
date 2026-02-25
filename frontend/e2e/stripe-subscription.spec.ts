@@ -5,7 +5,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test.describe('Subscription Purchase Flow', () => {
+test.describe('Subscription Purchase Flow @requires-backend', () => {
   test.beforeEach(async ({ page }) => {
     await page.context().clearCookies();
   });

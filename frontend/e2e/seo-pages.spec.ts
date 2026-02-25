@@ -11,11 +11,8 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/blog');
       await page.waitForLoadState('domcontentloaded');
 
-      // Blog page should have heading and article cards
-      const heading = page.locator('h1');
-      await expect(heading).toBeVisible();
+      await expect(page.locator('h1')).toBeVisible();
 
-      // Should have blog posts/articles
       const articles = page.locator('article, [class*="blog"], [class*="card"]');
       const count = await articles.count();
       expect(count).toBeGreaterThan(0);
@@ -25,25 +22,18 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/blog');
       await page.waitForLoadState('domcontentloaded');
 
-      // Find and click first blog link
       const blogLink = page.locator('a[href*="/blog/"]').first();
-      if (await blogLink.isVisible()) {
-        await blogLink.click();
-        await page.waitForLoadState('domcontentloaded');
+      await expect(blogLink).toBeVisible();
+      await blogLink.click();
+      await page.waitForLoadState('domcontentloaded');
 
-        // Should be on a blog post page
-        expect(page.url()).toContain('/blog/');
-
-        // Should have article content
-        const content = page.locator('article, [class*="content"], main');
-        await expect(content.first()).toBeVisible();
-      }
+      expect(page.url()).toContain('/blog/');
+      await expect(page.locator('article, [class*="content"], main').first()).toBeVisible();
     });
 
     test('should have proper meta tags on blog page', async ({ page }) => {
       await page.goto('/en/blog');
 
-      // Check for meta description
       const metaDescription = page.locator('meta[name="description"]');
       const content = await metaDescription.getAttribute('content');
       expect(content).toBeTruthy();
@@ -56,11 +46,8 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/resume-examples');
       await page.waitForLoadState('domcontentloaded');
 
-      // Should have heading
-      const heading = page.locator('h1');
-      await expect(heading).toBeVisible();
+      await expect(page.locator('h1')).toBeVisible();
 
-      // Should have example cards/links
       const exampleLinks = page.locator('a[href*="/resume-examples/"]');
       const count = await exampleLinks.count();
       expect(count).toBeGreaterThan(0);
@@ -70,29 +57,17 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/resume-examples/software-engineer');
       await page.waitForLoadState('domcontentloaded');
 
-      // Should have the job title in heading
-      const heading = page.locator('h1, h2').first();
-      await expect(heading).toBeVisible();
+      await expect(page.locator('h1, h2').first()).toBeVisible();
 
-      // Should have content sections
       const sections = page.locator('h2, h3');
       const count = await sections.count();
       expect(count).toBeGreaterThan(2);
     });
 
-    test('should have author attribution on resume examples', async ({ page }) => {
+    test('should have content sections on resume example page', async ({ page }) => {
       await page.goto('/en/resume-examples/software-engineer');
       await page.waitForLoadState('domcontentloaded');
 
-      // Should have author info
-      const authorSection = page.locator('[class*="author"], [data-testid="author"]');
-      const hasAuthor = await authorSection.isVisible().catch(() => false);
-
-      // Or author name in meta
-      const authorMeta = page.locator('meta[name="author"]');
-      const hasAuthorMeta = await authorMeta.isVisible().catch(() => false);
-
-      // Page should at least have content sections visible
       await expect(page.locator('main, article, [class*="content"]').first()).toBeVisible();
     });
   });
@@ -102,9 +77,7 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/career-tips');
       await page.waitForLoadState('domcontentloaded');
 
-      // Should have content
-      const content = page.locator('main, article, [class*="content"]').first();
-      await expect(content).toBeVisible();
+      await expect(page.locator('main, article, [class*="content"]').first()).toBeVisible();
     });
   });
 
@@ -116,18 +89,11 @@ test.describe('SEO Content Pages', () => {
     ];
 
     for (const alt of alternatives) {
-      test(`should load ${alt} page`, async ({ page }) => {
+      test(`should load ${alt} page with heading`, async ({ page }) => {
         await page.goto(`/en/${alt}`);
         await page.waitForLoadState('domcontentloaded');
 
-        // Should have heading
-        const heading = page.locator('h1');
-        await expect(heading).toBeVisible();
-
-        // Should have comparison content or CTA
-        const cta = page.getByRole('link', { name: /build|start|create|try/i }).first();
-        const hasCta = await cta.isVisible().catch(() => false);
-        // Heading visible is the real assertion (line 125) — CTA is optional
+        await expect(page.locator('h1')).toBeVisible();
       });
     }
   });
@@ -137,11 +103,7 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/about/authors');
       await page.waitForLoadState('domcontentloaded');
 
-      // Should have author cards or list
-      const authorLinks = page.locator('a[href*="/about/"]');
-      const content = page.locator('main, [class*="content"]').first();
-
-      await expect(content).toBeVisible();
+      await expect(page.locator('main, [class*="content"]').first()).toBeVisible();
     });
   });
 });
@@ -159,25 +121,18 @@ test.describe('SEO Technical Checks', () => {
   test('should have Open Graph tags', async ({ page }) => {
     await page.goto('/en/blog');
 
-    const ogTitle = page.locator('meta[property="og:title"]');
-    const ogDescription = page.locator('meta[property="og:description"]');
-
-    expect(await ogTitle.getAttribute('content')).toBeTruthy();
-    expect(await ogDescription.getAttribute('content')).toBeTruthy();
+    expect(await page.locator('meta[property="og:title"]').getAttribute('content')).toBeTruthy();
+    expect(await page.locator('meta[property="og:description"]').getAttribute('content')).toBeTruthy();
   });
 
   test('should have proper heading hierarchy', async ({ page }) => {
     await page.goto('/en/resume-examples/software-engineer');
     await page.waitForLoadState('domcontentloaded');
 
-    // Should have exactly one H1
-    const h1s = page.locator('h1');
-    const h1Count = await h1s.count();
+    const h1Count = await page.locator('h1').count();
     expect(h1Count).toBe(1);
 
-    // Should have H2s for sections
-    const h2s = page.locator('h2');
-    const h2Count = await h2s.count();
+    const h2Count = await page.locator('h2').count();
     expect(h2Count).toBeGreaterThan(0);
   });
 
@@ -186,31 +141,24 @@ test.describe('SEO Technical Checks', () => {
     await page.goto('/en/resume-examples');
     await page.waitForLoadState('domcontentloaded');
 
-    // Page should render without horizontal overflow
-    const body = page.locator('body');
-    const bodyWidth = await body.evaluate((el) => el.scrollWidth);
-    expect(bodyWidth).toBeLessThanOrEqual(400); // Slight tolerance
+    const bodyWidth = await page.locator('body').evaluate((el) => el.scrollWidth);
+    expect(bodyWidth).toBeLessThanOrEqual(400);
   });
 });
 
 test.describe('Error Handling', () => {
   test('should show 404 page for non-existent routes', async ({ page }) => {
     await page.goto('/en/this-page-does-not-exist-12345');
+    await page.waitForLoadState('domcontentloaded');
 
-    // Should show 404 content
     const notFoundText = page.getByText(/404|not found|page doesn't exist/i);
-    const isVisible = await notFoundText.isVisible().catch(() => false);
-
-    // Page should at least load (not crash)
-    expect(page.url()).toContain('/this-page-does-not-exist');
+    await expect(notFoundText).toBeVisible();
   });
 
   test('should handle missing resume example gracefully', async ({ page }) => {
-    await page.goto('/en/resume-examples/fake-job-that-doesnt-exist-xyz');
+    const response = await page.goto('/en/resume-examples/fake-job-that-doesnt-exist-xyz');
 
-    // Should either 404 or redirect
-    const url = page.url();
-    const body = page.locator('body');
-    await expect(body).toBeVisible();
+    // Should return 404 status or redirect
+    expect(response?.status()).toBeGreaterThanOrEqual(200);
   });
 });

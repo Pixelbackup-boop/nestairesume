@@ -5,7 +5,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test.describe('AI Generation Features', () => {
+test.describe('AI Generation Features @requires-backend', () => {
   test.beforeEach(async ({ page }) => {
     await page.context().clearCookies();
   });

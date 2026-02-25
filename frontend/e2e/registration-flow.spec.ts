@@ -5,7 +5,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test.describe('User Registration Flow', () => {
+test.describe('User Registration Flow @requires-backend', () => {
   const testEmail = `test-${Date.now()}@example.com`;
   const testPassword = 'TestPassword123!';
   const testName = 'Test User';

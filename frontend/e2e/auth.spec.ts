@@ -98,19 +98,19 @@ test.describe('Authentication Pages', () => {
 });
 
 test.describe('Protected Routes', () => {
-  test('should redirect unauthenticated users from builder', async ({ page }) => {
+  test('should load builder page (auth or builder content)', async ({ page }) => {
     await page.goto('/en/builder');
+    await page.waitForLoadState('domcontentloaded');
 
-    // Should either redirect to login or show auth prompt
-    await page.waitForTimeout(2000);
-
-    // Check if redirected to login or showing login modal
+    // Builder should show form inputs (public access) or auth page
     const url = page.url();
-    const hasAuthUI = url.includes('login') ||
-                      url.includes('auth') ||
-                      await page.locator('input[type="password"]').isVisible();
-
-    // Builder should require auth (either redirect or show modal)
-    expect(hasAuthUI || url.includes('builder')).toBe(true);
+    if (url.includes('login') || url.includes('auth')) {
+      // Redirected to auth — verify login form
+      await expect(page.locator('input[type="email"], input[type="password"]').first()).toBeVisible();
+    } else {
+      // Public builder — verify form inputs
+      const inputCount = await page.locator('input').count();
+      expect(inputCount).toBeGreaterThan(0);
+    }
   });
 });
