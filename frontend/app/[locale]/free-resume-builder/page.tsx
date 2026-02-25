@@ -4,14 +4,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/free-resume-builder';
 import { getLocalizedPath } from '@/lib/localized-paths';
+import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const c = getContent(locale);
-    const locales = ['en', 'es', 'fr', 'de', 'ar'];
-    const alternateLanguages: Record<string, string> = { 'x-default': `${siteUrl}/en/free-resume-builder` };
+const alternateLanguages: Record<string, string> = { 'x-default': `${siteUrl}/en/free-resume-builder` };
     locales.forEach((loc) => { alternateLanguages[loc] = `${siteUrl}/${loc}/free-resume-builder`; });
 
     return {

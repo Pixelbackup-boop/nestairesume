@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import { locales, getOgLocale } from '@/i18n.config';
 
 const siteConfig = {
   name: 'Best AI Resume',
@@ -17,8 +18,7 @@ export async function generateMetadata({
   const title = t('title');
   const description = t('description');
 
-  const locales = ['en', 'es', 'fr', 'de', 'ar'];
-  const alternateLanguages: Record<string, string> = {
+const alternateLanguages: Record<string, string> = {
     'x-default': `${siteConfig.url}/en/templates`,
   };
   locales.forEach((loc) => {
@@ -39,7 +39,7 @@ export async function generateMetadata({
     ],
     openGraph: {
       type: 'website',
-      locale: locale === 'ar' ? 'ar_SA' : `${locale}_${locale.toUpperCase()}`,
+      locale: getOgLocale(locale),
       url: `${siteConfig.url}/${locale}/templates`,
       siteName: siteConfig.name,
       title,
@@ -71,7 +71,7 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-    { '@type': 'ListItem', position: 2, name: 'Templates' },
+    { '@type': 'ListItem', position: 2, name: 'Templates', item: `${siteConfig.url}/templates` },
   ],
 };
 

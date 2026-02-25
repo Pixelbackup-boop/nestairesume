@@ -7,8 +7,8 @@ import SearchBar from '@/components/blog/SearchBar';
 import CategoryFilter from '@/components/blog/CategoryFilter';
 import { Search, ArrowLeft } from 'lucide-react';
 import { getContent } from '@/lib/content/blog-pages';
+import { locales } from '@/i18n.config';
 
-const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
 const BASE_URL = 'https://bestairesumes.com';
 
 interface SearchPageProps {

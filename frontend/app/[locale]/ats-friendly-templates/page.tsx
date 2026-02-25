@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
 import { getTranslations } from 'next-intl/server';
+import { locales } from '@/i18n.config';
 import {
     CheckCircle,
     ShieldCheck,
@@ -16,8 +17,6 @@ import {
 } from 'lucide-react';
 
 const siteUrl = 'https://bestairesumes.com';
-const locales = ['en', 'es', 'fr', 'de', 'ar'];
-
 export async function generateMetadata({
     params,
 }: {

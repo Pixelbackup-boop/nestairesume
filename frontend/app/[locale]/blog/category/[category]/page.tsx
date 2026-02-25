@@ -9,8 +9,8 @@ import { Folder, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { getContent } from '@/lib/content/blog-pages';
+import { locales } from '@/i18n.config';
 
-const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
 const BASE_URL = 'https://bestairesumes.com';
 
 interface CategoryPageProps {

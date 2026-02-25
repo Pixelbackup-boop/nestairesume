@@ -1,8 +1,8 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Poppins, Noto_Sans_Arabic } from 'next/font/google';
-import { locales, Locale, isRtl, getDirection } from '@/i18n.config';
+import { Poppins, Noto_Sans_Arabic, Noto_Sans_JP, Noto_Sans_KR, Noto_Sans_SC, Noto_Sans_Thai } from 'next/font/google';
+import { locales, Locale, isRtl, getDirection, getOgLocale } from '@/i18n.config';
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import TawkTo from '@/components/TawkTo';
@@ -25,6 +25,48 @@ const notoArabic = Noto_Sans_Arabic({
   weight: ['400', '500', '600', '700'],
 });
 
+const notoJP = Noto_Sans_JP({
+  variable: '--font-japanese',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+const notoKR = Noto_Sans_KR({
+  variable: '--font-korean',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+const notoSC = Noto_Sans_SC({
+  variable: '--font-chinese',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+const notoThai = Noto_Sans_Thai({
+  variable: '--font-thai',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+// Non-Latin font class mapping
+const fontClassMap: Record<string, string> = {
+  ar: 'font-arabic',
+  ja: 'font-japanese',
+  ko: 'font-korean',
+  zh: 'font-chinese',
+  th: 'font-thai',
+};
+
+// Only load the Noto font needed for the current locale (avoids preloading all 5)
+const localeFontVar: Record<string, string> = {
+  ar: notoArabic.variable,
+  ja: notoJP.variable,
+  ko: notoKR.variable,
+  zh: notoSC.variable,
+  th: notoThai.variable,
+};
+
 // SEO Configuration
 const siteConfig = {
   name: 'Best AI Resume',
@@ -46,7 +88,7 @@ const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
-    availableLanguage: ['English', 'German', 'French', 'Spanish', 'Arabic'],
+    availableLanguage: ['English', 'Spanish', 'French', 'German', 'Arabic', 'Japanese', 'Korean', 'Italian', 'Portuguese', 'Turkish', 'Vietnamese', 'Thai', 'Chinese', 'Malay', 'Indonesian', 'Polish', 'Dutch'],
   },
 };
 
@@ -118,7 +160,7 @@ export async function generateMetadata({
     description: t('description'),
     openGraph: {
       type: 'website',
-      locale: locale === 'ar' ? 'ar_SA' : `${locale}_${locale.toUpperCase()}`,
+      locale: getOgLocale(locale),
       url: `${siteConfig.url}/${locale}`,
       siteName: siteConfig.name,
       title: t('title'),
@@ -206,8 +248,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${notoArabic.variable} antialiased ${rtl ? 'font-arabic' : ''
-          }`}
+        className={`${poppins.variable} ${localeFontVar[locale] || ''} antialiased ${fontClassMap[locale] || ''}`}
       >
         <a
           href="#main-content"

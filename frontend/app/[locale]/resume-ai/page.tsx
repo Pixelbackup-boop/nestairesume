@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/resume-ai';
 import { getLocalizedPath } from '@/lib/localized-paths';
+import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -11,8 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const { locale } = await params;
     const c = getContent(locale);
 
-    const locales = ['en', 'es', 'fr', 'de', 'ar'];
-    const alternateLanguages: Record<string, string> = {
+const alternateLanguages: Record<string, string> = {
         'x-default': `${siteUrl}/en/resume-ai`,
     };
     locales.forEach((loc) => {

@@ -3,10 +3,9 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getContent, type PrivacyContent } from '@/lib/content/privacy-page';
+import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
-const locales = ['en', 'es', 'fr', 'de', 'ar'];
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const c = getContent(locale);

@@ -9,10 +9,9 @@ import { Briefcase, Sparkles } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getCareerListingContent } from '@/lib/content/career-pages';
+import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
-const locales = ['en', 'es', 'fr', 'de', 'ar'];
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const c = getCareerListingContent(locale);

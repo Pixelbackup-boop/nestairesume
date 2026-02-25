@@ -4,8 +4,7 @@ import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
 import { getLocalizedPath } from '@/lib/localized-paths';
-
-const locales = ['en', 'es', 'fr', 'de', 'ar'];
+import { locales } from '@/i18n.config';
 
 function localizedUrls(baseUrl: string, path: string, options: { lastModified: Date; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }): MetadataRoute.Sitemap {
   return locales.map(locale => ({

@@ -10,6 +10,7 @@ import { splitHtmlAtMiddle } from '@/lib/splitContent';
 import { Clock, Calendar, User, ChevronRight, ArrowRight } from 'lucide-react';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import { getTranslations } from 'next-intl/server';
+import { locales, getOgLocale } from '@/i18n.config';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -22,9 +23,7 @@ const siteConfig = {
 
 export async function generateStaticParams() {
   const slugs = await getAllCareerTipsSlugs();
-  const locales = ['en', 'es', 'fr', 'de', 'ar'];
-
-  return locales.flatMap(locale =>
+return locales.flatMap(locale =>
     slugs.map(slug => ({ locale, slug }))
   );
 }
@@ -46,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: post.tags,
     openGraph: {
       type: 'article',
-      locale: locale === 'ar' ? 'ar_SA' : `${locale}_${locale.toUpperCase()}`,
+      locale: getOgLocale(locale),
       url: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale),
       siteName: siteConfig.name,
       title: post.title,

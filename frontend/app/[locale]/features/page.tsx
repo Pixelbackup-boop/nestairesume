@@ -14,8 +14,8 @@ import {
 } from "@/components/FeaturesAnimations";
 import { getContent } from '@/lib/content/features';
 import { getLocalizedPath } from '@/lib/localized-paths';
+import { locales } from '@/i18n.config';
 
-const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
 const BASE_URL = 'https://www.bestairesume.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

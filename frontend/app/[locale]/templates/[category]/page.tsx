@@ -9,11 +9,10 @@ import { docxTemplates } from '@/lib/templates/docxTemplates';
 import { gdocsTemplates } from '@/lib/templates/gdocsTemplates';
 import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
 import { getContent } from '@/lib/content/templates-category';
+import { locales } from '@/i18n.config';
 
 // Categories that use builder templates (vs docx/gdocs)
 const BUILDER_TEMPLATE_CATEGORIES = ['creative', 'modern', 'simple'];
-const locales = ['en', 'es', 'fr', 'de', 'ar'];
-
 interface Props {
     params: Promise<{ category: string; locale: string }>;
 }
@@ -49,10 +48,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Render JSON-LD structured data safely via next/script
-function JsonLd({ data }: { data: object }) {
+function JsonLd({ data, id = 'json-ld' }: { data: object; id?: string }) {
     return (
         <Script
-            id="json-ld-breadcrumb"
+            id={id}
             type="application/ld+json"
             strategy="afterInteractive"
         >
@@ -79,8 +78,27 @@ export default async function TemplateCategoryPage({ params }: Props) {
         itemListElement: [
             { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: siteUrl },
             { '@type': 'ListItem', position: 2, name: c.breadcrumbTemplates, item: `${siteUrl}/${locale}/templates` },
-            { '@type': 'ListItem', position: 3, name: catData.title },
+            { '@type': 'ListItem', position: 3, name: catData.title, item: `${siteUrl}/${locale}/templates/${category}` },
         ],
+    };
+
+    const templateCount = category === 'microsoftword' ? docxTemplates.length
+        : category === 'google-docs' ? gdocsTemplates.length
+        : 16;
+
+    const collectionSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: catData.title,
+        description: catData.seoDescription,
+        url: `${siteUrl}/${locale}/templates/${category}`,
+        isPartOf: { '@type': 'WebSite', name: 'Best AI Resume', url: siteUrl },
+        about: {
+            '@type': 'Thing',
+            name: catData.title,
+            description: catData.heroText,
+        },
+        numberOfItems: templateCount,
     };
 
     const onboardingPath = category === 'microsoftword'
@@ -92,7 +110,8 @@ export default async function TemplateCategoryPage({ params }: Props) {
     return (
         <>
             <Header />
-            <JsonLd data={breadcrumbSchema} />
+            <JsonLd data={breadcrumbSchema} id="json-ld-breadcrumb" />
+            <JsonLd data={collectionSchema} id="json-ld-collection" />
 
             {/* Hero Section */}
             <section className="pt-32 pb-16 bg-gray-50 border-b border-gray-100">

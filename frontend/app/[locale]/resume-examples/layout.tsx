@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -11,8 +12,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'ResumeExamples' });
 
-  const locales = ['en', 'es', 'fr', 'de', 'ar'];
-  const alternateLanguages: Record<string, string> = {
+const alternateLanguages: Record<string, string> = {
     'x-default': `${siteUrl}/en/resume-examples`,
   };
   locales.forEach((loc) => {

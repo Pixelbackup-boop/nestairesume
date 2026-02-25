@@ -4,8 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AUTHORS } from "@/lib/resume-examples/posts";
 import { getAboutContent } from '@/lib/content/about-pages';
+import { locales } from '@/i18n.config';
 
-const locales = ['en', 'es', 'fr', 'de', 'ar'] as const;
 const BASE_URL = 'https://bestairesumes.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

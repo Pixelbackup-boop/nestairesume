@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import { locales, getOgLocale } from '@/i18n.config';
 
 const siteConfig = {
   name: 'Best AI Resume',
@@ -17,8 +18,7 @@ export async function generateMetadata({
   const title = t('title');
   const description = t('description');
 
-  const locales = ['en', 'es', 'fr', 'de', 'ar'];
-  const alternateLanguages: Record<string, string> = {
+const alternateLanguages: Record<string, string> = {
     'x-default': `${siteConfig.url}/en/canvas-templates`,
   };
   locales.forEach((loc) => {
@@ -38,7 +38,7 @@ export async function generateMetadata({
     ],
     openGraph: {
       type: 'website',
-      locale: locale === 'ar' ? 'ar_SA' : `${locale}_${locale.toUpperCase()}`,
+      locale: getOgLocale(locale),
       url: `${siteConfig.url}/${locale}/canvas-templates`,
       siteName: siteConfig.name,
       title,

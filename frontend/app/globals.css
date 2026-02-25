@@ -952,6 +952,26 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
   font-family: var(--font-arabic), 'Noto Sans Arabic', 'Tahoma', 'Arial', sans-serif;
 }
 
+/* Japanese font family */
+.font-japanese {
+  font-family: var(--font-japanese), 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+}
+
+/* Korean font family */
+.font-korean {
+  font-family: var(--font-korean), 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+}
+
+/* Chinese Simplified font family */
+.font-chinese {
+  font-family: var(--font-chinese), 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* Thai font family */
+.font-thai {
+  font-family: var(--font-thai), 'Noto Sans Thai', 'Tahoma', sans-serif;
+}
+
 /* Flip directional icons for RTL (arrows, chevrons) */
 [dir="rtl"] .rtl-flip {
   transform: scaleX(-1);

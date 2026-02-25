@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import { locales, getOgLocale } from '@/i18n.config';
 
 const siteConfig = {
   name: 'Best AI Resume',
@@ -30,7 +31,7 @@ export async function generateMetadata({
     ],
     openGraph: {
       type: 'website',
-      locale: locale === 'ar' ? 'ar_SA' : `${locale}_${locale.toUpperCase()}`,
+      locale: getOgLocale(locale),
       url: `${siteConfig.url}/${locale}/builder`,
       siteName: siteConfig.name,
       title,
@@ -53,7 +54,7 @@ export async function generateMetadata({
       canonical: `${siteConfig.url}/${locale}/builder`,
       languages: Object.fromEntries([
         ['x-default', `${siteConfig.url}/en/builder`],
-        ...['en', 'es', 'fr', 'de', 'ar'].map(l => [l, `${siteConfig.url}/${l}/builder`]),
+        ...locales.map(l => [l, `${siteConfig.url}/${l}/builder`]),
       ]),
     },
   };

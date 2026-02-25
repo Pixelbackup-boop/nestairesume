@@ -13,14 +13,13 @@ import Footer from '@/components/Footer';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getCareerArticleContent } from '@/lib/content/career-pages';
+import { locales } from '@/i18n.config';
 
 interface CareerPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
 // Generate static paths for all career posts across all locales
-const locales = ['en', 'es', 'fr', 'de', 'ar'];
-
 export async function generateStaticParams() {
   const slugs = await getAllCareerPostSlugs();
   return locales.flatMap(locale => slugs.map(slug => ({ locale, slug })));
@@ -37,8 +36,7 @@ export async function generateMetadata({ params }: CareerPostPageProps): Promise
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
-  const locales = ['en', 'es', 'fr', 'de', 'ar'];
-  const alternateLanguages: Record<string, string> = {
+const alternateLanguages: Record<string, string> = {
     'x-default': `${siteUrl}/en/career/${post.slug}`,
   };
   locales.forEach((loc) => {
