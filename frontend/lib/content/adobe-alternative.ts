@@ -247,5 +247,374 @@ const es: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es };
+const fr: ComparisonPageContent = {
+  meta: {
+    title: 'Alternative à Adobe pour CV 2026 : Modèles de CV Gratuits Optimisés ATS | Best AI Resume',
+    description: 'Vous cherchez une alternative gratuite à Adobe pour créer un CV ? Comparez Adobe Express vs Best AI Resume Builder — modèles CV optimisés ATS, rédaction IA, exports illimités. Sans abonnement.',
+    keywords: 'alternative adobe cv, créer cv adobe, modèle cv adobe, adobe express cv, cv adobe gratuit, créateur cv gratuit, cv compatible ats',
+  },
+  schemas: {
+    breadcrumbName: 'Alternative à Adobe pour CV',
+    articleHeadline: 'Alternative à Adobe pour CV 2026 : Créateur de CV Gratuit Optimisé ATS avec IA',
+    articleDescription: 'Comparez Adobe Express vs Best AI Resume Builder pour les CV. Obtenez des modèles optimisés ATS avec rédaction IA — gratuit, sans abonnement Creative Cloud.',
+  },
+  hero: {
+    badge: 'Alternative à Adobe pour CV',
+    title: 'Des CV Élégants.',
+    titleHighlight: 'Qui Passent Vraiment les Filtres ATS.',
+    subtitle: 'Adobe crée des designs superbes — mais la plupart des modèles de CV Adobe <strong>échouent au filtrage ATS</strong>. Obtenez des CV professionnels <strong>et</strong> compatibles avec les systèmes de suivi des candidatures. Gratuit.',
+    ctaPrimary: 'Créer Mon CV Gratuit',
+    ctaSecondary: 'Voir la Comparaison',
+  },
+  problem: {
+    title: 'Le Problème Adobe : Des CV Beaux mais Invisibles aux ATS',
+    description: 'Adobe Express et Creative Cloud produisent des designs magnifiques. Mais un CV n\'est pas une brochure — <strong>99 % des grandes entreprises</strong> utilisent des ATS pour filtrer les CV avant qu\'un humain ne les voie. Les modèles Adobe utilisent des colonnes, zones de texte, icônes et graphiques que les ATS ne peuvent pas lire. Votre beau CV est rejeté avant que quiconque ne le regarde.',
+    stats: [
+      { value: '75%', label: 'des CV rejetés par les ATS avant examen humain' },
+      { value: '9,99 $', label: 'par mois pour Adobe Express Premium' },
+      { value: '0 $', label: 'Best AI Resume Builder — testé ATS, gratuit' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: 'Outil de design vs créateur de CV spécialisé.',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Fonction Principale', competitor: '⚠️ Outil de design généraliste', ours: '✅ Conçu spécifiquement pour les CV' },
+      { feature: 'Compatibilité ATS', competitor: '❌ La plupart des modèles échouent aux ATS', ours: '✅ Tous les modèles testés ATS' },
+      { feature: 'Rédaction IA de CV', competitor: '❌ Pas d\'IA spécifique aux CV', ours: '✅ L\'IA rédige du contenu personnalisé' },
+      { feature: 'Score ATS', competitor: '❌ Pas de vérificateur ATS', ours: '✅ Score ATS en temps réel' },
+      { feature: 'Tarif', competitor: '⚠️ Gratuit limité / 9,99 $+/mois', ours: '✅ 100 % gratuit pour toujours' },
+      { feature: 'Design Visuel', competitor: '✅ Excellente flexibilité de design', ours: '✅ Designs professionnels compatibles ATS' },
+      { feature: 'Modèles de CV', competitor: '⚠️ Orientés design (pas ATS)', ours: '✅ Plus de 20 modèles testés par des recruteurs' },
+      { feature: 'Aide à la Rédaction', competitor: '❌ Aucune aide pour rédiger un CV', ours: '✅ Réalisations et résumés générés par IA' },
+      { feature: 'Optimisation Mots-clés', competitor: '❌ Non disponible', ours: '✅ Suggestions de mots-clés par IA' },
+      { feature: 'Facilité d\'Utilisation', competitor: '⚠️ Compétences en design requises', ours: '✅ Processus guidé étape par étape' },
+    ],
+  },
+  whySwitch: {
+    title: 'Quand Choisir Adobe et Quand Nous Choisir',
+    subtitle: 'Adobe convient à des scénarios créatifs spécifiques.',
+    reasons: [
+      { title: 'Utilisez Adobe Quand...', description: 'Vous postulez à un poste créatif/design valorisant les portfolios visuels, envoyez directement à une personne (pas via un portail ATS), ou créez un CV visuel pour des événements de networking.' },
+      { title: 'Utilisez Best AI Resumes Quand...', description: 'Vous postulez via un portail d\'emploi ou un ATS, ciblez des postes dans des entreprises utilisant le suivi des candidatures, ou avez besoin de l\'IA pour rédiger des réalisations professionnelles.' },
+      { title: 'En Résumé', description: 'Adobe crée des designs magnifiques. Mais pour les candidatures passant par un ATS (la grande majorité), vous avez besoin d\'un créateur de CV spécialisé avec des modèles testés.' },
+    ],
+  },
+  recommendation: {
+    title: 'Quand Adobe Est le Bon Choix',
+    useCompetitor: {
+      title: 'Utilisez Adobe quand...',
+      items: [
+        'Vous postulez à un poste créatif valorisant les portfolios visuels',
+        'Vous envoyez directement à une personne (pas via un portail ATS)',
+        'Vous créez un CV visuel pour le networking ou le personal branding',
+        'Vous avez déjà un abonnement Adobe Creative Cloud',
+      ],
+    },
+    useUs: {
+      title: 'Utilisez Best AI Resumes quand...',
+      items: [
+        'Vous postulez via un portail d\'emploi en ligne ou un ATS',
+        'Vous ciblez des postes dans des entreprises utilisant le suivi des candidatures',
+        'Vous avez besoin de l\'IA pour rédiger des réalisations percutantes',
+        'Vous souhaitez un CV professionnel sans compétences en design',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Découvrez Plus de 300 Exemples de CV Gratuits',
+    description: 'Des CV professionnels pour chaque métier — du graphiste au designer UX en passant par le directeur artistique.',
+    ctaBrowse: 'Parcourir les Exemples de CV',
+    ctaTemplates: 'Voir Tous les Modèles',
+  },
+  faq: {
+    title: 'Questions Fréquentes',
+    items: [
+      { question: 'Adobe propose-t-il un créateur de CV gratuit ?', answer: 'Adobe Express propose des modèles de CV gratuits, mais les meilleurs modèles et fonctionnalités nécessitent Adobe Express Premium (9,99 $/mois) ou un abonnement Creative Cloud (54,99 $/mois). Best AI Resume Builder offre toutes les fonctionnalités — rédaction IA, modèles ATS, export PDF — entièrement gratuitement.' },
+      { question: 'Les CV Adobe Express sont-ils adaptés aux candidatures ?', answer: 'Adobe Express produit des CV visuellement attractifs, mais ils sont orientés design plutôt qu\'optimisés ATS. La plupart des modèles CV Adobe utilisent des graphiques, colonnes et éléments que les ATS ne peuvent pas lire. Best AI Resume Builder crée des CV à la fois professionnels et compatibles ATS.' },
+      { question: 'Quelle est la meilleure alternative gratuite à Adobe pour les CV ?', answer: 'Best AI Resume Builder est la meilleure alternative gratuite pour la création de CV. Contrairement à Adobe, il est conçu spécifiquement pour les CV avec rédaction IA, optimisation ATS et modèles testés par des recruteurs. Adobe excelle en design graphique mais n\'est pas optimisé pour les candidatures.' },
+      { question: 'Les ATS peuvent-ils lire les CV Adobe Express ?', answer: 'De nombreux modèles de CV Adobe Express utilisent des éléments (colonnes, zones de texte, graphiques, icônes) que les ATS ne peuvent pas analyser correctement. Cela signifie que votre CV peut être illisible par le logiciel utilisé par 99 % des grandes entreprises. Les modèles Best AI Resume Builder sont spécifiquement testés pour la compatibilité ATS.' },
+      { question: 'Dois-je utiliser Adobe InDesign ou Illustrator pour mon CV ?', answer: 'Uniquement si vous êtes graphiste et postulez à un poste créatif où le design visuel compte plus que la compatibilité ATS. Pour toutes les autres candidatures, utilisez un créateur de CV dédié avec des modèles testés ATS. Best AI Resume Builder vous offre des designs professionnels qui passent le filtrage ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Comparez d\'Autres Créateurs de CV',
+    items: [
+      { href: '/canva-alternative', title: 'Alternative à Canva', subtitle: 'Autre comparaison d\'outils de design' },
+      { href: '/zety-alternative', title: 'Alternative à Zety', subtitle: 'Comparaison prix et essai' },
+      { href: '/rezi-alternative', title: 'Alternative à Rezi', subtitle: 'Comparaison des fonctions IA' },
+      { href: '/overleaf-alternative', title: 'Alternative à Overleaf', subtitle: 'CV LaTeX vs créateur IA' },
+    ],
+    guidesTitle: 'Guides Utiles pour le CV',
+    guides: [
+      { href: '/blog/what-is-ats-guide', label: 'Qu\'est-ce qu\'un ATS ? Guide Complet' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'Comment Rédiger un CV Compatible ATS' },
+      { href: '/blog/how-to-write-a-resume', label: 'Comment Rédiger un CV (Guide Complet)' },
+      { href: '/resume-format', label: 'Guide de Format de CV 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Ressources Externes',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express Créateur de CV' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Design Professionnel. Approuvé ATS.',
+    description: 'Obtenez des CV élégants qui passent les filtres ATS. Rédaction IA, modèles testés par des recruteurs, exports illimités — tout gratuit.',
+    cta: 'Créer Mon CV Gratuit',
+    subtext: 'Gratuit pour toujours. Sans abonnement Adobe.',
+  },
+};
+
+const de: ComparisonPageContent = {
+  meta: {
+    title: 'Beste Adobe-Alternative für Lebenslauf 2026: Kostenlose ATS-optimierte Vorlagen | Best AI Resume',
+    description: 'Suchen Sie eine kostenlose Adobe-Alternative für Ihren Lebenslauf? Vergleichen Sie Adobe Express vs Best AI Resume Builder — ATS-optimierte Vorlagen, KI-Texterstellung, unbegrenzte Exporte. Kein Abo.',
+    keywords: 'adobe lebenslauf erstellen, adobe cv vorlage, adobe express lebenslauf, adobe alternative lebenslauf, kostenloser lebenslauf erstellen, ats lebenslauf vorlage, lebenslauf erstellen kostenlos',
+  },
+  schemas: {
+    breadcrumbName: 'Adobe-Alternative für Lebenslauf',
+    articleHeadline: 'Beste Adobe-Alternative für Lebenslauf 2026: Kostenloser ATS-optimierter KI-Lebenslauf-Ersteller',
+    articleDescription: 'Vergleichen Sie Adobe Express vs Best AI Resume Builder für Lebensläufe. ATS-optimierte Vorlagen mit KI-Texterstellung — kostenlos, ohne Creative Cloud-Abo.',
+  },
+  hero: {
+    badge: 'Adobe-Alternative für Lebenslauf',
+    title: 'Professionelle Lebensläufe.',
+    titleHighlight: 'Die Wirklich ATS-Prüfungen Bestehen.',
+    subtitle: 'Adobe erstellt beeindruckende Designs — aber die meisten Adobe-Lebenslauf-Vorlagen <strong>scheitern am ATS-Screening</strong>. Erhalten Sie Lebensläufe, die professionell aussehen <strong>und</strong> Bewerbermanagementsysteme bestehen. Kostenlos.',
+    ctaPrimary: 'Meinen Lebenslauf Kostenlos Erstellen',
+    ctaSecondary: 'Vergleich Ansehen',
+  },
+  problem: {
+    title: 'Das Adobe-Problem: Schön, aber ATS-unsichtbar',
+    description: 'Adobe Express und Creative Cloud erstellen wunderschöne Designs. Aber Lebensläufe sind keine Broschüren — <strong>99 % der großen Unternehmen</strong> nutzen ATS, um Lebensläufe zu filtern, bevor ein Mensch sie sieht. Adobe-Vorlagen verwenden Spalten, Textfelder, Icons und Grafiken, die ATS-Parser nicht lesen können. Ihr schöner Lebenslauf wird abgelehnt, bevor ihn jemand anschaut.',
+    stats: [
+      { value: '75 %', label: 'der Lebensläufe werden vom ATS vor menschlicher Prüfung abgelehnt' },
+      { value: '9,99 $', label: 'pro Monat für Adobe Express Premium' },
+      { value: '0 $', label: 'Best AI Resume Builder — ATS-getestet, kostenlos' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: 'Design-Tool vs spezialisierter Lebenslauf-Ersteller.',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Hauptzweck', competitor: '⚠️ Allgemeines Design-Tool', ours: '✅ Speziell für Lebensläufe entwickelt' },
+      { feature: 'ATS-Kompatibilität', competitor: '❌ Die meisten Vorlagen scheitern am ATS', ours: '✅ Alle Vorlagen ATS-getestet' },
+      { feature: 'KI-Texterstellung', competitor: '❌ Keine lebenslaufspezifische KI', ours: '✅ KI schreibt individuellen Inhalt' },
+      { feature: 'ATS-Score', competitor: '❌ Kein ATS-Checker', ours: '✅ ATS-Bewertung in Echtzeit' },
+      { feature: 'Preis', competitor: '⚠️ Kostenlos eingeschränkt / ab 9,99 $/Monat', ours: '✅ 100 % kostenlos für immer' },
+      { feature: 'Visuelles Design', competitor: '✅ Hervorragende Design-Flexibilität', ours: '✅ Professionelle, ATS-sichere Designs' },
+      { feature: 'Lebenslauf-Vorlagen', competitor: '⚠️ Design-orientiert (nicht ATS-sicher)', ours: '✅ Über 20 von Recruitern getestete Vorlagen' },
+      { feature: 'Inhaltshilfe', competitor: '❌ Keine Hilfe beim Verfassen', ours: '✅ KI-generierte Erfolge und Zusammenfassungen' },
+      { feature: 'Keyword-Optimierung', competitor: '❌ Nicht verfügbar', ours: '✅ KI-Keyword-Vorschläge' },
+      { feature: 'Benutzerfreundlichkeit', competitor: '⚠️ Design-Kenntnisse erforderlich', ours: '✅ Geführter Schritt-für-Schritt-Prozess' },
+    ],
+  },
+  whySwitch: {
+    title: 'Wann Adobe die Richtige Wahl Ist',
+    subtitle: 'Adobe eignet sich für bestimmte kreative Szenarien.',
+    reasons: [
+      { title: 'Verwenden Sie Adobe, wenn...', description: 'Sie sich auf eine kreative/Design-Stelle bewerben, die visuelle Portfolios schätzt, direkt an eine Person senden (nicht über ein ATS-Portal) oder einen visuellen Lebenslauf für Networking-Events erstellen.' },
+      { title: 'Verwenden Sie Best AI Resumes, wenn...', description: 'Sie sich über ein Online-Jobportal oder ATS bewerben, Stellen bei Unternehmen mit Bewerbermanagementsystemen anvisieren oder KI-Hilfe beim Verfassen leistungsorientierter Stichpunkte benötigen.' },
+      { title: 'Das Fazit', description: 'Adobe erstellt wunderschöne Designs. Aber für Bewerbungen, die durch ein ATS gehen (die überwiegende Mehrheit), brauchen Sie einen spezialisierten Lebenslauf-Ersteller mit ATS-getesteten Vorlagen.' },
+    ],
+  },
+  recommendation: {
+    title: 'Wann Adobe Sinnvoll Ist',
+    useCompetitor: {
+      title: 'Verwenden Sie Adobe, wenn...',
+      items: [
+        'Sie sich auf eine kreative/Design-Stelle bewerben, die visuelle Portfolios schätzt',
+        'Sie direkt an eine Person senden (nicht über ein ATS-Portal)',
+        'Sie einen visuellen Lebenslauf für Networking oder Personal Branding erstellen',
+        'Sie bereits ein Adobe Creative Cloud-Abonnement haben',
+      ],
+    },
+    useUs: {
+      title: 'Verwenden Sie Best AI Resumes, wenn...',
+      items: [
+        'Sie sich über ein Online-Jobportal oder ATS bewerben',
+        'Sie Stellen bei Unternehmen mit Bewerbermanagementsystemen anvisieren',
+        'Sie KI-Hilfe beim Verfassen wirkungsvoller Leistungspunkte benötigen',
+        'Sie einen professionellen Lebenslauf ohne Design-Kenntnisse wünschen',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Über 300 Kostenlose Lebenslauf-Beispiele Entdecken',
+    description: 'Professionelle Lebensläufe für jeden Beruf — vom Grafikdesigner über UX-Designer bis zum Art Director.',
+    ctaBrowse: 'Lebenslauf-Beispiele Durchsuchen',
+    ctaTemplates: 'Alle Vorlagen Anzeigen',
+  },
+  faq: {
+    title: 'Häufig Gestellte Fragen',
+    items: [
+      { question: 'Hat Adobe einen kostenlosen Lebenslauf-Ersteller?', answer: 'Adobe Express bietet kostenlose Lebenslauf-Vorlagen, aber die besten Vorlagen und Funktionen erfordern Adobe Express Premium (9,99 $/Monat) oder ein Creative Cloud-Abo (54,99 $/Monat). Best AI Resume Builder bietet alle Funktionen — KI-Texterstellung, ATS-Vorlagen, PDF-Export — komplett kostenlos.' },
+      { question: 'Eignet sich Adobe Express für Lebensläufe?', answer: 'Adobe Express erstellt visuell ansprechende Lebensläufe, die jedoch auf Design statt ATS-Optimierung ausgerichtet sind. Die meisten Adobe-Lebenslauf-Vorlagen verwenden Grafiken, Spalten und Layouts, die ATS-Systeme nicht lesen können. Best AI Resume Builder erstellt Lebensläufe, die sowohl professionell aussehen als auch ATS-kompatibel sind.' },
+      { question: 'Was ist die beste kostenlose Alternative zu Adobe für Lebensläufe?', answer: 'Best AI Resume Builder ist die beste kostenlose Alternative für die Lebenslauferstellung. Im Gegensatz zu Adobe ist er speziell für Lebensläufe konzipiert — mit KI-Texterstellung, ATS-Optimierung und von Recruitern getesteten Vorlagen. Adobe eignet sich hervorragend für Grafikdesign, ist aber nicht für Bewerbungen optimiert.' },
+      { question: 'Kann ein ATS Lebensläufe von Adobe Express lesen?', answer: 'Viele Adobe Express-Lebenslauf-Vorlagen verwenden Design-Elemente (Spalten, Textfelder, Grafiken, Icons), die ATS-Systeme nicht korrekt analysieren können. Das bedeutet, Ihr Lebenslauf ist möglicherweise für die Software nicht lesbar, die 99 % der großen Arbeitgeber nutzen. Best AI Resume Builder-Vorlagen sind speziell auf ATS-Kompatibilität getestet.' },
+      { question: 'Sollte ich Adobe InDesign oder Illustrator für meinen Lebenslauf verwenden?', answer: 'Nur wenn Sie Grafikdesigner sind und sich auf eine kreative Stelle bewerben, bei der visuelles Design wichtiger ist als ATS-Kompatibilität. Für alle anderen Bewerbungen verwenden Sie einen spezialisierten Lebenslauf-Ersteller mit ATS-getesteten Vorlagen. Best AI Resume Builder bietet professionelle Designs, die das ATS-Screening bestehen.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Andere Lebenslauf-Ersteller Vergleichen',
+    items: [
+      { href: '/canva-alternative', title: 'Canva-Alternative', subtitle: 'Weiterer Design-Tool-Vergleich' },
+      { href: '/zety-alternative', title: 'Zety-Alternative', subtitle: 'Preis- und Testvergleich' },
+      { href: '/rezi-alternative', title: 'Rezi-Alternative', subtitle: 'KI-Funktionsvergleich' },
+      { href: '/overleaf-alternative', title: 'Overleaf-Alternative', subtitle: 'LaTeX-Lebenslauf vs KI-Ersteller' },
+    ],
+    guidesTitle: 'Hilfreiche Lebenslauf-Ratgeber',
+    guides: [
+      { href: '/blog/what-is-ats-guide', label: 'Was ist ein ATS? Vollständiger Leitfaden' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'Einen ATS-freundlichen Lebenslauf Schreiben' },
+      { href: '/blog/how-to-write-a-resume', label: 'Lebenslauf Schreiben (Vollständiger Leitfaden)' },
+      { href: '/resume-format', label: 'Lebenslauf-Format-Ratgeber 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Externe Ressourcen',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express Lebenslauf-Ersteller' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Professionelles Design. ATS-Geprüft.',
+    description: 'Erhalten Sie Lebensläufe, die großartig aussehen und das ATS-Screening bestehen. KI-Texterstellung, von Recruitern getestete Vorlagen, unbegrenzte Exporte — alles kostenlos.',
+    cta: 'Meinen Lebenslauf Kostenlos Erstellen',
+    subtext: 'Für immer kostenlos. Kein Adobe-Abonnement nötig.',
+  },
+};
+
+const ar: ComparisonPageContent = {
+  meta: {
+    title: 'أفضل بديل لأدوبي لإنشاء السيرة الذاتية 2026: قوالب مجانية متوافقة مع ATS | Best AI Resume',
+    description: 'تبحث عن بديل مجاني لأدوبي لإنشاء سيرة ذاتية؟ قارن Adobe Express مع Best AI Resume Builder — قوالب محسّنة لأنظمة ATS، كتابة بالذكاء الاصطناعي، تصدير غير محدود. بدون اشتراك.',
+    keywords: 'بديل أدوبي سيرة ذاتية, إنشاء سيرة ذاتية أدوبي, قالب سيرة ذاتية أدوبي, أدوبي إكسبرس سيرة ذاتية, إنشاء سيرة ذاتية مجاني, سيرة ذاتية متوافقة ats, قوالب سيرة ذاتية مجانية',
+  },
+  schemas: {
+    breadcrumbName: 'بديل أدوبي للسيرة الذاتية',
+    articleHeadline: 'أفضل بديل لأدوبي لإنشاء السيرة الذاتية 2026: منشئ سيرة ذاتية مجاني بالذكاء الاصطناعي متوافق مع ATS',
+    articleDescription: 'قارن Adobe Express مع Best AI Resume Builder للسير الذاتية. قوالب محسّنة لأنظمة ATS مع كتابة بالذكاء الاصطناعي — مجاني بدون اشتراك Creative Cloud.',
+  },
+  hero: {
+    badge: 'بديل أدوبي للسيرة الذاتية',
+    title: 'سير ذاتية احترافية.',
+    titleHighlight: 'تجتاز فعلاً فحص ATS.',
+    subtitle: 'أدوبي يصنع تصاميم مذهلة — لكن معظم قوالب السير الذاتية من أدوبي <strong>لا تجتاز فحص ATS</strong>. احصل على سير ذاتية تبدو احترافية <strong>و</strong>تجتاز أنظمة تتبع المتقدمين. مجاني.',
+    ctaPrimary: 'إنشاء سيرتي الذاتية مجاناً',
+    ctaSecondary: 'عرض المقارنة',
+  },
+  problem: {
+    title: 'مشكلة أدوبي: تصاميم جميلة لكن غير مرئية لأنظمة ATS',
+    description: 'Adobe Express وCreative Cloud ينتجان تصاميم رائعة. لكن السير الذاتية ليست كتيبات دعائية — <strong>99% من الشركات الكبرى</strong> تستخدم أنظمة ATS لفحص السير الذاتية قبل أن يراها إنسان. قوالب أدوبي تستخدم أعمدة وصناديق نص وأيقونات ورسومات لا تستطيع أنظمة ATS قراءتها. سيرتك الذاتية الجميلة تُرفض قبل أن ينظر إليها أحد.',
+    stats: [
+      { value: '75%', label: 'من السير الذاتية تُرفض بواسطة ATS قبل المراجعة البشرية' },
+      { value: '9.99$', label: 'شهرياً لـ Adobe Express Premium' },
+      { value: '0$', label: 'Best AI Resume Builder — مختبر مع ATS، مجاني' },
+    ],
+  },
+  comparison: {
+    title: 'أدوبي مقابل Best AI Resume Builder',
+    subtitle: 'أداة تصميم مقابل منشئ سير ذاتية متخصص.',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'الغرض الرئيسي', competitor: '⚠️ أداة تصميم عامة', ours: '✅ مصمم خصيصاً للسير الذاتية' },
+      { feature: 'توافق ATS', competitor: '❌ معظم القوالب لا تجتاز ATS', ours: '✅ جميع القوالب مختبرة مع ATS' },
+      { feature: 'كتابة بالذكاء الاصطناعي', competitor: '❌ لا يوجد ذكاء اصطناعي للسير الذاتية', ours: '✅ الذكاء الاصطناعي يكتب محتوى مخصصاً' },
+      { feature: 'نتيجة ATS', competitor: '❌ لا يوجد فاحص ATS', ours: '✅ تقييم ATS في الوقت الفعلي' },
+      { feature: 'السعر', competitor: '⚠️ مجاني محدود / 9.99$+/شهرياً', ours: '✅ مجاني 100% للأبد' },
+      { feature: 'التصميم البصري', competitor: '✅ مرونة تصميم ممتازة', ours: '✅ تصاميم احترافية آمنة لـ ATS' },
+      { feature: 'قوالب السير الذاتية', competitor: '⚠️ موجهة للتصميم (غير آمنة لـ ATS)', ours: '✅ أكثر من 20 قالباً مختبراً من المسؤولين عن التوظيف' },
+      { feature: 'إرشاد المحتوى', competitor: '❌ لا مساعدة في كتابة السيرة الذاتية', ours: '✅ إنجازات وملخصات بالذكاء الاصطناعي' },
+      { feature: 'تحسين الكلمات المفتاحية', competitor: '❌ غير متوفر', ours: '✅ اقتراحات كلمات مفتاحية بالذكاء الاصطناعي' },
+      { feature: 'سهولة الاستخدام', competitor: '⚠️ يتطلب مهارات تصميم', ours: '✅ عملية موجهة خطوة بخطوة' },
+    ],
+  },
+  whySwitch: {
+    title: 'متى يكون أدوبي الخيار الصحيح',
+    subtitle: 'أدوبي يناسب سيناريوهات إبداعية محددة.',
+    reasons: [
+      { title: 'استخدم أدوبي عندما...', description: 'تتقدم لوظيفة إبداعية/تصميمية تقدّر المحافظ البصرية، أو ترسل مباشرة إلى شخص (ليس عبر بوابة ATS)، أو تنشئ سيرة ذاتية بصرية لفعاليات التواصل المهني.' },
+      { title: 'استخدم Best AI Resumes عندما...', description: 'تتقدم عبر أي بوابة توظيف أو ATS، أو تستهدف وظائف في شركات تستخدم تتبع المتقدمين، أو تحتاج مساعدة الذكاء الاصطناعي في كتابة إنجازات مهنية مؤثرة.' },
+      { title: 'الخلاصة', description: 'أدوبي يصنع تصاميم جميلة. لكن لطلبات التوظيف التي تمر عبر ATS (الغالبية العظمى)، تحتاج منشئ سير ذاتية متخصصاً بقوالب مختبرة.' },
+    ],
+  },
+  recommendation: {
+    title: 'متى يكون استخدام أدوبي منطقياً',
+    useCompetitor: {
+      title: 'استخدم أدوبي عندما...',
+      items: [
+        'تتقدم لوظيفة إبداعية/تصميمية تقدّر المحافظ البصرية',
+        'ترسل مباشرة إلى شخص (ليس عبر بوابة ATS)',
+        'تنشئ سيرة ذاتية بصرية للتواصل المهني أو العلامة الشخصية',
+        'لديك بالفعل اشتراك في Adobe Creative Cloud',
+      ],
+    },
+    useUs: {
+      title: 'استخدم Best AI Resumes عندما...',
+      items: [
+        'تتقدم عبر أي بوابة توظيف إلكترونية أو ATS',
+        'تستهدف وظائف في شركات تستخدم تتبع المتقدمين',
+        'تحتاج مساعدة الذكاء الاصطناعي في كتابة إنجازات مؤثرة',
+        'تريد سيرة ذاتية احترافية بدون مهارات تصميم',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'اكتشف أكثر من 300 نموذج سيرة ذاتية مجاني',
+    description: 'سير ذاتية احترافية لكل مهنة — من مصمم الجرافيك إلى مصمم تجربة المستخدم إلى المدير الفني.',
+    ctaBrowse: 'تصفح نماذج السير الذاتية',
+    ctaTemplates: 'عرض جميع القوالب',
+  },
+  faq: {
+    title: 'الأسئلة الشائعة',
+    items: [
+      { question: 'هل يوفر أدوبي منشئ سيرة ذاتية مجانياً؟', answer: 'يوفر Adobe Express قوالب سيرة ذاتية مجانية، لكن أفضل القوالب والميزات تتطلب Adobe Express Premium (9.99$/شهرياً) أو اشتراك Creative Cloud (54.99$/شهرياً). Best AI Resume Builder يوفر جميع الميزات — كتابة بالذكاء الاصطناعي، قوالب ATS، تصدير PDF — مجاناً بالكامل.' },
+      { question: 'هل سير أدوبي إكسبرس الذاتية مناسبة للتقديم على الوظائف؟', answer: 'Adobe Express ينتج سيراً ذاتية جذابة بصرياً، لكنها موجهة للتصميم وليس لتحسين ATS. معظم قوالب أدوبي تستخدم رسومات وأعمدة وعناصر لا تستطيع أنظمة ATS قراءتها. Best AI Resume Builder ينشئ سيراً ذاتية تبدو احترافية ومتوافقة مع ATS.' },
+      { question: 'ما أفضل بديل مجاني لأدوبي للسير الذاتية؟', answer: 'Best AI Resume Builder هو أفضل بديل مجاني لإنشاء السير الذاتية. على عكس أدوبي، فهو مصمم خصيصاً للسير الذاتية مع كتابة بالذكاء الاصطناعي وتحسين ATS وقوالب مختبرة من المسؤولين عن التوظيف. أدوبي ممتاز للتصميم الجرافيكي لكنه غير محسّن لطلبات التوظيف.' },
+      { question: 'هل تستطيع أنظمة ATS قراءة سير Adobe Express الذاتية؟', answer: 'العديد من قوالب سير Adobe Express الذاتية تستخدم عناصر (أعمدة، صناديق نص، رسومات، أيقونات) لا تستطيع أنظمة ATS تحليلها بشكل صحيح. هذا يعني أن سيرتك الذاتية قد تكون غير قابلة للقراءة بواسطة البرنامج الذي يستخدمه 99% من أصحاب العمل الكبار. قوالب Best AI Resume Builder مختبرة خصيصاً للتوافق مع ATS.' },
+      { question: 'هل يجب أن أستخدم Adobe InDesign أو Illustrator لسيرتي الذاتية؟', answer: 'فقط إذا كنت مصمم جرافيك تتقدم لوظيفة إبداعية حيث التصميم البصري أهم من توافق ATS. لجميع طلبات التوظيف الأخرى، استخدم منشئ سيرة ذاتية متخصصاً بقوالب مختبرة مع ATS. Best AI Resume Builder يقدم تصاميم احترافية تجتاز فحص ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'قارن منشئي سير ذاتية آخرين',
+    items: [
+      { href: '/canva-alternative', title: 'بديل كانفا', subtitle: 'مقارنة أخرى لأدوات التصميم' },
+      { href: '/zety-alternative', title: 'بديل Zety', subtitle: 'مقارنة الأسعار والتجربة' },
+      { href: '/rezi-alternative', title: 'بديل Rezi', subtitle: 'مقارنة ميزات الذكاء الاصطناعي' },
+      { href: '/overleaf-alternative', title: 'بديل Overleaf', subtitle: 'سيرة ذاتية LaTeX مقابل منشئ بالذكاء الاصطناعي' },
+    ],
+    guidesTitle: 'أدلة مفيدة للسيرة الذاتية',
+    guides: [
+      { href: '/blog/what-is-ats-guide', label: 'ما هو نظام ATS؟ دليل شامل' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'كيف تكتب سيرة ذاتية متوافقة مع ATS' },
+      { href: '/blog/how-to-write-a-resume', label: 'كيف تكتب سيرة ذاتية (دليل شامل)' },
+      { href: '/resume-format', label: 'دليل تنسيق السيرة الذاتية 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'موارد خارجية',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express منشئ السيرة الذاتية' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'تصميم احترافي. معتمد من ATS.',
+    description: 'احصل على سير ذاتية تبدو رائعة وتجتاز فحص ATS. كتابة بالذكاء الاصطناعي، قوالب مختبرة من المسؤولين عن التوظيف، تصدير غير محدود — كل شيء مجاني.',
+    cta: 'إنشاء سيرتي الذاتية مجاناً',
+    subtext: 'مجاني للأبد. بدون اشتراك أدوبي.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

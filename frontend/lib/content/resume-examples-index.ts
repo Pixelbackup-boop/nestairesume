@@ -42,5 +42,59 @@ const es: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es };
+const fr: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Plus de 300 Exemples de CV par Métier (2026) | Best AI Resume',
+    description: 'Parcourez plus de 300 exemples de CV gratuits organisés par secteur et métier. Modèles de CV professionnels avec conseils ATS. Trouvez votre poste et créez votre CV.',
+  },
+  hero: {
+    badge: 'Exemples de CV 2026',
+    title: 'Exemples de CV',
+    titleHighlight: 'par Métier',
+    subtitle: 'Parcourez {count}+ exemples de CV professionnels organisés par secteur. Trouvez votre poste, étudiez le format et créez le vôtre avec notre outil IA.',
+  },
+  bottomCta: {
+    title: 'Vous ne trouvez pas votre métier ?',
+    description: 'Notre IA peut rédiger un CV personnalisé pour N\'IMPORTE QUEL métier en quelques secondes.',
+    ctaText: 'Générer un CV Personnalisé',
+  },
+};
+
+const de: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Über 300 Lebenslauf-Beispiele nach Beruf (2026) | Best AI Resume',
+    description: 'Durchsuchen Sie über 300 kostenlose Lebenslauf-Beispiele nach Branche und Beruf sortiert. Professionelle Lebenslauf-Vorlagen mit ATS-Tipps.',
+  },
+  hero: {
+    badge: 'Lebenslauf-Beispiele 2026',
+    title: 'Lebenslauf-Beispiele',
+    titleHighlight: 'nach Beruf',
+    subtitle: 'Durchsuchen Sie {count}+ professionelle Lebenslauf-Beispiele nach Branche sortiert. Finden Sie Ihren Beruf und erstellen Sie Ihren Lebenslauf mit unserem KI-Tool.',
+  },
+  bottomCta: {
+    title: 'Beruf nicht gefunden?',
+    description: 'Unsere KI kann einen individuellen Lebenslauf für JEDEN Beruf in Sekunden erstellen.',
+    ctaText: 'Individuellen Lebenslauf erstellen',
+  },
+};
+
+const ar: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'أكثر من 300 نموذج سيرة ذاتية حسب المهنة (2026) | Best AI Resume',
+    description: 'تصفح أكثر من 300 نموذج سيرة ذاتية مجاني مصنف حسب القطاع والمهنة. قوالب سيرة ذاتية احترافية مع نصائح ATS.',
+  },
+  hero: {
+    badge: 'نماذج سيرة ذاتية 2026',
+    title: 'نماذج سيرة ذاتية',
+    titleHighlight: 'حسب المهنة',
+    subtitle: 'تصفح {count}+ نموذج سيرة ذاتية احترافي مصنف حسب القطاع. اعثر على وظيفتك وأنشئ سيرتك الذاتية باستخدام أداة الذكاء الاصطناعي.',
+  },
+  bottomCta: {
+    title: 'لم تجد مهنتك؟',
+    description: 'يمكن للذكاء الاصطناعي كتابة سيرة ذاتية مخصصة لأي مهنة في ثوانٍ.',
+    ctaText: 'إنشاء سيرة ذاتية مخصصة',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

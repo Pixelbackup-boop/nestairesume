@@ -134,6 +134,186 @@ const es: PrivacyContent = {
   lastUpdated: '\u00daltima actualizaci\u00f3n: enero 2026',
 };
 
-const contentMap: Record<string, PrivacyContent> = { en, es };
+const fr: PrivacyContent = {
+  hero: {
+    badge: 'Politique de Confidentialité',
+    title: 'Votre vie privée est',
+    titleHighlight: 'notre priorité',
+    subtitle: "Chez Best AI Resume, nous croyons que vos données personnelles vous appartiennent. Nous avons conçu notre plateforme avec une approche axée sur la confidentialité qui garde vos informations sous votre contrôle.",
+  },
+  highlights: [
+    { title: 'Vos Données Restent Locales', text: "Tout le contenu de votre CV, expérience professionnelle, formation et compétences sont stockés localement dans le stockage de votre navigateur — jamais sur nos serveurs." },
+    { title: 'Données Serveur Minimales', text: "Nous ne stockons que votre adresse e-mail et votre mot de passe sur nos serveurs pour l\u2019authentification du compte. Rien d\u2019autre. Aucun contenu de CV, aucune donnée personnelle." },
+    { title: 'Transparence Totale', text: "Nous croyons en une transparence complète. Vous pouvez voir exactement quelles données sont stockées dans votre navigateur et les supprimer à tout moment." },
+  ],
+  sections: [
+    {
+      heading: 'Quelles Données Nous Collectons',
+      subsections: [
+        { subheading: 'Données Stockées sur Nos Serveurs (Minimal)', items: ['**Adresse e-mail** — Utilisée pour l\u2019authentification du compte et les mises à jour importantes du service', '**Mot de passe (chiffré)** — Haché de manière sécurisée et stocké pour l\u2019authentification'] },
+        { subheading: 'Données Stockées Localement dans Votre Navigateur', items: ['Informations personnelles (nom, coordonnées, adresse)', 'Expérience professionnelle et historique d\u2019emploi', 'Formation et certifications', 'Compétences, langues et réalisations', 'Modèles de CV et préférences de personnalisation'] },
+      ],
+    },
+    {
+      heading: 'Pourquoi Nous Utilisons le Stockage du Navigateur',
+      intro: 'Nous avons choisi le stockage du navigateur (localStorage) comme méthode principale de stockage des données pour plusieurs raisons importantes\u00a0:',
+      items: ['**Confidentialité Maximale** — Vos informations professionnelles sensibles ne quittent jamais votre appareil', '**Aucune Fuite de Données** — Puisque nous ne stockons pas les données de votre CV, elles ne peuvent pas être compromises lors d\u2019une violation de serveur', '**Contrôle Total** — Vous pouvez consulter, exporter ou supprimer vos données à tout moment via les paramètres de votre navigateur', '**Performance Rapide** — Le stockage local signifie un accès instantané à vos données sans latence serveur'],
+    },
+    {
+      heading: 'Comment Nous Protégeons Votre Compte',
+      intro: 'Bien que nous minimisions les données côté serveur, nous prenons très au sérieux la sécurité de vos identifiants de compte\u00a0:',
+      items: ['Les mots de passe sont chiffrés à l\u2019aide d\u2019algorithmes de hachage conformes aux normes de l\u2019industrie', 'Toutes les transmissions de données sont sécurisées par chiffrement HTTPS', 'Nous ne stockons jamais les mots de passe en texte clair', 'Audits de sécurité réguliers et surveillance continue'],
+    },
+    {
+      heading: 'Vos Droits et Votre Contrôle',
+      intro: 'Vous avez un contrôle total sur vos données\u00a0:',
+      items: ['**Accès** — Consultez toutes vos données stockées dans le navigateur à tout moment via les outils de développement de votre navigateur', '**Exportation** — Téléchargez les données de votre CV en PDF ou dans d\u2019autres formats', '**Suppression** — Effacez le stockage de votre navigateur ou supprimez votre compte à tout moment', '**Portabilité** — Vos données vous appartiennent et vous pouvez les emporter où vous voulez'],
+    },
+    {
+      heading: 'Ce Que Nous Ne Faisons Pas',
+      intro: 'Nous nous engageons à des pratiques éthiques en matière de données. Voici ce que nous ne ferons jamais\u00a0:',
+      items: ['Vendre vos informations personnelles à des tiers', 'Utiliser le contenu de votre CV à des fins publicitaires', 'Partager vos informations avec des recruteurs sans votre consentement explicite', 'Suivre votre activité de navigation sur d\u2019autres sites web', 'Stocker le contenu de votre CV sur nos serveurs'],
+    },
+    {
+      heading: 'Cookies et Analyses',
+      intro: 'Nous utilisons des cookies minimaux et essentiels pour\u00a0:',
+      items: ['Maintenir votre connexion à votre compte', 'Mémoriser vos préférences de langue et de thème', 'Analyses d\u2019utilisation anonymes pour améliorer notre service'],
+    },
+    {
+      heading: 'Contactez-nous',
+    },
+  ],
+  contactText: 'Si vous avez des questions sur nos pratiques de confidentialité ou si vous souhaitez exercer vos droits sur vos données, veuillez nous contacter à',
+  cta: {
+    title: 'Créez votre CV en toute',
+    titleHighlight: 'confiance et confidentialité',
+    subtitle: 'Vos données professionnelles restent avec vous. Commencez à créer votre CV professionnel dès aujourd\u2019hui.',
+    primaryBtn: 'Commencer Gratuitement',
+    secondaryBtn: 'En Savoir Plus Sur Nous',
+  },
+  lastUpdated: 'Dernière mise à jour\u00a0: janvier 2026',
+};
+
+const de: PrivacyContent = {
+  hero: {
+    badge: 'Datenschutzrichtlinie',
+    title: 'Ihre Privatsphäre ist',
+    titleHighlight: 'unsere Priorität',
+    subtitle: 'Bei Best AI Resume glauben wir, dass Ihre persönlichen Daten Ihnen gehören. Wir haben unsere Plattform mit einem Datenschutz-zuerst-Ansatz entwickelt, der Ihre Informationen unter Ihrer Kontrolle hält.',
+  },
+  highlights: [
+    { title: 'Ihre Daten Bleiben Lokal', text: 'Alle Ihre Lebenslauf-Inhalte, Berufserfahrung, Ausbildung und Fähigkeiten werden lokal im Speicher Ihres Browsers gespeichert — niemals auf unseren Servern.' },
+    { title: 'Minimale Serverdaten', text: 'Wir speichern nur Ihre E-Mail-Adresse und Ihr Passwort auf unseren Servern zur Kontoauthentifizierung. Nichts anderes. Keine Lebenslauf-Inhalte, keine persönlichen Daten.' },
+    { title: 'Vollständige Transparenz', text: 'Wir glauben an vollständige Transparenz. Sie können genau sehen, welche Daten in Ihrem Browser gespeichert sind, und diese jederzeit löschen.' },
+  ],
+  sections: [
+    {
+      heading: 'Welche Daten Wir Erheben',
+      subsections: [
+        { subheading: 'Auf Unseren Servern Gespeicherte Daten (Minimal)', items: ['**E-Mail-Adresse** — Wird für die Kontoauthentifizierung und wichtige Service-Updates verwendet', '**Passwort (verschlüsselt)** — Sicher gehasht und für die Authentifizierung gespeichert'] },
+        { subheading: 'Lokal in Ihrem Browser Gespeicherte Daten', items: ['Persönliche Informationen (Name, Kontaktdaten, Adresse)', 'Berufserfahrung und Beschäftigungshistorie', 'Ausbildung und Zertifizierungen', 'Fähigkeiten, Sprachen und Erfolge', 'Lebenslauf-Vorlagen und Anpassungseinstellungen'] },
+      ],
+    },
+    {
+      heading: 'Warum Wir Browser-Speicher Verwenden',
+      intro: 'Wir haben den Browser-Speicher (localStorage) als unsere primäre Datenspeichermethode aus mehreren wichtigen Gründen gewählt:',
+      items: ['**Maximaler Datenschutz** — Ihre sensiblen Karriereinformationen verlassen niemals Ihr Gerät', '**Keine Datenlecks** — Da wir Ihre Lebenslauf-Daten nicht speichern, können sie bei einem Servereinbruch nicht kompromittiert werden', '**Vollständige Kontrolle** — Sie können Ihre Daten jederzeit über die Einstellungen Ihres Browsers einsehen, exportieren oder löschen', '**Schnelle Leistung** — Lokaler Speicher bedeutet sofortigen Zugriff auf Ihre Daten ohne Server-Latenz'],
+    },
+    {
+      heading: 'Wie Wir Ihr Konto Schützen',
+      intro: 'Obwohl wir die serverseitigen Daten minimieren, nehmen wir die Sicherheit Ihrer Kontoanmeldedaten sehr ernst:',
+      items: ['Passwörter werden mit branchenüblichen Hash-Algorithmen verschlüsselt', 'Alle Datenübertragungen sind mit HTTPS-Verschlüsselung gesichert', 'Wir speichern Passwörter niemals im Klartext', 'Regelmäßige Sicherheitsprüfungen und Überwachung'],
+    },
+    {
+      heading: 'Ihre Rechte und Kontrolle',
+      intro: 'Sie haben die vollständige Kontrolle über Ihre Daten:',
+      items: ['**Zugriff** — Sehen Sie alle in Ihrem Browser gespeicherten Daten jederzeit über die Entwicklertools Ihres Browsers ein', '**Export** — Laden Sie Ihre Lebenslauf-Daten als PDF oder in anderen Formaten herunter', '**Löschung** — Löschen Sie Ihren Browser-Speicher oder Ihr Konto jederzeit', '**Portabilität** — Ihre Daten gehören Ihnen und Sie können sie überallhin mitnehmen'],
+    },
+    {
+      heading: 'Was Wir Nicht Tun',
+      intro: 'Wir verpflichten uns zu ethischen Datenpraktiken. Folgendes werden wir niemals tun:',
+      items: ['Ihre persönlichen Informationen an Dritte verkaufen', 'Ihre Lebenslauf-Inhalte für Werbezwecke verwenden', 'Ihre Informationen ohne Ihre ausdrückliche Zustimmung an Personalvermittler weitergeben', 'Ihre Browsing-Aktivitäten auf anderen Websites verfolgen', 'Ihre Lebenslauf-Inhalte auf unseren Servern speichern'],
+    },
+    {
+      heading: 'Cookies und Analysen',
+      intro: 'Wir verwenden minimale, wesentliche Cookies für:',
+      items: ['Die Aufrechterhaltung Ihrer Anmeldung in Ihrem Konto', 'Das Speichern Ihrer Sprach- und Theme-Einstellungen', 'Anonyme Nutzungsanalysen zur Verbesserung unseres Dienstes'],
+    },
+    {
+      heading: 'Kontaktieren Sie Uns',
+    },
+  ],
+  contactText: 'Wenn Sie Fragen zu unseren Datenschutzpraktiken haben oder Ihre Datenrechte ausüben möchten, kontaktieren Sie uns bitte unter',
+  cta: {
+    title: 'Erstellen Sie Ihren Lebenslauf mit',
+    titleHighlight: 'Vertrauen und Datenschutz',
+    subtitle: 'Ihre Karrieredaten bleiben bei Ihnen. Beginnen Sie noch heute mit der Erstellung Ihres professionellen Lebenslaufs.',
+    primaryBtn: 'Kostenlos Starten',
+    secondaryBtn: 'Mehr Über Uns Erfahren',
+  },
+  lastUpdated: 'Letzte Aktualisierung: Januar 2026',
+};
+
+const ar: PrivacyContent = {
+  hero: {
+    badge: 'سياسة الخصوصية',
+    title: 'خصوصيتك هي',
+    titleHighlight: 'أولويتنا',
+    subtitle: 'في Best AI Resume، نؤمن بأن بياناتك الشخصية ملك لك. لقد بنينا منصتنا بنهج يضع الخصوصية أولاً ويبقي معلوماتك تحت سيطرتك.',
+  },
+  highlights: [
+    { title: 'بياناتك تبقى محلية', text: 'جميع محتويات سيرتك الذاتية وخبراتك المهنية وتعليمك ومهاراتك تُخزَّن محلياً في متصفحك — وليس على خوادمنا أبداً.' },
+    { title: 'بيانات خادم محدودة', text: 'نحن نخزن فقط عنوان بريدك الإلكتروني وكلمة المرور على خوادمنا للمصادقة على الحساب. لا شيء آخر. لا محتوى سيرة ذاتية، ولا تفاصيل شخصية.' },
+    { title: 'شفافية كاملة', text: 'نؤمن بالشفافية الكاملة. يمكنك رؤية البيانات المخزنة في متصفحك بالضبط وحذفها في أي وقت تشاء.' },
+  ],
+  sections: [
+    {
+      heading: 'ما البيانات التي نجمعها',
+      subsections: [
+        { subheading: 'البيانات المخزنة على خوادمنا (الحد الأدنى)', items: ['**عنوان البريد الإلكتروني** — يُستخدم للمصادقة على الحساب وتحديثات الخدمة المهمة', '**كلمة المرور (مشفرة)** — مُجزَّأة بشكل آمن ومخزنة للمصادقة'] },
+        { subheading: 'البيانات المخزنة محلياً في متصفحك', items: ['المعلومات الشخصية (الاسم، بيانات الاتصال، العنوان)', 'الخبرة المهنية وتاريخ التوظيف', 'التعليم والشهادات', 'المهارات واللغات والإنجازات', 'قوالب السيرة الذاتية وتفضيلات التخصيص'] },
+      ],
+    },
+    {
+      heading: 'لماذا نستخدم تخزين المتصفح',
+      intro: 'اخترنا تخزين المتصفح (localStorage) كطريقة أساسية لتخزين البيانات لعدة أسباب مهمة:',
+      items: ['**أقصى خصوصية** — معلوماتك المهنية الحساسة لا تغادر جهازك أبداً', '**لا تسريب للبيانات** — بما أننا لا نخزن بيانات سيرتك الذاتية، فلا يمكن اختراقها في حالة اختراق الخادم', '**تحكم كامل** — يمكنك عرض بياناتك أو تصديرها أو حذفها في أي وقت من خلال إعدادات متصفحك', '**أداء سريع** — التخزين المحلي يعني وصولاً فورياً إلى بياناتك بدون تأخير من الخادم'],
+    },
+    {
+      heading: 'كيف نحمي حسابك',
+      intro: 'بينما نقلل البيانات المخزنة على الخادم، نأخذ أمان بيانات اعتماد حسابك على محمل الجد:',
+      items: ['يتم تشفير كلمات المرور باستخدام خوارزميات تجزئة متوافقة مع معايير الصناعة', 'جميع عمليات نقل البيانات مؤمنة بتشفير HTTPS', 'لا نخزن كلمات المرور أبداً كنص عادي', 'عمليات تدقيق أمني منتظمة ومراقبة مستمرة'],
+    },
+    {
+      heading: 'حقوقك وتحكمك',
+      intro: 'لديك تحكم كامل في بياناتك:',
+      items: ['**الوصول** — اطلع على جميع بياناتك المخزنة في المتصفح في أي وقت من خلال أدوات المطور في متصفحك', '**التصدير** — قم بتنزيل بيانات سيرتك الذاتية بصيغة PDF أو صيغ أخرى', '**الحذف** — امسح تخزين متصفحك أو احذف حسابك في أي وقت', '**قابلية النقل** — بياناتك ملكك ويمكنك أخذها أينما تشاء'],
+    },
+    {
+      heading: 'ما لا نفعله',
+      intro: 'نحن ملتزمون بممارسات بيانات أخلاقية. إليك ما لن نفعله أبداً:',
+      items: ['بيع معلوماتك الشخصية لأطراف ثالثة', 'استخدام محتوى سيرتك الذاتية لأغراض إعلانية', 'مشاركة معلوماتك مع مسؤولي التوظيف بدون موافقتك الصريحة', 'تتبع نشاط تصفحك عبر مواقع ويب أخرى', 'تخزين محتوى سيرتك الذاتية على خوادمنا'],
+    },
+    {
+      heading: 'ملفات تعريف الارتباط والتحليلات',
+      intro: 'نستخدم ملفات تعريف ارتباط أساسية ومحدودة من أجل:',
+      items: ['الحفاظ على تسجيل دخولك في حسابك', 'تذكر تفضيلات اللغة والمظهر الخاصة بك', 'تحليلات استخدام مجهولة لتحسين خدمتنا'],
+    },
+    {
+      heading: 'اتصل بنا',
+    },
+  ],
+  contactText: 'إذا كانت لديك أي أسئلة حول ممارسات الخصوصية لدينا أو ترغب في ممارسة حقوقك المتعلقة ببياناتك، يرجى التواصل معنا على',
+  cta: {
+    title: 'أنشئ سيرتك الذاتية بكل',
+    titleHighlight: 'ثقة وخصوصية',
+    subtitle: 'بياناتك المهنية تبقى معك. ابدأ بإنشاء سيرتك الذاتية الاحترافية اليوم.',
+    primaryBtn: 'ابدأ مجاناً',
+    secondaryBtn: 'تعرف علينا',
+  },
+  lastUpdated: 'آخر تحديث: يناير 2026',
+};
+
+const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

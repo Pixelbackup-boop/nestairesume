@@ -158,6 +158,222 @@ const es: TermsContent = {
   lastUpdated: '\u00daltima actualizaci\u00f3n: enero 2026',
 };
 
-const contentMap: Record<string, TermsContent> = { en, es };
+const fr: TermsContent = {
+  hero: {
+    badge: 'Conditions Générales',
+    title: 'Des conditions de service',
+    titleHighlight: 'simples et transparentes',
+    subtitle: 'Nous croyons en la transparence et la simplicité. Nos conditions sont rédigées dans un langage clair pour que vous sachiez exactement à quoi vous attendre en utilisant Best AI Resume.',
+  },
+  highlights: [
+    { title: 'Aucun Frais Caché', text: 'Ce que vous voyez est ce que vous payez. Nos tarifs sont clairs, sans frais surprise ni coûts cachés.' },
+    { title: 'Vos Données, Votre Contrôle', text: 'Nous ne stockons que votre adresse e-mail et votre nom pour la connexion. Le contenu de votre CV reste dans votre navigateur — jamais sur nos serveurs.' },
+    { title: 'Essai Gratuit de 7 Jours', text: 'Essayez toutes les fonctionnalités premium gratuitement pendant 7 jours. Aucun frais jusqu\u2019à la fin de l\u2019essai, annulez à tout moment sans pénalité.' },
+  ],
+  sections: [
+    {
+      heading: 'Présentation du Service',
+      intro: 'Best AI Resume est un créateur de CV en ligne qui vous aide à concevoir des CV professionnels grâce à des outils alimentés par l\u2019IA. En utilisant notre service, vous acceptez ces conditions.',
+      items: ['Créez un nombre illimité de CV avec nos outils de création', 'Accédez à des suggestions et améliorations de contenu générées par l\u2019IA', 'Téléchargez vos CV au format PDF', 'Choisissez parmi des modèles conçus par des professionnels'],
+    },
+    {
+      heading: 'Compte et Transparence des Données',
+      subsections: [
+        { subheading: 'Ce Que Nous Stockons sur Nos Serveurs', items: ['**Adresse e-mail** — Pour la connexion et les notifications importantes', '**Nom** — Pour personnaliser votre expérience', '**Mot de passe (chiffré)** — Haché de manière sécurisée pour l\u2019authentification', '**Statut d\u2019abonnement** — Pour gérer les avantages de votre forfait'] },
+        { subheading: 'Ce Que Nous Ne Stockons PAS', items: ['Le contenu de votre CV (stocké localement dans votre navigateur)', 'Votre historique professionnel ou vos détails d\u2019emploi', 'Vos informations sur votre formation ou vos compétences', 'Votre adresse personnelle ou numéro de téléphone'] },
+      ],
+      intro: 'Nous nous engageons à collecter un minimum de données. Nous ne stockons que ce qui est absolument nécessaire au fonctionnement de votre compte :',
+    },
+    {
+      heading: 'Abonnement et Paiements',
+      subsections: [
+        { subheading: 'Abonnement Mensuel', items: ['**Cycle de facturation** — Vous êtes facturé mensuellement à la même date que votre inscription', '**Renouvellement automatique** — Les abonnements se renouvellent automatiquement sauf annulation', '**Transparence des prix** — Le prix affiché lors du paiement est le prix que vous payez (plus taxes applicables)'] },
+        { subheading: 'Politique d\u2019Annulation', items: ['Annulez à tout moment depuis votre tableau de bord — sans justification', 'L\u2019accès continue jusqu\u2019à la fin de votre période de facturation en cours', 'Aucun frais ni pénalité d\u2019annulation', 'Vos données locales restent intactes après l\u2019annulation'] },
+        { subheading: 'Essai Gratuit de 7 Jours', items: ['**Accès complet** — Essayez toutes les fonctionnalités premium gratuitement pendant 7 jours', '**Aucun frais pendant l\u2019essai** — Vous ne serez pas facturé avant la fin de votre essai', '**Annulez à tout moment** — Annulez avant la fin de l\u2019essai et ne payez rien', '**E-mail de rappel** — Nous vous préviendrons avant la fin de votre essai'] },
+      ],
+    },
+    {
+      heading: 'Accès Gratuit et Forfaits Payants',
+      intro: 'Avant de vous abonner, vous pouvez :',
+      items: ['Parcourir et prévisualiser tous les modèles', 'Créer et enregistrer des CV dans votre compte', 'Consulter des exemples de CV et des conseils de carrière'],
+    },
+    {
+      heading: 'Responsabilités de l\u2019Utilisateur',
+      intro: 'En utilisant notre service, vous acceptez de :',
+      items: ['Fournir des informations exactes lors de l\u2019inscription de votre compte', 'Garder vos identifiants de compte en sécurité', 'Utiliser le service uniquement à des fins légales', 'Ne pas tenter de contourner ou d\u2019abuser du service'],
+    },
+    {
+      heading: 'Propriété Intellectuelle',
+      items: ['**Votre contenu** — Vous conservez l\u2019entière propriété de tout le contenu que vous créez avec notre service', '**Nos modèles** — Les designs de modèles vous sont concédés sous licence pour un usage personnel et professionnel', '**Contenu généré par l\u2019IA** — Le texte généré par notre IA vous appartient et vous pouvez l\u2019utiliser librement'],
+    },
+    {
+      heading: 'Disponibilité du Service',
+      intro: 'Nous nous efforçons de maintenir une haute disponibilité du service, mais :',
+      items: ['Des maintenances occasionnelles peuvent entraîner des interruptions temporaires', 'Nous informerons les utilisateurs des maintenances planifiées lorsque possible', 'Vos données locales restent accessibles même lorsque nos serveurs sont indisponibles'],
+    },
+    {
+      heading: 'Modifications des Conditions',
+      intro: 'Nous pouvons mettre à jour ces conditions de temps à autre. Nous vous informerons des changements importants par e-mail ou via notre service. L\u2019utilisation continue du service après les modifications vaut acceptation des nouvelles conditions.',
+    },
+    {
+      heading: 'Nous Contacter',
+    },
+  ],
+  contactText: 'Des questions sur ces conditions ? Contactez-nous à',
+  cta: {
+    title: 'Prêt à créer votre',
+    titleHighlight: 'CV professionnel ?',
+    subtitle: 'Des tarifs simples, des conditions transparentes et vos données restent les vôtres.',
+    primaryBtn: 'Commencer Gratuitement',
+    secondaryBtn: 'Voir les Tarifs',
+  },
+  lastUpdated: 'Dernière mise à jour : janvier 2026',
+};
+
+const de: TermsContent = {
+  hero: {
+    badge: 'Allgemeine Geschäftsbedingungen',
+    title: 'Einfache, transparente',
+    titleHighlight: 'Nutzungsbedingungen',
+    subtitle: 'Wir glauben an Transparenz und Einfachheit. Unsere Bedingungen sind in verständlicher Sprache verfasst, damit Sie genau wissen, was Sie bei der Nutzung von Best AI Resume erwartet.',
+  },
+  highlights: [
+    { title: 'Keine Versteckten Gebühren', text: 'Was Sie sehen, ist das, was Sie zahlen. Unsere Preise sind transparent — ohne überraschende Kosten oder versteckte Gebühren.' },
+    { title: 'Ihre Daten, Ihre Kontrolle', text: 'Wir speichern nur Ihre E-Mail-Adresse und Ihren Namen für die Anmeldung. Ihr Lebenslauf-Inhalt bleibt in Ihrem Browser — niemals auf unseren Servern.' },
+    { title: '7-Tage Kostenlose Testphase', text: 'Testen Sie alle Premium-Funktionen 7 Tage lang kostenlos. Keine Kosten bis zum Ende der Testphase, jederzeit kündbar ohne Gebühren.' },
+  ],
+  sections: [
+    {
+      heading: 'Serviceübersicht',
+      intro: 'Best AI Resume ist ein Online-Lebenslauf-Editor, der Ihnen hilft, professionelle Lebensläufe mit KI-gestützten Werkzeugen zu erstellen. Durch die Nutzung unseres Services stimmen Sie diesen Bedingungen zu.',
+      items: ['Erstellen Sie unbegrenzt viele Lebensläufe mit unseren Erstellungstools', 'Nutzen Sie KI-gestützte Inhaltsvorschläge und Verbesserungen', 'Laden Sie Ihre Lebensläufe im PDF-Format herunter', 'Wählen Sie aus professionell gestalteten Vorlagen'],
+    },
+    {
+      heading: 'Konto und Datentransparenz',
+      subsections: [
+        { subheading: 'Was Wir auf Unseren Servern Speichern', items: ['**E-Mail-Adresse** — Für die Kontoanmeldung und wichtige Benachrichtigungen', '**Name** — Zur Personalisierung Ihres Erlebnisses', '**Passwort (verschlüsselt)** — Sicher gehasht für die Authentifizierung', '**Abonnementstatus** — Zur Verwaltung Ihrer Planvorteile'] },
+        { subheading: 'Was Wir NICHT Speichern', items: ['Ihren Lebenslauf-Inhalt (lokal in Ihrem Browser gespeichert)', 'Ihren beruflichen Werdegang oder Beschäftigungsdetails', 'Ihre Ausbildungs- oder Qualifikationsdaten', 'Ihre persönliche Adresse oder Telefonnummer'] },
+      ],
+      intro: 'Wir verpflichten uns zur minimalen Datenerfassung. Wir speichern nur das, was für die Funktion Ihres Kontos absolut notwendig ist:',
+    },
+    {
+      heading: 'Abonnement und Zahlungen',
+      subsections: [
+        { subheading: 'Monatliches Abonnement', items: ['**Abrechnungszyklus** — Sie werden monatlich am selben Datum Ihrer Anmeldung abgerechnet', '**Automatische Verlängerung** — Abonnements verlängern sich automatisch, sofern sie nicht gekündigt werden', '**Preistransparenz** — Der beim Bezahlen angezeigte Preis ist der Preis, den Sie zahlen (zzgl. anfallender Steuern)'] },
+        { subheading: 'Kündigungsrichtlinie', items: ['Kündigen Sie jederzeit über Ihr Konto-Dashboard — ohne Rückfragen', 'Der Zugang bleibt bis zum Ende Ihres aktuellen Abrechnungszeitraums bestehen', 'Keine Kündigungsgebühren oder Strafen', 'Ihre lokalen Daten bleiben nach der Kündigung erhalten'] },
+        { subheading: '7-Tage Kostenlose Testphase', items: ['**Voller Zugang** — Testen Sie alle Premium-Funktionen 7 Tage lang kostenlos', '**Keine Kosten während der Testphase** — Sie werden erst nach Ablauf der Testphase belastet', '**Jederzeit kündbar** — Kündigen Sie vor Ende der Testphase und zahlen Sie nichts', '**Erinnerungs-E-Mail** — Wir benachrichtigen Sie vor Ablauf Ihrer Testphase'] },
+      ],
+    },
+    {
+      heading: 'Kostenloser Zugang und Bezahlpläne',
+      intro: 'Vor der Anmeldung können Sie:',
+      items: ['Alle Vorlagen durchsuchen und in der Vorschau ansehen', 'Lebensläufe erstellen und in Ihrem Konto speichern', 'Lebenslauf-Beispiele und Karrieretipps ansehen'],
+    },
+    {
+      heading: 'Pflichten des Nutzers',
+      intro: 'Durch die Nutzung unseres Services stimmen Sie zu:',
+      items: ['Korrekte Angaben bei der Kontoregistrierung zu machen', 'Ihre Zugangsdaten sicher aufzubewahren', 'Den Service nur für rechtmäßige Zwecke zu nutzen', 'Nicht zu versuchen, den Service zu umgehen oder zu missbrauchen'],
+    },
+    {
+      heading: 'Geistiges Eigentum',
+      items: ['**Ihre Inhalte** — Sie behalten das vollständige Eigentum an allen Inhalten, die Sie mit unserem Service erstellen', '**Unsere Vorlagen** — Vorlagendesigns werden Ihnen für den persönlichen und beruflichen Gebrauch lizenziert', '**KI-generierte Inhalte** — Von unserer KI generierter Text gehört Ihnen und kann frei verwendet werden'],
+    },
+    {
+      heading: 'Serviceverfügbarkeit',
+      intro: 'Wir bemühen uns um eine hohe Verfügbarkeit des Services, jedoch:',
+      items: ['Gelegentliche Wartungsarbeiten können zu vorübergehenden Unterbrechungen führen', 'Wir informieren die Nutzer nach Möglichkeit über geplante Wartungsarbeiten', 'Ihre lokalen Daten bleiben auch dann zugänglich, wenn unsere Server nicht erreichbar sind'],
+    },
+    {
+      heading: 'Änderungen der Bedingungen',
+      intro: 'Wir können diese Bedingungen von Zeit zu Zeit aktualisieren. Über wesentliche Änderungen informieren wir Sie per E-Mail oder über unseren Service. Die fortgesetzte Nutzung des Services nach Änderungen gilt als Annahme der neuen Bedingungen.',
+    },
+    {
+      heading: 'Kontakt',
+    },
+  ],
+  contactText: 'Fragen zu diesen Bedingungen? Kontaktieren Sie uns unter',
+  cta: {
+    title: 'Bereit, Ihren',
+    titleHighlight: 'professionellen Lebenslauf zu erstellen?',
+    subtitle: 'Einfache Preise, transparente Bedingungen und Ihre Daten gehören Ihnen.',
+    primaryBtn: 'Kostenlos Starten',
+    secondaryBtn: 'Preise Ansehen',
+  },
+  lastUpdated: 'Letzte Aktualisierung: Januar 2026',
+};
+
+const ar: TermsContent = {
+  hero: {
+    badge: 'الشروط والأحكام',
+    title: 'شروط خدمة',
+    titleHighlight: 'بسيطة وشفافة',
+    subtitle: 'نؤمن بالشفافية والبساطة. شروطنا مكتوبة بلغة واضحة حتى تعرف بالضبط ما يمكنك توقعه عند استخدام Best AI Resume.',
+  },
+  highlights: [
+    { title: 'بدون رسوم مخفية', text: 'ما تراه هو ما تدفعه. أسعارنا واضحة بدون رسوم مفاجئة أو تكاليف مخفية.' },
+    { title: 'بياناتك تحت سيطرتك', text: 'نحن نخزّن فقط بريدك الإلكتروني واسمك لتسجيل الدخول. محتوى سيرتك الذاتية يبقى في متصفحك — وليس على خوادمنا أبداً.' },
+    { title: 'تجربة مجانية لمدة 7 أيام', text: 'جرّب جميع الميزات المميزة مجاناً لمدة 7 أيام. لا رسوم حتى نهاية الفترة التجريبية، ويمكنك الإلغاء في أي وقت بدون أي رسوم.' },
+  ],
+  sections: [
+    {
+      heading: 'نظرة عامة على الخدمة',
+      intro: 'Best AI Resume هو منشئ سير ذاتية عبر الإنترنت يساعدك في إنشاء سير ذاتية احترافية باستخدام أدوات مدعومة بالذكاء الاصطناعي. باستخدامك لخدمتنا، فإنك توافق على هذه الشروط.',
+      items: ['أنشئ عدداً غير محدود من السير الذاتية باستخدام أدوات البناء لدينا', 'استفد من اقتراحات وتحسينات المحتوى المدعومة بالذكاء الاصطناعي', 'حمّل سيرتك الذاتية بصيغة PDF', 'اختر من بين قوالب مصممة باحترافية'],
+    },
+    {
+      heading: 'الحساب وشفافية البيانات',
+      subsections: [
+        { subheading: 'ما نخزّنه على خوادمنا', items: ['**البريد الإلكتروني** — لتسجيل الدخول والإشعارات المهمة', '**الاسم** — لتخصيص تجربتك', '**كلمة المرور (مشفّرة)** — مُجزّأة بشكل آمن للمصادقة', '**حالة الاشتراك** — لإدارة مزايا خطتك'] },
+        { subheading: 'ما لا نخزّنه', items: ['محتوى سيرتك الذاتية (يُخزّن محلياً في متصفحك)', 'تاريخك المهني أو تفاصيل التوظيف', 'معلومات تعليمك أو مهاراتك', 'عنوانك الشخصي أو رقم هاتفك'] },
+      ],
+      intro: 'نحن ملتزمون بجمع الحد الأدنى من البيانات. نحن نخزّن فقط ما هو ضروري لعمل حسابك:',
+    },
+    {
+      heading: 'الاشتراك والمدفوعات',
+      subsections: [
+        { subheading: 'الاشتراك الشهري', items: ['**دورة الفوترة** — تتم محاسبتك شهرياً في نفس تاريخ اشتراكك', '**التجديد التلقائي** — تتجدد الاشتراكات تلقائياً ما لم يتم إلغاؤها', '**شفافية الأسعار** — السعر المعروض عند الدفع هو السعر الذي تدفعه (بالإضافة إلى الضرائب المطبقة)'] },
+        { subheading: 'سياسة الإلغاء', items: ['ألغِ في أي وقت من لوحة تحكم حسابك — بدون أي أسئلة', 'يستمر الوصول حتى نهاية فترة الفوترة الحالية', 'لا رسوم إلغاء أو غرامات', 'تبقى بياناتك المحلية سليمة بعد الإلغاء'] },
+        { subheading: 'تجربة مجانية لمدة 7 أيام', items: ['**وصول كامل** — جرّب جميع الميزات المميزة مجاناً لمدة 7 أيام', '**لا رسوم خلال الفترة التجريبية** — لن تتم محاسبتك حتى نهاية الفترة التجريبية', '**ألغِ في أي وقت** — ألغِ قبل نهاية الفترة التجريبية ولن تدفع شيئاً', '**بريد تذكيري** — سنُخطرك قبل انتهاء فترتك التجريبية'] },
+      ],
+    },
+    {
+      heading: 'الوصول المجاني والخطط المدفوعة',
+      intro: 'قبل الاشتراك، يمكنك:',
+      items: ['تصفح ومعاينة جميع القوالب', 'إنشاء وحفظ السير الذاتية في حسابك', 'عرض أمثلة السير الذاتية ونصائح مهنية'],
+    },
+    {
+      heading: 'مسؤوليات المستخدم',
+      intro: 'باستخدامك لخدمتنا، فإنك توافق على:',
+      items: ['تقديم معلومات دقيقة عند تسجيل حسابك', 'الحفاظ على أمان بيانات تسجيل الدخول الخاصة بك', 'استخدام الخدمة لأغراض قانونية فقط', 'عدم محاولة التحايل على الخدمة أو إساءة استخدامها'],
+    },
+    {
+      heading: 'الملكية الفكرية',
+      items: ['**محتواك** — تحتفظ بالملكية الكاملة لجميع المحتوى الذي تنشئه باستخدام خدمتنا', '**قوالبنا** — تصاميم القوالب مرخّصة لك للاستخدام الشخصي والمهني', '**المحتوى المُنشأ بالذكاء الاصطناعي** — النص الذي ينشئه الذكاء الاصطناعي لدينا يصبح ملكاً لك ويمكنك استخدامه بحرية'],
+    },
+    {
+      heading: 'توفر الخدمة',
+      intro: 'نسعى جاهدين للحفاظ على توفر عالٍ للخدمة، ولكن:',
+      items: ['قد تتسبب الصيانة الدورية في انقطاعات مؤقتة', 'سنُخطر المستخدمين بالصيانة المجدولة عندما يكون ذلك ممكناً', 'تبقى بياناتك المحلية متاحة حتى عندما تكون خوادمنا معطّلة'],
+    },
+    {
+      heading: 'تعديلات على الشروط',
+      intro: 'قد نقوم بتحديث هذه الشروط من حين لآخر. سنُخطرك بالتغييرات المهمة عبر البريد الإلكتروني أو من خلال خدمتنا. يُعتبر استمرارك في استخدام الخدمة بعد التغييرات قبولاً للشروط الجديدة.',
+    },
+    {
+      heading: 'اتصل بنا',
+    },
+  ],
+  contactText: 'هل لديك أسئلة حول هذه الشروط؟ تواصل معنا على',
+  cta: {
+    title: 'هل أنت مستعد لإنشاء',
+    titleHighlight: 'سيرتك الذاتية الاحترافية؟',
+    subtitle: 'أسعار بسيطة، شروط شفافة، وبياناتك تبقى ملكاً لك.',
+    primaryBtn: 'ابدأ مجاناً',
+    secondaryBtn: 'عرض الأسعار',
+  },
+  lastUpdated: 'آخر تحديث: يناير 2026',
+};
+
+const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

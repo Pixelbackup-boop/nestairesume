@@ -62,7 +62,70 @@ const es: CareerPagesContent = {
   },
 };
 
-const contentMap: Record<string, CareerPagesContent> = { en, es };
+const fr: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Ressources Carrière et Opportunités d\'Emploi | Best AI Resume',
+      description: 'Découvrez des ressources carrière, des opportunités d\'emploi, des perspectives sectorielles et des conseils de développement professionnel.',
+      ogTitle: 'Ressources Carrière et Opportunités d\'Emploi | Best AI Resume',
+      ogDescription: 'Découvrez des ressources carrière, des opportunités d\'emploi et des conseils de développement professionnel.',
+    },
+    badge: 'Espace Carrière',
+    title: 'Ressources Carrière et',
+    titleHighlight: 'Opportunités',
+    subtitle: 'Explorez les opportunités d\'emploi, les perspectives de carrière et les ressources de développement professionnel.',
+    featured: 'Opportunités à la Une',
+    noPostsTitle: 'Pas encore de publications',
+    noPostsSub: 'Revenez bientôt pour des ressources et opportunités !',
+  },
+  article: {
+    notFound: 'Publication Non Trouvée',
+  },
+};
+
+const de: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Karriere-Ressourcen und Stellenangebote | Best AI Resume',
+      description: 'Entdecken Sie Karriere-Ressourcen, Stellenangebote, Brancheneinblicke und Tipps zur beruflichen Weiterentwicklung.',
+      ogTitle: 'Karriere-Ressourcen und Stellenangebote | Best AI Resume',
+      ogDescription: 'Entdecken Sie Karriere-Ressourcen, Stellenangebote und Tipps zur beruflichen Weiterentwicklung.',
+    },
+    badge: 'Karriere-Center',
+    title: 'Karriere-Ressourcen und',
+    titleHighlight: 'Stellenangebote',
+    subtitle: 'Erkunden Sie Stellenangebote, Karriere-Einblicke und Ressourcen zur beruflichen Weiterentwicklung.',
+    featured: 'Empfohlene Stellenangebote',
+    noPostsTitle: 'Noch keine Beiträge',
+    noPostsSub: 'Schauen Sie bald wieder vorbei für Karriere-Ressourcen und Stellenangebote!',
+  },
+  article: {
+    notFound: 'Beitrag Nicht Gefunden',
+  },
+};
+
+const ar: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'موارد مهنية وفرص عمل | Best AI Resume',
+      description: 'اكتشف موارد مهنية وفرص عمل ورؤى قطاعية ونصائح للتطوير المهني لتقدم مسارك الوظيفي.',
+      ogTitle: 'موارد مهنية وفرص عمل | Best AI Resume',
+      ogDescription: 'اكتشف موارد مهنية وفرص عمل ونصائح للتطوير المهني.',
+    },
+    badge: 'مركز التوظيف',
+    title: 'موارد مهنية و',
+    titleHighlight: 'فرص عمل',
+    subtitle: 'استكشف فرص العمل والرؤى المهنية وموارد التطوير المهني لمساعدتك في التقدم.',
+    featured: 'فرص مميزة',
+    noPostsTitle: 'لا توجد منشورات بعد',
+    noPostsSub: 'عد قريباً لموارد مهنية وفرص عمل!',
+  },
+  article: {
+    notFound: 'المنشور غير موجود',
+  },
+};
+
+const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar };
 
 export function getCareerListingContent(locale: string) { return selectContent(contentMap, locale).listing; }
 export function getCareerArticleContent(locale: string) { return selectContent(contentMap, locale).article; }

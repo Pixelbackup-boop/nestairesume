@@ -648,7 +648,844 @@ const es: ChatGPTComparisonContent = {
   }
 };
 
-const content: Record<string, ChatGPTComparisonContent> = { en, es };
+const fr: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs Créateur de CV IA : Lequel crée les meilleurs CV ? (2026) | Best AI Resume",
+    description: "Faut-il utiliser ChatGPT ou un créateur de CV IA dédié pour rédiger votre CV ? Comparez la mise en forme, la compatibilité ATS et la qualité. Découvrez quel outil obtient plus d'entretiens.",
+    keywords: "chatgpt cv, chatgpt créateur de cv, créateur de cv ia, chatgpt vs créateur de cv, rédiger cv avec chatgpt, rédacteur cv ia",
+    ogTitle: "ChatGPT vs Créateur de CV IA : Lequel crée les meilleurs CV ? (2026)",
+    ogDescription: "Comparaison entre ChatGPT et un créateur de CV IA dédié. Analyse fonctionnalité par fonctionnalité avec avantages et inconvénients.",
+    twitterTitle: "ChatGPT vs Créateur de CV IA : Lequel crée les meilleurs CV ?",
+    twitterDescription: "Comparez ChatGPT et un créateur de CV IA dédié pour créer des CV qui décrochent des entretiens."
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs Créateur de CV IA",
+    articleHeadline: "ChatGPT vs Créateur de CV IA : Lequel crée les meilleurs CV en 2026 ?",
+    articleDescription: "Comparaison entre ChatGPT et un créateur de CV IA dédié pour créer des CV percutants. Analyse fonctionnalité par fonctionnalité avec avantages et inconvénients."
+  },
+  hero: {
+    badge: "Comparaison",
+    title: "ChatGPT vs Créateur de CV IA :",
+    titleHighlight: "Lequel vous fait embaucher ?",
+    subtitle: "ChatGPT rédige du texte. Un créateur de CV produit des <strong>documents prêts pour l'entretien</strong>. Voici pourquoi cette différence est cruciale pour votre recherche d'emploi.",
+    ctaPrimary: "Créer Mon CV Gratuit",
+    ctaSecondary: "Voir la Comparaison"
+  },
+  problem: {
+    title: "Le problème : ChatGPT rédige du texte, pas des CV",
+    description: "ChatGPT est une IA généraliste qui génère du texte. Il peut rédiger des points clés, des résumés et des lettres de motivation — mais il <strong>ne peut pas mettre en forme un document, garantir la compatibilité ATS, ni exporter un PDF</strong>. Vous obtenez du texte brut qu'il vous faut encore concevoir, mettre en forme et optimiser vous-même.",
+    stats: [
+      { value: "0", label: "Modèles inclus — ChatGPT ne produit que du texte brut" },
+      { value: "0%", label: "Connaissance ATS — aucune analyse de mots-clés ni vérification de format" },
+      { value: "3+", label: "Outils supplémentaires nécessaires — modèle, mise en forme, convertisseur PDF" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "Une comparaison honnête, fonctionnalité par fonctionnalité, pour les chercheurs d'emploi.",
+    colFeature: "Fonctionnalité",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      {
+        feature: "Rédaction par IA",
+        chatgpt: "Génération de texte général performante",
+        best: "IA spécialisée CV avec mots-clés sectoriels",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Modèles professionnels",
+        chatgpt: "Aucun modèle — texte uniquement",
+        best: "Plus de 20 modèles testés ATS",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Optimisation ATS",
+        chatgpt: "Aucune connaissance ATS",
+        best: "Score ATS en temps réel et correspondance de mots-clés",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Export PDF",
+        chatgpt: "Aucune exportation de document",
+        best: "Export PDF propre en un clic",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Mise en forme et design",
+        chatgpt: "Sortie en texte brut uniquement",
+        best: "Mise en forme professionnelle intégrée",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Correspondance avec l'offre d'emploi",
+        chatgpt: "Manuel — coller l'offre dans le prompt",
+        best: "Extraction automatique de mots-clés et correspondance",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Structure des sections",
+        chatgpt: "Vous définissez la structure dans les prompts",
+        best: "Flux guidé section par section",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Cohérence",
+        chatgpt: "Les résultats varient selon la qualité du prompt",
+        best: "Résultats cohérents et testés à chaque fois",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Personnalisation du contenu",
+        chatgpt: "Nécessite des prompts détaillés",
+        best: "S'appuie sur votre expérience saisie",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Prix",
+        chatgpt: "Gratuit (GPT-3.5) ou 20 $/mois (GPT-4)",
+        best: "Offre gratuite disponible",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Courbe d'apprentissage",
+        chatgpt: "Maîtrise des prompts requise",
+        best: "Simplicité de remplir un formulaire",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "CV multiples",
+        chatgpt: "Recommencer à zéro à chaque fois",
+        best: "Enregistrer et modifier plusieurs versions",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      }
+    ]
+  },
+  strengths: {
+    title: "Ce que ChatGPT fait bien pour les CV",
+    subtitle: "Soyons justes, ChatGPT a de vrais atouts. Voici où il aide réellement pour la rédaction de CV :",
+    items: [
+      {
+        title: "Brainstorming de points clés",
+        description: "ChatGPT excelle à générer plusieurs versions de points clés axés sur les réalisations à partir d'une description de poste. Idéal pour surmonter le syndrome de la page blanche."
+      },
+      {
+        title: "Réécriture de contenu faible",
+        description: "Collez un point basé sur les tâches et demandez à ChatGPT de le réécrire comme une réalisation. Il est efficace pour transformer « responsable de » en verbes d'action avec des métriques."
+      },
+      {
+        title: "Recherche de mots-clés sectoriels",
+        description: "Demandez à ChatGPT d'identifier les compétences et mots-clés clés pour un poste spécifique. Il fournit des listes solides qui aident à la correspondance ATS."
+      },
+      {
+        title: "Brouillons de lettres de motivation",
+        description: "ChatGPT rédige des premiers brouillons raisonnables de lettres de motivation. Vous devrez les personnaliser, mais c'est un bon point de départ."
+      }
+    ]
+  },
+  shortcomings: {
+    title: "Où ChatGPT est insuffisant",
+    items: [
+      {
+        title: "Aucune mise en forme ni modèle",
+        description: "ChatGPT produit du texte brut. Vous avez besoin d'un outil séparé (Google Docs, Word, Canva ou un créateur de CV) pour le mettre en forme dans un document professionnel. Cela prend du temps et introduit des erreurs de mise en forme."
+      },
+      {
+        title: "Aucune connaissance ATS",
+        description: "ChatGPT ne sait pas quels mots-clés un ATS recherche, quels en-têtes de section il attend, ni quel format il peut analyser. Il génère du texte sans aucune connaissance des systèmes de sélection automatisés."
+      },
+      {
+        title: "Résultat générique sans vos données",
+        description: "À moins de fournir des prompts extrêmement détaillés avec vos métriques et réalisations spécifiques, ChatGPT génère un contenu générique. « A géré une équipe de professionnels » au lieu de « A dirigé une équipe d'ingénierie de 12 personnes ayant livré 3 produits en avance sur le calendrier. »"
+      },
+      {
+        title: "Qualité inconsistante",
+        description: "La qualité de sortie de ChatGPT dépend entièrement de votre prompt. De petits changements de formulation produisent des résultats très différents. Un créateur de CV dédié produit un résultat cohérent et testé à chaque fois."
+      },
+      {
+        title: "Aucun export PDF",
+        description: "Vous ne pouvez pas envoyer une conversation ChatGPT à un recruteur. Vous devez copier le texte, le coller dans un modèle, ajuster la mise en forme et exporter en PDF — un processus qui prend plus de 30 minutes."
+      }
+    ]
+  },
+  bestApproach: {
+    title: "La meilleure approche : utiliser les deux",
+    description: "Voici le flux de travail optimal pour utiliser l'IA afin de créer un CV en 2026 :",
+    steps: [
+      {
+        title: "Utilisez ChatGPT pour le brainstorming",
+        description: "Demandez-lui de générer des idées de points clés, de réécrire du contenu faible et d'identifier les mots-clés du secteur pour votre poste cible."
+      },
+      {
+        title: "Construisez votre CV dans un créateur dédié",
+        description: "Utilisez Best AI Resume Builder pour mettre en forme votre contenu dans un modèle professionnel optimisé ATS avec une structure appropriée et une correspondance de mots-clés."
+      },
+      {
+        title: "Personnalisez avec vos données réelles",
+        description: "Remplacez le texte générique de l'IA par vos métriques réelles, vos réalisations et vos noms d'entreprises. Aucun outil IA ne peut connaître vos accomplissements spécifiques — c'est vous qui ajoutez cela."
+      },
+      {
+        title: "Exportez et postulez",
+        description: "Téléchargez votre PDF optimisé ATS et postulez directement. Pas de copier-coller, pas de difficultés de mise en forme, pas d'outils supplémentaires nécessaires."
+      }
+    ]
+  },
+  whoShouldUse: {
+    title: "Recommandation honnête : qui devrait utiliser quoi ?",
+    useChatGPT: {
+      title: "Utilisez ChatGPT si vous...",
+      items: [
+        "Avez déjà un modèle de CV bien mis en forme",
+        "Avez juste besoin d'aide pour le brainstorming de points clés",
+        "Êtes à l'aise avec la mise en forme de documents",
+        "Voulez rechercher des mots-clés et tendances du secteur"
+      ]
+    },
+    useBestAI: {
+      title: "Utilisez Best AI Resumes si vous...",
+      items: [
+        "Voulez un CV complet et prêt à l'emploi depuis un seul outil",
+        "Avez besoin d'une mise en forme optimisée ATS et d'un score de mots-clés",
+        "Ne voulez pas vous soucier des modèles et de la mise en forme",
+        "Voulez enregistrer et modifier plusieurs versions de CV",
+        "Avez besoin d'un export PDF prêt à envoyer en un clic"
+      ]
+    },
+    bottomLine: "En résumé : ChatGPT est un excellent assistant de rédaction, mais ce n'est pas un créateur de CV. Pour un CV complet et prêt pour l'ATS, vous avez besoin d'un outil conçu spécifiquement."
+  },
+  resumeExamples: {
+    title: "Découvrez à quoi ressemblent les CV créés par IA",
+    description: "Parcourez plus de 300 exemples de CV réels pour chaque profession — tous créés avec une IA optimisée ATS qui va au-delà de ce que ChatGPT seul peut produire.",
+    ctaBrowse: "Parcourir les exemples de CV",
+    ctaTemplates: "Voir tous les modèles"
+  },
+  faq: {
+    title: "Questions fréquemment posées",
+    items: [
+      {
+        question: "ChatGPT peut-il rédiger un bon CV ?",
+        answer: "ChatGPT peut générer du texte de CV (points clés, résumés, objectifs), mais il ne peut pas mettre en forme un CV, garantir la compatibilité ATS, ni produire un PDF téléchargeable. Vous avez toujours besoin d'un outil séparé pour mettre en forme et concevoir le document. Un créateur de CV IA dédié gère la rédaction ET la mise en forme en une seule étape."
+      },
+      {
+        question: "Est-il acceptable d'utiliser l'IA pour rédiger un CV ?",
+        answer: "Oui. La rédaction de CV assistée par IA est largement acceptée en 2026. Les responsables du recrutement s'intéressent à la qualité du contenu de votre CV, pas à la façon dont il a été créé. L'essentiel est de personnaliser le contenu généré par l'IA avec vos réalisations réelles, vos métriques et vos expériences — ne soumettez jamais un contenu IA générique sans personnalisation."
+      },
+      {
+        question: "Quels sont les inconvénients de l'utilisation de ChatGPT pour les CV ?",
+        answer: "ChatGPT produit du texte brut sans mise en forme, n'a aucune connaissance ATS, ne peut pas évaluer votre CV par rapport aux descriptions de poste, produit un contenu générique sans vos métriques spécifiques, et vous oblige à copier-coller manuellement dans un modèle. Il n'a pas non plus de formation spécifique aux CV — il traite la rédaction de CV comme n'importe quelle autre tâche textuelle."
+      },
+      {
+        question: "Les systèmes ATS rejettent-ils les CV créés avec ChatGPT ?",
+        answer: "Les systèmes ATS ne détectent pas et ne se soucient pas du contenu rédigé par l'IA. Cependant, si vous collez du texte ChatGPT dans un modèle mal formaté (comme un visuel Canva ou un tableau Word), l'ATS risque de ne pas pouvoir l'analyser. Un créateur de CV dédié garantit que le contenu ET le format sont compatibles ATS."
+      },
+      {
+        question: "Best AI Resume Builder est-il meilleur que ChatGPT pour les CV ?",
+        answer: "Pour la tâche spécifique de créer un CV prêt à l'emploi, oui. Best AI Resume Builder combine la rédaction IA avec une mise en forme professionnelle, l'optimisation ATS, la correspondance de mots-clés et l'export PDF dans un seul outil. ChatGPT est une IA généraliste — il peut rédiger du texte mais ne peut pas mettre en forme, évaluer ni exporter un CV."
+      }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "Comparer d'autres créateurs de CV",
+    links: [
+      { title: "Alternative à Canva", subtitle: "Outil de design vs créateur de CV" },
+      { title: "Alternative à Overleaf", subtitle: "LaTeX vs créateur IA" },
+      { title: "Alternative à Resume.io", subtitle: "Comparaison des prix et fonctionnalités" },
+      { title: "Alternative à Rezi", subtitle: "Outils IA comparés" }
+    ],
+    guidesTitle: "Guides utiles pour le CV",
+    guides: [
+      { label: "Qu'est-ce qu'un ATS ? Guide complet" },
+      { label: "Comment rédiger un CV (étape par étape)" },
+      { label: "ChatGPT vs Claude pour les CV" },
+      { label: "Comment rédiger un résumé professionnel" }
+    ]
+  },
+  externalResources: {
+    title: "Ressources externes",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "ChatGPT par OpenAI" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook : Conseils CV" }
+    ]
+  },
+  bottomCta: {
+    title: "Prêt à aller au-delà de ChatGPT ?",
+    description: "Créez un CV complet et optimisé ATS avec notre créateur de CV IA — rédaction, mise en forme et export PDF dans un seul outil.",
+    ctaText: "Créer Mon CV Gratuit — Sans Inscription",
+    subtext: "Gratuit pour toujours. Aucune carte de crédit requise."
+  }
+};
+
+const de: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs KI-Lebenslauf-Ersteller: Welcher erstellt bessere Lebensläufe? (2026) | Best AI Resume",
+    description: "Sollten Sie ChatGPT oder einen dedizierten KI-Lebenslauf-Ersteller verwenden? Vergleichen Sie Formatierung, ATS-Kompatibilität und Qualität. Sehen Sie, welches Tool mehr Vorstellungsgespräche bringt.",
+    keywords: "chatgpt lebenslauf, chatgpt lebenslauf erstellen, ki lebenslauf ersteller, chatgpt vs lebenslauf ersteller, lebenslauf mit chatgpt schreiben, ki lebenslauf schreiber",
+    ogTitle: "ChatGPT vs KI-Lebenslauf-Ersteller: Welcher erstellt bessere Lebensläufe? (2026)",
+    ogDescription: "Vergleich zwischen ChatGPT und einem dedizierten KI-Lebenslauf-Ersteller. Funktion-für-Funktion-Analyse mit ehrlichen Vor- und Nachteilen.",
+    twitterTitle: "ChatGPT vs KI-Lebenslauf-Ersteller: Welcher erstellt bessere Lebensläufe?",
+    twitterDescription: "Vergleichen Sie ChatGPT mit einem dedizierten KI-Lebenslauf-Ersteller für überzeugende Lebensläufe."
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs KI-Lebenslauf-Ersteller",
+    articleHeadline: "ChatGPT vs KI-Lebenslauf-Ersteller: Welcher erstellt bessere Lebensläufe 2026?",
+    articleDescription: "Vergleich zwischen ChatGPT und einem dedizierten KI-Lebenslauf-Ersteller. Funktion-für-Funktion-Analyse mit ehrlichen Vor- und Nachteilen."
+  },
+  hero: {
+    badge: "Vergleich",
+    title: "ChatGPT vs KI-Lebenslauf-Ersteller:",
+    titleHighlight: "Welcher bringt Ihnen den Job?",
+    subtitle: "ChatGPT schreibt Text. Ein Lebenslauf-Ersteller erstellt <strong>bewerbungsfertige Dokumente</strong>. Hier erfahren Sie, warum dieser Unterschied für Ihre Jobsuche entscheidend ist.",
+    ctaPrimary: "Meinen Lebenslauf Kostenlos Erstellen",
+    ctaSecondary: "Vergleich Ansehen"
+  },
+  problem: {
+    title: "Das Problem: ChatGPT schreibt Text, keine Lebensläufe",
+    description: "ChatGPT ist eine KI für allgemeine Zwecke, die Text generiert. Es kann Aufzählungspunkte, Zusammenfassungen und Anschreiben verfassen — aber es <strong>kann kein Dokument formatieren, keine ATS-Kompatibilität sicherstellen und kein PDF exportieren</strong>. Sie erhalten Rohtext, den Sie selbst gestalten, formatieren und optimieren müssen.",
+    stats: [
+      { value: "0", label: "Vorlagen enthalten — ChatGPT gibt nur Klartext aus" },
+      { value: "0%", label: "ATS-Kenntnis — keine Keyword-Analyse oder Formatprüfung" },
+      { value: "3+", label: "Zusätzliche Tools nötig — Vorlage, Formatierer, PDF-Konverter" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "Ein ehrlicher Funktion-für-Funktion-Vergleich für Jobsuchende.",
+    colFeature: "Funktion",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      {
+        feature: "KI-Texterstellung",
+        chatgpt: "Starke allgemeine Textgenerierung",
+        best: "Lebenslauf-spezifische KI mit Branchen-Keywords",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Professionelle Vorlagen",
+        chatgpt: "Keine Vorlagen — nur Text",
+        best: "Über 20 ATS-getestete Vorlagen",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "ATS-Optimierung",
+        chatgpt: "Keine ATS-Kenntnis",
+        best: "Echtzeit-ATS-Score und Keyword-Abgleich",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "PDF-Export",
+        chatgpt: "Kein Dokumenten-Export",
+        best: "Sauberer PDF-Export mit einem Klick",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Formatierung und Design",
+        chatgpt: "Nur Klartext-Ausgabe",
+        best: "Professionelle Formatierung integriert",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Stellenanzeigen-Abgleich",
+        chatgpt: "Manuell — Stellenanzeige in den Prompt einfügen",
+        best: "Automatische Keyword-Extraktion und -Abgleich",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Abschnittsstruktur",
+        chatgpt: "Sie definieren die Struktur in Prompts",
+        best: "Geführter Ablauf Abschnitt für Abschnitt",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Konsistenz",
+        chatgpt: "Ergebnisse variieren je nach Prompt-Qualität",
+        best: "Konsistente, getestete Ergebnisse jedes Mal",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Inhaltspersonalisierung",
+        chatgpt: "Erfordert detaillierte Prompts",
+        best: "Nutzt Ihre eingegebene Erfahrung",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Preis",
+        chatgpt: "Kostenlos (GPT-3.5) oder 20 $/Monat (GPT-4)",
+        best: "Kostenloses Angebot verfügbar",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Lernkurve",
+        chatgpt: "Prompt-Engineering erforderlich",
+        best: "Einfach ausfüllen — fertig",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Mehrere Lebensläufe",
+        chatgpt: "Jedes Mal von vorne beginnen",
+        best: "Mehrere Versionen speichern und bearbeiten",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      }
+    ]
+  },
+  strengths: {
+    title: "Was ChatGPT für Lebensläufe gut kann",
+    subtitle: "Fairerweise hat ChatGPT echte Stärken. Hier hilft es tatsächlich beim Lebenslauf-Schreiben:",
+    items: [
+      {
+        title: "Brainstorming für Aufzählungspunkte",
+        description: "ChatGPT ist hervorragend darin, mehrere Versionen von leistungsorientierten Aufzählungspunkten aus einer Stellenbeschreibung zu generieren. Ideal, um die Schreibblockade zu überwinden."
+      },
+      {
+        title: "Schwachen Inhalt umschreiben",
+        description: "Fügen Sie einen aufgabenbasierten Aufzählungspunkt ein und bitten Sie ChatGPT, ihn als Leistung umzuschreiben. Es ist gut darin, «verantwortlich für» in Aktionsverben mit Metriken umzuwandeln."
+      },
+      {
+        title: "Branchen-Keyword-Recherche",
+        description: "Bitten Sie ChatGPT, wichtige Fähigkeiten und Keywords für eine bestimmte Position zu identifizieren. Es liefert solide Keyword-Listen, die beim ATS-Abgleich helfen."
+      },
+      {
+        title: "Entwürfe für Anschreiben",
+        description: "ChatGPT verfasst brauchbare erste Entwürfe von Anschreiben. Sie müssen sie personalisieren, aber es ist ein solider Ausgangspunkt."
+      }
+    ]
+  },
+  shortcomings: {
+    title: "Wo ChatGPT zu kurz greift",
+    items: [
+      {
+        title: "Keine Formatierung oder Vorlagen",
+        description: "ChatGPT gibt Klartext aus. Sie benötigen ein separates Tool (Google Docs, Word, Canva oder einen Lebenslauf-Ersteller), um ihn in ein professionelles Dokument zu formatieren. Das kostet Zeit und führt zu Formatierungsfehlern."
+      },
+      {
+        title: "Keine ATS-Kenntnis",
+        description: "ChatGPT weiß nicht, welche Keywords ein ATS scannt, welche Abschnittsüberschriften es erwartet oder welches Format es analysieren kann. Es generiert Text ohne jegliche Kenntnis automatisierter Screening-Systeme."
+      },
+      {
+        title: "Generische Ausgabe ohne Ihre Daten",
+        description: "Wenn Sie nicht extrem detaillierte Prompts mit Ihren spezifischen Metriken und Leistungen bereitstellen, generiert ChatGPT generischen Inhalt. «Leitete ein Team von Fachleuten» statt «Führte ein 12-köpfiges Ingenieurteam, das 3 Produkte vor dem Zeitplan lieferte.»"
+      },
+      {
+        title: "Inkonsistente Qualität",
+        description: "Die Ausgabequalität von ChatGPT hängt vollständig von Ihrem Prompt ab. Kleine Änderungen in der Formulierung erzeugen sehr unterschiedliche Ergebnisse. Ein dedizierter Lebenslauf-Ersteller liefert jedes Mal konsistente, getestete Ergebnisse."
+      },
+      {
+        title: "Kein PDF-Export",
+        description: "Sie können ein ChatGPT-Gespräch nicht an einen Recruiter senden. Sie müssen den Text kopieren, in eine Vorlage einfügen, die Formatierung anpassen und als PDF exportieren — ein Prozess, der über 30 Minuten dauert."
+      }
+    ]
+  },
+  bestApproach: {
+    title: "Der beste Ansatz: Beides nutzen",
+    description: "Hier ist der optimale Workflow, um 2026 mit KI einen Lebenslauf zu erstellen:",
+    steps: [
+      {
+        title: "ChatGPT fürs Brainstorming nutzen",
+        description: "Bitten Sie es, Ideen für Aufzählungspunkte zu generieren, schwachen Inhalt umzuschreiben und Branchen-Keywords für Ihre Zielposition zu identifizieren."
+      },
+      {
+        title: "Lebenslauf in einem dedizierten Ersteller aufbauen",
+        description: "Verwenden Sie Best AI Resume Builder, um Ihren Inhalt in eine professionelle, ATS-optimierte Vorlage mit passender Struktur und Keyword-Abgleich zu formatieren."
+      },
+      {
+        title: "Mit Ihren echten Daten personalisieren",
+        description: "Ersetzen Sie generischen KI-Text durch Ihre tatsächlichen Metriken, Leistungen und Firmennamen. Kein KI-Tool kann Ihre spezifischen Erfolge kennen — das fügen Sie selbst hinzu."
+      },
+      {
+        title: "Exportieren und bewerben",
+        description: "Laden Sie Ihr ATS-optimiertes PDF herunter und bewerben Sie sich direkt. Kein Kopieren-Einfügen, keine Formatierungsprobleme, keine zusätzlichen Tools nötig."
+      }
+    ]
+  },
+  whoShouldUse: {
+    title: "Ehrliche Empfehlung: Wer sollte was nutzen?",
+    useChatGPT: {
+      title: "Nutzen Sie ChatGPT, wenn Sie...",
+      items: [
+        "Bereits eine gut formatierte Lebenslauf-Vorlage haben",
+        "Nur Hilfe beim Brainstorming für Aufzählungspunkte brauchen",
+        "Sich mit Dokumentenformatierung auskennen",
+        "Branchen-Keywords und -Trends recherchieren möchten"
+      ]
+    },
+    useBestAI: {
+      title: "Nutzen Sie Best AI Resumes, wenn Sie...",
+      items: [
+        "Einen vollständigen, bewerbungsfertigen Lebenslauf aus einem Tool möchten",
+        "ATS-optimierte Formatierung und Keyword-Bewertung brauchen",
+        "Sich nicht mit Vorlagen und Formatierung befassen möchten",
+        "Mehrere Lebenslauf-Versionen speichern und bearbeiten möchten",
+        "Einen exportfertigen PDF mit einem Klick brauchen"
+      ]
+    },
+    bottomLine: "Das Fazit: ChatGPT ist ein großartiger Schreibassistent, aber kein Lebenslauf-Ersteller. Für einen vollständigen, ATS-fähigen Lebenslauf benötigen Sie ein speziell dafür entwickeltes Tool."
+  },
+  resumeExamples: {
+    title: "Sehen Sie, wie KI-erstellte Lebensläufe aussehen",
+    description: "Durchsuchen Sie über 300 echte Lebenslauf-Beispiele für jeden Beruf — alle mit ATS-optimierter KI erstellt, die über das hinausgeht, was ChatGPT allein leisten kann.",
+    ctaBrowse: "Lebenslauf-Beispiele durchsuchen",
+    ctaTemplates: "Alle Vorlagen ansehen"
+  },
+  faq: {
+    title: "Häufig gestellte Fragen",
+    items: [
+      {
+        question: "Kann ChatGPT einen guten Lebenslauf schreiben?",
+        answer: "ChatGPT kann Lebenslauf-Text generieren (Aufzählungspunkte, Zusammenfassungen, Ziele), aber es kann keinen Lebenslauf formatieren, keine ATS-Kompatibilität sicherstellen und kein herunterladbares PDF erzeugen. Sie benötigen weiterhin ein separates Tool zum Formatieren und Gestalten. Ein dedizierter KI-Lebenslauf-Ersteller übernimmt Texterstellung UND Formatierung in einem Schritt."
+      },
+      {
+        question: "Ist es in Ordnung, KI zum Schreiben eines Lebenslaufs zu verwenden?",
+        answer: "Ja. KI-unterstütztes Lebenslauf-Schreiben ist 2026 weithin akzeptiert. Personalverantwortliche achten auf die Qualität Ihres Lebenslauf-Inhalts, nicht darauf, wie er erstellt wurde. Der Schlüssel liegt darin, KI-generierten Inhalt mit Ihren echten Leistungen, Metriken und Erfahrungen zu personalisieren — reichen Sie niemals generischen KI-Output ohne Anpassung ein."
+      },
+      {
+        question: "Welche Nachteile hat die Verwendung von ChatGPT für Lebensläufe?",
+        answer: "ChatGPT erzeugt Klartext ohne Formatierung, hat keine ATS-Kenntnis, kann Ihren Lebenslauf nicht mit Stellenbeschreibungen abgleichen, erzeugt generischen Inhalt ohne Ihre spezifischen Metriken und erfordert manuelles Kopieren in eine Vorlage. Es hat auch kein lebenslaufspezifisches Training — es behandelt die Lebenslauf-Erstellung wie jede andere Textaufgabe."
+      },
+      {
+        question: "Lehnen ATS-Systeme ChatGPT-Lebensläufe ab?",
+        answer: "ATS-Systeme erkennen KI-geschriebene Inhalte nicht und interessieren sich nicht dafür. Wenn Sie jedoch ChatGPT-Text in eine schlecht formatierte Vorlage (wie eine Canva-Grafik oder Word-Tabelle) einfügen, kann das ATS sie möglicherweise nicht analysieren. Ein dedizierter Lebenslauf-Ersteller stellt sicher, dass sowohl Inhalt ALS AUCH Format ATS-kompatibel sind."
+      },
+      {
+        question: "Ist Best AI Resume Builder besser als ChatGPT für Lebensläufe?",
+        answer: "Für die spezifische Aufgabe, einen bewerbungsfertigen Lebenslauf zu erstellen, ja. Best AI Resume Builder kombiniert KI-Texterstellung mit professioneller Formatierung, ATS-Optimierung, Keyword-Abgleich und PDF-Export in einem Tool. ChatGPT ist eine Allzweck-KI — sie kann Text schreiben, aber keinen Lebenslauf formatieren, bewerten oder exportieren."
+      }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "Andere Lebenslauf-Ersteller vergleichen",
+    links: [
+      { title: "Canva-Alternative", subtitle: "Design-Tool vs Lebenslauf-Ersteller" },
+      { title: "Overleaf-Alternative", subtitle: "LaTeX vs KI-Ersteller" },
+      { title: "Resume.io-Alternative", subtitle: "Preis- und Funktionsvergleich" },
+      { title: "Rezi-Alternative", subtitle: "KI-Tools im Vergleich" }
+    ],
+    guidesTitle: "Hilfreiche Lebenslauf-Ratgeber",
+    guides: [
+      { label: "Was ist ein ATS? Vollständiger Leitfaden" },
+      { label: "Wie man einen Lebenslauf schreibt (Schritt für Schritt)" },
+      { label: "ChatGPT vs Claude für Lebensläufe" },
+      { label: "Wie man eine professionelle Zusammenfassung schreibt" }
+    ]
+  },
+  externalResources: {
+    title: "Externe Ressourcen",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "ChatGPT von OpenAI" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: Lebenslauf-Tipps" }
+    ]
+  },
+  bottomCta: {
+    title: "Bereit, über ChatGPT hinauszugehen?",
+    description: "Erstellen Sie einen vollständigen, ATS-optimierten Lebenslauf mit unserem KI-Lebenslauf-Ersteller — Texterstellung, Formatierung und PDF-Export in einem Tool.",
+    ctaText: "Meinen Lebenslauf Kostenlos Erstellen — Ohne Anmeldung",
+    subtext: "Für immer kostenlos. Keine Kreditkarte erforderlich."
+  }
+};
+
+const ar: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT مقابل منشئ السيرة الذاتية بالذكاء الاصطناعي: أيهما يُنشئ سيرة ذاتية أفضل؟ (2026) | Best AI Resume",
+    description: "هل يجب استخدام ChatGPT أم منشئ سيرة ذاتية مخصص بالذكاء الاصطناعي؟ قارن التنسيق وتوافق ATS والجودة. اكتشف أي أداة تحصل على مقابلات أكثر.",
+    keywords: "chatgpt سيرة ذاتية, منشئ سيرة ذاتية chatgpt, منشئ سيرة ذاتية بالذكاء الاصطناعي, chatgpt مقابل منشئ سيرة ذاتية, كتابة سيرة ذاتية بـ chatgpt",
+    ogTitle: "ChatGPT مقابل منشئ السيرة الذاتية بالذكاء الاصطناعي: أيهما يُنشئ سيرة ذاتية أفضل؟ (2026)",
+    ogDescription: "مقارنة بين ChatGPT ومنشئ سيرة ذاتية مخصص بالذكاء الاصطناعي. تحليل ميزة بميزة مع إيجابيات وسلبيات صريحة.",
+    twitterTitle: "ChatGPT مقابل منشئ السيرة الذاتية بالذكاء الاصطناعي: أيهما أفضل؟",
+    twitterDescription: "قارن بين ChatGPT ومنشئ سيرة ذاتية بالذكاء الاصطناعي لإنشاء سير ذاتية تفوز بالمقابلات."
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT مقابل منشئ السيرة الذاتية بالذكاء الاصطناعي",
+    articleHeadline: "ChatGPT مقابل منشئ السيرة الذاتية بالذكاء الاصطناعي: أيهما يُنشئ سيراً ذاتية أفضل في 2026؟",
+    articleDescription: "مقارنة بين ChatGPT ومنشئ سيرة ذاتية مخصص بالذكاء الاصطناعي لإنشاء سير ذاتية فعّالة. تحليل ميزة بميزة مع إيجابيات وسلبيات صريحة."
+  },
+  hero: {
+    badge: "مقارنة",
+    title: "ChatGPT مقابل منشئ السيرة الذاتية بالذكاء الاصطناعي:",
+    titleHighlight: "أيهما يوظّفك؟",
+    subtitle: "ChatGPT يكتب نصاً. منشئ السيرة الذاتية يُنشئ <strong>مستندات جاهزة للمقابلة</strong>. إليك لماذا هذا الفرق مهم لبحثك عن وظيفة.",
+    ctaPrimary: "إنشاء سيرتي الذاتية مجاناً",
+    ctaSecondary: "عرض المقارنة"
+  },
+  problem: {
+    title: "المشكلة: ChatGPT يكتب نصاً وليس سيراً ذاتية",
+    description: "ChatGPT هو ذكاء اصطناعي عام يولّد نصاً. يمكنه كتابة نقاط رئيسية وملخصات ورسائل تغطية — لكنه <strong>لا يستطيع تنسيق مستند أو ضمان توافق ATS أو تصدير PDF</strong>. تحصل على نص خام تحتاج لتصميمه وتنسيقه وتحسينه بنفسك.",
+    stats: [
+      { value: "0", label: "قوالب مضمّنة — ChatGPT يُخرج نصاً عادياً فقط" },
+      { value: "0%", label: "معرفة ATS — بدون تحليل كلمات مفتاحية أو فحص تنسيق" },
+      { value: "3+", label: "أدوات إضافية مطلوبة — قالب ومنسّق ومحوّل PDF" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT مقابل Best AI Resume Builder",
+    subtitle: "مقارنة صادقة ميزة بميزة للباحثين عن عمل.",
+    colFeature: "الميزة",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      {
+        feature: "الكتابة بالذكاء الاصطناعي",
+        chatgpt: "توليد نصوص عامة قوي",
+        best: "ذكاء اصطناعي متخصص في السير الذاتية مع كلمات مفتاحية قطاعية",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "قوالب احترافية",
+        chatgpt: "بدون قوالب — نص فقط",
+        best: "أكثر من 20 قالب مُختبر لـ ATS",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "تحسين ATS",
+        chatgpt: "بدون معرفة بـ ATS",
+        best: "نتيجة ATS فورية ومطابقة كلمات مفتاحية",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "تصدير PDF",
+        chatgpt: "بدون تصدير مستندات",
+        best: "تصدير PDF نظيف بنقرة واحدة",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "التنسيق والتصميم",
+        chatgpt: "إخراج نص عادي فقط",
+        best: "تنسيق احترافي مدمج",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "مطابقة الوصف الوظيفي",
+        chatgpt: "يدوي — لصق الوصف في الأمر",
+        best: "استخراج تلقائي للكلمات المفتاحية ومطابقتها",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "هيكل الأقسام",
+        chatgpt: "أنت تحدد الهيكل في الأوامر",
+        best: "سير عمل موجّه قسماً بقسم",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "الاتساق",
+        chatgpt: "النتائج تتفاوت حسب جودة الأمر",
+        best: "نتائج متسقة ومُختبرة في كل مرة",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "تخصيص المحتوى",
+        chatgpt: "يتطلب أوامر مفصّلة",
+        best: "يستند إلى خبرتك المُدخلة",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "السعر",
+        chatgpt: "مجاني (GPT-3.5) أو 20 $/شهر (GPT-4)",
+        best: "خطة مجانية متاحة",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "منحنى التعلم",
+        chatgpt: "يتطلب إتقان كتابة الأوامر",
+        best: "سهولة ملء النموذج",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "سير ذاتية متعددة",
+        chatgpt: "البدء من الصفر في كل مرة",
+        best: "حفظ وتعديل نسخ متعددة",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      }
+    ]
+  },
+  strengths: {
+    title: "ما يجيده ChatGPT في السير الذاتية",
+    subtitle: "لنكن منصفين، لدى ChatGPT نقاط قوة حقيقية. إليك أين يساعد فعلاً في كتابة السيرة الذاتية:",
+    items: [
+      {
+        title: "العصف الذهني للنقاط الرئيسية",
+        description: "ChatGPT يتفوق في توليد نسخ متعددة من نقاط رئيسية مبنية على الإنجازات من وصف وظيفي. مثالي لتجاوز حالة الجمود في الكتابة."
+      },
+      {
+        title: "إعادة كتابة المحتوى الضعيف",
+        description: "الصق نقطة مبنية على المهام واطلب من ChatGPT إعادة كتابتها كإنجاز. إنه جيد في تحويل «مسؤول عن» إلى أفعال عمل مع مقاييس."
+      },
+      {
+        title: "بحث الكلمات المفتاحية القطاعية",
+        description: "اطلب من ChatGPT تحديد المهارات والكلمات المفتاحية الأساسية لدور معين. يوفر قوائم كلمات مفتاحية قوية تساعد في مطابقة ATS."
+      },
+      {
+        title: "مسودات رسائل التغطية",
+        description: "ChatGPT يكتب مسودات أولى معقولة لرسائل التغطية. ستحتاج لتخصيصها، لكنها نقطة انطلاق جيدة."
+      }
+    ]
+  },
+  shortcomings: {
+    title: "أين يقصر ChatGPT",
+    items: [
+      {
+        title: "بدون تنسيق أو قوالب",
+        description: "ChatGPT يُخرج نصاً عادياً. تحتاج أداة منفصلة (Google Docs أو Word أو Canva أو منشئ سيرة ذاتية) لتنسيقه في مستند احترافي. هذا يضيف وقتاً ويُدخل أخطاء تنسيق."
+      },
+      {
+        title: "بدون معرفة بـ ATS",
+        description: "ChatGPT لا يعرف أي كلمات مفتاحية يبحث عنها ATS، أو أي عناوين أقسام يتوقعها، أو أي تنسيق يمكنه تحليله. يولّد نصاً بدون أي وعي بأنظمة الفرز الآلية."
+      },
+      {
+        title: "مخرجات عامة بدون بياناتك",
+        description: "ما لم تقدم أوامر مفصّلة للغاية بمقاييسك وإنجازاتك المحددة، يولّد ChatGPT محتوى عاماً. «أدرت فريقاً من المحترفين» بدلاً من «قُدت فريق هندسة من 12 شخصاً أطلق 3 منتجات قبل الموعد المحدد.»"
+      },
+      {
+        title: "جودة غير متسقة",
+        description: "جودة مخرجات ChatGPT تعتمد كلياً على أمرك. تغييرات صغيرة في الصياغة تُنتج نتائج مختلفة جداً. منشئ سيرة ذاتية مخصص يُنتج مخرجات متسقة ومُختبرة في كل مرة."
+      },
+      {
+        title: "بدون تصدير PDF",
+        description: "لا يمكنك إرسال محادثة ChatGPT إلى مسؤول التوظيف. تحتاج لنسخ النص ولصقه في قالب وتعديل التنسيق والتصدير كـ PDF — عملية تستغرق أكثر من 30 دقيقة."
+      }
+    ]
+  },
+  bestApproach: {
+    title: "أفضل نهج: استخدام الاثنين معاً",
+    description: "إليك سير العمل الأمثل لاستخدام الذكاء الاصطناعي لإنشاء سيرة ذاتية في 2026:",
+    steps: [
+      {
+        title: "استخدم ChatGPT للعصف الذهني",
+        description: "اطلب منه توليد أفكار للنقاط الرئيسية وإعادة كتابة المحتوى الضعيف وتحديد الكلمات المفتاحية القطاعية لوظيفتك المستهدفة."
+      },
+      {
+        title: "ابنِ سيرتك الذاتية في منشئ مخصص",
+        description: "استخدم Best AI Resume Builder لتنسيق محتواك في قالب احترافي مُحسّن لـ ATS مع هيكل مناسب ومطابقة كلمات مفتاحية."
+      },
+      {
+        title: "خصّص ببياناتك الحقيقية",
+        description: "استبدل نص الذكاء الاصطناعي العام بمقاييسك الفعلية وإنجازاتك وأسماء شركاتك. لا أداة ذكاء اصطناعي تعرف إنجازاتك المحددة — أنت تضيف ذلك."
+      },
+      {
+        title: "صدّر وتقدّم",
+        description: "حمّل ملف PDF المُحسّن لـ ATS وتقدّم مباشرة. بدون نسخ ولصق، بدون صعوبات تنسيق، بدون أدوات إضافية."
+      }
+    ]
+  },
+  whoShouldUse: {
+    title: "توصية صادقة: من يجب أن يستخدم ماذا؟",
+    useChatGPT: {
+      title: "استخدم ChatGPT إذا كنت...",
+      items: [
+        "تملك بالفعل قالب سيرة ذاتية منسّق جيداً",
+        "تحتاج فقط مساعدة في العصف الذهني لأفكار النقاط الرئيسية",
+        "مرتاح مع تنسيق المستندات",
+        "تريد البحث عن كلمات مفتاحية واتجاهات القطاع"
+      ]
+    },
+    useBestAI: {
+      title: "استخدم Best AI Resumes إذا كنت...",
+      items: [
+        "تريد سيرة ذاتية كاملة وجاهزة للعمل من أداة واحدة",
+        "تحتاج تنسيقاً مُحسّناً لـ ATS وتقييم كلمات مفتاحية",
+        "لا تريد التعامل مع القوالب والتنسيق",
+        "تريد حفظ وتعديل نسخ متعددة من السيرة الذاتية",
+        "تحتاج تصدير PDF جاهز للإرسال بنقرة واحدة"
+      ]
+    },
+    bottomLine: "الخلاصة: ChatGPT مساعد كتابة ممتاز، لكنه ليس منشئ سيرة ذاتية. للحصول على سيرة ذاتية كاملة وجاهزة لـ ATS، تحتاج أداة مصممة خصيصاً لذلك."
+  },
+  resumeExamples: {
+    title: "شاهد كيف تبدو السير الذاتية المُنشأة بالذكاء الاصطناعي",
+    description: "تصفح أكثر من 300 مثال سيرة ذاتية حقيقي لكل مهنة — جميعها مُنشأة بذكاء اصطناعي مُحسّن لـ ATS يتجاوز ما يمكن لـ ChatGPT وحده إنتاجه.",
+    ctaBrowse: "تصفح أمثلة السير الذاتية",
+    ctaTemplates: "عرض جميع القوالب"
+  },
+  faq: {
+    title: "الأسئلة الشائعة",
+    items: [
+      {
+        question: "هل يستطيع ChatGPT كتابة سيرة ذاتية جيدة؟",
+        answer: "ChatGPT يمكنه توليد نص سيرة ذاتية (نقاط رئيسية، ملخصات، أهداف)، لكنه لا يستطيع تنسيق سيرة ذاتية أو ضمان توافق ATS أو إنتاج PDF قابل للتحميل. لا تزال بحاجة لأداة منفصلة للتنسيق والتصميم. منشئ سيرة ذاتية مخصص بالذكاء الاصطناعي يتولى الكتابة والتنسيق في خطوة واحدة."
+      },
+      {
+        question: "هل من المقبول استخدام الذكاء الاصطناعي لكتابة سيرة ذاتية؟",
+        answer: "نعم. كتابة السيرة الذاتية بمساعدة الذكاء الاصطناعي مقبولة على نطاق واسع في 2026. يهتم مسؤولو التوظيف بجودة محتوى سيرتك الذاتية وليس بكيفية إنشائها. المفتاح هو تخصيص المحتوى المُولّد بالذكاء الاصطناعي بإنجازاتك ومقاييسك وخبراتك الحقيقية — لا تقدم أبداً مخرجات ذكاء اصطناعي عامة بدون تخصيص."
+      },
+      {
+        question: "ما هي عيوب استخدام ChatGPT للسير الذاتية؟",
+        answer: "ChatGPT يُنتج نصاً عادياً بدون تنسيق، ليس لديه معرفة بـ ATS، لا يستطيع تقييم سيرتك الذاتية مقابل أوصاف الوظائف، يُنتج محتوى عاماً بدون مقاييسك المحددة، ويتطلب النسخ واللصق يدوياً في قالب. كما أنه ليس لديه تدريب خاص بالسير الذاتية — يتعامل مع كتابة السيرة الذاتية كأي مهمة نصية أخرى."
+      },
+      {
+        question: "هل ترفض أنظمة ATS السير الذاتية من ChatGPT؟",
+        answer: "أنظمة ATS لا تكتشف ولا تهتم بالمحتوى المكتوب بالذكاء الاصطناعي. ومع ذلك، إذا لصقت نص ChatGPT في قالب سيء التنسيق (مثل تصميم Canva أو جدول Word)، قد يفشل ATS في تحليله. منشئ سيرة ذاتية مخصص يضمن أن المحتوى والتنسيق كلاهما متوافقان مع ATS."
+      },
+      {
+        question: "هل Best AI Resume Builder أفضل من ChatGPT للسير الذاتية؟",
+        answer: "للمهمة المحددة المتمثلة في إنشاء سيرة ذاتية جاهزة للعمل، نعم. Best AI Resume Builder يجمع بين الكتابة بالذكاء الاصطناعي والتنسيق الاحترافي وتحسين ATS ومطابقة الكلمات المفتاحية وتصدير PDF في أداة واحدة. ChatGPT ذكاء اصطناعي عام — يمكنه كتابة نص لكنه لا يستطيع تنسيق أو تقييم أو تصدير سيرة ذاتية."
+      }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "مقارنة منشئي سير ذاتية آخرين",
+    links: [
+      { title: "بديل Canva", subtitle: "أداة تصميم مقابل منشئ سيرة ذاتية" },
+      { title: "بديل Overleaf", subtitle: "LaTeX مقابل منشئ بالذكاء الاصطناعي" },
+      { title: "بديل Resume.io", subtitle: "مقارنة الأسعار والميزات" },
+      { title: "بديل Rezi", subtitle: "مقارنة أدوات الذكاء الاصطناعي" }
+    ],
+    guidesTitle: "أدلة مفيدة للسيرة الذاتية",
+    guides: [
+      { label: "ما هو ATS؟ دليل شامل" },
+      { label: "كيف تكتب سيرة ذاتية (خطوة بخطوة)" },
+      { label: "ChatGPT مقابل Claude للسير الذاتية" },
+      { label: "كيف تكتب ملخصاً مهنياً" }
+    ]
+  },
+  externalResources: {
+    title: "موارد خارجية",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "ChatGPT من OpenAI" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: نصائح السيرة الذاتية" }
+    ]
+  },
+  bottomCta: {
+    title: "مستعد لتتجاوز ChatGPT؟",
+    description: "أنشئ سيرة ذاتية كاملة ومُحسّنة لـ ATS مع منشئ السيرة الذاتية بالذكاء الاصطناعي — كتابة وتنسيق وتصدير PDF في أداة واحدة.",
+    ctaText: "إنشاء سيرتي الذاتية مجاناً — بدون تسجيل",
+    subtext: "مجاني للأبد. لا حاجة لبطاقة ائتمان."
+  }
+};
+
+const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar };
 
 export const getContent = (locale: string): ChatGPTComparisonContent =>
   selectContent(content, locale);

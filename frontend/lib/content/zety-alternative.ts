@@ -265,5 +265,401 @@ const es: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es };
+const fr: ComparisonPageContent = {
+  meta: {
+    title: 'Meilleure Alternative à Zety 2026 : Créateur de CV IA Gratuit (Sans Frais Cachés) | Best AI Resume',
+    description: 'Vous cherchez une alternative gratuite à Zety ? Comparez Zety vs Best AI Resume Builder — rédaction IA, modèles ATS, téléchargements illimités. Sans piège d\'essai, sans abonnement.',
+    keywords: 'alternative zety, zety créateur de cv, zety cv, cv zety, alternative zety gratuite, avis zety, meilleur créateur de cv gratuit',
+  },
+  schemas: {
+    breadcrumbName: 'Alternative à Zety',
+    articleHeadline: 'Meilleure Alternative à Zety 2026 : Créateur de CV IA Gratuit Sans Frais Cachés',
+    articleDescription: 'Comparez Zety vs Best AI Resume Builder. Obtenez la rédaction IA, l\'optimisation ATS et des téléchargements illimités — entièrement gratuit, sans piège d\'essai.',
+  },
+  hero: {
+    badge: 'Alternative à Zety',
+    title: 'Créez Votre CV.',
+    titleHighlight: 'Téléchargez-le Gratuitement.',
+    subtitle: 'Zety vous permet de créer un CV gratuitement — puis facture <strong>$23.70/mois</strong> pour le télécharger. Nous vous offrons la rédaction IA, des modèles ATS et des exports illimités pour <strong>$0</strong>.',
+    ctaPrimary: 'Créer Mon CV Gratuitement',
+    ctaSecondary: 'Voir la Comparaison',
+  },
+  problem: {
+    title: 'Le Piège Tarifaire de Zety',
+    description: 'Zety a des modèles professionnels et des suggestions de contenu utiles. Le problème est leur modèle de tarification : vous construisez votre CV entier avant de découvrir qu\'il faut payer pour le télécharger. L\'<strong>essai de 14 jours coûte $2.70</strong>, puis se renouvelle automatiquement à <strong>$23.70/mois</strong>. Des milliers d\'utilisateurs sur les sites d\'avis signalent des frais inattendus après avoir oublié d\'annuler.',
+    stats: [
+      { value: '$2.70', label: 'essai 14 jours (renouvellement auto à $23.70/mois)' },
+      { value: '$284', label: 'coût annuel si vous oubliez d\'annuler' },
+      { value: '$0', label: 'Best AI Resume Builder — gratuit pour toujours' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'Comparaison fonctionnalité par fonctionnalité.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Tarification', competitor: '❌ $2.70 essai → $23.70/mois renouvellement auto', ours: '✅ 100 % gratuit pour toujours' },
+      { feature: 'Téléchargement Gratuit', competitor: '❌ Paiement obligatoire pour télécharger le PDF', ours: '✅ Exports PDF gratuits illimités' },
+      { feature: 'Rédaction IA', competitor: '⚠️ Suggestions pré-rédigées (pas de vraie IA)', ours: '✅ Contenu personnalisé généré par IA' },
+      { feature: 'Optimisation ATS', competitor: '✅ Vérificateur de CV inclus', ours: '✅ Score ATS en temps réel + mots-clés' },
+      { feature: 'Qualité des Modèles', competitor: '✅ Designs professionnels et modernes', ours: '✅ Plus de 20 modèles testés ATS' },
+      { feature: 'Nombre de CV', competitor: '⚠️ Illimités (derrière un mur payant)', ours: '✅ CV illimités, gratuits' },
+      { feature: 'Lettre de Motivation', competitor: '✅ Incluse (plan payant)', ours: '✅ Avec IA (gratuit)' },
+      { feature: 'Suggestions de Contenu', competitor: '✅ Phrases pré-rédigées par poste', ours: '✅ IA adaptée à votre expérience' },
+      { feature: 'Annulation', competitor: '❌ Annuler avant la fin de l\'essai', ours: '✅ Rien à annuler' },
+      { feature: 'Avis Utilisateurs (Trustpilot)', competitor: '⚠️ Mitigés — plaintes de facturation fréquentes', ours: '✅ Aucun problème de facturation possible' },
+    ],
+  },
+  whySwitch: {
+    title: 'Ce Que Zety Fait Bien',
+    subtitle: 'Rendons à César ce qui est à César.',
+    reasons: [
+      { title: 'Design des Modèles', description: 'Les modèles de Zety sont visuellement soignés et professionnels. Ils offrent une bonne variété de styles, du traditionnel au moderne, avec une typographie et un espacement propres.' },
+      { title: 'Suggestions de Contenu', description: 'Leurs phrases pré-rédigées organisées par intitulé de poste aident les utilisateurs qui ont du mal à rédiger. Vous pouvez choisir parmi les suggestions et les personnaliser.' },
+      { title: 'Vérificateur de CV', description: 'Le vérificateur intégré de Zety analyse votre contenu et fournit des suggestions d\'amélioration pour la longueur, le choix des mots et la complétude des sections.' },
+    ],
+  },
+  shortcomings: {
+    title: 'Où Zety Échoue',
+    items: [
+      { title: 'Modèle de paiement au téléchargement', description: 'Vous investissez du temps à créer votre CV pour découvrir à la dernière étape que le téléchargement nécessite un paiement. Cela frustre les utilisateurs qui s\'attendaient à une expérience gratuite.' },
+      { title: 'Abonnement à renouvellement automatique', description: 'L\'essai à $2.70 se renouvelle automatiquement à $23.70/mois. De nombreux utilisateurs sur Reddit et Trustpilot signalent des frais inattendus des mois plus tard.' },
+      { title: 'Pas de vraie rédaction IA', description: 'Zety utilise des bibliothèques de phrases pré-rédigées, pas de l\'IA qui génère du contenu personnalisé à partir de votre expérience. Les suggestions semblent génériques parce qu\'elles le sont.' },
+      { title: 'Fonctionnalités gratuites limitées', description: 'Vous pouvez créer sur le plan gratuit mais ne pouvez pas exporter, partager ou utiliser le CV de manière significative sans payer.' },
+    ],
+  },
+  recommendation: {
+    title: 'Recommandation Honnête',
+    useCompetitor: {
+      title: 'Zety peut convenir si vous...',
+      items: [
+        'Êtes prêt à payer $23.70/mois pour un outil de CV',
+        'Préférez les suggestions de contenu pré-rédigées plutôt que la génération par IA',
+        'Voulez une marque connue pour votre créateur de CV',
+        'Pensez à annuler les abonnements avant la fin des essais',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes est mieux si vous...',
+      items: [
+        'Voulez télécharger votre CV sans payer',
+        'Préférez une IA qui rédige du contenu personnalisé à partir de votre expérience',
+        'Avez besoin de plusieurs versions de CV pour différentes candidatures',
+        'Voulez un score ATS en temps réel avec suggestions de mots-clés',
+        'Ne voulez pas gérer d\'essais, d\'annulations ni de frais surprises',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Plus de 300 Exemples de CV Gratuits',
+    description: 'Parcourez des exemples de CV professionnels pour chaque carrière.',
+    ctaBrowse: 'Parcourir les Exemples de CV',
+    ctaTemplates: 'Voir Tous les Modèles',
+  },
+  faq: {
+    title: 'Questions Fréquemment Posées',
+    items: [
+      { question: 'Zety est-il gratuit ?', answer: 'Zety vous permet de créer un CV gratuitement, mais le télécharger nécessite un abonnement payant — $2.70 pour un essai de 14 jours qui se renouvelle à $23.70/mois. De nombreux utilisateurs signalent des frais inattendus après l\'essai. Best AI Resume Builder est 100 % gratuit sans piège tarifaire ni frais cachés.' },
+      { question: 'Zety est-il un créateur de CV légitime ?', answer: 'Oui, Zety est une entreprise légitime avec des modèles professionnels et des conseils de rédaction. Cependant, son modèle de tarification frustre de nombreux utilisateurs — vous créez tout le CV avant de découvrir qu\'il faut payer pour le télécharger. Best AI Resume Builder vous permet de créer, télécharger et exporter gratuitement dès le départ.' },
+      { question: 'Quelle est la meilleure alternative gratuite à Zety ?', answer: 'Best AI Resume Builder est la meilleure alternative gratuite. Il offre la rédaction par IA, plus de 20 modèles testés ATS, un score ATS en temps réel et des exports PDF illimités — tout entièrement gratuit. Sans période d\'essai, sans carte de crédit.' },
+      { question: 'Zety a-t-il des fonctionnalités IA ?', answer: 'Zety propose des suggestions de contenu pré-rédigées et un vérificateur de CV, mais manque de vraie rédaction IA propulsée par des modèles de langage. Best AI Resume Builder utilise une IA avancée pour générer des réalisations personnalisées, des résumés professionnels et du contenu adapté à votre expérience et au poste visé.' },
+      { question: 'Puis-je annuler Zety après avoir téléchargé mon CV ?', answer: 'Oui, mais vous devez annuler avant la fin de l\'essai de 14 jours pour éviter les frais de $23.70/mois. De nombreux utilisateurs signalent des difficultés d\'annulation ou des frais inattendus. Avec Best AI Resume Builder, il n\'y a rien à annuler — c\'est gratuit pour toujours sans abonnement.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Comparer d\'Autres Créateurs de CV',
+    items: [
+      { href: '/canva-alternative', title: 'Alternative à Canva', subtitle: 'Outils de design vs créateur IA' },
+      { href: '/rezi-alternative', title: 'Alternative à Rezi', subtitle: 'Comparaison des fonctionnalités IA' },
+      { href: '/resume-io-alternative', title: 'Alternative à Resume.io', subtitle: 'Comparaison des prix et fonctionnalités' },
+    ],
+    guidesTitle: 'Guides Utiles pour le CV',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: 'Comment Rédiger un CV (Guide Complet)' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'Comment Rédiger un CV Compatible ATS' },
+      { href: '/blog/how-to-list-skills-on-resume', label: 'Comment Lister les Compétences sur un CV' },
+      { href: '/blog/what-is-ats-guide', label: 'Qu\'est-ce qu\'un ATS ? Guide Complet' },
+    ],
+  },
+  externalResources: {
+    title: 'Ressources Externes',
+    items: [
+      { href: 'https://zety.com/', label: 'Site Officiel de Zety' },
+      { href: 'https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems', label: 'SHRM : Qu\'est-ce que les Systèmes ATS' },
+    ],
+  },
+  bottomCta: {
+    title: 'Sans Essai. Sans Piège. Juste Gratuit.',
+    description: 'Créez, téléchargez et partagez votre CV sans jamais entrer de carte de crédit. Rédaction IA, modèles ATS, exports illimités — tout gratuit.',
+    cta: 'Créer Mon CV Gratuitement',
+    subtext: 'Gratuit pour toujours. Aucune carte de crédit requise.',
+  },
+};
+
+const de: ComparisonPageContent = {
+  meta: {
+    title: 'Beste Zety-Alternative 2026: Kostenloser KI-Lebenslauf-Ersteller (Keine Versteckten Kosten) | Best AI Resume',
+    description: 'Suchen Sie eine kostenlose Zety-Alternative? Vergleichen Sie Zety vs Best AI Resume Builder — KI-gestütztes Schreiben, ATS-Vorlagen, unbegrenzte Downloads. Keine Testfallen, keine Abonnements.',
+    keywords: 'zety alternative, zety lebenslauf-ersteller, zety lebenslauf, lebenslauf zety, zety kostenlose alternative, zety bewertung, bester kostenloser lebenslauf-ersteller',
+  },
+  schemas: {
+    breadcrumbName: 'Zety-Alternative',
+    articleHeadline: 'Beste Zety-Alternative 2026: Kostenloser KI-Lebenslauf-Ersteller Ohne Versteckte Kosten',
+    articleDescription: 'Vergleichen Sie Zety vs Best AI Resume Builder. Erhalten Sie KI-gestütztes Schreiben, ATS-Optimierung und unbegrenzte Downloads — komplett kostenlos, keine Testfallen.',
+  },
+  hero: {
+    badge: 'Zety-Alternative',
+    title: 'Erstellen Sie Ihren Lebenslauf.',
+    titleHighlight: 'Laden Sie Ihn Kostenlos Herunter.',
+    subtitle: 'Zety lässt Sie einen Lebenslauf kostenlos erstellen — verlangt dann aber <strong>$23.70/Monat</strong> zum Herunterladen. Wir bieten Ihnen KI-Texterstellung, ATS-Vorlagen und unbegrenzte Exporte für <strong>$0</strong>.',
+    ctaPrimary: 'Meinen Lebenslauf Kostenlos Erstellen',
+    ctaSecondary: 'Vergleich Ansehen',
+  },
+  problem: {
+    title: 'Die Preisfalle von Zety',
+    description: 'Zety hat professionelle Vorlagen und hilfreiche Inhaltsvorschläge. Das Problem ist ihr Preismodell: Sie erstellen Ihren gesamten Lebenslauf, bevor Sie erfahren, dass Sie zum Herunterladen bezahlen müssen. Die <strong>14-Tage-Testversion kostet $2.70</strong> und verlängert sich dann automatisch auf <strong>$23.70/Monat</strong>. Tausende Nutzer auf Bewertungsseiten melden unerwartete Belastungen, nachdem sie die Kündigung vergessen haben.',
+    stats: [
+      { value: '$2.70', label: '14-Tage-Testversion (verlängert sich auto auf $23.70/Monat)' },
+      { value: '$284', label: 'jährliche Kosten, wenn Sie die Kündigung vergessen' },
+      { value: '$0', label: 'Best AI Resume Builder — für immer kostenlos' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'Funktionsvergleich Seite an Seite.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Preis', competitor: '❌ $2.70 Testversion → $23.70/Monat auto Verlängerung', ours: '✅ 100 % kostenlos für immer' },
+      { feature: 'Kostenloser Download', competitor: '❌ Bezahlung zum PDF-Download erforderlich', ours: '✅ Unbegrenzte kostenlose PDF-Exporte' },
+      { feature: 'KI-Texterstellung', competitor: '⚠️ Vorgefertigte Vorschläge (keine echte KI)', ours: '✅ KI-generierter individueller Inhalt' },
+      { feature: 'ATS-Optimierung', competitor: '✅ Lebenslauf-Checker enthalten', ours: '✅ ATS-Score in Echtzeit + Keywords' },
+      { feature: 'Vorlagen-Qualität', competitor: '✅ Professionelle, moderne Designs', ours: '✅ Über 20 ATS-getestete Vorlagen' },
+      { feature: 'Anzahl der Lebensläufe', competitor: '⚠️ Unbegrenzt (hinter Bezahlschranke)', ours: '✅ Unbegrenzte Lebensläufe, kostenlos' },
+      { feature: 'Anschreiben-Ersteller', competitor: '✅ Enthalten (kostenpflichtiger Plan)', ours: '✅ KI-gestützt (kostenlos)' },
+      { feature: 'Inhaltsvorschläge', competitor: '✅ Vorgefertigte Formulierungen nach Jobtitel', ours: '✅ KI angepasst an Ihre Erfahrung' },
+      { feature: 'Kündigung', competitor: '❌ Vor Ablauf der Testversion kündigen', ours: '✅ Nichts zu kündigen' },
+      { feature: 'Nutzerbewertungen (Trustpilot)', competitor: '⚠️ Gemischt — Abrechnungsbeschwerden häufig', ours: '✅ Keine Abrechnungsprobleme möglich' },
+    ],
+  },
+  whySwitch: {
+    title: 'Was Zety Gut Macht',
+    subtitle: 'Anerkennung, wo sie gebührt.',
+    reasons: [
+      { title: 'Vorlagen-Design', description: 'Zetys Vorlagen sind visuell ansprechend und professionell. Sie bieten eine gute Stilvielfalt von traditionell bis modern, mit sauberer Typografie und Abständen.' },
+      { title: 'Inhaltsvorschläge', description: 'Ihre vorgefertigten Aufzählungspunkte, geordnet nach Berufsbezeichnung, helfen Nutzern, die Schwierigkeiten beim Schreiben haben. Sie können aus vorgeschlagenen Formulierungen wählen und diese anpassen.' },
+      { title: 'Lebenslauf-Checker', description: 'Zetys integrierter Checker analysiert Ihren Inhalt und gibt Verbesserungsvorschläge zu Länge, Wortwahl und Vollständigkeit der Abschnitte.' },
+    ],
+  },
+  shortcomings: {
+    title: 'Wo Zety Schwächen Zeigt',
+    items: [
+      { title: 'Bezahlmodell zum Herunterladen', description: 'Sie investieren Zeit in die Erstellung Ihres Lebenslaufs, nur um im letzten Schritt zu erfahren, dass der Download eine Bezahlung erfordert. Das frustriert Nutzer, die eine kostenlose Erfahrung erwartet haben.' },
+      { title: 'Automatisch verlängerndes Abonnement', description: 'Die $2.70-Testversion verlängert sich automatisch auf $23.70/Monat. Viele Nutzer auf Reddit und Trustpilot berichten von unerwarteten Belastungen Monate später.' },
+      { title: 'Keine echte KI-Texterstellung', description: 'Zety verwendet Bibliotheken vorgefertigter Formulierungen, keine KI, die individuellen Inhalt aus Ihrer Erfahrung generiert. Die Vorschläge wirken generisch, weil sie es sind.' },
+      { title: 'Eingeschränkte kostenlose Funktionalität', description: 'Sie können im kostenlosen Plan erstellen, aber den Lebenslauf nicht exportieren, teilen oder sinnvoll nutzen, ohne zu bezahlen.' },
+    ],
+  },
+  recommendation: {
+    title: 'Ehrliche Empfehlung',
+    useCompetitor: {
+      title: 'Zety könnte passen, wenn Sie...',
+      items: [
+        'Bereit sind, $23.70/Monat für ein Lebenslauf-Tool zu zahlen',
+        'Vorgefertigte Inhaltsvorschläge gegenüber KI-Generierung bevorzugen',
+        'Einen bekannten Markennamen bei Ihrem Lebenslauf-Ersteller wünschen',
+        'Daran denken, Abonnements vor Ablauf der Testversion zu kündigen',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes ist besser, wenn Sie...',
+      items: [
+        'Ihren Lebenslauf herunterladen möchten, ohne zu bezahlen',
+        'KI bevorzugen, die individuellen Inhalt aus Ihrer Erfahrung erstellt',
+        'Mehrere Lebenslauf-Versionen für verschiedene Bewerbungen brauchen',
+        'ATS-Echtzeit-Scoring mit Keyword-Vorschlägen wünschen',
+        'Sich nicht mit Testversionen, Kündigungen oder Überraschungsgebühren befassen möchten',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Über 300 Kostenlose Lebenslauf-Beispiele',
+    description: 'Durchstöbern Sie professionelle Lebenslauf-Beispiele für jede Karriere.',
+    ctaBrowse: 'Lebenslauf-Beispiele Durchsuchen',
+    ctaTemplates: 'Alle Vorlagen Ansehen',
+  },
+  faq: {
+    title: 'Häufig Gestellte Fragen',
+    items: [
+      { question: 'Ist Zety kostenlos nutzbar?', answer: 'Zety lässt Sie einen Lebenslauf kostenlos erstellen, aber das Herunterladen erfordert ein bezahltes Abonnement — $2.70 für eine 14-Tage-Testversion, die sich automatisch auf $23.70/Monat verlängert. Viele Nutzer berichten von unerwarteten Belastungen nach der Testversion. Best AI Resume Builder ist 100 % kostenlos ohne Testfallen oder versteckte Gebühren.' },
+      { question: 'Ist Zety ein seriöser Lebenslauf-Ersteller?', answer: 'Ja, Zety ist ein seriöses Unternehmen mit professionellen Vorlagen und Schreibtipps. Allerdings frustriert ihr Preismodell viele Nutzer — Sie erstellen den gesamten Lebenslauf, bevor Sie erfahren, dass Sie zum Herunterladen bezahlen müssen. Best AI Resume Builder lässt Sie von Anfang an kostenlos erstellen, herunterladen und exportieren.' },
+      { question: 'Was ist die beste kostenlose Alternative zu Zety?', answer: 'Best AI Resume Builder ist die beste kostenlose Alternative. Er bietet KI-gestütztes Schreiben, über 20 ATS-getestete Vorlagen, ATS-Echtzeit-Scoring und unbegrenzte PDF-Exporte — alles komplett kostenlos. Keine Testversion, keine Kreditkarte erforderlich.' },
+      { question: 'Hat Zety KI-Funktionen?', answer: 'Zety bietet vorgefertigte Inhaltsvorschläge und einen Lebenslauf-Checker, verfügt aber nicht über echte KI-Texterstellung mit großen Sprachmodellen. Best AI Resume Builder nutzt fortschrittliche KI, um individuelle Aufzählungspunkte, professionelle Zusammenfassungen und maßgeschneiderten Inhalt basierend auf Ihrer Erfahrung und Zielstelle zu generieren.' },
+      { question: 'Kann ich Zety nach dem Herunterladen meines Lebenslaufs kündigen?', answer: 'Ja, aber Sie müssen vor Ablauf der 14-Tage-Testversion kündigen, um die Belastung von $23.70/Monat zu vermeiden. Viele Nutzer berichten von Schwierigkeiten bei der Kündigung oder unerwarteten Belastungen. Bei Best AI Resume Builder gibt es nichts zu kündigen — er ist für immer kostenlos ohne Abonnement.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Andere Lebenslauf-Ersteller Vergleichen',
+    items: [
+      { href: '/canva-alternative', title: 'Canva-Alternative', subtitle: 'Design-Tools vs KI-Ersteller' },
+      { href: '/rezi-alternative', title: 'Rezi-Alternative', subtitle: 'KI-Funktionen im Vergleich' },
+      { href: '/resume-io-alternative', title: 'Resume.io-Alternative', subtitle: 'Preis- und Funktionsvergleich' },
+    ],
+    guidesTitle: 'Hilfreiche Lebenslauf-Ratgeber',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: 'So Schreiben Sie einen Lebenslauf (Kompletter Leitfaden)' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'So Schreiben Sie einen ATS-freundlichen Lebenslauf' },
+      { href: '/blog/how-to-list-skills-on-resume', label: 'So Listen Sie Fähigkeiten im Lebenslauf Auf' },
+      { href: '/blog/what-is-ats-guide', label: 'Was Ist ein ATS? Kompletter Leitfaden' },
+    ],
+  },
+  externalResources: {
+    title: 'Externe Ressourcen',
+    items: [
+      { href: 'https://zety.com/', label: 'Offizielle Zety-Website' },
+      { href: 'https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems', label: 'SHRM: Was Sind ATS-Systeme' },
+    ],
+  },
+  bottomCta: {
+    title: 'Keine Testversion. Keine Fallen. Einfach Kostenlos.',
+    description: 'Erstellen, herunterladen und teilen Sie Ihren Lebenslauf, ohne jemals eine Kreditkarte einzugeben. KI-Texterstellung, ATS-Vorlagen, unbegrenzte Exporte — alles kostenlos.',
+    cta: 'Meinen Lebenslauf Kostenlos Erstellen',
+    subtext: 'Für immer kostenlos. Keine Kreditkarte erforderlich.',
+  },
+};
+
+const ar: ComparisonPageContent = {
+  meta: {
+    title: 'أفضل بديل لـ Zety 2026: منشئ السيرة الذاتية بالذكاء الاصطناعي مجاناً (بدون رسوم خفية) | Best AI Resume',
+    description: 'هل تبحث عن بديل مجاني لـ Zety؟ قارن Zety مع Best AI Resume Builder — كتابة بالذكاء الاصطناعي، قوالب ATS، تنزيلات غير محدودة. بدون فخاخ تجربة، بدون اشتراكات.',
+    keywords: 'بديل zety, منشئ السيرة الذاتية zety, سيرة ذاتية zety, بديل zety مجاني, مراجعة zety, أفضل منشئ سيرة ذاتية مجاني',
+  },
+  schemas: {
+    breadcrumbName: 'بديل Zety',
+    articleHeadline: 'أفضل بديل لـ Zety 2026: منشئ السيرة الذاتية بالذكاء الاصطناعي مجاناً بدون رسوم خفية',
+    articleDescription: 'قارن Zety مع Best AI Resume Builder. احصل على كتابة بالذكاء الاصطناعي وتحسين ATS وتنزيلات غير محدودة — مجاناً بالكامل، بدون فخاخ تجربة.',
+  },
+  hero: {
+    badge: 'بديل Zety',
+    title: 'أنشئ سيرتك الذاتية.',
+    titleHighlight: 'حمّلها مجاناً.',
+    subtitle: 'Zety يتيح لك إنشاء سيرة ذاتية مجاناً — ثم يتقاضى <strong>$23.70/شهرياً</strong> لتحميلها. نحن نمنحك كتابة بالذكاء الاصطناعي وقوالب ATS وتصدير غير محدود مقابل <strong>$0</strong>.',
+    ctaPrimary: 'أنشئ سيرتي الذاتية مجاناً',
+    ctaSecondary: 'شاهد المقارنة',
+  },
+  problem: {
+    title: 'فخ أسعار Zety',
+    description: 'Zety لديه قوالب احترافية واقتراحات محتوى مفيدة. المشكلة في نموذج التسعير: تبني سيرتك الذاتية بالكامل قبل أن تكتشف أنك تحتاج للدفع لتحميلها. <strong>التجربة لمدة 14 يوماً تكلف $2.70</strong>، ثم تتجدد تلقائياً بسعر <strong>$23.70/شهرياً</strong>. آلاف المستخدمين على مواقع المراجعات يبلغون عن رسوم غير متوقعة بعد نسيان الإلغاء.',
+    stats: [
+      { value: '$2.70', label: 'تجربة 14 يوماً (تتجدد تلقائياً بـ $23.70/شهرياً)' },
+      { value: '$284', label: 'التكلفة السنوية إذا نسيت الإلغاء' },
+      { value: '$0', label: 'Best AI Resume Builder — مجاني للأبد' },
+    ],
+  },
+  comparison: {
+    title: 'Zety مقابل Best AI Resume Builder',
+    subtitle: 'مقارنة جنباً إلى جنب.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'السعر', competitor: '❌ $2.70 تجربة → $23.70/شهرياً تجديد تلقائي', ours: '✅ مجاني 100% للأبد' },
+      { feature: 'تحميل مجاني', competitor: '❌ يجب الدفع لتحميل PDF', ours: '✅ تصدير PDF مجاني غير محدود' },
+      { feature: 'كتابة بالذكاء الاصطناعي', competitor: '⚠️ اقتراحات جاهزة (ليست ذكاء اصطناعي حقيقي)', ours: '✅ محتوى مخصص مولّد بالذكاء الاصطناعي' },
+      { feature: 'تحسين ATS', competitor: '✅ فاحص سيرة ذاتية مدمج', ours: '✅ نتيجة ATS فورية + كلمات مفتاحية' },
+      { feature: 'جودة القوالب', competitor: '✅ تصاميم احترافية وعصرية', ours: '✅ أكثر من 20 قالباً مختبراً مع ATS' },
+      { feature: 'عدد السير الذاتية', competitor: '⚠️ غير محدود (خلف جدار الدفع)', ours: '✅ سير ذاتية غير محدودة، مجانية' },
+      { feature: 'خطاب التقديم', competitor: '✅ مضمّن (الخطة المدفوعة)', ours: '✅ بالذكاء الاصطناعي (مجاني)' },
+      { feature: 'اقتراحات المحتوى', competitor: '✅ عبارات جاهزة حسب المسمى الوظيفي', ours: '✅ ذكاء اصطناعي مخصص لخبرتك' },
+      { feature: 'الإلغاء', competitor: '❌ يجب الإلغاء قبل انتهاء التجربة', ours: '✅ لا شيء للإلغاء' },
+      { feature: 'تقييمات المستخدمين (Trustpilot)', competitor: '⚠️ مختلطة — شكاوى فوترة شائعة', ours: '✅ لا مشاكل فوترة ممكنة' },
+    ],
+  },
+  whySwitch: {
+    title: 'ما يفعله Zety بشكل جيد',
+    subtitle: 'الفضل لمن يستحقه.',
+    reasons: [
+      { title: 'تصميم القوالب', description: 'قوالب Zety أنيقة ومهنية بصرياً. تقدم تنوعاً جيداً في الأنماط من التقليدي إلى العصري، مع طباعة نظيفة ومسافات مناسبة.' },
+      { title: 'اقتراحات المحتوى', description: 'العبارات الجاهزة المنظمة حسب المسمى الوظيفي تساعد المستخدمين الذين يواجهون صعوبة في الكتابة. يمكنك الاختيار من الاقتراحات وتخصيصها.' },
+      { title: 'فاحص السيرة الذاتية', description: 'فاحص Zety المدمج يحلل محتواك ويقدم اقتراحات تحسين للطول واختيار الكلمات واكتمال الأقسام.' },
+    ],
+  },
+  shortcomings: {
+    title: 'أين يقصر Zety',
+    items: [
+      { title: 'نموذج الدفع للتحميل', description: 'تستثمر وقتاً في بناء سيرتك الذاتية لتكتشف في الخطوة الأخيرة أن التحميل يتطلب الدفع. هذا يحبط المستخدمين الذين توقعوا تجربة مجانية.' },
+      { title: 'اشتراك يتجدد تلقائياً', description: 'التجربة بـ $2.70 تتجدد تلقائياً بـ $23.70/شهرياً. يبلغ كثير من المستخدمين على Reddit و Trustpilot عن رسوم غير متوقعة بعد أشهر.' },
+      { title: 'بدون كتابة ذكاء اصطناعي حقيقي', description: 'Zety يستخدم مكتبات عبارات جاهزة، وليس ذكاء اصطناعي يولّد محتوى مخصصاً من خبرتك. الاقتراحات تبدو عامة لأنها كذلك فعلاً.' },
+      { title: 'وظائف مجانية محدودة', description: 'يمكنك الإنشاء في الخطة المجانية لكن لا يمكنك التصدير أو المشاركة أو استخدام السيرة الذاتية بأي شكل مفيد بدون الدفع.' },
+    ],
+  },
+  recommendation: {
+    title: 'توصية صادقة',
+    useCompetitor: {
+      title: 'قد يناسبك Zety إذا كنت...',
+      items: [
+        'مستعداً لدفع $23.70/شهرياً لأداة سيرة ذاتية',
+        'تفضل اقتراحات محتوى جاهزة بدلاً من التوليد بالذكاء الاصطناعي',
+        'تريد علامة تجارية معروفة لمنشئ سيرتك الذاتية',
+        'تتذكر إلغاء الاشتراكات قبل انتهاء فترة التجربة',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes أفضل إذا كنت...',
+      items: [
+        'تريد تحميل سيرتك الذاتية بدون دفع',
+        'تفضل ذكاء اصطناعي يكتب محتوى مخصصاً من خبرتك',
+        'تحتاج نسخاً متعددة من السيرة الذاتية لتقديمات مختلفة',
+        'تريد نتيجة ATS فورية مع اقتراحات كلمات مفتاحية',
+        'لا تريد التعامل مع تجارب وإلغاءات ورسوم مفاجئة',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'أكثر من 300 مثال سيرة ذاتية مجاني',
+    description: 'تصفح أمثلة سير ذاتية احترافية لكل مسار مهني.',
+    ctaBrowse: 'تصفح أمثلة السير الذاتية',
+    ctaTemplates: 'عرض جميع القوالب',
+  },
+  faq: {
+    title: 'الأسئلة الشائعة',
+    items: [
+      { question: 'هل Zety مجاني؟', answer: 'Zety يتيح لك إنشاء سيرة ذاتية مجاناً، لكن تحميلها يتطلب اشتراكاً مدفوعاً — $2.70 لتجربة 14 يوماً تتجدد بـ $23.70/شهرياً. يبلغ كثير من المستخدمين عن رسوم غير متوقعة. Best AI Resume Builder مجاني 100% بدون فخاخ أسعار أو رسوم خفية.' },
+      { question: 'هل Zety منشئ سيرة ذاتية موثوق؟', answer: 'نعم، Zety شركة شرعية مع قوالب احترافية ونصائح كتابة. ومع ذلك، نموذج التسعير يحبط كثيراً من المستخدمين — تبني السيرة الذاتية بالكامل قبل أن تعرف أنك تحتاج للدفع لتحميلها. Best AI Resume Builder يتيح لك الإنشاء والتحميل والتصدير مجاناً من البداية.' },
+      { question: 'ما هو أفضل بديل مجاني لـ Zety؟', answer: 'Best AI Resume Builder هو أفضل بديل مجاني. يقدم كتابة بالذكاء الاصطناعي، أكثر من 20 قالباً مختبراً مع ATS، نتيجة ATS فورية وتصدير PDF غير محدود — كل ذلك مجاناً بالكامل. بدون فترة تجربة، بدون بطاقة ائتمان.' },
+      { question: 'هل لدى Zety ميزات ذكاء اصطناعي؟', answer: 'Zety يقدم اقتراحات محتوى جاهزة وفاحص سيرة ذاتية، لكنه يفتقر لكتابة ذكاء اصطناعي حقيقي مدعوم بنماذج لغوية كبيرة. Best AI Resume Builder يستخدم ذكاء اصطناعي متقدم لتوليد إنجازات مخصصة وملخصات مهنية ومحتوى مصمم حسب خبرتك والوظيفة المستهدفة.' },
+      { question: 'هل يمكنني إلغاء Zety بعد تحميل سيرتي الذاتية؟', answer: 'نعم، لكن يجب الإلغاء قبل انتهاء التجربة المجانية لمدة 14 يوماً لتجنب رسوم $23.70/شهرياً. يبلغ كثير من المستخدمين عن صعوبة في الإلغاء أو رسوم غير متوقعة. مع Best AI Resume Builder، لا يوجد شيء للإلغاء — مجاني للأبد بدون اشتراك.' },
+    ],
+  },
+  crossLinks: {
+    title: 'قارن منشئي السير الذاتية الآخرين',
+    items: [
+      { href: '/canva-alternative', title: 'بديل Canva', subtitle: 'أدوات التصميم مقابل منشئ بالذكاء الاصطناعي' },
+      { href: '/rezi-alternative', title: 'بديل Rezi', subtitle: 'مقارنة ميزات الذكاء الاصطناعي' },
+      { href: '/resume-io-alternative', title: 'بديل Resume.io', subtitle: 'مقارنة الأسعار والمميزات' },
+    ],
+    guidesTitle: 'أدلة مفيدة للسيرة الذاتية',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: 'كيفية كتابة سيرة ذاتية (دليل شامل)' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'كيفية كتابة سيرة ذاتية متوافقة مع ATS' },
+      { href: '/blog/how-to-list-skills-on-resume', label: 'كيفية إدراج المهارات في السيرة الذاتية' },
+      { href: '/blog/what-is-ats-guide', label: 'ما هو نظام ATS؟ دليل شامل' },
+    ],
+  },
+  externalResources: {
+    title: 'موارد خارجية',
+    items: [
+      { href: 'https://zety.com/', label: 'الموقع الرسمي لـ Zety' },
+      { href: 'https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems', label: 'SHRM: ما هي أنظمة ATS' },
+    ],
+  },
+  bottomCta: {
+    title: 'بدون تجربة. بدون فخاخ. فقط مجاني.',
+    description: 'أنشئ وحمّل وشارك سيرتك الذاتية بدون إدخال بطاقة ائتمان أبداً. كتابة بالذكاء الاصطناعي، قوالب ATS، تصدير غير محدود — كل شيء مجاني.',
+    cta: 'أنشئ سيرتي الذاتية مجاناً',
+    subtext: 'مجاني للأبد. لا حاجة لبطاقة ائتمان.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

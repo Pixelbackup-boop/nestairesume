@@ -75,5 +75,80 @@ const es: CoverLetterArticleContent = {
   updated: 'Actualizado',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es };
+const fr: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Accueil', coverLetterExamples: 'Exemples de Lettre de Motivation' },
+  notFound: 'Non Trouvé',
+  coverLetterSuffix: 'Exemple de Lettre de Motivation',
+  keySkillsTitle: 'Compétences Clés à Mettre en Avant',
+  relatedTopics: 'Sujets Associés',
+  faqTitle: 'Questions Fréquentes',
+  relatedResourcesTitle: 'Ressources Associées',
+  resumeExampleSubtext: 'Voir le format de CV correspondant',
+  coverLetterGenerator: 'Générateur de Lettre de Motivation IA',
+  coverLetterGeneratorSubtext: 'Créez votre lettre de motivation en quelques secondes',
+  sidebar: {
+    ctaTitle: 'Créez Votre Lettre de Motivation',
+    ctaSubtitle: 'Utilisez notre IA pour générer une lettre de motivation personnalisée pour {jobTitle} en quelques secondes.',
+    ctaButton: 'Générer une Lettre',
+    tocTitle: 'Sommaire',
+  },
+  relatedCoverLetters: 'Lettres de Motivation Associées',
+  bottomCta: {
+    subtitle: 'Rejoignez des milliers de professionnels qui ont décroché le poste idéal avec Best AI Resume.',
+    button: 'Générer une Lettre — Gratuit',
+  },
+  updated: 'Mis à jour',
+};
+
+const de: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Startseite', coverLetterExamples: 'Anschreiben-Beispiele' },
+  notFound: 'Nicht Gefunden',
+  coverLetterSuffix: 'Anschreiben-Beispiel',
+  keySkillsTitle: 'Wichtige Fähigkeiten hervorheben',
+  relatedTopics: 'Verwandte Themen',
+  faqTitle: 'Häufig Gestellte Fragen',
+  relatedResourcesTitle: 'Verwandte Ressourcen',
+  resumeExampleSubtext: 'Passendes Lebenslauf-Format ansehen',
+  coverLetterGenerator: 'KI-Anschreiben-Generator',
+  coverLetterGeneratorSubtext: 'Erstellen Sie Ihr Anschreiben in Sekunden',
+  sidebar: {
+    ctaTitle: 'Anschreiben erstellen',
+    ctaSubtitle: 'Nutzen Sie unsere KI, um ein personalisiertes Anschreiben für {jobTitle} in Sekunden zu erstellen.',
+    ctaButton: 'Anschreiben generieren',
+    tocTitle: 'Inhaltsverzeichnis',
+  },
+  relatedCoverLetters: 'Verwandte Anschreiben',
+  bottomCta: {
+    subtitle: 'Schließen Sie sich Tausenden von Fachleuten an, die mit Best AI Resume ihren Traumjob gefunden haben.',
+    button: 'Anschreiben generieren — Kostenlos',
+  },
+  updated: 'Aktualisiert',
+};
+
+const ar: CoverLetterArticleContent = {
+  breadcrumb: { home: 'الرئيسية', coverLetterExamples: 'نماذج خطاب التقديم' },
+  notFound: 'غير موجود',
+  coverLetterSuffix: 'نموذج خطاب تقديم',
+  keySkillsTitle: 'المهارات الرئيسية للإبراز',
+  relatedTopics: 'مواضيع ذات صلة',
+  faqTitle: 'الأسئلة الشائعة',
+  relatedResourcesTitle: 'موارد ذات صلة',
+  resumeExampleSubtext: 'شاهد تنسيق السيرة الذاتية المطابق',
+  coverLetterGenerator: 'منشئ خطاب التقديم بالذكاء الاصطناعي',
+  coverLetterGeneratorSubtext: 'أنشئ خطاب التقديم في ثوانٍ',
+  sidebar: {
+    ctaTitle: 'أنشئ خطاب التقديم',
+    ctaSubtitle: 'استخدم الذكاء الاصطناعي لإنشاء خطاب تقديم مخصص لـ {jobTitle} في ثوانٍ.',
+    ctaButton: 'إنشاء خطاب تقديم',
+    tocTitle: 'جدول المحتويات',
+  },
+  relatedCoverLetters: 'خطابات تقديم ذات صلة',
+  bottomCta: {
+    subtitle: 'انضم لآلاف المحترفين الذين حصلوا على وظيفة أحلامهم مع Best AI Resume.',
+    button: 'إنشاء خطاب تقديم — مجاناً',
+  },
+  updated: 'تم التحديث',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

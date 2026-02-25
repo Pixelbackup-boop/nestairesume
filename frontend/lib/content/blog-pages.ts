@@ -147,5 +147,164 @@ const es: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es };
+const fr: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'Blog - Conseils CV et Carrière | Best AI Resume',
+      description: 'Conseils d\'experts pour rédiger votre CV, orientation professionnelle et stratégies de recherche d\'emploi. Guides et tutoriels gratuits.',
+      ogDescription: 'Conseils d\'experts pour rédiger votre CV et stratégies de recherche d\'emploi.',
+    },
+    heroBadge: 'Notre Blog',
+    heroTitle: 'Conseils CV et ',
+    heroTitleHighlight: 'Carrière',
+    heroSubtitle: 'Guides, conseils et stratégies d\'experts pour créer des CV remarquables et progresser dans votre carrière.',
+    featuredArticles: 'Articles à la Une',
+    noArticlesTitle: 'Pas encore d\'articles',
+    noArticlesSubtitle: 'Revenez bientôt pour du nouveau contenu !',
+  },
+  article: {
+    notFound: 'Article Non Trouvé',
+    faqTitle: 'Questions Fréquentes',
+    resourcesTitle: 'Outils et Ressources CV',
+    resources: [
+      { title: '300+ Exemples de CV', subtitle: 'Guides de rédaction par métier' },
+      { title: 'Guide Format CV 2026', subtitle: 'Chronologique, fonctionnel et combiné' },
+      { title: 'Modèles de CV Gratuits', subtitle: 'Designs professionnels compatibles ATS' },
+      { title: 'Créateur de CV IA', subtitle: 'Créez votre CV en quelques minutes' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'Articles | Blog Best AI Resume',
+    metaDescTemplate: 'Parcourez nos articles {category} pour des conseils, guides et avis d\'experts.',
+    backToBlog: 'Retour au Blog',
+    articlesCount: '{count} articles dans cette catégorie',
+    articleCount: '{count} article dans cette catégorie',
+    noArticlesTitle: 'Pas encore d\'articles',
+    noArticlesSubtitle: 'Revenez bientôt pour du nouveau contenu dans cette catégorie !',
+  },
+  search: {
+    meta: {
+      title: 'Rechercher dans le Blog | Best AI Resume',
+      description: 'Recherchez dans notre blog des conseils CV, orientation professionnelle et stratégies de recherche d\'emploi.',
+    },
+    backToBlog: 'Retour au Blog',
+    title: 'Résultats de Recherche',
+    resultsCount: '{count} résultats pour',
+    resultCount: '{count} résultat pour',
+    startSearchTitle: 'Commencez votre recherche',
+    startSearchSubtitle: 'Saisissez un terme de recherche pour trouver des articles',
+    noResultsTitle: 'Aucun résultat',
+    noResultsText: 'Nous n\'avons trouvé aucun article correspondant à',
+    tryLabel: 'Essayez :',
+    trySuggestions: ['Utiliser des mots-clés différents', 'Vérifier l\'orthographe', 'Parcourir les catégories'],
+  },
+};
+
+const de: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'Blog - Lebenslauf-Tipps und Karriereberatung | Best AI Resume',
+      description: 'Experten-Tipps für Lebenslauf-Erstellung, Karriereberatung und Strategien für die Jobsuche. Kostenlose Anleitungen und Tutorials.',
+      ogDescription: 'Experten-Tipps für Lebenslauf-Erstellung und Strategien für die Jobsuche.',
+    },
+    heroBadge: 'Unser Blog',
+    heroTitle: 'Lebenslauf-Tipps und ',
+    heroTitleHighlight: 'Karriereberatung',
+    heroSubtitle: 'Experten-Guides, Tipps und Strategien, um herausragende Lebensläufe zu erstellen und Ihre Karriere voranzutreiben.',
+    featuredArticles: 'Empfohlene Artikel',
+    noArticlesTitle: 'Noch keine Artikel',
+    noArticlesSubtitle: 'Schauen Sie bald wieder vorbei!',
+  },
+  article: {
+    notFound: 'Artikel Nicht Gefunden',
+    faqTitle: 'Häufig Gestellte Fragen',
+    resourcesTitle: 'Lebenslauf-Tools und Ressourcen',
+    resources: [
+      { title: '300+ Lebenslauf-Beispiele', subtitle: 'Berufsspezifische Anleitungen' },
+      { title: 'Lebenslauf-Format Guide 2026', subtitle: 'Chronologisch, funktional und kombiniert' },
+      { title: 'Kostenlose Lebenslauf-Vorlagen', subtitle: 'ATS-kompatible professionelle Designs' },
+      { title: 'KI-Lebenslauf-Ersteller', subtitle: 'Erstellen Sie Ihren Lebenslauf in Minuten' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'Artikel | Best AI Resume Blog',
+    metaDescTemplate: 'Durchsuchen Sie unsere {category}-Artikel für Experten-Tipps, Anleitungen und Ratgeber.',
+    backToBlog: 'Zurück zum Blog',
+    articlesCount: '{count} Artikel in dieser Kategorie',
+    articleCount: '{count} Artikel in dieser Kategorie',
+    noArticlesTitle: 'Noch keine Artikel',
+    noArticlesSubtitle: 'Schauen Sie bald wieder vorbei für neue Inhalte in dieser Kategorie!',
+  },
+  search: {
+    meta: {
+      title: 'Blog durchsuchen | Best AI Resume',
+      description: 'Durchsuchen Sie unseren Blog nach Lebenslauf-Tipps, Karriereberatung und Strategien für die Jobsuche.',
+    },
+    backToBlog: 'Zurück zum Blog',
+    title: 'Suchergebnisse',
+    resultsCount: '{count} Ergebnisse für',
+    resultCount: '{count} Ergebnis für',
+    startSearchTitle: 'Suche starten',
+    startSearchSubtitle: 'Geben Sie einen Suchbegriff ein, um Artikel zu finden',
+    noResultsTitle: 'Keine Ergebnisse',
+    noResultsText: 'Wir konnten keine Artikel finden, die übereinstimmen mit',
+    tryLabel: 'Versuchen Sie:',
+    trySuggestions: ['Andere Suchbegriffe verwenden', 'Rechtschreibung überprüfen', 'Kategorien durchsuchen'],
+  },
+};
+
+const ar: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'المدونة - نصائح السيرة الذاتية والمسار المهني | Best AI Resume',
+      description: 'نصائح خبراء لكتابة السيرة الذاتية، توجيه مهني واستراتيجيات البحث عن عمل. أدلة ودروس مجانية.',
+      ogDescription: 'نصائح خبراء لكتابة السيرة الذاتية واستراتيجيات البحث عن عمل.',
+    },
+    heroBadge: 'مدونتنا',
+    heroTitle: 'نصائح السيرة الذاتية و',
+    heroTitleHighlight: 'المسار المهني',
+    heroSubtitle: 'أدلة ونصائح واستراتيجيات من خبراء لإنشاء سير ذاتية متميزة والتقدم في مسارك المهني.',
+    featuredArticles: 'مقالات مميزة',
+    noArticlesTitle: 'لا توجد مقالات بعد',
+    noArticlesSubtitle: 'عد قريباً لمحتوى جديد!',
+  },
+  article: {
+    notFound: 'المقال غير موجود',
+    faqTitle: 'الأسئلة الشائعة',
+    resourcesTitle: 'أدوات وموارد السيرة الذاتية',
+    resources: [
+      { title: 'أكثر من 300 نموذج سيرة ذاتية', subtitle: 'أدلة كتابة حسب المهنة' },
+      { title: 'دليل تنسيق السيرة الذاتية 2026', subtitle: 'زمني، وظيفي ومختلط' },
+      { title: 'قوالب سيرة ذاتية مجانية', subtitle: 'تصاميم احترافية متوافقة مع ATS' },
+      { title: 'منشئ سيرة ذاتية بالذكاء الاصطناعي', subtitle: 'أنشئ سيرتك الذاتية في دقائق' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'مقالات | مدونة Best AI Resume',
+    metaDescTemplate: 'تصفح مقالات {category} للحصول على نصائح وأدلة من الخبراء.',
+    backToBlog: 'العودة للمدونة',
+    articlesCount: '{count} مقالات في هذه الفئة',
+    articleCount: '{count} مقال في هذه الفئة',
+    noArticlesTitle: 'لا توجد مقالات بعد',
+    noArticlesSubtitle: 'عد قريباً لمحتوى جديد في هذه الفئة!',
+  },
+  search: {
+    meta: {
+      title: 'البحث في المدونة | Best AI Resume',
+      description: 'ابحث في مدونتنا عن نصائح السيرة الذاتية والتوجيه المهني واستراتيجيات البحث عن عمل.',
+    },
+    backToBlog: 'العودة للمدونة',
+    title: 'نتائج البحث',
+    resultsCount: '{count} نتائج لـ',
+    resultCount: '{count} نتيجة لـ',
+    startSearchTitle: 'ابدأ البحث',
+    startSearchSubtitle: 'أدخل كلمة بحث للعثور على المقالات',
+    noResultsTitle: 'لا توجد نتائج',
+    noResultsText: 'لم نتمكن من العثور على مقالات تتطابق مع',
+    tryLabel: 'جرّب:',
+    trySuggestions: ['استخدام كلمات مفتاحية مختلفة', 'التحقق من الإملاء', 'تصفح الفئات بدلاً من ذلك'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

@@ -217,7 +217,337 @@ const es: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es };
+// ── French ─────────────────────────────────────────────────────────
+
+const fr: LandingPageContent = {
+  meta: {
+    title: 'Créateur de CV Gratuit | Générateur de CV avec IA 2026',
+    description: 'Créez un CV professionnel en quelques minutes avec notre créateur de CV gratuit alimenté par l\'IA. Modèles compatibles ATS, rédaction IA et téléchargement PDF instantané.',
+    keywords: 'créateur de cv, créateur de cv ia gratuit, meilleur créateur de cv ia, créateur de cv gratuit, générateur de cv ia, générateur de cv, créer un cv, faire un cv',
+  },
+  schemas: {
+    breadcrumbName: 'Créateur de CV',
+    articleHeadline: 'Créateur de CV Gratuit : Générateur de CV avec IA 2026',
+    articleDescription: 'Créez des CV professionnels en quelques minutes avec notre créateur de CV gratuit alimenté par l\'IA. Modèles compatibles ATS, assistance à la rédaction IA et téléchargement PDF instantané.',
+    softwareAppName: 'Meilleur Créateur de CV avec IA',
+  },
+  hero: {
+    badge: 'Créateur de CV IA Gratuit',
+    title: 'Créez Votre CV',
+    titleHighlight: 'Professionnel en Minutes',
+    subtitle: 'Notre <strong>créateur de CV</strong> gratuit utilise l\'IA pour vous aider à rédiger un contenu percutant, optimiser pour les systèmes ATS et décrocher plus d\'entretiens. Avec <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98 % des entreprises du Fortune 500</a> utilisant des logiciels ATS, un CV optimisé est indispensable. Aucune compétence en design requise.',
+    ctaPrimary: 'Créer Mon CV Gratuitement',
+    ctaSecondary: 'Voir les Modèles',
+    trustBadges: ['Sans inscription', 'Sans carte bancaire', 'Téléchargement PDF gratuit'],
+  },
+  features: {
+    title: 'Pourquoi Choisir Notre Créateur de CV Gratuit ?',
+    subtitle: 'Bien plus qu\'un simple modèle — notre créateur de CV avec IA vous aide à rédiger un meilleur contenu et à franchir le filtrage ATS.',
+    items: [
+      { feature: 'Rédaction Assistée par IA', description: 'Notre IA rédige des points clés professionnels, des résumés et des descriptions de compétences adaptés à votre secteur et niveau d\'expérience.' },
+      { feature: 'Modèles Optimisés ATS', description: 'Chaque modèle est testé avec les principaux systèmes ATS comme Workday, Taleo et Greenhouse. Votre CV passe les filtres automatiques.' },
+      { feature: 'Téléchargement PDF Instantané', description: 'Téléchargez votre CV finalisé en PDF propre en un clic. Sans filigrane, sans mur payant — entièrement gratuit.' },
+      { feature: 'Prêt en Quelques Minutes', description: 'Fini l\'angoisse de la page blanche. Notre parcours guidé et les suggestions IA vous aident à créer un CV complet en moins de 10 minutes.' },
+      { feature: 'Score ATS en Temps Réel', description: 'Visualisez le score de compatibilité ATS de votre CV pendant la rédaction. Optimisez avant de postuler.' },
+      { feature: 'Plus de 20 Modèles Pro', description: 'Choisissez parmi des modèles conçus professionnellement pour chaque secteur et niveau de carrière. Tous gratuits, tous compatibles ATS.' },
+    ],
+    cta: 'Commencer Maintenant',
+  },
+  comparison: {
+    title: 'Notre Créateur de CV vs. La Concurrence',
+    subtitle: 'Découvrez pourquoi les candidats choisissent notre créateur de CV gratuit avec IA.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Autres Créateurs',
+    rows: [
+      { feature: 'Assistance Rédaction IA', ours: 'Rédaction IA complète', others: 'Basique ou inexistante' },
+      { feature: 'Optimisation ATS', ours: 'Score en temps réel', others: 'Tests limités' },
+      { feature: 'Tous les Modèles Gratuits', ours: 'Plus de 20 modèles', others: 'La plupart payants' },
+      { feature: 'Téléchargement PDF Gratuit', ours: 'Toujours gratuit', others: 'Souvent payant' },
+      { feature: 'Sans Compte Requis', ours: 'Démarrage immédiat', others: 'Généralement requis' },
+      { feature: 'Mots-clés Sectoriels', ours: 'Suggestions IA', others: 'Manuel uniquement' },
+      { feature: 'Versions Multiples', ours: 'Illimitées', others: 'Souvent limitées' },
+    ],
+  },
+  howItWorks: {
+    title: 'Comment Fonctionne Notre Créateur de CV',
+    subtitle: 'Créez un CV gagnant en trois étapes simples. Notre IA fait le gros du travail.',
+    steps: [
+      { step: 1, title: 'Choisissez un Modèle', description: 'Sélectionnez parmi plus de 20 modèles professionnels compatibles ATS conçus pour votre secteur.' },
+      { step: 2, title: 'Ajoutez Vos Informations', description: 'Saisissez votre expérience et laissez l\'IA suggérer des améliorations, des mots-clés et une rédaction professionnelle.' },
+      { step: 3, title: 'Téléchargez et Postulez', description: 'Exportez votre CV finalisé en PDF et commencez à postuler immédiatement.' },
+    ],
+    cta: 'Créer un CV Premium',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'CV Créés' },
+      { value: '4.8', label: 'Note Utilisateurs' },
+      { value: '20+', label: 'Modèles Gratuits' },
+      { value: '10 min', label: 'Temps Moyen' },
+    ],
+  },
+  templates: {
+    title: 'Modèles Professionnels pour Chaque Métier',
+    subtitle: 'Des designers créatifs aux cadres dirigeants — trouvez le modèle de CV parfait pour votre secteur.',
+    styles: ['Ingénieur Logiciel', 'Responsable Marketing', 'Infirmier(ère)', 'Directeur Commercial', 'Analyste de Données', 'Enseignant(e)', 'Chef de Projet', 'Designer'],
+    cta: 'Voir Tous les Modèles',
+  },
+  faq: {
+    title: 'Questions Fréquemment Posées',
+    items: [
+      { question: 'Ce créateur de CV est-il vraiment gratuit ?', answer: 'Oui ! Notre créateur de CV avec IA est 100 % gratuit. Créez des CV illimités, accédez à plus de 20 modèles professionnels et téléchargez votre CV en PDF — sans carte bancaire ni abonnement.' },
+      { question: 'Qu\'est-ce qui en fait le meilleur créateur de CV ?', answer: 'Contrairement aux créateurs de CV génériques, notre outil utilise l\'IA pour rédiger des points clés professionnels, optimiser votre contenu pour les systèmes ATS et suggérer des mots-clés spécifiques à votre secteur. Vous obtenez un CV attrayant ET qui passe le filtrage automatique.' },
+      { question: 'Puis-je télécharger mon CV en PDF gratuitement ?', answer: 'Absolument. Chaque CV que vous créez peut être téléchargé en PDF propre et compatible ATS sans aucun frais. Sans filigrane, sans mur payant, sans piège.' },
+      { question: 'Combien de temps faut-il pour créer un CV ?', answer: 'La plupart des utilisateurs créent un CV professionnel en moins de 10 minutes. Notre IA pré-remplit des suggestions de contenu, pour que vous passiez moins de temps devant une page blanche et plus de temps à postuler.' },
+      { question: 'Mon CV est-il compatible ATS ?', answer: 'Oui. Chaque modèle de notre créateur est testé avec les principaux systèmes ATS (Workday, Taleo, Greenhouse, Lever). Notre score ATS en temps réel vous aide à optimiser votre CV avant de postuler.' },
+      { question: 'Puis-je créer plusieurs CV pour différents postes ?', answer: 'Oui ! Créez autant de CV personnalisés que nécessaire. De nombreux candidats adaptent leur CV pour chaque candidature — notre créateur de CV rend cela rapide et facile.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Outils de CV Associés',
+    items: [
+      { href: '/resume-ai', title: 'CV avec IA', subtitle: 'Créateur de CV alimenté par l\'IA' },
+      { href: '/tools/ats-checker', title: 'Vérificateur ATS', subtitle: 'Testez votre score ATS' },
+      { href: '/free-resume-builder', title: 'Créateur de CV Gratuit', subtitle: 'Création de CV 100 % gratuite' },
+    ],
+    guidesTitle: 'Guides Utiles',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: 'Comment Rédiger un CV (Guide 2026)' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'Comment Rédiger un CV Compatible ATS' },
+      { href: '/resume-format', label: 'Guide des Formats de CV' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: 'Erreurs de CV à Éviter' },
+    ],
+  },
+  bottomCta: {
+    title: 'Prêt à Créer Votre CV ?',
+    description: 'Rejoignez plus de 2 millions de candidats qui ont créé leur CV professionnel avec notre créateur gratuit alimenté par l\'IA.',
+    cta: 'Créer Mon CV Gratuitement',
+    subtext: 'Gratuit pour toujours. Sans carte bancaire.',
+  },
+};
+
+// ── German ─────────────────────────────────────────────────────────
+
+const de: LandingPageContent = {
+  meta: {
+    title: 'Kostenloser Lebenslauf-Ersteller | KI-Lebenslauf-Generator 2026',
+    description: 'Erstellen Sie in wenigen Minuten einen professionellen Lebenslauf mit unserem kostenlosen KI-Lebenslauf-Ersteller. ATS-freundliche Vorlagen, KI-Texterstellung und sofortiger PDF-Download.',
+    keywords: 'lebenslauf ersteller, lebenslauf ersteller ki kostenlos, bester lebenslauf ersteller ki, kostenloser lebenslauf ersteller, ki lebenslauf ersteller, lebenslauf generator, lebenslauf erstellen, lebenslauf machen',
+  },
+  schemas: {
+    breadcrumbName: 'Lebenslauf-Ersteller',
+    articleHeadline: 'Kostenloser Lebenslauf-Ersteller: KI-Lebenslauf-Generator 2026',
+    articleDescription: 'Erstellen Sie professionelle Lebensläufe in wenigen Minuten mit unserem kostenlosen KI-Lebenslauf-Ersteller. ATS-freundliche Vorlagen, KI-Schreibhilfe und sofortiger PDF-Download.',
+    softwareAppName: 'Bester KI-Lebenslauf-Ersteller',
+  },
+  hero: {
+    badge: 'Kostenloser KI-Lebenslauf-Ersteller',
+    title: 'Erstellen Sie Ihren Professionellen',
+    titleHighlight: 'Lebenslauf in Minuten',
+    subtitle: 'Unser kostenloser <strong>Lebenslauf-Ersteller</strong> nutzt KI, um Ihnen beim Verfassen überzeugender Inhalte zu helfen, für ATS-Systeme zu optimieren und mehr Vorstellungsgespräche zu erzielen. Da <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98 % der Fortune-500-Unternehmen</a> ATS-Software einsetzen, ist ein optimierter Lebenslauf unverzichtbar. Keine Designkenntnisse erforderlich.',
+    ctaPrimary: 'Meinen Lebenslauf Kostenlos Erstellen',
+    ctaSecondary: 'Vorlagen Ansehen',
+    trustBadges: ['Ohne Registrierung', 'Ohne Kreditkarte', 'Kostenloser PDF-Download'],
+  },
+  features: {
+    title: 'Warum Unseren Kostenlosen Lebenslauf-Ersteller Wählen?',
+    subtitle: 'Mehr als nur eine Vorlage — unser KI-Lebenslauf-Ersteller hilft Ihnen, bessere Inhalte zu schreiben und das ATS-Screening zu bestehen.',
+    items: [
+      { feature: 'KI-gestützte Texterstellung', description: 'Unsere KI schreibt professionelle Aufzählungspunkte, Zusammenfassungen und Kompetenzbeschreibungen, zugeschnitten auf Ihre Branche und Erfahrungsstufe.' },
+      { feature: 'ATS-optimierte Vorlagen', description: 'Jede Vorlage ist mit führenden ATS-Systemen wie Workday, Taleo und Greenhouse getestet. Ihr Lebenslauf besteht die automatischen Filter.' },
+      { feature: 'Sofortiger PDF-Download', description: 'Laden Sie Ihren fertigen Lebenslauf als sauberes PDF mit einem Klick herunter. Ohne Wasserzeichen, ohne Bezahlschranke — völlig kostenlos.' },
+      { feature: 'In Minuten Fertig', description: 'Schluss mit der Angst vor der leeren Seite. Unser geführter Ablauf und KI-Vorschläge helfen Ihnen, in unter 10 Minuten einen vollständigen Lebenslauf zu erstellen.' },
+      { feature: 'ATS-Score in Echtzeit', description: 'Sehen Sie, wie Ihr Lebenslauf gegen ATS-Anforderungen abschneidet, während Sie schreiben. Optimieren Sie vor der Bewerbung.' },
+      { feature: 'Über 20 Profi-Vorlagen', description: 'Wählen Sie aus professionell gestalteten Vorlagen für jede Branche und Karrierestufe. Alle kostenlos, alle ATS-kompatibel.' },
+    ],
+    cta: 'Jetzt Starten',
+  },
+  comparison: {
+    title: 'Unser Lebenslauf-Ersteller vs. Die Konkurrenz',
+    subtitle: 'Erfahren Sie, warum Bewerber unseren kostenlosen KI-Lebenslauf-Ersteller bevorzugen.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Andere Ersteller',
+    rows: [
+      { feature: 'KI-Schreibhilfe', ours: 'Vollständige KI-Texterstellung', others: 'Einfach oder keine' },
+      { feature: 'ATS-Optimierung', ours: 'Echtzeit-Scoring', others: 'Begrenzte Tests' },
+      { feature: 'Alle Vorlagen Kostenlos', ours: 'Über 20 Vorlagen', others: 'Die meisten kostenpflichtig' },
+      { feature: 'Kostenloser PDF-Download', ours: 'Immer kostenlos', others: 'Oft kostenpflichtig' },
+      { feature: 'Ohne Konto Erforderlich', ours: 'Sofort starten', others: 'Meist erforderlich' },
+      { feature: 'Branchenspezifische Keywords', ours: 'KI-Vorschläge', others: 'Nur manuell' },
+      { feature: 'Mehrere Versionen', ours: 'Unbegrenzt', others: 'Oft begrenzt' },
+    ],
+  },
+  howItWorks: {
+    title: 'So Funktioniert Unser Lebenslauf-Ersteller',
+    subtitle: 'Erstellen Sie einen überzeugenden Lebenslauf in drei einfachen Schritten. Unsere KI erledigt die Schwerstarbeit.',
+    steps: [
+      { step: 1, title: 'Vorlage Wählen', description: 'Wählen Sie aus über 20 ATS-freundlichen professionellen Vorlagen für Ihre Branche.' },
+      { step: 2, title: 'Informationen Eingeben', description: 'Geben Sie Ihre Erfahrung ein und lassen Sie die KI Verbesserungen, Keywords und professionelle Formulierungen vorschlagen.' },
+      { step: 3, title: 'Herunterladen und Bewerben', description: 'Exportieren Sie Ihren fertigen Lebenslauf als PDF und bewerben Sie sich sofort.' },
+    ],
+    cta: 'Premium-Lebenslauf Erstellen',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'Erstellte Lebensläufe' },
+      { value: '4.8', label: 'Nutzerbewertung' },
+      { value: '20+', label: 'Kostenlose Vorlagen' },
+      { value: '10 Min', label: 'Durchschn. Erstellzeit' },
+    ],
+  },
+  templates: {
+    title: 'Professionelle Vorlagen für Jeden Beruf',
+    subtitle: 'Von kreativen Designern bis hin zu Führungskräften — finden Sie die perfekte Lebenslauf-Vorlage für Ihre Branche.',
+    styles: ['Softwareentwickler', 'Marketing-Manager', 'Pflegefachkraft', 'Vertriebsleiter', 'Datenanalyst', 'Lehrkraft', 'Projektmanager', 'Designer'],
+    cta: 'Alle Vorlagen Ansehen',
+  },
+  faq: {
+    title: 'Häufig Gestellte Fragen',
+    items: [
+      { question: 'Ist dieser Lebenslauf-Ersteller wirklich kostenlos?', answer: 'Ja! Unser KI-Lebenslauf-Ersteller ist 100 % kostenlos. Erstellen Sie unbegrenzt Lebensläufe, nutzen Sie alle 20+ professionellen Vorlagen und laden Sie Ihren Lebenslauf als PDF herunter — ohne Kreditkarte oder Abonnement.' },
+      { question: 'Was macht diesen zum besten Lebenslauf-Ersteller?', answer: 'Im Gegensatz zu generischen Erstellern nutzt unser Tool KI, um professionelle Aufzählungspunkte zu schreiben, Inhalte für ATS-Systeme zu optimieren und branchenspezifische Keywords vorzuschlagen. Sie erhalten einen Lebenslauf, der gut aussieht UND das automatische Screening besteht.' },
+      { question: 'Kann ich meinen Lebenslauf kostenlos als PDF herunterladen?', answer: 'Selbstverständlich. Jeder Lebenslauf kann kostenlos als sauberes, ATS-kompatibles PDF heruntergeladen werden. Ohne Wasserzeichen, ohne Bezahlschranke, ohne Haken.' },
+      { question: 'Wie lange dauert es, einen Lebenslauf zu erstellen?', answer: 'Die meisten Nutzer erstellen einen professionellen Lebenslauf in unter 10 Minuten. Unsere KI schlägt Inhalte vor, damit Sie weniger Zeit vor einer leeren Seite verbringen und mehr Zeit mit Bewerbungen.' },
+      { question: 'Ist mein Lebenslauf ATS-kompatibel?', answer: 'Ja. Jede Vorlage in unserem Ersteller ist mit führenden ATS-Systemen getestet (Workday, Taleo, Greenhouse, Lever). Unser Echtzeit-ATS-Score hilft Ihnen, vor dem Absenden zu optimieren.' },
+      { question: 'Kann ich mehrere Lebensläufe für verschiedene Stellen erstellen?', answer: 'Ja! Erstellen Sie so viele maßgeschneiderte Lebensläufe wie nötig. Viele Bewerber passen ihren Lebenslauf für jede Bewerbung an — unser Ersteller macht das schnell und einfach.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Verwandte Lebenslauf-Tools',
+    items: [
+      { href: '/resume-ai', title: 'Lebenslauf mit KI', subtitle: 'KI-gestützter Lebenslauf-Ersteller' },
+      { href: '/tools/ats-checker', title: 'ATS-Checker', subtitle: 'Testen Sie Ihren ATS-Score' },
+      { href: '/free-resume-builder', title: 'Kostenloser Lebenslauf-Ersteller', subtitle: '100 % kostenlose Lebenslauf-Erstellung' },
+    ],
+    guidesTitle: 'Hilfreiche Ratgeber',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: 'So Schreiben Sie einen Lebenslauf (Ratgeber 2026)' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'So Schreiben Sie einen ATS-Kompatiblen Lebenslauf' },
+      { href: '/resume-format', label: 'Lebenslauf-Format Ratgeber' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: 'Die Häufigsten Lebenslauf-Fehler' },
+    ],
+  },
+  bottomCta: {
+    title: 'Bereit, Ihren Lebenslauf zu Erstellen?',
+    description: 'Schließen Sie sich über 2 Millionen Bewerbern an, die ihren professionellen Lebenslauf mit unserem kostenlosen KI-Ersteller erstellt haben.',
+    cta: 'Meinen Lebenslauf Kostenlos Erstellen',
+    subtext: 'Für immer kostenlos. Ohne Kreditkarte.',
+  },
+};
+
+// ── Arabic ─────────────────────────────────────────────────────────
+
+const ar: LandingPageContent = {
+  meta: {
+    title: 'منشئ سيرة ذاتية مجاني | مولّد سيرة ذاتية بالذكاء الاصطناعي 2026',
+    description: 'أنشئ سيرة ذاتية احترافية في دقائق مع منشئ السيرة الذاتية المجاني المدعوم بالذكاء الاصطناعي. قوالب متوافقة مع ATS، كتابة بالذكاء الاصطناعي، وتحميل PDF فوري.',
+    keywords: 'منشئ سيرة ذاتية, منشئ سيرة ذاتية مجاني بالذكاء الاصطناعي, أفضل منشئ سيرة ذاتية, منشئ سيرة ذاتية مجاني, مولد سيرة ذاتية, إنشاء سيرة ذاتية, عمل سيرة ذاتية',
+  },
+  schemas: {
+    breadcrumbName: 'منشئ السيرة الذاتية',
+    articleHeadline: 'منشئ سيرة ذاتية مجاني: مولّد سيرة ذاتية بالذكاء الاصطناعي 2026',
+    articleDescription: 'أنشئ سيراً ذاتية احترافية في دقائق مع منشئ السيرة الذاتية المجاني المدعوم بالذكاء الاصطناعي. قوالب متوافقة مع ATS، مساعدة في الكتابة بالذكاء الاصطناعي، وتحميل PDF فوري.',
+    softwareAppName: 'أفضل منشئ سيرة ذاتية بالذكاء الاصطناعي',
+  },
+  hero: {
+    badge: 'منشئ سيرة ذاتية مجاني بالذكاء الاصطناعي',
+    title: 'أنشئ سيرتك الذاتية',
+    titleHighlight: 'الاحترافية في دقائق',
+    subtitle: '<strong>منشئ السيرة الذاتية</strong> المجاني لدينا يستخدم الذكاء الاصطناعي لمساعدتك في كتابة محتوى مقنع، والتحسين لأنظمة ATS، والحصول على مزيد من المقابلات. مع استخدام <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% من شركات Fortune 500</a> لبرامج ATS، فإن امتلاك سيرة ذاتية محسّنة أمر ضروري. لا حاجة لمهارات تصميم.',
+    ctaPrimary: 'إنشاء سيرتي الذاتية مجاناً',
+    ctaSecondary: 'عرض القوالب',
+    trustBadges: ['بدون تسجيل', 'بدون بطاقة ائتمان', 'تحميل PDF مجاني'],
+  },
+  features: {
+    title: 'لماذا تختار منشئ السيرة الذاتية المجاني لدينا؟',
+    subtitle: 'أكثر من مجرد قالب — منشئ السيرة الذاتية بالذكاء الاصطناعي يساعدك على كتابة محتوى أفضل واجتياز فحص ATS.',
+    items: [
+      { feature: 'كتابة مدعومة بالذكاء الاصطناعي', description: 'ذكاؤنا الاصطناعي يكتب نقاطاً رئيسية احترافية وملخصات ووصف مهارات مصممة لقطاعك ومستوى خبرتك.' },
+      { feature: 'قوالب محسّنة لـ ATS', description: 'كل قالب مُختبر مع أنظمة ATS الرائدة مثل Workday وTaleo وGreenhouse. سيرتك الذاتية تتجاوز الفلاتر الآلية.' },
+      { feature: 'تحميل PDF فوري', description: 'حمّل سيرتك الذاتية المصقولة كملف PDF نظيف بنقرة واحدة. بدون علامات مائية، بدون رسوم — مجاني بالكامل.' },
+      { feature: 'جاهز في دقائق', description: 'لا مزيد من قلق الصفحة الفارغة. مسارنا الموجّه واقتراحات الذكاء الاصطناعي تساعدك على إنشاء سيرة ذاتية كاملة في أقل من 10 دقائق.' },
+      { feature: 'نتيجة ATS في الوقت الفعلي', description: 'شاهد كيف تحقق سيرتك الذاتية نتائج مقابل متطلبات ATS أثناء الكتابة. حسّنها قبل التقديم.' },
+      { feature: 'أكثر من 20 قالباً احترافياً', description: 'اختر من قوالب مصممة احترافياً لكل قطاع ومستوى وظيفي. كلها مجانية، كلها متوافقة مع ATS.' },
+    ],
+    cta: 'ابدأ الإنشاء الآن',
+  },
+  comparison: {
+    title: 'منشئنا مقابل المنافسين',
+    subtitle: 'اكتشف لماذا يختار الباحثون عن عمل منشئ السيرة الذاتية المجاني بالذكاء الاصطناعي.',
+    oursName: 'Best AI Resumes',
+    othersName: 'منشئون آخرون',
+    rows: [
+      { feature: 'مساعدة الكتابة بالذكاء الاصطناعي', ours: 'كتابة IA كاملة', others: 'أساسية أو معدومة' },
+      { feature: 'تحسين ATS', ours: 'تقييم في الوقت الفعلي', others: 'اختبارات محدودة' },
+      { feature: 'جميع القوالب مجانية', ours: 'أكثر من 20 قالباً', others: 'معظمها مدفوع' },
+      { feature: 'تحميل PDF مجاني', ours: 'مجاني دائماً', others: 'غالباً مدفوع' },
+      { feature: 'بدون حساب مطلوب', ours: 'ابدأ فوراً', others: 'مطلوب عادةً' },
+      { feature: 'كلمات مفتاحية قطاعية', ours: 'اقتراحات الذكاء الاصطناعي', others: 'يدوي فقط' },
+      { feature: 'نسخ متعددة', ours: 'غير محدودة', others: 'غالباً محدودة' },
+    ],
+  },
+  howItWorks: {
+    title: 'كيف يعمل منشئ السيرة الذاتية لدينا',
+    subtitle: 'أنشئ سيرة ذاتية ناجحة في ثلاث خطوات بسيطة. ذكاؤنا الاصطناعي يتولى العمل الشاق.',
+    steps: [
+      { step: 1, title: 'اختر قالباً', description: 'اختر من بين أكثر من 20 قالباً احترافياً متوافقاً مع ATS مصمماً لقطاعك.' },
+      { step: 2, title: 'أضف معلوماتك', description: 'أدخل خبرتك ودع الذكاء الاصطناعي يقترح تحسينات وكلمات مفتاحية وصياغة احترافية.' },
+      { step: 3, title: 'حمّل وتقدّم', description: 'صدّر سيرتك الذاتية المصقولة بصيغة PDF وابدأ بالتقدم للوظائف فوراً.' },
+    ],
+    cta: 'إنشاء سيرة ذاتية مميزة',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'سيرة ذاتية تم إنشاؤها' },
+      { value: '4.8', label: 'تقييم المستخدمين' },
+      { value: '20+', label: 'قوالب مجانية' },
+      { value: '10 دقائق', label: 'متوسط وقت الإنشاء' },
+    ],
+  },
+  templates: {
+    title: 'قوالب احترافية لكل مهنة',
+    subtitle: 'من المصممين المبدعين إلى المدراء التنفيذيين — اعثر على قالب السيرة الذاتية المثالي لقطاعك.',
+    styles: ['مهندس برمجيات', 'مدير تسويق', 'ممرض(ة)', 'مدير مبيعات', 'محلل بيانات', 'معلم(ة)', 'مدير مشاريع', 'مصمم'],
+    cta: 'تصفح جميع القوالب',
+  },
+  faq: {
+    title: 'الأسئلة الشائعة',
+    items: [
+      { question: 'هل منشئ السيرة الذاتية هذا مجاني فعلاً؟', answer: 'نعم! منشئ السيرة الذاتية بالذكاء الاصطناعي مجاني 100%. أنشئ سيراً ذاتية غير محدودة، استخدم جميع القوالب الاحترافية الـ 20+، وحمّل سيرتك الذاتية بصيغة PDF — بدون بطاقة ائتمان أو اشتراك.' },
+      { question: 'ما الذي يجعل هذا أفضل منشئ سيرة ذاتية؟', answer: 'على عكس المنشئين العاديين، أداتنا تستخدم الذكاء الاصطناعي لكتابة نقاط رئيسية احترافية، وتحسين محتواك لأنظمة ATS، واقتراح كلمات مفتاحية خاصة بقطاعك. تحصل على سيرة ذاتية تبدو رائعة وتجتاز الفحص الآلي.' },
+      { question: 'هل يمكنني تحميل سيرتي الذاتية بصيغة PDF مجاناً؟', answer: 'بالتأكيد. كل سيرة ذاتية تنشئها يمكن تحميلها كملف PDF نظيف ومتوافق مع ATS بدون أي تكلفة. بدون علامات مائية، بدون جدار دفع، بدون فخاخ.' },
+      { question: 'كم من الوقت يستغرق إنشاء سيرة ذاتية؟', answer: 'معظم المستخدمين ينشئون سيرة ذاتية احترافية في أقل من 10 دقائق. ذكاؤنا الاصطناعي يقترح المحتوى مسبقاً، لتقضي وقتاً أقل أمام صفحة فارغة ووقتاً أكثر في التقدم للوظائف.' },
+      { question: 'هل سيرتي الذاتية متوافقة مع ATS؟', answer: 'نعم. كل قالب في منشئنا مُختبر مع أنظمة ATS الرائدة (Workday، Taleo، Greenhouse، Lever). تقييم ATS في الوقت الفعلي يساعدك على التحسين قبل التقديم.' },
+      { question: 'هل يمكنني إنشاء عدة سير ذاتية لوظائف مختلفة؟', answer: 'نعم! أنشئ عدد السير الذاتية المخصصة الذي تحتاجه. كثير من الباحثين عن عمل يخصصون سيرتهم الذاتية لكل طلب توظيف — منشئنا يجعل ذلك سريعاً وسهلاً.' },
+    ],
+  },
+  crossLinks: {
+    title: 'أدوات سيرة ذاتية ذات صلة',
+    items: [
+      { href: '/resume-ai', title: 'سيرة ذاتية بالذكاء الاصطناعي', subtitle: 'منشئ سيرة ذاتية مدعوم بالذكاء الاصطناعي' },
+      { href: '/tools/ats-checker', title: 'فاحص ATS', subtitle: 'اختبر نتيجة ATS لسيرتك الذاتية' },
+      { href: '/free-resume-builder', title: 'منشئ سيرة ذاتية مجاني', subtitle: 'إنشاء سيرة ذاتية مجاني 100%' },
+    ],
+    guidesTitle: 'أدلة مفيدة',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: 'كيف تكتب سيرة ذاتية (دليل 2026)' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'كيف تكتب سيرة ذاتية متوافقة مع ATS' },
+      { href: '/resume-format', label: 'دليل تنسيق السيرة الذاتية' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: 'أخطاء السيرة الذاتية التي يجب تجنبها' },
+    ],
+  },
+  bottomCta: {
+    title: 'مستعد لإنشاء سيرتك الذاتية؟',
+    description: 'انضم إلى أكثر من 2 مليون باحث عن عمل أنشأوا سيرتهم الذاتية الاحترافية مع منشئنا المجاني المدعوم بالذكاء الاصطناعي.',
+    cta: 'إنشاء سيرتي الذاتية مجاناً',
+    subtext: 'مجاني للأبد. بدون بطاقة ائتمان.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

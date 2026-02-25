@@ -431,9 +431,507 @@ const es: ResumeFormatPageContent = {
   },
 };
 
+// ── French ─────────────────────────────────────────────────────────
+
+const fr: ResumeFormatPageContent = {
+  meta: {
+    title: 'Guide des Formats de CV 2026 : Chronologique, Fonctionnel & Combiné (Modèles Gratuits) | Best AI Resume',
+    description: 'Choisissez le meilleur format de CV pour votre carrière. Comparez les formats chronologique, fonctionnel et combiné avec des modèles téléchargeables gratuits. Guide ATS mis à jour pour 2026.',
+    keywords: 'format de cv, format cv 2026, cv chronologique, cv fonctionnel, cv combiné, modèle de cv, format cv ats, meilleur format de cv',
+  },
+  schemas: {
+    breadcrumbName: 'Guide des Formats de CV',
+    howToName: 'Comment Choisir le Bon Format de CV',
+    howToDescription: 'Découvrez quel format de CV convient le mieux à votre situation professionnelle : chronologique, fonctionnel ou combiné.',
+    howToSteps: [
+      'Évaluez votre situation professionnelle : progression régulière, reconversion ou périodes d\'inactivité',
+      'Choisissez le format chronologique si vous avez un parcours professionnel stable dans le même secteur',
+      'Choisissez le format fonctionnel en cas de reconversion professionnelle ou de longues périodes d\'inactivité',
+      'Choisissez le format combiné pour les postes de direction ou une expertise très spécialisée',
+      'Téléchargez un modèle et personnalisez-le avec vos informations',
+    ],
+    howToToolName: 'Créateur de CV avec IA',
+  },
+  hero: {
+    badge: 'Mis à jour pour 2026',
+    title: 'Les Meilleurs Formats de CV pour 2026',
+    titleHighlight: '(Modèles Gratuits)',
+    subtitle: 'Arrêtez de deviner. Découvrez les 3 formats de CV standard utilisés par 99 % des recruteurs et apprenez exactement quand utiliser chacun pour passer les filtres ATS.',
+    ctaCompare: 'Comparer les Formats',
+    ctaBuild: 'Créer Mon CV Maintenant',
+  },
+  comparison: {
+    title: 'Comparaison Rapide : Quel Format Vous Convient ?',
+    subtitle: 'Ne vous compliquez pas la vie. Trouvez votre situation professionnelle ci-dessous.',
+    tableHeaders: {
+      format: 'Format',
+      bestFor: 'Idéal Pour',
+      avoidIf: 'À Éviter Si',
+      atsSafety: 'Compatibilité ATS',
+    },
+    formats: [
+      {
+        name: '1. Chronologique',
+        badge: 'Le Plus Populaire',
+        badgeColor: 'green',
+        bestFor: [
+          'Parcours professionnel continu',
+          'Même secteur d\'activité',
+          'Progression de carrière ascendante',
+        ],
+        avoidIf: 'Vous avez des périodes d\'inactivité importantes ou êtes en pleine reconversion professionnelle.',
+        atsScore: 100,
+        atsColor: 'green',
+      },
+      {
+        name: '2. Fonctionnel',
+        badge: 'Basé sur les Compétences',
+        badgeColor: 'amber',
+        bestFor: [
+          'Reconversion professionnelle',
+          'Longues périodes d\'inactivité',
+          'Freelances / Travailleurs indépendants',
+        ],
+        avoidIf: 'Vous avez un parcours professionnel classique (les recruteurs pourraient penser que vous cachez quelque chose).',
+        atsScore: 70,
+        atsColor: 'amber',
+      },
+      {
+        name: '3. Combiné',
+        badge: 'Hybride',
+        badgeColor: 'blue',
+        bestFor: [
+          'Cadres dirigeants',
+          'Experts hautement spécialisés',
+          'Profils aux compétences variées',
+        ],
+        avoidIf: 'Débutants ou jeunes diplômés (vous n\'avez pas encore assez de compétences à mettre en avant).',
+        atsScore: 95,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: '1. Le Format de CV Chronologique',
+    description: 'C\'est la référence absolue. Quand un recruteur ouvre un CV, son cerveau est programmé pour chercher ce format. Il présente votre expérience professionnelle en <strong>ordre chronologique inversé</strong> (poste le plus récent en premier).',
+    whyLoveTitle: 'Pourquoi les Recruteurs l\'Adorent :',
+    whyLoveText: 'Il raconte clairement l\'histoire de votre progression professionnelle. Les recruteurs voient instantanément où vous avez travaillé et comment vous avez évolué.',
+    structureTitle: 'Structure :',
+    sections: [
+      { label: 'En-tête (Nom et Contact)' },
+      { label: 'Résumé Professionnel' },
+      { label: 'Expérience Professionnelle (Le Cœur)', detail: 'Poste 1 (Actuel) / Poste 2 (Précédent) / Poste 3 (Précédent)', isCore: true },
+      { label: 'Formation' },
+      { label: 'Compétences' },
+    ],
+    downloadLabel: 'Télécharger le Modèle Word',
+    aiLabel: 'Créer un CV Chronologique avec l\'IA',
+  },
+  functional: {
+    title: '2. Le Format de CV Fonctionnel (Basé sur les Compétences)',
+    description: 'Le CV fonctionnel inverse l\'approche traditionnelle. Au lieu de se concentrer sur <em>quand</em> vous avez travaillé, il met en avant <em>ce que vous savez faire</em>. Il regroupe vos réalisations par catégories de compétences (par exemple, « Gestion de Projet », « Leadership Commercial ») plutôt que par poste occupé.',
+    warningTitle: 'Attention :',
+    warningText: 'Certains systèmes de suivi des candidatures (ATS) ont du mal à lire ce format. Utilisez-le uniquement si nécessaire (par exemple, périodes d\'inactivité de plus de 2 ans).',
+    structureTitle: 'Structure :',
+    sections: [
+      { label: 'En-tête' },
+      { label: 'Résumé' },
+      { label: 'Compétences Clés (Le Cœur)', detail: 'Catégorie A (3-4 réalisations) / Catégorie B (3-4 réalisations)', isCore: true },
+      { label: 'Parcours Professionnel (Liste succincte)' },
+      { label: 'Formation' },
+    ],
+    downloadLabel: 'Télécharger le Modèle Word',
+    aiLabel: 'Créer un CV Fonctionnel avec l\'IA',
+  },
+  combination: {
+    title: '3. Le Format de CV Combiné (Hybride)',
+    description: 'Comme son nom l\'indique, ce format combine le meilleur des deux approches. Il commence par un résumé détaillé des compétences (comme le fonctionnel) suivi d\'un parcours professionnel chronologique complet.',
+    whoForTitle: 'Pour Qui Est-ce ?',
+    whoForItems: [
+      'Cadres Dirigeants et Directeurs',
+      'Professionnels en Reconversion (Niveau Expert)',
+    ],
+    downloadLabel: 'Télécharger le Modèle Word',
+    aiLabel: 'Créer un CV Combiné avec l\'IA',
+  },
+  faq: {
+    title: 'Questions Fréquemment Posées sur les Formats de CV',
+    items: [
+      {
+        question: 'Quel format de CV est le meilleur pour les jeunes diplômés ?',
+        answer: 'Le format chronologique reste le meilleur choix. Si vous êtes jeune diplômé, placez la section Formation au-dessus de l\'Expérience Professionnelle pour compenser le manque de parcours.',
+      },
+      {
+        question: 'Les systèmes ATS peuvent-ils lire les fichiers PDF ?',
+        answer: 'Oui, les systèmes ATS modernes lisent les PDF sans problème. Cependant, utilisez des polices standard et évitez les colonnes ou les éléments graphiques décoratifs, car ils peuvent perturber l\'analyse quel que soit le format de fichier.',
+      },
+      {
+        question: 'Puis-je changer de format de CV en cours de carrière ?',
+        answer: 'Absolument. Si vous vous orientez vers un nouveau secteur, le format combiné vous permet de mettre en avant vos compétences transférables avant de les appuyer par votre parcours professionnel.',
+      },
+      {
+        question: 'Quel est le format de CV le plus couramment utilisé ?',
+        answer: 'Le format chronologique inversé est utilisé par plus de 90 % des candidats. Il présente votre expérience la plus récente en premier et c\'est le format que les recruteurs et les systèmes ATS connaissent le mieux.',
+      },
+      {
+        question: 'Faut-il utiliser un CV à une colonne ou à deux colonnes ?',
+        answer: 'Utilisez un format à une seule colonne pour une compatibilité maximale avec les ATS. Les mises en page à deux colonnes peuvent perturber le logiciel d\'analyse, entraînant une lecture désordonnée ou l\'omission d\'informations.',
+      },
+    ],
+  },
+  externalResources: {
+    title: 'Ressources Externes',
+    items: [
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS Career Outlook : Conseils pour le CV' },
+      { href: 'https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems', label: 'SHRM : Comprendre les Systèmes ATS' },
+    ],
+  },
+  stickyCta: {
+    text: 'La mise en page vous pose problème ?',
+    ctaLabel: 'Utiliser le Créateur IA',
+  },
+  bottomCta: {
+    title: 'Arrêtez de Vous Battre avec les Marges',
+    description: 'Notre créateur de CV avec IA gère automatiquement la mise en forme, les polices et les marges. Choisissez parmi plus de 20 modèles approuvés par les recruteurs et changez de format en un clic.',
+    ctaLabel: 'Créer Mon CV Gratuitement',
+  },
+};
+
+// ── German ─────────────────────────────────────────────────────────
+
+const de: ResumeFormatPageContent = {
+  meta: {
+    title: 'Lebenslauf-Format Ratgeber 2026: Chronologisch, Funktional & Kombiniert (Kostenlose Vorlagen) | Best AI Resume',
+    description: 'Wählen Sie das beste Lebenslauf-Format für Ihre Karriere. Vergleichen Sie chronologische, funktionale und kombinierte Formate mit kostenlosen Vorlagen. ATS-freundlicher Ratgeber für 2026.',
+    keywords: 'lebenslauf format, lebenslauf format 2026, chronologischer lebenslauf, funktionaler lebenslauf, kombinierter lebenslauf, lebenslauf vorlage, ats lebenslauf format, bestes lebenslauf format',
+  },
+  schemas: {
+    breadcrumbName: 'Lebenslauf-Format Ratgeber',
+    howToName: 'So Wählen Sie das Richtige Lebenslauf-Format',
+    howToDescription: 'Erfahren Sie, welches Lebenslauf-Format am besten zu Ihrer beruflichen Situation passt: chronologisch, funktional oder kombiniert.',
+    howToSteps: [
+      'Bewerten Sie Ihre berufliche Situation: stetige Entwicklung, Karrierewechsel oder Lücken',
+      'Wählen Sie das chronologische Format bei einem durchgängigen Werdegang in derselben Branche',
+      'Wählen Sie das funktionale Format bei einem Karrierewechsel oder längeren Beschäftigungslücken',
+      'Wählen Sie das kombinierte Format für Führungspositionen oder hochspezialisierte Fachkenntnisse',
+      'Laden Sie eine Vorlage herunter und passen Sie sie mit Ihren Informationen an',
+    ],
+    howToToolName: 'KI-Lebenslauf-Ersteller',
+  },
+  hero: {
+    badge: 'Aktualisiert für 2026',
+    title: 'Die Besten Lebenslauf-Formate für 2026',
+    titleHighlight: '(Kostenlose Vorlagen)',
+    subtitle: 'Schluss mit dem Raten. Entdecken Sie die 3 Standard-Lebenslauf-Formate, die 99 % der Personalverantwortlichen nutzen, und erfahren Sie genau, wann Sie welches Format verwenden sollten, um ATS-Filter zu bestehen.',
+    ctaCompare: 'Formate Vergleichen',
+    ctaBuild: 'Meinen Lebenslauf Erstellen',
+  },
+  comparison: {
+    title: 'Schneller Vergleich: Welches Format Passt zu Ihnen?',
+    subtitle: 'Machen Sie es sich nicht zu kompliziert. Finden Sie Ihre berufliche Situation unten.',
+    tableHeaders: {
+      format: 'Format',
+      bestFor: 'Ideal Für',
+      avoidIf: 'Vermeiden Wenn',
+      atsSafety: 'ATS-Kompatibilität',
+    },
+    formats: [
+      {
+        name: '1. Chronologisch',
+        badge: 'Am Beliebtesten',
+        badgeColor: 'green',
+        bestFor: [
+          'Durchgängiger beruflicher Werdegang',
+          'Gleiche Branche oder gleicher Sektor',
+          'Aufsteigende Karriereentwicklung',
+        ],
+        avoidIf: 'Sie haben größere Beschäftigungslücken oder befinden sich mitten in einem Karrierewechsel.',
+        atsScore: 100,
+        atsColor: 'green',
+      },
+      {
+        name: '2. Funktional',
+        badge: 'Kompetenzbasiert',
+        badgeColor: 'amber',
+        bestFor: [
+          'Berufliche Neuorientierung',
+          'Längere Beschäftigungslücken',
+          'Freiberufler / Selbstständige',
+        ],
+        avoidIf: 'Sie haben einen klassischen Karriereweg (Personalverantwortliche könnten denken, Sie verbergen etwas).',
+        atsScore: 70,
+        atsColor: 'amber',
+      },
+      {
+        name: '3. Kombiniert',
+        badge: 'Hybrid',
+        badgeColor: 'blue',
+        bestFor: [
+          'Führungskräfte und Geschäftsführer',
+          'Hochspezialisierte Fachexperten',
+          'Profile mit vielfältigen Kompetenzen',
+        ],
+        avoidIf: 'Berufseinsteiger oder Absolventen (Sie verfügen noch nicht über genügend Kompetenzen).',
+        atsScore: 95,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: '1. Das Chronologische Lebenslauf-Format',
+    description: 'Dies ist der Goldstandard. Wenn ein Personalverantwortlicher einen Lebenslauf öffnet, sucht er instinktiv nach diesem Format. Es listet Ihren beruflichen Werdegang in <strong>umgekehrt chronologischer Reihenfolge</strong> auf (aktuellste Stelle zuerst).',
+    whyLoveTitle: 'Warum Personalverantwortliche es Bevorzugen:',
+    whyLoveText: 'Es erzählt die Geschichte Ihrer Karriereentwicklung klar und deutlich. Man sieht sofort, wo Sie gearbeitet haben und wie Sie sich weiterentwickelt haben.',
+    structureTitle: 'Aufbau:',
+    sections: [
+      { label: 'Kopfzeile (Name und Kontakt)' },
+      { label: 'Berufliches Profil' },
+      { label: 'Berufserfahrung (Der Kern)', detail: 'Stelle 1 (Aktuell) / Stelle 2 (Vorherige) / Stelle 3 (Vorherige)', isCore: true },
+      { label: 'Ausbildung' },
+      { label: 'Kompetenzen' },
+    ],
+    downloadLabel: 'Word-Vorlage Herunterladen',
+    aiLabel: 'Chronologischen Lebenslauf mit KI Erstellen',
+  },
+  functional: {
+    title: '2. Das Funktionale (Kompetenzbasierte) Lebenslauf-Format',
+    description: 'Der funktionale Lebenslauf kehrt den traditionellen Ansatz um. Statt sich darauf zu konzentrieren, <em>wann</em> Sie gearbeitet haben, hebt er hervor, <em>was Sie können</em>. Er gruppiert Ihre Erfolge nach Kompetenzkategorien (z. B. „Projektmanagement", „Vertriebsleitung") statt nach Stellenbezeichnung.',
+    warningTitle: 'Achtung:',
+    warningText: 'Einige Bewerbermanagementsysteme (ATS) haben Schwierigkeiten, dieses Format zu lesen. Verwenden Sie es nur wenn nötig (z. B. bei Beschäftigungslücken von mehr als 2 Jahren).',
+    structureTitle: 'Aufbau:',
+    sections: [
+      { label: 'Kopfzeile' },
+      { label: 'Zusammenfassung' },
+      { label: 'Relevante Kompetenzen (Der Kern)', detail: 'Kategorie A (3-4 Erfolge) / Kategorie B (3-4 Erfolge)', isCore: true },
+      { label: 'Beruflicher Werdegang (Nur Kurzübersicht)' },
+      { label: 'Ausbildung' },
+    ],
+    downloadLabel: 'Word-Vorlage Herunterladen',
+    aiLabel: 'Funktionalen Lebenslauf mit KI Erstellen',
+  },
+  combination: {
+    title: '3. Das Kombinierte (Hybride) Format',
+    description: 'Wie der Name schon sagt, vereint dieses Format das Beste aus beiden Ansätzen. Es beginnt mit einer ausführlichen Kompetenzübersicht (wie beim funktionalen Format) gefolgt von einem vollständigen chronologischen Werdegang.',
+    whoForTitle: 'Für Wen Ist Es Geeignet?',
+    whoForItems: [
+      'Führungskräfte und Geschäftsführer',
+      'Quereinsteiger auf Expertenniveau',
+    ],
+    downloadLabel: 'Word-Vorlage Herunterladen',
+    aiLabel: 'Kombinierten Lebenslauf mit KI Erstellen',
+  },
+  faq: {
+    title: 'Häufig Gestellte Fragen zu Lebenslauf-Formaten',
+    items: [
+      {
+        question: 'Welches Lebenslauf-Format ist für Absolventen am besten?',
+        answer: 'Das chronologische Format bleibt die beste Wahl. Wenn Sie frisch von der Universität kommen, setzen Sie den Abschnitt Ausbildung über die Berufserfahrung, um den noch geringen Werdegang auszugleichen.',
+      },
+      {
+        question: 'Können ATS-Systeme PDF-Dateien lesen?',
+        answer: 'Ja, moderne ATS-Systeme lesen PDFs problemlos. Verwenden Sie jedoch Standardschriften und vermeiden Sie Spalten oder dekorative Grafiken, da diese den Parser unabhängig vom Dateiformat verwirren können.',
+      },
+      {
+        question: 'Kann ich das Format mitten in der Karriere wechseln?',
+        answer: 'Selbstverständlich. Wenn Sie in eine neue Branche wechseln möchten, ermöglicht Ihnen das kombinierte Format, Ihre übertragbaren Kompetenzen in den Vordergrund zu stellen und sie mit Ihrem Werdegang zu untermauern.',
+      },
+      {
+        question: 'Welches ist das am häufigsten verwendete Lebenslauf-Format?',
+        answer: 'Das umgekehrt chronologische Format wird von über 90 % der Bewerber verwendet. Es listet Ihre aktuellste Erfahrung zuerst auf und ist das Format, das Personalverantwortlichen und ATS-Systemen am vertrautesten ist.',
+      },
+      {
+        question: 'Sollte ich einen einspaltigen oder zweispaltigen Lebenslauf verwenden?',
+        answer: 'Verwenden Sie ein einspaltiges Format für maximale ATS-Kompatibilität. Zweispaltige Layouts können die Analysesoftware verwirren, sodass Informationen in falscher Reihenfolge gelesen oder ganz übersprungen werden.',
+      },
+    ],
+  },
+  externalResources: {
+    title: 'Externe Ressourcen',
+    items: [
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS Career Outlook: Tipps für den Lebenslauf' },
+      { href: 'https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems', label: 'SHRM: ATS-Systeme Verstehen' },
+    ],
+  },
+  stickyCta: {
+    text: 'Probleme mit der Formatierung?',
+    ctaLabel: 'KI-Ersteller Nutzen',
+  },
+  bottomCta: {
+    title: 'Schluss mit dem Kampf um Seitenränder',
+    description: 'Unser KI-Lebenslauf-Ersteller kümmert sich automatisch um Formatierung, Schriftarten und Seitenränder. Wählen Sie aus über 20 von Personalverantwortlichen empfohlenen Vorlagen und wechseln Sie das Format mit einem Klick.',
+    ctaLabel: 'Meinen Lebenslauf Kostenlos Erstellen',
+  },
+};
+
+// ── Arabic ─────────────────────────────────────────────────────────
+
+const ar: ResumeFormatPageContent = {
+  meta: {
+    title: 'دليل تنسيق السيرة الذاتية 2026: الترتيب الزمني والوظيفي والمدمج (قوالب مجانية) | Best AI Resume',
+    description: 'اختر أفضل تنسيق للسيرة الذاتية لمسيرتك المهنية. قارن بين التنسيقات الزمنية والوظيفية والمدمجة مع قوالب قابلة للتحميل مجاناً. دليل متوافق مع ATS محدّث لعام 2026.',
+    keywords: 'تنسيق السيرة الذاتية, تنسيق السيرة الذاتية 2026, سيرة ذاتية زمنية, سيرة ذاتية وظيفية, سيرة ذاتية مدمجة, قالب سيرة ذاتية, تنسيق سيرة ذاتية ats, أفضل تنسيق سيرة ذاتية',
+  },
+  schemas: {
+    breadcrumbName: 'دليل تنسيق السيرة الذاتية',
+    howToName: 'كيف تختار التنسيق المناسب للسيرة الذاتية',
+    howToDescription: 'تعرّف على تنسيق السيرة الذاتية الأنسب لوضعك المهني: الزمني أو الوظيفي أو المدمج.',
+    howToSteps: [
+      'قيّم وضعك المهني: تقدم مستمر، تغيير مسار وظيفي، أو فجوات في التوظيف',
+      'اختر التنسيق الزمني إذا كان لديك سجل عمل مستمر في نفس المجال',
+      'اختر التنسيق الوظيفي عند تغيير المسار المهني أو وجود فجوات طويلة في التوظيف',
+      'اختر التنسيق المدمج للمناصب القيادية أو الخبرات المتخصصة للغاية',
+      'حمّل قالباً وخصّصه بمعلوماتك الشخصية',
+    ],
+    howToToolName: 'منشئ السيرة الذاتية بالذكاء الاصطناعي',
+  },
+  hero: {
+    badge: 'محدّث لعام 2026',
+    title: 'أفضل تنسيقات السيرة الذاتية لعام 2026',
+    titleHighlight: '(قوالب مجانية)',
+    subtitle: 'توقف عن التخمين. اكتشف تنسيقات السيرة الذاتية الثلاثة المعتمدة لدى 99% من مسؤولي التوظيف، وتعلّم متى تستخدم كل تنسيق لاجتياز أنظمة ATS.',
+    ctaCompare: 'مقارنة التنسيقات',
+    ctaBuild: 'إنشاء سيرتي الذاتية الآن',
+  },
+  comparison: {
+    title: 'مقارنة سريعة: أي تنسيق يناسبك؟',
+    subtitle: 'لا تُعقّد الأمور. ابحث عن وضعك المهني أدناه.',
+    tableHeaders: {
+      format: 'التنسيق',
+      bestFor: 'الأنسب لـ',
+      avoidIf: 'تجنّبه إذا',
+      atsSafety: 'توافق ATS',
+    },
+    formats: [
+      {
+        name: '1. الزمني',
+        badge: 'الأكثر شيوعاً',
+        badgeColor: 'green',
+        bestFor: [
+          'سجل عمل مستمر',
+          'البقاء في نفس المجال',
+          'تقدم وظيفي تصاعدي',
+        ],
+        avoidIf: 'لديك فجوات توظيف كبيرة أو تغيّر مسارك المهني بالكامل.',
+        atsScore: 100,
+        atsColor: 'green',
+      },
+      {
+        name: '2. الوظيفي',
+        badge: 'قائم على المهارات',
+        badgeColor: 'amber',
+        bestFor: [
+          'تغيير المسار المهني',
+          'فجوات توظيف طويلة',
+          'العمل الحر / العمل المستقل',
+        ],
+        avoidIf: 'لديك مسار مهني تقليدي (قد يظن مسؤولو التوظيف أنك تخفي شيئاً).',
+        atsScore: 70,
+        atsColor: 'amber',
+      },
+      {
+        name: '3. المدمج',
+        badge: 'هجين',
+        badgeColor: 'blue',
+        bestFor: [
+          'المدراء التنفيذيون',
+          'الخبراء المتخصصون',
+          'أصحاب المهارات المتنوعة',
+        ],
+        avoidIf: 'حديثو التخرج أو المبتدئون (لا تملك بعد مهارات كافية لإبرازها).',
+        atsScore: 95,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: '1. تنسيق السيرة الذاتية الزمني',
+    description: 'هذا هو المعيار الذهبي. عندما يفتح مسؤول التوظيف سيرة ذاتية، فإن ذهنه مبرمج للبحث عن هذا التنسيق. يعرض تاريخك المهني بـ<strong>ترتيب زمني عكسي</strong> (الوظيفة الأحدث أولاً).',
+    whyLoveTitle: 'لماذا يفضّله مسؤولو التوظيف:',
+    whyLoveText: 'يروي قصة واضحة عن تطورك المهني. يمكنهم فوراً رؤية أين عملت وكيف تقدمت في مسيرتك.',
+    structureTitle: 'الهيكل:',
+    sections: [
+      { label: 'العنوان (الاسم ومعلومات الاتصال)' },
+      { label: 'الملخص المهني' },
+      { label: 'الخبرة المهنية (الجوهر)', detail: 'الوظيفة 1 (الحالية) / الوظيفة 2 (السابقة) / الوظيفة 3 (السابقة)', isCore: true },
+      { label: 'التعليم' },
+      { label: 'المهارات' },
+    ],
+    downloadLabel: 'تحميل قالب Word',
+    aiLabel: 'إنشاء سيرة ذاتية زمنية بالذكاء الاصطناعي',
+  },
+  functional: {
+    title: '2. تنسيق السيرة الذاتية الوظيفي (القائم على المهارات)',
+    description: 'السيرة الذاتية الوظيفية تعكس النهج التقليدي. بدلاً من التركيز على <em>متى</em> عملت، تركّز على <em>ما تستطيع فعله</em>. تجمع إنجازاتك في فئات مهارات (مثل «إدارة المشاريع»، «قيادة المبيعات») بدلاً من ترتيبها حسب المسمى الوظيفي.',
+    warningTitle: 'تحذير:',
+    warningText: 'بعض أنظمة تتبع المتقدمين (ATS) تواجه صعوبة في قراءة هذا التنسيق. استخدمه فقط عند الضرورة (مثلاً، فجوات توظيف تزيد عن سنتين).',
+    structureTitle: 'الهيكل:',
+    sections: [
+      { label: 'العنوان' },
+      { label: 'الملخص' },
+      { label: 'المهارات ذات الصلة (الجوهر)', detail: 'الفئة أ (3-4 إنجازات) / الفئة ب (3-4 إنجازات)', isCore: true },
+      { label: 'التاريخ الوظيفي (قائمة مختصرة فقط)' },
+      { label: 'التعليم' },
+    ],
+    downloadLabel: 'تحميل قالب Word',
+    aiLabel: 'إنشاء سيرة ذاتية وظيفية بالذكاء الاصطناعي',
+  },
+  combination: {
+    title: '3. التنسيق المدمج (الهجين)',
+    description: 'كما يوحي الاسم، يجمع هذا التنسيق بين أفضل ما في الأسلوبين. يبدأ بملخص مفصّل للمهارات (كالتنسيق الوظيفي) يليه سجل عمل زمني شامل.',
+    whoForTitle: 'لمن هو مناسب؟',
+    whoForItems: [
+      'المدراء التنفيذيون وكبار القياديين',
+      'المهنيون الذين يغيرون مسارهم (مستوى خبير)',
+    ],
+    downloadLabel: 'تحميل قالب Word',
+    aiLabel: 'إنشاء سيرة ذاتية مدمجة بالذكاء الاصطناعي',
+  },
+  faq: {
+    title: 'الأسئلة الشائعة حول تنسيقات السيرة الذاتية',
+    items: [
+      {
+        question: 'ما أفضل تنسيق سيرة ذاتية لحديثي التخرج؟',
+        answer: 'التنسيق الزمني لا يزال الخيار الأفضل. إذا كنت حديث التخرج، ضع قسم التعليم فوق قسم الخبرة المهنية لتعويض قلة الخبرة العملية.',
+      },
+      {
+        question: 'هل تستطيع أنظمة ATS قراءة ملفات PDF؟',
+        answer: 'نعم، أنظمة ATS الحديثة تقرأ ملفات PDF بسهولة. لكن استخدم خطوطاً قياسية وتجنّب الأعمدة أو الرسومات الزخرفية، لأنها قد تربك المحلل بغض النظر عن صيغة الملف.',
+      },
+      {
+        question: 'هل يمكنني تغيير التنسيق في منتصف مسيرتي المهنية؟',
+        answer: 'بالتأكيد. إذا كنت تنتقل إلى مجال جديد، فإن التنسيق المدمج يتيح لك إبراز مهاراتك القابلة للنقل أولاً ثم دعمها بسجلك المهني.',
+      },
+      {
+        question: 'ما هو تنسيق السيرة الذاتية الأكثر استخداماً؟',
+        answer: 'التنسيق الزمني العكسي يستخدمه أكثر من 90% من الباحثين عن عمل. يعرض خبرتك الأحدث أولاً وهو التنسيق الأكثر ألفة لدى مسؤولي التوظيف وأنظمة ATS.',
+      },
+      {
+        question: 'هل أستخدم سيرة ذاتية بعمود واحد أم عمودين؟',
+        answer: 'استخدم تنسيق العمود الواحد لأقصى توافق مع أنظمة ATS. تخطيطات العمودين قد تربك برنامج التحليل، مما يؤدي إلى قراءة المعلومات بترتيب خاطئ أو تخطيها بالكامل.',
+      },
+    ],
+  },
+  externalResources: {
+    title: 'مصادر خارجية',
+    items: [
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS Career Outlook: نصائح للسيرة الذاتية' },
+      { href: 'https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems', label: 'SHRM: فهم أنظمة ATS' },
+    ],
+  },
+  stickyCta: {
+    text: 'تواجه صعوبة في التنسيق؟',
+    ctaLabel: 'استخدم المنشئ الذكي',
+  },
+  bottomCta: {
+    title: 'توقف عن معاناة الهوامش والتنسيق',
+    description: 'منشئ السيرة الذاتية بالذكاء الاصطناعي يتولى تلقائياً التنسيق والخطوط والهوامش. اختر من بين أكثر من 20 قالباً معتمداً من مسؤولي التوظيف وبدّل التنسيق بنقرة واحدة.',
+    ctaLabel: 'إنشاء سيرتي الذاتية مجاناً',
+  },
+};
+
 // ── Export ───────────────────────────────────────────────────────────
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es };
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

@@ -36,6 +36,42 @@ const es: TemplatesCategoryContent = {
   breadcrumbTemplates: 'Plantillas',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es };
+const fr: TemplatesCategoryContent = {
+  fallbackTitle: 'Modèles de CV | Best AI Resume',
+  collectionSuffix: 'Collection',
+  availableTemplates: 'Modèles Disponibles',
+  editInAI: 'Modifier avec l\'IA',
+  tiredTitle: 'Fatigué de mettre en forme des fichiers ?',
+  tiredSubtitle: 'Télécharger des modèles c\'est bien, mais les remplir est fastidieux. Notre Créateur de CV IA fait la mise en forme pour vous instantanément.',
+  buildWithAI: 'Créer avec l\'IA',
+  breadcrumbHome: 'Accueil',
+  breadcrumbTemplates: 'Modèles',
+};
+
+const de: TemplatesCategoryContent = {
+  fallbackTitle: 'Lebenslauf-Vorlagen | Best AI Resume',
+  collectionSuffix: 'Sammlung',
+  availableTemplates: 'Verfügbare Vorlagen',
+  editInAI: 'Mit KI bearbeiten',
+  tiredTitle: 'Keine Lust mehr auf Formatierung?',
+  tiredSubtitle: 'Vorlagen herunterladen ist gut, aber das Ausfüllen ist mühsam. Unser KI-Lebenslauf-Ersteller übernimmt die Formatierung sofort für Sie.',
+  buildWithAI: 'Mit KI erstellen',
+  breadcrumbHome: 'Startseite',
+  breadcrumbTemplates: 'Vorlagen',
+};
+
+const ar: TemplatesCategoryContent = {
+  fallbackTitle: 'قوالب سيرة ذاتية | Best AI Resume',
+  collectionSuffix: 'مجموعة',
+  availableTemplates: 'القوالب المتاحة',
+  editInAI: 'تعديل بالذكاء الاصطناعي',
+  tiredTitle: 'هل سئمت من تنسيق الملفات؟',
+  tiredSubtitle: 'تحميل القوالب أمر جيد، لكن ملؤها متعب. منشئ السيرة الذاتية بالذكاء الاصطناعي يقوم بالتنسيق تلقائياً.',
+  buildWithAI: 'إنشاء بالذكاء الاصطناعي',
+  breadcrumbHome: 'الرئيسية',
+  breadcrumbTemplates: 'القوالب',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

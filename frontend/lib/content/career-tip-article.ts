@@ -62,5 +62,74 @@ const es: CareerTipArticleContent = {
   tagsLabel: 'Etiquetas:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es };
+const fr: CareerTipArticleContent = {
+  breadcrumb: { home: 'Accueil', careerTips: 'Conseils Carrière' },
+  notFound: 'Article Non Trouvé',
+  share: {
+    title: 'Cet article vous a aidé ?',
+    subtitle: 'Partagez-le avec d\'autres personnes qui pourraient en bénéficier',
+  },
+  cta: {
+    title: 'Prêt à créer votre CV ?',
+    subtitle: 'Mettez ces conseils en pratique avec notre créateur de CV propulsé par l\'IA. Créez un CV professionnel en quelques minutes.',
+    button: 'Créer Votre CV Maintenant',
+  },
+  sidebar: {
+    tocTitle: 'Sommaire',
+    relatedTitle: 'Articles Associés',
+    ctaTitle: 'Créez Votre CV',
+    ctaSubtitle: 'Créez un CV professionnel avec l\'IA en quelques minutes.',
+    ctaButton: 'Commencer',
+  },
+  moreCareerTips: 'Plus de Conseils Carrière',
+  tagsLabel: 'Tags :',
+};
+
+const de: CareerTipArticleContent = {
+  breadcrumb: { home: 'Startseite', careerTips: 'Karriere-Tipps' },
+  notFound: 'Artikel Nicht Gefunden',
+  share: {
+    title: 'War das hilfreich?',
+    subtitle: 'Teilen Sie es mit anderen, die davon profitieren könnten',
+  },
+  cta: {
+    title: 'Bereit, Ihren Lebenslauf zu erstellen?',
+    subtitle: 'Setzen Sie diese Tipps mit unserem KI-gestützten Lebenslauf-Ersteller in die Praxis um. Erstellen Sie einen professionellen Lebenslauf in Minuten.',
+    button: 'Lebenslauf jetzt erstellen',
+  },
+  sidebar: {
+    tocTitle: 'Inhaltsverzeichnis',
+    relatedTitle: 'Verwandte Artikel',
+    ctaTitle: 'Lebenslauf erstellen',
+    ctaSubtitle: 'Erstellen Sie einen professionellen Lebenslauf mit KI in Minuten.',
+    ctaButton: 'Starten',
+  },
+  moreCareerTips: 'Weitere Karriere-Tipps',
+  tagsLabel: 'Tags:',
+};
+
+const ar: CareerTipArticleContent = {
+  breadcrumb: { home: 'الرئيسية', careerTips: 'نصائح مهنية' },
+  notFound: 'المقال غير موجود',
+  share: {
+    title: 'هل وجدت هذا مفيداً؟',
+    subtitle: 'شاركه مع الآخرين الذين قد يستفيدون منه',
+  },
+  cta: {
+    title: 'مستعد لإنشاء سيرتك الذاتية؟',
+    subtitle: 'طبّق هذه النصائح مع منشئ السيرة الذاتية بالذكاء الاصطناعي. أنشئ سيرة ذاتية احترافية في دقائق.',
+    button: 'أنشئ سيرتك الذاتية الآن',
+  },
+  sidebar: {
+    tocTitle: 'جدول المحتويات',
+    relatedTitle: 'مقالات ذات صلة',
+    ctaTitle: 'أنشئ سيرتك الذاتية',
+    ctaSubtitle: 'أنشئ سيرة ذاتية احترافية بالذكاء الاصطناعي في دقائق.',
+    ctaButton: 'ابدأ',
+  },
+  moreCareerTips: 'المزيد من النصائح المهنية',
+  tagsLabel: 'الوسوم:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

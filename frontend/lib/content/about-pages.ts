@@ -239,7 +239,295 @@ const es: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es };
+const fr: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'À Propos',
+      title: 'Construire l\u2019avenir de la',
+      titleHighlight: 'réussite professionnelle',
+      subtitle: 'Best AI Resume a pour mission d\u2019aider les chercheurs d\u2019emploi du monde entier à créer des CV professionnels et optimisés pour les ATS qui ouvrent les portes de la carrière de leurs rêves.',
+    },
+    story: {
+      badge: 'Notre Histoire',
+      heading: 'Pourquoi nous avons créé Best AI Resume',
+      p1: 'Nous avons constaté que des professionnels talentueux étaient ignorés simplement parce que leurs CV ne passaient pas les systèmes de tri automatisés. Le processus traditionnel de création de CV était long, frustrant et produisait souvent des documents qui ne mettaient pas en valeur le véritable potentiel des candidats.',
+      p2: 'C\u2019est pourquoi nous avons créé Best AI Resume \u2014 une plateforme qui combine la puissance de l\u2019intelligence artificielle avec un design professionnel et élégant. Notre objectif est simple : aider chaque chercheur d\u2019emploi à présenter le meilleur de lui-même aux employeurs potentiels.',
+      p3: 'Aujourd\u2019hui, nous avons aidé plus de 50 000 professionnels à décrocher l\u2019emploi de leurs rêves en créant des CV qui se démarquent tout en passant les filtres ATS avec succès.',
+    },
+    stats: [
+      { value: '50K+', label: 'CV Créés' },
+      { value: '98%', label: 'Taux de Réussite ATS' },
+      { value: '20+', label: 'Modèles' },
+      { value: '4.9', label: 'Note Utilisateurs' },
+    ],
+    values: {
+      badge: 'Nos Valeurs',
+      heading: 'Ce qui nous motive',
+      cards: [
+        { title: 'Confidentialité Avant Tout', text: 'Vos données vous appartiennent. Nous stockons les données de votre CV localement dans votre navigateur, pas sur nos serveurs. Seules vos identifiants de compte sont conservés en sécurité de notre côté.' },
+        { title: 'Innovation', text: 'Nous exploitons la technologie d\u2019IA de pointe pour vous aider à rédiger un contenu percutant qui met en valeur vos réalisations et attire l\u2019attention des recruteurs.' },
+        { title: 'Accessibilité', text: 'Les outils professionnels de création de CV ne devraient pas être réservés à ceux qui peuvent payer cher. Nous offrons des fonctionnalités puissantes accessibles et abordables pour tous.' },
+      ],
+    },
+    experts: {
+      badge: 'Une Expertise de Confiance',
+      heading: 'Rencontrez Nos Experts en Carrière',
+      subtitle: 'Notre équipe de coachs de carrière, recruteurs et spécialistes du secteur apporte une expertise approfondie aux guides de CV qu\u2019ils rédigent.',
+    },
+    editorial: {
+      heading: 'Nos Standards Éditoriaux',
+      items: [
+        { title: 'Conseils Fondés sur les Données', text: 'Chaque conseil que nous partageons est testé sur de vrais systèmes ATS et vérifié par des professionnels du secteur.' },
+        { title: 'Approche Humaine d\u2019Abord', text: 'Nous croyons que l\u2019IA doit accompagner, pas remplacer. Nous privilégions les stratégies qui séduisent d\u2019abord les recruteurs humains.' },
+      ],
+    },
+    commitment: {
+      heading: 'Notre Engagement Envers Vous',
+      p1: 'Chez Best AI Resume, nous croyons que votre parcours professionnel est personnel. C\u2019est pourquoi nous avons conçu une plateforme qui respecte votre vie privée tout en vous offrant des outils puissants pour réussir. Les données de votre CV restent sur votre appareil, vous donnant un contrôle total sur vos informations.',
+      p2: 'Nous améliorons constamment nos algorithmes d\u2019IA, ajoutons de nouveaux modèles et enrichissons nos fonctionnalités en fonction des retours de nos utilisateurs. Votre réussite est notre réussite, et nous nous engageons à vous accompagner à chaque étape.',
+    },
+    cta: {
+      title: 'Prêt à rejoindre',
+      titleHighlight: 'plus de 50 000 histoires de réussite ?',
+      subtitle: 'Commencez à créer votre CV professionnel aujourd\u2019hui et faites le premier pas vers la carrière de vos rêves.',
+      button: 'Commencer Gratuitement',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Nos Auteurs Experts | Best AI Resume',
+      description: 'Découvrez les experts en carrière, recruteurs et coachs derrière nos guides de CV. Nos auteurs apportent une expérience concrète du recrutement pour vous aider à décrocher l\u2019emploi de vos rêves.',
+      ogDescription: 'Découvrez les experts en carrière, recruteurs et coachs derrière nos guides de CV.',
+    },
+    breadcrumb: { home: 'Accueil', about: 'À Propos', authors: 'Auteurs' },
+    hero: {
+      title: 'Rencontrez Nos Auteurs Experts',
+      subtitle: 'Notre équipe de coachs de carrière, recruteurs et spécialistes du secteur crée des guides de CV pratiques basés sur une expérience réelle du recrutement.',
+    },
+    viewProfile: 'Voir le Profil',
+    cta: {
+      title: 'Créez Votre CV avec des Conseils d\u2019Experts',
+      subtitle: 'Notre créateur IA applique les mêmes stratégies que nos experts recommandent. Créez un CV professionnel en quelques minutes.',
+      button: 'Créer Mon CV \u2014 Gratuit',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Accueil', about: 'À Propos' },
+    atOrg: '{jobTitle} chez {organization}',
+    authorOfGuides: ' Auteur de {count}+ guides de carrière et articles.',
+    connectLinkedIn: 'Se connecter sur LinkedIn',
+    viewAllGuides: 'Voir Tous les Guides',
+    areasOfExpertise: 'Domaines d\u2019Expertise',
+    resumeGuidesBy: 'Guides de CV par {name}',
+    guidesCount: '{count} guides',
+    coverLetterExamplesBy: 'Exemples de Lettres de Motivation par {name}',
+    examplesCount: '{count} exemples',
+    blogPostsBy: 'Articles de Blog par {name}',
+    postsCount: '{count} articles',
+    viewAllResumes: 'Voir les {count} guides de CV',
+    viewAllCoverLetters: 'Voir les {count} exemples de lettres de motivation',
+    viewAllBlogPosts: 'Voir les {count} articles de blog',
+    cta: {
+      title: 'Créez Votre CV avec des Conseils d\u2019Experts',
+      subtitle: 'Utilisez les mêmes stratégies que {name} recommande. Notre créateur IA applique automatiquement les techniques d\u2019experts pour votre CV.',
+      button: 'Créer Mon CV \u2014 Gratuit',
+    },
+  },
+};
+
+const de: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Über Uns',
+      title: 'Die Zukunft des',
+      titleHighlight: 'beruflichen Erfolgs gestalten',
+      subtitle: 'Best AI Resume hat es sich zur Aufgabe gemacht, Arbeitssuchenden weltweit dabei zu helfen, professionelle, ATS-optimierte Lebensläufe zu erstellen, die Türen zu ihrer Traumkarriere öffnen.',
+    },
+    story: {
+      badge: 'Unsere Geschichte',
+      heading: 'Warum wir Best AI Resume entwickelt haben',
+      p1: 'Uns fiel auf, dass talentierte Fachkräfte übersehen wurden, nur weil ihre Lebensläufe die automatisierten Auswahlsysteme nicht überstanden. Der traditionelle Prozess der Lebenslauferstellung war zeitaufwendig, frustrierend und führte oft zu Dokumenten, die das wahre Potenzial der Kandidaten nicht widerspiegelten.',
+      p2: 'Deshalb haben wir Best AI Resume geschaffen \u2014 eine Plattform, die die Kraft der künstlichen Intelligenz mit professionellem, ansprechendem Design verbindet. Unser Ziel ist einfach: Jedem Arbeitssuchenden zu helfen, sich potenziellen Arbeitgebern von seiner besten Seite zu präsentieren.',
+      p3: 'Heute haben wir über 50.000 Fachkräften geholfen, ihren Traumjob zu finden, indem wir Lebensläufe erstellt haben, die auffallen und gleichzeitig die ATS-Prüfung mit Bravour bestehen.',
+    },
+    stats: [
+      { value: '50K+', label: 'Erstellte Lebensläufe' },
+      { value: '98%', label: 'ATS-Erfolgsrate' },
+      { value: '20+', label: 'Vorlagen' },
+      { value: '4.9', label: 'Nutzerbewertung' },
+    ],
+    values: {
+      badge: 'Unsere Werte',
+      heading: 'Was uns antreibt',
+      cards: [
+        { title: 'Datenschutz Zuerst', text: 'Ihre Daten gehören Ihnen. Wir speichern Ihre Lebenslaufdaten lokal in Ihrem Browser, nicht auf unseren Servern. Nur Ihre Zugangsdaten werden sicher bei uns aufbewahrt.' },
+        { title: 'Innovation', text: 'Wir nutzen modernste KI-Technologie, um Ihnen beim Verfassen überzeugender Inhalte zu helfen, die Ihre Leistungen hervorheben und die Aufmerksamkeit von Recruitern gewinnen.' },
+        { title: 'Zugänglichkeit', text: 'Professionelle Lebenslauf-Tools sollten nicht hinter teuren Bezahlschranken verborgen sein. Wir bieten leistungsstarke Funktionen, die für jeden zugänglich und erschwinglich sind.' },
+      ],
+    },
+    experts: {
+      badge: 'Expertise, der Sie vertrauen können',
+      heading: 'Lernen Sie Unsere Karriere-Experten Kennen',
+      subtitle: 'Unser Team aus Karrierecoaches, Recruitern und Branchenspezialisten bringt umfassende Fachkenntnisse in die Lebenslauf-Ratgeber ein, die sie verfassen.',
+    },
+    editorial: {
+      heading: 'Unsere Redaktionellen Standards',
+      items: [
+        { title: 'Datenbasierte Ratschläge', text: 'Jeder Tipp, den wir teilen, wird an echten ATS-Systemen getestet und von Branchenexperten verifiziert.' },
+        { title: 'Der Mensch im Mittelpunkt', text: 'Wir glauben, dass KI unterstützen, nicht ersetzen soll. Wir setzen auf Strategien, die zuerst menschliche Recruiter überzeugen.' },
+      ],
+    },
+    commitment: {
+      heading: 'Unser Versprechen an Sie',
+      p1: 'Bei Best AI Resume glauben wir, dass Ihr Karriereweg persönlich ist. Deshalb haben wir eine Plattform entwickelt, die Ihre Privatsphäre respektiert und Ihnen gleichzeitig leistungsstarke Werkzeuge für Ihren Erfolg bietet. Ihre Lebenslaufdaten verbleiben auf Ihrem Gerät und geben Ihnen die volle Kontrolle über Ihre Informationen.',
+      p2: 'Wir verbessern ständig unsere KI-Algorithmen, fügen neue Vorlagen hinzu und erweitern unsere Funktionen auf Basis des Feedbacks unserer Nutzer. Ihr Erfolg ist unser Erfolg, und wir sind entschlossen, Sie bei jedem Schritt zu begleiten.',
+    },
+    cta: {
+      title: 'Bereit, sich',
+      titleHighlight: 'über 50.000 Erfolgsgeschichten anzuschließen?',
+      subtitle: 'Beginnen Sie noch heute mit der Erstellung Ihres professionellen Lebenslaufs und machen Sie den ersten Schritt zu Ihrer Traumkarriere.',
+      button: 'Kostenlos Starten',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Unsere Experten-Autoren | Best AI Resume',
+      description: 'Lernen Sie die Karriereexperten, Recruiter und Coaches hinter unseren Lebenslauf-Ratgebern kennen. Unsere Autoren bringen echte Erfahrung aus dem Recruiting mit, um Ihnen zu Ihrem Traumjob zu verhelfen.',
+      ogDescription: 'Lernen Sie die Karriereexperten, Recruiter und Coaches hinter unseren Lebenslauf-Ratgebern kennen.',
+    },
+    breadcrumb: { home: 'Startseite', about: 'Über Uns', authors: 'Autoren' },
+    hero: {
+      title: 'Lernen Sie Unsere Experten-Autoren Kennen',
+      subtitle: 'Unser Team aus Karrierecoaches, Recruitern und Branchenspezialisten erstellt praxisnahe Lebenslauf-Ratgeber, die auf echten Erfahrungen im Recruiting basieren.',
+    },
+    viewProfile: 'Profil Ansehen',
+    cta: {
+      title: 'Erstellen Sie Ihren Lebenslauf mit Experten-Beratung',
+      subtitle: 'Unser KI-Baukasten wendet dieselben Strategien an, die unsere Experten empfehlen. Erstellen Sie in wenigen Minuten einen professionellen Lebenslauf.',
+      button: 'Meinen Lebenslauf Erstellen \u2014 Kostenlos',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Startseite', about: 'Über Uns' },
+    atOrg: '{jobTitle} bei {organization}',
+    authorOfGuides: ' Autor von {count}+ Karriere-Ratgebern und Artikeln.',
+    connectLinkedIn: 'Auf LinkedIn vernetzen',
+    viewAllGuides: 'Alle Ratgeber Ansehen',
+    areasOfExpertise: 'Fachgebiete',
+    resumeGuidesBy: 'Lebenslauf-Ratgeber von {name}',
+    guidesCount: '{count} Ratgeber',
+    coverLetterExamplesBy: 'Anschreiben-Beispiele von {name}',
+    examplesCount: '{count} Beispiele',
+    blogPostsBy: 'Blog-Beiträge von {name}',
+    postsCount: '{count} Beiträge',
+    viewAllResumes: 'Alle {count} Lebenslauf-Ratgeber ansehen',
+    viewAllCoverLetters: 'Alle {count} Anschreiben-Beispiele ansehen',
+    viewAllBlogPosts: 'Alle {count} Blog-Beiträge ansehen',
+    cta: {
+      title: 'Erstellen Sie Ihren Lebenslauf mit Experten-Beratung',
+      subtitle: 'Nutzen Sie dieselben Strategien, die {name} empfiehlt. Unser KI-Baukasten wendet Experten-Techniken für Ihren Lebenslauf automatisch an.',
+      button: 'Meinen Lebenslauf Erstellen \u2014 Kostenlos',
+    },
+  },
+};
+
+const ar: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'من نحن',
+      title: 'نبني مستقبل',
+      titleHighlight: 'النجاح المهني',
+      subtitle: 'تسعى Best AI Resume إلى مساعدة الباحثين عن عمل حول العالم في إنشاء سير ذاتية احترافية ومحسّنة لأنظمة ATS تفتح أبواب وظائف أحلامهم.',
+    },
+    story: {
+      badge: 'قصتنا',
+      heading: 'لماذا أنشأنا Best AI Resume',
+      p1: 'لاحظنا أن محترفين موهوبين كانوا يُتجاهلون لمجرد أن سيرهم الذاتية لم تتجاوز أنظمة الفرز الآلية. كانت عملية إنشاء السيرة الذاتية التقليدية مستهلكة للوقت ومحبطة، وغالبًا ما أنتجت مستندات لم تُبرز الإمكانات الحقيقية للمرشحين.',
+      p2: 'لهذا السبب أنشأنا Best AI Resume \u2014 منصة تجمع بين قوة الذكاء الاصطناعي والتصميم الاحترافي الأنيق. هدفنا بسيط: مساعدة كل باحث عن عمل في تقديم أفضل صورة عن نفسه لأصحاب العمل المحتملين.',
+      p3: 'اليوم، ساعدنا أكثر من 50,000 محترف في الحصول على وظائف أحلامهم من خلال إنشاء سير ذاتية تتميز وتتجاوز فلاتر ATS بنجاح.',
+    },
+    stats: [
+      { value: '50K+', label: 'سيرة ذاتية تم إنشاؤها' },
+      { value: '98%', label: 'معدل اجتياز ATS' },
+      { value: '20+', label: 'قالب' },
+      { value: '4.9', label: 'تقييم المستخدمين' },
+    ],
+    values: {
+      badge: 'قيمنا',
+      heading: 'ما يدفعنا للأمام',
+      cards: [
+        { title: 'الخصوصية أولاً', text: 'بياناتك ملكك. نقوم بتخزين بيانات سيرتك الذاتية محليًا في متصفحك، وليس على خوادمنا. فقط بيانات تسجيل الدخول الخاصة بك تُحفظ بأمان لدينا.' },
+        { title: 'الابتكار', text: 'نستفيد من أحدث تقنيات الذكاء الاصطناعي لمساعدتك في كتابة محتوى مقنع يُبرز إنجازاتك ويلفت انتباه مسؤولي التوظيف.' },
+        { title: 'إمكانية الوصول', text: 'لا ينبغي أن تكون أدوات السيرة الذاتية الاحترافية محصورة خلف جدران دفع باهظة. نقدم ميزات قوية يمكن للجميع الوصول إليها وتحمل تكلفتها.' },
+      ],
+    },
+    experts: {
+      badge: 'خبرة يمكنك الوثوق بها',
+      heading: 'تعرّف على خبراء المسار المهني لدينا',
+      subtitle: 'يقدم فريقنا من مدربي المسار المهني والمسؤولين عن التوظيف والمتخصصين في القطاع خبرة عميقة في أدلة السيرة الذاتية التي يكتبونها.',
+    },
+    editorial: {
+      heading: 'معاييرنا التحريرية',
+      items: [
+        { title: 'نصائح مبنية على البيانات', text: 'كل نصيحة نشاركها يتم اختبارها على أنظمة ATS حقيقية والتحقق منها من قبل متخصصين في المجال.' },
+        { title: 'نهج يضع الإنسان أولاً', text: 'نؤمن بأن الذكاء الاصطناعي يجب أن يُمكّن لا أن يحلّ محل الإنسان. نعطي الأولوية للاستراتيجيات التي تجذب مسؤولي التوظيف البشريين أولاً.' },
+      ],
+    },
+    commitment: {
+      heading: 'التزامنا تجاهك',
+      p1: 'في Best AI Resume، نؤمن بأن مسيرتك المهنية شخصية. لهذا بنينا منصة تحترم خصوصيتك مع تزويدك بأدوات قوية للنجاح. تبقى بيانات سيرتك الذاتية على جهازك، مما يمنحك السيطرة الكاملة على معلوماتك.',
+      p2: 'نعمل باستمرار على تحسين خوارزميات الذكاء الاصطناعي لدينا وإضافة قوالب جديدة وتعزيز ميزاتنا بناءً على ملاحظات المستخدمين. نجاحك هو نجاحنا، ونحن ملتزمون بمساعدتك في كل خطوة.',
+    },
+    cta: {
+      title: 'مستعد للانضمام إلى',
+      titleHighlight: 'أكثر من 50,000 قصة نجاح؟',
+      subtitle: 'ابدأ بإنشاء سيرتك الذاتية الاحترافية اليوم واتخذ الخطوة الأولى نحو مسيرتك المهنية التي تحلم بها.',
+      button: 'ابدأ مجانًا',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'مؤلفونا الخبراء | Best AI Resume',
+      description: 'تعرّف على خبراء المسار المهني والمسؤولين عن التوظيف والمدربين وراء أدلة السيرة الذاتية لدينا. يقدم مؤلفونا خبرة حقيقية في التوظيف لمساعدتك في الحصول على وظيفة أحلامك.',
+      ogDescription: 'تعرّف على خبراء المسار المهني والمسؤولين عن التوظيف والمدربين وراء أدلة السيرة الذاتية لدينا.',
+    },
+    breadcrumb: { home: 'الرئيسية', about: 'من نحن', authors: 'المؤلفون' },
+    hero: {
+      title: 'تعرّف على مؤلفينا الخبراء',
+      subtitle: 'يقوم فريقنا من مدربي المسار المهني والمسؤولين عن التوظيف والمتخصصين في القطاع بإنشاء أدلة سيرة ذاتية عملية مبنية على خبرة حقيقية في التوظيف.',
+    },
+    viewProfile: 'عرض الملف الشخصي',
+    cta: {
+      title: 'أنشئ سيرتك الذاتية بتوجيه من الخبراء',
+      subtitle: 'يطبّق منشئنا بالذكاء الاصطناعي نفس الاستراتيجيات التي يوصي بها خبراؤنا. أنشئ سيرة ذاتية احترافية في دقائق.',
+      button: 'إنشاء سيرتي الذاتية \u2014 مجانًا',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'الرئيسية', about: 'من نحن' },
+    atOrg: '{jobTitle} في {organization}',
+    authorOfGuides: ' مؤلف {count}+ دليل مهني ومقال.',
+    connectLinkedIn: 'التواصل عبر LinkedIn',
+    viewAllGuides: 'عرض جميع الأدلة',
+    areasOfExpertise: 'مجالات الخبرة',
+    resumeGuidesBy: 'أدلة السيرة الذاتية بقلم {name}',
+    guidesCount: '{count} دليل',
+    coverLetterExamplesBy: 'نماذج خطابات التغطية بقلم {name}',
+    examplesCount: '{count} نموذج',
+    blogPostsBy: 'مقالات المدونة بقلم {name}',
+    postsCount: '{count} مقال',
+    viewAllResumes: 'عرض جميع أدلة السيرة الذاتية ({count})',
+    viewAllCoverLetters: 'عرض جميع نماذج خطابات التغطية ({count})',
+    viewAllBlogPosts: 'عرض جميع مقالات المدونة ({count})',
+    cta: {
+      title: 'أنشئ سيرتك الذاتية بتوجيه من الخبراء',
+      subtitle: 'استخدم نفس الاستراتيجيات التي يوصي بها {name}. يطبّق منشئنا بالذكاء الاصطناعي تقنيات خبراء السيرة الذاتية تلقائيًا.',
+      button: 'إنشاء سيرتي الذاتية \u2014 مجانًا',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }
