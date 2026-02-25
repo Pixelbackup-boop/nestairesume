@@ -1,0 +1,222 @@
+{
+  "Home": {
+    "hero": {
+      "badge": "Creazione CV con Intelligenza Artificiale",
+      "title": "Crea il Tuo CV con AI",
+      "titleHighlight": "in Pochi Minuti",
+      "subtitle": "Nessuna Registrazione Necessaria",
+      "description": "Crea curriculum straordinari e ottimizzati per ATS in pochi minuti con l'AI. Provalo gratis — registrati solo quando sei pronto per salvare.",
+      "ctaPrimary": "Crea con AI",
+      "ctaSecondary": "Sfoglia i Modelli",
+      "noCreditCard": "Nessuna carta di credito richiesta",
+      "noSignup": "Nessuna registrazione per iniziare",
+      "trustedBy": "Scelto da oltre 50.000 professionisti",
+      "atsScore": "Punteggio ATS",
+      "aiSuggestion": "Suggerimento AI"
+    },
+    "features": {
+      "sectionTitle": "Funzionalità",
+      "title": "Tutto ciò che serve per",
+      "titleHighlight": "ottenere il lavoro dei tuoi sogni",
+      "subtitle": "Strumenti AI potenti combinati con un design raffinato per aiutarti a distinguerti dalla massa.",
+      "aiWriting": {
+        "title": "Scrittura con AI",
+        "description": "Lascia che la nostra AI crei punti elenco efficaci e riassunti professionali che mettano in risalto i tuoi risultati."
+      },
+      "templates": {
+        "title": "Oltre 20 Modelli Premium",
+        "description": "Scegli tra modelli progettati professionalmente che si distinguono mantenendo la compatibilità ATS."
+      },
+      "atsOptimization": {
+        "title": "Ottimizzazione ATS",
+        "description": "Il punteggio ATS in tempo reale garantisce che il tuo CV superi sempre i sistemi di screening automatizzati."
+      },
+      "realTimePreview": {
+        "title": "Anteprima in Tempo Reale",
+        "description": "Visualizza le modifiche istantaneamente mentre scrivi. Ciò che vedi è esattamente ciò che vedranno i recruiter."
+      },
+      "pdfExport": {
+        "title": "Esportazione PDF",
+        "description": "Scarica PDF perfetti al pixel, pronti per l'invio. Ottimizzati sia per il digitale che per la stampa."
+      },
+      "smartSuggestions": {
+        "title": "Suggerimenti Intelligenti",
+        "description": "Ricevi raccomandazioni intelligenti per competenze, parole chiave e contenuti basati sul ruolo desiderato."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Come Funziona",
+      "title": "Tre passaggi per il tuo",
+      "titleHighlight": "CV perfetto",
+      "step1": {
+        "title": "Inserisci i Tuoi Dati",
+        "description": "Inserisci le tue esperienze, la formazione e le competenze. La nostra AI ti assiste in ogni fase."
+      },
+      "step2": {
+        "title": "Scegli il Modello",
+        "description": "Seleziona tra oltre 20 modelli progettati professionalmente. Visualizza l'anteprima in tempo reale durante la personalizzazione."
+      },
+      "step3": {
+        "title": "Scarica il PDF",
+        "description": "Esporta il tuo CV perfezionato come PDF perfetto al pixel, pronto per impressionare i recruiter."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Modelli",
+      "title": "Modelli premium per",
+      "titleHighlight": "ogni professione",
+      "viewAll": "Vedi Tutti i Modelli"
+    },
+    "testimonials": {
+      "sectionTitle": "Testimonianze",
+      "title": "Amato dai professionisti",
+      "titleHighlight": "di tutto il mondo"
+    },
+    "cta": {
+      "title": "Pronto a creare il tuo",
+      "titleHighlight": "CV vincente?",
+      "subtitle": "Unisciti a oltre 50.000 professionisti che hanno già ottenuto il lavoro dei loro sogni con Best AI Resume.",
+      "button": "Crea il Tuo CV Ora — Gratis",
+      "note": "Nessuna registrazione necessaria per iniziare"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Domande",
+      "titleHighlight": "Frequenti",
+      "items": [
+        {
+          "question": "Questo generatore di CV con AI è davvero gratuito?",
+          "answer": "Sì! Puoi creare, modificare e visualizzare l'anteprima del tuo CV in modo completamente gratuito. Offriamo piani premium per funzionalità avanzate come download PDF illimitati e modelli aggiuntivi, ma puoi creare un CV professionale senza pagare nulla."
+        },
+        {
+          "question": "Cos'è un ATS e perché è importante?",
+          "answer": "ATS (Applicant Tracking System) è un software utilizzato dal 99% delle aziende Fortune 500 per scansionare e filtrare i CV. La nostra AI garantisce che il tuo CV sia ottimizzato per ATS con le parole chiave, la formattazione e la struttura giuste per superare questi screening automatizzati."
+        },
+        {
+          "question": "Come mi aiuta l'AI a scrivere il mio CV?",
+          "answer": "La nostra AI analizza il tuo titolo professionale e la tua esperienza per generare punti elenco professionali, riassunti e suggerimenti sulle competenze. Utilizza parole chiave specifiche del settore e un linguaggio orientato ai risultati che i recruiter cercano."
+        },
+        {
+          "question": "Devo registrarmi per usare il generatore?",
+          "answer": "Non è necessaria nessuna registrazione per iniziare! Puoi creare l'intero CV prima. Registrati solo quando vuoi salvare i tuoi progressi o scaricare. Questo ti permette di provare tutto senza rischi."
+        },
+        {
+          "question": "Posso scaricare il mio CV come PDF?",
+          "answer": "Sì! Esporta il tuo CV come PDF perfetto al pixel, identico all'anteprima. I PDF sono ottimizzati sia per le candidature digitali che per la stampa su carta formato standard."
+        },
+        {
+          "question": "Quanto tempo ci vuole per creare un CV?",
+          "answer": "La maggior parte degli utenti crea un CV professionale in meno di 10 minuti. I suggerimenti AI e i contenuti pre-scritti velocizzano notevolmente il processo rispetto a partire da zero."
+        }
+      ]
+    },
+    "companies": {
+      "title": "I nostri utenti sono stati assunti da",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+    }
+  },
+  "Features": {
+    "meta": {
+      "title": "Funzionalità del Generatore di CV con AI - Scrittura Intelligente, Ottimizzazione ATS e Altro",
+      "description": "Scopri le funzionalità potenti: scrittura con AI, punteggio ATS in tempo reale, oltre 50 modelli, esportazione PDF istantanea. Crea CV professionali che ottengono colloqui."
+    }
+  },
+  "Templates": {
+    "meta": {
+      "title": "Oltre 50 Modelli di CV Professionali - Gratuiti e Compatibili con ATS",
+      "description": "Sfoglia oltre 50 modelli di CV professionali. Design moderni, creativi e minimalisti ottimizzati per ATS. Personalizzabili e scaricabili gratuitamente."
+    },
+    "sectionTitle": "Modelli",
+    "title": "I Migliori Modelli di CV",
+    "titleHighlight": "del 2026",
+    "subtitle": "Seleziona una modalità di modifica e scegli tra i nostri modelli progettati professionalmente.",
+    "searchPlaceholder": "Cerca modelli...",
+    "templatesAvailable": "{count} modell{count, plural, one {o disponibile} other {i disponibili}}",
+    "noResults": "Nessun modello trovato",
+    "noResultsHint": "Prova a modificare la ricerca o il filtro",
+    "useTemplate": "Usa Modello",
+    "formBuilder": {
+      "title": "Editor con Modulo",
+      "description": "Modifica guidata passo dopo passo",
+      "hint": "Compila i moduli e lascia che il modello gestisca il design. Perfetto per CV professionali e veloci."
+    },
+    "canvasEditor": {
+      "title": "Editor Canvas",
+      "description": "Piena libertà creativa",
+      "hint": "Trascina, rilascia e progetta liberamente. Controllo totale su ogni elemento, come Canva per i CV."
+    },
+    "categories": {
+      "all": "Tutti",
+      "professional": "Professionale",
+      "creative": "Creativo",
+      "minimal": "Semplice e Pulito",
+      "modern": "Moderno",
+      "classic": "Classico"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Vuoi partire da zero?",
+        "description": "Crea un CV completamente personalizzato utilizzando i potenti strumenti del nostro Editor Canvas.",
+        "button": "Apri Canvas Vuoto"
+      },
+      "builder": {
+        "title": "Vuoi che l'AI crei il tuo CV?",
+        "description": "Lascia che la nostra AI crei un CV professionale in pochi secondi basandosi sul tuo titolo professionale.",
+        "button": "Crea con AI"
+      }
+    }
+  },
+  "Resume": {
+    "sections": {
+      "contact": "Contatto",
+      "experience": "Esperienza",
+      "workExperience": "Esperienza Lavorativa",
+      "professionalExperience": "Esperienza Professionale",
+      "education": "Formazione",
+      "skills": "Competenze",
+      "coreSkills": "Competenze Principali",
+      "technicalSkills": "Competenze Tecniche",
+      "languages": "Lingue",
+      "interests": "Interessi",
+      "strengths": "Punti di Forza",
+      "certifications": "Certificazioni",
+      "awards": "Premi",
+      "projects": "Progetti",
+      "summary": "Riepilogo",
+      "professionalSummary": "Riepilogo Professionale",
+      "profile": "Profilo",
+      "about": "Chi Sono",
+      "additionalInfo": "Informazioni Aggiuntive",
+      "socialLinks": "Link Social",
+      "personalDetails": "Dati Personali",
+      "credentials": "Credenziali"
+    },
+    "labels": {
+      "present": "Presente",
+      "gpa": "GPA",
+      "native": "Madrelingua",
+      "fluent": "Fluente",
+      "advanced": "Avanzato",
+      "intermediate": "Intermedio",
+      "basic": "Base"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "Chi Siamo - Best AI Resume - La Nostra Missione per Trasformare la Ricerca di Lavoro",
+      "description": "Scopri Best AI Resume - la piattaforma basata su AI che aiuta migliaia di persone a ottenere il lavoro dei loro sogni. La nostra missione, i nostri valori e il nostro impegno per il tuo successo professionale."
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Informativa sulla Privacy - Best AI Resume",
+      "description": "Scopri come Best AI Resume protegge i tuoi dati. La nostra informativa sulla privacy spiega come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali."
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "Termini di Servizio - Best AI Resume",
+      "description": "Leggi i termini di servizio di Best AI Resume. Comprendi i tuoi diritti e le tue responsabilità nell'utilizzo della nostra piattaforma di generazione CV con AI."
+    }
+  }
+}

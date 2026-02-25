@@ -1,0 +1,149 @@
+{
+  "ATSTemplates": {
+    "meta": {
+      "title": "Modelli di CV Gratuiti Compatibili con ATS (2026) | Supera Ogni Scansione ATS",
+      "description": "Sfoglia 16 modelli di CV gratuiti compatibili con ATS progettati per superare i sistemi di tracciamento candidature. Formattazione pulita, font standard e layout analizzabili testati con software ATS reale."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Modelli Compatibili con ATS"
+    },
+    "hero": {
+      "badge": "100% Compatibile con ATS",
+      "title": "Modelli di CV Compatibili con ATS",
+      "subtitle": "Il 97% delle aziende Fortune 500 utilizza sistemi di Applicant Tracking per filtrare i CV prima che un essere umano li veda (Jobscan, 2024). Ogni modello qui sotto è costruito per superare lo screening ATS — così il tuo CV raggiunge una persona reale, ogni volta.",
+      "check1": "Supera l'analisi ATS",
+      "check2": "Gratuito da usare",
+      "check3": "Download PDF istantaneo"
+    },
+    "features": {
+      "title": "Perché i Nostri Modelli Superano lo Screening ATS",
+      "subtitle": "La maggior parte dei CV viene respinta prima che un essere umano li veda. I nostri modelli sono progettati per evitare le trappole di formattazione comuni che causano fallimenti ATS.",
+      "parseable": {
+        "title": "Layout Analizzabile dalla Macchina",
+        "description": "Struttura a colonna singola con chiara gerarchia di sezioni che il software ATS legge dall'alto verso il basso senza confusione. Nessun layout multi-colonna che mescola l'ordine dei contenuti."
+      },
+      "standardHeaders": {
+        "title": "Intestazioni di Sezione Standard",
+        "description": "Usa intestazioni come \"Esperienza\" e \"Formazione\" che ogni ATS riconosce — nessuna etichetta creativa che confonda i parser."
+      },
+      "testedATS": {
+        "title": "Testato con ATS Reali",
+        "description": "Ogni modello è testato con Workday, Greenhouse, Lever, iCIMS e Taleo — le cinque piattaforme che elaborano la maggior parte delle candidature online."
+      },
+      "cleanFormatting": {
+        "title": "Formattazione Pulita e Sicura",
+        "description": "Nessuna tabella, casella di testo, intestazione/piè di pagina o immagine incorporata che interrompa l'analisi ATS. Solo testo pulito e font standard resi come testo PDF selezionabile."
+      }
+    },
+    "grid": {
+      "title": "Scegli il Tuo Modello Compatibile con ATS",
+      "subtitle": "Tutti i 16 modelli sono completamente compatibili con ATS. Scegli qualsiasi stile — il tuo CV verrà analizzato correttamente.",
+      "useTemplate": "Usa Questo Modello"
+    },
+    "howATS": {
+      "title": "Come i Sistemi di Applicant Tracking Analizzano il Tuo CV",
+      "intro": "Comprendere il processo ATS ti aiuta a capire perché la formattazione conta più di quanto la maggior parte dei candidati pensi. Ecco cosa succede nei secondi dopo aver cliccato Candidati.",
+      "step1": {
+        "title": "Il tuo file CV viene ricevuto e convertito",
+        "description": "L'ATS riceve il tuo file PDF o DOCX e lo elabora attraverso un motore di estrazione testo. Tenta di convertire il documento in dati strutturati — separando nome, informazioni di contatto, storia lavorativa, formazione e competenze in campi distinti. Se il file usa tabelle, colonne o immagini, questo passaggio di estrazione produce dati corrotti o mancanti."
+      },
+      "step2": {
+        "title": "Il contenuto viene analizzato, mappato e valutato",
+        "description": "Una volta estratto, l'ATS mappa il tuo contenuto rispetto alla descrizione del lavoro. Cerca corrispondenze di parole chiave nelle tue competenze, titoli professionali e descrizioni delle esperienze. Sistemi come Workday e Greenhouse assegnano un punteggio di rilevanza basato su quanto il tuo CV corrisponde ai requisiti del ruolo. Un CV analizzato male ottiene un punteggio basso anche se possiedi tutte le qualifiche."
+      },
+      "step3": {
+        "title": "I recruiter esaminano i candidati classificati",
+        "description": "I recruiter tipicamente esaminano i primi 10-20 CV classificati per ogni posizione. Se la tua formattazione ha causato errori di analisi, potresti essere classificato sotto candidati meno qualificati i cui CV sono stati analizzati correttamente. I nostri modelli compatibili con ATS garantiscono che le tue qualifiche siano rappresentate accuratamente nella classifica."
+      },
+      "warning": "Importante: La compatibilità ATS è necessaria ma non sufficiente. Devi comunque personalizzare le parole chiave del tuo CV per ogni descrizione di lavoro. Usa il nostro strumento di Verifica ATS per testare il tuo CV rispetto ad annunci specifici dopo aver scelto un modello."
+    },
+    "cta": {
+      "title": "Crea il Tuo CV Compatibile con ATS Ora",
+      "subtitle": "Scegli un modello, aggiungi le tue informazioni e scarica un CV che supera ogni scansione ATS. Gratuito, nessuna registrazione necessaria.",
+      "buildButton": "Crea il Mio CV",
+      "checkButton": "Verifica il Mio CV Esistente",
+      "browseAll": "Sfoglia Tutti i Modelli",
+      "formatGuide": "Guida al Formato del CV",
+      "examples": "Oltre 300 Esempi di CV"
+    },
+    "whatMakes": {
+      "title": "Cosa Rende un Modello di CV Compatibile con ATS?",
+      "p1": "Un modello di CV compatibile con ATS è progettato in modo che i sistemi di Applicant Tracking — il software che i datori di lavoro usano per raccogliere, ordinare e classificare le candidature — possano leggere accuratamente ogni sezione del tuo CV. Quando un ATS non riesce ad analizzare il tuo CV, il tuo nome, la tua esperienza e le tue competenze potrebbero non raggiungere affatto lo schermo del recruiter. Secondo uno studio del 2023 della Harvard Business School, oltre il 75% dei CV viene respinto dall'ATS prima che un essere umano li esamini.",
+      "p2": "La ragione più comune per cui i CV non superano l'analisi ATS è la formattazione. Tabelle, layout multi-colonna, caselle di testo, font personalizzati e grafiche incorporate causano tutti errori di analisi. Un ATS legge il tuo CV come un flusso di testo dall'alto verso il basso. Se quel flusso viene interrotto da formattazione complessa, il sistema assegna erroneamente i tuoi dati — mettendo il titolo professionale dove dovrebbe essere il nome dell'azienda, o eliminando completamente la sezione competenze.",
+      "p3": "I nostri 16 modelli di CV sono progettati dalle fondamenta con la compatibilità ATS come requisito primario. Usano intestazioni di sezione standard, layout a colonna singola, font web-safe e rendering HTML-to-PDF pulito. Ogni modello è stato testato con le cinque piattaforme ATS più utilizzate: Workday, Greenhouse, Lever, iCIMS e Taleo. Il risultato è un CV che appare professionale ai recruiter e viene analizzato perfettamente dalle macchine.",
+      "link1": "Come Scrivere un CV Compatibile con ATS",
+      "link2": "Cos'è un ATS? Guida Completa",
+      "link3": "Comprendere i Tassi di Analisi ATS"
+    },
+    "mistakes": {
+      "title": "5 Errori di Formattazione che Fanno Respingere i CV dall'ATS",
+      "intro": "Anche candidati validi vengono filtrati quando la formattazione del CV confonde il parser ATS. Ecco i cinque errori più comuni che vediamo — e che i nostri modelli eliminano automaticamente.",
+      "items": {
+        "1": {
+          "title": "Usare tabelle o layout multi-colonna",
+          "description": "L'ATS legge il testo in un flusso singolo. Tabelle e colonne gli fanno unire contenuti non correlati — il tuo numero di telefono potrebbe finire nel campo del titolo professionale."
+        },
+        "2": {
+          "title": "Inserire le informazioni di contatto nelle intestazioni o piè di pagina",
+          "description": "Molte piattaforme ATS saltano completamente intestazioni e piè di pagina del documento. Se il tuo nome, email o numero di telefono è solo nell'intestazione, scompare dal tuo profilo analizzato."
+        },
+        "3": {
+          "title": "Usare etichette di sezione creative",
+          "description": "Etichette come \"Dove Sono Stato\" invece di \"Esperienza\" o \"I Miei Strumenti\" invece di \"Competenze\" fanno saltare l'intera sezione all'ATS. Usa etichette standard."
+        },
+        "4": {
+          "title": "Salvare come PDF basato su immagine o usare font non standard",
+          "description": "Se il testo non è selezionabile nel tuo PDF, l'ATS non può leggerlo. Documenti scansionati, esportazioni da strumenti di design e font poco comuni producono tutti file illeggibili."
+        },
+        "5": {
+          "title": "Aggiungere grafiche, icone o barre delle competenze",
+          "description": "Barre di progresso, valutazioni a stelle e icone per le informazioni di contatto sono invisibili all'ATS. Una valutazione di competenza \"4 stelle su 5\" diventa testo vuoto con punteggio zero."
+        }
+      },
+      "cta": "Non sei sicuro che il tuo CV attuale superi il test?",
+      "ctaLink": "Esegui una verifica gratuita di compatibilità ATS"
+    },
+    "checklist": {
+      "title": "Checklist di Compatibilità ATS",
+      "intro": "Prima di inviare qualsiasi CV, verifica che soddisfi questi otto requisiti. Ogni modello in questa pagina li soddisfa automaticamente — ma se modifichi il contenuto, tieni a mente queste regole.",
+      "items": {
+        "1": "Usa intestazioni di sezione standard (Esperienza, Formazione, Competenze)",
+        "2": "Layout a colonna singola con ordine di lettura chiaro dall'alto verso il basso",
+        "3": "Nessuna tabella, casella di testo o elemento flottante",
+        "4": "Informazioni di contatto nel corpo, non nelle intestazioni/piè di pagina",
+        "5": "Font web-safe standard (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Output PDF con testo selezionabile (non basato su immagine)",
+        "7": "Nessuna grafica, icona o barra delle competenze al posto del testo",
+        "8": "Date in formato coerente (MM/AAAA o Mese AAAA)"
+      },
+      "outro": "Hai bisogno di aiuto per personalizzare il tuo CV per un lavoro specifico? Sfoglia i nostri",
+      "outroLink": "oltre 300 esempi di CV specifici per professione"
+    },
+    "faq": {
+      "title": "Domande Frequenti sui Modelli Compatibili con ATS",
+      "items": {
+        "1": {
+          "q": "Cosa significa compatibile con ATS per un modello di CV?",
+          "a": "Un modello compatibile con ATS è progettato in modo che i sistemi di Applicant Tracking possano estrarre accuratamente nome, informazioni di contatto, storia lavorativa, formazione e competenze. Evita tabelle, layout multi-colonna, immagini incorporate e font personalizzati che causano fallimenti di analisi. Tutti i 16 modelli in questa pagina sono testati con Workday, Greenhouse, Lever, iCIMS e Taleo."
+        },
+        "2": {
+          "q": "Un CV creativo o moderno può comunque essere compatibile con ATS?",
+          "a": "Sì. La compatibilità ATS dipende dalla struttura sottostante, non dal design visivo. Un CV può usare accenti di colore, spaziatura personalizzata e tipografia stilizzata mantenendo un layout a colonna singola con testo selezionabile che l'ATS legge correttamente. I nostri modelli moderni e creativi raggiungono questo equilibrio — appaiono distintivi ai recruiter mentre vengono analizzati perfettamente dalle macchine."
+        },
+        "3": {
+          "q": "Devo inviare il mio CV come PDF o DOCX per l'ATS?",
+          "a": "Il PDF è generalmente la scelta più sicura nel 2026. Le piattaforme ATS moderne (Workday, Greenhouse, Lever) analizzano i PDF ben strutturati in modo affidabile. Il DOCX può introdurre incoerenze di formattazione tra diverse versioni di Word. Il nostro generatore esporta PDF con testo selezionabile ottimizzati per l'analisi ATS — raccomandiamo di usare il PDF a meno che l'annuncio di lavoro richieda esplicitamente il DOCX."
+        },
+        "4": {
+          "q": "Come faccio a sapere se il mio CV supera lo screening ATS?",
+          "a": "Usa il nostro strumento gratuito di Verifica ATS per caricare il tuo CV e vedere come un ATS lo legge. Lo strumento mostra quali campi sono stati analizzati correttamente, quali parole chiave corrispondono alla descrizione del lavoro e dove si sono verificati errori di analisi. Puoi testare tutte le volte che vuoi prima di inviare la tua candidatura."
+        },
+        "5": {
+          "q": "Ho bisogno di un modello diverso per ogni candidatura?",
+          "a": "No — un modello compatibile con ATS funziona per tutte le candidature. Ciò che dovresti cambiare tra le candidature è il contenuto: personalizza la sezione competenze, il riepilogo professionale e i punti dei risultati per corrispondere alle parole chiave di ogni descrizione del lavoro. La struttura del modello rimane la stessa; cambiano le parole chiave."
+        }
+      }
+    }
+  }
+}

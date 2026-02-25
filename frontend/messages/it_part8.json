@@ -1,0 +1,211 @@
+{
+  "CareerTips": {
+    "meta": {
+      "title": "Consigli di Carriera e Suggerimenti per il CV - Guide Esperte | Best AI Resume",
+      "description": "Consigli esperti sulla carriera, suggerimenti per la scrittura del CV e strategie di ricerca lavoro. Scopri come creare CV con AI, superare i colloqui e ottenere il lavoro dei tuoi sogni."
+    },
+    "hero": {
+      "badge": "Guide Esperte sulla Carriera",
+      "title": "Consigli di Carriera",
+      "titleHighlight": "e Suggerimenti Esperti",
+      "subtitle": "Padroneggia la scrittura del CV, supera i colloqui e accelera la tua carriera con le nostre guide esperte."
+    },
+    "featured": "Articoli in Evidenza",
+    "featuredBadge": "In Evidenza",
+    "allArticles": "Tutti gli Articoli",
+    "searchPlaceholder": "Cerca articoli...",
+    "articleCount": "{count, plural, one {# articolo} other {# articoli}}",
+    "noArticles": "Nessun articolo trovato",
+    "noArticlesHint": "Prova a modificare la ricerca o il filtro",
+    "categories": {
+      "title": "Categorie",
+      "all": "Tutti gli Articoli",
+      "resumeTips": "Consigli per il CV",
+      "coverLetters": "Lettere di Presentazione",
+      "interviews": "Consigli per i Colloqui",
+      "jobSearch": "Ricerca di Lavoro",
+      "careerAdvice": "Consigli di Carriera",
+      "aiResume": "CV con AI"
+    },
+    "article": {
+      "readMore": "Leggi di Più",
+      "tableOfContents": "Indice",
+      "relatedArticles": "Articoli Correlati",
+      "moreCareerTips": "Altri Consigli di Carriera",
+      "shareHelpful": "Ti è stato utile?",
+      "shareWithOthers": "Condividilo con chi potrebbe trarne beneficio",
+      "tags": "Tag:",
+      "breadcrumbHome": "Home",
+      "breadcrumbCareerTips": "Consigli di Carriera",
+      "notFound": "Articolo Non Trovato"
+    },
+    "cta": {
+      "title": "Pronto a Creare il Tuo CV?",
+      "subtitle": "Metti in pratica questi consigli con il nostro generatore di CV basato su AI. Crea un CV professionale in pochi minuti.",
+      "button": "Crea il Tuo CV Ora",
+      "sidebarTitle": "Crea il Tuo CV",
+      "sidebarSubtitle": "Crea un CV professionale con AI in pochi minuti.",
+      "sidebarButton": "Inizia Ora"
+    }
+  },
+  "ResumeExamples": {
+    "meta": {
+      "title": "Esempi di CV per Titolo Professionale | Modelli e Guide Gratuite 2026",
+      "description": "Sfoglia oltre 50 esempi di CV professionali per titolo di lavoro. Ognuno include un modello gratuito, competenze chiave e consigli di scrittura per ottenere il lavoro dei tuoi sogni."
+    },
+    "hero": {
+      "badge": "Guide Specifiche per Professione",
+      "title": "Esempi di CV",
+      "titleHighlight": "per Titolo Professionale",
+      "subtitle": "Trova la tua professione e ottieni un modello di CV personalizzato con consigli specifici del settore."
+    },
+    "searchPlaceholder": "Cerca per titolo professionale...",
+    "featured": "Esempi di CV in Evidenza",
+    "allExamples": "Tutti gli Esempi di CV",
+    "noResults": "Nessun esempio di CV trovato",
+    "noResultsHint": "Prova a modificare la ricerca o il filtro",
+    "cta": {
+      "title": "Pronto a creare il tuo CV vincente?",
+      "subtitle": "Usa il nostro generatore basato su AI per creare un CV professionale in pochi minuti.",
+      "button": "Crea il Mio CV — Gratis"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "Verifica ATS Gratuita per CV | Valuta il Tuo CV Istantaneamente | Best AI Resume",
+      "description": "Verifica il tuo CV per i sistemi ATS gratuitamente. Ottieni punteggio istantaneo, analisi delle parole chiave e consigli di ottimizzazione per superare lo screening automatizzato."
+    },
+    "hero": {
+      "badge": "Verifica ATS Gratuita per CV",
+      "title": "Il Tuo CV è",
+      "titleHighlight": "Compatibile con ATS?",
+      "statistic": "Il 75% dei CV viene respinto dall'ATS prima che un essere umano li veda.",
+      "description": "Il nostro strumento gratuito di verifica ATS analizza il tuo CV per problemi di formattazione, parole chiave mancanti e problemi di compatibilità che causano rifiuti automatici."
+    },
+    "tool": {
+      "title": "Verifica il Punteggio ATS del Tuo CV",
+      "description": "Carica il tuo CV in formato PDF o DOCX e ottieni un punteggio istantaneo di compatibilità ATS con feedback dettagliato.",
+      "uploadBtn": "Clicca per caricare o trascina e rilascia",
+      "formats": "PDF o DOCX — Max 10MB",
+      "checkBtn": "Verifica il Mio CV",
+      "changeFile": "Cambia file",
+      "analyzing": "Analisi del tuo CV…",
+      "cta": "Crea un CV Compatibile con ATS",
+      "subtext": "Gratuito — nessuna carta di credito richiesta"
+    },
+    "checks": {
+      "title": "Cosa Verificano i Sistemi ATS",
+      "subtitle": "Capire cosa scansiona il software ATS ti aiuta a ottimizzare il tuo CV per la massima visibilità.",
+      "keywords": {
+        "title": "Corrispondenza delle Parole Chiave",
+        "description": "L'ATS cerca parole chiave specifiche dell'offerta di lavoro. La mancanza di termini critici significa rifiuto automatico."
+      },
+      "formatting": {
+        "title": "Formattazione Pulita",
+        "description": "Layout complessi, tabelle e colonne confondono i parser ATS. I formati semplici a colonna singola vengono analizzati meglio."
+      },
+      "contact": {
+        "title": "Informazioni di Contatto",
+        "description": "L'ATS cerca nome, email, telefono e località in formati standard. Informazioni mancanti significano opportunità perse."
+      },
+      "dates": {
+        "title": "Formati di Data Coerenti",
+        "description": "I sistemi ATS analizzano le date di impiego per calcolare l'esperienza. Formati incoerenti causano errori di analisi."
+      }
+    },
+    "checklist": {
+      "title": "Checklist di Ottimizzazione ATS",
+      "subtitle": "Segui queste linee guida per massimizzare le possibilità del tuo CV di superare lo screening ATS.",
+      "doThis": "Da Fare",
+      "avoidThis": "Da Evitare",
+      "dos": {
+        "singleColumn": "Usa un layout a colonna singola per la massima compatibilità",
+        "keywords": "Includi parole chiave dalla descrizione del lavoro in modo naturale",
+        "standardHeadings": "Usa intestazioni di sezione standard (Esperienza, Formazione, Competenze)",
+        "fileFormat": "Invia come PDF o DOCX come specificato dal datore di lavoro",
+        "standardFonts": "Usa font standard come Arial, Calibri o Times New Roman",
+        "spellOut": "Scrivi per esteso gli acronimi, poi abbrevia (es. Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "Non usare tabelle o caselle di testo per il layout",
+        "images": "Non includere immagini, loghi o grafiche",
+        "headers": "Non inserire informazioni importanti nelle intestazioni o piè di pagina",
+        "creativeTitles": "Non usare titoli di sezione creativi (es. 'Il Mio Percorso' invece di 'Esperienza')",
+        "fancyFonts": "Non usare font decorativi o poco comuni",
+        "lightText": "Non usare testo grigio chiaro o con basso contrasto"
+      }
+    },
+    "systems": {
+      "title": "Sistemi ATS Più Diffusi",
+      "subtitle": "I nostri modelli sono testati e ottimizzati per tutti i principali sistemi di Applicant Tracking utilizzati dai datori di lavoro in tutto il mondo."
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "whatIsAts": {
+        "question": "Cos'è un ATS (Applicant Tracking System)?",
+        "answer": "Un ATS è un software utilizzato dai datori di lavoro per raccogliere, scansionare e classificare le candidature. Filtra i CV in base a parole chiave, formattazione e pertinenza prima che un recruiter li veda. Oltre il 98% delle aziende Fortune 500 utilizza un ATS."
+      },
+      "whyFail": {
+        "question": "Perché i CV non superano lo screening ATS?",
+        "answer": "I motivi comuni includono formattazione complessa (tabelle, colonne, grafiche), parole chiave mancanti dalla descrizione del lavoro, intestazioni di sezione non standard, formati di file incompatibili e informazioni inserite in intestazioni o piè di pagina che l'ATS non riesce a leggere."
+      },
+      "bestFormat": {
+        "question": "Qual è il formato migliore per un CV ATS?",
+        "answer": "Un layout pulito a colonna singola con intestazioni di sezione standard funziona meglio. Usa una formattazione semplice, font standard e evita grafiche o tabelle. PDF e DOCX sono i formati di file più universalmente accettati."
+      },
+      "keywords": {
+        "question": "Come trovo le parole chiave giuste per il mio CV?",
+        "answer": "Leggi attentamente la descrizione del lavoro e identifica competenze, qualifiche e terminologia ripetute. Includi queste parole chiave in modo naturale in tutto il CV, specialmente nel riepilogo, nella sezione competenze e nelle descrizioni dell'esperienza lavorativa."
+      },
+      "twoColumn": {
+        "question": "Posso usare un CV a due colonne con l'ATS?",
+        "answer": "I layout a due colonne possono causare problemi di analisi con molti sistemi ATS. Il software potrebbe leggere attraverso le colonne invece che verso il basso, mescolando le informazioni. Un layout a colonna singola è la scelta più sicura per la compatibilità ATS."
+      },
+      "jobTitle": {
+        "question": "Devo usare l'esatto titolo professionale nel mio CV?",
+        "answer": "Sì, se il tuo titolo effettivo è simile. Includere l'esatto titolo professionale dall'annuncio nel tuo CV (quando veritiero) migliora significativamente la corrispondenza ATS. Puoi includerlo nel riepilogo o come ruolo obiettivo."
+      }
+    },
+    "resources": {
+      "title": "Risorse Correlate",
+      "guide": {
+        "title": "Guida alla Scrittura di CV ATS",
+        "description": "Guida passo passo per scrivere un CV che superi lo screening ATS."
+      },
+      "templates": {
+        "title": "Modelli Compatibili con ATS",
+        "description": "Modelli di CV pre-ottimizzati progettati per la compatibilità ATS."
+      },
+      "examples": {
+        "title": "Esempi di CV",
+        "description": "Vedi esempi reali di CV per la tua professione."
+      }
+    },
+    "cta": {
+      "title": "Smetti di Essere Respinto dall'ATS",
+      "description": "Crea un CV professionale e ottimizzato per ATS in pochi minuti con il nostro generatore basato su AI. Ogni modello è testato per la compatibilità ATS.",
+      "button": "Crea il Mio CV ATS — Gratis"
+    },
+    "validation": {
+      "unsupportedFormat": "Sono supportati solo file PDF e DOCX.",
+      "fileTooLarge": "La dimensione del file deve essere inferiore a 10MB.",
+      "genericError": "Qualcosa è andato storto. Riprova."
+    },
+    "results": {
+      "scoreTitle": "Il Tuo Punteggio di Compatibilità ATS",
+      "recommendations": "Raccomandazioni",
+      "checkAnother": "Verifica un Altro CV",
+      "buildAtsResume": "Crea un CV Ottimizzato per ATS",
+      "pagesAnalyzed": "{count, plural, one {# pagina analizzata} other {# pagine analizzate}}",
+      "scoreExcellent": "Eccellente",
+      "scoreGood": "Buono",
+      "scoreNeedsWork": "Da Migliorare",
+      "scorePoor": "Insufficiente"
+    },
+    "externalResources": {
+      "title": "Risorse Esterne",
+      "atsHowTheyWork": "Capire gli ATS: Come Funzionano",
+      "blsResumeTips": "BLS Career Outlook: Consigli per il CV"
+    }
+  }
+}

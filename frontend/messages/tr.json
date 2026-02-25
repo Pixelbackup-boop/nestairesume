@@ -1,0 +1,2087 @@
+{
+  "Meta": {
+    "title": "Ücretsiz AI Özgeçmiş Oluşturucu | Dakikalar İçinde ATS Özgeçmiş Oluşturun | Best AI Resume",
+    "description": "Ücretsiz AI özgeçmiş oluşturucumuzla dakikalar içinde profesyonel, ATS uyumlu özgeçmişler oluşturun. 50.000'den fazla profesyonel tarafından tercih ediliyor. Başlamak için kayıt gerekmez."
+  },
+
+  "Common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "close": "Kapat",
+    "search": "Ara",
+    "submit": "Gönder",
+    "next": "İleri",
+    "back": "Geri",
+    "download": "İndir",
+    "preview": "Önizleme",
+    "scrollToExplore": "Keşfetmek için kaydırın",
+    "dismiss": "Kapat",
+    "addLanguage": "Dil ekle",
+    "uploadProfilePhoto": "Profil fotoğrafı yükle",
+    "removeProfilePhoto": "Profil fotoğrafını kaldır",
+    "documentType": "Belge türü",
+    "searchByJobTitle": "İş unvanı veya beceriye göre ara...",
+    "searchIcons": "Simge ara...",
+    "describeTemplate": "Şablonunuzu tanımlayın...",
+    "languagePlaceholder": "örn. İspanyolca, Fransızca, Çince",
+    "templateNamePlaceholder": "örn. Modern Geliştirici Özgeçmişi",
+    "returningBanner": {
+      "welcomeBack": "Tekrar hoş geldiniz!",
+      "lastEdited": "Son düzenleme {date}",
+      "unsavedDraft": "Kaydedilmemiş bir özgeçmiş taslağınız var",
+      "continueEditing": "Düzenlemeye Devam Et"
+    }
+  },
+
+  "Navigation": {
+    "features": "Özellikler",
+    "templates": "Şablonlar",
+    "pricing": "Fiyatlandırma",
+    "blog": "Blog",
+    "careerTips": "Kariyer İpuçları",
+    "careerGuides": "Kariyer Rehberleri",
+    "resumeExamples": "Özgeçmiş Örnekleri",
+    "resumeExamplesDesc": "Mesleğe özel özgeçmiş rehberleri ve şablonlar",
+    "careerTipsDesc": "Kariyeriniz için uzman tavsiyeleri",
+    "blogDesc": "İpuçları, rehberler ve bilgiler",
+    "viewAllExamples": "Tüm özgeçmiş örneklerini görüntüle",
+    "viewAllTips": "Tüm kariyer ipuçlarını görüntüle",
+    "tools": "Araçlar",
+    "coverLetter": "Ön Yazı Oluşturucu",
+    "coverLetterDesc": "AI destekli ön yazılar",
+    "resignationLetter": "İstifa Mektubu",
+    "resignationLetterDesc": "Profesyonel istifa mektupları",
+    "atsChecker": "ATS Özgeçmiş Kontrolü",
+    "atsCheckerDesc": "ATS uyumluluğunu kontrol edin",
+    "mockInterview": "Deneme Mülakatı",
+    "mockInterviewDesc": "AI destekli pratik mülakatlar",
+    "resumeFormat": "Özgeçmiş Format Rehberi",
+    "resumeFormatDesc": "Kronolojik, fonksiyonel ve daha fazlası",
+    "login": "Giriş yap",
+    "logout": "Çıkış yap",
+    "getStarted": "Ücretsiz Başla",
+    "dashboard": "Kontrol Paneli",
+    "admin": "Yönetici",
+    "adminPanel": "Yönetici Paneli",
+    "profile": "Profil",
+    "resources": "Kaynaklar",
+    "compare": "Karşılaştır",
+    "byStyle": "Stile Göre",
+    "byFormat": "Formata Göre",
+    "allTemplates": "Tüm Şablonlar",
+    "modern": "Modern",
+    "creative": "Yaratıcı",
+    "simpleClean": "Sade ve Temiz",
+    "freeResumeBuilder": "Ücretsiz Özgeçmiş Oluşturucu",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "Özgeçmişinizi Ücretsiz Oluşturun",
+    "chooseFromTemplates": "20'den fazla profesyonel şablon arasından seçin",
+    "technology": "Teknoloji",
+    "business": "İş Dünyası",
+    "healthcare": "Sağlık",
+    "seeAllTech": "Tüm Teknoloji",
+    "seeAllBusiness": "Tüm İş Dünyası",
+    "seeAllHealthcare": "Tüm Sağlık",
+    "resumeExamplesCount": "300+ Özgeçmiş Örneği",
+    "browseAll": "Tümünü Görüntüle",
+    "softwareEngineer": "Yazılım Mühendisi",
+    "dataAnalyst": "Veri Analisti",
+    "devopsEngineer": "DevOps Mühendisi",
+    "fullStackDev": "Full Stack Geliştirici",
+    "projectManager": "Proje Yöneticisi",
+    "marketingManager": "Pazarlama Müdürü",
+    "businessAnalyst": "İş Analisti",
+    "salesManager": "Satış Müdürü",
+    "nurse": "Hemşire",
+    "medicalAssistant": "Tıbbi Asistan",
+    "pharmacist": "Eczacı",
+    "dentalAssistant": "Diş Hekimi Asistanı",
+    "guides": "Rehberler",
+    "latestPosts": "Son Yazılar",
+    "allCareerTips": "Tüm Kariyer İpuçları",
+    "allBlog": "Tüm Blog Yazıları",
+    "atsGuide": "ATS Uyumlu Özgeçmiş Rehberi",
+    "coverLetterGuide": "Ön Yazı Rehberi",
+    "interviewPrep": "Mülakat Hazırlığı",
+    "bestResumeApps": "En İyi Özgeçmiş Uygulamaları",
+    "resumeSkills": "Özgeçmiş Becerileri Rehberi",
+    "linkedinGuide": "LinkedIn Optimizasyonu",
+    "writingServices": "Özgeçmiş Yazım Hizmetleri",
+    "freeAlternatives": "Ücretsiz Alternatifler",
+    "paidAlternatives": "Ücretli Alternatifler",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs AI Oluşturucu",
+    "whyWereBetter": "Neden 1 Numaralı Ücretsiz Oluşturucuyuz",
+    "whyWereBetterDesc": "AI destekli, ATS uyumlu, tamamen ücretsiz"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "AI Destekli Özgeçmiş Oluşturma",
+      "title": "AI Destekli",
+      "titleHighlight": "Özgeçmişinizi Dakikalar İçinde Oluşturun",
+      "subtitle": "Kayıt Gerekmez",
+      "description": "AI ile dakikalar içinde etkileyici, ATS uyumlu özgeçmişler oluşturun. Ücretsiz deneyin — kaydetmeye hazır olduğunuzda kayıt olun.",
+      "ctaPrimary": "AI ile Oluştur",
+      "ctaSecondary": "Şablonlara Göz At",
+      "noCreditCard": "Kredi kartı gerekmez",
+      "noSignup": "Başlamak için kayıt gerekmez",
+      "trustedBy": "50.000'den fazla profesyonel tarafından tercih ediliyor",
+      "atsScore": "ATS Puanı",
+      "aiSuggestion": "AI Önerisi"
+    },
+    "features": {
+      "sectionTitle": "Özellikler",
+      "title": "Hayalinizdeki işe kavuşmak için",
+      "titleHighlight": "ihtiyacınız olan her şey",
+      "subtitle": "Kalabalığın arasından sıyrılmanıza yardımcı olmak için güçlü AI araçları ve güzel tasarım bir arada.",
+      "aiWriting": {
+        "title": "AI Destekli Yazım",
+        "description": "AI'mızın başarılarınızı öne çıkaran etkileyici madde işaretleri ve profesyonel özetler hazırlamasına izin verin."
+      },
+      "templates": {
+        "title": "20+ Premium Şablon",
+        "description": "ATS uyumluluğunu korurken öne çıkan profesyonel tasarımlı şablonlar arasından seçim yapın."
+      },
+      "atsOptimization": {
+        "title": "ATS Optimizasyonu",
+        "description": "Gerçek zamanlı ATS puanlama, özgeçmişinizin her seferinde otomatik tarama sistemlerini geçmesini sağlar."
+      },
+      "realTimePreview": {
+        "title": "Gerçek Zamanlı Önizleme",
+        "description": "Yazarken değişiklikleri anında görün. Gördüğünüz tam olarak işe alım uzmanlarının göreceği şeydir."
+      },
+      "pdfExport": {
+        "title": "PDF Dışa Aktarma",
+        "description": "Göndermeye hazır mükemmel kalitede PDF'ler indirin. Hem dijital hem de baskı için optimize edilmiştir."
+      },
+      "smartSuggestions": {
+        "title": "Akıllı Öneriler",
+        "description": "Hedef pozisyonunuza göre beceriler, anahtar kelimeler ve içerik için akıllı öneriler alın."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Nasıl Çalışır",
+      "title": "Mükemmel özgeçmişinize",
+      "titleHighlight": "üç adımda ulaşın",
+      "step1": {
+        "title": "Bilgilerinizi Girin",
+        "description": "Deneyiminizi, eğitiminizi ve becerilerinizi girin. AI'mız her adımda size yardımcı olur."
+      },
+      "step2": {
+        "title": "Şablon Seçin",
+        "description": "20'den fazla profesyonel tasarımlı şablon arasından seçim yapın. Özelleştirirken gerçek zamanlı önizleme yapın."
+      },
+      "step3": {
+        "title": "PDF İndirin",
+        "description": "Cilalı özgeçmişinizi mükemmel kalitede bir PDF olarak dışa aktarın, işe alım uzmanlarını etkilemeye hazır."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Şablonlar",
+      "title": "Her meslek için",
+      "titleHighlight": "premium şablonlar",
+      "viewAll": "Tüm Şablonları Görüntüle"
+    },
+    "testimonials": {
+      "sectionTitle": "Referanslar",
+      "title": "Dünya genelinde profesyoneller",
+      "titleHighlight": "tarafından seviliyor"
+    },
+    "cta": {
+      "title": "Kazandıran özgeçmişinizi",
+      "titleHighlight": "oluşturmaya hazır mısınız?",
+      "subtitle": "Best AI Resume ile hayallerindeki işe kavuşan 50.000'den fazla profesyonele katılın.",
+      "button": "CV'nizi Şimdi Oluşturun — Ücretsiz",
+      "note": "Başlamak için kayıt gerekmez"
+    },
+    "faq": {
+      "sectionTitle": "SSS",
+      "title": "Sıkça Sorulan",
+      "titleHighlight": "Sorular",
+      "items": [
+        {
+          "question": "Bu AI özgeçmiş oluşturucu gerçekten ücretsiz mi?",
+          "answer": "Evet! Özgeçmişinizi tamamen ücretsiz olarak oluşturabilir, düzenleyebilir ve önizleyebilirsiniz. Sınırsız PDF indirme ve ek şablonlar gibi gelişmiş özellikler için premium planlar sunuyoruz, ancak hiçbir ücret ödemeden profesyonel bir özgeçmiş oluşturabilirsiniz."
+        },
+        {
+          "question": "ATS nedir ve neden önemlidir?",
+          "answer": "ATS (Başvuru Takip Sistemi), Fortune 500 şirketlerinin %99'u tarafından özgeçmişleri taramak ve filtrelemek için kullanılan bir yazılımdır. AI'mız, bu otomatik taramalardan geçmek için doğru anahtar kelimeler, biçimlendirme ve yapı ile özgeçmişinizin ATS uyumlu olmasını sağlar."
+        },
+        {
+          "question": "AI özgeçmişimi yazmama nasıl yardımcı olur?",
+          "answer": "AI'mız iş unvanınızı ve deneyiminizi analiz ederek profesyonel madde işaretleri, özetler ve beceri önerileri oluşturur. İşe alım uzmanlarının aradığı sektöre özel anahtar kelimeler ve başarı odaklı bir dil kullanır."
+        },
+        {
+          "question": "Oluşturucuyu kullanmak için kayıt olmam gerekir mi?",
+          "answer": "Başlamak için kayıt gerekmez! Önce özgeçmişinizin tamamını oluşturabilirsiniz. Yalnızca ilerlemenizi kaydetmek veya indirmek istediğinizde kayıt olun. Bu, her şeyi risksiz denemenizi sağlar."
+        },
+        {
+          "question": "Özgeçmişimi PDF olarak indirebilir miyim?",
+          "answer": "Evet! Özgeçmişinizi önizlemeye tamamen benzeyen mükemmel kalitede bir PDF olarak dışa aktarın. PDF'ler hem dijital başvurular hem de standart mektup/A4 kağıdına yazdırma için optimize edilmiştir."
+        },
+        {
+          "question": "Bir özgeçmiş oluşturmak ne kadar sürer?",
+          "answer": "Çoğu kullanıcı 10 dakikadan kısa sürede profesyonel bir özgeçmiş oluşturur. AI önerilerimiz ve hazır içerikler, sıfırdan başlamaya kıyasla süreci önemli ölçüde hızlandırır."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Kullanıcılarımız şu şirketlere işe alındı",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+    }
+  },
+
+  "Features": {
+    "meta": {
+      "title": "AI Özgeçmiş Oluşturucu Özellikleri - Akıllı Yazım, ATS Optimizasyonu ve Daha Fazlası",
+      "description": "Güçlü özellikleri keşfedin: AI destekli yazım, gerçek zamanlı ATS puanlama, 50+ şablon, anında PDF dışa aktarma. Mülakat kazandıran profesyonel özgeçmişler oluşturun."
+    }
+  },
+
+  "Templates": {
+    "meta": {
+      "title": "50+ Profesyonel Özgeçmiş Şablonu - Ücretsiz ve ATS Uyumlu",
+      "description": "50'den fazla profesyonel özgeçmiş şablonuna göz atın. ATS için optimize edilmiş modern, yaratıcı ve minimalist tasarımlar. Ücretsiz özelleştirin ve indirin."
+    },
+    "sectionTitle": "Şablonlar",
+    "title": "En İyi Özgeçmiş Şablonları",
+    "titleHighlight": "2026",
+    "subtitle": "Bir düzenleme modu seçin ve profesyonel tasarımlı şablonlarımız arasından seçim yapın.",
+    "searchPlaceholder": "Şablon ara...",
+    "templatesAvailable": "{count} şablon mevcut",
+    "noResults": "Şablon bulunamadı",
+    "noResultsHint": "Aramanızı veya filtrenizi ayarlamayı deneyin",
+    "useTemplate": "Şablonu Kullan",
+    "formBuilder": {
+      "title": "Form Oluşturucu",
+      "description": "Adım adım rehberli düzenleme",
+      "hint": "Formları doldurun ve tasarımı şablona bırakın. Hızlı, profesyonel özgeçmişler için mükemmel."
+    },
+    "canvasEditor": {
+      "title": "Kanvas Editörü",
+      "description": "Tam yaratıcı özgürlük",
+      "hint": "Sürükle, bırak ve özgürce tasarla. Her öğe üzerinde tam kontrol, özgeçmişler için Canva gibi."
+    },
+    "categories": {
+      "all": "Tümü",
+      "professional": "Profesyonel",
+      "creative": "Yaratıcı",
+      "minimal": "Sade ve Temiz",
+      "modern": "Modern",
+      "classic": "Klasik"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Sıfırdan başlamak mı istiyorsunuz?",
+        "description": "Kanvas Editörümüzün güçlü araçlarını kullanarak tamamen özel bir özgeçmiş oluşturun.",
+        "button": "Boş Kanvas Aç"
+      },
+      "builder": {
+        "title": "AI'ın özgeçmişinizi oluşturmasını ister misiniz?",
+        "description": "AI'mızın iş unvanınıza göre saniyeler içinde profesyonel bir özgeçmiş oluşturmasına izin verin.",
+        "button": "AI ile Oluştur"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "İletişim",
+      "experience": "Deneyim",
+      "workExperience": "İş Deneyimi",
+      "professionalExperience": "Profesyonel Deneyim",
+      "education": "Eğitim",
+      "skills": "Beceriler",
+      "coreSkills": "Temel Beceriler",
+      "technicalSkills": "Teknik Beceriler",
+      "languages": "Diller",
+      "interests": "İlgi Alanları",
+      "strengths": "Güçlü Yönler",
+      "certifications": "Sertifikalar",
+      "awards": "Ödüller",
+      "projects": "Projeler",
+      "summary": "Özet",
+      "professionalSummary": "Profesyonel Özet",
+      "profile": "Profil",
+      "about": "Hakkında",
+      "additionalInfo": "Ek Bilgiler",
+      "socialLinks": "Sosyal Bağlantılar",
+      "personalDetails": "Kişisel Bilgiler",
+      "credentials": "Yeterlilikler"
+    },
+    "labels": {
+      "present": "Devam Ediyor",
+      "gpa": "Not Ortalaması",
+      "native": "Ana Dil",
+      "fluent": "Akıcı",
+      "advanced": "İleri Düzey",
+      "intermediate": "Orta Düzey",
+      "basic": "Temel Düzey"
+    }
+  },
+
+  "About": {
+    "meta": {
+      "title": "Best AI Resume Hakkında - İş Arama Sürecini Dönüştürme Misyonumuz",
+      "description": "Best AI Resume hakkında bilgi edinin - binlerce kişinin hayalindeki işe kavuşmasına yardımcı olan AI destekli platform. Misyonumuz, değerlerimiz ve kariyer başarınıza olan bağlılığımız."
+    }
+  },
+
+  "Privacy": {
+    "meta": {
+      "title": "Gizlilik Politikası - Best AI Resume",
+      "description": "Best AI Resume'nin verilerinizi nasıl koruduğunu öğrenin. Gizlilik politikamız kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar."
+    }
+  },
+
+  "Terms": {
+    "meta": {
+      "title": "Hizmet Şartları - Best AI Resume",
+      "description": "Best AI Resume hizmet şartlarını okuyun. AI özgeçmiş oluşturucu platformumuzu kullanırken haklarınızı ve sorumluluklarınızı anlayın."
+    }
+  },
+
+  "Onboarding": {
+    "meta": {
+      "title": "Özgeçmişinizi Oluşturun - AI Özgeçmiş Oluşturucu",
+      "description": "Saniyeler içinde profesyonel özgeçmişinizi oluşturmaya başlayın. 2 soruyu yanıtlayın ve AI'ın size özel, işe hazır bir özgeçmiş oluşturmasını sağlayın."
+    },
+    "title": "Bize kendinizden bahsedin",
+    "subtitle": "Sadece 2 soru ve AI mükemmel özgeçmişinizi oluşturacak",
+    "fullName": "Tam Adınız",
+    "fullNamePlaceholder": "örn. Ahmet Yılmaz",
+    "jobTitle": "Başvurduğunuz İş Unvanı",
+    "jobTitlePlaceholder": "örn. Yazılım Mühendisi, Pazarlama Müdürü",
+    "experienceLevel": "Deneyim Seviyesi",
+    "levels": {
+      "entry": "Giriş Seviyesi",
+      "entryDesc": "0-2 yıl deneyim",
+      "mid": "Orta Seviye",
+      "midDesc": "3-5 yıl deneyim",
+      "senior": "Kıdemli Seviye",
+      "seniorDesc": "6-10 yıl deneyim",
+      "executive": "Yönetici",
+      "executiveDesc": "10+ yıl deneyim"
+    },
+    "generate": "Özgeçmişimi Oluştur",
+    "generating": {
+      "title": "Özgeçmişiniz Oluşturuluyor",
+      "analyzing": "Mesleğiniz analiz ediliyor...",
+      "summary": "Profesyonel özet oluşturuluyor...",
+      "experience": "İş deneyimi oluşturuluyor...",
+      "skills": "İlgili beceriler ekleniyor...",
+      "polishing": "Özgeçmişiniz cilâlanıyor...",
+      "almostThere": "Neredeyse hazır...",
+      "wait": "Bu genellikle sadece birkaç saniye sürer..."
+    },
+    "step1": {
+      "title": "Özgeçmişinizi nasıl oluşturmak istersiniz?",
+      "subtitle": "Başlamak için tercih ettiğiniz yöntemi seçin",
+      "recommended": "ÖNERİLEN",
+      "ai": {
+        "title": "AI ile Oluştur",
+        "description": "Mesleğinizi söyleyin, saniyeler içinde profesyonel bir özgeçmiş oluşturalım"
+      },
+      "upload": {
+        "title": "Özgeçmiş Yükle",
+        "description": "Mevcut özgeçmişinizi yükleyin, biz onu geliştirelim"
+      },
+      "linkedin": {
+        "title": "LinkedIn'den İçe Aktar",
+        "description": "Profilinizi LinkedIn'den otomatik olarak içe aktarın"
+      },
+      "comingSoon": "Yakında",
+      "startBlank": "Veya boş bir özgeçmişle başlayın"
+    },
+    "step4": {
+      "title": "Şablonunuzu Seçin",
+      "subtitle": "Özgeçmişiniz hazır! Tarzınıza uygun bir tasarım seçin.",
+      "backToEdit": "Bilgileri düzenlemeye dön",
+      "browseAll": "Tüm şablonlara göz at",
+      "continue": "Editöre Devam Et"
+    },
+    "upload": {
+      "title": "Özgeçmişinizi Yükleyin",
+      "subtitle": "Bilgilerinizi çıkarıp AI ile geliştireceğiz",
+      "dragDrop": "Özgeçmişinizi buraya sürükleyip bırakın",
+      "orBrowse": "veya dosyalara göz atın",
+      "supportedFormats": "PDF veya DOCX (maks. {maxSize})",
+      "validating": "Dosya doğrulanıyor...",
+      "uploading": "Yükleniyor...",
+      "parsing": "AI özgeçmişinizi analiz ediyor...",
+      "success": "Özgeçmiş başarıyla içe aktarıldı!",
+      "error": "Bir şeyler yanlış gitti",
+      "tryAgain": "Tekrar Dene",
+      "invalidType": "Lütfen bir PDF veya DOCX dosyası yükleyin",
+      "fileTooLarge": "Dosya {maxSize} sınırını aşıyor"
+    },
+    "linkedin": {
+      "title": "LinkedIn'den İçe Aktar",
+      "subtitle": "LinkedIn profilinizi PDF olarak dışa aktarın ve buraya yükleyin",
+      "step1": "LinkedIn profilinize gidin",
+      "step2": "\"Kaynaklar\" → \"PDF olarak kaydet\" seçeneğine tıklayın",
+      "step3": "İndirilen PDF'yi aşağıya yükleyin",
+      "openLinkedIn": "LinkedIn Profilini Aç",
+      "tip": "LinkedIn PDF'leri tam iş geçmişinizi içe aktarmak için en iyi sonucu verir"
+    },
+    "word": {
+      "badge": "Microsoft Word Özgeçmiş",
+      "step1Title": "Word özgeçmişinizi nasıl oluşturmak istersiniz?",
+      "aiDescription": "Mesleğinizi söyleyin, saniyeler içinde bir Word özgeçmişi oluşturalım",
+      "subtitle": "Sadece 2 soru ve AI mükemmel Word özgeçmişinizi oluşturacak",
+      "startBlank": "Veya boş bir Word özgeçmişiyle başlayın",
+      "step4Title": "Word Şablonunuzu Seçin",
+      "step4Subtitle": "Özgeçmişiniz hazır! Bir Microsoft Word şablonu seçin.",
+      "continue": "Word Editörüne Devam Et"
+    },
+    "gdocs": {
+      "badge": "Google Docs Özgeçmiş",
+      "step1Title": "Google Docs özgeçmişinizi nasıl oluşturmak istersiniz?",
+      "aiDescription": "Mesleğinizi söyleyin, saniyeler içinde bir Google Docs özgeçmişi oluşturalım",
+      "subtitle": "Sadece 2 soru ve AI mükemmel Google Docs özgeçmişinizi oluşturacak",
+      "startBlank": "Veya boş bir Google Docs özgeçmişiyle başlayın",
+      "step4Title": "Google Docs Şablonunuzu Seçin",
+      "step4Subtitle": "Özgeçmişiniz hazır! Google Docs için optimize edilmiş bir şablon seçin.",
+      "continue": "Google Docs Editörüne Devam Et"
+    },
+    "main": {
+      "step1Title": "Nasıl başlamak istersiniz?",
+      "step1Subtitle": "Sizin için en uygun yöntemi seçin",
+      "recommended": "Önerilen",
+      "aiTitle": "AI Oluşturma",
+      "aiDescription": "AI'ın profesyonel özgeçmişinizi oluşturmasını sağlayın",
+      "uploadTitle": "Mevcut Olanı Yükle",
+      "uploadDescription": "Özgeçmişinizi içe aktarın ve geliştirin",
+      "linkedinDescription": "LinkedIn profilinizi dönüştürün",
+      "startBlank": "Boş bir özgeçmişle başla",
+      "step2Subtitle": "Kişiselleştirilmiş özgeçmişinizi oluşturmak için bunu kullanacağız",
+      "fullName": "Tam Ad",
+      "fullNamePlaceholder": "örn. Ahmet Yılmaz",
+      "targetJobTitle": "Hedef İş Unvanı",
+      "jobTitlePlaceholder": "örn. Yazılım Mühendisi",
+      "goBack": "Geri dön",
+      "generatingTitle": "Özgeçmişiniz oluşturuluyor...",
+      "processingAnalyzing": "Profiliniz analiz ediliyor...",
+      "processingCrafting": "Profesyonel özet hazırlanıyor...",
+      "processingExperience": "İş deneyimi oluşturuluyor...",
+      "processingSkills": "İlgili beceriler ekleniyor...",
+      "processingPolishing": "Son dokunuşlar yapılıyor...",
+      "processingAlmost": "Neredeyse hazır...",
+      "step4Subtitle": "Tarzınıza uygun bir tasarım seçin",
+      "uploadSubtitle": "AI özgeçmişinizi analiz edecek ve geliştirilmiş bir versiyon oluşturacak",
+      "secureNotice": "Dosyanız güvenli bir şekilde işlenir ve sunucularımızda saklanmaz",
+      "linkedinSubtitle": "LinkedIn'den profilinizi PDF olarak indirin, ardından buraya yükleyin",
+      "linkedinHowTo": "LinkedIn profilinizi nasıl dışa aktarabilirsiniz:",
+      "linkedinStep1": "LinkedIn profilinize gidin",
+      "linkedinStep2": "Profilinizdeki \"Kaynaklar\" düğmesine tıklayın",
+      "linkedinStep3": "\"PDF olarak kaydet\" seçeneğini seçin",
+      "linkedinStep4": "İndirilen PDF'yi aşağıya yükleyin"
+    }
+  },
+
+  "Pricing": {
+    "meta": {
+      "title": "Fiyatlandırma Planları - Aylık $3'dan Başlayan AI Özgeçmiş Oluşturucu",
+      "description": "İş aramanız için mükemmel planı seçin. Gizli ücret yok, istediğiniz zaman iptal edin. Aylık sadece $3'dan başlayan fiyatlar."
+    },
+    "sectionTitle": "Fiyatlandırma",
+    "title": "Basit, şeffaf",
+    "titleHighlight": "fiyatlandırma",
+    "subtitle": "Gizli ücret yok, istediğiniz zaman iptal edin.",
+    "viewComparison": "Tam karşılaştırmayı görüntüle",
+    "cancelAnytime": "İstediğiniz zaman iptal edin",
+    "securePayments": "Stripe ile güvenli ödeme",
+    "mostPopular": "EN POPÜLER",
+    "bestValue": "EN İYİ DEĞER",
+    "billedImmediately": "Hemen faturalanır",
+    "allPlansInclude": "Tüm planlar şunları içerir: Reklamsız • Tüm freemium şablonlar",
+    "billingToggle": {
+      "monthly": "Aylık",
+      "annual": "Yıllık",
+      "savePercent": "%20 Tasarruf Edin"
+    },
+    "page": {
+      "formBuilder": "Form Oluşturucu",
+      "canvasEditor": "Kanvas Editörü",
+      "premiumTemplates": "Premium şablonlar",
+      "aiBuild": "AI Özgeçmiş Oluşturucu",
+      "atsOptimization": "ATS Optimizasyonu",
+      "prioritySupport": "Öncelikli destek",
+      "aiSuggestions": "AI önerileri",
+      "coverLetterBuilder": "Ön yazı oluşturucu",
+      "noAds": "Reklamsız",
+      "earlyAccess": "Erken erişim özellikleri",
+      "cvCreations": "Aylık {count} CV oluşturma",
+      "aiGenerations": "Aylık {count} AI oluşturma",
+      "downloads": "Aylık {count} indirme",
+      "coverLetters": "Aylık {count} ön yazı",
+      "unlimited": "Sınırsız"
+    },
+    "comparison": {
+      "title": "Planları Karşılaştır",
+      "feature": "Özellik",
+      "cvCreations": "CV Oluşturma",
+      "aiGenerations": "AI Oluşturma",
+      "downloads": "İndirmeler",
+      "perMonth": "{count}/ay",
+      "unlimited": "Sınırsız",
+      "savedResumes": "Kayıtlı Özgeçmişler",
+      "templates": "Şablonlar",
+      "all50": "Tüm freemium",
+      "premiumPlus": "50+ ve Premium",
+      "aiBuild": "AI Özgeçmiş Oluşturucu",
+      "adFree": "Reklamsız"
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "cancelAnytime": {
+        "question": "Aboneliğimi istediğim zaman iptal edebilir miyim?",
+        "answer": "Evet, aboneliğinizi istediğiniz zaman iptal edebilirsiniz. Mevcut fatura döneminizin sonuna kadar erişiminiz devam eder."
+      },
+      "paymentMethods": {
+        "question": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+        "answer": "Stripe aracılığıyla tüm büyük kredi kartlarını (Visa, MasterCard, American Express) kabul ediyoruz. PayPal yakında eklenecek."
+      },
+      "starterOneTime": {
+        "question": "Faturalandırma nasıl çalışır?",
+        "answer": "Tüm planlar abone olduğunuzda hemen faturalanır. Aylık planlar her ay, yıllık planlar her yıl yenilenir. Hesap ayarlarınızdan istediğiniz zaman iptal edebilirsiniz."
+      },
+      "runOutDownloads": {
+        "question": "Limitlerime ulaştığımda ne olur?",
+        "answer": "Aylık CV oluşturma veya AI oluşturma limitinize ulaştığınızda, daha fazla kapasite için daha yüksek bir plana yükseltebilirsiniz. Limitler her fatura döneminin başında sıfırlanır."
+      },
+      "switchPlans": {
+        "question": "Planlar arasında geçiş yapabilir miyim?",
+        "answer": "Kesinlikle. Planınızı istediğiniz zaman yükseltebilir veya düşürebilirsiniz. Değişiklikler hemen yürürlüğe girer ve ücretler orantılı olarak hesaplanır."
+      },
+      "refunds": {
+        "question": "İade yapıyor musunuz?",
+        "answer": "Satın alma sonrası iade yapmıyoruz. Hesap ayarlarınızdan istediğiniz zaman iptal edebilir ve fatura döneminizin sonuna kadar erişiminizi koruyabilirsiniz."
+      }
+    },
+    "cta": {
+      "title": "Başlamaya hazır mısınız?",
+      "subtitle": "Tüm planlar hemen faturalanır. İstediğiniz zaman iptal edin.",
+      "button": "Planları Görüntüle",
+      "contactSupport": "Destek ile İletişim"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "İş arayanlar için ideal",
+      "price": "$3",
+      "period": "/ay",
+      "annualPrice": "$29",
+      "annualPeriod": "/yıl",
+      "annualMonthly": "$2,42/ay",
+      "features": {
+        "cvCreations": "Aylık 30 CV oluşturma",
+        "aiGenerations": "Aylık 50 AI oluşturma",
+        "downloads": "Aylık 3 indirme",
+        "templates": "Tüm freemium şablonlar",
+        "noAds": "Reklamsız",
+        "export": "PDF dışa aktarma"
+      },
+      "cta": "Başla"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Aktif iş arayanlar için",
+      "price": "$6",
+      "period": "/ay",
+      "annualPrice": "$58",
+      "annualPeriod": "/yıl",
+      "annualMonthly": "$4,83/ay",
+      "features": {
+        "cvCreations": "Aylık 150 CV oluşturma",
+        "aiGenerations": "Aylık 100 AI oluşturma",
+        "downloads": "Aylık 10 indirme",
+        "templates": "Tüm freemium şablonlar",
+        "noAds": "Reklamsız",
+        "ats": "ATS optimizasyonu"
+      },
+      "cta": "Başla"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Profesyoneller için en iyi seçim",
+      "price": "$10",
+      "period": "/ay",
+      "annualPrice": "$96",
+      "annualPeriod": "/yıl",
+      "annualMonthly": "$8/ay",
+      "features": {
+        "cvCreations": "Aylık 300 CV oluşturma",
+        "aiGenerations": "Aylık 200 AI oluşturma",
+        "downloads": "Aylık 25 indirme",
+        "templates": "Tüm + Premium şablonlar",
+        "support": "Öncelikli destek",
+        "coverLetter": "Ön yazı oluşturucu"
+      },
+      "cta": "Başla"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "Uzman kullanıcılar ve ajanslar için",
+      "price": "$30",
+      "period": "/ay",
+      "annualPrice": "$288",
+      "annualPeriod": "/yıl",
+      "annualMonthly": "$24/ay",
+      "features": {
+        "cvCreations": "Sınırsız CV oluşturma",
+        "aiGenerations": "Aylık 500 AI oluşturma",
+        "downloads": "Aylık 120 indirme",
+        "templates": "Tüm + Premium şablonlar",
+        "support": "Öncelikli destek",
+        "coverLetter": "Ön yazı oluşturucu",
+        "earlyAccess": "Yeni özelliklere erken erişim"
+      },
+      "cta": "Şimdi Abone Ol"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Kariyeriniz için ipuçları, rehberler ve bilgiler",
+    "searchPlaceholder": "Makale ara...",
+    "readMore": "Devamını oku",
+    "readingTime": "{time} dk okuma",
+    "categories": "Kategoriler",
+    "allCategories": "Tüm Kategoriler",
+    "relatedPosts": "İlgili Yazılar",
+    "shareOn": "Paylaş",
+    "noResults": "Makale bulunamadı"
+  },
+
+  "Footer": {
+    "tagline": "Dünya genelinde profesyonellerin güvendiği AI destekli özgeçmiş oluşturucu.",
+    "product": "Ürün",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "social": "Sosyal",
+    "about": "Hakkımızda",
+    "careers": "Kariyer",
+    "privacy": "Gizlilik",
+    "terms": "Şartlar",
+    "contact": "İletişim",
+    "help": "Yardım Rehberi",
+    "copyright": "© {year} Best AI Resume. Tüm hakları saklıdır.",
+    "resources": "Kaynaklar",
+    "resumeFormatGuide": "Özgeçmiş Format Rehberi",
+    "canvaAlternative": "Canva Alternatifi",
+    "overleafAlternative": "Overleaf Alternatifi",
+    "resumeIoAlternative": "Resume.io Alternatifi",
+    "reziAlternative": "Rezi Alternatifi",
+    "builder": "Özgeçmiş Oluşturucu",
+    "templateCategories": "Şablonlar",
+    "compare": "Karşılaştır",
+    "googleDocs": "Google Docs Şablonları",
+    "simpleClean": "Sade ve Temiz",
+    "freeResumeBuilder": "Ücretsiz Özgeçmiş Oluşturucu",
+    "microsoftWord": "Word Şablonları",
+    "modern": "Modern Şablonlar",
+    "creative": "Yaratıcı Şablonlar",
+    "coverLetterGenerator": "AI Ön Yazı Oluşturucu",
+    "resignationLetterGenerator": "AI İstifa Mektubu Oluşturucu",
+    "buildResumeFree": "Özgeçmişinizi Ücretsiz Oluşturun",
+    "zetyAlternative": "Zety Alternatifi",
+    "livecareerAlternative": "LiveCareer Alternatifi",
+    "adobeAlternative": "Adobe Alternatifi",
+    "novaAlternative": "Nova Alternatifi",
+    "europassAlternative": "Europass Alternatifi",
+    "chatgptComparison": "ChatGPT Karşılaştırması",
+    "resumeExamples": "Özgeçmiş Örnekleri",
+    "softwareEngineer": "Yazılım Mühendisi",
+    "nurse": "Hemşire",
+    "projectManager": "Proje Yöneticisi",
+    "marketingManager": "Pazarlama Müdürü",
+    "dataAnalyst": "Veri Analisti",
+    "accountant": "Muhasebeci",
+    "viewAll300": "300+ Tümünü Gör",
+    "careerGuides": "Kariyer Rehberleri",
+    "careerGuidance": "Kariyer Danışmanlığı",
+    "jobSearchStrategy": "İş Arama Stratejisi",
+    "careerDevelopmentPlan": "Kariyer Gelişim Planı",
+    "highPayingSkills": "Yüksek Maaşlı Beceriler",
+    "interviewPreparation": "Mülakat Hazırlığı",
+    "salaryNegotiation": "Maaş Pazarlığı"
+  },
+
+  "Auth": {
+    "meta": {
+      "loginTitle": "Giriş Yap - Best AI Resume",
+      "loginDescription": "Kayıtlı özgeçmişlerinize erişmek ve oluşturmaya devam etmek için Best AI Resume hesabınıza giriş yapın.",
+      "registerTitle": "Hesap Oluştur - Best AI Resume",
+      "registerDescription": "Özgeçmişleri kaydetmek, premium şablonlara erişmek ve AI özelliklerinin kilidini açmak için ücretsiz hesabınızı oluşturun."
+    },
+    "login": "Giriş yap",
+    "register": "Hesap oluştur",
+    "email": "E-posta adresi",
+    "password": "Şifre",
+    "confirmPassword": "Şifreyi onayla",
+    "forgotPassword": "Şifreni mi unuttun?",
+    "noAccount": "Hesabınız yok mu?",
+    "hasAccount": "Zaten bir hesabınız var mı?",
+    "signUp": "Kayıt ol",
+    "signIn": "Giriş yap",
+    "fullName": "Tam Ad",
+    "welcomeBack": "Tekrar Hoş Geldiniz",
+    "welcomeBackSubtitle": "Özgeçmişinizi oluşturmaya devam etmek için giriş yapın",
+    "createAccount": "Hesap Oluştur",
+    "createAccountSubtitle": "Bugün profesyonel özgeçmişinizi oluşturmaya başlayın",
+    "continueWithGoogle": "Google ile devam et",
+    "continueWithGitHub": "GitHub ile devam et",
+    "continueWithLinkedIn": "LinkedIn ile devam et",
+    "orContinueWith": "veya e-posta ile devam et",
+    "verifyEmail": "E-postanızı Doğrulayın",
+    "verificationCodeSent": "6 haneli bir kod gönderdik:",
+    "enterFullCode": "Lütfen 6 haneli kodun tamamını girin",
+    "verificationFailed": "Doğrulama başarısız oldu. Lütfen tekrar deneyin.",
+    "resendFailed": "Kod yeniden gönderilemedi. Lütfen tekrar deneyin.",
+    "verifying": "Doğrulanıyor...",
+    "verifyAndContinue": "Doğrula ve Devam Et",
+    "didntReceiveCode": "Kodu almadınız mı?",
+    "resendIn": "Tekrar gönder:",
+    "resendCode": "Kodu Yeniden Gönder",
+    "wrongEmail": "Yanlış e-posta mı?",
+    "changeEmail": "E-postayı değiştir"
+  },
+
+  "Errors": {
+    "notFound": "Sayfa bulunamadı",
+    "serverError": "Bir şeyler yanlış gitti",
+    "unauthorized": "Devam etmek için lütfen giriş yapın"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Dil seçin"
+  },
+
+  "Dashboard": {
+    "meta": {
+      "title": "Kontrol Paneli - Özgeçmişlerim",
+      "description": "Özgeçmişlerinizi yönetin, indirmelerinizi takip edin ve abonelik ayarlarınıza erişin."
+    },
+    "welcome": "Tekrar hoş geldiniz{name}!",
+    "subtitle": "Hayalinizdeki işe kavuşmaya hazır mısınız? Öne çıkan bir özgeçmiş oluşturalım.",
+    "stats": {
+      "resumesCreated": "Oluşturulan Özgeçmişler",
+      "downloads": "İndirmeler",
+      "coverLetters": "Ön Yazılar"
+    },
+    "usage": {
+      "noPlan": "Plan yok",
+      "subscribeToUnlock": "Kilidi açmak için abone olun",
+      "unlimited": "Sınırsız"
+    },
+    "cta": {
+      "badge": "AI Destekli Özgeçmiş Oluşturucu",
+      "title": "Mükemmel Özgeçmişinizi Oluşturun",
+      "createNew": "Yeni Özgeçmiş Oluştur"
+    },
+    "subscription": {
+      "plan": "{tier} Planı",
+      "expiredPlan": "Süresi Dolmuş Plan",
+      "noActivePlan": "Aktif Plan Yok",
+      "active": "Aktif",
+      "planActive": "Planınız aktif",
+      "subscribePrompt": "İndirmelerin kilidini açmak için abone olun",
+      "resubscribe": "Yeniden Abone Ol",
+      "subscribe": "Abone Ol",
+      "manage": "Aboneliği Yönet"
+    },
+    "templateUsage": "Şablon Kullanımı",
+    "resumes": {
+      "title": "Özgeçmişleriniz",
+      "total": "{count} toplam",
+      "newResume": "Yeni Özgeçmiş",
+      "noResumes": "Henüz özgeçmiş yok",
+      "noResumesDesc": "İlk AI destekli özgeçmişinizi oluşturun ve bugün hayalinizdeki işlere başvurmaya başlayın.",
+      "createFirst": "İlk Özgeçmişinizi Oluşturun",
+      "createNew": "Yeni Özgeçmiş Oluştur"
+    },
+    "resumeCard": {
+      "untitled": "Adsız Özgeçmiş",
+      "noName": "İsim yok",
+      "today": "Bugün",
+      "yesterday": "Dün",
+      "daysAgo": "{days} gün önce",
+      "duplicate": "Çoğalt",
+      "delete": "Sil",
+      "deleteConfirm": "Bu özgeçmişi silmek istediğinizden emin misiniz?",
+      "edit": "Düzenle"
+    },
+    "quickActions": {
+      "softwareEngineer": "Yazılım Mühendisi",
+      "productManager": "Ürün Yöneticisi",
+      "designer": "Tasarımcı",
+      "marketing": "Pazarlama",
+      "dataScientist": "Veri Bilimci",
+      "sales": "Satış"
+    },
+    "proTip": {
+      "label": "Uzman İpucu",
+      "title": "Özgeçmişinizi her iş için özelleştirin",
+      "description": "Belirli iş tanımlarına göre özelleştirilmiş özgeçmişlerin mülakat alma olasılığı 3 kat daha fazladır. Her başvuru için özgeçmişinizi hızla özelleştirmek için AI'mızı kullanın.",
+      "stat1Value": "3x",
+      "stat1Label": "Daha Fazla Mülakat",
+      "stat2Value": "%85",
+      "stat2Label": "ATS Geçiş Oranı"
+    },
+    "loading": "Yükleniyor..."
+  },
+
+  "Profile": {
+    "meta": {
+      "title": "Profil Ayarları - Best AI Resume",
+      "description": "Hesap ayarlarınızı yönetin, profilinizi güncelleyin ve şifrenizi değiştirin."
+    },
+    "title": "Profil Ayarları",
+    "chooseAvatar": "Avatar Seç",
+    "accountDetails": "Hesap Bilgileri",
+    "name": "Ad",
+    "namePlaceholder": "Tam adınız",
+    "saveChanges": "Değişiklikleri Kaydet",
+    "saving": "Kaydediliyor...",
+    "emailAddress": "E-posta Adresi",
+    "changeEmail": "Değiştir",
+    "newEmail": "Yeni E-posta Adresi",
+    "emailPlaceholder": "yeni@eposta.com",
+    "emailChangeHint": "Bu e-postaya bir doğrulama kodu gönderilecek",
+    "cancel": "İptal",
+    "sendCode": "Kod Gönder",
+    "sending": "Gönderiliyor...",
+    "enterCodeSentTo": "Şu adrese gönderilen 6 haneli kodu girin:",
+    "verifyCode": "Doğrula",
+    "verifying": "Doğrulanıyor...",
+    "useAnotherEmail": "Farklı bir e-posta adresi kullan",
+    "codeSent": "Doğrulama kodu yeni e-postanıza gönderildi",
+    "emailChanged": "E-posta başarıyla değiştirildi",
+    "enterNewEmail": "Lütfen yeni bir e-posta adresi girin",
+    "enterCode": "Lütfen 6 haneli kodu girin",
+    "emailChangeFailed": "Doğrulama kodu gönderilemedi",
+    "verificationFailed": "Doğrulama başarısız oldu",
+    "changePassword": "Şifre Değiştir",
+    "currentPassword": "Mevcut Şifre",
+    "newPassword": "Yeni Şifre",
+    "confirmPassword": "Yeni Şifreyi Onayla",
+    "passwordHint": "En az 8 karakter olmalıdır",
+    "changePasswordBtn": "Şifreyi Değiştir",
+    "changingPassword": "Değiştiriliyor...",
+    "profileUpdated": "Profil başarıyla güncellendi",
+    "passwordChanged": "Şifre başarıyla değiştirildi",
+    "updateFailed": "Güncelleme başarısız oldu",
+    "passwordChangeFailed": "Şifre değiştirme başarısız oldu",
+    "passwordMismatch": "Şifreler eşleşmiyor",
+    "passwordTooShort": "Şifre en az 8 karakter olmalıdır",
+    "noChanges": "Kaydedilecek değişiklik yok"
+  },
+
+  "Checkout": {
+    "meta": {
+      "title": "Ödeme - Aboneliğinizi Tamamlayın",
+      "description": "Sınırsız özgeçmiş özelliklerinin kilidini açmak için aboneliğinizi tamamlayın. Stripe ile güvenli ödeme."
+    },
+    "invalidPlan": {
+      "title": "Geçersiz Plan",
+      "description": "Seçilen plan geçerli değil. Lütfen fiyatlandırma sayfamızdan bir plan seçin.",
+      "backBtn": "Fiyatlandırmaya Dön"
+    },
+    "signIn": {
+      "title": "Devam Etmek İçin Giriş Yapın",
+      "subtitle": "{plan} planını satın almak için giriş yapın",
+      "signInBtn": "Giriş Yap",
+      "createAccountBtn": "Hesap Oluştur"
+    },
+    "header": {
+      "completePurchase": "Satın Alımınızı Tamamlayın",
+      "subscribePlan": "{plan} planına abone olun"
+    },
+    "billing": {
+      "account": "Hesap",
+      "billing": "Faturalandırma",
+      "monthlyStarting": "Aylık, bugünden itibaren"
+    },
+    "submit": {
+      "redirecting": "Stripe'a yönlendiriliyor...",
+      "subscribeNow": "Şimdi Abone Ol"
+    },
+    "secure": "Stripe tarafından desteklenen güvenli ödeme",
+    "cancelNote": "İstediğiniz zaman iptal edin. Uzun vadeli taahhüt yok.",
+    "loading": "Ödeme yükleniyor...",
+    "errors": {
+      "cancelled": "Ödeme iptal edildi. Hazır olduğunuzda tekrar deneyebilirsiniz.",
+      "sessionExpired": "Oturumunuzun süresi doldu. Lütfen tekrar giriş yapın.",
+      "failedCheckout": "Ödeme başlatılamadı. Lütfen tekrar deneyin.",
+      "networkError": "Sunucuya bağlanılamıyor. Lütfen internet bağlantınızı kontrol edin."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/ay",
+        "description": "İş arayanlar için ideal",
+        "features": ["Aylık 30 CV oluşturma", "Aylık 3 AI oluşturma", "Aylık 3 PDF indirme", "Tüm freemium şablonlar", "Reklamsız"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/ay",
+        "description": "Aktif iş arayanlar için",
+        "features": ["Aylık 150 CV oluşturma", "Aylık 10 AI oluşturma", "Aylık 10 PDF indirme", "ATS optimizasyonu", "Ön yazı oluşturucu"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/ay",
+        "description": "Profesyoneller için en iyi seçim",
+        "features": ["Aylık 300 CV oluşturma", "Aylık 30 AI oluşturma", "Aylık 25 PDF indirme", "Tüm premium şablonlar", "Öncelikli destek"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/ay",
+        "description": "Uzman kullanıcılar ve ajanslar için",
+        "features": ["Sınırsız CV oluşturma", "Aylık 100 AI oluşturma", "Sınırsız PDF indirme", "Tüm premium şablonlar", "Öncelikli destek", "Erken erişim özellikleri"]
+      }
+    }
+  },
+
+  "CheckoutSuccess": {
+    "title": "Ödeme Başarılı!",
+    "welcome": "{plan}'a Hoş Geldiniz!",
+    "planLabel": "{plan} Planı",
+    "yourBenefits": "Yeni avantajlarınız",
+    "createResume": "Özgeçmişinizi Oluşturun",
+    "goToDashboard": "Kontrol Paneline Git",
+    "receiptNote": "E-postanıza bir makbuz gönderildi. Aboneliğinizi istediğiniz zaman kontrol panelinizden yönetebilirsiniz",
+    "dashboardLink": "kontrol paneli",
+    "supportText": "Sorularınız mı var? Bize ulaşın:",
+    "loading": "Abonelik bilgileriniz yükleniyor...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["Aylık 30 CV oluşturma", "Aylık 3 AI oluşturma", "Aylık 3 PDF indirme", "Tüm freemium şablonlar", "Reklamsız"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["Aylık 150 CV oluşturma", "Aylık 10 AI oluşturma", "Aylık 10 PDF indirme", "ATS optimizasyonu", "Ön yazı oluşturucu"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["Aylık 300 CV oluşturma", "Aylık 30 AI oluşturma", "Aylık 25 PDF indirme", "Tüm premium şablonlar", "Öncelikli destek"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["Sınırsız CV oluşturma", "Aylık 100 AI oluşturma", "Sınırsız PDF indirme", "Tüm premium şablonlar", "Öncelikli destek", "Yeni özelliklere erken erişim"]
+      }
+    }
+  },
+
+  "CanvasEditor": {
+    "meta": {
+      "title": "Kanvas Özgeçmiş Editörü - Özgeçmişinizi Görsel Olarak Tasarlayın | Best AI Resume",
+      "description": "Görsel kanvas editörüyle özgeçmişinizi tasarlayın. Metin, resim ve şekilleri sürükleyip bırakarak benzersiz, özel bir özgeçmiş düzeni oluşturun."
+    },
+    "loading": "Kanvas Editörü Yükleniyor...",
+    "desktop": {
+      "title": "Masaüstü Gerekli",
+      "description": "Kanvas Editörü, hassas tasarım çalışması için daha büyük bir ekran gerektirir. Bu özelliğe erişmek için lütfen bir dizüstü veya masaüstü bilgisayar kullanın.",
+      "useBuilder": "Bunun Yerine Standart Oluşturucuyu Kullan",
+      "backToDashboard": "Kontrol Paneline Dön",
+      "mobileNote": "Standart özgeçmiş oluşturucu mobilde harika çalışır!"
+    },
+    "header": {
+      "backToBuilder": "Oluşturucuya Dön",
+      "backToTemplates": "Kanvas Şablonlarına Dön",
+      "title": "Kanvas Editörü",
+      "beta": "Beta",
+      "elements": "{count} öğe",
+      "postToCommunity": "Topluluğa Paylaş"
+    },
+    "shortcuts": "V Seç | T Metin | Delete Kaldır | Cmd+D Çoğalt | Cmd+Z Geri Al | Düzenlemek için metne çift tıklayın",
+    "toolbar": {
+      "select": "Seç (V)",
+      "text": "Metin (T)",
+      "image": "Resim (I)",
+      "shape": "Şekil (S)",
+      "rectangle": "Dikdörtgen",
+      "circle": "Daire",
+      "star": "Yıldız",
+      "line": "Çizgi",
+      "undo": "Geri Al (Cmd+Z)",
+      "redo": "Yinele (Cmd+Shift+Z)",
+      "duplicate": "Çoğalt (Cmd+D)",
+      "delete": "Sil",
+      "bringToFront": "Öne Getir",
+      "sendToBack": "Arkaya Gönder",
+      "zoomOut": "Uzaklaştır",
+      "zoomIn": "Yakınlaştır",
+      "aiGenerate": "AI ile Oluştur",
+      "aiGenerateTitle": "AI Özet Oluşturucu",
+      "save": "Projeyi Kaydet (Cmd+S)",
+      "load": "Proje Yükle",
+      "export": "Dışa Aktar",
+      "downloadPdf": "PDF İndir",
+      "downloadPng": "PNG İndir",
+      "downloadJpeg": "JPEG İndir"
+    },
+    "alerts": {
+      "templateLoadFailed": "Şablon yüklenemedi. Kaldırılmış olabilir.",
+      "canvasNotReady": "Kanvas hazır değil. Lütfen tekrar deneyin.",
+      "projectSaved": "Proje başarıyla kaydedildi!",
+      "noSavedProject": "Kayıtlı proje bulunamadı.",
+      "projectLoaded": "Proje başarıyla yüklendi!",
+      "projectLoadFailed": "Proje yüklenemedi."
+    },
+    "downloadModal": {
+      "title": "İndirmek için Giriş Yapın",
+      "description": "Kanvas tasarımınızı {format} olarak indirmek için ücretsiz bir hesap oluşturun.",
+      "savedTitle": "Çalışmanız kaydedildi",
+      "savedNotice": "Kanvas projeniz tarayıcınıza kaydedildi. Giriş yaptıktan sonra döndüğünüzde burada olacak.",
+      "signUp": "Kayıt Ol — Ücretsiz",
+      "signInPrefix": "Zaten bir hesabınız var mı?",
+      "signInLink": "Giriş yap",
+      "restored": "Kanvas projeniz geri yüklendi! İndirmek için Dışa Aktar'a tıklayın."
+    }
+  },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Kanvas Özgeçmiş Şablonları - Özgeçmişinizi Görsel Olarak Tasarlayın | Best AI Resume",
+      "description": "Yaratıcı kanvas özgeçmiş şablonlarına göz atın. Görsel editörümüzle her öğeyi sürükleyin, bırakın ve özelleştirin."
+    },
+    "sectionTitle": "Kanvas Şablonları",
+    "title": "Kanvas Özgeçmiş",
+    "titleHighlight": "Şablonları",
+    "subtitle": "Tam yaratıcı özgürlükle özgeçmişinizi tasarlayın. Görsel editörümüzde her öğeyi sürükleyin, bırakın ve özelleştirin.",
+    "freeBadge": "Ücretsiz",
+    "searchPlaceholder": "Kanvas şablonları ara...",
+    "noResults": "Şablon bulunamadı",
+    "noResultsHint": "Arama veya filtre kriterlerinizi ayarlamayı deneyin",
+    "useTemplate": "Şablonu Kullan",
+    "categories": {
+      "all": "Tümü",
+      "professional": "Profesyonel",
+      "creative": "Yaratıcı",
+      "minimal": "Minimal"
+    },
+    "startFromScratch": {
+      "title": "Sıfırdan başlamak mı istiyorsunuz?",
+      "description": "Kanvas Editörümüzün güçlü tasarım araçlarını kullanarak tamamen özel bir özgeçmiş oluşturun.",
+      "button": "Boş Kanvas Aç"
+    },
+    "formBuilderBanner": "Form tabanlı şablonlar mı arıyorsunuz?",
+    "viewFormTemplates": "Form Oluşturucu Şablonlarını Görüntüle"
+  },
+
+  "Builder": {
+    "meta": {
+      "title": "Özgeçmiş Oluşturucu - Profesyonel CV'nizi Çevrimiçi Oluşturun",
+      "description": "Kullanımı kolay editörümüzle profesyonel özgeçmişinizi oluşturun. Gerçek zamanlı önizleme, AI önerileri ve anında PDF indirme."
+    },
+    "personalInfo": {
+      "title": "Kişisel Bilgiler",
+      "subtitle": "İletişim bilgileriniz ve profesyonel özetinizle başlayın."
+    },
+    "profilePhoto": "Profil Fotoğrafı",
+    "upload": "Yükle",
+    "change": "Değiştir",
+    "fullName": "Tam Ad",
+    "fullNamePlaceholder": "Ahmet Yılmaz",
+    "jobTitle": "İş Unvanı",
+    "jobTitlePlaceholder": "Yazılım Mühendisi",
+    "email": "E-posta",
+    "emailPlaceholder": "ahmet@ornek.com",
+    "phone": "Telefon",
+    "phonePlaceholder": "+90 (555) 000-0000",
+    "location": "Konum",
+    "locationPlaceholder": "İstanbul, Türkiye",
+    "website": "Web Sitesi",
+    "websitePlaceholder": "ahmetyilmaz.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/ahmetyilmaz",
+    "nationality": "Uyruk",
+    "nationalityPlaceholder": "örn. Türk",
+    "idDocument": "Kimlik / Pasaport / Ehliyet",
+    "selectDocType": "Belge seç",
+    "nationalId": "Nüfus Cüzdanı",
+    "passport": "Pasaport",
+    "drivingLicense": "Ehliyet",
+    "documentNumber": "Belge numarası",
+    "professionalSummary": "Profesyonel Özet",
+    "summaryPlaceholder": "Ölçeklenebilir web uygulamaları geliştirme tutkusuna sahip deneyimli Yazılım Mühendisi...",
+    "generateWithAI": "AI ile Oluştur",
+    "additionalInfo": "Ek Bilgiler",
+    "socialLinks": "Sosyal Bağlantılar",
+    "customFields": {
+      "title": "Özel Alanlar",
+      "subtitle": "Kendi etiketleriniz ve içeriğinizle özel bölümler ekleyin.",
+      "add": "Özel Alan Ekle",
+      "noCustomFields": "Henüz özel alan eklenmedi.",
+      "label": "Bölüm Etiketi",
+      "labelPlaceholder": "örn. Gönüllü Çalışma, Hobiler, Yayınlar",
+      "content": "İçerik",
+      "contentPlaceholder": "İçeriğinizi buraya ekleyin..."
+    },
+    "shapes": {
+      "circle": "Daire",
+      "rounded": "Yuvarlatılmış",
+      "square": "Kare"
+    },
+    "experience": {
+      "title": "İş Deneyimi",
+      "subtitle": "İlgili iş deneyiminizi ekleyin.",
+      "add": "Deneyim Ekle",
+      "notSpecified": "(Belirtilmemiş)",
+      "companyName": "Şirket Adı",
+      "jobTitle": "İş Unvanı",
+      "company": "Şirket",
+      "city": "Şehir",
+      "country": "Ülke",
+      "startDate": "Başlangıç Tarihi",
+      "endDate": "Bitiş Tarihi",
+      "currentlyWork": "Şu anda burada çalışıyorum",
+      "description": "Açıklama",
+      "improveAI": "AI ile geliştir",
+      "noExperience": "Henüz deneyim eklenmedi.",
+      "addFirst": "İlk pozisyonunuzu ekleyin"
+    },
+    "education": {
+      "title": "Eğitim",
+      "subtitle": "Eğitim geçmişinizi ekleyin.",
+      "add": "Eğitim Ekle",
+      "notSpecified": "(Belirtilmemiş)",
+      "degree": "Derece",
+      "school": "Okul / Üniversite",
+      "cityOptional": "Şehir (İsteğe Bağlı)",
+      "countryOptional": "Ülke (İsteğe Bağlı)",
+      "startDate": "Başlangıç Tarihi",
+      "endDate": "Bitiş Tarihi",
+      "gpaOptional": "Not Ortalaması (İsteğe Bağlı)",
+      "honorsOptional": "Onur/Burs (İsteğe Bağlı)",
+      "clubsOptional": "Kulüpler ve Aktiviteler (İsteğe Bağlı)",
+      "descriptionOptional": "Açıklama (İsteğe Bağlı)",
+      "noEducation": "Henüz eğitim eklenmedi.",
+      "addEducation": "Eğitiminizi ekleyin",
+      "credentials": "Yeterlilikler",
+      "certifications": "Sertifikalar",
+      "awards": "Ödüller ve Başarılar"
+    },
+    "skills": {
+      "title": "Beceriler",
+      "subtitle": "Yeterlilik seviyeleriyle teknik ve kişisel becerilerinizi ekleyin.",
+      "placeholder": "örn. React, Python, Liderlik",
+      "proficiencyLevel": "Yeterlilik Seviyesi",
+      "beginner": "Başlangıç",
+      "basic": "Temel",
+      "intermediate": "Orta",
+      "advanced": "İleri",
+      "expert": "Uzman",
+      "noSkills": "Henüz beceri eklenmedi.",
+      "suggestedSkills": "Önerilen Beceriler",
+      "additionalInfo": "Ek Bilgiler",
+      "languages": "Diller",
+      "strengths": "Güçlü Yönler",
+      "interests": "İlgi Alanları ve Hobiler"
+    },
+    "tabs": {
+      "personal": "Kişisel",
+      "personalDesc": "Temel bilgiler ve özet",
+      "experience": "Deneyim",
+      "experienceDesc": "İş geçmişi",
+      "education": "Eğitim",
+      "educationDesc": "Akademik geçmiş",
+      "skills": "Beceriler",
+      "skillsDesc": "Uzmanlığınız",
+      "design": "Tasarım",
+      "designDesc": "Stil ve düzen"
+    },
+    "ui": {
+      "progress": "İlerleme",
+      "canvasEditor": "Kanvas Editörü",
+      "backToHome": "Ana Sayfaya Dön",
+      "untitledResume": "Adsız Özgeçmiş",
+      "downloadPdf": "PDF İndir",
+      "livePreview": "Canlı Önizleme",
+      "showReference": "Referans Görselini Göster",
+      "reference": "Referans",
+      "zoomOut": "Uzaklaştır",
+      "zoomIn": "Yakınlaştır",
+      "resetZoom": "Yakınlaştırmayı Sıfırla",
+      "referenceDesign": "Referans Tasarım",
+      "referenceCaption": "Referans için orijinal şablon tasarımı",
+      "editResume": "Özgeçmişi Düzenle",
+      "previewResume": "Özgeçmişi Önizle",
+      "edit": "Düzenle",
+      "preview": "Önizleme",
+      "loadingBuilder": "Oluşturucu yükleniyor..."
+    },
+    "welcome": {
+      "title": "Hesap Oluşturuldu!",
+      "description": "Özgeçmişiniz kaydedildi. Düzenlemeye devam edebilir veya indirmek için bir plan seçebilirsiniz.",
+      "choosePlan": "Plan Seç",
+      "backToEditor": "Editöre Dön"
+    },
+    "feedback": {
+      "reportIssue": "Sorun Bildir",
+      "title": "Şablon Geri Bildirimi",
+      "forTemplate": "Şablon",
+      "typeFeedback": "Geri Bildirim",
+      "typeBug": "Hata",
+      "typeSuggestion": "Fikir",
+      "placeholder": "Sorunu açıklayın veya bu şablon hakkında geri bildiriminizi paylaşın...",
+      "messageTooShort": "Mesaj en az 5 karakter olmalıdır",
+      "submitError": "Geri bildirim gönderilemedi. Lütfen tekrar deneyin.",
+      "submit": "Gönder",
+      "cancel": "İptal",
+      "close": "Kapat",
+      "thankYou": "Teşekkürler!",
+      "thankYouDesc": "Geri bildiriminiz gönderildi. Şablonlarımızı geliştirmek için tüm raporları inceliyoruz."
+    }
+  },
+
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Google Docs İçin İndir",
+    "loading": "Google Docs oluşturucu yükleniyor..."
+  },
+
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "MS Word İndir",
+    "loading": "Word oluşturucu yükleniyor..."
+  },
+
+  "CoverLetter": {
+    "meta": {
+      "title": "Ücretsiz AI Ön Yazı Oluşturucu - Profesyonel Ön Yazılar Oluşturun",
+      "description": "Ücretsiz AI destekli aracımızla dakikalar içinde profesyonel, kişiselleştirilmiş ön yazılar oluşturun. Kalabalığın arasından sıyrılın ve daha fazla mülakat alın."
+    },
+    "hero": {
+      "badge": "AI Destekli Ön Yazı Oluşturucu",
+      "title": "Mükemmel Bir",
+      "titleHighlight": "Ön Yazı Oluşturun",
+      "subtitle": "AI'ın güçlü yönlerinizi öne çıkaran ve işe alım yöneticilerinin dikkatini çeken etkileyici, kişiselleştirilmiş bir ön yazı hazırlamasını sağlayın."
+    },
+    "form": {
+      "yourDetails": "Bilgileriniz",
+      "fillInfo": "Bilgilerinizi doldurun",
+      "fullName": "Tam Ad",
+      "email": "E-posta",
+      "jobTitle": "İş Unvanı",
+      "companyName": "Şirket Adı",
+      "hiringManager": "İşe Alım Yöneticisi Adı (İsteğe Bağlı)",
+      "keySkills": "Temel Beceriler",
+      "experience": "İlgili Deneyim",
+      "tone": "Yazım Tonu",
+      "professional": "Profesyonel",
+      "friendly": "Samimi",
+      "confident": "Özgüvenli",
+      "enthusiastic": "Hevesli",
+      "generate": "Ön Yazı Oluştur",
+      "generating": "Oluşturuluyor...",
+      "fullNamePlaceholder": "Ahmet Yılmaz",
+      "emailPlaceholder": "ahmet@ornek.com",
+      "jobTitlePlaceholder": "Yazılım Mühendisi",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Ayşe Demir",
+      "skillsPlaceholder": "React, Node.js, Takım Liderliği",
+      "experiencePlaceholder": "5 kişilik bir geliştirici ekibine liderlik ederek önemli bir ürün lansmanını gerçekleştirdim..."
+    },
+    "preview": {
+      "title": "Önizleme",
+      "subtitle": "Oluşturulan mektubunuz",
+      "noLetter": "Henüz mektup oluşturulmadı",
+      "fillAndGenerate": "Bilgilerinizi doldurun ve Oluştur'a tıklayın",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı!",
+      "download": "İndir"
+    },
+    "tips": {
+      "title": "Harika Bir Ön Yazı İçin",
+      "titleHighlight": "İpuçları",
+      "beSpecific": "Spesifik Olun",
+      "beSpecificDesc": "Mektubunuzu belirli iş ilanına ve şirkete göre uyarlayın. Genel mektuplar kolayca fark edilir.",
+      "showResults": "Sonuçları Gösterin",
+      "showResultsDesc": "Ölçülebilir başarıları dahil edin. Rakamlar başarılarınızı somut ve akılda kalıcı kılar.",
+      "keepConcise": "Kısa Tutun",
+      "keepConciseDesc": "3-4 paragraf hedefleyin. İşe alım uzmanları her başvuruyu taramak için sadece birkaç saniye harcar."
+    },
+    "cta": {
+      "title": "Bir Özgeçmişe de mi İhtiyacınız Var?",
+      "subtitle": "Ön yazınızı AI ile oluşturulmuş profesyonel tasarımlı bir özgeçmişle eşleştirin.",
+      "button": "Özgeçmişinizi Oluşturun"
+    },
+    "errors": {
+      "signInRequired": "Ön yazı oluşturmak için lütfen giriş yapın",
+      "limitReached": "Ön yazı limitinize ulaştınız. Daha fazlası için planınızı yükseltin.",
+      "subscriptionRequired": "Ön yazı oluşturmak için abonelik gereklidir. Lütfen planınızı yükseltin.",
+      "signInNow": "Şimdi giriş yap",
+      "viewPlans": "Planları görüntüle"
+    },
+    "externalResources": {
+      "title": "Harici Kaynaklar",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Kariyer Görünümü",
+      "shrmHrResources": "SHRM: İK ve Kariyer Kaynakları"
+    }
+  },
+
+  "ResignationLetter": {
+    "meta": {
+      "title": "Ücretsiz AI İstifa Mektubu Oluşturucu - Profesyonel İstifa Mektupları",
+      "description": "Dakikalar içinde profesyonel bir istifa mektubu oluşturun. AI destekli aracımızla işinizden iyi koşullarda ayrılın ve olumlu ilişkilerinizi koruyun."
+    },
+    "hero": {
+      "badge": "AI Destekli İstifa Mektubu Oluşturucu",
+      "title": "Profesyonel Bir",
+      "titleHighlight": "İstifa Mektubu Yazın",
+      "subtitle": "Profesyonelce yazılmış bir istifa mektubuyla işinizden iyi koşullarda ayrılın. Olumlu ilişkilerinizi koruyun ve profesyonel itibarınızı muhafaza edin."
+    },
+    "noticeLabel": "İpucu",
+    "notice": "Standart ihbar süresi genellikle 2 haftadır. Belirli gereksinimler için iş sözleşmenizi kontrol edin.",
+    "form": {
+      "yourDetails": "Bilgileriniz",
+      "fillInfo": "Bilgilerinizi doldurun",
+      "yourName": "Adınız",
+      "currentPosition": "Mevcut Pozisyonunuz",
+      "companyName": "Şirket Adı",
+      "managerName": "Yöneticinizin Adı",
+      "lastWorkingDay": "Son Çalışma Günü",
+      "reasonForLeaving": "Ayrılma Nedeni",
+      "positiveExperiences": "Olumlu Deneyimler (İsteğe Bağlı)",
+      "tone": "Mektup Tonu",
+      "professional": "Profesyonel",
+      "grateful": "Minnettar",
+      "brief": "Kısa",
+      "warm": "Samimi",
+      "offerHelp": "Geçiş sürecinde yardım öner",
+      "generate": "İstifa Mektubu Oluştur",
+      "generating": "Oluşturuluyor...",
+      "yourNamePlaceholder": "Ahmet Yılmaz",
+      "currentPositionPlaceholder": "Yazılım Mühendisi",
+      "companyPlaceholder": "ABC Şirketi",
+      "managerPlaceholder": "Ayşe Demir",
+      "positiveExperiencesPlaceholder": "Ürün lansman projesinde çalışmaktan gerçekten keyif aldım ve kıdemli ekipten aldığım mentorluk için minnettarım...",
+      "professionalDesc": "Resmi ve iş odaklı",
+      "gratefulDesc": "Takdir ifade eden",
+      "briefDesc": "Kısa ve öz",
+      "warmDesc": "Samimi ve kişisel"
+    },
+    "reasons": {
+      "selectReason": "Bir neden seçin (isteğe bağlı)",
+      "newOpportunity": "Yeni bir fırsat peşinde",
+      "careerChange": "Kariyer değişikliği",
+      "relocation": "Taşınma",
+      "personal": "Kişisel nedenler",
+      "education": "Eğitime dönüş",
+      "family": "Aile sorumlulukları",
+      "health": "Sağlık nedenleri",
+      "retirement": "Emeklilik",
+      "other": "Diğer"
+    },
+    "preview": {
+      "title": "Önizleme",
+      "subtitle": "Oluşturulan mektubunuz",
+      "noLetter": "Henüz mektup oluşturulmadı",
+      "fillAndGenerate": "Bilgilerinizi doldurun ve Oluştur'a tıklayın",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı!",
+      "download": "İndir"
+    },
+    "reasonText": {
+      "newOpportunity": "Başka bir şirkette bir pozisyon kabul ettim",
+      "careerChange": "Farklı bir kariyer yolu izlemeye karar verdim",
+      "relocation": "Taşınacağım",
+      "personal": "kişisel nedenlerden dolayı",
+      "education": "Eğitimime devam etmeye karar verdim",
+      "family": "tam dikkatimi gerektiren aile sorumlulukları nedeniyle",
+      "health": "sağlık nedenleriyle",
+      "retirement": "Emekli olmaya karar verdim",
+      "other": "kişisel nedenlerden dolayı"
+    },
+    "letter": {
+      "dearManager": "Sayın {name},",
+      "defaultManager": "Yönetici",
+      "lastWorkingDayPlaceholder": "[Son Çalışma Günü]",
+      "briefBody": "Bu mektup, {company} bünyesindeki {position} pozisyonumdan istifamın resmi bildirimi olarak kabul edilmesini rica ederim. Son çalışma günüm {lastDay} olacaktır.",
+      "briefReason": "{reason} nedeniyle istifa ediyorum.",
+      "briefClosing": "Burada geçirdiğim süre boyunca sağlanan fırsatlar için teşekkür ederim.",
+      "sincerely": "Saygılarımla,",
+      "formalBody": "{company} bünyesindeki {position} pozisyonumdan istifa ettiğimi resmi olarak bildirmek için yazıyorum. Son çalışma günüm {lastDay} olacaktır.",
+      "reasonPrefix": "Dikkatli bir değerlendirmenin ardından, {reason}.",
+      "notEasyDecision": "Bu kolay bir karar değildi, çünkü şirkette geçirdiğim zamanı gerçekten değerli buldum.",
+      "gratefulDefault": "Burada geçirdiğim süre boyunca profesyonel ve kişisel olarak gelişme fırsatları için inanılmaz derecede minnettarım.",
+      "warmDefault": "Sizinle ve ekiple çalışmak her zaman hatırlayacağım harika bir deneyim oldu.",
+      "learnedAppreciate": "Çok şey öğrendim ve aldığım destek ve rehberliği her zaman takdir edeceğim.",
+      "transitionHelp": "Geçiş döneminde, sorumluluklarımın sorunsuz bir şekilde devredilmesini sağlamaya kararlıyım. Yerime gelecek kişiyi eğitmeye veya mevcut projelerimi ve süreçlerimi belgelemeye yardımcı olmaktan mutluluk duyarım.",
+      "thankYouClosing": "Görev sürem boyunca bana sağladığınız profesyonel ve kişisel gelişim fırsatları için teşekkür ederim. {company}'nin başarılarının devam etmesini diler, iletişimde kalmayı umarım.",
+      "warmRegards": "Sıcak selamlarımla,",
+      "sincereGratitude": "İçten minnettarlığımla,"
+    },
+    "tips": {
+      "title": "İstifa",
+      "titleHighlight": "En İyi Uygulamalar",
+      "giveNotice": "İhbar Süresi Verin",
+      "giveNoticeDesc": "En az 2 hafta önceden bildirimde bulunun veya sözleşme şartlarınıza uyun.",
+      "stayProfessional": "Profesyonel Kalın",
+      "stayProfessionalDesc": "Duyguları işin dışında tutun. Saygılı ve olumlu olun.",
+      "documentIt": "Belgelendirin",
+      "documentItDesc": "Kayıtlarınız için her zaman yazılı bir istifa sunun.",
+      "leaveWell": "İyi Ayrılın",
+      "leaveWellDesc": "Bekleyen işleri tamamlayın ve yerinize gelecek kişiyi eğitmeyi teklif edin."
+    },
+    "cta": {
+      "title": "Bir Sonraki Fırsatınıza Hazır mısınız?",
+      "subtitle": "AI destekli özgeçmiş oluşturucumuzla iş aramanız için profesyonel bir özgeçmiş oluşturun.",
+      "button": "Özgeçmişinizi Oluşturun"
+    },
+    "externalResources": {
+      "title": "Harici Kaynaklar",
+      "shrmWorkplace": "SHRM: İK ve İşyeri Kaynakları",
+      "blsCareerData": "Bureau of Labor Statistics: Kariyer Verileri"
+    }
+  },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Ücretsiz AI Deneme Mülakatı Pratiği | Best AI Resume",
+      "description": "Pozisyonunuza özel AI tarafından oluşturulan sorularla mülakat pratiği yapın. Cevaplarınız hakkında anında STAR yöntemiyle geri bildirim alın. Ücretsiz deneme mülakatı aracı."
+    },
+    "hero": {
+      "badge": "AI Destekli Mülakat Pratiği",
+      "title": "AI Deneme Mülakatı Pratiği",
+      "description": "Pozisyonunuza ve deneyim seviyenize özel AI tarafından oluşturulan mülakat sorularıyla pratik yapın. STAR yöntemiyle anında geri bildirim alın."
+    },
+    "setup": {
+      "title": "Mülakatınızı Ayarlayın",
+      "jobTitle": "İş Unvanı",
+      "jobTitlePlaceholder": "örn. Yazılım Mühendisi, Pazarlama Müdürü...",
+      "experienceLevel": "Deneyim Seviyesi",
+      "levels": {
+        "entry": { "label": "Giriş Seviyesi", "description": "0–2 yıl deneyim" },
+        "mid": { "label": "Orta Seviye", "description": "3–6 yıl deneyim" },
+        "senior": { "label": "Kıdemli Seviye", "description": "7+ yıl deneyim" }
+      },
+      "questionCount": "Soru Sayısı: {count}",
+      "quick": "Hızlı (3)",
+      "thorough": "Kapsamlı (10)",
+      "startButton": "Mülakatı Başlat",
+      "generating": "Sorular Oluşturuluyor..."
+    },
+    "interview": {
+      "progress": "Soru {current} / {total}",
+      "yourAnswer": "Cevabınız",
+      "answerPlaceholder": "Cevabınızı buraya yazın. STAR yöntemini kullanın: Durum, Görev, Eylem, Sonuç...",
+      "answerTip": "İpucu: 3–5 cümle hedefleyin. Mümkün olduğunca belirli örnekler kullanın ve sonuçları rakamlarla ifade edin.",
+      "skip": "Atla",
+      "evaluating": "Değerlendiriliyor...",
+      "submitContinue": "Gönder ve Devam Et",
+      "submitFinish": "Gönder ve Bitir",
+      "starReminder": "STAR Yöntemini Hatırlayın:",
+      "starDescription": "En güçlü yanıtlar için cevaplarınızı Durum, Görev, Eylem ve Sonuç şeklinde yapılandırın."
+    },
+    "results": {
+      "complete": "Mülakat Tamamlandı!",
+      "summary": "{total} sorudan {answered} tanesini yanıtladınız",
+      "averageScore": "Ortalama Puan:",
+      "startNew": "Yeni Mülakat Başlat",
+      "bonusQuestions": "10 bonus pratik sorusunun kilidini açın",
+      "bonusUnlocked": "Bonus Soruların Kilidi Açıldı!",
+      "bonusDescription": "Artık oturum başına 10 soruya kadar pratik yapabilirsiniz.",
+      "detailedFeedback": "Detaylı Geri Bildirim",
+      "questionLabel": "Soru {number}",
+      "strengths": "Güçlü Yönler",
+      "improvements": "Geliştirilecek Alanlar",
+      "sampleAnswer": "Örnek Cevap",
+      "skipped": "Bu soru atlandı",
+      "continuePrep": "Hazırlığınıza Devam Edin",
+      "resources": {
+        "starMethod": {
+          "title": "STAR Yönteminde Ustalaşın",
+          "description": "Davranışsal mülakat soruları için cevaplarınızı nasıl yapılandıracağınızı öğrenin."
+        },
+        "tellMe": {
+          "title": "\"Kendinizden Bahsedin\" Sorusuna Nasıl Cevap Verilir",
+          "description": "Mülakatınızın tonunu belirleyen mükemmel açılış cevabını hazırlayın."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Devam etmek için lütfen bir iş unvanı girin.",
+      "generateFailed": "Mülakat soruları oluşturulamadı. Lütfen tekrar deneyin.",
+      "startFailed": "Mülakat başlatılamadı. Lütfen tekrar deneyin.",
+      "detailedAnswer": "Lütfen daha detaylı bir cevap verin (en az 20 karakter)."
+    },
+    "externalResources": {
+      "title": "Harici Kaynaklar",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Kariyer Görünümü",
+      "shrmInterviewPractices": "SHRM: Mülakat En İyi Uygulamaları"
+    }
+  },
+
+  "CareerTips": {
+    "meta": {
+      "title": "Kariyer İpuçları ve Özgeçmiş Tavsiyeleri - Uzman Rehberler | Best AI Resume",
+      "description": "Uzman kariyer tavsiyeleri, özgeçmiş yazma ipuçları ve iş arama stratejileri. AI destekli özgeçmişler oluşturmayı, mülakatları geçmeyi ve hayalinizdeki işe kavuşmayı öğrenin."
+    },
+    "hero": {
+      "badge": "Uzman Kariyer Rehberleri",
+      "title": "Kariyer İpuçları",
+      "titleHighlight": "ve Uzman Tavsiyeleri",
+      "subtitle": "Uzman rehberlerimizle özgeçmiş yazmada ustalaşın, mülakatları geçin ve kariyerinizi hızlandırın."
+    },
+    "featured": "Öne Çıkan Makaleler",
+    "featuredBadge": "Öne Çıkan",
+    "allArticles": "Tüm Makaleler",
+    "searchPlaceholder": "Makale ara...",
+    "articleCount": "{count, plural, one {# makale} other {# makale}}",
+    "noArticles": "Makale bulunamadı",
+    "noArticlesHint": "Aramanızı veya filtrenizi ayarlamayı deneyin",
+    "categories": {
+      "title": "Kategoriler",
+      "all": "Tüm Makaleler",
+      "resumeTips": "Özgeçmiş İpuçları",
+      "coverLetters": "Ön Yazılar",
+      "interviews": "Mülakat İpuçları",
+      "jobSearch": "İş Arama",
+      "careerAdvice": "Kariyer Tavsiyeleri",
+      "aiResume": "AI Özgeçmiş"
+    },
+    "article": {
+      "readMore": "Devamını Oku",
+      "tableOfContents": "İçindekiler",
+      "relatedArticles": "İlgili Makaleler",
+      "moreCareerTips": "Daha Fazla Kariyer İpuçları",
+      "shareHelpful": "Bu faydalı oldu mu?",
+      "shareWithOthers": "Faydalanabilecek başkalarıyla paylaşın",
+      "tags": "Etiketler:",
+      "breadcrumbHome": "Ana Sayfa",
+      "breadcrumbCareerTips": "Kariyer İpuçları",
+      "notFound": "Makale Bulunamadı"
+    },
+    "cta": {
+      "title": "Özgeçmişinizi Oluşturmaya Hazır mısınız?",
+      "subtitle": "Bu ipuçlarını AI destekli özgeçmiş oluşturucumuzla hayata geçirin. Dakikalar içinde profesyonel bir özgeçmiş oluşturun.",
+      "button": "Şimdi Özgeçmişinizi Oluşturun",
+      "sidebarTitle": "Özgeçmişinizi Oluşturun",
+      "sidebarSubtitle": "Dakikalar içinde AI ile profesyonel bir özgeçmiş oluşturun.",
+      "sidebarButton": "Başla"
+    }
+  },
+
+  "ResumeExamples": {
+    "meta": {
+      "title": "İş Unvanına Göre Özgeçmiş Örnekleri | Ücretsiz Şablonlar ve Rehberler 2026",
+      "description": "50'den fazla profesyonel özgeçmiş örneğine iş unvanına göre göz atın. Her biri ücretsiz şablon, temel beceriler ve hayalinizdeki işe kavuşmanız için yazım ipuçları içerir."
+    },
+    "hero": {
+      "badge": "Mesleğe Özel Rehberler",
+      "title": "Özgeçmiş Örnekleri",
+      "titleHighlight": "İş Unvanına Göre",
+      "subtitle": "Mesleğinizi bulun ve sektöre özel ipuçlarıyla özelleştirilmiş bir özgeçmiş şablonu alın."
+    },
+    "searchPlaceholder": "İş unvanına göre ara...",
+    "featured": "Öne Çıkan Özgeçmiş Örnekleri",
+    "allExamples": "Tüm Özgeçmiş Örnekleri",
+    "noResults": "Özgeçmiş örneği bulunamadı",
+    "noResultsHint": "Aramanızı veya filtrenizi ayarlamayı deneyin",
+    "cta": {
+      "title": "Kazandıran özgeçmişinizi oluşturmaya hazır mısınız?",
+      "subtitle": "AI destekli oluşturucumuzla dakikalar içinde profesyonel bir özgeçmiş oluşturun.",
+      "button": "Özgeçmişimi Oluştur — Ücretsiz"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "Ücretsiz ATS Özgeçmiş Kontrolü | Özgeçmişinizi Anında Puanlayın | Best AI Resume",
+      "description": "Özgeçmişinizi ücretsiz olarak ATS sistemlerine karşı kontrol edin. Otomatik taramayı geçmek için anında puanlama, anahtar kelime analizi ve optimizasyon ipuçları alın."
+    },
+    "hero": {
+      "badge": "Ücretsiz ATS Özgeçmiş Kontrolü",
+      "title": "Özgeçmişiniz",
+      "titleHighlight": "ATS Uyumlu mu?",
+      "statistic": "Özgeçmişlerin %75'i bir insan görmeden önce ATS tarafından reddedilir.",
+      "description": "Ücretsiz ATS kontrol aracımız özgeçmişinizi biçimlendirme sorunları, eksik anahtar kelimeler ve otomatik redde neden olan uyumluluk sorunları için analiz eder."
+    },
+    "tool": {
+      "title": "Özgeçmişinizin ATS Puanını Kontrol Edin",
+      "description": "PDF veya DOCX özgeçmişinizi yükleyin ve detaylı geri bildirimle anında ATS uyumluluk puanı alın.",
+      "uploadBtn": "Yüklemek için tıklayın veya sürükleyip bırakın",
+      "formats": "PDF veya DOCX — Maks. 10MB",
+      "checkBtn": "Özgeçmişimi Kontrol Et",
+      "changeFile": "Dosyayı değiştir",
+      "analyzing": "Özgeçmişiniz analiz ediliyor…",
+      "cta": "ATS Uyumlu Bir Özgeçmiş Oluşturun",
+      "subtext": "Ücretsiz — kredi kartı gerekmez"
+    },
+    "checks": {
+      "title": "ATS Sistemleri Neyi Kontrol Eder",
+      "subtitle": "ATS yazılımının neleri taradığını anlamak, özgeçmişinizi maksimum görünürlük için optimize etmenize yardımcı olur.",
+      "keywords": {
+        "title": "Anahtar Kelime Eşleştirme",
+        "description": "ATS, ilanlardan iş ile ilgili anahtar kelimeleri tarar. Kritik terimlerin eksikliği otomatik ret anlamına gelir."
+      },
+      "formatting": {
+        "title": "Temiz Biçimlendirme",
+        "description": "Karmaşık düzenler, tablolar ve sütunlar ATS ayrıştırıcılarını karıştırır. Basit, tek sütunlu formatlar en iyi şekilde ayrıştırılır."
+      },
+      "contact": {
+        "title": "İletişim Bilgileri",
+        "description": "ATS, standart formatlarda ad, e-posta, telefon ve konum arar. Eksik bilgi kaçırılan fırsatlar demektir."
+      },
+      "dates": {
+        "title": "Tutarlı Tarih Formatları",
+        "description": "ATS sistemleri deneyimi hesaplamak için iş tarihlerini ayrıştırır. Tutarsız formatlar ayrıştırma hatalarına neden olur."
+      }
+    },
+    "checklist": {
+      "title": "ATS Optimizasyon Kontrol Listesi",
+      "subtitle": "Özgeçmişinizin ATS taramasını geçme şansını en üst düzeye çıkarmak için bu yönergeleri izleyin.",
+      "doThis": "Yapın",
+      "avoidThis": "Kaçının",
+      "dos": {
+        "singleColumn": "Maksimum uyumluluk için tek sütunlu düzen kullanın",
+        "keywords": "İş tanımındaki anahtar kelimeleri doğal olarak ekleyin",
+        "standardHeadings": "Standart bölüm başlıkları kullanın (Deneyim, Eğitim, Beceriler)",
+        "fileFormat": "İşverenin belirttiği şekilde PDF veya DOCX olarak gönderin",
+        "standardFonts": "Arial, Calibri veya Times New Roman gibi standart yazı tipleri kullanın",
+        "spellOut": "Kısaltmaları önce açık yazın, sonra kısaltın (örn. Proje Yönetimi Profesyoneli (PMP))"
+      },
+      "donts": {
+        "tables": "Düzen için tablo veya metin kutuları kullanmayın",
+        "images": "Resim, logo veya grafik eklemeyin",
+        "headers": "Önemli bilgileri üstbilgi veya altbilgilere yerleştirmeyin",
+        "creativeTitles": "Yaratıcı bölüm başlıkları kullanmayın (örn. 'Deneyim' yerine 'Yolculuğum')",
+        "fancyFonts": "Dekoratif veya yaygın olmayan yazı tipleri kullanmayın",
+        "lightText": "Açık gri veya düşük kontrastlı metin renkleri kullanmayın"
+      }
+    },
+    "systems": {
+      "title": "Popüler ATS Sistemleri",
+      "subtitle": "Şablonlarımız, dünya genelinde işverenlerin kullandığı tüm büyük Başvuru Takip Sistemleri için test edilmiş ve optimize edilmiştir."
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "whatIsAts": {
+        "question": "ATS (Başvuru Takip Sistemi) nedir?",
+        "answer": "ATS, işverenlerin iş başvurularını toplamak, taramak ve sıralamak için kullandığı bir yazılımdır. Bir işe alım uzmanı görmeden önce özgeçmişleri anahtar kelimeler, biçimlendirme ve uygunluğa göre filtreler. Fortune 500 şirketlerinin %98'den fazlası ATS kullanmaktadır."
+      },
+      "whyFail": {
+        "question": "Özgeçmişler neden ATS taramasında başarısız olur?",
+        "answer": "Yaygın nedenler arasında karmaşık biçimlendirme (tablolar, sütunlar, grafikler), iş tanımından eksik anahtar kelimeler, standart dışı bölüm başlıkları, uyumsuz dosya formatları ve ATS'nin okuyamadığı üstbilgi veya altbilgilere yerleştirilen bilgiler yer alır."
+      },
+      "bestFormat": {
+        "question": "ATS için en iyi özgeçmiş formatı nedir?",
+        "answer": "Standart bölüm başlıklarına sahip temiz, tek sütunlu bir düzen en iyi şekilde çalışır. Basit biçimlendirme, standart yazı tipleri kullanın ve grafiklerden veya tablolardan kaçının. PDF ve DOCX en yaygın kabul edilen dosya formatlarıdır."
+      },
+      "keywords": {
+        "question": "Özgeçmişim için doğru anahtar kelimeleri nasıl bulurum?",
+        "answer": "İş tanımını dikkatlice okuyun ve tekrarlanan becerileri, nitelikleri ve terminolojiyi belirleyin. Bu anahtar kelimeleri özgeçmişiniz boyunca, özellikle özetinizde, beceri bölümünüzde ve iş deneyimi açıklamalarınızda doğal olarak ekleyin."
+      },
+      "twoColumn": {
+        "question": "ATS ile iki sütunlu özgeçmiş kullanabilir miyim?",
+        "answer": "İki sütunlu düzenler birçok ATS sisteminde ayrıştırma sorunlarına neden olabilir. Yazılım sütunları aşağı doğru okumak yerine karşıdan karşıya okuyabilir ve bilgilerinizi karıştırabilir. Tek sütunlu düzen, ATS uyumluluğu için en güvenli seçenektir."
+      },
+      "jobTitle": {
+        "question": "Özgeçmişimde tam olarak ilandaki iş unvanını mı kullanmalıyım?",
+        "answer": "Evet, gerçek unvanınız benzerse. İlandaki tam iş unvanını özgeçmişinize dahil etmek (doğru olduğu sürece) ATS eşleşmesini önemli ölçüde artırır. Bunu özetinize veya hedef pozisyon olarak ekleyebilirsiniz."
+      }
+    },
+    "resources": {
+      "title": "İlgili Kaynaklar",
+      "guide": {
+        "title": "ATS Özgeçmiş Yazma Rehberi",
+        "description": "ATS taramasını geçen bir özgeçmiş yazmak için adım adım rehber."
+      },
+      "templates": {
+        "title": "ATS Uyumlu Şablonlar",
+        "description": "ATS uyumluluğu için tasarlanmış önceden optimize edilmiş özgeçmiş şablonları."
+      },
+      "examples": {
+        "title": "Özgeçmiş Örnekleri",
+        "description": "Mesleğiniz için gerçek özgeçmiş örneklerini görün."
+      }
+    },
+    "cta": {
+      "title": "ATS Tarafından Reddedilmeyi Durdurun",
+      "description": "AI destekli oluşturucumuzla dakikalar içinde profesyonel, ATS uyumlu bir özgeçmiş oluşturun. Her şablon ATS uyumluluğu için test edilmiştir.",
+      "button": "ATS Özgeçmişimi Oluştur — Ücretsiz"
+    },
+    "validation": {
+      "unsupportedFormat": "Yalnızca PDF ve DOCX dosyaları desteklenir.",
+      "fileTooLarge": "Dosya boyutu 10MB'den küçük olmalıdır.",
+      "genericError": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+    },
+    "results": {
+      "scoreTitle": "ATS Uyumluluk Puanınız",
+      "recommendations": "Öneriler",
+      "checkAnother": "Başka Bir Özgeçmişi Kontrol Et",
+      "buildAtsResume": "ATS Uyumlu Bir Özgeçmiş Oluştur",
+      "pagesAnalyzed": "{count, plural, one {# sayfa analiz edildi} other {# sayfa analiz edildi}}",
+      "scoreExcellent": "Mükemmel",
+      "scoreGood": "İyi",
+      "scoreNeedsWork": "Geliştirilmeli",
+      "scorePoor": "Zayıf"
+    },
+    "externalResources": {
+      "title": "Harici Kaynaklar",
+      "atsHowTheyWork": "ATS'yi Anlamak: Nasıl Çalışırlar",
+      "blsResumeTips": "BLS Kariyer Görünümü: Özgeçmiş İpuçları"
+    }
+  },
+  "Contact": {
+    "title": "Bize Ulaşın",
+    "description": "Hesabınızla ilgili bir sorunuz olsun, özgeçmişinizle ilgili yardıma ihtiyacınız olsun veya bir sorun bildirmek isteyin — yardımcı olmak için buradayız. Aşağıdaki formu doldurun, ekibimiz 24 saat içinde size dönecektir.",
+    "inquiryType": "Soru Türü",
+    "inquiryTypes": {
+      "general": "Genel Soru",
+      "billing": "Faturalandırma Sorunu",
+      "cvCreation": "Özgeçmiş/CV Oluşturma Sorunu"
+    },
+    "name": "Adınız",
+    "namePlaceholder": "Ahmet Yılmaz",
+    "email": "E-posta Adresi",
+    "emailPlaceholder": "siz@ornek.com",
+    "subject": "Konu",
+    "subjectPlaceholder": "Size nasıl yardımcı olabiliriz?",
+    "message": "Mesaj",
+    "messagePlaceholder": "Sorununuz hakkında daha fazla bilgi verin...",
+    "submit": "Mesaj Gönder",
+    "sending": "Gönderiliyor...",
+    "successTitle": "Mesaj Gönderildi!",
+    "successMessage": "Bizimle iletişime geçtiğiniz için teşekkürler. 24 saat içinde size dönüş yapacağız.",
+    "sendAnother": "Başka Bir Mesaj Gönder",
+    "errorGeneric": "Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyin.",
+    "errorRateLimit": "Çok fazla gönderim. Lütfen tekrar denemeden önce bekleyin."
+  },
+  "Help": {
+    "title": "Nasıl Çalışır",
+    "subtitle": "Kayıt olmaktan bitmiş belgenizi indirmeye kadar profesyonel özgeçmişinizi oluşturmak için adım adım rehber.",
+    "quickNav": "Şuraya git:",
+    "tipLabel": "Uzman İpucu",
+    "faqLabel": "Sık Sorulan Sorular",
+    "troubleshootingLabel": "Sorun Giderme",
+    "gettingStarted": {
+      "title": "Başlarken",
+      "steps": {
+        "1": {
+          "title": "Hesabınızı Oluşturun",
+          "description": "Ana sayfadaki Başla düğmesine veya gezinme çubuğundaki Kayıt Ol bağlantısına tıklayın. Google, GitHub veya LinkedIn hesabınızla anında kayıt olabilirsiniz — şifre gerekmez. E-postayı mı tercih ediyorsunuz? Adınızı, e-postanızı girin ve bir şifre seçin.",
+          "tip": "Google veya LinkedIn ile giriş yapmak en hızlısıdır — adınız ve e-postanız otomatik olarak doldurulur."
+        },
+        "2": {
+          "title": "E-postanızı Doğrulayın",
+          "description": "E-posta ile kayıt olduysanız, Best AI Resume'den gelen bir mesaj için gelen kutunuzu kontrol edin. Doğrulama sayfasında 6 haneli doğrulama kodunu girin. Kod 10 dakika içinde sona erer — süresi dolursa yeni bir kod almak için 'Kodu Yeniden Gönder' seçeneğine tıklayın.",
+          "tip": "E-postayı bir dakika içinde görmezseniz spam veya gereksiz posta klasörünüzü kontrol edin."
+        },
+        "3": {
+          "title": "Hazırsınız",
+          "description": "Doğrulamadan sonra, ilk özgeçmişinizi nasıl oluşturacağınızı seçeceğiniz başlangıç ekranına yönlendirilirsiniz. Hesabınız yaptığınız her değişikliği otomatik olarak kaydeder, böylece tarayıcıyı kapatsanız bile çalışmanızı asla kaybetmezsiniz."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Kayıt olmak için kredi kartı gerekiyor mu?",
+          "a": "Hayır. Bir hesap oluşturabilir ve özgeçmişinizi tamamen ücretsiz olarak oluşturabilirsiniz. Kredi kartı yalnızca ücretli bir plan seçtiğinizde gereklidir."
+        },
+        "2": {
+          "q": "Doğrulama kodunu almazsam ne olur?",
+          "a": "Önce spam/gereksiz posta klasörünüzü kontrol edin. Orada yoksa doğrulama sayfasındaki 'Kodu Yeniden Gönder' seçeneğine tıklayın. Hâlâ alamıyorsanız, bunun yerine Google veya LinkedIn ile kayıt olmayı deneyin."
+        },
+        "3": {
+          "q": "Aynı hesabı birden fazla cihazda kullanabilir miyim?",
+          "a": "Evet. Hesabınız ve tüm özgeçmişleriniz bulutta saklanır. Herhangi bir cihazdan giriş yapın ve kaldığınız yerden devam edin."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Özgeçmişinizi Oluşturma",
+      "steps": {
+        "1": {
+          "title": "Yönteminizi Seçin",
+          "description": "Başlangıç sayfasında dört seçenek göreceksiniz: AI Oluşturma (çoğu kullanıcı için önerilen), Özgeçmiş Yükle (mevcut bir PDF'yi ayrıştır), LinkedIn'den İçe Aktar (profil verilerinizi çek) veya Sıfırdan Başla (boş şablon). Her seçenek, oluşturucuyu açmadan önce kısa bir kurulum akışından geçirir.",
+          "tip": "AI Oluşturma, eksiksiz ve profesyonel bir özgeçmiş elde etmenin en hızlı yoludur — sonrasında her zaman düzenleyebilirsiniz."
+        },
+        "2": {
+          "title": "AI'ın İşi Yapmasını Sağlayın",
+          "description": "AI Oluşturmayı seçtiyseniz, tam adınızı, başvurduğunuz iş unvanını ve deneyim seviyenizi (giriş, orta veya kıdemli) girin. Oluştur'a tıklayın ve AI'mız profesyonel özet, iş deneyimi, eğitim ve beceri bölümleriyle eksiksiz bir özgeçmiş oluşturacak — tamamı hedef pozisyonunuza göre uyarlanmış."
+        },
+        "3": {
+          "title": "Bir Şablon Seçin",
+          "description": "Oluşturma sonrası 16'dan fazla şablondan oluşan galerimize göz atın. Şablonlar kategorilere ayrılmıştır: Profesyonel, Yaratıcı, Minimal ve ATS Uyumlu. Verilerinizle önizlemek için herhangi bir şablona tıklayın. İçeriğinizi kaybetmeden istediğiniz zaman şablonlar arasında geçiş yapın.",
+          "tip": "Oluşturucudan istediğiniz zaman şablonunuzu değiştirebilirsiniz — içeriğiniz aynı kalır, yalnızca tasarım değişir."
+        },
+        "4": {
+          "title": "Düzenleyin ve Özelleştirin",
+          "description": "Oluşturucu solda sekmeli bölümlere (Kişisel Bilgiler, Deneyim, Eğitim, Beceriler vb.) ve sağda canlı bir önizlemeye sahiptir. Herhangi bir alanı düzenleyin ve değişikliklerin anında yansıdığını görün. Bölümleri yeniden sıralayabilir, özel bölümler ekleyebilir, yazı tipi boyutlarını ayarlayabilir ve tarzınıza uygun vurgu renklerini değiştirebilirsiniz."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Birden fazla özgeçmiş oluşturabilir miyim?",
+          "a": "Evet. Farklı iş başvurularına göre uyarlanmış birden fazla özgeçmiş oluşturabilir ve kaydedebilirsiniz. Kontrol panelinizden aralarında geçiş yapın."
+        },
+        "2": {
+          "q": "AI oluşturma tüm dillerde çalışıyor mu?",
+          "a": "AI şu anda İngilizce içerik oluşturmaktadır. Oluşturulan içeriği oluşturma sonrası herhangi bir dilde manuel olarak düzenleyebilirsiniz."
+        },
+        "3": {
+          "q": "LinkedIn profilimi içe aktarabilir miyim?",
+          "a": "Evet. Başlangıç sırasında 'LinkedIn'den İçe Aktar' seçeneğini seçin. İş geçmişinizi çekmek için LinkedIn profilinizi bağlama konusunda yönlendirileceksiniz."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Plan Seçme",
+      "steps": {
+        "1": {
+          "title": "Fiyatlandırma Sayfasını Ziyaret Edin",
+          "description": "Gezinme çubuğundaki Fiyatlandırma'ya tıklayın veya doğrudan fiyatlandırma sayfasını ziyaret edin. Dört plan göreceksiniz: Starter (ücretsiz, sınırlı indirmeler), Gold, Diamond ve Platinum. Aylık ve yıllık faturalandırma arasında geçiş yapmak için üstteki düğmeyi kullanın — yıllık planlar %40'a kadar tasarruf sağlar."
+        },
+        "2": {
+          "title": "Planınızı Seçin",
+          "description": "Dört planı — Starter, Gold, Diamond ve Platinum — karşılaştırın ve ihtiyaçlarınıza uygun olanı seçin. Tüm planlar hemen faturalanır ve tüm özelliklere anında erişim sağlar.",
+          "tip": "Yıllık faturalandırma aylığa kıyasla %40'a kadar tasarruf sağlar — ve aynı özellikleri alırsınız."
+        },
+        "3": {
+          "title": "Ödemeyi Tamamlayın",
+          "description": "Seçtiğiniz plandaki Başla düğmesine tıklayın. Kart bilgilerinizi girdiğiniz güvenli bir Stripe ödeme sayfasına yönlendirilirsiniz. Ödemeden sonra hesabınız anında yükseltilir ve hemen indirmeye başlayabilirsiniz."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Aboneliğimi istediğim zaman iptal edebilir miyim?",
+          "a": "Evet. Hesap ayarlarınızdan istediğiniz zaman iptal edebilirsiniz. Mevcut fatura döneminizin sonuna kadar erişiminiz devam eder."
+        },
+        "2": {
+          "q": "İptal edersem ne olur?",
+          "a": "Mevcut fatura döneminizin sonuna kadar planınıza erişiminiz devam eder. Bundan sonra hesabınız süresi dolmuş durumuna döner."
+        },
+        "3": {
+          "q": "Daha sonra plan değiştirebilir miyim?",
+          "a": "Evet. Hesap ayarlarınızdan istediğiniz zaman planınızı yükseltebilir veya düşürebilirsiniz. Değişiklikler hemen yürürlüğe girer."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Özgeçmişinizi İndirme",
+      "steps": {
+        "1": {
+          "title": "İndir'e Tıklayın",
+          "description": "Oluşturucuda, sayfanın sağ üst köşesindeki yeşil PDF İndir düğmesini arayın. İndirme penceresini açmak için tıklayın; bu pencere ay için kalan indirmelerinizi gösterir ve dışa aktarmayı onaylamanızı sağlar."
+        },
+        "2": {
+          "title": "PDF'nizi Alın",
+          "description": "Özgeçmişiniz, önizlemede gördüğünüzle tam olarak eşleşen mükemmel kalitede, yüksek çözünürlüklü bir PDF olarak oluşturulur. PDF hem dijital görüntüleme (e-posta, iş portalları) hem de standart mektup veya A4 kağıdına yazdırma için optimize edilmiştir.",
+          "tip": "En iyi sonuçlar için, çevrimiçi iş portalları üzerinden başvuru yaparken ATS uyumlu şablonları kullanın — daha güvenilir şekilde ayrıştırılırlar."
+        },
+        "3": {
+          "title": "Kullanımınızı Takip Edin",
+          "description": "Her planın fatura tarihinizde sıfırlanan aylık bir indirme limiti vardır. Kalan indirmelerinizi indirme penceresinde veya hesap ayarlarınızda kontrol edebilirsiniz. Limitinize ulaşırsanız, daha fazla indirmeyi anında açmak için planınızı istediğiniz zaman yükseltin."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Word/DOCX formatında indirebilir miyim?",
+          "a": "Evet. PDF'ye ek olarak, özgeçmişinizi Microsoft Word ve Google Docs ile uyumlu bir DOCX dosyası olarak dışa aktarabilirsiniz."
+        },
+        "2": {
+          "q": "PDF'm neden önizlemeden biraz farklı görünüyor?",
+          "a": "Önizleme yaklaşık bir gösterimdir. PDF, nihai mükemmel kalitede çıktıdır. Tarayıcı önizlemesi ile PDF arasındaki yazı tipi işlemesindeki küçük farklar normaldir."
+        },
+        "3": {
+          "q": "İndirme hakkım biterse ne olur?",
+          "a": "İndirme sayınız aylık olarak sıfırlanır. Sıfırlanmadan önce daha fazla indirmeye ihtiyacınız varsa, daha yüksek bir limite anında erişim için planınızı yükseltebilirsiniz."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Sorun Giderme",
+      "items": {
+        "1": {
+          "title": "Hesabıma giriş yapamıyorum",
+          "description": "Giriş sayfasındaki 'Şifremi Unuttum' bağlantısını kullanarak şifrenizi sıfırlamayı deneyin. Google, GitHub veya LinkedIn ile kayıt olduysanız, aynı sağlayıcıyı kullandığınızdan emin olun. Sorun devam ederse tarayıcı çerezlerinizi temizleyin."
+        },
+        "2": {
+          "title": "Doğrulama kodu gelmiyor",
+          "description": "Spam/gereksiz posta klasörünüzü kontrol edin. Kodlar 10 dakika sonra sona erer — yeni bir kod almak için 'Kodu Yeniden Gönder' seçeneğine tıklayın. Kurumsal bir e-posta kullanıyorsanız, BT güvenlik duvarınız otomatik e-postaları engelliyor olabilir. Bunun yerine kişisel bir e-posta adresi deneyin."
+        },
+        "3": {
+          "title": "Ödeme reddedildi",
+          "description": "Kart numaranızı, son kullanma tarihini ve CVV'yi doğrulayın. Kartınızın uluslararası veya çevrimiçi işlemlere izin verdiğinden emin olun. Sorun devam ederse farklı bir kart deneyin veya bankanızla iletişime geçin. Tüm ödemeler Stripe aracılığıyla güvenli bir şekilde işlenir."
+        },
+        "4": {
+          "title": "PDF önizlemeden farklı görünüyor",
+          "description": "Önizleme, nihai çıktının yaklaşık bir gösterimini sunar. Belirli öğeler bozuk görünüyorsa, şablon değiştirmeyi veya oluşturucunun tasarım ayarlarında yazı tipi boyutlarını ayarlamayı deneyin. Tarayıcınızın güncel olduğundan emin olun."
+        },
+        "5": {
+          "title": "Değişiklikler kaydedilmiyor",
+          "description": "Çalışmanız otomatik olarak buluta kaydedilir. Kaydedilmemiş değişiklikler fark ederseniz internet bağlantınızı kontrol edin. Sayfayı yenilemeyi deneyin — son düzenlemeleriniz görünmelidir. Yavaş bir bağlantıdaysanız, düzenlemeler arasında birkaç saniye bekleyin."
+        }
+      }
+    },
+    "cta": {
+      "title": "Başlamaya Hazır mısınız?",
+      "subtitle": "AI destekli oluşturucumuzla dakikalar içinde profesyonel özgeçmişinizi oluşturun.",
+      "buildButton": "Oluşturmaya Başla",
+      "contactButton": "Destek ile İletişim"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Ücretsiz ATS Uyumlu Özgeçmiş Şablonları (2026) | Her ATS Taramasını Geçin",
+      "description": "Başvuru takip sistemlerini geçmek için tasarlanmış 16 ücretsiz ATS uyumlu özgeçmiş şablonuna göz atın. Gerçek ATS yazılımına karşı test edilmiş temiz biçimlendirme, standart yazı tipleri ve ayrıştırılabilir düzenler."
+    },
+    "breadcrumb": {
+      "home": "Ana Sayfa",
+      "current": "ATS Uyumlu Şablonlar"
+    },
+    "hero": {
+      "badge": "%100 ATS Uyumlu",
+      "title": "ATS Uyumlu Özgeçmiş Şablonları",
+      "subtitle": "Fortune 500 şirketlerinin %97'si, bir insan görmeden önce özgeçmişleri filtrelemek için Başvuru Takip Sistemleri kullanmaktadır (Jobscan, 2024). Aşağıdaki her şablon ATS taramasını geçmek için tasarlanmıştır — böylece özgeçmişiniz her seferinde gerçek bir kişiye ulaşır.",
+      "check1": "ATS ayrıştırmasını geçer",
+      "check2": "Kullanımı ücretsiz",
+      "check3": "Anında PDF indirme"
+    },
+    "features": {
+      "title": "Şablonlarımız Neden ATS Taramasını Geçiyor",
+      "subtitle": "Özgeçmişlerin çoğu bir insan görmeden önce reddedilir. Şablonlarımız, ATS başarısızlığına neden olan yaygın biçimlendirme tuzaklarından kaçınmak üzere tasarlanmıştır.",
+      "parseable": {
+        "title": "Makine Tarafından Ayrıştırılabilir Düzen",
+        "description": "ATS yazılımının yukarıdan aşağıya karışıklık olmadan okuduğu net bölüm hiyerarşisine sahip tek sütunlu yapı. İçerik sırasını karıştıran çok sütunlu düzenler yok."
+      },
+      "standardHeaders": {
+        "title": "Standart Bölüm Başlıkları",
+        "description": "Her ATS'nin tanıdığı \"Deneyim\" ve \"Eğitim\" gibi başlıklar kullanır — ayrıştırıcıları karıştıran yaratıcı etiketler yok."
+      },
+      "testedATS": {
+        "title": "Gerçek ATS'ye Karşı Test Edildi",
+        "description": "Her şablon Workday, Greenhouse, Lever, iCIMS ve Taleo'ya karşı test edilmiştir — çevrimiçi iş başvurularının çoğunluğunu işleyen beş platform."
+      },
+      "cleanFormatting": {
+        "title": "Temiz, Güvenli Biçimlendirme",
+        "description": "ATS ayrıştırmasını bozan tablolar, metin kutuları, üstbilgiler/altbilgiler veya gömülü resimler yok. Sadece seçilebilir PDF metni olarak işlenen temiz metin ve standart yazı tipleri."
+      }
+    },
+    "grid": {
+      "title": "ATS Uyumlu Şablonunuzu Seçin",
+      "subtitle": "16 şablonun tamamı tamamen ATS uyumludur. Herhangi bir stil seçin — özgeçmişiniz doğru şekilde ayrıştırılacaktır.",
+      "useTemplate": "Bu Şablonu Kullan"
+    },
+    "howATS": {
+      "title": "Başvuru Takip Sistemleri Özgeçmişinizi Nasıl Tarar",
+      "intro": "ATS sürecini anlamak, biçimlendirmenin çoğu adayın farkında olduğundan daha önemli olduğunu görmenize yardımcı olur. Başvur'a tıkladıktan sonraki saniyelerde neler olduğu aşağıda açıklanmıştır.",
+      "step1": {
+        "title": "Özgeçmiş dosyanız alınır ve dönüştürülür",
+        "description": "ATS, PDF veya DOCX dosyanızı alır ve bir metin çıkarma motoru üzerinden geçirir. Belgeyi yapılandırılmış veriye dönüştürmeye çalışır — adınızı, iletişim bilgilerinizi, iş geçmişinizi, eğitiminizi ve becerilerinizi ayrı alanlara ayırır. Dosya tablolar, sütunlar veya resimler kullanıyorsa, bu çıkarma adımı bozuk veya eksik veriler üretir."
+      },
+      "step2": {
+        "title": "İçerik ayrıştırılır, eşleştirilir ve puanlanır",
+        "description": "Çıkarıldıktan sonra, ATS içeriğinizi iş tanımıyla karşılaştırır. Becerileriniz, iş unvanlarınız ve deneyim açıklamalarınızda anahtar kelime eşleşmeleri arar. Workday ve Greenhouse gibi sistemler, özgeçmişinizin pozisyon gereksinimlerine ne kadar yakın olduğuna göre bir uygunluk puanı atar. Kötü ayrıştırılmış bir özgeçmiş, tüm niteliklere sahip olsanız bile düşük puan alır."
+      },
+      "step3": {
+        "title": "İşe alım uzmanları sıralanan adayları inceler",
+        "description": "İşe alım uzmanları genellikle her pozisyon için en yüksek sıralanan 10-20 özgeçmişi inceler. Biçimlendirmeniz ayrıştırma hatalarına neden olduysa, özgeçmişleri doğru ayrıştırılan daha az nitelikli adayların altında sıralanabilirsiniz. ATS uyumlu şablonlarımız, niteliklerinizin sıralamada doğru şekilde temsil edilmesini sağlar."
+      },
+      "warning": "Önemli: ATS uyumluluğu gereklidir ancak yeterli değildir. Yine de özgeçmiş anahtar kelimelerinizi her iş tanımına göre uyarlamanız gerekir. Bir şablon seçtikten sonra özgeçmişinizi belirli iş ilanlarına karşı test etmek için ATS Kontrol aracımızı kullanın."
+    },
+    "cta": {
+      "title": "ATS Uyumlu Özgeçmişinizi Şimdi Oluşturun",
+      "subtitle": "Bir şablon seçin, bilgilerinizi ekleyin ve her ATS taramasını geçen bir özgeçmiş indirin. Ücretsiz, kayıt gerekmez.",
+      "buildButton": "Özgeçmişimi Oluştur",
+      "checkButton": "Mevcut Özgeçmişimi Kontrol Et",
+      "browseAll": "Tüm Şablonlara Göz At",
+      "formatGuide": "Özgeçmiş Format Rehberi",
+      "examples": "300+ Özgeçmiş Örneği"
+    },
+    "whatMakes": {
+      "title": "Bir Özgeçmiş Şablonunu ATS Uyumlu Yapan Nedir?",
+      "p1": "ATS uyumlu bir özgeçmiş şablonu, Başvuru Takip Sistemlerinin — işverenlerin iş başvurularını toplamak, sıralamak ve değerlendirmek için kullandığı yazılımın — özgeçmişinizin her bölümünü doğru şekilde okuyabilmesi için tasarlanmıştır. Bir ATS özgeçmişinizi ayrıştıramadığında, adınız, deneyiminiz ve becerileriniz işe alım uzmanının ekranına hiç ulaşmayabilir. 2023 Harvard Business School araştırmasına göre, özgeçmişlerin %75'den fazlası bir insan incelemeden önce ATS tarafından reddedilmektedir.",
+      "p2": "Özgeçmişlerin ATS ayrıştırmasında başarısız olmasının en yaygın nedeni biçimlendirmedir. Tablolar, çok sütunlu düzenler, metin kutuları, özel yazı tipleri ve gömülü grafikler ayrıştırma hatalarına neden olur. ATS, özgeçmişinizi yukarıdan aşağıya bir metin akışı olarak okur. Bu akış karmaşık biçimlendirme tarafından kesintiye uğrarsa, sistem verilerinizi yanlış atar — iş unvanınızı şirket adı alanına koyar veya beceri bölümünüzü tamamen düşürür.",
+      "p3": "16 özgeçmiş şablonumuz, ATS uyumluluğunu birincil gereksinim olarak sıfırdan tasarlanmıştır. Standart bölüm başlıkları, tek sütunlu düzenler, web güvenli yazı tipleri ve temiz HTML-PDF dönüşümü kullanırlar. Her şablon en çok kullanılan beş ATS platformuna karşı test edilmiştir: Workday, Greenhouse, Lever, iCIMS ve Taleo. Sonuç, işe alım uzmanlarına profesyonel görünen ve makineler için mükemmel şekilde ayrıştırılan bir özgeçmiştir.",
+      "link1": "ATS Uyumlu Özgeçmiş Nasıl Yazılır",
+      "link2": "ATS Nedir? Kapsamlı Rehber",
+      "link3": "ATS Ayrıştırma Oranlarını Anlama"
+    },
+    "mistakes": {
+      "title": "Özgeçmişlerin ATS Tarafından Reddedilmesine Neden Olan 5 Biçimlendirme Hatası",
+      "intro": "Güçlü adaylar bile özgeçmiş biçimlendirmeleri ATS ayrıştırıcısını karıştırdığında elenir. İşte gördüğümüz en yaygın beş hata — ve şablonlarımızın otomatik olarak ortadan kaldırdığı hatalar.",
+      "items": {
+        "1": {
+          "title": "Tablo veya çok sütunlu düzen kullanma",
+          "description": "ATS metni tek bir akış olarak okur. Tablolar ve sütunlar, ilgisiz içeriğin birleştirilmesine neden olur — telefon numaranız iş unvanı alanında kalabilir."
+        },
+        "2": {
+          "title": "İletişim bilgilerini üstbilgi veya altbilgilere yerleştirme",
+          "description": "Birçok ATS platformu belge üstbilgilerini ve altbilgilerini tamamen atlar. Adınız, e-postanız veya telefon numaranız yalnızca üstbilgideyse, ayrıştırılan profilinizden kaybolur."
+        },
+        "3": {
+          "title": "Yaratıcı bölüm etiketleri kullanma",
+          "description": "\"Deneyim\" yerine \"Nerede Bulundum\" veya \"Beceriler\" yerine \"Araç Çantam\" gibi etiketler, ATS'nin tüm bölümü atlamasına neden olur. Standart etiketlere bağlı kalın."
+        },
+        "4": {
+          "title": "Resim tabanlı PDF olarak kaydetme veya standart dışı yazı tipleri kullanma",
+          "description": "PDF'nizde metin seçilemiyorsa, ATS onu okuyamaz. Taranmış belgeler, tasarım aracı dışa aktarmaları ve yaygın olmayan yazı tipleri okunamayan dosyalar üretir."
+        },
+        "5": {
+          "title": "Grafik, simge veya beceri çubukları ekleme",
+          "description": "İlerleme çubukları, yıldız derecelendirmeleri ve iletişim bilgileri için simgeler ATS tarafından görünmezdir. \"5 üzerinden 4 yıldız\" beceri derecesi, sıfır puan alan boş metne dönüşür."
+        }
+      },
+      "cta": "Mevcut özgeçmişinizin geçip geçmediğinden emin değil misiniz?",
+      "ctaLink": "Ücretsiz bir ATS uyumluluk kontrolü yapın"
+    },
+    "checklist": {
+      "title": "ATS Uyumluluk Kontrol Listesi",
+      "intro": "Herhangi bir özgeçmiş göndermeden önce, bu sekiz gereksinimi karşıladığını doğrulayın. Bu sayfadaki her şablon sekizini de otomatik olarak karşılar — ancak içeriği değiştirirseniz bu kuralları aklınızda tutun.",
+      "items": {
+        "1": "Standart bölüm başlıkları kullanır (Deneyim, Eğitim, Beceriler)",
+        "2": "Yukarıdan aşağıya net okuma sırasına sahip tek sütunlu düzen",
+        "3": "Tablo, metin kutusu veya kayan öğe yok",
+        "4": "İletişim bilgileri gövdede, üstbilgi/altbilgilerde değil",
+        "5": "Standart web güvenli yazı tipleri (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Metin seçilebilir PDF çıktısı (resim tabanlı değil)",
+        "7": "Metin içeriğinin yerini alan grafik, simge veya beceri çubukları yok",
+        "8": "Tutarlı formatta tarihler (AA/YYYY veya Ay YYYY)"
+      },
+      "outro": "Özgeçmişinizi belirli bir iş için uyarlamada yardıma mı ihtiyacınız var? Göz atın:",
+      "outroLink": "300+ mesleğe özel özgeçmiş örneği"
+    },
+    "faq": {
+      "title": "ATS Uyumlu Şablonlar Hakkında Sıkça Sorulan Sorular",
+      "items": {
+        "1": {
+          "q": "Bir özgeçmiş şablonu için ATS uyumlu ne demektir?",
+          "a": "ATS uyumlu bir şablon, Başvuru Takip Sistemlerinin adınızı, iletişim bilgilerinizi, iş geçmişinizi, eğitiminizi ve becerilerinizi doğru şekilde çıkarabilmesi için tasarlanmıştır. Ayrıştırma hatalarına neden olan tablolardan, çok sütunlu düzenlerden, gömülü resimlerden ve özel yazı tiplerinden kaçınır. Bu sayfadaki 16 şablonun tamamı Workday, Greenhouse, Lever, iCIMS ve Taleo'ya karşı test edilmiştir."
+        },
+        "2": {
+          "q": "Yaratıcı veya modern bir özgeçmiş yine de ATS uyumlu olabilir mi?",
+          "a": "Evet. ATS uyumluluğu görsel tasarıma değil, altta yatan yapıya bağlıdır. Bir özgeçmiş, ATS'nin doğru okuduğu tek sütunlu, metin seçilebilir bir düzeni korurken renk vurguları, özel boşluklar ve şık tipografi kullanabilir. Modern ve yaratıcı şablonlarımız bu dengeyi sağlar — makineler için mükemmel şekilde ayrıştırılırken işe alım uzmanlarına ayırt edici görünürler."
+        },
+        "3": {
+          "q": "ATS için özgeçmişimi PDF mi yoksa DOCX olarak mı göndermeliyim?",
+          "a": "PDF, 2026'da genellikle en güvenli seçimdir. Modern ATS platformları (Workday, Greenhouse, Lever) iyi yapılandırılmış PDF'leri güvenilir şekilde ayrıştırır. DOCX, farklı Word sürümleri arasında biçimlendirme tutarsızlıkları oluşturabilir. Oluşturucumuz ATS ayrıştırması için optimize edilmiş metin seçilebilir PDF'ler dışa aktarır — iş ilanı açıkça DOCX talep etmediği sürece PDF kullanmanızı öneririz."
+        },
+        "4": {
+          "q": "Özgeçmişimin ATS taramasını geçip geçmediğini nasıl anlarım?",
+          "a": "Ücretsiz ATS Kontrol aracımızı kullanarak özgeçmişinizi yükleyin ve bir ATS'nin onu nasıl okuduğunu görün. Araç, hangi alanların doğru şekilde ayrıştırıldığını, hangi anahtar kelimelerin iş tanımıyla eşleştiğini ve ayrıştırma hatalarının nerede oluştuğunu gösterir. Başvurunuzu göndermeden önce istediğiniz kadar test yapabilirsiniz."
+        },
+        "5": {
+          "q": "Her iş başvurusu için farklı bir şablon mu kullanmam gerekiyor?",
+          "a": "Hayır — bir ATS uyumlu şablon tüm başvurular için işe yarar. Başvurular arasında değiştirmeniz gereken içeriktir: beceri bölümünüzü, profesyonel özetinizi ve başarı maddelerini her iş tanımının anahtar kelimelerine göre uyarlayın. Şablon yapısı aynı kalır; anahtar kelimeler değişir."
+        }
+      }
+    }
+  }
+}

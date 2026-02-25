@@ -1,0 +1,192 @@
+{
+  "Checkout": {
+    "meta": {
+      "title": "Pagamento - Completa il Tuo Abbonamento",
+      "description": "Completa il tuo abbonamento per sbloccare tutte le funzionalità del CV. Pagamento sicuro tramite Stripe."
+    },
+    "invalidPlan": {
+      "title": "Piano Non Valido",
+      "description": "Il piano selezionato non è valido. Scegli un piano dalla nostra pagina prezzi.",
+      "backBtn": "Torna ai Prezzi"
+    },
+    "signIn": {
+      "title": "Accedi per Continuare",
+      "subtitle": "Accedi per acquistare il piano {plan}",
+      "signInBtn": "Accedi",
+      "createAccountBtn": "Crea Account"
+    },
+    "header": {
+      "completePurchase": "Completa il Tuo Acquisto",
+      "subscribePlan": "Abbonati al piano {plan}"
+    },
+    "billing": {
+      "account": "Account",
+      "billing": "Fatturazione",
+      "monthlyStarting": "Mensile, a partire da oggi"
+    },
+    "submit": {
+      "redirecting": "Reindirizzamento a Stripe...",
+      "subscribeNow": "Abbonati Ora"
+    },
+    "secure": "Pagamento sicuro gestito da Stripe",
+    "cancelNote": "Cancella in qualsiasi momento. Nessun impegno a lungo termine.",
+    "loading": "Caricamento pagamento...",
+    "errors": {
+      "cancelled": "Il pagamento è stato annullato. Puoi riprovare quando vuoi.",
+      "sessionExpired": "La tua sessione è scaduta. Accedi di nuovo.",
+      "failedCheckout": "Impossibile avviare il pagamento. Riprova.",
+      "networkError": "Impossibile connettersi al server. Verifica la tua connessione internet."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/mese",
+        "description": "Perfetto per chi cerca lavoro",
+        "features": ["30 creazioni CV/mese", "3 generazioni AI/mese", "3 download PDF/mese", "Tutti i modelli freemium", "Nessuna pubblicità"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/mese",
+        "description": "Per chi cerca lavoro attivamente",
+        "features": ["150 creazioni CV/mese", "10 generazioni AI/mese", "10 download PDF/mese", "Ottimizzazione ATS", "Generatore lettere di presentazione"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/mese",
+        "description": "Ideale per professionisti",
+        "features": ["300 creazioni CV/mese", "30 generazioni AI/mese", "25 download PDF/mese", "Tutti i modelli premium", "Supporto prioritario"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/mese",
+        "description": "Per utenti avanzati e agenzie",
+        "features": ["Creazioni CV illimitate", "100 generazioni AI/mese", "Download PDF illimitati", "Tutti i modelli premium", "Supporto prioritario", "Accesso anticipato alle funzionalità"]
+      }
+    }
+  },
+  "CheckoutSuccess": {
+    "title": "Pagamento Riuscito!",
+    "welcome": "Benvenuto nel piano {plan}!",
+    "planLabel": "Piano {plan}",
+    "yourBenefits": "I tuoi nuovi vantaggi",
+    "createResume": "Crea il Tuo CV",
+    "goToDashboard": "Vai alla Dashboard",
+    "receiptNote": "Una ricevuta è stata inviata alla tua email. Puoi gestire il tuo abbonamento in qualsiasi momento dalla tua",
+    "dashboardLink": "dashboard",
+    "supportText": "Domande? Contattaci a",
+    "loading": "Caricamento dei dettagli del tuo abbonamento...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["30 creazioni CV al mese", "3 generazioni AI al mese", "3 download PDF al mese", "Tutti i modelli freemium", "Nessuna pubblicità"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["150 creazioni CV al mese", "10 generazioni AI al mese", "10 download PDF al mese", "Ottimizzazione ATS", "Generatore lettere di presentazione"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["300 creazioni CV al mese", "30 generazioni AI al mese", "25 download PDF al mese", "Tutti i modelli premium", "Supporto prioritario"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["Creazioni CV illimitate", "100 generazioni AI al mese", "Download PDF illimitati", "Tutti i modelli premium", "Supporto prioritario", "Accesso anticipato alle nuove funzionalità"]
+      }
+    }
+  },
+  "CanvasEditor": {
+    "meta": {
+      "title": "Editor Canvas per CV - Progetta il Tuo CV Visualmente | Best AI Resume",
+      "description": "Progetta il tuo CV con un editor canvas visuale. Trascina e rilascia testo, immagini e forme per creare un layout unico e personalizzato."
+    },
+    "loading": "Caricamento Editor Canvas...",
+    "desktop": {
+      "title": "Desktop Necessario",
+      "description": "L'Editor Canvas richiede uno schermo più grande per un lavoro di design preciso. Utilizza un laptop o un computer desktop per accedere a questa funzionalità.",
+      "useBuilder": "Usa l'Editor Standard",
+      "backToDashboard": "Torna alla Dashboard",
+      "mobileNote": "L'editor standard funziona perfettamente su dispositivi mobili!"
+    },
+    "header": {
+      "backToBuilder": "Torna all'Editor",
+      "backToTemplates": "Torna ai Modelli Canvas",
+      "title": "Editor Canvas",
+      "beta": "Beta",
+      "elements": "{count} elementi",
+      "postToCommunity": "Pubblica nella Community"
+    },
+    "shortcuts": "V Seleziona | T Testo | Delete Rimuovi | Cmd+D Duplica | Cmd+Z Annulla | Doppio clic sul testo per modificare",
+    "toolbar": {
+      "select": "Seleziona (V)",
+      "text": "Testo (T)",
+      "image": "Immagine (I)",
+      "shape": "Forma (S)",
+      "rectangle": "Rettangolo",
+      "circle": "Cerchio",
+      "star": "Stella",
+      "line": "Linea",
+      "undo": "Annulla (Cmd+Z)",
+      "redo": "Ripristina (Cmd+Shift+Z)",
+      "duplicate": "Duplica (Cmd+D)",
+      "delete": "Elimina",
+      "bringToFront": "Porta in Primo Piano",
+      "sendToBack": "Manda in Fondo",
+      "zoomOut": "Riduci Zoom",
+      "zoomIn": "Aumenta Zoom",
+      "aiGenerate": "Genera con AI",
+      "aiGenerateTitle": "Generatore di Riepilogo AI",
+      "save": "Salva Progetto (Cmd+S)",
+      "load": "Carica Progetto",
+      "export": "Esporta",
+      "downloadPdf": "Scarica PDF",
+      "downloadPng": "Scarica PNG",
+      "downloadJpeg": "Scarica JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "Impossibile caricare il modello. Potrebbe essere stato rimosso.",
+      "canvasNotReady": "Canvas non pronto. Riprova.",
+      "projectSaved": "Progetto salvato con successo!",
+      "noSavedProject": "Nessun progetto salvato trovato.",
+      "projectLoaded": "Progetto caricato con successo!",
+      "projectLoadFailed": "Impossibile caricare il progetto."
+    },
+    "downloadModal": {
+      "title": "Accedi per Scaricare",
+      "description": "Crea un account gratuito per scaricare il tuo design canvas come {format}.",
+      "savedTitle": "Il tuo lavoro è salvato",
+      "savedNotice": "Il tuo progetto canvas è stato salvato nel browser. Sarà qui quando tornerai dopo aver effettuato l'accesso.",
+      "signUp": "Registrati — È Gratis",
+      "signInPrefix": "Hai già un account?",
+      "signInLink": "Accedi",
+      "restored": "Il tuo progetto canvas è stato ripristinato! Clicca Esporta per scaricare."
+    }
+  },
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Modelli CV Canvas - Progetta il Tuo CV Visualmente | Best AI Resume",
+      "description": "Sfoglia modelli CV canvas creativi. Trascina, rilascia e personalizza ogni elemento con il nostro editor visuale."
+    },
+    "sectionTitle": "Modelli Canvas",
+    "title": "Modelli CV",
+    "titleHighlight": "Canvas",
+    "subtitle": "Progetta il tuo CV con piena libertà creativa. Trascina, rilascia e personalizza ogni elemento nel nostro editor visuale.",
+    "freeBadge": "È Gratis",
+    "searchPlaceholder": "Cerca modelli canvas...",
+    "noResults": "Nessun modello trovato",
+    "noResultsHint": "Prova a modificare la ricerca o i criteri di filtro",
+    "useTemplate": "Usa Modello",
+    "categories": {
+      "all": "Tutti",
+      "professional": "Professionale",
+      "creative": "Creativo",
+      "minimal": "Minimale"
+    },
+    "startFromScratch": {
+      "title": "Vuoi partire da zero?",
+      "description": "Crea un CV completamente personalizzato utilizzando i potenti strumenti di design del nostro Editor Canvas.",
+      "button": "Apri Canvas Vuoto"
+    },
+    "formBuilderBanner": "Cerchi modelli basati su moduli?",
+    "viewFormTemplates": "Vedi Modelli Editor con Modulo"
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "CoverLetter": {
+    "meta": {
+      "title": "Generatore Gratuito di Lettere di Presentazione AI - Crea Lettere Professionali",
+      "description": "Genera lettere di presentazione professionali e personalizzate in pochi minuti con il nostro strumento gratuito basato su AI. Distinguiti dalla massa e ottieni più colloqui."
+    },
+    "hero": {
+      "badge": "Generatore di Lettere di Presentazione AI",
+      "title": "Crea una",
+      "titleHighlight": "Lettera di Presentazione Perfetta",
+      "subtitle": "Lascia che l'AI crei una lettera di presentazione convincente e personalizzata che metta in risalto i tuoi punti di forza e catturi l'attenzione dei responsabili delle assunzioni."
+    },
+    "form": {
+      "yourDetails": "I Tuoi Dati",
+      "fillInfo": "Inserisci le tue informazioni",
+      "fullName": "Nome Completo",
+      "email": "Email",
+      "jobTitle": "Titolo Professionale",
+      "companyName": "Nome Azienda",
+      "hiringManager": "Nome del Responsabile Assunzioni (Facoltativo)",
+      "keySkills": "Competenze Chiave",
+      "experience": "Esperienza Rilevante",
+      "tone": "Tono di Scrittura",
+      "professional": "Professionale",
+      "friendly": "Amichevole",
+      "confident": "Sicuro",
+      "enthusiastic": "Entusiasta",
+      "generate": "Genera Lettera di Presentazione",
+      "generating": "Generazione in corso...",
+      "fullNamePlaceholder": "Mario Rossi",
+      "emailPlaceholder": "mario@esempio.com",
+      "jobTitlePlaceholder": "Ingegnere del Software",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Maria Bianchi",
+      "skillsPlaceholder": "React, Node.js, Leadership di Team",
+      "experiencePlaceholder": "Ho guidato un team di 5 sviluppatori per il lancio di un prodotto importante..."
+    },
+    "preview": {
+      "title": "Anteprima",
+      "subtitle": "La tua lettera generata",
+      "noLetter": "Nessuna lettera generata ancora",
+      "fillAndGenerate": "Inserisci i tuoi dati e clicca Genera",
+      "copy": "Copia",
+      "copied": "Copiato!",
+      "download": "Scarica"
+    },
+    "tips": {
+      "title": "Consigli per una",
+      "titleHighlight": "Lettera di Presentazione Efficace",
+      "beSpecific": "Sii Specifico",
+      "beSpecificDesc": "Personalizza la lettera per il lavoro e l'azienda specifici. Le lettere generiche si riconoscono facilmente.",
+      "showResults": "Mostra i Risultati",
+      "showResultsDesc": "Includi risultati quantificabili. I numeri rendono i tuoi traguardi concreti e memorabili.",
+      "keepConcise": "Sii Conciso",
+      "keepConciseDesc": "Punta a 3-4 paragrafi. I recruiter dedicano pochi secondi alla scansione di ogni candidatura."
+    },
+    "cta": {
+      "title": "Hai Bisogno Anche di un CV?",
+      "subtitle": "Abbina la tua lettera di presentazione a un CV progettato professionalmente e creato con AI.",
+      "button": "Crea il Tuo CV"
+    },
+    "errors": {
+      "signInRequired": "Accedi per generare una lettera di presentazione",
+      "limitReached": "Hai raggiunto il limite di lettere di presentazione. Aggiorna il tuo piano per averne di più.",
+      "subscriptionRequired": "È necessario un abbonamento per generare lettere di presentazione. Aggiorna il tuo piano.",
+      "signInNow": "Accedi ora",
+      "viewPlans": "Vedi i piani"
+    },
+    "externalResources": {
+      "title": "Risorse Esterne",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Prospettive di Carriera",
+      "shrmHrResources": "SHRM: Risorse HR e Carriera"
+    }
+  },
+  "ResignationLetter": {
+    "meta": {
+      "title": "Generatore Gratuito di Lettere di Dimissioni AI - Lettere di Uscita Professionali",
+      "description": "Crea una lettera di dimissioni professionale in pochi minuti. Lascia il tuo lavoro in buoni rapporti e mantieni relazioni positive con il nostro strumento basato su AI."
+    },
+    "hero": {
+      "badge": "Generatore di Lettere di Dimissioni AI",
+      "title": "Scrivi una",
+      "titleHighlight": "Lettera di Dimissioni Professionale",
+      "subtitle": "Lascia il tuo lavoro in buoni rapporti con una lettera di dimissioni scritta professionalmente. Mantieni relazioni positive e proteggi la tua reputazione professionale."
+    },
+    "noticeLabel": "Consiglio",
+    "notice": "Il periodo di preavviso standard è di solito 2 settimane. Verifica il tuo contratto di lavoro per requisiti specifici.",
+    "form": {
+      "yourDetails": "I Tuoi Dati",
+      "fillInfo": "Inserisci le tue informazioni",
+      "yourName": "Il Tuo Nome",
+      "currentPosition": "Posizione Attuale",
+      "companyName": "Nome Azienda",
+      "managerName": "Nome del Responsabile",
+      "lastWorkingDay": "Ultimo Giorno Lavorativo",
+      "reasonForLeaving": "Motivo delle Dimissioni",
+      "positiveExperiences": "Esperienze Positive (Facoltativo)",
+      "tone": "Tono della Lettera",
+      "professional": "Professionale",
+      "grateful": "Riconoscente",
+      "brief": "Breve",
+      "warm": "Cordiale",
+      "offerHelp": "Offri aiuto per la transizione",
+      "generate": "Genera Lettera di Dimissioni",
+      "generating": "Generazione in corso...",
+      "yourNamePlaceholder": "Mario Rossi",
+      "currentPositionPlaceholder": "Ingegnere del Software",
+      "companyPlaceholder": "Acme Corp",
+      "managerPlaceholder": "Maria Bianchi",
+      "positiveExperiencesPlaceholder": "Ho apprezzato molto lavorare al progetto di lancio del prodotto e il mentoring ricevuto dal team senior...",
+      "professionalDesc": "Formale e professionale",
+      "gratefulDesc": "Esprime gratitudine",
+      "briefDesc": "Breve e diretto",
+      "warmDesc": "Amichevole e personale"
+    },
+    "reasons": {
+      "selectReason": "Seleziona un motivo (facoltativo)",
+      "newOpportunity": "Nuova opportunità professionale",
+      "careerChange": "Cambio di carriera",
+      "relocation": "Trasferimento",
+      "personal": "Motivi personali",
+      "education": "Ritorno agli studi",
+      "family": "Impegni familiari",
+      "health": "Motivi di salute",
+      "retirement": "Pensionamento",
+      "other": "Altro"
+    },
+    "preview": {
+      "title": "Anteprima",
+      "subtitle": "La tua lettera generata",
+      "noLetter": "Nessuna lettera generata ancora",
+      "fillAndGenerate": "Inserisci i tuoi dati e clicca Genera",
+      "copy": "Copia",
+      "copied": "Copiato!",
+      "download": "Scarica"
+    },
+    "reasonText": {
+      "newOpportunity": "Ho accettato una posizione presso un'altra azienda",
+      "careerChange": "Ho deciso di intraprendere un percorso professionale diverso",
+      "relocation": "Mi trasferirò",
+      "personal": "per motivi personali",
+      "education": "Ho deciso di riprendere gli studi",
+      "family": "per impegni familiari che richiedono la mia piena attenzione",
+      "health": "per motivi di salute",
+      "retirement": "Ho deciso di andare in pensione",
+      "other": "per motivi personali"
+    },
+    "letter": {
+      "dearManager": "Gentile {name},",
+      "defaultManager": "Responsabile",
+      "lastWorkingDayPlaceholder": "[Ultimo Giorno Lavorativo]",
+      "briefBody": "Con la presente comunico formalmente le mie dimissioni dalla posizione di {position} presso {company}. Il mio ultimo giorno di lavoro sarà il {lastDay}.",
+      "briefReason": "Mi dimetto perché {reason}.",
+      "briefClosing": "Ringrazio per le opportunità offertemi durante il mio periodo in azienda.",
+      "sincerely": "Cordiali saluti,",
+      "formalBody": "Le scrivo per comunicarLe formalmente le mie dimissioni dalla posizione di {position} presso {company}. Il mio ultimo giorno di lavoro sarà il {lastDay}.",
+      "reasonPrefix": "Dopo attenta riflessione, {reason}.",
+      "notEasyDecision": "Non è stata una decisione facile, poiché ho sinceramente apprezzato il mio periodo in azienda.",
+      "gratefulDefault": "Sono profondamente grato per le opportunità di crescita professionale e personale che ho avuto durante il mio periodo qui.",
+      "warmDefault": "Lavorare con Lei e il team è stata un'esperienza meravigliosa che custodirò sempre.",
+      "learnedAppreciate": "Ho imparato molto e apprezzerò sempre il supporto e la guida che ho ricevuto.",
+      "transitionHelp": "Durante il periodo di transizione, mi impegno a garantire un passaggio di consegne fluido delle mie responsabilità. Sono disponibile ad aiutare nella formazione del mio sostituto o nella documentazione dei miei progetti e processi attuali.",
+      "thankYouClosing": "La ringrazio per le opportunità di sviluppo professionale e personale che mi ha offerto durante il mio incarico. Auguro a {company} un continuo successo e spero di restare in contatto.",
+      "warmRegards": "Con cordiali saluti,",
+      "sincereGratitude": "Con sincera gratitudine,"
+    },
+    "tips": {
+      "title": "Buone Pratiche per le",
+      "titleHighlight": "Dimissioni",
+      "giveNotice": "Dai il Preavviso",
+      "giveNoticeDesc": "Fornisci almeno 2 settimane di preavviso, o segui i termini del tuo contratto.",
+      "stayProfessional": "Mantieni la Professionalità",
+      "stayProfessionalDesc": "Tieni le emozioni fuori dalla lettera. Sii rispettoso e positivo.",
+      "documentIt": "Metti per Iscritto",
+      "documentItDesc": "Invia sempre una lettera di dimissioni scritta per i tuoi archivi.",
+      "leaveWell": "Lascia in Buoni Rapporti",
+      "leaveWellDesc": "Completa il lavoro in sospeso e offriti di formare il tuo sostituto."
+    },
+    "cta": {
+      "title": "Pronto per la Tua Prossima Opportunità?",
+      "subtitle": "Crea un CV professionale per la tua ricerca di lavoro con il nostro generatore di CV basato su AI.",
+      "button": "Crea il Tuo CV"
+    },
+    "externalResources": {
+      "title": "Risorse Esterne",
+      "shrmWorkplace": "SHRM: Risorse HR e Ambiente di Lavoro",
+      "blsCareerData": "Bureau of Labor Statistics: Dati sulle Carriere"
+    }
+  },
+  "MockInterview": {
+    "meta": {
+      "title": "Simulazione Gratuita di Colloquio con AI | Best AI Resume",
+      "description": "Esercitati con colloqui di lavoro con domande generate dall'AI e personalizzate per il tuo ruolo. Ottieni feedback immediato con il metodo STAR. Strumento gratuito di simulazione colloquio."
+    },
+    "hero": {
+      "badge": "Simulazione Colloquio con AI",
+      "title": "Simulazione di Colloquio con AI",
+      "description": "Esercitati con domande di colloquio generate dall'AI, personalizzate per il tuo ruolo e livello di esperienza. Ricevi feedback immediato utilizzando il metodo STAR."
+    },
+    "setup": {
+      "title": "Configura il Tuo Colloquio",
+      "jobTitle": "Titolo Professionale",
+      "jobTitlePlaceholder": "es. Ingegnere del Software, Responsabile Marketing...",
+      "experienceLevel": "Livello di Esperienza",
+      "levels": {
+        "entry": { "label": "Livello Base", "description": "0–2 anni di esperienza" },
+        "mid": { "label": "Livello Intermedio", "description": "3–6 anni di esperienza" },
+        "senior": { "label": "Livello Senior", "description": "7+ anni di esperienza" }
+      },
+      "questionCount": "Numero di Domande: {count}",
+      "quick": "Rapido (3)",
+      "thorough": "Approfondito (10)",
+      "startButton": "Inizia il Colloquio",
+      "generating": "Generazione Domande..."
+    },
+    "interview": {
+      "progress": "Domanda {current} di {total}",
+      "yourAnswer": "La Tua Risposta",
+      "answerPlaceholder": "Scrivi qui la tua risposta. Usa il metodo STAR: Situazione, Compito, Azione, Risultato...",
+      "answerTip": "Consiglio: Punta a 3–5 frasi. Usa esempi specifici e quantifica i risultati quando possibile.",
+      "skip": "Salta",
+      "evaluating": "Valutazione in corso...",
+      "submitContinue": "Invia e Continua",
+      "submitFinish": "Invia e Termina",
+      "starReminder": "Ricorda il Metodo STAR:",
+      "starDescription": "Struttura le tue risposte con Situazione, Compito, Azione e Risultato per ottenere le risposte più efficaci."
+    },
+    "results": {
+      "complete": "Colloquio Completato!",
+      "summary": "Hai risposto a {answered} di {total} domande",
+      "averageScore": "Punteggio Medio:",
+      "startNew": "Inizia Nuovo Colloquio",
+      "bonusQuestions": "Sblocca 10 domande bonus di esercitazione",
+      "bonusUnlocked": "Domande Bonus Sbloccate!",
+      "bonusDescription": "Ora puoi esercitarti con fino a 10 domande per sessione.",
+      "detailedFeedback": "Feedback Dettagliato",
+      "questionLabel": "Domanda {number}",
+      "strengths": "Punti di Forza",
+      "improvements": "Aree di Miglioramento",
+      "sampleAnswer": "Risposta Esempio",
+      "skipped": "Questa domanda è stata saltata",
+      "continuePrep": "Continua la Tua Preparazione",
+      "resources": {
+        "starMethod": {
+          "title": "Padroneggia il Metodo STAR",
+          "description": "Scopri come strutturare le tue risposte per le domande comportamentali nei colloqui."
+        },
+        "tellMe": {
+          "title": "Come Rispondere a \"Mi Parli di Lei\"",
+          "description": "Prepara la risposta di apertura perfetta che imposta il tono del tuo colloquio."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Inserisci un titolo professionale per continuare.",
+      "generateFailed": "Generazione delle domande fallita. Riprova.",
+      "startFailed": "Avvio del colloquio fallito. Riprova.",
+      "detailedAnswer": "Fornisci una risposta più dettagliata (almeno 20 caratteri)."
+    },
+    "externalResources": {
+      "title": "Risorse Esterne",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Prospettive di Carriera",
+      "shrmInterviewPractices": "SHRM: Migliori Pratiche per i Colloqui"
+    }
+  }
+}

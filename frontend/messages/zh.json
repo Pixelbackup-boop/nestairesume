@@ -1,0 +1,2131 @@
+{
+  "Meta": {
+    "title": "免费 AI 简历生成器 | 几分钟创建 ATS 简历 | Best AI Resume",
+    "description": "使用我们的免费 AI 简历生成器，几分钟内构建专业的 ATS 优化简历。已获 50,000+ 专业人士信赖。无需注册即可开始。"
+  },
+  "Common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "search": "搜索",
+    "submit": "提交",
+    "next": "下一步",
+    "back": "返回",
+    "download": "下载",
+    "preview": "预览",
+    "scrollToExplore": "滚动浏览",
+    "dismiss": "关闭",
+    "addLanguage": "添加语言",
+    "uploadProfilePhoto": "上传头像",
+    "removeProfilePhoto": "移除头像",
+    "documentType": "文档类型",
+    "searchByJobTitle": "按职位或技能搜索...",
+    "searchIcons": "搜索图标...",
+    "describeTemplate": "描述您的模板...",
+    "languagePlaceholder": "例如：西班牙语、法语、普通话",
+    "templateNamePlaceholder": "例如：现代开发者简历",
+    "returningBanner": {
+      "welcomeBack": "欢迎回来！",
+      "lastEdited": "上次编辑于 {date}",
+      "unsavedDraft": "您有一份未保存的简历草稿",
+      "continueEditing": "继续编辑"
+    }
+  },
+  "Navigation": {
+    "features": "功能",
+    "templates": "模板",
+    "pricing": "定价",
+    "blog": "博客",
+    "careerTips": "职业建议",
+    "careerGuides": "职业指南",
+    "resumeExamples": "简历示例",
+    "resumeExamplesDesc": "针对特定职位的简历指南和模板",
+    "careerTipsDesc": "专家职业建议",
+    "blogDesc": "技巧、指南和见解",
+    "viewAllExamples": "查看所有简历示例",
+    "viewAllTips": "查看所有职业建议",
+    "tools": "工具",
+    "coverLetter": "求职信生成器",
+    "coverLetterDesc": "AI 驱动的求职信",
+    "resignationLetter": "辞职信",
+    "resignationLetterDesc": "专业辞职信",
+    "atsChecker": "ATS 简历检查器",
+    "atsCheckerDesc": "检查 ATS 兼容性",
+    "mockInterview": "模拟面试",
+    "mockInterviewDesc": "AI 驱动的模拟面试",
+    "resumeFormat": "简历格式指南",
+    "resumeFormatDesc": "时间顺序型、功能型等",
+    "login": "登录",
+    "logout": "退出登录",
+    "getStarted": "免费开始",
+    "dashboard": "控制面板",
+    "admin": "管理员",
+    "adminPanel": "管理面板",
+    "profile": "个人资料",
+    "resources": "资源",
+    "compare": "对比",
+    "byStyle": "按风格",
+    "byFormat": "按格式",
+    "allTemplates": "所有模板",
+    "modern": "现代",
+    "creative": "创意",
+    "simpleClean": "简洁",
+    "freeResumeBuilder": "免费简历生成器",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "免费制作您的简历",
+    "chooseFromTemplates": "从 20+ 专业模板中选择",
+    "technology": "科技",
+    "business": "商业",
+    "healthcare": "医疗",
+    "seeAllTech": "查看所有科技类",
+    "seeAllBusiness": "查看所有商业类",
+    "seeAllHealthcare": "查看所有医疗类",
+    "resumeExamplesCount": "300+ 简历示例",
+    "browseAll": "浏览全部",
+    "softwareEngineer": "软件工程师",
+    "dataAnalyst": "数据分析师",
+    "devopsEngineer": "DevOps 工程师",
+    "fullStackDev": "全栈开发工程师",
+    "projectManager": "项目经理",
+    "marketingManager": "市场营销经理",
+    "businessAnalyst": "业务分析师",
+    "salesManager": "销售经理",
+    "nurse": "护士",
+    "medicalAssistant": "医疗助理",
+    "pharmacist": "药剂师",
+    "dentalAssistant": "牙科助理",
+    "guides": "指南",
+    "latestPosts": "最新文章",
+    "allCareerTips": "所有职业建议",
+    "allBlog": "所有博客文章",
+    "atsGuide": "ATS 友好简历指南",
+    "coverLetterGuide": "求职信指南",
+    "interviewPrep": "面试准备",
+    "bestResumeApps": "最佳简历生成器应用",
+    "resumeSkills": "简历技能指南",
+    "linkedinGuide": "LinkedIn 优化",
+    "writingServices": "简历撰写服务",
+    "freeAlternatives": "免费替代方案",
+    "paidAlternatives": "付费替代方案",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs AI 生成器",
+    "whyWereBetter": "为什么我们是排名第一的免费生成器",
+    "whyWereBetterDesc": "AI 驱动、ATS 优化、完全免费"
+  },
+  "Home": {
+    "hero": {
+      "badge": "AI 驱动的简历制作",
+      "title": "用 AI 打造您的",
+      "titleHighlight": "专业简历",
+      "subtitle": "无需注册",
+      "description": "使用 AI 在几分钟内创建精美的 ATS 优化简历。免费试用——准备好保存时再注册。",
+      "ctaPrimary": "用 AI 制作",
+      "ctaSecondary": "浏览模板",
+      "noCreditCard": "无需信用卡",
+      "noSignup": "无需注册即可开始",
+      "trustedBy": "已获 50,000+ 专业人士信赖",
+      "atsScore": "ATS 评分",
+      "aiSuggestion": "AI 建议"
+    },
+    "features": {
+      "sectionTitle": "功能",
+      "title": "助您",
+      "titleHighlight": "获得理想工作的一切所需",
+      "subtitle": "强大的 AI 工具结合精美设计，帮助您从众多候选人中脱颖而出。",
+      "aiWriting": {
+        "title": "AI 智能写作",
+        "description": "让我们的 AI 为您撰写引人注目的工作描述和专业摘要，突出您的成就。"
+      },
+      "templates": {
+        "title": "20+ 高级模板",
+        "description": "从专业设计的模板中选择，既能脱颖而出，又能保持 ATS 兼容性。"
+      },
+      "atsOptimization": {
+        "title": "ATS 优化",
+        "description": "实时 ATS 评分确保您的简历每次都能通过自动筛选系统。"
+      },
+      "realTimePreview": {
+        "title": "实时预览",
+        "description": "输入时即时查看变化。您看到的就是招聘人员将看到的。"
+      },
+      "pdfExport": {
+        "title": "PDF 导出",
+        "description": "下载像素级完美的 PDF，随时可以发送。为数字和打印两种场景优化。"
+      },
+      "smartSuggestions": {
+        "title": "智能建议",
+        "description": "根据您的目标职位，获取技能、关键词和内容的智能推荐。"
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "使用方法",
+      "title": "三步制作您的",
+      "titleHighlight": "完美简历",
+      "step1": {
+        "title": "填写您的信息",
+        "description": "输入您的工作经验、教育背景和技能。我们的 AI 全程为您提供帮助。"
+      },
+      "step2": {
+        "title": "选择模板",
+        "description": "从 20+ 专业设计的模板中选择。自定义时可实时预览。"
+      },
+      "step3": {
+        "title": "下载 PDF",
+        "description": "将您精心制作的简历导出为像素级完美的 PDF，给招聘人员留下深刻印象。"
+      }
+    },
+    "templates": {
+      "sectionTitle": "模板",
+      "title": "适用于",
+      "titleHighlight": "各行各业的高级模板",
+      "viewAll": "查看所有模板"
+    },
+    "testimonials": {
+      "sectionTitle": "用户评价",
+      "title": "受到全球专业人士的",
+      "titleHighlight": "喜爱"
+    },
+    "cta": {
+      "title": "准备好制作您的",
+      "titleHighlight": "优秀简历了吗？",
+      "subtitle": "加入 50,000+ 已通过 Best AI Resume 找到理想工作的专业人士。",
+      "button": "立即免费制作简历",
+      "note": "无需注册即可开始"
+    },
+    "faq": {
+      "sectionTitle": "常见问题",
+      "title": "常见",
+      "titleHighlight": "问题",
+      "items": [
+        {
+          "question": "这个 AI 简历生成器真的免费吗？",
+          "answer": "是的！您可以完全免费地创建、编辑和预览您的简历。我们提供高级计划以获得无限 PDF 下载和更多模板等高级功能，但您无需付费即可制作专业简历。"
+        },
+        {
+          "question": "什么是 ATS，为什么它很重要？",
+          "answer": "ATS（求职者追踪系统）是 99% 的财富 500 强公司用来扫描和筛选简历的软件。我们的 AI 确保您的简历经过 ATS 优化，包含正确的关键词、格式和结构，以通过这些自动筛选。"
+        },
+        {
+          "question": "AI 如何帮助我写简历？",
+          "answer": "我们的 AI 会分析您的职位和经验，生成专业的工作描述、摘要和技能建议。它使用行业特定的关键词和以成就为导向的语言，这正是招聘人员所看重的。"
+        },
+        {
+          "question": "我需要注册才能使用生成器吗？",
+          "answer": "无需注册即可开始制作！您可以先创建整份简历。仅在想保存进度或下载时才需注册。这让您可以零风险地体验所有功能。"
+        },
+        {
+          "question": "我可以将简历下载为 PDF 吗？",
+          "answer": "可以！将您的简历导出为与预览完全一致的像素级完美 PDF。PDF 针对数字申请和标准信纸/A4 纸打印进行了优化。"
+        },
+        {
+          "question": "制作一份简历需要多长时间？",
+          "answer": "大多数用户在 10 分钟内即可创建一份专业简历。我们的 AI 建议和预写内容大大加快了流程，比从零开始快得多。"
+        }
+      ]
+    },
+    "companies": {
+      "title": "我们的用户已入职",
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
+    }
+  },
+  "Features": {
+    "meta": {
+      "title": "AI 简历生成器功能 - 智能写作、ATS 优化等",
+      "description": "探索强大功能：AI 智能写作、实时 ATS 评分、50+ 模板、即时 PDF 导出。制作能获得面试机会的专业简历。"
+    }
+  },
+  "Templates": {
+    "meta": {
+      "title": "50+ 专业简历模板 - 免费且 ATS 友好",
+      "description": "浏览 50+ 专业简历模板。现代、创意和简约设计，均经过 ATS 优化。免费自定义和下载。"
+    },
+    "sectionTitle": "模板",
+    "title": "最佳简历模板",
+    "titleHighlight": "2026 年版",
+    "subtitle": "选择编辑模式并从我们专业设计的模板中挑选。",
+    "searchPlaceholder": "搜索模板...",
+    "templatesAvailable": "共有 {count} 个模板可用",
+    "noResults": "未找到模板",
+    "noResultsHint": "尝试调整搜索或筛选条件",
+    "useTemplate": "使用模板",
+    "formBuilder": {
+      "title": "表单生成器",
+      "description": "引导式分步编辑",
+      "hint": "填写表单，模板自动处理设计。非常适合快速制作专业简历。"
+    },
+    "canvasEditor": {
+      "title": "画布编辑器",
+      "description": "完全创意自由",
+      "hint": "自由拖放和设计。完全控制每个元素，如同简历版的 Canva。"
+    },
+    "categories": {
+      "all": "全部",
+      "professional": "专业",
+      "creative": "创意",
+      "minimal": "简洁",
+      "modern": "现代",
+      "classic": "经典"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "想从零开始？",
+        "description": "使用我们画布编辑器的强大工具创建完全自定义的简历。",
+        "button": "打开空白画布"
+      },
+      "builder": {
+        "title": "想让 AI 制作您的简历？",
+        "description": "让我们的 AI 根据您的职位在几秒钟内创建一份专业简历。",
+        "button": "用 AI 制作"
+      }
+    }
+  },
+  "Resume": {
+    "sections": {
+      "contact": "联系方式",
+      "experience": "工作经历",
+      "workExperience": "工作经历",
+      "professionalExperience": "职业经历",
+      "education": "教育背景",
+      "skills": "技能",
+      "coreSkills": "核心技能",
+      "technicalSkills": "专业技能",
+      "languages": "语言",
+      "interests": "兴趣爱好",
+      "strengths": "个人优势",
+      "certifications": "证书",
+      "awards": "奖项",
+      "projects": "项目经历",
+      "summary": "个人简介",
+      "professionalSummary": "职业摘要",
+      "profile": "个人档案",
+      "about": "关于我",
+      "additionalInfo": "附加信息",
+      "socialLinks": "社交链接",
+      "personalDetails": "个人详情",
+      "credentials": "资质证书"
+    },
+    "labels": {
+      "present": "至今",
+      "gpa": "GPA",
+      "native": "母语",
+      "fluent": "流利",
+      "advanced": "高级",
+      "intermediate": "中级",
+      "basic": "基础"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "关于 Best AI Resume - 我们的使命是改变求职方式",
+      "description": "了解 Best AI Resume——这个 AI 驱动的平台帮助数千人找到了理想工作。我们的使命、价值观以及对您职业成功的承诺。"
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "隐私政策 - Best AI Resume",
+      "description": "了解 Best AI Resume 如何保护您的数据。我们的隐私政策说明了我们如何收集、使用和保护您的个人信息。"
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "服务条款 - Best AI Resume",
+      "description": "阅读 Best AI Resume 的服务条款。了解您使用我们 AI 简历生成器平台时的权利和责任。"
+    }
+  },
+  "Onboarding": {
+    "meta": {
+      "title": "创建您的简历 - AI 简历生成器",
+      "description": "几秒钟内开始制作您的专业简历。回答 2 个问题，让 AI 为您创建量身定制的求职简历。"
+    },
+    "title": "告诉我们您的信息",
+    "subtitle": "只需 2 个问题，AI 就能为您创建完美简历",
+    "fullName": "您的全名",
+    "fullNamePlaceholder": "例如：张三",
+    "jobTitle": "您应聘的职位",
+    "jobTitlePlaceholder": "例如：软件工程师、市场营销经理",
+    "experienceLevel": "经验水平",
+    "levels": {
+      "entry": "初级",
+      "entryDesc": "0-2 年经验",
+      "mid": "中级",
+      "midDesc": "3-5 年经验",
+      "senior": "高级",
+      "seniorDesc": "6-10 年经验",
+      "executive": "高管",
+      "executiveDesc": "10 年以上经验"
+    },
+    "generate": "生成我的简历",
+    "generating": {
+      "title": "正在创建您的简历",
+      "analyzing": "正在分析您的职业...",
+      "summary": "正在生成职业摘要...",
+      "experience": "正在创建工作经历...",
+      "skills": "正在添加相关技能...",
+      "polishing": "正在润色您的简历...",
+      "almostThere": "即将完成...",
+      "wait": "通常只需几秒钟..."
+    },
+    "step1": {
+      "title": "您想如何创建简历？",
+      "subtitle": "选择您偏好的方式开始",
+      "recommended": "推荐",
+      "ai": {
+        "title": "用 AI 创建",
+        "description": "告诉我们您的职业，我们将在几秒钟内生成一份专业简历"
+      },
+      "upload": {
+        "title": "上传简历",
+        "description": "上传您现有的简历，我们将对其进行优化"
+      },
+      "linkedin": {
+        "title": "导入 LinkedIn",
+        "description": "从 LinkedIn 自动导入您的个人资料"
+      },
+      "comingSoon": "即将推出",
+      "startBlank": "或从空白简历开始"
+    },
+    "step4": {
+      "title": "选择您的模板",
+      "subtitle": "您的简历已准备就绪！选择一个符合您风格的设计。",
+      "backToEdit": "返回编辑信息",
+      "browseAll": "浏览所有模板",
+      "continue": "继续到编辑器"
+    },
+    "upload": {
+      "title": "上传您的简历",
+      "subtitle": "我们将提取您的信息并用 AI 进行优化",
+      "dragDrop": "将简历拖放到此处",
+      "orBrowse": "或浏览文件",
+      "supportedFormats": "PDF 或 DOCX（最大 {maxSize}）",
+      "validating": "正在验证文件...",
+      "uploading": "正在上传...",
+      "parsing": "AI 正在分析您的简历...",
+      "success": "简历导入成功！",
+      "error": "出了点问题",
+      "tryAgain": "重试",
+      "invalidType": "请上传 PDF 或 DOCX 文件",
+      "fileTooLarge": "文件超出 {maxSize} 限制"
+    },
+    "linkedin": {
+      "title": "从 LinkedIn 导入",
+      "subtitle": "将您的 LinkedIn 个人资料导出为 PDF 并在此上传",
+      "step1": "前往您的 LinkedIn 个人资料",
+      "step2": "点击「资源」→「保存为 PDF」",
+      "step3": "在下方上传下载的 PDF",
+      "openLinkedIn": "打开 LinkedIn 个人资料",
+      "tip": "LinkedIn PDF 最适合导入您的完整工作经历"
+    },
+    "word": {
+      "badge": "Microsoft Word 简历",
+      "step1Title": "您想如何创建 Word 简历？",
+      "aiDescription": "告诉我们您的职业，我们将在几秒钟内生成一份 Word 简历",
+      "subtitle": "只需 2 个问题，AI 就能为您创建完美的 Word 简历",
+      "startBlank": "或从空白 Word 简历开始",
+      "step4Title": "选择您的 Word 模板",
+      "step4Subtitle": "您的简历已准备就绪！选择一个 Microsoft Word 模板。",
+      "continue": "继续到 Word 编辑器"
+    },
+    "gdocs": {
+      "badge": "Google Docs 简历",
+      "step1Title": "您想如何创建 Google Docs 简历？",
+      "aiDescription": "告诉我们您的职业，我们将在几秒钟内生成一份 Google Docs 简历",
+      "subtitle": "只需 2 个问题，AI 就能为您创建完美的 Google Docs 简历",
+      "startBlank": "或从空白 Google Docs 简历开始",
+      "step4Title": "选择您的 Google Docs 模板",
+      "step4Subtitle": "您的简历已准备就绪！选择一个为 Google Docs 优化的模板。",
+      "continue": "继续到 Google Docs 编辑器"
+    },
+    "main": {
+      "step1Title": "您想如何开始？",
+      "step1Subtitle": "选择最适合您的方式",
+      "recommended": "推荐",
+      "aiTitle": "AI 生成",
+      "aiDescription": "让 AI 为您创建专业简历",
+      "uploadTitle": "上传现有简历",
+      "uploadDescription": "导入并优化您的简历",
+      "linkedinDescription": "转换您的 LinkedIn 个人资料",
+      "startBlank": "从空白简历开始",
+      "step2Subtitle": "我们将使用这些信息创建您的个性化简历",
+      "fullName": "全名",
+      "fullNamePlaceholder": "例如：张三",
+      "targetJobTitle": "目标职位",
+      "jobTitlePlaceholder": "例如：软件工程师",
+      "goBack": "返回",
+      "generatingTitle": "正在创建您的简历...",
+      "processingAnalyzing": "正在分析您的资料...",
+      "processingCrafting": "正在撰写职业摘要...",
+      "processingExperience": "正在生成工作经历...",
+      "processingSkills": "正在添加相关技能...",
+      "processingPolishing": "正在润色最终细节...",
+      "processingAlmost": "即将完成...",
+      "step4Subtitle": "选择一个符合您风格的设计",
+      "uploadSubtitle": "AI 将分析您的简历并创建优化版本",
+      "secureNotice": "您的文件经过安全处理，不会存储在我们的服务器上",
+      "linkedinSubtitle": "从 LinkedIn 下载您的个人资料 PDF，然后在此上传",
+      "linkedinHowTo": "如何导出您的 LinkedIn 个人资料：",
+      "linkedinStep1": "前往您的 LinkedIn 个人资料",
+      "linkedinStep2": "点击个人资料上的「资源」按钮",
+      "linkedinStep3": "选择「保存为 PDF」",
+      "linkedinStep4": "在下方上传下载的 PDF"
+    }
+  },
+  "Pricing": {
+    "meta": {
+      "title": "定价方案 - AI 简历生成器低至 $3/月",
+      "description": "选择适合您求职的完美方案。无隐藏费用，随时取消。低至 $3/月。"
+    },
+    "sectionTitle": "定价",
+    "title": "简单透明的",
+    "titleHighlight": "定价",
+    "subtitle": "无隐藏费用，随时取消。",
+    "viewComparison": "查看完整对比",
+    "cancelAnytime": "随时取消",
+    "securePayments": "通过 Stripe 安全支付",
+    "mostPopular": "最受欢迎",
+    "bestValue": "最优惠",
+    "billedImmediately": "立即计费",
+    "allPlansInclude": "所有方案包含：无广告 · 所有免费模板",
+    "billingToggle": {
+      "monthly": "按月",
+      "annual": "按年",
+      "savePercent": "节省 20%"
+    },
+    "page": {
+      "formBuilder": "表单生成器",
+      "canvasEditor": "画布编辑器",
+      "premiumTemplates": "高级模板",
+      "aiBuild": "AI 简历生成器",
+      "atsOptimization": "ATS 优化",
+      "prioritySupport": "优先支持",
+      "aiSuggestions": "AI 建议",
+      "coverLetterBuilder": "求职信生成器",
+      "noAds": "无广告",
+      "earlyAccess": "抢先体验新功能",
+      "cvCreations": "每月 {count} 次简历创建",
+      "aiGenerations": "每月 {count} 次 AI 生成",
+      "downloads": "每月 {count} 次下载",
+      "coverLetters": "每月 {count} 封求职信",
+      "unlimited": "无限"
+    },
+    "comparison": {
+      "title": "方案对比",
+      "feature": "功能",
+      "cvCreations": "简历创建",
+      "aiGenerations": "AI 生成",
+      "downloads": "下载",
+      "perMonth": "{count}/月",
+      "unlimited": "无限",
+      "savedResumes": "已保存简历",
+      "templates": "模板",
+      "all50": "所有免费模板",
+      "premiumPlus": "50+ 及高级模板",
+      "aiBuild": "AI 简历生成器",
+      "adFree": "无广告"
+    },
+    "faq": {
+      "title": "常见问题",
+      "cancelAnytime": {
+        "question": "我可以随时取消订阅吗？",
+        "answer": "可以，您可以随时取消订阅。您将保留访问权限直到当前计费周期结束。"
+      },
+      "paymentMethods": {
+        "question": "您接受哪些付款方式？",
+        "answer": "我们通过 Stripe 接受所有主要信用卡（Visa、MasterCard、American Express）。PayPal 即将支持。"
+      },
+      "starterOneTime": {
+        "question": "计费如何运作？",
+        "answer": "所有方案在订阅时立即计费。月度方案每月续费，年度方案每年续费。您可以随时从账户设置中取消。"
+      },
+      "runOutDownloads": {
+        "question": "达到使用限制后会怎样？",
+        "answer": "当您达到每月简历创建或 AI 生成限制时，可以升级到更高的方案以获得更多额度。限制在每个计费周期开始时重置。"
+      },
+      "switchPlans": {
+        "question": "我可以在方案之间切换吗？",
+        "answer": "当然可以。您可以随时升级或降级您的方案。更改立即生效，我们会按比例计算费用。"
+      },
+      "refunds": {
+        "question": "你们提供退款吗？",
+        "answer": "购买后我们不提供退款。您可以随时从账户设置中取消，并保留访问权限直到计费周期结束。"
+      }
+    },
+    "cta": {
+      "title": "准备好开始了吗？",
+      "subtitle": "所有方案立即计费。随时取消。",
+      "button": "查看方案",
+      "contactSupport": "联系客服"
+    },
+    "starter": {
+      "name": "入门版",
+      "description": "适合求职者",
+      "price": "$3",
+      "period": "/月",
+      "annualPrice": "$29",
+      "annualPeriod": "/年",
+      "annualMonthly": "$2.42/月",
+      "features": {
+        "cvCreations": "每月 30 次简历创建",
+        "aiGenerations": "每月 50 次 AI 生成",
+        "downloads": "每月 3 次下载",
+        "templates": "所有免费模板",
+        "noAds": "无广告",
+        "export": "PDF 导出"
+      },
+      "cta": "立即开始"
+    },
+    "gold": {
+      "name": "黄金版",
+      "description": "适合积极求职者",
+      "price": "$6",
+      "period": "/月",
+      "annualPrice": "$58",
+      "annualPeriod": "/年",
+      "annualMonthly": "$4.83/月",
+      "features": {
+        "cvCreations": "每月 150 次简历创建",
+        "aiGenerations": "每月 100 次 AI 生成",
+        "downloads": "每月 10 次下载",
+        "templates": "所有免费模板",
+        "noAds": "无广告",
+        "ats": "ATS 优化"
+      },
+      "cta": "立即开始"
+    },
+    "diamond": {
+      "name": "钻石版",
+      "description": "最适合专业人士",
+      "price": "$10",
+      "period": "/月",
+      "annualPrice": "$96",
+      "annualPeriod": "/年",
+      "annualMonthly": "$8/月",
+      "features": {
+        "cvCreations": "每月 300 次简历创建",
+        "aiGenerations": "每月 200 次 AI 生成",
+        "downloads": "每月 25 次下载",
+        "templates": "所有模板 + 高级模板",
+        "support": "优先支持",
+        "coverLetter": "求职信生成器"
+      },
+      "cta": "立即开始"
+    },
+    "platinum": {
+      "name": "铂金版",
+      "description": "适合高级用户和机构",
+      "price": "$30",
+      "period": "/月",
+      "annualPrice": "$288",
+      "annualPeriod": "/年",
+      "annualMonthly": "$24/月",
+      "features": {
+        "cvCreations": "无限简历创建",
+        "aiGenerations": "每月 500 次 AI 生成",
+        "downloads": "每月 120 次下载",
+        "templates": "所有模板 + 高级模板",
+        "support": "优先支持",
+        "coverLetter": "求职信生成器",
+        "earlyAccess": "抢先体验新功能"
+      },
+      "cta": "立即订阅"
+    }
+  },
+  "Blog": {
+    "title": "博客",
+    "subtitle": "为您的职业提供技巧、指南和见解",
+    "searchPlaceholder": "搜索文章...",
+    "readMore": "阅读更多",
+    "readingTime": "{time} 分钟阅读",
+    "categories": "分类",
+    "allCategories": "所有分类",
+    "relatedPosts": "相关文章",
+    "shareOn": "分享到",
+    "noResults": "未找到文章"
+  },
+  "Footer": {
+    "tagline": "受全球专业人士信赖的 AI 简历生成器。",
+    "product": "产品",
+    "company": "公司",
+    "legal": "法律",
+    "social": "社交",
+    "about": "关于我们",
+    "careers": "招聘",
+    "privacy": "隐私",
+    "terms": "条款",
+    "contact": "联系我们",
+    "help": "帮助指南",
+    "copyright": "© {year} Best AI Resume. 保留所有权利。",
+    "resources": "资源",
+    "resumeFormatGuide": "简历格式指南",
+    "canvaAlternative": "Canva 替代方案",
+    "overleafAlternative": "Overleaf 替代方案",
+    "resumeIoAlternative": "Resume.io 替代方案",
+    "reziAlternative": "Rezi 替代方案",
+    "builder": "简历生成器",
+    "templateCategories": "模板",
+    "compare": "对比",
+    "googleDocs": "Google Docs 模板",
+    "simpleClean": "简洁",
+    "freeResumeBuilder": "免费简历生成器",
+    "microsoftWord": "Word 模板",
+    "modern": "现代模板",
+    "creative": "创意模板",
+    "coverLetterGenerator": "AI 求职信生成器",
+    "resignationLetterGenerator": "AI 辞职信生成器",
+    "buildResumeFree": "免费制作您的简历",
+    "zetyAlternative": "Zety 替代方案",
+    "livecareerAlternative": "LiveCareer 替代方案",
+    "adobeAlternative": "Adobe 替代方案",
+    "novaAlternative": "Nova 替代方案",
+    "europassAlternative": "Europass 替代方案",
+    "chatgptComparison": "ChatGPT 对比",
+    "resumeExamples": "简历示例",
+    "softwareEngineer": "软件工程师",
+    "nurse": "护士",
+    "projectManager": "项目经理",
+    "marketingManager": "市场营销经理",
+    "dataAnalyst": "数据分析师",
+    "accountant": "会计",
+    "viewAll300": "查看全部 300+",
+    "careerGuides": "职业指南",
+    "careerGuidance": "职业规划",
+    "jobSearchStrategy": "求职策略",
+    "careerDevelopmentPlan": "职业发展计划",
+    "highPayingSkills": "高薪技能",
+    "interviewPreparation": "面试准备",
+    "salaryNegotiation": "薪资谈判"
+  },
+  "Auth": {
+    "meta": {
+      "loginTitle": "登录 - Best AI Resume",
+      "loginDescription": "登录您的 Best AI Resume 账户，访问已保存的简历并继续制作。",
+      "registerTitle": "创建账户 - Best AI Resume",
+      "registerDescription": "创建免费账户以保存简历、获取高级模板和解锁 AI 功能。"
+    },
+    "login": "登录",
+    "register": "创建账户",
+    "email": "电子邮件地址",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "forgotPassword": "忘记密码？",
+    "noAccount": "还没有账户？",
+    "hasAccount": "已有账户？",
+    "signUp": "注册",
+    "signIn": "登录",
+    "fullName": "全名",
+    "welcomeBack": "欢迎回来",
+    "welcomeBackSubtitle": "登录以继续制作您的简历",
+    "createAccount": "创建账户",
+    "createAccountSubtitle": "立即开始制作您的专业简历",
+    "continueWithGoogle": "使用 Google 继续",
+    "continueWithGitHub": "使用 GitHub 继续",
+    "continueWithLinkedIn": "使用 LinkedIn 继续",
+    "orContinueWith": "或使用电子邮件继续",
+    "verifyEmail": "验证您的邮箱",
+    "verificationCodeSent": "我们已向以下邮箱发送了 6 位验证码",
+    "enterFullCode": "请输入完整的 6 位验证码",
+    "verificationFailed": "验证失败，请重试。",
+    "resendFailed": "重新发送失败，请重试。",
+    "verifying": "验证中...",
+    "verifyAndContinue": "验证并继续",
+    "didntReceiveCode": "没有收到验证码？",
+    "resendIn": "重新发送倒计时",
+    "resendCode": "重新发送验证码",
+    "wrongEmail": "邮箱输错了？",
+    "changeEmail": "更换邮箱"
+  },
+  "Errors": {
+    "notFound": "页面未找到",
+    "serverError": "出了点问题",
+    "unauthorized": "请登录后继续"
+  },
+  "LanguageSwitcher": {
+    "label": "选择语言"
+  },
+  "Dashboard": {
+    "meta": {
+      "title": "控制面板 - 我的简历",
+      "description": "管理您的简历、追踪下载次数和访问订阅设置。"
+    },
+    "welcome": "欢迎回来{name}！",
+    "subtitle": "准备好找到理想工作了吗？让我们创建一份脱颖而出的简历。",
+    "stats": {
+      "resumesCreated": "已创建简历",
+      "downloads": "下载次数",
+      "coverLetters": "求职信"
+    },
+    "usage": {
+      "noPlan": "无方案",
+      "subscribeToUnlock": "订阅以解锁",
+      "unlimited": "无限"
+    },
+    "cta": {
+      "badge": "AI 驱动的简历生成器",
+      "title": "创建您的完美简历",
+      "createNew": "创建新简历"
+    },
+    "subscription": {
+      "plan": "{tier} 方案",
+      "expiredPlan": "已过期方案",
+      "noActivePlan": "无活跃方案",
+      "active": "活跃",
+      "planActive": "您的方案已激活",
+      "subscribePrompt": "订阅以解锁下载",
+      "resubscribe": "重新订阅",
+      "subscribe": "订阅",
+      "manage": "管理订阅"
+    },
+    "templateUsage": "模板使用情况",
+    "resumes": {
+      "title": "您的简历",
+      "total": "共 {count} 份",
+      "newResume": "新简历",
+      "noResumes": "暂无简历",
+      "noResumesDesc": "创建您的第一份 AI 简历，立即开始申请理想工作。",
+      "createFirst": "创建您的第一份简历",
+      "createNew": "创建新简历"
+    },
+    "resumeCard": {
+      "untitled": "未命名简历",
+      "noName": "无姓名",
+      "today": "今天",
+      "yesterday": "昨天",
+      "daysAgo": "{days} 天前",
+      "duplicate": "复制",
+      "delete": "删除",
+      "deleteConfirm": "确定要删除这份简历吗？",
+      "edit": "编辑"
+    },
+    "quickActions": {
+      "softwareEngineer": "软件工程师",
+      "productManager": "产品经理",
+      "designer": "设计师",
+      "marketing": "市场营销",
+      "dataScientist": "数据科学家",
+      "sales": "销售"
+    },
+    "proTip": {
+      "label": "专业提示",
+      "title": "为每份工作量身定制简历",
+      "description": "针对特定职位描述定制的简历获得面试机会的可能性高 3 倍。使用我们的 AI 快速为每次申请定制您的简历。",
+      "stat1Value": "3 倍",
+      "stat1Label": "更多面试机会",
+      "stat2Value": "85%",
+      "stat2Label": "ATS 通过率"
+    },
+    "loading": "加载中..."
+  },
+  "Profile": {
+    "meta": {
+      "title": "个人资料设置 - Best AI Resume",
+      "description": "管理您的账户设置、更新个人资料和更改密码。"
+    },
+    "title": "个人资料设置",
+    "chooseAvatar": "选择头像",
+    "accountDetails": "账户详情",
+    "name": "姓名",
+    "namePlaceholder": "您的全名",
+    "saveChanges": "保存更改",
+    "saving": "保存中...",
+    "emailAddress": "电子邮件地址",
+    "changeEmail": "更改",
+    "newEmail": "新电子邮件地址",
+    "emailPlaceholder": "your@newemail.com",
+    "emailChangeHint": "将向此邮箱发送验证码",
+    "cancel": "取消",
+    "sendCode": "发送验证码",
+    "sending": "发送中...",
+    "enterCodeSentTo": "请输入发送到以下邮箱的 6 位验证码",
+    "verifyCode": "验证",
+    "verifying": "验证中...",
+    "useAnotherEmail": "使用其他邮箱地址",
+    "codeSent": "验证码已发送到您的新邮箱",
+    "emailChanged": "邮箱更改成功",
+    "enterNewEmail": "请输入新的邮箱地址",
+    "enterCode": "请输入 6 位验证码",
+    "emailChangeFailed": "发送验证码失败",
+    "verificationFailed": "验证失败",
+    "changePassword": "更改密码",
+    "currentPassword": "当前密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认新密码",
+    "passwordHint": "至少 8 个字符",
+    "changePasswordBtn": "更改密码",
+    "changingPassword": "更改中...",
+    "profileUpdated": "个人资料更新成功",
+    "passwordChanged": "密码更改成功",
+    "updateFailed": "更新失败",
+    "passwordChangeFailed": "密码更改失败",
+    "passwordMismatch": "两次输入的密码不一致",
+    "passwordTooShort": "密码至少需要 8 个字符",
+    "noChanges": "无需保存的更改"
+  },
+  "Checkout": {
+    "meta": {
+      "title": "结算 - 完成您的订阅",
+      "description": "完成订阅以解锁无限简历功能。通过 Stripe 安全支付。"
+    },
+    "invalidPlan": {
+      "title": "无效方案",
+      "description": "所选方案无效。请从定价页面选择一个方案。",
+      "backBtn": "返回定价页"
+    },
+    "signIn": {
+      "title": "请登录以继续",
+      "subtitle": "登录以购买 {plan} 方案",
+      "signInBtn": "登录",
+      "createAccountBtn": "创建账户"
+    },
+    "header": {
+      "completePurchase": "完成购买",
+      "subscribePlan": "订阅 {plan} 方案"
+    },
+    "billing": {
+      "account": "账户",
+      "billing": "账单",
+      "monthlyStarting": "按月计费，从今天开始"
+    },
+    "submit": {
+      "redirecting": "正在跳转到 Stripe...",
+      "subscribeNow": "立即订阅"
+    },
+    "secure": "由 Stripe 提供安全支付",
+    "cancelNote": "随时取消。无长期承诺。",
+    "loading": "加载结算页面...",
+    "errors": {
+      "cancelled": "付款已取消。您可以在准备好时重试。",
+      "sessionExpired": "您的会话已过期。请重新登录。",
+      "failedCheckout": "无法启动结算。请重试。",
+      "networkError": "无法连接到服务器。请检查您的网络连接。"
+    },
+    "plans": {
+      "starter": {
+        "name": "入门版",
+        "price": "$3/月",
+        "description": "适合求职者",
+        "features": [
+          "每月 30 次简历创建",
+          "每月 3 次 AI 生成",
+          "每月 3 次 PDF 下载",
+          "所有免费模板",
+          "无广告"
+        ]
+      },
+      "gold": {
+        "name": "黄金版",
+        "price": "$6/月",
+        "description": "适合积极求职者",
+        "features": [
+          "每月 150 次简历创建",
+          "每月 10 次 AI 生成",
+          "每月 10 次 PDF 下载",
+          "ATS 优化",
+          "求职信生成器"
+        ]
+      },
+      "diamond": {
+        "name": "钻石版",
+        "price": "$10/月",
+        "description": "最适合专业人士",
+        "features": [
+          "每月 300 次简历创建",
+          "每月 30 次 AI 生成",
+          "每月 25 次 PDF 下载",
+          "所有高级模板",
+          "优先支持"
+        ]
+      },
+      "platinum": {
+        "name": "铂金版",
+        "price": "$30/月",
+        "description": "适合高级用户和机构",
+        "features": [
+          "无限简历创建",
+          "每月 100 次 AI 生成",
+          "无限 PDF 下载",
+          "所有高级模板",
+          "优先支持",
+          "抢先体验新功能"
+        ]
+      }
+    }
+  },
+  "CheckoutSuccess": {
+    "title": "付款成功！",
+    "welcome": "欢迎使用 {plan}！",
+    "planLabel": "{plan} 方案",
+    "yourBenefits": "您的新权益",
+    "createResume": "创建您的简历",
+    "goToDashboard": "前往控制面板",
+    "receiptNote": "收据已发送到您的邮箱。您可以随时从",
+    "dashboardLink": "控制面板",
+    "supportText": "有问题？请联系",
+    "loading": "正在加载您的订阅详情...",
+    "plans": {
+      "starter": {
+        "name": "入门版",
+        "benefits": [
+          "每月 30 次简历创建",
+          "每月 3 次 AI 生成",
+          "每月 3 次 PDF 下载",
+          "所有免费模板",
+          "无广告"
+        ]
+      },
+      "gold": {
+        "name": "黄金版",
+        "benefits": [
+          "每月 150 次简历创建",
+          "每月 10 次 AI 生成",
+          "每月 10 次 PDF 下载",
+          "ATS 优化",
+          "求职信生成器"
+        ]
+      },
+      "diamond": {
+        "name": "钻石版",
+        "benefits": [
+          "每月 300 次简历创建",
+          "每月 30 次 AI 生成",
+          "每月 25 次 PDF 下载",
+          "所有高级模板",
+          "优先支持"
+        ]
+      },
+      "platinum": {
+        "name": "铂金版",
+        "benefits": [
+          "无限简历创建",
+          "每月 100 次 AI 生成",
+          "无限 PDF 下载",
+          "所有高级模板",
+          "优先支持",
+          "抢先体验新功能"
+        ]
+      }
+    }
+  },
+  "CanvasEditor": {
+    "meta": {
+      "title": "画布简历编辑器 - 可视化设计您的简历 | Best AI Resume",
+      "description": "使用可视化画布编辑器设计您的简历。拖放文本、图片和形状，创建独特的自定义简历布局。"
+    },
+    "loading": "加载画布编辑器...",
+    "desktop": {
+      "title": "需要桌面设备",
+      "description": "画布编辑器需要更大的屏幕才能进行精确设计。请使用笔记本电脑或台式电脑访问此功能。",
+      "useBuilder": "改用标准生成器",
+      "backToDashboard": "返回控制面板",
+      "mobileNote": "标准简历生成器在移动设备上也能完美使用！"
+    },
+    "header": {
+      "backToBuilder": "返回生成器",
+      "backToTemplates": "返回画布模板",
+      "title": "画布编辑器",
+      "beta": "测试版",
+      "elements": "{count} 个元素",
+      "postToCommunity": "发布到社区"
+    },
+    "shortcuts": "V Select | T Text | Delete Remove | Cmd+D Duplicate | Cmd+Z Undo | Double-click text to edit",
+    "toolbar": {
+      "select": "选择 (V)",
+      "text": "文本 (T)",
+      "image": "图片 (I)",
+      "shape": "形状 (S)",
+      "rectangle": "矩形",
+      "circle": "圆形",
+      "star": "星形",
+      "line": "直线",
+      "undo": "撤销 (Cmd+Z)",
+      "redo": "重做 (Cmd+Shift+Z)",
+      "duplicate": "复制 (Cmd+D)",
+      "delete": "删除",
+      "bringToFront": "置于顶层",
+      "sendToBack": "置于底层",
+      "zoomOut": "缩小",
+      "zoomIn": "放大",
+      "aiGenerate": "AI 生成",
+      "aiGenerateTitle": "AI 摘要生成器",
+      "save": "保存项目 (Cmd+S)",
+      "load": "加载项目",
+      "export": "导出",
+      "downloadPdf": "下载 PDF",
+      "downloadPng": "下载 PNG",
+      "downloadJpeg": "下载 JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "加载模板失败。该模板可能已被移除。",
+      "canvasNotReady": "画布未就绪，请重试。",
+      "projectSaved": "项目保存成功！",
+      "noSavedProject": "未找到已保存的项目。",
+      "projectLoaded": "项目加载成功！",
+      "projectLoadFailed": "加载项目失败。"
+    },
+    "downloadModal": {
+      "title": "登录以下载",
+      "description": "创建免费账户以将您的画布设计下载为 {format}。",
+      "savedTitle": "您的作品已保存",
+      "savedNotice": "您的画布项目已保存到浏览器中。登录后回来时它会在这里。",
+      "signUp": "注册 — 免费",
+      "signInPrefix": "已有账户？",
+      "signInLink": "登录",
+      "restored": "您的画布项目已恢复！点击导出以下载。"
+    }
+  },
+  "CanvasTemplates": {
+    "meta": {
+      "title": "画布简历模板 - 可视化设计您的简历 | Best AI Resume",
+      "description": "浏览创意画布简历模板。使用我们的可视化编辑器拖放和自定义每个元素。"
+    },
+    "sectionTitle": "画布模板",
+    "title": "画布简历",
+    "titleHighlight": "模板",
+    "subtitle": "以完全创意自由设计您的简历。在我们的可视化编辑器中拖放和自定义每个元素。",
+    "freeBadge": "免费",
+    "searchPlaceholder": "搜索画布模板...",
+    "noResults": "未找到模板",
+    "noResultsHint": "尝试调整搜索或筛选条件",
+    "useTemplate": "使用模板",
+    "categories": {
+      "all": "全部",
+      "professional": "专业",
+      "creative": "创意",
+      "minimal": "简约"
+    },
+    "startFromScratch": {
+      "title": "想从零开始？",
+      "description": "使用我们画布编辑器的强大设计工具创建完全自定义的简历。",
+      "button": "打开空白画布"
+    },
+    "formBuilderBanner": "在寻找表单式模板？",
+    "viewFormTemplates": "查看表单生成器模板"
+  },
+  "Builder": {
+    "meta": {
+      "title": "简历生成器 - 在线创建专业简历",
+      "description": "使用我们易于使用的编辑器制作专业简历。实时预览、AI 建议和即时 PDF 下载。"
+    },
+    "personalInfo": {
+      "title": "个人信息",
+      "subtitle": "从您的联系方式和职业摘要开始。"
+    },
+    "profilePhoto": "头像照片",
+    "upload": "上传",
+    "change": "更换",
+    "fullName": "全名",
+    "fullNamePlaceholder": "张三",
+    "jobTitle": "职位",
+    "jobTitlePlaceholder": "软件工程师",
+    "email": "电子邮件",
+    "emailPlaceholder": "zhangsan@example.com",
+    "phone": "电话",
+    "phonePlaceholder": "+86 138 0000 0000",
+    "location": "所在地",
+    "locationPlaceholder": "北京市",
+    "website": "网站",
+    "websitePlaceholder": "zhangsan.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/zhangsan",
+    "nationality": "国籍",
+    "nationalityPlaceholder": "例如：中国",
+    "idDocument": "身份证 / 护照 / 驾驶证",
+    "selectDocType": "选择证件",
+    "nationalId": "身份证",
+    "passport": "护照",
+    "drivingLicense": "驾驶证",
+    "documentNumber": "证件号码",
+    "professionalSummary": "职业摘要",
+    "summaryPlaceholder": "拥有丰富经验的软件工程师，热衷于构建可扩展的 Web 应用程序...",
+    "generateWithAI": "用 AI 生成",
+    "additionalInfo": "附加信息",
+    "socialLinks": "社交链接",
+    "customFields": {
+      "title": "自定义字段",
+      "subtitle": "添加自定义部分，使用您自己的标签和内容。",
+      "add": "添加自定义字段",
+      "noCustomFields": "尚未添加自定义字段。",
+      "label": "部分标签",
+      "labelPlaceholder": "例如：志愿者工作、爱好、出版物",
+      "content": "内容",
+      "contentPlaceholder": "在此添加您的内容..."
+    },
+    "shapes": {
+      "circle": "圆形",
+      "rounded": "圆角",
+      "square": "方形"
+    },
+    "experience": {
+      "title": "工作经历",
+      "subtitle": "添加您的相关工作经历。",
+      "add": "添加经历",
+      "notSpecified": "（未填写）",
+      "companyName": "公司名称",
+      "jobTitle": "职位",
+      "company": "公司",
+      "city": "城市",
+      "country": "国家",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "currentlyWork": "目前在职",
+      "description": "描述",
+      "improveAI": "用 AI 优化",
+      "noExperience": "尚未添加工作经历。",
+      "addFirst": "添加您的第一段经历"
+    },
+    "education": {
+      "title": "教育背景",
+      "subtitle": "添加您的教育经历。",
+      "add": "添加教育经历",
+      "notSpecified": "（未填写）",
+      "degree": "学位",
+      "school": "学校 / 大学",
+      "cityOptional": "城市（可选）",
+      "countryOptional": "国家（可选）",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "gpaOptional": "GPA（可选）",
+      "honorsOptional": "荣誉（可选）",
+      "clubsOptional": "社团与活动（可选）",
+      "descriptionOptional": "描述（可选）",
+      "noEducation": "尚未添加教育经历。",
+      "addEducation": "添加您的教育经历",
+      "credentials": "资质证书",
+      "certifications": "证书",
+      "awards": "奖项与成就"
+    },
+    "skills": {
+      "title": "技能",
+      "subtitle": "添加您的专业技能和软技能及熟练程度。",
+      "placeholder": "例如：React、Python、领导力",
+      "proficiencyLevel": "熟练程度",
+      "beginner": "入门",
+      "basic": "基础",
+      "intermediate": "中级",
+      "advanced": "高级",
+      "expert": "专家",
+      "noSkills": "尚未添加技能。",
+      "suggestedSkills": "推荐技能",
+      "additionalInfo": "附加信息",
+      "languages": "语言",
+      "strengths": "优势",
+      "interests": "兴趣与爱好"
+    },
+    "tabs": {
+      "personal": "个人信息",
+      "personalDesc": "基本信息和摘要",
+      "experience": "工作经历",
+      "experienceDesc": "工作履历",
+      "education": "教育背景",
+      "educationDesc": "学术背景",
+      "skills": "技能",
+      "skillsDesc": "您的专长",
+      "design": "设计",
+      "designDesc": "风格与布局"
+    },
+    "ui": {
+      "progress": "完成度",
+      "canvasEditor": "画布编辑器",
+      "backToHome": "返回首页",
+      "untitledResume": "未命名简历",
+      "downloadPdf": "下载 PDF",
+      "livePreview": "实时预览",
+      "showReference": "显示参考图片",
+      "reference": "参考",
+      "zoomOut": "缩小",
+      "zoomIn": "放大",
+      "resetZoom": "重置缩放",
+      "referenceDesign": "参考设计",
+      "referenceCaption": "原始模板设计供参考",
+      "editResume": "编辑简历",
+      "previewResume": "预览简历",
+      "edit": "编辑",
+      "preview": "预览",
+      "loadingBuilder": "加载生成器..."
+    },
+    "welcome": {
+      "title": "账户已创建！",
+      "description": "您的简历已保存。您可以继续编辑或选择方案下载。",
+      "choosePlan": "选择方案",
+      "backToEditor": "返回编辑器"
+    },
+    "feedback": {
+      "reportIssue": "报告问题",
+      "title": "模板反馈",
+      "forTemplate": "模板",
+      "typeFeedback": "反馈",
+      "typeBug": "缺陷",
+      "typeSuggestion": "建议",
+      "placeholder": "描述问题或分享您对此模板的反馈...",
+      "messageTooShort": "消息至少需要 5 个字符",
+      "submitError": "提交反馈失败，请重试。",
+      "submit": "提交",
+      "cancel": "取消",
+      "close": "关闭",
+      "thankYou": "谢谢！",
+      "thankYouDesc": "您的反馈已提交。我们会审阅所有报告以改进我们的模板。"
+    }
+  },
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "下载 Google Docs 格式",
+    "loading": "加载 Google Docs 生成器..."
+  },
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "下载 MS Word 格式",
+    "loading": "加载 Word 生成器..."
+  },
+  "CoverLetter": {
+    "meta": {
+      "title": "免费 AI 求职信生成器 - 创建专业求职信",
+      "description": "使用我们的免费 AI 工具，几分钟内生成专业的个性化求职信。从众多候选人中脱颖而出，获得更多面试机会。"
+    },
+    "hero": {
+      "badge": "AI 驱动的求职信生成器",
+      "title": "创建一封",
+      "titleHighlight": "完美求职信",
+      "subtitle": "让 AI 为您撰写一封引人注目的个性化求职信，突出您的优势并吸引招聘经理的注意。"
+    },
+    "form": {
+      "yourDetails": "您的详细信息",
+      "fillInfo": "填写您的信息",
+      "fullName": "全名",
+      "email": "电子邮件",
+      "jobTitle": "职位",
+      "companyName": "公司名称",
+      "hiringManager": "招聘经理姓名（可选）",
+      "keySkills": "关键技能",
+      "experience": "相关经验",
+      "tone": "写作风格",
+      "professional": "专业",
+      "friendly": "友好",
+      "confident": "自信",
+      "enthusiastic": "热情",
+      "generate": "生成求职信",
+      "generating": "生成中...",
+      "fullNamePlaceholder": "张三",
+      "emailPlaceholder": "zhangsan@example.com",
+      "jobTitlePlaceholder": "软件工程师",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "李经理",
+      "skillsPlaceholder": "React、Node.js、团队领导",
+      "experiencePlaceholder": "我带领一个 5 人开发团队完成了一次重大产品发布..."
+    },
+    "preview": {
+      "title": "预览",
+      "subtitle": "您生成的求职信",
+      "noLetter": "尚未生成求职信",
+      "fillAndGenerate": "填写您的详细信息并点击生成",
+      "copy": "复制",
+      "copied": "已复制！",
+      "download": "下载"
+    },
+    "tips": {
+      "title": "撰写",
+      "titleHighlight": "优秀求职信的技巧",
+      "beSpecific": "具体明确",
+      "beSpecificDesc": "针对特定的职位和公司定制您的求职信。通用的求职信很容易被识别出来。",
+      "showResults": "展示成果",
+      "showResultsDesc": "包含可量化的成就。数据让您的成就更加具体和令人难忘。",
+      "keepConcise": "保持简洁",
+      "keepConciseDesc": "控制在 3-4 段。招聘人员在每份申请上只花几秒钟。"
+    },
+    "cta": {
+      "title": "也需要一份简历？",
+      "subtitle": "将您的求职信与一份用 AI 制作的专业简历搭配使用。",
+      "button": "制作您的简历"
+    },
+    "errors": {
+      "signInRequired": "请登录以生成求职信",
+      "limitReached": "您已达到求职信使用上限。升级方案以获取更多。",
+      "subscriptionRequired": "需要订阅才能生成求职信。请升级您的方案。",
+      "signInNow": "立即登录",
+      "viewPlans": "查看方案"
+    },
+    "externalResources": {
+      "title": "外部资源",
+      "blsCareerOutlook": "美国劳工统计局：职业展望",
+      "shrmHrResources": "SHRM：人力资源与职业资源"
+    }
+  },
+  "ResignationLetter": {
+    "meta": {
+      "title": "免费 AI 辞职信生成器 - 专业辞职信",
+      "description": "几分钟内创建一封专业辞职信。使用我们的 AI 工具优雅离职，维护良好的职业关系。"
+    },
+    "hero": {
+      "badge": "AI 驱动的辞职信生成器",
+      "title": "撰写一封",
+      "titleHighlight": "专业辞职信",
+      "subtitle": "以一封专业的辞职信优雅离职。维护良好的人际关系，保护您的职业声誉。"
+    },
+    "noticeLabel": "提示",
+    "notice": "标准通知期通常为 2 周。请查看您的劳动合同了解具体要求。",
+    "form": {
+      "yourDetails": "您的详细信息",
+      "fillInfo": "填写您的信息",
+      "yourName": "您的姓名",
+      "currentPosition": "当前职位",
+      "companyName": "公司名称",
+      "managerName": "上级姓名",
+      "lastWorkingDay": "最后工作日",
+      "reasonForLeaving": "离职原因",
+      "positiveExperiences": "积极经历（可选）",
+      "tone": "信件风格",
+      "professional": "专业",
+      "grateful": "感恩",
+      "brief": "简洁",
+      "warm": "温暖",
+      "offerHelp": "愿意协助交接工作",
+      "generate": "生成辞职信",
+      "generating": "生成中...",
+      "yourNamePlaceholder": "张三",
+      "currentPositionPlaceholder": "软件工程师",
+      "companyPlaceholder": "某某科技有限公司",
+      "managerPlaceholder": "李经理",
+      "positiveExperiencesPlaceholder": "我非常享受参与产品发布项目，也很感谢资深团队的指导...",
+      "professionalDesc": "正式商务风格",
+      "gratefulDesc": "表达感激之情",
+      "briefDesc": "简短扼要",
+      "warmDesc": "友好亲切"
+    },
+    "reasons": {
+      "selectReason": "选择原因（可选）",
+      "newOpportunity": "寻求新的机会",
+      "careerChange": "职业转型",
+      "relocation": "搬迁",
+      "personal": "个人原因",
+      "education": "重返校园",
+      "family": "家庭原因",
+      "health": "健康原因",
+      "retirement": "退休",
+      "other": "其他"
+    },
+    "preview": {
+      "title": "预览",
+      "subtitle": "您生成的辞职信",
+      "noLetter": "尚未生成辞职信",
+      "fillAndGenerate": "填写您的详细信息并点击生成",
+      "copy": "复制",
+      "copied": "已复制！",
+      "download": "下载"
+    },
+    "reasonText": {
+      "newOpportunity": "我已接受另一家公司的职位",
+      "careerChange": "我决定追求不同的职业道路",
+      "relocation": "我将搬迁至其他地区",
+      "personal": "由于个人原因",
+      "education": "我决定重返校园继续深造",
+      "family": "由于需要全身心投入的家庭事务",
+      "health": "由于健康原因",
+      "retirement": "我决定退休",
+      "other": "由于个人原因"
+    },
+    "letter": {
+      "dearManager": "尊敬的{name}：",
+      "defaultManager": "领导",
+      "lastWorkingDayPlaceholder": "[最后工作日]",
+      "briefBody": "此信正式通知您，我将辞去在{company}担任{position}一职。我的最后工作日为{lastDay}。",
+      "briefReason": "我辞职的原因是{reason}。",
+      "briefClosing": "感谢在职期间给予的各种机会。",
+      "sincerely": "此致敬礼，",
+      "formalBody": "我谨以此信正式通知您，我将辞去在{company}担任{position}的职务。我的最后工作日为{lastDay}。",
+      "reasonPrefix": "经过深思熟虑，{reason}。",
+      "notEasyDecision": "这不是一个轻松的决定，因为我真心珍惜在公司的这段时光。",
+      "gratefulDefault": "我非常感谢在此期间获得的专业和个人成长机会。",
+      "warmDefault": "与您和团队共事是一段美好的经历，我将永远珍惜。",
+      "learnedAppreciate": "我在这里学到了很多，将永远感谢所获得的支持和指导。",
+      "transitionHelp": "在过渡期间，我致力于确保工作顺利交接。我很乐意帮助培训接任者或整理当前项目和流程的文档。",
+      "thankYouClosing": "感谢您在我任职期间提供的专业和个人发展机会。祝{company}一切顺利，希望保持联系。",
+      "warmRegards": "此致，",
+      "sincereGratitude": "怀着真诚的感激，"
+    },
+    "tips": {
+      "title": "辞职",
+      "titleHighlight": "最佳实践",
+      "giveNotice": "提前通知",
+      "giveNoticeDesc": "至少提前 2 周通知，或按照劳动合同的要求执行。",
+      "stayProfessional": "保持专业",
+      "stayProfessionalDesc": "不要带入个人情绪。保持尊重和积极的态度。",
+      "documentIt": "书面记录",
+      "documentItDesc": "始终提交书面辞职信以留存记录。",
+      "leaveWell": "善始善终",
+      "leaveWellDesc": "完成待办工作并主动协助培训接任者。"
+    },
+    "cta": {
+      "title": "准备好迎接下一个机会了吗？",
+      "subtitle": "使用我们的 AI 简历生成器为您的求职制作一份专业简历。",
+      "button": "制作您的简历"
+    },
+    "externalResources": {
+      "title": "外部资源",
+      "shrmWorkplace": "SHRM：人力资源与职场资源",
+      "blsCareerData": "美国劳工统计局：职业数据"
+    }
+  },
+  "MockInterview": {
+    "meta": {
+      "title": "免费 AI 模拟面试练习 | Best AI Resume",
+      "description": "使用根据您的职位量身定制的 AI 生成面试题进行面试练习。获得基于 STAR 方法的即时反馈。免费模拟面试工具。"
+    },
+    "hero": {
+      "badge": "AI 驱动的面试练习",
+      "title": "AI 模拟面试练习",
+      "description": "使用根据您的职位和经验水平量身定制的 AI 生成面试题进行练习。获得基于 STAR 方法的即时反馈。"
+    },
+    "setup": {
+      "title": "设置您的面试",
+      "jobTitle": "职位",
+      "jobTitlePlaceholder": "例如：软件工程师、市场营销经理...",
+      "experienceLevel": "经验水平",
+      "levels": {
+        "entry": {
+          "label": "初级",
+          "description": "0-2 年经验"
+        },
+        "mid": {
+          "label": "中级",
+          "description": "3-6 年经验"
+        },
+        "senior": {
+          "label": "高级",
+          "description": "7 年以上经验"
+        }
+      },
+      "questionCount": "问题数量：{count}",
+      "quick": "快速 (3)",
+      "thorough": "详细 (10)",
+      "startButton": "开始面试",
+      "generating": "正在生成问题..."
+    },
+    "interview": {
+      "progress": "第 {current} 题，共 {total} 题",
+      "yourAnswer": "您的回答",
+      "answerPlaceholder": "在此输入您的回答。使用 STAR 方法：情境、任务、行动、结果...",
+      "answerTip": "提示：建议 3-5 句话。尽可能使用具体实例和量化结果。",
+      "skip": "跳过",
+      "evaluating": "评估中...",
+      "submitContinue": "提交并继续",
+      "submitFinish": "提交并完成",
+      "starReminder": "记住 STAR 方法：",
+      "starDescription": "用情境（Situation）、任务（Task）、行动（Action）和结果（Result）来组织您的回答，获得最佳效果。"
+    },
+    "results": {
+      "complete": "面试完成！",
+      "summary": "您回答了 {total} 题中的 {answered} 题",
+      "averageScore": "平均得分：",
+      "startNew": "开始新面试",
+      "bonusQuestions": "解锁 10 道额外练习题",
+      "bonusUnlocked": "额外题目已解锁！",
+      "bonusDescription": "您现在可以在每次面试中练习最多 10 道题目。",
+      "detailedFeedback": "详细反馈",
+      "questionLabel": "第 {number} 题",
+      "strengths": "优势",
+      "improvements": "改进方向",
+      "sampleAnswer": "参考答案",
+      "skipped": "此题已跳过",
+      "continuePrep": "继续您的准备",
+      "resources": {
+        "starMethod": {
+          "title": "掌握 STAR 方法",
+          "description": "学习如何为行为面试问题组织您的回答。"
+        },
+        "tellMe": {
+          "title": "如何回答「请介绍一下你自己」",
+          "description": "打造完美的开场回答，为面试定下基调。"
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "请输入职位以继续。",
+      "generateFailed": "生成面试问题失败。请重试。",
+      "startFailed": "启动面试失败。请重试。",
+      "detailedAnswer": "请提供更详细的回答（至少 20 个字符）。"
+    },
+    "externalResources": {
+      "title": "外部资源",
+      "blsCareerOutlook": "美国劳工统计局：职业展望",
+      "shrmInterviewPractices": "SHRM：面试最佳实践"
+    }
+  },
+  "CareerTips": {
+    "meta": {
+      "title": "职业建议与简历指导 - 专家指南 | Best AI Resume",
+      "description": "专家职业建议、简历撰写技巧和求职策略。了解如何创建 AI 简历、通过面试并找到理想工作。"
+    },
+    "hero": {
+      "badge": "专家职业指南",
+      "title": "职业建议",
+      "titleHighlight": "与专家指导",
+      "subtitle": "通过我们的专家指南掌握简历撰写、通过面试并加速您的职业发展。"
+    },
+    "featured": "精选文章",
+    "featuredBadge": "精选",
+    "allArticles": "所有文章",
+    "searchPlaceholder": "搜索文章...",
+    "articleCount": "{count, plural, one {# 篇文章} other {# 篇文章}}",
+    "noArticles": "未找到文章",
+    "noArticlesHint": "尝试调整搜索或筛选条件",
+    "categories": {
+      "title": "分类",
+      "all": "所有文章",
+      "resumeTips": "简历技巧",
+      "coverLetters": "求职信",
+      "interviews": "面试技巧",
+      "jobSearch": "求职",
+      "careerAdvice": "职业建议",
+      "aiResume": "AI 简历"
+    },
+    "article": {
+      "readMore": "阅读更多",
+      "tableOfContents": "目录",
+      "relatedArticles": "相关文章",
+      "moreCareerTips": "更多职业建议",
+      "shareHelpful": "觉得有帮助？",
+      "shareWithOthers": "分享给可能需要的人",
+      "tags": "标签：",
+      "breadcrumbHome": "首页",
+      "breadcrumbCareerTips": "职业建议",
+      "notFound": "文章未找到"
+    },
+    "cta": {
+      "title": "准备好制作简历了吗？",
+      "subtitle": "将这些建议付诸实践，使用我们的 AI 简历生成器几分钟内创建一份专业简历。",
+      "button": "立即制作简历",
+      "sidebarTitle": "制作您的简历",
+      "sidebarSubtitle": "使用 AI 几分钟内创建专业简历。",
+      "sidebarButton": "立即开始"
+    }
+  },
+  "ResumeExamples": {
+    "meta": {
+      "title": "按职位分类的简历示例 | 免费模板与指南 2026",
+      "description": "浏览 50+ 按职位分类的专业简历示例。每个都包含免费模板、关键技能和撰写技巧，助您获得理想工作。"
+    },
+    "hero": {
+      "badge": "针对特定职位的指南",
+      "title": "简历示例",
+      "titleHighlight": "按职位分类",
+      "subtitle": "找到您的职业，获取包含行业特定建议的定制简历模板。"
+    },
+    "searchPlaceholder": "按职位搜索...",
+    "featured": "精选简历示例",
+    "allExamples": "所有简历示例",
+    "noResults": "未找到简历示例",
+    "noResultsHint": "尝试调整搜索或筛选条件",
+    "cta": {
+      "title": "准备好创建您的优秀简历了吗？",
+      "subtitle": "使用我们的 AI 简历生成器几分钟内创建一份专业简历。",
+      "button": "免费制作我的简历"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "免费 ATS 简历检查器 | 即时评估您的简历 | Best AI Resume",
+      "description": "免费检查您的简历是否通过 ATS 系统。获取即时评分、关键词分析和优化建议，通过自动筛选。"
+    },
+    "hero": {
+      "badge": "免费 ATS 简历检查器",
+      "title": "您的简历",
+      "titleHighlight": "能通过 ATS 吗？",
+      "statistic": "75% 的简历在被人看到之前就被 ATS 淘汰了。",
+      "description": "我们的免费 ATS 检查器会分析您简历的格式问题、缺失关键词和兼容性问题，这些都会导致被自动淘汰。"
+    },
+    "tool": {
+      "title": "检查您的简历 ATS 评分",
+      "description": "上传您的 PDF 或 DOCX 简历，即时获取 ATS 兼容性评分和详细反馈。",
+      "uploadBtn": "点击上传或拖放文件",
+      "formats": "PDF 或 DOCX — 最大 10MB",
+      "checkBtn": "检查我的简历",
+      "changeFile": "更换文件",
+      "analyzing": "正在分析您的简历…",
+      "cta": "制作 ATS 友好的简历",
+      "subtext": "免费——无需信用卡"
+    },
+    "checks": {
+      "title": "ATS 系统检查的内容",
+      "subtitle": "了解 ATS 软件扫描的内容有助于您优化简历，获得最大可见度。",
+      "keywords": {
+        "title": "关键词匹配",
+        "description": "ATS 会扫描职位发布中的特定关键词。缺少关键术语意味着被自动淘汰。"
+      },
+      "formatting": {
+        "title": "格式规范",
+        "description": "复杂的布局、表格和分栏会让 ATS 解析器出错。简单的单栏格式解析效果最佳。"
+      },
+      "contact": {
+        "title": "联系信息",
+        "description": "ATS 会查找标准格式的姓名、邮箱、电话和地址。缺少信息意味着错失机会。"
+      },
+      "dates": {
+        "title": "日期格式一致",
+        "description": "ATS 系统会解析工作日期来计算经验。不一致的格式会导致解析错误。"
+      }
+    },
+    "checklist": {
+      "title": "ATS 优化清单",
+      "subtitle": "遵循这些准则，最大化您的简历通过 ATS 筛选的机会。",
+      "doThis": "应该做的",
+      "avoidThis": "应该避免的",
+      "dos": {
+        "singleColumn": "使用单栏布局以获得最大兼容性",
+        "keywords": "自然地包含职位描述中的关键词",
+        "standardHeadings": "使用标准部分标题（工作经历、教育背景、技能）",
+        "fileFormat": "按雇主要求提交 PDF 或 DOCX 格式",
+        "standardFonts": "使用标准字体，如 Arial、Calibri 或 Times New Roman",
+        "spellOut": "先拼写全称再缩写（例如：项目管理专业人士 (PMP)）"
+      },
+      "donts": {
+        "tables": "不要使用表格或文本框进行排版",
+        "images": "不要包含图片、徽标或图形",
+        "headers": "不要将重要信息放在页眉或页脚中",
+        "creativeTitles": "不要使用创意性部分标题（例如用「我的旅程」代替「工作经历」）",
+        "fancyFonts": "不要使用装饰性或不常见的字体",
+        "lightText": "不要使用浅灰色或低对比度的文字颜色"
+      }
+    },
+    "systems": {
+      "title": "主流 ATS 系统",
+      "subtitle": "我们的模板已针对全球雇主使用的所有主流求职者追踪系统进行测试和优化。"
+    },
+    "faq": {
+      "title": "常见问题",
+      "whatIsAts": {
+        "question": "什么是 ATS（求职者追踪系统）？",
+        "answer": "ATS 是雇主用来收集、扫描和排名求职申请的软件。它根据关键词、格式和相关性在招聘人员看到之前筛选简历。超过 98% 的财富 500 强公司使用 ATS。"
+      },
+      "whyFail": {
+        "question": "简历为什么无法通过 ATS 筛选？",
+        "answer": "常见原因包括复杂的格式（表格、分栏、图形）、缺少职位描述中的关键词、非标准的部分标题、不兼容的文件格式，以及将信息放在 ATS 无法读取的页眉或页脚中。"
+      },
+      "bestFormat": {
+        "question": "什么是最适合 ATS 的简历格式？",
+        "answer": "使用标准部分标题的简洁单栏布局效果最佳。使用简单的格式、标准字体，避免图形或表格。PDF 和 DOCX 是最被广泛接受的文件格式。"
+      },
+      "keywords": {
+        "question": "如何找到适合简历的关键词？",
+        "answer": "仔细阅读职位描述，找出反复出现的技能、资质和术语。在简历中自然地包含这些关键词，特别是在摘要、技能部分和工作经历描述中。"
+      },
+      "twoColumn": {
+        "question": "可以在 ATS 中使用双栏简历吗？",
+        "answer": "双栏布局可能会在许多 ATS 系统中导致解析问题。软件可能会跨栏读取而不是按列读取，导致信息混乱。单栏布局是 ATS 兼容性最安全的选择。"
+      },
+      "jobTitle": {
+        "question": "简历中应该匹配精确的职位名称吗？",
+        "answer": "是的，如果您的实际职位类似的话。在简历中包含招聘启事中的精确职位名称（前提是真实的）可以显著提高 ATS 匹配度。您可以将其包含在摘要中或作为目标职位。"
+      }
+    },
+    "resources": {
+      "title": "相关资源",
+      "guide": {
+        "title": "ATS 简历撰写指南",
+        "description": "通过 ATS 筛选的简历撰写分步指南。"
+      },
+      "templates": {
+        "title": "ATS 友好模板",
+        "description": "为 ATS 兼容性预优化的简历模板。"
+      },
+      "examples": {
+        "title": "简历示例",
+        "description": "查看您所在职业的真实简历示例。"
+      }
+    },
+    "cta": {
+      "title": "不再被 ATS 淘汰",
+      "description": "使用我们的 AI 简历生成器几分钟内制作专业的 ATS 优化简历。每个模板都经过 ATS 兼容性测试。",
+      "button": "免费制作我的 ATS 简历"
+    },
+    "validation": {
+      "unsupportedFormat": "仅支持 PDF 和 DOCX 文件。",
+      "fileTooLarge": "文件大小必须小于 10MB。",
+      "genericError": "出了点问题，请重试。"
+    },
+    "results": {
+      "scoreTitle": "您的 ATS 兼容性评分",
+      "recommendations": "优化建议",
+      "checkAnother": "检查另一份简历",
+      "buildAtsResume": "制作 ATS 优化简历",
+      "pagesAnalyzed": "{count, plural, one {已分析 # 页} other {已分析 # 页}}",
+      "scoreExcellent": "优秀",
+      "scoreGood": "良好",
+      "scoreNeedsWork": "需改进",
+      "scorePoor": "较差"
+    },
+    "externalResources": {
+      "title": "外部资源",
+      "atsHowTheyWork": "了解 ATS：工作原理",
+      "blsResumeTips": "BLS 职业展望：简历技巧"
+    }
+  },
+  "Contact": {
+    "title": "联系我们",
+    "description": "无论您对账户有疑问、需要简历方面的帮助，还是想报告问题——我们随时为您服务。填写下面的表单，我们的团队将在 24 小时内回复您。",
+    "inquiryType": "咨询类型",
+    "inquiryTypes": {
+      "general": "一般咨询",
+      "billing": "账单问题",
+      "cvCreation": "简历创建问题"
+    },
+    "name": "您的姓名",
+    "namePlaceholder": "张三",
+    "email": "电子邮件地址",
+    "emailPlaceholder": "you@example.com",
+    "subject": "主题",
+    "subjectPlaceholder": "我们能帮您什么？",
+    "message": "留言",
+    "messagePlaceholder": "请详细描述您的问题...",
+    "submit": "发送消息",
+    "sending": "发送中...",
+    "successTitle": "消息已发送！",
+    "successMessage": "感谢您联系我们。我们将在 24 小时内回复您。",
+    "sendAnother": "发送另一条消息",
+    "errorGeneric": "出了点问题，请稍后重试。",
+    "errorRateLimit": "提交过于频繁，请稍后再试。"
+  },
+  "Help": {
+    "title": "使用指南",
+    "subtitle": "从注册到下载成品文档的分步指南，帮助您创建专业简历。",
+    "quickNav": "跳转到：",
+    "tipLabel": "专业提示",
+    "faqLabel": "常见问题",
+    "troubleshootingLabel": "故障排除",
+    "gettingStarted": {
+      "title": "开始使用",
+      "steps": {
+        "1": {
+          "title": "创建您的账户",
+          "description": "点击首页上的「免费开始」按钮或导航栏中的「注册」链接。您可以使用 Google、GitHub 或 LinkedIn 账户即时注册——无需密码。更喜欢邮箱？输入您的姓名、邮箱并设置密码。",
+          "tip": "使用 Google 或 LinkedIn 登录最快——您的姓名和邮箱会自动填写。"
+        },
+        "2": {
+          "title": "验证您的邮箱",
+          "description": "如果您使用邮箱注册，请查看收件箱中来自 Best AI Resume 的邮件。在验证页面输入 6 位验证码。验证码 10 分钟后过期——如果过期，点击「重新发送验证码」获取新的。",
+          "tip": "如果一分钟内没有看到邮件，请检查垃圾邮件文件夹。"
+        },
+        "3": {
+          "title": "注册完成",
+          "description": "验证后，您将进入引导页面，选择如何制作第一份简历。您的账户会自动保存每次更改，所以即使关闭浏览器也不会丢失工作成果。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "注册需要信用卡吗？",
+          "a": "不需要。您可以免费创建账户并制作简历。仅在选择付费方案时才需要信用卡。"
+        },
+        "2": {
+          "q": "如果收不到验证码怎么办？",
+          "a": "首先检查垃圾邮件文件夹。如果不在那里，点击验证页面上的「重新发送验证码」。如果仍然收不到，尝试使用 Google 或 LinkedIn 注册。"
+        },
+        "3": {
+          "q": "可以在多个设备上使用同一账户吗？",
+          "a": "可以。您的账户和所有简历都存储在云端。从任何设备登录，即可从上次离开的地方继续。"
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "制作您的简历",
+      "steps": {
+        "1": {
+          "title": "选择您的方式",
+          "description": "在引导页面上，您会看到四个选项：AI 生成（推荐大多数用户）、上传简历（解析现有 PDF）、从 LinkedIn 导入（导入您的资料）或从零开始（空白模板）。每个选项都会引导您完成简短的设置流程，然后打开生成器。",
+          "tip": "AI 生成是获得完整专业简历最快的方式——您可以随后进行编辑。"
+        },
+        "2": {
+          "title": "让 AI 完成工作",
+          "description": "如果您选择了 AI 生成，输入您的全名、应聘职位和经验水平（初级、中级或高级）。点击生成，我们的 AI 将创建一份包含职业摘要、工作经历、教育背景和技能部分的完整简历——全部针对您的目标职位量身定制。"
+        },
+        "3": {
+          "title": "选择模板",
+          "description": "生成后，浏览我们 16+ 个模板库。模板分为以下类别：专业、创意、简约和 ATS 友好。点击任何模板即可用您的数据预览。随时切换模板不会丢失内容。",
+          "tip": "您可以随时在生成器中更换模板——您的内容保持不变，只有设计会改变。"
+        },
+        "4": {
+          "title": "编辑和自定义",
+          "description": "生成器左侧有分栏选项卡（个人信息、工作经历、教育背景、技能等），右侧是实时预览。编辑任何字段即可看到即时变化。您可以重新排序部分、添加自定义部分、调整字体大小和更改主题颜色以匹配您的风格。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "可以创建多份简历吗？",
+          "a": "可以。您可以创建和保存针对不同求职申请的多份简历。从控制面板中切换。"
+        },
+        "2": {
+          "q": "AI 生成支持所有语言吗？",
+          "a": "AI 目前以英语生成内容。创建后您可以手动编辑为任何语言。"
+        },
+        "3": {
+          "q": "可以导入 LinkedIn 个人资料吗？",
+          "a": "可以。在引导过程中选择「从 LinkedIn 导入」选项。系统会引导您连接 LinkedIn 个人资料以导入工作经历。"
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "选择方案",
+      "steps": {
+        "1": {
+          "title": "访问定价页面",
+          "description": "点击导航栏中的「定价」或直接访问定价页面。您会看到四种方案：入门版（免费，有限下载）、黄金版、钻石版和铂金版。使用顶部切换按钮在月付和年付之间切换——年付最多可节省 40%。"
+        },
+        "2": {
+          "title": "选择您的方案",
+          "description": "比较四种方案——入门版、黄金版、钻石版和铂金版——选择适合您需求的方案。所有方案立即计费，即时获得所有功能的访问权限。",
+          "tip": "年付比月付最多节省 40%——而且您获得的功能完全相同。"
+        },
+        "3": {
+          "title": "完成结算",
+          "description": "点击所选方案上的「立即开始」按钮。您将被重定向到安全的 Stripe 结算页面输入卡片信息。付款后，您的账户会立即升级，您可以马上开始下载。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "可以随时取消订阅吗？",
+          "a": "可以。您可以随时从账户设置中取消。您将保留访问权限直到当前计费周期结束。"
+        },
+        "2": {
+          "q": "取消后会怎样？",
+          "a": "您将保留方案的访问权限直到当前计费周期结束。之后，您的账户将恢复为过期状态。"
+        },
+        "3": {
+          "q": "以后可以切换方案吗？",
+          "a": "可以。您可以随时从账户设置中升级或降级方案。更改立即生效。"
+        }
+      }
+    },
+    "downloading": {
+      "title": "下载您的简历",
+      "steps": {
+        "1": {
+          "title": "点击下载",
+          "description": "在生成器中，找到页面右上角的绿色「下载 PDF」按钮。点击打开下载弹窗，显示您本月剩余的下载次数并确认导出。"
+        },
+        "2": {
+          "title": "获取您的 PDF",
+          "description": "您的简历将被渲染为像素级完美的高质量 PDF，与预览中所见完全一致。PDF 针对数字查看（邮件、求职门户）和标准信纸或 A4 纸打印进行了优化。",
+          "tip": "通过在线求职门户申请时，使用 ATS 友好模板效果最佳——它们的解析更可靠。"
+        },
+        "3": {
+          "title": "追踪使用情况",
+          "description": "每种方案都有月度下载限制，在计费日重置。您可以在下载弹窗或账户设置中查看剩余下载次数。如果达到限制，随时升级方案即可立即解锁更多下载次数。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "可以下载 Word/DOCX 格式吗？",
+          "a": "可以。除 PDF 外，您还可以将简历导出为与 Microsoft Word 和 Google Docs 兼容的 DOCX 文件。"
+        },
+        "2": {
+          "q": "为什么我的 PDF 与预览看起来略有不同？",
+          "a": "预览是近似显示。PDF 是最终的像素级完美输出。浏览器预览和 PDF 之间的字体渲染细微差异是正常的。"
+        },
+        "3": {
+          "q": "如果下载次数用完了怎么办？",
+          "a": "您的下载次数每月重置。如果在重置前需要更多下载，可以升级方案以立即获得更高的限制。"
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "故障排除",
+      "items": {
+        "1": {
+          "title": "无法登录账户",
+          "description": "尝试使用登录页面上的「忘记密码」链接重置密码。如果您使用 Google、GitHub 或 LinkedIn 注册，请确保使用相同的方式登录。如果问题持续存在，清除浏览器 Cookie。"
+        },
+        "2": {
+          "title": "收不到验证码",
+          "description": "检查垃圾邮件文件夹。验证码 10 分钟后过期——点击「重新发送验证码」获取新的。如果使用企业邮箱，您的 IT 防火墙可能会阻止自动邮件。尝试使用个人邮箱。"
+        },
+        "3": {
+          "title": "付款被拒绝",
+          "description": "验证您的卡号、有效期和 CVV。确保您的卡允许国际或在线交易。如果问题持续存在，尝试使用其他卡或联系您的银行。所有付款都通过 Stripe 安全处理。"
+        },
+        "4": {
+          "title": "PDF 与预览不同",
+          "description": "预览显示的是最终输出的近似效果。如果特定元素看起来不对，尝试切换模板或在生成器的设计设置中调整字体大小。确保您的浏览器是最新版本。"
+        },
+        "5": {
+          "title": "更改未保存",
+          "description": "您的工作会自动保存到云端。如果发现未保存的更改，请检查您的网络连接。尝试刷新页面——您最新的编辑应该会出现。如果网络较慢，编辑间请等待几秒钟。"
+        }
+      }
+    },
+    "cta": {
+      "title": "准备好开始了吗？",
+      "subtitle": "使用我们的 AI 简历生成器几分钟内制作专业简历。",
+      "buildButton": "开始制作",
+      "contactButton": "联系客服"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "免费 ATS 友好简历模板（2026）| 通过所有 ATS 扫描",
+      "description": "浏览 16 个免费 ATS 友好简历模板，专为通过求职者跟踪系统设计。简洁排版、标准字体和可解析的布局，经过真实 ATS 软件测试。"
+    },
+    "breadcrumb": {
+      "home": "首页",
+      "current": "ATS 友好模板"
+    },
+    "hero": {
+      "badge": "100% ATS 兼容",
+      "title": "ATS 友好简历模板",
+      "subtitle": "97% 的财富 500 强企业使用求职者跟踪系统在人工审核前筛选简历（Jobscan，2024）。以下每个模板都经过专门构建，确保通过 ATS 筛选——让您的简历每次都能到达真人手中。",
+      "check1": "通过 ATS 解析",
+      "check2": "免费使用",
+      "check3": "即时 PDF 下载"
+    },
+    "features": {
+      "title": "为什么我们的模板能通过 ATS 筛选",
+      "subtitle": "大多数简历在人工审核之前就被拒绝了。我们的模板经过精心设计，避免了导致 ATS 失败的常见排版陷阱。",
+      "parseable": {
+        "title": "机器可解析布局",
+        "description": "单栏结构，层次分明的部分标题，ATS 软件可以从上到下无障碍读取。不使用会打乱内容顺序的多栏布局。"
+      },
+      "standardHeaders": {
+        "title": "标准部分标题",
+        "description": "使用所有 ATS 都能识别的标题，如「工作经历」和「教育背景」——不使用会混淆解析器的创意标签。"
+      },
+      "testedATS": {
+        "title": "经过真实 ATS 测试",
+        "description": "每个模板都经过 Workday、Greenhouse、Lever、iCIMS 和 Taleo 测试——这五个平台处理了大多数在线求职申请。"
+      },
+      "cleanFormatting": {
+        "title": "简洁安全的排版",
+        "description": "不使用表格、文本框、页眉/页脚或嵌入图片等会破坏 ATS 解析的元素。只有纯净文本和标准字体，渲染为可选择的 PDF 文字。"
+      }
+    },
+    "grid": {
+      "title": "选择您的 ATS 友好模板",
+      "subtitle": "所有 16 个模板完全兼容 ATS。选择任何样式——您的简历都能正确解析。",
+      "useTemplate": "使用此模板"
+    },
+    "howATS": {
+      "title": "求职者跟踪系统如何筛选您的简历",
+      "intro": "了解 ATS 的工作流程可以帮助您理解为什么排版比大多数求职者意识到的更重要。以下是您点击申请后的几秒钟内发生的事情。",
+      "step1": {
+        "title": "接收并转换您的简历文件",
+        "description": "ATS 接收您的 PDF 或 DOCX 文件，并通过文本提取引擎处理。它尝试将文档转换为结构化数据——将您的姓名、联系方式、工作经历、教育背景和技能分离到不同的字段中。如果文件使用表格、栏目或图片，提取步骤会产生混乱或缺失的数据。"
+      },
+      "step2": {
+        "title": "解析内容并映射到字段",
+        "description": "提取文本后，ATS 将内容分配到其数据库字段：公司名称、职位名称、就职日期、学位、技能。它使用部分标题来确定内容的归属。非标准标题（如用「我的旅程」代替「工作经历」）会导致内容被错误分类或完全忽略。"
+      },
+      "step3": {
+        "title": "根据关键词和条件筛选",
+        "description": "解析完成后，ATS 将您的简历数据与职位要求进行匹配。它查找特定的技能关键词、所需的工作年限、教育水平和地理位置。不符合强制性标准的简历将自动被排除——无论候选人多么有才华。"
+      },
+      "step4": {
+        "title": "排名并呈现给招聘人员",
+        "description": "通过初步筛选的简历会获得相关性评分，并排名呈现给招聘人员。分数更高的候选人出现在列表顶部，获得更多关注。这就是为什么关键词匹配和清晰的格式直接影响您被面试的机会。"
+      },
+      "warning": "重要提示：ATS 兼容性是必要的但不是充分的。您仍然需要强有力的内容、相关关键词和量化的成就来给招聘人员留下深刻印象。"
+    },
+    "checklist": {
+      "title": "ATS 简历检查清单",
+      "intro": "在提交之前，根据此清单验证您的简历，最大化通过 ATS 筛选的机会。",
+      "items": {
+        "1": "使用简单的单栏布局（无表格、栏目或文本框）",
+        "2": "使用标准部分标题：工作经历、教育背景、技能",
+        "3": "在技能和工作经历部分包含职位发布中的关键词",
+        "4": "使用标准字体（Arial、Calibri、Times New Roman）",
+        "5": "保存为 PDF 格式（除非公司特别要求 DOCX）",
+        "6": "确保所有文本可选择（非图片或扫描件）",
+        "7": "避免在页眉或页脚放置关键信息",
+        "8": "使用简单的项目符号（圆点或短横线，不要花哨的符号）",
+        "9": "日期使用一致的格式（如「2023年1月 – 2024年6月」）",
+        "10": "在提交前测试：复制粘贴 PDF 内容到文本编辑器，检查可读性"
+      },
+      "outro": "需要帮助针对特定职位定制简历吗？浏览我们的",
+      "outroLink": "300+ 个特定职业简历示例"
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": {
+        "1": {
+          "q": "ATS 友好对简历模板意味着什么？",
+          "a": "ATS 友好模板的设计使求职者跟踪系统能够准确解析其内容。这意味着清晰的部分标题、单栏布局、标准字体，以及不包含表格、文本框或图片等会破坏解析的元素。"
+        },
+        "2": {
+          "q": "创意或现代简历仍然可以兼容 ATS 吗？",
+          "a": "可以。ATS 兼容性取决于底层结构，而非视觉设计。您可以拥有现代外观的简历，同时仍然使用 ATS 安全的格式。我们的模板正是这样做的——它们看起来很专业，同时在底层保持完全可解析。"
+        },
+        "3": {
+          "q": "我应该用 PDF 还是 DOCX 格式提交简历以通过 ATS？",
+          "a": "在 2026 年，PDF 通常是最安全的选择。现代 ATS 平台（Workday、Greenhouse、Lever）都能可靠地解析 PDF。PDF 可以保留精确的格式，不会在不同系统间改变。只有在职位申请明确要求 DOCX 时才使用 DOCX。"
+        },
+        "4": {
+          "q": "如何知道我的简历是否通过了 ATS 筛选？",
+          "a": "使用我们免费的 ATS 检查工具上传您的简历，查看 ATS 如何读取它。您会得到逐段的解析报告，显示哪些被正确识别、哪些被遗漏。也可以尝试复制粘贴测试：将 PDF 内容粘贴到纯文本编辑器中查看是否可读。"
+        },
+        "5": {
+          "q": "每次求职申请都需要不同的模板吗？",
+          "a": "不需要——一个 ATS 友好模板适用于所有申请。您应该更改的是内容，而不是模板。根据每个职位调整技能关键词和成就描述，以匹配职位描述。模板结构保持不变。"
+        }
+      }
+    },
+    "cta": {
+      "title": "准备好创建通过 ATS 的简历了吗？",
+      "subtitle": "选择一个模板，填入您的信息，几分钟内下载您经过 ATS 优化的简历。免费，无需注册。",
+      "buildButton": "构建我的简历",
+      "checkButton": "检查我的现有简历",
+      "browseAll": "浏览所有模板",
+      "examples": "300+ 简历示例",
+      "formatGuide": "简历格式指南",
+      "button": "开始构建",
+      "secondary": "查看所有模板"
+    },
+    "mistakes": {
+      "title": "5 个导致简历被 ATS 拒绝的排版错误",
+      "intro": "即使是优秀的候选人，当简历格式混淆解析器时也会被过滤掉。以下是最常见的 ATS 杀手——以及如何避免每一个。",
+      "items": {
+        "1": {
+          "title": "使用表格或多栏布局",
+          "description": "ATS 以单一流方式读取文本。表格和栏目会导致它将不相关的内容合并到同一行。您精心组织的两栏布局变成了混乱的文本。"
+        },
+        "2": {
+          "title": "将联系信息嵌入页眉或页脚",
+          "description": "许多 ATS 平台完全跳过文档页眉和页脚。如果您的姓名、邮箱或电话号码在那里，ATS 可能永远不会解析到。始终将联系信息放在文档主体中。"
+        },
+        "3": {
+          "title": "使用创意性部分标签",
+          "description": "用「我的经历」代替「工作经历」或「我的工具箱」代替「技能」等标签会导致 ATS 无法将内容分配到正确的字段。使用标准标题确保准确解析。"
+        },
+        "4": {
+          "title": "保存为图片 PDF 或使用非标准字体",
+          "description": "如果 PDF 中的文本无法选择，ATS 就无法读取。扫描的文档、设计师字体和某些 Mac 导出都可能产生 ATS 无法处理的图片文本。"
+        },
+        "5": {
+          "title": "添加图形、图标或技能条",
+          "description": "进度条、星级评分和联系方式图标对 ATS 不可见。掌握 5 年 Python 经验用三颗填充星表示对人类有意义，但 ATS 只会忽略它。用纯文本列出技能。"
+        }
+      },
+      "cta": "不确定您当前的简历是否能通过？",
+      "ctaLink": "运行免费 ATS 兼容性检查"
+    },
+    "whatMakes": {
+      "title": "什么使简历模板 ATS 友好？",
+      "p1": "ATS 友好简历模板的设计使求职者跟踪系统——全球雇主使用的自动化软件——能够准确解析、分类和评分您的简历内容。",
+      "p2": "简历未通过 ATS 解析最常见的原因是格式问题。表格、多栏布局、文本框、嵌入图片和非标准字体都会干扰文本提取，导致解析数据出现缺失字段或乱码。",
+      "p3": "我们的 16 个简历模板从头开始设计，以 ATS 兼容性为首要考虑。每个模板都使用单栏布局、标准部分标题、安全字体和纯净的文本渲染。",
+      "link1": "如何编写 ATS 友好简历",
+      "link2": "什么是 ATS？完整指南",
+      "link3": "了解 ATS 解析率"
+    }
+  }
+}

@@ -1,0 +1,2087 @@
+{
+  "Meta": {
+    "title": "Darmowy kreator CV z AI | Stwórz CV ATS w kilka minut | Best AI Resume",
+    "description": "Twórz profesjonalne, zoptymalizowane pod ATS CV w kilka minut dzięki naszemu darmowemu kreatorowi CV z AI. Zaufało nam ponad 50 000 profesjonalistów. Rejestracja nie jest wymagana."
+  },
+
+  "Common": {
+    "loading": "Ładowanie...",
+    "error": "Wystąpił błąd",
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "close": "Zamknij",
+    "search": "Szukaj",
+    "submit": "Wyślij",
+    "next": "Dalej",
+    "back": "Wstecz",
+    "download": "Pobierz",
+    "preview": "Podgląd",
+    "scrollToExplore": "Przewiń, aby odkryć",
+    "dismiss": "Odrzuć",
+    "addLanguage": "Dodaj język",
+    "uploadProfilePhoto": "Prześlij zdjęcie profilowe",
+    "removeProfilePhoto": "Usuń zdjęcie profilowe",
+    "documentType": "Typ dokumentu",
+    "searchByJobTitle": "Szukaj według stanowiska lub umiejętności...",
+    "searchIcons": "Szukaj ikon...",
+    "describeTemplate": "Opisz swój szablon...",
+    "languagePlaceholder": "np. hiszpański, francuski, mandaryński",
+    "templateNamePlaceholder": "np. Nowoczesne CV programisty",
+    "returningBanner": {
+      "welcomeBack": "Witaj ponownie!",
+      "lastEdited": "Ostatnio edytowane {date}",
+      "unsavedDraft": "Masz niezapisany szkic CV",
+      "continueEditing": "Kontynuuj edycję"
+    }
+  },
+
+  "Navigation": {
+    "features": "Funkcje",
+    "templates": "Szablony",
+    "pricing": "Cennik",
+    "blog": "Blog",
+    "careerTips": "Porady zawodowe",
+    "careerGuides": "Przewodniki kariery",
+    "resumeExamples": "Przykłady CV",
+    "resumeExamplesDesc": "Przewodniki i szablony CV dla konkretnych stanowisk",
+    "careerTipsDesc": "Eksperckie porady dotyczące kariery",
+    "blogDesc": "Wskazówki, przewodniki i spostrzeżenia",
+    "viewAllExamples": "Zobacz wszystkie przykłady CV",
+    "viewAllTips": "Zobacz wszystkie porady zawodowe",
+    "tools": "Narzędzia",
+    "coverLetter": "Generator listów motywacyjnych",
+    "coverLetterDesc": "Listy motywacyjne tworzone przez AI",
+    "resignationLetter": "List rezygnacyjny",
+    "resignationLetterDesc": "Profesjonalne listy rezygnacyjne",
+    "atsChecker": "Sprawdzanie CV pod ATS",
+    "atsCheckerDesc": "Sprawdź zgodność z ATS",
+    "mockInterview": "Symulacja rozmowy kwalifikacyjnej",
+    "mockInterviewDesc": "Ćwiczenia rozmów z AI",
+    "resumeFormat": "Przewodnik po formatach CV",
+    "resumeFormatDesc": "Chronologiczne, funkcjonalne i inne",
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się",
+    "getStarted": "Rozpocznij za darmo",
+    "dashboard": "Panel główny",
+    "admin": "Admin",
+    "adminPanel": "Panel administracyjny",
+    "profile": "Profil",
+    "resources": "Zasoby",
+    "compare": "Porównaj",
+    "byStyle": "Według stylu",
+    "byFormat": "Według formatu",
+    "allTemplates": "Wszystkie szablony",
+    "modern": "Nowoczesne",
+    "creative": "Kreatywne",
+    "simpleClean": "Proste i czyste",
+    "freeResumeBuilder": "Darmowy kreator CV",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "Stwórz CV za darmo",
+    "chooseFromTemplates": "Wybierz spośród ponad 20 profesjonalnych szablonów",
+    "technology": "Technologia",
+    "business": "Biznes",
+    "healthcare": "Opieka zdrowotna",
+    "seeAllTech": "Zobacz wszystkie technologiczne",
+    "seeAllBusiness": "Zobacz wszystkie biznesowe",
+    "seeAllHealthcare": "Zobacz wszystkie medyczne",
+    "resumeExamplesCount": "Ponad 300 przykładów CV",
+    "browseAll": "Przeglądaj wszystkie",
+    "softwareEngineer": "Inżynier oprogramowania",
+    "dataAnalyst": "Analityk danych",
+    "devopsEngineer": "Inżynier DevOps",
+    "fullStackDev": "Programista Full Stack",
+    "projectManager": "Kierownik projektu",
+    "marketingManager": "Kierownik marketingu",
+    "businessAnalyst": "Analityk biznesowy",
+    "salesManager": "Kierownik sprzedaży",
+    "nurse": "Pielęgniarka/Pielęgniarz",
+    "medicalAssistant": "Asystent medyczny",
+    "pharmacist": "Farmaceuta",
+    "dentalAssistant": "Asystent stomatologiczny",
+    "guides": "Przewodniki",
+    "latestPosts": "Najnowsze wpisy",
+    "allCareerTips": "Wszystkie porady zawodowe",
+    "allBlog": "Wszystkie wpisy na blogu",
+    "atsGuide": "Przewodnik po CV przyjaznym dla ATS",
+    "coverLetterGuide": "Przewodnik po liście motywacyjnym",
+    "interviewPrep": "Przygotowanie do rozmowy kwalifikacyjnej",
+    "bestResumeApps": "Najlepsze aplikacje do tworzenia CV",
+    "resumeSkills": "Przewodnik po umiejętnościach w CV",
+    "linkedinGuide": "Optymalizacja LinkedIn",
+    "writingServices": "Usługi pisania CV",
+    "freeAlternatives": "Darmowe alternatywy",
+    "paidAlternatives": "Płatne alternatywy",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs kreator AI",
+    "whyWereBetter": "Dlaczego jesteśmy najlepszym darmowym kreatorem",
+    "whyWereBetterDesc": "Oparty na AI, zoptymalizowany pod ATS, całkowicie darmowy"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "Tworzenie CV z pomocą AI",
+      "title": "Stwórz swoje CV",
+      "titleHighlight": "z AI w kilka minut",
+      "subtitle": "Bez rejestracji",
+      "description": "Twórz atrakcyjne, zoptymalizowane pod ATS CV w kilka minut dzięki AI. Wypróbuj za darmo — zarejestruj się dopiero, gdy zechcesz zapisać.",
+      "ctaPrimary": "Stwórz z AI",
+      "ctaSecondary": "Przeglądaj szablony",
+      "noCreditCard": "Karta kredytowa nie jest wymagana",
+      "noSignup": "Bez rejestracji na start",
+      "trustedBy": "Zaufało nam ponad 50 000 profesjonalistów",
+      "atsScore": "Wynik ATS",
+      "aiSuggestion": "Sugestia AI"
+    },
+    "features": {
+      "sectionTitle": "Funkcje",
+      "title": "Wszystko, czego potrzebujesz, aby",
+      "titleHighlight": "zdobyć wymarzoną pracę",
+      "subtitle": "Potężne narzędzia AI połączone z pięknym designem, które pomogą Ci wyróżnić się z tłumu.",
+      "aiWriting": {
+        "title": "Pisanie wspierane przez AI",
+        "description": "Pozwól naszemu AI tworzyć przekonujące punkty i profesjonalne podsumowania, które podkreślą Twoje osiągnięcia."
+      },
+      "templates": {
+        "title": "Ponad 20 szablonów premium",
+        "description": "Wybierz spośród profesjonalnie zaprojektowanych szablonów, które wyróżniają się, zachowując zgodność z ATS."
+      },
+      "atsOptimization": {
+        "title": "Optymalizacja ATS",
+        "description": "Ocena ATS w czasie rzeczywistym zapewnia, że Twoje CV przejdzie przez automatyczne systemy filtrowania za każdym razem."
+      },
+      "realTimePreview": {
+        "title": "Podgląd w czasie rzeczywistym",
+        "description": "Obserwuj zmiany natychmiast podczas pisania. To, co widzisz, jest dokładnie tym, co zobaczą rekruterzy."
+      },
+      "pdfExport": {
+        "title": "Eksport do PDF",
+        "description": "Pobierz doskonałe pliki PDF gotowe do wysłania. Zoptymalizowane zarówno do przeglądania cyfrowego, jak i druku."
+      },
+      "smartSuggestions": {
+        "title": "Inteligentne sugestie",
+        "description": "Otrzymuj inteligentne rekomendacje dotyczące umiejętności, słów kluczowych i treści na podstawie docelowego stanowiska."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Jak to działa",
+      "title": "Trzy kroki do Twojego",
+      "titleHighlight": "idealnego CV",
+      "step1": {
+        "title": "Uzupełnij dane",
+        "description": "Wprowadź swoje doświadczenie, wykształcenie i umiejętności. Nasze AI pomoże Ci na każdym kroku."
+      },
+      "step2": {
+        "title": "Wybierz szablon",
+        "description": "Wybierz spośród ponad 20 profesjonalnie zaprojektowanych szablonów. Podgląd w czasie rzeczywistym podczas personalizacji."
+      },
+      "step3": {
+        "title": "Pobierz PDF",
+        "description": "Wyeksportuj swoje dopracowane CV jako doskonały plik PDF, gotowy do zaimponowania rekruterom."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Szablony",
+      "title": "Szablony premium dla",
+      "titleHighlight": "każdego zawodu",
+      "viewAll": "Zobacz wszystkie szablony"
+    },
+    "testimonials": {
+      "sectionTitle": "Opinie",
+      "title": "Cenione przez profesjonalistów",
+      "titleHighlight": "na całym świecie"
+    },
+    "cta": {
+      "title": "Gotowy, aby stworzyć swoje",
+      "titleHighlight": "zwycięskie CV?",
+      "subtitle": "Dołącz do ponad 50 000 profesjonalistów, którzy już zdobyli wymarzoną pracę dzięki Best AI Resume.",
+      "button": "Stwórz CV teraz — za darmo",
+      "note": "Rejestracja nie jest wymagana"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Najczęściej zadawane",
+      "titleHighlight": "pytania",
+      "items": [
+        {
+          "question": "Czy ten kreator CV z AI jest naprawdę darmowy?",
+          "answer": "Tak! Możesz tworzyć, edytować i przeglądać swoje CV całkowicie za darmo. Oferujemy plany premium z zaawansowanymi funkcjami, takimi jak nieograniczone pobieranie PDF i dodatkowe szablony, ale możesz stworzyć profesjonalne CV bez płacenia."
+        },
+        {
+          "question": "Co to jest ATS i dlaczego ma to znaczenie?",
+          "answer": "ATS (Applicant Tracking System — System Śledzenia Kandydatów) to oprogramowanie używane przez 99% firm z listy Fortune 500 do skanowania i filtrowania CV. Nasze AI zapewnia, że Twoje CV jest zoptymalizowane pod ATS z odpowiednimi słowami kluczowymi, formatowaniem i strukturą, aby przejść przez automatyczne filtrowanie."
+        },
+        {
+          "question": "Jak AI pomaga napisać moje CV?",
+          "answer": "Nasze AI analizuje Twoje stanowisko i doświadczenie, aby wygenerować profesjonalne punkty, podsumowania i sugestie umiejętności. Wykorzystuje branżowe słowa kluczowe i język ukierunkowany na osiągnięcia, którego szukają rekruterzy."
+        },
+        {
+          "question": "Czy muszę się zarejestrować, aby korzystać z kreatora?",
+          "answer": "Rejestracja nie jest wymagana, aby rozpocząć tworzenie! Możesz najpierw stworzyć całe swoje CV. Zarejestruj się dopiero, gdy zechcesz zapisać postęp lub pobrać plik. Pozwala to wypróbować wszystko bez ryzyka."
+        },
+        {
+          "question": "Czy mogę pobrać CV jako PDF?",
+          "answer": "Tak! Wyeksportuj swoje CV jako doskonały plik PDF, który wygląda dokładnie jak podgląd. Pliki PDF są zoptymalizowane zarówno do aplikacji cyfrowych, jak i druku na standardowym papierze Letter/A4."
+        },
+        {
+          "question": "Ile czasu zajmuje stworzenie CV?",
+          "answer": "Większość użytkowników tworzy profesjonalne CV w mniej niż 10 minut. Nasze sugestie AI i gotowe treści znacząco przyspieszają proces w porównaniu z tworzeniem od zera."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Nasi użytkownicy zostali zatrudnieni w",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+    }
+  },
+
+  "Features": {
+    "meta": {
+      "title": "Funkcje kreatora CV z AI — inteligentne pisanie, optymalizacja ATS i więcej",
+      "description": "Odkryj potężne funkcje: pisanie wspierane przez AI, ocena ATS w czasie rzeczywistym, ponad 50 szablonów, natychmiastowy eksport PDF. Twórz profesjonalne CV, które zdobywają zaproszenia na rozmowy."
+    }
+  },
+
+  "Templates": {
+    "meta": {
+      "title": "Ponad 50 profesjonalnych szablonów CV — darmowe i przyjazne dla ATS",
+      "description": "Przeglądaj ponad 50 profesjonalnych szablonów CV. Nowoczesne, kreatywne i minimalistyczne wzory zoptymalizowane pod ATS. Darmowa personalizacja i pobieranie."
+    },
+    "sectionTitle": "Szablony",
+    "title": "Najlepsze szablony CV",
+    "titleHighlight": "2026 roku",
+    "subtitle": "Wybierz tryb edycji i jeden z naszych profesjonalnie zaprojektowanych szablonów.",
+    "searchPlaceholder": "Szukaj szablonów...",
+    "templatesAvailable": "{count, plural, one {# szablon dostępny} few {# szablony dostępne} many {# szablonów dostępnych} other {# szablonów dostępnych}}",
+    "noResults": "Nie znaleziono szablonów",
+    "noResultsHint": "Spróbuj zmienić wyszukiwanie lub filtr",
+    "useTemplate": "Użyj szablonu",
+    "formBuilder": {
+      "title": "Kreator formularzy",
+      "description": "Prowadzona edycja krok po kroku",
+      "hint": "Wypełnij formularze, a szablon zajmie się designem. Idealny do szybkich, profesjonalnych CV."
+    },
+    "canvasEditor": {
+      "title": "Edytor kanwy",
+      "description": "Pełna swoboda twórcza",
+      "hint": "Przeciągaj, upuszczaj i projektuj dowolnie. Pełna kontrola nad każdym elementem, jak Canva dla CV."
+    },
+    "categories": {
+      "all": "Wszystkie",
+      "professional": "Profesjonalne",
+      "creative": "Kreatywne",
+      "minimal": "Proste i czyste",
+      "modern": "Nowoczesne",
+      "classic": "Klasyczne"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Chcesz zacząć od zera?",
+        "description": "Stwórz całkowicie niestandardowe CV, korzystając z potężnych narzędzi naszego edytora kanwy.",
+        "button": "Otwórz pustą kanwę"
+      },
+      "builder": {
+        "title": "Chcesz, aby AI stworzyło Twoje CV?",
+        "description": "Pozwól naszemu AI stworzyć profesjonalne CV w kilka sekund na podstawie Twojego stanowiska.",
+        "button": "Stwórz z AI"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Kontakt",
+      "experience": "Doświadczenie",
+      "workExperience": "Doświadczenie zawodowe",
+      "professionalExperience": "Doświadczenie profesjonalne",
+      "education": "Wykształcenie",
+      "skills": "Umiejętności",
+      "coreSkills": "Kluczowe umiejętności",
+      "technicalSkills": "Umiejętności techniczne",
+      "languages": "Języki",
+      "interests": "Zainteresowania",
+      "strengths": "Mocne strony",
+      "certifications": "Certyfikaty",
+      "awards": "Nagrody",
+      "projects": "Projekty",
+      "summary": "Podsumowanie",
+      "professionalSummary": "Podsumowanie zawodowe",
+      "profile": "Profil",
+      "about": "O mnie",
+      "additionalInfo": "Informacje dodatkowe",
+      "socialLinks": "Linki społecznościowe",
+      "personalDetails": "Dane osobowe",
+      "credentials": "Poświadczenia"
+    },
+    "labels": {
+      "present": "Obecnie",
+      "gpa": "Średnia ocen",
+      "native": "Ojczysty",
+      "fluent": "Biegły",
+      "advanced": "Zaawansowany",
+      "intermediate": "Średniozaawansowany",
+      "basic": "Podstawowy"
+    }
+  },
+
+  "About": {
+    "meta": {
+      "title": "O Best AI Resume — nasza misja transformacji poszukiwania pracy",
+      "description": "Dowiedz się więcej o Best AI Resume — platformie opartej na AI, która pomaga tysiącom osób zdobyć wymarzoną pracę. Nasza misja, wartości i zaangażowanie w Twój sukces zawodowy."
+    }
+  },
+
+  "Privacy": {
+    "meta": {
+      "title": "Polityka prywatności — Best AI Resume",
+      "description": "Dowiedz się, jak Best AI Resume chroni Twoje dane. Nasza polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy i zabezpieczamy Twoje dane osobowe."
+    }
+  },
+
+  "Terms": {
+    "meta": {
+      "title": "Regulamin — Best AI Resume",
+      "description": "Przeczytaj regulamin Best AI Resume. Poznaj swoje prawa i obowiązki podczas korzystania z naszego kreatora CV opartego na AI."
+    }
+  },
+
+  "Onboarding": {
+    "meta": {
+      "title": "Stwórz swoje CV — generator CV z AI",
+      "description": "Zacznij tworzyć profesjonalne CV w kilka sekund. Odpowiedz na 2 pytania i pozwól AI stworzyć dostosowane, gotowe do pracy CV."
+    },
+    "title": "Opowiedz nam o sobie",
+    "subtitle": "Tylko 2 pytania, a AI stworzy Twoje idealne CV",
+    "fullName": "Twoje imię i nazwisko",
+    "fullNamePlaceholder": "np. Jan Kowalski",
+    "jobTitle": "Stanowisko, o które się ubiegasz",
+    "jobTitlePlaceholder": "np. Inżynier oprogramowania, Kierownik marketingu",
+    "experienceLevel": "Poziom doświadczenia",
+    "levels": {
+      "entry": "Początkujący",
+      "entryDesc": "0–2 lata doświadczenia",
+      "mid": "Średniozaawansowany",
+      "midDesc": "3–5 lat doświadczenia",
+      "senior": "Senior",
+      "seniorDesc": "6–10 lat doświadczenia",
+      "executive": "Dyrektor",
+      "executiveDesc": "Ponad 10 lat doświadczenia"
+    },
+    "generate": "Wygeneruj moje CV",
+    "generating": {
+      "title": "Tworzenie Twojego CV",
+      "analyzing": "Analiza Twojego zawodu...",
+      "summary": "Generowanie podsumowania zawodowego...",
+      "experience": "Tworzenie doświadczenia zawodowego...",
+      "skills": "Dodawanie odpowiednich umiejętności...",
+      "polishing": "Szlifowanie Twojego CV...",
+      "almostThere": "Prawie gotowe...",
+      "wait": "To zwykle zajmuje tylko kilka sekund..."
+    },
+    "step1": {
+      "title": "Jak chcesz stworzyć swoje CV?",
+      "subtitle": "Wybierz preferowaną metodę na początek",
+      "recommended": "POLECANE",
+      "ai": {
+        "title": "Stwórz z AI",
+        "description": "Powiedz nam, jaki masz zawód, a wygenerujemy profesjonalne CV w kilka sekund"
+      },
+      "upload": {
+        "title": "Prześlij CV",
+        "description": "Prześlij swoje istniejące CV, a my je ulepszymy"
+      },
+      "linkedin": {
+        "title": "Importuj z LinkedIn",
+        "description": "Importuj swój profil z LinkedIn automatycznie"
+      },
+      "comingSoon": "Wkrótce",
+      "startBlank": "Lub zacznij od pustego CV"
+    },
+    "step4": {
+      "title": "Wybierz swój szablon",
+      "subtitle": "Twoje CV jest gotowe! Wybierz design, który pasuje do Twojego stylu.",
+      "backToEdit": "Wróć do edycji danych",
+      "browseAll": "Przeglądaj wszystkie szablony",
+      "continue": "Przejdź do edytora"
+    },
+    "upload": {
+      "title": "Prześlij swoje CV",
+      "subtitle": "Wyodrębnimy Twoje informacje i ulepszymy je za pomocą AI",
+      "dragDrop": "Przeciągnij i upuść swoje CV tutaj",
+      "orBrowse": "lub przeglądaj pliki",
+      "supportedFormats": "PDF lub DOCX (maks. {maxSize})",
+      "validating": "Weryfikacja pliku...",
+      "uploading": "Przesyłanie...",
+      "parsing": "AI analizuje Twoje CV...",
+      "success": "CV zaimportowane pomyślnie!",
+      "error": "Coś poszło nie tak",
+      "tryAgain": "Spróbuj ponownie",
+      "invalidType": "Prześlij plik PDF lub DOCX",
+      "fileTooLarge": "Plik przekracza limit {maxSize}"
+    },
+    "linkedin": {
+      "title": "Importuj z LinkedIn",
+      "subtitle": "Wyeksportuj swój profil LinkedIn jako PDF i prześlij go tutaj",
+      "step1": "Przejdź do swojego profilu LinkedIn",
+      "step2": "Kliknij \"Zasoby\" → \"Zapisz jako PDF\"",
+      "step3": "Prześlij pobrany plik PDF poniżej",
+      "openLinkedIn": "Otwórz profil LinkedIn",
+      "tip": "Pliki PDF z LinkedIn najlepiej nadają się do importowania pełnej historii zatrudnienia"
+    },
+    "word": {
+      "badge": "CV w Microsoft Word",
+      "step1Title": "Jak chcesz stworzyć swoje CV w formacie Word?",
+      "aiDescription": "Powiedz nam, jaki masz zawód, a wygenerujemy CV w formacie Word w kilka sekund",
+      "subtitle": "Tylko 2 pytania, a AI stworzy Twoje idealne CV w formacie Word",
+      "startBlank": "Lub zacznij od pustego CV w formacie Word",
+      "step4Title": "Wybierz szablon Word",
+      "step4Subtitle": "Twoje CV jest gotowe! Wybierz szablon Microsoft Word.",
+      "continue": "Przejdź do edytora Word"
+    },
+    "gdocs": {
+      "badge": "CV w Google Docs",
+      "step1Title": "Jak chcesz stworzyć swoje CV w Google Docs?",
+      "aiDescription": "Powiedz nam, jaki masz zawód, a wygenerujemy CV w Google Docs w kilka sekund",
+      "subtitle": "Tylko 2 pytania, a AI stworzy Twoje idealne CV w Google Docs",
+      "startBlank": "Lub zacznij od pustego CV w Google Docs",
+      "step4Title": "Wybierz szablon Google Docs",
+      "step4Subtitle": "Twoje CV jest gotowe! Wybierz szablon zoptymalizowany pod Google Docs.",
+      "continue": "Przejdź do edytora Google Docs"
+    },
+    "main": {
+      "step1Title": "Jak chcesz zacząć?",
+      "step1Subtitle": "Wybierz metodę, która najlepiej Ci odpowiada",
+      "recommended": "Polecane",
+      "aiTitle": "Generowanie AI",
+      "aiDescription": "Pozwól AI stworzyć Twoje profesjonalne CV",
+      "uploadTitle": "Prześlij istniejące",
+      "uploadDescription": "Zaimportuj i ulepsz swoje CV",
+      "linkedinDescription": "Przekonwertuj swój profil LinkedIn",
+      "startBlank": "Zacznij od pustego CV",
+      "step2Subtitle": "Wykorzystamy te dane do stworzenia Twojego spersonalizowanego CV",
+      "fullName": "Imię i nazwisko",
+      "fullNamePlaceholder": "np. Jan Kowalski",
+      "targetJobTitle": "Docelowe stanowisko",
+      "jobTitlePlaceholder": "np. Inżynier oprogramowania",
+      "goBack": "Wróć",
+      "generatingTitle": "Tworzenie Twojego CV...",
+      "processingAnalyzing": "Analiza Twojego profilu...",
+      "processingCrafting": "Tworzenie podsumowania zawodowego...",
+      "processingExperience": "Generowanie doświadczenia zawodowego...",
+      "processingSkills": "Dodawanie odpowiednich umiejętności...",
+      "processingPolishing": "Szlifowanie ostatnich szczegółów...",
+      "processingAlmost": "Prawie gotowe...",
+      "step4Subtitle": "Wybierz design, który pasuje do Twojego stylu",
+      "uploadSubtitle": "AI przeanalizuje Twoje CV i stworzy ulepszoną wersję",
+      "secureNotice": "Twój plik jest przetwarzany bezpiecznie i nie jest przechowywany na naszych serwerach",
+      "linkedinSubtitle": "Pobierz swój profil jako PDF z LinkedIn, a następnie prześlij go tutaj",
+      "linkedinHowTo": "Jak wyeksportować profil LinkedIn:",
+      "linkedinStep1": "Przejdź do swojego profilu LinkedIn",
+      "linkedinStep2": "Kliknij przycisk \"Zasoby\" na swoim profilu",
+      "linkedinStep3": "Wybierz \"Zapisz jako PDF\"",
+      "linkedinStep4": "Prześlij pobrany plik PDF poniżej"
+    }
+  },
+
+  "Pricing": {
+    "meta": {
+      "title": "Cennik — kreator CV z AI od $3/miesiąc",
+      "description": "Wybierz idealny plan do poszukiwania pracy. Bez ukrytych opłat, anuluj w dowolnym momencie. Już od $3/miesiąc."
+    },
+    "sectionTitle": "Cennik",
+    "title": "Prosty, przejrzysty",
+    "titleHighlight": "cennik",
+    "subtitle": "Bez ukrytych opłat, anuluj w dowolnym momencie.",
+    "viewComparison": "Zobacz pełne porównanie",
+    "cancelAnytime": "Anuluj w dowolnym momencie",
+    "securePayments": "Bezpieczne płatności przez Stripe",
+    "mostPopular": "NAJPOPULARNIEJSZY",
+    "bestValue": "NAJLEPSZA WARTOŚĆ",
+    "billedImmediately": "Płatność natychmiastowa",
+    "allPlansInclude": "Wszystkie plany zawierają: Brak reklam • Wszystkie darmowe szablony",
+    "billingToggle": {
+      "monthly": "Miesięcznie",
+      "annual": "Rocznie",
+      "savePercent": "Oszczędź 20%"
+    },
+    "page": {
+      "formBuilder": "Kreator formularzy",
+      "canvasEditor": "Edytor kanwy",
+      "premiumTemplates": "Szablony premium",
+      "aiBuild": "Kreator CV z AI",
+      "atsOptimization": "Optymalizacja ATS",
+      "prioritySupport": "Priorytetowe wsparcie",
+      "aiSuggestions": "Sugestie AI",
+      "coverLetterBuilder": "Kreator listów motywacyjnych",
+      "noAds": "Bez reklam",
+      "earlyAccess": "Wczesny dostęp do funkcji",
+      "cvCreations": "{count} tworzenia CV/miesiąc",
+      "aiGenerations": "{count} generowania AI/miesiąc",
+      "downloads": "{count} pobrań/miesiąc",
+      "coverLetters": "{count} listów motywacyjnych/miesiąc",
+      "unlimited": "Bez limitu"
+    },
+    "comparison": {
+      "title": "Porównaj plany",
+      "feature": "Funkcja",
+      "cvCreations": "Tworzenie CV",
+      "aiGenerations": "Generowanie AI",
+      "downloads": "Pobrania",
+      "perMonth": "{count}/mies.",
+      "unlimited": "Bez limitu",
+      "savedResumes": "Zapisane CV",
+      "templates": "Szablony",
+      "all50": "Wszystkie darmowe",
+      "premiumPlus": "50+ i Premium",
+      "aiBuild": "Kreator CV z AI",
+      "adFree": "Bez reklam"
+    },
+    "faq": {
+      "title": "Najczęściej zadawane pytania",
+      "cancelAnytime": {
+        "question": "Czy mogę anulować subskrypcję w dowolnym momencie?",
+        "answer": "Tak, możesz anulować subskrypcję w dowolnym momencie. Zachowasz dostęp do końca bieżącego okresu rozliczeniowego."
+      },
+      "paymentMethods": {
+        "question": "Jakie metody płatności akceptujecie?",
+        "answer": "Akceptujemy wszystkie główne karty kredytowe (Visa, MasterCard, American Express) przez Stripe. PayPal wkrótce."
+      },
+      "starterOneTime": {
+        "question": "Jak działa rozliczanie?",
+        "answer": "Wszystkie plany są rozliczane natychmiast po subskrypcji. Plany miesięczne odnawiają się co miesiąc, a plany roczne co rok. Możesz anulować w dowolnym momencie w ustawieniach konta."
+      },
+      "runOutDownloads": {
+        "question": "Co się stanie, gdy osiągnę limity?",
+        "answer": "Po osiągnięciu miesięcznego limitu tworzenia CV lub generowania AI możesz zmienić plan na wyższy, aby uzyskać większą pojemność. Limity resetują się na początku każdego okresu rozliczeniowego."
+      },
+      "switchPlans": {
+        "question": "Czy mogę zmieniać plany?",
+        "answer": "Oczywiście. Możesz zmienić plan na wyższy lub niższy w dowolnym momencie. Zmiany wchodzą w życie natychmiast, a opłaty zostaną proporcjonalnie naliczone."
+      },
+      "refunds": {
+        "question": "Czy oferujecie zwroty?",
+        "answer": "Nie oferujemy zwrotów po dokonaniu zakupu. Możesz anulować w dowolnym momencie w ustawieniach konta i zachować dostęp do końca okresu rozliczeniowego."
+      }
+    },
+    "cta": {
+      "title": "Gotowy, aby zacząć?",
+      "subtitle": "Wszystkie plany rozliczane natychmiast. Anuluj w dowolnym momencie.",
+      "button": "Zobacz plany",
+      "contactSupport": "Skontaktuj się z pomocą"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Idealny dla osób szukających pracy",
+      "price": "$3",
+      "period": "/miesiąc",
+      "annualPrice": "$29",
+      "annualPeriod": "/rok",
+      "annualMonthly": "$2,42/mies.",
+      "features": {
+        "cvCreations": "30 tworzenia CV/miesiąc",
+        "aiGenerations": "50 generowań AI/miesiąc",
+        "downloads": "3 pobrania/miesiąc",
+        "templates": "Wszystkie darmowe szablony",
+        "noAds": "Bez reklam",
+        "export": "Eksport do PDF"
+      },
+      "cta": "Rozpocznij"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Dla aktywnie poszukujących pracy",
+      "price": "$6",
+      "period": "/miesiąc",
+      "annualPrice": "$58",
+      "annualPeriod": "/rok",
+      "annualMonthly": "$4,83/mies.",
+      "features": {
+        "cvCreations": "150 tworzenia CV/miesiąc",
+        "aiGenerations": "100 generowań AI/miesiąc",
+        "downloads": "10 pobrań/miesiąc",
+        "templates": "Wszystkie darmowe szablony",
+        "noAds": "Bez reklam",
+        "ats": "Optymalizacja ATS"
+      },
+      "cta": "Rozpocznij"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Najlepszy dla profesjonalistów",
+      "price": "$10",
+      "period": "/miesiąc",
+      "annualPrice": "$96",
+      "annualPeriod": "/rok",
+      "annualMonthly": "$8/mies.",
+      "features": {
+        "cvCreations": "300 tworzenia CV/miesiąc",
+        "aiGenerations": "200 generowań AI/miesiąc",
+        "downloads": "25 pobrań/miesiąc",
+        "templates": "Wszystkie + szablony Premium",
+        "support": "Priorytetowe wsparcie",
+        "coverLetter": "Kreator listów motywacyjnych"
+      },
+      "cta": "Rozpocznij"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "Dla zaawansowanych użytkowników i agencji",
+      "price": "$30",
+      "period": "/miesiąc",
+      "annualPrice": "$288",
+      "annualPeriod": "/rok",
+      "annualMonthly": "$24/mies.",
+      "features": {
+        "cvCreations": "Nieograniczone tworzenie CV",
+        "aiGenerations": "500 generowań AI/miesiąc",
+        "downloads": "120 pobrań/miesiąc",
+        "templates": "Wszystkie + szablony Premium",
+        "support": "Priorytetowe wsparcie",
+        "coverLetter": "Kreator listów motywacyjnych",
+        "earlyAccess": "Wczesny dostęp do nowych funkcji"
+      },
+      "cta": "Subskrybuj teraz"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Wskazówki, przewodniki i spostrzeżenia dotyczące Twojej kariery",
+    "searchPlaceholder": "Szukaj artykułów...",
+    "readMore": "Czytaj więcej",
+    "readingTime": "{time} min czytania",
+    "categories": "Kategorie",
+    "allCategories": "Wszystkie kategorie",
+    "relatedPosts": "Powiązane wpisy",
+    "shareOn": "Udostępnij na",
+    "noResults": "Nie znaleziono artykułów"
+  },
+
+  "Footer": {
+    "tagline": "Kreator CV oparty na AI, zaufany przez profesjonalistów na całym świecie.",
+    "product": "Produkt",
+    "company": "Firma",
+    "legal": "Prawne",
+    "social": "Media społecznościowe",
+    "about": "O nas",
+    "careers": "Kariera",
+    "privacy": "Prywatność",
+    "terms": "Regulamin",
+    "contact": "Kontakt",
+    "help": "Przewodnik pomocy",
+    "copyright": "© {year} Best AI Resume. Wszelkie prawa zastrzeżone.",
+    "resources": "Zasoby",
+    "resumeFormatGuide": "Przewodnik po formatach CV",
+    "canvaAlternative": "Alternatywa dla Canva",
+    "overleafAlternative": "Alternatywa dla Overleaf",
+    "resumeIoAlternative": "Alternatywa dla Resume.io",
+    "reziAlternative": "Alternatywa dla Rezi",
+    "builder": "Kreator CV",
+    "templateCategories": "Szablony",
+    "compare": "Porównaj",
+    "googleDocs": "Szablony Google Docs",
+    "simpleClean": "Proste i czyste",
+    "freeResumeBuilder": "Darmowy kreator CV",
+    "microsoftWord": "Szablony Word",
+    "modern": "Nowoczesne szablony",
+    "creative": "Kreatywne szablony",
+    "coverLetterGenerator": "Generator listów motywacyjnych AI",
+    "resignationLetterGenerator": "Generator listów rezygnacyjnych AI",
+    "buildResumeFree": "Stwórz CV za darmo",
+    "zetyAlternative": "Alternatywa dla Zety",
+    "livecareerAlternative": "Alternatywa dla LiveCareer",
+    "adobeAlternative": "Alternatywa dla Adobe",
+    "novaAlternative": "Alternatywa dla Nova",
+    "europassAlternative": "Alternatywa dla Europass",
+    "chatgptComparison": "Porównanie z ChatGPT",
+    "resumeExamples": "Przykłady CV",
+    "softwareEngineer": "Inżynier oprogramowania",
+    "nurse": "Pielęgniarka/Pielęgniarz",
+    "projectManager": "Kierownik projektu",
+    "marketingManager": "Kierownik marketingu",
+    "dataAnalyst": "Analityk danych",
+    "accountant": "Księgowy",
+    "viewAll300": "Zobacz wszystkie 300+",
+    "careerGuides": "Przewodniki kariery",
+    "careerGuidance": "Doradztwo zawodowe",
+    "jobSearchStrategy": "Strategia poszukiwania pracy",
+    "careerDevelopmentPlan": "Plan rozwoju kariery",
+    "highPayingSkills": "Wysoko płatne umiejętności",
+    "interviewPreparation": "Przygotowanie do rozmowy kwalifikacyjnej",
+    "salaryNegotiation": "Negocjacje wynagrodzenia"
+  },
+
+  "Auth": {
+    "meta": {
+      "loginTitle": "Logowanie — Best AI Resume",
+      "loginDescription": "Zaloguj się na swoje konto Best AI Resume, aby uzyskać dostęp do zapisanych CV i kontynuować tworzenie.",
+      "registerTitle": "Utwórz konto — Best AI Resume",
+      "registerDescription": "Utwórz darmowe konto, aby zapisywać CV, uzyskać dostęp do szablonów premium i odblokować funkcje AI."
+    },
+    "login": "Zaloguj się",
+    "register": "Utwórz konto",
+    "email": "Adres e-mail",
+    "password": "Hasło",
+    "confirmPassword": "Potwierdź hasło",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "noAccount": "Nie masz konta?",
+    "hasAccount": "Masz już konto?",
+    "signUp": "Zarejestruj się",
+    "signIn": "Zaloguj się",
+    "fullName": "Imię i nazwisko",
+    "welcomeBack": "Witaj ponownie",
+    "welcomeBackSubtitle": "Zaloguj się, aby kontynuować tworzenie CV",
+    "createAccount": "Utwórz konto",
+    "createAccountSubtitle": "Zacznij tworzyć swoje profesjonalne CV już dziś",
+    "continueWithGoogle": "Kontynuuj z Google",
+    "continueWithGitHub": "Kontynuuj z GitHub",
+    "continueWithLinkedIn": "Kontynuuj z LinkedIn",
+    "orContinueWith": "lub kontynuuj za pomocą e-maila",
+    "verifyEmail": "Zweryfikuj swój e-mail",
+    "verificationCodeSent": "Wysłaliśmy 6-cyfrowy kod na adres",
+    "enterFullCode": "Wprowadź pełny 6-cyfrowy kod",
+    "verificationFailed": "Weryfikacja nie powiodła się. Spróbuj ponownie.",
+    "resendFailed": "Nie udało się ponownie wysłać kodu. Spróbuj ponownie.",
+    "verifying": "Weryfikacja...",
+    "verifyAndContinue": "Zweryfikuj i kontynuuj",
+    "didntReceiveCode": "Nie otrzymałeś kodu?",
+    "resendIn": "Wyślij ponownie za",
+    "resendCode": "Wyślij kod ponownie",
+    "wrongEmail": "Zły e-mail?",
+    "changeEmail": "Zmień e-mail"
+  },
+
+  "Errors": {
+    "notFound": "Strona nie znaleziona",
+    "serverError": "Coś poszło nie tak",
+    "unauthorized": "Zaloguj się, aby kontynuować"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Wybierz język"
+  },
+
+  "Dashboard": {
+    "meta": {
+      "title": "Panel główny — Moje CV",
+      "description": "Zarządzaj swoimi CV, śledź pobrania i uzyskaj dostęp do ustawień subskrypcji."
+    },
+    "welcome": "Witaj ponownie{name}!",
+    "subtitle": "Gotowy, aby zdobyć wymarzoną pracę? Stwórzmy CV, które się wyróżni.",
+    "stats": {
+      "resumesCreated": "Utworzone CV",
+      "downloads": "Pobrania",
+      "coverLetters": "Listy motywacyjne"
+    },
+    "usage": {
+      "noPlan": "Brak planu",
+      "subscribeToUnlock": "Subskrybuj, aby odblokować",
+      "unlimited": "Bez limitu"
+    },
+    "cta": {
+      "badge": "Kreator CV z AI",
+      "title": "Stwórz swoje idealne CV",
+      "createNew": "Utwórz nowe CV"
+    },
+    "subscription": {
+      "plan": "Plan {tier}",
+      "expiredPlan": "Plan wygasł",
+      "noActivePlan": "Brak aktywnego planu",
+      "active": "Aktywny",
+      "planActive": "Twój plan jest aktywny",
+      "subscribePrompt": "Subskrybuj, aby odblokować pobieranie",
+      "resubscribe": "Odnów subskrypcję",
+      "subscribe": "Subskrybuj",
+      "manage": "Zarządzaj subskrypcją"
+    },
+    "templateUsage": "Użycie szablonów",
+    "resumes": {
+      "title": "Twoje CV",
+      "total": "{count} łącznie",
+      "newResume": "Nowe CV",
+      "noResumes": "Brak CV",
+      "noResumesDesc": "Stwórz swoje pierwsze CV z AI i zacznij aplikować na wymarzone stanowiska już dziś.",
+      "createFirst": "Stwórz swoje pierwsze CV",
+      "createNew": "Utwórz nowe CV"
+    },
+    "resumeCard": {
+      "untitled": "CV bez tytułu",
+      "noName": "Brak nazwy",
+      "today": "Dzisiaj",
+      "yesterday": "Wczoraj",
+      "daysAgo": "{days} dni temu",
+      "duplicate": "Duplikuj",
+      "delete": "Usuń",
+      "deleteConfirm": "Czy na pewno chcesz usunąć to CV?",
+      "edit": "Edytuj"
+    },
+    "quickActions": {
+      "softwareEngineer": "Inżynier oprogramowania",
+      "productManager": "Kierownik produktu",
+      "designer": "Projektant",
+      "marketing": "Marketing",
+      "dataScientist": "Data Scientist",
+      "sales": "Sprzedaż"
+    },
+    "proTip": {
+      "label": "Wskazówka",
+      "title": "Dostosuj CV do każdej oferty pracy",
+      "description": "CV dostosowane do konkretnych opisów stanowisk mają 3 razy większą szansę na zaproszenie na rozmowę. Użyj naszego AI, aby szybko dostosować CV do każdej aplikacji.",
+      "stat1Value": "3x",
+      "stat1Label": "Więcej rozmów",
+      "stat2Value": "85%",
+      "stat2Label": "Przejście ATS"
+    },
+    "loading": "Ładowanie..."
+  },
+
+  "Profile": {
+    "meta": {
+      "title": "Ustawienia profilu — Best AI Resume",
+      "description": "Zarządzaj ustawieniami konta, aktualizuj profil i zmieniaj hasło."
+    },
+    "title": "Ustawienia profilu",
+    "chooseAvatar": "Wybierz awatar",
+    "accountDetails": "Szczegóły konta",
+    "name": "Imię",
+    "namePlaceholder": "Twoje imię i nazwisko",
+    "saveChanges": "Zapisz zmiany",
+    "saving": "Zapisywanie...",
+    "emailAddress": "Adres e-mail",
+    "changeEmail": "Zmień",
+    "newEmail": "Nowy adres e-mail",
+    "emailPlaceholder": "twoj@nowyemail.pl",
+    "emailChangeHint": "Kod weryfikacyjny zostanie wysłany na ten adres e-mail",
+    "cancel": "Anuluj",
+    "sendCode": "Wyślij kod",
+    "sending": "Wysyłanie...",
+    "enterCodeSentTo": "Wprowadź 6-cyfrowy kod wysłany na adres",
+    "verifyCode": "Zweryfikuj",
+    "verifying": "Weryfikacja...",
+    "useAnotherEmail": "Użyj innego adresu e-mail",
+    "codeSent": "Kod weryfikacyjny wysłany na nowy adres e-mail",
+    "emailChanged": "Adres e-mail zmieniony pomyślnie",
+    "enterNewEmail": "Wprowadź nowy adres e-mail",
+    "enterCode": "Wprowadź 6-cyfrowy kod",
+    "emailChangeFailed": "Nie udało się wysłać kodu weryfikacyjnego",
+    "verificationFailed": "Weryfikacja nie powiodła się",
+    "changePassword": "Zmień hasło",
+    "currentPassword": "Obecne hasło",
+    "newPassword": "Nowe hasło",
+    "confirmPassword": "Potwierdź nowe hasło",
+    "passwordHint": "Minimum 8 znaków",
+    "changePasswordBtn": "Zmień hasło",
+    "changingPassword": "Zmienianie...",
+    "profileUpdated": "Profil zaktualizowany pomyślnie",
+    "passwordChanged": "Hasło zmienione pomyślnie",
+    "updateFailed": "Aktualizacja nie powiodła się",
+    "passwordChangeFailed": "Zmiana hasła nie powiodła się",
+    "passwordMismatch": "Hasła nie są zgodne",
+    "passwordTooShort": "Hasło musi mieć co najmniej 8 znaków",
+    "noChanges": "Brak zmian do zapisania"
+  },
+
+  "Checkout": {
+    "meta": {
+      "title": "Płatność — dokończ subskrypcję",
+      "description": "Dokończ subskrypcję, aby odblokować nieograniczone funkcje CV. Bezpieczna płatność przez Stripe."
+    },
+    "invalidPlan": {
+      "title": "Nieprawidłowy plan",
+      "description": "Wybrany plan jest nieprawidłowy. Wybierz plan z naszej strony cennika.",
+      "backBtn": "Wróć do cennika"
+    },
+    "signIn": {
+      "title": "Zaloguj się, aby kontynuować",
+      "subtitle": "Zaloguj się, aby zakupić plan {plan}",
+      "signInBtn": "Zaloguj się",
+      "createAccountBtn": "Utwórz konto"
+    },
+    "header": {
+      "completePurchase": "Dokończ zakup",
+      "subscribePlan": "Subskrybuj plan {plan}"
+    },
+    "billing": {
+      "account": "Konto",
+      "billing": "Rozliczenia",
+      "monthlyStarting": "Miesięcznie, od dzisiaj"
+    },
+    "submit": {
+      "redirecting": "Przekierowanie do Stripe...",
+      "subscribeNow": "Subskrybuj teraz"
+    },
+    "secure": "Bezpieczna płatność przez Stripe",
+    "cancelNote": "Anuluj w dowolnym momencie. Bez długoterminowych zobowiązań.",
+    "loading": "Ładowanie płatności...",
+    "errors": {
+      "cancelled": "Płatność została anulowana. Możesz spróbować ponownie, gdy będziesz gotowy.",
+      "sessionExpired": "Twoja sesja wygasła. Zaloguj się ponownie.",
+      "failedCheckout": "Nie udało się rozpocząć płatności. Spróbuj ponownie.",
+      "networkError": "Nie można połączyć z serwerem. Sprawdź połączenie internetowe."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/miesiąc",
+        "description": "Idealny dla osób szukających pracy",
+        "features": ["30 tworzenia CV/miesiąc", "3 generowania AI/miesiąc", "3 pobrania PDF/miesiąc", "Wszystkie darmowe szablony", "Bez reklam"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/miesiąc",
+        "description": "Dla aktywnie poszukujących pracy",
+        "features": ["150 tworzenia CV/miesiąc", "10 generowań AI/miesiąc", "10 pobrań PDF/miesiąc", "Optymalizacja ATS", "Kreator listów motywacyjnych"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/miesiąc",
+        "description": "Najlepszy dla profesjonalistów",
+        "features": ["300 tworzenia CV/miesiąc", "30 generowań AI/miesiąc", "25 pobrań PDF/miesiąc", "Wszystkie szablony premium", "Priorytetowe wsparcie"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/miesiąc",
+        "description": "Dla zaawansowanych użytkowników i agencji",
+        "features": ["Nieograniczone tworzenie CV", "100 generowań AI/miesiąc", "Nieograniczone pobrania PDF", "Wszystkie szablony premium", "Priorytetowe wsparcie", "Wczesny dostęp do funkcji"]
+      }
+    }
+  },
+
+  "CheckoutSuccess": {
+    "title": "Płatność zakończona sukcesem!",
+    "welcome": "Witaj w planie {plan}!",
+    "planLabel": "Plan {plan}",
+    "yourBenefits": "Twoje nowe korzyści",
+    "createResume": "Stwórz swoje CV",
+    "goToDashboard": "Przejdź do panelu głównego",
+    "receiptNote": "Potwierdzenie zostało wysłane na Twój e-mail. Możesz zarządzać subskrypcją w dowolnym momencie z poziomu",
+    "dashboardLink": "panelu głównego",
+    "supportText": "Pytania? Skontaktuj się z nami pod adresem",
+    "loading": "Ładowanie szczegółów subskrypcji...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["30 tworzenia CV miesięcznie", "3 generowania AI miesięcznie", "3 pobrania PDF miesięcznie", "Wszystkie darmowe szablony", "Bez reklam"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["150 tworzenia CV miesięcznie", "10 generowań AI miesięcznie", "10 pobrań PDF miesięcznie", "Optymalizacja ATS", "Kreator listów motywacyjnych"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["300 tworzenia CV miesięcznie", "30 generowań AI miesięcznie", "25 pobrań PDF miesięcznie", "Wszystkie szablony premium", "Priorytetowe wsparcie"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["Nieograniczone tworzenie CV", "100 generowań AI miesięcznie", "Nieograniczone pobrania PDF", "Wszystkie szablony premium", "Priorytetowe wsparcie", "Wczesny dostęp do nowych funkcji"]
+      }
+    }
+  },
+
+  "CanvasEditor": {
+    "meta": {
+      "title": "Edytor kanwy CV — zaprojektuj CV wizualnie | Best AI Resume",
+      "description": "Zaprojektuj swoje CV za pomocą wizualnego edytora kanwy. Przeciągaj i upuszczaj tekst, obrazy i kształty, aby stworzyć unikalny, niestandardowy układ CV."
+    },
+    "loading": "Ładowanie edytora kanwy...",
+    "desktop": {
+      "title": "Wymagany komputer",
+      "description": "Edytor kanwy wymaga większego ekranu do precyzyjnej pracy projektowej. Użyj laptopa lub komputera stacjonarnego, aby uzyskać dostęp do tej funkcji.",
+      "useBuilder": "Użyj standardowego kreatora",
+      "backToDashboard": "Wróć do panelu głównego",
+      "mobileNote": "Standardowy kreator CV działa świetnie na urządzeniach mobilnych!"
+    },
+    "header": {
+      "backToBuilder": "Wróć do kreatora",
+      "backToTemplates": "Wróć do szablonów kanwy",
+      "title": "Edytor kanwy",
+      "beta": "Beta",
+      "elements": "{count} elementów",
+      "postToCommunity": "Opublikuj w społeczności"
+    },
+    "shortcuts": "V Wybierz | T Tekst | Delete Usuń | Cmd+D Duplikuj | Cmd+Z Cofnij | Kliknij dwukrotnie tekst, aby edytować",
+    "toolbar": {
+      "select": "Wybierz (V)",
+      "text": "Tekst (T)",
+      "image": "Obraz (I)",
+      "shape": "Kształt (S)",
+      "rectangle": "Prostokąt",
+      "circle": "Okrąg",
+      "star": "Gwiazda",
+      "line": "Linia",
+      "undo": "Cofnij (Cmd+Z)",
+      "redo": "Ponów (Cmd+Shift+Z)",
+      "duplicate": "Duplikuj (Cmd+D)",
+      "delete": "Usuń",
+      "bringToFront": "Przenieś na wierzch",
+      "sendToBack": "Przenieś na spód",
+      "zoomOut": "Pomniejsz",
+      "zoomIn": "Powiększ",
+      "aiGenerate": "Generuj z AI",
+      "aiGenerateTitle": "Generator podsumowań AI",
+      "save": "Zapisz projekt (Cmd+S)",
+      "load": "Wczytaj projekt",
+      "export": "Eksportuj",
+      "downloadPdf": "Pobierz PDF",
+      "downloadPng": "Pobierz PNG",
+      "downloadJpeg": "Pobierz JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "Nie udało się załadować szablonu. Mógł zostać usunięty.",
+      "canvasNotReady": "Kanwa nie jest gotowa. Spróbuj ponownie.",
+      "projectSaved": "Projekt zapisany pomyślnie!",
+      "noSavedProject": "Nie znaleziono zapisanego projektu.",
+      "projectLoaded": "Projekt wczytany pomyślnie!",
+      "projectLoadFailed": "Nie udało się wczytać projektu."
+    },
+    "downloadModal": {
+      "title": "Zaloguj się, aby pobrać",
+      "description": "Utwórz darmowe konto, aby pobrać swój projekt kanwy jako {format}.",
+      "savedTitle": "Twoja praca jest zapisana",
+      "savedNotice": "Twój projekt kanwy został zapisany w przeglądarce. Będzie tutaj, gdy wrócisz po zalogowaniu.",
+      "signUp": "Zarejestruj się — to darmowe",
+      "signInPrefix": "Masz już konto?",
+      "signInLink": "Zaloguj się",
+      "restored": "Twój projekt kanwy został przywrócony! Kliknij Eksportuj, aby pobrać."
+    }
+  },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Szablony kanwy CV — zaprojektuj CV wizualnie | Best AI Resume",
+      "description": "Przeglądaj kreatywne szablony kanwy CV. Przeciągaj, upuszczaj i dostosowuj każdy element za pomocą naszego wizualnego edytora."
+    },
+    "sectionTitle": "Szablony kanwy",
+    "title": "Szablony CV",
+    "titleHighlight": "na kanwie",
+    "subtitle": "Projektuj CV z pełną swobodą twórczą. Przeciągaj, upuszczaj i dostosowuj każdy element w naszym wizualnym edytorze.",
+    "freeBadge": "Za darmo",
+    "searchPlaceholder": "Szukaj szablonów kanwy...",
+    "noResults": "Nie znaleziono szablonów",
+    "noResultsHint": "Spróbuj zmienić wyszukiwanie lub kryteria filtrowania",
+    "useTemplate": "Użyj szablonu",
+    "categories": {
+      "all": "Wszystkie",
+      "professional": "Profesjonalne",
+      "creative": "Kreatywne",
+      "minimal": "Minimalistyczne"
+    },
+    "startFromScratch": {
+      "title": "Chcesz zacząć od zera?",
+      "description": "Stwórz całkowicie niestandardowe CV, korzystając z potężnych narzędzi projektowych naszego edytora kanwy.",
+      "button": "Otwórz pustą kanwę"
+    },
+    "formBuilderBanner": "Szukasz szablonów opartych na formularzach?",
+    "viewFormTemplates": "Zobacz szablony kreatora formularzy"
+  },
+
+  "Builder": {
+    "meta": {
+      "title": "Kreator CV — stwórz profesjonalne CV online",
+      "description": "Twórz profesjonalne CV za pomocą naszego łatwego w obsłudze edytora. Podgląd w czasie rzeczywistym, sugestie AI i natychmiastowe pobieranie PDF."
+    },
+    "personalInfo": {
+      "title": "Dane osobowe",
+      "subtitle": "Zacznij od danych kontaktowych i podsumowania zawodowego."
+    },
+    "profilePhoto": "Zdjęcie profilowe",
+    "upload": "Prześlij",
+    "change": "Zmień",
+    "fullName": "Imię i nazwisko",
+    "fullNamePlaceholder": "Jan Kowalski",
+    "jobTitle": "Stanowisko",
+    "jobTitlePlaceholder": "Inżynier oprogramowania",
+    "email": "E-mail",
+    "emailPlaceholder": "jan@przyklad.pl",
+    "phone": "Telefon",
+    "phonePlaceholder": "+48 123 456 789",
+    "location": "Lokalizacja",
+    "locationPlaceholder": "Warszawa, Polska",
+    "website": "Strona internetowa",
+    "websitePlaceholder": "jankowalski.pl",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/jankowalski",
+    "nationality": "Narodowość",
+    "nationalityPlaceholder": "np. polska, niemiecka",
+    "idDocument": "Dowód osobisty / Paszport / Prawo jazdy",
+    "selectDocType": "Wybierz dokument",
+    "nationalId": "Dowód osobisty",
+    "passport": "Paszport",
+    "drivingLicense": "Prawo jazdy",
+    "documentNumber": "Numer dokumentu",
+    "professionalSummary": "Podsumowanie zawodowe",
+    "summaryPlaceholder": "Doświadczony inżynier oprogramowania z pasją do tworzenia skalowalnych aplikacji webowych...",
+    "generateWithAI": "Wygeneruj z AI",
+    "additionalInfo": "Informacje dodatkowe",
+    "socialLinks": "Linki społecznościowe",
+    "customFields": {
+      "title": "Pola niestandardowe",
+      "subtitle": "Dodaj niestandardowe sekcje z własnymi etykietami i treścią.",
+      "add": "Dodaj pole niestandardowe",
+      "noCustomFields": "Nie dodano jeszcze pól niestandardowych.",
+      "label": "Etykieta sekcji",
+      "labelPlaceholder": "np. Wolontariat, Hobby, Publikacje",
+      "content": "Treść",
+      "contentPlaceholder": "Dodaj swoją treść tutaj..."
+    },
+    "shapes": {
+      "circle": "Okrągłe",
+      "rounded": "Zaokrąglone",
+      "square": "Kwadratowe"
+    },
+    "experience": {
+      "title": "Doświadczenie zawodowe",
+      "subtitle": "Dodaj swoje odpowiednie doświadczenie zawodowe.",
+      "add": "Dodaj doświadczenie",
+      "notSpecified": "(Nie określono)",
+      "companyName": "Nazwa firmy",
+      "jobTitle": "Stanowisko",
+      "company": "Firma",
+      "city": "Miasto",
+      "country": "Kraj",
+      "startDate": "Data rozpoczęcia",
+      "endDate": "Data zakończenia",
+      "currentlyWork": "Obecnie tutaj pracuję",
+      "description": "Opis",
+      "improveAI": "Ulepsz za pomocą AI",
+      "noExperience": "Nie dodano jeszcze doświadczenia.",
+      "addFirst": "Dodaj swoją pierwszą rolę"
+    },
+    "education": {
+      "title": "Wykształcenie",
+      "subtitle": "Dodaj swoje wykształcenie.",
+      "add": "Dodaj wykształcenie",
+      "notSpecified": "(Nie określono)",
+      "degree": "Stopień/Tytuł",
+      "school": "Szkoła / Uczelnia",
+      "cityOptional": "Miasto (opcjonalnie)",
+      "countryOptional": "Kraj (opcjonalnie)",
+      "startDate": "Data rozpoczęcia",
+      "endDate": "Data zakończenia",
+      "gpaOptional": "Średnia ocen (opcjonalnie)",
+      "honorsOptional": "Wyróżnienia (opcjonalnie)",
+      "clubsOptional": "Koła i aktywności (opcjonalnie)",
+      "descriptionOptional": "Opis (opcjonalnie)",
+      "noEducation": "Nie dodano jeszcze wykształcenia.",
+      "addEducation": "Dodaj swoje wykształcenie",
+      "credentials": "Poświadczenia",
+      "certifications": "Certyfikaty",
+      "awards": "Nagrody i osiągnięcia"
+    },
+    "skills": {
+      "title": "Umiejętności",
+      "subtitle": "Dodaj swoje umiejętności techniczne i miękkie z poziomami biegłości.",
+      "placeholder": "np. React, Python, Przywództwo",
+      "proficiencyLevel": "Poziom biegłości",
+      "beginner": "Początkujący",
+      "basic": "Podstawowy",
+      "intermediate": "Średniozaawansowany",
+      "advanced": "Zaawansowany",
+      "expert": "Ekspert",
+      "noSkills": "Nie dodano jeszcze umiejętności.",
+      "suggestedSkills": "Sugerowane umiejętności",
+      "additionalInfo": "Informacje dodatkowe",
+      "languages": "Języki",
+      "strengths": "Mocne strony",
+      "interests": "Zainteresowania i hobby"
+    },
+    "tabs": {
+      "personal": "Dane osobowe",
+      "personalDesc": "Podstawowe informacje i podsumowanie",
+      "experience": "Doświadczenie",
+      "experienceDesc": "Historia zatrudnienia",
+      "education": "Wykształcenie",
+      "educationDesc": "Tło akademickie",
+      "skills": "Umiejętności",
+      "skillsDesc": "Twoja ekspertyza",
+      "design": "Design",
+      "designDesc": "Styl i układ"
+    },
+    "ui": {
+      "progress": "Postęp",
+      "canvasEditor": "Edytor kanwy",
+      "backToHome": "Wróć na stronę główną",
+      "untitledResume": "CV bez tytułu",
+      "downloadPdf": "Pobierz PDF",
+      "livePreview": "Podgląd na żywo",
+      "showReference": "Pokaż obraz referencyjny",
+      "reference": "Referencja",
+      "zoomOut": "Pomniejsz",
+      "zoomIn": "Powiększ",
+      "resetZoom": "Resetuj powiększenie",
+      "referenceDesign": "Design referencyjny",
+      "referenceCaption": "Oryginalny design szablonu jako odniesienie",
+      "editResume": "Edytuj CV",
+      "previewResume": "Podgląd CV",
+      "edit": "Edytuj",
+      "preview": "Podgląd",
+      "loadingBuilder": "Ładowanie kreatora..."
+    },
+    "welcome": {
+      "title": "Konto utworzone!",
+      "description": "Twoje CV jest zapisane. Możesz kontynuować edycję lub wybrać plan, aby pobrać.",
+      "choosePlan": "Wybierz plan",
+      "backToEditor": "Wróć do edytora"
+    },
+    "feedback": {
+      "reportIssue": "Zgłoś problem",
+      "title": "Opinia o szablonie",
+      "forTemplate": "Szablon",
+      "typeFeedback": "Opinia",
+      "typeBug": "Błąd",
+      "typeSuggestion": "Pomysł",
+      "placeholder": "Opisz problem lub podziel się opinią o tym szablonie...",
+      "messageTooShort": "Wiadomość musi mieć co najmniej 5 znaków",
+      "submitError": "Nie udało się wysłać opinii. Spróbuj ponownie.",
+      "submit": "Wyślij",
+      "cancel": "Anuluj",
+      "close": "Zamknij",
+      "thankYou": "Dziękujemy!",
+      "thankYouDesc": "Twoja opinia została przesłana. Przeglądamy wszystkie zgłoszenia, aby ulepszyć nasze szablony."
+    }
+  },
+
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Pobierz dla Google Docs",
+    "loading": "Ładowanie kreatora Google Docs..."
+  },
+
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "Pobierz MS Word",
+    "loading": "Ładowanie kreatora Word..."
+  },
+
+  "CoverLetter": {
+    "meta": {
+      "title": "Darmowy generator listów motywacyjnych AI — twórz profesjonalne listy motywacyjne",
+      "description": "Generuj profesjonalne, spersonalizowane listy motywacyjne w kilka minut dzięki naszemu darmowemu narzędziu AI. Wyróżnij się i zdobądź więcej zaproszeń na rozmowy."
+    },
+    "hero": {
+      "badge": "Generator listów motywacyjnych oparty na AI",
+      "title": "Stwórz",
+      "titleHighlight": "idealny list motywacyjny",
+      "subtitle": "Pozwól AI stworzyć przekonujący, spersonalizowany list motywacyjny, który podkreśli Twoje mocne strony i przyciągnie uwagę menedżerów ds. rekrutacji."
+    },
+    "form": {
+      "yourDetails": "Twoje dane",
+      "fillInfo": "Uzupełnij swoje informacje",
+      "fullName": "Imię i nazwisko",
+      "email": "E-mail",
+      "jobTitle": "Stanowisko",
+      "companyName": "Nazwa firmy",
+      "hiringManager": "Imię menedżera ds. rekrutacji (opcjonalnie)",
+      "keySkills": "Kluczowe umiejętności",
+      "experience": "Odpowiednie doświadczenie",
+      "tone": "Ton pisma",
+      "professional": "Profesjonalny",
+      "friendly": "Przyjazny",
+      "confident": "Pewny siebie",
+      "enthusiastic": "Entuzjastyczny",
+      "generate": "Wygeneruj list motywacyjny",
+      "generating": "Generowanie...",
+      "fullNamePlaceholder": "Jan Kowalski",
+      "emailPlaceholder": "jan@przyklad.pl",
+      "jobTitlePlaceholder": "Inżynier oprogramowania",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Anna Nowak",
+      "skillsPlaceholder": "React, Node.js, Zarządzanie zespołem",
+      "experiencePlaceholder": "Kierowałem zespołem 5 programistów przy realizacji ważnego wdrożenia produktu..."
+    },
+    "preview": {
+      "title": "Podgląd",
+      "subtitle": "Twój wygenerowany list",
+      "noLetter": "Nie wygenerowano jeszcze listu",
+      "fillAndGenerate": "Uzupełnij dane i kliknij Wygeneruj",
+      "copy": "Kopiuj",
+      "copied": "Skopiowano!",
+      "download": "Pobierz"
+    },
+    "tips": {
+      "title": "Wskazówki dotyczące",
+      "titleHighlight": "świetnego listu motywacyjnego",
+      "beSpecific": "Bądź konkretny",
+      "beSpecificDesc": "Dostosuj list do konkretnego stanowiska i firmy. Ogólne listy są łatwo rozpoznawalne.",
+      "showResults": "Pokaż wyniki",
+      "showResultsDesc": "Uwzględnij wymierne osiągnięcia. Liczby sprawiają, że Twoje osiągnięcia są konkretne i zapamiętywalne.",
+      "keepConcise": "Bądź zwięzły",
+      "keepConciseDesc": "Celuj w 3–4 akapity. Rekruterzy poświęcają zaledwie kilka sekund na przejrzenie każdej aplikacji."
+    },
+    "cta": {
+      "title": "Potrzebujesz również CV?",
+      "subtitle": "Połącz swój list motywacyjny z profesjonalnie zaprojektowanym CV stworzonym z pomocą AI.",
+      "button": "Stwórz swoje CV"
+    },
+    "errors": {
+      "signInRequired": "Zaloguj się, aby wygenerować list motywacyjny",
+      "limitReached": "Osiągnąłeś limit listów motywacyjnych. Zmień plan na wyższy, aby uzyskać więcej.",
+      "subscriptionRequired": "Do generowania listów motywacyjnych wymagana jest subskrypcja. Zmień plan na wyższy.",
+      "signInNow": "Zaloguj się teraz",
+      "viewPlans": "Zobacz plany"
+    },
+    "externalResources": {
+      "title": "Zasoby zewnętrzne",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Perspektywy kariery",
+      "shrmHrResources": "SHRM: Zasoby HR i kariery"
+    }
+  },
+
+  "ResignationLetter": {
+    "meta": {
+      "title": "Darmowy generator listów rezygnacyjnych AI — profesjonalne listy odejścia",
+      "description": "Stwórz profesjonalny list rezygnacyjny w kilka minut. Odejdź z pracy w dobrych stosunkach i utrzymaj pozytywne relacje dzięki naszemu narzędziu AI."
+    },
+    "hero": {
+      "badge": "Generator listów rezygnacyjnych oparty na AI",
+      "title": "Napisz",
+      "titleHighlight": "profesjonalny list rezygnacyjny",
+      "subtitle": "Odejdź z pracy w dobrych stosunkach dzięki profesjonalnie napisanemu listowi rezygnacyjnemu. Utrzymaj pozytywne relacje i chroń swoją reputację zawodową."
+    },
+    "noticeLabel": "Wskazówka",
+    "notice": "Standardowy okres wypowiedzenia to zazwyczaj 2 tygodnie. Sprawdź swoją umowę o pracę, aby poznać konkretne wymagania.",
+    "form": {
+      "yourDetails": "Twoje dane",
+      "fillInfo": "Uzupełnij swoje informacje",
+      "yourName": "Twoje imię",
+      "currentPosition": "Obecne stanowisko",
+      "companyName": "Nazwa firmy",
+      "managerName": "Imię przełożonego",
+      "lastWorkingDay": "Ostatni dzień pracy",
+      "reasonForLeaving": "Powód odejścia",
+      "positiveExperiences": "Pozytywne doświadczenia (opcjonalnie)",
+      "tone": "Ton listu",
+      "professional": "Profesjonalny",
+      "grateful": "Wdzięczny",
+      "brief": "Zwięzły",
+      "warm": "Ciepły",
+      "offerHelp": "Zaoferuj pomoc w okresie przejściowym",
+      "generate": "Wygeneruj list rezygnacyjny",
+      "generating": "Generowanie...",
+      "yourNamePlaceholder": "Jan Kowalski",
+      "currentPositionPlaceholder": "Inżynier oprogramowania",
+      "companyPlaceholder": "Firma ABC",
+      "managerPlaceholder": "Anna Nowak",
+      "positiveExperiencesPlaceholder": "Naprawdę podobała mi się praca nad projektem wdrożenia produktu i doceniałem mentoring ze strony starszego zespołu...",
+      "professionalDesc": "Formalny i biznesowy",
+      "gratefulDesc": "Wyrażający wdzięczność",
+      "briefDesc": "Krótki i na temat",
+      "warmDesc": "Przyjazny i osobisty"
+    },
+    "reasons": {
+      "selectReason": "Wybierz powód (opcjonalnie)",
+      "newOpportunity": "Nowa możliwość zawodowa",
+      "careerChange": "Zmiana kariery",
+      "relocation": "Przeprowadzka",
+      "personal": "Powody osobiste",
+      "education": "Powrót do edukacji",
+      "family": "Zobowiązania rodzinne",
+      "health": "Powody zdrowotne",
+      "retirement": "Przejście na emeryturę",
+      "other": "Inne"
+    },
+    "preview": {
+      "title": "Podgląd",
+      "subtitle": "Twój wygenerowany list",
+      "noLetter": "Nie wygenerowano jeszcze listu",
+      "fillAndGenerate": "Uzupełnij dane i kliknij Wygeneruj",
+      "copy": "Kopiuj",
+      "copied": "Skopiowano!",
+      "download": "Pobierz"
+    },
+    "reasonText": {
+      "newOpportunity": "Przyjąłem stanowisko w innej firmie",
+      "careerChange": "Postanowiłem obrać inną ścieżkę kariery",
+      "relocation": "Będę się przeprowadzać",
+      "personal": "z powodów osobistych",
+      "education": "Postanowiłem wrócić do dalszej edukacji",
+      "family": "z powodu zobowiązań rodzinnych wymagających mojej pełnej uwagi",
+      "health": "z powodów zdrowotnych",
+      "retirement": "Postanowiłem przejść na emeryturę",
+      "other": "z powodów osobistych"
+    },
+    "letter": {
+      "dearManager": "Szanowna/Szanowny {name},",
+      "defaultManager": "Przełożony",
+      "lastWorkingDayPlaceholder": "[Ostatni dzień pracy]",
+      "briefBody": "Niniejszym składam formalne wypowiedzenie ze stanowiska {position} w firmie {company}. Mój ostatni dzień pracy to {lastDay}.",
+      "briefReason": "Rezygnuję, ponieważ {reason}.",
+      "briefClosing": "Dziękuję za możliwości, które otrzymałem podczas pracy tutaj.",
+      "sincerely": "Z poważaniem,",
+      "formalBody": "Piszę, aby formalnie powiadomić o mojej rezygnacji ze stanowiska {position} w firmie {company}. Mój ostatni dzień pracy to {lastDay}.",
+      "reasonPrefix": "Po starannym rozważeniu, {reason}.",
+      "notEasyDecision": "Nie była to łatwa decyzja, ponieważ naprawdę ceniłem sobie czas spędzony w firmie.",
+      "gratefulDefault": "Jestem niezmiernie wdzięczny za możliwości rozwoju zawodowego i osobistego, które miałem podczas pracy tutaj.",
+      "warmDefault": "Praca z Tobą i zespołem była wspaniałym doświadczeniem, które zawsze będę wspominać z sentymentem.",
+      "learnedAppreciate": "Nauczyłem się tak wiele i zawsze będę doceniać wsparcie i wskazówki, które otrzymałem.",
+      "transitionHelp": "W okresie przejściowym jestem zaangażowany w zapewnienie płynnego przekazania moich obowiązków. Chętnie pomogę wdrożyć mojego następcę lub udokumentuję moje bieżące projekty i procesy.",
+      "thankYouClosing": "Dziękuję za możliwości rozwoju zawodowego i osobistego, które zapewnili mi Państwo podczas mojego zatrudnienia. Życzę firmie {company} dalszych sukcesów i mam nadzieję na utrzymanie kontaktu.",
+      "warmRegards": "Z serdecznymi pozdrowieniami,",
+      "sincereGratitude": "Z szczerą wdzięcznością,"
+    },
+    "tips": {
+      "title": "Dobre praktyki",
+      "titleHighlight": "rezygnacji",
+      "giveNotice": "Złóż wypowiedzenie",
+      "giveNoticeDesc": "Daj co najmniej 2 tygodnie wypowiedzenia lub postępuj zgodnie z warunkami umowy.",
+      "stayProfessional": "Zachowaj profesjonalizm",
+      "stayProfessionalDesc": "Trzymaj emocje na uboczu. Bądź uprzejmy i pozytywny.",
+      "documentIt": "Udokumentuj to",
+      "documentItDesc": "Zawsze składaj pisemną rezygnację dla swoich dokumentów.",
+      "leaveWell": "Odejdź w dobrym stylu",
+      "leaveWellDesc": "Dokończ zaległą pracę i zaproponuj wdrożenie następcy."
+    },
+    "cta": {
+      "title": "Gotowy na nową szansę?",
+      "subtitle": "Stwórz profesjonalne CV do poszukiwania pracy dzięki naszemu kreatorowi CV opartemu na AI.",
+      "button": "Stwórz swoje CV"
+    },
+    "externalResources": {
+      "title": "Zasoby zewnętrzne",
+      "shrmWorkplace": "SHRM: Zasoby HR i miejsca pracy",
+      "blsCareerData": "Bureau of Labor Statistics: Dane o karierze"
+    }
+  },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Darmowa symulacja rozmowy kwalifikacyjnej z AI | Best AI Resume",
+      "description": "Ćwicz rozmowy kwalifikacyjne z pytaniami wygenerowanymi przez AI, dostosowanymi do Twojego stanowiska. Otrzymuj natychmiastową opinię metodą STAR. Darmowe narzędzie do symulacji rozmów."
+    },
+    "hero": {
+      "badge": "Ćwiczenie rozmów z AI",
+      "title": "Symulacja rozmowy kwalifikacyjnej z AI",
+      "description": "Ćwicz z pytaniami wygenerowanymi przez AI, dostosowanymi do Twojego stanowiska i poziomu doświadczenia. Otrzymuj natychmiastową opinię metodą STAR."
+    },
+    "setup": {
+      "title": "Skonfiguruj swoją rozmowę",
+      "jobTitle": "Stanowisko",
+      "jobTitlePlaceholder": "np. Inżynier oprogramowania, Kierownik marketingu...",
+      "experienceLevel": "Poziom doświadczenia",
+      "levels": {
+        "entry": { "label": "Początkujący", "description": "0–2 lata doświadczenia" },
+        "mid": { "label": "Średniozaawansowany", "description": "3–6 lat doświadczenia" },
+        "senior": { "label": "Senior", "description": "7+ lat doświadczenia" }
+      },
+      "questionCount": "Liczba pytań: {count}",
+      "quick": "Szybka (3)",
+      "thorough": "Dokładna (10)",
+      "startButton": "Rozpocznij rozmowę",
+      "generating": "Generowanie pytań..."
+    },
+    "interview": {
+      "progress": "Pytanie {current} z {total}",
+      "yourAnswer": "Twoja odpowiedź",
+      "answerPlaceholder": "Wpisz swoją odpowiedź tutaj. Użyj metody STAR: Sytuacja, Zadanie, Działanie, Rezultat...",
+      "answerTip": "Wskazówka: Celuj w 3–5 zdań. Używaj konkretnych przykładów i jeśli to możliwe, podawaj wymierne wyniki.",
+      "skip": "Pomiń",
+      "evaluating": "Ocenianie...",
+      "submitContinue": "Wyślij i kontynuuj",
+      "submitFinish": "Wyślij i zakończ",
+      "starReminder": "Pamiętaj o metodzie STAR:",
+      "starDescription": "Strukturyzuj odpowiedzi wg schematu: Sytuacja, Zadanie, Działanie i Rezultat, aby uzyskać najsilniejsze odpowiedzi."
+    },
+    "results": {
+      "complete": "Rozmowa zakończona!",
+      "summary": "Odpowiedziałeś na {answered} z {total} pytań",
+      "averageScore": "Średni wynik:",
+      "startNew": "Rozpocznij nową rozmowę",
+      "bonusQuestions": "Odblokuj 10 dodatkowych pytań do ćwiczeń",
+      "bonusUnlocked": "Dodatkowe pytania odblokowane!",
+      "bonusDescription": "Możesz teraz ćwiczyć z maksymalnie 10 pytaniami na sesję.",
+      "detailedFeedback": "Szczegółowa opinia",
+      "questionLabel": "Pytanie {number}",
+      "strengths": "Mocne strony",
+      "improvements": "Obszary do poprawy",
+      "sampleAnswer": "Przykładowa odpowiedź",
+      "skipped": "To pytanie zostało pominięte",
+      "continuePrep": "Kontynuuj przygotowania",
+      "resources": {
+        "starMethod": {
+          "title": "Opanuj metodę STAR",
+          "description": "Naucz się, jak strukturyzować odpowiedzi na pytania behawioralne w rozmowach kwalifikacyjnych."
+        },
+        "tellMe": {
+          "title": "Jak odpowiedzieć na \"Opowiedz mi o sobie\"",
+          "description": "Stwórz idealną odpowiedź otwierającą, która nada ton Twojej rozmowie kwalifikacyjnej."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Wprowadź stanowisko, aby kontynuować.",
+      "generateFailed": "Nie udało się wygenerować pytań. Spróbuj ponownie.",
+      "startFailed": "Nie udało się rozpocząć rozmowy. Spróbuj ponownie.",
+      "detailedAnswer": "Podaj bardziej szczegółową odpowiedź (co najmniej 20 znaków)."
+    },
+    "externalResources": {
+      "title": "Zasoby zewnętrzne",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Perspektywy kariery",
+      "shrmInterviewPractices": "SHRM: Najlepsze praktyki rozmów kwalifikacyjnych"
+    }
+  },
+
+  "CareerTips": {
+    "meta": {
+      "title": "Porady zawodowe i wskazówki dotyczące CV — eksperckie przewodniki | Best AI Resume",
+      "description": "Eksperckie porady zawodowe, wskazówki dotyczące pisania CV i strategie poszukiwania pracy. Dowiedz się, jak tworzyć CV z AI, przejść rozmowy kwalifikacyjne i zdobyć wymarzoną pracę."
+    },
+    "hero": {
+      "badge": "Eksperckie przewodniki kariery",
+      "title": "Porady zawodowe",
+      "titleHighlight": "i eksperckie wskazówki",
+      "subtitle": "Opanuj pisanie CV, przejdź rozmowy kwalifikacyjne i przyspiesz swoją karierę dzięki naszym eksperckim przewodnikom."
+    },
+    "featured": "Polecane artykuły",
+    "featuredBadge": "Polecane",
+    "allArticles": "Wszystkie artykuły",
+    "searchPlaceholder": "Szukaj artykułów...",
+    "articleCount": "{count, plural, one {# artykuł} few {# artykuły} many {# artykułów} other {# artykułów}}",
+    "noArticles": "Nie znaleziono artykułów",
+    "noArticlesHint": "Spróbuj zmienić wyszukiwanie lub filtr",
+    "categories": {
+      "title": "Kategorie",
+      "all": "Wszystkie artykuły",
+      "resumeTips": "Wskazówki dotyczące CV",
+      "coverLetters": "Listy motywacyjne",
+      "interviews": "Wskazówki do rozmów",
+      "jobSearch": "Poszukiwanie pracy",
+      "careerAdvice": "Porady zawodowe",
+      "aiResume": "CV z AI"
+    },
+    "article": {
+      "readMore": "Czytaj więcej",
+      "tableOfContents": "Spis treści",
+      "relatedArticles": "Powiązane artykuły",
+      "moreCareerTips": "Więcej porad zawodowych",
+      "shareHelpful": "Czy to było pomocne?",
+      "shareWithOthers": "Udostępnij innym, którzy mogą skorzystać",
+      "tags": "Tagi:",
+      "breadcrumbHome": "Strona główna",
+      "breadcrumbCareerTips": "Porady zawodowe",
+      "notFound": "Artykuł nie znaleziony"
+    },
+    "cta": {
+      "title": "Gotowy, aby stworzyć swoje CV?",
+      "subtitle": "Wykorzystaj te wskazówki w praktyce z naszym kreatorem CV opartym na AI. Stwórz profesjonalne CV w kilka minut.",
+      "button": "Stwórz swoje CV teraz",
+      "sidebarTitle": "Stwórz swoje CV",
+      "sidebarSubtitle": "Stwórz profesjonalne CV z AI w kilka minut.",
+      "sidebarButton": "Rozpocznij"
+    }
+  },
+
+  "ResumeExamples": {
+    "meta": {
+      "title": "Przykłady CV według stanowiska | Darmowe szablony i przewodniki 2026",
+      "description": "Przeglądaj ponad 50 profesjonalnych przykładów CV według stanowiska. Każdy zawiera darmowy szablon, kluczowe umiejętności i wskazówki, jak zdobyć wymarzoną pracę."
+    },
+    "hero": {
+      "badge": "Przewodniki dla konkretnych stanowisk",
+      "title": "Przykłady CV",
+      "titleHighlight": "według stanowiska",
+      "subtitle": "Znajdź swój zawód i otrzymaj dostosowany szablon CV z branżowymi wskazówkami."
+    },
+    "searchPlaceholder": "Szukaj według stanowiska...",
+    "featured": "Polecane przykłady CV",
+    "allExamples": "Wszystkie przykłady CV",
+    "noResults": "Nie znaleziono przykładów CV",
+    "noResultsHint": "Spróbuj zmienić wyszukiwanie lub filtr",
+    "cta": {
+      "title": "Gotowy, aby stworzyć zwycięskie CV?",
+      "subtitle": "Użyj naszego kreatora opartego na AI, aby stworzyć profesjonalne CV w kilka minut.",
+      "button": "Stwórz moje CV — za darmo"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "Darmowe sprawdzanie CV pod ATS | Oceń swoje CV natychmiast | Best AI Resume",
+      "description": "Sprawdź swoje CV pod kątem systemów ATS za darmo. Otrzymaj natychmiastową ocenę, analizę słów kluczowych i wskazówki optymalizacji, aby przejść automatyczne filtrowanie."
+    },
+    "hero": {
+      "badge": "Darmowe sprawdzanie CV pod ATS",
+      "title": "Czy Twoje CV jest",
+      "titleHighlight": "zgodne z ATS?",
+      "statistic": "75% CV jest odrzucanych przez ATS, zanim człowiek je zobaczy.",
+      "description": "Nasze darmowe narzędzie ATS analizuje Twoje CV pod kątem problemów z formatowaniem, brakujących słów kluczowych i problemów ze zgodnością, które powodują automatyczne odrzucenia."
+    },
+    "tool": {
+      "title": "Sprawdź wynik ATS swojego CV",
+      "description": "Prześlij swoje CV w formacie PDF lub DOCX i otrzymaj natychmiastową ocenę zgodności z ATS ze szczegółową opinią.",
+      "uploadBtn": "Kliknij, aby przesłać lub przeciągnij i upuść",
+      "formats": "PDF lub DOCX — maks. 10 MB",
+      "checkBtn": "Sprawdź moje CV",
+      "changeFile": "Zmień plik",
+      "analyzing": "Analiza Twojego CV…",
+      "cta": "Stwórz CV przyjazne dla ATS",
+      "subtext": "Za darmo — karta kredytowa nie jest wymagana"
+    },
+    "checks": {
+      "title": "Co sprawdzają systemy ATS",
+      "subtitle": "Zrozumienie, co skanuje oprogramowanie ATS, pomoże Ci zoptymalizować CV dla maksymalnej widoczności.",
+      "keywords": {
+        "title": "Dopasowanie słów kluczowych",
+        "description": "ATS skanuje słowa kluczowe specyficzne dla stanowiska z ogłoszenia. Brak kluczowych terminów oznacza automatyczne odrzucenie."
+      },
+      "formatting": {
+        "title": "Czyste formatowanie",
+        "description": "Skomplikowane układy, tabele i kolumny mylą parsery ATS. Proste, jednokolumnowe formaty są najlepiej analizowane."
+      },
+      "contact": {
+        "title": "Dane kontaktowe",
+        "description": "ATS szuka imienia, e-maila, telefonu i lokalizacji w standardowych formatach. Brakujące informacje oznaczają utracone szanse."
+      },
+      "dates": {
+        "title": "Spójne formaty dat",
+        "description": "Systemy ATS analizują daty zatrudnienia w celu obliczenia doświadczenia. Niespójne formaty powodują błędy parsowania."
+      }
+    },
+    "checklist": {
+      "title": "Lista kontrolna optymalizacji ATS",
+      "subtitle": "Postępuj zgodnie z tymi wytycznymi, aby zmaksymalizować szanse Twojego CV na przejście filtrowania ATS.",
+      "doThis": "Rób to",
+      "avoidThis": "Unikaj tego",
+      "dos": {
+        "singleColumn": "Używaj jednokolumnowego układu dla maksymalnej zgodności",
+        "keywords": "Uwzględniaj słowa kluczowe z opisu stanowiska w naturalny sposób",
+        "standardHeadings": "Używaj standardowych nagłówków sekcji (Doświadczenie, Wykształcenie, Umiejętności)",
+        "fileFormat": "Przesyłaj jako PDF lub DOCX zgodnie z wymaganiami pracodawcy",
+        "standardFonts": "Używaj standardowych czcionek, takich jak Arial, Calibri lub Times New Roman",
+        "spellOut": "Najpierw pisz pełne nazwy akronimów, potem skróty (np. Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "Nie używaj tabel ani pól tekstowych do układu",
+        "images": "Nie umieszczaj obrazów, logo ani grafik",
+        "headers": "Nie umieszczaj ważnych informacji w nagłówkach ani stopkach",
+        "creativeTitles": "Nie używaj kreatywnych tytułów sekcji (np. \"Moja droga\" zamiast \"Doświadczenie\")",
+        "fancyFonts": "Nie używaj ozdobnych ani rzadkich czcionek",
+        "lightText": "Nie używaj jasnoszarych lub niskokontrastowych kolorów tekstu"
+      }
+    },
+    "systems": {
+      "title": "Popularne systemy ATS",
+      "subtitle": "Nasze szablony są przetestowane i zoptymalizowane pod kątem wszystkich głównych systemów śledzenia kandydatów używanych przez pracodawców na całym świecie."
+    },
+    "faq": {
+      "title": "Najczęściej zadawane pytania",
+      "whatIsAts": {
+        "question": "Co to jest ATS (System Śledzenia Kandydatów)?",
+        "answer": "ATS to oprogramowanie używane przez pracodawców do zbierania, skanowania i rankingowania aplikacji o pracę. Filtruje CV na podstawie słów kluczowych, formatowania i trafności, zanim rekruter je zobaczy. Ponad 98% firm z listy Fortune 500 używa ATS."
+      },
+      "whyFail": {
+        "question": "Dlaczego CV nie przechodzą filtrowania ATS?",
+        "answer": "Typowe przyczyny to skomplikowane formatowanie (tabele, kolumny, grafiki), brakujące słowa kluczowe z opisu stanowiska, niestandardowe nagłówki sekcji, niekompatybilne formaty plików oraz informacje umieszczone w nagłówkach lub stopkach, których ATS nie może odczytać."
+      },
+      "bestFormat": {
+        "question": "Jaki jest najlepszy format CV dla ATS?",
+        "answer": "Czysty, jednokolumnowy układ ze standardowymi nagłówkami sekcji działa najlepiej. Używaj prostego formatowania, standardowych czcionek i unikaj grafik lub tabel. PDF i DOCX to najszerzej akceptowane formaty plików."
+      },
+      "keywords": {
+        "question": "Jak znaleźć odpowiednie słowa kluczowe do CV?",
+        "answer": "Przeczytaj uważnie opis stanowiska i zidentyfikuj powtarzające się umiejętności, kwalifikacje i terminologię. Uwzględnij te słowa kluczowe naturalnie w całym CV, szczególnie w podsumowaniu, sekcji umiejętności i opisach doświadczenia zawodowego."
+      },
+      "twoColumn": {
+        "question": "Czy mogę użyć dwukolumnowego CV z ATS?",
+        "answer": "Dwukolumnowe układy mogą powodować problemy z parsowaniem w wielu systemach ATS. Oprogramowanie może czytać wzdłuż kolumn zamiast w dół, mieszając Twoje informacje. Jednokolumnowy układ jest najbezpieczniejszym wyborem dla zgodności z ATS."
+      },
+      "jobTitle": {
+        "question": "Czy powinienem dopasować dokładny tytuł stanowiska w CV?",
+        "answer": "Tak, jeśli Twój rzeczywisty tytuł jest podobny. Uwzględnienie dokładnego tytułu stanowiska z ogłoszenia w CV (jeśli jest zgodny z prawdą) znacząco poprawia dopasowanie ATS. Możesz go umieścić w podsumowaniu lub jako docelowe stanowisko."
+      }
+    },
+    "resources": {
+      "title": "Powiązane zasoby",
+      "guide": {
+        "title": "Przewodnik po pisaniu CV pod ATS",
+        "description": "Przewodnik krok po kroku, jak napisać CV, które przejdzie filtrowanie ATS."
+      },
+      "templates": {
+        "title": "Szablony przyjazne dla ATS",
+        "description": "Wstępnie zoptymalizowane szablony CV zaprojektowane pod kątem zgodności z ATS."
+      },
+      "examples": {
+        "title": "Przykłady CV",
+        "description": "Zobacz prawdziwe przykłady CV dla Twojego zawodu."
+      }
+    },
+    "cta": {
+      "title": "Przestań być odrzucany przez ATS",
+      "description": "Stwórz profesjonalne, zoptymalizowane pod ATS CV w kilka minut dzięki naszemu kreatorowi opartemu na AI. Każdy szablon jest przetestowany pod kątem zgodności z ATS.",
+      "button": "Stwórz moje CV ATS — za darmo"
+    },
+    "validation": {
+      "unsupportedFormat": "Obsługiwane są tylko pliki PDF i DOCX.",
+      "fileTooLarge": "Rozmiar pliku musi być mniejszy niż 10 MB.",
+      "genericError": "Coś poszło nie tak. Spróbuj ponownie."
+    },
+    "results": {
+      "scoreTitle": "Twój wynik zgodności z ATS",
+      "recommendations": "Rekomendacje",
+      "checkAnother": "Sprawdź inne CV",
+      "buildAtsResume": "Stwórz CV zoptymalizowane pod ATS",
+      "pagesAnalyzed": "{count, plural, one {# strona przeanalizowana} few {# strony przeanalizowane} many {# stron przeanalizowanych} other {# stron przeanalizowanych}}",
+      "scoreExcellent": "Doskonały",
+      "scoreGood": "Dobry",
+      "scoreNeedsWork": "Wymaga poprawy",
+      "scorePoor": "Słaby"
+    },
+    "externalResources": {
+      "title": "Zasoby zewnętrzne",
+      "atsHowTheyWork": "Zrozumienie ATS: Jak działają",
+      "blsResumeTips": "BLS Career Outlook: Wskazówki dotyczące CV"
+    }
+  },
+  "Contact": {
+    "title": "Skontaktuj się z nami",
+    "description": "Niezależnie od tego, czy masz pytanie o konto, potrzebujesz pomocy z CV, czy chcesz zgłosić problem — jesteśmy tutaj, aby pomóc. Wypełnij poniższy formularz, a nasz zespół odpowie w ciągu 24 godzin.",
+    "inquiryType": "Rodzaj zapytania",
+    "inquiryTypes": {
+      "general": "Zapytanie ogólne",
+      "billing": "Problem z płatnościami",
+      "cvCreation": "Problem z tworzeniem CV"
+    },
+    "name": "Twoje imię",
+    "namePlaceholder": "Jan Kowalski",
+    "email": "Adres e-mail",
+    "emailPlaceholder": "ty@przyklad.pl",
+    "subject": "Temat",
+    "subjectPlaceholder": "W czym możemy pomóc?",
+    "message": "Wiadomość",
+    "messagePlaceholder": "Opowiedz nam więcej o swoim zapytaniu...",
+    "submit": "Wyślij wiadomość",
+    "sending": "Wysyłanie...",
+    "successTitle": "Wiadomość wysłana!",
+    "successMessage": "Dziękujemy za kontakt. Odpowiemy w ciągu 24 godzin.",
+    "sendAnother": "Wyślij kolejną wiadomość",
+    "errorGeneric": "Coś poszło nie tak. Spróbuj ponownie później.",
+    "errorRateLimit": "Zbyt wiele przesłań. Poczekaj przed ponowną próbą."
+  },
+  "Help": {
+    "title": "Jak to działa",
+    "subtitle": "Przewodnik krok po kroku, jak stworzyć profesjonalne CV — od rejestracji po pobranie gotowego dokumentu.",
+    "quickNav": "Przejdź do:",
+    "tipLabel": "Wskazówka",
+    "faqLabel": "Częste pytania",
+    "troubleshootingLabel": "Rozwiązywanie problemów",
+    "gettingStarted": {
+      "title": "Rozpoczęcie",
+      "steps": {
+        "1": {
+          "title": "Utwórz konto",
+          "description": "Kliknij przycisk Rozpocznij na stronie głównej lub link Zarejestruj się w pasku nawigacji. Możesz zarejestrować się natychmiast za pomocą konta Google, GitHub lub LinkedIn — bez hasła. Wolisz e-mail? Podaj imię, e-mail i wybierz hasło.",
+          "tip": "Logowanie przez Google lub LinkedIn jest najszybsze — imię i e-mail uzupełniają się automatycznie."
+        },
+        "2": {
+          "title": "Zweryfikuj swój e-mail",
+          "description": "Jeśli zarejestrowałeś się e-mailem, sprawdź skrzynkę odbiorczą w poszukiwaniu wiadomości od Best AI Resume. Wprowadź 6-cyfrowy kod weryfikacyjny na stronie weryfikacji. Kod wygasa po 10 minutach — jeśli wygaśnie, kliknij \"Wyślij kod ponownie\", aby otrzymać nowy.",
+          "tip": "Sprawdź folder spam lub śmieci, jeśli nie widzisz e-maila w ciągu minuty."
+        },
+        "3": {
+          "title": "Jesteś w środku",
+          "description": "Po weryfikacji zostaniesz przeniesiony na ekran wprowadzający, gdzie wybierzesz, jak zbudować swoje pierwsze CV. Twoje konto automatycznie zapisuje każdą zmianę, więc nigdy nie stracisz swojej pracy — nawet jeśli zamkniesz przeglądarkę."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Czy potrzebuję karty kredytowej do rejestracji?",
+          "a": "Nie. Możesz utworzyć konto i stworzyć CV całkowicie za darmo. Karta kredytowa jest wymagana tylko przy wyborze płatnego planu."
+        },
+        "2": {
+          "q": "Co jeśli nie otrzymam kodu weryfikacyjnego?",
+          "a": "Najpierw sprawdź folder spam/śmieci. Jeśli go tam nie ma, kliknij \"Wyślij kod ponownie\" na stronie weryfikacji. Jeśli nadal go nie otrzymujesz, spróbuj zarejestrować się przez Google lub LinkedIn."
+        },
+        "3": {
+          "q": "Czy mogę używać tego samego konta na wielu urządzeniach?",
+          "a": "Tak. Twoje konto i wszystkie CV są przechowywane w chmurze. Zaloguj się z dowolnego urządzenia i kontynuuj tam, gdzie skończyłeś."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Tworzenie CV",
+      "steps": {
+        "1": {
+          "title": "Wybierz metodę",
+          "description": "Na stronie wprowadzającej zobaczysz cztery opcje: Generowanie AI (polecane dla większości użytkowników), Prześlij CV (parsowanie istniejącego PDF), Importuj z LinkedIn (pobierz dane profilu) lub Zacznij od zera (pusty szablon). Każda opcja prowadzi przez krótki proces konfiguracji przed otwarciem kreatora.",
+          "tip": "Generowanie AI to najszybszy sposób na uzyskanie kompletnego, profesjonalnego CV — zawsze możesz je później edytować."
+        },
+        "2": {
+          "title": "Pozwól AI pracować",
+          "description": "Jeśli wybrałeś Generowanie AI, wprowadź swoje imię i nazwisko, stanowisko, o które się ubiegasz, i poziom doświadczenia (początkujący, średniozaawansowany lub senior). Kliknij Wygeneruj, a nasze AI stworzy kompletne CV z podsumowaniem zawodowym, doświadczeniem zawodowym, wykształceniem i sekcjami umiejętności — wszystko dostosowane do Twojego docelowego stanowiska."
+        },
+        "3": {
+          "title": "Wybierz szablon",
+          "description": "Po wygenerowaniu przeglądaj naszą galerię ponad 16 szablonów. Szablony są podzielone na kategorie: Profesjonalne, Kreatywne, Minimalistyczne i Przyjazne dla ATS. Kliknij dowolny szablon, aby zobaczyć podgląd z Twoimi danymi. Przełączaj się między szablonami w dowolnym momencie bez utraty treści.",
+          "tip": "Możesz zmienić szablon w dowolnym momencie w kreatorze — Twoja treść pozostaje taka sama, zmienia się tylko design."
+        },
+        "4": {
+          "title": "Edytuj i dostosuj",
+          "description": "Kreator ma zakładki z sekcjami po lewej stronie (Dane osobowe, Doświadczenie, Wykształcenie, Umiejętności itp.) i podgląd na żywo po prawej. Edytuj dowolne pole i obserwuj natychmiastowe odzwierciedlenie zmian. Możesz zmieniać kolejność sekcji, dodawać niestandardowe sekcje, dostosowywać rozmiary czcionek i zmieniać kolory akcentów według swojego stylu."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Czy mogę stworzyć wiele CV?",
+          "a": "Tak. Możesz tworzyć i zapisywać wiele CV dostosowanych do różnych aplikacji o pracę. Przełączaj się między nimi z poziomu panelu głównego."
+        },
+        "2": {
+          "q": "Czy generowanie AI działa we wszystkich językach?",
+          "a": "AI obecnie generuje treści w języku angielskim. Możesz ręcznie edytować wygenerowaną treść w dowolnym języku po stworzeniu."
+        },
+        "3": {
+          "q": "Czy mogę zaimportować swój profil LinkedIn?",
+          "a": "Tak. Wybierz opcję \"Importuj z LinkedIn\" podczas wprowadzenia. Zostaniesz poprowadzony przez proces łączenia profilu LinkedIn w celu pobrania historii zatrudnienia."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Wybór planu",
+      "steps": {
+        "1": {
+          "title": "Odwiedź stronę cennika",
+          "description": "Kliknij Cennik w pasku nawigacji lub odwiedź stronę cennika bezpośrednio. Zobaczysz cztery plany: Starter (darmowy, ograniczone pobieranie), Gold, Diamond i Platinum. Użyj przełącznika na górze, aby przełączać między rozliczaniem miesięcznym i rocznym — plany roczne pozwalają zaoszczędzić do 40%."
+        },
+        "2": {
+          "title": "Wybierz swój plan",
+          "description": "Porównaj cztery plany — Starter, Gold, Diamond i Platinum — i wybierz ten, który odpowiada Twoim potrzebom. Wszystkie plany są rozliczane natychmiast i dają natychmiastowy dostęp do wszystkich funkcji.",
+          "tip": "Roczne rozliczanie pozwala zaoszczędzić do 40% w porównaniu z miesięcznym — a funkcje pozostają takie same."
+        },
+        "3": {
+          "title": "Dokończ płatność",
+          "description": "Kliknij przycisk Rozpocznij na wybranym planie. Zostaniesz przekierowany na bezpieczną stronę płatności Stripe, gdzie podasz dane karty. Po dokonaniu płatności Twoje konto zostanie natychmiast zaktualizowane i możesz od razu zacząć pobierać."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Czy mogę anulować subskrypcję w dowolnym momencie?",
+          "a": "Tak. Możesz anulować w ustawieniach konta w dowolnym momencie. Zachowasz dostęp do końca bieżącego okresu rozliczeniowego."
+        },
+        "2": {
+          "q": "Co się stanie po anulowaniu?",
+          "a": "Zachowasz dostęp do planu do końca bieżącego okresu rozliczeniowego. Po tym Twoje konto przejdzie w status wygasły."
+        },
+        "3": {
+          "q": "Czy mogę później zmienić plan?",
+          "a": "Tak. Możesz zmienić plan na wyższy lub niższy w dowolnym momencie w ustawieniach konta. Zmiany wchodzą w życie natychmiast."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Pobieranie CV",
+      "steps": {
+        "1": {
+          "title": "Kliknij Pobierz",
+          "description": "W kreatorze poszukaj zielonego przycisku Pobierz PDF w prawym górnym rogu strony. Kliknij go, aby otworzyć okno pobierania, które pokazuje pozostałe pobrania na bieżący miesiąc i pozwala potwierdzić eksport."
+        },
+        "2": {
+          "title": "Pobierz swój PDF",
+          "description": "Twoje CV jest renderowane jako doskonały, wysokiej jakości plik PDF, który wygląda dokładnie tak jak podgląd. PDF jest zoptymalizowany zarówno do przeglądania cyfrowego (e-mail, portale pracy), jak i druku na standardowym papierze Letter lub A4.",
+          "tip": "Dla najlepszych wyników używaj szablonów przyjaznych dla ATS podczas aplikowania przez internetowe portale pracy — są one bardziej niezawodnie parsowane."
+        },
+        "3": {
+          "title": "Śledź użycie",
+          "description": "Każdy plan ma miesięczny limit pobrań, który resetuje się w dniu rozliczenia. Możesz sprawdzić pozostałe pobrania w oknie pobierania lub w ustawieniach konta. Jeśli osiągniesz limit, zmień plan na wyższy w dowolnym momencie, aby natychmiast odblokować więcej pobrań."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Czy mogę pobrać w formacie Word/DOCX?",
+          "a": "Tak. Oprócz PDF możesz wyeksportować CV jako plik DOCX kompatybilny z Microsoft Word i Google Docs."
+        },
+        "2": {
+          "q": "Dlaczego mój PDF wygląda nieco inaczej niż podgląd?",
+          "a": "Podgląd jest bliskim przybliżeniem. PDF to ostateczny, doskonały wynik. Drobne różnice w renderowaniu czcionek między podglądem w przeglądarce a PDF są normalne."
+        },
+        "3": {
+          "q": "Co jeśli wyczerpię pobrania?",
+          "a": "Licznik pobrań resetuje się co miesiąc. Jeśli potrzebujesz więcej pobrań przed resetem, możesz zmienić plan na wyższy, aby uzyskać natychmiastowy dostęp do wyższego limitu."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Rozwiązywanie problemów",
+      "items": {
+        "1": {
+          "title": "Nie mogę zalogować się na konto",
+          "description": "Spróbuj zresetować hasło za pomocą linku \"Zapomniałeś hasła?\" na stronie logowania. Jeśli zarejestrowałeś się przez Google, GitHub lub LinkedIn, upewnij się, że używasz tego samego dostawcy. Wyczyść pliki cookie przeglądarki, jeśli problem nadal występuje."
+        },
+        "2": {
+          "title": "Kod weryfikacyjny nie przychodzi",
+          "description": "Sprawdź folder spam/śmieci. Kody wygasają po 10 minutach — kliknij \"Wyślij kod ponownie\", aby otrzymać nowy. Jeśli używasz firmowego e-maila, firewall IT może blokować automatyczne e-maile. Spróbuj użyć osobistego adresu e-mail."
+        },
+        "3": {
+          "title": "Płatność została odrzucona",
+          "description": "Sprawdź numer karty, datę ważności i CVV. Upewnij się, że Twoja karta pozwala na transakcje międzynarodowe lub online. Jeśli problem nadal występuje, spróbuj innej karty lub skontaktuj się z bankiem. Wszystkie płatności są przetwarzane bezpiecznie przez Stripe."
+        },
+        "4": {
+          "title": "PDF wygląda inaczej niż podgląd",
+          "description": "Podgląd pokazuje przybliżenie ostatecznego wyniku. Jeśli konkretne elementy wyglądają nieprawidłowo, spróbuj zmienić szablon lub dostosować rozmiary czcionek w ustawieniach designu kreatora. Upewnij się, że Twoja przeglądarka jest aktualna."
+        },
+        "5": {
+          "title": "Zmiany nie są zapisywane",
+          "description": "Twoja praca jest automatycznie zapisywana w chmurze. Jeśli zauważysz niezapisane zmiany, sprawdź połączenie internetowe. Spróbuj odświeżyć stronę — Twoje ostatnie edycje powinny się pojawić. Jeśli masz wolne połączenie, odczekaj kilka sekund między edycjami."
+        }
+      }
+    },
+    "cta": {
+      "title": "Gotowy, aby zacząć?",
+      "subtitle": "Stwórz profesjonalne CV w kilka minut dzięki naszemu kreatorowi opartemu na AI.",
+      "buildButton": "Zacznij tworzyć",
+      "contactButton": "Skontaktuj się z pomocą"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Darmowe szablony CV przyjazne dla ATS (2026) | Przejdź każde skanowanie ATS",
+      "description": "Przeglądaj 16 darmowych szablonów CV przyjaznych dla ATS, zaprojektowanych, aby przejść systemy śledzenia kandydatów. Czyste formatowanie, standardowe czcionki i parsowalne układy przetestowane na prawdziwym oprogramowaniu ATS."
+    },
+    "breadcrumb": {
+      "home": "Strona główna",
+      "current": "Szablony przyjazne dla ATS"
+    },
+    "hero": {
+      "badge": "100% zgodne z ATS",
+      "title": "Szablony CV przyjazne dla ATS",
+      "subtitle": "97% firm z listy Fortune 500 używa systemów śledzenia kandydatów do filtrowania CV, zanim człowiek je zobaczy (Jobscan, 2024). Każdy szablon poniżej jest stworzony tak, aby przejść filtrowanie ATS — dzięki czemu Twoje CV dotrze do prawdziwej osoby za każdym razem.",
+      "check1": "Przechodzi parsowanie ATS",
+      "check2": "Darmowe do użytku",
+      "check3": "Natychmiastowe pobieranie PDF"
+    },
+    "features": {
+      "title": "Dlaczego nasze szablony przechodzą filtrowanie ATS",
+      "subtitle": "Większość CV zostaje odrzucona, zanim człowiek je zobaczy. Nasze szablony są zaprojektowane tak, aby unikać typowych pułapek formatowania powodujących problemy z ATS.",
+      "parseable": {
+        "title": "Układ czytelny dla maszyn",
+        "description": "Jednokolumnowa struktura z jasną hierarchią sekcji, którą oprogramowanie ATS odczytuje od góry do dołu bez pomyłek. Brak wielokolumnowych układów, które mieszają kolejność treści."
+      },
+      "standardHeaders": {
+        "title": "Standardowe nagłówki sekcji",
+        "description": "Używa nagłówków takich jak \"Doświadczenie\" i \"Wykształcenie\", które każdy ATS rozpoznaje — bez kreatywnych etykiet, które mylą parsery."
+      },
+      "testedATS": {
+        "title": "Przetestowane na prawdziwych ATS",
+        "description": "Każdy szablon jest przetestowany na Workday, Greenhouse, Lever, iCIMS i Taleo — pięciu platformach, które przetwarzają większość internetowych aplikacji o pracę."
+      },
+      "cleanFormatting": {
+        "title": "Czyste, bezpieczne formatowanie",
+        "description": "Brak tabel, pól tekstowych, nagłówków/stopek ani osadzonych obrazów, które psują parsowanie ATS. Tylko czysty tekst i standardowe czcionki renderowane jako zaznaczalny tekst PDF."
+      }
+    },
+    "grid": {
+      "title": "Wybierz swój szablon przyjazny dla ATS",
+      "subtitle": "Wszystkie 16 szablonów jest w pełni zgodnych z ATS. Wybierz dowolny styl — Twoje CV zostanie poprawnie sparsowane.",
+      "useTemplate": "Użyj tego szablonu"
+    },
+    "howATS": {
+      "title": "Jak systemy śledzenia kandydatów filtrują Twoje CV",
+      "intro": "Zrozumienie procesu ATS pomaga zobaczyć, dlaczego formatowanie ma większe znaczenie, niż większość kandydatów zdaje sobie sprawę. Oto co dzieje się w sekundach po kliknięciu Aplikuj.",
+      "step1": {
+        "title": "Twój plik CV jest odbierany i konwertowany",
+        "description": "ATS odbiera Twój plik PDF lub DOCX i przepuszcza go przez silnik ekstrakcji tekstu. Próbuje przekonwertować dokument na dane strukturalne — oddzielając imię, dane kontaktowe, historię zatrudnienia, wykształcenie i umiejętności na osobne pola. Jeśli plik używa tabel, kolumn lub obrazów, ten krok ekstrakcji generuje zniekształcone lub brakujące dane."
+      },
+      "step2": {
+        "title": "Treść jest parsowana, mapowana i oceniana",
+        "description": "Po ekstrakcji ATS mapuje Twoją treść względem opisu stanowiska. Szuka dopasowań słów kluczowych w umiejętnościach, stanowiskach i opisach doświadczenia. Systemy takie jak Workday i Greenhouse przypisują ocenę trafności na podstawie tego, jak ściśle Twoje CV odpowiada wymaganiom stanowiska. Źle sparsowane CV otrzymuje niską ocenę, nawet jeśli posiadasz wszystkie kwalifikacje."
+      },
+      "step3": {
+        "title": "Rekruterzy przeglądają uszeregowanych kandydatów",
+        "description": "Rekruterzy zazwyczaj przeglądają 10–20 najwyżej uszeregowanych CV dla każdego stanowiska. Jeśli Twoje formatowanie spowodowało błędy parsowania, możesz znaleźć się niżej niż mniej wykwalifikowani kandydaci, których CV zostało poprawnie sparsowane. Nasze szablony przyjazne dla ATS zapewniają, że Twoje kwalifikacje są dokładnie odzwierciedlone w rankingu."
+      },
+      "warning": "Ważne: Zgodność z ATS jest konieczna, ale niewystarczająca. Nadal musisz dostosować słowa kluczowe w CV do każdego opisu stanowiska. Użyj naszego narzędzia sprawdzania ATS, aby przetestować CV pod kątem konkretnych ogłoszeń o pracę po wybraniu szablonu."
+    },
+    "cta": {
+      "title": "Stwórz CV przyjazne dla ATS teraz",
+      "subtitle": "Wybierz szablon, dodaj informacje i pobierz CV, które przejdzie każde skanowanie ATS. Za darmo, bez rejestracji.",
+      "buildButton": "Stwórz moje CV",
+      "checkButton": "Sprawdź moje istniejące CV",
+      "browseAll": "Przeglądaj wszystkie szablony",
+      "formatGuide": "Przewodnik po formatach CV",
+      "examples": "Ponad 300 przykładów CV"
+    },
+    "whatMakes": {
+      "title": "Co sprawia, że szablon CV jest przyjazny dla ATS?",
+      "p1": "Szablon CV przyjazny dla ATS jest zaprojektowany tak, aby systemy śledzenia kandydatów — oprogramowanie, którego pracodawcy używają do zbierania, sortowania i rankingowania aplikacji o pracę — mogły dokładnie odczytać każdą sekcję Twojego CV. Gdy ATS nie zdoła sparsować Twojego CV, Twoje imię, doświadczenie i umiejętności mogą w ogóle nie dotrzeć na ekran rekrutera. Według badania Harvard Business School z 2023 roku, ponad 75% CV jest odrzucanych przez ATS, zanim człowiek je przejrzy.",
+      "p2": "Najczęstszą przyczyną niepowodzenia parsowania CV przez ATS jest formatowanie. Tabele, wielokolumnowe układy, pola tekstowe, niestandardowe czcionki i osadzone grafiki powodują błędy parsowania. ATS czyta Twoje CV jako strumień tekstu od góry do dołu. Jeśli ten strumień jest przerywany przez złożone formatowanie, system błędnie przypisuje dane — umieszczając tytuł stanowiska tam, gdzie powinna być nazwa firmy, lub całkowicie pomijając sekcję umiejętności.",
+      "p3": "Nasze 16 szablonów CV jest zaprojektowanych od podstaw ze zgodnością z ATS jako głównym wymogiem. Używają standardowych nagłówków sekcji, jednokolumnowych układów, bezpiecznych czcionek webowych i czystego renderowania HTML do PDF. Każdy szablon został przetestowany na pięciu najczęściej używanych platformach ATS: Workday, Greenhouse, Lever, iCIMS i Taleo. Rezultatem jest CV, które wygląda profesjonalnie dla rekruterów i jest idealnie parsowane przez maszyny.",
+      "link1": "Jak napisać CV przyjazne dla ATS",
+      "link2": "Co to jest ATS? Kompletny przewodnik",
+      "link3": "Zrozumienie wskaźników parsowania ATS"
+    },
+    "mistakes": {
+      "title": "5 błędów formatowania, przez które ATS odrzuca CV",
+      "intro": "Nawet silni kandydaci są odfiltrowywani, gdy formatowanie ich CV myli parser ATS. Oto pięć najczęstszych błędów, które widzimy — i które nasze szablony automatycznie eliminują.",
+      "items": {
+        "1": {
+          "title": "Używanie tabel lub wielokolumnowych układów",
+          "description": "ATS czyta tekst jako jeden strumień. Tabele i kolumny powodują łączenie niepowiązanych treści — Twój numer telefonu może trafić do pola tytułu stanowiska."
+        },
+        "2": {
+          "title": "Umieszczanie danych kontaktowych w nagłówkach lub stopkach",
+          "description": "Wiele platform ATS całkowicie pomija nagłówki i stopki dokumentu. Jeśli Twoje imię, e-mail lub numer telefonu znajdują się tylko w nagłówku, znikają ze sparsowanego profilu."
+        },
+        "3": {
+          "title": "Używanie kreatywnych etykiet sekcji",
+          "description": "Etykiety takie jak \"Moja droga\" zamiast \"Doświadczenie\" lub \"Mój warsztat\" zamiast \"Umiejętności\" powodują, że ATS pomija całą sekcję. Trzymaj się standardowych etykiet."
+        },
+        "4": {
+          "title": "Zapisywanie jako PDF oparty na obrazach lub używanie niestandardowych czcionek",
+          "description": "Jeśli tekst nie może być zaznaczony w Twoim PDF, ATS nie może go odczytać. Zeskanowane dokumenty, eksporty z narzędzi projektowych i rzadkie czcionki generują nieczytelne pliki."
+        },
+        "5": {
+          "title": "Dodawanie grafik, ikon lub pasków umiejętności",
+          "description": "Paski postępu, oceny gwiazdkowe i ikony danych kontaktowych są niewidoczne dla ATS. Ocena umiejętności \"4 z 5 gwiazdek\" staje się pustym tekstem, który uzyskuje zero punktów."
+        }
+      },
+      "cta": "Nie wiesz, czy Twoje obecne CV przechodzi?",
+      "ctaLink": "Przeprowadź darmowe sprawdzenie zgodności z ATS"
+    },
+    "checklist": {
+      "title": "Lista kontrolna zgodności z ATS",
+      "intro": "Przed wysłaniem jakiegokolwiek CV sprawdź, czy spełnia te osiem wymagań. Każdy szablon na tej stronie automatycznie spełnia wszystkie osiem — ale jeśli modyfikujesz treść, pamiętaj o tych zasadach.",
+      "items": {
+        "1": "Używa standardowych nagłówków sekcji (Doświadczenie, Wykształcenie, Umiejętności)",
+        "2": "Jednokolumnowy układ z jasną kolejnością czytania od góry do dołu",
+        "3": "Brak tabel, pól tekstowych ani elementów pływających",
+        "4": "Dane kontaktowe w treści, nie w nagłówkach/stopkach",
+        "5": "Standardowe czcionki webowe (Arial, Calibri, Georgia, Helvetica)",
+        "6": "PDF z zaznaczalnym tekstem (nie oparty na obrazach)",
+        "7": "Brak grafik, ikon ani pasków umiejętności zastępujących tekst",
+        "8": "Daty w spójnym formacie (MM/RRRR lub Miesiąc RRRR)"
+      },
+      "outro": "Potrzebujesz pomocy w dostosowaniu CV do konkretnej pracy? Przeglądaj nasze",
+      "outroLink": "ponad 300 przykładów CV dla konkretnych zawodów"
+    },
+    "faq": {
+      "title": "Najczęściej zadawane pytania o szablony przyjazne dla ATS",
+      "items": {
+        "1": {
+          "q": "Co oznacza \"przyjazny dla ATS\" w odniesieniu do szablonu CV?",
+          "a": "Szablon przyjazny dla ATS jest zaprojektowany tak, aby systemy śledzenia kandydatów mogły dokładnie wyodrębnić Twoje imię, dane kontaktowe, historię zatrudnienia, wykształcenie i umiejętności. Unika tabel, wielokolumnowych układów, osadzonych obrazów i niestandardowych czcionek powodujących błędy parsowania. Wszystkie 16 szablonów na tej stronie jest przetestowanych na Workday, Greenhouse, Lever, iCIMS i Taleo."
+        },
+        "2": {
+          "q": "Czy kreatywne lub nowoczesne CV może nadal być zgodne z ATS?",
+          "a": "Tak. Zgodność z ATS zależy od struktury bazowej, nie od wizualnego designu. CV może używać akcentów kolorystycznych, niestandardowych odstępów i stylowej typografii, utrzymując jednocześnie jednokolumnowy układ z zaznaczalnym tekstem, który ATS czyta poprawnie. Nasze nowoczesne i kreatywne szablony osiągają tę równowagę — wyglądają wyróżniająco dla rekruterów, a jednocześnie są idealnie parsowane przez maszyny."
+        },
+        "3": {
+          "q": "Czy powinienem przesłać CV jako PDF czy DOCX dla ATS?",
+          "a": "PDF jest generalnie najbezpieczniejszym wyborem w 2026 roku. Nowoczesne platformy ATS (Workday, Greenhouse, Lever) niezawodnie parsują dobrze ustrukturyzowane pliki PDF. DOCX może wprowadzać niespójności formatowania między różnymi wersjami Word. Nasz kreator eksportuje pliki PDF z zaznaczalnym tekstem, zoptymalizowane pod parsowanie ATS — zalecamy używanie PDF, chyba że ogłoszenie wyraźnie wymaga DOCX."
+        },
+        "4": {
+          "q": "Skąd mam wiedzieć, czy moje CV przechodzi filtrowanie ATS?",
+          "a": "Użyj naszego darmowego narzędzia sprawdzania ATS, aby przesłać CV i zobaczyć, jak ATS je odczytuje. Narzędzie pokazuje, które pola zostały poprawnie sparsowane, które słowa kluczowe pasowały do opisu stanowiska i gdzie wystąpiły błędy parsowania. Możesz testować tyle razy, ile potrzebujesz, przed wysłaniem aplikacji."
+        },
+        "5": {
+          "q": "Czy potrzebuję innego szablonu do każdej aplikacji o pracę?",
+          "a": "Nie — jeden szablon przyjazny dla ATS działa dla wszystkich aplikacji. To, co powinieneś zmieniać między aplikacjami, to treść: dostosuj sekcję umiejętności, podsumowanie zawodowe i punkty z osiągnięciami do słów kluczowych z każdego opisu stanowiska. Struktura szablonu pozostaje ta sama; zmieniają się słowa kluczowe."
+        }
+      }
+    }
+  }
+}

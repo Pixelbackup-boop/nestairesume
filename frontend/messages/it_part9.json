@@ -1,0 +1,200 @@
+{
+  "Contact": {
+    "title": "Contattaci",
+    "description": "Che tu abbia una domanda sul tuo account, bisogno di aiuto con il tuo CV o voglia segnalare un problema — siamo qui per aiutarti. Compila il modulo qui sotto e il nostro team ti risponderà entro 24 ore.",
+    "inquiryType": "Tipo di Richiesta",
+    "inquiryTypes": {
+      "general": "Richiesta Generale",
+      "billing": "Problema di Fatturazione",
+      "cvCreation": "Problema con la Creazione del CV"
+    },
+    "name": "Il Tuo Nome",
+    "namePlaceholder": "Mario Rossi",
+    "email": "Indirizzo Email",
+    "emailPlaceholder": "tu@esempio.com",
+    "subject": "Oggetto",
+    "subjectPlaceholder": "Come possiamo aiutarti?",
+    "message": "Messaggio",
+    "messagePlaceholder": "Raccontaci di più sulla tua richiesta...",
+    "submit": "Invia Messaggio",
+    "sending": "Invio in corso...",
+    "successTitle": "Messaggio Inviato!",
+    "successMessage": "Grazie per averci contattato. Ti risponderemo entro 24 ore.",
+    "sendAnother": "Invia un Altro Messaggio",
+    "errorGeneric": "Qualcosa è andato storto. Riprova più tardi.",
+    "errorRateLimit": "Troppe richieste. Attendi prima di riprovare."
+  },
+  "Help": {
+    "title": "Come Funziona",
+    "subtitle": "Una guida passo passo per creare il tuo CV professionale, dalla registrazione al download del documento finito.",
+    "quickNav": "Vai a:",
+    "tipLabel": "Consiglio Pro",
+    "faqLabel": "Domande Frequenti",
+    "troubleshootingLabel": "Risoluzione Problemi",
+    "gettingStarted": {
+      "title": "Per Iniziare",
+      "steps": {
+        "1": {
+          "title": "Crea il Tuo Account",
+          "description": "Clicca il pulsante Inizia sulla homepage o il link Registrati nella barra di navigazione. Puoi registrarti istantaneamente con il tuo account Google, GitHub o LinkedIn — senza bisogno di password. Preferisci l'email? Inserisci il tuo nome, email e scegli una password.",
+          "tip": "Accedere con Google o LinkedIn è il metodo più veloce — il nome e l'email vengono compilati automaticamente."
+        },
+        "2": {
+          "title": "Verifica la Tua Email",
+          "description": "Se ti sei registrato con email, controlla la tua casella di posta per un messaggio da Best AI Resume. Inserisci il codice di verifica a 6 cifre nella pagina di verifica. Il codice scade in 10 minuti — se scade, clicca 'Rinvia Codice' per riceverne uno nuovo.",
+          "tip": "Controlla la cartella spam se non vedi l'email entro un minuto."
+        },
+        "3": {
+          "title": "Sei Dentro",
+          "description": "Dopo la verifica, verrai portato alla schermata di onboarding dove scegli come costruire il tuo primo CV. Il tuo account salva automaticamente ogni modifica, quindi non perderai mai il tuo lavoro — anche se chiudi il browser."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Serve una carta di credito per registrarsi?",
+          "a": "No. Puoi creare un account e costruire il tuo CV in modo completamente gratuito. Una carta di credito è necessaria solo quando scegli un piano a pagamento."
+        },
+        "2": {
+          "q": "E se non ricevo il codice di verifica?",
+          "a": "Controlla prima la cartella spam. Se non c'è, clicca 'Rinvia Codice' nella pagina di verifica. Se ancora non lo ricevi, prova a registrarti con Google o LinkedIn."
+        },
+        "3": {
+          "q": "Posso usare lo stesso account su più dispositivi?",
+          "a": "Sì. Il tuo account e tutti i tuoi CV sono archiviati nel cloud. Accedi da qualsiasi dispositivo e riprendi da dove avevi lasciato."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Costruire il Tuo CV",
+      "steps": {
+        "1": {
+          "title": "Scegli il Tuo Metodo",
+          "description": "Nella pagina di onboarding troverai quattro opzioni: Generazione AI (consigliata per la maggior parte degli utenti), Carica CV (analizza un PDF esistente), Importa da LinkedIn (importa i dati del tuo profilo), o Inizia da Zero (modello vuoto). Ogni opzione ti guida attraverso una breve configurazione prima di aprire l'editor.",
+          "tip": "La Generazione AI è il modo più veloce per ottenere un CV completo e professionale — potrai sempre modificarlo in seguito."
+        },
+        "2": {
+          "title": "Lascia Fare all'AI",
+          "description": "Se hai scelto la Generazione AI, inserisci il tuo nome completo, il titolo professionale per cui ti candidi e il tuo livello di esperienza (base, intermedio o senior). Clicca Genera e la nostra AI creerà un CV completo con riepilogo professionale, esperienza lavorativa, formazione e sezione competenze — tutto personalizzato per il ruolo desiderato."
+        },
+        "3": {
+          "title": "Scegli un Modello",
+          "description": "Dopo la generazione, sfoglia la nostra galleria di oltre 16 modelli. I modelli sono organizzati in categorie: Professionale, Creativo, Minimale e Compatibile con ATS. Clicca su qualsiasi modello per visualizzarlo con i tuoi dati. Cambia modello in qualsiasi momento senza perdere i contenuti.",
+          "tip": "Puoi cambiare modello in qualsiasi momento dall'editor — i contenuti rimangono gli stessi, cambia solo il design."
+        },
+        "4": {
+          "title": "Modifica e Personalizza",
+          "description": "L'editor ha sezioni a schede sulla sinistra (Info Personali, Esperienza, Formazione, Competenze, ecc.) e un'anteprima live sulla destra. Modifica qualsiasi campo e vedi le modifiche riflesse istantaneamente. Puoi riordinare le sezioni, aggiungere sezioni personalizzate, regolare le dimensioni dei font e cambiare i colori d'accento per adattarli al tuo stile."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Posso creare più CV?",
+          "a": "Sì. Puoi creare e salvare più CV personalizzati per diverse candidature. Passa dall'uno all'altro dalla tua dashboard."
+        },
+        "2": {
+          "q": "La generazione AI funziona in tutte le lingue?",
+          "a": "L'AI attualmente genera contenuti in inglese. Puoi modificare manualmente il contenuto generato in qualsiasi lingua dopo la creazione."
+        },
+        "3": {
+          "q": "Posso importare il mio profilo LinkedIn?",
+          "a": "Sì. Scegli l'opzione 'Importa da LinkedIn' durante l'onboarding. Verrai guidato nella connessione del tuo profilo LinkedIn per importare la tua storia lavorativa."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Scegliere un Piano",
+      "steps": {
+        "1": {
+          "title": "Visita la Pagina Prezzi",
+          "description": "Clicca su Prezzi nella barra di navigazione o visita direttamente la pagina prezzi. Vedrai quattro piani: Starter (gratuito, download limitati), Gold, Diamond e Platinum. Usa il selettore in alto per passare dalla fatturazione mensile a quella annuale — i piani annuali fanno risparmiare fino al 40%."
+        },
+        "2": {
+          "title": "Scegli il Tuo Piano",
+          "description": "Confronta i quattro piani — Starter, Gold, Diamond e Platinum — e scegli quello che si adatta alle tue esigenze. Tutti i piani vengono addebitati immediatamente e danno accesso istantaneo a tutte le funzionalità.",
+          "tip": "La fatturazione annuale fa risparmiare fino al 40% rispetto a quella mensile — e hai comunque le stesse funzionalità."
+        },
+        "3": {
+          "title": "Completa il Pagamento",
+          "description": "Clicca il pulsante Inizia Ora sul piano scelto. Verrai reindirizzato a una pagina di pagamento sicura Stripe dove inserire i dati della carta. Dopo il pagamento, il tuo account viene aggiornato istantaneamente e puoi iniziare a scaricare subito."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Posso cancellare il mio abbonamento in qualsiasi momento?",
+          "a": "Sì. Puoi cancellare dalle impostazioni del tuo account in qualsiasi momento. Manterrai l'accesso fino alla fine del periodo di fatturazione corrente."
+        },
+        "2": {
+          "q": "Cosa succede se cancello?",
+          "a": "Manterrai l'accesso al tuo piano fino alla fine del periodo di fatturazione corrente. Dopodiché, il tuo account torna allo stato scaduto."
+        },
+        "3": {
+          "q": "Posso cambiare piano in seguito?",
+          "a": "Sì. Puoi aggiornare o declassare il tuo piano in qualsiasi momento dalle impostazioni del tuo account. Le modifiche hanno effetto immediato."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Scaricare il Tuo CV",
+      "steps": {
+        "1": {
+          "title": "Clicca Scarica",
+          "description": "Nell'editor, cerca il pulsante verde Scarica PDF nell'angolo in alto a destra della pagina. Cliccalo per aprire la finestra di download, che mostra i download rimanenti per il mese e ti permette di confermare l'esportazione."
+        },
+        "2": {
+          "title": "Ottieni il Tuo PDF",
+          "description": "Il tuo CV viene generato come PDF di alta qualità, perfetto al pixel, che corrisponde esattamente a ciò che vedi nell'anteprima. Il PDF è ottimizzato sia per la visualizzazione digitale (email, portali di lavoro) che per la stampa su carta formato standard.",
+          "tip": "Per i migliori risultati, usa i modelli compatibili con ATS quando ti candidi attraverso portali di lavoro online — vengono analizzati in modo più affidabile."
+        },
+        "3": {
+          "title": "Monitora il Tuo Utilizzo",
+          "description": "Ogni piano ha un limite mensile di download che si reimposta alla data di fatturazione. Puoi verificare i download rimanenti nella finestra di download o nelle impostazioni del tuo account. Se raggiungi il limite, aggiorna il piano in qualsiasi momento per sbloccare più download istantaneamente."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Posso scaricare in formato Word/DOCX?",
+          "a": "Sì. Oltre al PDF, puoi esportare il tuo CV come file DOCX compatibile con Microsoft Word e Google Docs."
+        },
+        "2": {
+          "q": "Perché il mio PDF sembra leggermente diverso dall'anteprima?",
+          "a": "L'anteprima è un'approssimazione. Il PDF è l'output finale, perfetto al pixel. Piccole differenze nel rendering dei font sono normali tra l'anteprima del browser e il PDF."
+        },
+        "3": {
+          "q": "Cosa succede se esaurisco i download?",
+          "a": "Il conteggio dei download si reimposta mensilmente. Se hai bisogno di più download prima del reset, puoi aggiornare il tuo piano per accedere immediatamente a un limite più alto."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Risoluzione Problemi",
+      "items": {
+        "1": {
+          "title": "Non riesco ad accedere al mio account",
+          "description": "Prova a reimpostare la password usando il link 'Password dimenticata' nella pagina di accesso. Se ti sei registrato con Google, GitHub o LinkedIn, assicurati di usare lo stesso provider. Cancella i cookie del browser se il problema persiste."
+        },
+        "2": {
+          "title": "Il codice di verifica non arriva",
+          "description": "Controlla la cartella spam. I codici scadono dopo 10 minuti — clicca 'Rinvia Codice' per riceverne uno nuovo. Se usi un'email aziendale, il firewall IT potrebbe bloccare le email automatiche. Prova con un indirizzo email personale."
+        },
+        "3": {
+          "title": "Il pagamento è stato rifiutato",
+          "description": "Verifica il numero della carta, la data di scadenza e il CVV. Assicurati che la tua carta consenta transazioni internazionali o online. Se il problema persiste, prova con un'altra carta o contatta la tua banca. Tutti i pagamenti sono elaborati in modo sicuro tramite Stripe."
+        },
+        "4": {
+          "title": "Il PDF sembra diverso dall'anteprima",
+          "description": "L'anteprima mostra un'approssimazione dell'output finale. Se elementi specifici sembrano diversi, prova a cambiare modello o a regolare le dimensioni dei font nelle impostazioni di design dell'editor. Assicurati che il tuo browser sia aggiornato."
+        },
+        "5": {
+          "title": "Le modifiche non vengono salvate",
+          "description": "Il tuo lavoro viene salvato automaticamente nel cloud. Se noti modifiche non salvate, controlla la connessione internet. Prova ad aggiornare la pagina — le tue ultime modifiche dovrebbero apparire. Se la connessione è lenta, attendi qualche secondo tra una modifica e l'altra."
+        }
+      }
+    },
+    "cta": {
+      "title": "Pronto per Iniziare?",
+      "subtitle": "Crea il tuo CV professionale in pochi minuti con il nostro generatore basato su AI.",
+      "buildButton": "Inizia a Costruire",
+      "contactButton": "Contatta il Supporto"
+    }
+  }
+}

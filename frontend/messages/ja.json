@@ -1,0 +1,2091 @@
+{
+  "Meta": {
+    "title": "無料AI履歴書ビルダー | 数分でATS対応履歴書を作成 | Best AI Resume",
+    "description": "無料のAI履歴書ビルダーで、ATS最適化されたプロフェッショナルな履歴書を数分で作成できます。50,000人以上のプロフェッショナルに信頼されています。登録不要ですぐに開始できます。"
+  },
+
+  "Common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "close": "閉じる",
+    "search": "検索",
+    "submit": "送信",
+    "next": "次へ",
+    "back": "戻る",
+    "download": "ダウンロード",
+    "preview": "プレビュー",
+    "scrollToExplore": "スクロールして探索",
+    "dismiss": "閉じる",
+    "addLanguage": "言語を追加",
+    "uploadProfilePhoto": "プロフィール写真をアップロード",
+    "removeProfilePhoto": "プロフィール写真を削除",
+    "documentType": "ドキュメントの種類",
+    "searchByJobTitle": "職種名またはスキルで検索...",
+    "searchIcons": "アイコンを検索...",
+    "describeTemplate": "テンプレートを説明してください...",
+    "languagePlaceholder": "例：スペイン語、フランス語、中国語",
+    "templateNamePlaceholder": "例：モダン開発者履歴書",
+    "returningBanner": {
+      "welcomeBack": "おかえりなさい！",
+      "lastEdited": "最終編集日：{date}",
+      "unsavedDraft": "未保存の履歴書の下書きがあります",
+      "continueEditing": "編集を続ける"
+    }
+  },
+
+  "Navigation": {
+    "features": "機能",
+    "templates": "テンプレート",
+    "pricing": "料金プラン",
+    "blog": "ブログ",
+    "careerTips": "キャリアアドバイス",
+    "careerGuides": "キャリアガイド",
+    "resumeExamples": "履歴書サンプル",
+    "resumeExamplesDesc": "職種別履歴書ガイド＆テンプレート",
+    "careerTipsDesc": "キャリアに関する専門家のアドバイス",
+    "blogDesc": "ヒント、ガイド、インサイト",
+    "viewAllExamples": "すべての履歴書サンプルを見る",
+    "viewAllTips": "すべてのキャリアアドバイスを見る",
+    "tools": "ツール",
+    "coverLetter": "カバーレタージェネレーター",
+    "coverLetterDesc": "AIによるカバーレター作成",
+    "resignationLetter": "退職届",
+    "resignationLetterDesc": "プロフェッショナルな退職届",
+    "atsChecker": "ATS履歴書チェッカー",
+    "atsCheckerDesc": "ATS互換性をチェック",
+    "mockInterview": "模擬面接",
+    "mockInterviewDesc": "AIによる面接練習",
+    "resumeFormat": "履歴書フォーマットガイド",
+    "resumeFormatDesc": "時系列式、機能別式など",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "getStarted": "無料で始める",
+    "dashboard": "ダッシュボード",
+    "admin": "管理者",
+    "adminPanel": "管理パネル",
+    "profile": "プロフィール",
+    "resources": "リソース",
+    "compare": "比較",
+    "byStyle": "スタイル別",
+    "byFormat": "フォーマット別",
+    "allTemplates": "すべてのテンプレート",
+    "modern": "モダン",
+    "creative": "クリエイティブ",
+    "simpleClean": "シンプル＆クリーン",
+    "freeResumeBuilder": "無料履歴書ビルダー",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "無料で履歴書を作成",
+    "chooseFromTemplates": "20以上のプロフェッショナルテンプレートから選択",
+    "technology": "テクノロジー",
+    "business": "ビジネス",
+    "healthcare": "医療",
+    "seeAllTech": "テクノロジーをすべて見る",
+    "seeAllBusiness": "ビジネスをすべて見る",
+    "seeAllHealthcare": "医療をすべて見る",
+    "resumeExamplesCount": "300以上の履歴書サンプル",
+    "browseAll": "すべて見る",
+    "softwareEngineer": "ソフトウェアエンジニア",
+    "dataAnalyst": "データアナリスト",
+    "devopsEngineer": "DevOpsエンジニア",
+    "fullStackDev": "フルスタック開発者",
+    "projectManager": "プロジェクトマネージャー",
+    "marketingManager": "マーケティングマネージャー",
+    "businessAnalyst": "ビジネスアナリスト",
+    "salesManager": "営業マネージャー",
+    "nurse": "看護師",
+    "medicalAssistant": "医療アシスタント",
+    "pharmacist": "薬剤師",
+    "dentalAssistant": "歯科助手",
+    "guides": "ガイド",
+    "latestPosts": "最新の投稿",
+    "allCareerTips": "すべてのキャリアアドバイス",
+    "allBlog": "すべてのブログ記事",
+    "atsGuide": "ATS対応履歴書ガイド",
+    "coverLetterGuide": "カバーレターガイド",
+    "interviewPrep": "面接準備",
+    "bestResumeApps": "おすすめ履歴書作成アプリ",
+    "resumeSkills": "履歴書のスキルガイド",
+    "linkedinGuide": "LinkedIn最適化",
+    "writingServices": "履歴書作成サービス",
+    "freeAlternatives": "無料の代替サービス",
+    "paidAlternatives": "有料の代替サービス",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs AIビルダー",
+    "whyWereBetter": "No.1無料ビルダーの理由",
+    "whyWereBetterDesc": "AI搭載、ATS最適化、完全無料"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "AI搭載の履歴書作成",
+      "title": "AIで作る",
+      "titleHighlight": "履歴書を数分で",
+      "subtitle": "登録不要",
+      "description": "AIを使って、ATS最適化された魅力的な履歴書を数分で作成できます。無料でお試しください。保存したいときだけ登録すればOKです。",
+      "ctaPrimary": "AIで作成",
+      "ctaSecondary": "テンプレートを見る",
+      "noCreditCard": "クレジットカード不要",
+      "noSignup": "登録なしで開始",
+      "trustedBy": "50,000人以上のプロフェッショナルが利用",
+      "atsScore": "ATSスコア",
+      "aiSuggestion": "AIの提案"
+    },
+    "features": {
+      "sectionTitle": "機能",
+      "title": "理想の仕事に就くための",
+      "titleHighlight": "すべてがここに",
+      "subtitle": "強力なAIツールと美しいデザインで、あなたを際立たせます。",
+      "aiWriting": {
+        "title": "AI搭載ライティング",
+        "description": "AIがあなたの実績を強調する、説得力のある箇条書きやプロフェッショナルな要約を作成します。"
+      },
+      "templates": {
+        "title": "20以上のプレミアムテンプレート",
+        "description": "ATS互換性を維持しながら、際立つプロフェッショナルなテンプレートから選べます。"
+      },
+      "atsOptimization": {
+        "title": "ATS最適化",
+        "description": "リアルタイムのATSスコアリングで、自動審査システムを確実にパスします。"
+      },
+      "realTimePreview": {
+        "title": "リアルタイムプレビュー",
+        "description": "入力するたびに変更が即座に反映されます。表示内容は採用担当者が見るものと同じです。"
+      },
+      "pdfExport": {
+        "title": "PDFエクスポート",
+        "description": "完璧なPDFをダウンロードして送信できます。デジタルと印刷の両方に最適化されています。"
+      },
+      "smartSuggestions": {
+        "title": "スマート提案",
+        "description": "対象職種に基づいた、スキル、キーワード、コンテンツのインテリジェントな提案を受けられます。"
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "使い方",
+      "title": "3つのステップで",
+      "titleHighlight": "完璧な履歴書を",
+      "step1": {
+        "title": "詳細を入力",
+        "description": "経験、学歴、スキルを入力してください。AIがすべてのステップをサポートします。"
+      },
+      "step2": {
+        "title": "テンプレートを選択",
+        "description": "20以上のプロフェッショナルテンプレートから選択。カスタマイズしながらリアルタイムでプレビューできます。"
+      },
+      "step3": {
+        "title": "PDFをダウンロード",
+        "description": "完成した履歴書を完璧なPDFとしてエクスポート。採用担当者に好印象を与えましょう。"
+      }
+    },
+    "templates": {
+      "sectionTitle": "テンプレート",
+      "title": "あらゆる職種に対応する",
+      "titleHighlight": "プレミアムテンプレート",
+      "viewAll": "すべてのテンプレートを見る"
+    },
+    "testimonials": {
+      "sectionTitle": "お客様の声",
+      "title": "世界中のプロフェッショナルに",
+      "titleHighlight": "愛されています"
+    },
+    "cta": {
+      "title": "あなたの勝てる",
+      "titleHighlight": "履歴書を作りませんか？",
+      "subtitle": "Best AI Resumeで理想の仕事に就いた50,000人以上のプロフェッショナルに参加しましょう。",
+      "button": "今すぐ無料で履歴書を作成",
+      "note": "登録不要で開始できます"
+    },
+    "faq": {
+      "sectionTitle": "よくある質問",
+      "title": "よくある",
+      "titleHighlight": "ご質問",
+      "items": [
+        {
+          "question": "このAI履歴書ビルダーは本当に無料ですか？",
+          "answer": "はい！履歴書の作成、編集、プレビューは完全に無料です。無制限のPDFダウンロードや追加テンプレートなどの高度な機能にはプレミアムプランをご用意していますが、費用をかけずにプロフェッショナルな履歴書を作成できます。"
+        },
+        {
+          "question": "ATSとは何ですか？なぜ重要なのですか？",
+          "answer": "ATS（応募者追跡システム）は、フォーチュン500企業の99%が履歴書のスキャンとフィルタリングに使用するソフトウェアです。当社のAIは、適切なキーワード、フォーマット、構造で履歴書をATS最適化し、自動審査を確実にパスさせます。"
+        },
+        {
+          "question": "AIはどのように履歴書の作成を手伝ってくれますか？",
+          "answer": "当社のAIは、あなたの職種と経験を分析し、プロフェッショナルな箇条書き、要約、スキルの提案を生成します。採用担当者が求める業界固有のキーワードと実績重視の表現を使用します。"
+        },
+        {
+          "question": "ビルダーを使うのに登録は必要ですか？",
+          "answer": "開始に登録は不要です！まず履歴書全体を作成できます。進捗を保存したりダウンロードしたいときだけ登録してください。すべてをリスクなしでお試しいただけます。"
+        },
+        {
+          "question": "履歴書をPDFとしてダウンロードできますか？",
+          "answer": "はい！プレビューと同じ見た目の完璧なPDFとして履歴書をエクスポートできます。PDFはデジタル応募と標準レター/A4用紙への印刷の両方に最適化されています。"
+        },
+        {
+          "question": "履歴書の作成にはどのくらい時間がかかりますか？",
+          "answer": "ほとんどのユーザーが10分以内にプロフェッショナルな履歴書を作成しています。AIの提案と事前作成されたコンテンツにより、ゼロから始めるよりも大幅に時間を短縮できます。"
+        }
+      ]
+    },
+    "companies": {
+      "title": "利用者の就職先企業",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+    }
+  },
+
+  "Features": {
+    "meta": {
+      "title": "AI履歴書ビルダーの機能 - スマートライティング、ATS最適化など",
+      "description": "強力な機能をご紹介：AI搭載ライティング、リアルタイムATSスコアリング、50以上のテンプレート、即座のPDFエクスポート。面接を獲得するプロフェッショナルな履歴書を作成しましょう。"
+    }
+  },
+
+  "Templates": {
+    "meta": {
+      "title": "50以上のプロフェッショナル履歴書テンプレート - 無料＆ATS対応",
+      "description": "50以上のプロフェッショナルな履歴書テンプレートを閲覧できます。ATS最適化されたモダン、クリエイティブ、ミニマリストデザイン。無料でカスタマイズ＆ダウンロード。"
+    },
+    "sectionTitle": "テンプレート",
+    "title": "2026年の",
+    "titleHighlight": "おすすめ履歴書テンプレート",
+    "subtitle": "編集モードを選択し、プロフェッショナルにデザインされたテンプレートからお選びください。",
+    "searchPlaceholder": "テンプレートを検索...",
+    "templatesAvailable": "{count}件のテンプレートが利用可能",
+    "noResults": "テンプレートが見つかりません",
+    "noResultsHint": "検索条件やフィルターを調整してみてください",
+    "useTemplate": "テンプレートを使用",
+    "formBuilder": {
+      "title": "フォームビルダー",
+      "description": "ステップバイステップの編集ガイド",
+      "hint": "フォームに入力するだけで、テンプレートがデザインを処理します。素早くプロフェッショナルな履歴書を作成するのに最適です。"
+    },
+    "canvasEditor": {
+      "title": "キャンバスエディター",
+      "description": "完全なクリエイティブの自由",
+      "hint": "ドラッグ＆ドロップで自由にデザイン。すべての要素を完全にコントロールできます。履歴書版Canvaのようなものです。"
+    },
+    "categories": {
+      "all": "すべて",
+      "professional": "プロフェッショナル",
+      "creative": "クリエイティブ",
+      "minimal": "シンプル＆クリーン",
+      "modern": "モダン",
+      "classic": "クラシック"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "ゼロから作成しますか？",
+        "description": "キャンバスエディターの強力なツールを使って、完全にカスタムの履歴書を作成できます。",
+        "button": "空白のキャンバスを開く"
+      },
+      "builder": {
+        "title": "AIに履歴書を作成させますか？",
+        "description": "あなたの職種に基づいて、AIが数秒でプロフェッショナルな履歴書を作成します。",
+        "button": "AIで作成"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "連絡先",
+      "experience": "経験",
+      "workExperience": "職務経歴",
+      "professionalExperience": "職務経歴",
+      "education": "学歴",
+      "skills": "スキル",
+      "coreSkills": "コアスキル",
+      "technicalSkills": "技術スキル",
+      "languages": "言語",
+      "interests": "趣味・関心",
+      "strengths": "強み",
+      "certifications": "資格・認定",
+      "awards": "受賞歴",
+      "projects": "プロジェクト",
+      "summary": "概要",
+      "professionalSummary": "職務要約",
+      "profile": "プロフィール",
+      "about": "自己紹介",
+      "additionalInfo": "補足情報",
+      "socialLinks": "SNSリンク",
+      "personalDetails": "個人情報",
+      "credentials": "資格情報"
+    },
+    "labels": {
+      "present": "現在",
+      "gpa": "GPA",
+      "native": "ネイティブ",
+      "fluent": "流暢",
+      "advanced": "上級",
+      "intermediate": "中級",
+      "basic": "初級"
+    }
+  },
+
+  "About": {
+    "meta": {
+      "title": "Best AI Resumeについて - 就職活動を変革するミッション",
+      "description": "Best AI Resumeについて - 何千人もの人々が理想の仕事に就くことを支援するAI搭載プラットフォーム。私たちのミッション、価値観、キャリア成功へのコミットメントをご紹介します。"
+    }
+  },
+
+  "Privacy": {
+    "meta": {
+      "title": "プライバシーポリシー - Best AI Resume",
+      "description": "Best AI Resumeがお客様のデータをどのように保護しているかをご覧ください。当社のプライバシーポリシーでは、個人情報の収集、使用、保護の方法について説明しています。"
+    }
+  },
+
+  "Terms": {
+    "meta": {
+      "title": "利用規約 - Best AI Resume",
+      "description": "Best AI Resumeの利用規約をお読みください。AI履歴書ビルダープラットフォームをご利用の際の権利と責任についてご理解いただけます。"
+    }
+  },
+
+  "Onboarding": {
+    "meta": {
+      "title": "履歴書を作成 - AI履歴書ジェネレーター",
+      "description": "数秒でプロフェッショナルな履歴書の作成を開始できます。2つの質問に答えるだけで、AIがあなたに合った就職に強い履歴書を作成します。"
+    },
+    "title": "あなたについて教えてください",
+    "subtitle": "2つの質問だけで、AIが完璧な履歴書を作成します",
+    "fullName": "お名前",
+    "fullNamePlaceholder": "例：山田太郎",
+    "jobTitle": "応募する職種",
+    "jobTitlePlaceholder": "例：ソフトウェアエンジニア、マーケティングマネージャー",
+    "experienceLevel": "経験レベル",
+    "levels": {
+      "entry": "エントリーレベル",
+      "entryDesc": "経験0〜2年",
+      "mid": "ミドルレベル",
+      "midDesc": "経験3〜5年",
+      "senior": "シニアレベル",
+      "seniorDesc": "経験6〜10年",
+      "executive": "エグゼクティブ",
+      "executiveDesc": "経験10年以上"
+    },
+    "generate": "履歴書を生成",
+    "generating": {
+      "title": "履歴書を作成中",
+      "analyzing": "職種を分析中...",
+      "summary": "プロフェッショナルな要約を生成中...",
+      "experience": "職務経歴を作成中...",
+      "skills": "関連スキルを追加中...",
+      "polishing": "履歴書を仕上げ中...",
+      "almostThere": "もうすぐ完了...",
+      "wait": "通常、数秒で完了します..."
+    },
+    "step1": {
+      "title": "履歴書の作成方法を選択してください",
+      "subtitle": "お好みの方法を選んで開始しましょう",
+      "recommended": "おすすめ",
+      "ai": {
+        "title": "AIで作成",
+        "description": "職種を教えていただければ、数秒でプロフェッショナルな履歴書を生成します"
+      },
+      "upload": {
+        "title": "履歴書をアップロード",
+        "description": "既存の履歴書をアップロードして、AIで改善します"
+      },
+      "linkedin": {
+        "title": "LinkedInからインポート",
+        "description": "LinkedInプロフィールを自動的にインポートします"
+      },
+      "comingSoon": "近日公開",
+      "startBlank": "または空白の履歴書から始める"
+    },
+    "step4": {
+      "title": "テンプレートを選択",
+      "subtitle": "履歴書の準備ができました！お好みのデザインを選んでください。",
+      "backToEdit": "情報の編集に戻る",
+      "browseAll": "すべてのテンプレートを見る",
+      "continue": "エディターに進む"
+    },
+    "upload": {
+      "title": "履歴書をアップロード",
+      "subtitle": "情報を抽出し、AIで改善します",
+      "dragDrop": "ここに履歴書をドラッグ＆ドロップ",
+      "orBrowse": "またはファイルを選択",
+      "supportedFormats": "PDFまたはDOCX（最大{maxSize}）",
+      "validating": "ファイルを検証中...",
+      "uploading": "アップロード中...",
+      "parsing": "AIが履歴書を分析中...",
+      "success": "履歴書のインポートに成功しました！",
+      "error": "問題が発生しました",
+      "tryAgain": "もう一度試す",
+      "invalidType": "PDFまたはDOCXファイルをアップロードしてください",
+      "fileTooLarge": "ファイルが{maxSize}の制限を超えています"
+    },
+    "linkedin": {
+      "title": "LinkedInからインポート",
+      "subtitle": "LinkedInプロフィールをPDFとしてエクスポートし、ここにアップロードしてください",
+      "step1": "LinkedInプロフィールにアクセス",
+      "step2": "「リソース」→「PDFに保存」をクリック",
+      "step3": "ダウンロードしたPDFを下にアップロード",
+      "openLinkedIn": "LinkedInプロフィールを開く",
+      "tip": "LinkedIn PDFは完全な職歴のインポートに最適です"
+    },
+    "word": {
+      "badge": "Microsoft Word履歴書",
+      "step1Title": "Word履歴書の作成方法を選択してください",
+      "aiDescription": "職種を教えていただければ、数秒でWord履歴書を生成します",
+      "subtitle": "2つの質問だけで、AIが完璧なWord履歴書を作成します",
+      "startBlank": "または空白のWord履歴書から始める",
+      "step4Title": "Wordテンプレートを選択",
+      "step4Subtitle": "履歴書の準備ができました！Microsoft Wordテンプレートを選んでください。",
+      "continue": "Wordエディターに進む"
+    },
+    "gdocs": {
+      "badge": "Google Docs履歴書",
+      "step1Title": "Google Docs履歴書の作成方法を選択してください",
+      "aiDescription": "職種を教えていただければ、数秒でGoogle Docs履歴書を生成します",
+      "subtitle": "2つの質問だけで、AIが完璧なGoogle Docs履歴書を作成します",
+      "startBlank": "または空白のGoogle Docs履歴書から始める",
+      "step4Title": "Google Docsテンプレートを選択",
+      "step4Subtitle": "履歴書の準備ができました！Google Docs向けに最適化されたテンプレートを選んでください。",
+      "continue": "Google Docsエディターに進む"
+    },
+    "main": {
+      "step1Title": "どのように始めますか？",
+      "step1Subtitle": "あなたに最適な方法を選んでください",
+      "recommended": "おすすめ",
+      "aiTitle": "AI生成",
+      "aiDescription": "AIにプロフェッショナルな履歴書を作成させる",
+      "uploadTitle": "既存をアップロード",
+      "uploadDescription": "履歴書をインポートして改善",
+      "linkedinDescription": "LinkedInプロフィールを変換",
+      "startBlank": "空白の履歴書から始める",
+      "step2Subtitle": "パーソナライズされた履歴書の作成に使用します",
+      "fullName": "お名前",
+      "fullNamePlaceholder": "例：山田太郎",
+      "targetJobTitle": "希望職種",
+      "jobTitlePlaceholder": "例：ソフトウェアエンジニア",
+      "goBack": "戻る",
+      "generatingTitle": "履歴書を作成中...",
+      "processingAnalyzing": "プロフィールを分析中...",
+      "processingCrafting": "プロフェッショナルな要約を作成中...",
+      "processingExperience": "職務経歴を生成中...",
+      "processingSkills": "関連スキルを追加中...",
+      "processingPolishing": "最終仕上げ中...",
+      "processingAlmost": "もうすぐ完了...",
+      "step4Subtitle": "あなたのスタイルに合ったデザインを選択",
+      "uploadSubtitle": "AIが履歴書を分析し、改善版を作成します",
+      "secureNotice": "ファイルは安全に処理され、サーバーには保存されません",
+      "linkedinSubtitle": "LinkedInからプロフィールをPDFとしてダウンロードし、アップロードしてください",
+      "linkedinHowTo": "LinkedInプロフィールのエクスポート方法：",
+      "linkedinStep1": "LinkedInプロフィールにアクセス",
+      "linkedinStep2": "プロフィールの「リソース」ボタンをクリック",
+      "linkedinStep3": "「PDFに保存」を選択",
+      "linkedinStep4": "ダウンロードしたPDFを下にアップロード"
+    }
+  },
+
+  "Pricing": {
+    "meta": {
+      "title": "料金プラン - AI履歴書ビルダー 月額$3から",
+      "description": "就職活動に最適なプランをお選びください。隠れた料金なし、いつでもキャンセル可能。月額わずか$3から。"
+    },
+    "sectionTitle": "料金プラン",
+    "title": "シンプルで透明な",
+    "titleHighlight": "料金体系",
+    "subtitle": "隠れた料金なし、いつでもキャンセル可能。",
+    "viewComparison": "詳細比較を見る",
+    "cancelAnytime": "いつでもキャンセル可能",
+    "securePayments": "Stripeによる安全な決済",
+    "mostPopular": "一番人気",
+    "bestValue": "最もお得",
+    "billedImmediately": "即時請求",
+    "allPlansInclude": "全プラン共通：広告なし・全フリーミアムテンプレート",
+    "billingToggle": {
+      "monthly": "月額",
+      "annual": "年額",
+      "savePercent": "20%お得"
+    },
+    "page": {
+      "formBuilder": "フォームビルダー",
+      "canvasEditor": "キャンバスエディター",
+      "premiumTemplates": "プレミアムテンプレート",
+      "aiBuild": "AI履歴書ビルダー",
+      "atsOptimization": "ATS最適化",
+      "prioritySupport": "優先サポート",
+      "aiSuggestions": "AIの提案",
+      "coverLetterBuilder": "カバーレタービルダー",
+      "noAds": "広告なし",
+      "earlyAccess": "新機能への早期アクセス",
+      "cvCreations": "月{count}回の履歴書作成",
+      "aiGenerations": "月{count}回のAI生成",
+      "downloads": "月{count}回のダウンロード",
+      "coverLetters": "月{count}通のカバーレター",
+      "unlimited": "無制限"
+    },
+    "comparison": {
+      "title": "プラン比較",
+      "feature": "機能",
+      "cvCreations": "履歴書作成",
+      "aiGenerations": "AI生成",
+      "downloads": "ダウンロード",
+      "perMonth": "{count}/月",
+      "unlimited": "無制限",
+      "savedResumes": "保存済み履歴書",
+      "templates": "テンプレート",
+      "all50": "全フリーミアム",
+      "premiumPlus": "50以上＆プレミアム",
+      "aiBuild": "AI履歴書ビルダー",
+      "adFree": "広告なし"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "cancelAnytime": {
+        "question": "サブスクリプションはいつでもキャンセルできますか？",
+        "answer": "はい、いつでもサブスクリプションをキャンセルできます。現在の請求期間の終了までアクセスを維持できます。"
+      },
+      "paymentMethods": {
+        "question": "どのような決済方法に対応していますか？",
+        "answer": "Stripeを通じて、主要なクレジットカード（Visa、MasterCard、American Express）に対応しています。PayPalは近日対応予定です。"
+      },
+      "starterOneTime": {
+        "question": "請求はどのように行われますか？",
+        "answer": "すべてのプランは、ご契約時に即時請求されます。月額プランは毎月、年額プランは毎年更新されます。アカウント設定からいつでもキャンセルできます。"
+      },
+      "runOutDownloads": {
+        "question": "制限に達した場合はどうなりますか？",
+        "answer": "月間の履歴書作成またはAI生成の制限に達した場合は、上位プランにアップグレードして容量を増やせます。制限は各請求期間の開始時にリセットされます。"
+      },
+      "switchPlans": {
+        "question": "プラン間の切り替えはできますか？",
+        "answer": "もちろんです。いつでもプランのアップグレードまたはダウングレードが可能です。変更は即座に反映され、料金は日割り計算されます。"
+      },
+      "refunds": {
+        "question": "返金は可能ですか？",
+        "answer": "購入後の返金には対応しておりません。アカウント設定からいつでもキャンセルでき、請求期間の終了までアクセスを維持できます。"
+      }
+    },
+    "cta": {
+      "title": "始める準備はできましたか？",
+      "subtitle": "すべてのプランは即時請求。いつでもキャンセル可能。",
+      "button": "プランを見る",
+      "contactSupport": "サポートに連絡"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "就職活動中の方に最適",
+      "price": "$3",
+      "period": "/月",
+      "annualPrice": "$29",
+      "annualPeriod": "/年",
+      "annualMonthly": "$2.42/月",
+      "features": {
+        "cvCreations": "月30回の履歴書作成",
+        "aiGenerations": "月50回のAI生成",
+        "downloads": "月3回のダウンロード",
+        "templates": "全フリーミアムテンプレート",
+        "noAds": "広告なし",
+        "export": "PDFエクスポート"
+      },
+      "cta": "始める"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "積極的に就職活動中の方に",
+      "price": "$6",
+      "period": "/月",
+      "annualPrice": "$58",
+      "annualPeriod": "/年",
+      "annualMonthly": "$4.83/月",
+      "features": {
+        "cvCreations": "月150回の履歴書作成",
+        "aiGenerations": "月100回のAI生成",
+        "downloads": "月10回のダウンロード",
+        "templates": "全フリーミアムテンプレート",
+        "noAds": "広告なし",
+        "ats": "ATS最適化"
+      },
+      "cta": "始める"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "プロフェッショナルに最適",
+      "price": "$10",
+      "period": "/月",
+      "annualPrice": "$96",
+      "annualPeriod": "/年",
+      "annualMonthly": "$8/月",
+      "features": {
+        "cvCreations": "月300回の履歴書作成",
+        "aiGenerations": "月200回のAI生成",
+        "downloads": "月25回のダウンロード",
+        "templates": "全テンプレート＆プレミアム",
+        "support": "優先サポート",
+        "coverLetter": "カバーレタービルダー"
+      },
+      "cta": "始める"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "ヘビーユーザー＆エージェンシー向け",
+      "price": "$30",
+      "period": "/月",
+      "annualPrice": "$288",
+      "annualPeriod": "/年",
+      "annualMonthly": "$24/月",
+      "features": {
+        "cvCreations": "無制限の履歴書作成",
+        "aiGenerations": "月500回のAI生成",
+        "downloads": "月120回のダウンロード",
+        "templates": "全テンプレート＆プレミアム",
+        "support": "優先サポート",
+        "coverLetter": "カバーレタービルダー",
+        "earlyAccess": "新機能への早期アクセス"
+      },
+      "cta": "今すぐ登録"
+    }
+  },
+
+  "Blog": {
+    "title": "ブログ",
+    "subtitle": "キャリアに役立つヒント、ガイド、インサイト",
+    "searchPlaceholder": "記事を検索...",
+    "readMore": "続きを読む",
+    "readingTime": "{time}分で読めます",
+    "categories": "カテゴリ",
+    "allCategories": "すべてのカテゴリ",
+    "relatedPosts": "関連記事",
+    "shareOn": "共有先",
+    "noResults": "記事が見つかりません"
+  },
+
+  "Footer": {
+    "tagline": "世界中のプロフェッショナルに信頼されるAI搭載履歴書ビルダー。",
+    "product": "プロダクト",
+    "company": "会社情報",
+    "legal": "法的情報",
+    "social": "ソーシャル",
+    "about": "会社概要",
+    "careers": "採用情報",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "contact": "お問い合わせ",
+    "help": "ヘルプガイド",
+    "copyright": "© {year} Best AI Resume. All rights reserved.",
+    "resources": "リソース",
+    "resumeFormatGuide": "履歴書フォーマットガイド",
+    "canvaAlternative": "Canvaの代替",
+    "overleafAlternative": "Overleafの代替",
+    "resumeIoAlternative": "Resume.ioの代替",
+    "reziAlternative": "Reziの代替",
+    "builder": "履歴書ビルダー",
+    "templateCategories": "テンプレート",
+    "compare": "比較",
+    "googleDocs": "Google Docsテンプレート",
+    "simpleClean": "シンプル＆クリーン",
+    "freeResumeBuilder": "無料履歴書ビルダー",
+    "microsoftWord": "Wordテンプレート",
+    "modern": "モダンテンプレート",
+    "creative": "クリエイティブテンプレート",
+    "coverLetterGenerator": "AIカバーレタージェネレーター",
+    "resignationLetterGenerator": "AI退職届ジェネレーター",
+    "buildResumeFree": "無料で履歴書を作成",
+    "zetyAlternative": "Zetyの代替",
+    "livecareerAlternative": "LiveCareerの代替",
+    "adobeAlternative": "Adobeの代替",
+    "novaAlternative": "Novaの代替",
+    "europassAlternative": "Europassの代替",
+    "chatgptComparison": "ChatGPT比較",
+    "resumeExamples": "履歴書サンプル",
+    "softwareEngineer": "ソフトウェアエンジニア",
+    "nurse": "看護師",
+    "projectManager": "プロジェクトマネージャー",
+    "marketingManager": "マーケティングマネージャー",
+    "dataAnalyst": "データアナリスト",
+    "accountant": "会計士",
+    "viewAll300": "300以上すべて見る",
+    "careerGuides": "キャリアガイド",
+    "careerGuidance": "キャリアガイダンス",
+    "jobSearchStrategy": "就職活動戦略",
+    "careerDevelopmentPlan": "キャリア開発計画",
+    "highPayingSkills": "高収入スキル",
+    "interviewPreparation": "面接準備",
+    "salaryNegotiation": "給与交渉"
+  },
+
+  "Auth": {
+    "meta": {
+      "loginTitle": "ログイン - Best AI Resume",
+      "loginDescription": "Best AI Resumeアカウントにサインインして、保存済みの履歴書にアクセスし、作成を続けましょう。",
+      "registerTitle": "アカウント作成 - Best AI Resume",
+      "registerDescription": "無料アカウントを作成して、履歴書の保存、プレミアムテンプレートへのアクセス、AI機能のロックを解除しましょう。"
+    },
+    "login": "ログイン",
+    "register": "アカウント作成",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワードの確認",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "noAccount": "アカウントをお持ちでないですか？",
+    "hasAccount": "すでにアカウントをお持ちですか？",
+    "signUp": "新規登録",
+    "signIn": "サインイン",
+    "fullName": "お名前",
+    "welcomeBack": "おかえりなさい",
+    "welcomeBackSubtitle": "サインインして履歴書の作成を続けましょう",
+    "createAccount": "アカウント作成",
+    "createAccountSubtitle": "今日からプロフェッショナルな履歴書の作成を始めましょう",
+    "continueWithGoogle": "Googleで続ける",
+    "continueWithGitHub": "GitHubで続ける",
+    "continueWithLinkedIn": "LinkedInで続ける",
+    "orContinueWith": "またはメールで続ける",
+    "verifyEmail": "メールアドレスの確認",
+    "verificationCodeSent": "6桁のコードを送信しました：",
+    "enterFullCode": "6桁のコードをすべて入力してください",
+    "verificationFailed": "認証に失敗しました。もう一度お試しください。",
+    "resendFailed": "コードの再送信に失敗しました。もう一度お試しください。",
+    "verifying": "確認中...",
+    "verifyAndContinue": "確認して続ける",
+    "didntReceiveCode": "コードが届きませんか？",
+    "resendIn": "再送信まで",
+    "resendCode": "コードを再送信",
+    "wrongEmail": "メールアドレスが間違っていますか？",
+    "changeEmail": "メールアドレスを変更"
+  },
+
+  "Errors": {
+    "notFound": "ページが見つかりません",
+    "serverError": "問題が発生しました",
+    "unauthorized": "続行するにはログインしてください"
+  },
+
+  "LanguageSwitcher": {
+    "label": "言語を選択"
+  },
+
+  "Dashboard": {
+    "meta": {
+      "title": "ダッシュボード - マイ履歴書",
+      "description": "履歴書の管理、ダウンロードの追跡、サブスクリプション設定へのアクセスができます。"
+    },
+    "welcome": "おかえりなさい{name}！",
+    "subtitle": "理想の仕事に就く準備はできていますか？際立つ履歴書を作成しましょう。",
+    "stats": {
+      "resumesCreated": "作成した履歴書",
+      "downloads": "ダウンロード",
+      "coverLetters": "カバーレター"
+    },
+    "usage": {
+      "noPlan": "プランなし",
+      "subscribeToUnlock": "登録してロック解除",
+      "unlimited": "無制限"
+    },
+    "cta": {
+      "badge": "AI搭載履歴書ビルダー",
+      "title": "完璧な履歴書を作成",
+      "createNew": "新しい履歴書を作成"
+    },
+    "subscription": {
+      "plan": "{tier}プラン",
+      "expiredPlan": "期限切れプラン",
+      "noActivePlan": "有効なプランなし",
+      "active": "有効",
+      "planActive": "プランは有効です",
+      "subscribePrompt": "登録してダウンロードを解除",
+      "resubscribe": "再登録",
+      "subscribe": "登録する",
+      "manage": "サブスクリプション管理"
+    },
+    "templateUsage": "テンプレート使用状況",
+    "resumes": {
+      "title": "あなたの履歴書",
+      "total": "合計{count}件",
+      "newResume": "新しい履歴書",
+      "noResumes": "まだ履歴書がありません",
+      "noResumesDesc": "初めてのAI搭載履歴書を作成して、理想の仕事への応募を始めましょう。",
+      "createFirst": "最初の履歴書を作成",
+      "createNew": "新しい履歴書を作成"
+    },
+    "resumeCard": {
+      "untitled": "無題の履歴書",
+      "noName": "名前なし",
+      "today": "今日",
+      "yesterday": "昨日",
+      "daysAgo": "{days}日前",
+      "duplicate": "複製",
+      "delete": "削除",
+      "deleteConfirm": "この履歴書を削除してもよろしいですか？",
+      "edit": "編集"
+    },
+    "quickActions": {
+      "softwareEngineer": "ソフトウェアエンジニア",
+      "productManager": "プロダクトマネージャー",
+      "designer": "デザイナー",
+      "marketing": "マーケティング",
+      "dataScientist": "データサイエンティスト",
+      "sales": "営業"
+    },
+    "proTip": {
+      "label": "プロのヒント",
+      "title": "応募ごとに履歴書をカスタマイズ",
+      "description": "特定の求人内容に合わせた履歴書は、面接獲得率が3倍になります。AIを使って、各応募に合わせた履歴書を素早くカスタマイズしましょう。",
+      "stat1Value": "3倍",
+      "stat1Label": "面接獲得率",
+      "stat2Value": "85%",
+      "stat2Label": "ATS通過率"
+    },
+    "loading": "読み込み中..."
+  },
+
+  "Profile": {
+    "meta": {
+      "title": "プロフィール設定 - Best AI Resume",
+      "description": "アカウント設定の管理、プロフィールの更新、パスワードの変更ができます。"
+    },
+    "title": "プロフィール設定",
+    "chooseAvatar": "アバターを選択",
+    "accountDetails": "アカウント詳細",
+    "name": "名前",
+    "namePlaceholder": "お名前",
+    "saveChanges": "変更を保存",
+    "saving": "保存中...",
+    "emailAddress": "メールアドレス",
+    "changeEmail": "変更",
+    "newEmail": "新しいメールアドレス",
+    "emailPlaceholder": "your@newemail.com",
+    "emailChangeHint": "このメールアドレスに認証コードが送信されます",
+    "cancel": "キャンセル",
+    "sendCode": "コードを送信",
+    "sending": "送信中...",
+    "enterCodeSentTo": "送信先に届いた6桁のコードを入力してください：",
+    "verifyCode": "確認",
+    "verifying": "確認中...",
+    "useAnotherEmail": "別のメールアドレスを使用",
+    "codeSent": "新しいメールアドレスに認証コードを送信しました",
+    "emailChanged": "メールアドレスの変更が完了しました",
+    "enterNewEmail": "新しいメールアドレスを入力してください",
+    "enterCode": "6桁のコードを入力してください",
+    "emailChangeFailed": "認証コードの送信に失敗しました",
+    "verificationFailed": "認証に失敗しました",
+    "changePassword": "パスワード変更",
+    "currentPassword": "現在のパスワード",
+    "newPassword": "新しいパスワード",
+    "confirmPassword": "新しいパスワード（確認）",
+    "passwordHint": "8文字以上で入力してください",
+    "changePasswordBtn": "パスワードを変更",
+    "changingPassword": "変更中...",
+    "profileUpdated": "プロフィールが更新されました",
+    "passwordChanged": "パスワードが変更されました",
+    "updateFailed": "更新に失敗しました",
+    "passwordChangeFailed": "パスワードの変更に失敗しました",
+    "passwordMismatch": "パスワードが一致しません",
+    "passwordTooShort": "パスワードは8文字以上にしてください",
+    "noChanges": "保存する変更はありません"
+  },
+
+  "Checkout": {
+    "meta": {
+      "title": "お支払い - サブスクリプションの完了",
+      "description": "サブスクリプションを完了して、無制限の履歴書機能をロック解除しましょう。Stripeによる安全な決済。"
+    },
+    "invalidPlan": {
+      "title": "無効なプラン",
+      "description": "選択されたプランは有効ではありません。料金ページからプランを選択してください。",
+      "backBtn": "料金ページに戻る"
+    },
+    "signIn": {
+      "title": "続行するにはサインインしてください",
+      "subtitle": "{plan}プランを購入するにはサインインしてください",
+      "signInBtn": "サインイン",
+      "createAccountBtn": "アカウント作成"
+    },
+    "header": {
+      "completePurchase": "購入を完了",
+      "subscribePlan": "{plan}プランに登録"
+    },
+    "billing": {
+      "account": "アカウント",
+      "billing": "請求",
+      "monthlyStarting": "月額、本日から開始"
+    },
+    "submit": {
+      "redirecting": "Stripeにリダイレクト中...",
+      "subscribeNow": "今すぐ登録"
+    },
+    "secure": "Stripeによる安全な決済",
+    "cancelNote": "いつでもキャンセル可能。長期契約なし。",
+    "loading": "お支払いを読み込み中...",
+    "errors": {
+      "cancelled": "お支払いがキャンセルされました。準備ができたらもう一度お試しください。",
+      "sessionExpired": "セッションが期限切れです。もう一度サインインしてください。",
+      "failedCheckout": "お支払いの開始に失敗しました。もう一度お試しください。",
+      "networkError": "サーバーに接続できません。インターネット接続を確認してください。"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/月",
+        "description": "就職活動中の方に最適",
+        "features": ["月30回の履歴書作成", "月3回のAI生成", "月3回のPDFダウンロード", "全フリーミアムテンプレート", "広告なし"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/月",
+        "description": "積極的に就職活動中の方に",
+        "features": ["月150回の履歴書作成", "月10回のAI生成", "月10回のPDFダウンロード", "ATS最適化", "カバーレタービルダー"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/月",
+        "description": "プロフェッショナルに最適",
+        "features": ["月300回の履歴書作成", "月30回のAI生成", "月25回のPDFダウンロード", "全プレミアムテンプレート", "優先サポート"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/月",
+        "description": "ヘビーユーザー＆エージェンシー向け",
+        "features": ["無制限の履歴書作成", "月100回のAI生成", "無制限のPDFダウンロード", "全プレミアムテンプレート", "優先サポート", "新機能への早期アクセス"]
+      }
+    }
+  },
+
+  "CheckoutSuccess": {
+    "title": "お支払いが完了しました！",
+    "welcome": "{plan}へようこそ！",
+    "planLabel": "{plan}プラン",
+    "yourBenefits": "新しい特典",
+    "createResume": "履歴書を作成",
+    "goToDashboard": "ダッシュボードへ",
+    "receiptNote": "領収書がメールに送信されました。サブスクリプションはいつでも",
+    "dashboardLink": "ダッシュボード",
+    "supportText": "ご質問はこちらまで：",
+    "loading": "サブスクリプション詳細を読み込み中...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["月30回の履歴書作成", "月3回のAI生成", "月3回のPDFダウンロード", "全フリーミアムテンプレート", "広告なし"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["月150回の履歴書作成", "月10回のAI生成", "月10回のPDFダウンロード", "ATS最適化", "カバーレタービルダー"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["月300回の履歴書作成", "月30回のAI生成", "月25回のPDFダウンロード", "全プレミアムテンプレート", "優先サポート"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["無制限の履歴書作成", "月100回のAI生成", "無制限のPDFダウンロード", "全プレミアムテンプレート", "優先サポート", "新機能への早期アクセス"]
+      }
+    }
+  },
+
+  "CanvasEditor": {
+    "meta": {
+      "title": "キャンバス履歴書エディター - ビジュアルで履歴書をデザイン | Best AI Resume",
+      "description": "ビジュアルキャンバスエディターで履歴書をデザイン。テキスト、画像、図形をドラッグ＆ドロップして、独自のカスタム履歴書レイアウトを作成できます。"
+    },
+    "loading": "キャンバスエディターを読み込み中...",
+    "desktop": {
+      "title": "デスクトップが必要です",
+      "description": "キャンバスエディターは精密なデザイン作業のため、大きな画面が必要です。この機能にアクセスするには、ノートパソコンまたはデスクトップパソコンをご使用ください。",
+      "useBuilder": "代わりに標準ビルダーを使用",
+      "backToDashboard": "ダッシュボードに戻る",
+      "mobileNote": "標準の履歴書ビルダーはモバイルでも快適にご利用いただけます！"
+    },
+    "header": {
+      "backToBuilder": "ビルダーに戻る",
+      "backToTemplates": "キャンバステンプレートに戻る",
+      "title": "キャンバスエディター",
+      "beta": "ベータ",
+      "elements": "{count}個の要素",
+      "postToCommunity": "コミュニティに投稿"
+    },
+    "shortcuts": "V Select | T Text | Delete Remove | Cmd+D Duplicate | Cmd+Z Undo | Double-click text to edit",
+    "toolbar": {
+      "select": "選択 (V)",
+      "text": "テキスト (T)",
+      "image": "画像 (I)",
+      "shape": "図形 (S)",
+      "rectangle": "四角形",
+      "circle": "円",
+      "star": "星",
+      "line": "線",
+      "undo": "元に戻す (Cmd+Z)",
+      "redo": "やり直し (Cmd+Shift+Z)",
+      "duplicate": "複製 (Cmd+D)",
+      "delete": "削除",
+      "bringToFront": "最前面へ",
+      "sendToBack": "最背面へ",
+      "zoomOut": "縮小",
+      "zoomIn": "拡大",
+      "aiGenerate": "AI生成",
+      "aiGenerateTitle": "AI要約ジェネレーター",
+      "save": "プロジェクトを保存 (Cmd+S)",
+      "load": "プロジェクトを読み込み",
+      "export": "エクスポート",
+      "downloadPdf": "PDFをダウンロード",
+      "downloadPng": "PNGをダウンロード",
+      "downloadJpeg": "JPEGをダウンロード"
+    },
+    "alerts": {
+      "templateLoadFailed": "テンプレートの読み込みに失敗しました。削除された可能性があります。",
+      "canvasNotReady": "キャンバスの準備ができていません。もう一度お試しください。",
+      "projectSaved": "プロジェクトが保存されました！",
+      "noSavedProject": "保存されたプロジェクトが見つかりません。",
+      "projectLoaded": "プロジェクトが読み込まれました！",
+      "projectLoadFailed": "プロジェクトの読み込みに失敗しました。"
+    },
+    "downloadModal": {
+      "title": "ダウンロードするにはログインしてください",
+      "description": "無料アカウントを作成して、キャンバスデザインを{format}でダウンロードしましょう。",
+      "savedTitle": "作品は保存されています",
+      "savedNotice": "キャンバスプロジェクトはブラウザに保存されています。サインイン後に戻ってきたときもそのまま残っています。",
+      "signUp": "無料で登録",
+      "signInPrefix": "すでにアカウントをお持ちですか？",
+      "signInLink": "サインイン",
+      "restored": "キャンバスプロジェクトが復元されました！エクスポートをクリックしてダウンロードしてください。"
+    }
+  },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "キャンバス履歴書テンプレート - ビジュアルで履歴書をデザイン | Best AI Resume",
+      "description": "クリエイティブなキャンバス履歴書テンプレートを閲覧。ビジュアルエディターですべての要素をドラッグ、ドロップ、カスタマイズできます。"
+    },
+    "sectionTitle": "キャンバステンプレート",
+    "title": "キャンバス履歴書",
+    "titleHighlight": "テンプレート",
+    "subtitle": "完全なクリエイティブの自由で履歴書をデザイン。ビジュアルエディターですべての要素をドラッグ、ドロップ、カスタマイズできます。",
+    "freeBadge": "無料",
+    "searchPlaceholder": "キャンバステンプレートを検索...",
+    "noResults": "テンプレートが見つかりません",
+    "noResultsHint": "検索条件やフィルターを調整してみてください",
+    "useTemplate": "テンプレートを使用",
+    "categories": {
+      "all": "すべて",
+      "professional": "プロフェッショナル",
+      "creative": "クリエイティブ",
+      "minimal": "ミニマル"
+    },
+    "startFromScratch": {
+      "title": "ゼロから作成しますか？",
+      "description": "キャンバスエディターの強力なデザインツールを使って、完全にカスタムの履歴書を作成できます。",
+      "button": "空白のキャンバスを開く"
+    },
+    "formBuilderBanner": "フォーム型テンプレートをお探しですか？",
+    "viewFormTemplates": "フォームビルダーテンプレートを見る"
+  },
+
+  "Builder": {
+    "meta": {
+      "title": "履歴書ビルダー - プロフェッショナルなCVをオンラインで作成",
+      "description": "使いやすいエディターでプロフェッショナルな履歴書を作成。リアルタイムプレビュー、AIの提案、即座のPDFダウンロード。"
+    },
+    "personalInfo": {
+      "title": "個人情報",
+      "subtitle": "連絡先とプロフェッショナルな要約から始めましょう。"
+    },
+    "profilePhoto": "プロフィール写真",
+    "upload": "アップロード",
+    "change": "変更",
+    "fullName": "お名前",
+    "fullNamePlaceholder": "山田太郎",
+    "jobTitle": "職種",
+    "jobTitlePlaceholder": "ソフトウェアエンジニア",
+    "email": "メールアドレス",
+    "emailPlaceholder": "taro@example.com",
+    "phone": "電話番号",
+    "phonePlaceholder": "+81 (90) 1234-5678",
+    "location": "所在地",
+    "locationPlaceholder": "東京都渋谷区",
+    "website": "ウェブサイト",
+    "websitePlaceholder": "example.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/tarolname",
+    "nationality": "国籍",
+    "nationalityPlaceholder": "例：日本、アメリカ",
+    "idDocument": "身分証明書 / パスポート / 運転免許証",
+    "selectDocType": "書類を選択",
+    "nationalId": "マイナンバーカード",
+    "passport": "パスポート",
+    "drivingLicense": "運転免許証",
+    "documentNumber": "書類番号",
+    "professionalSummary": "職務要約",
+    "summaryPlaceholder": "スケーラブルなWebアプリケーションの構築に情熱を持つ経験豊富なソフトウェアエンジニア...",
+    "generateWithAI": "AIで生成",
+    "additionalInfo": "補足情報",
+    "socialLinks": "SNSリンク",
+    "customFields": {
+      "title": "カスタムフィールド",
+      "subtitle": "独自のラベルと内容でカスタムセクションを追加できます。",
+      "add": "カスタムフィールドを追加",
+      "noCustomFields": "まだカスタムフィールドは追加されていません。",
+      "label": "セクション名",
+      "labelPlaceholder": "例：ボランティア活動、趣味、出版物",
+      "content": "内容",
+      "contentPlaceholder": "内容をここに追加..."
+    },
+    "shapes": {
+      "circle": "丸",
+      "rounded": "角丸",
+      "square": "四角"
+    },
+    "experience": {
+      "title": "職務経歴",
+      "subtitle": "関連する職務経験を追加してください。",
+      "add": "経歴を追加",
+      "notSpecified": "（未指定）",
+      "companyName": "会社名",
+      "jobTitle": "職種",
+      "company": "会社",
+      "city": "市区町村",
+      "country": "国",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "currentlyWork": "現在この会社に在籍中",
+      "description": "説明",
+      "improveAI": "AIで改善",
+      "noExperience": "まだ経歴が追加されていません。",
+      "addFirst": "最初の経歴を追加"
+    },
+    "education": {
+      "title": "学歴",
+      "subtitle": "学歴を追加してください。",
+      "add": "学歴を追加",
+      "notSpecified": "（未指定）",
+      "degree": "学位",
+      "school": "学校 / 大学",
+      "cityOptional": "市区町村（任意）",
+      "countryOptional": "国（任意）",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "gpaOptional": "GPA（任意）",
+      "honorsOptional": "優等（任意）",
+      "clubsOptional": "クラブ＆課外活動（任意）",
+      "descriptionOptional": "説明（任意）",
+      "noEducation": "まだ学歴が追加されていません。",
+      "addEducation": "学歴を追加",
+      "credentials": "資格情報",
+      "certifications": "資格・認定",
+      "awards": "受賞歴"
+    },
+    "skills": {
+      "title": "スキル",
+      "subtitle": "技術スキルとソフトスキルを習熟度とともに追加してください。",
+      "placeholder": "例：React、Python、リーダーシップ",
+      "proficiencyLevel": "習熟度",
+      "beginner": "入門",
+      "basic": "初級",
+      "intermediate": "中級",
+      "advanced": "上級",
+      "expert": "エキスパート",
+      "noSkills": "まだスキルが追加されていません。",
+      "suggestedSkills": "おすすめスキル",
+      "additionalInfo": "補足情報",
+      "languages": "言語",
+      "strengths": "強み",
+      "interests": "趣味・関心"
+    },
+    "tabs": {
+      "personal": "個人情報",
+      "personalDesc": "基本情報＆要約",
+      "experience": "経歴",
+      "experienceDesc": "職務経歴",
+      "education": "学歴",
+      "educationDesc": "学歴情報",
+      "skills": "スキル",
+      "skillsDesc": "専門知識",
+      "design": "デザイン",
+      "designDesc": "スタイル＆レイアウト"
+    },
+    "ui": {
+      "progress": "進捗",
+      "canvasEditor": "キャンバスエディター",
+      "backToHome": "ホームに戻る",
+      "untitledResume": "無題の履歴書",
+      "downloadPdf": "PDFをダウンロード",
+      "livePreview": "ライブプレビュー",
+      "showReference": "リファレンス画像を表示",
+      "reference": "リファレンス",
+      "zoomOut": "縮小",
+      "zoomIn": "拡大",
+      "resetZoom": "ズームをリセット",
+      "referenceDesign": "リファレンスデザイン",
+      "referenceCaption": "参考用のオリジナルテンプレートデザイン",
+      "editResume": "履歴書を編集",
+      "previewResume": "履歴書をプレビュー",
+      "edit": "編集",
+      "preview": "プレビュー",
+      "loadingBuilder": "ビルダーを読み込み中..."
+    },
+    "welcome": {
+      "title": "アカウントが作成されました！",
+      "description": "履歴書は保存されました。編集を続けるか、プランを選んでダウンロードできます。",
+      "choosePlan": "プランを選択",
+      "backToEditor": "エディターに戻る"
+    },
+    "feedback": {
+      "reportIssue": "問題を報告",
+      "title": "テンプレートフィードバック",
+      "forTemplate": "テンプレート",
+      "typeFeedback": "フィードバック",
+      "typeBug": "バグ",
+      "typeSuggestion": "アイデア",
+      "placeholder": "このテンプレートに関する問題やフィードバックを記述してください...",
+      "messageTooShort": "メッセージは5文字以上にしてください",
+      "submitError": "フィードバックの送信に失敗しました。もう一度お試しください。",
+      "submit": "送信",
+      "cancel": "キャンセル",
+      "close": "閉じる",
+      "thankYou": "ありがとうございます！",
+      "thankYouDesc": "フィードバックが送信されました。テンプレートの改善のため、すべてのレポートを確認しています。"
+    }
+  },
+
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Google Docs用にダウンロード",
+    "loading": "Google Docsビルダーを読み込み中..."
+  },
+
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "MS Wordをダウンロード",
+    "loading": "Wordビルダーを読み込み中..."
+  },
+
+  "CoverLetter": {
+    "meta": {
+      "title": "無料AIカバーレタージェネレーター - プロフェッショナルなカバーレターを作成",
+      "description": "無料のAIツールで、プロフェッショナルでパーソナライズされたカバーレターを数分で作成。群衆から際立ち、より多くの面接を獲得しましょう。"
+    },
+    "hero": {
+      "badge": "AI搭載カバーレタージェネレーター",
+      "title": "完璧な",
+      "titleHighlight": "カバーレターを作成",
+      "subtitle": "AIがあなたの強みを強調し、採用担当者の注目を集める、説得力のあるパーソナライズされたカバーレターを作成します。"
+    },
+    "form": {
+      "yourDetails": "あなたの情報",
+      "fillInfo": "情報を入力してください",
+      "fullName": "お名前",
+      "email": "メールアドレス",
+      "jobTitle": "職種",
+      "companyName": "会社名",
+      "hiringManager": "採用担当者名（任意）",
+      "keySkills": "主要スキル",
+      "experience": "関連する経験",
+      "tone": "文章のトーン",
+      "professional": "プロフェッショナル",
+      "friendly": "フレンドリー",
+      "confident": "自信のある",
+      "enthusiastic": "熱意のある",
+      "generate": "カバーレターを生成",
+      "generating": "生成中...",
+      "fullNamePlaceholder": "山田太郎",
+      "emailPlaceholder": "taro@example.com",
+      "jobTitlePlaceholder": "ソフトウェアエンジニア",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "鈴木花子",
+      "skillsPlaceholder": "React、Node.js、チームリーダーシップ",
+      "experiencePlaceholder": "5人の開発者チームを率いて、主要な製品ローンチを成功させました..."
+    },
+    "preview": {
+      "title": "プレビュー",
+      "subtitle": "生成されたレター",
+      "noLetter": "まだレターが生成されていません",
+      "fillAndGenerate": "詳細を入力して「生成」をクリックしてください",
+      "copy": "コピー",
+      "copied": "コピーしました！",
+      "download": "ダウンロード"
+    },
+    "tips": {
+      "title": "優れたカバーレターの",
+      "titleHighlight": "ヒント",
+      "beSpecific": "具体的に",
+      "beSpecificDesc": "特定の求人と企業に合わせてレターをカスタマイズしてください。汎用的なレターは簡単に見抜かれます。",
+      "showResults": "成果を示す",
+      "showResultsDesc": "定量化できる実績を含めましょう。数字があると成果が具体的で印象的になります。",
+      "keepConcise": "簡潔に",
+      "keepConciseDesc": "3〜4段落を目指しましょう。採用担当者は各応募書類を数秒しか確認しません。"
+    },
+    "cta": {
+      "title": "履歴書も必要ですか？",
+      "subtitle": "カバーレターと合わせて、AIで作成したプロフェッショナルな履歴書を使いましょう。",
+      "button": "履歴書を作成"
+    },
+    "errors": {
+      "signInRequired": "カバーレターを生成するにはサインインしてください",
+      "limitReached": "カバーレターの制限に達しました。プランをアップグレードしてください。",
+      "subscriptionRequired": "カバーレターの生成にはサブスクリプションが必要です。プランをアップグレードしてください。",
+      "signInNow": "今すぐサインイン",
+      "viewPlans": "プランを見る"
+    },
+    "externalResources": {
+      "title": "外部リソース",
+      "blsCareerOutlook": "労働統計局：キャリア展望",
+      "shrmHrResources": "SHRM：人事＆キャリアリソース"
+    }
+  },
+
+  "ResignationLetter": {
+    "meta": {
+      "title": "無料AI退職届ジェネレーター - プロフェッショナルな退職届",
+      "description": "数分でプロフェッショナルな退職届を作成。AIツールで円満退社し、良好な人間関係を維持しましょう。"
+    },
+    "hero": {
+      "badge": "AI搭載退職届ジェネレーター",
+      "title": "プロフェッショナルな",
+      "titleHighlight": "退職届を作成",
+      "subtitle": "プロフェッショナルに書かれた退職届で円満退社しましょう。良好な人間関係を維持し、プロフェッショナルとしての評判を守ります。"
+    },
+    "noticeLabel": "ヒント",
+    "notice": "標準的な退職予告期間は通常2週間です。具体的な要件についてはご自身の雇用契約をご確認ください。",
+    "form": {
+      "yourDetails": "あなたの情報",
+      "fillInfo": "情報を入力してください",
+      "yourName": "お名前",
+      "currentPosition": "現在の役職",
+      "companyName": "会社名",
+      "managerName": "上司の名前",
+      "lastWorkingDay": "最終出勤日",
+      "reasonForLeaving": "退職理由",
+      "positiveExperiences": "良かった経験（任意）",
+      "tone": "レターのトーン",
+      "professional": "プロフェッショナル",
+      "grateful": "感謝",
+      "brief": "簡潔",
+      "warm": "温かい",
+      "offerHelp": "引き継ぎの支援を申し出る",
+      "generate": "退職届を生成",
+      "generating": "生成中...",
+      "yourNamePlaceholder": "山田太郎",
+      "currentPositionPlaceholder": "ソフトウェアエンジニア",
+      "companyPlaceholder": "株式会社ABC",
+      "managerPlaceholder": "鈴木花子",
+      "positiveExperiencesPlaceholder": "製品ローンチプロジェクトに携わることができ、シニアチームからのメンターシップに感謝しています...",
+      "professionalDesc": "フォーマルでビジネスライク",
+      "gratefulDesc": "感謝の気持ちを表す",
+      "briefDesc": "短く要点を押さえた",
+      "warmDesc": "フレンドリーで個人的な"
+    },
+    "reasons": {
+      "selectReason": "理由を選択（任意）",
+      "newOpportunity": "新しい機会の追求",
+      "careerChange": "キャリアチェンジ",
+      "relocation": "転居",
+      "personal": "個人的な理由",
+      "education": "学業復帰",
+      "family": "家庭の事情",
+      "health": "健康上の理由",
+      "retirement": "退職",
+      "other": "その他"
+    },
+    "preview": {
+      "title": "プレビュー",
+      "subtitle": "生成されたレター",
+      "noLetter": "まだレターが生成されていません",
+      "fillAndGenerate": "詳細を入力して「生成」をクリックしてください",
+      "copy": "コピー",
+      "copied": "コピーしました！",
+      "download": "ダウンロード"
+    },
+    "reasonText": {
+      "newOpportunity": "他社でのポジションを受諾いたしました",
+      "careerChange": "異なるキャリアパスを追求することを決意いたしました",
+      "relocation": "転居することになりました",
+      "personal": "個人的な理由により",
+      "education": "学業を続けることを決意いたしました",
+      "family": "家庭の事情に専念する必要があるため",
+      "health": "健康上の理由により",
+      "retirement": "退職することを決意いたしました",
+      "other": "個人的な理由により"
+    },
+    "letter": {
+      "dearManager": "{name}様",
+      "defaultManager": "マネージャー",
+      "lastWorkingDayPlaceholder": "[最終出勤日]",
+      "briefBody": "この度、{company}における{position}の職を辞することを正式にお伝えいたします。最終出勤日は{lastDay}とさせていただきます。",
+      "briefReason": "退職の理由は、{reason}です。",
+      "briefClosing": "在籍中にいただいた機会に感謝いたします。",
+      "sincerely": "敬具",
+      "formalBody": "この度、{company}における{position}の職を辞することを正式にお伝えするためにこの手紙を書いております。最終出勤日は{lastDay}とさせていただきます。",
+      "reasonPrefix": "慎重に検討した結果、{reason}。",
+      "notEasyDecision": "会社での時間を心から大切に思っておりましたので、この決断は容易ではありませんでした。",
+      "gratefulDefault": "在籍中にプロフェッショナルとして、また個人として成長する機会をいただいたことに深く感謝しております。",
+      "warmDefault": "皆様やチームと一緒に働けたことは、いつまでも大切な思い出です。",
+      "learnedAppreciate": "多くのことを学び、いただいたサポートとご指導にいつも感謝しております。",
+      "transitionHelp": "引き継ぎ期間中、円滑な業務の引き継ぎを確実にするよう尽力いたします。後任の方のトレーニングや、現在のプロジェクトおよびプロセスの文書化をお手伝いいたします。",
+      "thankYouClosing": "在籍中にいただいたプロフェッショナルおよび個人的な成長の機会に感謝いたします。{company}のさらなるご発展をお祈りしておりますとともに、今後ともご縁が続くことを願っております。",
+      "warmRegards": "心を込めて",
+      "sincereGratitude": "心からの感謝を込めて"
+    },
+    "tips": {
+      "title": "退職の",
+      "titleHighlight": "ベストプラクティス",
+      "giveNotice": "予告期間を設ける",
+      "giveNoticeDesc": "少なくとも2週間前に通知するか、契約条件に従ってください。",
+      "stayProfessional": "プロフェッショナルに",
+      "stayProfessionalDesc": "感情を排除しましょう。敬意を持ち、前向きに。",
+      "documentIt": "文書化する",
+      "documentItDesc": "記録として必ず書面で退職届を提出してください。",
+      "leaveWell": "円満退社",
+      "leaveWellDesc": "未完了の業務を完了し、後任の方のトレーニングを申し出ましょう。"
+    },
+    "cta": {
+      "title": "次のチャンスに向けて準備はできていますか？",
+      "subtitle": "AI搭載の履歴書ビルダーで、就職活動用のプロフェッショナルな履歴書を作成しましょう。",
+      "button": "履歴書を作成"
+    },
+    "externalResources": {
+      "title": "外部リソース",
+      "shrmWorkplace": "SHRM：人事＆職場リソース",
+      "blsCareerData": "労働統計局：キャリアデータ"
+    }
+  },
+
+  "MockInterview": {
+    "meta": {
+      "title": "無料AI模擬面接練習 | Best AI Resume",
+      "description": "あなたの職種に合わせたAI生成の質問で面接練習。回答に対するSTARメソッドのフィードバックを即座に取得。無料の模擬面接ツール。"
+    },
+    "hero": {
+      "badge": "AI搭載の面接練習",
+      "title": "AI模擬面接練習",
+      "description": "あなたの職種と経験レベルに合わせたAI生成の面接質問で練習しましょう。STARメソッドを使った即座のフィードバックを受けられます。"
+    },
+    "setup": {
+      "title": "面接を設定",
+      "jobTitle": "職種",
+      "jobTitlePlaceholder": "例：ソフトウェアエンジニア、マーケティングマネージャー...",
+      "experienceLevel": "経験レベル",
+      "levels": {
+        "entry": { "label": "エントリーレベル", "description": "経験0〜2年" },
+        "mid": { "label": "ミドルレベル", "description": "経験3〜6年" },
+        "senior": { "label": "シニアレベル", "description": "経験7年以上" }
+      },
+      "questionCount": "質問数：{count}",
+      "quick": "クイック (3)",
+      "thorough": "しっかり (10)",
+      "startButton": "面接を開始",
+      "generating": "質問を生成中..."
+    },
+    "interview": {
+      "progress": "質問{current}/{total}",
+      "yourAnswer": "あなたの回答",
+      "answerPlaceholder": "ここに回答を入力してください。STARメソッドを使いましょう：状況、課題、行動、結果...",
+      "answerTip": "ヒント：3〜5文を目安に。具体的な例を使い、可能な場合は結果を数値化しましょう。",
+      "skip": "スキップ",
+      "evaluating": "評価中...",
+      "submitContinue": "送信して続ける",
+      "submitFinish": "送信して終了",
+      "starReminder": "STARメソッドを覚えておきましょう：",
+      "starDescription": "最も説得力のある回答のために、状況（Situation）、課題（Task）、行動（Action）、結果（Result）で構成しましょう。"
+    },
+    "results": {
+      "complete": "面接完了！",
+      "summary": "{total}問中{answered}問に回答しました",
+      "averageScore": "平均スコア：",
+      "startNew": "新しい面接を開始",
+      "bonusQuestions": "10問のボーナス練習問題をロック解除",
+      "bonusUnlocked": "ボーナス問題がロック解除されました！",
+      "bonusDescription": "1セッションあたり最大10問まで練習できるようになりました。",
+      "detailedFeedback": "詳細なフィードバック",
+      "questionLabel": "質問{number}",
+      "strengths": "強み",
+      "improvements": "改善点",
+      "sampleAnswer": "模範回答",
+      "skipped": "この質問はスキップされました",
+      "continuePrep": "準備を続ける",
+      "resources": {
+        "starMethod": {
+          "title": "STARメソッドをマスター",
+          "description": "行動面接の質問に対する回答の構成方法を学びましょう。"
+        },
+        "tellMe": {
+          "title": "「自己紹介をしてください」への回答方法",
+          "description": "面接の雰囲気を左右する完璧なオープニング回答を作りましょう。"
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "続行するには職種を入力してください。",
+      "generateFailed": "面接質問の生成に失敗しました。もう一度お試しください。",
+      "startFailed": "面接の開始に失敗しました。もう一度お試しください。",
+      "detailedAnswer": "より詳細な回答を入力してください（20文字以上）。"
+    },
+    "externalResources": {
+      "title": "外部リソース",
+      "blsCareerOutlook": "労働統計局：キャリア展望",
+      "shrmInterviewPractices": "SHRM：面接のベストプラクティス"
+    }
+  },
+
+  "CareerTips": {
+    "meta": {
+      "title": "キャリアアドバイス＆履歴書のコツ - 専門家ガイド | Best AI Resume",
+      "description": "専門家によるキャリアアドバイス、履歴書作成のコツ、就職活動戦略。AI搭載の履歴書作成、面接対策、理想の仕事の獲得方法を学びましょう。"
+    },
+    "hero": {
+      "badge": "専門家キャリアガイド",
+      "title": "キャリアアドバイス",
+      "titleHighlight": "＆専門家のコツ",
+      "subtitle": "履歴書作成をマスターし、面接を突破し、キャリアを加速させましょう。"
+    },
+    "featured": "注目の記事",
+    "featuredBadge": "注目",
+    "allArticles": "すべての記事",
+    "searchPlaceholder": "記事を検索...",
+    "articleCount": "{count, plural, one {#件の記事} other {#件の記事}}",
+    "noArticles": "記事が見つかりません",
+    "noArticlesHint": "検索条件やフィルターを調整してみてください",
+    "categories": {
+      "title": "カテゴリ",
+      "all": "すべての記事",
+      "resumeTips": "履歴書のコツ",
+      "coverLetters": "カバーレター",
+      "interviews": "面接のコツ",
+      "jobSearch": "就職活動",
+      "careerAdvice": "キャリアアドバイス",
+      "aiResume": "AI履歴書"
+    },
+    "article": {
+      "readMore": "続きを読む",
+      "tableOfContents": "目次",
+      "relatedArticles": "関連記事",
+      "moreCareerTips": "その他のキャリアアドバイス",
+      "shareHelpful": "役に立ちましたか？",
+      "shareWithOthers": "役立つかもしれない人と共有しましょう",
+      "tags": "タグ：",
+      "breadcrumbHome": "ホーム",
+      "breadcrumbCareerTips": "キャリアアドバイス",
+      "notFound": "記事が見つかりません"
+    },
+    "cta": {
+      "title": "履歴書を作成する準備はできましたか？",
+      "subtitle": "これらのヒントをAI搭載の履歴書ビルダーで実践しましょう。数分でプロフェッショナルな履歴書を作成できます。",
+      "button": "今すぐ履歴書を作成",
+      "sidebarTitle": "履歴書を作成",
+      "sidebarSubtitle": "AIで数分でプロフェッショナルな履歴書を作成。",
+      "sidebarButton": "始める"
+    }
+  },
+
+  "ResumeExamples": {
+    "meta": {
+      "title": "職種別履歴書サンプル | 無料テンプレート＆ガイド 2026",
+      "description": "50以上の職種別プロフェッショナル履歴書サンプルを閲覧。各サンプルには無料テンプレート、主要スキル、理想の仕事を獲得するための書き方のヒントが含まれています。"
+    },
+    "hero": {
+      "badge": "職種別ガイド",
+      "title": "職種別",
+      "titleHighlight": "履歴書サンプル",
+      "subtitle": "あなたの職種を見つけて、業界固有のヒント付きカスタマイズされた履歴書テンプレートを取得しましょう。"
+    },
+    "searchPlaceholder": "職種で検索...",
+    "featured": "注目の履歴書サンプル",
+    "allExamples": "すべての履歴書サンプル",
+    "noResults": "履歴書サンプルが見つかりません",
+    "noResultsHint": "検索条件やフィルターを調整してみてください",
+    "cta": {
+      "title": "勝てる履歴書を作成する準備はできましたか？",
+      "subtitle": "AI搭載ビルダーを使って、数分でプロフェッショナルな履歴書を作成しましょう。",
+      "button": "無料で履歴書を作成"
+    }
+  },
+
+  "AtsChecker": {
+    "meta": {
+      "title": "無料ATS履歴書チェッカー | 履歴書を即座にスコアリング | Best AI Resume",
+      "description": "無料で履歴書のATS互換性をチェック。即座のスコアリング、キーワード分析、自動審査を通過するための最適化のヒントを取得できます。"
+    },
+    "hero": {
+      "badge": "無料ATS履歴書チェッカー",
+      "title": "あなたの履歴書は",
+      "titleHighlight": "ATS対応ですか？",
+      "statistic": "75%の履歴書は、人間が目にする前にATSによって不合格にされています。",
+      "description": "当社の無料ATSチェッカーは、自動不合格の原因となるフォーマットの問題、キーワードの不足、互換性の問題を分析します。"
+    },
+    "tool": {
+      "title": "履歴書のATSスコアをチェック",
+      "description": "PDFまたはDOCXの履歴書をアップロードして、詳細なフィードバック付きのATS互換性スコアを即座に取得しましょう。",
+      "uploadBtn": "クリックしてアップロードまたはドラッグ＆ドロップ",
+      "formats": "PDFまたはDOCX — 最大10MB",
+      "checkBtn": "履歴書をチェック",
+      "changeFile": "ファイルを変更",
+      "analyzing": "履歴書を分析中…",
+      "cta": "ATS対応の履歴書を作成",
+      "subtext": "無料 — クレジットカード不要"
+    },
+    "checks": {
+      "title": "ATSシステムがチェックする内容",
+      "subtitle": "ATSソフトウェアがスキャンする内容を理解することで、最大限の可視性のために履歴書を最適化できます。",
+      "keywords": {
+        "title": "キーワードマッチング",
+        "description": "ATSは求人情報から職種固有のキーワードをスキャンします。重要な用語が欠けていると自動不合格になります。"
+      },
+      "formatting": {
+        "title": "クリーンなフォーマット",
+        "description": "複雑なレイアウト、表、段組みはATSパーサーを混乱させます。シンプルな一段組みフォーマットが最も適切にパースされます。"
+      },
+      "contact": {
+        "title": "連絡先情報",
+        "description": "ATSは標準的な形式で名前、メール、電話番号、所在地を探します。情報が欠けていると機会を逃します。"
+      },
+      "dates": {
+        "title": "一貫した日付形式",
+        "description": "ATSシステムは雇用日をパースして経験を計算します。一貫性のない形式はパースエラーの原因になります。"
+      }
+    },
+    "checklist": {
+      "title": "ATS最適化チェックリスト",
+      "subtitle": "ATSスクリーニングを通過する可能性を最大化するために、以下のガイドラインに従ってください。",
+      "doThis": "推奨",
+      "avoidThis": "非推奨",
+      "dos": {
+        "singleColumn": "最大の互換性のために一段組みレイアウトを使用",
+        "keywords": "求人内容のキーワードを自然に含める",
+        "standardHeadings": "標準的なセクション見出しを使用（職務経歴、学歴、スキル）",
+        "fileFormat": "雇用主の指定に従いPDFまたはDOCXで提出",
+        "standardFonts": "Arial、Calibri、Times New Romanなどの標準フォントを使用",
+        "spellOut": "最初に略語を正式名称で記載してから省略形を使用（例：プロジェクトマネジメントプロフェッショナル（PMP））"
+      },
+      "donts": {
+        "tables": "レイアウトに表やテキストボックスを使用しない",
+        "images": "画像、ロゴ、グラフィックスを含めない",
+        "headers": "重要な情報をヘッダーやフッターに配置しない",
+        "creativeTitles": "クリエイティブなセクション名を使用しない（例：「私の旅路」ではなく「職務経歴」）",
+        "fancyFonts": "装飾的またはまれなフォントを使用しない",
+        "lightText": "薄いグレーや低コントラストの文字色を使用しない"
+      }
+    },
+    "systems": {
+      "title": "主要なATSシステム",
+      "subtitle": "当社のテンプレートは、世界中の雇用主が使用するすべての主要な応募者追跡システムでテスト・最適化されています。"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "whatIsAts": {
+        "question": "ATS（応募者追跡システム）とは何ですか？",
+        "answer": "ATSは、雇用主が求人応募を収集、スキャン、ランク付けするために使用するソフトウェアです。採用担当者が目にする前に、キーワード、フォーマット、関連性に基づいて履歴書をフィルタリングします。フォーチュン500企業の98%以上がATSを使用しています。"
+      },
+      "whyFail": {
+        "question": "なぜ履歴書はATSスクリーニングに失敗するのですか？",
+        "answer": "一般的な原因には、複雑なフォーマット（表、段組み、グラフィックス）、求人内容のキーワードの欠如、非標準的なセクション見出し、互換性のないファイル形式、ATSが読み取れないヘッダーやフッターに配置された情報があります。"
+      },
+      "bestFormat": {
+        "question": "ATSに最適な履歴書フォーマットは何ですか？",
+        "answer": "標準的なセクション見出しを使用したクリーンな一段組みレイアウトが最適です。シンプルなフォーマット、標準フォントを使用し、グラフィックスや表を避けてください。PDFとDOCXが最も広く受け入れられるファイル形式です。"
+      },
+      "keywords": {
+        "question": "履歴書に適切なキーワードを見つけるにはどうすればよいですか？",
+        "answer": "求人内容を注意深く読み、繰り返し使われるスキル、資格、用語を特定してください。これらのキーワードを、特に要約、スキルセクション、職務経歴の説明に自然に含めましょう。"
+      },
+      "twoColumn": {
+        "question": "ATSで2段組みの履歴書を使用できますか？",
+        "answer": "2段組みのレイアウトは、多くのATSシステムでパースの問題を引き起こす可能性があります。ソフトウェアが段を下方向ではなく横方向に読み取り、情報が混乱する場合があります。ATS互換性のためには一段組みのレイアウトが最も安全です。"
+      },
+      "jobTitle": {
+        "question": "履歴書に正確な求人タイトルを一致させるべきですか？",
+        "answer": "はい、実際の肩書きが類似している場合は。求人情報の正確な職種名を履歴書に含めると（正確である場合）、ATSマッチングが大幅に向上します。要約や希望職種として含めることができます。"
+      }
+    },
+    "resources": {
+      "title": "関連リソース",
+      "guide": {
+        "title": "ATS履歴書作成ガイド",
+        "description": "ATSスクリーニングを通過する履歴書を書くためのステップバイステップガイド。"
+      },
+      "templates": {
+        "title": "ATS対応テンプレート",
+        "description": "ATS互換性のために最適化された履歴書テンプレート。"
+      },
+      "examples": {
+        "title": "履歴書サンプル",
+        "description": "あなたの職種の実際の履歴書サンプルを見る。"
+      }
+    },
+    "cta": {
+      "title": "ATSに不合格にされるのをやめましょう",
+      "description": "AI搭載ビルダーで、プロフェッショナルなATS最適化履歴書を数分で作成。すべてのテンプレートはATS互換性テスト済みです。",
+      "button": "無料でATS履歴書を作成"
+    },
+    "validation": {
+      "unsupportedFormat": "PDFおよびDOCXファイルのみ対応しています。",
+      "fileTooLarge": "ファイルサイズは10MB以下にしてください。",
+      "genericError": "問題が発生しました。もう一度お試しください。"
+    },
+    "results": {
+      "scoreTitle": "ATS互換性スコア",
+      "recommendations": "改善提案",
+      "checkAnother": "別の履歴書をチェック",
+      "buildAtsResume": "ATS最適化履歴書を作成",
+      "pagesAnalyzed": "{count, plural, one {#ページを分析} other {#ページを分析}}",
+      "scoreExcellent": "優秀",
+      "scoreGood": "良好",
+      "scoreNeedsWork": "改善が必要",
+      "scorePoor": "不十分"
+    },
+    "externalResources": {
+      "title": "外部リソース",
+      "atsHowTheyWork": "ATSの仕組みを理解する",
+      "blsResumeTips": "BLSキャリア展望：履歴書のヒント"
+    }
+  },
+
+  "Contact": {
+    "title": "お問い合わせ",
+    "description": "アカウントに関するご質問、履歴書に関するサポート、問題の報告など、お気軽にお問い合わせください。以下のフォームにご記入いただければ、24時間以内にチームからご連絡いたします。",
+    "inquiryType": "お問い合わせの種類",
+    "inquiryTypes": {
+      "general": "一般的なお問い合わせ",
+      "billing": "請求に関する問題",
+      "cvCreation": "履歴書/CV作成に関する問題"
+    },
+    "name": "お名前",
+    "namePlaceholder": "山田太郎",
+    "email": "メールアドレス",
+    "emailPlaceholder": "you@example.com",
+    "subject": "件名",
+    "subjectPlaceholder": "どのようなお手伝いが必要ですか？",
+    "message": "メッセージ",
+    "messagePlaceholder": "お問い合わせの詳細をお聞かせください...",
+    "submit": "メッセージを送信",
+    "sending": "送信中...",
+    "successTitle": "メッセージが送信されました！",
+    "successMessage": "お問い合わせいただきありがとうございます。24時間以内にご連絡いたします。",
+    "sendAnother": "別のメッセージを送信",
+    "errorGeneric": "問題が発生しました。後ほどもう一度お試しください。",
+    "errorRateLimit": "送信回数が多すぎます。しばらくお待ちいただいてからもう一度お試しください。"
+  },
+
+  "Help": {
+    "title": "使い方ガイド",
+    "subtitle": "登録から完成した書類のダウンロードまで、プロフェッショナルな履歴書を作成するためのステップバイステップガイドです。",
+    "quickNav": "ジャンプ：",
+    "tipLabel": "プロのヒント",
+    "faqLabel": "よくある質問",
+    "troubleshootingLabel": "トラブルシューティング",
+    "gettingStarted": {
+      "title": "はじめに",
+      "steps": {
+        "1": {
+          "title": "アカウントを作成",
+          "description": "ホームページの「始める」ボタンまたはナビゲーションバーの「新規登録」リンクをクリックしてください。Google、GitHub、またはLinkedInアカウントで即座に登録できます — パスワード不要です。メールでの登録をご希望の場合は、お名前、メールアドレスを入力し、パスワードを設定してください。",
+          "tip": "GoogleまたはLinkedInでのサインインが最速です — お名前とメールアドレスが自動的に入力されます。"
+        },
+        "2": {
+          "title": "メールアドレスを確認",
+          "description": "メールで登録した場合は、Best AI Resumeからのメールを受信トレイで確認してください。確認ページで6桁の認証コードを入力します。コードは10分で期限切れになります — 期限が切れた場合は「コードを再送信」をクリックして新しいコードを取得してください。",
+          "tip": "1分以内にメールが届かない場合は、迷惑メールフォルダをご確認ください。"
+        },
+        "3": {
+          "title": "準備完了",
+          "description": "確認後、最初の履歴書の作成方法を選択するオンボーディング画面に移動します。アカウントはすべての変更を自動保存するので、ブラウザを閉じても作業が失われることはありません。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "登録にクレジットカードは必要ですか？",
+          "a": "いいえ。アカウントを作成して履歴書を作成するのは完全に無料です。有料プランを選択した場合のみクレジットカードが必要です。"
+        },
+        "2": {
+          "q": "認証コードが届かない場合はどうすればよいですか？",
+          "a": "まず迷惑メールフォルダをご確認ください。そこにもない場合は、確認ページで「コードを再送信」をクリックしてください。それでも届かない場合は、GoogleまたはLinkedInでのサインアップをお試しください。"
+        },
+        "3": {
+          "q": "複数のデバイスで同じアカウントを使用できますか？",
+          "a": "はい。アカウントとすべての履歴書はクラウドに保存されています。どのデバイスからでもログインして、中断したところから再開できます。"
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "履歴書の作成",
+      "steps": {
+        "1": {
+          "title": "作成方法を選択",
+          "description": "オンボーディングページでは、4つのオプションが表示されます：AI生成（ほとんどのユーザーにおすすめ）、履歴書アップロード（既存のPDFをパース）、LinkedInからインポート（プロフィールデータを取得）、またはゼロから始める（空白テンプレート）。各オプションは、ビルダーを開く前に短いセットアップフローを案内します。",
+          "tip": "AI生成は完全なプロフェッショナルな履歴書を最速で取得する方法です — 後からいつでも編集できます。"
+        },
+        "2": {
+          "title": "AIにおまかせ",
+          "description": "AI生成を選択した場合、お名前、応募する職種、経験レベル（エントリー、ミドル、シニア）を入力してください。「生成」をクリックすると、AIがプロフェッショナルな要約、職務経歴、学歴、スキルセクションを含む完全な履歴書を作成します — すべてあなたの目標職種に合わせてカスタマイズされます。"
+        },
+        "3": {
+          "title": "テンプレートを選択",
+          "description": "生成後、16以上のテンプレートギャラリーを閲覧できます。テンプレートはカテゴリ別に整理されています：プロフェッショナル、クリエイティブ、ミニマル、ATS対応。任意のテンプレートをクリックしてデータでプレビューできます。コンテンツを失わずにいつでもテンプレートを切り替えられます。",
+          "tip": "ビルダーからいつでもテンプレートを変更できます — コンテンツはそのまま、デザインだけが変わります。"
+        },
+        "4": {
+          "title": "編集＆カスタマイズ",
+          "description": "ビルダーでは、左側にタブ付きセクション（個人情報、職務経歴、学歴、スキルなど）、右側にライブプレビューが表示されます。任意のフィールドを編集すると、変更が即座に反映されます。セクションの並び替え、カスタムセクションの追加、フォントサイズの調整、アクセントカラーの変更が可能です。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "複数の履歴書を作成できますか？",
+          "a": "はい。異なる求人応募に合わせた複数の履歴書を作成・保存できます。ダッシュボードから切り替えられます。"
+        },
+        "2": {
+          "q": "AI生成はすべての言語で機能しますか？",
+          "a": "現在、AIは英語でコンテンツを生成します。作成後、生成されたコンテンツを任意の言語に手動で編集できます。"
+        },
+        "3": {
+          "q": "LinkedInプロフィールをインポートできますか？",
+          "a": "はい。オンボーディング中に「LinkedInからインポート」オプションを選択してください。LinkedInプロフィールに接続して職歴を取り込む手順をご案内します。"
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "プランの選択",
+      "steps": {
+        "1": {
+          "title": "料金ページにアクセス",
+          "description": "ナビゲーションバーの「料金プラン」をクリックするか、料金ページに直接アクセスしてください。4つのプランが表示されます：Starter（無料、ダウンロード制限あり）、Gold、Diamond、Platinum。上部のトグルで月額と年額の請求を切り替えられます — 年額プランは最大40%お得です。"
+        },
+        "2": {
+          "title": "プランを選択",
+          "description": "Starter、Gold、Diamond、Platinumの4つのプランを比較して、ニーズに合ったものを選んでください。すべてのプランは即時請求され、すべての機能に即座にアクセスできます。",
+          "tip": "年額請求は月額と比べて最大40%お得です — 同じ機能を利用できます。"
+        },
+        "3": {
+          "title": "お支払いを完了",
+          "description": "選択したプランの「始める」ボタンをクリックしてください。安全なStripeのお支払いページにリダイレクトされ、カード情報を入力します。お支払い後、アカウントは即座にアップグレードされ、すぐにダウンロードを開始できます。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "サブスクリプションはいつでもキャンセルできますか？",
+          "a": "はい。アカウント設定からいつでもキャンセルできます。現在の請求期間の終了までアクセスを維持できます。"
+        },
+        "2": {
+          "q": "キャンセルした場合はどうなりますか？",
+          "a": "現在の請求期間の終了までプランへのアクセスを維持できます。その後、アカウントは期限切れ状態に戻ります。"
+        },
+        "3": {
+          "q": "後でプランを変更できますか？",
+          "a": "はい。アカウント設定からいつでもプランのアップグレードまたはダウングレードが可能です。変更は即座に反映されます。"
+        }
+      }
+    },
+    "downloading": {
+      "title": "履歴書のダウンロード",
+      "steps": {
+        "1": {
+          "title": "ダウンロードをクリック",
+          "description": "ビルダーで、ページ右上の緑色の「PDFをダウンロード」ボタンを探してください。クリックするとダウンロードモーダルが開き、今月の残りダウンロード数が表示され、エクスポートを確認できます。"
+        },
+        "2": {
+          "title": "PDFを取得",
+          "description": "履歴書は、プレビューで表示される内容と完全に一致する、高品質で完璧なPDFとしてレンダリングされます。PDFはデジタル閲覧（メール、求人ポータル）と標準レターまたはA4用紙への印刷の両方に最適化されています。",
+          "tip": "オンライン求人ポータルから応募する際は、ATS対応テンプレートを使用すると、より確実にパースされます。"
+        },
+        "3": {
+          "title": "使用状況を確認",
+          "description": "各プランには、請求日にリセットされる月間ダウンロード制限があります。残りのダウンロード数はダウンロードモーダルまたはアカウント設定で確認できます。制限に達した場合は、いつでもプランをアップグレードして即座にダウンロード数を増やせます。"
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Word/DOCX形式でダウンロードできますか？",
+          "a": "はい。PDFに加えて、Microsoft WordおよびGoogle Docsと互換性のあるDOCXファイルとしてもエクスポートできます。"
+        },
+        "2": {
+          "q": "PDFがプレビューと少し違って見えるのはなぜですか？",
+          "a": "プレビューは近似的な表示です。PDFが最終的な完璧な出力です。ブラウザプレビューとPDFの間でフォントレンダリングにわずかな違いが生じることは正常です。"
+        },
+        "3": {
+          "q": "ダウンロード回数が足りなくなった場合はどうすればよいですか？",
+          "a": "ダウンロード回数は毎月リセットされます。リセット前にさらにダウンロードが必要な場合は、プランをアップグレードすると即座に上限が引き上げられます。"
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "トラブルシューティング",
+      "items": {
+        "1": {
+          "title": "アカウントにログインできない",
+          "description": "ログインページの「パスワードをお忘れですか」リンクを使ってパスワードをリセットしてください。Google、GitHub、またはLinkedInで登録した場合は、同じプロバイダーを使用していることを確認してください。問題が続く場合はブラウザのCookieをクリアしてください。"
+        },
+        "2": {
+          "title": "認証コードが届かない",
+          "description": "迷惑メールフォルダをご確認ください。コードは10分で期限切れになります — 「コードを再送信」をクリックして新しいコードを取得してください。企業メールを使用している場合、IT部門のファイアウォールが自動メールをブロックしている可能性があります。個人のメールアドレスをお試しください。"
+        },
+        "3": {
+          "title": "支払いが拒否された",
+          "description": "カード番号、有効期限、CVVを確認してください。カードが国際取引またはオンライン取引を許可していることを確認してください。問題が続く場合は、別のカードをお試しいただくか、銀行にお問い合わせください。すべての支払いはStripeを通じて安全に処理されます。"
+        },
+        "4": {
+          "title": "PDFがプレビューと異なって見える",
+          "description": "プレビューは最終出力の近似表示です。特定の要素が正しく表示されない場合は、テンプレートを切り替えるか、ビルダーのデザイン設定でフォントサイズを調整してみてください。ブラウザが最新であることを確認してください。"
+        },
+        "5": {
+          "title": "変更が保存されない",
+          "description": "作業は自動的にクラウドに保存されます。未保存の変更に気づいた場合は、インターネット接続を確認してください。ページを更新してみてください — 最新の編集内容が表示されるはずです。接続が遅い場合は、編集間に数秒待ってください。"
+        }
+      }
+    },
+    "cta": {
+      "title": "始める準備はできましたか？",
+      "subtitle": "AI搭載ビルダーで、数分でプロフェッショナルな履歴書を作成しましょう。",
+      "buildButton": "作成を開始",
+      "contactButton": "サポートに連絡"
+    }
+  },
+
+  "ATSTemplates": {
+    "meta": {
+      "title": "無料ATS対応履歴書テンプレート（2026）| すべてのATSスキャンをパス",
+      "description": "応募者追跡システムをパスするために設計された16の無料ATS対応履歴書テンプレートを閲覧。クリーンなフォーマット、標準フォント、実際のATSソフトウェアでテスト済みのパース可能なレイアウト。"
+    },
+    "breadcrumb": {
+      "home": "ホーム",
+      "current": "ATS対応テンプレート"
+    },
+    "hero": {
+      "badge": "100% ATS互換",
+      "title": "ATS対応履歴書テンプレート",
+      "subtitle": "フォーチュン500企業の97%が、人間が目にする前に履歴書をフィルタリングするために応募者追跡システムを使用しています（Jobscan, 2024）。以下のすべてのテンプレートはATSスクリーニングをパスするように作られています — あなたの履歴書が毎回確実に実際の担当者に届きます。",
+      "check1": "ATSパーシングをパス",
+      "check2": "無料で使用可能",
+      "check3": "即座にPDFダウンロード"
+    },
+    "features": {
+      "title": "当社のテンプレートがATSスクリーニングをパスする理由",
+      "subtitle": "ほとんどの履歴書は、人間が目にする前に不合格にされています。当社のテンプレートは、ATS失敗の原因となる一般的なフォーマットの落とし穴を避けるように設計されています。",
+      "parseable": {
+        "title": "機械がパース可能なレイアウト",
+        "description": "ATSソフトウェアが上から下へ混乱なく読み取れる、明確なセクション階層を持つ一段組み構造。コンテンツの順序を混乱させるマルチカラムレイアウトはありません。"
+      },
+      "standardHeaders": {
+        "title": "標準セクションヘッダー",
+        "description": "すべてのATSが認識する「職務経歴」や「学歴」などのヘッダーを使用 — パーサーを混乱させるクリエイティブなラベルはありません。"
+      },
+      "testedATS": {
+        "title": "実際のATSでテスト済み",
+        "description": "すべてのテンプレートは、オンライン求人応募の大半を処理する5つのプラットフォーム — Workday、Greenhouse、Lever、iCIMS、Taleo — でテストされています。"
+      },
+      "cleanFormatting": {
+        "title": "クリーンで安全なフォーマット",
+        "description": "ATSパーシングを壊す表、テキストボックス、ヘッダー/フッター、埋め込み画像はありません。選択可能なPDFテキストとしてレンダリングされたクリーンなテキストと標準フォントのみです。"
+      }
+    },
+    "grid": {
+      "title": "ATS対応テンプレートを選択",
+      "subtitle": "16のテンプレートすべてが完全にATS互換です。どのスタイルでもお選びください — 履歴書は正しくパースされます。",
+      "useTemplate": "このテンプレートを使用"
+    },
+    "howATS": {
+      "title": "応募者追跡システムが履歴書をスクリーニングする方法",
+      "intro": "ATSパイプラインを理解することで、ほとんどの候補者が認識している以上にフォーマットが重要である理由がわかります。「応募」をクリックした後の数秒間に起こることをご紹介します。",
+      "step1": {
+        "title": "履歴書ファイルが受信・変換される",
+        "description": "ATSはPDFまたはDOCXファイルを受信し、テキスト抽出エンジンに通します。文書を構造化データに変換しようとします — 名前、連絡先、職歴、学歴、スキルを個別のフィールドに分離します。ファイルが表、段組み、画像を使用している場合、この抽出ステップで文字化けやデータの欠落が発生します。"
+      },
+      "step2": {
+        "title": "コンテンツがパース、マッピング、スコアリングされる",
+        "description": "抽出後、ATSはコンテンツを求人内容と照合します。スキル、職種名、経験の説明でキーワードの一致を探します。WorkdayやGreenhouseなどのシステムは、履歴書が求人要件とどの程度一致するかに基づいて関連性スコアを割り当てます。パースが不十分な履歴書は、すべての資格を持っていても低いスコアになります。"
+      },
+      "step3": {
+        "title": "採用担当者がランク付けされた候補者を確認",
+        "description": "採用担当者は通常、各ポジションのランク上位10〜20の履歴書を確認します。フォーマットがパースエラーを引き起こした場合、正しくパースされた資格の低い候補者よりも下位にランクされる可能性があります。当社のATS対応テンプレートは、ランキングであなたの資格が正確に表現されることを保証します。"
+      },
+      "warning": "重要：ATS互換性は必要ですが、それだけでは十分ではありません。各求人内容に合わせて履歴書のキーワードを調整する必要があります。テンプレートを選択した後、当社のATSチェッカーツールを使用して、特定の求人に対して履歴書をテストしてください。"
+    },
+    "cta": {
+      "title": "今すぐATS対応履歴書を作成",
+      "subtitle": "テンプレートを選び、情報を追加して、すべてのATSスキャンをパスする履歴書をダウンロードしましょう。無料、登録不要。",
+      "buildButton": "履歴書を作成",
+      "checkButton": "既存の履歴書をチェック",
+      "browseAll": "すべてのテンプレートを見る",
+      "formatGuide": "履歴書フォーマットガイド",
+      "examples": "300以上の履歴書サンプル"
+    },
+    "whatMakes": {
+      "title": "ATS対応の履歴書テンプレートとは？",
+      "p1": "ATS対応の履歴書テンプレートは、応募者追跡システム — 雇用主が求人応募を収集、ソート、ランク付けするために使用するソフトウェア — が履歴書のすべてのセクションを正確に読み取れるように設計されています。ATSが履歴書のパースに失敗すると、あなたの名前、経験、スキルが採用担当者の画面に全く届かない可能性があります。2023年のハーバードビジネススクールの研究によると、75%以上の履歴書が人間が確認する前にATSによって不合格にされています。",
+      "p2": "履歴書がATSパーシングに失敗する最も一般的な理由はフォーマットです。表、マルチカラムレイアウト、テキストボックス、カスタムフォント、埋め込みグラフィックスはすべてパースエラーの原因となります。ATSは履歴書を上から下へのテキストストリームとして読み取ります。そのストリームが複雑なフォーマットによって中断されると、システムはデータを誤って割り当てます — 職種名を会社名のフィールドに入れたり、スキルセクション全体を削除したりします。",
+      "p3": "当社の16の履歴書テンプレートは、ATS互換性を最優先要件としてゼロから設計されています。標準セクションヘッダー、一段組みレイアウト、ウェブセーフフォント、クリーンなHTML-to-PDFレンダリングを使用しています。すべてのテンプレートは、最も使用されている5つのATSプラットフォーム：Workday、Greenhouse、Lever、iCIMS、Taleoでテストされています。結果として、採用担当者にはプロフェッショナルに見え、機械には完璧にパースされる履歴書が完成します。",
+      "link1": "ATS対応履歴書の書き方",
+      "link2": "ATSとは？完全ガイド",
+      "link3": "ATSパース率を理解する"
+    },
+    "mistakes": {
+      "title": "ATSに不合格にされる5つのフォーマットミス",
+      "intro": "優秀な候補者でも、履歴書のフォーマットがATSパーサーを混乱させるとフィルタリングされてしまいます。最もよく見られる5つのミスをご紹介します — 当社のテンプレートはこれらを自動的に排除します。",
+      "items": {
+        "1": {
+          "title": "表やマルチカラムレイアウトの使用",
+          "description": "ATSはテキストを単一のストリームで読み取ります。表と段組みは、関連のないコンテンツを結合させます — 電話番号が職種名のフィールドに入ってしまうことがあります。"
+        },
+        "2": {
+          "title": "ヘッダーやフッターに連絡先情報を埋め込む",
+          "description": "多くのATSプラットフォームはドキュメントのヘッダーとフッターを完全にスキップします。名前、メール、電話番号がヘッダーにしかない場合、パースされたプロフィールから消えてしまいます。"
+        },
+        "3": {
+          "title": "クリエイティブなセクションラベルの使用",
+          "description": "「私の旅路」（「職務経歴」の代わり）や「マイツールボックス」（「スキル」の代わり）などのラベルは、ATSがセクション全体をスキップする原因になります。標準的なラベルを使用してください。"
+        },
+        "4": {
+          "title": "画像ベースのPDFでの保存または非標準フォントの使用",
+          "description": "PDFでテキストを選択できない場合、ATSは読み取れません。スキャンされた文書、デザインツールのエクスポート、珍しいフォントはすべて読み取れないファイルを生成します。"
+        },
+        "5": {
+          "title": "グラフィックス、アイコン、スキルバーの追加",
+          "description": "プログレスバー、星評価、連絡先情報のアイコンはATSには見えません。「5つ星中4つ」のスキル評価は、ゼロスコアの空白テキストになります。"
+        }
+      },
+      "cta": "現在の履歴書がパスするか不安ですか？",
+      "ctaLink": "無料のATS互換性チェックを実行"
+    },
+    "checklist": {
+      "title": "ATS互換性チェックリスト",
+      "intro": "履歴書を提出する前に、以下の8つの要件を満たしているか確認してください。このページのすべてのテンプレートは8つすべてを自動的に満たしています — ただし、コンテンツを変更する場合はこれらのルールに注意してください。",
+      "items": {
+        "1": "標準セクションヘッダーの使用（職務経歴、学歴、スキル）",
+        "2": "上から下への明確な読み取り順序を持つ一段組みレイアウト",
+        "3": "表、テキストボックス、フローティング要素なし",
+        "4": "連絡先情報は本文中に（ヘッダー/フッターではなく）",
+        "5": "標準ウェブセーフフォント（Arial、Calibri、Georgia、Helvetica）",
+        "6": "テキスト選択可能なPDF出力（画像ベースではなく）",
+        "7": "テキストコンテンツを置き換えるグラフィックス、アイコン、スキルバーなし",
+        "8": "一貫した日付形式（MM/YYYYまたはYYYY年MM月）"
+      },
+      "outro": "特定の求人に合わせた履歴書のカスタマイズにサポートが必要ですか？以下をご覧ください",
+      "outroLink": "300以上の職種別履歴書サンプル"
+    },
+    "faq": {
+      "title": "ATS対応テンプレートに関するよくある質問",
+      "items": {
+        "1": {
+          "q": "履歴書テンプレートのATS対応とはどういう意味ですか？",
+          "a": "ATS対応テンプレートは、応募者追跡システムが名前、連絡先、職歴、学歴、スキルを正確に抽出できるように設計されています。表、マルチカラムレイアウト、埋め込み画像、カスタムフォントなど、パース失敗の原因となるものを避けています。このページの16のテンプレートすべてがWorkday、Greenhouse、Lever、iCIMS、Taleoでテストされています。"
+        },
+        "2": {
+          "q": "クリエイティブやモダンな履歴書でもATS互換にできますか？",
+          "a": "はい。ATS互換性はビジュアルデザインではなく、基盤構造に依存します。履歴書は、カラーアクセント、カスタムスペーシング、スタイリッシュなタイポグラフィを使用しながら、ATSが正しく読み取れる一段組みでテキスト選択可能なレイアウトを維持できます。当社のモダンおよびクリエイティブテンプレートはこのバランスを実現しています — 採用担当者には個性的に見え、機械には完璧にパースされます。"
+        },
+        "3": {
+          "q": "ATSにはPDFとDOCXのどちらで提出すべきですか？",
+          "a": "2026年現在、PDFが一般的に最も安全な選択です。最新のATSプラットフォーム（Workday、Greenhouse、Lever）は、適切に構造化されたPDFを確実にパースします。DOCXは異なるWordバージョン間でフォーマットの不整合を引き起こす可能性があります。当社のビルダーはATSパーシングに最適化されたテキスト選択可能なPDFをエクスポートします — 求人情報が明示的にDOCXを要求しない限り、PDFの使用をお勧めします。"
+        },
+        "4": {
+          "q": "自分の履歴書がATSスクリーニングをパスするかどうかをどうやって確認できますか？",
+          "a": "当社の無料ATSチェッカーツールを使用して、履歴書をアップロードし、ATSがどのように読み取るかを確認してください。ツールは、正しくパースされたフィールド、求人内容と一致したキーワード、パースエラーが発生した箇所を表示します。応募前に何度でもテストできます。"
+        },
+        "5": {
+          "q": "各求人応募に異なるテンプレートが必要ですか？",
+          "a": "いいえ — 1つのATS対応テンプレートがすべての応募に使えます。応募間で変更すべきなのはコンテンツです：スキルセクション、職務要約、実績の箇条書きを各求人内容のキーワードに合わせてカスタマイズしてください。テンプレートの構造は同じまま、キーワードが変わります。"
+        }
+      }
+    }
+  }
+}

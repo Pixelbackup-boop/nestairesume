@@ -1,0 +1,2087 @@
+{
+  "Meta": {
+    "title": "Pembuat Resume AI Gratis | Buat Resume ATS dalam Hitungan Menit | Best AI Resume",
+    "description": "Buat resume profesional yang dioptimalkan untuk ATS dalam hitungan menit dengan pembuat resume AI gratis kami. Dipercaya oleh 50.000+ profesional. Tidak perlu mendaftar untuk memulai."
+  },
+
+  "Common": {
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Edit",
+    "close": "Tutup",
+    "search": "Cari",
+    "submit": "Kirim",
+    "next": "Selanjutnya",
+    "back": "Kembali",
+    "download": "Unduh",
+    "preview": "Pratinjau",
+    "scrollToExplore": "Gulir untuk menjelajah",
+    "dismiss": "Tutup",
+    "addLanguage": "Tambah bahasa",
+    "uploadProfilePhoto": "Unggah foto profil",
+    "removeProfilePhoto": "Hapus foto profil",
+    "documentType": "Jenis dokumen",
+    "searchByJobTitle": "Cari berdasarkan jabatan atau keahlian...",
+    "searchIcons": "Cari ikon...",
+    "describeTemplate": "Deskripsikan templat Anda...",
+    "languagePlaceholder": "mis. Inggris, Jepang, Mandarin",
+    "templateNamePlaceholder": "mis. Resume Developer Modern",
+    "returningBanner": {
+      "welcomeBack": "Selamat datang kembali!",
+      "lastEdited": "Terakhir diedit {date}",
+      "unsavedDraft": "Anda memiliki draf resume yang belum disimpan",
+      "continueEditing": "Lanjutkan Mengedit"
+    }
+  },
+
+  "Navigation": {
+    "features": "Fitur",
+    "templates": "Templat",
+    "pricing": "Harga",
+    "blog": "Blog",
+    "careerTips": "Tips Karier",
+    "careerGuides": "Panduan Karier",
+    "resumeExamples": "Contoh Resume",
+    "resumeExamplesDesc": "Panduan & templat resume sesuai pekerjaan",
+    "careerTipsDesc": "Saran ahli untuk karier Anda",
+    "blogDesc": "Tips, panduan, dan wawasan",
+    "viewAllExamples": "Lihat semua contoh resume",
+    "viewAllTips": "Lihat semua tips karier",
+    "tools": "Alat",
+    "coverLetter": "Pembuat Surat Lamaran",
+    "coverLetterDesc": "Surat lamaran berbasis AI",
+    "resignationLetter": "Surat Pengunduran Diri",
+    "resignationLetterDesc": "Surat pengunduran diri profesional",
+    "atsChecker": "Pemeriksa Resume ATS",
+    "atsCheckerDesc": "Periksa kompatibilitas ATS",
+    "mockInterview": "Simulasi Wawancara",
+    "mockInterviewDesc": "Latihan wawancara berbasis AI",
+    "resumeFormat": "Panduan Format Resume",
+    "resumeFormatDesc": "Kronologis, fungsional & lainnya",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "getStarted": "Mulai Gratis",
+    "dashboard": "Dasbor",
+    "admin": "Admin",
+    "adminPanel": "Panel Admin",
+    "profile": "Profil",
+    "resources": "Sumber Daya",
+    "compare": "Bandingkan",
+    "byStyle": "Berdasarkan Gaya",
+    "byFormat": "Berdasarkan Format",
+    "allTemplates": "Semua Templat",
+    "modern": "Modern",
+    "creative": "Kreatif",
+    "simpleClean": "Sederhana & Bersih",
+    "freeResumeBuilder": "Pembuat Resume Gratis",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "Buat Resume Anda Gratis",
+    "chooseFromTemplates": "Pilih dari 20+ templat profesional",
+    "technology": "Teknologi",
+    "business": "Bisnis",
+    "healthcare": "Kesehatan",
+    "seeAllTech": "Lihat Semua Teknologi",
+    "seeAllBusiness": "Lihat Semua Bisnis",
+    "seeAllHealthcare": "Lihat Semua Kesehatan",
+    "resumeExamplesCount": "300+ Contoh Resume",
+    "browseAll": "Jelajahi Semua",
+    "softwareEngineer": "Software Engineer",
+    "dataAnalyst": "Data Analyst",
+    "devopsEngineer": "DevOps Engineer",
+    "fullStackDev": "Full Stack Developer",
+    "projectManager": "Project Manager",
+    "marketingManager": "Marketing Manager",
+    "businessAnalyst": "Business Analyst",
+    "salesManager": "Sales Manager",
+    "nurse": "Perawat",
+    "medicalAssistant": "Asisten Medis",
+    "pharmacist": "Apoteker",
+    "dentalAssistant": "Asisten Dokter Gigi",
+    "guides": "Panduan",
+    "latestPosts": "Postingan Terbaru",
+    "allCareerTips": "Semua Tips Karier",
+    "allBlog": "Semua Postingan Blog",
+    "atsGuide": "Panduan Resume Ramah ATS",
+    "coverLetterGuide": "Panduan Surat Lamaran",
+    "interviewPrep": "Persiapan Wawancara",
+    "bestResumeApps": "Aplikasi Pembuat Resume Terbaik",
+    "resumeSkills": "Panduan Keahlian Resume",
+    "linkedinGuide": "Optimasi LinkedIn",
+    "writingServices": "Jasa Penulisan Resume",
+    "freeAlternatives": "Alternatif Gratis",
+    "paidAlternatives": "Alternatif Berbayar",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs AI Builder",
+    "whyWereBetter": "Mengapa Kami Pembuat Gratis #1",
+    "whyWereBetterDesc": "Berbasis AI, dioptimalkan untuk ATS, sepenuhnya gratis"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "Pembuatan Resume Berbasis AI",
+      "title": "Buat Resume Berbasis AI",
+      "titleHighlight": "dalam Hitungan Menit",
+      "subtitle": "Tidak Perlu Mendaftar",
+      "description": "Buat resume menakjubkan yang dioptimalkan untuk ATS dalam hitungan menit dengan AI. Coba gratis — daftar hanya saat Anda siap untuk menyimpan.",
+      "ctaPrimary": "Buat dengan AI",
+      "ctaSecondary": "Jelajahi Templat",
+      "noCreditCard": "Tidak perlu kartu kredit",
+      "noSignup": "Tidak perlu mendaftar untuk memulai",
+      "trustedBy": "Dipercaya oleh 50.000+ profesional",
+      "atsScore": "Skor ATS",
+      "aiSuggestion": "Saran AI"
+    },
+    "features": {
+      "sectionTitle": "Fitur",
+      "title": "Semua yang Anda butuhkan untuk",
+      "titleHighlight": "mendapatkan pekerjaan impian",
+      "subtitle": "Alat AI yang canggih dikombinasikan dengan desain indah untuk membantu Anda menonjol dari yang lain.",
+      "aiWriting": {
+        "title": "Penulisan Berbasis AI",
+        "description": "Biarkan AI kami membuat poin-poin menarik dan ringkasan profesional yang menyoroti pencapaian Anda."
+      },
+      "templates": {
+        "title": "20+ Templat Premium",
+        "description": "Pilih dari templat yang dirancang secara profesional yang menonjol sambil tetap kompatibel dengan ATS."
+      },
+      "atsOptimization": {
+        "title": "Optimasi ATS",
+        "description": "Penilaian ATS secara real-time memastikan resume Anda lolos sistem penyaringan otomatis setiap saat."
+      },
+      "realTimePreview": {
+        "title": "Pratinjau Real-time",
+        "description": "Lihat perubahan secara instan saat Anda mengetik. Yang Anda lihat persis seperti yang akan dilihat perekrut."
+      },
+      "pdfExport": {
+        "title": "Ekspor PDF",
+        "description": "Unduh PDF sempurna yang siap dikirim. Dioptimalkan untuk digital maupun cetak."
+      },
+      "smartSuggestions": {
+        "title": "Saran Cerdas",
+        "description": "Dapatkan rekomendasi cerdas untuk keahlian, kata kunci, dan konten berdasarkan posisi target Anda."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Cara Kerja",
+      "title": "Tiga langkah menuju",
+      "titleHighlight": "resume sempurna",
+      "step1": {
+        "title": "Isi Detail Anda",
+        "description": "Masukkan pengalaman, pendidikan, dan keahlian Anda. AI kami membantu Anda di setiap langkah."
+      },
+      "step2": {
+        "title": "Pilih Templat",
+        "description": "Pilih dari 20+ templat yang dirancang secara profesional. Pratinjau secara real-time saat Anda menyesuaikan."
+      },
+      "step3": {
+        "title": "Unduh PDF",
+        "description": "Ekspor resume Anda yang telah dipoles sebagai PDF sempurna, siap untuk mengesankan perekrut."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Templat",
+      "title": "Templat premium untuk",
+      "titleHighlight": "setiap profesi",
+      "viewAll": "Lihat Semua Templat"
+    },
+    "testimonials": {
+      "sectionTitle": "Testimoni",
+      "title": "Disukai oleh profesional",
+      "titleHighlight": "di seluruh dunia"
+    },
+    "cta": {
+      "title": "Siap membuat",
+      "titleHighlight": "resume pemenang?",
+      "subtitle": "Bergabunglah dengan 50.000+ profesional yang telah mendapatkan pekerjaan impian mereka dengan Best AI Resume.",
+      "button": "Buat CV Anda Sekarang — Gratis",
+      "note": "Tidak perlu mendaftar untuk memulai"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Pertanyaan yang",
+      "titleHighlight": "Sering Diajukan",
+      "items": [
+        {
+          "question": "Apakah pembuat resume AI ini benar-benar gratis?",
+          "answer": "Ya! Anda dapat membuat, mengedit, dan melihat pratinjau resume Anda sepenuhnya gratis. Kami menawarkan paket premium untuk fitur lanjutan seperti unduhan PDF tanpa batas dan templat tambahan, tetapi Anda dapat membuat resume profesional tanpa membayar apa pun."
+        },
+        {
+          "question": "Apa itu ATS dan mengapa itu penting?",
+          "answer": "ATS (Applicant Tracking System) adalah perangkat lunak yang digunakan oleh 99% perusahaan Fortune 500 untuk memindai dan menyaring resume. AI kami memastikan resume Anda dioptimalkan untuk ATS dengan kata kunci, format, dan struktur yang tepat untuk lolos penyaringan otomatis ini."
+        },
+        {
+          "question": "Bagaimana AI membantu menulis resume saya?",
+          "answer": "AI kami menganalisis jabatan dan pengalaman Anda untuk menghasilkan poin-poin profesional, ringkasan, dan saran keahlian. AI menggunakan kata kunci spesifik industri dan bahasa berfokus pencapaian yang dicari oleh perekrut."
+        },
+        {
+          "question": "Apakah saya perlu mendaftar untuk menggunakan pembuat resume?",
+          "answer": "Tidak perlu mendaftar untuk mulai membuat! Anda dapat membuat seluruh resume Anda terlebih dahulu. Daftar hanya saat Anda ingin menyimpan progres atau mengunduh. Ini memungkinkan Anda mencoba semuanya tanpa risiko."
+        },
+        {
+          "question": "Bisakah saya mengunduh resume saya sebagai PDF?",
+          "answer": "Ya! Ekspor resume Anda sebagai PDF sempurna yang terlihat persis seperti pratinjau. PDF dioptimalkan untuk aplikasi digital dan pencetakan pada kertas standar letter/A4."
+        },
+        {
+          "question": "Berapa lama waktu yang dibutuhkan untuk membuat resume?",
+          "answer": "Sebagian besar pengguna membuat resume profesional dalam waktu kurang dari 10 menit. Saran AI dan konten yang telah ditulis sebelumnya mempercepat proses secara signifikan dibandingkan memulai dari awal."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Pengguna kami diterima bekerja di",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+    }
+  },
+
+  "Features": {
+    "meta": {
+      "title": "Fitur Pembuat Resume AI - Penulisan Cerdas, Optimasi ATS & Lainnya",
+      "description": "Temukan fitur canggih: penulisan berbasis AI, penilaian ATS real-time, 50+ templat, ekspor PDF instan. Buat resume profesional yang menghasilkan wawancara."
+    }
+  },
+
+  "Templates": {
+    "meta": {
+      "title": "50+ Templat Resume Profesional - Gratis & Ramah ATS",
+      "description": "Jelajahi 50+ templat resume profesional. Desain modern, kreatif, dan minimalis yang dioptimalkan untuk ATS. Gratis untuk disesuaikan dan diunduh."
+    },
+    "sectionTitle": "Templat",
+    "title": "Templat Resume Terbaik",
+    "titleHighlight": "2026",
+    "subtitle": "Pilih mode pengeditan dan pilih dari templat yang dirancang secara profesional.",
+    "searchPlaceholder": "Cari templat...",
+    "templatesAvailable": "{count} templat tersedia",
+    "noResults": "Templat tidak ditemukan",
+    "noResultsHint": "Coba sesuaikan pencarian atau filter Anda",
+    "useTemplate": "Gunakan Templat",
+    "formBuilder": {
+      "title": "Pembuat Formulir",
+      "description": "Pengeditan terpandu langkah demi langkah",
+      "hint": "Isi formulir dan biarkan templat menangani desainnya. Sempurna untuk resume cepat dan profesional."
+    },
+    "canvasEditor": {
+      "title": "Editor Kanvas",
+      "description": "Kebebasan kreatif penuh",
+      "hint": "Seret, lepas, dan desain dengan bebas. Kontrol penuh atas setiap elemen, seperti Canva untuk resume."
+    },
+    "categories": {
+      "all": "Semua",
+      "professional": "Profesional",
+      "creative": "Kreatif",
+      "minimal": "Sederhana dan Bersih",
+      "modern": "Modern",
+      "classic": "Klasik"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Ingin memulai dari awal?",
+        "description": "Buat resume yang sepenuhnya kustom menggunakan alat canggih Editor Kanvas kami.",
+        "button": "Buka Kanvas Kosong"
+      },
+      "builder": {
+        "title": "Ingin AI membuat resume Anda?",
+        "description": "Biarkan AI kami membuat resume profesional dalam hitungan detik berdasarkan jabatan Anda.",
+        "button": "Buat dengan AI"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Kontak",
+      "experience": "Pengalaman",
+      "workExperience": "Pengalaman Kerja",
+      "professionalExperience": "Pengalaman Profesional",
+      "education": "Pendidikan",
+      "skills": "Keahlian",
+      "coreSkills": "Keahlian Inti",
+      "technicalSkills": "Keahlian Teknis",
+      "languages": "Bahasa",
+      "interests": "Minat",
+      "strengths": "Kekuatan",
+      "certifications": "Sertifikasi",
+      "awards": "Penghargaan",
+      "projects": "Proyek",
+      "summary": "Ringkasan",
+      "professionalSummary": "Ringkasan Profesional",
+      "profile": "Profil",
+      "about": "Tentang",
+      "additionalInfo": "Informasi Tambahan",
+      "socialLinks": "Tautan Sosial",
+      "personalDetails": "Detail Pribadi",
+      "credentials": "Kredensial"
+    },
+    "labels": {
+      "present": "Sekarang",
+      "gpa": "IPK",
+      "native": "Bahasa Ibu",
+      "fluent": "Fasih",
+      "advanced": "Mahir",
+      "intermediate": "Menengah",
+      "basic": "Dasar"
+    }
+  },
+
+  "About": {
+    "meta": {
+      "title": "Tentang Best AI Resume - Misi Kami Mengubah Pencarian Kerja",
+      "description": "Pelajari tentang Best AI Resume - platform berbasis AI yang membantu ribuan orang mendapatkan pekerjaan impian mereka. Misi, nilai, dan komitmen kami untuk kesuksesan karier Anda."
+    }
+  },
+
+  "Privacy": {
+    "meta": {
+      "title": "Kebijakan Privasi - Best AI Resume",
+      "description": "Pelajari bagaimana Best AI Resume melindungi data Anda. Kebijakan privasi kami menjelaskan cara kami mengumpulkan, menggunakan, dan menjaga informasi pribadi Anda."
+    }
+  },
+
+  "Terms": {
+    "meta": {
+      "title": "Ketentuan Layanan - Best AI Resume",
+      "description": "Baca ketentuan layanan untuk Best AI Resume. Pahami hak dan tanggung jawab Anda saat menggunakan platform pembuat resume AI kami."
+    }
+  },
+
+  "Onboarding": {
+    "meta": {
+      "title": "Buat Resume Anda - Generator Resume AI",
+      "description": "Mulai buat resume profesional Anda dalam hitungan detik. Jawab 2 pertanyaan dan biarkan AI membuat resume yang disesuaikan dan siap kerja untuk Anda."
+    },
+    "title": "Ceritakan tentang diri Anda",
+    "subtitle": "Hanya 2 pertanyaan dan AI akan membuat resume sempurna Anda",
+    "fullName": "Nama Lengkap Anda",
+    "fullNamePlaceholder": "mis., John Smith",
+    "jobTitle": "Jabatan yang Anda Lamar",
+    "jobTitlePlaceholder": "mis., Software Engineer, Marketing Manager",
+    "experienceLevel": "Tingkat Pengalaman",
+    "levels": {
+      "entry": "Tingkat Pemula",
+      "entryDesc": "0-2 tahun pengalaman",
+      "mid": "Tingkat Menengah",
+      "midDesc": "3-5 tahun pengalaman",
+      "senior": "Tingkat Senior",
+      "seniorDesc": "6-10 tahun pengalaman",
+      "executive": "Eksekutif",
+      "executiveDesc": "10+ tahun pengalaman"
+    },
+    "generate": "Buat Resume Saya",
+    "generating": {
+      "title": "Membuat Resume Anda",
+      "analyzing": "Menganalisis profesi Anda...",
+      "summary": "Membuat ringkasan profesional...",
+      "experience": "Membuat pengalaman kerja...",
+      "skills": "Menambahkan keahlian yang relevan...",
+      "polishing": "Menyempurnakan resume Anda...",
+      "almostThere": "Hampir selesai...",
+      "wait": "Ini biasanya hanya membutuhkan beberapa detik..."
+    },
+    "step1": {
+      "title": "Bagaimana Anda ingin membuat resume?",
+      "subtitle": "Pilih metode yang Anda sukai untuk memulai",
+      "recommended": "DIREKOMENDASIKAN",
+      "ai": {
+        "title": "Buat dengan AI",
+        "description": "Beritahu kami profesi Anda dan kami akan membuat resume profesional dalam hitungan detik"
+      },
+      "upload": {
+        "title": "Unggah Resume",
+        "description": "Unggah resume Anda yang sudah ada dan kami akan meningkatkannya"
+      },
+      "linkedin": {
+        "title": "Impor LinkedIn",
+        "description": "Impor profil Anda dari LinkedIn secara otomatis"
+      },
+      "comingSoon": "Segera hadir",
+      "startBlank": "Atau mulai dengan resume kosong"
+    },
+    "step4": {
+      "title": "Pilih Templat Anda",
+      "subtitle": "Resume Anda sudah siap! Pilih desain yang sesuai dengan gaya Anda.",
+      "backToEdit": "Kembali untuk mengedit info",
+      "browseAll": "Jelajahi semua templat",
+      "continue": "Lanjutkan ke Editor"
+    },
+    "upload": {
+      "title": "Unggah Resume Anda",
+      "subtitle": "Kami akan mengekstrak informasi Anda dan meningkatkannya dengan AI",
+      "dragDrop": "Seret dan lepas resume Anda di sini",
+      "orBrowse": "atau jelajahi file",
+      "supportedFormats": "PDF atau DOCX (maks {maxSize})",
+      "validating": "Memvalidasi file...",
+      "uploading": "Mengunggah...",
+      "parsing": "AI sedang menganalisis resume Anda...",
+      "success": "Resume berhasil diimpor!",
+      "error": "Terjadi kesalahan",
+      "tryAgain": "Coba Lagi",
+      "invalidType": "Harap unggah file PDF atau DOCX",
+      "fileTooLarge": "File melebihi batas {maxSize}"
+    },
+    "linkedin": {
+      "title": "Impor dari LinkedIn",
+      "subtitle": "Ekspor profil LinkedIn Anda sebagai PDF dan unggah di sini",
+      "step1": "Buka profil LinkedIn Anda",
+      "step2": "Klik \"Resources\" → \"Save to PDF\"",
+      "step3": "Unggah PDF yang diunduh di bawah",
+      "openLinkedIn": "Buka Profil LinkedIn",
+      "tip": "PDF LinkedIn paling cocok untuk mengimpor riwayat kerja lengkap Anda"
+    },
+    "word": {
+      "badge": "Resume Microsoft Word",
+      "step1Title": "Bagaimana Anda ingin membuat resume Word Anda?",
+      "aiDescription": "Beritahu kami profesi Anda dan kami akan membuat resume Word dalam hitungan detik",
+      "subtitle": "Hanya 2 pertanyaan dan AI akan membuat resume Word sempurna Anda",
+      "startBlank": "Atau mulai dengan resume Word kosong",
+      "step4Title": "Pilih Templat Word Anda",
+      "step4Subtitle": "Resume Anda sudah siap! Pilih templat Microsoft Word.",
+      "continue": "Lanjutkan ke Editor Word"
+    },
+    "gdocs": {
+      "badge": "Resume Google Docs",
+      "step1Title": "Bagaimana Anda ingin membuat resume Google Docs Anda?",
+      "aiDescription": "Beritahu kami profesi Anda dan kami akan membuat resume Google Docs dalam hitungan detik",
+      "subtitle": "Hanya 2 pertanyaan dan AI akan membuat resume Google Docs sempurna Anda",
+      "startBlank": "Atau mulai dengan resume Google Docs kosong",
+      "step4Title": "Pilih Templat Google Docs Anda",
+      "step4Subtitle": "Resume Anda sudah siap! Pilih templat yang dioptimalkan untuk Google Docs.",
+      "continue": "Lanjutkan ke Editor Google Docs"
+    },
+    "main": {
+      "step1Title": "Bagaimana Anda ingin memulai?",
+      "step1Subtitle": "Pilih metode yang paling cocok untuk Anda",
+      "recommended": "Direkomendasikan",
+      "aiTitle": "Pembuatan AI",
+      "aiDescription": "Biarkan AI membuat resume profesional Anda",
+      "uploadTitle": "Unggah yang Ada",
+      "uploadDescription": "Impor dan tingkatkan resume Anda",
+      "linkedinDescription": "Konversi profil LinkedIn Anda",
+      "startBlank": "Mulai dengan resume kosong",
+      "step2Subtitle": "Kami akan menggunakan ini untuk membuat resume Anda yang dipersonalisasi",
+      "fullName": "Nama Lengkap",
+      "fullNamePlaceholder": "mis. John Smith",
+      "targetJobTitle": "Jabatan Target",
+      "jobTitlePlaceholder": "mis. Software Engineer",
+      "goBack": "Kembali",
+      "generatingTitle": "Membuat resume Anda...",
+      "processingAnalyzing": "Menganalisis profil Anda...",
+      "processingCrafting": "Menyusun ringkasan profesional...",
+      "processingExperience": "Membuat pengalaman kerja...",
+      "processingSkills": "Menambahkan keahlian yang relevan...",
+      "processingPolishing": "Menyempurnakan detail akhir...",
+      "processingAlmost": "Hampir selesai...",
+      "step4Subtitle": "Pilih desain yang sesuai dengan gaya Anda",
+      "uploadSubtitle": "AI akan menganalisis resume Anda dan membuat versi yang ditingkatkan",
+      "secureNotice": "File Anda diproses secara aman dan tidak disimpan di server kami",
+      "linkedinSubtitle": "Unduh profil Anda sebagai PDF dari LinkedIn, lalu unggah di sini",
+      "linkedinHowTo": "Cara mengekspor profil LinkedIn Anda:",
+      "linkedinStep1": "Buka profil LinkedIn Anda",
+      "linkedinStep2": "Klik tombol \"Resources\" di profil Anda",
+      "linkedinStep3": "Pilih \"Save to PDF\"",
+      "linkedinStep4": "Unggah PDF yang diunduh di bawah"
+    }
+  },
+
+  "Pricing": {
+    "meta": {
+      "title": "Paket Harga - Pembuat Resume AI Mulai dari $3/bulan",
+      "description": "Pilih paket yang sempurna untuk pencarian kerja Anda. Tanpa biaya tersembunyi, batalkan kapan saja. Mulai dari hanya $3/bulan."
+    },
+    "sectionTitle": "Harga",
+    "title": "Harga yang sederhana dan",
+    "titleHighlight": "transparan",
+    "subtitle": "Tanpa biaya tersembunyi, batalkan kapan saja.",
+    "viewComparison": "Lihat perbandingan lengkap",
+    "cancelAnytime": "Batalkan kapan saja",
+    "securePayments": "Pembayaran aman melalui Stripe",
+    "mostPopular": "PALING POPULER",
+    "bestValue": "NILAI TERBAIK",
+    "billedImmediately": "Ditagihkan segera",
+    "allPlansInclude": "Semua paket termasuk: Tanpa iklan • Semua templat freemium",
+    "billingToggle": {
+      "monthly": "Bulanan",
+      "annual": "Tahunan",
+      "savePercent": "Hemat 20%"
+    },
+    "page": {
+      "formBuilder": "Pembuat Formulir",
+      "canvasEditor": "Editor Kanvas",
+      "premiumTemplates": "Templat premium",
+      "aiBuild": "Pembuat Resume AI",
+      "atsOptimization": "Optimasi ATS",
+      "prioritySupport": "Dukungan prioritas",
+      "aiSuggestions": "Saran AI",
+      "coverLetterBuilder": "Pembuat surat lamaran",
+      "noAds": "Tanpa iklan",
+      "earlyAccess": "Akses awal fitur",
+      "cvCreations": "{count} pembuatan CV/bulan",
+      "aiGenerations": "{count} pembuatan AI/bulan",
+      "downloads": "{count} unduhan/bulan",
+      "coverLetters": "{count} surat lamaran/bulan",
+      "unlimited": "Tanpa Batas"
+    },
+    "comparison": {
+      "title": "Bandingkan Paket",
+      "feature": "Fitur",
+      "cvCreations": "Pembuatan CV",
+      "aiGenerations": "Pembuatan AI",
+      "downloads": "Unduhan",
+      "perMonth": "{count}/bln",
+      "unlimited": "Tanpa Batas",
+      "savedResumes": "Resume Tersimpan",
+      "templates": "Templat",
+      "all50": "Semua freemium",
+      "premiumPlus": "50+ & Premium",
+      "aiBuild": "Pembuat Resume AI",
+      "adFree": "Tanpa Iklan"
+    },
+    "faq": {
+      "title": "Pertanyaan yang Sering Diajukan",
+      "cancelAnytime": {
+        "question": "Bisakah saya membatalkan langganan kapan saja?",
+        "answer": "Ya, Anda dapat membatalkan langganan kapan saja. Anda akan tetap memiliki akses hingga akhir periode penagihan saat ini."
+      },
+      "paymentMethods": {
+        "question": "Metode pembayaran apa yang Anda terima?",
+        "answer": "Kami menerima semua kartu kredit utama (Visa, MasterCard, American Express) melalui Stripe. PayPal segera hadir."
+      },
+      "starterOneTime": {
+        "question": "Bagaimana cara kerja penagihan?",
+        "answer": "Semua paket ditagihkan segera saat Anda berlangganan. Paket bulanan diperpanjang setiap bulan, dan paket tahunan diperpanjang setiap tahun. Anda dapat membatalkan kapan saja dari pengaturan akun Anda."
+      },
+      "runOutDownloads": {
+        "question": "Apa yang terjadi saat saya mencapai batas?",
+        "answer": "Saat Anda mencapai batas pembuatan CV atau pembuatan AI bulanan, Anda dapat meningkatkan ke paket yang lebih tinggi untuk kapasitas lebih. Batas direset di awal setiap periode penagihan."
+      },
+      "switchPlans": {
+        "question": "Bisakah saya beralih antar paket?",
+        "answer": "Tentu saja. Anda dapat meningkatkan atau menurunkan paket Anda kapan saja. Perubahan berlaku segera, dan kami akan menghitung biaya secara proporsional."
+      },
+      "refunds": {
+        "question": "Apakah Anda menawarkan pengembalian dana?",
+        "answer": "Kami tidak menawarkan pengembalian dana setelah pembelian. Anda dapat membatalkan kapan saja dari pengaturan akun dan tetap memiliki akses hingga akhir periode penagihan Anda."
+      }
+    },
+    "cta": {
+      "title": "Siap untuk memulai?",
+      "subtitle": "Semua paket ditagihkan segera. Batalkan kapan saja.",
+      "button": "Lihat Paket",
+      "contactSupport": "Hubungi Dukungan"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Sempurna untuk pencari kerja",
+      "price": "$3",
+      "period": "/bulan",
+      "annualPrice": "$29",
+      "annualPeriod": "/tahun",
+      "annualMonthly": "$2,42/bln",
+      "features": {
+        "cvCreations": "30 pembuatan CV/bulan",
+        "aiGenerations": "50 pembuatan AI/bulan",
+        "downloads": "3 unduhan/bulan",
+        "templates": "Semua templat freemium",
+        "noAds": "Tanpa iklan",
+        "export": "Ekspor PDF"
+      },
+      "cta": "Mulai Sekarang"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Untuk pencari kerja aktif",
+      "price": "$6",
+      "period": "/bulan",
+      "annualPrice": "$58",
+      "annualPeriod": "/tahun",
+      "annualMonthly": "$4,83/bln",
+      "features": {
+        "cvCreations": "150 pembuatan CV/bulan",
+        "aiGenerations": "100 pembuatan AI/bulan",
+        "downloads": "10 unduhan/bulan",
+        "templates": "Semua templat freemium",
+        "noAds": "Tanpa iklan",
+        "ats": "Optimasi ATS"
+      },
+      "cta": "Mulai Sekarang"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Terbaik untuk profesional",
+      "price": "$10",
+      "period": "/bulan",
+      "annualPrice": "$96",
+      "annualPeriod": "/tahun",
+      "annualMonthly": "$8/bln",
+      "features": {
+        "cvCreations": "300 pembuatan CV/bulan",
+        "aiGenerations": "200 pembuatan AI/bulan",
+        "downloads": "25 unduhan/bulan",
+        "templates": "Semua + Templat Premium",
+        "support": "Dukungan prioritas",
+        "coverLetter": "Pembuat surat lamaran"
+      },
+      "cta": "Mulai Sekarang"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "Untuk pengguna intensif & agensi",
+      "price": "$30",
+      "period": "/bulan",
+      "annualPrice": "$288",
+      "annualPeriod": "/tahun",
+      "annualMonthly": "$24/bln",
+      "features": {
+        "cvCreations": "Pembuatan CV tanpa batas",
+        "aiGenerations": "500 pembuatan AI/bulan",
+        "downloads": "120 unduhan/bulan",
+        "templates": "Semua + Templat Premium",
+        "support": "Dukungan prioritas",
+        "coverLetter": "Pembuat surat lamaran",
+        "earlyAccess": "Akses awal ke fitur baru"
+      },
+      "cta": "Berlangganan Sekarang"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Tips, panduan, dan wawasan untuk karier Anda",
+    "searchPlaceholder": "Cari artikel...",
+    "readMore": "Baca selengkapnya",
+    "readingTime": "{time} menit baca",
+    "categories": "Kategori",
+    "allCategories": "Semua Kategori",
+    "relatedPosts": "Postingan Terkait",
+    "shareOn": "Bagikan di",
+    "noResults": "Artikel tidak ditemukan"
+  },
+
+  "Footer": {
+    "tagline": "Pembuat resume berbasis AI yang dipercaya oleh profesional di seluruh dunia.",
+    "product": "Produk",
+    "company": "Perusahaan",
+    "legal": "Hukum",
+    "social": "Sosial",
+    "about": "Tentang",
+    "careers": "Karier",
+    "privacy": "Privasi",
+    "terms": "Ketentuan",
+    "contact": "Kontak",
+    "help": "Panduan Bantuan",
+    "copyright": "© {year} Best AI Resume. Hak cipta dilindungi.",
+    "resources": "Sumber Daya",
+    "resumeFormatGuide": "Panduan Format Resume",
+    "canvaAlternative": "Alternatif Canva",
+    "overleafAlternative": "Alternatif Overleaf",
+    "resumeIoAlternative": "Alternatif Resume.io",
+    "reziAlternative": "Alternatif Rezi",
+    "builder": "Pembuat Resume",
+    "templateCategories": "Templat",
+    "compare": "Bandingkan",
+    "googleDocs": "Templat Google Docs",
+    "simpleClean": "Sederhana & Bersih",
+    "freeResumeBuilder": "Pembuat Resume Gratis",
+    "microsoftWord": "Templat Word",
+    "modern": "Templat Modern",
+    "creative": "Templat Kreatif",
+    "coverLetterGenerator": "Pembuat Surat Lamaran AI",
+    "resignationLetterGenerator": "Pembuat Surat Pengunduran Diri AI",
+    "buildResumeFree": "Buat Resume Anda Gratis",
+    "zetyAlternative": "Alternatif Zety",
+    "livecareerAlternative": "Alternatif LiveCareer",
+    "adobeAlternative": "Alternatif Adobe",
+    "novaAlternative": "Alternatif Nova",
+    "europassAlternative": "Alternatif Europass",
+    "chatgptComparison": "Perbandingan ChatGPT",
+    "resumeExamples": "Contoh Resume",
+    "softwareEngineer": "Software Engineer",
+    "nurse": "Perawat",
+    "projectManager": "Project Manager",
+    "marketingManager": "Marketing Manager",
+    "dataAnalyst": "Data Analyst",
+    "accountant": "Akuntan",
+    "viewAll300": "Lihat Semua 300+",
+    "careerGuides": "Panduan Karier",
+    "careerGuidance": "Bimbingan Karier",
+    "jobSearchStrategy": "Strategi Pencarian Kerja",
+    "careerDevelopmentPlan": "Rencana Pengembangan Karier",
+    "highPayingSkills": "Keahlian Bergaji Tinggi",
+    "interviewPreparation": "Persiapan Wawancara",
+    "salaryNegotiation": "Negosiasi Gaji"
+  },
+
+  "Auth": {
+    "meta": {
+      "loginTitle": "Masuk - Best AI Resume",
+      "loginDescription": "Masuk ke akun Best AI Resume Anda untuk mengakses resume tersimpan dan melanjutkan pembuatan.",
+      "registerTitle": "Buat Akun - Best AI Resume",
+      "registerDescription": "Buat akun gratis Anda untuk menyimpan resume, mengakses templat premium, dan membuka fitur AI."
+    },
+    "login": "Masuk",
+    "register": "Buat akun",
+    "email": "Alamat email",
+    "password": "Kata sandi",
+    "confirmPassword": "Konfirmasi kata sandi",
+    "forgotPassword": "Lupa kata sandi?",
+    "noAccount": "Belum punya akun?",
+    "hasAccount": "Sudah punya akun?",
+    "signUp": "Daftar",
+    "signIn": "Masuk",
+    "fullName": "Nama Lengkap",
+    "welcomeBack": "Selamat Datang Kembali",
+    "welcomeBackSubtitle": "Masuk untuk melanjutkan membuat resume Anda",
+    "createAccount": "Buat Akun",
+    "createAccountSubtitle": "Mulai buat resume profesional Anda hari ini",
+    "continueWithGoogle": "Lanjutkan dengan Google",
+    "continueWithGitHub": "Lanjutkan dengan GitHub",
+    "continueWithLinkedIn": "Lanjutkan dengan LinkedIn",
+    "orContinueWith": "atau lanjutkan dengan email",
+    "verifyEmail": "Verifikasi Email Anda",
+    "verificationCodeSent": "Kami mengirim kode 6 digit ke",
+    "enterFullCode": "Harap masukkan kode 6 digit lengkap",
+    "verificationFailed": "Verifikasi gagal. Silakan coba lagi.",
+    "resendFailed": "Gagal mengirim ulang kode. Silakan coba lagi.",
+    "verifying": "Memverifikasi...",
+    "verifyAndContinue": "Verifikasi & Lanjutkan",
+    "didntReceiveCode": "Tidak menerima kode?",
+    "resendIn": "Kirim ulang dalam",
+    "resendCode": "Kirim Ulang Kode",
+    "wrongEmail": "Email salah?",
+    "changeEmail": "Ubah email"
+  },
+
+  "Errors": {
+    "notFound": "Halaman tidak ditemukan",
+    "serverError": "Terjadi kesalahan",
+    "unauthorized": "Silakan masuk untuk melanjutkan"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Pilih bahasa"
+  },
+
+  "Dashboard": {
+    "meta": {
+      "title": "Dasbor - Resume Saya",
+      "description": "Kelola resume Anda, pantau unduhan, dan akses pengaturan langganan Anda."
+    },
+    "welcome": "Selamat datang kembali{name}!",
+    "subtitle": "Siap mendapatkan pekerjaan impian? Mari buat resume yang menonjol.",
+    "stats": {
+      "resumesCreated": "Resume Dibuat",
+      "downloads": "Unduhan",
+      "coverLetters": "Surat Lamaran"
+    },
+    "usage": {
+      "noPlan": "Tanpa paket",
+      "subscribeToUnlock": "Berlangganan untuk membuka",
+      "unlimited": "Tanpa Batas"
+    },
+    "cta": {
+      "badge": "Pembuat Resume Berbasis AI",
+      "title": "Buat Resume Sempurna Anda",
+      "createNew": "Buat Resume Baru"
+    },
+    "subscription": {
+      "plan": "Paket {tier}",
+      "expiredPlan": "Paket Kedaluwarsa",
+      "noActivePlan": "Tidak Ada Paket Aktif",
+      "active": "Aktif",
+      "planActive": "Paket Anda aktif",
+      "subscribePrompt": "Berlangganan untuk membuka unduhan",
+      "resubscribe": "Berlangganan Ulang",
+      "subscribe": "Berlangganan",
+      "manage": "Kelola Langganan"
+    },
+    "templateUsage": "Penggunaan Templat",
+    "resumes": {
+      "title": "Resume Anda",
+      "total": "{count} total",
+      "newResume": "Resume Baru",
+      "noResumes": "Belum ada resume",
+      "noResumesDesc": "Buat resume berbasis AI pertama Anda dan mulai melamar pekerjaan impian Anda hari ini.",
+      "createFirst": "Buat Resume Pertama Anda",
+      "createNew": "Buat Resume Baru"
+    },
+    "resumeCard": {
+      "untitled": "Resume Tanpa Judul",
+      "noName": "Tanpa nama",
+      "today": "Hari ini",
+      "yesterday": "Kemarin",
+      "daysAgo": "{days} hari yang lalu",
+      "duplicate": "Duplikat",
+      "delete": "Hapus",
+      "deleteConfirm": "Apakah Anda yakin ingin menghapus resume ini?",
+      "edit": "Edit"
+    },
+    "quickActions": {
+      "softwareEngineer": "Software Engineer",
+      "productManager": "Product Manager",
+      "designer": "Desainer",
+      "marketing": "Marketing",
+      "dataScientist": "Data Scientist",
+      "sales": "Sales"
+    },
+    "proTip": {
+      "label": "Tips Pro",
+      "title": "Sesuaikan resume Anda untuk setiap pekerjaan",
+      "description": "Resume yang disesuaikan dengan deskripsi pekerjaan tertentu memiliki kemungkinan 3x lebih besar untuk mendapatkan wawancara. Gunakan AI kami untuk menyesuaikan resume Anda dengan cepat untuk setiap lamaran.",
+      "stat1Value": "3x",
+      "stat1Label": "Lebih Banyak Wawancara",
+      "stat2Value": "85%",
+      "stat2Label": "Tingkat Lolos ATS"
+    },
+    "loading": "Memuat..."
+  },
+
+  "Profile": {
+    "meta": {
+      "title": "Pengaturan Profil - Best AI Resume",
+      "description": "Kelola pengaturan akun Anda, perbarui profil, dan ubah kata sandi Anda."
+    },
+    "title": "Pengaturan Profil",
+    "chooseAvatar": "Pilih Avatar",
+    "accountDetails": "Detail Akun",
+    "name": "Nama",
+    "namePlaceholder": "Nama lengkap Anda",
+    "saveChanges": "Simpan Perubahan",
+    "saving": "Menyimpan...",
+    "emailAddress": "Alamat Email",
+    "changeEmail": "Ubah",
+    "newEmail": "Alamat Email Baru",
+    "emailPlaceholder": "anda@emailbaru.com",
+    "emailChangeHint": "Kode verifikasi akan dikirim ke email ini",
+    "cancel": "Batal",
+    "sendCode": "Kirim Kode",
+    "sending": "Mengirim...",
+    "enterCodeSentTo": "Masukkan kode 6 digit yang dikirim ke",
+    "verifyCode": "Verifikasi",
+    "verifying": "Memverifikasi...",
+    "useAnotherEmail": "Gunakan alamat email lain",
+    "codeSent": "Kode verifikasi dikirim ke email baru Anda",
+    "emailChanged": "Email berhasil diubah",
+    "enterNewEmail": "Harap masukkan alamat email baru",
+    "enterCode": "Harap masukkan kode 6 digit",
+    "emailChangeFailed": "Gagal mengirim kode verifikasi",
+    "verificationFailed": "Verifikasi gagal",
+    "changePassword": "Ubah Kata Sandi",
+    "currentPassword": "Kata Sandi Saat Ini",
+    "newPassword": "Kata Sandi Baru",
+    "confirmPassword": "Konfirmasi Kata Sandi Baru",
+    "passwordHint": "Minimal 8 karakter",
+    "changePasswordBtn": "Ubah Kata Sandi",
+    "changingPassword": "Mengubah...",
+    "profileUpdated": "Profil berhasil diperbarui",
+    "passwordChanged": "Kata sandi berhasil diubah",
+    "updateFailed": "Pembaruan gagal",
+    "passwordChangeFailed": "Perubahan kata sandi gagal",
+    "passwordMismatch": "Kata sandi tidak cocok",
+    "passwordTooShort": "Kata sandi minimal 8 karakter",
+    "noChanges": "Tidak ada perubahan untuk disimpan"
+  },
+
+  "Checkout": {
+    "meta": {
+      "title": "Checkout - Selesaikan Langganan Anda",
+      "description": "Selesaikan langganan Anda untuk membuka fitur resume tanpa batas. Pembayaran aman melalui Stripe."
+    },
+    "invalidPlan": {
+      "title": "Paket Tidak Valid",
+      "description": "Paket yang dipilih tidak valid. Silakan pilih paket dari halaman harga kami.",
+      "backBtn": "Kembali ke Harga"
+    },
+    "signIn": {
+      "title": "Masuk untuk Melanjutkan",
+      "subtitle": "Masuk untuk membeli paket {plan}",
+      "signInBtn": "Masuk",
+      "createAccountBtn": "Buat Akun"
+    },
+    "header": {
+      "completePurchase": "Selesaikan Pembelian Anda",
+      "subscribePlan": "Berlangganan paket {plan}"
+    },
+    "billing": {
+      "account": "Akun",
+      "billing": "Penagihan",
+      "monthlyStarting": "Bulanan, mulai hari ini"
+    },
+    "submit": {
+      "redirecting": "Mengalihkan ke Stripe...",
+      "subscribeNow": "Berlangganan Sekarang"
+    },
+    "secure": "Pembayaran aman didukung oleh Stripe",
+    "cancelNote": "Batalkan kapan saja. Tanpa komitmen jangka panjang.",
+    "loading": "Memuat checkout...",
+    "errors": {
+      "cancelled": "Pembayaran dibatalkan. Anda dapat mencoba lagi saat Anda siap.",
+      "sessionExpired": "Sesi Anda telah berakhir. Silakan masuk lagi.",
+      "failedCheckout": "Gagal memulai checkout. Silakan coba lagi.",
+      "networkError": "Tidak dapat terhubung ke server. Silakan periksa koneksi internet Anda."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/bulan",
+        "description": "Sempurna untuk pencari kerja",
+        "features": ["30 pembuatan CV/bulan", "3 pembuatan AI/bulan", "3 unduhan PDF/bulan", "Semua templat freemium", "Tanpa iklan"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/bulan",
+        "description": "Untuk pencari kerja aktif",
+        "features": ["150 pembuatan CV/bulan", "10 pembuatan AI/bulan", "10 unduhan PDF/bulan", "Optimasi ATS", "Pembuat surat lamaran"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/bulan",
+        "description": "Terbaik untuk profesional",
+        "features": ["300 pembuatan CV/bulan", "30 pembuatan AI/bulan", "25 unduhan PDF/bulan", "Semua templat premium", "Dukungan prioritas"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/bulan",
+        "description": "Untuk pengguna intensif & agensi",
+        "features": ["Pembuatan CV tanpa batas", "100 pembuatan AI/bulan", "Unduhan PDF tanpa batas", "Semua templat premium", "Dukungan prioritas", "Akses awal fitur"]
+      }
+    }
+  },
+
+  "CheckoutSuccess": {
+    "title": "Pembayaran Berhasil!",
+    "welcome": "Selamat datang di {plan}!",
+    "planLabel": "Paket {plan}",
+    "yourBenefits": "Manfaat baru Anda",
+    "createResume": "Buat Resume Anda",
+    "goToDashboard": "Ke Dasbor",
+    "receiptNote": "Tanda terima telah dikirim ke email Anda. Anda dapat mengelola langganan kapan saja dari",
+    "dashboardLink": "dasbor",
+    "supportText": "Ada pertanyaan? Hubungi kami di",
+    "loading": "Memuat detail langganan Anda...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["30 pembuatan CV per bulan", "3 pembuatan AI per bulan", "3 unduhan PDF per bulan", "Semua templat freemium", "Tanpa iklan"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["150 pembuatan CV per bulan", "10 pembuatan AI per bulan", "10 unduhan PDF per bulan", "Optimasi ATS", "Pembuat surat lamaran"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["300 pembuatan CV per bulan", "30 pembuatan AI per bulan", "25 unduhan PDF per bulan", "Semua templat premium", "Dukungan prioritas"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["Pembuatan CV tanpa batas", "100 pembuatan AI per bulan", "Unduhan PDF tanpa batas", "Semua templat premium", "Dukungan prioritas", "Akses awal ke fitur baru"]
+      }
+    }
+  },
+
+  "CanvasEditor": {
+    "meta": {
+      "title": "Editor Kanvas Resume - Desain Resume Anda Secara Visual | Best AI Resume",
+      "description": "Desain resume Anda dengan editor kanvas visual. Seret dan lepas teks, gambar, dan bentuk untuk membuat tata letak resume yang unik dan kustom."
+    },
+    "loading": "Memuat Editor Kanvas...",
+    "desktop": {
+      "title": "Diperlukan Desktop",
+      "description": "Editor Kanvas memerlukan layar yang lebih besar untuk pekerjaan desain yang presisi. Silakan gunakan laptop atau komputer desktop untuk mengakses fitur ini.",
+      "useBuilder": "Gunakan Pembuat Standar",
+      "backToDashboard": "Kembali ke Dasbor",
+      "mobileNote": "Pembuat resume standar berfungsi dengan baik di perangkat seluler!"
+    },
+    "header": {
+      "backToBuilder": "Kembali ke Pembuat",
+      "backToTemplates": "Kembali ke Templat Kanvas",
+      "title": "Editor Kanvas",
+      "beta": "Beta",
+      "elements": "{count} elemen",
+      "postToCommunity": "Posting ke Komunitas"
+    },
+    "shortcuts": "V Pilih | T Teks | Delete Hapus | Cmd+D Duplikat | Cmd+Z Urungkan | Klik dua kali teks untuk mengedit",
+    "toolbar": {
+      "select": "Pilih (V)",
+      "text": "Teks (T)",
+      "image": "Gambar (I)",
+      "shape": "Bentuk (S)",
+      "rectangle": "Persegi Panjang",
+      "circle": "Lingkaran",
+      "star": "Bintang",
+      "line": "Garis",
+      "undo": "Urungkan (Cmd+Z)",
+      "redo": "Ulangi (Cmd+Shift+Z)",
+      "duplicate": "Duplikat (Cmd+D)",
+      "delete": "Hapus",
+      "bringToFront": "Bawa ke Depan",
+      "sendToBack": "Kirim ke Belakang",
+      "zoomOut": "Perkecil",
+      "zoomIn": "Perbesar",
+      "aiGenerate": "Buat dengan AI",
+      "aiGenerateTitle": "Pembuat Ringkasan AI",
+      "save": "Simpan Proyek (Cmd+S)",
+      "load": "Muat Proyek",
+      "export": "Ekspor",
+      "downloadPdf": "Unduh PDF",
+      "downloadPng": "Unduh PNG",
+      "downloadJpeg": "Unduh JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "Gagal memuat templat. Mungkin telah dihapus.",
+      "canvasNotReady": "Kanvas belum siap. Silakan coba lagi.",
+      "projectSaved": "Proyek berhasil disimpan!",
+      "noSavedProject": "Tidak ada proyek tersimpan yang ditemukan.",
+      "projectLoaded": "Proyek berhasil dimuat!",
+      "projectLoadFailed": "Gagal memuat proyek."
+    },
+    "downloadModal": {
+      "title": "Masuk untuk Mengunduh",
+      "description": "Buat akun gratis untuk mengunduh desain kanvas Anda sebagai {format}.",
+      "savedTitle": "Pekerjaan Anda tersimpan",
+      "savedNotice": "Proyek kanvas Anda telah disimpan di browser Anda. Proyek akan tetap ada saat Anda kembali setelah masuk.",
+      "signUp": "Daftar — Gratis",
+      "signInPrefix": "Sudah punya akun?",
+      "signInLink": "Masuk",
+      "restored": "Proyek kanvas Anda telah dipulihkan! Klik Ekspor untuk mengunduh."
+    }
+  },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Templat Resume Kanvas - Desain Resume Anda Secara Visual | Best AI Resume",
+      "description": "Jelajahi templat resume kanvas kreatif. Seret, lepas, dan sesuaikan setiap elemen dengan editor visual kami."
+    },
+    "sectionTitle": "Templat Kanvas",
+    "title": "Resume Kanvas",
+    "titleHighlight": "Templat",
+    "subtitle": "Desain resume Anda dengan kebebasan kreatif penuh. Seret, lepas, dan sesuaikan setiap elemen di editor visual kami.",
+    "freeBadge": "Gratis",
+    "searchPlaceholder": "Cari templat kanvas...",
+    "noResults": "Templat tidak ditemukan",
+    "noResultsHint": "Coba sesuaikan kriteria pencarian atau filter Anda",
+    "useTemplate": "Gunakan Templat",
+    "categories": {
+      "all": "Semua",
+      "professional": "Profesional",
+      "creative": "Kreatif",
+      "minimal": "Minimal"
+    },
+    "startFromScratch": {
+      "title": "Ingin memulai dari awal?",
+      "description": "Buat resume yang sepenuhnya kustom menggunakan alat desain canggih Editor Kanvas kami.",
+      "button": "Buka Kanvas Kosong"
+    },
+    "formBuilderBanner": "Mencari templat berbasis formulir?",
+    "viewFormTemplates": "Lihat Templat Pembuat Formulir"
+  },
+
+  "Builder": {
+    "meta": {
+      "title": "Pembuat Resume - Buat CV Profesional Anda Secara Online",
+      "description": "Buat resume profesional Anda dengan editor yang mudah digunakan. Pratinjau real-time, saran AI, dan unduhan PDF instan."
+    },
+    "personalInfo": {
+      "title": "Informasi Pribadi",
+      "subtitle": "Mulai dengan detail kontak dan ringkasan profesional Anda."
+    },
+    "profilePhoto": "Foto Profil",
+    "upload": "Unggah",
+    "change": "Ubah",
+    "fullName": "Nama Lengkap",
+    "fullNamePlaceholder": "John Doe",
+    "jobTitle": "Jabatan",
+    "jobTitlePlaceholder": "Software Engineer",
+    "email": "Email",
+    "emailPlaceholder": "john@contoh.com",
+    "phone": "Telepon",
+    "phonePlaceholder": "+62 812 3456 7890",
+    "location": "Lokasi",
+    "locationPlaceholder": "Jakarta, Indonesia",
+    "website": "Situs Web",
+    "websitePlaceholder": "johndoe.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/johndoe",
+    "nationality": "Kewarganegaraan",
+    "nationalityPlaceholder": "mis., Indonesia, Malaysia",
+    "idDocument": "KTP / Paspor / SIM",
+    "selectDocType": "Pilih dokumen",
+    "nationalId": "KTP",
+    "passport": "Paspor",
+    "drivingLicense": "SIM",
+    "documentNumber": "Nomor dokumen",
+    "professionalSummary": "Ringkasan Profesional",
+    "summaryPlaceholder": "Software Engineer berpengalaman dengan passion untuk membangun aplikasi web yang skalabel...",
+    "generateWithAI": "Buat dengan AI",
+    "additionalInfo": "Informasi Tambahan",
+    "socialLinks": "Tautan Sosial",
+    "customFields": {
+      "title": "Bidang Kustom",
+      "subtitle": "Tambahkan bagian kustom dengan label dan konten Anda sendiri.",
+      "add": "Tambah Bidang Kustom",
+      "noCustomFields": "Belum ada bidang kustom yang ditambahkan.",
+      "label": "Label Bagian",
+      "labelPlaceholder": "mis., Kerja Sukarela, Hobi, Publikasi",
+      "content": "Konten",
+      "contentPlaceholder": "Tambahkan konten Anda di sini..."
+    },
+    "shapes": {
+      "circle": "Lingkaran",
+      "rounded": "Membulat",
+      "square": "Persegi"
+    },
+    "experience": {
+      "title": "Pengalaman Kerja",
+      "subtitle": "Tambahkan pengalaman kerja Anda yang relevan.",
+      "add": "Tambah Pengalaman",
+      "notSpecified": "(Belum ditentukan)",
+      "companyName": "Nama Perusahaan",
+      "jobTitle": "Jabatan",
+      "company": "Perusahaan",
+      "city": "Kota",
+      "country": "Negara",
+      "startDate": "Tanggal Mulai",
+      "endDate": "Tanggal Berakhir",
+      "currentlyWork": "Saya saat ini bekerja di sini",
+      "description": "Deskripsi",
+      "improveAI": "Tingkatkan dengan AI",
+      "noExperience": "Belum ada pengalaman yang ditambahkan.",
+      "addFirst": "Tambahkan posisi pertama Anda"
+    },
+    "education": {
+      "title": "Pendidikan",
+      "subtitle": "Tambahkan latar belakang pendidikan Anda.",
+      "add": "Tambah Pendidikan",
+      "notSpecified": "(Belum ditentukan)",
+      "degree": "Gelar",
+      "school": "Sekolah / Universitas",
+      "cityOptional": "Kota (Opsional)",
+      "countryOptional": "Negara (Opsional)",
+      "startDate": "Tanggal Mulai",
+      "endDate": "Tanggal Berakhir",
+      "gpaOptional": "IPK (Opsional)",
+      "honorsOptional": "Penghargaan (Opsional)",
+      "clubsOptional": "Klub & Kegiatan (Opsional)",
+      "descriptionOptional": "Deskripsi (Opsional)",
+      "noEducation": "Belum ada pendidikan yang ditambahkan.",
+      "addEducation": "Tambahkan pendidikan Anda",
+      "credentials": "Kredensial",
+      "certifications": "Sertifikasi",
+      "awards": "Penghargaan & Prestasi"
+    },
+    "skills": {
+      "title": "Keahlian",
+      "subtitle": "Tambahkan keahlian teknis dan soft skill Anda dengan tingkat kemahiran.",
+      "placeholder": "mis. React, Python, Kepemimpinan",
+      "proficiencyLevel": "Tingkat Kemahiran",
+      "beginner": "Pemula",
+      "basic": "Dasar",
+      "intermediate": "Menengah",
+      "advanced": "Mahir",
+      "expert": "Ahli",
+      "noSkills": "Belum ada keahlian yang ditambahkan.",
+      "suggestedSkills": "Keahlian yang Disarankan",
+      "additionalInfo": "Informasi Tambahan",
+      "languages": "Bahasa",
+      "strengths": "Kekuatan",
+      "interests": "Minat & Hobi"
+    },
+    "tabs": {
+      "personal": "Pribadi",
+      "personalDesc": "Info dasar & ringkasan",
+      "experience": "Pengalaman",
+      "experienceDesc": "Riwayat kerja",
+      "education": "Pendidikan",
+      "educationDesc": "Latar belakang akademis",
+      "skills": "Keahlian",
+      "skillsDesc": "Keahlian Anda",
+      "design": "Desain",
+      "designDesc": "Gaya & tata letak"
+    },
+    "ui": {
+      "progress": "Progres",
+      "canvasEditor": "Editor Kanvas",
+      "backToHome": "Kembali ke Beranda",
+      "untitledResume": "Resume Tanpa Judul",
+      "downloadPdf": "Unduh PDF",
+      "livePreview": "Pratinjau Langsung",
+      "showReference": "Tampilkan Gambar Referensi",
+      "reference": "Referensi",
+      "zoomOut": "Perkecil",
+      "zoomIn": "Perbesar",
+      "resetZoom": "Reset Zoom",
+      "referenceDesign": "Desain Referensi",
+      "referenceCaption": "Desain templat asli untuk referensi",
+      "editResume": "Edit Resume",
+      "previewResume": "Pratinjau Resume",
+      "edit": "Edit",
+      "preview": "Pratinjau",
+      "loadingBuilder": "Memuat pembuat..."
+    },
+    "welcome": {
+      "title": "Akun Dibuat!",
+      "description": "Resume Anda tersimpan. Anda dapat melanjutkan mengedit atau memilih paket untuk mengunduh.",
+      "choosePlan": "Pilih Paket",
+      "backToEditor": "Kembali ke Editor"
+    },
+    "feedback": {
+      "reportIssue": "Laporkan Masalah",
+      "title": "Umpan Balik Templat",
+      "forTemplate": "Templat",
+      "typeFeedback": "Umpan Balik",
+      "typeBug": "Bug",
+      "typeSuggestion": "Ide",
+      "placeholder": "Jelaskan masalahnya atau bagikan umpan balik Anda tentang templat ini...",
+      "messageTooShort": "Pesan minimal 5 karakter",
+      "submitError": "Gagal mengirim umpan balik. Silakan coba lagi.",
+      "submit": "Kirim",
+      "cancel": "Batal",
+      "close": "Tutup",
+      "thankYou": "Terima Kasih!",
+      "thankYouDesc": "Umpan balik Anda telah dikirim. Kami meninjau semua laporan untuk meningkatkan templat kami."
+    }
+  },
+
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Unduh untuk Google Docs",
+    "loading": "Memuat pembuat Google Docs..."
+  },
+
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "Unduh MS Word",
+    "loading": "Memuat pembuat Word..."
+  },
+
+  "CoverLetter": {
+    "meta": {
+      "title": "Pembuat Surat Lamaran AI Gratis - Buat Surat Lamaran Profesional",
+      "description": "Buat surat lamaran profesional dan personal dalam hitungan menit dengan alat berbasis AI gratis kami. Tampil menonjol dan dapatkan lebih banyak wawancara."
+    },
+    "hero": {
+      "badge": "Pembuat Surat Lamaran Berbasis AI",
+      "title": "Buat",
+      "titleHighlight": "Surat Lamaran Sempurna",
+      "subtitle": "Biarkan AI membuat surat lamaran yang menarik dan personal yang menyoroti kekuatan Anda dan menarik perhatian manajer perekrutan."
+    },
+    "form": {
+      "yourDetails": "Detail Anda",
+      "fillInfo": "Isi informasi Anda",
+      "fullName": "Nama Lengkap",
+      "email": "Email",
+      "jobTitle": "Jabatan",
+      "companyName": "Nama Perusahaan",
+      "hiringManager": "Nama Manajer Perekrutan (Opsional)",
+      "keySkills": "Keahlian Utama",
+      "experience": "Pengalaman Relevan",
+      "tone": "Nada Penulisan",
+      "professional": "Profesional",
+      "friendly": "Ramah",
+      "confident": "Percaya Diri",
+      "enthusiastic": "Antusias",
+      "generate": "Buat Surat Lamaran",
+      "generating": "Membuat...",
+      "fullNamePlaceholder": "John Doe",
+      "emailPlaceholder": "john@contoh.com",
+      "jobTitlePlaceholder": "Software Engineer",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Jane Smith",
+      "skillsPlaceholder": "React, Node.js, Kepemimpinan Tim",
+      "experiencePlaceholder": "Saya memimpin tim 5 developer untuk meluncurkan produk besar..."
+    },
+    "preview": {
+      "title": "Pratinjau",
+      "subtitle": "Surat yang dihasilkan",
+      "noLetter": "Belum ada surat yang dibuat",
+      "fillAndGenerate": "Isi detail Anda dan klik Buat",
+      "copy": "Salin",
+      "copied": "Tersalin!",
+      "download": "Unduh"
+    },
+    "tips": {
+      "title": "Tips untuk",
+      "titleHighlight": "Surat Lamaran yang Hebat",
+      "beSpecific": "Jadilah Spesifik",
+      "beSpecificDesc": "Sesuaikan surat Anda untuk pekerjaan dan perusahaan tertentu. Surat generik mudah dikenali.",
+      "showResults": "Tunjukkan Hasil",
+      "showResultsDesc": "Sertakan pencapaian yang terukur. Angka membuat pencapaian Anda konkret dan mudah diingat.",
+      "keepConcise": "Tetap Ringkas",
+      "keepConciseDesc": "Targetkan 3-4 paragraf. Perekrut hanya menghabiskan beberapa detik memindai setiap lamaran."
+    },
+    "cta": {
+      "title": "Butuh Resume Juga?",
+      "subtitle": "Pasangkan surat lamaran Anda dengan resume yang dirancang secara profesional menggunakan AI.",
+      "button": "Buat Resume Anda"
+    },
+    "errors": {
+      "signInRequired": "Silakan masuk untuk membuat surat lamaran",
+      "limitReached": "Anda telah mencapai batas surat lamaran. Tingkatkan paket Anda untuk lebih banyak.",
+      "subscriptionRequired": "Langganan diperlukan untuk membuat surat lamaran. Silakan tingkatkan paket Anda.",
+      "signInNow": "Masuk sekarang",
+      "viewPlans": "Lihat paket"
+    },
+    "externalResources": {
+      "title": "Sumber Daya Eksternal",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Prospek Karier",
+      "shrmHrResources": "SHRM: Sumber Daya HR & Karier"
+    }
+  },
+
+  "ResignationLetter": {
+    "meta": {
+      "title": "Pembuat Surat Pengunduran Diri AI Gratis - Surat Keluar Profesional",
+      "description": "Buat surat pengunduran diri profesional dalam hitungan menit. Tinggalkan pekerjaan Anda dengan baik dan jaga hubungan positif dengan alat berbasis AI kami."
+    },
+    "hero": {
+      "badge": "Pembuat Surat Pengunduran Diri Berbasis AI",
+      "title": "Tulis",
+      "titleHighlight": "Surat Pengunduran Diri Profesional",
+      "subtitle": "Tinggalkan pekerjaan Anda dengan baik menggunakan surat pengunduran diri yang ditulis secara profesional. Jaga hubungan positif dan lindungi reputasi profesional Anda."
+    },
+    "noticeLabel": "Tips",
+    "notice": "Periode pemberitahuan standar biasanya 2 minggu. Periksa kontrak kerja Anda untuk persyaratan spesifik.",
+    "form": {
+      "yourDetails": "Detail Anda",
+      "fillInfo": "Isi informasi Anda",
+      "yourName": "Nama Anda",
+      "currentPosition": "Posisi Saat Ini",
+      "companyName": "Nama Perusahaan",
+      "managerName": "Nama Manajer",
+      "lastWorkingDay": "Hari Kerja Terakhir",
+      "reasonForLeaving": "Alasan Mengundurkan Diri",
+      "positiveExperiences": "Pengalaman Positif (Opsional)",
+      "tone": "Nada Surat",
+      "professional": "Profesional",
+      "grateful": "Bersyukur",
+      "brief": "Singkat",
+      "warm": "Hangat",
+      "offerHelp": "Tawarkan bantuan untuk transisi",
+      "generate": "Buat Surat Pengunduran Diri",
+      "generating": "Membuat...",
+      "yourNamePlaceholder": "John Doe",
+      "currentPositionPlaceholder": "Software Engineer",
+      "companyPlaceholder": "Acme Corp",
+      "managerPlaceholder": "Jane Smith",
+      "positiveExperiencesPlaceholder": "Saya sangat menikmati bekerja pada proyek peluncuran produk dan menghargai bimbingan dari tim senior...",
+      "professionalDesc": "Formal dan bisnis",
+      "gratefulDesc": "Mengungkapkan apresiasi",
+      "briefDesc": "Singkat dan langsung ke inti",
+      "warmDesc": "Ramah dan personal"
+    },
+    "reasons": {
+      "selectReason": "Pilih alasan (opsional)",
+      "newOpportunity": "Mengejar peluang baru",
+      "careerChange": "Perubahan karier",
+      "relocation": "Pindah tempat",
+      "personal": "Alasan pribadi",
+      "education": "Kembali ke pendidikan",
+      "family": "Komitmen keluarga",
+      "health": "Alasan kesehatan",
+      "retirement": "Pensiun",
+      "other": "Lainnya"
+    },
+    "preview": {
+      "title": "Pratinjau",
+      "subtitle": "Surat yang dihasilkan",
+      "noLetter": "Belum ada surat yang dibuat",
+      "fillAndGenerate": "Isi detail Anda dan klik Buat",
+      "copy": "Salin",
+      "copied": "Tersalin!",
+      "download": "Unduh"
+    },
+    "reasonText": {
+      "newOpportunity": "Saya telah menerima posisi di perusahaan lain",
+      "careerChange": "Saya telah memutuskan untuk mengejar jalur karier yang berbeda",
+      "relocation": "Saya akan pindah tempat tinggal",
+      "personal": "karena alasan pribadi",
+      "education": "Saya telah memutuskan untuk kembali melanjutkan pendidikan",
+      "family": "karena komitmen keluarga yang membutuhkan perhatian penuh saya",
+      "health": "karena alasan kesehatan",
+      "retirement": "Saya telah memutuskan untuk pensiun",
+      "other": "karena alasan pribadi"
+    },
+    "letter": {
+      "dearManager": "Yth. {name},",
+      "defaultManager": "Manajer",
+      "lastWorkingDayPlaceholder": "[Hari Kerja Terakhir]",
+      "briefBody": "Dengan surat ini saya memberitahukan secara resmi pengunduran diri saya dari posisi {position} di {company}. Hari kerja terakhir saya adalah {lastDay}.",
+      "briefReason": "Saya mengundurkan diri karena {reason}.",
+      "briefClosing": "Terima kasih atas kesempatan yang diberikan selama saya bekerja di sini.",
+      "sincerely": "Hormat saya,",
+      "formalBody": "Saya menulis untuk memberitahukan secara resmi pengunduran diri saya dari posisi saya sebagai {position} di {company}. Hari kerja terakhir saya adalah {lastDay}.",
+      "reasonPrefix": "Setelah pertimbangan matang, {reason}.",
+      "notEasyDecision": "Ini bukan keputusan yang mudah, karena saya benar-benar menghargai waktu saya bersama perusahaan.",
+      "gratefulDefault": "Saya sangat bersyukur atas kesempatan yang saya miliki untuk berkembang secara profesional dan pribadi selama bekerja di sini.",
+      "warmDefault": "Bekerja bersama Anda dan tim merupakan pengalaman luar biasa yang akan selalu saya kenang.",
+      "learnedAppreciate": "Saya telah belajar banyak hal dan akan selalu menghargai dukungan dan bimbingan yang telah saya terima.",
+      "transitionHelp": "Selama periode transisi, saya berkomitmen untuk memastikan serah terima tanggung jawab yang lancar. Saya dengan senang hati membantu melatih pengganti saya atau mendokumentasikan proyek dan proses saya saat ini.",
+      "thankYouClosing": "Terima kasih atas kesempatan pengembangan profesional dan pribadi yang telah Anda berikan selama masa kerja saya. Saya mendoakan {company} terus sukses, dan saya berharap dapat tetap menjalin hubungan.",
+      "warmRegards": "Dengan hormat,",
+      "sincereGratitude": "Dengan penuh rasa terima kasih,"
+    },
+    "tips": {
+      "title": "Praktik Terbaik",
+      "titleHighlight": "Pengunduran Diri",
+      "giveNotice": "Berikan Pemberitahuan",
+      "giveNoticeDesc": "Berikan pemberitahuan minimal 2 minggu, atau ikuti ketentuan kontrak Anda.",
+      "stayProfessional": "Tetap Profesional",
+      "stayProfessionalDesc": "Jangan bawa emosi. Tetap sopan dan positif.",
+      "documentIt": "Dokumentasikan",
+      "documentItDesc": "Selalu kirimkan pengunduran diri tertulis untuk arsip Anda.",
+      "leaveWell": "Pergi dengan Baik",
+      "leaveWellDesc": "Selesaikan pekerjaan yang tertunda dan tawarkan untuk melatih pengganti Anda."
+    },
+    "cta": {
+      "title": "Siap untuk Peluang Selanjutnya?",
+      "subtitle": "Buat resume profesional untuk pencarian kerja Anda dengan pembuat resume berbasis AI kami.",
+      "button": "Buat Resume Anda"
+    },
+    "externalResources": {
+      "title": "Sumber Daya Eksternal",
+      "shrmWorkplace": "SHRM: Sumber Daya HR & Tempat Kerja",
+      "blsCareerData": "Bureau of Labor Statistics: Data Karier"
+    }
+  },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Latihan Simulasi Wawancara AI Gratis | Best AI Resume",
+      "description": "Latihan wawancara kerja dengan pertanyaan yang dihasilkan AI sesuai posisi Anda. Dapatkan umpan balik instan menggunakan metode STAR. Alat simulasi wawancara gratis."
+    },
+    "hero": {
+      "badge": "Latihan Wawancara Berbasis AI",
+      "title": "Latihan Simulasi Wawancara AI",
+      "description": "Berlatih dengan pertanyaan wawancara yang dihasilkan AI sesuai posisi dan tingkat pengalaman Anda. Dapatkan umpan balik instan menggunakan metode STAR."
+    },
+    "setup": {
+      "title": "Siapkan Wawancara Anda",
+      "jobTitle": "Jabatan",
+      "jobTitlePlaceholder": "mis. Software Engineer, Marketing Manager...",
+      "experienceLevel": "Tingkat Pengalaman",
+      "levels": {
+        "entry": { "label": "Tingkat Pemula", "description": "0–2 tahun pengalaman" },
+        "mid": { "label": "Tingkat Menengah", "description": "3–6 tahun pengalaman" },
+        "senior": { "label": "Tingkat Senior", "description": "7+ tahun pengalaman" }
+      },
+      "questionCount": "Jumlah Pertanyaan: {count}",
+      "quick": "Cepat (3)",
+      "thorough": "Menyeluruh (10)",
+      "startButton": "Mulai Wawancara",
+      "generating": "Membuat Pertanyaan..."
+    },
+    "interview": {
+      "progress": "Pertanyaan {current} dari {total}",
+      "yourAnswer": "Jawaban Anda",
+      "answerPlaceholder": "Ketik jawaban Anda di sini. Gunakan metode STAR: Situasi, Tugas, Aksi, Hasil...",
+      "answerTip": "Tips: Targetkan 3–5 kalimat. Gunakan contoh spesifik dan ukur hasil bila memungkinkan.",
+      "skip": "Lewati",
+      "evaluating": "Mengevaluasi...",
+      "submitContinue": "Kirim & Lanjutkan",
+      "submitFinish": "Kirim & Selesai",
+      "starReminder": "Ingat Metode STAR:",
+      "starDescription": "Susun jawaban Anda dengan Situasi, Tugas, Aksi, dan Hasil untuk respons terkuat."
+    },
+    "results": {
+      "complete": "Wawancara Selesai!",
+      "summary": "Anda menjawab {answered} dari {total} pertanyaan",
+      "averageScore": "Skor Rata-rata:",
+      "startNew": "Mulai Wawancara Baru",
+      "bonusQuestions": "Buka 10 pertanyaan latihan bonus",
+      "bonusUnlocked": "Pertanyaan Bonus Terbuka!",
+      "bonusDescription": "Anda sekarang dapat berlatih hingga 10 pertanyaan per sesi.",
+      "detailedFeedback": "Umpan Balik Detail",
+      "questionLabel": "Pertanyaan {number}",
+      "strengths": "Kekuatan",
+      "improvements": "Area untuk Perbaikan",
+      "sampleAnswer": "Contoh Jawaban",
+      "skipped": "Pertanyaan ini dilewati",
+      "continuePrep": "Lanjutkan Persiapan Anda",
+      "resources": {
+        "starMethod": {
+          "title": "Kuasai Metode STAR",
+          "description": "Pelajari cara menyusun jawaban Anda untuk pertanyaan wawancara perilaku."
+        },
+        "tellMe": {
+          "title": "Cara Menjawab \"Ceritakan Tentang Diri Anda\"",
+          "description": "Buat jawaban pembuka sempurna yang menentukan nada wawancara Anda."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Harap masukkan jabatan untuk melanjutkan.",
+      "generateFailed": "Gagal membuat pertanyaan wawancara. Silakan coba lagi.",
+      "startFailed": "Gagal memulai wawancara. Silakan coba lagi.",
+      "detailedAnswer": "Harap berikan jawaban yang lebih detail (minimal 20 karakter)."
+    },
+    "externalResources": {
+      "title": "Sumber Daya Eksternal",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Prospek Karier",
+      "shrmInterviewPractices": "SHRM: Praktik Terbaik Wawancara"
+    }
+  },
+
+  "CareerTips": {
+    "meta": {
+      "title": "Tips Karier & Saran Resume - Panduan Ahli | Best AI Resume",
+      "description": "Saran karier ahli, tips menulis resume, dan strategi pencarian kerja. Pelajari cara membuat resume berbasis AI, ace wawancara, dan dapatkan pekerjaan impian Anda."
+    },
+    "hero": {
+      "badge": "Panduan Karier Ahli",
+      "title": "Tips Karier",
+      "titleHighlight": "& Saran Ahli",
+      "subtitle": "Kuasai penulisan resume, kuasai wawancara, dan percepat karier Anda dengan panduan ahli kami."
+    },
+    "featured": "Artikel Pilihan",
+    "featuredBadge": "Pilihan",
+    "allArticles": "Semua Artikel",
+    "searchPlaceholder": "Cari artikel...",
+    "articleCount": "{count, plural, one {# artikel} other {# artikel}}",
+    "noArticles": "Artikel tidak ditemukan",
+    "noArticlesHint": "Coba sesuaikan pencarian atau filter Anda",
+    "categories": {
+      "title": "Kategori",
+      "all": "Semua Artikel",
+      "resumeTips": "Tips Resume",
+      "coverLetters": "Surat Lamaran",
+      "interviews": "Tips Wawancara",
+      "jobSearch": "Pencarian Kerja",
+      "careerAdvice": "Saran Karier",
+      "aiResume": "Resume AI"
+    },
+    "article": {
+      "readMore": "Baca Selengkapnya",
+      "tableOfContents": "Daftar Isi",
+      "relatedArticles": "Artikel Terkait",
+      "moreCareerTips": "Tips Karier Lainnya",
+      "shareHelpful": "Merasa ini bermanfaat?",
+      "shareWithOthers": "Bagikan kepada orang lain yang mungkin mendapat manfaat",
+      "tags": "Tag:",
+      "breadcrumbHome": "Beranda",
+      "breadcrumbCareerTips": "Tips Karier",
+      "notFound": "Artikel Tidak Ditemukan"
+    },
+    "cta": {
+      "title": "Siap Membuat Resume Anda?",
+      "subtitle": "Terapkan tips ini dengan pembuat resume berbasis AI kami. Buat resume profesional dalam hitungan menit.",
+      "button": "Buat Resume Anda Sekarang",
+      "sidebarTitle": "Buat Resume Anda",
+      "sidebarSubtitle": "Buat resume profesional dengan AI dalam hitungan menit.",
+      "sidebarButton": "Mulai Sekarang"
+    }
+  },
+
+  "ResumeExamples": {
+    "meta": {
+      "title": "Contoh Resume Berdasarkan Jabatan | Templat & Panduan Gratis 2026",
+      "description": "Jelajahi 50+ contoh resume profesional berdasarkan jabatan. Setiap contoh mencakup templat gratis, keahlian utama, dan tips menulis untuk mendapatkan pekerjaan impian Anda."
+    },
+    "hero": {
+      "badge": "Panduan Sesuai Pekerjaan",
+      "title": "Contoh Resume",
+      "titleHighlight": "Berdasarkan Jabatan",
+      "subtitle": "Temukan profesi Anda dan dapatkan templat resume yang disesuaikan dengan tips khusus industri."
+    },
+    "searchPlaceholder": "Cari berdasarkan jabatan...",
+    "featured": "Contoh Resume Pilihan",
+    "allExamples": "Semua Contoh Resume",
+    "noResults": "Contoh resume tidak ditemukan",
+    "noResultsHint": "Coba sesuaikan pencarian atau filter Anda",
+    "cta": {
+      "title": "Siap membuat resume pemenang Anda?",
+      "subtitle": "Gunakan pembuat berbasis AI kami untuk membuat resume profesional dalam hitungan menit.",
+      "button": "Buat Resume Saya — Gratis"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "Pemeriksa Resume ATS Gratis | Nilai Resume Anda Secara Instan | Best AI Resume",
+      "description": "Periksa resume Anda terhadap sistem ATS secara gratis. Dapatkan penilaian instan, analisis kata kunci, dan tips optimasi untuk lolos penyaringan otomatis."
+    },
+    "hero": {
+      "badge": "Pemeriksa Resume ATS Gratis",
+      "title": "Apakah Resume Anda",
+      "titleHighlight": "Kompatibel dengan ATS?",
+      "statistic": "75% resume ditolak oleh ATS sebelum dilihat oleh manusia.",
+      "description": "Pemeriksa ATS gratis kami menganalisis resume Anda untuk masalah format, kata kunci yang hilang, dan masalah kompatibilitas yang menyebabkan penolakan otomatis."
+    },
+    "tool": {
+      "title": "Periksa Skor ATS Resume Anda",
+      "description": "Unggah resume PDF atau DOCX Anda dan dapatkan skor kompatibilitas ATS instan dengan umpan balik detail.",
+      "uploadBtn": "Klik untuk mengunggah atau seret dan lepas",
+      "formats": "PDF atau DOCX — Maks 10MB",
+      "checkBtn": "Periksa Resume Saya",
+      "changeFile": "Ubah file",
+      "analyzing": "Menganalisis resume Anda...",
+      "cta": "Buat Resume Ramah ATS",
+      "subtext": "Gratis — tidak perlu kartu kredit"
+    },
+    "checks": {
+      "title": "Apa yang Diperiksa Sistem ATS",
+      "subtitle": "Memahami apa yang dipindai perangkat lunak ATS membantu Anda mengoptimalkan resume untuk visibilitas maksimal.",
+      "keywords": {
+        "title": "Pencocokan Kata Kunci",
+        "description": "ATS memindai kata kunci spesifik pekerjaan dari lowongan. Kehilangan istilah penting berarti penolakan otomatis."
+      },
+      "formatting": {
+        "title": "Format Bersih",
+        "description": "Tata letak kompleks, tabel, dan kolom membingungkan parser ATS. Format sederhana satu kolom paling mudah diparse."
+      },
+      "contact": {
+        "title": "Informasi Kontak",
+        "description": "ATS mencari nama, email, telepon, dan lokasi dalam format standar. Informasi yang hilang berarti peluang yang hilang."
+      },
+      "dates": {
+        "title": "Format Tanggal Konsisten",
+        "description": "Sistem ATS mengurai tanggal pekerjaan untuk menghitung pengalaman. Format yang tidak konsisten menyebabkan kesalahan penguraian."
+      }
+    },
+    "checklist": {
+      "title": "Daftar Periksa Optimasi ATS",
+      "subtitle": "Ikuti pedoman ini untuk memaksimalkan peluang resume Anda lolos penyaringan ATS.",
+      "doThis": "Lakukan Ini",
+      "avoidThis": "Hindari Ini",
+      "dos": {
+        "singleColumn": "Gunakan tata letak satu kolom untuk kompatibilitas maksimal",
+        "keywords": "Sertakan kata kunci dari deskripsi pekerjaan secara alami",
+        "standardHeadings": "Gunakan judul bagian standar (Pengalaman, Pendidikan, Keahlian)",
+        "fileFormat": "Kirim sebagai PDF atau DOCX sesuai yang ditentukan pemberi kerja",
+        "standardFonts": "Gunakan font standar seperti Arial, Calibri, atau Times New Roman",
+        "spellOut": "Eja singkatan terlebih dahulu, lalu singkat (mis., Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "Jangan gunakan tabel atau kotak teks untuk tata letak",
+        "images": "Jangan sertakan gambar, logo, atau grafis",
+        "headers": "Jangan letakkan info penting di header atau footer",
+        "creativeTitles": "Jangan gunakan judul bagian kreatif (mis., 'Perjalanan Saya' alih-alih 'Pengalaman')",
+        "fancyFonts": "Jangan gunakan font dekoratif atau tidak umum",
+        "lightText": "Jangan gunakan warna teks abu-abu muda atau kontras rendah"
+      }
+    },
+    "systems": {
+      "title": "Sistem ATS Populer",
+      "subtitle": "Templat kami diuji dan dioptimalkan untuk semua Applicant Tracking System utama yang digunakan pemberi kerja di seluruh dunia."
+    },
+    "faq": {
+      "title": "Pertanyaan yang Sering Diajukan",
+      "whatIsAts": {
+        "question": "Apa itu ATS (Applicant Tracking System)?",
+        "answer": "ATS adalah perangkat lunak yang digunakan pemberi kerja untuk mengumpulkan, memindai, dan memberi peringkat lamaran kerja. Ini menyaring resume berdasarkan kata kunci, format, dan relevansi sebelum perekrut melihatnya. Lebih dari 98% perusahaan Fortune 500 menggunakan ATS."
+      },
+      "whyFail": {
+        "question": "Mengapa resume gagal lolos penyaringan ATS?",
+        "answer": "Alasan umum termasuk format yang kompleks (tabel, kolom, grafis), kata kunci yang hilang dari deskripsi pekerjaan, judul bagian non-standar, format file yang tidak kompatibel, dan informasi yang ditempatkan di header atau footer yang tidak dapat dibaca ATS."
+      },
+      "bestFormat": {
+        "question": "Apa format resume terbaik untuk ATS?",
+        "answer": "Tata letak satu kolom yang bersih dengan judul bagian standar paling efektif. Gunakan format sederhana, font standar, dan hindari grafis atau tabel. PDF dan DOCX adalah format file yang paling diterima secara universal."
+      },
+      "keywords": {
+        "question": "Bagaimana cara menemukan kata kunci yang tepat untuk resume saya?",
+        "answer": "Baca deskripsi pekerjaan dengan cermat dan identifikasi keahlian, kualifikasi, dan terminologi yang berulang. Sertakan kata kunci ini secara alami di seluruh resume Anda, terutama di ringkasan, bagian keahlian, dan deskripsi pengalaman kerja."
+      },
+      "twoColumn": {
+        "question": "Bisakah saya menggunakan resume dua kolom dengan ATS?",
+        "answer": "Tata letak dua kolom dapat menyebabkan masalah penguraian dengan banyak sistem ATS. Perangkat lunak mungkin membaca melintasi kolom alih-alih ke bawah, mengacaukan informasi Anda. Tata letak satu kolom adalah pilihan teraman untuk kompatibilitas ATS."
+      },
+      "jobTitle": {
+        "question": "Haruskah saya mencocokkan jabatan persis di resume saya?",
+        "answer": "Ya, jika jabatan Anda sebenarnya serupa. Menyertakan jabatan persis dari lowongan di resume Anda (jika jujur) secara signifikan meningkatkan pencocokan ATS. Anda dapat menyertakannya di ringkasan atau sebagai posisi target."
+      }
+    },
+    "resources": {
+      "title": "Sumber Daya Terkait",
+      "guide": {
+        "title": "Panduan Menulis Resume ATS",
+        "description": "Panduan langkah demi langkah untuk menulis resume yang lolos penyaringan ATS."
+      },
+      "templates": {
+        "title": "Templat Ramah ATS",
+        "description": "Templat resume yang telah dioptimalkan dan dirancang untuk kompatibilitas ATS."
+      },
+      "examples": {
+        "title": "Contoh Resume",
+        "description": "Lihat contoh resume nyata untuk profesi Anda."
+      }
+    },
+    "cta": {
+      "title": "Berhenti Ditolak oleh ATS",
+      "description": "Buat resume profesional yang dioptimalkan untuk ATS dalam hitungan menit dengan pembuat berbasis AI kami. Setiap templat diuji untuk kompatibilitas ATS.",
+      "button": "Buat Resume ATS Saya — Gratis"
+    },
+    "validation": {
+      "unsupportedFormat": "Hanya file PDF dan DOCX yang didukung.",
+      "fileTooLarge": "Ukuran file harus di bawah 10MB.",
+      "genericError": "Terjadi kesalahan. Silakan coba lagi."
+    },
+    "results": {
+      "scoreTitle": "Skor Kompatibilitas ATS Anda",
+      "recommendations": "Rekomendasi",
+      "checkAnother": "Periksa Resume Lain",
+      "buildAtsResume": "Buat Resume yang Dioptimalkan untuk ATS",
+      "pagesAnalyzed": "{count, plural, one {# halaman dianalisis} other {# halaman dianalisis}}",
+      "scoreExcellent": "Sangat Baik",
+      "scoreGood": "Baik",
+      "scoreNeedsWork": "Perlu Perbaikan",
+      "scorePoor": "Buruk"
+    },
+    "externalResources": {
+      "title": "Sumber Daya Eksternal",
+      "atsHowTheyWork": "Memahami ATS: Cara Kerjanya",
+      "blsResumeTips": "BLS Career Outlook: Tips Resume"
+    }
+  },
+  "Contact": {
+    "title": "Hubungi Kami",
+    "description": "Apakah Anda memiliki pertanyaan tentang akun Anda, membutuhkan bantuan dengan resume, atau ingin melaporkan masalah — kami siap membantu. Isi formulir di bawah dan tim kami akan menghubungi Anda dalam 24 jam.",
+    "inquiryType": "Jenis Pertanyaan",
+    "inquiryTypes": {
+      "general": "Pertanyaan Umum",
+      "billing": "Masalah Penagihan",
+      "cvCreation": "Masalah Pembuatan Resume/CV"
+    },
+    "name": "Nama Anda",
+    "namePlaceholder": "John Doe",
+    "email": "Alamat Email",
+    "emailPlaceholder": "anda@contoh.com",
+    "subject": "Subjek",
+    "subjectPlaceholder": "Bagaimana kami dapat membantu?",
+    "message": "Pesan",
+    "messagePlaceholder": "Ceritakan lebih lanjut tentang pertanyaan Anda...",
+    "submit": "Kirim Pesan",
+    "sending": "Mengirim...",
+    "successTitle": "Pesan Terkirim!",
+    "successMessage": "Terima kasih telah menghubungi kami. Kami akan menghubungi Anda dalam 24 jam.",
+    "sendAnother": "Kirim Pesan Lain",
+    "errorGeneric": "Terjadi kesalahan. Silakan coba lagi nanti.",
+    "errorRateLimit": "Terlalu banyak pengiriman. Harap tunggu sebelum mencoba lagi."
+  },
+  "Help": {
+    "title": "Cara Kerja",
+    "subtitle": "Panduan langkah demi langkah untuk membuat resume profesional Anda, dari mendaftar hingga mengunduh dokumen jadi Anda.",
+    "quickNav": "Langsung ke:",
+    "tipLabel": "Tips Pro",
+    "faqLabel": "Pertanyaan Umum",
+    "troubleshootingLabel": "Pemecahan Masalah",
+    "gettingStarted": {
+      "title": "Memulai",
+      "steps": {
+        "1": {
+          "title": "Buat Akun Anda",
+          "description": "Klik tombol Mulai di halaman beranda atau tautan Daftar di bilah navigasi. Anda dapat mendaftar secara instan dengan akun Google, GitHub, atau LinkedIn — tanpa perlu kata sandi. Lebih suka email? Masukkan nama, email, dan pilih kata sandi.",
+          "tip": "Masuk dengan Google atau LinkedIn paling cepat — nama dan email Anda diisi secara otomatis."
+        },
+        "2": {
+          "title": "Verifikasi Email Anda",
+          "description": "Jika Anda mendaftar dengan email, periksa kotak masuk Anda untuk pesan dari Best AI Resume. Masukkan kode verifikasi 6 digit di halaman verifikasi. Kode kedaluwarsa dalam 10 menit — jika kedaluwarsa, klik 'Kirim Ulang Kode' untuk mendapatkan yang baru.",
+          "tip": "Periksa folder spam atau sampah jika Anda tidak melihat email dalam satu menit."
+        },
+        "3": {
+          "title": "Anda Masuk",
+          "description": "Setelah verifikasi, Anda akan dibawa ke layar orientasi di mana Anda memilih cara membuat resume pertama Anda. Akun Anda secara otomatis menyimpan setiap perubahan yang Anda buat, jadi Anda tidak akan pernah kehilangan pekerjaan — bahkan jika Anda menutup browser."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Apakah saya perlu kartu kredit untuk mendaftar?",
+          "a": "Tidak. Anda dapat membuat akun dan membuat resume Anda sepenuhnya gratis. Kartu kredit hanya diperlukan saat Anda memilih paket berbayar."
+        },
+        "2": {
+          "q": "Bagaimana jika saya tidak menerima kode verifikasi?",
+          "a": "Periksa folder spam/sampah Anda terlebih dahulu. Jika tidak ada di sana, klik 'Kirim Ulang Kode' di halaman verifikasi. Jika Anda masih tidak menerimanya, coba mendaftar dengan Google atau LinkedIn."
+        },
+        "3": {
+          "q": "Bisakah saya menggunakan akun yang sama di beberapa perangkat?",
+          "a": "Ya. Akun Anda dan semua resume disimpan di cloud. Masuk dari perangkat mana pun dan lanjutkan dari tempat Anda berhenti."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Membuat Resume Anda",
+      "steps": {
+        "1": {
+          "title": "Pilih Metode Anda",
+          "description": "Di halaman orientasi, Anda akan melihat empat opsi: Pembuatan AI (direkomendasikan untuk sebagian besar pengguna), Unggah Resume (parsing PDF yang ada), Impor dari LinkedIn (ambil data profil Anda), atau Mulai dari Awal (templat kosong). Setiap opsi membawa Anda melalui alur pengaturan singkat sebelum membuka pembuat.",
+          "tip": "Pembuatan AI adalah cara tercepat untuk mendapatkan resume profesional yang lengkap — Anda selalu dapat mengeditnya setelahnya."
+        },
+        "2": {
+          "title": "Biarkan AI Bekerja",
+          "description": "Jika Anda memilih Pembuatan AI, masukkan nama lengkap, jabatan yang Anda lamar, dan tingkat pengalaman (pemula, menengah, atau senior). Klik Buat dan AI kami akan membuat resume lengkap dengan ringkasan profesional, pengalaman kerja, pendidikan, dan bagian keahlian — semua disesuaikan dengan posisi target Anda."
+        },
+        "3": {
+          "title": "Pilih Templat",
+          "description": "Setelah pembuatan, jelajahi galeri 16+ templat kami. Templat diorganisir ke dalam kategori: Profesional, Kreatif, Minimal, dan Ramah ATS. Klik templat apa pun untuk melihat pratinjau dengan data Anda. Beralih antar templat kapan saja tanpa kehilangan konten.",
+          "tip": "Anda dapat mengubah templat kapan saja dari pembuat — konten Anda tetap sama, hanya desain yang berubah."
+        },
+        "4": {
+          "title": "Edit & Sesuaikan",
+          "description": "Pembuat memiliki bagian bertab di sebelah kiri (Info Pribadi, Pengalaman, Pendidikan, Keahlian, dll.) dan pratinjau langsung di sebelah kanan. Edit bidang apa pun dan lihat perubahan tercermin secara instan. Anda dapat mengurutkan ulang bagian, menambahkan bagian kustom, menyesuaikan ukuran font, dan mengubah warna aksen sesuai gaya Anda."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Bisakah saya membuat beberapa resume?",
+          "a": "Ya. Anda dapat membuat dan menyimpan beberapa resume yang disesuaikan untuk lamaran kerja yang berbeda. Beralih di antara resume dari dasbor Anda."
+        },
+        "2": {
+          "q": "Apakah pembuatan AI berfungsi dalam semua bahasa?",
+          "a": "AI saat ini membuat konten dalam bahasa Inggris. Anda dapat mengedit konten yang dihasilkan secara manual dalam bahasa apa pun setelah pembuatan."
+        },
+        "3": {
+          "q": "Bisakah saya mengimpor profil LinkedIn saya?",
+          "a": "Ya. Pilih opsi 'Impor dari LinkedIn' saat orientasi. Anda akan dipandu untuk menghubungkan profil LinkedIn Anda untuk mengambil riwayat kerja."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Memilih Paket",
+      "steps": {
+        "1": {
+          "title": "Kunjungi Halaman Harga",
+          "description": "Klik Harga di bilah navigasi atau kunjungi halaman harga langsung. Anda akan melihat empat paket: Starter (gratis, unduhan terbatas), Gold, Diamond, dan Platinum. Gunakan tombol di atas untuk beralih antara penagihan bulanan dan tahunan — paket tahunan menghemat hingga 40%."
+        },
+        "2": {
+          "title": "Pilih Paket Anda",
+          "description": "Bandingkan empat paket — Starter, Gold, Diamond, dan Platinum — dan pilih yang sesuai dengan kebutuhan Anda. Semua paket ditagihkan segera dan memberi Anda akses instan ke semua fitur.",
+          "tip": "Penagihan tahunan menghemat hingga 40% dibandingkan bulanan — dan Anda tetap mendapatkan fitur yang sama."
+        },
+        "3": {
+          "title": "Selesaikan Checkout",
+          "description": "Klik tombol Mulai Sekarang pada paket pilihan Anda. Anda akan dialihkan ke halaman checkout Stripe yang aman di mana Anda memasukkan detail kartu. Setelah pembayaran, akun Anda ditingkatkan secara instan dan Anda dapat mulai mengunduh segera."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Bisakah saya membatalkan langganan kapan saja?",
+          "a": "Ya. Anda dapat membatalkan dari pengaturan akun kapan saja. Anda akan tetap memiliki akses hingga akhir periode penagihan saat ini."
+        },
+        "2": {
+          "q": "Apa yang terjadi jika saya membatalkan?",
+          "a": "Anda akan tetap memiliki akses ke paket Anda hingga akhir periode penagihan saat ini. Setelah itu, akun Anda kembali ke status kedaluwarsa."
+        },
+        "3": {
+          "q": "Bisakah saya beralih paket nanti?",
+          "a": "Ya. Anda dapat meningkatkan atau menurunkan paket kapan saja dari pengaturan akun. Perubahan berlaku segera."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Mengunduh Resume Anda",
+      "steps": {
+        "1": {
+          "title": "Klik Unduh",
+          "description": "Di pembuat, cari tombol hijau Unduh PDF di pojok kanan atas halaman. Klik untuk membuka modal unduh, yang menunjukkan sisa unduhan Anda untuk bulan ini dan memungkinkan Anda mengonfirmasi ekspor."
+        },
+        "2": {
+          "title": "Dapatkan PDF Anda",
+          "description": "Resume Anda dirender sebagai PDF berkualitas tinggi dan sempurna yang sesuai persis dengan apa yang Anda lihat di pratinjau. PDF dioptimalkan untuk tampilan digital (email, portal kerja) dan pencetakan pada kertas standar letter atau A4.",
+          "tip": "Untuk hasil terbaik, gunakan templat ramah ATS saat melamar melalui portal kerja online — templat ini lebih andal dalam penguraian."
+        },
+        "3": {
+          "title": "Pantau Penggunaan Anda",
+          "description": "Setiap paket memiliki batas unduhan bulanan yang direset pada tanggal penagihan Anda. Anda dapat memeriksa sisa unduhan di modal unduh atau di pengaturan akun. Jika Anda mencapai batas, tingkatkan paket kapan saja untuk membuka lebih banyak unduhan secara instan."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Bisakah saya mengunduh dalam format Word/DOCX?",
+          "a": "Ya. Selain PDF, Anda dapat mengekspor resume sebagai file DOCX yang kompatibel dengan Microsoft Word dan Google Docs."
+        },
+        "2": {
+          "q": "Mengapa PDF saya terlihat sedikit berbeda dari pratinjau?",
+          "a": "Pratinjau adalah perkiraan yang mendekati. PDF adalah output akhir yang sempurna. Perbedaan kecil dalam rendering font adalah normal antara pratinjau browser dan PDF."
+        },
+        "3": {
+          "q": "Bagaimana jika unduhan saya habis?",
+          "a": "Jumlah unduhan Anda direset setiap bulan. Jika Anda membutuhkan lebih banyak unduhan sebelum reset, Anda dapat meningkatkan paket untuk akses langsung ke batas yang lebih tinggi."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Pemecahan Masalah",
+      "items": {
+        "1": {
+          "title": "Tidak bisa masuk ke akun saya",
+          "description": "Coba reset kata sandi Anda menggunakan tautan 'Lupa Kata Sandi' di halaman masuk. Jika Anda mendaftar dengan Google, GitHub, atau LinkedIn, pastikan Anda menggunakan penyedia yang sama. Hapus cookie browser jika masalah berlanjut."
+        },
+        "2": {
+          "title": "Kode verifikasi tidak datang",
+          "description": "Periksa folder spam/sampah Anda. Kode kedaluwarsa setelah 10 menit — klik 'Kirim Ulang Kode' untuk mendapatkan yang baru. Jika menggunakan email korporat, firewall IT Anda mungkin memblokir email otomatis. Coba gunakan alamat email pribadi."
+        },
+        "3": {
+          "title": "Pembayaran ditolak",
+          "description": "Verifikasi nomor kartu, tanggal kedaluwarsa, dan CVV Anda. Pastikan kartu Anda mengizinkan transaksi internasional atau online. Jika masalah berlanjut, coba kartu lain atau hubungi bank Anda. Semua pembayaran diproses secara aman melalui Stripe."
+        },
+        "4": {
+          "title": "PDF terlihat berbeda dari pratinjau",
+          "description": "Pratinjau menunjukkan perkiraan output akhir. Jika elemen tertentu terlihat tidak tepat, coba ganti templat atau sesuaikan ukuran font di pengaturan desain pembuat. Pastikan browser Anda sudah diperbarui."
+        },
+        "5": {
+          "title": "Perubahan tidak tersimpan",
+          "description": "Pekerjaan Anda tersimpan secara otomatis ke cloud. Jika Anda melihat perubahan yang belum disimpan, periksa koneksi internet Anda. Coba refresh halaman — edit terbaru Anda seharusnya muncul. Jika koneksi Anda lambat, tunggu beberapa detik antara edit."
+        }
+      }
+    },
+    "cta": {
+      "title": "Siap untuk Memulai?",
+      "subtitle": "Buat resume profesional Anda dalam hitungan menit dengan pembuat berbasis AI kami.",
+      "buildButton": "Mulai Membuat",
+      "contactButton": "Hubungi Dukungan"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Templat Resume Ramah ATS Gratis (2026) | Lolos Setiap Pemindaian ATS",
+      "description": "Jelajahi 16 templat resume ramah ATS gratis yang dirancang untuk lolos sistem pelacakan pelamar. Format bersih, font standar, dan tata letak yang dapat diparse diuji terhadap perangkat lunak ATS nyata."
+    },
+    "breadcrumb": {
+      "home": "Beranda",
+      "current": "Templat Ramah ATS"
+    },
+    "hero": {
+      "badge": "100% Kompatibel ATS",
+      "title": "Templat Resume Ramah ATS",
+      "subtitle": "97% perusahaan Fortune 500 menggunakan Applicant Tracking System untuk menyaring resume sebelum dilihat manusia (Jobscan, 2024). Setiap templat di bawah dibuat untuk lolos penyaringan ATS — sehingga resume Anda sampai ke orang yang tepat, setiap saat.",
+      "check1": "Lolos penguraian ATS",
+      "check2": "Gratis untuk digunakan",
+      "check3": "Unduhan PDF instan"
+    },
+    "features": {
+      "title": "Mengapa Templat Kami Lolos Penyaringan ATS",
+      "subtitle": "Sebagian besar resume ditolak sebelum dilihat manusia. Templat kami dirancang untuk menghindari jebakan format umum yang menyebabkan kegagalan ATS.",
+      "parseable": {
+        "title": "Tata Letak yang Dapat Diparse Mesin",
+        "description": "Struktur satu kolom dengan hierarki bagian yang jelas yang dibaca perangkat lunak ATS dari atas ke bawah tanpa kebingungan. Tidak ada tata letak multi-kolom yang mengacaukan urutan konten."
+      },
+      "standardHeaders": {
+        "title": "Header Bagian Standar",
+        "description": "Menggunakan header seperti \"Pengalaman\" dan \"Pendidikan\" yang dikenali setiap ATS — tanpa label kreatif yang membingungkan parser."
+      },
+      "testedATS": {
+        "title": "Diuji Terhadap ATS Nyata",
+        "description": "Setiap templat diuji terhadap Workday, Greenhouse, Lever, iCIMS, dan Taleo — lima platform yang memproses sebagian besar lamaran kerja online."
+      },
+      "cleanFormatting": {
+        "title": "Format Bersih dan Aman",
+        "description": "Tanpa tabel, kotak teks, header/footer, atau gambar tertanam yang merusak penguraian ATS. Hanya teks bersih dan font standar yang dirender sebagai teks PDF yang dapat dipilih."
+      }
+    },
+    "grid": {
+      "title": "Pilih Templat Ramah ATS Anda",
+      "subtitle": "Semua 16 templat sepenuhnya kompatibel dengan ATS. Pilih gaya apa pun — resume Anda akan diparse dengan benar.",
+      "useTemplate": "Gunakan Templat Ini"
+    },
+    "howATS": {
+      "title": "Bagaimana Applicant Tracking System Menyaring Resume Anda",
+      "intro": "Memahami alur ATS membantu Anda melihat mengapa format lebih penting dari yang disadari kebanyakan kandidat. Berikut yang terjadi dalam hitungan detik setelah Anda klik Lamar.",
+      "step1": {
+        "title": "File resume Anda diterima dan dikonversi",
+        "description": "ATS menerima file PDF atau DOCX Anda dan menjalankannya melalui mesin ekstraksi teks. Sistem mencoba mengkonversi dokumen menjadi data terstruktur — memisahkan nama, info kontak, riwayat kerja, pendidikan, dan keahlian Anda ke dalam bidang terpisah. Jika file menggunakan tabel, kolom, atau gambar, langkah ekstraksi ini menghasilkan data yang kacau atau hilang."
+      },
+      "step2": {
+        "title": "Konten diparse, dipetakan, dan dinilai",
+        "description": "Setelah diekstrak, ATS memetakan konten Anda terhadap deskripsi pekerjaan. Sistem mencari kecocokan kata kunci dalam keahlian, jabatan, dan deskripsi pengalaman Anda. Sistem seperti Workday dan Greenhouse memberikan skor relevansi berdasarkan seberapa dekat resume Anda cocok dengan persyaratan posisi. Resume yang diparse dengan buruk mendapat skor rendah meskipun Anda memiliki semua kualifikasi."
+      },
+      "step3": {
+        "title": "Perekrut meninjau kandidat yang diberi peringkat",
+        "description": "Perekrut biasanya meninjau 10-20 resume teratas untuk setiap posisi. Jika format Anda menyebabkan kesalahan penguraian, Anda mungkin berada di bawah kandidat yang kurang berkualitas yang resume-nya diparse dengan benar. Templat ramah ATS kami memastikan kualifikasi Anda terwakili secara akurat dalam peringkat."
+      },
+      "warning": "Penting: Kompatibilitas ATS diperlukan tetapi tidak cukup. Anda masih perlu menyesuaikan kata kunci resume dengan setiap deskripsi pekerjaan. Gunakan alat Pemeriksa ATS kami untuk menguji resume Anda terhadap lowongan kerja tertentu setelah memilih templat."
+    },
+    "cta": {
+      "title": "Buat Resume Ramah ATS Anda Sekarang",
+      "subtitle": "Pilih templat, tambahkan info Anda, dan unduh resume yang lolos setiap pemindaian ATS. Gratis, tidak perlu mendaftar.",
+      "buildButton": "Buat Resume Saya",
+      "checkButton": "Periksa Resume Saya yang Ada",
+      "browseAll": "Jelajahi Semua Templat",
+      "formatGuide": "Panduan Format Resume",
+      "examples": "300+ Contoh Resume"
+    },
+    "whatMakes": {
+      "title": "Apa yang Membuat Templat Resume Ramah ATS?",
+      "p1": "Templat resume ramah ATS dirancang agar Applicant Tracking System — perangkat lunak yang digunakan pemberi kerja untuk mengumpulkan, mengurutkan, dan memberi peringkat lamaran kerja — dapat membaca setiap bagian resume Anda secara akurat. Ketika ATS gagal mengurai resume Anda, nama, pengalaman, dan keahlian Anda mungkin tidak sampai ke layar perekrut sama sekali. Menurut studi Harvard Business School 2023, lebih dari 75% resume ditolak oleh ATS sebelum ditinjau manusia.",
+      "p2": "Alasan paling umum resume gagal diurai ATS adalah format. Tabel, tata letak multi-kolom, kotak teks, font kustom, dan grafis tertanam semua menyebabkan kesalahan penguraian. ATS membaca resume Anda sebagai aliran teks dari atas ke bawah. Jika aliran itu terputus oleh format yang kompleks, sistem salah menempatkan data Anda — menaruh jabatan Anda di tempat nama perusahaan seharusnya, atau menghilangkan bagian keahlian seluruhnya.",
+      "p3": "16 templat resume kami dirancang dari awal dengan kompatibilitas ATS sebagai persyaratan utama. Templat menggunakan header bagian standar, tata letak satu kolom, font web-safe, dan rendering HTML-ke-PDF yang bersih. Setiap templat telah diuji terhadap lima platform ATS yang paling banyak digunakan: Workday, Greenhouse, Lever, iCIMS, dan Taleo. Hasilnya adalah resume yang terlihat profesional bagi perekrut dan diparse dengan sempurna oleh mesin.",
+      "link1": "Cara Menulis Resume Ramah ATS",
+      "link2": "Apa itu ATS? Panduan Lengkap",
+      "link3": "Memahami Tingkat Parse ATS"
+    },
+    "mistakes": {
+      "title": "5 Kesalahan Format yang Membuat Resume Ditolak oleh ATS",
+      "intro": "Bahkan kandidat kuat tersaring ketika format resume mereka membingungkan parser ATS. Berikut lima kesalahan paling umum yang kami lihat — dan yang dihilangkan templat kami secara otomatis.",
+      "items": {
+        "1": {
+          "title": "Menggunakan tabel atau tata letak multi-kolom",
+          "description": "ATS membaca teks dalam satu aliran. Tabel dan kolom menyebabkannya menggabungkan konten yang tidak terkait — nomor telepon Anda mungkin berakhir di bidang jabatan."
+        },
+        "2": {
+          "title": "Menyematkan info kontak di header atau footer",
+          "description": "Banyak platform ATS melewatkan header dan footer dokumen sepenuhnya. Jika nama, email, atau nomor telepon Anda hanya ada di header, informasi tersebut menghilang dari profil yang diparse."
+        },
+        "3": {
+          "title": "Menggunakan label bagian kreatif",
+          "description": "Label seperti \"Perjalanan Saya\" alih-alih \"Pengalaman\" atau \"Kotak Alat Saya\" alih-alih \"Keahlian\" menyebabkan ATS melewatkan seluruh bagian. Tetap gunakan label standar."
+        },
+        "4": {
+          "title": "Menyimpan sebagai PDF berbasis gambar atau menggunakan font non-standar",
+          "description": "Jika teks tidak dapat dipilih di PDF Anda, ATS tidak dapat membacanya. Dokumen yang dipindai, ekspor alat desain, dan font yang tidak umum semuanya menghasilkan file yang tidak dapat dibaca."
+        },
+        "5": {
+          "title": "Menambahkan grafis, ikon, atau bilah keahlian",
+          "description": "Bilah progres, peringkat bintang, dan ikon untuk info kontak tidak terlihat oleh ATS. Peringkat keahlian \"4 dari 5 bintang\" menjadi teks kosong yang mendapat skor nol."
+        }
+      },
+      "cta": "Tidak yakin apakah resume Anda saat ini lolos?",
+      "ctaLink": "Jalankan pemeriksaan kompatibilitas ATS gratis"
+    },
+    "checklist": {
+      "title": "Daftar Periksa Kompatibilitas ATS",
+      "intro": "Sebelum mengirimkan resume apa pun, verifikasi bahwa resume memenuhi delapan persyaratan ini. Setiap templat di halaman ini memenuhi kedelapannya secara otomatis — tetapi jika Anda memodifikasi konten, ingat aturan-aturan ini.",
+      "items": {
+        "1": "Menggunakan header bagian standar (Pengalaman, Pendidikan, Keahlian)",
+        "2": "Tata letak satu kolom dengan urutan baca atas-ke-bawah yang jelas",
+        "3": "Tanpa tabel, kotak teks, atau elemen mengambang",
+        "4": "Informasi kontak di badan dokumen, bukan di header/footer",
+        "5": "Font web-safe standar (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Output PDF dengan teks yang dapat dipilih (bukan berbasis gambar)",
+        "7": "Tanpa grafis, ikon, atau bilah keahlian yang menggantikan konten teks",
+        "8": "Tanggal dalam format konsisten (MM/YYYY atau Bulan YYYY)"
+      },
+      "outro": "Butuh bantuan menyesuaikan resume untuk pekerjaan tertentu? Jelajahi",
+      "outroLink": "300+ contoh resume spesifik profesi"
+    },
+    "faq": {
+      "title": "Pertanyaan yang Sering Diajukan Tentang Templat Ramah ATS",
+      "items": {
+        "1": {
+          "q": "Apa arti ramah ATS untuk templat resume?",
+          "a": "Templat ramah ATS dirancang agar Applicant Tracking System dapat mengekstrak nama, info kontak, riwayat kerja, pendidikan, dan keahlian Anda secara akurat. Templat menghindari tabel, tata letak multi-kolom, gambar tertanam, dan font kustom yang menyebabkan kegagalan penguraian. Semua 16 templat di halaman ini diuji terhadap Workday, Greenhouse, Lever, iCIMS, dan Taleo."
+        },
+        "2": {
+          "q": "Bisakah resume kreatif atau modern tetap kompatibel dengan ATS?",
+          "a": "Ya. Kompatibilitas ATS bergantung pada struktur dasar, bukan desain visual. Resume dapat menggunakan aksen warna, spasi kustom, dan tipografi bergaya sambil tetap mempertahankan tata letak satu kolom dengan teks yang dapat dipilih yang dibaca ATS dengan benar. Templat modern dan kreatif kami mencapai keseimbangan ini — terlihat khas bagi perekrut sambil diparse sempurna oleh mesin."
+        },
+        "3": {
+          "q": "Haruskah saya mengirim resume sebagai PDF atau DOCX untuk ATS?",
+          "a": "PDF umumnya pilihan teraman di 2026. Platform ATS modern (Workday, Greenhouse, Lever) mengurai PDF yang terstruktur dengan baik secara andal. DOCX dapat menyebabkan inkonsistensi format di berbagai versi Word. Pembuat kami mengekspor PDF dengan teks yang dapat dipilih yang dioptimalkan untuk penguraian ATS — kami merekomendasikan menggunakan PDF kecuali lowongan secara eksplisit meminta DOCX."
+        },
+        "4": {
+          "q": "Bagaimana saya tahu apakah resume saya lolos penyaringan ATS?",
+          "a": "Gunakan alat Pemeriksa ATS gratis kami untuk mengunggah resume dan melihat bagaimana ATS membacanya. Alat ini menunjukkan bidang mana yang diparse dengan benar, kata kunci mana yang cocok dengan deskripsi pekerjaan, dan di mana kesalahan penguraian terjadi. Anda dapat menguji sebanyak yang Anda butuhkan sebelum mengirimkan lamaran."
+        },
+        "5": {
+          "q": "Apakah saya perlu templat berbeda untuk setiap lamaran kerja?",
+          "a": "Tidak — satu templat ramah ATS berfungsi untuk semua lamaran. Yang perlu Anda ubah antar lamaran adalah kontennya: sesuaikan bagian keahlian, ringkasan profesional, dan poin pencapaian agar cocok dengan kata kunci setiap deskripsi pekerjaan. Struktur templat tetap sama; kata kuncinya yang berubah."
+        }
+      }
+    }
+  }
+}

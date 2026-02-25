@@ -1,0 +1,2087 @@
+{
+  "Meta": {
+    "title": "Gratis AI CV-maker | Maak een ATS CV in minuten | Best AI Resume",
+    "description": "Maak professionele, ATS-geoptimaliseerde CV's in minuten met onze gratis AI CV-maker. Vertrouwd door meer dan 50.000 professionals. Geen registratie nodig om te beginnen."
+  },
+
+  "Common": {
+    "loading": "Laden...",
+    "error": "Er is een fout opgetreden",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "close": "Sluiten",
+    "search": "Zoeken",
+    "submit": "Verzenden",
+    "next": "Volgende",
+    "back": "Terug",
+    "download": "Downloaden",
+    "preview": "Voorbeeld",
+    "scrollToExplore": "Scroll om te verkennen",
+    "dismiss": "Sluiten",
+    "addLanguage": "Taal toevoegen",
+    "uploadProfilePhoto": "Profielfoto uploaden",
+    "removeProfilePhoto": "Profielfoto verwijderen",
+    "documentType": "Documenttype",
+    "searchByJobTitle": "Zoek op functietitel of vaardigheid...",
+    "searchIcons": "Zoek iconen...",
+    "describeTemplate": "Beschrijf je sjabloon...",
+    "languagePlaceholder": "bijv. Spaans, Frans, Mandarijn",
+    "templateNamePlaceholder": "bijv. Modern Developer CV",
+    "returningBanner": {
+      "welcomeBack": "Welkom terug!",
+      "lastEdited": "Laatst bewerkt op {date}",
+      "unsavedDraft": "Je hebt een niet-opgeslagen CV-concept",
+      "continueEditing": "Verder bewerken"
+    }
+  },
+
+  "Navigation": {
+    "features": "Functies",
+    "templates": "Sjablonen",
+    "pricing": "Prijzen",
+    "blog": "Blog",
+    "careerTips": "Carrièretips",
+    "careerGuides": "Carrièregidsen",
+    "resumeExamples": "CV-voorbeelden",
+    "resumeExamplesDesc": "Functiegerichte CV-gidsen en sjablonen",
+    "careerTipsDesc": "Deskundig advies voor je carrière",
+    "blogDesc": "Tips, gidsen en inzichten",
+    "viewAllExamples": "Bekijk alle CV-voorbeelden",
+    "viewAllTips": "Bekijk alle carrièretips",
+    "tools": "Tools",
+    "coverLetter": "Sollicitatiebrief Generator",
+    "coverLetterDesc": "AI-gestuurde sollicitatiebrieven",
+    "resignationLetter": "Ontslagbrief",
+    "resignationLetterDesc": "Professionele ontslagbrieven",
+    "atsChecker": "ATS CV-checker",
+    "atsCheckerDesc": "Controleer ATS-compatibiliteit",
+    "mockInterview": "Oefensollicitatie",
+    "mockInterviewDesc": "AI-gestuurde oefensollicitaties",
+    "resumeFormat": "CV-indelingsgids",
+    "resumeFormatDesc": "Chronologisch, functioneel en meer",
+    "login": "Inloggen",
+    "logout": "Uitloggen",
+    "getStarted": "Gratis beginnen",
+    "dashboard": "Dashboard",
+    "admin": "Beheer",
+    "adminPanel": "Beheerpaneel",
+    "profile": "Profiel",
+    "resources": "Bronnen",
+    "compare": "Vergelijken",
+    "byStyle": "Op stijl",
+    "byFormat": "Op indeling",
+    "allTemplates": "Alle sjablonen",
+    "modern": "Modern",
+    "creative": "Creatief",
+    "simpleClean": "Eenvoudig en strak",
+    "freeResumeBuilder": "Gratis CV-maker",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "Maak je CV gratis",
+    "chooseFromTemplates": "Kies uit meer dan 20 professionele sjablonen",
+    "technology": "Technologie",
+    "business": "Zakelijk",
+    "healthcare": "Gezondheidszorg",
+    "seeAllTech": "Bekijk alle Tech",
+    "seeAllBusiness": "Bekijk alle Zakelijk",
+    "seeAllHealthcare": "Bekijk alle Gezondheidszorg",
+    "resumeExamplesCount": "300+ CV-voorbeelden",
+    "browseAll": "Alles bekijken",
+    "softwareEngineer": "Software Engineer",
+    "dataAnalyst": "Data Analyst",
+    "devopsEngineer": "DevOps Engineer",
+    "fullStackDev": "Full Stack Developer",
+    "projectManager": "Projectmanager",
+    "marketingManager": "Marketingmanager",
+    "businessAnalyst": "Business Analyst",
+    "salesManager": "Salesmanager",
+    "nurse": "Verpleegkundige",
+    "medicalAssistant": "Medisch assistent",
+    "pharmacist": "Apotheker",
+    "dentalAssistant": "Tandartsassistent",
+    "guides": "Gidsen",
+    "latestPosts": "Laatste berichten",
+    "allCareerTips": "Alle carrièretips",
+    "allBlog": "Alle blogberichten",
+    "atsGuide": "ATS-vriendelijke CV-gids",
+    "coverLetterGuide": "Sollicitatiebriefgids",
+    "interviewPrep": "Sollicitatiegespreksvoorbereiding",
+    "bestResumeApps": "Beste CV-maker apps",
+    "resumeSkills": "CV-vaardigheden gids",
+    "linkedinGuide": "LinkedIn-optimalisatie",
+    "writingServices": "CV-schrijfservices",
+    "freeAlternatives": "Gratis alternatieven",
+    "paidAlternatives": "Betaalde alternatieven",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs AI Builder",
+    "whyWereBetter": "Waarom wij de #1 gratis CV-maker zijn",
+    "whyWereBetterDesc": "AI-gestuurd, ATS-geoptimaliseerd, volledig gratis"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "AI-gestuurde CV-maker",
+      "title": "Maak je AI-gestuurd",
+      "titleHighlight": "CV in minuten",
+      "subtitle": "Geen registratie nodig",
+      "description": "Maak prachtige, ATS-geoptimaliseerde CV's in minuten met AI. Probeer het gratis — registreer pas wanneer je klaar bent om op te slaan.",
+      "ctaPrimary": "Maak met AI",
+      "ctaSecondary": "Bekijk sjablonen",
+      "noCreditCard": "Geen creditcard nodig",
+      "noSignup": "Geen registratie om te starten",
+      "trustedBy": "Vertrouwd door meer dan 50.000 professionals",
+      "atsScore": "ATS-score",
+      "aiSuggestion": "AI-suggestie"
+    },
+    "features": {
+      "sectionTitle": "Functies",
+      "title": "Alles wat je nodig hebt om",
+      "titleHighlight": "je droombaan te vinden",
+      "subtitle": "Krachtige AI-tools gecombineerd met prachtig design om je te onderscheiden van de rest.",
+      "aiWriting": {
+        "title": "AI-gestuurd schrijven",
+        "description": "Laat onze AI overtuigende opsommingen en professionele samenvattingen schrijven die je prestaties benadrukken."
+      },
+      "templates": {
+        "title": "20+ premium sjablonen",
+        "description": "Kies uit professioneel ontworpen sjablonen die opvallen en toch ATS-compatibel zijn."
+      },
+      "atsOptimization": {
+        "title": "ATS-optimalisatie",
+        "description": "Realtime ATS-scoring zorgt ervoor dat je CV altijd door geautomatiseerde screeningsystemen komt."
+      },
+      "realTimePreview": {
+        "title": "Realtime voorbeeld",
+        "description": "Zie wijzigingen direct terwijl je typt. Wat je ziet is precies wat recruiters zullen zien."
+      },
+      "pdfExport": {
+        "title": "PDF-export",
+        "description": "Download pixelperfecte PDF's die klaar zijn om te versturen. Geoptimaliseerd voor zowel digitaal als print."
+      },
+      "smartSuggestions": {
+        "title": "Slimme suggesties",
+        "description": "Ontvang intelligente aanbevelingen voor vaardigheden, zoekwoorden en inhoud op basis van je doelfunctie."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Hoe het werkt",
+      "title": "Drie stappen naar je",
+      "titleHighlight": "perfecte CV",
+      "step1": {
+        "title": "Vul je gegevens in",
+        "description": "Voer je ervaring, opleiding en vaardigheden in. Onze AI helpt je bij elke stap."
+      },
+      "step2": {
+        "title": "Kies een sjabloon",
+        "description": "Kies uit meer dan 20 professioneel ontworpen sjablonen. Bekijk een realtime voorbeeld terwijl je aanpast."
+      },
+      "step3": {
+        "title": "Download PDF",
+        "description": "Exporteer je afgewerkte CV als een pixelperfecte PDF, klaar om indruk te maken op recruiters."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Sjablonen",
+      "title": "Premium sjablonen voor",
+      "titleHighlight": "elk beroep",
+      "viewAll": "Bekijk alle sjablonen"
+    },
+    "testimonials": {
+      "sectionTitle": "Ervaringen",
+      "title": "Geliefd bij professionals",
+      "titleHighlight": "wereldwijd"
+    },
+    "cta": {
+      "title": "Klaar om je",
+      "titleHighlight": "winnende CV te maken?",
+      "subtitle": "Sluit je aan bij meer dan 50.000 professionals die al hun droombaan hebben gevonden met Best AI Resume.",
+      "button": "Maak nu je CV — Gratis",
+      "note": "Geen registratie nodig om te starten"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Veelgestelde",
+      "titleHighlight": "vragen",
+      "items": [
+        {
+          "question": "Is deze AI CV-maker echt gratis?",
+          "answer": "Ja! Je kunt je CV volledig gratis aanmaken, bewerken en bekijken. We bieden premiumplannen voor geavanceerde functies zoals onbeperkte PDF-downloads en extra sjablonen, maar je kunt een professioneel CV maken zonder iets te betalen."
+        },
+        {
+          "question": "Wat is een ATS en waarom is het belangrijk?",
+          "answer": "ATS (Applicant Tracking System) is software die door 99% van de Fortune 500-bedrijven wordt gebruikt om CV's te scannen en te filteren. Onze AI zorgt ervoor dat je CV ATS-geoptimaliseerd is met de juiste zoekwoorden, opmaak en structuur om door deze geautomatiseerde screenings te komen."
+        },
+        {
+          "question": "Hoe helpt de AI bij het schrijven van mijn CV?",
+          "answer": "Onze AI analyseert je functietitel en ervaring om professionele opsommingen, samenvattingen en vaardigheidssuggesties te genereren. Het gebruikt branchespecifieke zoekwoorden en prestatiegericht taalgebruik waar recruiters naar zoeken."
+        },
+        {
+          "question": "Moet ik me registreren om de builder te gebruiken?",
+          "answer": "Geen registratie nodig om te starten! Je kunt eerst je volledige CV maken. Registreer je pas wanneer je je voortgang wilt opslaan of downloaden. Zo kun je alles risicovrij uitproberen."
+        },
+        {
+          "question": "Kan ik mijn CV downloaden als PDF?",
+          "answer": "Ja! Exporteer je CV als een pixelperfecte PDF die er precies zo uitziet als het voorbeeld. PDF's zijn geoptimaliseerd voor zowel digitale sollicitaties als afdrukken op standaard letter/A4-papier."
+        },
+        {
+          "question": "Hoe lang duurt het om een CV te maken?",
+          "answer": "De meeste gebruikers maken een professioneel CV in minder dan 10 minuten. Onze AI-suggesties en voorgeschreven inhoud versnellen het proces aanzienlijk vergeleken met helemaal opnieuw beginnen."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Onze gebruikers werden aangenomen bij",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+    }
+  },
+
+  "Features": {
+    "meta": {
+      "title": "AI CV-maker functies - Slim schrijven, ATS-optimalisatie en meer",
+      "description": "Ontdek krachtige functies: AI-gestuurd schrijven, realtime ATS-scoring, 50+ sjablonen, directe PDF-export. Maak professionele CV's die sollicitatiegesprekken opleveren."
+    }
+  },
+
+  "Templates": {
+    "meta": {
+      "title": "50+ professionele CV-sjablonen - Gratis en ATS-vriendelijk",
+      "description": "Bekijk meer dan 50 professionele CV-sjablonen. Moderne, creatieve en minimalistische ontwerpen geoptimaliseerd voor ATS. Gratis aan te passen en te downloaden."
+    },
+    "sectionTitle": "Sjablonen",
+    "title": "Beste CV-sjablonen",
+    "titleHighlight": "van 2026",
+    "subtitle": "Selecteer een bewerkingsmodus en kies uit onze professioneel ontworpen sjablonen.",
+    "searchPlaceholder": "Zoek sjablonen...",
+    "templatesAvailable": "{count} {count, plural, one {sjabloon} other {sjablonen}} beschikbaar",
+    "noResults": "Geen sjablonen gevonden",
+    "noResultsHint": "Probeer je zoekopdracht of filter aan te passen",
+    "useTemplate": "Gebruik sjabloon",
+    "formBuilder": {
+      "title": "Formulierbuilder",
+      "description": "Stapsgewijze begeleiding",
+      "hint": "Vul formulieren in en laat het sjabloon het ontwerp verzorgen. Perfect voor snelle, professionele CV's."
+    },
+    "canvasEditor": {
+      "title": "Canvas Editor",
+      "description": "Volledige creatieve vrijheid",
+      "hint": "Sleep, plaats en ontwerp vrij. Volledige controle over elk element, zoals Canva voor CV's."
+    },
+    "categories": {
+      "all": "Alles",
+      "professional": "Professioneel",
+      "creative": "Creatief",
+      "minimal": "Eenvoudig en strak",
+      "modern": "Modern",
+      "classic": "Klassiek"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Wil je helemaal opnieuw beginnen?",
+        "description": "Maak een volledig aangepast CV met de krachtige tools van onze Canvas Editor.",
+        "button": "Open leeg canvas"
+      },
+      "builder": {
+        "title": "Wil je dat AI je CV maakt?",
+        "description": "Laat onze AI in seconden een professioneel CV maken op basis van je functietitel.",
+        "button": "Maak met AI"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Contact",
+      "experience": "Ervaring",
+      "workExperience": "Werkervaring",
+      "professionalExperience": "Professionele ervaring",
+      "education": "Opleiding",
+      "skills": "Vaardigheden",
+      "coreSkills": "Kernvaardigheden",
+      "technicalSkills": "Technische vaardigheden",
+      "languages": "Talen",
+      "interests": "Interesses",
+      "strengths": "Sterke punten",
+      "certifications": "Certificeringen",
+      "awards": "Prijzen",
+      "projects": "Projecten",
+      "summary": "Samenvatting",
+      "professionalSummary": "Professionele samenvatting",
+      "profile": "Profiel",
+      "about": "Over",
+      "additionalInfo": "Aanvullende informatie",
+      "socialLinks": "Sociale links",
+      "personalDetails": "Persoonlijke gegevens",
+      "credentials": "Referenties"
+    },
+    "labels": {
+      "present": "Heden",
+      "gpa": "Cijfergemiddelde",
+      "native": "Moedertaal",
+      "fluent": "Vloeiend",
+      "advanced": "Gevorderd",
+      "intermediate": "Gemiddeld",
+      "basic": "Basis"
+    }
+  },
+
+  "About": {
+    "meta": {
+      "title": "Over Best AI Resume - Onze missie om de zoektocht naar werk te transformeren",
+      "description": "Leer meer over Best AI Resume - het AI-gestuurde platform dat duizenden helpt hun droombaan te vinden. Onze missie, waarden en toewijding aan jouw carrièresucces."
+    }
+  },
+
+  "Privacy": {
+    "meta": {
+      "title": "Privacybeleid - Best AI Resume",
+      "description": "Leer hoe Best AI Resume je gegevens beschermt. Ons privacybeleid legt uit hoe we je persoonlijke informatie verzamelen, gebruiken en beveiligen."
+    }
+  },
+
+  "Terms": {
+    "meta": {
+      "title": "Servicevoorwaarden - Best AI Resume",
+      "description": "Lees de servicevoorwaarden van Best AI Resume. Begrijp je rechten en verantwoordelijkheden bij het gebruik van ons AI CV-maker platform."
+    }
+  },
+
+  "Onboarding": {
+    "meta": {
+      "title": "Maak je CV - AI CV-generator",
+      "description": "Begin in seconden met het maken van je professionele CV. Beantwoord 2 vragen en laat AI een op maat gemaakt, sollicitatierijp CV voor je maken."
+    },
+    "title": "Vertel ons over jezelf",
+    "subtitle": "Slechts 2 vragen en AI maakt je perfecte CV",
+    "fullName": "Je volledige naam",
+    "fullNamePlaceholder": "bijv. Jan Jansen",
+    "jobTitle": "Functietitel waarnaar je solliciteert",
+    "jobTitlePlaceholder": "bijv. Software Engineer, Marketingmanager",
+    "experienceLevel": "Ervaringsniveau",
+    "levels": {
+      "entry": "Startersniveau",
+      "entryDesc": "0-2 jaar ervaring",
+      "mid": "Middenniveau",
+      "midDesc": "3-5 jaar ervaring",
+      "senior": "Seniorniveau",
+      "seniorDesc": "6-10 jaar ervaring",
+      "executive": "Directieniveau",
+      "executiveDesc": "10+ jaar ervaring"
+    },
+    "generate": "Genereer mijn CV",
+    "generating": {
+      "title": "Je CV wordt aangemaakt",
+      "analyzing": "Je beroep analyseren...",
+      "summary": "Professionele samenvatting genereren...",
+      "experience": "Werkervaring aanmaken...",
+      "skills": "Relevante vaardigheden toevoegen...",
+      "polishing": "Je CV perfectioneren...",
+      "almostThere": "Bijna klaar...",
+      "wait": "Dit duurt meestal slechts een paar seconden..."
+    },
+    "step1": {
+      "title": "Hoe wil je je CV maken?",
+      "subtitle": "Kies je voorkeursmethode om te beginnen",
+      "recommended": "AANBEVOLEN",
+      "ai": {
+        "title": "Maak met AI",
+        "description": "Vertel ons je beroep en we genereren in seconden een professioneel CV"
+      },
+      "upload": {
+        "title": "CV uploaden",
+        "description": "Upload je bestaande CV en we verbeteren het"
+      },
+      "linkedin": {
+        "title": "LinkedIn importeren",
+        "description": "Importeer je profiel automatisch vanuit LinkedIn"
+      },
+      "comingSoon": "Binnenkort beschikbaar",
+      "startBlank": "Of begin met een leeg CV"
+    },
+    "step4": {
+      "title": "Kies je sjabloon",
+      "subtitle": "Je CV is klaar! Kies een ontwerp dat bij je stijl past.",
+      "backToEdit": "Terug naar gegevens bewerken",
+      "browseAll": "Bekijk alle sjablonen",
+      "continue": "Ga verder naar de editor"
+    },
+    "upload": {
+      "title": "Upload je CV",
+      "subtitle": "We halen je informatie op en verbeteren het met AI",
+      "dragDrop": "Sleep je CV hierheen",
+      "orBrowse": "of blader door bestanden",
+      "supportedFormats": "PDF of DOCX (max {maxSize})",
+      "validating": "Bestand valideren...",
+      "uploading": "Uploaden...",
+      "parsing": "AI analyseert je CV...",
+      "success": "CV succesvol geïmporteerd!",
+      "error": "Er is iets misgegaan",
+      "tryAgain": "Opnieuw proberen",
+      "invalidType": "Upload een PDF- of DOCX-bestand",
+      "fileTooLarge": "Bestand overschrijdt de {maxSize}-limiet"
+    },
+    "linkedin": {
+      "title": "Importeren vanuit LinkedIn",
+      "subtitle": "Exporteer je LinkedIn-profiel als PDF en upload het hier",
+      "step1": "Ga naar je LinkedIn-profiel",
+      "step2": "Klik op \"Bronnen\" → \"Opslaan als PDF\"",
+      "step3": "Upload de gedownloade PDF hieronder",
+      "openLinkedIn": "Open LinkedIn-profiel",
+      "tip": "LinkedIn PDF's werken het beste voor het importeren van je volledige werkgeschiedenis"
+    },
+    "word": {
+      "badge": "Microsoft Word CV",
+      "step1Title": "Hoe wil je je Word-CV maken?",
+      "aiDescription": "Vertel ons je beroep en we genereren in seconden een Word-CV",
+      "subtitle": "Slechts 2 vragen en AI maakt je perfecte Word-CV",
+      "startBlank": "Of begin met een leeg Word-CV",
+      "step4Title": "Kies je Word-sjabloon",
+      "step4Subtitle": "Je CV is klaar! Kies een Microsoft Word-sjabloon.",
+      "continue": "Ga verder naar de Word Editor"
+    },
+    "gdocs": {
+      "badge": "Google Docs CV",
+      "step1Title": "Hoe wil je je Google Docs-CV maken?",
+      "aiDescription": "Vertel ons je beroep en we genereren in seconden een Google Docs-CV",
+      "subtitle": "Slechts 2 vragen en AI maakt je perfecte Google Docs-CV",
+      "startBlank": "Of begin met een leeg Google Docs-CV",
+      "step4Title": "Kies je Google Docs-sjabloon",
+      "step4Subtitle": "Je CV is klaar! Kies een sjabloon geoptimaliseerd voor Google Docs.",
+      "continue": "Ga verder naar de Google Docs Editor"
+    },
+    "main": {
+      "step1Title": "Hoe wil je beginnen?",
+      "step1Subtitle": "Kies de methode die het beste bij je past",
+      "recommended": "Aanbevolen",
+      "aiTitle": "AI-generatie",
+      "aiDescription": "Laat AI je professionele CV maken",
+      "uploadTitle": "Bestaand uploaden",
+      "uploadDescription": "Importeer en verbeter je CV",
+      "linkedinDescription": "Converteer je LinkedIn-profiel",
+      "startBlank": "Begin met een leeg CV",
+      "step2Subtitle": "We gebruiken dit om je gepersonaliseerde CV te maken",
+      "fullName": "Volledige naam",
+      "fullNamePlaceholder": "bijv. Jan Jansen",
+      "targetJobTitle": "Gewenste functietitel",
+      "jobTitlePlaceholder": "bijv. Software Engineer",
+      "goBack": "Ga terug",
+      "generatingTitle": "Je CV wordt aangemaakt...",
+      "processingAnalyzing": "Je profiel analyseren...",
+      "processingCrafting": "Professionele samenvatting opstellen...",
+      "processingExperience": "Werkervaring genereren...",
+      "processingSkills": "Relevante vaardigheden toevoegen...",
+      "processingPolishing": "Laatste details perfectioneren...",
+      "processingAlmost": "Bijna klaar...",
+      "step4Subtitle": "Selecteer een ontwerp dat bij je stijl past",
+      "uploadSubtitle": "AI analyseert je CV en maakt een verbeterde versie",
+      "secureNotice": "Je bestand wordt veilig verwerkt en niet opgeslagen op onze servers",
+      "linkedinSubtitle": "Download je profiel als PDF vanuit LinkedIn en upload het hier",
+      "linkedinHowTo": "Hoe je je LinkedIn-profiel exporteert:",
+      "linkedinStep1": "Ga naar je LinkedIn-profiel",
+      "linkedinStep2": "Klik op de knop \"Bronnen\" op je profiel",
+      "linkedinStep3": "Selecteer \"Opslaan als PDF\"",
+      "linkedinStep4": "Upload de gedownloade PDF hieronder"
+    }
+  },
+
+  "Pricing": {
+    "meta": {
+      "title": "Prijsplannen - AI CV-maker vanaf $3/maand",
+      "description": "Kies het perfecte plan voor je zoektocht naar werk. Geen verborgen kosten, altijd opzegbaar. Vanaf slechts $3/maand."
+    },
+    "sectionTitle": "Prijzen",
+    "title": "Eenvoudige, transparante",
+    "titleHighlight": "prijzen",
+    "subtitle": "Geen verborgen kosten, altijd opzegbaar.",
+    "viewComparison": "Bekijk volledige vergelijking",
+    "cancelAnytime": "Altijd opzegbaar",
+    "securePayments": "Veilige betalingen via Stripe",
+    "mostPopular": "POPULAIRST",
+    "bestValue": "BESTE WAARDE",
+    "billedImmediately": "Direct gefactureerd",
+    "allPlansInclude": "Alle plannen bevatten: Geen advertenties • Alle freemium-sjablonen",
+    "billingToggle": {
+      "monthly": "Maandelijks",
+      "annual": "Jaarlijks",
+      "savePercent": "Bespaar 20%"
+    },
+    "page": {
+      "formBuilder": "Formulierbuilder",
+      "canvasEditor": "Canvas Editor",
+      "premiumTemplates": "Premium sjablonen",
+      "aiBuild": "AI CV-maker",
+      "atsOptimization": "ATS-optimalisatie",
+      "prioritySupport": "Prioriteitsondersteuning",
+      "aiSuggestions": "AI-suggesties",
+      "coverLetterBuilder": "Sollicitatiebrief-maker",
+      "noAds": "Geen advertenties",
+      "earlyAccess": "Vroegtijdige toegang tot functies",
+      "cvCreations": "{count} CV-creaties/maand",
+      "aiGenerations": "{count} AI-generaties/maand",
+      "downloads": "{count} downloads/maand",
+      "coverLetters": "{count} sollicitatiebrieven/maand",
+      "unlimited": "Onbeperkt"
+    },
+    "comparison": {
+      "title": "Plannen vergelijken",
+      "feature": "Functie",
+      "cvCreations": "CV-creaties",
+      "aiGenerations": "AI-generaties",
+      "downloads": "Downloads",
+      "perMonth": "{count}/mnd",
+      "unlimited": "Onbeperkt",
+      "savedResumes": "Opgeslagen CV's",
+      "templates": "Sjablonen",
+      "all50": "Alle freemium",
+      "premiumPlus": "50+ en premium",
+      "aiBuild": "AI CV-maker",
+      "adFree": "Advertentievrij"
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "cancelAnytime": {
+        "question": "Kan ik mijn abonnement op elk moment opzeggen?",
+        "answer": "Ja, je kunt je abonnement op elk moment opzeggen. Je behoudt toegang tot het einde van je huidige factureringsperiode."
+      },
+      "paymentMethods": {
+        "question": "Welke betaalmethoden accepteren jullie?",
+        "answer": "We accepteren alle gangbare creditcards (Visa, MasterCard, American Express) via Stripe. PayPal komt binnenkort."
+      },
+      "starterOneTime": {
+        "question": "Hoe werkt de facturering?",
+        "answer": "Alle plannen worden direct gefactureerd bij inschrijving. Maandplannen worden elke maand verlengd en jaarplannen jaarlijks. Je kunt altijd opzeggen via je accountinstellingen."
+      },
+      "runOutDownloads": {
+        "question": "Wat gebeurt er als ik mijn limieten bereik?",
+        "answer": "Wanneer je je maandelijkse CV-creatie- of AI-generatielimiet bereikt, kun je upgraden naar een hoger plan voor meer capaciteit. Limieten worden gereset aan het begin van elke factureringsperiode."
+      },
+      "switchPlans": {
+        "question": "Kan ik wisselen tussen plannen?",
+        "answer": "Absoluut. Je kunt je plan op elk moment upgraden of downgraden. Wijzigingen gaan direct in en we verrekenen eventuele kosten pro rata."
+      },
+      "refunds": {
+        "question": "Bieden jullie restituties aan?",
+        "answer": "We bieden geen restituties aan na aankoop. Je kunt altijd opzeggen via je accountinstellingen en behoudt toegang tot het einde van je factureringsperiode."
+      }
+    },
+    "cta": {
+      "title": "Klaar om te beginnen?",
+      "subtitle": "Alle plannen worden direct gefactureerd. Altijd opzegbaar.",
+      "button": "Bekijk plannen",
+      "contactSupport": "Neem contact op"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Perfect voor werkzoekenden",
+      "price": "$3",
+      "period": "/maand",
+      "annualPrice": "$29",
+      "annualPeriod": "/jaar",
+      "annualMonthly": "$2,42/mnd",
+      "features": {
+        "cvCreations": "30 CV-creaties/maand",
+        "aiGenerations": "50 AI-generaties/maand",
+        "downloads": "3 downloads/maand",
+        "templates": "Alle freemium-sjablonen",
+        "noAds": "Geen advertenties",
+        "export": "PDF-export"
+      },
+      "cta": "Aan de slag"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Voor actieve werkzoekenden",
+      "price": "$6",
+      "period": "/maand",
+      "annualPrice": "$58",
+      "annualPeriod": "/jaar",
+      "annualMonthly": "$4,83/mnd",
+      "features": {
+        "cvCreations": "150 CV-creaties/maand",
+        "aiGenerations": "100 AI-generaties/maand",
+        "downloads": "10 downloads/maand",
+        "templates": "Alle freemium-sjablonen",
+        "noAds": "Geen advertenties",
+        "ats": "ATS-optimalisatie"
+      },
+      "cta": "Aan de slag"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Het beste voor professionals",
+      "price": "$10",
+      "period": "/maand",
+      "annualPrice": "$96",
+      "annualPeriod": "/jaar",
+      "annualMonthly": "$8/mnd",
+      "features": {
+        "cvCreations": "300 CV-creaties/maand",
+        "aiGenerations": "200 AI-generaties/maand",
+        "downloads": "25 downloads/maand",
+        "templates": "Alle + premium sjablonen",
+        "support": "Prioriteitsondersteuning",
+        "coverLetter": "Sollicitatiebrief-maker"
+      },
+      "cta": "Aan de slag"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "Voor powergebruikers en bureaus",
+      "price": "$30",
+      "period": "/maand",
+      "annualPrice": "$288",
+      "annualPeriod": "/jaar",
+      "annualMonthly": "$24/mnd",
+      "features": {
+        "cvCreations": "Onbeperkte CV-creaties",
+        "aiGenerations": "500 AI-generaties/maand",
+        "downloads": "120 downloads/maand",
+        "templates": "Alle + premium sjablonen",
+        "support": "Prioriteitsondersteuning",
+        "coverLetter": "Sollicitatiebrief-maker",
+        "earlyAccess": "Vroegtijdige toegang tot nieuwe functies"
+      },
+      "cta": "Nu abonneren"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Tips, gidsen en inzichten voor je carrière",
+    "searchPlaceholder": "Zoek artikelen...",
+    "readMore": "Lees meer",
+    "readingTime": "{time} min leestijd",
+    "categories": "Categorieën",
+    "allCategories": "Alle categorieën",
+    "relatedPosts": "Gerelateerde artikelen",
+    "shareOn": "Delen op",
+    "noResults": "Geen artikelen gevonden"
+  },
+
+  "Footer": {
+    "tagline": "AI-gestuurde CV-maker vertrouwd door professionals wereldwijd.",
+    "product": "Product",
+    "company": "Bedrijf",
+    "legal": "Juridisch",
+    "social": "Sociaal",
+    "about": "Over ons",
+    "careers": "Vacatures",
+    "privacy": "Privacy",
+    "terms": "Voorwaarden",
+    "contact": "Contact",
+    "help": "Hulpgids",
+    "copyright": "© {year} Best AI Resume. Alle rechten voorbehouden.",
+    "resources": "Bronnen",
+    "resumeFormatGuide": "CV-indelingsgids",
+    "canvaAlternative": "Canva-alternatief",
+    "overleafAlternative": "Overleaf-alternatief",
+    "resumeIoAlternative": "Resume.io-alternatief",
+    "reziAlternative": "Rezi-alternatief",
+    "builder": "CV-maker",
+    "templateCategories": "Sjablonen",
+    "compare": "Vergelijken",
+    "googleDocs": "Google Docs-sjablonen",
+    "simpleClean": "Eenvoudig en strak",
+    "freeResumeBuilder": "Gratis CV-maker",
+    "microsoftWord": "Word-sjablonen",
+    "modern": "Moderne sjablonen",
+    "creative": "Creatieve sjablonen",
+    "coverLetterGenerator": "AI-sollicitatiebrief generator",
+    "resignationLetterGenerator": "AI-ontslagbrief generator",
+    "buildResumeFree": "Maak je CV gratis",
+    "zetyAlternative": "Zety-alternatief",
+    "livecareerAlternative": "LiveCareer-alternatief",
+    "adobeAlternative": "Adobe-alternatief",
+    "novaAlternative": "Nova-alternatief",
+    "europassAlternative": "Europass-alternatief",
+    "chatgptComparison": "ChatGPT-vergelijking",
+    "resumeExamples": "CV-voorbeelden",
+    "softwareEngineer": "Software Engineer",
+    "nurse": "Verpleegkundige",
+    "projectManager": "Projectmanager",
+    "marketingManager": "Marketingmanager",
+    "dataAnalyst": "Data Analyst",
+    "accountant": "Accountant",
+    "viewAll300": "Bekijk alle 300+",
+    "careerGuides": "Carrièregidsen",
+    "careerGuidance": "Loopbaanbegeleiding",
+    "jobSearchStrategy": "Strategie voor werkzoeken",
+    "careerDevelopmentPlan": "Loopbaanontwikkelingsplan",
+    "highPayingSkills": "Goedbetaalde vaardigheden",
+    "interviewPreparation": "Sollicitatiegespreksvoorbereiding",
+    "salaryNegotiation": "Salarisonderhandeling"
+  },
+
+  "Auth": {
+    "meta": {
+      "loginTitle": "Inloggen - Best AI Resume",
+      "loginDescription": "Log in op je Best AI Resume-account om je opgeslagen CV's te openen en verder te bouwen.",
+      "registerTitle": "Account aanmaken - Best AI Resume",
+      "registerDescription": "Maak je gratis account aan om CV's op te slaan, premium sjablonen te gebruiken en AI-functies te ontgrendelen."
+    },
+    "login": "Inloggen",
+    "register": "Account aanmaken",
+    "email": "E-mailadres",
+    "password": "Wachtwoord",
+    "confirmPassword": "Bevestig wachtwoord",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "noAccount": "Heb je nog geen account?",
+    "hasAccount": "Heb je al een account?",
+    "signUp": "Registreren",
+    "signIn": "Inloggen",
+    "fullName": "Volledige naam",
+    "welcomeBack": "Welkom terug",
+    "welcomeBackSubtitle": "Log in om verder te gaan met het bouwen van je CV",
+    "createAccount": "Account aanmaken",
+    "createAccountSubtitle": "Begin vandaag nog met het maken van je professionele CV",
+    "continueWithGoogle": "Doorgaan met Google",
+    "continueWithGitHub": "Doorgaan met GitHub",
+    "continueWithLinkedIn": "Doorgaan met LinkedIn",
+    "orContinueWith": "of ga verder met e-mail",
+    "verifyEmail": "Verifieer je e-mail",
+    "verificationCodeSent": "We hebben een 6-cijferige code gestuurd naar",
+    "enterFullCode": "Voer de volledige 6-cijferige code in",
+    "verificationFailed": "Verificatie mislukt. Probeer het opnieuw.",
+    "resendFailed": "Code opnieuw versturen mislukt. Probeer het opnieuw.",
+    "verifying": "Verifiëren...",
+    "verifyAndContinue": "Verifiëren en doorgaan",
+    "didntReceiveCode": "Code niet ontvangen?",
+    "resendIn": "Opnieuw versturen over",
+    "resendCode": "Code opnieuw versturen",
+    "wrongEmail": "Verkeerd e-mailadres?",
+    "changeEmail": "E-mail wijzigen"
+  },
+
+  "Errors": {
+    "notFound": "Pagina niet gevonden",
+    "serverError": "Er is iets misgegaan",
+    "unauthorized": "Log in om verder te gaan"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Selecteer taal"
+  },
+
+  "Dashboard": {
+    "meta": {
+      "title": "Dashboard - Mijn CV's",
+      "description": "Beheer je CV's, volg downloads en open je abonnementsinstellingen."
+    },
+    "welcome": "Welkom terug{name}!",
+    "subtitle": "Klaar om je droombaan te vinden? Laten we een CV maken dat opvalt.",
+    "stats": {
+      "resumesCreated": "CV's aangemaakt",
+      "downloads": "Downloads",
+      "coverLetters": "Sollicitatiebrieven"
+    },
+    "usage": {
+      "noPlan": "Geen plan",
+      "subscribeToUnlock": "Abonneer om te ontgrendelen",
+      "unlimited": "Onbeperkt"
+    },
+    "cta": {
+      "badge": "AI-gestuurde CV-maker",
+      "title": "Maak je perfecte CV",
+      "createNew": "Nieuw CV maken"
+    },
+    "subscription": {
+      "plan": "{tier}-plan",
+      "expiredPlan": "Verlopen plan",
+      "noActivePlan": "Geen actief plan",
+      "active": "Actief",
+      "planActive": "Je plan is actief",
+      "subscribePrompt": "Abonneer om downloads te ontgrendelen",
+      "resubscribe": "Opnieuw abonneren",
+      "subscribe": "Abonneren",
+      "manage": "Abonnement beheren"
+    },
+    "templateUsage": "Sjabloongebruik",
+    "resumes": {
+      "title": "Jouw CV's",
+      "total": "{count} totaal",
+      "newResume": "Nieuw CV",
+      "noResumes": "Nog geen CV's",
+      "noResumesDesc": "Maak je eerste AI-gestuurd CV en begin vandaag nog met solliciteren naar je droombaan.",
+      "createFirst": "Maak je eerste CV",
+      "createNew": "Nieuw CV maken"
+    },
+    "resumeCard": {
+      "untitled": "Naamloos CV",
+      "noName": "Geen naam",
+      "today": "Vandaag",
+      "yesterday": "Gisteren",
+      "daysAgo": "{days} dagen geleden",
+      "duplicate": "Dupliceren",
+      "delete": "Verwijderen",
+      "deleteConfirm": "Weet je zeker dat je dit CV wilt verwijderen?",
+      "edit": "Bewerken"
+    },
+    "quickActions": {
+      "softwareEngineer": "Software Engineer",
+      "productManager": "Productmanager",
+      "designer": "Designer",
+      "marketing": "Marketing",
+      "dataScientist": "Data Scientist",
+      "sales": "Sales"
+    },
+    "proTip": {
+      "label": "Pro-tip",
+      "title": "Pas je CV aan voor elke baan",
+      "description": "CV's die zijn afgestemd op specifieke vacatures hebben 3x meer kans op een sollicitatiegesprek. Gebruik onze AI om je CV snel aan te passen voor elke sollicitatie.",
+      "stat1Value": "3x",
+      "stat1Label": "Meer gesprekken",
+      "stat2Value": "85%",
+      "stat2Label": "ATS-slagingspercentage"
+    },
+    "loading": "Laden..."
+  },
+
+  "Profile": {
+    "meta": {
+      "title": "Profielinstellingen - Best AI Resume",
+      "description": "Beheer je accountinstellingen, werk je profiel bij en wijzig je wachtwoord."
+    },
+    "title": "Profielinstellingen",
+    "chooseAvatar": "Kies avatar",
+    "accountDetails": "Accountgegevens",
+    "name": "Naam",
+    "namePlaceholder": "Je volledige naam",
+    "saveChanges": "Wijzigingen opslaan",
+    "saving": "Opslaan...",
+    "emailAddress": "E-mailadres",
+    "changeEmail": "Wijzigen",
+    "newEmail": "Nieuw e-mailadres",
+    "emailPlaceholder": "jouw@nieuweemail.com",
+    "emailChangeHint": "Er wordt een verificatiecode naar dit e-mailadres gestuurd",
+    "cancel": "Annuleren",
+    "sendCode": "Code versturen",
+    "sending": "Versturen...",
+    "enterCodeSentTo": "Voer de 6-cijferige code in die is verzonden naar",
+    "verifyCode": "Verifiëren",
+    "verifying": "Verifiëren...",
+    "useAnotherEmail": "Gebruik een ander e-mailadres",
+    "codeSent": "Verificatiecode verzonden naar je nieuwe e-mailadres",
+    "emailChanged": "E-mailadres succesvol gewijzigd",
+    "enterNewEmail": "Voer een nieuw e-mailadres in",
+    "enterCode": "Voer de 6-cijferige code in",
+    "emailChangeFailed": "Verificatiecode versturen mislukt",
+    "verificationFailed": "Verificatie mislukt",
+    "changePassword": "Wachtwoord wijzigen",
+    "currentPassword": "Huidig wachtwoord",
+    "newPassword": "Nieuw wachtwoord",
+    "confirmPassword": "Bevestig nieuw wachtwoord",
+    "passwordHint": "Moet minimaal 8 tekens bevatten",
+    "changePasswordBtn": "Wachtwoord wijzigen",
+    "changingPassword": "Wijzigen...",
+    "profileUpdated": "Profiel succesvol bijgewerkt",
+    "passwordChanged": "Wachtwoord succesvol gewijzigd",
+    "updateFailed": "Bijwerken mislukt",
+    "passwordChangeFailed": "Wachtwoord wijzigen mislukt",
+    "passwordMismatch": "Wachtwoorden komen niet overeen",
+    "passwordTooShort": "Wachtwoord moet minimaal 8 tekens bevatten",
+    "noChanges": "Geen wijzigingen om op te slaan"
+  },
+
+  "Checkout": {
+    "meta": {
+      "title": "Afrekenen - Rond je abonnement af",
+      "description": "Rond je abonnement af om onbeperkte CV-functies te ontgrendelen. Veilige betaling via Stripe."
+    },
+    "invalidPlan": {
+      "title": "Ongeldig plan",
+      "description": "Het geselecteerde plan is niet geldig. Kies een plan op onze prijzenpagina.",
+      "backBtn": "Terug naar prijzen"
+    },
+    "signIn": {
+      "title": "Log in om door te gaan",
+      "subtitle": "Log in om het {plan}-plan aan te schaffen",
+      "signInBtn": "Inloggen",
+      "createAccountBtn": "Account aanmaken"
+    },
+    "header": {
+      "completePurchase": "Rond je aankoop af",
+      "subscribePlan": "Abonneer op het {plan}-plan"
+    },
+    "billing": {
+      "account": "Account",
+      "billing": "Facturering",
+      "monthlyStarting": "Maandelijks, vanaf vandaag"
+    },
+    "submit": {
+      "redirecting": "Doorsturen naar Stripe...",
+      "subscribeNow": "Nu abonneren"
+    },
+    "secure": "Veilige betaling via Stripe",
+    "cancelNote": "Altijd opzegbaar. Geen langetermijnverplichting.",
+    "loading": "Afrekenpagina laden...",
+    "errors": {
+      "cancelled": "Betaling is geannuleerd. Je kunt het opnieuw proberen wanneer je klaar bent.",
+      "sessionExpired": "Je sessie is verlopen. Log opnieuw in.",
+      "failedCheckout": "Afrekenen starten mislukt. Probeer het opnieuw.",
+      "networkError": "Kan geen verbinding maken met de server. Controleer je internetverbinding."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/maand",
+        "description": "Perfect voor werkzoekenden",
+        "features": ["30 CV-creaties/maand", "3 AI-generaties/maand", "3 PDF-downloads/maand", "Alle freemium-sjablonen", "Geen advertenties"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/maand",
+        "description": "Voor actieve werkzoekenden",
+        "features": ["150 CV-creaties/maand", "10 AI-generaties/maand", "10 PDF-downloads/maand", "ATS-optimalisatie", "Sollicitatiebrief-maker"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/maand",
+        "description": "Het beste voor professionals",
+        "features": ["300 CV-creaties/maand", "30 AI-generaties/maand", "25 PDF-downloads/maand", "Alle premium sjablonen", "Prioriteitsondersteuning"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/maand",
+        "description": "Voor powergebruikers en bureaus",
+        "features": ["Onbeperkte CV-creaties", "100 AI-generaties/maand", "Onbeperkte PDF-downloads", "Alle premium sjablonen", "Prioriteitsondersteuning", "Vroegtijdige toegang tot functies"]
+      }
+    }
+  },
+
+  "CheckoutSuccess": {
+    "title": "Betaling geslaagd!",
+    "welcome": "Welkom bij {plan}!",
+    "planLabel": "{plan}-plan",
+    "yourBenefits": "Je nieuwe voordelen",
+    "createResume": "Maak je CV",
+    "goToDashboard": "Ga naar dashboard",
+    "receiptNote": "Een ontvangstbewijs is naar je e-mail verzonden. Je kunt je abonnement altijd beheren vanuit je",
+    "dashboardLink": "dashboard",
+    "supportText": "Vragen? Neem contact met ons op via",
+    "loading": "Je abonnementsgegevens laden...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["30 CV-creaties per maand", "3 AI-generaties per maand", "3 PDF-downloads per maand", "Alle freemium-sjablonen", "Geen advertenties"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["150 CV-creaties per maand", "10 AI-generaties per maand", "10 PDF-downloads per maand", "ATS-optimalisatie", "Sollicitatiebrief-maker"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["300 CV-creaties per maand", "30 AI-generaties per maand", "25 PDF-downloads per maand", "Alle premium sjablonen", "Prioriteitsondersteuning"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["Onbeperkte CV-creaties", "100 AI-generaties per maand", "Onbeperkte PDF-downloads", "Alle premium sjablonen", "Prioriteitsondersteuning", "Vroegtijdige toegang tot nieuwe functies"]
+      }
+    }
+  },
+
+  "CanvasEditor": {
+    "meta": {
+      "title": "Canvas CV-editor - Ontwerp je CV visueel | Best AI Resume",
+      "description": "Ontwerp je CV met een visuele canvas-editor. Sleep tekst, afbeeldingen en vormen om een unieke, aangepaste CV-indeling te maken."
+    },
+    "loading": "Canvas Editor laden...",
+    "desktop": {
+      "title": "Desktop vereist",
+      "description": "De Canvas Editor vereist een groter scherm voor nauwkeurig ontwerpwerk. Gebruik een laptop of desktop om deze functie te gebruiken.",
+      "useBuilder": "Gebruik de standaard builder",
+      "backToDashboard": "Terug naar dashboard",
+      "mobileNote": "De standaard CV-maker werkt uitstekend op mobiel!"
+    },
+    "header": {
+      "backToBuilder": "Terug naar builder",
+      "backToTemplates": "Terug naar canvas-sjablonen",
+      "title": "Canvas Editor",
+      "beta": "Bèta",
+      "elements": "{count} elementen",
+      "postToCommunity": "Plaatsen in community"
+    },
+    "shortcuts": "V Selecteren | T Tekst | Delete Verwijderen | Cmd+D Dupliceren | Cmd+Z Ongedaan maken | Dubbelklik op tekst om te bewerken",
+    "toolbar": {
+      "select": "Selecteren (V)",
+      "text": "Tekst (T)",
+      "image": "Afbeelding (I)",
+      "shape": "Vorm (S)",
+      "rectangle": "Rechthoek",
+      "circle": "Cirkel",
+      "star": "Ster",
+      "line": "Lijn",
+      "undo": "Ongedaan maken (Cmd+Z)",
+      "redo": "Opnieuw (Cmd+Shift+Z)",
+      "duplicate": "Dupliceren (Cmd+D)",
+      "delete": "Verwijderen",
+      "bringToFront": "Naar voren brengen",
+      "sendToBack": "Naar achteren sturen",
+      "zoomOut": "Uitzoomen",
+      "zoomIn": "Inzoomen",
+      "aiGenerate": "AI genereren",
+      "aiGenerateTitle": "AI-samenvattingsgenerator",
+      "save": "Project opslaan (Cmd+S)",
+      "load": "Project laden",
+      "export": "Exporteren",
+      "downloadPdf": "PDF downloaden",
+      "downloadPng": "PNG downloaden",
+      "downloadJpeg": "JPEG downloaden"
+    },
+    "alerts": {
+      "templateLoadFailed": "Sjabloon laden mislukt. Het is mogelijk verwijderd.",
+      "canvasNotReady": "Canvas niet gereed. Probeer het opnieuw.",
+      "projectSaved": "Project succesvol opgeslagen!",
+      "noSavedProject": "Geen opgeslagen project gevonden.",
+      "projectLoaded": "Project succesvol geladen!",
+      "projectLoadFailed": "Project laden mislukt."
+    },
+    "downloadModal": {
+      "title": "Log in om te downloaden",
+      "description": "Maak een gratis account aan om je canvas-ontwerp te downloaden als {format}.",
+      "savedTitle": "Je werk is opgeslagen",
+      "savedNotice": "Je canvas-project is opgeslagen in je browser. Het is hier wanneer je terugkomt na het inloggen.",
+      "signUp": "Registreren — Het is gratis",
+      "signInPrefix": "Heb je al een account?",
+      "signInLink": "Inloggen",
+      "restored": "Je canvas-project is hersteld! Klik op Exporteren om te downloaden."
+    }
+  },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Canvas CV-sjablonen - Ontwerp je CV visueel | Best AI Resume",
+      "description": "Bekijk creatieve canvas CV-sjablonen. Sleep, plaats en pas elk element aan met onze visuele editor."
+    },
+    "sectionTitle": "Canvas-sjablonen",
+    "title": "Canvas CV-",
+    "titleHighlight": "sjablonen",
+    "subtitle": "Ontwerp je CV met volledige creatieve vrijheid. Sleep, plaats en pas elk element aan in onze visuele editor.",
+    "freeBadge": "Het is gratis",
+    "searchPlaceholder": "Zoek canvas-sjablonen...",
+    "noResults": "Geen sjablonen gevonden",
+    "noResultsHint": "Probeer je zoekopdracht of filtercriteria aan te passen",
+    "useTemplate": "Gebruik sjabloon",
+    "categories": {
+      "all": "Alles",
+      "professional": "Professioneel",
+      "creative": "Creatief",
+      "minimal": "Minimaal"
+    },
+    "startFromScratch": {
+      "title": "Wil je helemaal opnieuw beginnen?",
+      "description": "Maak een volledig aangepast CV met de krachtige ontwerptools van onze Canvas Editor.",
+      "button": "Open leeg canvas"
+    },
+    "formBuilderBanner": "Op zoek naar formuliergebaseerde sjablonen?",
+    "viewFormTemplates": "Bekijk formulierbuilder-sjablonen"
+  },
+
+  "Builder": {
+    "meta": {
+      "title": "CV-maker - Maak je professionele CV online",
+      "description": "Bouw je professionele CV met onze gebruiksvriendelijke editor. Realtime voorbeeld, AI-suggesties en directe PDF-download."
+    },
+    "personalInfo": {
+      "title": "Persoonlijke informatie",
+      "subtitle": "Begin met je contactgegevens en professionele samenvatting."
+    },
+    "profilePhoto": "Profielfoto",
+    "upload": "Uploaden",
+    "change": "Wijzigen",
+    "fullName": "Volledige naam",
+    "fullNamePlaceholder": "Jan Jansen",
+    "jobTitle": "Functietitel",
+    "jobTitlePlaceholder": "Software Engineer",
+    "email": "E-mail",
+    "emailPlaceholder": "jan@voorbeeld.nl",
+    "phone": "Telefoon",
+    "phonePlaceholder": "+31 6 12345678",
+    "location": "Locatie",
+    "locationPlaceholder": "Amsterdam, NH",
+    "website": "Website",
+    "websitePlaceholder": "janjansen.nl",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/janjansen",
+    "nationality": "Nationaliteit",
+    "nationalityPlaceholder": "bijv. Nederlands, Belgisch",
+    "idDocument": "ID / Paspoort / Rijbewijs",
+    "selectDocType": "Selecteer document",
+    "nationalId": "Identiteitsbewijs",
+    "passport": "Paspoort",
+    "drivingLicense": "Rijbewijs",
+    "documentNumber": "Documentnummer",
+    "professionalSummary": "Professionele samenvatting",
+    "summaryPlaceholder": "Ervaren Software Engineer met een passie voor het bouwen van schaalbare webapplicaties...",
+    "generateWithAI": "Genereer met AI",
+    "additionalInfo": "Aanvullende informatie",
+    "socialLinks": "Sociale links",
+    "customFields": {
+      "title": "Aangepaste velden",
+      "subtitle": "Voeg aangepaste secties toe met je eigen labels en inhoud.",
+      "add": "Aangepast veld toevoegen",
+      "noCustomFields": "Nog geen aangepaste velden toegevoegd.",
+      "label": "Sectielabel",
+      "labelPlaceholder": "bijv. Vrijwilligerswerk, Hobby's, Publicaties",
+      "content": "Inhoud",
+      "contentPlaceholder": "Voeg je inhoud hier toe..."
+    },
+    "shapes": {
+      "circle": "Cirkel",
+      "rounded": "Afgerond",
+      "square": "Vierkant"
+    },
+    "experience": {
+      "title": "Werkervaring",
+      "subtitle": "Voeg je relevante werkervaring toe.",
+      "add": "Ervaring toevoegen",
+      "notSpecified": "(Niet opgegeven)",
+      "companyName": "Bedrijfsnaam",
+      "jobTitle": "Functietitel",
+      "company": "Bedrijf",
+      "city": "Stad",
+      "country": "Land",
+      "startDate": "Startdatum",
+      "endDate": "Einddatum",
+      "currentlyWork": "Ik werk hier momenteel",
+      "description": "Beschrijving",
+      "improveAI": "Verbeteren met AI",
+      "noExperience": "Nog geen ervaring toegevoegd.",
+      "addFirst": "Voeg je eerste functie toe"
+    },
+    "education": {
+      "title": "Opleiding",
+      "subtitle": "Voeg je opleidingsachtergrond toe.",
+      "add": "Opleiding toevoegen",
+      "notSpecified": "(Niet opgegeven)",
+      "degree": "Diploma",
+      "school": "School / Universiteit",
+      "cityOptional": "Stad (optioneel)",
+      "countryOptional": "Land (optioneel)",
+      "startDate": "Startdatum",
+      "endDate": "Einddatum",
+      "gpaOptional": "Cijfergemiddelde (optioneel)",
+      "honorsOptional": "Cum laude (optioneel)",
+      "clubsOptional": "Verenigingen en activiteiten (optioneel)",
+      "descriptionOptional": "Beschrijving (optioneel)",
+      "noEducation": "Nog geen opleiding toegevoegd.",
+      "addEducation": "Voeg je opleiding toe",
+      "credentials": "Referenties",
+      "certifications": "Certificeringen",
+      "awards": "Prijzen en prestaties"
+    },
+    "skills": {
+      "title": "Vaardigheden",
+      "subtitle": "Voeg je technische en soft skills toe met vaardigheidsniveaus.",
+      "placeholder": "bijv. React, Python, Leiderschap",
+      "proficiencyLevel": "Vaardigheidsniveau",
+      "beginner": "Beginner",
+      "basic": "Basis",
+      "intermediate": "Gemiddeld",
+      "advanced": "Gevorderd",
+      "expert": "Expert",
+      "noSkills": "Nog geen vaardigheden toegevoegd.",
+      "suggestedSkills": "Voorgestelde vaardigheden",
+      "additionalInfo": "Aanvullende informatie",
+      "languages": "Talen",
+      "strengths": "Sterke punten",
+      "interests": "Interesses en hobby's"
+    },
+    "tabs": {
+      "personal": "Persoonlijk",
+      "personalDesc": "Basisinfo en samenvatting",
+      "experience": "Ervaring",
+      "experienceDesc": "Werkgeschiedenis",
+      "education": "Opleiding",
+      "educationDesc": "Academische achtergrond",
+      "skills": "Vaardigheden",
+      "skillsDesc": "Je expertise",
+      "design": "Ontwerp",
+      "designDesc": "Stijl en indeling"
+    },
+    "ui": {
+      "progress": "Voortgang",
+      "canvasEditor": "Canvas Editor",
+      "backToHome": "Terug naar home",
+      "untitledResume": "Naamloos CV",
+      "downloadPdf": "PDF downloaden",
+      "livePreview": "Live voorbeeld",
+      "showReference": "Referentieafbeelding tonen",
+      "reference": "Referentie",
+      "zoomOut": "Uitzoomen",
+      "zoomIn": "Inzoomen",
+      "resetZoom": "Zoom resetten",
+      "referenceDesign": "Referentieontwerp",
+      "referenceCaption": "Origineel sjabloonontwerp ter referentie",
+      "editResume": "CV bewerken",
+      "previewResume": "CV bekijken",
+      "edit": "Bewerken",
+      "preview": "Voorbeeld",
+      "loadingBuilder": "Builder laden..."
+    },
+    "welcome": {
+      "title": "Account aangemaakt!",
+      "description": "Je CV is opgeslagen. Je kunt verder bewerken of een plan kiezen om te downloaden.",
+      "choosePlan": "Kies een plan",
+      "backToEditor": "Terug naar editor"
+    },
+    "feedback": {
+      "reportIssue": "Probleem melden",
+      "title": "Sjabloon-feedback",
+      "forTemplate": "Sjabloon",
+      "typeFeedback": "Feedback",
+      "typeBug": "Bug",
+      "typeSuggestion": "Idee",
+      "placeholder": "Beschrijf het probleem of deel je feedback over dit sjabloon...",
+      "messageTooShort": "Bericht moet minimaal 5 tekens bevatten",
+      "submitError": "Feedback verzenden mislukt. Probeer het opnieuw.",
+      "submit": "Verzenden",
+      "cancel": "Annuleren",
+      "close": "Sluiten",
+      "thankYou": "Bedankt!",
+      "thankYouDesc": "Je feedback is verzonden. We bekijken alle meldingen om onze sjablonen te verbeteren."
+    }
+  },
+
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Downloaden voor Google Docs",
+    "loading": "Google Docs-builder laden..."
+  },
+
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "MS Word downloaden",
+    "loading": "Word-builder laden..."
+  },
+
+  "CoverLetter": {
+    "meta": {
+      "title": "Gratis AI-sollicitatiebrief generator - Maak professionele sollicitatiebrieven",
+      "description": "Genereer professionele, gepersonaliseerde sollicitatiebrieven in minuten met onze gratis AI-tool. Onderscheid je van de rest en krijg meer sollicitatiegesprekken."
+    },
+    "hero": {
+      "badge": "AI-gestuurde sollicitatiebrief generator",
+      "title": "Maak een",
+      "titleHighlight": "perfecte sollicitatiebrief",
+      "subtitle": "Laat AI een overtuigende, gepersonaliseerde sollicitatiebrief opstellen die je sterke punten benadrukt en de aandacht van recruiters trekt."
+    },
+    "form": {
+      "yourDetails": "Je gegevens",
+      "fillInfo": "Vul je informatie in",
+      "fullName": "Volledige naam",
+      "email": "E-mail",
+      "jobTitle": "Functietitel",
+      "companyName": "Bedrijfsnaam",
+      "hiringManager": "Naam recruiter (optioneel)",
+      "keySkills": "Belangrijkste vaardigheden",
+      "experience": "Relevante ervaring",
+      "tone": "Schrijftoon",
+      "professional": "Professioneel",
+      "friendly": "Vriendelijk",
+      "confident": "Zelfverzekerd",
+      "enthusiastic": "Enthousiast",
+      "generate": "Sollicitatiebrief genereren",
+      "generating": "Genereren...",
+      "fullNamePlaceholder": "Jan Jansen",
+      "emailPlaceholder": "jan@voorbeeld.nl",
+      "jobTitlePlaceholder": "Software Engineer",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Lisa de Vries",
+      "skillsPlaceholder": "React, Node.js, Teamleiderschap",
+      "experiencePlaceholder": "Ik leidde een team van 5 ontwikkelaars bij de lancering van een belangrijk product..."
+    },
+    "preview": {
+      "title": "Voorbeeld",
+      "subtitle": "Je gegenereerde brief",
+      "noLetter": "Nog geen brief gegenereerd",
+      "fillAndGenerate": "Vul je gegevens in en klik op Genereren",
+      "copy": "Kopiëren",
+      "copied": "Gekopieerd!",
+      "download": "Downloaden"
+    },
+    "tips": {
+      "title": "Tips voor een",
+      "titleHighlight": "geweldige sollicitatiebrief",
+      "beSpecific": "Wees specifiek",
+      "beSpecificDesc": "Stem je brief af op de specifieke baan en het bedrijf. Generieke brieven worden snel herkend.",
+      "showResults": "Toon resultaten",
+      "showResultsDesc": "Neem meetbare prestaties op. Cijfers maken je prestaties concreet en memorabel.",
+      "keepConcise": "Houd het beknopt",
+      "keepConciseDesc": "Streef naar 3-4 alinea's. Recruiters besteden slechts seconden aan het scannen van elke sollicitatie."
+    },
+    "cta": {
+      "title": "Ook een CV nodig?",
+      "subtitle": "Combineer je sollicitatiebrief met een professioneel ontworpen CV gemaakt met AI.",
+      "button": "Maak je CV"
+    },
+    "errors": {
+      "signInRequired": "Log in om een sollicitatiebrief te genereren",
+      "limitReached": "Je hebt je limiet voor sollicitatiebrieven bereikt. Upgrade je plan voor meer.",
+      "subscriptionRequired": "Een abonnement is vereist om sollicitatiebrieven te genereren. Upgrade je plan.",
+      "signInNow": "Nu inloggen",
+      "viewPlans": "Bekijk plannen"
+    },
+    "externalResources": {
+      "title": "Externe bronnen",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Carrièrevooruitzichten",
+      "shrmHrResources": "SHRM: HR- en carrièrebronnen"
+    }
+  },
+
+  "ResignationLetter": {
+    "meta": {
+      "title": "Gratis AI-ontslagbrief generator - Professionele ontslagbrieven",
+      "description": "Maak een professionele ontslagbrief in minuten. Vertrek op goede voet en behoud positieve relaties met onze AI-gestuurde tool."
+    },
+    "hero": {
+      "badge": "AI-gestuurde ontslagbrief generator",
+      "title": "Schrijf een",
+      "titleHighlight": "professionele ontslagbrief",
+      "subtitle": "Vertrek op goede voet met een professioneel geschreven ontslagbrief. Behoud positieve relaties en bescherm je professionele reputatie."
+    },
+    "noticeLabel": "Tip",
+    "notice": "De standaard opzegtermijn is meestal 1 maand. Controleer je arbeidsovereenkomst voor specifieke vereisten.",
+    "form": {
+      "yourDetails": "Je gegevens",
+      "fillInfo": "Vul je informatie in",
+      "yourName": "Je naam",
+      "currentPosition": "Huidige functie",
+      "companyName": "Bedrijfsnaam",
+      "managerName": "Naam leidinggevende",
+      "lastWorkingDay": "Laatste werkdag",
+      "reasonForLeaving": "Reden van vertrek",
+      "positiveExperiences": "Positieve ervaringen (optioneel)",
+      "tone": "Toon van de brief",
+      "professional": "Professioneel",
+      "grateful": "Dankbaar",
+      "brief": "Beknopt",
+      "warm": "Warm",
+      "offerHelp": "Hulp aanbieden bij de overdracht",
+      "generate": "Ontslagbrief genereren",
+      "generating": "Genereren...",
+      "yourNamePlaceholder": "Jan Jansen",
+      "currentPositionPlaceholder": "Software Engineer",
+      "companyPlaceholder": "Bedrijf B.V.",
+      "managerPlaceholder": "Lisa de Vries",
+      "positiveExperiencesPlaceholder": "Ik heb erg genoten van het werken aan het productlanceringsproject en waardeerde de begeleiding van het senior team...",
+      "professionalDesc": "Formeel en zakelijk",
+      "gratefulDesc": "Waardering uitdrukken",
+      "briefDesc": "Kort en bondig",
+      "warmDesc": "Vriendelijk en persoonlijk"
+    },
+    "reasons": {
+      "selectReason": "Selecteer een reden (optioneel)",
+      "newOpportunity": "Een nieuwe kans nastreven",
+      "careerChange": "Carrièreswitch",
+      "relocation": "Verhuizing",
+      "personal": "Persoonlijke redenen",
+      "education": "Terug naar studie",
+      "family": "Gezinsverplichtingen",
+      "health": "Gezondheidsredenen",
+      "retirement": "Pensioen",
+      "other": "Overig"
+    },
+    "preview": {
+      "title": "Voorbeeld",
+      "subtitle": "Je gegenereerde brief",
+      "noLetter": "Nog geen brief gegenereerd",
+      "fillAndGenerate": "Vul je gegevens in en klik op Genereren",
+      "copy": "Kopiëren",
+      "copied": "Gekopieerd!",
+      "download": "Downloaden"
+    },
+    "reasonText": {
+      "newOpportunity": "Ik heb een functie aanvaard bij een ander bedrijf",
+      "careerChange": "Ik heb besloten een ander carrièrepad te volgen",
+      "relocation": "Ik ga verhuizen",
+      "personal": "vanwege persoonlijke redenen",
+      "education": "Ik heb besloten mijn opleiding voort te zetten",
+      "family": "vanwege gezinsverplichtingen die mijn volledige aandacht vereisen",
+      "health": "vanwege gezondheidsredenen",
+      "retirement": "Ik heb besloten met pensioen te gaan",
+      "other": "om persoonlijke redenen"
+    },
+    "letter": {
+      "dearManager": "Beste {name},",
+      "defaultManager": "leidinggevende",
+      "lastWorkingDayPlaceholder": "[Laatste werkdag]",
+      "briefBody": "Hierbij informeer ik u formeel over mijn ontslag uit de functie van {position} bij {company}. Mijn laatste werkdag zal {lastDay} zijn.",
+      "briefReason": "Ik neem ontslag omdat {reason}.",
+      "briefClosing": "Bedankt voor de kansen die mij geboden zijn tijdens mijn tijd hier.",
+      "sincerely": "Met vriendelijke groet,",
+      "formalBody": "Hierbij stel ik u formeel op de hoogte van mijn ontslag uit mijn functie als {position} bij {company}. Mijn laatste werkdag zal {lastDay} zijn.",
+      "reasonPrefix": "Na zorgvuldige overweging, {reason}.",
+      "notEasyDecision": "Dit was geen gemakkelijke beslissing, aangezien ik mijn tijd bij het bedrijf oprecht heb gewaardeerd.",
+      "gratefulDefault": "Ik ben ontzettend dankbaar voor de mogelijkheden die ik heb gehad om professioneel en persoonlijk te groeien tijdens mijn tijd hier.",
+      "warmDefault": "Het werken met u en het team was een geweldige ervaring die ik altijd zal koesteren.",
+      "learnedAppreciate": "Ik heb zoveel geleerd en zal altijd de steun en begeleiding die ik heb ontvangen waarderen.",
+      "transitionHelp": "Tijdens de overgangsperiode zet ik mij in voor een soepele overdracht van mijn verantwoordelijkheden. Ik help graag mee met het inwerken van mijn opvolger of het documenteren van mijn huidige projecten en processen.",
+      "thankYouClosing": "Bedankt voor de mogelijkheden voor professionele en persoonlijke ontwikkeling die u mij heeft geboden tijdens mijn dienstverband. Ik wens {company} veel succes toe en hoop contact te houden.",
+      "warmRegards": "Met hartelijke groet,",
+      "sincereGratitude": "Met oprechte dankbaarheid,"
+    },
+    "tips": {
+      "title": "Ontslag nemen",
+      "titleHighlight": "beste praktijken",
+      "giveNotice": "Opzegtermijn",
+      "giveNoticeDesc": "Houd een opzegtermijn van minimaal 1 maand aan, of volg de voorwaarden in je contract.",
+      "stayProfessional": "Blijf professioneel",
+      "stayProfessionalDesc": "Houd emoties erbuiten. Wees respectvol en positief.",
+      "documentIt": "Documenteer het",
+      "documentItDesc": "Dien altijd een schriftelijke ontslagbrief in voor je administratie.",
+      "leaveWell": "Vertrek netjes",
+      "leaveWellDesc": "Rond lopend werk af en bied aan om je opvolger in te werken."
+    },
+    "cta": {
+      "title": "Klaar voor je volgende kans?",
+      "subtitle": "Maak een professioneel CV voor je zoektocht naar werk met onze AI-gestuurde CV-maker.",
+      "button": "Maak je CV"
+    },
+    "externalResources": {
+      "title": "Externe bronnen",
+      "shrmWorkplace": "SHRM: HR- en werkplekbronnen",
+      "blsCareerData": "Bureau of Labor Statistics: Carrièregegevens"
+    }
+  },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Gratis AI-oefensollicitatie | Best AI Resume",
+      "description": "Oefen sollicitatiegesprekken met AI-gegenereerde vragen afgestemd op je functie. Krijg directe STAR-methode feedback op je antwoorden. Gratis oefensollicitatie-tool."
+    },
+    "hero": {
+      "badge": "AI-gestuurde sollicitatietraining",
+      "title": "AI-oefensollicitatie",
+      "description": "Oefen met AI-gegenereerde sollicitatievragen afgestemd op je functie en ervaringsniveau. Krijg directe feedback met de STAR-methode."
+    },
+    "setup": {
+      "title": "Stel je gesprek in",
+      "jobTitle": "Functietitel",
+      "jobTitlePlaceholder": "bijv. Software Engineer, Marketingmanager...",
+      "experienceLevel": "Ervaringsniveau",
+      "levels": {
+        "entry": { "label": "Startersniveau", "description": "0-2 jaar ervaring" },
+        "mid": { "label": "Middenniveau", "description": "3-6 jaar ervaring" },
+        "senior": { "label": "Seniorniveau", "description": "7+ jaar ervaring" }
+      },
+      "questionCount": "Aantal vragen: {count}",
+      "quick": "Snel (3)",
+      "thorough": "Grondig (10)",
+      "startButton": "Start gesprek",
+      "generating": "Vragen genereren..."
+    },
+    "interview": {
+      "progress": "Vraag {current} van {total}",
+      "yourAnswer": "Jouw antwoord",
+      "answerPlaceholder": "Typ je antwoord hier. Gebruik de STAR-methode: Situatie, Taak, Actie, Resultaat...",
+      "answerTip": "Tip: Streef naar 3-5 zinnen. Gebruik specifieke voorbeelden en kwantificeer resultaten waar mogelijk.",
+      "skip": "Overslaan",
+      "evaluating": "Evalueren...",
+      "submitContinue": "Verzenden en doorgaan",
+      "submitFinish": "Verzenden en afronden",
+      "starReminder": "Onthoud de STAR-methode:",
+      "starDescription": "Structureer je antwoorden met Situatie, Taak, Actie en Resultaat voor de sterkste antwoorden."
+    },
+    "results": {
+      "complete": "Gesprek voltooid!",
+      "summary": "Je hebt {answered} van {total} vragen beantwoord",
+      "averageScore": "Gemiddelde score:",
+      "startNew": "Nieuw gesprek starten",
+      "bonusQuestions": "Ontgrendel 10 bonusoefenvragen",
+      "bonusUnlocked": "Bonusvragen ontgrendeld!",
+      "bonusDescription": "Je kunt nu oefenen met maximaal 10 vragen per sessie.",
+      "detailedFeedback": "Gedetailleerde feedback",
+      "questionLabel": "Vraag {number}",
+      "strengths": "Sterke punten",
+      "improvements": "Verbeterpunten",
+      "sampleAnswer": "Voorbeeldantwoord",
+      "skipped": "Deze vraag is overgeslagen",
+      "continuePrep": "Ga door met voorbereiden",
+      "resources": {
+        "starMethod": {
+          "title": "Beheers de STAR-methode",
+          "description": "Leer hoe je je antwoorden structureert voor gedragsgerichte sollicitatievragen."
+        },
+        "tellMe": {
+          "title": "Hoe beantwoord je \"Vertel eens over jezelf\"",
+          "description": "Formuleer het perfecte openingsantwoord dat de toon zet voor je gesprek."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Voer een functietitel in om verder te gaan.",
+      "generateFailed": "Sollicitatievragen genereren mislukt. Probeer het opnieuw.",
+      "startFailed": "Gesprek starten mislukt. Probeer het opnieuw.",
+      "detailedAnswer": "Geef een uitgebreider antwoord (minimaal 20 tekens)."
+    },
+    "externalResources": {
+      "title": "Externe bronnen",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Carrièrevooruitzichten",
+      "shrmInterviewPractices": "SHRM: Best practices voor sollicitatiegesprekken"
+    }
+  },
+
+  "CareerTips": {
+    "meta": {
+      "title": "Carrièretips en CV-advies - Deskundige gidsen | Best AI Resume",
+      "description": "Deskundig carrièreadvies, tips voor CV-schrijven en strategieën voor het zoeken naar werk. Leer hoe je AI-gestuurde CV's maakt, sollicitatiegesprekken doorkomt en je droombaan vindt."
+    },
+    "hero": {
+      "badge": "Deskundige carrièregidsen",
+      "title": "Carrièretips",
+      "titleHighlight": "en deskundig advies",
+      "subtitle": "Beheers het schrijven van CV's, bereid je voor op sollicitatiegesprekken en versnel je carrière met onze deskundige gidsen."
+    },
+    "featured": "Uitgelichte artikelen",
+    "featuredBadge": "Uitgelicht",
+    "allArticles": "Alle artikelen",
+    "searchPlaceholder": "Zoek artikelen...",
+    "articleCount": "{count, plural, one {# artikel} other {# artikelen}}",
+    "noArticles": "Geen artikelen gevonden",
+    "noArticlesHint": "Probeer je zoekopdracht of filter aan te passen",
+    "categories": {
+      "title": "Categorieën",
+      "all": "Alle artikelen",
+      "resumeTips": "CV-tips",
+      "coverLetters": "Sollicitatiebrieven",
+      "interviews": "Sollicitatietips",
+      "jobSearch": "Werkzoeken",
+      "careerAdvice": "Carrièreadvies",
+      "aiResume": "AI CV"
+    },
+    "article": {
+      "readMore": "Lees meer",
+      "tableOfContents": "Inhoudsopgave",
+      "relatedArticles": "Gerelateerde artikelen",
+      "moreCareerTips": "Meer carrièretips",
+      "shareHelpful": "Was dit nuttig?",
+      "shareWithOthers": "Deel het met anderen die er baat bij kunnen hebben",
+      "tags": "Tags:",
+      "breadcrumbHome": "Home",
+      "breadcrumbCareerTips": "Carrièretips",
+      "notFound": "Artikel niet gevonden"
+    },
+    "cta": {
+      "title": "Klaar om je CV te maken?",
+      "subtitle": "Zet deze tips in actie met onze AI-gestuurde CV-maker. Maak een professioneel CV in minuten.",
+      "button": "Maak nu je CV",
+      "sidebarTitle": "Maak je CV",
+      "sidebarSubtitle": "Maak een professioneel CV met AI in minuten.",
+      "sidebarButton": "Aan de slag"
+    }
+  },
+
+  "ResumeExamples": {
+    "meta": {
+      "title": "CV-voorbeelden per functietitel | Gratis sjablonen en gidsen 2026",
+      "description": "Bekijk meer dan 50 professionele CV-voorbeelden per functietitel. Elk met een gratis sjabloon, belangrijke vaardigheden en schrijftips om je droombaan te vinden."
+    },
+    "hero": {
+      "badge": "Functiegerichte gidsen",
+      "title": "CV-voorbeelden",
+      "titleHighlight": "per functietitel",
+      "subtitle": "Vind je beroep en krijg een op maat gemaakt CV-sjabloon met branchespecifieke tips."
+    },
+    "searchPlaceholder": "Zoek op functietitel...",
+    "featured": "Uitgelichte CV-voorbeelden",
+    "allExamples": "Alle CV-voorbeelden",
+    "noResults": "Geen CV-voorbeelden gevonden",
+    "noResultsHint": "Probeer je zoekopdracht of filter aan te passen",
+    "cta": {
+      "title": "Klaar om je winnende CV te maken?",
+      "subtitle": "Gebruik onze AI-gestuurde builder om een professioneel CV te maken in minuten.",
+      "button": "Maak mijn CV — Gratis"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "Gratis ATS CV-checker | Beoordeel je CV direct | Best AI Resume",
+      "description": "Controleer je CV gratis tegen ATS-systemen. Krijg directe beoordeling, zoekwoordanalyse en optimalisatietips om door geautomatiseerde screening te komen."
+    },
+    "hero": {
+      "badge": "Gratis ATS CV-checker",
+      "title": "Is je CV",
+      "titleHighlight": "ATS-compatibel?",
+      "statistic": "75% van de CV's wordt afgewezen door ATS voordat een mens ze ooit ziet.",
+      "description": "Onze gratis ATS-checker analyseert je CV op opmaakproblemen, ontbrekende zoekwoorden en compatibiliteitsproblemen die automatische afwijzingen veroorzaken."
+    },
+    "tool": {
+      "title": "Controleer je CV's ATS-score",
+      "description": "Upload je PDF- of DOCX-CV en krijg een directe ATS-compatibiliteitsscore met gedetailleerde feedback.",
+      "uploadBtn": "Klik om te uploaden of sleep en plaats",
+      "formats": "PDF of DOCX — Max 10MB",
+      "checkBtn": "Controleer mijn CV",
+      "changeFile": "Bestand wijzigen",
+      "analyzing": "Je CV analyseren...",
+      "cta": "Maak een ATS-vriendelijk CV",
+      "subtext": "Gratis — geen creditcard nodig"
+    },
+    "checks": {
+      "title": "Wat ATS-systemen controleren",
+      "subtitle": "Begrijpen wat ATS-software scant helpt je om je CV te optimaliseren voor maximale zichtbaarheid.",
+      "keywords": {
+        "title": "Zoekwoordmatching",
+        "description": "ATS scant op functiespecifieke zoekwoorden uit de vacature. Ontbrekende cruciale termen betekent automatische afwijzing."
+      },
+      "formatting": {
+        "title": "Schone opmaak",
+        "description": "Complexe lay-outs, tabellen en kolommen verwarren ATS-parsers. Eenvoudige, enkelvoudige kolomindelingen werken het beste."
+      },
+      "contact": {
+        "title": "Contactgegevens",
+        "description": "ATS zoekt naar naam, e-mail, telefoon en locatie in standaardformaten. Ontbrekende informatie betekent gemiste kansen."
+      },
+      "dates": {
+        "title": "Consistente datumformaten",
+        "description": "ATS-systemen verwerken data van dienstverbanden om ervaring te berekenen. Inconsistente formaten veroorzaken verwerkingsfouten."
+      }
+    },
+    "checklist": {
+      "title": "ATS-optimalisatie checklist",
+      "subtitle": "Volg deze richtlijnen om de kans te maximaliseren dat je CV door ATS-screening komt.",
+      "doThis": "Doe dit",
+      "avoidThis": "Vermijd dit",
+      "dos": {
+        "singleColumn": "Gebruik een enkelvoudige kolomindeling voor maximale compatibiliteit",
+        "keywords": "Verwerk zoekwoorden uit de vacature op een natuurlijke manier",
+        "standardHeadings": "Gebruik standaard sectiekoppen (Ervaring, Opleiding, Vaardigheden)",
+        "fileFormat": "Lever in als PDF of DOCX zoals aangegeven door de werkgever",
+        "standardFonts": "Gebruik standaardlettertypen zoals Arial, Calibri of Times New Roman",
+        "spellOut": "Schrijf afkortingen eerst voluit, verkort dan (bijv. Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "Gebruik geen tabellen of tekstvakken voor de lay-out",
+        "images": "Voeg geen afbeeldingen, logo's of afbeeldingen toe",
+        "headers": "Plaats belangrijke informatie niet in kop- of voetteksten",
+        "creativeTitles": "Gebruik geen creatieve sectietitels (bijv. 'Mijn reis' in plaats van 'Ervaring')",
+        "fancyFonts": "Gebruik geen decoratieve of ongebruikelijke lettertypen",
+        "lightText": "Gebruik geen lichtgrijs of laag-contrast tekstkleuren"
+      }
+    },
+    "systems": {
+      "title": "Populaire ATS-systemen",
+      "subtitle": "Onze sjablonen zijn getest en geoptimaliseerd voor alle grote Applicant Tracking Systems die wereldwijd door werkgevers worden gebruikt."
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "whatIsAts": {
+        "question": "Wat is een ATS (Applicant Tracking System)?",
+        "answer": "Een ATS is software die door werkgevers wordt gebruikt om sollicitaties te verzamelen, scannen en rangschikken. Het filtert CV's op basis van zoekwoorden, opmaak en relevantie voordat een recruiter ze ooit ziet. Meer dan 98% van de Fortune 500-bedrijven gebruikt een ATS."
+      },
+      "whyFail": {
+        "question": "Waarom zakken CV's voor ATS-screening?",
+        "answer": "Veelvoorkomende redenen zijn complexe opmaak (tabellen, kolommen, afbeeldingen), ontbrekende zoekwoorden uit de vacature, niet-standaard sectiekoppen, incompatibele bestandsformaten en informatie in kop- of voetteksten die ATS niet kan lezen."
+      },
+      "bestFormat": {
+        "question": "Wat is het beste CV-formaat voor ATS?",
+        "answer": "Een schone, enkelvoudige kolomindeling met standaard sectiekoppen werkt het beste. Gebruik eenvoudige opmaak, standaardlettertypen en vermijd afbeeldingen of tabellen. PDF en DOCX zijn de meest universeel geaccepteerde bestandsformaten."
+      },
+      "keywords": {
+        "question": "Hoe vind ik de juiste zoekwoorden voor mijn CV?",
+        "answer": "Lees de vacature zorgvuldig en identificeer herhaalde vaardigheden, kwalificaties en terminologie. Verwerk deze zoekwoorden op een natuurlijke manier in je CV, vooral in je samenvatting, vaardigheden en werkervaring."
+      },
+      "twoColumn": {
+        "question": "Kan ik een twee-koloms CV gebruiken met ATS?",
+        "answer": "Twee-koloms indelingen kunnen verwerkingsproblemen veroorzaken bij veel ATS-systemen. De software kan over kolommen heen lezen in plaats van naar beneden, waardoor je informatie door elkaar raakt. Een enkelvoudige kolomindeling is de veiligste keuze voor ATS-compatibiliteit."
+      },
+      "jobTitle": {
+        "question": "Moet ik de exacte functietitel in mijn CV opnemen?",
+        "answer": "Ja, als je werkelijke titel vergelijkbaar is. Het opnemen van de exacte functietitel uit de vacature in je CV (waar dit waarheidsgetrouw is) verbetert de ATS-matching aanzienlijk. Je kunt het opnemen in je samenvatting of als doelfunctie."
+      }
+    },
+    "resources": {
+      "title": "Gerelateerde bronnen",
+      "guide": {
+        "title": "ATS CV-schrijfgids",
+        "description": "Stapsgewijze gids voor het schrijven van een CV dat door ATS-screening komt."
+      },
+      "templates": {
+        "title": "ATS-vriendelijke sjablonen",
+        "description": "Voorgeoptimaliseerde CV-sjablonen ontworpen voor ATS-compatibiliteit."
+      },
+      "examples": {
+        "title": "CV-voorbeelden",
+        "description": "Bekijk echte CV-voorbeelden voor je beroep."
+      }
+    },
+    "cta": {
+      "title": "Stop met afgewezen worden door ATS",
+      "description": "Maak een professioneel, ATS-geoptimaliseerd CV in minuten met onze AI-gestuurde builder. Elk sjabloon is getest op ATS-compatibiliteit.",
+      "button": "Maak mijn ATS CV — Gratis"
+    },
+    "validation": {
+      "unsupportedFormat": "Alleen PDF- en DOCX-bestanden worden ondersteund.",
+      "fileTooLarge": "Bestandsgrootte moet kleiner zijn dan 10MB.",
+      "genericError": "Er is iets misgegaan. Probeer het opnieuw."
+    },
+    "results": {
+      "scoreTitle": "Je ATS-compatibiliteitsscore",
+      "recommendations": "Aanbevelingen",
+      "checkAnother": "Controleer nog een CV",
+      "buildAtsResume": "Maak een ATS-geoptimaliseerd CV",
+      "pagesAnalyzed": "{count, plural, one {# pagina geanalyseerd} other {# pagina's geanalyseerd}}",
+      "scoreExcellent": "Uitstekend",
+      "scoreGood": "Goed",
+      "scoreNeedsWork": "Verbetering nodig",
+      "scorePoor": "Onvoldoende"
+    },
+    "externalResources": {
+      "title": "Externe bronnen",
+      "atsHowTheyWork": "ATS begrijpen: hoe ze werken",
+      "blsResumeTips": "BLS Carrièrevooruitzichten: CV-tips"
+    }
+  },
+  "Contact": {
+    "title": "Neem contact op",
+    "description": "Of je nu een vraag hebt over je account, hulp nodig hebt met je CV of een probleem wilt melden — wij zijn er om te helpen. Vul het onderstaande formulier in en ons team neemt binnen 24 uur contact met je op.",
+    "inquiryType": "Type aanvraag",
+    "inquiryTypes": {
+      "general": "Algemene vraag",
+      "billing": "Factureringsprobleem",
+      "cvCreation": "CV-aanmaakprobleem"
+    },
+    "name": "Je naam",
+    "namePlaceholder": "Jan Jansen",
+    "email": "E-mailadres",
+    "emailPlaceholder": "jij@voorbeeld.nl",
+    "subject": "Onderwerp",
+    "subjectPlaceholder": "Hoe kunnen we helpen?",
+    "message": "Bericht",
+    "messagePlaceholder": "Vertel ons meer over je vraag...",
+    "submit": "Bericht versturen",
+    "sending": "Versturen...",
+    "successTitle": "Bericht verzonden!",
+    "successMessage": "Bedankt dat je contact met ons opneemt. We nemen binnen 24 uur contact met je op.",
+    "sendAnother": "Nog een bericht versturen",
+    "errorGeneric": "Er is iets misgegaan. Probeer het later opnieuw.",
+    "errorRateLimit": "Te veel inzendingen. Wacht even voordat je het opnieuw probeert."
+  },
+  "Help": {
+    "title": "Hoe het werkt",
+    "subtitle": "Een stapsgewijze gids voor het maken van je professionele CV, van registratie tot het downloaden van je afgeronde document.",
+    "quickNav": "Ga naar:",
+    "tipLabel": "Pro-tip",
+    "faqLabel": "Veelgestelde vragen",
+    "troubleshootingLabel": "Probleemoplossing",
+    "gettingStarted": {
+      "title": "Aan de slag",
+      "steps": {
+        "1": {
+          "title": "Maak je account aan",
+          "description": "Klik op de knop Aan de slag op de homepage of de registratielink in de navigatiebalk. Je kunt je direct registreren met je Google-, GitHub- of LinkedIn-account — geen wachtwoord nodig. Liever e-mail? Voer je naam, e-mail in en kies een wachtwoord.",
+          "tip": "Inloggen met Google of LinkedIn is het snelst — je naam en e-mail worden automatisch ingevuld."
+        },
+        "2": {
+          "title": "Verifieer je e-mail",
+          "description": "Als je je hebt geregistreerd met e-mail, controleer dan je inbox op een bericht van Best AI Resume. Voer de 6-cijferige verificatiecode in op de verificatiepagina. De code verloopt na 10 minuten — als deze verloopt, klik dan op 'Code opnieuw versturen' voor een nieuwe.",
+          "tip": "Controleer je spam- of ongewenste-mailmap als je het e-mailbericht niet binnen een minuut ziet."
+        },
+        "3": {
+          "title": "Je bent binnen",
+          "description": "Na verificatie word je naar het onboardingscherm gebracht waar je kiest hoe je je eerste CV wilt maken. Je account slaat elke wijziging automatisch op, zodat je nooit je werk kwijtraakt — zelfs niet als je de browser sluit."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Heb ik een creditcard nodig om me te registreren?",
+          "a": "Nee. Je kunt een account aanmaken en je CV volledig gratis maken. Een creditcard is alleen nodig wanneer je een betaald plan kiest."
+        },
+        "2": {
+          "q": "Wat als ik de verificatiecode niet ontvang?",
+          "a": "Controleer eerst je spam-/ongewenste-mailmap. Als het er niet is, klik dan op 'Code opnieuw versturen' op de verificatiepagina. Als je het nog steeds niet ontvangt, probeer dan in te loggen met Google of LinkedIn."
+        },
+        "3": {
+          "q": "Kan ik hetzelfde account op meerdere apparaten gebruiken?",
+          "a": "Ja. Je account en al je CV's worden opgeslagen in de cloud. Log in vanaf elk apparaat en ga verder waar je gebleven was."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Je CV maken",
+      "steps": {
+        "1": {
+          "title": "Kies je methode",
+          "description": "Op de onboardingpagina zie je vier opties: AI-generatie (aanbevolen voor de meeste gebruikers), CV uploaden (een bestaande PDF verwerken), Importeren vanuit LinkedIn (je profielgegevens ophalen) of Helemaal opnieuw beginnen (leeg sjabloon). Elke optie leidt je door een korte installatieflow voordat de builder wordt geopend.",
+          "tip": "AI-generatie is de snelste manier om een compleet, professioneel CV te krijgen — je kunt het daarna altijd nog bewerken."
+        },
+        "2": {
+          "title": "Laat AI het werk doen",
+          "description": "Als je voor AI-generatie hebt gekozen, voer dan je volledige naam, de functietitel waarnaar je solliciteert en je ervaringsniveau (starter, midden of senior) in. Klik op Genereren en onze AI maakt een compleet CV met een professionele samenvatting, werkervaring, opleiding en vaardigheden — allemaal afgestemd op je doelfunctie."
+        },
+        "3": {
+          "title": "Kies een sjabloon",
+          "description": "Na het genereren kun je door onze galerij van meer dan 16 sjablonen bladeren. Sjablonen zijn ingedeeld in categorieën: Professioneel, Creatief, Minimaal en ATS-vriendelijk. Klik op een sjabloon om een voorbeeld te bekijken met je gegevens. Wissel op elk moment van sjabloon zonder je inhoud te verliezen.",
+          "tip": "Je kunt je sjabloon op elk moment wijzigen vanuit de builder — je inhoud blijft hetzelfde, alleen het ontwerp verandert."
+        },
+        "4": {
+          "title": "Bewerken en aanpassen",
+          "description": "De builder heeft tabbladsecties aan de linkerkant (Persoonlijke info, Ervaring, Opleiding, Vaardigheden, enz.) en een live voorbeeld aan de rechterkant. Bewerk elk veld en zie wijzigingen direct weergegeven. Je kunt secties herordenen, aangepaste secties toevoegen, lettergroottes aanpassen en accentkleuren wijzigen naar je stijl."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Kan ik meerdere CV's maken?",
+          "a": "Ja. Je kunt meerdere CV's maken en opslaan die zijn afgestemd op verschillende sollicitaties. Wissel ertussen via je dashboard."
+        },
+        "2": {
+          "q": "Werkt de AI-generatie in alle talen?",
+          "a": "De AI genereert momenteel inhoud in het Engels. Je kunt de gegenereerde inhoud na het aanmaken handmatig in elke taal bewerken."
+        },
+        "3": {
+          "q": "Kan ik mijn LinkedIn-profiel importeren?",
+          "a": "Ja. Kies de optie 'Importeren vanuit LinkedIn' tijdens de onboarding. Je wordt begeleid bij het verbinden van je LinkedIn-profiel om je werkgeschiedenis op te halen."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Een plan kiezen",
+      "steps": {
+        "1": {
+          "title": "Bezoek de prijzenpagina",
+          "description": "Klik op Prijzen in de navigatiebalk of bezoek de prijzenpagina direct. Je ziet vier plannen: Starter (gratis, beperkte downloads), Gold, Diamond en Platinum. Gebruik de schakelaar bovenaan om te wisselen tussen maandelijkse en jaarlijkse facturering — jaarplannen besparen tot 40%."
+        },
+        "2": {
+          "title": "Kies je plan",
+          "description": "Vergelijk de vier plannen — Starter, Gold, Diamond en Platinum — en kies degene die bij je behoeften past. Alle plannen worden direct gefactureerd en geven je directe toegang tot alle functies.",
+          "tip": "Jaarlijkse facturering bespaart tot 40% vergeleken met maandelijks — en je krijgt dezelfde functies."
+        },
+        "3": {
+          "title": "Rond het afrekenen af",
+          "description": "Klik op de knop Aan de slag bij je gekozen plan. Je wordt doorgestuurd naar een beveiligde Stripe-afrekenpagina waar je je kaartgegevens invoert. Na betaling wordt je account direct geüpgraded en kun je meteen beginnen met downloaden."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Kan ik mijn abonnement op elk moment opzeggen?",
+          "a": "Ja. Je kunt op elk moment opzeggen via je accountinstellingen. Je behoudt toegang tot het einde van je huidige factureringsperiode."
+        },
+        "2": {
+          "q": "Wat gebeurt er als ik opzeg?",
+          "a": "Je behoudt toegang tot je plan tot het einde van je huidige factureringsperiode. Daarna keert je account terug naar verlopen status."
+        },
+        "3": {
+          "q": "Kan ik later van plan wisselen?",
+          "a": "Ja. Je kunt je plan op elk moment upgraden of downgraden via je accountinstellingen. Wijzigingen gaan direct in."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Je CV downloaden",
+      "steps": {
+        "1": {
+          "title": "Klik op Downloaden",
+          "description": "Zoek in de builder naar de groene knop PDF downloaden in de rechterbovenhoek van de pagina. Klik erop om het downloadvenster te openen, dat je resterende downloads voor de maand toont en je de export laat bevestigen."
+        },
+        "2": {
+          "title": "Ontvang je PDF",
+          "description": "Je CV wordt weergegeven als een pixelperfecte, hoogwaardige PDF die exact overeenkomt met wat je in het voorbeeld ziet. De PDF is geoptimaliseerd voor zowel digitale weergave (e-mail, vacatureportalen) als afdrukken op standaard letter- of A4-papier.",
+          "tip": "Gebruik voor het beste resultaat de ATS-vriendelijke sjablonen bij sollicitaties via online vacatureportalen — die worden betrouwbaarder verwerkt."
+        },
+        "3": {
+          "title": "Volg je gebruik",
+          "description": "Elk plan heeft een maandelijkse downloadlimiet die wordt gereset op je factureringsdatum. Je kunt je resterende downloads controleren in het downloadvenster of in je accountinstellingen. Als je je limiet bereikt, upgrade je plan op elk moment om direct meer downloads te ontgrendelen."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Kan ik downloaden in Word/DOCX-formaat?",
+          "a": "Ja. Naast PDF kun je je CV ook exporteren als een DOCX-bestand dat compatibel is met Microsoft Word en Google Docs."
+        },
+        "2": {
+          "q": "Waarom ziet mijn PDF er iets anders uit dan het voorbeeld?",
+          "a": "Het voorbeeld is een benadering. De PDF is de definitieve, pixelperfecte uitvoer. Kleine verschillen in letterweergave zijn normaal tussen browservoorbeeld en PDF."
+        },
+        "3": {
+          "q": "Wat als mijn downloads op zijn?",
+          "a": "Je downloadteller wordt maandelijks gereset. Als je meer downloads nodig hebt voor de reset, kun je je plan upgraden voor directe toegang tot een hogere limiet."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Probleemoplossing",
+      "items": {
+        "1": {
+          "title": "Kan niet inloggen op mijn account",
+          "description": "Probeer je wachtwoord te resetten via de link 'Wachtwoord vergeten' op de inlogpagina. Als je je hebt geregistreerd met Google, GitHub of LinkedIn, zorg er dan voor dat je dezelfde provider gebruikt. Wis je browsercookies als het probleem aanhoudt."
+        },
+        "2": {
+          "title": "Verificatiecode komt niet aan",
+          "description": "Controleer je spam-/ongewenste-mailmap. Codes verlopen na 10 minuten — klik op 'Code opnieuw versturen' voor een nieuwe. Als je een zakelijk e-mailadres gebruikt, kan je IT-firewall geautomatiseerde e-mails blokkeren. Probeer in dat geval een persoonlijk e-mailadres."
+        },
+        "3": {
+          "title": "Betaling is geweigerd",
+          "description": "Controleer je kaartnummer, vervaldatum en CVV. Zorg ervoor dat je kaart internationale of online transacties toestaat. Als het probleem aanhoudt, probeer een andere kaart of neem contact op met je bank. Alle betalingen worden veilig verwerkt via Stripe."
+        },
+        "4": {
+          "title": "PDF ziet er anders uit dan het voorbeeld",
+          "description": "Het voorbeeld toont een benadering van de definitieve uitvoer. Als specifieke elementen er niet goed uitzien, probeer dan van sjabloon te wisselen of de lettergroottes aan te passen in de ontwerpinstellingen van de builder. Zorg ervoor dat je browser up-to-date is."
+        },
+        "5": {
+          "title": "Wijzigingen worden niet opgeslagen",
+          "description": "Je werk wordt automatisch opgeslagen in de cloud. Als je niet-opgeslagen wijzigingen opmerkt, controleer dan je internetverbinding. Probeer de pagina te vernieuwen — je laatste bewerkingen zouden moeten verschijnen. Bij een trage verbinding, wacht een paar seconden tussen bewerkingen."
+        }
+      }
+    },
+    "cta": {
+      "title": "Klaar om te beginnen?",
+      "subtitle": "Maak je professionele CV in minuten met onze AI-gestuurde builder.",
+      "buildButton": "Begin met bouwen",
+      "contactButton": "Neem contact op"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Gratis ATS-vriendelijke CV-sjablonen (2026) | Door elke ATS-scan komen",
+      "description": "Bekijk 16 gratis ATS-vriendelijke CV-sjablonen ontworpen om door applicant tracking systems te komen. Schone opmaak, standaardlettertypen en verwerkbare lay-outs getest tegen echte ATS-software."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "current": "ATS-vriendelijke sjablonen"
+    },
+    "hero": {
+      "badge": "100% ATS-compatibel",
+      "title": "ATS-vriendelijke CV-sjablonen",
+      "subtitle": "97% van de Fortune 500-bedrijven gebruikt Applicant Tracking Systems om CV's te filteren voordat een mens ze ziet (Jobscan, 2024). Elk sjabloon hieronder is gebouwd om door ATS-screening te komen — zodat je CV altijd een echt persoon bereikt.",
+      "check1": "Komt door ATS-verwerking",
+      "check2": "Gratis te gebruiken",
+      "check3": "Directe PDF-download"
+    },
+    "features": {
+      "title": "Waarom onze sjablonen door ATS-screening komen",
+      "subtitle": "De meeste CV's worden afgewezen voordat een mens ze ooit ziet. Onze sjablonen zijn ontworpen om de veelvoorkomende opmaakfouten te vermijden die ATS-fouten veroorzaken.",
+      "parseable": {
+        "title": "Machine-verwerkbare lay-out",
+        "description": "Enkelvoudige kolomstructuur met duidelijke sectiehiërarchie die ATS-software van boven naar beneden leest zonder verwarring. Geen meerkoloms lay-outs die de inhoudsorde verwarren."
+      },
+      "standardHeaders": {
+        "title": "Standaard sectiekoppen",
+        "description": "Gebruikt koppen zoals \"Ervaring\" en \"Opleiding\" die elke ATS herkent — geen creatieve labels die parsers verwarren."
+      },
+      "testedATS": {
+        "title": "Getest tegen echte ATS",
+        "description": "Elk sjabloon is getest tegen Workday, Greenhouse, Lever, iCIMS en Taleo — de vijf platforms die het merendeel van online sollicitaties verwerken."
+      },
+      "cleanFormatting": {
+        "title": "Schone, veilige opmaak",
+        "description": "Geen tabellen, tekstvakken, kop-/voetteksten of ingesloten afbeeldingen die ATS-verwerking verstoren. Gewoon schone tekst en standaardlettertypen weergegeven als selecteerbare PDF-tekst."
+      }
+    },
+    "grid": {
+      "title": "Kies je ATS-vriendelijke sjabloon",
+      "subtitle": "Alle 16 sjablonen zijn volledig ATS-compatibel. Kies een stijl — je CV wordt correct verwerkt.",
+      "useTemplate": "Gebruik dit sjabloon"
+    },
+    "howATS": {
+      "title": "Hoe Applicant Tracking Systems je CV screenen",
+      "intro": "Het begrijpen van de ATS-pipeline helpt je te zien waarom opmaak belangrijker is dan de meeste kandidaten beseffen. Dit is wat er gebeurt in de seconden nadat je op Solliciteren klikt.",
+      "step1": {
+        "title": "Je CV-bestand wordt ontvangen en geconverteerd",
+        "description": "Het ATS ontvangt je PDF- of DOCX-bestand en verwerkt het via een tekstextractie-engine. Het probeert het document om te zetten naar gestructureerde gegevens — je naam, contactinfo, werkgeschiedenis, opleiding en vaardigheden worden gescheiden in afzonderlijke velden. Als het bestand tabellen, kolommen of afbeeldingen gebruikt, levert deze extractiestap verminkte of ontbrekende gegevens op."
+      },
+      "step2": {
+        "title": "Inhoud wordt verwerkt, gekoppeld en gescoord",
+        "description": "Na extractie koppelt het ATS je inhoud aan de vacature. Het zoekt naar zoekwoordmatches in je vaardigheden, functietitels en ervaringsbeschrijvingen. Systemen zoals Workday en Greenhouse kennen een relevantiescore toe op basis van hoe nauw je CV aansluit bij de vereisten van de rol. Een slecht verwerkt CV scoort laag, zelfs als je alle kwalificaties hebt."
+      },
+      "step3": {
+        "title": "Recruiters bekijken gerangschikte kandidaten",
+        "description": "Recruiters bekijken doorgaans de top 10-20 gerangschikte CV's voor elke positie. Als je opmaak verwerkingsfouten veroorzaakte, kun je lager staan dan minder gekwalificeerde kandidaten wier CV's correct zijn verwerkt. Onze ATS-vriendelijke sjablonen zorgen ervoor dat je kwalificaties nauwkeurig worden weergegeven in de rangschikking."
+      },
+      "warning": "Belangrijk: ATS-compatibiliteit is noodzakelijk maar niet voldoende. Je moet nog steeds je CV-zoekwoorden afstemmen op elke vacature. Gebruik onze ATS Checker-tool om je CV te testen tegen specifieke vacatures nadat je een sjabloon hebt gekozen."
+    },
+    "cta": {
+      "title": "Maak nu je ATS-vriendelijke CV",
+      "subtitle": "Kies een sjabloon, voeg je informatie toe en download een CV dat door elke ATS-scan komt. Gratis, geen registratie nodig.",
+      "buildButton": "Maak mijn CV",
+      "checkButton": "Controleer mijn bestaande CV",
+      "browseAll": "Bekijk alle sjablonen",
+      "formatGuide": "CV-indelingsgids",
+      "examples": "300+ CV-voorbeelden"
+    },
+    "whatMakes": {
+      "title": "Wat maakt een CV-sjabloon ATS-vriendelijk?",
+      "p1": "Een ATS-vriendelijk CV-sjabloon is zo ontworpen dat Applicant Tracking Systems — de software die werkgevers gebruiken om sollicitaties te verzamelen, sorteren en rangschikken — elke sectie van je CV nauwkeurig kan lezen. Wanneer een ATS je CV niet kan verwerken, bereiken je naam, ervaring en vaardigheden mogelijk helemaal niet het scherm van de recruiter. Volgens een studie van Harvard Business School uit 2023 wordt meer dan 75% van de CV's afgewezen door ATS voordat een mens ze bekijkt.",
+      "p2": "De meest voorkomende reden waarom CV's falen bij ATS-verwerking is opmaak. Tabellen, meerkoloms lay-outs, tekstvakken, aangepaste lettertypen en ingesloten afbeeldingen veroorzaken allemaal verwerkingsfouten. Een ATS leest je CV als een stroom tekst van boven naar beneden. Als die stroom wordt onderbroken door complexe opmaak, wijst het systeem je gegevens verkeerd toe — je functietitel komt waar je bedrijfsnaam zou moeten staan, of je vaardigheidssectie wordt volledig weggelaten.",
+      "p3": "Onze 16 CV-sjablonen zijn vanaf de basis ontworpen met ATS-compatibiliteit als primaire vereiste. Ze gebruiken standaard sectiekoppen, enkelvoudige kolomlay-outs, webveilige lettertypen en schone HTML-naar-PDF-rendering. Elk sjabloon is getest tegen de vijf meest gebruikte ATS-platforms: Workday, Greenhouse, Lever, iCIMS en Taleo. Het resultaat is een CV dat er professioneel uitziet voor recruiters en perfect wordt verwerkt door machines.",
+      "link1": "Hoe schrijf je een ATS-vriendelijk CV",
+      "link2": "Wat is een ATS? Complete gids",
+      "link3": "ATS-verwerkingspercentages begrijpen"
+    },
+    "mistakes": {
+      "title": "5 opmaakfouten waardoor CV's worden afgewezen door ATS",
+      "intro": "Zelfs sterke kandidaten worden uitgefilterd wanneer hun CV-opmaak de ATS-parser verwart. Dit zijn de vijf meest voorkomende fouten die we zien — en die onze sjablonen automatisch elimineren.",
+      "items": {
+        "1": {
+          "title": "Tabellen of meerkoloms lay-outs gebruiken",
+          "description": "ATS leest tekst in een enkele stroom. Tabellen en kolommen zorgen ervoor dat ongerelateerde inhoud wordt samengevoegd — je telefoonnummer kan terechtkomen in het veld van je functietitel."
+        },
+        "2": {
+          "title": "Contactgegevens in kop- of voetteksten plaatsen",
+          "description": "Veel ATS-platforms slaan kop- en voetteksten van documenten volledig over. Als je naam, e-mail of telefoonnummer alleen in de koptekst staat, verdwijnt het uit je verwerkte profiel."
+        },
+        "3": {
+          "title": "Creatieve sectielabels gebruiken",
+          "description": "Labels als \"Waar ik ben geweest\" in plaats van \"Ervaring\" of \"Mijn gereedschapskist\" in plaats van \"Vaardigheden\" zorgen ervoor dat ATS de hele sectie overslaat. Gebruik standaardlabels."
+        },
+        "4": {
+          "title": "Opslaan als afbeelding-PDF of niet-standaard lettertypen gebruiken",
+          "description": "Als tekst niet kan worden geselecteerd in je PDF, kan ATS het niet lezen. Gescande documenten, exports van ontwerptools en ongebruikelijke lettertypen produceren allemaal onleesbare bestanden."
+        },
+        "5": {
+          "title": "Afbeeldingen, iconen of vaardigheidsbalken toevoegen",
+          "description": "Voortgangsbalken, sterbeoordelingen en iconen voor contactgegevens zijn onzichtbaar voor ATS. Een \"4 van 5 sterren\" vaardigheidsbeoordeling wordt lege tekst die nul scoort."
+        }
+      },
+      "cta": "Weet je niet zeker of je huidige CV erdoor komt?",
+      "ctaLink": "Voer een gratis ATS-compatibiliteitscheck uit"
+    },
+    "checklist": {
+      "title": "ATS-compatibiliteit checklist",
+      "intro": "Controleer voordat je een CV indient of het aan deze acht vereisten voldoet. Elk sjabloon op deze pagina voldoet automatisch aan alle acht — maar als je de inhoud wijzigt, houd deze regels dan in gedachten.",
+      "items": {
+        "1": "Gebruikt standaard sectiekoppen (Ervaring, Opleiding, Vaardigheden)",
+        "2": "Enkelvoudige kolomindeling met duidelijke leesvolgorde van boven naar beneden",
+        "3": "Geen tabellen, tekstvakken of zwevende elementen",
+        "4": "Contactgegevens in de hoofdtekst, niet in kop-/voetteksten",
+        "5": "Standaard webveilige lettertypen (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Tekst-selecteerbare PDF-uitvoer (niet op afbeelding gebaseerd)",
+        "7": "Geen afbeeldingen, iconen of vaardigheidsbalken die tekstinhoud vervangen",
+        "8": "Data in consistent formaat (MM/JJJJ of Maand JJJJ)"
+      },
+      "outro": "Hulp nodig bij het afstemmen van je CV op een specifieke baan? Bekijk onze",
+      "outroLink": "300+ beroepsspecifieke CV-voorbeelden"
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over ATS-vriendelijke sjablonen",
+      "items": {
+        "1": {
+          "q": "Wat betekent ATS-vriendelijk voor een CV-sjabloon?",
+          "a": "Een ATS-vriendelijk sjabloon is zo ontworpen dat Applicant Tracking Systems je naam, contactgegevens, werkgeschiedenis, opleiding en vaardigheden nauwkeurig kunnen extraheren. Het vermijdt tabellen, meerkoloms lay-outs, ingesloten afbeeldingen en aangepaste lettertypen die verwerkingsfouten veroorzaken. Alle 16 sjablonen op deze pagina zijn getest tegen Workday, Greenhouse, Lever, iCIMS en Taleo."
+        },
+        "2": {
+          "q": "Kan een creatief of modern CV toch ATS-compatibel zijn?",
+          "a": "Ja. ATS-compatibiliteit hangt af van de onderliggende structuur, niet van het visuele ontwerp. Een CV kan kleuraccenten, aangepaste spatiëring en stijlvolle typografie gebruiken terwijl het een enkelvoudige kolom, tekst-selecteerbare lay-out behoudt die ATS correct leest. Onze moderne en creatieve sjablonen bereiken deze balans — ze zien er onderscheidend uit voor recruiters terwijl ze perfect worden verwerkt door machines."
+        },
+        "3": {
+          "q": "Moet ik mijn CV indienen als PDF of DOCX voor ATS?",
+          "a": "PDF is over het algemeen de veiligste keuze in 2026. Moderne ATS-platforms (Workday, Greenhouse, Lever) verwerken goed gestructureerde PDF's betrouwbaar. DOCX kan opmaakinconsistenties introduceren tussen verschillende Word-versies. Onze builder exporteert tekst-selecteerbare PDF's geoptimaliseerd voor ATS-verwerking — we raden aan PDF te gebruiken tenzij de vacature expliciet om DOCX vraagt."
+        },
+        "4": {
+          "q": "Hoe weet ik of mijn CV door ATS-screening komt?",
+          "a": "Gebruik onze gratis ATS Checker-tool om je CV te uploaden en te zien hoe een ATS het leest. De tool laat je zien welke velden correct zijn verwerkt, welke zoekwoorden overeenkomen met de vacature en waar verwerkingsfouten zijn opgetreden. Je kunt zo vaak testen als je nodig hebt voordat je je sollicitatie indient."
+        },
+        "5": {
+          "q": "Heb ik een ander sjabloon nodig voor elke sollicitatie?",
+          "a": "Nee — één ATS-vriendelijk sjabloon werkt voor alle sollicitaties. Wat je tussen sollicitaties moet veranderen is de inhoud: stem je vaardigheidssectie, professionele samenvatting en prestatie-opsommingen af op de zoekwoorden van elke vacature. De sjabloonstructuur blijft hetzelfde; de zoekwoorden veranderen."
+        }
+      }
+    }
+  }
+}

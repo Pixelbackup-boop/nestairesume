@@ -1,0 +1,2087 @@
+{
+  "Meta": {
+    "title": "Criador de Currículo com IA Grátis | Crie Currículos ATS em Minutos | Best AI Resume",
+    "description": "Crie currículos profissionais otimizados para ATS em minutos com nosso criador de currículos com IA gratuito. Usado por mais de 50.000 profissionais. Não é necessário cadastro para começar."
+  },
+
+  "Common": {
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "close": "Fechar",
+    "search": "Buscar",
+    "submit": "Enviar",
+    "next": "Próximo",
+    "back": "Voltar",
+    "download": "Baixar",
+    "preview": "Visualizar",
+    "scrollToExplore": "Role para explorar",
+    "dismiss": "Dispensar",
+    "addLanguage": "Adicionar idioma",
+    "uploadProfilePhoto": "Enviar foto de perfil",
+    "removeProfilePhoto": "Remover foto de perfil",
+    "documentType": "Tipo de documento",
+    "searchByJobTitle": "Buscar por cargo ou habilidade...",
+    "searchIcons": "Buscar ícones...",
+    "describeTemplate": "Descreva seu modelo...",
+    "languagePlaceholder": "ex: Inglês, Espanhol, Francês",
+    "templateNamePlaceholder": "ex: Currículo Moderno de Desenvolvedor",
+    "returningBanner": {
+      "welcomeBack": "Bem-vindo(a) de volta!",
+      "lastEdited": "Última edição em {date}",
+      "unsavedDraft": "Você tem um rascunho de currículo não salvo",
+      "continueEditing": "Continuar Editando"
+    }
+  },
+
+  "Navigation": {
+    "features": "Recursos",
+    "templates": "Modelos",
+    "pricing": "Preços",
+    "blog": "Blog",
+    "careerTips": "Dicas de Carreira",
+    "careerGuides": "Guias de Carreira",
+    "resumeExamples": "Exemplos de Currículo",
+    "resumeExamplesDesc": "Guias e modelos de currículo por profissão",
+    "careerTipsDesc": "Conselhos de especialistas para sua carreira",
+    "blogDesc": "Dicas, guias e insights",
+    "viewAllExamples": "Ver todos os exemplos de currículo",
+    "viewAllTips": "Ver todas as dicas de carreira",
+    "tools": "Ferramentas",
+    "coverLetter": "Gerador de Carta de Apresentação",
+    "coverLetterDesc": "Cartas de apresentação com IA",
+    "resignationLetter": "Carta de Demissão",
+    "resignationLetterDesc": "Cartas de demissão profissionais",
+    "atsChecker": "Verificador de Currículo ATS",
+    "atsCheckerDesc": "Verifique a compatibilidade ATS",
+    "mockInterview": "Simulação de Entrevista",
+    "mockInterviewDesc": "Entrevistas simuladas com IA",
+    "resumeFormat": "Guia de Formato de Currículo",
+    "resumeFormatDesc": "Cronológico, funcional e mais",
+    "login": "Entrar",
+    "logout": "Sair",
+    "getStarted": "Comece Grátis",
+    "dashboard": "Painel",
+    "admin": "Admin",
+    "adminPanel": "Painel Admin",
+    "profile": "Perfil",
+    "resources": "Recursos",
+    "compare": "Comparar",
+    "byStyle": "Por Estilo",
+    "byFormat": "Por Formato",
+    "allTemplates": "Todos os Modelos",
+    "modern": "Moderno",
+    "creative": "Criativo",
+    "simpleClean": "Simples e Limpo",
+    "freeResumeBuilder": "Criador de Currículo Grátis",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "Crie Seu Currículo Grátis",
+    "chooseFromTemplates": "Escolha entre mais de 20 modelos profissionais",
+    "technology": "Tecnologia",
+    "business": "Negócios",
+    "healthcare": "Saúde",
+    "seeAllTech": "Ver Todos de Tecnologia",
+    "seeAllBusiness": "Ver Todos de Negócios",
+    "seeAllHealthcare": "Ver Todos de Saúde",
+    "resumeExamplesCount": "300+ Exemplos de Currículo",
+    "browseAll": "Ver Todos",
+    "softwareEngineer": "Engenheiro de Software",
+    "dataAnalyst": "Analista de Dados",
+    "devopsEngineer": "Engenheiro DevOps",
+    "fullStackDev": "Desenvolvedor Full Stack",
+    "projectManager": "Gerente de Projetos",
+    "marketingManager": "Gerente de Marketing",
+    "businessAnalyst": "Analista de Negócios",
+    "salesManager": "Gerente de Vendas",
+    "nurse": "Enfermeiro(a)",
+    "medicalAssistant": "Assistente Médico",
+    "pharmacist": "Farmacêutico(a)",
+    "dentalAssistant": "Assistente de Dentista",
+    "guides": "Guias",
+    "latestPosts": "Últimas Publicações",
+    "allCareerTips": "Todas as Dicas de Carreira",
+    "allBlog": "Todas as Publicações do Blog",
+    "atsGuide": "Guia de Currículo para ATS",
+    "coverLetterGuide": "Guia de Carta de Apresentação",
+    "interviewPrep": "Preparação para Entrevista",
+    "bestResumeApps": "Melhores Apps de Currículo",
+    "resumeSkills": "Guia de Habilidades para Currículo",
+    "linkedinGuide": "Otimização do LinkedIn",
+    "writingServices": "Serviços de Redação de Currículo",
+    "freeAlternatives": "Alternativas Gratuitas",
+    "paidAlternatives": "Alternativas Pagas",
+    "vsCanva": "vs Canva",
+    "vsOverleaf": "vs Overleaf",
+    "vsEuropass": "vs Europass",
+    "vsZety": "vs Zety",
+    "vsResumeIo": "vs Resume.io",
+    "vsRezi": "vs Rezi",
+    "vsLiveCareer": "vs LiveCareer",
+    "vsAdobe": "vs Adobe",
+    "vsNova": "vs Nova",
+    "chatgptComparison": "ChatGPT vs Criador com IA",
+    "whyWereBetter": "Por que Somos o Melhor Criador Grátis",
+    "whyWereBetterDesc": "Com IA, otimizado para ATS, totalmente gratuito"
+  },
+
+  "Home": {
+    "hero": {
+      "badge": "Criação de Currículo com IA",
+      "title": "Crie Seu Currículo com IA",
+      "titleHighlight": "em Minutos",
+      "subtitle": "Sem Necessidade de Cadastro",
+      "description": "Crie currículos impressionantes e otimizados para ATS em minutos com IA. Experimente grátis — cadastre-se apenas quando quiser salvar.",
+      "ctaPrimary": "Criar com IA",
+      "ctaSecondary": "Ver Modelos",
+      "noCreditCard": "Sem necessidade de cartão de crédito",
+      "noSignup": "Sem cadastro para começar",
+      "trustedBy": "Usado por mais de 50.000 profissionais",
+      "atsScore": "Pontuação ATS",
+      "aiSuggestion": "Sugestão da IA"
+    },
+    "features": {
+      "sectionTitle": "Recursos",
+      "title": "Tudo o que você precisa para",
+      "titleHighlight": "conquistar o emprego dos sonhos",
+      "subtitle": "Ferramentas de IA poderosas combinadas com design elegante para ajudar você a se destacar.",
+      "aiWriting": {
+        "title": "Escrita com IA",
+        "description": "Deixe nossa IA criar tópicos impactantes e resumos profissionais que destacam suas conquistas."
+      },
+      "templates": {
+        "title": "Mais de 20 Modelos Premium",
+        "description": "Escolha entre modelos profissionalmente projetados que se destacam mantendo compatibilidade com ATS."
+      },
+      "atsOptimization": {
+        "title": "Otimização para ATS",
+        "description": "Pontuação ATS em tempo real garante que seu currículo passe por sistemas de triagem automatizados sempre."
+      },
+      "realTimePreview": {
+        "title": "Visualização em Tempo Real",
+        "description": "Veja as mudanças instantaneamente enquanto digita. O que você vê é exatamente o que os recrutadores verão."
+      },
+      "pdfExport": {
+        "title": "Exportação em PDF",
+        "description": "Baixe PDFs perfeitos prontos para enviar. Otimizados para visualização digital e impressão."
+      },
+      "smartSuggestions": {
+        "title": "Sugestões Inteligentes",
+        "description": "Receba recomendações inteligentes de habilidades, palavras-chave e conteúdo com base no cargo desejado."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Como Funciona",
+      "title": "Três passos para o seu",
+      "titleHighlight": "currículo perfeito",
+      "step1": {
+        "title": "Preencha Seus Dados",
+        "description": "Insira sua experiência, formação e habilidades. Nossa IA ajuda você em cada etapa."
+      },
+      "step2": {
+        "title": "Escolha o Modelo",
+        "description": "Selecione entre mais de 20 modelos profissionais. Visualize em tempo real enquanto personaliza."
+      },
+      "step3": {
+        "title": "Baixe o PDF",
+        "description": "Exporte seu currículo finalizado como um PDF perfeito, pronto para impressionar recrutadores."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Modelos",
+      "title": "Modelos premium para",
+      "titleHighlight": "todas as profissões",
+      "viewAll": "Ver Todos os Modelos"
+    },
+    "testimonials": {
+      "sectionTitle": "Depoimentos",
+      "title": "Amado por profissionais",
+      "titleHighlight": "do mundo todo"
+    },
+    "cta": {
+      "title": "Pronto(a) para criar seu",
+      "titleHighlight": "currículo vencedor?",
+      "subtitle": "Junte-se a mais de 50.000 profissionais que já conquistaram o emprego dos sonhos com Best AI Resume.",
+      "button": "Crie Seu Currículo Agora — Grátis",
+      "note": "Sem necessidade de cadastro para começar"
+    },
+    "faq": {
+      "sectionTitle": "FAQ",
+      "title": "Perguntas",
+      "titleHighlight": "Frequentes",
+      "items": [
+        {
+          "question": "Este criador de currículo com IA é realmente gratuito?",
+          "answer": "Sim! Você pode criar, editar e visualizar seu currículo totalmente grátis. Oferecemos planos premium para recursos avançados como downloads ilimitados de PDF e modelos adicionais, mas você pode criar um currículo profissional sem pagar nada."
+        },
+        {
+          "question": "O que é ATS e por que é importante?",
+          "answer": "ATS (Applicant Tracking System) é um software usado por 99% das empresas Fortune 500 para escanear e filtrar currículos. Nossa IA garante que seu currículo seja otimizado para ATS com as palavras-chave, formatação e estrutura certas para passar por essas triagens automatizadas."
+        },
+        {
+          "question": "Como a IA ajuda a escrever meu currículo?",
+          "answer": "Nossa IA analisa seu cargo e experiência para gerar tópicos profissionais, resumos e sugestões de habilidades. Ela utiliza palavras-chave específicas do setor e linguagem focada em conquistas que os recrutadores procuram."
+        },
+        {
+          "question": "Preciso me cadastrar para usar o criador?",
+          "answer": "Não é necessário cadastro para começar! Você pode criar seu currículo completo primeiro. Cadastre-se apenas quando quiser salvar seu progresso ou baixar. Isso permite que você experimente tudo sem riscos."
+        },
+        {
+          "question": "Posso baixar meu currículo como PDF?",
+          "answer": "Sim! Exporte seu currículo como um PDF perfeito que fica exatamente como a visualização. Os PDFs são otimizados tanto para candidaturas digitais quanto para impressão em papel carta/A4."
+        },
+        {
+          "question": "Quanto tempo leva para criar um currículo?",
+          "answer": "A maioria dos usuários cria um currículo profissional em menos de 10 minutos. Nossas sugestões de IA e conteúdo pré-escrito aceleram significativamente o processo em comparação com começar do zero."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Nossos usuários foram contratados por",
+      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+    }
+  },
+
+  "Features": {
+    "meta": {
+      "title": "Recursos do Criador de Currículo com IA - Escrita Inteligente, Otimização ATS e Mais",
+      "description": "Descubra recursos poderosos: escrita com IA, pontuação ATS em tempo real, mais de 50 modelos, exportação instantânea em PDF. Crie currículos profissionais que geram entrevistas."
+    }
+  },
+
+  "Templates": {
+    "meta": {
+      "title": "Mais de 50 Modelos Profissionais de Currículo - Grátis e Compatíveis com ATS",
+      "description": "Explore mais de 50 modelos profissionais de currículo. Designs modernos, criativos e minimalistas otimizados para ATS. Grátis para personalizar e baixar."
+    },
+    "sectionTitle": "Modelos",
+    "title": "Melhores Modelos de Currículo",
+    "titleHighlight": "de 2026",
+    "subtitle": "Selecione um modo de edição e escolha entre nossos modelos profissionalmente projetados.",
+    "searchPlaceholder": "Buscar modelos...",
+    "templatesAvailable": "{count} {count, plural, one {modelo disponível} other {modelos disponíveis}}",
+    "noResults": "Nenhum modelo encontrado",
+    "noResultsHint": "Tente ajustar sua busca ou filtro",
+    "useTemplate": "Usar Modelo",
+    "formBuilder": {
+      "title": "Editor de Formulário",
+      "description": "Edição guiada passo a passo",
+      "hint": "Preencha formulários e deixe o modelo cuidar do design. Perfeito para currículos rápidos e profissionais."
+    },
+    "canvasEditor": {
+      "title": "Editor Canvas",
+      "description": "Total liberdade criativa",
+      "hint": "Arraste, solte e crie livremente. Controle total sobre cada elemento, como o Canva para currículos."
+    },
+    "categories": {
+      "all": "Todos",
+      "professional": "Profissional",
+      "creative": "Criativo",
+      "minimal": "Simples e Limpo",
+      "modern": "Moderno",
+      "classic": "Clássico"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Quer começar do zero?",
+        "description": "Crie um currículo totalmente personalizado usando as ferramentas poderosas do nosso Editor Canvas.",
+        "button": "Abrir Canvas em Branco"
+      },
+      "builder": {
+        "title": "Quer que a IA crie seu currículo?",
+        "description": "Deixe nossa IA criar um currículo profissional em segundos com base no seu cargo.",
+        "button": "Criar com IA"
+      }
+    }
+  },
+
+  "Resume": {
+    "sections": {
+      "contact": "Contato",
+      "experience": "Experiência",
+      "workExperience": "Experiência Profissional",
+      "professionalExperience": "Experiência Profissional",
+      "education": "Formação",
+      "skills": "Habilidades",
+      "coreSkills": "Habilidades Principais",
+      "technicalSkills": "Habilidades Técnicas",
+      "languages": "Idiomas",
+      "interests": "Interesses",
+      "strengths": "Pontos Fortes",
+      "certifications": "Certificações",
+      "awards": "Prêmios",
+      "projects": "Projetos",
+      "summary": "Resumo",
+      "professionalSummary": "Resumo Profissional",
+      "profile": "Perfil",
+      "about": "Sobre",
+      "additionalInfo": "Informações Adicionais",
+      "socialLinks": "Redes Sociais",
+      "personalDetails": "Dados Pessoais",
+      "credentials": "Credenciais"
+    },
+    "labels": {
+      "present": "Atual",
+      "gpa": "Média",
+      "native": "Nativo",
+      "fluent": "Fluente",
+      "advanced": "Avançado",
+      "intermediate": "Intermediário",
+      "basic": "Básico"
+    }
+  },
+
+  "About": {
+    "meta": {
+      "title": "Sobre Best AI Resume - Nossa Missão de Transformar a Busca por Emprego",
+      "description": "Conheça Best AI Resume - a plataforma com IA que ajuda milhares a conquistar o emprego dos sonhos. Nossa missão, valores e compromisso com o sucesso da sua carreira."
+    }
+  },
+
+  "Privacy": {
+    "meta": {
+      "title": "Política de Privacidade - Best AI Resume",
+      "description": "Saiba como Best AI Resume protege seus dados. Nossa política de privacidade explica como coletamos, usamos e protegemos suas informações pessoais."
+    }
+  },
+
+  "Terms": {
+    "meta": {
+      "title": "Termos de Serviço - Best AI Resume",
+      "description": "Leia os termos de serviço de Best AI Resume. Entenda seus direitos e responsabilidades ao usar nossa plataforma de criação de currículos com IA."
+    }
+  },
+
+  "Onboarding": {
+    "meta": {
+      "title": "Crie Seu Currículo - Gerador de Currículo com IA",
+      "description": "Comece a criar seu currículo profissional em segundos. Responda 2 perguntas e deixe a IA criar um currículo personalizado e pronto para vagas."
+    },
+    "title": "Conte-nos sobre você",
+    "subtitle": "Apenas 2 perguntas e a IA criará seu currículo perfeito",
+    "fullName": "Seu Nome Completo",
+    "fullNamePlaceholder": "ex: João Silva",
+    "jobTitle": "Cargo que Você Está Buscando",
+    "jobTitlePlaceholder": "ex: Engenheiro de Software, Gerente de Marketing",
+    "experienceLevel": "Nível de Experiência",
+    "levels": {
+      "entry": "Nível Júnior",
+      "entryDesc": "0-2 anos de experiência",
+      "mid": "Nível Pleno",
+      "midDesc": "3-5 anos de experiência",
+      "senior": "Nível Sênior",
+      "seniorDesc": "6-10 anos de experiência",
+      "executive": "Executivo",
+      "executiveDesc": "10+ anos de experiência"
+    },
+    "generate": "Gerar Meu Currículo",
+    "generating": {
+      "title": "Criando Seu Currículo",
+      "analyzing": "Analisando sua profissão...",
+      "summary": "Gerando resumo profissional...",
+      "experience": "Criando experiência profissional...",
+      "skills": "Adicionando habilidades relevantes...",
+      "polishing": "Finalizando seu currículo...",
+      "almostThere": "Quase pronto...",
+      "wait": "Isso geralmente leva apenas alguns segundos..."
+    },
+    "step1": {
+      "title": "Como você gostaria de criar seu currículo?",
+      "subtitle": "Escolha seu método preferido para começar",
+      "recommended": "RECOMENDADO",
+      "ai": {
+        "title": "Criar com IA",
+        "description": "Diga-nos sua profissão e geraremos um currículo profissional em segundos"
+      },
+      "upload": {
+        "title": "Enviar Currículo",
+        "description": "Envie seu currículo existente e nós o aprimoraremos"
+      },
+      "linkedin": {
+        "title": "Importar LinkedIn",
+        "description": "Importe seu perfil do LinkedIn automaticamente"
+      },
+      "comingSoon": "Em breve",
+      "startBlank": "Ou comece com um currículo em branco"
+    },
+    "step4": {
+      "title": "Escolha Seu Modelo",
+      "subtitle": "Seu currículo está pronto! Escolha um design que combine com seu estilo.",
+      "backToEdit": "Voltar para editar informações",
+      "browseAll": "Ver todos os modelos",
+      "continue": "Continuar para o Editor"
+    },
+    "upload": {
+      "title": "Envie Seu Currículo",
+      "subtitle": "Extrairemos suas informações e as aprimoraremos com IA",
+      "dragDrop": "Arraste e solte seu currículo aqui",
+      "orBrowse": "ou procure nos arquivos",
+      "supportedFormats": "PDF ou DOCX (máx. {maxSize})",
+      "validating": "Validando arquivo...",
+      "uploading": "Enviando...",
+      "parsing": "A IA está analisando seu currículo...",
+      "success": "Currículo importado com sucesso!",
+      "error": "Algo deu errado",
+      "tryAgain": "Tentar Novamente",
+      "invalidType": "Por favor, envie um arquivo PDF ou DOCX",
+      "fileTooLarge": "O arquivo excede o limite de {maxSize}"
+    },
+    "linkedin": {
+      "title": "Importar do LinkedIn",
+      "subtitle": "Exporte seu perfil do LinkedIn como PDF e envie aqui",
+      "step1": "Acesse seu perfil do LinkedIn",
+      "step2": "Clique em \"Recursos\" → \"Salvar como PDF\"",
+      "step3": "Envie o PDF baixado abaixo",
+      "openLinkedIn": "Abrir Perfil do LinkedIn",
+      "tip": "PDFs do LinkedIn funcionam melhor para importar todo o seu histórico profissional"
+    },
+    "word": {
+      "badge": "Currículo Microsoft Word",
+      "step1Title": "Como você gostaria de criar seu currículo Word?",
+      "aiDescription": "Diga-nos sua profissão e geraremos um currículo Word em segundos",
+      "subtitle": "Apenas 2 perguntas e a IA criará seu currículo Word perfeito",
+      "startBlank": "Ou comece com um currículo Word em branco",
+      "step4Title": "Escolha Seu Modelo Word",
+      "step4Subtitle": "Seu currículo está pronto! Escolha um modelo Microsoft Word.",
+      "continue": "Continuar para o Editor Word"
+    },
+    "gdocs": {
+      "badge": "Currículo Google Docs",
+      "step1Title": "Como você gostaria de criar seu currículo Google Docs?",
+      "aiDescription": "Diga-nos sua profissão e geraremos um currículo Google Docs em segundos",
+      "subtitle": "Apenas 2 perguntas e a IA criará seu currículo Google Docs perfeito",
+      "startBlank": "Ou comece com um currículo Google Docs em branco",
+      "step4Title": "Escolha Seu Modelo Google Docs",
+      "step4Subtitle": "Seu currículo está pronto! Escolha um modelo otimizado para Google Docs.",
+      "continue": "Continuar para o Editor Google Docs"
+    },
+    "main": {
+      "step1Title": "Como você gostaria de começar?",
+      "step1Subtitle": "Escolha o método que funciona melhor para você",
+      "recommended": "Recomendado",
+      "aiTitle": "Geração com IA",
+      "aiDescription": "Deixe a IA criar seu currículo profissional",
+      "uploadTitle": "Enviar Existente",
+      "uploadDescription": "Importe e aprimore seu currículo",
+      "linkedinDescription": "Converta seu perfil do LinkedIn",
+      "startBlank": "Começar com um currículo em branco",
+      "step2Subtitle": "Usaremos isso para criar seu currículo personalizado",
+      "fullName": "Nome Completo",
+      "fullNamePlaceholder": "ex: João Silva",
+      "targetJobTitle": "Cargo Desejado",
+      "jobTitlePlaceholder": "ex: Engenheiro de Software",
+      "goBack": "Voltar",
+      "generatingTitle": "Criando seu currículo...",
+      "processingAnalyzing": "Analisando seu perfil...",
+      "processingCrafting": "Elaborando resumo profissional...",
+      "processingExperience": "Gerando experiência profissional...",
+      "processingSkills": "Adicionando habilidades relevantes...",
+      "processingPolishing": "Finalizando detalhes...",
+      "processingAlmost": "Quase pronto...",
+      "step4Subtitle": "Selecione um design que combine com seu estilo",
+      "uploadSubtitle": "A IA analisará seu currículo e criará uma versão aprimorada",
+      "secureNotice": "Seu arquivo é processado com segurança e não é armazenado em nossos servidores",
+      "linkedinSubtitle": "Baixe seu perfil como PDF do LinkedIn e envie aqui",
+      "linkedinHowTo": "Como exportar seu perfil do LinkedIn:",
+      "linkedinStep1": "Acesse seu perfil do LinkedIn",
+      "linkedinStep2": "Clique no botão \"Recursos\" no seu perfil",
+      "linkedinStep3": "Selecione \"Salvar como PDF\"",
+      "linkedinStep4": "Envie o PDF baixado abaixo"
+    }
+  },
+
+  "Pricing": {
+    "meta": {
+      "title": "Planos e Preços - Criador de Currículo com IA a Partir de $3/mês",
+      "description": "Escolha o plano perfeito para sua busca de emprego. Sem taxas ocultas, cancele quando quiser. A partir de apenas $3/mês."
+    },
+    "sectionTitle": "Preços",
+    "title": "Preços simples e",
+    "titleHighlight": "transparentes",
+    "subtitle": "Sem taxas ocultas, cancele quando quiser.",
+    "viewComparison": "Ver comparação completa",
+    "cancelAnytime": "Cancele quando quiser",
+    "securePayments": "Pagamentos seguros via Stripe",
+    "mostPopular": "MAIS POPULAR",
+    "bestValue": "MELHOR CUSTO-BENEFÍCIO",
+    "billedImmediately": "Cobrado imediatamente",
+    "allPlansInclude": "Todos os planos incluem: Sem anúncios • Todos os modelos freemium",
+    "billingToggle": {
+      "monthly": "Mensal",
+      "annual": "Anual",
+      "savePercent": "Economize 20%"
+    },
+    "page": {
+      "formBuilder": "Editor de Formulário",
+      "canvasEditor": "Editor Canvas",
+      "premiumTemplates": "Modelos premium",
+      "aiBuild": "Criador de Currículo com IA",
+      "atsOptimization": "Otimização ATS",
+      "prioritySupport": "Suporte prioritário",
+      "aiSuggestions": "Sugestões de IA",
+      "coverLetterBuilder": "Criador de carta de apresentação",
+      "noAds": "Sem anúncios",
+      "earlyAccess": "Acesso antecipado a recursos",
+      "cvCreations": "{count} criações de CV/mês",
+      "aiGenerations": "{count} gerações com IA/mês",
+      "downloads": "{count} downloads/mês",
+      "coverLetters": "{count} cartas de apresentação/mês",
+      "unlimited": "Ilimitado"
+    },
+    "comparison": {
+      "title": "Comparar Planos",
+      "feature": "Recurso",
+      "cvCreations": "Criações de CV",
+      "aiGenerations": "Gerações com IA",
+      "downloads": "Downloads",
+      "perMonth": "{count}/mês",
+      "unlimited": "Ilimitado",
+      "savedResumes": "Currículos Salvos",
+      "templates": "Modelos",
+      "all50": "Todos freemium",
+      "premiumPlus": "50+ e Premium",
+      "aiBuild": "Criador de Currículo com IA",
+      "adFree": "Sem Anúncios"
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "cancelAnytime": {
+        "question": "Posso cancelar minha assinatura a qualquer momento?",
+        "answer": "Sim, você pode cancelar sua assinatura a qualquer momento. Você manterá o acesso até o final do seu período de cobrança atual."
+      },
+      "paymentMethods": {
+        "question": "Quais métodos de pagamento vocês aceitam?",
+        "answer": "Aceitamos todos os principais cartões de crédito (Visa, MasterCard, American Express) via Stripe. PayPal em breve."
+      },
+      "starterOneTime": {
+        "question": "Como funciona a cobrança?",
+        "answer": "Todos os planos são cobrados imediatamente quando você assina. Planos mensais renovam a cada mês e planos anuais renovam anualmente. Você pode cancelar a qualquer momento nas configurações da conta."
+      },
+      "runOutDownloads": {
+        "question": "O que acontece quando atinjo meus limites?",
+        "answer": "Quando você atingir seu limite mensal de criação de CV ou geração com IA, pode fazer upgrade para um plano superior. Os limites são redefinidos no início de cada período de cobrança."
+      },
+      "switchPlans": {
+        "question": "Posso trocar de plano?",
+        "answer": "Com certeza. Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. As mudanças entram em vigor imediatamente e faremos o rateio de qualquer cobrança."
+      },
+      "refunds": {
+        "question": "Vocês oferecem reembolso?",
+        "answer": "Não oferecemos reembolso após a compra. Você pode cancelar a qualquer momento nas configurações da conta e manter o acesso até o final do seu período de cobrança."
+      }
+    },
+    "cta": {
+      "title": "Pronto(a) para começar?",
+      "subtitle": "Todos os planos cobrados imediatamente. Cancele quando quiser.",
+      "button": "Ver Planos",
+      "contactSupport": "Contatar Suporte"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Perfeito para quem busca emprego",
+      "price": "$3",
+      "period": "/mês",
+      "annualPrice": "$29",
+      "annualPeriod": "/ano",
+      "annualMonthly": "$2,42/mês",
+      "features": {
+        "cvCreations": "30 criações de CV/mês",
+        "aiGenerations": "50 gerações com IA/mês",
+        "downloads": "3 downloads/mês",
+        "templates": "Todos os modelos freemium",
+        "noAds": "Sem anúncios",
+        "export": "Exportação em PDF"
+      },
+      "cta": "Começar"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Para quem está buscando emprego ativamente",
+      "price": "$6",
+      "period": "/mês",
+      "annualPrice": "$58",
+      "annualPeriod": "/ano",
+      "annualMonthly": "$4,83/mês",
+      "features": {
+        "cvCreations": "150 criações de CV/mês",
+        "aiGenerations": "100 gerações com IA/mês",
+        "downloads": "10 downloads/mês",
+        "templates": "Todos os modelos freemium",
+        "noAds": "Sem anúncios",
+        "ats": "Otimização ATS"
+      },
+      "cta": "Começar"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Ideal para profissionais",
+      "price": "$10",
+      "period": "/mês",
+      "annualPrice": "$96",
+      "annualPeriod": "/ano",
+      "annualMonthly": "$8/mês",
+      "features": {
+        "cvCreations": "300 criações de CV/mês",
+        "aiGenerations": "200 gerações com IA/mês",
+        "downloads": "25 downloads/mês",
+        "templates": "Todos + Modelos Premium",
+        "support": "Suporte prioritário",
+        "coverLetter": "Criador de carta de apresentação"
+      },
+      "cta": "Começar"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "Para usuários avançados e agências",
+      "price": "$30",
+      "period": "/mês",
+      "annualPrice": "$288",
+      "annualPeriod": "/ano",
+      "annualMonthly": "$24/mês",
+      "features": {
+        "cvCreations": "Criações de CV ilimitadas",
+        "aiGenerations": "500 gerações com IA/mês",
+        "downloads": "120 downloads/mês",
+        "templates": "Todos + Modelos Premium",
+        "support": "Suporte prioritário",
+        "coverLetter": "Criador de carta de apresentação",
+        "earlyAccess": "Acesso antecipado a novos recursos"
+      },
+      "cta": "Assinar Agora"
+    }
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Dicas, guias e insights para sua carreira",
+    "searchPlaceholder": "Buscar artigos...",
+    "readMore": "Leia mais",
+    "readingTime": "{time} min de leitura",
+    "categories": "Categorias",
+    "allCategories": "Todas as Categorias",
+    "relatedPosts": "Posts Relacionados",
+    "shareOn": "Compartilhar no",
+    "noResults": "Nenhum artigo encontrado"
+  },
+
+  "Footer": {
+    "tagline": "Criador de currículos com IA usado por profissionais do mundo todo.",
+    "product": "Produto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "social": "Social",
+    "about": "Sobre",
+    "careers": "Carreiras",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "contact": "Contato",
+    "help": "Guia de Ajuda",
+    "copyright": "© {year} Best AI Resume. Todos os direitos reservados.",
+    "resources": "Recursos",
+    "resumeFormatGuide": "Guia de Formato de Currículo",
+    "canvaAlternative": "Alternativa ao Canva",
+    "overleafAlternative": "Alternativa ao Overleaf",
+    "resumeIoAlternative": "Alternativa ao Resume.io",
+    "reziAlternative": "Alternativa ao Rezi",
+    "builder": "Criador de Currículo",
+    "templateCategories": "Modelos",
+    "compare": "Comparar",
+    "googleDocs": "Modelos Google Docs",
+    "simpleClean": "Simples e Limpo",
+    "freeResumeBuilder": "Criador de Currículo Grátis",
+    "microsoftWord": "Modelos Word",
+    "modern": "Modelos Modernos",
+    "creative": "Modelos Criativos",
+    "coverLetterGenerator": "Gerador de Carta de Apresentação com IA",
+    "resignationLetterGenerator": "Gerador de Carta de Demissão com IA",
+    "buildResumeFree": "Crie Seu Currículo Grátis",
+    "zetyAlternative": "Alternativa ao Zety",
+    "livecareerAlternative": "Alternativa ao LiveCareer",
+    "adobeAlternative": "Alternativa ao Adobe",
+    "novaAlternative": "Alternativa ao Nova",
+    "europassAlternative": "Alternativa ao Europass",
+    "chatgptComparison": "Comparação com ChatGPT",
+    "resumeExamples": "Exemplos de Currículo",
+    "softwareEngineer": "Engenheiro de Software",
+    "nurse": "Enfermeiro(a)",
+    "projectManager": "Gerente de Projetos",
+    "marketingManager": "Gerente de Marketing",
+    "dataAnalyst": "Analista de Dados",
+    "accountant": "Contador(a)",
+    "viewAll300": "Ver Todos 300+",
+    "careerGuides": "Guias de Carreira",
+    "careerGuidance": "Orientação de Carreira",
+    "jobSearchStrategy": "Estratégia de Busca de Emprego",
+    "careerDevelopmentPlan": "Plano de Desenvolvimento de Carreira",
+    "highPayingSkills": "Habilidades Bem Remuneradas",
+    "interviewPreparation": "Preparação para Entrevista",
+    "salaryNegotiation": "Negociação Salarial"
+  },
+
+  "Auth": {
+    "meta": {
+      "loginTitle": "Entrar - Best AI Resume",
+      "loginDescription": "Entre na sua conta Best AI Resume para acessar seus currículos salvos e continuar criando.",
+      "registerTitle": "Criar Conta - Best AI Resume",
+      "registerDescription": "Crie sua conta gratuita para salvar currículos, acessar modelos premium e desbloquear recursos de IA."
+    },
+    "login": "Entrar",
+    "register": "Criar conta",
+    "email": "Endereço de e-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirmar senha",
+    "forgotPassword": "Esqueceu a senha?",
+    "noAccount": "Não tem uma conta?",
+    "hasAccount": "Já tem uma conta?",
+    "signUp": "Cadastrar",
+    "signIn": "Entrar",
+    "fullName": "Nome Completo",
+    "welcomeBack": "Bem-vindo(a) de Volta",
+    "welcomeBackSubtitle": "Entre para continuar criando seu currículo",
+    "createAccount": "Criar Conta",
+    "createAccountSubtitle": "Comece a criar seu currículo profissional hoje",
+    "continueWithGoogle": "Continuar com Google",
+    "continueWithGitHub": "Continuar com GitHub",
+    "continueWithLinkedIn": "Continuar com LinkedIn",
+    "orContinueWith": "ou continue com e-mail",
+    "verifyEmail": "Verifique Seu E-mail",
+    "verificationCodeSent": "Enviamos um código de 6 dígitos para",
+    "enterFullCode": "Por favor, insira o código completo de 6 dígitos",
+    "verificationFailed": "A verificação falhou. Por favor, tente novamente.",
+    "resendFailed": "Falha ao reenviar o código. Por favor, tente novamente.",
+    "verifying": "Verificando...",
+    "verifyAndContinue": "Verificar e Continuar",
+    "didntReceiveCode": "Não recebeu o código?",
+    "resendIn": "Reenviar em",
+    "resendCode": "Reenviar Código",
+    "wrongEmail": "E-mail errado?",
+    "changeEmail": "Alterar e-mail"
+  },
+
+  "Errors": {
+    "notFound": "Página não encontrada",
+    "serverError": "Algo deu errado",
+    "unauthorized": "Por favor, faça login para continuar"
+  },
+
+  "LanguageSwitcher": {
+    "label": "Selecionar idioma"
+  },
+
+  "Dashboard": {
+    "meta": {
+      "title": "Painel - Meus Currículos",
+      "description": "Gerencie seus currículos, acompanhe downloads e acesse as configurações da sua assinatura."
+    },
+    "welcome": "Bem-vindo(a) de volta{name}!",
+    "subtitle": "Pronto(a) para conquistar o emprego dos sonhos? Vamos criar um currículo que se destaque.",
+    "stats": {
+      "resumesCreated": "Currículos Criados",
+      "downloads": "Downloads",
+      "coverLetters": "Cartas de Apresentação"
+    },
+    "usage": {
+      "noPlan": "Sem plano",
+      "subscribeToUnlock": "Assine para desbloquear",
+      "unlimited": "Ilimitado"
+    },
+    "cta": {
+      "badge": "Criador de Currículo com IA",
+      "title": "Crie Seu Currículo Perfeito",
+      "createNew": "Criar Novo Currículo"
+    },
+    "subscription": {
+      "plan": "Plano {tier}",
+      "expiredPlan": "Plano Expirado",
+      "noActivePlan": "Sem Plano Ativo",
+      "active": "Ativo",
+      "planActive": "Seu plano está ativo",
+      "subscribePrompt": "Assine para desbloquear downloads",
+      "resubscribe": "Reassinar",
+      "subscribe": "Assinar",
+      "manage": "Gerenciar Assinatura"
+    },
+    "templateUsage": "Uso de Modelos",
+    "resumes": {
+      "title": "Seus Currículos",
+      "total": "{count} no total",
+      "newResume": "Novo Currículo",
+      "noResumes": "Nenhum currículo ainda",
+      "noResumesDesc": "Crie seu primeiro currículo com IA e comece a se candidatar aos empregos dos seus sonhos hoje.",
+      "createFirst": "Crie Seu Primeiro Currículo",
+      "createNew": "Criar Novo Currículo"
+    },
+    "resumeCard": {
+      "untitled": "Currículo Sem Título",
+      "noName": "Sem nome",
+      "today": "Hoje",
+      "yesterday": "Ontem",
+      "daysAgo": "{days} dias atrás",
+      "duplicate": "Duplicar",
+      "delete": "Excluir",
+      "deleteConfirm": "Tem certeza de que deseja excluir este currículo?",
+      "edit": "Editar"
+    },
+    "quickActions": {
+      "softwareEngineer": "Engenheiro de Software",
+      "productManager": "Gerente de Produto",
+      "designer": "Designer",
+      "marketing": "Marketing",
+      "dataScientist": "Cientista de Dados",
+      "sales": "Vendas"
+    },
+    "proTip": {
+      "label": "Dica Pro",
+      "title": "Personalize seu currículo para cada vaga",
+      "description": "Currículos personalizados para descrições específicas de vagas têm 3x mais chances de conseguir entrevistas. Use nossa IA para personalizar rapidamente seu currículo para cada candidatura.",
+      "stat1Value": "3x",
+      "stat1Label": "Mais Entrevistas",
+      "stat2Value": "85%",
+      "stat2Label": "Taxa de Aprovação ATS"
+    },
+    "loading": "Carregando..."
+  },
+
+  "Profile": {
+    "meta": {
+      "title": "Configurações do Perfil - Best AI Resume",
+      "description": "Gerencie as configurações da sua conta, atualize seu perfil e altere sua senha."
+    },
+    "title": "Configurações do Perfil",
+    "chooseAvatar": "Escolher Avatar",
+    "accountDetails": "Detalhes da Conta",
+    "name": "Nome",
+    "namePlaceholder": "Seu nome completo",
+    "saveChanges": "Salvar Alterações",
+    "saving": "Salvando...",
+    "emailAddress": "Endereço de E-mail",
+    "changeEmail": "Alterar",
+    "newEmail": "Novo Endereço de E-mail",
+    "emailPlaceholder": "seu@novoemail.com",
+    "emailChangeHint": "Um código de verificação será enviado para este e-mail",
+    "cancel": "Cancelar",
+    "sendCode": "Enviar Código",
+    "sending": "Enviando...",
+    "enterCodeSentTo": "Digite o código de 6 dígitos enviado para",
+    "verifyCode": "Verificar",
+    "verifying": "Verificando...",
+    "useAnotherEmail": "Usar um endereço de e-mail diferente",
+    "codeSent": "Código de verificação enviado para seu novo e-mail",
+    "emailChanged": "E-mail alterado com sucesso",
+    "enterNewEmail": "Por favor, insira um novo endereço de e-mail",
+    "enterCode": "Por favor, insira o código de 6 dígitos",
+    "emailChangeFailed": "Falha ao enviar o código de verificação",
+    "verificationFailed": "A verificação falhou",
+    "changePassword": "Alterar Senha",
+    "currentPassword": "Senha Atual",
+    "newPassword": "Nova Senha",
+    "confirmPassword": "Confirmar Nova Senha",
+    "passwordHint": "Deve ter pelo menos 8 caracteres",
+    "changePasswordBtn": "Alterar Senha",
+    "changingPassword": "Alterando...",
+    "profileUpdated": "Perfil atualizado com sucesso",
+    "passwordChanged": "Senha alterada com sucesso",
+    "updateFailed": "Falha na atualização",
+    "passwordChangeFailed": "Falha ao alterar a senha",
+    "passwordMismatch": "As senhas não coincidem",
+    "passwordTooShort": "A senha deve ter pelo menos 8 caracteres",
+    "noChanges": "Nenhuma alteração para salvar"
+  },
+
+  "Checkout": {
+    "meta": {
+      "title": "Checkout - Complete Sua Assinatura",
+      "description": "Complete sua assinatura para desbloquear recursos ilimitados de currículo. Pagamento seguro via Stripe."
+    },
+    "invalidPlan": {
+      "title": "Plano Inválido",
+      "description": "O plano selecionado não é válido. Por favor, escolha um plano na nossa página de preços.",
+      "backBtn": "Voltar para Preços"
+    },
+    "signIn": {
+      "title": "Entre para Continuar",
+      "subtitle": "Entre para assinar o plano {plan}",
+      "signInBtn": "Entrar",
+      "createAccountBtn": "Criar Conta"
+    },
+    "header": {
+      "completePurchase": "Complete Sua Compra",
+      "subscribePlan": "Assinar o plano {plan}"
+    },
+    "billing": {
+      "account": "Conta",
+      "billing": "Cobrança",
+      "monthlyStarting": "Mensal, a partir de hoje"
+    },
+    "submit": {
+      "redirecting": "Redirecionando para Stripe...",
+      "subscribeNow": "Assinar Agora"
+    },
+    "secure": "Pagamento seguro via Stripe",
+    "cancelNote": "Cancele quando quiser. Sem compromisso de longo prazo.",
+    "loading": "Carregando checkout...",
+    "errors": {
+      "cancelled": "O pagamento foi cancelado. Você pode tentar novamente quando estiver pronto(a).",
+      "sessionExpired": "Sua sessão expirou. Por favor, entre novamente.",
+      "failedCheckout": "Falha ao iniciar o checkout. Por favor, tente novamente.",
+      "networkError": "Não foi possível conectar ao servidor. Por favor, verifique sua conexão com a internet."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/mês",
+        "description": "Perfeito para quem busca emprego",
+        "features": ["30 criações de CV/mês", "3 gerações com IA/mês", "3 downloads de PDF/mês", "Todos os modelos freemium", "Sem anúncios"]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/mês",
+        "description": "Para quem está buscando emprego ativamente",
+        "features": ["150 criações de CV/mês", "10 gerações com IA/mês", "10 downloads de PDF/mês", "Otimização ATS", "Criador de carta de apresentação"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/mês",
+        "description": "Ideal para profissionais",
+        "features": ["300 criações de CV/mês", "30 gerações com IA/mês", "25 downloads de PDF/mês", "Todos os modelos premium", "Suporte prioritário"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/mês",
+        "description": "Para usuários avançados e agências",
+        "features": ["Criações de CV ilimitadas", "100 gerações com IA/mês", "Downloads de PDF ilimitados", "Todos os modelos premium", "Suporte prioritário", "Acesso antecipado a recursos"]
+      }
+    }
+  },
+
+  "CheckoutSuccess": {
+    "title": "Pagamento Realizado com Sucesso!",
+    "welcome": "Bem-vindo(a) ao {plan}!",
+    "planLabel": "Plano {plan}",
+    "yourBenefits": "Seus novos benefícios",
+    "createResume": "Criar Seu Currículo",
+    "goToDashboard": "Ir para o Painel",
+    "receiptNote": "Um recibo foi enviado para seu e-mail. Você pode gerenciar sua assinatura a qualquer momento no seu",
+    "dashboardLink": "painel",
+    "supportText": "Dúvidas? Entre em contato pelo",
+    "loading": "Carregando detalhes da sua assinatura...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": ["30 criações de CV por mês", "3 gerações com IA por mês", "3 downloads de PDF por mês", "Todos os modelos freemium", "Sem anúncios"]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": ["150 criações de CV por mês", "10 gerações com IA por mês", "10 downloads de PDF por mês", "Otimização ATS", "Criador de carta de apresentação"]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": ["300 criações de CV por mês", "30 gerações com IA por mês", "25 downloads de PDF por mês", "Todos os modelos premium", "Suporte prioritário"]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": ["Criações de CV ilimitadas", "100 gerações com IA por mês", "Downloads de PDF ilimitados", "Todos os modelos premium", "Suporte prioritário", "Acesso antecipado a novos recursos"]
+      }
+    }
+  },
+
+  "CanvasEditor": {
+    "meta": {
+      "title": "Editor Canvas de Currículo - Crie Seu Currículo Visualmente | Best AI Resume",
+      "description": "Crie seu currículo com um editor canvas visual. Arraste e solte textos, imagens e formas para criar um layout de currículo único e personalizado."
+    },
+    "loading": "Carregando Editor Canvas...",
+    "desktop": {
+      "title": "Desktop Necessário",
+      "description": "O Editor Canvas requer uma tela maior para trabalho de design preciso. Por favor, use um laptop ou computador desktop para acessar este recurso.",
+      "useBuilder": "Usar o Editor Padrão",
+      "backToDashboard": "Voltar ao Painel",
+      "mobileNote": "O editor padrão de currículo funciona muito bem no celular!"
+    },
+    "header": {
+      "backToBuilder": "Voltar ao Editor",
+      "backToTemplates": "Voltar aos Modelos Canvas",
+      "title": "Editor Canvas",
+      "beta": "Beta",
+      "elements": "{count} elementos",
+      "postToCommunity": "Publicar na Comunidade"
+    },
+    "shortcuts": "V Selecionar | T Texto | Delete Remover | Cmd+D Duplicar | Cmd+Z Desfazer | Clique duplo no texto para editar",
+    "toolbar": {
+      "select": "Selecionar (V)",
+      "text": "Texto (T)",
+      "image": "Imagem (I)",
+      "shape": "Forma (S)",
+      "rectangle": "Retângulo",
+      "circle": "Círculo",
+      "star": "Estrela",
+      "line": "Linha",
+      "undo": "Desfazer (Cmd+Z)",
+      "redo": "Refazer (Cmd+Shift+Z)",
+      "duplicate": "Duplicar (Cmd+D)",
+      "delete": "Excluir",
+      "bringToFront": "Trazer para Frente",
+      "sendToBack": "Enviar para Trás",
+      "zoomOut": "Diminuir Zoom",
+      "zoomIn": "Aumentar Zoom",
+      "aiGenerate": "Gerar com IA",
+      "aiGenerateTitle": "Gerador de Resumo com IA",
+      "save": "Salvar Projeto (Cmd+S)",
+      "load": "Carregar Projeto",
+      "export": "Exportar",
+      "downloadPdf": "Baixar PDF",
+      "downloadPng": "Baixar PNG",
+      "downloadJpeg": "Baixar JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "Falha ao carregar o modelo. Ele pode ter sido removido.",
+      "canvasNotReady": "Canvas não está pronto. Por favor, tente novamente.",
+      "projectSaved": "Projeto salvo com sucesso!",
+      "noSavedProject": "Nenhum projeto salvo encontrado.",
+      "projectLoaded": "Projeto carregado com sucesso!",
+      "projectLoadFailed": "Falha ao carregar o projeto."
+    },
+    "downloadModal": {
+      "title": "Entre para Baixar",
+      "description": "Crie uma conta gratuita para baixar seu design canvas como {format}.",
+      "savedTitle": "Seu trabalho está salvo",
+      "savedNotice": "Seu projeto canvas foi salvo no seu navegador. Ele estará aqui quando você voltar após entrar.",
+      "signUp": "Cadastre-se — É Grátis",
+      "signInPrefix": "Já tem uma conta?",
+      "signInLink": "Entrar",
+      "restored": "Seu projeto canvas foi restaurado! Clique em Exportar para baixar."
+    }
+  },
+
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Modelos Canvas de Currículo - Crie Seu Currículo Visualmente | Best AI Resume",
+      "description": "Explore modelos criativos de currículo canvas. Arraste, solte e personalize cada elemento com nosso editor visual."
+    },
+    "sectionTitle": "Modelos Canvas",
+    "title": "Currículo",
+    "titleHighlight": "Canvas",
+    "subtitle": "Crie seu currículo com total liberdade criativa. Arraste, solte e personalize cada elemento no nosso editor visual.",
+    "freeBadge": "É Grátis",
+    "searchPlaceholder": "Buscar modelos canvas...",
+    "noResults": "Nenhum modelo encontrado",
+    "noResultsHint": "Tente ajustar sua busca ou critérios de filtro",
+    "useTemplate": "Usar Modelo",
+    "categories": {
+      "all": "Todos",
+      "professional": "Profissional",
+      "creative": "Criativo",
+      "minimal": "Minimalista"
+    },
+    "startFromScratch": {
+      "title": "Quer começar do zero?",
+      "description": "Crie um currículo totalmente personalizado usando as ferramentas poderosas de design do nosso Editor Canvas.",
+      "button": "Abrir Canvas em Branco"
+    },
+    "formBuilderBanner": "Procurando modelos baseados em formulário?",
+    "viewFormTemplates": "Ver Modelos do Editor de Formulário"
+  },
+
+  "Builder": {
+    "meta": {
+      "title": "Criador de Currículo - Crie Seu CV Profissional Online",
+      "description": "Crie seu currículo profissional com nosso editor fácil de usar. Visualização em tempo real, sugestões de IA e download instantâneo em PDF."
+    },
+    "personalInfo": {
+      "title": "Informações Pessoais",
+      "subtitle": "Comece com seus dados de contato e resumo profissional."
+    },
+    "profilePhoto": "Foto de Perfil",
+    "upload": "Enviar",
+    "change": "Alterar",
+    "fullName": "Nome Completo",
+    "fullNamePlaceholder": "João Silva",
+    "jobTitle": "Cargo",
+    "jobTitlePlaceholder": "Engenheiro de Software",
+    "email": "E-mail",
+    "emailPlaceholder": "joao@exemplo.com",
+    "phone": "Telefone",
+    "phonePlaceholder": "+55 (11) 99999-0000",
+    "location": "Localização",
+    "locationPlaceholder": "São Paulo, SP",
+    "website": "Website",
+    "websitePlaceholder": "joaosilva.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/joaosilva",
+    "nationality": "Nacionalidade",
+    "nationalityPlaceholder": "ex: Brasileiro, Português",
+    "idDocument": "RG / Passaporte / CNH",
+    "selectDocType": "Selecionar doc",
+    "nationalId": "RG",
+    "passport": "Passaporte",
+    "drivingLicense": "CNH",
+    "documentNumber": "Número do documento",
+    "professionalSummary": "Resumo Profissional",
+    "summaryPlaceholder": "Engenheiro de Software experiente com paixão por construir aplicações web escaláveis...",
+    "generateWithAI": "Gerar com IA",
+    "additionalInfo": "Informações Adicionais",
+    "socialLinks": "Redes Sociais",
+    "customFields": {
+      "title": "Campos Personalizados",
+      "subtitle": "Adicione seções personalizadas com seus próprios títulos e conteúdo.",
+      "add": "Adicionar Campo Personalizado",
+      "noCustomFields": "Nenhum campo personalizado adicionado ainda.",
+      "label": "Título da Seção",
+      "labelPlaceholder": "ex: Trabalho Voluntário, Hobbies, Publicações",
+      "content": "Conteúdo",
+      "contentPlaceholder": "Adicione seu conteúdo aqui..."
+    },
+    "shapes": {
+      "circle": "Círculo",
+      "rounded": "Arredondado",
+      "square": "Quadrado"
+    },
+    "experience": {
+      "title": "Experiência Profissional",
+      "subtitle": "Adicione sua experiência profissional relevante.",
+      "add": "Adicionar Experiência",
+      "notSpecified": "(Não especificado)",
+      "companyName": "Nome da Empresa",
+      "jobTitle": "Cargo",
+      "company": "Empresa",
+      "city": "Cidade",
+      "country": "País",
+      "startDate": "Data de Início",
+      "endDate": "Data de Término",
+      "currentlyWork": "Trabalho aqui atualmente",
+      "description": "Descrição",
+      "improveAI": "Melhorar usando IA",
+      "noExperience": "Nenhuma experiência adicionada ainda.",
+      "addFirst": "Adicione sua primeira função"
+    },
+    "education": {
+      "title": "Formação",
+      "subtitle": "Adicione sua formação acadêmica.",
+      "add": "Adicionar Formação",
+      "notSpecified": "(Não especificado)",
+      "degree": "Grau / Curso",
+      "school": "Escola / Universidade",
+      "cityOptional": "Cidade (Opcional)",
+      "countryOptional": "País (Opcional)",
+      "startDate": "Data de Início",
+      "endDate": "Data de Término",
+      "gpaOptional": "Média (Opcional)",
+      "honorsOptional": "Honras (Opcional)",
+      "clubsOptional": "Clubes e Atividades (Opcional)",
+      "descriptionOptional": "Descrição (Opcional)",
+      "noEducation": "Nenhuma formação adicionada ainda.",
+      "addEducation": "Adicione sua formação",
+      "credentials": "Credenciais",
+      "certifications": "Certificações",
+      "awards": "Prêmios e Conquistas"
+    },
+    "skills": {
+      "title": "Habilidades",
+      "subtitle": "Adicione suas habilidades técnicas e interpessoais com níveis de proficiência.",
+      "placeholder": "ex: React, Python, Liderança",
+      "proficiencyLevel": "Nível de Proficiência",
+      "beginner": "Iniciante",
+      "basic": "Básico",
+      "intermediate": "Intermediário",
+      "advanced": "Avançado",
+      "expert": "Especialista",
+      "noSkills": "Nenhuma habilidade adicionada ainda.",
+      "suggestedSkills": "Habilidades Sugeridas",
+      "additionalInfo": "Informações Adicionais",
+      "languages": "Idiomas",
+      "strengths": "Pontos Fortes",
+      "interests": "Interesses e Hobbies"
+    },
+    "tabs": {
+      "personal": "Pessoal",
+      "personalDesc": "Dados básicos e resumo",
+      "experience": "Experiência",
+      "experienceDesc": "Histórico profissional",
+      "education": "Formação",
+      "educationDesc": "Formação acadêmica",
+      "skills": "Habilidades",
+      "skillsDesc": "Suas competências",
+      "design": "Design",
+      "designDesc": "Estilo e layout"
+    },
+    "ui": {
+      "progress": "Progresso",
+      "canvasEditor": "Editor Canvas",
+      "backToHome": "Voltar ao Início",
+      "untitledResume": "Currículo Sem Título",
+      "downloadPdf": "Baixar PDF",
+      "livePreview": "Visualização ao Vivo",
+      "showReference": "Mostrar Imagem de Referência",
+      "reference": "Referência",
+      "zoomOut": "Diminuir Zoom",
+      "zoomIn": "Aumentar Zoom",
+      "resetZoom": "Redefinir Zoom",
+      "referenceDesign": "Design de Referência",
+      "referenceCaption": "Design original do modelo para referência",
+      "editResume": "Editar Currículo",
+      "previewResume": "Visualizar Currículo",
+      "edit": "Editar",
+      "preview": "Visualizar",
+      "loadingBuilder": "Carregando editor..."
+    },
+    "welcome": {
+      "title": "Conta Criada!",
+      "description": "Seu currículo está salvo. Você pode continuar editando ou escolher um plano para baixar.",
+      "choosePlan": "Escolher um Plano",
+      "backToEditor": "Voltar ao Editor"
+    },
+    "feedback": {
+      "reportIssue": "Reportar um Problema",
+      "title": "Feedback do Modelo",
+      "forTemplate": "Modelo",
+      "typeFeedback": "Feedback",
+      "typeBug": "Bug",
+      "typeSuggestion": "Ideia",
+      "placeholder": "Descreva o problema ou compartilhe seu feedback sobre este modelo...",
+      "messageTooShort": "A mensagem deve ter pelo menos 5 caracteres",
+      "submitError": "Falha ao enviar feedback. Por favor, tente novamente.",
+      "submit": "Enviar",
+      "cancel": "Cancelar",
+      "close": "Fechar",
+      "thankYou": "Obrigado!",
+      "thankYouDesc": "Seu feedback foi enviado. Revisamos todos os relatórios para melhorar nossos modelos."
+    }
+  },
+
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Baixar para Google Docs",
+    "loading": "Carregando editor Google Docs..."
+  },
+
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "Baixar MS Word",
+    "loading": "Carregando editor Word..."
+  },
+
+  "CoverLetter": {
+    "meta": {
+      "title": "Gerador Grátis de Carta de Apresentação com IA - Crie Cartas Profissionais",
+      "description": "Gere cartas de apresentação profissionais e personalizadas em minutos com nossa ferramenta gratuita com IA. Destaque-se e consiga mais entrevistas."
+    },
+    "hero": {
+      "badge": "Gerador de Carta de Apresentação com IA",
+      "title": "Crie uma",
+      "titleHighlight": "Carta de Apresentação Perfeita",
+      "subtitle": "Deixe a IA criar uma carta de apresentação convincente e personalizada que destaque seus pontos fortes e capture a atenção dos recrutadores."
+    },
+    "form": {
+      "yourDetails": "Seus Dados",
+      "fillInfo": "Preencha suas informações",
+      "fullName": "Nome Completo",
+      "email": "E-mail",
+      "jobTitle": "Cargo",
+      "companyName": "Nome da Empresa",
+      "hiringManager": "Nome do Recrutador (Opcional)",
+      "keySkills": "Habilidades Principais",
+      "experience": "Experiência Relevante",
+      "tone": "Tom da Escrita",
+      "professional": "Profissional",
+      "friendly": "Amigável",
+      "confident": "Confiante",
+      "enthusiastic": "Entusiasmado",
+      "generate": "Gerar Carta de Apresentação",
+      "generating": "Gerando...",
+      "fullNamePlaceholder": "João Silva",
+      "emailPlaceholder": "joao@exemplo.com",
+      "jobTitlePlaceholder": "Engenheiro de Software",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Maria Santos",
+      "skillsPlaceholder": "React, Node.js, Liderança de Equipe",
+      "experiencePlaceholder": "Liderei uma equipe de 5 desenvolvedores para entregar o lançamento de um produto importante..."
+    },
+    "preview": {
+      "title": "Visualização",
+      "subtitle": "Sua carta gerada",
+      "noLetter": "Nenhuma carta gerada ainda",
+      "fillAndGenerate": "Preencha seus dados e clique em Gerar",
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "download": "Baixar"
+    },
+    "tips": {
+      "title": "Dicas para uma",
+      "titleHighlight": "Ótima Carta de Apresentação",
+      "beSpecific": "Seja Específico",
+      "beSpecificDesc": "Personalize sua carta para o cargo e empresa específicos. Cartas genéricas são facilmente identificadas.",
+      "showResults": "Mostre Resultados",
+      "showResultsDesc": "Inclua conquistas quantificáveis. Números tornam suas realizações concretas e memoráveis.",
+      "keepConcise": "Seja Conciso",
+      "keepConciseDesc": "Busque 3-4 parágrafos. Recrutadores gastam apenas segundos analisando cada candidatura."
+    },
+    "cta": {
+      "title": "Precisa de um Currículo Também?",
+      "subtitle": "Combine sua carta de apresentação com um currículo profissional criado com IA.",
+      "button": "Criar Seu Currículo"
+    },
+    "errors": {
+      "signInRequired": "Por favor, entre para gerar uma carta de apresentação",
+      "limitReached": "Você atingiu o limite de cartas de apresentação. Faça upgrade do seu plano para mais.",
+      "subscriptionRequired": "Uma assinatura é necessária para gerar cartas de apresentação. Por favor, faça upgrade do seu plano.",
+      "signInNow": "Entrar agora",
+      "viewPlans": "Ver planos"
+    },
+    "externalResources": {
+      "title": "Recursos Externos",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Perspectiva de Carreira",
+      "shrmHrResources": "SHRM: Recursos de RH e Carreira"
+    }
+  },
+
+  "ResignationLetter": {
+    "meta": {
+      "title": "Gerador Grátis de Carta de Demissão com IA - Cartas de Saída Profissionais",
+      "description": "Crie uma carta de demissão profissional em minutos. Saia do emprego de forma positiva e mantenha bons relacionamentos com nossa ferramenta com IA."
+    },
+    "hero": {
+      "badge": "Gerador de Carta de Demissão com IA",
+      "title": "Escreva uma",
+      "titleHighlight": "Carta de Demissão Profissional",
+      "subtitle": "Saia do seu emprego de forma positiva com uma carta de demissão escrita profissionalmente. Mantenha bons relacionamentos e proteja sua reputação profissional."
+    },
+    "noticeLabel": "Dica",
+    "notice": "O aviso prévio padrão geralmente é de 30 dias. Verifique seu contrato de trabalho para requisitos específicos.",
+    "form": {
+      "yourDetails": "Seus Dados",
+      "fillInfo": "Preencha suas informações",
+      "yourName": "Seu Nome",
+      "currentPosition": "Cargo Atual",
+      "companyName": "Nome da Empresa",
+      "managerName": "Nome do Gestor",
+      "lastWorkingDay": "Último Dia de Trabalho",
+      "reasonForLeaving": "Motivo da Saída",
+      "positiveExperiences": "Experiências Positivas (Opcional)",
+      "tone": "Tom da Carta",
+      "professional": "Profissional",
+      "grateful": "Agradecido",
+      "brief": "Breve",
+      "warm": "Caloroso",
+      "offerHelp": "Oferecer ajuda na transição",
+      "generate": "Gerar Carta de Demissão",
+      "generating": "Gerando...",
+      "yourNamePlaceholder": "João Silva",
+      "currentPositionPlaceholder": "Engenheiro de Software",
+      "companyPlaceholder": "Empresa XYZ",
+      "managerPlaceholder": "Maria Santos",
+      "positiveExperiencesPlaceholder": "Gostei muito de trabalhar no projeto de lançamento do produto e apreciei a mentoria da equipe sênior...",
+      "professionalDesc": "Formal e corporativo",
+      "gratefulDesc": "Expressando gratidão",
+      "briefDesc": "Curto e direto",
+      "warmDesc": "Amigável e pessoal"
+    },
+    "reasons": {
+      "selectReason": "Selecione um motivo (opcional)",
+      "newOpportunity": "Buscando uma nova oportunidade",
+      "careerChange": "Mudança de carreira",
+      "relocation": "Mudança de cidade",
+      "personal": "Motivos pessoais",
+      "education": "Retorno aos estudos",
+      "family": "Compromissos familiares",
+      "health": "Motivos de saúde",
+      "retirement": "Aposentadoria",
+      "other": "Outro"
+    },
+    "preview": {
+      "title": "Visualização",
+      "subtitle": "Sua carta gerada",
+      "noLetter": "Nenhuma carta gerada ainda",
+      "fillAndGenerate": "Preencha seus dados e clique em Gerar",
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "download": "Baixar"
+    },
+    "reasonText": {
+      "newOpportunity": "Aceitei uma posição em outra empresa",
+      "careerChange": "Decidi seguir um caminho de carreira diferente",
+      "relocation": "Estarei me mudando de cidade",
+      "personal": "por motivos pessoais",
+      "education": "Decidi retornar para aprofundar meus estudos",
+      "family": "devido a compromissos familiares que requerem minha total atenção",
+      "health": "por motivos de saúde",
+      "retirement": "Decidi me aposentar",
+      "other": "por motivos pessoais"
+    },
+    "letter": {
+      "dearManager": "Prezado(a) {name},",
+      "defaultManager": "Gestor",
+      "lastWorkingDayPlaceholder": "[Último Dia de Trabalho]",
+      "briefBody": "Por favor, aceite esta carta como notificação formal da minha demissão do cargo de {position} na {company}. Meu último dia de trabalho será {lastDay}.",
+      "briefReason": "Estou me demitindo porque {reason}.",
+      "briefClosing": "Agradeço pelas oportunidades proporcionadas durante meu tempo aqui.",
+      "sincerely": "Atenciosamente,",
+      "formalBody": "Venho por meio desta notificá-lo(a) formalmente sobre minha demissão do cargo de {position} na {company}. Meu último dia de trabalho será {lastDay}.",
+      "reasonPrefix": "Após cuidadosa consideração, {reason}.",
+      "notEasyDecision": "Esta não foi uma decisão fácil, pois valorizo genuinamente meu tempo na empresa.",
+      "gratefulDefault": "Sou extremamente grato(a) pelas oportunidades que tive de crescer profissional e pessoalmente durante meu tempo aqui.",
+      "warmDefault": "Trabalhar com você e a equipe foi uma experiência maravilhosa que sempre guardarei com carinho.",
+      "learnedAppreciate": "Aprendi muito e sempre apreciarei o apoio e orientação que recebi.",
+      "transitionHelp": "Durante o período de transição, estou comprometido(a) em garantir uma passagem tranquila das minhas responsabilidades. Ficarei feliz em ajudar a treinar meu substituto ou documentar meus projetos e processos atuais.",
+      "thankYouClosing": "Agradeço pelas oportunidades de desenvolvimento profissional e pessoal que você me proporcionou durante meu período aqui. Desejo à {company} sucesso contínuo e espero manter contato.",
+      "warmRegards": "Com cordiais saudações,",
+      "sincereGratitude": "Com sincera gratidão,"
+    },
+    "tips": {
+      "title": "Melhores Práticas de",
+      "titleHighlight": "Demissão",
+      "giveNotice": "Dê Aviso Prévio",
+      "giveNoticeDesc": "Forneça pelo menos 30 dias de aviso prévio, ou siga os termos do seu contrato.",
+      "stayProfessional": "Mantenha o Profissionalismo",
+      "stayProfessionalDesc": "Deixe as emoções de lado. Seja respeitoso(a) e positivo(a).",
+      "documentIt": "Documente",
+      "documentItDesc": "Sempre envie uma carta de demissão por escrito para seus registros.",
+      "leaveWell": "Saia Bem",
+      "leaveWellDesc": "Complete trabalhos pendentes e ofereça-se para treinar seu substituto."
+    },
+    "cta": {
+      "title": "Pronto(a) para Sua Próxima Oportunidade?",
+      "subtitle": "Crie um currículo profissional para sua busca de emprego com nosso criador de currículos com IA.",
+      "button": "Criar Seu Currículo"
+    },
+    "externalResources": {
+      "title": "Recursos Externos",
+      "shrmWorkplace": "SHRM: Recursos de RH e Local de Trabalho",
+      "blsCareerData": "Bureau of Labor Statistics: Dados de Carreira"
+    }
+  },
+
+  "MockInterview": {
+    "meta": {
+      "title": "Simulação de Entrevista com IA Grátis | Best AI Resume",
+      "description": "Pratique entrevistas de emprego com perguntas geradas por IA adaptadas ao seu cargo. Receba feedback instantâneo com o método STAR. Ferramenta gratuita de simulação de entrevista."
+    },
+    "hero": {
+      "badge": "Prática de Entrevista com IA",
+      "title": "Simulação de Entrevista com IA",
+      "description": "Pratique com perguntas de entrevista geradas por IA adaptadas ao seu cargo e nível de experiência. Receba feedback instantâneo usando o método STAR."
+    },
+    "setup": {
+      "title": "Configure Sua Entrevista",
+      "jobTitle": "Cargo",
+      "jobTitlePlaceholder": "ex: Engenheiro de Software, Gerente de Marketing...",
+      "experienceLevel": "Nível de Experiência",
+      "levels": {
+        "entry": { "label": "Nível Júnior", "description": "0-2 anos de experiência" },
+        "mid": { "label": "Nível Pleno", "description": "3-6 anos de experiência" },
+        "senior": { "label": "Nível Sênior", "description": "7+ anos de experiência" }
+      },
+      "questionCount": "Número de Perguntas: {count}",
+      "quick": "Rápida (3)",
+      "thorough": "Completa (10)",
+      "startButton": "Iniciar Entrevista",
+      "generating": "Gerando Perguntas..."
+    },
+    "interview": {
+      "progress": "Pergunta {current} de {total}",
+      "yourAnswer": "Sua Resposta",
+      "answerPlaceholder": "Digite sua resposta aqui. Use o método STAR: Situação, Tarefa, Ação, Resultado...",
+      "answerTip": "Dica: Mire em 3-5 frases. Use exemplos específicos e quantifique resultados quando possível.",
+      "skip": "Pular",
+      "evaluating": "Avaliando...",
+      "submitContinue": "Enviar e Continuar",
+      "submitFinish": "Enviar e Finalizar",
+      "starReminder": "Lembre-se do Método STAR:",
+      "starDescription": "Estruture suas respostas com Situação, Tarefa, Ação e Resultado para as respostas mais fortes."
+    },
+    "results": {
+      "complete": "Entrevista Concluída!",
+      "summary": "Você respondeu {answered} de {total} perguntas",
+      "averageScore": "Pontuação Média:",
+      "startNew": "Iniciar Nova Entrevista",
+      "bonusQuestions": "Desbloqueie 10 perguntas bônus de prática",
+      "bonusUnlocked": "Perguntas Bônus Desbloqueadas!",
+      "bonusDescription": "Agora você pode praticar com até 10 perguntas por sessão.",
+      "detailedFeedback": "Feedback Detalhado",
+      "questionLabel": "Pergunta {number}",
+      "strengths": "Pontos Fortes",
+      "improvements": "Áreas para Melhoria",
+      "sampleAnswer": "Resposta Exemplo",
+      "skipped": "Esta pergunta foi pulada",
+      "continuePrep": "Continue Sua Preparação",
+      "resources": {
+        "starMethod": {
+          "title": "Domine o Método STAR",
+          "description": "Aprenda como estruturar suas respostas para perguntas comportamentais de entrevista."
+        },
+        "tellMe": {
+          "title": "Como Responder \"Fale Sobre Você\"",
+          "description": "Crie a resposta de abertura perfeita que define o tom da sua entrevista."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Por favor, insira um cargo para continuar.",
+      "generateFailed": "Falha ao gerar perguntas de entrevista. Por favor, tente novamente.",
+      "startFailed": "Falha ao iniciar a entrevista. Por favor, tente novamente.",
+      "detailedAnswer": "Por favor, forneça uma resposta mais detalhada (pelo menos 20 caracteres)."
+    },
+    "externalResources": {
+      "title": "Recursos Externos",
+      "blsCareerOutlook": "Bureau of Labor Statistics: Perspectiva de Carreira",
+      "shrmInterviewPractices": "SHRM: Melhores Práticas de Entrevista"
+    }
+  },
+
+  "CareerTips": {
+    "meta": {
+      "title": "Dicas de Carreira e Conselhos sobre Currículo - Guias Especializados | Best AI Resume",
+      "description": "Conselhos especializados de carreira, dicas de escrita de currículo e estratégias de busca de emprego. Aprenda a criar currículos com IA, se sair bem em entrevistas e conquistar o emprego dos sonhos."
+    },
+    "hero": {
+      "badge": "Guias Especializados de Carreira",
+      "title": "Dicas de Carreira",
+      "titleHighlight": "e Conselhos de Especialistas",
+      "subtitle": "Domine a escrita de currículos, se destaque em entrevistas e acelere sua carreira com nossos guias especializados."
+    },
+    "featured": "Artigos em Destaque",
+    "featuredBadge": "Destaque",
+    "allArticles": "Todos os Artigos",
+    "searchPlaceholder": "Buscar artigos...",
+    "articleCount": "{count, plural, one {# artigo} other {# artigos}}",
+    "noArticles": "Nenhum artigo encontrado",
+    "noArticlesHint": "Tente ajustar sua busca ou filtro",
+    "categories": {
+      "title": "Categorias",
+      "all": "Todos os Artigos",
+      "resumeTips": "Dicas de Currículo",
+      "coverLetters": "Cartas de Apresentação",
+      "interviews": "Dicas de Entrevista",
+      "jobSearch": "Busca de Emprego",
+      "careerAdvice": "Conselhos de Carreira",
+      "aiResume": "Currículo com IA"
+    },
+    "article": {
+      "readMore": "Leia Mais",
+      "tableOfContents": "Índice",
+      "relatedArticles": "Artigos Relacionados",
+      "moreCareerTips": "Mais Dicas de Carreira",
+      "shareHelpful": "Achou útil?",
+      "shareWithOthers": "Compartilhe com outros que podem se beneficiar",
+      "tags": "Tags:",
+      "breadcrumbHome": "Início",
+      "breadcrumbCareerTips": "Dicas de Carreira",
+      "notFound": "Artigo Não Encontrado"
+    },
+    "cta": {
+      "title": "Pronto(a) para Criar Seu Currículo?",
+      "subtitle": "Coloque essas dicas em prática com nosso criador de currículos com IA. Crie um currículo profissional em minutos.",
+      "button": "Crie Seu Currículo Agora",
+      "sidebarTitle": "Crie Seu Currículo",
+      "sidebarSubtitle": "Crie um currículo profissional com IA em minutos.",
+      "sidebarButton": "Começar"
+    }
+  },
+
+  "ResumeExamples": {
+    "meta": {
+      "title": "Exemplos de Currículo por Cargo | Modelos e Guias Grátis 2026",
+      "description": "Explore mais de 50 exemplos profissionais de currículo por cargo. Cada um inclui modelo grátis, habilidades-chave e dicas de escrita para conquistar o emprego dos sonhos."
+    },
+    "hero": {
+      "badge": "Guias por Profissão",
+      "title": "Exemplos de Currículo",
+      "titleHighlight": "por Cargo",
+      "subtitle": "Encontre sua profissão e obtenha um modelo de currículo personalizado com dicas específicas do setor."
+    },
+    "searchPlaceholder": "Buscar por cargo...",
+    "featured": "Exemplos de Currículo em Destaque",
+    "allExamples": "Todos os Exemplos de Currículo",
+    "noResults": "Nenhum exemplo de currículo encontrado",
+    "noResultsHint": "Tente ajustar sua busca ou filtro",
+    "cta": {
+      "title": "Pronto(a) para criar seu currículo vencedor?",
+      "subtitle": "Use nosso criador com IA para criar um currículo profissional em minutos.",
+      "button": "Criar Meu Currículo — Grátis"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "Verificador de Currículo ATS Grátis | Avalie Seu Currículo Instantaneamente | Best AI Resume",
+      "description": "Verifique seu currículo contra sistemas ATS gratuitamente. Obtenha pontuação instantânea, análise de palavras-chave e dicas de otimização para passar pela triagem automatizada."
+    },
+    "hero": {
+      "badge": "Verificador de Currículo ATS Grátis",
+      "title": "Seu Currículo é",
+      "titleHighlight": "Compatível com ATS?",
+      "statistic": "75% dos currículos são rejeitados pelo ATS antes que um humano os veja.",
+      "description": "Nosso verificador ATS gratuito analisa seu currículo em busca de problemas de formatação, palavras-chave ausentes e problemas de compatibilidade que causam rejeições automáticas."
+    },
+    "tool": {
+      "title": "Verifique a Pontuação ATS do Seu Currículo",
+      "description": "Envie seu currículo em PDF ou DOCX e obtenha uma pontuação de compatibilidade ATS instantânea com feedback detalhado.",
+      "uploadBtn": "Clique para enviar ou arraste e solte",
+      "formats": "PDF ou DOCX — Máx. 10MB",
+      "checkBtn": "Verificar Meu Currículo",
+      "changeFile": "Alterar arquivo",
+      "analyzing": "Analisando seu currículo…",
+      "cta": "Criar um Currículo Compatível com ATS",
+      "subtext": "Grátis — sem necessidade de cartão de crédito"
+    },
+    "checks": {
+      "title": "O que os Sistemas ATS Verificam",
+      "subtitle": "Entender o que o software ATS analisa ajuda você a otimizar seu currículo para máxima visibilidade.",
+      "keywords": {
+        "title": "Correspondência de Palavras-chave",
+        "description": "O ATS busca palavras-chave específicas da vaga. Termos críticos ausentes significam rejeição automática."
+      },
+      "formatting": {
+        "title": "Formatação Limpa",
+        "description": "Layouts complexos, tabelas e colunas confundem os leitores ATS. Formatos simples de coluna única são os melhores."
+      },
+      "contact": {
+        "title": "Informações de Contato",
+        "description": "O ATS procura nome, e-mail, telefone e localização em formatos padrão. Informações ausentes significam oportunidades perdidas."
+      },
+      "dates": {
+        "title": "Formatos de Data Consistentes",
+        "description": "Sistemas ATS analisam datas de emprego para calcular experiência. Formatos inconsistentes causam erros de leitura."
+      }
+    },
+    "checklist": {
+      "title": "Checklist de Otimização ATS",
+      "subtitle": "Siga estas diretrizes para maximizar as chances do seu currículo passar pela triagem ATS.",
+      "doThis": "Faça Isso",
+      "avoidThis": "Evite Isso",
+      "dos": {
+        "singleColumn": "Use um layout de coluna única para máxima compatibilidade",
+        "keywords": "Inclua palavras-chave da descrição da vaga naturalmente",
+        "standardHeadings": "Use títulos de seção padrão (Experiência, Formação, Habilidades)",
+        "fileFormat": "Envie como PDF ou DOCX conforme especificado pelo empregador",
+        "standardFonts": "Use fontes padrão como Arial, Calibri ou Times New Roman",
+        "spellOut": "Escreva siglas por extenso primeiro, depois abrevie (ex: Project Management Professional (PMP))"
+      },
+      "donts": {
+        "tables": "Não use tabelas ou caixas de texto para layout",
+        "images": "Não inclua imagens, logos ou gráficos",
+        "headers": "Não coloque informações importantes em cabeçalhos ou rodapés",
+        "creativeTitles": "Não use títulos de seção criativos (ex: 'Minha Jornada' ao invés de 'Experiência')",
+        "fancyFonts": "Não use fontes decorativas ou incomuns",
+        "lightText": "Não use texto cinza claro ou de baixo contraste"
+      }
+    },
+    "systems": {
+      "title": "Sistemas ATS Populares",
+      "subtitle": "Nossos modelos são testados e otimizados para todos os principais Sistemas de Rastreamento de Candidatos usados por empregadores no mundo todo."
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "whatIsAts": {
+        "question": "O que é um ATS (Applicant Tracking System)?",
+        "answer": "Um ATS é um software usado por empregadores para coletar, escanear e classificar candidaturas. Ele filtra currículos com base em palavras-chave, formatação e relevância antes que um recrutador os veja. Mais de 98% das empresas Fortune 500 usam um ATS."
+      },
+      "whyFail": {
+        "question": "Por que currículos falham na triagem ATS?",
+        "answer": "Motivos comuns incluem formatação complexa (tabelas, colunas, gráficos), palavras-chave ausentes da descrição da vaga, títulos de seção não padrão, formatos de arquivo incompatíveis e informações colocadas em cabeçalhos ou rodapés que o ATS não consegue ler."
+      },
+      "bestFormat": {
+        "question": "Qual é o melhor formato de currículo para ATS?",
+        "answer": "Um layout limpo de coluna única com títulos de seção padrão funciona melhor. Use formatação simples, fontes padrão e evite gráficos ou tabelas. PDF e DOCX são os formatos de arquivo mais universalmente aceitos."
+      },
+      "keywords": {
+        "question": "Como encontro as palavras-chave certas para meu currículo?",
+        "answer": "Leia a descrição da vaga com atenção e identifique habilidades, qualificações e terminologia repetidas. Inclua essas palavras-chave naturalmente ao longo do seu currículo, especialmente no resumo, seção de habilidades e descrições de experiência profissional."
+      },
+      "twoColumn": {
+        "question": "Posso usar um currículo de duas colunas com ATS?",
+        "answer": "Layouts de duas colunas podem causar problemas de leitura em muitos sistemas ATS. O software pode ler as colunas horizontalmente ao invés de verticalmente, embaralhando suas informações. Um layout de coluna única é a escolha mais segura para compatibilidade com ATS."
+      },
+      "jobTitle": {
+        "question": "Devo usar o cargo exato da vaga no meu currículo?",
+        "answer": "Sim, se seu cargo real for similar. Incluir o cargo exato da vaga no seu currículo (quando verdadeiro) melhora significativamente a correspondência ATS. Você pode incluí-lo no seu resumo ou como cargo desejado."
+      }
+    },
+    "resources": {
+      "title": "Recursos Relacionados",
+      "guide": {
+        "title": "Guia de Escrita de Currículo ATS",
+        "description": "Guia passo a passo para escrever um currículo que passe pela triagem ATS."
+      },
+      "templates": {
+        "title": "Modelos Compatíveis com ATS",
+        "description": "Modelos de currículo pré-otimizados projetados para compatibilidade ATS."
+      },
+      "examples": {
+        "title": "Exemplos de Currículo",
+        "description": "Veja exemplos reais de currículo para sua profissão."
+      }
+    },
+    "cta": {
+      "title": "Pare de Ser Rejeitado pelo ATS",
+      "description": "Crie um currículo profissional otimizado para ATS em minutos com nosso criador com IA. Todos os modelos são testados para compatibilidade ATS.",
+      "button": "Criar Meu Currículo ATS — Grátis"
+    },
+    "validation": {
+      "unsupportedFormat": "Apenas arquivos PDF e DOCX são suportados.",
+      "fileTooLarge": "O tamanho do arquivo deve ser inferior a 10MB.",
+      "genericError": "Algo deu errado. Por favor, tente novamente."
+    },
+    "results": {
+      "scoreTitle": "Sua Pontuação de Compatibilidade ATS",
+      "recommendations": "Recomendações",
+      "checkAnother": "Verificar Outro Currículo",
+      "buildAtsResume": "Criar um Currículo Otimizado para ATS",
+      "pagesAnalyzed": "{count, plural, one {# página analisada} other {# páginas analisadas}}",
+      "scoreExcellent": "Excelente",
+      "scoreGood": "Bom",
+      "scoreNeedsWork": "Precisa de Ajustes",
+      "scorePoor": "Ruim"
+    },
+    "externalResources": {
+      "title": "Recursos Externos",
+      "atsHowTheyWork": "Entendendo ATS: Como Funcionam",
+      "blsResumeTips": "BLS Career Outlook: Dicas de Currículo"
+    }
+  },
+  "Contact": {
+    "title": "Fale Conosco",
+    "description": "Se você tem uma dúvida sobre sua conta, precisa de ajuda com seu currículo ou quer reportar um problema — estamos aqui para ajudar. Preencha o formulário abaixo e nossa equipe retornará em até 24 horas.",
+    "inquiryType": "Tipo de Consulta",
+    "inquiryTypes": {
+      "general": "Consulta Geral",
+      "billing": "Problema de Cobrança",
+      "cvCreation": "Problema com Criação de Currículo/CV"
+    },
+    "name": "Seu Nome",
+    "namePlaceholder": "João Silva",
+    "email": "Endereço de E-mail",
+    "emailPlaceholder": "voce@exemplo.com",
+    "subject": "Assunto",
+    "subjectPlaceholder": "Como podemos ajudar?",
+    "message": "Mensagem",
+    "messagePlaceholder": "Conte-nos mais sobre sua consulta...",
+    "submit": "Enviar Mensagem",
+    "sending": "Enviando...",
+    "successTitle": "Mensagem Enviada!",
+    "successMessage": "Obrigado por entrar em contato. Retornaremos em até 24 horas.",
+    "sendAnother": "Enviar Outra Mensagem",
+    "errorGeneric": "Algo deu errado. Por favor, tente novamente mais tarde.",
+    "errorRateLimit": "Muitos envios. Por favor, aguarde antes de tentar novamente."
+  },
+  "Help": {
+    "title": "Como Funciona",
+    "subtitle": "Um guia passo a passo para criar seu currículo profissional, desde o cadastro até o download do documento finalizado.",
+    "quickNav": "Ir para:",
+    "tipLabel": "Dica Pro",
+    "faqLabel": "Perguntas Comuns",
+    "troubleshootingLabel": "Solução de Problemas",
+    "gettingStarted": {
+      "title": "Primeiros Passos",
+      "steps": {
+        "1": {
+          "title": "Crie Sua Conta",
+          "description": "Clique no botão Começar na página inicial ou no link Cadastrar na barra de navegação. Você pode se registrar instantaneamente com sua conta Google, GitHub ou LinkedIn — sem necessidade de senha. Prefere e-mail? Insira seu nome, e-mail e escolha uma senha.",
+          "tip": "Entrar com Google ou LinkedIn é o mais rápido — seu nome e e-mail são preenchidos automaticamente."
+        },
+        "2": {
+          "title": "Verifique Seu E-mail",
+          "description": "Se você se registrou por e-mail, verifique sua caixa de entrada para uma mensagem de Best AI Resume. Insira o código de verificação de 6 dígitos na página de verificação. O código expira em 10 minutos — se expirar, clique em 'Reenviar Código' para obter um novo.",
+          "tip": "Verifique sua pasta de spam ou lixo eletrônico se não encontrar o e-mail em um minuto."
+        },
+        "3": {
+          "title": "Você Está Dentro",
+          "description": "Após a verificação, você será levado(a) à tela de onboarding onde escolhe como criar seu primeiro currículo. Sua conta salva automaticamente todas as alterações, então você nunca perderá seu trabalho — mesmo se fechar o navegador."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Preciso de cartão de crédito para me cadastrar?",
+          "a": "Não. Você pode criar uma conta e construir seu currículo totalmente grátis. Um cartão de crédito só é necessário quando você escolhe um plano pago."
+        },
+        "2": {
+          "q": "E se eu não receber o código de verificação?",
+          "a": "Verifique sua pasta de spam/lixo eletrônico primeiro. Se não estiver lá, clique em 'Reenviar Código' na página de verificação. Se ainda não receber, tente se cadastrar com Google ou LinkedIn."
+        },
+        "3": {
+          "q": "Posso usar a mesma conta em vários dispositivos?",
+          "a": "Sim. Sua conta e todos os seus currículos são armazenados na nuvem. Entre de qualquer dispositivo e continue de onde parou."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Criando Seu Currículo",
+      "steps": {
+        "1": {
+          "title": "Escolha Seu Método",
+          "description": "Na página de onboarding, você verá quatro opções: Geração com IA (recomendado para a maioria), Enviar Currículo (analisar um PDF existente), Importar do LinkedIn (puxar dados do seu perfil) ou Começar do Zero (modelo em branco). Cada opção guia você por um breve fluxo antes de abrir o editor.",
+          "tip": "A Geração com IA é a forma mais rápida de obter um currículo completo e profissional — você sempre pode editá-lo depois."
+        },
+        "2": {
+          "title": "Deixe a IA Fazer o Trabalho",
+          "description": "Se escolheu Geração com IA, insira seu nome completo, o cargo que está buscando e seu nível de experiência (júnior, pleno ou sênior). Clique em Gerar e nossa IA criará um currículo completo com resumo profissional, experiência, formação e habilidades — tudo adaptado ao cargo desejado."
+        },
+        "3": {
+          "title": "Escolha um Modelo",
+          "description": "Após a geração, explore nossa galeria de mais de 16 modelos. Os modelos são organizados em categorias: Profissional, Criativo, Minimalista e Compatível com ATS. Clique em qualquer modelo para visualizá-lo com seus dados. Troque de modelo a qualquer momento sem perder seu conteúdo.",
+          "tip": "Você pode mudar seu modelo a qualquer momento no editor — seu conteúdo permanece o mesmo, apenas o design muda."
+        },
+        "4": {
+          "title": "Edite e Personalize",
+          "description": "O editor tem seções em abas à esquerda (Dados Pessoais, Experiência, Formação, Habilidades, etc.) e uma visualização ao vivo à direita. Edite qualquer campo e veja as mudanças refletidas instantaneamente. Você pode reordenar seções, adicionar seções personalizadas, ajustar tamanhos de fonte e mudar cores de destaque."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Posso criar vários currículos?",
+          "a": "Sim. Você pode criar e salvar vários currículos adaptados a diferentes candidaturas. Alterne entre eles pelo seu painel."
+        },
+        "2": {
+          "q": "A geração com IA funciona em todos os idiomas?",
+          "a": "A IA atualmente gera conteúdo em inglês. Você pode editar manualmente o conteúdo gerado em qualquer idioma após a criação."
+        },
+        "3": {
+          "q": "Posso importar meu perfil do LinkedIn?",
+          "a": "Sim. Escolha a opção 'Importar do LinkedIn' durante o onboarding. Você será guiado(a) para conectar seu perfil do LinkedIn e importar seu histórico profissional."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Escolhendo um Plano",
+      "steps": {
+        "1": {
+          "title": "Visite a Página de Preços",
+          "description": "Clique em Preços na barra de navegação ou visite a página de preços diretamente. Você verá quatro planos: Starter (gratuito, downloads limitados), Gold, Diamond e Platinum. Use o seletor no topo para alternar entre cobrança mensal e anual — planos anuais economizam até 40%."
+        },
+        "2": {
+          "title": "Escolha Seu Plano",
+          "description": "Compare os quatro planos — Starter, Gold, Diamond e Platinum — e escolha o que melhor atende suas necessidades. Todos os planos são cobrados imediatamente e dão acesso instantâneo a todos os recursos.",
+          "tip": "A cobrança anual economiza até 40% comparado à mensal — e você ainda tem os mesmos recursos."
+        },
+        "3": {
+          "title": "Complete o Checkout",
+          "description": "Clique no botão Começar no plano escolhido. Você será redirecionado(a) para uma página segura de checkout do Stripe onde insere os dados do cartão. Após o pagamento, sua conta é atualizada instantaneamente e você pode começar a baixar imediatamente."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Posso cancelar minha assinatura a qualquer momento?",
+          "a": "Sim. Você pode cancelar nas configurações da conta a qualquer momento. Você manterá o acesso até o final do período de cobrança atual."
+        },
+        "2": {
+          "q": "O que acontece se eu cancelar?",
+          "a": "Você manterá o acesso ao seu plano até o final do período de cobrança atual. Depois disso, sua conta volta ao status expirado."
+        },
+        "3": {
+          "q": "Posso trocar de plano depois?",
+          "a": "Sim. Você pode fazer upgrade ou downgrade do seu plano a qualquer momento nas configurações da conta. As mudanças entram em vigor imediatamente."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Baixando Seu Currículo",
+      "steps": {
+        "1": {
+          "title": "Clique em Baixar",
+          "description": "No editor, procure o botão verde Baixar PDF no canto superior direito da página. Clique para abrir o modal de download, que mostra seus downloads restantes do mês e permite confirmar a exportação."
+        },
+        "2": {
+          "title": "Obtenha Seu PDF",
+          "description": "Seu currículo é renderizado como um PDF de alta qualidade que corresponde exatamente ao que você vê na visualização. O PDF é otimizado tanto para visualização digital (e-mail, portais de vagas) quanto para impressão em papel carta ou A4.",
+          "tip": "Para melhores resultados, use os modelos compatíveis com ATS ao se candidatar por portais de vagas online — eles são lidos de forma mais confiável."
+        },
+        "3": {
+          "title": "Acompanhe Seu Uso",
+          "description": "Cada plano tem um limite mensal de downloads que redefine na data de cobrança. Você pode verificar seus downloads restantes no modal de download ou nas configurações da conta. Se atingir o limite, faça upgrade do plano a qualquer momento para desbloquear mais downloads instantaneamente."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Posso baixar no formato Word/DOCX?",
+          "a": "Sim. Além de PDF, você pode exportar seu currículo como arquivo DOCX compatível com Microsoft Word e Google Docs."
+        },
+        "2": {
+          "q": "Por que meu PDF parece um pouco diferente da visualização?",
+          "a": "A visualização é uma aproximação. O PDF é o resultado final perfeito. Pequenas diferenças na renderização de fontes são normais entre a visualização do navegador e o PDF."
+        },
+        "3": {
+          "q": "E se eu ficar sem downloads?",
+          "a": "Sua contagem de downloads redefine mensalmente. Se precisar de mais downloads antes do reset, você pode fazer upgrade do plano para acesso imediato a um limite maior."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Solução de Problemas",
+      "items": {
+        "1": {
+          "title": "Não consigo entrar na minha conta",
+          "description": "Tente redefinir sua senha usando o link 'Esqueceu a senha' na página de login. Se você se cadastrou com Google, GitHub ou LinkedIn, certifique-se de que está usando o mesmo provedor. Limpe os cookies do navegador se o problema persistir."
+        },
+        "2": {
+          "title": "Código de verificação não chega",
+          "description": "Verifique sua pasta de spam/lixo eletrônico. Os códigos expiram após 10 minutos — clique em 'Reenviar Código' para obter um novo. Se estiver usando e-mail corporativo, o firewall de TI pode bloquear e-mails automáticos. Tente um endereço de e-mail pessoal."
+        },
+        "3": {
+          "title": "Pagamento foi recusado",
+          "description": "Verifique o número do cartão, data de validade e CVV. Certifique-se de que seu cartão permite transações internacionais ou online. Se o problema persistir, tente outro cartão ou entre em contato com seu banco. Todos os pagamentos são processados com segurança pelo Stripe."
+        },
+        "4": {
+          "title": "PDF parece diferente da visualização",
+          "description": "A visualização mostra uma aproximação do resultado final. Se elementos específicos parecerem errados, tente trocar de modelo ou ajustar tamanhos de fonte nas configurações de design do editor. Certifique-se de que seu navegador está atualizado."
+        },
+        "5": {
+          "title": "Alterações não estão sendo salvas",
+          "description": "Seu trabalho é salvo automaticamente na nuvem. Se notar alterações não salvas, verifique sua conexão com a internet. Tente atualizar a página — suas últimas edições devem aparecer. Se estiver em uma conexão lenta, aguarde alguns segundos entre as edições."
+        }
+      }
+    },
+    "cta": {
+      "title": "Pronto(a) para Começar?",
+      "subtitle": "Crie seu currículo profissional em minutos com nosso criador com IA.",
+      "buildButton": "Começar a Criar",
+      "contactButton": "Contatar Suporte"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Modelos de Currículo Compatíveis com ATS Grátis (2026) | Passe em Toda Triagem ATS",
+      "description": "Explore 16 modelos gratuitos de currículo compatíveis com ATS projetados para passar por sistemas de rastreamento de candidatos. Formatação limpa, fontes padrão e layouts legíveis testados contra software ATS real."
+    },
+    "breadcrumb": {
+      "home": "Início",
+      "current": "Modelos Compatíveis com ATS"
+    },
+    "hero": {
+      "badge": "100% Compatível com ATS",
+      "title": "Modelos de Currículo Compatíveis com ATS",
+      "subtitle": "97% das empresas Fortune 500 usam Sistemas de Rastreamento de Candidatos para filtrar currículos antes que um humano os veja (Jobscan, 2024). Cada modelo abaixo é construído para passar pela triagem ATS — para que seu currículo chegue a uma pessoa real, sempre.",
+      "check1": "Passa na leitura ATS",
+      "check2": "Grátis para usar",
+      "check3": "Download instantâneo em PDF"
+    },
+    "features": {
+      "title": "Por Que Nossos Modelos Passam na Triagem ATS",
+      "subtitle": "A maioria dos currículos é rejeitada antes que um humano os veja. Nossos modelos são projetados para evitar as armadilhas comuns de formatação que causam falhas no ATS.",
+      "parseable": {
+        "title": "Layout Legível por Máquina",
+        "description": "Estrutura de coluna única com hierarquia clara de seções que o software ATS lê de cima para baixo sem confusão. Sem layouts multi-colunas que embaralham a ordem do conteúdo."
+      },
+      "standardHeaders": {
+        "title": "Cabeçalhos de Seção Padrão",
+        "description": "Usa cabeçalhos como \"Experiência\" e \"Formação\" que todo ATS reconhece — sem rótulos criativos que confundem os leitores."
+      },
+      "testedATS": {
+        "title": "Testado Contra ATS Reais",
+        "description": "Cada modelo é testado contra Workday, Greenhouse, Lever, iCIMS e Taleo — as cinco plataformas que processam a maioria das candidaturas online."
+      },
+      "cleanFormatting": {
+        "title": "Formatação Limpa e Segura",
+        "description": "Sem tabelas, caixas de texto, cabeçalhos/rodapés ou imagens incorporadas que quebram a leitura ATS. Apenas texto limpo e fontes padrão renderizados como texto selecionável em PDF."
+      }
+    },
+    "grid": {
+      "title": "Escolha Seu Modelo Compatível com ATS",
+      "subtitle": "Todos os 16 modelos são totalmente compatíveis com ATS. Escolha qualquer estilo — seu currículo será lido corretamente.",
+      "useTemplate": "Usar Este Modelo"
+    },
+    "howATS": {
+      "title": "Como os Sistemas de Rastreamento de Candidatos Analisam Seu Currículo",
+      "intro": "Entender o processo do ATS ajuda você a ver por que a formatação importa mais do que a maioria dos candidatos imagina. Aqui está o que acontece nos segundos após você clicar em Candidatar-se.",
+      "step1": {
+        "title": "Seu arquivo de currículo é recebido e convertido",
+        "description": "O ATS recebe seu arquivo PDF ou DOCX e o processa através de um mecanismo de extração de texto. Ele tenta converter o documento em dados estruturados — separando seu nome, informações de contato, histórico profissional, formação e habilidades em campos distintos. Se o arquivo usa tabelas, colunas ou imagens, esta etapa produz dados confusos ou ausentes."
+      },
+      "step2": {
+        "title": "O conteúdo é analisado, mapeado e pontuado",
+        "description": "Uma vez extraído, o ATS mapeia seu conteúdo contra a descrição da vaga. Ele procura correspondências de palavras-chave nas suas habilidades, cargos e descrições de experiência. Sistemas como Workday e Greenhouse atribuem uma pontuação de relevância com base em quão próximo seu currículo corresponde aos requisitos da vaga. Um currículo mal lido recebe pontuação baixa mesmo que você tenha todas as qualificações."
+      },
+      "step3": {
+        "title": "Recrutadores revisam candidatos classificados",
+        "description": "Recrutadores geralmente revisam os 10-20 currículos mais bem classificados para cada posição. Se sua formatação causou erros de leitura, você pode ficar abaixo de candidatos menos qualificados cujos currículos foram lidos corretamente. Nossos modelos compatíveis com ATS garantem que suas qualificações sejam representadas com precisão na classificação."
+      },
+      "warning": "Importante: A compatibilidade com ATS é necessária, mas não suficiente. Você ainda precisa adaptar as palavras-chave do seu currículo para cada descrição de vaga. Use nossa ferramenta Verificador ATS para testar seu currículo contra vagas específicas após escolher um modelo."
+    },
+    "cta": {
+      "title": "Crie Seu Currículo Compatível com ATS Agora",
+      "subtitle": "Escolha um modelo, adicione suas informações e baixe um currículo que passa em toda triagem ATS. Grátis, sem necessidade de cadastro.",
+      "buildButton": "Criar Meu Currículo",
+      "checkButton": "Verificar Meu Currículo Atual",
+      "browseAll": "Ver Todos os Modelos",
+      "formatGuide": "Guia de Formato de Currículo",
+      "examples": "300+ Exemplos de Currículo"
+    },
+    "whatMakes": {
+      "title": "O Que Torna um Modelo de Currículo Compatível com ATS?",
+      "p1": "Um modelo de currículo compatível com ATS é projetado para que os Sistemas de Rastreamento de Candidatos — o software que os empregadores usam para coletar, classificar e ranquear candidaturas — possam ler com precisão cada seção do seu currículo. Quando um ATS falha ao analisar seu currículo, seu nome, experiência e habilidades podem não chegar à tela do recrutador. De acordo com um estudo de 2023 da Harvard Business School, mais de 75% dos currículos são rejeitados pelo ATS antes que um humano os revise.",
+      "p2": "O motivo mais comum de falha na leitura ATS é a formatação. Tabelas, layouts multi-colunas, caixas de texto, fontes personalizadas e gráficos incorporados causam erros de leitura. Um ATS lê seu currículo como um fluxo de texto de cima para baixo. Se esse fluxo é interrompido por formatação complexa, o sistema atribui incorretamente seus dados — colocando seu cargo onde deveria estar o nome da empresa, ou eliminando completamente sua seção de habilidades.",
+      "p3": "Nossos 16 modelos de currículo são projetados desde o início com compatibilidade ATS como requisito principal. Eles usam cabeçalhos de seção padrão, layouts de coluna única, fontes seguras para web e renderização limpa de HTML para PDF. Cada modelo foi testado contra as cinco plataformas ATS mais usadas: Workday, Greenhouse, Lever, iCIMS e Taleo. O resultado é um currículo que parece profissional para recrutadores e é lido perfeitamente por máquinas.",
+      "link1": "Como Escrever um Currículo Compatível com ATS",
+      "link2": "O Que é ATS? Guia Completo",
+      "link3": "Entendendo Taxas de Leitura ATS"
+    },
+    "mistakes": {
+      "title": "5 Erros de Formatação Que Fazem Currículos Serem Rejeitados pelo ATS",
+      "intro": "Mesmo candidatos fortes são filtrados quando a formatação do currículo confunde o leitor ATS. Aqui estão os cinco erros mais comuns que vemos — e que nossos modelos eliminam automaticamente.",
+      "items": {
+        "1": {
+          "title": "Usar tabelas ou layouts multi-colunas",
+          "description": "O ATS lê texto em um fluxo único. Tabelas e colunas fazem ele mesclar conteúdo não relacionado — seu número de telefone pode acabar no campo de cargo."
+        },
+        "2": {
+          "title": "Colocar informações de contato em cabeçalhos ou rodapés",
+          "description": "Muitas plataformas ATS ignoram completamente cabeçalhos e rodapés de documentos. Se seu nome, e-mail ou telefone está apenas no cabeçalho, ele desaparece do seu perfil analisado."
+        },
+        "3": {
+          "title": "Usar rótulos criativos de seção",
+          "description": "Rótulos como \"Onde Estive\" ao invés de \"Experiência\" ou \"Minha Caixa de Ferramentas\" ao invés de \"Habilidades\" fazem o ATS pular a seção inteira. Use rótulos padrão."
+        },
+        "4": {
+          "title": "Salvar como PDF baseado em imagem ou usar fontes não padrão",
+          "description": "Se o texto não pode ser selecionado no seu PDF, o ATS não pode lê-lo. Documentos digitalizados, exportações de ferramentas de design e fontes incomuns produzem arquivos ilegíveis."
+        },
+        "5": {
+          "title": "Adicionar gráficos, ícones ou barras de habilidade",
+          "description": "Barras de progresso, classificações por estrelas e ícones para informações de contato são invisíveis para o ATS. Uma classificação de habilidade \"4 de 5 estrelas\" se torna texto em branco que pontua zero."
+        }
+      },
+      "cta": "Não tem certeza se seu currículo atual passa?",
+      "ctaLink": "Faça uma verificação gratuita de compatibilidade ATS"
+    },
+    "checklist": {
+      "title": "Checklist de Compatibilidade ATS",
+      "intro": "Antes de enviar qualquer currículo, verifique se ele atende a estes oito requisitos. Cada modelo nesta página satisfaz todos os oito automaticamente — mas se você modificar o conteúdo, tenha estas regras em mente.",
+      "items": {
+        "1": "Usa cabeçalhos de seção padrão (Experiência, Formação, Habilidades)",
+        "2": "Layout de coluna única com ordem de leitura clara de cima para baixo",
+        "3": "Sem tabelas, caixas de texto ou elementos flutuantes",
+        "4": "Informações de contato no corpo, não em cabeçalhos/rodapés",
+        "5": "Fontes web-safe padrão (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Saída em PDF com texto selecionável (não baseado em imagem)",
+        "7": "Sem gráficos, ícones ou barras de habilidade substituindo conteúdo textual",
+        "8": "Datas em formato consistente (MM/AAAA ou Mês AAAA)"
+      },
+      "outro": "Precisa de ajuda para adaptar seu currículo para uma vaga específica? Explore nossos",
+      "outroLink": "300+ exemplos de currículo por profissão"
+    },
+    "faq": {
+      "title": "Perguntas Frequentes Sobre Modelos Compatíveis com ATS",
+      "items": {
+        "1": {
+          "q": "O que significa compatível com ATS para um modelo de currículo?",
+          "a": "Um modelo compatível com ATS é projetado para que Sistemas de Rastreamento de Candidatos possam extrair com precisão seu nome, informações de contato, histórico profissional, formação e habilidades. Ele evita tabelas, layouts multi-colunas, imagens incorporadas e fontes personalizadas que causam falhas de leitura. Todos os 16 modelos nesta página são testados contra Workday, Greenhouse, Lever, iCIMS e Taleo."
+        },
+        "2": {
+          "q": "Um currículo criativo ou moderno pode ser compatível com ATS?",
+          "a": "Sim. A compatibilidade com ATS depende da estrutura subjacente, não do design visual. Um currículo pode usar cores de destaque, espaçamento personalizado e tipografia estilosa mantendo um layout de coluna única com texto selecionável que o ATS lê corretamente. Nossos modelos modernos e criativos alcançam esse equilíbrio — parecem distintos para recrutadores enquanto são lidos perfeitamente por máquinas."
+        },
+        "3": {
+          "q": "Devo enviar meu currículo como PDF ou DOCX para ATS?",
+          "a": "PDF é geralmente a escolha mais segura em 2026. Plataformas ATS modernas (Workday, Greenhouse, Lever) leem PDFs bem estruturados de forma confiável. DOCX pode introduzir inconsistências de formatação entre diferentes versões do Word. Nosso editor exporta PDFs com texto selecionável otimizados para leitura ATS — recomendamos usar PDF, a menos que a vaga solicite explicitamente DOCX."
+        },
+        "4": {
+          "q": "Como sei se meu currículo passa na triagem ATS?",
+          "a": "Use nossa ferramenta gratuita Verificador ATS para enviar seu currículo e ver como um ATS o lê. A ferramenta mostra quais campos foram corretamente analisados, quais palavras-chave corresponderam à descrição da vaga e onde ocorreram erros de leitura. Você pode testar quantas vezes precisar antes de enviar sua candidatura."
+        },
+        "5": {
+          "q": "Preciso de um modelo diferente para cada candidatura?",
+          "a": "Não — um modelo compatível com ATS funciona para todas as candidaturas. O que você deve mudar entre candidaturas é o conteúdo: adapte sua seção de habilidades, resumo profissional e tópicos de conquistas para corresponder às palavras-chave de cada descrição de vaga. A estrutura do modelo permanece a mesma; as palavras-chave mudam."
+        }
+      }
+    }
+  }
+}

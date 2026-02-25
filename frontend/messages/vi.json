@@ -1,0 +1,2123 @@
+{
+  "Meta": {
+    "title": "Công cụ tạo CV bằng AI miễn phí | Tạo CV chuẩn ATS trong vài phút | Best AI Resume",
+    "description": "Tạo CV chuyên nghiệp, tối ưu ATS trong vài phút với công cụ tạo CV bằng AI miễn phí của chúng tôi. Được hơn 50.000 chuyên gia tin dùng. Không cần đăng ký để bắt đầu."
+  },
+  "Common": {
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "close": "Đóng",
+    "search": "Tìm kiếm",
+    "submit": "Gửi",
+    "next": "Tiếp theo",
+    "back": "Quay lại",
+    "download": "Tải xuống",
+    "preview": "Xem trước",
+    "scrollToExplore": "Cuộn để khám phá",
+    "dismiss": "Bỏ qua",
+    "addLanguage": "Thêm ngôn ngữ",
+    "uploadProfilePhoto": "Tải ảnh đại diện lên",
+    "removeProfilePhoto": "Xóa ảnh đại diện",
+    "documentType": "Loại tài liệu",
+    "searchByJobTitle": "Tìm theo chức danh hoặc kỹ năng...",
+    "searchIcons": "Tìm biểu tượng...",
+    "describeTemplate": "Mô tả mẫu CV của bạn...",
+    "languagePlaceholder": "VD: Tiếng Anh, Tiếng Pháp, Tiếng Trung",
+    "templateNamePlaceholder": "VD: CV Lập trình viên Hiện đại",
+    "returningBanner": {
+      "welcomeBack": "Chào mừng bạn quay lại!",
+      "lastEdited": "Chỉnh sửa lần cuối {date}",
+      "unsavedDraft": "Bạn có bản nháp CV chưa lưu",
+      "continueEditing": "Tiếp tục chỉnh sửa"
+    }
+  },
+  "Navigation": {
+    "features": "Tính năng",
+    "templates": "Mẫu CV",
+    "pricing": "Bảng giá",
+    "blog": "Blog",
+    "careerTips": "Mẹo nghề nghiệp",
+    "careerGuides": "Hướng dẫn nghề nghiệp",
+    "resumeExamples": "Mẫu CV tham khảo",
+    "resumeExamplesDesc": "Hướng dẫn & mẫu CV theo từng ngành nghề",
+    "careerTipsDesc": "Lời khuyên chuyên gia cho sự nghiệp của bạn",
+    "blogDesc": "Mẹo, hướng dẫn và thông tin hữu ích",
+    "viewAllExamples": "Xem tất cả mẫu CV",
+    "viewAllTips": "Xem tất cả mẹo nghề nghiệp",
+    "tools": "Công cụ",
+    "coverLetter": "Tạo thư xin việc",
+    "coverLetterDesc": "Thư xin việc được tạo bằng AI",
+    "resignationLetter": "Đơn xin nghỉ việc",
+    "resignationLetterDesc": "Đơn nghỉ việc chuyên nghiệp",
+    "atsChecker": "Kiểm tra CV chuẩn ATS",
+    "atsCheckerDesc": "Kiểm tra tính tương thích ATS",
+    "mockInterview": "Phỏng vấn thử",
+    "mockInterviewDesc": "Luyện phỏng vấn với AI",
+    "resumeFormat": "Hướng dẫn định dạng CV",
+    "resumeFormatDesc": "Theo thời gian, chức năng và nhiều hơn nữa",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "getStarted": "Bắt đầu miễn phí",
+    "dashboard": "Bảng điều khiển",
+    "admin": "Quản trị",
+    "adminPanel": "Trang quản trị",
+    "profile": "Hồ sơ",
+    "resources": "Tài nguyên",
+    "compare": "So sánh",
+    "byStyle": "Theo phong cách",
+    "byFormat": "Theo định dạng",
+    "allTemplates": "Tất cả mẫu",
+    "modern": "Hiện đại",
+    "creative": "Sáng tạo",
+    "simpleClean": "Đơn giản & gọn gàng",
+    "freeResumeBuilder": "Tạo CV miễn phí",
+    "microsoftWord": "Microsoft Word",
+    "buildResumeFree": "Tạo CV miễn phí",
+    "chooseFromTemplates": "Chọn từ hơn 20 mẫu CV chuyên nghiệp",
+    "technology": "Công nghệ",
+    "business": "Kinh doanh",
+    "healthcare": "Y tế",
+    "seeAllTech": "Xem tất cả Công nghệ",
+    "seeAllBusiness": "Xem tất cả Kinh doanh",
+    "seeAllHealthcare": "Xem tất cả Y tế",
+    "resumeExamplesCount": "Hơn 300 mẫu CV",
+    "browseAll": "Xem tất cả",
+    "softwareEngineer": "Kỹ sư phần mềm",
+    "dataAnalyst": "Chuyên viên phân tích dữ liệu",
+    "devopsEngineer": "Kỹ sư DevOps",
+    "fullStackDev": "Lập trình viên Full Stack",
+    "projectManager": "Quản lý dự án",
+    "marketingManager": "Quản lý Marketing",
+    "businessAnalyst": "Chuyên viên phân tích kinh doanh",
+    "salesManager": "Quản lý kinh doanh",
+    "nurse": "Điều dưỡng",
+    "medicalAssistant": "Trợ lý y tế",
+    "pharmacist": "Dược sĩ",
+    "dentalAssistant": "Trợ lý nha khoa",
+    "guides": "Hướng dẫn",
+    "latestPosts": "Bài viết mới nhất",
+    "allCareerTips": "Tất cả mẹo nghề nghiệp",
+    "allBlog": "Tất cả bài viết",
+    "atsGuide": "Hướng dẫn CV chuẩn ATS",
+    "coverLetterGuide": "Hướng dẫn viết thư xin việc",
+    "interviewPrep": "Chuẩn bị phỏng vấn",
+    "bestResumeApps": "Ứng dụng tạo CV tốt nhất",
+    "resumeSkills": "Hướng dẫn kỹ năng cho CV",
+    "linkedinGuide": "Tối ưu hóa LinkedIn",
+    "writingServices": "Dịch vụ viết CV",
+    "freeAlternatives": "Lựa chọn miễn phí",
+    "paidAlternatives": "Lựa chọn trả phí",
+    "vsCanva": "so với Canva",
+    "vsOverleaf": "so với Overleaf",
+    "vsEuropass": "so với Europass",
+    "vsZety": "so với Zety",
+    "vsResumeIo": "so với Resume.io",
+    "vsRezi": "so với Rezi",
+    "vsLiveCareer": "so với LiveCareer",
+    "vsAdobe": "so với Adobe",
+    "vsNova": "so với Nova",
+    "chatgptComparison": "ChatGPT so với AI Builder",
+    "whyWereBetter": "Vì sao chúng tôi là công cụ miễn phí số 1",
+    "whyWereBetterDesc": "Hỗ trợ AI, tối ưu ATS, hoàn toàn miễn phí"
+  },
+  "Home": {
+    "hero": {
+      "badge": "Tạo CV bằng AI",
+      "title": "Tạo CV với AI",
+      "titleHighlight": "trong vài phút",
+      "subtitle": "Không cần đăng ký",
+      "description": "Tạo CV ấn tượng, tối ưu ATS trong vài phút với AI. Dùng thử miễn phí — chỉ đăng ký khi bạn sẵn sàng lưu.",
+      "ctaPrimary": "Tạo CV với AI",
+      "ctaSecondary": "Xem mẫu CV",
+      "noCreditCard": "Không cần thẻ tín dụng",
+      "noSignup": "Không cần đăng ký để bắt đầu",
+      "trustedBy": "Được hơn 50.000 chuyên gia tin dùng",
+      "atsScore": "Điểm ATS",
+      "aiSuggestion": "Gợi ý AI"
+    },
+    "features": {
+      "sectionTitle": "Tính năng",
+      "title": "Mọi thứ bạn cần để",
+      "titleHighlight": "có được công việc mơ ước",
+      "subtitle": "Công cụ AI mạnh mẽ kết hợp thiết kế đẹp mắt giúp bạn nổi bật giữa đám đông.",
+      "aiWriting": {
+        "title": "Viết nội dung bằng AI",
+        "description": "Để AI tạo các gạch đầu dòng hấp dẫn và tóm tắt chuyên nghiệp nhấn mạnh thành tựu của bạn."
+      },
+      "templates": {
+        "title": "Hơn 20 mẫu cao cấp",
+        "description": "Chọn từ các mẫu thiết kế chuyên nghiệp, nổi bật mà vẫn tương thích ATS."
+      },
+      "atsOptimization": {
+        "title": "Tối ưu ATS",
+        "description": "Chấm điểm ATS theo thời gian thực đảm bảo CV của bạn vượt qua hệ thống sàng lọc tự động mỗi lần."
+      },
+      "realTimePreview": {
+        "title": "Xem trước theo thời gian thực",
+        "description": "Xem thay đổi ngay lập tức khi bạn nhập. Những gì bạn thấy chính là những gì nhà tuyển dụng sẽ thấy."
+      },
+      "pdfExport": {
+        "title": "Xuất PDF",
+        "description": "Tải xuống PDF hoàn hảo sẵn sàng gửi đi. Tối ưu cho cả kỹ thuật số và in ấn."
+      },
+      "smartSuggestions": {
+        "title": "Gợi ý thông minh",
+        "description": "Nhận đề xuất thông minh về kỹ năng, từ khóa và nội dung dựa trên vị trí mục tiêu của bạn."
+      }
+    },
+    "howItWorks": {
+      "sectionTitle": "Cách thức hoạt động",
+      "title": "Ba bước để có",
+      "titleHighlight": "CV hoàn hảo",
+      "step1": {
+        "title": "Điền thông tin",
+        "description": "Nhập kinh nghiệm, học vấn và kỹ năng của bạn. AI sẽ hỗ trợ bạn từng bước."
+      },
+      "step2": {
+        "title": "Chọn mẫu",
+        "description": "Chọn từ hơn 20 mẫu thiết kế chuyên nghiệp. Xem trước theo thời gian thực khi bạn tùy chỉnh."
+      },
+      "step3": {
+        "title": "Tải PDF",
+        "description": "Xuất CV hoàn chỉnh dưới dạng PDF hoàn hảo, sẵn sàng gây ấn tượng với nhà tuyển dụng."
+      }
+    },
+    "templates": {
+      "sectionTitle": "Mẫu CV",
+      "title": "Mẫu cao cấp cho",
+      "titleHighlight": "mọi ngành nghề",
+      "viewAll": "Xem tất cả mẫu"
+    },
+    "testimonials": {
+      "sectionTitle": "Đánh giá",
+      "title": "Được yêu thích bởi chuyên gia",
+      "titleHighlight": "toàn cầu"
+    },
+    "cta": {
+      "title": "Sẵn sàng tạo",
+      "titleHighlight": "CV ấn tượng?",
+      "subtitle": "Tham gia cùng hơn 50.000 chuyên gia đã có được công việc mơ ước với Best AI Resume.",
+      "button": "Tạo CV ngay — Miễn phí",
+      "note": "Không cần đăng ký để bắt đầu"
+    },
+    "faq": {
+      "sectionTitle": "Câu hỏi thường gặp",
+      "title": "Câu hỏi",
+      "titleHighlight": "thường gặp",
+      "items": [
+        {
+          "question": "Công cụ tạo CV bằng AI này thực sự miễn phí không?",
+          "answer": "Đúng vậy! Bạn có thể tạo, chỉnh sửa và xem trước CV hoàn toàn miễn phí. Chúng tôi có các gói cao cấp cho tính năng nâng cao như tải PDF không giới hạn và thêm mẫu CV, nhưng bạn có thể tạo CV chuyên nghiệp mà không cần trả bất kỳ chi phí nào."
+        },
+        {
+          "question": "ATS là gì và tại sao nó quan trọng?",
+          "answer": "ATS (Hệ thống Theo dõi Ứng viên) là phần mềm được 99% công ty Fortune 500 sử dụng để quét và lọc CV. AI của chúng tôi đảm bảo CV của bạn được tối ưu ATS với từ khóa, định dạng và cấu trúc phù hợp để vượt qua các hệ thống sàng lọc tự động này."
+        },
+        {
+          "question": "AI hỗ trợ viết CV như thế nào?",
+          "answer": "AI phân tích chức danh công việc và kinh nghiệm của bạn để tạo các gạch đầu dòng, tóm tắt và gợi ý kỹ năng chuyên nghiệp. AI sử dụng từ khóa ngành nghề cụ thể và ngôn ngữ tập trung vào thành tựu mà nhà tuyển dụng tìm kiếm."
+        },
+        {
+          "question": "Tôi có cần đăng ký để sử dụng không?",
+          "answer": "Không cần đăng ký để bắt đầu! Bạn có thể tạo toàn bộ CV trước. Chỉ đăng ký khi muốn lưu tiến trình hoặc tải xuống. Điều này giúp bạn trải nghiệm mọi thứ hoàn toàn không rủi ro."
+        },
+        {
+          "question": "Tôi có thể tải CV dưới dạng PDF không?",
+          "answer": "Có! Xuất CV dưới dạng PDF hoàn hảo trông giống hệt bản xem trước. PDF được tối ưu cho cả ứng dụng kỹ thuật số và in trên giấy chuẩn Letter/A4."
+        },
+        {
+          "question": "Mất bao lâu để tạo một CV?",
+          "answer": "Hầu hết người dùng tạo CV chuyên nghiệp trong vòng chưa đầy 10 phút. Gợi ý AI và nội dung viết sẵn giúp tăng tốc đáng kể so với bắt đầu từ đầu."
+        }
+      ]
+    },
+    "companies": {
+      "title": "Người dùng đã được tuyển tại",
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
+    }
+  },
+  "Features": {
+    "meta": {
+      "title": "Tính năng tạo CV bằng AI - Viết thông minh, Tối ưu ATS & nhiều hơn nữa",
+      "description": "Khám phá các tính năng mạnh mẽ: viết bằng AI, chấm điểm ATS thời gian thực, hơn 50 mẫu, xuất PDF tức thì. Tạo CV chuyên nghiệp để được mời phỏng vấn."
+    }
+  },
+  "Templates": {
+    "meta": {
+      "title": "Hơn 50 mẫu CV chuyên nghiệp - Miễn phí & Chuẩn ATS",
+      "description": "Duyệt hơn 50 mẫu CV chuyên nghiệp. Thiết kế hiện đại, sáng tạo và tối giản được tối ưu cho ATS. Tùy chỉnh và tải xuống miễn phí."
+    },
+    "sectionTitle": "Mẫu CV",
+    "title": "Mẫu CV tốt nhất",
+    "titleHighlight": "năm 2026",
+    "subtitle": "Chọn chế độ chỉnh sửa và chọn từ các mẫu được thiết kế chuyên nghiệp.",
+    "searchPlaceholder": "Tìm kiếm mẫu...",
+    "templatesAvailable": "{count} mẫu có sẵn",
+    "noResults": "Không tìm thấy mẫu nào",
+    "noResultsHint": "Thử điều chỉnh tìm kiếm hoặc bộ lọc",
+    "useTemplate": "Sử dụng mẫu này",
+    "formBuilder": {
+      "title": "Trình tạo biểu mẫu",
+      "description": "Chỉnh sửa từng bước có hướng dẫn",
+      "hint": "Điền vào biểu mẫu và để mẫu CV xử lý thiết kế. Hoàn hảo cho CV chuyên nghiệp nhanh chóng."
+    },
+    "canvasEditor": {
+      "title": "Trình chỉnh sửa Canvas",
+      "description": "Tự do sáng tạo hoàn toàn",
+      "hint": "Kéo, thả và thiết kế tự do. Toàn quyền kiểm soát mọi yếu tố, như Canva cho CV."
+    },
+    "categories": {
+      "all": "Tất cả",
+      "professional": "Chuyên nghiệp",
+      "creative": "Sáng tạo",
+      "minimal": "Đơn giản và gọn gàng",
+      "modern": "Hiện đại",
+      "classic": "Cổ điển"
+    },
+    "startFromScratch": {
+      "canvas": {
+        "title": "Muốn bắt đầu từ đầu?",
+        "description": "Tạo CV hoàn toàn tùy chỉnh bằng công cụ mạnh mẽ của trình chỉnh sửa Canvas.",
+        "button": "Mở Canvas trống"
+      },
+      "builder": {
+        "title": "Muốn AI tạo CV cho bạn?",
+        "description": "Để AI tạo CV chuyên nghiệp trong vài giây dựa trên chức danh công việc của bạn.",
+        "button": "Tạo với AI"
+      }
+    }
+  },
+  "Resume": {
+    "sections": {
+      "contact": "Liên hệ",
+      "experience": "Kinh nghiệm",
+      "workExperience": "Kinh nghiệm làm việc",
+      "professionalExperience": "Kinh nghiệm chuyên môn",
+      "education": "Học vấn",
+      "skills": "Kỹ năng",
+      "coreSkills": "Kỹ năng cốt lõi",
+      "technicalSkills": "Kỹ năng kỹ thuật",
+      "languages": "Ngôn ngữ",
+      "interests": "Sở thích",
+      "strengths": "Điểm mạnh",
+      "certifications": "Chứng chỉ",
+      "awards": "Giải thưởng",
+      "projects": "Dự án",
+      "summary": "Tóm tắt",
+      "professionalSummary": "Tóm tắt chuyên môn",
+      "profile": "Hồ sơ",
+      "about": "Giới thiệu",
+      "additionalInfo": "Thông tin bổ sung",
+      "socialLinks": "Liên kết mạng xã hội",
+      "personalDetails": "Thông tin cá nhân",
+      "credentials": "Bằng cấp"
+    },
+    "labels": {
+      "present": "Hiện tại",
+      "gpa": "GPA",
+      "native": "Bản ngữ",
+      "fluent": "Thành thạo",
+      "advanced": "Nâng cao",
+      "intermediate": "Trung cấp",
+      "basic": "Cơ bản"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "Về Best AI Resume - Sứ mệnh thay đổi tìm kiếm việc làm",
+      "description": "Tìm hiểu về Best AI Resume - nền tảng hỗ trợ AI giúp hàng nghìn người có được công việc mơ ước. Sứ mệnh, giá trị và cam kết cho sự nghiệp của bạn."
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Chính sách bảo mật - Best AI Resume",
+      "description": "Tìm hiểu cách Best AI Resume bảo vệ dữ liệu của bạn. Chính sách bảo mật giải thích cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn."
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "Điều khoản dịch vụ - Best AI Resume",
+      "description": "Đọc điều khoản dịch vụ của Best AI Resume. Hiểu quyền và trách nhiệm của bạn khi sử dụng nền tảng tạo CV bằng AI."
+    }
+  },
+  "Onboarding": {
+    "meta": {
+      "title": "Tạo CV của bạn - Công cụ tạo CV bằng AI",
+      "description": "Bắt đầu tạo CV chuyên nghiệp trong vài giây. Trả lời 2 câu hỏi và để AI tạo CV phù hợp, sẵn sàng cho công việc."
+    },
+    "title": "Hãy cho chúng tôi biết về bạn",
+    "subtitle": "Chỉ 2 câu hỏi và AI sẽ tạo CV hoàn hảo cho bạn",
+    "fullName": "Họ và tên",
+    "fullNamePlaceholder": "VD: Nguyễn Văn A",
+    "jobTitle": "Chức danh bạn đang ứng tuyển",
+    "jobTitlePlaceholder": "VD: Kỹ sư phần mềm, Quản lý Marketing",
+    "experienceLevel": "Cấp độ kinh nghiệm",
+    "levels": {
+      "entry": "Mới ra trường",
+      "entryDesc": "0-2 năm kinh nghiệm",
+      "mid": "Trung cấp",
+      "midDesc": "3-5 năm kinh nghiệm",
+      "senior": "Cao cấp",
+      "seniorDesc": "6-10 năm kinh nghiệm",
+      "executive": "Quản lý cấp cao",
+      "executiveDesc": "Hơn 10 năm kinh nghiệm"
+    },
+    "generate": "Tạo CV của tôi",
+    "generating": {
+      "title": "Đang tạo CV của bạn",
+      "analyzing": "Đang phân tích ngành nghề...",
+      "summary": "Đang tạo tóm tắt chuyên môn...",
+      "experience": "Đang tạo kinh nghiệm làm việc...",
+      "skills": "Đang thêm kỹ năng liên quan...",
+      "polishing": "Đang hoàn thiện CV...",
+      "almostThere": "Sắp xong...",
+      "wait": "Quá trình này thường chỉ mất vài giây..."
+    },
+    "step1": {
+      "title": "Bạn muốn tạo CV bằng cách nào?",
+      "subtitle": "Chọn phương pháp ưa thích để bắt đầu",
+      "recommended": "KHUYẾN NGHỊ",
+      "ai": {
+        "title": "Tạo với AI",
+        "description": "Cho chúng tôi biết nghề nghiệp và chúng tôi sẽ tạo CV chuyên nghiệp trong vài giây"
+      },
+      "upload": {
+        "title": "Tải CV lên",
+        "description": "Tải CV hiện tại và chúng tôi sẽ cải thiện nó"
+      },
+      "linkedin": {
+        "title": "Nhập từ LinkedIn",
+        "description": "Nhập hồ sơ LinkedIn của bạn tự động"
+      },
+      "comingSoon": "Sắp ra mắt",
+      "startBlank": "Hoặc bắt đầu với CV trống"
+    },
+    "step4": {
+      "title": "Chọn mẫu CV",
+      "subtitle": "CV đã sẵn sàng! Chọn thiết kế phù hợp phong cách của bạn.",
+      "backToEdit": "Quay lại chỉnh sửa",
+      "browseAll": "Xem tất cả mẫu",
+      "continue": "Tiếp tục đến trình chỉnh sửa"
+    },
+    "upload": {
+      "title": "Tải CV của bạn lên",
+      "subtitle": "Chúng tôi sẽ trích xuất thông tin và cải thiện bằng AI",
+      "dragDrop": "Kéo và thả CV vào đây",
+      "orBrowse": "hoặc chọn tệp",
+      "supportedFormats": "PDF hoặc DOCX (tối đa {maxSize})",
+      "validating": "Đang xác thực tệp...",
+      "uploading": "Đang tải lên...",
+      "parsing": "AI đang phân tích CV của bạn...",
+      "success": "Nhập CV thành công!",
+      "error": "Đã xảy ra lỗi",
+      "tryAgain": "Thử lại",
+      "invalidType": "Vui lòng tải lên tệp PDF hoặc DOCX",
+      "fileTooLarge": "Tệp vượt quá giới hạn {maxSize}"
+    },
+    "linkedin": {
+      "title": "Nhập từ LinkedIn",
+      "subtitle": "Xuất hồ sơ LinkedIn dưới dạng PDF và tải lên đây",
+      "step1": "Truy cập hồ sơ LinkedIn",
+      "step2": "Nhấn \"Tài nguyên\" → \"Lưu thành PDF\"",
+      "step3": "Tải lên tệp PDF đã tải xuống bên dưới",
+      "openLinkedIn": "Mở hồ sơ LinkedIn",
+      "tip": "PDF từ LinkedIn phù hợp nhất để nhập toàn bộ lịch sử công việc"
+    },
+    "word": {
+      "badge": "CV Microsoft Word",
+      "step1Title": "Bạn muốn tạo CV Word bằng cách nào?",
+      "aiDescription": "Cho chúng tôi biết nghề nghiệp và chúng tôi sẽ tạo CV Word trong vài giây",
+      "subtitle": "Chỉ 2 câu hỏi và AI sẽ tạo CV Word hoàn hảo cho bạn",
+      "startBlank": "Hoặc bắt đầu với CV Word trống",
+      "step4Title": "Chọn mẫu Word của bạn",
+      "step4Subtitle": "CV đã sẵn sàng! Chọn mẫu Microsoft Word.",
+      "continue": "Tiếp tục đến trình chỉnh sửa Word"
+    },
+    "gdocs": {
+      "badge": "CV Google Docs",
+      "step1Title": "Bạn muốn tạo CV Google Docs bằng cách nào?",
+      "aiDescription": "Cho chúng tôi biết nghề nghiệp và chúng tôi sẽ tạo CV Google Docs trong vài giây",
+      "subtitle": "Chỉ 2 câu hỏi và AI sẽ tạo CV Google Docs hoàn hảo cho bạn",
+      "startBlank": "Hoặc bắt đầu với CV Google Docs trống",
+      "step4Title": "Chọn mẫu Google Docs",
+      "step4Subtitle": "CV đã sẵn sàng! Chọn mẫu tối ưu cho Google Docs.",
+      "continue": "Tiếp tục đến trình chỉnh sửa Google Docs"
+    },
+    "main": {
+      "step1Title": "Bạn muốn bắt đầu như thế nào?",
+      "step1Subtitle": "Chọn phương pháp phù hợp nhất với bạn",
+      "recommended": "Khuyến nghị",
+      "aiTitle": "Tạo bằng AI",
+      "aiDescription": "Để AI tạo CV chuyên nghiệp cho bạn",
+      "uploadTitle": "Tải CV hiện có",
+      "uploadDescription": "Nhập và cải thiện CV của bạn",
+      "linkedinDescription": "Chuyển đổi hồ sơ LinkedIn",
+      "startBlank": "Bắt đầu với CV trống",
+      "step2Subtitle": "Chúng tôi sẽ sử dụng thông tin này để tạo CV cá nhân hóa",
+      "fullName": "Họ và tên",
+      "fullNamePlaceholder": "VD: Nguyễn Văn A",
+      "targetJobTitle": "Chức danh mục tiêu",
+      "jobTitlePlaceholder": "VD: Kỹ sư phần mềm",
+      "goBack": "Quay lại",
+      "generatingTitle": "Đang tạo CV...",
+      "processingAnalyzing": "Đang phân tích hồ sơ...",
+      "processingCrafting": "Đang viết tóm tắt chuyên môn...",
+      "processingExperience": "Đang tạo kinh nghiệm làm việc...",
+      "processingSkills": "Đang thêm kỹ năng liên quan...",
+      "processingPolishing": "Đang hoàn thiện chi tiết cuối...",
+      "processingAlmost": "Sắp xong...",
+      "step4Subtitle": "Chọn thiết kế phù hợp phong cách của bạn",
+      "uploadSubtitle": "AI sẽ phân tích CV và tạo phiên bản nâng cấp",
+      "secureNotice": "Tệp được xử lý an toàn và không lưu trữ trên máy chủ",
+      "linkedinSubtitle": "Tải hồ sơ dưới dạng PDF từ LinkedIn, sau đó tải lên đây",
+      "linkedinHowTo": "Cách xuất hồ sơ LinkedIn:",
+      "linkedinStep1": "Truy cập hồ sơ LinkedIn",
+      "linkedinStep2": "Nhấn nút \"Tài nguyên\" trên hồ sơ",
+      "linkedinStep3": "Chọn \"Lưu thành PDF\"",
+      "linkedinStep4": "Tải lên tệp PDF đã tải xuống bên dưới"
+    }
+  },
+  "Pricing": {
+    "meta": {
+      "title": "Bảng giá - Công cụ tạo CV bằng AI từ $3/tháng",
+      "description": "Chọn gói phù hợp cho hành trình tìm việc. Không phí ẩn, hủy bất cứ lúc nào. Chỉ từ $3/tháng."
+    },
+    "sectionTitle": "Bảng giá",
+    "title": "Đơn giản, minh bạch",
+    "titleHighlight": "bảng giá",
+    "subtitle": "Không phí ẩn, hủy bất cứ lúc nào.",
+    "viewComparison": "Xem so sánh đầy đủ",
+    "cancelAnytime": "Hủy bất cứ lúc nào",
+    "securePayments": "Thanh toán bảo mật qua Stripe",
+    "mostPopular": "PHỔ BIẾN NHẤT",
+    "bestValue": "GIÁ TRỊ TỐT NHẤT",
+    "billedImmediately": "Thanh toán ngay lập tức",
+    "allPlansInclude": "Tất cả gói bao gồm: Không quảng cáo • Tất cả mẫu freemium",
+    "billingToggle": {
+      "monthly": "Hàng tháng",
+      "annual": "Hàng năm",
+      "savePercent": "Tiết kiệm 20%"
+    },
+    "page": {
+      "formBuilder": "Trình tạo biểu mẫu",
+      "canvasEditor": "Trình chỉnh sửa Canvas",
+      "premiumTemplates": "Mẫu cao cấp",
+      "aiBuild": "Tạo CV bằng AI",
+      "atsOptimization": "Tối ưu ATS",
+      "prioritySupport": "Hỗ trợ ưu tiên",
+      "aiSuggestions": "Gợi ý AI",
+      "coverLetterBuilder": "Tạo thư xin việc",
+      "noAds": "Không quảng cáo",
+      "earlyAccess": "Truy cập sớm tính năng mới",
+      "cvCreations": "{count} lượt tạo CV/tháng",
+      "aiGenerations": "{count} lượt tạo AI/tháng",
+      "downloads": "{count} lượt tải/tháng",
+      "coverLetters": "{count} thư xin việc/tháng",
+      "unlimited": "Không giới hạn"
+    },
+    "comparison": {
+      "title": "So sánh các gói",
+      "feature": "Tính năng",
+      "cvCreations": "Lượt tạo CV",
+      "aiGenerations": "Lượt tạo AI",
+      "downloads": "Lượt tải",
+      "perMonth": "{count}/tháng",
+      "unlimited": "Không giới hạn",
+      "savedResumes": "CV đã lưu",
+      "templates": "Mẫu CV",
+      "all50": "Tất cả freemium",
+      "premiumPlus": "50+ & Cao cấp",
+      "aiBuild": "Tạo CV bằng AI",
+      "adFree": "Không quảng cáo"
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "cancelAnytime": {
+        "question": "Tôi có thể hủy đăng ký bất cứ lúc nào không?",
+        "answer": "Có, bạn có thể hủy đăng ký bất cứ lúc nào. Bạn vẫn giữ quyền truy cập đến hết kỳ thanh toán hiện tại."
+      },
+      "paymentMethods": {
+        "question": "Bạn chấp nhận phương thức thanh toán nào?",
+        "answer": "Chúng tôi chấp nhận tất cả thẻ tín dụng chính (Visa, MasterCard, American Express) qua Stripe. PayPal sẽ sớm ra mắt."
+      },
+      "starterOneTime": {
+        "question": "Thanh toán hoạt động như thế nào?",
+        "answer": "Tất cả gói được thanh toán ngay khi đăng ký. Gói hàng tháng gia hạn mỗi tháng, gói hàng năm gia hạn hàng năm. Bạn có thể hủy bất cứ lúc nào từ cài đặt tài khoản."
+      },
+      "runOutDownloads": {
+        "question": "Khi tôi đạt đến giới hạn thì sao?",
+        "answer": "Khi bạn đạt giới hạn tạo CV hoặc tạo AI hàng tháng, bạn có thể nâng cấp gói cao hơn. Giới hạn được đặt lại vào đầu mỗi kỳ thanh toán."
+      },
+      "switchPlans": {
+        "question": "Tôi có thể chuyển đổi giữa các gói không?",
+        "answer": "Hoàn toàn được. Bạn có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào. Thay đổi có hiệu lực ngay lập tức và chi phí sẽ được tính theo tỷ lệ."
+      },
+      "refunds": {
+        "question": "Bạn có hoàn tiền không?",
+        "answer": "Chúng tôi không hoàn tiền sau khi mua. Bạn có thể hủy bất cứ lúc nào từ cài đặt tài khoản và giữ quyền truy cập đến hết kỳ thanh toán."
+      }
+    },
+    "cta": {
+      "title": "Sẵn sàng bắt đầu?",
+      "subtitle": "Tất cả gói thanh toán ngay lập tức. Hủy bất cứ lúc nào.",
+      "button": "Xem bảng giá",
+      "contactSupport": "Liên hệ hỗ trợ"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Hoàn hảo cho người tìm việc",
+      "price": "$3",
+      "period": "/tháng",
+      "annualPrice": "$29",
+      "annualPeriod": "/năm",
+      "annualMonthly": "$2,42/tháng",
+      "features": {
+        "cvCreations": "30 lượt tạo CV/tháng",
+        "aiGenerations": "50 lượt tạo AI/tháng",
+        "downloads": "3 lượt tải/tháng",
+        "templates": "Tất cả mẫu freemium",
+        "noAds": "Không quảng cáo",
+        "export": "Xuất PDF"
+      },
+      "cta": "Bắt đầu"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Cho người tìm việc tích cực",
+      "price": "$6",
+      "period": "/tháng",
+      "annualPrice": "$58",
+      "annualPeriod": "/năm",
+      "annualMonthly": "$4,83/tháng",
+      "features": {
+        "cvCreations": "150 lượt tạo CV/tháng",
+        "aiGenerations": "100 lượt tạo AI/tháng",
+        "downloads": "10 lượt tải/tháng",
+        "templates": "Tất cả mẫu freemium",
+        "noAds": "Không quảng cáo",
+        "ats": "Tối ưu ATS"
+      },
+      "cta": "Bắt đầu"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Tốt nhất cho chuyên gia",
+      "price": "$10",
+      "period": "/tháng",
+      "annualPrice": "$96",
+      "annualPeriod": "/năm",
+      "annualMonthly": "$8/tháng",
+      "features": {
+        "cvCreations": "300 lượt tạo CV/tháng",
+        "aiGenerations": "200 lượt tạo AI/tháng",
+        "downloads": "25 lượt tải/tháng",
+        "templates": "Tất cả mẫu + Cao cấp",
+        "support": "Hỗ trợ ưu tiên",
+        "coverLetter": "Tạo thư xin việc"
+      },
+      "cta": "Bắt đầu"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "Cho người dùng chuyên sâu & doanh nghiệp",
+      "price": "$30",
+      "period": "/tháng",
+      "annualPrice": "$288",
+      "annualPeriod": "/năm",
+      "annualMonthly": "$24/tháng",
+      "features": {
+        "cvCreations": "Không giới hạn lượt tạo CV",
+        "aiGenerations": "500 lượt tạo AI/tháng",
+        "downloads": "120 lượt tải/tháng",
+        "templates": "Tất cả mẫu + Cao cấp",
+        "support": "Hỗ trợ ưu tiên",
+        "coverLetter": "Tạo thư xin việc",
+        "earlyAccess": "Truy cập sớm tính năng mới"
+      },
+      "cta": "Đăng ký ngay"
+    }
+  },
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Mẹo, hướng dẫn và thông tin hữu ích cho sự nghiệp",
+    "searchPlaceholder": "Tìm kiếm bài viết...",
+    "readMore": "Đọc thêm",
+    "readingTime": "{time} phút đọc",
+    "categories": "Danh mục",
+    "allCategories": "Tất cả danh mục",
+    "relatedPosts": "Bài viết liên quan",
+    "shareOn": "Chia sẻ trên",
+    "noResults": "Không tìm thấy bài viết"
+  },
+  "Footer": {
+    "tagline": "Công cụ tạo CV bằng AI được chuyên gia toàn cầu tin dùng.",
+    "product": "Sản phẩm",
+    "company": "Công ty",
+    "legal": "Pháp lý",
+    "social": "Mạng xã hội",
+    "about": "Giới thiệu",
+    "careers": "Tuyển dụng",
+    "privacy": "Bảo mật",
+    "terms": "Điều khoản",
+    "contact": "Liên hệ",
+    "help": "Hướng dẫn sử dụng",
+    "copyright": "© {year} Best AI Resume. Bảo lưu mọi quyền.",
+    "resources": "Tài nguyên",
+    "resumeFormatGuide": "Hướng dẫn định dạng CV",
+    "canvaAlternative": "Thay thế Canva",
+    "overleafAlternative": "Thay thế Overleaf",
+    "resumeIoAlternative": "Thay thế Resume.io",
+    "reziAlternative": "Thay thế Rezi",
+    "builder": "Tạo CV",
+    "templateCategories": "Mẫu CV",
+    "compare": "So sánh",
+    "googleDocs": "Mẫu Google Docs",
+    "simpleClean": "Đơn giản & gọn gàng",
+    "freeResumeBuilder": "Tạo CV miễn phí",
+    "microsoftWord": "Mẫu Word",
+    "modern": "Mẫu hiện đại",
+    "creative": "Mẫu sáng tạo",
+    "coverLetterGenerator": "Tạo thư xin việc bằng AI",
+    "resignationLetterGenerator": "Tạo đơn nghỉ việc bằng AI",
+    "buildResumeFree": "Tạo CV miễn phí",
+    "zetyAlternative": "Thay thế Zety",
+    "livecareerAlternative": "Thay thế LiveCareer",
+    "adobeAlternative": "Thay thế Adobe",
+    "novaAlternative": "Thay thế Nova",
+    "europassAlternative": "Thay thế Europass",
+    "chatgptComparison": "So sánh với ChatGPT",
+    "resumeExamples": "Mẫu CV tham khảo",
+    "softwareEngineer": "Kỹ sư phần mềm",
+    "nurse": "Điều dưỡng",
+    "projectManager": "Quản lý dự án",
+    "marketingManager": "Quản lý Marketing",
+    "dataAnalyst": "Chuyên viên phân tích dữ liệu",
+    "accountant": "Kế toán",
+    "viewAll300": "Xem tất cả 300+",
+    "careerGuides": "Hướng dẫn nghề nghiệp",
+    "careerGuidance": "Định hướng nghề nghiệp",
+    "jobSearchStrategy": "Chiến lược tìm việc",
+    "careerDevelopmentPlan": "Kế hoạch phát triển sự nghiệp",
+    "highPayingSkills": "Kỹ năng lương cao",
+    "interviewPreparation": "Chuẩn bị phỏng vấn",
+    "salaryNegotiation": "Đàm phán lương"
+  },
+  "Auth": {
+    "meta": {
+      "loginTitle": "Đăng nhập - Best AI Resume",
+      "loginDescription": "Đăng nhập tài khoản Best AI Resume để truy cập CV đã lưu và tiếp tục xây dựng.",
+      "registerTitle": "Tạo tài khoản - Best AI Resume",
+      "registerDescription": "Tạo tài khoản miễn phí để lưu CV, truy cập mẫu cao cấp và mở khóa tính năng AI."
+    },
+    "login": "Đăng nhập",
+    "register": "Tạo tài khoản",
+    "email": "Địa chỉ email",
+    "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "noAccount": "Chưa có tài khoản?",
+    "hasAccount": "Đã có tài khoản?",
+    "signUp": "Đăng ký",
+    "signIn": "Đăng nhập",
+    "fullName": "Họ và tên",
+    "welcomeBack": "Chào mừng trở lại",
+    "welcomeBackSubtitle": "Đăng nhập để tiếp tục xây dựng CV",
+    "createAccount": "Tạo tài khoản",
+    "createAccountSubtitle": "Bắt đầu tạo CV chuyên nghiệp ngay hôm nay",
+    "continueWithGoogle": "Tiếp tục với Google",
+    "continueWithGitHub": "Tiếp tục với GitHub",
+    "continueWithLinkedIn": "Tiếp tục với LinkedIn",
+    "orContinueWith": "hoặc tiếp tục với email",
+    "verifyEmail": "Xác minh email",
+    "verificationCodeSent": "Chúng tôi đã gửi mã 6 chữ số đến",
+    "enterFullCode": "Vui lòng nhập đủ mã 6 chữ số",
+    "verificationFailed": "Xác minh thất bại. Vui lòng thử lại.",
+    "resendFailed": "Không thể gửi lại mã. Vui lòng thử lại.",
+    "verifying": "Đang xác minh...",
+    "verifyAndContinue": "Xác minh & tiếp tục",
+    "didntReceiveCode": "Chưa nhận được mã?",
+    "resendIn": "Gửi lại sau",
+    "resendCode": "Gửi lại mã",
+    "wrongEmail": "Sai email?",
+    "changeEmail": "Đổi email"
+  },
+  "Errors": {
+    "notFound": "Không tìm thấy trang",
+    "serverError": "Đã xảy ra lỗi",
+    "unauthorized": "Vui lòng đăng nhập để tiếp tục"
+  },
+  "LanguageSwitcher": {
+    "label": "Chọn ngôn ngữ"
+  },
+  "Dashboard": {
+    "meta": {
+      "title": "Bảng điều khiển - CV của tôi",
+      "description": "Quản lý CV, theo dõi lượt tải và truy cập cài đặt đăng ký."
+    },
+    "welcome": "Chào mừng trở lại{name}!",
+    "subtitle": "Sẵn sàng có công việc mơ ước? Hãy tạo CV nổi bật.",
+    "stats": {
+      "resumesCreated": "CV đã tạo",
+      "downloads": "Lượt tải",
+      "coverLetters": "Thư xin việc"
+    },
+    "usage": {
+      "noPlan": "Chưa có gói",
+      "subscribeToUnlock": "Đăng ký để mở khóa",
+      "unlimited": "Không giới hạn"
+    },
+    "cta": {
+      "badge": "Tạo CV bằng AI",
+      "title": "Tạo CV hoàn hảo",
+      "createNew": "Tạo CV mới"
+    },
+    "subscription": {
+      "plan": "Gói {tier}",
+      "expiredPlan": "Gói đã hết hạn",
+      "noActivePlan": "Chưa có gói",
+      "active": "Đang hoạt động",
+      "planActive": "Gói của bạn đang hoạt động",
+      "subscribePrompt": "Đăng ký để mở khóa tải xuống",
+      "resubscribe": "Đăng ký lại",
+      "subscribe": "Đăng ký",
+      "manage": "Quản lý đăng ký"
+    },
+    "templateUsage": "Sử dụng mẫu",
+    "resumes": {
+      "title": "CV của bạn",
+      "total": "{count} tổng cộng",
+      "newResume": "CV mới",
+      "noResumes": "Chưa có CV nào",
+      "noResumesDesc": "Tạo CV đầu tiên bằng AI và bắt đầu ứng tuyển công việc mơ ước ngay hôm nay.",
+      "createFirst": "Tạo CV đầu tiên",
+      "createNew": "Tạo CV mới"
+    },
+    "resumeCard": {
+      "untitled": "CV chưa đặt tên",
+      "noName": "Chưa có tên",
+      "today": "Hôm nay",
+      "yesterday": "Hôm qua",
+      "daysAgo": "{days} ngày trước",
+      "duplicate": "Nhân bản",
+      "delete": "Xóa",
+      "deleteConfirm": "Bạn có chắc muốn xóa CV này?",
+      "edit": "Chỉnh sửa"
+    },
+    "quickActions": {
+      "softwareEngineer": "Kỹ sư phần mềm",
+      "productManager": "Quản lý sản phẩm",
+      "designer": "Nhà thiết kế",
+      "marketing": "Marketing",
+      "dataScientist": "Nhà khoa học dữ liệu",
+      "sales": "Kinh doanh"
+    },
+    "proTip": {
+      "label": "Mẹo hay",
+      "title": "Tùy chỉnh CV cho từng công việc",
+      "description": "CV được tùy chỉnh theo mô tả công việc cụ thể có khả năng được mời phỏng vấn cao gấp 3 lần. Sử dụng AI để nhanh chóng tùy chỉnh CV cho mỗi đơn ứng tuyển.",
+      "stat1Value": "3x",
+      "stat1Label": "Nhiều phỏng vấn hơn",
+      "stat2Value": "85%",
+      "stat2Label": "Tỷ lệ vượt ATS"
+    },
+    "loading": "Đang tải..."
+  },
+  "Profile": {
+    "meta": {
+      "title": "Cài đặt hồ sơ - Best AI Resume",
+      "description": "Quản lý cài đặt tài khoản, cập nhật hồ sơ và thay đổi mật khẩu."
+    },
+    "title": "Cài đặt hồ sơ",
+    "chooseAvatar": "Chọn ảnh đại diện",
+    "accountDetails": "Chi tiết tài khoản",
+    "name": "Tên",
+    "namePlaceholder": "Họ và tên",
+    "saveChanges": "Lưu thay đổi",
+    "saving": "Đang lưu...",
+    "emailAddress": "Địa chỉ email",
+    "changeEmail": "Thay đổi",
+    "newEmail": "Địa chỉ email mới",
+    "emailPlaceholder": "email@moi.com",
+    "emailChangeHint": "Mã xác minh sẽ được gửi đến email này",
+    "cancel": "Hủy",
+    "sendCode": "Gửi mã",
+    "sending": "Đang gửi...",
+    "enterCodeSentTo": "Nhập mã 6 chữ số đã gửi đến",
+    "verifyCode": "Xác minh",
+    "verifying": "Đang xác minh...",
+    "useAnotherEmail": "Sử dụng email khác",
+    "codeSent": "Mã xác minh đã gửi đến email mới",
+    "emailChanged": "Đổi email thành công",
+    "enterNewEmail": "Vui lòng nhập địa chỉ email mới",
+    "enterCode": "Vui lòng nhập mã 6 chữ số",
+    "emailChangeFailed": "Không thể gửi mã xác minh",
+    "verificationFailed": "Xác minh thất bại",
+    "changePassword": "Đổi mật khẩu",
+    "currentPassword": "Mật khẩu hiện tại",
+    "newPassword": "Mật khẩu mới",
+    "confirmPassword": "Xác nhận mật khẩu mới",
+    "passwordHint": "Ít nhất 8 ký tự",
+    "changePasswordBtn": "Đổi mật khẩu",
+    "changingPassword": "Đang thay đổi...",
+    "profileUpdated": "Cập nhật hồ sơ thành công",
+    "passwordChanged": "Đổi mật khẩu thành công",
+    "updateFailed": "Cập nhật thất bại",
+    "passwordChangeFailed": "Đổi mật khẩu thất bại",
+    "passwordMismatch": "Mật khẩu không khớp",
+    "passwordTooShort": "Mật khẩu phải có ít nhất 8 ký tự",
+    "noChanges": "Không có thay đổi để lưu"
+  },
+  "Checkout": {
+    "meta": {
+      "title": "Thanh toán - Hoàn tất đăng ký",
+      "description": "Hoàn tất đăng ký để mở khóa tính năng CV không giới hạn. Thanh toán bảo mật qua Stripe."
+    },
+    "invalidPlan": {
+      "title": "Gói không hợp lệ",
+      "description": "Gói đã chọn không hợp lệ. Vui lòng chọn gói từ trang bảng giá.",
+      "backBtn": "Quay lại bảng giá"
+    },
+    "signIn": {
+      "title": "Đăng nhập để tiếp tục",
+      "subtitle": "Đăng nhập để mua gói {plan}",
+      "signInBtn": "Đăng nhập",
+      "createAccountBtn": "Tạo tài khoản"
+    },
+    "header": {
+      "completePurchase": "Hoàn tất thanh toán",
+      "subscribePlan": "Đăng ký gói {plan}"
+    },
+    "billing": {
+      "account": "Tài khoản",
+      "billing": "Thanh toán",
+      "monthlyStarting": "Hàng tháng, bắt đầu từ hôm nay"
+    },
+    "submit": {
+      "redirecting": "Đang chuyển hướng đến Stripe...",
+      "subscribeNow": "Đăng ký ngay"
+    },
+    "secure": "Thanh toán bảo mật qua Stripe",
+    "cancelNote": "Hủy bất cứ lúc nào. Không ràng buộc dài hạn.",
+    "loading": "Đang tải thanh toán...",
+    "errors": {
+      "cancelled": "Thanh toán đã bị hủy. Bạn có thể thử lại khi sẵn sàng.",
+      "sessionExpired": "Phiên đã hết hạn. Vui lòng đăng nhập lại.",
+      "failedCheckout": "Không thể bắt đầu thanh toán. Vui lòng thử lại.",
+      "networkError": "Không thể kết nối máy chủ. Vui lòng kiểm tra kết nối internet."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$3/tháng",
+        "description": "Hoàn hảo cho người tìm việc",
+        "features": [
+          "30 lượt tạo CV/tháng",
+          "3 lượt tạo AI/tháng",
+          "3 lượt tải PDF/tháng",
+          "Tất cả mẫu freemium",
+          "Không quảng cáo"
+        ]
+      },
+      "gold": {
+        "name": "Gold",
+        "price": "$6/tháng",
+        "description": "Cho người tìm việc tích cực",
+        "features": [
+          "150 lượt tạo CV/tháng",
+          "10 lượt tạo AI/tháng",
+          "10 lượt tải PDF/tháng",
+          "Tối ưu ATS",
+          "Tạo thư xin việc"
+        ]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "price": "$10/tháng",
+        "description": "Tốt nhất cho chuyên gia",
+        "features": [
+          "300 lượt tạo CV/tháng",
+          "30 lượt tạo AI/tháng",
+          "25 lượt tải PDF/tháng",
+          "Tất cả mẫu cao cấp",
+          "Hỗ trợ ưu tiên"
+        ]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "price": "$30/tháng",
+        "description": "Cho người dùng chuyên sâu & doanh nghiệp",
+        "features": [
+          "Không giới hạn lượt tạo CV",
+          "100 lượt tạo AI/tháng",
+          "Không giới hạn tải PDF",
+          "Tất cả mẫu cao cấp",
+          "Hỗ trợ ưu tiên",
+          "Truy cập sớm tính năng mới"
+        ]
+      }
+    }
+  },
+  "CheckoutSuccess": {
+    "title": "Thanh toán thành công!",
+    "welcome": "Chào mừng đến với {plan}!",
+    "planLabel": "Gói {plan}",
+    "yourBenefits": "Quyền lợi mới của bạn",
+    "createResume": "Tạo CV",
+    "goToDashboard": "Đi đến bảng điều khiển",
+    "receiptNote": "Hóa đơn đã được gửi đến email. Bạn có thể quản lý đăng ký từ",
+    "dashboardLink": "bảng điều khiển",
+    "supportText": "Có câu hỏi? Liên hệ chúng tôi tại",
+    "loading": "Đang tải thông tin đăng ký...",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "benefits": [
+          "30 lượt tạo CV mỗi tháng",
+          "3 lượt tạo AI mỗi tháng",
+          "3 lượt tải PDF mỗi tháng",
+          "Tất cả mẫu freemium",
+          "Không quảng cáo"
+        ]
+      },
+      "gold": {
+        "name": "Gold",
+        "benefits": [
+          "150 lượt tạo CV mỗi tháng",
+          "10 lượt tạo AI mỗi tháng",
+          "10 lượt tải PDF mỗi tháng",
+          "Tối ưu ATS",
+          "Tạo thư xin việc"
+        ]
+      },
+      "diamond": {
+        "name": "Diamond",
+        "benefits": [
+          "300 lượt tạo CV mỗi tháng",
+          "30 lượt tạo AI mỗi tháng",
+          "25 lượt tải PDF mỗi tháng",
+          "Tất cả mẫu cao cấp",
+          "Hỗ trợ ưu tiên"
+        ]
+      },
+      "platinum": {
+        "name": "Platinum",
+        "benefits": [
+          "Không giới hạn lượt tạo CV",
+          "100 lượt tạo AI mỗi tháng",
+          "Không giới hạn tải PDF",
+          "Tất cả mẫu cao cấp",
+          "Hỗ trợ ưu tiên",
+          "Truy cập sớm tính năng mới"
+        ]
+      }
+    }
+  },
+  "CanvasEditor": {
+    "meta": {
+      "title": "Trình chỉnh sửa Canvas CV - Thiết kế CV trực quan | Best AI Resume",
+      "description": "Thiết kế CV với trình chỉnh sửa canvas trực quan. Kéo thả văn bản, hình ảnh và hình dạng để tạo bố cục CV độc đáo."
+    },
+    "loading": "Đang tải trình chỉnh sửa Canvas...",
+    "desktop": {
+      "title": "Cần máy tính",
+      "description": "Trình chỉnh sửa Canvas yêu cầu màn hình lớn hơn để thiết kế chính xác. Vui lòng sử dụng laptop hoặc máy tính để bàn.",
+      "useBuilder": "Sử dụng trình tạo chuẩn",
+      "backToDashboard": "Quay lại bảng điều khiển",
+      "mobileNote": "Trình tạo CV chuẩn hoạt động tốt trên di động!"
+    },
+    "header": {
+      "backToBuilder": "Quay lại trình tạo",
+      "backToTemplates": "Quay lại mẫu Canvas",
+      "title": "Trình chỉnh sửa Canvas",
+      "beta": "Beta",
+      "elements": "{count} phần tử",
+      "postToCommunity": "Đăng lên cộng đồng"
+    },
+    "shortcuts": "V Select | T Text | Delete Remove | Cmd+D Duplicate | Cmd+Z Undo | Double-click text to edit",
+    "toolbar": {
+      "select": "Chọn (V)",
+      "text": "Văn bản (T)",
+      "image": "Hình ảnh (I)",
+      "shape": "Hình dạng (S)",
+      "rectangle": "Hình chữ nhật",
+      "circle": "Hình tròn",
+      "star": "Ngôi sao",
+      "line": "Đường thẳng",
+      "undo": "Hoàn tác (Cmd+Z)",
+      "redo": "Làm lại (Cmd+Shift+Z)",
+      "duplicate": "Nhân bản (Cmd+D)",
+      "delete": "Xóa",
+      "bringToFront": "Đưa lên trước",
+      "sendToBack": "Đưa ra sau",
+      "zoomOut": "Thu nhỏ",
+      "zoomIn": "Phóng to",
+      "aiGenerate": "Tạo bằng AI",
+      "aiGenerateTitle": "Tạo tóm tắt bằng AI",
+      "save": "Lưu dự án (Cmd+S)",
+      "load": "Tải dự án",
+      "export": "Xuất",
+      "downloadPdf": "Tải PDF",
+      "downloadPng": "Tải PNG",
+      "downloadJpeg": "Tải JPEG"
+    },
+    "alerts": {
+      "templateLoadFailed": "Không thể tải mẫu. Mẫu có thể đã bị xóa.",
+      "canvasNotReady": "Canvas chưa sẵn sàng. Vui lòng thử lại.",
+      "projectSaved": "Lưu dự án thành công!",
+      "noSavedProject": "Không tìm thấy dự án đã lưu.",
+      "projectLoaded": "Tải dự án thành công!",
+      "projectLoadFailed": "Không thể tải dự án."
+    },
+    "downloadModal": {
+      "title": "Đăng nhập để tải xuống",
+      "description": "Tạo tài khoản miễn phí để tải thiết kế canvas dưới dạng {format}.",
+      "savedTitle": "Công việc đã được lưu",
+      "savedNotice": "Dự án canvas đã được lưu trong trình duyệt. Nó sẽ ở ngay đây khi bạn quay lại sau khi đăng nhập.",
+      "signUp": "Đăng ký — Miễn phí",
+      "signInPrefix": "Đã có tài khoản?",
+      "signInLink": "Đăng nhập",
+      "restored": "Dự án canvas đã được khôi phục! Nhấn Xuất để tải xuống."
+    }
+  },
+  "CanvasTemplates": {
+    "meta": {
+      "title": "Mẫu CV Canvas - Thiết kế CV trực quan | Best AI Resume",
+      "description": "Duyệt các mẫu CV canvas sáng tạo. Kéo, thả và tùy chỉnh mọi yếu tố với trình chỉnh sửa trực quan."
+    },
+    "sectionTitle": "Mẫu Canvas",
+    "title": "Mẫu CV",
+    "titleHighlight": "Canvas",
+    "subtitle": "Thiết kế CV với tự do sáng tạo hoàn toàn. Kéo, thả và tùy chỉnh mọi yếu tố trong trình chỉnh sửa trực quan.",
+    "freeBadge": "Miễn phí",
+    "searchPlaceholder": "Tìm mẫu canvas...",
+    "noResults": "Không tìm thấy mẫu",
+    "noResultsHint": "Thử điều chỉnh tìm kiếm hoặc bộ lọc",
+    "useTemplate": "Sử dụng mẫu này",
+    "categories": {
+      "all": "Tất cả",
+      "professional": "Chuyên nghiệp",
+      "creative": "Sáng tạo",
+      "minimal": "Tối giản"
+    },
+    "startFromScratch": {
+      "title": "Muốn bắt đầu từ đầu?",
+      "description": "Tạo CV hoàn toàn tùy chỉnh bằng công cụ thiết kế mạnh mẽ của trình chỉnh sửa Canvas.",
+      "button": "Mở Canvas trống"
+    },
+    "formBuilderBanner": "Tìm mẫu dạng biểu mẫu?",
+    "viewFormTemplates": "Xem mẫu trình tạo biểu mẫu"
+  },
+  "Builder": {
+    "meta": {
+      "title": "Trình tạo CV - Tạo CV chuyên nghiệp trực tuyến",
+      "description": "Tạo CV chuyên nghiệp với trình chỉnh sửa dễ sử dụng. Xem trước thời gian thực, gợi ý AI và tải PDF ngay lập tức."
+    },
+    "personalInfo": {
+      "title": "Thông tin cá nhân",
+      "subtitle": "Bắt đầu với thông tin liên hệ và tóm tắt chuyên môn."
+    },
+    "profilePhoto": "Ảnh đại diện",
+    "upload": "Tải lên",
+    "change": "Thay đổi",
+    "fullName": "Họ và tên",
+    "fullNamePlaceholder": "Nguyễn Văn A",
+    "jobTitle": "Chức danh",
+    "jobTitlePlaceholder": "Kỹ sư phần mềm",
+    "email": "Email",
+    "emailPlaceholder": "nguyenvana@email.com",
+    "phone": "Điện thoại",
+    "phonePlaceholder": "+84 (0) 123 456 789",
+    "location": "Địa chỉ",
+    "locationPlaceholder": "TP. Hồ Chí Minh",
+    "website": "Website",
+    "websitePlaceholder": "nguyenvana.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/nguyenvana",
+    "nationality": "Quốc tịch",
+    "nationalityPlaceholder": "VD: Việt Nam",
+    "idDocument": "CMND / Hộ chiếu / Bằng lái xe",
+    "selectDocType": "Chọn loại",
+    "nationalId": "CMND/CCCD",
+    "passport": "Hộ chiếu",
+    "drivingLicense": "Bằng lái xe",
+    "documentNumber": "Số giấy tờ",
+    "professionalSummary": "Tóm tắt chuyên môn",
+    "summaryPlaceholder": "Kỹ sư phần mềm giàu kinh nghiệm với đam mê xây dựng ứng dụng web có khả năng mở rộng...",
+    "generateWithAI": "Tạo bằng AI",
+    "additionalInfo": "Thông tin bổ sung",
+    "socialLinks": "Liên kết mạng xã hội",
+    "customFields": {
+      "title": "Mục tùy chỉnh",
+      "subtitle": "Thêm mục tùy chỉnh với tiêu đề và nội dung riêng.",
+      "add": "Thêm mục tùy chỉnh",
+      "noCustomFields": "Chưa có mục tùy chỉnh nào.",
+      "label": "Tiêu đề mục",
+      "labelPlaceholder": "VD: Công tác tình nguyện, Sở thích, Ấn phẩm",
+      "content": "Nội dung",
+      "contentPlaceholder": "Thêm nội dung tại đây..."
+    },
+    "shapes": {
+      "circle": "Tròn",
+      "rounded": "Bo tròn",
+      "square": "Vuông"
+    },
+    "experience": {
+      "title": "Kinh nghiệm làm việc",
+      "subtitle": "Thêm kinh nghiệm làm việc liên quan.",
+      "add": "Thêm kinh nghiệm",
+      "notSpecified": "(Chưa xác định)",
+      "companyName": "Tên công ty",
+      "jobTitle": "Chức danh",
+      "company": "Công ty",
+      "city": "Thành phố",
+      "country": "Quốc gia",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày kết thúc",
+      "currentlyWork": "Tôi đang làm việc tại đây",
+      "description": "Mô tả",
+      "improveAI": "Cải thiện bằng AI",
+      "noExperience": "Chưa thêm kinh nghiệm nào.",
+      "addFirst": "Thêm vị trí đầu tiên"
+    },
+    "education": {
+      "title": "Học vấn",
+      "subtitle": "Thêm thông tin học vấn.",
+      "add": "Thêm học vấn",
+      "notSpecified": "(Chưa xác định)",
+      "degree": "Bằng cấp",
+      "school": "Trường / Đại học",
+      "cityOptional": "Thành phố (Tùy chọn)",
+      "countryOptional": "Quốc gia (Tùy chọn)",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày kết thúc",
+      "gpaOptional": "GPA (Tùy chọn)",
+      "honorsOptional": "Danh hiệu (Tùy chọn)",
+      "clubsOptional": "Câu lạc bộ & Hoạt động (Tùy chọn)",
+      "descriptionOptional": "Mô tả (Tùy chọn)",
+      "noEducation": "Chưa thêm học vấn nào.",
+      "addEducation": "Thêm học vấn",
+      "credentials": "Bằng cấp",
+      "certifications": "Chứng chỉ",
+      "awards": "Giải thưởng & Thành tích"
+    },
+    "skills": {
+      "title": "Kỹ năng",
+      "subtitle": "Thêm kỹ năng kỹ thuật và kỹ năng mềm với mức độ thành thạo.",
+      "placeholder": "VD: React, Python, Lãnh đạo",
+      "proficiencyLevel": "Mức độ thành thạo",
+      "beginner": "Mới bắt đầu",
+      "basic": "Cơ bản",
+      "intermediate": "Trung cấp",
+      "advanced": "Nâng cao",
+      "expert": "Chuyên gia",
+      "noSkills": "Chưa thêm kỹ năng nào.",
+      "suggestedSkills": "Kỹ năng gợi ý",
+      "additionalInfo": "Thông tin bổ sung",
+      "languages": "Ngôn ngữ",
+      "strengths": "Điểm mạnh",
+      "interests": "Sở thích & Hoạt động"
+    },
+    "tabs": {
+      "personal": "Cá nhân",
+      "personalDesc": "Thông tin cơ bản & tóm tắt",
+      "experience": "Kinh nghiệm",
+      "experienceDesc": "Lịch sử làm việc",
+      "education": "Học vấn",
+      "educationDesc": "Trình độ học vấn",
+      "skills": "Kỹ năng",
+      "skillsDesc": "Chuyên môn của bạn",
+      "design": "Thiết kế",
+      "designDesc": "Phong cách & bố cục"
+    },
+    "ui": {
+      "progress": "Tiến độ",
+      "canvasEditor": "Trình chỉnh sửa Canvas",
+      "backToHome": "Quay lại trang chủ",
+      "untitledResume": "CV chưa đặt tên",
+      "downloadPdf": "Tải PDF",
+      "livePreview": "Xem trước trực tiếp",
+      "showReference": "Hiển thị hình tham chiếu",
+      "reference": "Tham chiếu",
+      "zoomOut": "Thu nhỏ",
+      "zoomIn": "Phóng to",
+      "resetZoom": "Đặt lại phóng",
+      "referenceDesign": "Thiết kế tham chiếu",
+      "referenceCaption": "Thiết kế mẫu gốc để tham khảo",
+      "editResume": "Chỉnh sửa CV",
+      "previewResume": "Xem trước CV",
+      "edit": "Chỉnh sửa",
+      "preview": "Xem trước",
+      "loadingBuilder": "Đang tải trình tạo..."
+    },
+    "welcome": {
+      "title": "Tạo tài khoản thành công!",
+      "description": "CV đã được lưu. Bạn có thể tiếp tục chỉnh sửa hoặc chọn gói để tải xuống.",
+      "choosePlan": "Chọn gói",
+      "backToEditor": "Quay lại trình chỉnh sửa"
+    },
+    "feedback": {
+      "reportIssue": "Báo cáo vấn đề",
+      "title": "Phản hồi mẫu",
+      "forTemplate": "Mẫu",
+      "typeFeedback": "Phản hồi",
+      "typeBug": "Lỗi",
+      "typeSuggestion": "Ý tưởng",
+      "placeholder": "Mô tả vấn đề hoặc chia sẻ phản hồi về mẫu này...",
+      "messageTooShort": "Tin nhắn phải có ít nhất 5 ký tự",
+      "submitError": "Không thể gửi phản hồi. Vui lòng thử lại.",
+      "submit": "Gửi",
+      "cancel": "Hủy",
+      "close": "Đóng",
+      "thankYou": "Cảm ơn bạn!",
+      "thankYouDesc": "Phản hồi đã được gửi. Chúng tôi xem xét tất cả báo cáo để cải thiện mẫu CV."
+    }
+  },
+  "GDocsBuilder": {
+    "badge": "Google Docs",
+    "downloadButton": "Tải cho Google Docs",
+    "loading": "Đang tải trình tạo Google Docs..."
+  },
+  "WordBuilder": {
+    "badge": "DOCX",
+    "downloadButton": "Tải MS Word",
+    "loading": "Đang tải trình tạo Word..."
+  },
+  "CoverLetter": {
+    "meta": {
+      "title": "Tạo thư xin việc bằng AI miễn phí - Thư xin việc chuyên nghiệp",
+      "description": "Tạo thư xin việc chuyên nghiệp, cá nhân hóa trong vài phút với công cụ AI miễn phí. Nổi bật giữa đám đông và nhận được nhiều lời mời phỏng vấn hơn."
+    },
+    "hero": {
+      "badge": "Tạo thư xin việc bằng AI",
+      "title": "Tạo",
+      "titleHighlight": "thư xin việc hoàn hảo",
+      "subtitle": "Để AI viết thư xin việc hấp dẫn, cá nhân hóa nhấn mạnh điểm mạnh và thu hút sự chú ý của nhà tuyển dụng."
+    },
+    "form": {
+      "yourDetails": "Thông tin của bạn",
+      "fillInfo": "Điền thông tin của bạn",
+      "fullName": "Họ và tên",
+      "email": "Email",
+      "jobTitle": "Chức danh",
+      "companyName": "Tên công ty",
+      "hiringManager": "Tên quản lý tuyển dụng (Tùy chọn)",
+      "keySkills": "Kỹ năng chính",
+      "experience": "Kinh nghiệm liên quan",
+      "tone": "Giọng văn",
+      "professional": "Chuyên nghiệp",
+      "friendly": "Thân thiện",
+      "confident": "Tự tin",
+      "enthusiastic": "Nhiệt tình",
+      "generate": "Tạo thư xin việc",
+      "generating": "Đang tạo...",
+      "fullNamePlaceholder": "Nguyễn Văn A",
+      "emailPlaceholder": "nguyenvana@email.com",
+      "jobTitlePlaceholder": "Kỹ sư phần mềm",
+      "companyPlaceholder": "Google",
+      "hiringManagerPlaceholder": "Trần Thị B",
+      "skillsPlaceholder": "React, Node.js, Lãnh đạo nhóm",
+      "experiencePlaceholder": "Tôi đã dẫn dắt nhóm 5 lập trình viên hoàn thành ra mắt sản phẩm lớn..."
+    },
+    "preview": {
+      "title": "Xem trước",
+      "subtitle": "Thư đã tạo",
+      "noLetter": "Chưa tạo thư nào",
+      "fillAndGenerate": "Điền thông tin và nhấn Tạo",
+      "copy": "Sao chép",
+      "copied": "Đã sao chép!",
+      "download": "Tải xuống"
+    },
+    "tips": {
+      "title": "Mẹo để viết",
+      "titleHighlight": "thư xin việc xuất sắc",
+      "beSpecific": "Cụ thể",
+      "beSpecificDesc": "Tùy chỉnh thư cho từng công việc và công ty cụ thể. Thư chung chung dễ bị nhận ra.",
+      "showResults": "Nêu kết quả",
+      "showResultsDesc": "Bao gồm thành tích có thể đo lường. Con số làm thành tựu trở nên cụ thể và đáng nhớ.",
+      "keepConcise": "Ngắn gọn",
+      "keepConciseDesc": "Nhắm đến 3-4 đoạn. Nhà tuyển dụng chỉ dành vài giây quét mỗi đơn ứng tuyển."
+    },
+    "cta": {
+      "title": "Cần CV nữa không?",
+      "subtitle": "Kết hợp thư xin việc với CV được thiết kế chuyên nghiệp bằng AI.",
+      "button": "Tạo CV"
+    },
+    "errors": {
+      "signInRequired": "Vui lòng đăng nhập để tạo thư xin việc",
+      "limitReached": "Bạn đã đạt giới hạn thư xin việc. Nâng cấp gói để tạo thêm.",
+      "subscriptionRequired": "Cần đăng ký để tạo thư xin việc. Vui lòng nâng cấp gói.",
+      "signInNow": "Đăng nhập ngay",
+      "viewPlans": "Xem bảng giá"
+    },
+    "externalResources": {
+      "title": "Tài nguyên bên ngoài",
+      "blsCareerOutlook": "Cục Thống kê Lao động: Triển vọng nghề nghiệp",
+      "shrmHrResources": "SHRM: Tài nguyên nhân sự & nghề nghiệp"
+    }
+  },
+  "ResignationLetter": {
+    "meta": {
+      "title": "Tạo đơn nghỉ việc bằng AI miễn phí - Đơn nghỉ việc chuyên nghiệp",
+      "description": "Tạo đơn nghỉ việc chuyên nghiệp trong vài phút. Rời công việc trong hòa nhã và duy trì quan hệ tốt với công cụ AI."
+    },
+    "hero": {
+      "badge": "Tạo đơn nghỉ việc bằng AI",
+      "title": "Viết",
+      "titleHighlight": "đơn nghỉ việc chuyên nghiệp",
+      "subtitle": "Rời công việc trong hòa nhã với đơn nghỉ việc được viết chuyên nghiệp. Duy trì quan hệ tốt và bảo vệ uy tín nghề nghiệp."
+    },
+    "noticeLabel": "Lưu ý",
+    "notice": "Thời gian thông báo tiêu chuẩn thường là 2 tuần. Kiểm tra hợp đồng lao động để biết yêu cầu cụ thể.",
+    "form": {
+      "yourDetails": "Thông tin của bạn",
+      "fillInfo": "Điền thông tin của bạn",
+      "yourName": "Tên của bạn",
+      "currentPosition": "Vị trí hiện tại",
+      "companyName": "Tên công ty",
+      "managerName": "Tên quản lý",
+      "lastWorkingDay": "Ngày làm việc cuối cùng",
+      "reasonForLeaving": "Lý do nghỉ việc",
+      "positiveExperiences": "Trải nghiệm tích cực (Tùy chọn)",
+      "tone": "Giọng văn",
+      "professional": "Chuyên nghiệp",
+      "grateful": "Biết ơn",
+      "brief": "Ngắn gọn",
+      "warm": "Ấm áp",
+      "offerHelp": "Đề nghị hỗ trợ chuyển giao",
+      "generate": "Tạo đơn nghỉ việc",
+      "generating": "Đang tạo...",
+      "yourNamePlaceholder": "Nguyễn Văn A",
+      "currentPositionPlaceholder": "Kỹ sư phần mềm",
+      "companyPlaceholder": "Công ty ABC",
+      "managerPlaceholder": "Trần Thị B",
+      "positiveExperiencesPlaceholder": "Tôi rất thích làm việc trong dự án ra mắt sản phẩm và trân trọng sự hướng dẫn từ đội ngũ...",
+      "professionalDesc": "Trang trọng và lịch sự",
+      "gratefulDesc": "Thể hiện lòng biết ơn",
+      "briefDesc": "Ngắn gọn, đi thẳng vào vấn đề",
+      "warmDesc": "Thân thiện và cá nhân"
+    },
+    "reasons": {
+      "selectReason": "Chọn lý do (tùy chọn)",
+      "newOpportunity": "Theo đuổi cơ hội mới",
+      "careerChange": "Chuyển đổi nghề nghiệp",
+      "relocation": "Chuyển nơi ở",
+      "personal": "Lý do cá nhân",
+      "education": "Quay lại học tập",
+      "family": "Cam kết gia đình",
+      "health": "Lý do sức khỏe",
+      "retirement": "Nghỉ hưu",
+      "other": "Khác"
+    },
+    "preview": {
+      "title": "Xem trước",
+      "subtitle": "Đơn đã tạo",
+      "noLetter": "Chưa tạo đơn nào",
+      "fillAndGenerate": "Điền thông tin và nhấn Tạo",
+      "copy": "Sao chép",
+      "copied": "Đã sao chép!",
+      "download": "Tải xuống"
+    },
+    "reasonText": {
+      "newOpportunity": "Tôi đã nhận lời mời từ công ty khác",
+      "careerChange": "Tôi đã quyết định theo đuổi con đường nghề nghiệp khác",
+      "relocation": "Tôi sẽ chuyển nơi ở",
+      "personal": "vì lý do cá nhân",
+      "education": "Tôi đã quyết định quay lại học tập nâng cao",
+      "family": "vì cam kết gia đình cần sự chú ý hoàn toàn",
+      "health": "vì lý do sức khỏe",
+      "retirement": "Tôi đã quyết định nghỉ hưu",
+      "other": "vì lý do cá nhân"
+    },
+    "letter": {
+      "dearManager": "Kính gửi {name},",
+      "defaultManager": "Quản lý",
+      "lastWorkingDayPlaceholder": "[Ngày làm việc cuối]",
+      "briefBody": "Xin gửi đơn này như thông báo chính thức về việc tôi xin từ chức vị trí {position} tại {company}. Ngày làm việc cuối cùng của tôi sẽ là {lastDay}.",
+      "briefReason": "Tôi xin nghỉ việc vì {reason}.",
+      "briefClosing": "Xin cảm ơn những cơ hội đã được trao trong thời gian làm việc tại đây.",
+      "sincerely": "Trân trọng,",
+      "formalBody": "Tôi viết thư này để chính thức thông báo về việc từ chức vị trí {position} tại {company}. Ngày làm việc cuối cùng của tôi sẽ là {lastDay}.",
+      "reasonPrefix": "Sau khi cân nhắc kỹ lưỡng, {reason}.",
+      "notEasyDecision": "Đây không phải là quyết định dễ dàng, vì tôi thực sự trân trọng thời gian làm việc tại công ty.",
+      "gratefulDefault": "Tôi vô cùng biết ơn những cơ hội phát triển chuyên môn và cá nhân trong thời gian làm việc tại đây.",
+      "warmDefault": "Làm việc cùng bạn và cả nhóm là trải nghiệm tuyệt vời mà tôi sẽ luôn trân trọng.",
+      "learnedAppreciate": "Tôi đã học được rất nhiều và sẽ luôn trân trọng sự hỗ trợ và hướng dẫn đã nhận được.",
+      "transitionHelp": "Trong thời gian chuyển giao, tôi cam kết đảm bảo việc bàn giao trách nhiệm diễn ra suôn sẻ. Tôi sẵn sàng hỗ trợ đào tạo người thay thế hoặc ghi chép lại các dự án và quy trình hiện tại.",
+      "thankYouClosing": "Xin cảm ơn những cơ hội phát triển chuyên môn và cá nhân mà bạn đã mang lại trong suốt thời gian tôi làm việc. Tôi chúc {company} tiếp tục thành công và hy vọng giữ liên lạc.",
+      "warmRegards": "Thân ái,",
+      "sincereGratitude": "Với lòng biết ơn chân thành,"
+    },
+    "tips": {
+      "title": "Nghỉ việc",
+      "titleHighlight": "đúng cách",
+      "giveNotice": "Thông báo trước",
+      "giveNoticeDesc": "Thông báo ít nhất 2 tuần trước hoặc theo điều khoản hợp đồng.",
+      "stayProfessional": "Giữ chuyên nghiệp",
+      "stayProfessionalDesc": "Tránh cảm xúc. Lịch sự và tích cực.",
+      "documentIt": "Ghi chép lại",
+      "documentItDesc": "Luôn gửi đơn nghỉ việc bằng văn bản để lưu hồ sơ.",
+      "leaveWell": "Rời đi tốt đẹp",
+      "leaveWellDesc": "Hoàn thành công việc đang dở và đề nghị đào tạo người thay thế."
+    },
+    "cta": {
+      "title": "Sẵn sàng cho cơ hội tiếp theo?",
+      "subtitle": "Tạo CV chuyên nghiệp cho hành trình tìm việc với công cụ tạo CV bằng AI.",
+      "button": "Tạo CV"
+    },
+    "externalResources": {
+      "title": "Tài nguyên bên ngoài",
+      "shrmWorkplace": "SHRM: Tài nguyên nhân sự & nơi làm việc",
+      "blsCareerData": "Cục Thống kê Lao động: Dữ liệu nghề nghiệp"
+    }
+  },
+  "MockInterview": {
+    "meta": {
+      "title": "Luyện phỏng vấn với AI miễn phí | Best AI Resume",
+      "description": "Luyện phỏng vấn xin việc với câu hỏi AI tùy chỉnh theo vị trí. Nhận phản hồi tức thì theo phương pháp STAR. Công cụ phỏng vấn thử miễn phí."
+    },
+    "hero": {
+      "badge": "Luyện phỏng vấn bằng AI",
+      "title": "Luyện phỏng vấn với AI",
+      "description": "Luyện tập với câu hỏi phỏng vấn AI tùy chỉnh theo vị trí và cấp độ kinh nghiệm. Nhận phản hồi tức thì theo phương pháp STAR."
+    },
+    "setup": {
+      "title": "Thiết lập phỏng vấn",
+      "jobTitle": "Chức danh",
+      "jobTitlePlaceholder": "VD: Kỹ sư phần mềm, Quản lý Marketing...",
+      "experienceLevel": "Cấp độ kinh nghiệm",
+      "levels": {
+        "entry": {
+          "label": "Mới ra trường",
+          "description": "0-2 năm kinh nghiệm"
+        },
+        "mid": {
+          "label": "Trung cấp",
+          "description": "3-6 năm kinh nghiệm"
+        },
+        "senior": {
+          "label": "Cao cấp",
+          "description": "Hơn 7 năm kinh nghiệm"
+        }
+      },
+      "questionCount": "Số câu hỏi: {count}",
+      "quick": "Nhanh (3)",
+      "thorough": "Chi tiết (10)",
+      "startButton": "Bắt đầu phỏng vấn",
+      "generating": "Đang tạo câu hỏi..."
+    },
+    "interview": {
+      "progress": "Câu hỏi {current} / {total}",
+      "yourAnswer": "Câu trả lời của bạn",
+      "answerPlaceholder": "Nhập câu trả lời tại đây. Sử dụng phương pháp STAR: Tình huống, Nhiệm vụ, Hành động, Kết quả...",
+      "answerTip": "Mẹo: Nhắm đến 3-5 câu. Sử dụng ví dụ cụ thể và định lượng kết quả khi có thể.",
+      "skip": "Bỏ qua",
+      "evaluating": "Đang đánh giá...",
+      "submitContinue": "Gửi & tiếp tục",
+      "submitFinish": "Gửi & kết thúc",
+      "starReminder": "Nhớ phương pháp STAR:",
+      "starDescription": "Cấu trúc câu trả lời với Tình huống, Nhiệm vụ, Hành động và Kết quả để có phản hồi mạnh mẽ nhất."
+    },
+    "results": {
+      "complete": "Phỏng vấn hoàn tất!",
+      "summary": "Bạn đã trả lời {answered} / {total} câu hỏi",
+      "averageScore": "Điểm trung bình:",
+      "startNew": "Bắt đầu phỏng vấn mới",
+      "bonusQuestions": "Mở khóa 10 câu hỏi luyện tập bổ sung",
+      "bonusUnlocked": "Đã mở khóa câu hỏi bổ sung!",
+      "bonusDescription": "Bạn có thể luyện tập với tối đa 10 câu hỏi mỗi phiên.",
+      "detailedFeedback": "Phản hồi chi tiết",
+      "questionLabel": "Câu hỏi {number}",
+      "strengths": "Điểm mạnh",
+      "improvements": "Cần cải thiện",
+      "sampleAnswer": "Câu trả lời mẫu",
+      "skipped": "Câu hỏi này đã bỏ qua",
+      "continuePrep": "Tiếp tục chuẩn bị",
+      "resources": {
+        "starMethod": {
+          "title": "Nắm vững phương pháp STAR",
+          "description": "Tìm hiểu cách cấu trúc câu trả lời cho câu hỏi phỏng vấn hành vi."
+        },
+        "tellMe": {
+          "title": "Cách trả lời \"Hãy giới thiệu về bản thân\"",
+          "description": "Tạo câu trả lời mở đầu hoàn hảo định hướng cho buổi phỏng vấn."
+        }
+      }
+    },
+    "errors": {
+      "enterJobTitle": "Vui lòng nhập chức danh để tiếp tục.",
+      "generateFailed": "Không thể tạo câu hỏi phỏng vấn. Vui lòng thử lại.",
+      "startFailed": "Không thể bắt đầu phỏng vấn. Vui lòng thử lại.",
+      "detailedAnswer": "Vui lòng cung cấp câu trả lời chi tiết hơn (ít nhất 20 ký tự)."
+    },
+    "externalResources": {
+      "title": "Tài nguyên bên ngoài",
+      "blsCareerOutlook": "Cục Thống kê Lao động: Triển vọng nghề nghiệp",
+      "shrmInterviewPractices": "SHRM: Thực hành phỏng vấn tốt nhất"
+    }
+  },
+  "CareerTips": {
+    "meta": {
+      "title": "Mẹo nghề nghiệp & Tư vấn CV - Hướng dẫn chuyên gia | Best AI Resume",
+      "description": "Lời khuyên nghề nghiệp chuyên gia, mẹo viết CV và chiến lược tìm việc. Tìm hiểu cách tạo CV bằng AI, thành công phỏng vấn và có được công việc mơ ước."
+    },
+    "hero": {
+      "badge": "Hướng dẫn nghề nghiệp chuyên gia",
+      "title": "Mẹo nghề nghiệp",
+      "titleHighlight": "& Tư vấn chuyên gia",
+      "subtitle": "Thành thạo viết CV, vượt qua phỏng vấn và đẩy nhanh sự nghiệp với hướng dẫn chuyên gia."
+    },
+    "featured": "Bài viết nổi bật",
+    "featuredBadge": "Nổi bật",
+    "allArticles": "Tất cả bài viết",
+    "searchPlaceholder": "Tìm kiếm bài viết...",
+    "articleCount": "{count, plural, one {# bài viết} other {# bài viết}}",
+    "noArticles": "Không tìm thấy bài viết",
+    "noArticlesHint": "Thử điều chỉnh tìm kiếm hoặc bộ lọc",
+    "categories": {
+      "title": "Danh mục",
+      "all": "Tất cả bài viết",
+      "resumeTips": "Mẹo viết CV",
+      "coverLetters": "Thư xin việc",
+      "interviews": "Mẹo phỏng vấn",
+      "jobSearch": "Tìm việc",
+      "careerAdvice": "Tư vấn nghề nghiệp",
+      "aiResume": "CV bằng AI"
+    },
+    "article": {
+      "readMore": "Đọc thêm",
+      "tableOfContents": "Mục lục",
+      "relatedArticles": "Bài viết liên quan",
+      "moreCareerTips": "Thêm mẹo nghề nghiệp",
+      "shareHelpful": "Bài viết hữu ích?",
+      "shareWithOthers": "Chia sẻ với người khác có thể cần",
+      "tags": "Thẻ:",
+      "breadcrumbHome": "Trang chủ",
+      "breadcrumbCareerTips": "Mẹo nghề nghiệp",
+      "notFound": "Không tìm thấy bài viết"
+    },
+    "cta": {
+      "title": "Sẵn sàng tạo CV?",
+      "subtitle": "Áp dụng những mẹo này với công cụ tạo CV bằng AI. Tạo CV chuyên nghiệp trong vài phút.",
+      "button": "Tạo CV ngay",
+      "sidebarTitle": "Tạo CV",
+      "sidebarSubtitle": "Tạo CV chuyên nghiệp bằng AI trong vài phút.",
+      "sidebarButton": "Bắt đầu"
+    }
+  },
+  "ResumeExamples": {
+    "meta": {
+      "title": "Mẫu CV theo chức danh | Mẫu miễn phí & Hướng dẫn 2026",
+      "description": "Duyệt hơn 50 mẫu CV chuyên nghiệp theo chức danh. Mỗi mẫu bao gồm mẫu miễn phí, kỹ năng chính và mẹo viết để có công việc mơ ước."
+    },
+    "hero": {
+      "badge": "Hướng dẫn theo ngành nghề",
+      "title": "Mẫu CV",
+      "titleHighlight": "theo chức danh",
+      "subtitle": "Tìm ngành nghề của bạn và nhận mẫu CV tùy chỉnh với mẹo dành riêng cho ngành."
+    },
+    "searchPlaceholder": "Tìm theo chức danh...",
+    "featured": "Mẫu CV nổi bật",
+    "allExamples": "Tất cả mẫu CV",
+    "noResults": "Không tìm thấy mẫu CV",
+    "noResultsHint": "Thử điều chỉnh tìm kiếm hoặc bộ lọc",
+    "cta": {
+      "title": "Sẵn sàng tạo CV ấn tượng?",
+      "subtitle": "Sử dụng công cụ tạo CV bằng AI để tạo CV chuyên nghiệp trong vài phút.",
+      "button": "Tạo CV — Miễn phí"
+    }
+  },
+  "AtsChecker": {
+    "meta": {
+      "title": "Kiểm tra CV chuẩn ATS miễn phí | Chấm điểm CV ngay | Best AI Resume",
+      "description": "Kiểm tra CV với hệ thống ATS miễn phí. Chấm điểm tức thì, phân tích từ khóa và mẹo tối ưu để vượt qua sàng lọc tự động."
+    },
+    "hero": {
+      "badge": "Kiểm tra CV chuẩn ATS miễn phí",
+      "title": "CV của bạn có",
+      "titleHighlight": "tương thích ATS không?",
+      "statistic": "75% CV bị ATS loại trước khi người thật nhìn thấy.",
+      "description": "Công cụ kiểm tra ATS miễn phí phân tích CV về lỗi định dạng, thiếu từ khóa và vấn đề tương thích gây ra bị loại tự động."
+    },
+    "tool": {
+      "title": "Kiểm tra điểm ATS của CV",
+      "description": "Tải lên CV dạng PDF hoặc DOCX và nhận điểm tương thích ATS tức thì với phản hồi chi tiết.",
+      "uploadBtn": "Nhấn để tải lên hoặc kéo thả",
+      "formats": "PDF hoặc DOCX — Tối đa 10MB",
+      "checkBtn": "Kiểm tra CV",
+      "changeFile": "Đổi tệp",
+      "analyzing": "Đang phân tích CV...",
+      "cta": "Tạo CV chuẩn ATS",
+      "subtext": "Miễn phí — không cần thẻ tín dụng"
+    },
+    "checks": {
+      "title": "Hệ thống ATS kiểm tra những gì",
+      "subtitle": "Hiểu những gì phần mềm ATS quét giúp bạn tối ưu CV để đạt khả năng hiển thị tối đa.",
+      "keywords": {
+        "title": "Khớp từ khóa",
+        "description": "ATS quét từ khóa cụ thể từ tin tuyển dụng. Thiếu từ khóa quan trọng đồng nghĩa bị loại tự động."
+      },
+      "formatting": {
+        "title": "Định dạng sạch",
+        "description": "Bố cục phức tạp, bảng và cột gây nhầm lẫn cho trình phân tích ATS. Định dạng đơn giản, một cột phân tích tốt nhất."
+      },
+      "contact": {
+        "title": "Thông tin liên hệ",
+        "description": "ATS tìm tên, email, điện thoại và địa chỉ ở định dạng tiêu chuẩn. Thiếu thông tin đồng nghĩa mất cơ hội."
+      },
+      "dates": {
+        "title": "Định dạng ngày nhất quán",
+        "description": "Hệ thống ATS phân tích ngày tháng để tính kinh nghiệm. Định dạng không nhất quán gây lỗi phân tích."
+      }
+    },
+    "checklist": {
+      "title": "Danh sách kiểm tra tối ưu ATS",
+      "subtitle": "Làm theo hướng dẫn này để tối đa hóa cơ hội vượt qua sàng lọc ATS.",
+      "doThis": "Nên làm",
+      "avoidThis": "Nên tránh",
+      "dos": {
+        "singleColumn": "Sử dụng bố cục một cột để tương thích tối đa",
+        "keywords": "Bao gồm từ khóa từ mô tả công việc một cách tự nhiên",
+        "standardHeadings": "Sử dụng tiêu đề mục tiêu chuẩn (Kinh nghiệm, Học vấn, Kỹ năng)",
+        "fileFormat": "Gửi dưới dạng PDF hoặc DOCX theo yêu cầu nhà tuyển dụng",
+        "standardFonts": "Sử dụng font chữ tiêu chuẩn như Arial, Calibri hoặc Times New Roman",
+        "spellOut": "Viết đầy đủ từ viết tắt trước, sau đó viết tắt (VD: Quản lý Dự án Chuyên nghiệp (PMP))"
+      },
+      "donts": {
+        "tables": "Không sử dụng bảng hoặc hộp văn bản cho bố cục",
+        "images": "Không đưa hình ảnh, logo hoặc đồ họa",
+        "headers": "Không đặt thông tin quan trọng trong header hoặc footer",
+        "creativeTitles": "Không dùng tiêu đề sáng tạo (VD: 'Hành trình của tôi' thay vì 'Kinh nghiệm')",
+        "fancyFonts": "Không dùng font chữ trang trí hoặc không phổ biến",
+        "lightText": "Không dùng màu chữ xám nhạt hoặc độ tương phản thấp"
+      }
+    },
+    "systems": {
+      "title": "Hệ thống ATS phổ biến",
+      "subtitle": "Mẫu của chúng tôi được kiểm tra và tối ưu cho tất cả hệ thống ATS chính được nhà tuyển dụng sử dụng trên toàn thế giới."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "whatIsAts": {
+        "question": "ATS (Hệ thống Theo dõi Ứng viên) là gì?",
+        "answer": "ATS là phần mềm được nhà tuyển dụng sử dụng để thu thập, quét và xếp hạng đơn ứng tuyển. Nó lọc CV dựa trên từ khóa, định dạng và mức độ phù hợp trước khi nhà tuyển dụng nhìn thấy. Hơn 98% công ty Fortune 500 sử dụng ATS."
+      },
+      "whyFail": {
+        "question": "Tại sao CV bị ATS loại?",
+        "answer": "Nguyên nhân phổ biến bao gồm định dạng phức tạp (bảng, cột, đồ họa), thiếu từ khóa từ mô tả công việc, tiêu đề mục không tiêu chuẩn, định dạng tệp không tương thích và thông tin đặt trong header hoặc footer mà ATS không đọc được."
+      },
+      "bestFormat": {
+        "question": "Định dạng CV nào tốt nhất cho ATS?",
+        "answer": "Bố cục sạch, một cột với tiêu đề mục tiêu chuẩn hoạt động tốt nhất. Sử dụng định dạng đơn giản, font chữ tiêu chuẩn và tránh đồ họa hoặc bảng. PDF và DOCX là định dạng tệp được chấp nhận phổ biến nhất."
+      },
+      "keywords": {
+        "question": "Làm sao tìm đúng từ khóa cho CV?",
+        "answer": "Đọc kỹ mô tả công việc và xác định kỹ năng, yêu cầu và thuật ngữ lặp lại. Đưa từ khóa này một cách tự nhiên vào CV, đặc biệt trong phần tóm tắt, kỹ năng và mô tả kinh nghiệm."
+      },
+      "twoColumn": {
+        "question": "Tôi có thể dùng CV hai cột với ATS không?",
+        "answer": "Bố cục hai cột có thể gây lỗi phân tích với nhiều hệ thống ATS. Phần mềm có thể đọc ngang qua các cột thay vì từ trên xuống, gây rối thông tin. Bố cục một cột là lựa chọn an toàn nhất."
+      },
+      "jobTitle": {
+        "question": "Tôi có nên ghi đúng chức danh trong CV không?",
+        "answer": "Có, nếu chức danh thực tế tương tự. Bao gồm đúng chức danh từ tin tuyển dụng trong CV (khi trung thực) cải thiện đáng kể khả năng khớp ATS. Bạn có thể đưa vào phần tóm tắt hoặc vị trí mục tiêu."
+      }
+    },
+    "resources": {
+      "title": "Tài nguyên liên quan",
+      "guide": {
+        "title": "Hướng dẫn viết CV chuẩn ATS",
+        "description": "Hướng dẫn từng bước viết CV vượt qua sàng lọc ATS."
+      },
+      "templates": {
+        "title": "Mẫu CV chuẩn ATS",
+        "description": "Mẫu CV được tối ưu sẵn cho tương thích ATS."
+      },
+      "examples": {
+        "title": "Mẫu CV tham khảo",
+        "description": "Xem mẫu CV thực tế cho ngành nghề của bạn."
+      }
+    },
+    "cta": {
+      "title": "Ngừng bị ATS loại",
+      "description": "Tạo CV chuyên nghiệp, tối ưu ATS trong vài phút với công cụ AI. Mọi mẫu đều được kiểm tra tương thích ATS.",
+      "button": "Tạo CV chuẩn ATS — Miễn phí"
+    },
+    "validation": {
+      "unsupportedFormat": "Chỉ hỗ trợ tệp PDF và DOCX.",
+      "fileTooLarge": "Kích thước tệp phải dưới 10MB.",
+      "genericError": "Đã xảy ra lỗi. Vui lòng thử lại."
+    },
+    "results": {
+      "scoreTitle": "Điểm tương thích ATS",
+      "recommendations": "Khuyến nghị",
+      "checkAnother": "Kiểm tra CV khác",
+      "buildAtsResume": "Tạo CV tối ưu ATS",
+      "pagesAnalyzed": "{count, plural, one {# trang đã phân tích} other {# trang đã phân tích}}",
+      "scoreExcellent": "Xuất sắc",
+      "scoreGood": "Tốt",
+      "scoreNeedsWork": "Cần cải thiện",
+      "scorePoor": "Yếu"
+    },
+    "externalResources": {
+      "title": "Tài nguyên bên ngoài",
+      "atsHowTheyWork": "Tìm hiểu ATS: Cách hoạt động",
+      "blsResumeTips": "BLS Triển vọng nghề nghiệp: Mẹo CV"
+    }
+  },
+  "Contact": {
+    "title": "Liên hệ",
+    "description": "Dù bạn có câu hỏi về tài khoản, cần trợ giúp với CV, hay muốn báo cáo vấn đề — chúng tôi luôn sẵn sàng giúp đỡ. Điền biểu mẫu bên dưới và đội ngũ sẽ phản hồi trong vòng 24 giờ.",
+    "inquiryType": "Loại yêu cầu",
+    "inquiryTypes": {
+      "general": "Yêu cầu chung",
+      "billing": "Vấn đề thanh toán",
+      "cvCreation": "Vấn đề tạo CV"
+    },
+    "name": "Tên của bạn",
+    "namePlaceholder": "Nguyễn Văn A",
+    "email": "Địa chỉ email",
+    "emailPlaceholder": "ban@email.com",
+    "subject": "Tiêu đề",
+    "subjectPlaceholder": "Chúng tôi có thể giúp gì?",
+    "message": "Tin nhắn",
+    "messagePlaceholder": "Cho chúng tôi biết thêm về yêu cầu của bạn...",
+    "submit": "Gửi tin nhắn",
+    "sending": "Đang gửi...",
+    "successTitle": "Đã gửi tin nhắn!",
+    "successMessage": "Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi trong vòng 24 giờ.",
+    "sendAnother": "Gửi tin nhắn khác",
+    "errorGeneric": "Đã xảy ra lỗi. Vui lòng thử lại sau.",
+    "errorRateLimit": "Quá nhiều yêu cầu. Vui lòng đợi trước khi thử lại."
+  },
+  "Help": {
+    "title": "Cách thức hoạt động",
+    "subtitle": "Hướng dẫn từng bước tạo CV chuyên nghiệp, từ đăng ký đến tải xuống tài liệu hoàn chỉnh.",
+    "quickNav": "Đi đến:",
+    "tipLabel": "Mẹo hay",
+    "faqLabel": "Câu hỏi thường gặp",
+    "troubleshootingLabel": "Xử lý sự cố",
+    "gettingStarted": {
+      "title": "Bắt đầu",
+      "steps": {
+        "1": {
+          "title": "Tạo tài khoản",
+          "description": "Nhấn nút Bắt đầu trên trang chủ hoặc liên kết Đăng ký trên thanh điều hướng. Bạn có thể đăng ký ngay với tài khoản Google, GitHub hoặc LinkedIn — không cần mật khẩu. Thích dùng email? Nhập tên, email và chọn mật khẩu.",
+          "tip": "Đăng nhập bằng Google hoặc LinkedIn nhanh nhất — tên và email được điền tự động."
+        },
+        "2": {
+          "title": "Xác minh email",
+          "description": "Nếu đăng ký bằng email, kiểm tra hộp thư đến từ Best AI Resume. Nhập mã xác minh 6 chữ số trên trang xác minh. Mã hết hạn sau 10 phút — nếu hết hạn, nhấn 'Gửi lại mã' để nhận mã mới.",
+          "tip": "Kiểm tra thư mục spam hoặc rác nếu không thấy email trong vòng một phút."
+        },
+        "3": {
+          "title": "Bạn đã vào",
+          "description": "Sau khi xác minh, bạn sẽ được đưa đến màn hình giới thiệu để chọn cách tạo CV đầu tiên. Tài khoản tự động lưu mọi thay đổi, nên bạn không bao giờ mất công việc — ngay cả khi đóng trình duyệt."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Tôi có cần thẻ tín dụng để đăng ký không?",
+          "a": "Không. Bạn có thể tạo tài khoản và xây dựng CV hoàn toàn miễn phí. Thẻ tín dụng chỉ cần khi chọn gói trả phí."
+        },
+        "2": {
+          "q": "Nếu tôi không nhận được mã xác minh?",
+          "a": "Kiểm tra thư mục spam/rác trước. Nếu không có, nhấn 'Gửi lại mã' trên trang xác minh. Nếu vẫn không nhận được, thử đăng ký bằng Google hoặc LinkedIn."
+        },
+        "3": {
+          "q": "Tôi có thể dùng cùng tài khoản trên nhiều thiết bị không?",
+          "a": "Có. Tài khoản và tất cả CV được lưu trên đám mây. Đăng nhập từ bất kỳ thiết bị nào và tiếp tục ngay từ nơi bạn dừng lại."
+        }
+      }
+    },
+    "buildingResume": {
+      "title": "Tạo CV",
+      "steps": {
+        "1": {
+          "title": "Chọn phương pháp",
+          "description": "Trên trang giới thiệu, bạn sẽ thấy bốn tùy chọn: Tạo bằng AI (khuyến nghị cho hầu hết), Tải CV lên (phân tích PDF hiện có), Nhập từ LinkedIn (lấy dữ liệu hồ sơ), hoặc Bắt đầu từ đầu (mẫu trống). Mỗi tùy chọn dẫn qua quy trình thiết lập ngắn trước khi mở trình tạo.",
+          "tip": "Tạo bằng AI là cách nhanh nhất để có CV hoàn chỉnh, chuyên nghiệp — bạn luôn có thể chỉnh sửa sau."
+        },
+        "2": {
+          "title": "Để AI làm việc",
+          "description": "Nếu chọn Tạo bằng AI, nhập họ tên, chức danh bạn ứng tuyển và cấp độ kinh nghiệm (mới ra trường, trung cấp hoặc cao cấp). Nhấn Tạo và AI sẽ tạo CV hoàn chỉnh với tóm tắt chuyên môn, kinh nghiệm, học vấn và kỹ năng — tất cả tùy chỉnh cho vị trí mục tiêu."
+        },
+        "3": {
+          "title": "Chọn mẫu",
+          "description": "Sau khi tạo, duyệt thư viện hơn 16 mẫu. Mẫu được phân theo danh mục: Chuyên nghiệp, Sáng tạo, Tối giản và Chuẩn ATS. Nhấn vào bất kỳ mẫu nào để xem trước với dữ liệu của bạn. Chuyển mẫu bất cứ lúc nào mà không mất nội dung.",
+          "tip": "Bạn có thể đổi mẫu bất cứ lúc nào từ trình tạo — nội dung giữ nguyên, chỉ thiết kế thay đổi."
+        },
+        "4": {
+          "title": "Chỉnh sửa & tùy chỉnh",
+          "description": "Trình tạo có các tab bên trái (Thông tin cá nhân, Kinh nghiệm, Học vấn, Kỹ năng, v.v.) và bản xem trước trực tiếp bên phải. Chỉnh sửa bất kỳ trường nào và thấy thay đổi ngay lập tức. Bạn có thể sắp xếp lại mục, thêm mục tùy chỉnh, điều chỉnh cỡ chữ và thay đổi màu nhấn."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Tôi có thể tạo nhiều CV không?",
+          "a": "Có. Bạn có thể tạo và lưu nhiều CV tùy chỉnh cho các đơn ứng tuyển khác nhau. Chuyển đổi giữa chúng từ bảng điều khiển."
+        },
+        "2": {
+          "q": "AI có tạo nội dung bằng mọi ngôn ngữ không?",
+          "a": "AI hiện tạo nội dung bằng tiếng Anh. Bạn có thể chỉnh sửa thủ công nội dung đã tạo sang bất kỳ ngôn ngữ nào sau khi tạo."
+        },
+        "3": {
+          "q": "Tôi có thể nhập hồ sơ LinkedIn không?",
+          "a": "Có. Chọn 'Nhập từ LinkedIn' trong quá trình giới thiệu. Bạn sẽ được hướng dẫn kết nối hồ sơ LinkedIn để lấy lịch sử làm việc."
+        }
+      }
+    },
+    "choosingPlan": {
+      "title": "Chọn gói",
+      "steps": {
+        "1": {
+          "title": "Truy cập trang bảng giá",
+          "description": "Nhấn Bảng giá trên thanh điều hướng hoặc truy cập trực tiếp. Bạn sẽ thấy bốn gói: Starter (miễn phí, giới hạn tải), Gold, Diamond và Platinum. Sử dụng nút chuyển đổi trên cùng để chuyển giữa thanh toán hàng tháng và hàng năm — gói hàng năm tiết kiệm đến 40%."
+        },
+        "2": {
+          "title": "Chọn gói",
+          "description": "So sánh bốn gói — Starter, Gold, Diamond và Platinum — và chọn gói phù hợp. Tất cả gói thanh toán ngay lập tức và cho bạn truy cập tức thì tất cả tính năng.",
+          "tip": "Thanh toán hàng năm tiết kiệm đến 40% so với hàng tháng — và bạn vẫn có cùng tính năng."
+        },
+        "3": {
+          "title": "Hoàn tất thanh toán",
+          "description": "Nhấn nút Bắt đầu trên gói đã chọn. Bạn sẽ được chuyển đến trang thanh toán Stripe bảo mật để nhập thông tin thẻ. Sau thanh toán, tài khoản được nâng cấp ngay và bạn có thể bắt đầu tải xuống."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Tôi có thể hủy đăng ký bất cứ lúc nào không?",
+          "a": "Có. Bạn có thể hủy từ cài đặt tài khoản bất cứ lúc nào. Bạn giữ quyền truy cập đến hết kỳ thanh toán hiện tại."
+        },
+        "2": {
+          "q": "Điều gì xảy ra khi tôi hủy?",
+          "a": "Bạn giữ quyền truy cập gói đến hết kỳ thanh toán hiện tại. Sau đó, tài khoản chuyển sang trạng thái hết hạn."
+        },
+        "3": {
+          "q": "Tôi có thể chuyển gói sau không?",
+          "a": "Có. Bạn có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào từ cài đặt tài khoản. Thay đổi có hiệu lực ngay lập tức."
+        }
+      }
+    },
+    "downloading": {
+      "title": "Tải CV",
+      "steps": {
+        "1": {
+          "title": "Nhấn Tải xuống",
+          "description": "Trong trình tạo, tìm nút Tải PDF màu xanh ở góc trên bên phải. Nhấn để mở cửa sổ tải xuống, hiển thị lượt tải còn lại trong tháng và cho phép xác nhận xuất."
+        },
+        "2": {
+          "title": "Nhận PDF",
+          "description": "CV được tạo dưới dạng PDF chất lượng cao, hoàn hảo giống hệt bản xem trước. PDF được tối ưu cho cả xem kỹ thuật số (email, cổng việc làm) và in trên giấy chuẩn Letter hoặc A4.",
+          "tip": "Để có kết quả tốt nhất, sử dụng mẫu chuẩn ATS khi ứng tuyển qua cổng việc làm trực tuyến — chúng phân tích đáng tin cậy hơn."
+        },
+        "3": {
+          "title": "Theo dõi sử dụng",
+          "description": "Mỗi gói có giới hạn tải hàng tháng được đặt lại vào ngày thanh toán. Bạn có thể kiểm tra lượt tải còn lại trong cửa sổ tải xuống hoặc cài đặt tài khoản. Nếu đạt giới hạn, nâng cấp gói bất cứ lúc nào để mở khóa thêm."
+        }
+      },
+      "faq": {
+        "1": {
+          "q": "Tôi có thể tải dạng Word/DOCX không?",
+          "a": "Có. Ngoài PDF, bạn có thể xuất CV dạng DOCX tương thích với Microsoft Word và Google Docs."
+        },
+        "2": {
+          "q": "Tại sao PDF trông hơi khác bản xem trước?",
+          "a": "Bản xem trước là bản xấp xỉ. PDF là đầu ra hoàn hảo cuối cùng. Sự khác biệt nhỏ trong hiển thị font chữ là bình thường giữa xem trước trình duyệt và PDF."
+        },
+        "3": {
+          "q": "Nếu hết lượt tải thì sao?",
+          "a": "Lượt tải được đặt lại hàng tháng. Nếu cần thêm trước khi đặt lại, bạn có thể nâng cấp gói để truy cập ngay giới hạn cao hơn."
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Xử lý sự cố",
+      "items": {
+        "1": {
+          "title": "Không thể đăng nhập",
+          "description": "Thử đặt lại mật khẩu bằng liên kết 'Quên mật khẩu' trên trang đăng nhập. Nếu đăng ký bằng Google, GitHub hoặc LinkedIn, đảm bảo bạn dùng cùng nhà cung cấp. Xóa cookie trình duyệt nếu vấn đề vẫn còn."
+        },
+        "2": {
+          "title": "Mã xác minh không đến",
+          "description": "Kiểm tra thư mục spam/rác. Mã hết hạn sau 10 phút — nhấn 'Gửi lại mã' để nhận mã mới. Nếu dùng email công ty, tường lửa IT có thể chặn email tự động. Thử dùng email cá nhân."
+        },
+        "3": {
+          "title": "Thanh toán bị từ chối",
+          "description": "Kiểm tra số thẻ, ngày hết hạn và CVV. Đảm bảo thẻ cho phép giao dịch quốc tế hoặc trực tuyến. Nếu vẫn lỗi, thử thẻ khác hoặc liên hệ ngân hàng. Tất cả thanh toán được xử lý bảo mật qua Stripe."
+        },
+        "4": {
+          "title": "PDF trông khác bản xem trước",
+          "description": "Bản xem trước là bản xấp xỉ đầu ra cuối cùng. Nếu có yếu tố trông sai, thử đổi mẫu hoặc điều chỉnh cỡ chữ trong cài đặt thiết kế. Đảm bảo trình duyệt được cập nhật."
+        },
+        "5": {
+          "title": "Thay đổi không được lưu",
+          "description": "Công việc được tự động lưu trên đám mây. Nếu thấy thay đổi chưa lưu, kiểm tra kết nối internet. Thử tải lại trang — các chỉnh sửa mới nhất sẽ xuất hiện. Nếu kết nối chậm, đợi vài giây giữa các chỉnh sửa."
+        }
+      }
+    },
+    "cta": {
+      "title": "Sẵn sàng bắt đầu?",
+      "subtitle": "Tạo CV chuyên nghiệp trong vài phút với công cụ tạo CV bằng AI.",
+      "buildButton": "Bắt đầu tạo",
+      "contactButton": "Liên hệ hỗ trợ"
+    }
+  },
+  "ATSTemplates": {
+    "meta": {
+      "title": "Mẫu CV chuẩn ATS miễn phí (2026) | Vượt qua mọi sàng lọc ATS",
+      "description": "Duyệt 16 mẫu CV chuẩn ATS miễn phí được thiết kế để vượt qua hệ thống theo dõi ứng viên. Định dạng sạch, font chữ tiêu chuẩn và bố cục dễ phân tích được kiểm tra với phần mềm ATS thực tế."
+    },
+    "breadcrumb": {
+      "home": "Trang chủ",
+      "current": "Mẫu chuẩn ATS"
+    },
+    "hero": {
+      "badge": "Tương thích ATS 100%",
+      "title": "Mẫu CV chuẩn ATS",
+      "subtitle": "97% công ty Fortune 500 sử dụng Hệ thống Theo dõi Ứng viên để lọc CV trước khi người thật nhìn thấy (Jobscan, 2024). Mỗi mẫu bên dưới được xây dựng để vượt qua sàng lọc ATS — để CV của bạn đến tay người thật, mỗi lần.",
+      "check1": "Vượt qua phân tích ATS",
+      "check2": "Miễn phí sử dụng",
+      "check3": "Tải PDF ngay lập tức"
+    },
+    "features": {
+      "title": "Tại sao mẫu của chúng tôi vượt qua sàng lọc ATS",
+      "subtitle": "Hầu hết CV bị loại trước khi người thật nhìn thấy. Mẫu của chúng tôi được thiết kế để tránh các lỗi định dạng phổ biến gây thất bại ATS.",
+      "parseable": {
+        "title": "Bố cục máy có thể phân tích",
+        "description": "Cấu trúc một cột với phân cấp mục rõ ràng mà phần mềm ATS đọc từ trên xuống dưới không bị nhầm lẫn. Không có bố cục nhiều cột gây xáo trộn thứ tự nội dung."
+      },
+      "standardHeaders": {
+        "title": "Tiêu đề mục tiêu chuẩn",
+        "description": "Sử dụng tiêu đề như \"Kinh nghiệm\" và \"Học vấn\" mà mọi ATS nhận ra — không có nhãn sáng tạo gây nhầm lẫn trình phân tích."
+      },
+      "testedATS": {
+        "title": "Kiểm tra với ATS thực tế",
+        "description": "Mỗi mẫu được kiểm tra với Workday, Greenhouse, Lever, iCIMS và Taleo — năm nền tảng xử lý phần lớn đơn ứng tuyển trực tuyến."
+      },
+      "cleanFormatting": {
+        "title": "Định dạng sạch, an toàn",
+        "description": "Không có bảng, hộp văn bản, header/footer hoặc hình ảnh nhúng gây lỗi phân tích ATS. Chỉ văn bản sạch và font chữ tiêu chuẩn được tạo dạng văn bản PDF có thể chọn."
+      }
+    },
+    "grid": {
+      "title": "Chọn mẫu chuẩn ATS của bạn",
+      "subtitle": "Tất cả 16 mẫu đều hoàn toàn tương thích ATS. Chọn bất kỳ phong cách nào — CV sẽ được phân tích chính xác.",
+      "useTemplate": "Sử dụng mẫu này"
+    },
+    "howATS": {
+      "title": "Hệ thống ATS sàng lọc CV của bạn như thế nào",
+      "intro": "Hiểu quy trình ATS giúp bạn thấy tại sao định dạng quan trọng hơn hầu hết ứng viên nhận ra. Đây là những gì xảy ra trong vài giây sau khi bạn nhấn Ứng tuyển.",
+      "step1": {
+        "title": "Tệp CV được nhận và chuyển đổi",
+        "description": "ATS nhận tệp PDF hoặc DOCX và chạy qua công cụ trích xuất văn bản. Nó cố gắng chuyển đổi tài liệu thành dữ liệu có cấu trúc — tách tên, thông tin liên hệ, lịch sử làm việc, học vấn và kỹ năng thành các trường riêng biệt. Nếu tệp sử dụng bảng, cột hoặc hình ảnh, bước trích xuất này tạo ra dữ liệu bị lỗi hoặc thiếu."
+      },
+      "step2": {
+        "title": "Nội dung được phân tích, ánh xạ và chấm điểm",
+        "description": "Sau khi trích xuất, ATS ánh xạ nội dung với mô tả công việc. Nó tìm từ khóa khớp trong kỹ năng, chức danh và mô tả kinh nghiệm. Các hệ thống như Workday và Greenhouse gán điểm mức độ phù hợp dựa trên mức độ CV khớp với yêu cầu. CV bị phân tích kém sẽ bị điểm thấp ngay cả khi bạn có mọi tiêu chuẩn."
+      },
+      "step3": {
+        "title": "Nhà tuyển dụng xem ứng viên được xếp hạng",
+        "description": "Nhà tuyển dụng thường xem 10-20 CV xếp hạng cao nhất cho mỗi vị trí. Nếu định dạng gây lỗi phân tích, bạn có thể xếp dưới ứng viên ít đủ tiêu chuẩn hơn mà CV phân tích đúng. Mẫu chuẩn ATS của chúng tôi đảm bảo trình độ được thể hiện chính xác trong xếp hạng."
+      },
+      "warning": "Quan trọng: Tương thích ATS là cần thiết nhưng chưa đủ. Bạn vẫn cần tùy chỉnh từ khóa CV cho từng mô tả công việc. Sử dụng công cụ Kiểm tra ATS để kiểm tra CV với tin tuyển dụng cụ thể sau khi chọn mẫu."
+    },
+    "cta": {
+      "title": "Tạo CV chuẩn ATS ngay",
+      "subtitle": "Chọn mẫu, thêm thông tin và tải CV vượt qua mọi sàng lọc ATS. Miễn phí, không cần đăng ký.",
+      "buildButton": "Tạo CV",
+      "checkButton": "Kiểm tra CV hiện tại",
+      "browseAll": "Xem tất cả mẫu",
+      "formatGuide": "Hướng dẫn định dạng CV",
+      "examples": "Hơn 300 mẫu CV"
+    },
+    "whatMakes": {
+      "title": "Điều gì làm mẫu CV tương thích ATS?",
+      "p1": "Mẫu CV chuẩn ATS được thiết kế để Hệ thống Theo dõi Ứng viên — phần mềm nhà tuyển dụng dùng để thu thập, sắp xếp và xếp hạng đơn ứng tuyển — có thể đọc chính xác mọi phần CV. Khi ATS không thể phân tích CV, tên, kinh nghiệm và kỹ năng có thể không hiện trên màn hình nhà tuyển dụng. Theo nghiên cứu Harvard Business School 2023, hơn 75% CV bị ATS loại trước khi người thật xem.",
+      "p2": "Nguyên nhân phổ biến nhất khiến CV bị lỗi phân tích ATS là định dạng. Bảng, bố cục nhiều cột, hộp văn bản, font chữ tùy chỉnh và đồ họa nhúng đều gây lỗi phân tích. ATS đọc CV như luồng văn bản từ trên xuống dưới. Nếu luồng bị gián đoạn bởi định dạng phức tạp, hệ thống gán sai dữ liệu — đưa chức danh vào chỗ tên công ty, hoặc bỏ mất phần kỹ năng.",
+      "p3": "16 mẫu CV của chúng tôi được thiết kế từ đầu với tương thích ATS là yêu cầu chính. Chúng sử dụng tiêu đề mục tiêu chuẩn, bố cục một cột, font chữ web an toàn và kết xuất HTML-to-PDF sạch. Mỗi mẫu đã được kiểm tra với năm nền tảng ATS phổ biến nhất: Workday, Greenhouse, Lever, iCIMS và Taleo. Kết quả là CV trông chuyên nghiệp với nhà tuyển dụng và phân tích hoàn hảo cho máy.",
+      "link1": "Cách viết CV chuẩn ATS",
+      "link2": "ATS là gì? Hướng dẫn đầy đủ",
+      "link3": "Hiểu tỷ lệ phân tích ATS"
+    },
+    "mistakes": {
+      "title": "5 lỗi định dạng khiến CV bị ATS loại",
+      "intro": "Ngay cả ứng viên giỏi cũng bị lọc khi định dạng CV gây nhầm lẫn trình phân tích ATS. Đây là năm lỗi phổ biến nhất — và mẫu của chúng tôi tự động loại bỏ.",
+      "items": {
+        "1": {
+          "title": "Sử dụng bảng hoặc bố cục nhiều cột",
+          "description": "ATS đọc văn bản theo một luồng. Bảng và cột khiến nó gộp nội dung không liên quan — số điện thoại có thể rơi vào trường chức danh."
+        },
+        "2": {
+          "title": "Đặt thông tin liên hệ trong header hoặc footer",
+          "description": "Nhiều nền tảng ATS bỏ qua header và footer tài liệu. Nếu tên, email hoặc số điện thoại chỉ nằm trong header, nó biến mất khỏi hồ sơ đã phân tích."
+        },
+        "3": {
+          "title": "Sử dụng nhãn mục sáng tạo",
+          "description": "Nhãn như \"Nơi tôi đã qua\" thay vì \"Kinh nghiệm\" hoặc \"Hộp công cụ\" thay vì \"Kỹ năng\" khiến ATS bỏ qua toàn bộ mục. Hãy dùng nhãn tiêu chuẩn."
+        },
+        "4": {
+          "title": "Lưu dạng PDF hình ảnh hoặc dùng font không tiêu chuẩn",
+          "description": "Nếu không thể chọn văn bản trong PDF, ATS không đọc được. Tài liệu scan, xuất từ công cụ thiết kế và font chữ không phổ biến đều tạo tệp không đọc được."
+        },
+        "5": {
+          "title": "Thêm đồ họa, biểu tượng hoặc thanh kỹ năng",
+          "description": "Thanh tiến trình, đánh giá sao và biểu tượng cho thông tin liên hệ đều vô hình với ATS. Đánh giá \"4/5 sao\" trở thành văn bản trống và được tính là không có kỹ năng."
+        }
+      },
+      "cta": "Chưa chắc CV hiện tại có vượt qua không?",
+      "ctaLink": "Chạy kiểm tra tương thích ATS miễn phí"
+    },
+    "checklist": {
+      "title": "Danh sách kiểm tra tương thích ATS",
+      "intro": "Trước khi gửi bất kỳ CV nào, xác minh nó đáp ứng tám yêu cầu này. Mỗi mẫu trên trang này tự động đáp ứng cả tám — nhưng nếu bạn sửa nội dung, hãy nhớ các quy tắc này.",
+      "items": {
+        "1": "Sử dụng tiêu đề mục tiêu chuẩn (Kinh nghiệm, Học vấn, Kỹ năng)",
+        "2": "Bố cục một cột với thứ tự đọc rõ ràng từ trên xuống",
+        "3": "Không có bảng, hộp văn bản hoặc phần tử nổi",
+        "4": "Thông tin liên hệ trong nội dung, không trong header/footer",
+        "5": "Font chữ web an toàn tiêu chuẩn (Arial, Calibri, Georgia, Helvetica)",
+        "6": "Đầu ra PDF có thể chọn văn bản (không phải dạng hình ảnh)",
+        "7": "Không có đồ họa, biểu tượng hoặc thanh kỹ năng thay thế nội dung văn bản",
+        "8": "Ngày tháng ở định dạng nhất quán (MM/YYYY hoặc Tháng YYYY)"
+      },
+      "outro": "Cần trợ giúp tùy chỉnh CV cho công việc cụ thể? Duyệt",
+      "outroLink": "hơn 300 mẫu CV theo ngành nghề"
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về mẫu chuẩn ATS",
+      "items": {
+        "1": {
+          "q": "Mẫu CV chuẩn ATS nghĩa là gì?",
+          "a": "Mẫu chuẩn ATS được thiết kế để Hệ thống Theo dõi Ứng viên có thể trích xuất chính xác tên, thông tin liên hệ, lịch sử làm việc, học vấn và kỹ năng. Nó tránh bảng, bố cục nhiều cột, hình ảnh nhúng và font chữ tùy chỉnh gây lỗi phân tích. Tất cả 16 mẫu trên trang này được kiểm tra với Workday, Greenhouse, Lever, iCIMS và Taleo."
+        },
+        "2": {
+          "q": "CV sáng tạo hoặc hiện đại có tương thích ATS được không?",
+          "a": "Có. Tương thích ATS phụ thuộc vào cấu trúc bên dưới, không phải thiết kế trực quan. CV có thể sử dụng màu nhấn, khoảng cách tùy chỉnh và kiểu chữ đẹp mà vẫn duy trì bố cục một cột, văn bản có thể chọn mà ATS đọc đúng. Mẫu hiện đại và sáng tạo của chúng tôi đạt được sự cân bằng này — trông nổi bật với nhà tuyển dụng trong khi phân tích hoàn hảo cho máy."
+        },
+        "3": {
+          "q": "Nên gửi CV dạng PDF hay DOCX cho ATS?",
+          "a": "PDF thường là lựa chọn an toàn nhất năm 2026. Các nền tảng ATS hiện đại (Workday, Greenhouse, Lever) phân tích PDF có cấu trúc tốt một cách đáng tin cậy. DOCX có thể gây không nhất quán định dạng giữa các phiên bản Word khác nhau. Trình tạo xuất PDF văn bản có thể chọn tối ưu cho phân tích ATS — chúng tôi khuyến nghị dùng PDF trừ khi tin tuyển dụng yêu cầu DOCX."
+        },
+        "4": {
+          "q": "Làm sao biết CV có vượt qua sàng lọc ATS không?",
+          "a": "Sử dụng công cụ Kiểm tra ATS miễn phí để tải CV lên và xem ATS đọc nó như thế nào. Công cụ cho thấy trường nào được phân tích đúng, từ khóa nào khớp mô tả công việc và lỗi phân tích ở đâu. Bạn có thể kiểm tra bao nhiêu lần tùy ý trước khi gửi đơn ứng tuyển."
+        },
+        "5": {
+          "q": "Tôi có cần mẫu khác cho mỗi đơn ứng tuyển không?",
+          "a": "Không — một mẫu chuẩn ATS hoạt động cho tất cả đơn ứng tuyển. Điều bạn nên thay đổi giữa các đơn là nội dung: tùy chỉnh phần kỹ năng, tóm tắt chuyên môn và gạch đầu dòng thành tích để khớp từ khóa mô tả công việc. Cấu trúc mẫu giữ nguyên; từ khóa thay đổi."
+        }
+      }
+    }
+  }
+}

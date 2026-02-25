@@ -1,0 +1,299 @@
+{
+  "Onboarding": {
+    "meta": {
+      "title": "Crea il Tuo CV - Generatore di CV con AI",
+      "description": "Inizia a creare il tuo CV professionale in pochi secondi. Rispondi a 2 domande e lascia che l'AI crei un CV su misura e pronto per il lavoro."
+    },
+    "title": "Parlaci di te",
+    "subtitle": "Solo 2 domande e l'AI creerà il tuo CV perfetto",
+    "fullName": "Nome e Cognome",
+    "fullNamePlaceholder": "es. Mario Rossi",
+    "jobTitle": "Titolo Professionale per cui ti Candidi",
+    "jobTitlePlaceholder": "es. Ingegnere del Software, Responsabile Marketing",
+    "experienceLevel": "Livello di Esperienza",
+    "levels": {
+      "entry": "Livello Base",
+      "entryDesc": "0-2 anni di esperienza",
+      "mid": "Livello Intermedio",
+      "midDesc": "3-5 anni di esperienza",
+      "senior": "Livello Senior",
+      "seniorDesc": "6-10 anni di esperienza",
+      "executive": "Executive",
+      "executiveDesc": "Oltre 10 anni di esperienza"
+    },
+    "generate": "Genera il Mio CV",
+    "generating": {
+      "title": "Creazione del Tuo CV",
+      "analyzing": "Analisi della tua professione...",
+      "summary": "Generazione del riepilogo professionale...",
+      "experience": "Creazione dell'esperienza lavorativa...",
+      "skills": "Aggiunta delle competenze rilevanti...",
+      "polishing": "Perfezionamento del tuo CV...",
+      "almostThere": "Quasi pronto...",
+      "wait": "Di solito ci vogliono solo pochi secondi..."
+    },
+    "step1": {
+      "title": "Come desideri creare il tuo CV?",
+      "subtitle": "Scegli il metodo che preferisci per iniziare",
+      "recommended": "CONSIGLIATO",
+      "ai": {
+        "title": "Crea con AI",
+        "description": "Dicci la tua professione e genereremo un CV professionale in pochi secondi"
+      },
+      "upload": {
+        "title": "Carica CV",
+        "description": "Carica il tuo CV esistente e lo miglioreremo"
+      },
+      "linkedin": {
+        "title": "Importa da LinkedIn",
+        "description": "Importa automaticamente il tuo profilo da LinkedIn"
+      },
+      "comingSoon": "In arrivo",
+      "startBlank": "Oppure inizia con un CV vuoto"
+    },
+    "step4": {
+      "title": "Scegli il Tuo Modello",
+      "subtitle": "Il tuo CV è pronto! Scegli un design che si adatti al tuo stile.",
+      "backToEdit": "Torna a modificare le info",
+      "browseAll": "Sfoglia tutti i modelli",
+      "continue": "Continua con l'Editor"
+    },
+    "upload": {
+      "title": "Carica il Tuo CV",
+      "subtitle": "Estrarremo le tue informazioni e le miglioreremo con l'AI",
+      "dragDrop": "Trascina e rilascia il tuo CV qui",
+      "orBrowse": "o sfoglia i file",
+      "supportedFormats": "PDF o DOCX (max {maxSize})",
+      "validating": "Validazione del file...",
+      "uploading": "Caricamento...",
+      "parsing": "L'AI sta analizzando il tuo CV...",
+      "success": "CV importato con successo!",
+      "error": "Qualcosa è andato storto",
+      "tryAgain": "Riprova",
+      "invalidType": "Carica un file PDF o DOCX",
+      "fileTooLarge": "Il file supera il limite di {maxSize}"
+    },
+    "linkedin": {
+      "title": "Importa da LinkedIn",
+      "subtitle": "Esporta il tuo profilo LinkedIn come PDF e caricalo qui",
+      "step1": "Vai al tuo profilo LinkedIn",
+      "step2": "Clicca su \"Risorse\" → \"Salva in PDF\"",
+      "step3": "Carica il PDF scaricato qui sotto",
+      "openLinkedIn": "Apri Profilo LinkedIn",
+      "tip": "I PDF di LinkedIn funzionano meglio per importare la tua storia lavorativa completa"
+    },
+    "word": {
+      "badge": "CV Microsoft Word",
+      "step1Title": "Come desideri creare il tuo CV Word?",
+      "aiDescription": "Dicci la tua professione e genereremo un CV Word in pochi secondi",
+      "subtitle": "Solo 2 domande e l'AI creerà il tuo CV Word perfetto",
+      "startBlank": "Oppure inizia con un CV Word vuoto",
+      "step4Title": "Scegli il Tuo Modello Word",
+      "step4Subtitle": "Il tuo CV è pronto! Scegli un modello Microsoft Word.",
+      "continue": "Continua con l'Editor Word"
+    },
+    "gdocs": {
+      "badge": "CV Google Docs",
+      "step1Title": "Come desideri creare il tuo CV Google Docs?",
+      "aiDescription": "Dicci la tua professione e genereremo un CV Google Docs in pochi secondi",
+      "subtitle": "Solo 2 domande e l'AI creerà il tuo CV Google Docs perfetto",
+      "startBlank": "Oppure inizia con un CV Google Docs vuoto",
+      "step4Title": "Scegli il Tuo Modello Google Docs",
+      "step4Subtitle": "Il tuo CV è pronto! Scegli un modello ottimizzato per Google Docs.",
+      "continue": "Continua con l'Editor Google Docs"
+    },
+    "main": {
+      "step1Title": "Come desideri iniziare?",
+      "step1Subtitle": "Scegli il metodo più adatto a te",
+      "recommended": "Consigliato",
+      "aiTitle": "Generazione AI",
+      "aiDescription": "Lascia che l'AI crei il tuo CV professionale",
+      "uploadTitle": "Carica Esistente",
+      "uploadDescription": "Importa e migliora il tuo CV",
+      "linkedinDescription": "Converti il tuo profilo LinkedIn",
+      "startBlank": "Inizia con un CV vuoto",
+      "step2Subtitle": "Useremo queste informazioni per creare il tuo CV personalizzato",
+      "fullName": "Nome Completo",
+      "fullNamePlaceholder": "es. Mario Rossi",
+      "targetJobTitle": "Titolo Professionale Desiderato",
+      "jobTitlePlaceholder": "es. Ingegnere del Software",
+      "goBack": "Torna indietro",
+      "generatingTitle": "Creazione del tuo CV...",
+      "processingAnalyzing": "Analisi del tuo profilo...",
+      "processingCrafting": "Elaborazione del riepilogo professionale...",
+      "processingExperience": "Generazione dell'esperienza lavorativa...",
+      "processingSkills": "Aggiunta delle competenze rilevanti...",
+      "processingPolishing": "Perfezionamento dei dettagli finali...",
+      "processingAlmost": "Quasi pronto...",
+      "step4Subtitle": "Seleziona un design che si adatti al tuo stile",
+      "uploadSubtitle": "L'AI analizzerà il tuo CV e ne creerà una versione migliorata",
+      "secureNotice": "Il tuo file viene elaborato in modo sicuro e non viene archiviato sui nostri server",
+      "linkedinSubtitle": "Scarica il tuo profilo come PDF da LinkedIn, poi caricalo qui",
+      "linkedinHowTo": "Come esportare il tuo profilo LinkedIn:",
+      "linkedinStep1": "Vai al tuo profilo LinkedIn",
+      "linkedinStep2": "Clicca il pulsante \"Risorse\" sul tuo profilo",
+      "linkedinStep3": "Seleziona \"Salva in PDF\"",
+      "linkedinStep4": "Carica il PDF scaricato qui sotto"
+    }
+  },
+  "Pricing": {
+    "meta": {
+      "title": "Piani e Prezzi - Generatore di CV con AI a Partire da $3/mese",
+      "description": "Scegli il piano perfetto per la tua ricerca di lavoro. Nessun costo nascosto, cancella in qualsiasi momento. A partire da soli $3/mese."
+    },
+    "sectionTitle": "Prezzi",
+    "title": "Prezzi semplici e",
+    "titleHighlight": "trasparenti",
+    "subtitle": "Nessun costo nascosto, cancella in qualsiasi momento.",
+    "viewComparison": "Vedi confronto completo",
+    "cancelAnytime": "Cancella in qualsiasi momento",
+    "securePayments": "Pagamenti sicuri tramite Stripe",
+    "mostPopular": "PIÙ POPOLARE",
+    "bestValue": "MIGLIOR RAPPORTO QUALITÀ-PREZZO",
+    "billedImmediately": "Addebito immediato",
+    "allPlansInclude": "Tutti i piani includono: Nessuna pubblicità • Tutti i modelli freemium",
+    "billingToggle": {
+      "monthly": "Mensile",
+      "annual": "Annuale",
+      "savePercent": "Risparmia il 20%"
+    },
+    "page": {
+      "formBuilder": "Editor con Modulo",
+      "canvasEditor": "Editor Canvas",
+      "premiumTemplates": "Modelli premium",
+      "aiBuild": "Generatore di CV con AI",
+      "atsOptimization": "Ottimizzazione ATS",
+      "prioritySupport": "Supporto prioritario",
+      "aiSuggestions": "Suggerimenti AI",
+      "coverLetterBuilder": "Generatore di lettere di presentazione",
+      "noAds": "Nessuna pubblicità",
+      "earlyAccess": "Accesso anticipato alle funzionalità",
+      "cvCreations": "{count} creazioni CV/mese",
+      "aiGenerations": "{count} generazioni AI/mese",
+      "downloads": "{count} download/mese",
+      "coverLetters": "{count} lettere di presentazione/mese",
+      "unlimited": "Illimitato"
+    },
+    "comparison": {
+      "title": "Confronta i Piani",
+      "feature": "Funzionalità",
+      "cvCreations": "Creazioni CV",
+      "aiGenerations": "Generazioni AI",
+      "downloads": "Download",
+      "perMonth": "{count}/mese",
+      "unlimited": "Illimitato",
+      "savedResumes": "CV Salvati",
+      "templates": "Modelli",
+      "all50": "Tutti freemium",
+      "premiumPlus": "50+ e Premium",
+      "aiBuild": "Generatore di CV con AI",
+      "adFree": "Senza Pubblicità"
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "cancelAnytime": {
+        "question": "Posso cancellare il mio abbonamento in qualsiasi momento?",
+        "answer": "Sì, puoi cancellare il tuo abbonamento in qualsiasi momento. Manterrai l'accesso fino alla fine del periodo di fatturazione corrente."
+      },
+      "paymentMethods": {
+        "question": "Quali metodi di pagamento accettate?",
+        "answer": "Accettiamo tutte le principali carte di credito (Visa, MasterCard, American Express) tramite Stripe. PayPal in arrivo."
+      },
+      "starterOneTime": {
+        "question": "Come funziona la fatturazione?",
+        "answer": "Tutti i piani vengono addebitati immediatamente al momento della sottoscrizione. I piani mensili si rinnovano ogni mese e i piani annuali si rinnovano ogni anno. Puoi cancellare in qualsiasi momento dalle impostazioni del tuo account."
+      },
+      "runOutDownloads": {
+        "question": "Cosa succede quando raggiungo i miei limiti?",
+        "answer": "Quando raggiungi il limite mensile di creazione CV o generazione AI, puoi passare a un piano superiore per maggiore capacità. I limiti si resettano all'inizio di ogni periodo di fatturazione."
+      },
+      "switchPlans": {
+        "question": "Posso cambiare piano?",
+        "answer": "Assolutamente. Puoi aggiornare o declassare il tuo piano in qualsiasi momento. Le modifiche hanno effetto immediato e calcoleremo il pro-rata degli addebiti."
+      },
+      "refunds": {
+        "question": "Offrite rimborsi?",
+        "answer": "Non offriamo rimborsi dopo l'acquisto. Puoi cancellare in qualsiasi momento dalle impostazioni del tuo account e manterrai l'accesso fino alla fine del periodo di fatturazione."
+      }
+    },
+    "cta": {
+      "title": "Pronto per iniziare?",
+      "subtitle": "Tutti i piani con addebito immediato. Cancella in qualsiasi momento.",
+      "button": "Vedi i Piani",
+      "contactSupport": "Contatta il Supporto"
+    },
+    "starter": {
+      "name": "Starter",
+      "description": "Perfetto per chi cerca lavoro",
+      "price": "$3",
+      "period": "/mese",
+      "annualPrice": "$29",
+      "annualPeriod": "/anno",
+      "annualMonthly": "$2,42/mese",
+      "features": {
+        "cvCreations": "30 creazioni CV/mese",
+        "aiGenerations": "50 generazioni AI/mese",
+        "downloads": "3 download/mese",
+        "templates": "Tutti i modelli freemium",
+        "noAds": "Nessuna pubblicità",
+        "export": "Esportazione PDF"
+      },
+      "cta": "Inizia Ora"
+    },
+    "gold": {
+      "name": "Gold",
+      "description": "Per chi cerca lavoro attivamente",
+      "price": "$6",
+      "period": "/mese",
+      "annualPrice": "$58",
+      "annualPeriod": "/anno",
+      "annualMonthly": "$4,83/mese",
+      "features": {
+        "cvCreations": "150 creazioni CV/mese",
+        "aiGenerations": "100 generazioni AI/mese",
+        "downloads": "10 download/mese",
+        "templates": "Tutti i modelli freemium",
+        "noAds": "Nessuna pubblicità",
+        "ats": "Ottimizzazione ATS"
+      },
+      "cta": "Inizia Ora"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "description": "Ideale per professionisti",
+      "price": "$10",
+      "period": "/mese",
+      "annualPrice": "$96",
+      "annualPeriod": "/anno",
+      "annualMonthly": "$8/mese",
+      "features": {
+        "cvCreations": "300 creazioni CV/mese",
+        "aiGenerations": "200 generazioni AI/mese",
+        "downloads": "25 download/mese",
+        "templates": "Tutti i modelli + Premium",
+        "support": "Supporto prioritario",
+        "coverLetter": "Generatore di lettere di presentazione"
+      },
+      "cta": "Inizia Ora"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "description": "Per utenti avanzati e agenzie",
+      "price": "$30",
+      "period": "/mese",
+      "annualPrice": "$288",
+      "annualPeriod": "/anno",
+      "annualMonthly": "$24/mese",
+      "features": {
+        "cvCreations": "Creazioni CV illimitate",
+        "aiGenerations": "500 generazioni AI/mese",
+        "downloads": "120 download/mese",
+        "templates": "Tutti i modelli + Premium",
+        "support": "Supporto prioritario",
+        "coverLetter": "Generatore di lettere di presentazione",
+        "earlyAccess": "Accesso anticipato alle nuove funzionalità"
+      },
+      "cta": "Abbonati Ora"
+    }
+  }
+}
