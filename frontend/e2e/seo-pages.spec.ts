@@ -55,7 +55,9 @@ test.describe('SEO Content Pages', () => {
 
     test('should navigate to specific resume example', async ({ page }) => {
       await page.goto('/en/resume-examples/software-engineer');
-      await page.waitForLoadState('domcontentloaded');
+
+      // Wait for MDX content to fully render (multiple h2/h3 sections)
+      await page.locator('h2, h3').nth(2).waitFor({ state: 'visible', timeout: 15000 });
 
       await expect(page.locator('h1, h2').first()).toBeVisible();
 
@@ -151,7 +153,7 @@ test.describe('Error Handling', () => {
     await page.goto('/en/this-page-does-not-exist-12345');
     await page.waitForLoadState('domcontentloaded');
 
-    const notFoundText = page.getByText(/404|not found|page doesn't exist/i);
+    const notFoundText = page.getByText(/404|not found|page doesn't exist/i).first();
     await expect(notFoundText).toBeVisible();
   });
 

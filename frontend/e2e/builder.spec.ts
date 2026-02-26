@@ -57,7 +57,9 @@ test.describe('Pricing Page', () => {
 
   test('should show plan features', async ({ page }) => {
     await page.goto('/en/pricing');
-    await page.waitForLoadState('domcontentloaded');
+
+    // Wait for plan features to render (loaded via useEffect API call)
+    await page.locator('ul li, [class*="feature"]').first().waitFor({ state: 'visible', timeout: 15000 });
 
     const features = page.locator('ul li, [class*="feature"]');
     const count = await features.count();
@@ -66,9 +68,11 @@ test.describe('Pricing Page', () => {
 
   test('should have subscribe/get-started links', async ({ page }) => {
     await page.goto('/en/pricing');
-    await page.waitForLoadState('domcontentloaded');
 
-    const planLinks = page.getByRole('link', { name: /get started|subscribe/i });
+    // Wait for plan buttons to render (depend on API-loaded plan data)
+    await page.getByRole('button', { name: /get started|subscribe/i }).or(page.getByRole('link', { name: /get started|subscribe/i })).first().waitFor({ state: 'visible', timeout: 15000 });
+
+    const planLinks = page.getByRole('button', { name: /get started|subscribe/i }).or(page.getByRole('link', { name: /get started|subscribe/i }));
     const count = await planLinks.count();
     expect(count).toBeGreaterThan(0);
   });

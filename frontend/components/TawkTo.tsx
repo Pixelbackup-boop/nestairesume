@@ -51,9 +51,9 @@ export default function TawkTo() {
     };
 
     if ("requestIdleCallback" in window) {
-      requestIdleCallback(loadScript, { timeout: 5000 });
+      requestIdleCallback(loadScript, { timeout: 10000 });
     } else {
-      setTimeout(loadScript, 3000);
+      setTimeout(loadScript, 8000);
     }
   }, [settings, isAuthenticated, user, scriptLoaded]);
 

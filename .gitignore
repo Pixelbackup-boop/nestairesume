@@ -6,6 +6,7 @@ node_modules/
 .playwright-mcp/
 artifacts/
 test-results/
+backend/dist/
 frontend/From canvas/
 firebase-debug.log
 

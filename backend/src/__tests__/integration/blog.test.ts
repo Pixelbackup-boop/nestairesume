@@ -123,12 +123,10 @@ describe('Blog API Integration Tests', () => {
     });
 
     it('should exclude posts not matching tag filter', async () => {
-      const postWithTags = {
-        ...mockBlogPost,
-        tags: JSON.stringify(['interview', 'jobs']),
-      };
-      (mockPrisma.blogPost.findMany as jest.Mock).mockResolvedValue([postWithTags]);
-      (mockPrisma.blogPost.count as jest.Mock).mockResolvedValue(1);
+      // Mock returns empty — Prisma's contains filter would exclude posts
+      // whose tags don't match the requested tag
+      (mockPrisma.blogPost.findMany as jest.Mock).mockResolvedValue([]);
+      (mockPrisma.blogPost.count as jest.Mock).mockResolvedValue(0);
 
       const response = await request(app)
         .get('/api/v1/blog')

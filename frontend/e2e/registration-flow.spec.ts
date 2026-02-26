@@ -213,8 +213,8 @@ test.describe('First Resume Creation', () => {
   test('should have form fields in builder', async ({ page }) => {
     await page.goto('/en/builder');
 
-    // Wait for page to load
-    await page.waitForLoadState('domcontentloaded');
+    // Wait for Suspense + useEffect chains to settle — use visible input (not hidden file input)
+    await page.locator('input:visible').first().waitFor({ timeout: 15000 });
 
     // Check for form inputs
     const inputs = await page.locator('input').all();

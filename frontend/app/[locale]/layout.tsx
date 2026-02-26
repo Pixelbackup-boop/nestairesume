@@ -23,30 +23,40 @@ const notoArabic = Noto_Sans_Arabic({
   variable: '--font-arabic',
   subsets: ['arabic'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
 });
 
 const notoJP = Noto_Sans_JP({
   variable: '--font-japanese',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
 });
 
 const notoKR = Noto_Sans_KR({
   variable: '--font-korean',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
 });
 
 const notoSC = Noto_Sans_SC({
   variable: '--font-chinese',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
 });
 
 const notoThai = Noto_Sans_Thai({
   variable: '--font-thai',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
 });
 
 // Non-Latin font class mapping
@@ -266,7 +276,7 @@ export default async function LocaleLayout({
               <TawkTo />
               <Script
                 src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
               />
               <main id="main-content">
                 {children}

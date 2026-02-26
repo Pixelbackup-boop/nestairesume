@@ -20,7 +20,9 @@ test.describe('Resume Builder Complete Flow', () => {
 
     test('should display form inputs', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('domcontentloaded');
+
+      // Wait for Suspense + useEffect chains to settle — use visible text input (not hidden file input)
+      await page.locator('input:visible').first().waitFor({ timeout: 15000 });
 
       const inputs = await page.locator('input').all();
       const textareas = await page.locator('textarea').all();
@@ -32,7 +34,9 @@ test.describe('Resume Builder Complete Flow', () => {
   test.describe('Personal Information Form', () => {
     test('should have text input fields', async ({ page }) => {
       await page.goto('/en/builder');
-      await page.waitForLoadState('domcontentloaded');
+
+      // Wait for PersonalForm to hydrate from Zustand store
+      await page.locator('input:visible').first().waitFor({ timeout: 15000 });
 
       const textInputs = await page.locator('input[type="text"]').all();
       expect(textInputs.length).toBeGreaterThan(0);
