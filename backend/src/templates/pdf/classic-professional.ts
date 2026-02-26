@@ -302,7 +302,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
     `).join('');
 
     return `
-        <div class="w-full h-full" style="font-family: ${bodyFont}; font-size: ${sizeConfig.base}; ${bgStyle} padding: 40px;">
+        <div class="w-full h-full" style="font-family: ${bodyFont}; font-size: ${sizeConfig.base}; ${bgStyle} padding: 24px 40px;">
             <!-- Header -->
             <header class="text-center mb-6 pb-4 border-b-2" style="border-color: ${effectiveAccent};">
                 ${profileImage}

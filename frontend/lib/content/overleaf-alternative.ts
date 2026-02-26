@@ -621,5 +621,127 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+const ja: ComparisonPageContent = {
+  meta: {
+    title: '履歴書向けOverleafの代替2026：LaTeX不要、ATS対応 | Best AI Resume',
+    description: 'LaTeXの手間なしでOverleaf履歴書テンプレートをお探しですか？Overleaf vs Best AI Resume Builder を比較 — 無料、ATS最適化テンプレート、AI作成。コーディング不要。',
+    keywords: 'overleaf 履歴書, overleaf テンプレート, overleaf 代替, latex 履歴書テンプレート, 履歴書作成ツール, 履歴書サンプル, AI履歴書, 職務経歴書',
+  },
+  schemas: {
+    breadcrumbName: '履歴書向けOverleafの代替',
+    articleHeadline: '履歴書向けOverleafの最良代替2026：LaTeX不要',
+    articleDescription: 'プロの履歴書作成でOverleaf vs Best AI Resume Builder を比較。学術研究者と求職者向けの機能比較。',
+  },
+  hero: {
+    badge: 'Overleafの代替',
+    title: '美しい履歴書。',
+    titleHighlight: 'LaTeX不要。',
+    subtitle: 'OverleafはLaTeXを知っていれば優れた学術CVを作成できます。<strong>AI搭載の作成機能</strong>で同等のプロ品質を<strong>コーディングなし</strong>で実現。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'Overleaf履歴書の問題点',
+    description: 'Overleafは学術論文や技術文書向けの強力なLaTeXエディターです。多くのエンジニア、研究者、学者がきれいなCVの作成に使用しています。しかし求職者には2つの大きな欠点があります：<strong>LaTeXの学習コストが高い</strong>こと、そして多くのOverleaf履歴書テンプレートが<strong>ATSシステムで確実に解析できない</strong>複雑なフォーマットを使用していることです。',
+    stats: [
+      { value: '60%+', label: 'LaTeXの履歴書がATS解析に失敗する割合' },
+      { value: '40h+', label: 'LaTeX習得に必要な時間' },
+      { value: '15分', label: 'AI履歴書の作成時間' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'LaTeXエディター vs 専用AI履歴書作成ツール。',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '料金', competitor: '✅ 無料（基本プラン）', ours: '✅ 無料（全機能）' },
+      { feature: '学習コスト', competitor: '❌ LaTeX知識必須', ours: '✅ 技術スキル不要' },
+      { feature: 'AI作成', competitor: '❌ AI機能なし', ours: '✅ AIによるカスタムコンテンツ生成' },
+      { feature: 'ATS互換性', competitor: '❌ 多くのテンプレートがATS非対応', ours: '✅ 全テンプレートATSテスト済み' },
+      { feature: 'テンプレート', competitor: '⚠️ コミュニティ製LaTeXテンプレート', ours: '✅ 20以上のプロデザインテンプレート' },
+      { feature: 'PDFエクスポート', competitor: '✅ LaTeXコンパイル', ours: '✅ ワンクリック無料ダウンロード' },
+      { feature: 'カバーレター', competitor: '⚠️ 別途LaTeXテンプレートが必要', ours: '✅ AI搭載カバーレター（無料）' },
+      { feature: 'コンテンツ支援', competitor: '❌ 手動入力（LaTeX構文）', ours: '✅ AIが実績と職務経歴書を作成' },
+      { feature: 'リアルタイムプレビュー', competitor: '⚠️ コンパイル後のみ', ours: '✅ 即時ライブプレビュー' },
+      { feature: '共同作業', competitor: '✅ リアルタイム共同編集', ours: '⚠️ 個人利用向け' },
+    ],
+  },
+  whySwitch: {
+    title: 'Overleafから乗り換える3つの理由',
+    subtitle: 'LaTeXなしでプロの履歴書を作成。',
+    reasons: [
+      { title: 'ATS互換性が保証', description: 'Overleaf LaTeXテンプレートはカスタムフォント、マルチカラムレイアウト、特殊フォーマットを使用し、ATSが正しく解析できないことが多いです。当社の全テンプレートは主要ATSシステムでテスト済みです。' },
+      { title: 'AI搭載コンテンツ作成', description: 'OverleafはLaTeXエディターでコンテンツ支援がありません。当社のAIがあなたの経験からプロフェッショナルな箇条書き、サマリー、キーワードを生成します。' },
+      { title: 'LaTeX学習不要', description: 'Overleafのテンプレートカスタマイズにはコンパイルエラー修正のためのLaTeX知識が必要です。当社のビジュアルエディターは技術的なスキルなしで即座にプロの履歴書を作成できます。' },
+    ],
+  },
+  recommendation: {
+    title: '正直なおすすめ',
+    useCompetitor: {
+      title: 'Overleafが適している場合',
+      items: [
+        'LaTeXに精通し、組版を楽しむ場合',
+        '学術CV（出版物リスト、助成金など）を作成する場合',
+        '学術機関内での共同作業が必要な場合',
+        'フォーマット制御を極限まで追求したい場合',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが適している場合',
+      items: [
+        '企業の求人にATS経由で応募する場合',
+        'AIによるコンテンツ作成支援が欲しい場合',
+        'LaTeXの学習に時間をかけたくない場合',
+        'ATSを確実に通過するプロの履歴書が必要な場合',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300以上の無料履歴書サンプルを閲覧',
+    description: 'ソフトウェアエンジニア、データサイエンティスト、研究助手など、プロフェッショナルな履歴書サンプル。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: '全テンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'Overleafは履歴書作成に適していますか？', answer: 'OverleafはLaTeX学術CVには優れていますが、学習コストが高く、ATSでの解析に失敗する可能性があります。企業のオンラインポータル経由で応募する場合、専用の履歴書作成ツールの方が効果的です。' },
+      { question: 'OverleafのCV（履歴書）はATS対応ですか？', answer: 'LaTeXテンプレート次第です。多くのOverleaf履歴書テンプレートはカスタムフォント、マルチカラムレイアウト、特殊フォーマットを使用し、ATSが正しく解析できません。シンプルなシングルカラムテンプレートは動作する場合がありますが、装飾的なテンプレートは失敗します。' },
+      { question: 'Overleafで履歴書を作るにはLaTeXの知識が必要ですか？', answer: 'はい。OverleafはLaTeXエディターなので、テンプレートのカスタマイズ、コンパイルエラーの修正、フォーマット調整に少なくとも基本的なLaTeX知識が必要です。Best AI Resume Builderは技術的なスキル不要で、情報を入力するだけでAIが残りを処理します。' },
+      { question: '履歴書向けOverleafの最良の無料代替は？', answer: 'Best AI Resume Builderが求職者にとっての最良の無料代替です。AI作成、ATS最適化、プロフェッショナルテンプレートをLaTeXやコーディングの知識なしで提供します。' },
+      { question: 'OverleafのCVをATS対応フォーマットに変換できますか？', answer: 'OverleafのPDFからテキストをコピーしてBest AI Resume Builderに貼り付けることができます。AIがコンテンツを保持し改善提案をしながら、ATS対応フォーマットに再構成します。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/canva-alternative', title: 'Canvaの代替', subtitle: 'デザインツール vs AIビルダー' },
+      { href: '/resume-io-alternative', title: 'Resume.ioの代替', subtitle: '料金・機能比較' },
+      { href: '/rezi-alternative', title: 'Reziの代替', subtitle: 'AI履歴書ツール比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応履歴書の書き方' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド2026' },
+      { href: '/resume-examples/software-engineer', label: 'ソフトウェアエンジニア履歴書サンプル' },
+      { href: '/blog/best-resume-fonts-2026', label: '2026年おすすめ履歴書フォント' },
+    ],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://www.overleaf.com/gallery/tagged/cv', label: 'Overleaf CVテンプレート' },
+      { href: 'https://www.bls.gov/ooh/computer-and-information-technology/home.htm', label: 'BLS: テクノロジー職種' },
+    ],
+  },
+  bottomCta: {
+    title: 'LaTeXを超えて。内定を勝ち取る履歴書を作成。',
+    description: 'フォーマットをツールに任せて内容に集中できるAI履歴書作成ツールに、何千人ものエンジニアや研究者が乗り換えています。',
+    cta: '無料で履歴書を作成 — LaTeX不要',
+    subtext: 'ずっと無料。クレジットカード不要。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

@@ -622,5 +622,130 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+// ── Japanese ──────────────────────────────────────────────────────────
+
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'Resume.ioの代替ツール2026：無料AI履歴書作成ツール | Best AI Resume',
+    description: 'Resume.ioの隠れた料金にうんざり？Resume.ioとBest AI Resume Builderを比較——完全無料の履歴書サンプル、AI履歴書作成、ATS最適化。登録不要、クレジットカード不要。',
+    keywords: 'Resume.io 代替, 履歴書作成ツール 無料, AI履歴書, 履歴書サンプル, ATS対応履歴書, 職務経歴書 作成, 無料 履歴書メーカー',
+  },
+  schemas: {
+    breadcrumbName: 'Resume.ioの代替',
+    articleHeadline: 'Resume.ioの代替ツール2026：無料AI履歴書作成ツール',
+    articleDescription: 'Resume.ioとBest AI Resume Builderを比較。AI搭載の履歴書作成とATS最適化が完全無料で使える理由をご紹介。',
+  },
+  hero: {
+    badge: 'Resume.ioの代替',
+    title: '同じクオリティの履歴書。',
+    titleHighlight: '本当に無料。',
+    subtitle: 'Resume.ioはトライアル後に<strong>月額$24.95</strong>を請求します。プロフェッショナルなテンプレート、AI履歴書作成、ATS最適化が<strong>完全無料</strong>で使えるツールに乗り換えませんか。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'Resume.ioの料金の落とし穴',
+    description: 'Resume.ioは無料の履歴書作成ツールとして宣伝されています。確かに履歴書は無料で作成できますが、ダウンロードしようとすると有料の壁にぶつかります。「無料トライアル」は7日間$2.95で、その後<strong>月額$24.95に自動更新</strong>されます。解約手続きが分かりにくいため、予期しない課金を報告するユーザーが多数います。',
+    stats: [
+      { value: '$24.95', label: '7日間トライアル後の月額料金' },
+      { value: '$299', label: '解約を忘れた場合の年間コスト（よくある苦情）' },
+      { value: '$0', label: 'Best AI Resume Builder — 永久無料、クレジットカード不要' },
+    ],
+  },
+  comparison: {
+    title: 'Resume.io vs Best AI Resume Builder',
+    subtitle: '透明な比較——隠れた料金はありません。',
+    competitorName: 'Resume.io',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '料金', competitor: '❌ トライアル後に月額$24.95', ours: '✅ 完全無料' },
+      { feature: 'AI履歴書作成', competitor: '⚠️ 基本的な定型文のみ', ours: '✅ 高度なAIがカスタム内容を生成' },
+      { feature: 'リアルタイムATSスコア', competitor: '❌ ATS採点機能なし', ours: '✅ 入力しながらATSスコアを確認' },
+      { feature: 'PDFダウンロード', competitor: '❌ 有料プランが必要', ours: '✅ 無料で無制限ダウンロード' },
+      { feature: '作成可能な履歴書数', competitor: '⚠️ 無料プランは制限あり', ours: '✅ 無制限' },
+      { feature: 'テンプレートの品質', competitor: '✅ プロフェッショナルなテンプレート', ours: '✅ 20種以上のプロテンプレート' },
+      { feature: 'ATS互換性', competitor: '✅ 大半のテンプレートがATS対応', ours: '✅ 全テンプレートATS検証済み' },
+      { feature: 'カバーレター作成', competitor: '✅ 含む（有料）', ours: '✅ 含む（無料）' },
+      { feature: '業界別キーワード', competitor: '❌ キーワード提案なし', ours: '✅ AIが業界キーワードを提案' },
+      { feature: '自動更新の罠', competitor: '❌ 月額$24.95で自動更新', ours: '✅ サブスクリプション不要' },
+    ],
+  },
+  whySwitch: {
+    title: 'Resume.ioから乗り換える3つの理由',
+    subtitle: '優れた機能。ゼロコスト。サプライズなし。',
+    reasons: [
+      { title: '隠れた料金なし', description: '$2.95のトライアルも、月額$24.95のサプライズもありません。クレジットカードも不要。履歴書の作成・ダウンロード・利用がすべて完全無料です。' },
+      { title: '本物のAI、定型文ではない', description: 'Resume.ioは汎用的な定型文を提供するだけです。当ツールのAIは、あなたの職種・業界・経験レベルに合わせたオリジナルの職務経歴書を自動生成します。' },
+      { title: 'ATS採点機能内蔵', description: 'Resume.ioにはATS互換性をチェックする機能がありません。当ツールはリアルタイムのATS適合スコアを表示し、改善すべき点を具体的に教えてくれます。' },
+    ],
+  },
+  recommendation: {
+    title: '正直なおすすめ',
+    useCompetitor: {
+      title: 'Resume.ioが向いている方',
+      items: [
+        '月額$24.95を支払う予算がある',
+        '履歴書に何を書くかすでに分かっている',
+        'AI支援なしでシンプルなテンプレートだけ必要',
+        'トライアル終了前に解約することを忘れない自信がある',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが向いている方',
+      items: [
+        '本当に無料の履歴書作成ツールを探している',
+        'AIを使って説得力のある履歴書を作成したい',
+        '応募前にATS互換性を確認したい',
+        '予期しない課金を避けたい',
+        '複数の求人に合わせた履歴書を作りたい',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300件以上の無料履歴書サンプル',
+    description: 'あらゆる業界のプロフェッショナルなATS対応履歴書サンプルをご覧ください。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: '履歴書フォーマットガイド',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'Resume.ioは本当に無料ですか？', answer: 'Resume.ioでは履歴書を無料で作成できますが、ダウンロードには有料サブスクリプション（7日間$2.95のトライアル後、月額$24.95に自動更新）が必要です。Best AI Resume Builderなら、作成からダウンロードまですべて完全無料です。' },
+      { question: 'Resume.ioの最良の無料代替ツールは？', answer: 'Best AI Resume Builderが最良の無料代替ツールです。Resume.ioが有料で提供する機能——プロテンプレート、PDFダウンロード、複数履歴書作成——に加え、AI作成支援とリアルタイムATS採点をすべて無料で提供します。' },
+      { question: 'Resume.ioにAI作成機能はありますか？', answer: 'Resume.ioは基本的な定型文の提案のみで、個別カスタマイズされた内容の生成はできません。Best AI Resume Builderは高度なAIを使って、あなたの職種・業界に合わせた成果記述、職務要約、業界キーワードを生成します。' },
+      { question: 'Resume.ioのテンプレートはATS対応ですか？', answer: 'Resume.ioのテンプレートの多くはATS互換性がありますが、一部のプレミアムテンプレートでは解析に問題が生じる可能性があります。Best AI Resume Builderの全テンプレートはATS検証済みで、リアルタイムスコアが確認できます。' },
+      { question: 'Resume.ioのトライアル後に解約できますか？', answer: 'はい。ただし、多くのユーザーがトライアル自動更新前の解約に困難を報告しています。Best AI Resume Builderなら解約の必要すらありません——サービスは完全無料です。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/canva-alternative', title: 'Canvaの代替', subtitle: 'デザインツール vs AI作成ツール' },
+      { href: '/overleaf-alternative', title: 'Overleafの代替', subtitle: 'LaTeX履歴書 vs AI作成ツール' },
+      { href: '/rezi-alternative', title: 'Reziの代替', subtitle: 'AI履歴書ツール比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応履歴書の書き方' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド 2026' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: '履歴書のよくある間違い' },
+      { href: '/resume-examples', label: '300件以上の職種別履歴書サンプル' },
+    ],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://resume.io/', label: 'Resume.io 公式サイト' },
+      { href: 'https://www.bls.gov/ooh/', label: '米国労働統計局 OOH' },
+    ],
+  },
+  bottomCta: {
+    title: '無料であるべきものに、なぜお金を払うのですか？',
+    description: '有料の履歴書作成ツールから、より優れた機能を持つ無料AI履歴書作成ツールに乗り換えた数千人の求職者に加わりましょう。',
+    cta: '無料で履歴書を作成——クレジットカード不要',
+    subtext: '永久無料。トライアルなし。自動更新なし。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

@@ -198,7 +198,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
             </div>
 
             <!-- Main Content Body -->
-            <div style="padding: 20px 40px 40px 40px;">
+            <div style="padding: 8px 40px 40px 40px;">
 
                 ${personalInfo.summary ? SectionRow(t.sections.profile,
         `<p style="line-height: 1.6; margin-top: 0;">${formatDescription(personalInfo.summary)}</p>`

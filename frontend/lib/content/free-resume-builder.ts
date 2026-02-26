@@ -560,7 +560,120 @@ const ar: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar };
+// ---------------------------------------------------------------------------
+// Japanese
+// ---------------------------------------------------------------------------
+const ja: LandingPageContent = {
+  meta: {
+    title: '無料履歴書作成ツール | 100%無料AI履歴書メーカー2026',
+    description: '無料でプロの履歴書を作成。クレジットカード不要、隠れた料金なし。AI作成、20以上のATS対応テンプレート、PDF即時ダウンロード。',
+    keywords: '無料履歴書作成ツール, 履歴書作成ツール, 履歴書サンプル, AI履歴書, 職務経歴書, 無料履歴書テンプレート, 履歴書 無料 ダウンロード, 履歴書メーカー',
+  },
+  schemas: {
+    breadcrumbName: '無料履歴書作成ツール',
+    articleHeadline: '無料履歴書作成ツール：100%無料AI履歴書メーカー2026',
+    articleDescription: '無料でプロの履歴書を作成。クレジットカード不要、隠れた料金なし。AI搭載の作成機能、ATS対応テンプレート、PDF即時ダウンロード。',
+    softwareAppName: '無料AI履歴書作成ツール',
+  },
+  hero: {
+    badge: '100%無料 — クレジットカード不要',
+    title: '履歴書を作成',
+    titleHighlight: '完全無料',
+    subtitle: '当社の<strong>無料履歴書作成ツール</strong>は必要なものすべてを提供：AI作成支援、プロフェッショナルテンプレート、ATS最適化、PDF即時ダウンロード。<a href="https://www.bls.gov/news.release/jolts.nr0.htm" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">労働統計局</a>によると数百万の求人があります — プロの履歴書に費用がかかるべきではありません。隠れた料金なし。トライアル期限なし。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '含まれる機能を見る',
+    trustBadges: ['登録不要', 'クレジットカード不要', '無料PDFダウンロード', '透かしなし'],
+  },
+  features: {
+    title: '必要なものすべて — 無料',
+    subtitle: '基本機能を有料にする他の履歴書作成ツールとは違い、すべてが無料プランに含まれています。<a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">大企業の98%</a>がATSソフトウェアを使用している今、必要なのはプロのツール — 課金の壁ではありません。',
+    items: [
+      { feature: 'プロフェッショナルテンプレート', description: '20以上のデザイン' },
+      { feature: 'AIコンテンツ作成', description: '箇条書きとサマリー' },
+      { feature: 'ATS最適化', description: 'リアルタイムスコアリング' },
+      { feature: 'PDFダウンロード', description: '無制限エクスポート' },
+      { feature: '透かしなし', description: 'クリーンでプロの仕上がり' },
+      { feature: '複数の履歴書', description: '必要なだけ作成可能' },
+      { feature: '業界キーワード', description: 'AIが提案' },
+      { feature: 'モバイル対応', description: 'どのデバイスからでも作成' },
+    ],
+    cta: 'プレミアム履歴書を作成',
+  },
+  comparison: {
+    title: '当社の無料 vs. 他社の「無料」',
+    subtitle: '多くの履歴書作成ツールは無料と謳いながらダウンロードを有料にしています。当社はしません。',
+    oursName: 'Best AI Resumes（無料）',
+    othersName: '他の無料ビルダー',
+    rows: [
+      { feature: 'PDFダウンロード', ours: '無料・無制限', others: '有料の場合が多い' },
+      { feature: '全テンプレート', ours: '全20以上が無料', others: '1-3が無料、残りは有料' },
+      { feature: 'AI作成', ours: '無料で含む', others: 'プレミアム機能' },
+      { feature: 'ATSスコアリング', ours: '無料リアルタイム', others: 'プレミアムまたはなし' },
+      { feature: '透かし', ours: 'なし', others: '無料版にあり' },
+      { feature: 'アカウント必須', ours: 'オプション', others: '通常必須' },
+      { feature: 'トライアル期限', ours: 'なし — ずっと無料', others: '7-14日間トライアル' },
+    ],
+  },
+  howItWorks: {
+    title: '3つの無料ステップで履歴書を作成',
+    subtitle: 'サプライズなし。課金の壁なし。プロの履歴書だけ。',
+    steps: [
+      { step: 1, title: 'テンプレートを選択', description: '20以上のプロフェッショナルなATS対応テンプレートから選択 — すべて無料。' },
+      { step: 2, title: '情報を入力', description: '詳細を入力し、AIに説得力のあるコンテンツ作成を手伝ってもらいましょう。' },
+      { step: 3, title: '無料でダウンロード', description: '洗練された履歴書をPDFとして即座にエクスポート — 支払い不要、透かしなし。' },
+    ],
+    cta: 'プレミアム履歴書を作成',
+  },
+  trust: {
+    title: '世界中の求職者に信頼されています',
+    stats: [
+      { value: '200万+', label: '無料で作成された履歴書' },
+      { value: '4.8', label: '平均ユーザー評価' },
+      { value: '150+', label: '対応国' },
+      { value: '¥0', label: 'ダウンロード費用' },
+    ],
+  },
+  templates: {
+    title: '20以上の無料プロフェッショナルテンプレート',
+    subtitle: 'すべてのテンプレートが無料。すべてのテンプレートがATSテスト済み。あなたに最適なスタイルを見つけましょう。',
+    styles: ['モダン', 'クラシック', 'エグゼクティブ', 'クリエイティブ', 'ミニマル', 'プロフェッショナル', 'テクニカル', 'アカデミック'],
+    cta: '全無料テンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'この履歴書作成ツールは本当に100%無料ですか？', answer: 'はい！当社の無料履歴書作成ツールには必要なものすべてが含まれています：20以上のプロフェッショナルテンプレート、AI搭載コンテンツ作成、ATS最適化、無制限PDFダウンロード。クレジットカード不要、隠れた料金なし、トライアル期限なし。' },
+      { question: '無料で何が使えて、何が有料ですか？', answer: '基本機能はすべて無料です：全テンプレート、AI作成支援、ATSスコアリング、PDFダウンロード。オプションのプレミアムティアではカバーレター生成やLinkedIn最適化などの高度な機能が追加されますが、ほとんどのユーザーには不要です。' },
+      { question: 'なぜこの履歴書作成ツールは無料なのですか？', answer: '予算に関係なく、すべての人がプロの履歴書ツールにアクセスできるべきと考えています。無料版はオプションのプレミアムアップグレードとパートナーシップで支えられています。一切の支払いなしで完全かつプロの履歴書が作成できます。' },
+      { question: '履歴書をPDFとして無料でダウンロードできますか？', answer: 'もちろんです。クリーンでATS対応のPDFとして何度でもダウンロードできます — 完全無料。透かしなし、ブランディングなし、条件なし。' },
+      { question: 'アカウント作成は必要ですか？', answer: 'いいえ！登録せずにすぐに履歴書の作成を開始できます。作業内容はブラウザにローカル保存されます。複数の履歴書を保存したい場合や他のデバイスからアクセスしたい場合のみアカウントを作成してください。' },
+      { question: '無料テンプレートはATS対応ですか？', answer: 'はい、当社の無料履歴書作成ツールのすべてのテンプレートは、Workday、Taleo、Greenhouse、Leverを含む主要ATSシステムでテスト済みです。リアルタイムATSスコアが応募前の最適化をサポートします。' },
+    ],
+  },
+  crossLinks: {
+    title: 'その他の無料履歴書ツール',
+    items: [
+      { href: '/resume-maker', title: '履歴書メーカー', subtitle: '無料AI搭載' },
+      { href: '/resume-ai', title: 'AI履歴書', subtitle: 'AI作成アシスタント' },
+      { href: '/tools/ats-checker', title: 'ATSチェッカー', subtitle: '無料ATSスコアリング' },
+    ],
+    guidesTitle: '無料履歴書ガイド',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: '履歴書の書き方（無料ガイド）' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド2026' },
+      { href: '/resume-examples', label: '300以上の無料履歴書サンプル' },
+      { href: '/templates', label: '無料履歴書テンプレート' },
+    ],
+  },
+  bottomCta: {
+    title: '無料の履歴書を作成する準備はできましたか？',
+    description: '200万人以上の求職者が当社の無料履歴書作成ツールでプロの履歴書を作成しています。',
+    cta: '無料で履歴書を作成',
+    subtext: 'ずっと無料。クレジットカード不要。隠れた料金なし。',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

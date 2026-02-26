@@ -309,7 +309,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                 <div style="position: absolute; top: 0; right: 0; width: 35%; height: 100%; background-color: ${accentColor}; clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%); -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
 
                 <!-- Header Content -->
-                <div style="padding: 40px; display: flex; justify-content: space-between; align-items: flex-start; height: 100%; position: relative; z-index: 10;">
+                <div style="padding: 24px 40px; display: flex; justify-content: space-between; align-items: flex-start; height: 100%; position: relative; z-index: 10;">
 
                     <!-- Name - Left side -->
                     <div style="width: 60%; padding-top: 20px;">
@@ -332,7 +332,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
             </div>
 
             <!-- Two Column Layout - 55/45 split matching frontend -->
-            <div style="display: flex; padding: 0 40px 40px; gap: 30px;">
+            <div style="display: flex; padding: 0 40px 24px; gap: 30px;">
 
                 <!-- Left Column (55%) - About Me, Experience, Education -->
                 <div style="width: 55%;">

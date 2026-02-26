@@ -67,7 +67,9 @@ export default function middleware(request: NextRequest) {
         `/${locale}/${firstSegment}`,
         `/${locale}/${localizedSegment}`
       );
-      return NextResponse.redirect(new URL(redirectPath, request.url), 301);
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.pathname = redirectPath;
+      return NextResponse.redirect(redirectUrl, 301);
     }
   }
 

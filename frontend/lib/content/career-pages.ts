@@ -125,7 +125,28 @@ const ar: CareerPagesContent = {
   },
 };
 
-const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar };
+const ja: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'キャリアリソース・求人情報 | Best AI Resume',
+      description: 'キャリアリソース、求人情報、業界の最新動向、スキルアップに役立つ情報をご紹介。転職・就職活動に役立つ情報が満載です。',
+      ogTitle: 'キャリアリソース・求人情報 | Best AI Resume',
+      ogDescription: 'キャリアリソース、求人情報、スキルアップに役立つ情報をご紹介。',
+    },
+    badge: 'キャリアセンター',
+    title: 'キャリアリソースと',
+    titleHighlight: '求人情報',
+    subtitle: '求人情報、キャリアに関するインサイト、スキルアップのためのリソースをご覧ください。',
+    featured: '注目の求人',
+    noPostsTitle: 'まだ投稿はありません',
+    noPostsSub: 'キャリアリソースと求人情報を近日公開予定です！',
+  },
+  article: {
+    notFound: '記事が見つかりません',
+  },
+};
+
+const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja };
 
 export function getCareerListingContent(locale: string) { return selectContent(contentMap, locale).listing; }
 export function getCareerArticleContent(locale: string) { return selectContent(contentMap, locale).article; }

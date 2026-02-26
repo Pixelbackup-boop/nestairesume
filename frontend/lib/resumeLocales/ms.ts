@@ -1,0 +1,276 @@
+import { LocaleBundle } from './types';
+
+const ms: LocaleBundle = {
+    localeData: {
+        cities: ['Kuala Lumpur', 'Johor Bahru', 'George Town', 'Kota Kinabalu', 'Kuching'],
+        country: 'Malaysia',
+        nationality: 'Malaysian',
+        companies: {
+            tech: ['TechCorp Solutions Sdn Bhd', 'InnovaTech Malaysia', 'CloudWorks Asia', 'DataLabs Sdn Bhd', 'AppForge Digital'],
+            design: ['Kreatif Studio Sdn Bhd', 'DesainHub Malaysia', 'Piksel Sempurna Agency', 'UX Kolektif Asia', 'Visual Seni Sdn Bhd'],
+            marketing: ['GrowthMatrix Malaysia', 'Jenama Elevasi Sdn Bhd', 'Digital Reach Asia', 'Engage Media Sdn Bhd', 'Impak Pemasaran Solutions'],
+            finance: ['Modal Penasihat Sdn Bhd', 'Sterling Kewangan Malaysia', 'Apex Perakaunan Sdn Bhd', 'Pelaburan Partners Asia', 'Fiskal Solutions Sdn Bhd'],
+            healthcare: ['Hospital Besar Kuala Lumpur', 'Pusat Kesihatan Komuniti', 'CarePlus Kumpulan Perubatan', 'Klinik Kesejahteraan Sdn Bhd', 'Pusat Perubatan Wilayah'],
+            education: ['Sekolah Menengah Kebangsaan Taman Jaya', 'Akademi Bestari', 'Universiti Kebangsaan Malaysia', 'Kolej Komuniti Selangor', 'Pusat Pembelajaran Cemerlang'],
+            sales: ['Enterprise Solutions Sdn Bhd', 'Global Trade Asia', 'TechSales Malaysia', 'Pertumbuhan Bisnes Sdn Bhd', 'Premier Sales Sdn Bhd'],
+            hospitality: ['Restoran Hotel Grand', 'Bistro Elegance KL', 'Riverside Grill & Bar', 'Downtown Dining Sdn Bhd', 'Dapur Pantai Timur'],
+            general: ['Syarikat Maju Jaya Sdn Bhd', 'Global Enterprises Malaysia', 'Premier Solutions Sdn Bhd', 'Industri Inovatif Sdn Bhd', 'Kecemerlangan Partners Sdn Bhd'],
+        },
+        degrees: {
+            tech: { degree: 'Ijazah Sarjana Muda Sains Komputer', school: 'Universiti Teknologi Malaysia' },
+            design: { degree: 'Ijazah Sarjana Muda Seni Reka Grafik', school: 'Universiti Seni dan Reka Bentuk' },
+            marketing: { degree: 'Ijazah Sarjana Muda Pentadbiran Perniagaan (Pemasaran)', school: 'Sekolah Perniagaan Kebangsaan' },
+            finance: { degree: 'Ijazah Sarjana Muda Sains Kewangan', school: 'Kolej Perniagaan dan Kewangan' },
+            healthcare: { degree: 'Ijazah Sarjana Muda Sains Kejururawatan', school: 'Kolej Sains Kesihatan' },
+            education: { degree: 'Ijazah Sarjana Muda Pendidikan', school: 'Institut Pendidikan Guru' },
+            sales: { degree: 'Ijazah Sarjana Muda Pentadbiran Perniagaan', school: 'Sekolah Perniagaan' },
+            hospitality: { degree: 'Sijil Pengurusan Hospitaliti', school: 'Institut Kulinari Malaysia' },
+            general: { degree: 'Ijazah Sarjana Muda Sastera', school: 'Universiti Kebangsaan Malaysia' },
+        },
+        educationDescription: 'Lulus dengan kepujian. Ahli aktif persatuan profesional.',
+        yearsText: (years) => years === 1 ? '1 tahun' : `${years}+ tahun`,
+    },
+    summaryTemplates: {
+        tech: {
+            entry: '{jobTitle} yang bermotivasi dengan {years} pengalaman praktikal dalam pembangunan perisian. Bersemangat menulis kod yang bersih dan cekap serta mempelajari teknologi baharu. Bersedia menyumbang kepada projek inovatif dan berkembang sebagai pembangun.',
+            mid: '{jobTitle} yang berorientasikan hasil dengan {years} pengalaman membina aplikasi berskala dan memimpin inisiatif teknikal. Rekod terbukti menyampaikan penyelesaian berkualiti tinggi yang meningkatkan prestasi sistem sehingga 40%. Kolaborator yang kuat dengan pasukan merentas fungsi.',
+            senior: '{jobTitle} berpengalaman dengan {years} kepakaran dalam mereka bentuk dan menyampaikan penyelesaian berskala perusahaan. Memimpin pasukan 5+ pembangun, mengurangkan masa pelancaran sebanyak 60% melalui pelaksanaan CI/CD. Bersemangat membimbing pembangun junior dan memacu kecemerlangan teknikal.',
+            executive: 'Pemimpin teknologi strategik dengan {years} pengalaman memacu transformasi digital dan inovasi teknikal. Mengurus bajet melebihi RM10 juta dan pasukan 20+ jurutera. Berjaya menyampaikan projek yang menjana pertumbuhan hasil melebihi RM50 juta.',
+        },
+        design: {
+            entry: '{jobTitle} yang kreatif dengan {years} pengalaman menghasilkan reka bentuk berpusatkan pengguna. Mahir dalam alatan reka bentuk moden dan bersemangat mencipta antara muka yang intuitif dan menarik secara visual.',
+            mid: '{jobTitle} yang inovatif dengan {years} pengalaman mencipta pengalaman digital berpusatkan pengguna. Menyampaikan reka bentuk yang meningkatkan penglibatan pengguna sebanyak 35% dan mengurangkan kadar lantunan sebanyak 25%.',
+            senior: '{jobTitle} kanan dengan {years} pengalaman memimpin pasukan reka bentuk dan membentuk visi produk. Menubuhkan sistem reka bentuk yang diguna pakai merentas 10+ produk, meningkatkan konsistensi reka bentuk sebanyak 50%.',
+            executive: 'Eksekutif reka bentuk dengan {years} pengalaman membina dan memimpin organisasi reka bentuk bertaraf dunia. Mentransformasi budaya reka bentuk di syarikat terkemuka, memacu penjimatan kos melebihi RM25 juta.',
+        },
+        marketing: {
+            entry: '{jobTitle} yang bersemangat dengan {years} pengalaman dalam pemasaran digital. Mahir dalam penciptaan kandungan, pengurusan media sosial, dan analisis data.',
+            mid: '{jobTitle} yang berasaskan data dengan {years} pengalaman melaksanakan kempen yang memberikan hasil yang boleh diukur. Meningkatkan trafik organik sebanyak 150% dan memperbaiki kadar penukaran sebanyak 40%.',
+            senior: '{jobTitle} strategik dengan {years} pengalaman memimpin pasukan pemasaran berprestasi tinggi. Mengurus bajet pemasaran melebihi RM5 juta dan menyampaikan kempen yang menjana 200% ROI.',
+            executive: 'Eksekutif pemasaran dengan {years} pengalaman memacu pertumbuhan hasil melalui strategi pemasaran inovatif. Memimpin pasukan pemasaran global dan mengurus bajet melebihi RM50 juta.',
+        },
+        finance: {
+            entry: '{jobTitle} yang teliti dengan {years} pengalaman dalam analisis dan pelaporan kewangan. Asas yang kukuh dalam prinsip perakaunan dan perisian kewangan.',
+            mid: '{jobTitle} yang analitikal dengan {years} pengalaman dalam perancangan dan analisis kewangan. Mengenal pasti peluang penjimatan kos yang menghasilkan penjimatan tahunan melebihi RM2 juta.',
+            senior: '{jobTitle} kanan dengan {years} pengalaman memimpin operasi dan strategi kewangan. Mengurus portfolio bernilai RM250 juta+ dan memimpin pasukan melalui audit yang berjaya.',
+            executive: 'Eksekutif kewangan dengan {years} pengalaman memacu strategi kewangan dan kecemerlangan operasi. Memimpin transaksi M&A berjumlah RM500 juta+ dan meningkatkan margin EBITDA sebanyak 15%.',
+        },
+        healthcare: {
+            entry: '{jobTitle} yang prihatin dengan {years} pengalaman klinikal memberikan penjagaan berpusatkan pesakit. Komited mengekalkan standard penjagaan yang tinggi.',
+            mid: '{jobTitle} yang berdedikasi dengan {years} pengalaman menyampaikan penjagaan pesakit berkualiti tinggi. Meningkatkan skor kepuasan pesakit sebanyak 30% melalui protokol komunikasi yang dipertingkatkan.',
+            senior: '{jobTitle} berpengalaman dengan {years} kepakaran klinikal dan pengalaman kepimpinan. Memimpin inisiatif peningkatan kualiti yang mengurangkan kemasukan semula hospital sebanyak 20%.',
+            executive: 'Eksekutif penjagaan kesihatan dengan {years} pengalaman mentransformasi operasi klinikal dan hasil pesakit. Memimpin jabatan dengan 50+ kakitangan dan mengurus bajet melebihi RM25 juta.',
+        },
+        education: {
+            entry: '{jobTitle} yang bersemangat dengan {years} pengalaman pengajaran yang komited kepada kejayaan pelajar. Mahir mencipta rancangan pengajaran yang menarik dan memupuk persekitaran pembelajaran yang inklusif.',
+            mid: '{jobTitle} yang inovatif dengan {years} pengalaman membangunkan kurikulum yang melibatkan pelajar pelbagai latar belakang. Meningkatkan markah ujian pelajar sebanyak 25% melalui strategi pengajaran dibezakan.',
+            senior: '{jobTitle} veteran dengan {years} pengalaman membentuk hasil pendidikan dan membimbing rakan sekerja. Membangunkan program pemenang anugerah yang diguna pakai di seluruh daerah.',
+            executive: 'Pemimpin pendidikan dengan {years} pengalaman memacu kecemerlangan institusi. Memperoleh geran melebihi RM10 juta dan memimpin proses akreditasi.',
+        },
+        sales: {
+            entry: '{jobTitle} yang bermotivasi dengan {years} pengalaman dalam pembangunan perniagaan. Kemahiran komunikasi yang kuat dan tumpuan kepada pelanggan. Bersedia melebihi sasaran.',
+            mid: '{jobTitle} yang berorientasikan hasil dengan {years} pengalaman secara konsisten melebihi kuota. Menjana hasil perniagaan baharu melebihi RM10 juta dan mengekalkan kadar pengekalan pelanggan 95%.',
+            senior: '{jobTitle} berprestasi tinggi dengan {years} pengalaman memimpin pasukan jualan dan memacu pertumbuhan hasil. Mengurus wilayah yang menjana RM50 juta+ setiap tahun.',
+            executive: 'Eksekutif jualan dengan {years} pengalaman membina dan menskalakan organisasi jualan berprestasi tinggi. Meningkatkan hasil daripada RM25 juta kepada RM250 juta dan mengembang ke 3 pasaran baharu.',
+        },
+        hospitality: {
+            entry: '{jobTitle} yang mesra dan bertenaga dengan {years} pengalaman dalam persekitaran restoran yang pantas. Komited menyampaikan perkhidmatan pelanggan yang luar biasa.',
+            mid: '{jobTitle} yang berdedikasi dengan {years} pengalaman menyediakan perkhidmatan cemerlang di restoran bervolum tinggi. Mengekalkan penilaian kepuasan pelanggan 98%.',
+            senior: '{jobTitle} berpengalaman dengan {years} kepakaran dalam restoran mewah dan pertubuhan bervolum tinggi. Melatih dan membimbing 15+ ahli kakitangan.',
+            executive: 'Profesional hospitaliti dengan {years} pengalaman mengurus operasi restoran. Menyelia pasukan 30+ kakitangan dan meningkatkan hasil sebanyak 40%.',
+        },
+        general: {
+            entry: '{jobTitle} yang bermotivasi dengan {years} pengalaman profesional. Etika kerja yang kuat, kemahiran komunikasi yang cemerlang, dan komitmen menyampaikan hasil yang berkualiti.',
+            mid: '{jobTitle} yang berjaya dengan {years} pengalaman memacu kecemerlangan operasi. Meningkatkan kecekapan pasukan sebanyak 30% melalui pengoptimuman proses.',
+            senior: '{jobTitle} berpengalaman dengan {years} pengalaman memimpin pasukan dan inisiatif strategik. Berjaya mengurus projek dengan bajet sehingga RM5 juta.',
+            executive: 'Pemimpin eksekutif dengan {years} pengalaman memacu transformasi organisasi. Memimpin pasukan 50+ dan mengurus tanggungjawab P&L melebihi RM100 juta.',
+        },
+    },
+    jobDescriptions: {
+        tech: [
+            [
+                '• Memimpin pembangunan seni bina perkhidmatan mikro, meningkatkan kebolehskalaan sistem sebanyak 300%',
+                '• Melaksanakan saluran paip CI/CD mengurangkan masa pelancaran daripada 2 jam kepada 15 minit',
+                '• Membimbing pasukan 5 pembangun junior, menjalankan semakan kod dan latihan teknikal',
+                '• Bekerjasama dengan pengurus produk untuk menentukan keperluan teknikal dan perancangan sprint',
+                '• Mengurangkan masa muat aplikasi sebanyak 40% melalui pengoptimuman prestasi',
+            ],
+            [
+                '• Membangunkan API RESTful yang melayan 1 juta+ permintaan harian dengan masa operasi 99.9%',
+                '• Membina aplikasi web responsif menggunakan React dan TypeScript',
+                '• Mengintegrasikan perkhidmatan pihak ketiga dan gerbang pembayaran',
+                '• Mengambil bahagian dalam upacara agile dan menyumbang kepada perancangan sprint',
+            ],
+            [
+                '• Menyumbang kepada penyelenggaraan kod dan pembaikan pepijat',
+                '• Membantu pembangun kanan dengan pelaksanaan ciri',
+                '• Menulis ujian unit meningkatkan liputan kod sebanyak 25%',
+            ],
+        ],
+        design: [
+            [
+                '• Memimpin pasukan reka bentuk 5 pereka dalam mencipta produk digital berpusatkan pengguna',
+                '• Menubuhkan sistem reka bentuk dan pustaka komponen yang digunakan merentas 10+ projek',
+                '• Meningkatkan penglibatan pengguna sebanyak 40% melalui penambahbaikan UX',
+                '• Menjalankan penyelidikan pengguna dan ujian kebolehgunaan dengan 100+ peserta',
+                '• Membentangkan konsep reka bentuk kepada pihak berkepentingan dan memasukkan maklum balas',
+            ],
+            [
+                '• Mereka bentuk aplikasi mudah alih dan web untuk platform iOS dan Android',
+                '• Mencipta kerangka wayar, prototaip, dan mockup berkejituan tinggi',
+                '• Bekerjasama dengan pembangun untuk memastikan ketepatan pelaksanaan reka bentuk',
+                '• Meningkatkan kadar penukaran sebanyak 35% melalui ujian A/B',
+            ],
+            [
+                '• Membantu mencipta reka bentuk visual untuk kempen pemasaran',
+                '• Mengekalkan konsistensi jenama merentas semua hasil reka bentuk',
+                '• Menyokong pereka kanan dengan penciptaan aset',
+            ],
+        ],
+        marketing: [
+            [
+                '• Membangunkan dan melaksanakan strategi pemasaran yang menghasilkan 200% ROI',
+                '• Mengurus bajet pemasaran tahunan RM2.5 juta+ merentas saluran digital',
+                '• Memimpin pasukan 4 pemasar dalam perancangan dan pelaksanaan kempen',
+                '• Meningkatkan trafik organik sebanyak 150% melalui pengoptimuman SEO',
+                '• Membina perkongsian dengan pengaruh yang menjangkau audiens 2 juta+',
+            ],
+            [
+                '• Mencipta strategi kandungan yang memacu 100K+ pelawat blog bulanan',
+                '• Mengurus akaun media sosial dengan pertumbuhan pengikut sebanyak 300%',
+                '• Melaksanakan kempen emel dengan kadar buka 35% dan CTR 15%',
+                '• Menganalisis prestasi kempen dan mengoptimumkan berdasarkan data',
+            ],
+            [
+                '• Membantu penciptaan kandungan media sosial dan penjadualan',
+                '• Menyokong pasukan dengan penyelidikan pasaran dan analisis persaingan',
+                '• Membantu menganjurkan acara pemasaran dan webinar',
+            ],
+        ],
+        finance: [
+            [
+                '• Mengurus perancangan dan analisis kewangan untuk unit perniagaan bernilai RM250 juta+',
+                '• Memimpin proses belanjawan tahunan dan ramalan suku tahunan',
+                '• Mengenal pasti peluang penjimatan kos yang menghasilkan penjimatan RM5 juta+',
+                '• Membentangkan laporan kewangan kepada kepimpinan eksekutif',
+                '• Menyelia pasukan 3 penganalisis dan menyelaras proses audit',
+            ],
+            [
+                '• Menyediakan penyata kewangan bulanan dan analisis varians',
+                '• Membangunkan model kewangan untuk perancangan perniagaan',
+                '• Memperkemas proses pelaporan mengurangkan masa penutupan sebanyak 30%',
+                '• Menyokong usaha wajar M&A dan integrasi',
+            ],
+            [
+                '• Membantu pemprosesan akaun belum bayar dan belum terima',
+                '• Menyesuaikan penyata bank dan akaun lejar am',
+                '• Menyokong akauntan kanan dengan penutupan akhir bulan',
+            ],
+        ],
+        healthcare: [
+            [
+                '• Menyelia kakitangan kejururawatan 15+ dalam memberikan penjagaan pesakit',
+                '• Melaksanakan inisiatif peningkatan kualiti mengurangkan kesilapan sebanyak 40%',
+                '• Menyelaras pelan penjagaan pesakit dengan pasukan antara disiplin',
+                '• Mengekalkan pematuhan terhadap keperluan peraturan dan PDPA',
+                '• Melatih kakitangan baharu mengenai protokol dan amalan terbaik',
+            ],
+            [
+                '• Memberikan penjagaan pesakit langsung untuk 10+ pesakit setiap hari',
+                '• Mentadbir ubat dan memantau keadaan pesakit',
+                '• Mendokumentasikan maklumat pesakit dalam sistem EMR dengan tepat',
+                '• Bekerjasama dengan doktor mengenai pelan rawatan',
+            ],
+            [
+                '• Membantu pengambilan pesakit dan pemantauan tanda vital',
+                '• Menyokong kakitangan kejururawatan dengan aktiviti penjagaan harian',
+                '• Mengekalkan persekitaran pesakit yang bersih dan teratur',
+            ],
+        ],
+        education: [
+            [
+                '• Membangunkan kurikulum yang diguna pakai di seluruh daerah melayani 5,000+ pelajar',
+                '• Membimbing 10+ guru dalam melaksanakan strategi pengajaran baharu',
+                '• Meningkatkan markah pencapaian pelajar sebanyak 25% dalam tempoh 3 tahun',
+                '• Memimpin bengkel pembangunan profesional dan sesi latihan',
+                '• Memperoleh geran melebihi RM500K untuk program pendidikan',
+            ],
+            [
+                '• Mengajar kelas 25+ pelajar merentas pelbagai tingkatan',
+                '• Mencipta rancangan pengajaran menarik yang selaras dengan standard kebangsaan',
+                '• Melaksanakan pengajaran dibezakan untuk pelajar pelbagai latar belakang',
+                '• Berkomunikasi secara berkala dengan ibu bapa mengenai kemajuan pelajar',
+            ],
+            [
+                '• Membantu guru utama dengan pengajaran bilik darjah',
+                '• Menyokong pelajar dengan tunjuk ajar individu dan kumpulan kecil',
+                '• Membantu mengekalkan organisasi bilik darjah dan bahan pengajaran',
+            ],
+        ],
+        sales: [
+            [
+                '• Melebihi kuota tahunan sebanyak 150%, menjana hasil RM25 juta+',
+                '• Membina dan mengurus pasukan 8 wakil jualan',
+                '• Membangunkan pelan akaun strategik untuk pelanggan perusahaan',
+                '• Merundingkan kontrak bernilai RM2.5 juta+ dengan eksekutif peringkat C',
+                '• Melaksanakan proses CRM meningkatkan ketepatan ramalan sebanyak 40%',
+            ],
+            [
+                '• Mencapai 120% kuota secara konsisten selama 8 suku berturut-turut',
+                '• Mengurus saluran 50+ peluang bernilai RM10 juta+',
+                '• Menjalankan demonstrasi dan pembentangan produk',
+                '• Mengekalkan kadar pengekalan pelanggan 95% melalui pengurusan hubungan',
+            ],
+            [
+                '• Menjana petunjuk melalui panggilan dingin dan jaringan',
+                '• Membantu wakil kanan dengan mesyuarat pelanggan',
+                '• Mengekalkan rekod yang tepat dalam sistem CRM',
+            ],
+        ],
+        hospitality: [
+            [
+                '• Menyelia pasukan 10+ pelayan memastikan kualiti perkhidmatan yang konsisten',
+                '• Melatih kakitangan baharu mengenai item menu, sistem POS, dan standard perkhidmatan',
+                '• Menyelesaikan aduan pelanggan secara profesional, mengekalkan kadar kepuasan 95%',
+                '• Menyelaras dengan kakitangan dapur untuk memastikan penghantaran makanan tepat pada masa',
+                '• Mengurus bahagian 8+ meja pada waktu puncak melayani 100+ tetamu setiap hari',
+            ],
+            [
+                '• Menyediakan perkhidmatan meja yang cemerlang di restoran 200 tempat duduk yang sibuk',
+                '• Meningkatkan purata saiz bil sebanyak 20% melalui jualan naik yang berkesan',
+                '• Menghafal menu terperinci termasuk hidangan istimewa harian dan padanan wain',
+                '• Memproses pembayaran dengan tepat mengendalikan RM2,500+ dalam transaksi harian',
+            ],
+            [
+                '• Menyambut dan mendudukkan tetamu memastikan kesan pertama yang positif',
+                '• Mengambil pesanan makanan dan minuman dengan tepat menggunakan sistem POS',
+                '• Mengekalkan ruang makan yang bersih dan teratur sepanjang syif',
+            ],
+        ],
+        general: [
+            [
+                '• Memimpin pasukan merentas fungsi 10+ ahli dalam inisiatif strategik',
+                '• Mengurus projek dengan bajet sehingga RM2.5 juta dan menyampaikan tepat pada masa',
+                '• Meningkatkan kecekapan operasi sebanyak 30% melalui pengoptimuman proses',
+                '• Membangunkan dan melaksanakan dasar serta prosedur jabatan',
+                '• Membentangkan laporan suku tahunan kepada kepimpinan kanan',
+            ],
+            [
+                '• Menyelaras operasi harian dan pengurusan aliran kerja',
+                '• Bekerjasama dengan pihak berkepentingan untuk memenuhi tarikh akhir projek',
+                '• Menganalisis data untuk mengenal pasti trend dan peluang penambahbaikan',
+                '• Melatih ahli pasukan baharu mengenai proses dan sistem',
+            ],
+            [
+                '• Menyokong pasukan dengan tugasan pentadbiran dan operasi',
+                '• Membantu kemasukan data dan penyediaan laporan',
+                '• Membantu menganjurkan mesyuarat dan acara pasukan',
+            ],
+        ],
+    },
+    masterDegree: { tech: 'Ijazah Sarjana Sains Komputer', business: 'Ijazah Sarjana Pentadbiran Perniagaan (MBA)', school: 'Sekolah Perniagaan Siswazah' },
+    phoneFormat: '+60 12-000 0000',
+    titlePrefixes: { senior: 'Kanan', lead: 'Ketua', director: 'Pengarah' },
+};
+
+export default ms;

@@ -72,6 +72,18 @@ const ar: TemplatesCategoryContent = {
   breadcrumbTemplates: 'القوالب',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar };
+const ja: TemplatesCategoryContent = {
+  fallbackTitle: '履歴書テンプレート | Best AI Resume',
+  collectionSuffix: 'コレクション',
+  availableTemplates: '利用可能なテンプレート',
+  editInAI: 'AIで編集',
+  tiredTitle: 'ファイルの書式設定に疲れていませんか？',
+  tiredSubtitle: 'テンプレートのダウンロードは便利ですが、中身を埋めるのは大変です。AI履歴書作成ツールなら、書式設定を瞬時に自動化します。',
+  buildWithAI: 'AIで作成する',
+  breadcrumbHome: 'ホーム',
+  breadcrumbTemplates: 'テンプレート',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

@@ -647,6 +647,7 @@ export const useResumeStore = create<ResumeState>()(
             partialize: (state) => ({
                 resumeData: state.resumeData,
                 selectedTemplate: state.selectedTemplate,
+                selectedTemplateId: state.selectedTemplateId,
                 selectedTheme: state.selectedTheme,
                 lastEdited: state.lastEdited,
             }),

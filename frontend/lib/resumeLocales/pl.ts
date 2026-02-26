@@ -1,0 +1,276 @@
+import { LocaleBundle } from './types';
+
+const pl: LocaleBundle = {
+    localeData: {
+        cities: ['Warszawa', 'Kraków', 'Wrocław', 'Gdańsk', 'Poznań'],
+        country: 'Polska',
+        nationality: 'Polish',
+        companies: {
+            tech: ['TechCorp Rozwiązania Sp. z o.o.', 'InnovaTech Polska', 'CloudWorks Polska', 'DataLabs Europa', 'AppForge Digital'],
+            design: ['Studio Projektowe Kreatyw', 'DesignHub Polska', 'Pixel Art Studio', 'UX Studio Warszawa', 'Grafika Pro Sp. z o.o.'],
+            marketing: ['Agencja Marketingowa Wzrost', 'Brand Masters Polska', 'Digital Reach Polska', 'Media Engage Sp. z o.o.', 'Impact Marketing Polska'],
+            finance: ['Doradcy Finansowi Kapitał Sp. z o.o.', 'Grupa Finansowa Sterling', 'Apex Usługi Księgowe', 'Partnerzy Inwestycyjni Polska', 'Rozwiązania Fiskalne Sp. z o.o.'],
+            healthcare: ['Szpital Miejski im. Św. Łazarza', 'Centrum Zdrowia Rodzinnego', 'Grupa Medyczna CarePlus', 'Klinika Wellness Partnerzy', 'Regionalne Centrum Medyczne'],
+            education: ['Liceum Ogólnokształcące im. M. Kopernika', 'Akademia Edukacyjna Riverside', 'Uniwersytet Państwowy', 'Centrum Kształcenia Ustawicznego', 'Ośrodek Doskonalenia Nauczycieli'],
+            sales: ['Enterprise Solutions Polska', 'Partnerzy Handlu Globalnego', 'TechSales Polska Sp. z o.o.', 'Stowarzyszenie Rozwoju Biznesu', 'Premier Grupa Sprzedażowa'],
+            hospitality: ['Restauracja Grand Hotel', 'Bistro Elegancja', 'Grill & Bar Nadrzeczny', 'Gastro Centrum Sp. z o.o.', 'Kuchnia Nadmorska'],
+            general: ['Acme Polska Sp. z o.o.', 'Globalne Przedsiębiorstwa', 'Premier Rozwiązania Sp. z o.o.', 'Innowacyjne Industrie', 'Partnerzy Doskonałości'],
+        },
+        degrees: {
+            tech: { degree: 'Licencjat z Informatyki', school: 'Politechnika Warszawska' },
+            design: { degree: 'Licencjat Sztuk Pięknych w zakresie Projektowania Graficznego', school: 'Akademia Sztuk Pięknych w Krakowie' },
+            marketing: { degree: 'Licencjat z Zarządzania i Marketingu', school: 'Szkoła Główna Handlowa w Warszawie' },
+            finance: { degree: 'Licencjat z Finansów i Rachunkowości', school: 'Uniwersytet Ekonomiczny w Krakowie' },
+            healthcare: { degree: 'Licencjat Pielęgniarstwa', school: 'Wydział Nauk o Zdrowiu' },
+            education: { degree: 'Licencjat z Pedagogiki', school: 'Uniwersytet Pedagogiczny w Krakowie' },
+            sales: { degree: 'Licencjat z Zarządzania', school: 'Wydział Zarządzania UW' },
+            hospitality: { degree: 'Dyplom z Zarządzania Hotelarstwem i Gastronomią', school: 'Szkoła Gastronomiczna' },
+            general: { degree: 'Licencjat z Nauk Humanistycznych', school: 'Uniwersytet Jagielloński' },
+        },
+        educationDescription: 'Ukończył studia z wyróżnieniem. Aktywny członek stowarzyszeń zawodowych.',
+        yearsText: (years) => years === 1 ? '1 rok' : `${years}+ lat`,
+    },
+    summaryTemplates: {
+        tech: {
+            entry: 'Zmotywowany {jobTitle} z {years} praktycznego doświadczenia w tworzeniu oprogramowania. Pasjonat pisania czystego, wydajnego kodu i poznawania nowych technologii. Gotowy do udziału w innowacyjnych projektach i rozwoju zawodowego.',
+            mid: 'Nastawiony na wyniki {jobTitle} z {years} doświadczenia w budowaniu skalowalnych aplikacji i kierowaniu inicjatywami technicznymi. Udokumentowane osiągnięcia w dostarczaniu wysokiej jakości rozwiązań poprawiających wydajność systemów o 40%. Silna współpraca z zespołami interdyscyplinarnymi.',
+            senior: 'Doświadczony {jobTitle} z {years} ekspertyzy w projektowaniu i dostarczaniu rozwiązań klasy enterprise. Kierował zespołami ponad 5 programistów, skracając czas wdrożeń o 60% dzięki implementacji CI/CD. Pasjonat mentoringu młodszych programistów i dążenia do doskonałości technicznej.',
+            executive: 'Strategiczny lider technologiczny z {years} doświadczenia w prowadzeniu transformacji cyfrowej i innowacji technicznych. Zarządzał budżetami przekraczającymi 8 mln zł i zespołami ponad 20 inżynierów. Z sukcesem realizował projekty generujące ponad 40 mln zł wzrostu przychodów.',
+        },
+        design: {
+            entry: 'Kreatywny {jobTitle} z {years} doświadczenia w tworzeniu projektów zorientowanych na użytkownika. Biegły w nowoczesnych narzędziach projektowych, z pasją do tworzenia intuicyjnych i estetycznych interfejsów.',
+            mid: 'Innowacyjny {jobTitle} z {years} doświadczenia w tworzeniu cyfrowych doświadczeń użytkownika. Dostarczał projekty zwiększające zaangażowanie użytkowników o 35% i zmniejszające współczynnik odrzuceń o 25%.',
+            senior: 'Starszy {jobTitle} z {years} doświadczenia w kierowaniu zespołami projektowymi i kształtowaniu wizji produktu. Stworzył systemy projektowe wdrożone w ponad 10 produktach, poprawiając spójność wizualną o 50%.',
+            executive: 'Lider designu z {years} doświadczenia w budowaniu i kierowaniu światowej klasy organizacjami projektowymi. Transformował kulturę projektową w wiodących firmach, generując ponad 20 mln zł oszczędności.',
+        },
+        marketing: {
+            entry: 'Entuzjastyczny {jobTitle} z {years} doświadczenia w marketingu cyfrowym. Biegły w tworzeniu treści, zarządzaniu mediami społecznościowymi i analizie danych.',
+            mid: 'Zorientowany na dane {jobTitle} z {years} doświadczenia w realizacji kampanii przynoszących mierzalne rezultaty. Zwiększył ruch organiczny o 150% i poprawił współczynniki konwersji o 40%.',
+            senior: 'Strategiczny {jobTitle} z {years} doświadczenia w kierowaniu wydajnymi zespołami marketingowymi. Zarządzał budżetami marketingowymi ponad 4 mln zł i prowadził kampanie generujące 200% ROI.',
+            executive: 'Dyrektor marketingu z {years} doświadczenia w napędzaniu wzrostu przychodów poprzez innowacyjne strategie marketingowe. Kierował globalnymi zespołami marketingowymi i zarządzał budżetami ponad 40 mln zł.',
+        },
+        finance: {
+            entry: 'Skrupulatny {jobTitle} z {years} doświadczenia w analizie finansowej i sprawozdawczości. Solidne podstawy w zasadach rachunkowości i oprogramowaniu finansowym.',
+            mid: 'Analityczny {jobTitle} z {years} doświadczenia w planowaniu i analizie finansowej. Zidentyfikował możliwości oszczędności skutkujące ponad 2 mln zł rocznych oszczędności.',
+            senior: 'Starszy {jobTitle} z {years} doświadczenia w kierowaniu operacjami i strategią finansową. Zarządzał portfelami o wartości ponad 200 mln zł i prowadził zespoły przez pomyślne audyty.',
+            executive: 'Dyrektor finansowy z {years} doświadczenia w kształtowaniu strategii finansowej i doskonałości operacyjnej. Kierował transakcjami M&A o łącznej wartości ponad 400 mln zł i poprawił marże EBITDA o 15%.',
+        },
+        healthcare: {
+            entry: 'Empatyczny {jobTitle} z {years} doświadczenia klinicznego w opiece skoncentrowanej na pacjencie. Zaangażowany w utrzymanie najwyższych standardów opieki medycznej.',
+            mid: 'Oddany {jobTitle} z {years} doświadczenia w świadczeniu wysokiej jakości opieki nad pacjentem. Poprawił wskaźniki satysfakcji pacjentów o 30% dzięki ulepszonym protokołom komunikacji.',
+            senior: 'Doświadczony {jobTitle} z {years} ekspertyzy klinicznej i doświadczenia przywódczego. Kierował inicjatywami poprawy jakości, redukując ponowne hospitalizacje o 20%.',
+            executive: 'Lider ochrony zdrowia z {years} doświadczenia w transformacji operacji klinicznych i wyników leczenia pacjentów. Kierował oddziałami zatrudniającymi ponad 50 pracowników i zarządzał budżetami ponad 20 mln zł.',
+        },
+        education: {
+            entry: 'Pełen pasji {jobTitle} z {years} doświadczenia dydaktycznego, zaangażowany w sukces uczniów. Biegły w tworzeniu angażujących planów lekcji i budowaniu inkluzywnych środowisk nauki.',
+            mid: 'Innowacyjny {jobTitle} z {years} doświadczenia w opracowywaniu programów nauczania angażujących zróżnicowane grupy uczniów. Poprawił wyniki testów uczniów o 25% poprzez strategie nauczania zindywidualizowanego.',
+            senior: 'Doświadczony {jobTitle} z {years} doświadczenia w kształtowaniu wyników edukacyjnych i mentorowaniu kolegów. Opracował nagradzane programy wdrożone w całym okręgu szkolnym.',
+            executive: 'Lider edukacji z {years} doświadczenia w dążeniu do doskonałości instytucjonalnej. Pozyskał ponad 8 mln zł w grantach i prowadził procesy akredytacyjne.',
+        },
+        sales: {
+            entry: 'Zmotywowany {jobTitle} z {years} doświadczenia w rozwoju biznesu. Silne umiejętności komunikacyjne i orientacja na klienta. Gotowy do przekraczania założonych celów.',
+            mid: 'Zorientowany na wyniki {jobTitle} z {years} doświadczenia w konsekwentnym przekraczaniu planów sprzedażowych. Wygenerował ponad 8 mln zł nowych przychodów biznesowych i utrzymał 95% wskaźnik retencji klientów.',
+            senior: 'Wybitny {jobTitle} z {years} doświadczenia w kierowaniu zespołami sprzedażowymi i napędzaniu wzrostu przychodów. Zarządzał terytoriami generującymi ponad 40 mln zł rocznie.',
+            executive: 'Dyrektor sprzedaży z {years} doświadczenia w budowaniu i skalowaniu wysokowydajnych organizacji sprzedażowych. Zwiększył przychody z 20 mln zł do 200 mln zł i rozszerzył działalność na 3 nowe rynki.',
+        },
+        hospitality: {
+            entry: 'Przyjazny i energiczny {jobTitle} z {years} doświadczenia w dynamicznych środowiskach gastronomicznych. Zaangażowany w świadczenie wyjątkowej obsługi klienta.',
+            mid: 'Oddany {jobTitle} z {years} doświadczenia w zapewnianiu doskonałej obsługi w restauracjach o wysokim natężeniu ruchu. Utrzymywał 98% wskaźnik satysfakcji klientów.',
+            senior: 'Doświadczony {jobTitle} z {years} ekspertyzy w gastronomii premium i lokalizacjach o wysokim natężeniu ruchu. Przeszkolił i mentorował ponad 15 pracowników.',
+            executive: 'Profesjonalista branży hotelarsko-gastronomicznej z {years} doświadczenia w zarządzaniu operacjami restauracyjnymi. Nadzorował zespoły ponad 30 pracowników i zwiększył przychody o 40%.',
+        },
+        general: {
+            entry: 'Zmotywowany {jobTitle} z {years} doświadczenia zawodowego. Silna etyka pracy, doskonałe umiejętności komunikacyjne i zaangażowanie w dostarczanie wysokiej jakości rezultatów.',
+            mid: 'Kompetentny {jobTitle} z {years} doświadczenia w dążeniu do doskonałości operacyjnej. Poprawił efektywność zespołu o 30% poprzez optymalizację procesów.',
+            senior: 'Doświadczony {jobTitle} z {years} doświadczenia w kierowaniu zespołami i inicjatywami strategicznymi. Z sukcesem zarządzał projektami z budżetami do 4 mln zł.',
+            executive: 'Lider wyższego szczebla z {years} doświadczenia w prowadzeniu transformacji organizacyjnej. Kierował zespołami ponad 50 osób i zarządzał P&L o wartości ponad 80 mln zł.',
+        },
+    },
+    jobDescriptions: {
+        tech: [
+            [
+                '• Kierował rozwojem architektury mikroserwisowej, poprawiając skalowalność systemu o 300%',
+                '• Wdrożył pipeline CI/CD, skracając czas wdrożeń z 2 godzin do 15 minut',
+                '• Mentorował zespół 5 młodszych programistów, prowadząc przeglądy kodu i szkolenia techniczne',
+                '• Współpracował z kierownikami produktu przy definiowaniu wymagań technicznych i planowaniu sprintów',
+                '• Zredukował czas ładowania aplikacji o 40% poprzez optymalizację wydajności',
+            ],
+            [
+                '• Rozwijał interfejsy API RESTful obsługujące ponad 1 mln zapytań dziennie z dostępnością 99,9%',
+                '• Budował responsywne aplikacje webowe z użyciem React i TypeScript',
+                '• Integrował usługi zewnętrzne i bramki płatnicze',
+                '• Uczestniczył w ceremoniach Agile i współtworzył planowanie sprintów',
+            ],
+            [
+                '• Uczestniczył w utrzymaniu bazy kodu i naprawianiu błędów',
+                '• Wspierał starszych programistów we wdrażaniu nowych funkcjonalności',
+                '• Pisał testy jednostkowe, poprawiając pokrycie kodu o 25%',
+            ],
+        ],
+        design: [
+            [
+                '• Kierował zespołem 5 projektantów w tworzeniu produktów cyfrowych zorientowanych na użytkownika',
+                '• Stworzył system projektowy i bibliotekę komponentów wykorzystywaną w ponad 10 projektach',
+                '• Zwiększył zaangażowanie użytkowników o 40% poprzez usprawnienia UX',
+                '• Prowadził badania użytkowników i testy użyteczności z ponad 100 uczestnikami',
+                '• Prezentował koncepcje projektowe interesariuszom i uwzględniał ich uwagi',
+            ],
+            [
+                '• Projektował aplikacje mobilne i webowe na platformy iOS i Android',
+                '• Tworzył szkielety, prototypy i makiety wysokiej wierności',
+                '• Współpracował z programistami w celu zapewnienia dokładnej implementacji projektów',
+                '• Poprawił współczynniki konwersji o 35% poprzez testy A/B',
+            ],
+            [
+                '• Wspierał tworzenie projektów wizualnych dla kampanii marketingowych',
+                '• Utrzymywał spójność marki we wszystkich materiałach projektowych',
+                '• Asystował starszym projektantom w tworzeniu zasobów graficznych',
+            ],
+        ],
+        marketing: [
+            [
+                '• Opracował i wdrożył strategie marketingowe generujące 200% ROI',
+                '• Zarządzał rocznym budżetem marketingowym ponad 2 mln zł w kanałach cyfrowych',
+                '• Kierował zespołem 4 specjalistów ds. marketingu w planowaniu i realizacji kampanii',
+                '• Zwiększył ruch organiczny o 150% dzięki optymalizacji SEO',
+                '• Nawiązał partnerstwa z influencerami docierającymi do ponad 2 mln odbiorców',
+            ],
+            [
+                '• Stworzył strategię contentową generującą ponad 100 tys. odwiedzin bloga miesięcznie',
+                '• Zarządzał profilami w mediach społecznościowych, zwiększając liczbę obserwujących o 300%',
+                '• Realizował kampanie e-mailowe z 35% wskaźnikiem otwarć i 15% CTR',
+                '• Analizował wyniki kampanii i optymalizował je na podstawie danych',
+            ],
+            [
+                '• Współtworzył treści do mediów społecznościowych i planował ich publikację',
+                '• Wspierał zespół w badaniach rynku i analizie konkurencji',
+                '• Pomagał w organizacji wydarzeń marketingowych i webinarów',
+            ],
+        ],
+        finance: [
+            [
+                '• Zarządzał planowaniem i analizą finansową dla jednostki biznesowej o wartości ponad 200 mln zł',
+                '• Kierował rocznym procesem budżetowania i kwartalnymi prognozami',
+                '• Zidentyfikował możliwości oszczędności skutkujące ponad 4 mln zł redukcji kosztów',
+                '• Prezentował raporty finansowe zarządowi firmy',
+                '• Nadzorował zespół 3 analityków i koordynował procesy audytowe',
+            ],
+            [
+                '• Przygotowywał miesięczne sprawozdania finansowe i analizę odchyleń',
+                '• Opracowywał modele finansowe do planowania biznesowego',
+                '• Usprawnił procesy raportowania, skracając czas zamknięcia miesiąca o 30%',
+                '• Wspierał procesy due diligence i integracji przy fuzjach i przejęciach',
+            ],
+            [
+                '• Obsługiwał procesy zobowiązań i należności',
+                '• Uzgadniał wyciągi bankowe i konta księgi głównej',
+                '• Wspierał starszych księgowych przy zamknięciu miesiąca',
+            ],
+        ],
+        healthcare: [
+            [
+                '• Nadzorował zespół pielęgniarski ponad 15 osób w świadczeniu opieki nad pacjentami',
+                '• Wdrożył inicjatywy poprawy jakości, redukując błędy medyczne o 40%',
+                '• Koordynował plany opieki nad pacjentami z zespołem interdyscyplinarnym',
+                '• Zapewniał zgodność z wymogami regulacyjnymi i standardami ochrony danych medycznych',
+                '• Szkolił nowy personel z procedur i najlepszych praktyk',
+            ],
+            [
+                '• Świadczył bezpośrednią opiekę nad ponad 10 pacjentami dziennie',
+                '• Podawał leki i monitorował stan pacjentów',
+                '• Prowadził dokumentację medyczną w systemach EMR z najwyższą starannością',
+                '• Współpracował z lekarzami przy planach leczenia',
+            ],
+            [
+                '• Asystował przy przyjęciu pacjentów i monitorowaniu parametrów życiowych',
+                '• Wspierał personel pielęgniarski w codziennych czynnościach opiekuńczych',
+                '• Utrzymywał czyste i zorganizowane otoczenie pacjenta',
+            ],
+        ],
+        education: [
+            [
+                '• Opracował program nauczania wdrożony w całym okręgu szkolnym, obejmujący ponad 5 000 uczniów',
+                '• Mentorował ponad 10 nauczycieli we wdrażaniu nowych strategii dydaktycznych',
+                '• Poprawił wyniki testów uczniów o 25% w ciągu 3 lat',
+                '• Prowadził warsztaty rozwoju zawodowego i sesje szkoleniowe',
+                '• Pozyskał ponad 400 tys. zł w grantach na programy edukacyjne',
+            ],
+            [
+                '• Prowadził zajęcia dla klas ponad 25 uczniów na różnych poziomach nauczania',
+                '• Tworzył angażujące plany lekcji zgodne z podstawą programową',
+                '• Wdrażał zindywidualizowane podejście dydaktyczne dla zróżnicowanych grup uczniów',
+                '• Regularnie komunikował się z rodzicami na temat postępów uczniów',
+            ],
+            [
+                '• Asystował wiodącym nauczycielom w prowadzeniu zajęć dydaktycznych',
+                '• Wspierał uczniów poprzez indywidualne i grupowe korepetycje',
+                '• Pomagał w organizacji klasy i zarządzaniu materiałami dydaktycznymi',
+            ],
+        ],
+        sales: [
+            [
+                '• Przekroczył roczny plan sprzedaży o 150%, generując ponad 20 mln zł przychodów',
+                '• Zbudował i zarządzał zespołem 8 przedstawicieli handlowych',
+                '• Opracowywał strategiczne plany kont dla klientów korporacyjnych',
+                '• Negocjował kontrakty o wartości ponad 2 mln zł z kadrą zarządzającą klientów',
+                '• Wdrożył procesy CRM poprawiające dokładność prognoz o 40%',
+            ],
+            [
+                '• Osiągał 120% planu sprzedażowego nieprzerwanie przez 8 kolejnych kwartałów',
+                '• Zarządzał lejkiem sprzedażowym ponad 50 szans o wartości ponad 8 mln zł',
+                '• Prowadził prezentacje i demonstracje produktów',
+                '• Utrzymywał 95% wskaźnik retencji klientów dzięki zarządzaniu relacjami',
+            ],
+            [
+                '• Generował leady poprzez cold calling i networking',
+                '• Asystował starszym przedstawicielom na spotkaniach z klientami',
+                '• Prowadził dokładne zapisy w systemie CRM',
+            ],
+        ],
+        hospitality: [
+            [
+                '• Nadzorował zespół ponad 10 kelnerów, zapewniając stałą jakość obsługi',
+                '• Szkolił nowy personel z menu, systemów POS i standardów obsługi',
+                '• Rozwiązywał reklamacje klientów profesjonalnie, utrzymując 95% wskaźnik satysfakcji',
+                '• Koordynował pracę z kuchnią, zapewniając terminowe podawanie dań',
+                '• Zarządzał sekcją ponad 8 stolików w godzinach szczytu, obsługując ponad 100 gości dziennie',
+            ],
+            [
+                '• Zapewniał doskonałą obsługę kelnerską w restauracji na 200 miejsc o wysokim natężeniu ruchu',
+                '• Zwiększył średnią wartość rachunku o 20% dzięki skutecznemu upsellingowi',
+                '• Opanował rozbudowane menu wraz z daniami dnia i rekomendacjami win',
+                '• Obsługiwał płatności precyzyjnie, przetwarzając ponad 2 000 zł dziennie',
+            ],
+            [
+                '• Witał i usadzał gości, zapewniając pozytywne pierwsze wrażenie',
+                '• Przyjmował precyzyjne zamówienia na potrawy i napoje z użyciem systemu POS',
+                '• Utrzymywał czystą i zorganizowaną strefę gastronomiczną podczas zmian',
+            ],
+        ],
+        general: [
+            [
+                '• Kierował interdyscyplinarnym zespołem ponad 10 osób w inicjatywach strategicznych',
+                '• Zarządzał projektami z budżetami do 2 mln zł, realizując je terminowo',
+                '• Poprawił efektywność operacyjną o 30% poprzez optymalizację procesów',
+                '• Opracował i wdrożył polityki i procedury departamentowe',
+                '• Prezentował kwartalne raporty wyższej kadrze zarządzającej',
+            ],
+            [
+                '• Koordynował codzienne operacje i zarządzanie przepływem pracy',
+                '• Współpracował z interesariuszami w celu dotrzymywania terminów projektowych',
+                '• Analizował dane w celu identyfikacji trendów i możliwości usprawnień',
+                '• Szkolił nowych członków zespołu z procesów i systemów',
+            ],
+            [
+                '• Wspierał zespół w zadaniach administracyjnych i operacyjnych',
+                '• Asystował przy wprowadzaniu danych i przygotowywaniu raportów',
+                '• Pomagał w organizacji spotkań zespołowych i wydarzeń',
+            ],
+        ],
+    },
+    masterDegree: { tech: 'Magister Informatyki', business: 'Magister Zarządzania (MBA)', school: 'Szkoła Biznesu' },
+    phoneFormat: '+48 500 000 000',
+    titlePrefixes: { senior: 'Starszy', lead: 'Kierownik', director: 'Dyrektor' },
+};
+
+export default pl;

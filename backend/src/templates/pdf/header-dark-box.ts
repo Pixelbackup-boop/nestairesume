@@ -140,10 +140,10 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
     };
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; padding: 40px; box-sizing: border-box;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; padding: 24px 40px; box-sizing: border-box;">
 
             <!-- Header Area -->
-            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px;">
+            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px;">
 
                 <!-- Profile Avatar - Circle with image or initials -->
                 ${ProfileAvatar(personalInfo.profileImage, personalInfo.fullName || 'Your Name', 120)}

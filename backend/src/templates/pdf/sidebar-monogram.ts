@@ -96,10 +96,10 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: ${mainText}; display: table; table-layout: fixed; position: relative;">
 
             <!-- Sidebar (30%) - table-cell, no border (handled by fixed stripe) -->
-            <aside style="display: table-cell; width: 30%; color: ${sidebarText}; padding: 48px 24px; vertical-align: top;">
+            <aside style="display: table-cell; width: 30%; color: ${sidebarText}; padding: 32px 24px; vertical-align: top;">
 
                 <!-- Profile Image or Monogram -->
-                <div style="margin-bottom: 48px; display: flex; justify-content: center;">
+                <div style="margin-bottom: 32px; display: flex; justify-content: center;">
                     ${personalInfo.profileImage ? `
                         <img
                             src="${personalInfo.profileImage}"
@@ -182,10 +182,10 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                     <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
                     <tbody>
                         <tr>
-                            <td style="padding: 44px 48px; vertical-align: top;">
+                            <td style="padding: 24px 48px; vertical-align: top;">
 
                 <!-- Header -->
-                <div style="margin-bottom: 48px; border-bottom: 1px solid ${accentColor}; padding-bottom: 16px;">
+                <div style="margin-bottom: 32px; border-bottom: 1px solid ${accentColor}; padding-bottom: 16px;">
                     <h1 style="font-family: ${headingFont}; font-size: ${fs.name}; font-weight: 700; color: #111827; text-transform: uppercase; margin: 0 0 8px 0; letter-spacing: 0.05em;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
@@ -196,7 +196,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Profile -->
                 ${personalInfo.summary ? `
-                    <div class="resume-section" style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.profile)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #4b5563;">
                             ${formatDescription(personalInfo.summary)}
@@ -206,9 +206,9 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Experience -->
                 ${experience.length > 0 ? `
-                    <div class="resume-section" style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.experience)}
-                        <div style="display: flex; flex-direction: column; gap: 32px;">
+                        <div style="display: flex; flex-direction: column; gap: 24px;">
                             ${experience.map(exp => `
                                 <div data-paginate="item">
                                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
@@ -233,7 +233,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Education -->
                 ${education.length > 0 ? `
-                    <div class="resume-section" style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.education)}
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             ${education.map(edu => `
@@ -260,7 +260,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Skills -->
                 ${skills.length > 0 ? `
-                    <div class="resume-section" style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.skills)}
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                             ${skills.map(skill => `
@@ -279,7 +279,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Interests -->
                 ${interests && interests.length > 0 ? `
-                    <div class="resume-section" style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.interests)}
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                             ${interests.map(int => `
@@ -294,7 +294,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Social Links -->
                 ${((personalInfo as any).x || (personalInfo as any).github || (personalInfo as any).dribbble || (personalInfo as any).behance || (personalInfo as any).instagram) ? `
-                    <div class="resume-section" style="margin-bottom: 40px;">
+                    <div class="resume-section" style="margin-bottom: 24px;">
                         ${MainHeader(t.sections.socialLinks)}
                         <div style="font-size: ${fs.body};">
                             ${(personalInfo as any).x ? `<div data-paginate="item" style="margin-bottom: 8px;"><span style="font-weight: 600;">X:</span> ${escapeHtml((personalInfo as any).x)}</div>` : ''}
@@ -308,7 +308,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Credentials (Certifications & Awards) -->
                 ${(certifications.length > 0 || awards.length > 0) ? `
-                    <div class="resume-section" style="margin-top: 40px;">
+                    <div class="resume-section" style="margin-top: 24px;">
                         ${MainHeader(t.sections.credentials)}
 
                         ${certifications.length > 0 ? `
@@ -361,7 +361,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
 
                 <!-- Custom Fields -->
                 ${customFields.map(field => `
-                    <div class="resume-section" style="margin-top: 40px;">
+                    <div class="resume-section" style="margin-top: 24px;">
                         ${MainHeader(field.label)}
                         <p style="line-height: 1.6; font-size: ${fs.body}; color: #4b5563;">
                             ${formatDescription(field.content)}

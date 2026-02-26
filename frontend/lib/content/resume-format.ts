@@ -929,9 +929,149 @@ const ar: ResumeFormatPageContent = {
   },
 };
 
+// ── Japanese ──────────────────────────────────────────────────────────
+
+const ja: ResumeFormatPageContent = {
+  meta: {
+    title: '履歴書フォーマット完全ガイド2026 | 履歴書作成ツール | Best AI Resume',
+    description: '履歴書フォーマットの選び方を徹底解説。逆年代順・機能別・混合形式を比較し、あなたのキャリアに最適な履歴書サンプルを見つけましょう。ATS対応テンプレート20種以上。',
+    keywords: '履歴書フォーマット, 履歴書作成ツール, 履歴書サンプル, AI履歴書, 職務経歴書, 履歴書テンプレート, ATS対応履歴書, 履歴書の書き方',
+  },
+  schemas: {
+    breadcrumbName: '履歴書フォーマット',
+    howToName: '適切な履歴書フォーマットの選び方',
+    howToDescription: '3つの主要な履歴書フォーマット（逆年代順・機能別・混合形式）を比較し、あなたのキャリア段階と目標に最適なフォーマットを選びましょう。',
+    howToSteps: [
+      '自分のキャリア段階を分析する（新卒、中堅、管理職など）',
+      '3つのフォーマットの長所と短所を比較する',
+      'ATS適合性スコアを確認する',
+      'テンプレートを選んで履歴書を作成する',
+    ],
+    howToToolName: 'Best AI Resume 履歴書作成ツール',
+  },
+  hero: {
+    badge: '履歴書フォーマットガイド 2026',
+    title: '最適な履歴書フォーマットを',
+    titleHighlight: '選びましょう',
+    subtitle: '逆年代順・機能別・混合形式——あなたのキャリアに合った<strong>履歴書フォーマット</strong>を選ぶことが、書類選考突破の第一歩です。AI履歴書作成ツールを使えば、フォーマットの切り替えもワンクリックで完了します。',
+    ctaCompare: 'フォーマットを比較する',
+    ctaBuild: '履歴書を無料で作成',
+  },
+  comparison: {
+    title: '3大履歴書フォーマット比較',
+    subtitle: 'それぞれのフォーマットの特徴、最適な利用シーン、ATS対応度を一目で確認できます。',
+    tableHeaders: {
+      format: 'フォーマット',
+      bestFor: '最適な利用シーン',
+      avoidIf: '避けるべき場合',
+      atsSafety: 'ATS適合度',
+    },
+    formats: [
+      {
+        name: '逆年代順',
+        badge: '最も人気',
+        badgeColor: 'green',
+        bestFor: ['キャリアに空白期間がない方', '同じ業界でステップアップを目指す方', '直近の職歴が応募職種に直結する方'],
+        avoidIf: '長期間のブランクがある場合',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: '機能別（スキルベース）',
+        badge: 'スキル重視',
+        badgeColor: 'amber',
+        bestFor: ['転職やキャリアチェンジをする方', '職歴に空白期間がある方', '新卒やフリーランスの方'],
+        avoidIf: '従来型の企業・業界に応募する場合',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: '混合形式',
+        badge: 'バランス型',
+        badgeColor: 'blue',
+        bestFor: ['強いスキルセットと豊富な職歴がある方', '管理職・シニアレベルのポジション', 'スキルと実績の両方をアピールしたい方'],
+        avoidIf: '職務経験が少ない場合',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: '逆年代順フォーマット',
+    description: '最も新しい職歴から順に記載するフォーマットです。日本の採用担当者に最も馴染みがあり、ATS（応募者追跡システム）との互換性も最高です。',
+    whyLoveTitle: '採用担当者が好む理由',
+    whyLoveText: '逆年代順の履歴書は、キャリアの成長過程が一目で分かるため、採用担当者が最も読みやすいフォーマットです。ATSの解析精度も高く、大手企業への応募に最適です。',
+    structureTitle: 'セクション構成',
+    sections: [
+      { label: '氏名・連絡先', detail: '名前、メール、電話番号、所在地', isCore: true },
+      { label: '職務要約', detail: '3〜4行で経験とスキルの概要を記載', isCore: true },
+      { label: '職務経歴', detail: '最新の職歴から順に記載（会社名・期間・成果）', isCore: true },
+      { label: '学歴', detail: '最終学歴を記載' },
+      { label: 'スキル', detail: '職種に関連する技術スキル・資格' },
+    ],
+    downloadLabel: 'テンプレートをダウンロード',
+    aiLabel: 'AIで作成する',
+  },
+  functional: {
+    title: '機能別（スキルベース）フォーマット',
+    description: 'スキルと能力を中心に構成するフォーマットです。職歴よりも「何ができるか」を強調したい場合に適しています。',
+    warningTitle: 'ATS互換性に注意',
+    warningText: '一部のATSでは職歴セクションが短いと解析精度が下がる可能性があります。キャリアチェンジ中の方、ブランクがある方、フリーランスから正社員へ転向する方に最適ですが、従来型の企業・業界への応募には注意が必要です。',
+    structureTitle: 'セクション構成',
+    sections: [
+      { label: '氏名・連絡先', isCore: true },
+      { label: '職務要約', isCore: true },
+      { label: 'スキルカテゴリ', detail: '3〜4つのスキル分野ごとに実績を記載', isCore: true },
+      { label: '職歴（簡略版）', detail: '会社名・役職・在籍期間のみ' },
+      { label: '学歴' },
+    ],
+    downloadLabel: 'テンプレートをダウンロード',
+    aiLabel: 'AIで作成する',
+  },
+  combination: {
+    title: '混合形式フォーマット',
+    description: '逆年代順と機能別の長所を組み合わせたフォーマットです。豊富なスキルと充実した職歴の両方をアピールできます。',
+    whoForTitle: 'このフォーマットが適しているケース',
+    whoForItems: [
+      '中堅〜シニアレベルの専門職やマネジメント経験がある方',
+      'スキルの幅広さと職務経験の深さを同時に示したい方',
+      '技術スキルと業務実績の両方が求められるポジションに応募する方',
+      '複数の分野にまたがるキャリアを持つ方',
+    ],
+    downloadLabel: 'テンプレートをダウンロード',
+    aiLabel: 'AIで作成する',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: '日本で最も一般的な履歴書フォーマットは？', answer: '日本では逆年代順フォーマットが最も一般的です。職務経歴を最新のものから順に記載するこの形式は、採用担当者が慣れ親しんでおり、ATSとの互換性も最高です。特に正社員採用では、この形式が標準とされています。' },
+      { question: '転職回数が多い場合、どのフォーマットが適していますか？', answer: '転職回数が多い場合は、混合形式がおすすめです。スキルセクションで強みを先にアピールしつつ、職歴も簡潔にまとめることで、転職回数よりも能力に焦点を当てることができます。' },
+      { question: '新卒の場合、どのフォーマットを使うべきですか？', answer: '新卒の方には逆年代順フォーマットが最適です。学歴を職歴セクションの上に配置し、インターンシップやアルバイト、学業での成果を記載しましょう。AI履歴書作成ツールを使えば、新卒向けの適切な表現を自動で提案してくれます。' },
+      { question: 'ATS対応の履歴書フォーマットとは何ですか？', answer: 'ATS（応募者追跡システム）が正しく読み取れるように構成された履歴書フォーマットのことです。シンプルなレイアウト、標準的なセクション名、適切なファイル形式（PDF）を使用することがポイントです。当ツールのテンプレートはすべてATS対応済みです。' },
+      { question: '職務経歴書と履歴書の違いは？', answer: '日本の就職活動では、履歴書は基本的な個人情報・学歴・資格を記載する書類で、職務経歴書はこれまでの職務内容・実績を詳しく記載する書類です。両方を提出することが一般的ですが、外資系企業では英文レジュメ1枚にまとめる形式が主流です。' },
+    ],
+  },
+  externalResources: {
+    title: '参考リンク',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: '米国労働統計局 職業別見通し' },
+      { href: 'https://www.hellowork.go.jp/', label: 'ハローワーク インターネットサービス' },
+    ],
+  },
+  stickyCta: {
+    text: '最適な履歴書フォーマットが見つかりましたか？',
+    ctaLabel: '今すぐ履歴書を作成',
+  },
+  bottomCta: {
+    title: 'フォーマット選びに悩むのはもう終わり',
+    description: 'AI履歴書作成ツールが自動でフォーマット・フォント・余白を最適化。20種以上のATS対応テンプレートから選んで、ワンクリックでフォーマットを切り替えられます。',
+    ctaLabel: '履歴書を無料で作成する',
+  },
+};
+
 // ── Export ───────────────────────────────────────────────────────────
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar };
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

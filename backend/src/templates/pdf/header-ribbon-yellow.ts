@@ -124,7 +124,7 @@ export const renderHeaderRibbonYellow = (
     `;
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; position: relative; box-sizing: border-box; padding: 40px;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: #ffffff; position: relative; box-sizing: border-box; padding: 24px 40px;">
 
             <!-- Header Area with Photo and Diagonal Ribbon - STATIC SIZES -->
             <header style="text-align: center; padding-bottom: 16px;">
@@ -358,9 +358,9 @@ export const renderHeaderRibbonYellow = (
                             ${SectionHeader(t.sections.socialLinks, getIconSVG('link', 'white', sNum(14)))}
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${(['x', 'github', 'dribbble', 'behance', 'instagram'] as IconName[]).map(network => {
-                                    const val = (personalInfo as any)[network];
-                                    if (!val) return '';
-                                    return `
+        const val = (personalInfo as any)[network];
+        if (!val) return '';
+        return `
                                         <div data-paginate="item" style="display: flex; align-items: center; gap: 10px;">
                                             <div style="width: ${s(24)}; height: ${s(24)}; border-radius: 50%; background-color: ${accentColor}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                                                 ${getIconSVG(network, '#FFFFFF', sNum(14))}
@@ -368,7 +368,7 @@ export const renderHeaderRibbonYellow = (
                                             <span style="word-break: break-all; color: #374151; font-size: ${fs.small};">${escapeHtml(val)}</span>
                                         </div>
                                     `;
-                                }).join('')}
+    }).join('')}
                             </div>
                         </section>
                     ` : ''}

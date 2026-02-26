@@ -547,7 +547,117 @@ const ar: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar };
+// ── Japanese ──────────────────────────────────────────────────────────
+
+const ja: LandingPageContent = {
+  meta: {
+    title: '無料履歴書メーカー | AI履歴書作成ツール 2026',
+    description: '無料のAI履歴書メーカーでプロフェッショナルな履歴書を数分で作成。ATS対応テンプレート、AIライティング支援、PDFダウンロード。履歴書サンプル300件以上。',
+    keywords: '履歴書メーカー, 履歴書作成ツール, AI履歴書, 無料 履歴書メーカー, 履歴書サンプル, 職務経歴書 作成, ATS対応 履歴書, 履歴書テンプレート 無料',
+  },
+  schemas: {
+    breadcrumbName: '履歴書メーカー',
+    articleHeadline: '無料履歴書メーカー：AI搭載の履歴書作成ツール 2026',
+    articleDescription: '無料のAI履歴書メーカーでプロフェッショナルな履歴書を数分で作成。ATS対応テンプレート、AI作成支援、PDFダウンロード。',
+    softwareAppName: 'Best AI 履歴書メーカー',
+  },
+  hero: {
+    badge: '無料AI履歴書メーカー',
+    title: 'プロフェッショナルな履歴書を',
+    titleHighlight: '数分で作成',
+    subtitle: '当ツールの無料<strong>履歴書メーカー</strong>はAIを活用して説得力のあるコンテンツ作成、ATS最適化、面接獲得をサポートします。<a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">Fortune 500企業の98%</a>がATSを使用する今、最適化された履歴書は必須です。デザインスキルは不要。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: 'テンプレートを見る',
+    trustBadges: ['登録不要', 'クレジットカード不要', 'PDFダウンロード無料'],
+  },
+  features: {
+    title: '当ツールの無料履歴書メーカーが選ばれる理由',
+    subtitle: '単なるテンプレートではありません——AI履歴書メーカーが優れたコンテンツの作成とATS審査の通過を支援します。',
+    items: [
+      { feature: 'AIライティング支援', description: 'AIがあなたの業界と経験レベルに合わせたプロフェッショナルな実績記述、職務要約、スキル説明を自動生成します。' },
+      { feature: 'ATS最適化テンプレート', description: 'すべてのテンプレートはWorkday、Taleo、GreenhouseなどのATS主要システムでテスト済み。書類選考を確実に突破します。' },
+      { feature: 'PDFダウンロード', description: 'ワンクリックでPDFをダウンロード。透かしなし、料金なし——完全無料です。' },
+      { feature: '数分で完成', description: '白紙のページに悩む必要はありません。ガイド付きフローとAIの提案で、10分以内に完成度の高い履歴書が作成できます。' },
+      { feature: 'リアルタイムATSスコア', description: '入力しながらATSスコアをリアルタイムで確認。提出前に最適化できます。' },
+      { feature: '20種以上のプロテンプレート', description: 'あらゆる業界・キャリアレベルに対応するプロフェッショナルテンプレート。すべて無料、すべてATS対応。' },
+    ],
+    cta: '今すぐ作成を開始',
+  },
+  comparison: {
+    title: '当ツール vs 他の履歴書メーカー',
+    subtitle: 'なぜ多くの求職者が当ツールの無料AI履歴書メーカーを選ぶのかご確認ください。',
+    oursName: 'Best AI Resumes',
+    othersName: '他のメーカー',
+    rows: [
+      { feature: 'AIライティング支援', ours: '高度なAI作成', others: '基本的または無し' },
+      { feature: 'ATS最適化', ours: 'リアルタイム採点', others: '限定的なテスト' },
+      { feature: '全テンプレート無料', ours: '20種以上', others: '大半が有料' },
+      { feature: 'PDFダウンロード無料', ours: '常に無料', others: '多くが有料' },
+      { feature: 'アカウント不要', ours: 'すぐに開始', others: '通常必要' },
+      { feature: '業界キーワード', ours: 'AI提案', others: '手動のみ' },
+      { feature: '複数バージョン', ours: '無制限', others: '多くが制限あり' },
+    ],
+  },
+  howItWorks: {
+    title: '履歴書メーカーの使い方',
+    subtitle: '3つの簡単なステップで内定を勝ち取る履歴書を作成。AIが面倒な作業を代行します。',
+    steps: [
+      { step: 1, title: 'テンプレートを選ぶ', description: '業界に合わせた20種以上のATS対応プロテンプレートから選択。' },
+      { step: 2, title: '情報を入力する', description: '経歴を入力すると、AIが改善提案・キーワード・プロの表現を提案します。' },
+      { step: 3, title: 'ダウンロードして応募', description: 'PDFで履歴書をエクスポートし、すぐに応募を開始できます。' },
+    ],
+    cta: 'プレミアム履歴書を作成',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '200万+', label: '作成された履歴書' },
+      { value: '4.8', label: 'ユーザー評価' },
+      { value: '20+', label: '無料テンプレート' },
+      { value: '10分', label: '平均作成時間' },
+    ],
+  },
+  templates: {
+    title: 'あらゆる職種に対応するプロテンプレート',
+    subtitle: 'クリエイティブなデザイナーから企業の管理職まで——あなたの業界に最適な履歴書テンプレートが見つかります。',
+    styles: ['ソフトウェアエンジニア', 'マーケティングマネージャー', '看護師', '営業部長', 'データアナリスト', '教師', 'プロジェクトマネージャー', 'デザイナー'],
+    cta: 'すべてのテンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'この履歴書メーカーは本当に無料ですか？', answer: 'はい！AI搭載の履歴書メーカーは100%無料です。無制限の履歴書作成、20種以上のプロテンプレートへのアクセス、PDFダウンロード——クレジットカードもサブスクリプションも不要です。' },
+      { question: 'なぜこれが最良の履歴書メーカーなのですか？', answer: '一般的な履歴書メーカーと異なり、当ツールはAIを使ってプロフェッショナルな実績記述の作成、ATS最適化、業界固有のキーワード提案を行います。見た目が良く、かつATS審査も通過する履歴書が作れます。' },
+      { question: 'PDFで無料ダウンロードできますか？', answer: 'もちろんです。作成した履歴書はすべて、ATS対応のPDFとして無料でダウンロードできます。透かしなし、料金なし。' },
+      { question: '履歴書の作成にどのくらい時間がかかりますか？', answer: '多くのユーザーが10分以内にプロフェッショナルな履歴書を完成させています。AIが内容を提案するので、白紙のページに悩む時間を応募活動に使えます。' },
+      { question: '作成した履歴書はATS対応ですか？', answer: 'はい。すべてのテンプレートは主要ATSシステム（Workday、Taleo、Greenhouse、Lever）でテスト済みです。リアルタイムATSスコアで提出前に最適化できます。' },
+      { question: '異なる求人に合わせて複数の履歴書を作成できますか？', answer: 'はい！必要な数だけカスタマイズした履歴書を作成できます。求人ごとに職務経歴書を最適化するのが効果的で、当ツールならそれが迅速かつ簡単にできます。' },
+    ],
+  },
+  crossLinks: {
+    title: '関連する履歴書ツール',
+    items: [
+      { href: '/resume-ai', title: 'AI履歴書', subtitle: 'AI搭載の履歴書作成ツール' },
+      { href: '/tools/ats-checker', title: 'ATSチェッカー', subtitle: 'ATSスコアをテスト' },
+      { href: '/free-resume-builder', title: '無料履歴書ビルダー', subtitle: '100%無料の履歴書作成' },
+    ],
+    guidesTitle: '役立つガイド',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: '履歴書の書き方（2026年版ガイド）' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応履歴書の書き方' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: '履歴書でよくある間違い' },
+    ],
+  },
+  bottomCta: {
+    title: '履歴書を作成する準備はできましたか？',
+    description: '200万人以上の求職者が当ツールの無料AI履歴書メーカーでプロフェッショナルな履歴書を作成しています。',
+    cta: '無料で履歴書を作成',
+    subtext: '永久無料。クレジットカード不要。',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

@@ -1,0 +1,276 @@
+import { LocaleBundle } from './types';
+
+const nl: LocaleBundle = {
+    localeData: {
+        cities: ['Amsterdam', 'Rotterdam', 'Den Haag', 'Utrecht', 'Eindhoven'],
+        country: 'Nederland',
+        nationality: 'Dutch',
+        companies: {
+            tech: ['TechCorp Oplossingen B.V.', 'InnovaTech Nederland', 'CloudWorks NL', 'DataLabs Europa', 'AppForge Digital'],
+            design: ['DesignHub Bureau', 'CreatieveStudio Pro', 'Pixel Perfect Ontwerp', 'UX Collectief', 'Visuele Kunst B.V.'],
+            marketing: ['GroeiMatrix Bureau', 'Merk Elevate B.V.', 'Digitaal Bereik Marketing', 'Engage Mediagroep', 'Impact Marketingoplossingen'],
+            finance: ['Kapitaal Adviseurs B.V.', 'Sterling Financiële Groep', 'Apex Accountancy', 'Investeringspartners B.V.', 'Fiscale Oplossingen N.V.'],
+            healthcare: ['Amsterdam UMC', 'Gemeentelijk Gezondheidscentrum', 'CarePlus Medische Groep', 'Wellness Partners Kliniek', 'Regionaal Medisch Centrum'],
+            education: ['Stedelijk Lyceum', 'Rivierzicht Academie', 'Universiteit Utrecht', 'Hogeschool Rotterdam', 'Centrum voor Excellentie'],
+            sales: ['Enterprise Oplossingen B.V.', 'Wereldhandel Partners', 'TechSales Pro', 'Bedrijfsgroei Associés', 'Premier Verkoopgroep'],
+            hospitality: ['Het Grand Hotel Restaurant', 'Bistro Elegance', 'Kade Grill & Bar', 'Centrum Horeca B.V.', 'De Kustkeukken'],
+            general: ['Acme B.V.', 'Globale Ondernemingen N.V.', 'Premier Oplossingen B.V.', 'Innovatieve Industrieën', 'Excellence Partners'],
+        },
+        degrees: {
+            tech: { degree: 'Bachelor Informatica', school: 'Technische Universiteit' },
+            design: { degree: 'Bachelor Grafisch Ontwerp', school: 'Hogeschool voor de Kunsten' },
+            marketing: { degree: 'Bachelor Bedrijfskunde - Marketing', school: 'Hogeschool voor Economie' },
+            finance: { degree: 'Bachelor Financieel Management', school: 'Hogeschool voor Economie' },
+            healthcare: { degree: 'Bachelor Verpleegkunde', school: 'Hogeschool Gezondheid' },
+            education: { degree: 'Bachelor Pedagogiek', school: 'Hogeschool Educatie' },
+            sales: { degree: 'Bachelor Commerciële Economie', school: 'Hogeschool voor Economie' },
+            hospitality: { degree: 'Diploma Hotelmanagement', school: 'Hotelschool Den Haag' },
+            general: { degree: 'Bachelor Algemene Letteren', school: 'Universiteit Utrecht' },
+        },
+        educationDescription: 'Afgestudeerd met onderscheiding. Actief lid van beroepsverenigingen.',
+        yearsText: (years) => years === 1 ? '1 jaar' : `${years}+ jaar`,
+    },
+    summaryTemplates: {
+        tech: {
+            entry: 'Gemotiveerde {jobTitle} met {years} praktijkervaring in softwareontwikkeling. Gepassioneerd over het schrijven van schone, efficiënte code en het leren van nieuwe technologieën. Enthousiast om bij te dragen aan innovatieve projecten en te groeien als ontwikkelaar.',
+            mid: 'Resultaatgerichte {jobTitle} met {years} ervaring in het bouwen van schaalbare applicaties en het leiden van technische initiatieven. Bewezen staat van dienst in het leveren van hoogwaardige oplossingen die systeemprestaties met 40% verbeteren. Sterke samenwerking met cross-functionele teams.',
+            senior: 'Ervaren {jobTitle} met {years} expertise in het ontwerpen en opleveren van enterprise-schaal oplossingen. Leidde teams van 5+ ontwikkelaars en verkortte deploymenttijd met 60% door CI/CD-implementatie. Gepassioneerd over het begeleiden van junior ontwikkelaars en het stimuleren van technische excellentie.',
+            executive: 'Strategisch technologieleider met {years} ervaring in het aansturen van digitale transformatie en technische innovatie. Beheerde budgetten van meer dan €2 miljoen en teams van 20+ engineers. Succesvol projecten opgeleverd die €10 miljoen+ omzetgroei genereerden.',
+        },
+        design: {
+            entry: 'Creatieve {jobTitle} met {years} ervaring in het ontwerpen van gebruikersgerichte designs. Vaardig met moderne designtools en gepassioneerd over het creëren van intuïtieve, visueel aantrekkelijke interfaces.',
+            mid: 'Innovatieve {jobTitle} met {years} ervaring in het creëren van gebruikersgerichte digitale ervaringen. Ontwerpen opgeleverd die gebruikersbetrokkenheid met 35% verhoogden en bouncepercentages met 25% verlaagden.',
+            senior: 'Senior {jobTitle} met {years} ervaring in het leiden van designteams en het vormgeven van productvisie. Designsystemen opgezet die in 10+ producten werden toegepast, waardoor ontwerpconsistentie met 50% verbeterde.',
+            executive: 'Design-directeur met {years} ervaring in het opbouwen en leiden van toonaangevende designorganisaties. Designcultuur getransformeerd bij Fortune 500-bedrijven, met €5 miljoen+ aan kostenbesparingen.',
+        },
+        marketing: {
+            entry: 'Enthousiaste {jobTitle} met {years} ervaring in digitale marketing. Vaardig in contentcreatie, social media management en data-analyse.',
+            mid: 'Datagedreven {jobTitle} met {years} ervaring in het uitvoeren van campagnes die meetbare resultaten opleveren. Organisch verkeer met 150% verhoogd en conversiepercentages met 40% verbeterd.',
+            senior: 'Strategische {jobTitle} met {years} ervaring in het leiden van hoogpresterende marketingteams. Beheerde marketingbudgetten van €1 miljoen+ en leverde campagnes op met 200% ROI.',
+            executive: 'Marketingdirecteur met {years} ervaring in het stimuleren van omzetgroei door innovatieve marketingstrategieën. Leidde wereldwijde marketingteams en beheerde budgetten van €10 miljoen+.',
+        },
+        finance: {
+            entry: 'Nauwkeurige {jobTitle} met {years} ervaring in financiële analyse en rapportage. Sterke basis in boekhoudprincipes en financiële software.',
+            mid: 'Analytische {jobTitle} met {years} ervaring in financiële planning en analyse. Kostenbesparende mogelijkheden geïdentificeerd met jaarlijkse besparingen van €500K+.',
+            senior: 'Senior {jobTitle} met {years} ervaring in het leiden van financiële operaties en strategie. Beheerde portefeuilles ter waarde van €50 miljoen+ en leidde teams door succesvolle audits.',
+            executive: 'Financieel directeur met {years} ervaring in het aansturen van financiële strategie en operationele excellentie. Leidde fusie- en overnametransacties van in totaal €100 miljoen+ en verbeterde EBITDA-marges met 15%.',
+        },
+        healthcare: {
+            entry: 'Betrokken {jobTitle} met {years} klinische ervaring in patiëntgerichte zorg. Toegewijd aan het handhaven van hoge zorgstandaarden.',
+            mid: 'Toegewijde {jobTitle} met {years} ervaring in het leveren van hoogwaardige patiëntenzorg. Patiënttevredenheidsscores met 30% verbeterd door verbeterde communicatieprotocollen.',
+            senior: 'Ervaren {jobTitle} met {years} klinische expertise en leiderschapservaring. Leidde kwaliteitsverbeteringsinitiatieven die heropnames met 20% verminderden.',
+            executive: 'Zorgdirecteur met {years} ervaring in het transformeren van klinische operaties en patiëntuitkomsten. Leidde afdelingen met 50+ medewerkers en beheerde budgetten van €5 miljoen+.',
+        },
+        education: {
+            entry: 'Gepassioneerde {jobTitle} met {years} leservaring, toegewijd aan het succes van leerlingen. Vaardig in het ontwikkelen van boeiende lesplannen en het bevorderen van een inclusieve leeromgeving.',
+            mid: 'Innovatieve {jobTitle} met {years} ervaring in het ontwikkelen van lesprogramma\'s die diverse leerlingen aanspreken. Leerlingresultaten met 25% verbeterd door gedifferentieerde instructiestrategieën.',
+            senior: 'Ervaren {jobTitle} met {years} ervaring in het vormgeven van onderwijsresultaten en het begeleiden van collega\'s. Bekroonde programma\'s ontwikkeld die schoolbreed werden ingevoerd.',
+            executive: 'Onderwijsleider met {years} ervaring in het stimuleren van institutionele excellentie. €2 miljoen+ aan subsidies binnengehaald en accreditatieprocessen geleid.',
+        },
+        sales: {
+            entry: 'Gemotiveerde {jobTitle} met {years} ervaring in bedrijfsontwikkeling. Sterke communicatieve vaardigheden en klantgerichtheid. Gedreven om doelstellingen te overtreffen.',
+            mid: 'Resultaatgerichte {jobTitle} met {years} ervaring in het consistent overtreffen van targets. €2 miljoen+ aan nieuwe omzet gegenereerd en een klantretentiepercentage van 95% behouden.',
+            senior: 'Toppresterende {jobTitle} met {years} ervaring in het leiden van verkoopteams en het stimuleren van omzetgroei. Beheerde regio\'s die jaarlijks €10 miljoen+ genereerden.',
+            executive: 'Commercieel directeur met {years} ervaring in het opbouwen en opschalen van hoogpresterende verkooporganisaties. Omzet gegroeid van €5 miljoen naar €50 miljoen en uitgebreid naar 3 nieuwe markten.',
+        },
+        hospitality: {
+            entry: 'Vriendelijke en energieke {jobTitle} met {years} ervaring in drukke horecaomgevingen. Toegewijd aan het leveren van uitzonderlijke klantenservice.',
+            mid: 'Toegewijde {jobTitle} met {years} ervaring in het bieden van uitstekende service in drukbezochte restaurants. Klanttevredenheid van 98% behaald.',
+            senior: 'Ervaren {jobTitle} met {years} expertise in fine dining en drukbezochte horecagelegenheden. 15+ medewerkers opgeleid en begeleid.',
+            executive: 'Horecaprofessional met {years} ervaring in het managen van restaurantoperaties. Teams van 30+ medewerkers aangestuurd en omzet met 40% verhoogd.',
+        },
+        general: {
+            entry: 'Gemotiveerde {jobTitle} met {years} professionele ervaring. Sterke werkethiek, uitstekende communicatieve vaardigheden en toewijding aan het leveren van kwaliteitsresultaten.',
+            mid: 'Bewezen {jobTitle} met {years} ervaring in het stimuleren van operationele excellentie. Teamefficiëntie met 30% verbeterd door procesoptimalisatie.',
+            senior: 'Doorgewinterde {jobTitle} met {years} ervaring in het leiden van teams en strategische initiatieven. Succesvol projecten beheerd met budgetten tot €1 miljoen.',
+            executive: 'Directeur met {years} ervaring in het aansturen van organisatorische transformatie. Teams van 50+ personen geleid en P&L-verantwoordelijkheid van €20 miljoen+.',
+        },
+    },
+    jobDescriptions: {
+        tech: [
+            [
+                '• Leiding gegeven aan de ontwikkeling van microservices-architectuur, waardoor schaalbaarheid met 300% verbeterde',
+                '• CI/CD-pipelines geïmplementeerd die deploytijd van 2 uur naar 15 minuten terugbrachten',
+                '• Team van 5 junior ontwikkelaars begeleid, code reviews uitgevoerd en technische trainingen gegeven',
+                '• Samengewerkt met productmanagers om technische vereisten en sprintplanning te definiëren',
+                '• Laadtijd van applicaties met 40% verminderd door prestatieoptimalisatie',
+            ],
+            [
+                '• RESTful API\'s ontwikkeld die 1 miljoen+ dagelijkse verzoeken afhandelen met 99,9% uptime',
+                '• Responsieve webapplicaties gebouwd met React en TypeScript',
+                '• Externe diensten en betaalgateways geïntegreerd',
+                '• Deelgenomen aan agile-ceremonies en bijgedragen aan sprintplanning',
+            ],
+            [
+                '• Bijgedragen aan codebase-onderhoud en het oplossen van bugs',
+                '• Senior ontwikkelaars ondersteund bij feature-implementatie',
+                '• Unit tests geschreven waardoor codedekking met 25% toenam',
+            ],
+        ],
+        design: [
+            [
+                '• Designteam van 5 ontwerpers geleid bij het creëren van gebruikersgerichte digitale producten',
+                '• Designsysteem en componentenbibliotheek opgezet die in 10+ projecten werd gebruikt',
+                '• Gebruikersbetrokkenheid met 40% verhoogd door UX-verbeteringen',
+                '• Gebruikersonderzoek en usabilitytests uitgevoerd met 100+ deelnemers',
+                '• Ontwerpconcepten gepresenteerd aan stakeholders en feedback verwerkt',
+            ],
+            [
+                '• Mobiele en webapplicaties ontworpen voor iOS- en Android-platforms',
+                '• Wireframes, prototypes en high-fidelity mockups gecreëerd',
+                '• Samengewerkt met ontwikkelaars om nauwkeurige design-implementatie te waarborgen',
+                '• Conversiepercentages met 35% verbeterd door A/B-testen',
+            ],
+            [
+                '• Ondersteund bij het maken van visuele ontwerpen voor marketingcampagnes',
+                '• Merkconsistentie gewaarborgd in alle ontwerpleveringen',
+                '• Senior ontwerpers ondersteund bij het creëren van assets',
+            ],
+        ],
+        marketing: [
+            [
+                '• Marketingstrategieën ontwikkeld en uitgevoerd met 200% ROI als resultaat',
+                '• Jaarlijks marketingbudget van €500K+ beheerd over digitale kanalen',
+                '• Team van 4 marketeers geleid bij campagneplanning en -uitvoering',
+                '• Organisch verkeer met 150% verhoogd door SEO-optimalisatie',
+                '• Samenwerkingen met influencers opgezet met een bereik van 2 miljoen+ doelgroep',
+            ],
+            [
+                '• Contentstrategie gecreëerd die 100K+ maandelijkse blogbezoekers opleverde',
+                '• Social media accounts beheerd met een volgersgroei van 300%',
+                '• E-mailcampagnes uitgevoerd met 35% openingspercentage en 15% doorklikratio',
+                '• Campagneprestaties geanalyseerd en geoptimaliseerd op basis van data',
+            ],
+            [
+                '• Ondersteund bij het maken en plannen van social media content',
+                '• Ondersteuning geboden bij marktonderzoek en concurrentieanalyse',
+                '• Geholpen bij het organiseren van marketingevenementen en webinars',
+            ],
+        ],
+        finance: [
+            [
+                '• Financiële planning en analyse beheerd voor bedrijfsonderdeel van €50 miljoen+',
+                '• Jaarlijks begrotingsproces en kwartaalprognoses geleid',
+                '• Kostenbesparende mogelijkheden geïdentificeerd met €1 miljoen+ aan besparingen',
+                '• Financiële rapportages gepresenteerd aan het directieteam',
+                '• Team van 3 analisten aangestuurd en auditprocessen gecoördineerd',
+            ],
+            [
+                '• Maandelijkse financiële overzichten en afwijkingsanalyses opgesteld',
+                '• Financiële modellen ontwikkeld voor bedrijfsplanning',
+                '• Rapportageprocessen gestroomlijnd waardoor sluitingstijd met 30% afnam',
+                '• Ondersteuning geboden bij due diligence en integratie van fusies en overnames',
+            ],
+            [
+                '• Ondersteuning geboden bij crediteuren- en debiteurenadministratie',
+                '• Bankafschriften en grootboekrekeningen afgestemd',
+                '• Senior accountants ondersteund bij de maandafsluiting',
+            ],
+        ],
+        healthcare: [
+            [
+                '• Leidinggevende van verpleegkundig team van 15+ medewerkers in het verlenen van patiëntenzorg',
+                '• Kwaliteitsverbeteringsinitiatieven geïmplementeerd die fouten met 40% verminderden',
+                '• Zorgplannen gecoördineerd met multidisciplinair team',
+                '• Naleving van AVG en regelgevende vereisten gewaarborgd',
+                '• Nieuw personeel opgeleid in protocollen en best practices',
+            ],
+            [
+                '• Directe patiëntenzorg verleend aan 10+ patiënten per dag',
+                '• Medicatie toegediend en patiëntcondities gemonitord',
+                '• Patiëntgegevens nauwkeurig gedocumenteerd in EPD-systemen',
+                '• Samengewerkt met artsen over behandelplannen',
+            ],
+            [
+                '• Ondersteund bij patiëntintake en het monitoren van vitale functies',
+                '• Verpleegkundig personeel ondersteund bij dagelijkse zorgactiviteiten',
+                '• Schone en georganiseerde patiëntomgevingen onderhouden',
+            ],
+        ],
+        education: [
+            [
+                '• Lesprogramma ontwikkeld dat schoolbreed werd ingevoerd voor 5.000+ leerlingen',
+                '• 10+ docenten begeleid bij het implementeren van nieuwe instructiestrategieën',
+                '• Leerlingprestaties met 25% verbeterd over een periode van 3 jaar',
+                '• Professionele ontwikkelingsworkshops en trainingen geleid',
+                '• €100K+ aan subsidies binnengehaald voor onderwijsprogramma\'s',
+            ],
+            [
+                '• Lesgegeven aan klassen van 25+ leerlingen over meerdere niveaus',
+                '• Boeiende lesplannen opgesteld in lijn met landelijke kerndoelen',
+                '• Gedifferentieerde instructie geïmplementeerd voor diverse leerlingen',
+                '• Regelmatig gecommuniceerd met ouders over de voortgang van leerlingen',
+            ],
+            [
+                '• Hoofddocenten ondersteund bij klasikale instructie',
+                '• Leerlingen ondersteund met individuele en groepsbegeleiding',
+                '• Geholpen bij het organiseren van de klas en het beheren van lesmateriaal',
+            ],
+        ],
+        sales: [
+            [
+                '• Jaarlijkse target met 150% overtroffen en €5 miljoen+ aan omzet gegenereerd',
+                '• Verkoopteam van 8 vertegenwoordigers opgebouwd en aangestuurd',
+                '• Strategische accountplannen ontwikkeld voor enterprise-klanten',
+                '• Contracten ter waarde van €500K+ onderhandeld met directieniveau',
+                '• CRM-processen geïmplementeerd die prognose-nauwkeurigheid met 40% verbeterden',
+            ],
+            [
+                '• 120% van target behaald gedurende 8 opeenvolgende kwartalen',
+                '• Pipeline van 50+ kansen ter waarde van €2 miljoen+ beheerd',
+                '• Productdemonstraties en presentaties verzorgd',
+                '• Klantretentiepercentage van 95% behouden door relatiebeheer',
+            ],
+            [
+                '• Leads gegenereerd door koude acquisitie en netwerken',
+                '• Senior vertegenwoordigers ondersteund bij klantgesprekken',
+                '• Nauwkeurige administratie bijgehouden in CRM-systeem',
+            ],
+        ],
+        hospitality: [
+            [
+                '• Team van 10+ bedienden aangestuurd voor consistente servicekwaliteit',
+                '• Nieuw personeel opgeleid in menukennis, kassasystemen en servicestandaarden',
+                '• Klachten professioneel afgehandeld met behoud van 95% klanttevredenheid',
+                '• Gecoördineerd met keukenpersoneel voor tijdige gerechtenuitgifte',
+                '• Sectie van 8+ tafels beheerd tijdens piekuren met 100+ gasten per dag',
+            ],
+            [
+                '• Uitstekende tafelservice geboden in een drukbezocht restaurant met 200 zitplaatsen',
+                '• Gemiddelde bonwaarde met 20% verhoogd door effectieve upselling',
+                '• Uitgebreide menukaart gememoriseerd inclusief dagspecials en wijncombinaties',
+                '• Betalingen nauwkeurig verwerkt met €500+ aan dagelijkse transacties',
+            ],
+            [
+                '• Gasten verwelkomd en geplaatst voor een positieve eerste indruk',
+                '• Nauwkeurig eet- en drinkbestellingen opgenomen via kassasysteem',
+                '• Schone en georganiseerde eetruimte onderhouden tijdens diensten',
+            ],
+        ],
+        general: [
+            [
+                '• Cross-functioneel team van 10+ leden geleid bij strategische initiatieven',
+                '• Projecten beheerd met budgetten tot €500K en op tijd opgeleverd',
+                '• Operationele efficiëntie met 30% verbeterd door procesoptimalisatie',
+                '• Afdelingsbeleid en -procedures ontwikkeld en geïmplementeerd',
+                '• Kwartaalrapportages gepresenteerd aan het managementteam',
+            ],
+            [
+                '• Dagelijkse operaties en workflow beheerd en gecoördineerd',
+                '• Samengewerkt met stakeholders om projectdeadlines te halen',
+                '• Data geanalyseerd om trends en verbetermogelijkheden te identificeren',
+                '• Nieuwe teamleden opgeleid in processen en systemen',
+            ],
+            [
+                '• Team ondersteund bij administratieve en operationele taken',
+                '• Ondersteuning geboden bij gegevensinvoer en het opstellen van rapportages',
+                '• Geholpen bij het organiseren van teamvergaderingen en evenementen',
+            ],
+        ],
+    },
+    masterDegree: { tech: 'Master Informatica', business: 'Master Bedrijfskunde (MBA)', school: 'Business School' },
+    phoneFormat: '+31 6 00000000',
+    titlePrefixes: { senior: 'Senior', lead: 'Teamleider', director: 'Directeur' },
+};
+
+export default nl;

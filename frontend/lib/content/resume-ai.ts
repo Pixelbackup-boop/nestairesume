@@ -644,7 +644,123 @@ const ar: ResumeAIPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar };
+// ---------------------------------------------------------------------------
+// Japanese
+// ---------------------------------------------------------------------------
+const ja: ResumeAIPageContent = {
+  meta: {
+    title: 'AI履歴書作成 | 無料AI履歴書ジェネレーター2026 | Best AI Resume',
+    description: 'AI履歴書作成ツールでプロの履歴書を数分で作成。AI搭載の職務経歴書作成、ATS最適化、20以上のテンプレート — 完全無料。',
+    keywords: 'AI履歴書, AI履歴書作成, 履歴書作成ツール, 履歴書サンプル, 職務経歴書, AI履歴書ジェネレーター, 履歴書 AI 無料',
+  },
+  schemas: {
+    breadcrumbName: 'AI履歴書',
+    articleHeadline: 'AI履歴書作成：無料AI履歴書ジェネレーター2026',
+    articleDescription: 'AIが履歴書のコンテンツを作成・最適化する仕組みを発見。無料のAI搭載履歴書作成ツールで、より多くの面接を獲得しましょう。',
+    softwareAppName: 'AI履歴書作成ツール',
+  },
+  hero: {
+    badge: 'AI搭載の履歴書ビルダー',
+    title: 'AIが作る、あなたの',
+    titleHighlight: '最高の履歴書',
+    subtitle: '<strong>AI履歴書作成ツール</strong>がプロのコンテンツを作成し、ATSに最適化し、際立つ履歴書の作成を支援 — 完全無料。<a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedInの調査</a>によると、採用担当者は各履歴書に平均7秒しかかけません。AIで一秒一秒を最大限に活用しましょう。',
+    ctaPrimary: '無料でAI履歴書を試す',
+    ctaSecondary: '仕組みを見る',
+    trustText: '登録不要 · 100%無料 · AI搭載コンテンツ',
+  },
+  whatIs: {
+    title: 'AI履歴書とは？',
+    description: '<strong>AI履歴書</strong>は、履歴書作成の方法を根本から変えます。空白ページを見つめる代わりに、AIがあなたの経験を分析し、目標ポジションを理解し、業界に最適化されたプロのコンテンツを生成します。<a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">人事管理協会（SHRM）</a>が指摘するように、AIは採用プロセスを急速に変革しており、AI搭載の履歴書は雇用主に広く受け入れられています。',
+    stats: [
+      { value: '10倍', label: '手書きより速い' },
+      { value: '85%', label: 'ATS通過率の向上' },
+      { value: '300万+', label: 'AIで作成された履歴書' },
+    ],
+  },
+  features: {
+    title: 'AIが履歴書作成をサポートする方法',
+    subtitle: 'AIはフォーマットだけでなく、より良いコンテンツの作成を実際にサポートします。',
+    items: [
+      { title: 'AIコンテンツ作成', description: 'AIがあなたの経験と目標ポジションに基づいて、プロの箇条書き、サマリー、スキル説明を作成します。' },
+      { title: 'スマートキーワード最適化', description: 'AIが求人広告を分析し、雇用主が求める業界固有のキーワードを提案します。' },
+      { title: 'ATSスコア分析', description: 'リアルタイムスコアリングで、応募前にATSシステムでの履歴書の評価を確認できます。' },
+      { title: '実績の数値化', description: 'AIが曖昧な説明を、採用担当者を惹きつける数値化された実績に変換します。' },
+      { title: '業界別テンプレート', description: 'AIが業界と経験レベルに基づいて最適なレイアウトとセクションを推奨します。' },
+      { title: '文法・スタイルチェック', description: 'AIがコンテンツの文法やスペルエラーをチェックし、プロフェッショナルで洗練された仕上がりを保証します。' },
+    ],
+  },
+  beforeAfter: {
+    title: 'AIが履歴書をどう変えるか見てみましょう',
+    subtitle: 'AIによるコンテンツ改善の実例。',
+    beforeLabel: '改善前',
+    afterLabel: 'AI改善後',
+    items: [
+      { before: 'チーム管理とプロジェクト管理を担当', after: '8名のクロスファンクショナルエンジニアチームをリードし、12プロジェクトを期限内に納品、顧客満足度98%を達成' },
+      { before: '売上増加に貢献', after: 'データ駆動型獲得戦略の実施により年間売上34%増（240万ドル）を達成' },
+      { before: 'カスタマーサービスが得意', after: '顧客満足度4.9/5を達成、1日150件以上の問い合わせに対応し初回解決率95%を実現' },
+    ],
+    cta: 'プレミアム履歴書を作成',
+  },
+  comparison: {
+    title: 'AI履歴書 vs 手書き',
+    subtitle: '求職者がAI履歴書作成を選ぶ理由。',
+    oursName: 'AI活用',
+    othersName: '手書き',
+    rows: [
+      { feature: '作成時間', ours: '10-15分', others: '2-4時間' },
+      { feature: 'プロの文章表現', ours: 'AIが提案を生成', others: '調査が必要' },
+      { feature: 'ATS最適化', ours: '自動', others: '手動で推測' },
+      { feature: '業界キーワード', ours: 'AIが提案', others: '自分で調べる' },
+      { feature: '文法・スペル', ours: '自動チェック', others: '見落としやすい' },
+      { feature: '実績の数値化', ours: 'AIがサポート', others: '忘れがち' },
+      { feature: 'フォーマット・デザイン', ours: '20以上のテンプレート', others: 'ゼロから作成' },
+    ],
+  },
+  useCases: {
+    title: 'AI履歴書を使うのはどんな人？',
+    subtitle: 'AI履歴書作成はすべての人に適しています。',
+    items: [
+      { title: 'キャリアチェンジ', description: 'AIが異業種間のスキル転換を支援' },
+      { title: '新卒者', description: 'インターンシップやプロジェクトを説得力のある職務実績に変換' },
+      { title: '経験豊富なプロ', description: '20年以上の経験を効果的な2ページの履歴書に凝縮' },
+      { title: '転職活動中の方', description: '各応募先に合わせたカスタム履歴書を迅速に作成' },
+    ],
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'AI履歴書とは何ですか？', answer: 'AI履歴書とは、AIの支援を受けて作成された履歴書です。当社のツールはプロフェッショナルな箇条書きを作成し、ATSに最適化し、業界キーワードを提案し、すべてを自動的にフォーマット — 数時間ではなく数分で際立つ履歴書が完成します。' },
+      { question: 'AIで履歴書を作成するのと自分で書くのではどちらが良いですか？', answer: 'AIはより良いコンテンツをより速く作成するのを支援します。何千もの成功した履歴書を分析して、プロフェッショナルな表現、数値化された実績、見落としがちな業界キーワードを提案します。最終コンテンツの管理権はあなたにあり、AIはプロセスをより簡単で効果的にするだけです。' },
+      { question: 'AIで作成した履歴書はATSフィルターを通過できますか？', answer: 'はい！AI履歴書ジェネレーターはATS互換性のために特別に設計されています。クリーンで解析可能なテキストで履歴書をフォーマットし、求人広告に一致するキーワードを提案し、送信前に最適化するためのリアルタイムATSスコアを提供します。' },
+      { question: 'このAI履歴書ツールは無料ですか？', answer: 'はい、AI履歴書ジェネレーターは100%無料です。無制限の履歴書を作成し、すべてのテンプレートを使用し、PDFをダウンロード — 一切無料。クレジットカードもサブスクリプションも不要。' },
+      { question: 'AIはどのようにコンテンツを生成しますか？', answer: 'AIはあなたの職種、業界、経験レベルを分析し、カスタマイズされた提案を生成します。何百万もの成功した履歴書のパターンを使用して、プロフェッショナルサマリー、実績重視の箇条書き、採用担当者に響くスキル説明を作成します。' },
+      { question: '履歴書がAIで作成されたように見えますか？', answer: 'いいえ。当社のツールは、プロの履歴書ライターが書いたような自然でプロフェッショナルなコンテンツを生成します。すべての提案を編集して個人的なタッチを加えることができ、最終結果は完全にあなたのものです。' },
+    ],
+  },
+  crossLinks: {
+    title: 'その他のAI履歴書ツール',
+    items: [
+      { href: '/resume-maker', title: '履歴書メーカー', subtitle: '無料AI履歴書メーカー' },
+      { href: '/tools/ats-checker', title: 'ATSチェッカー', subtitle: 'AI搭載ATS分析' },
+      { href: '/free-resume-builder', title: '無料ビルダー', subtitle: '100%無料ビルダー' },
+    ],
+    guidesTitle: 'AI履歴書ガイド',
+    guides: [
+      { href: '/career-tips/ai-resume-tools', label: '履歴書作成のためのAIツール（2026年版）' },
+      { href: '/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude：履歴書作成対決' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応履歴書の書き方' },
+      { href: '/resume-examples', label: '300以上の履歴書サンプル' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI履歴書を作成する準備はできましたか？',
+    description: '<a href="/" class="text-purple-600 hover:underline">AI履歴書作成</a>で面接獲得率を上げている数百万の求職者に参加しましょう。',
+    cta: '無料でAI履歴書を始める',
+    subtext: 'ずっと無料。クレジットカード不要。',
+  },
+};
+
+const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja };
 
 export function getContent(locale: string): ResumeAIPageContent {
   return selectContent(contentMap, locale);

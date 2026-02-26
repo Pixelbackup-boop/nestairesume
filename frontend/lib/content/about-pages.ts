@@ -527,7 +527,103 @@ const ar: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar };
+const ja: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: '私たちについて',
+      title: 'キャリア成功の',
+      titleHighlight: '未来を創る',
+      subtitle: 'Best AI Resumeは、世界中の求職者がATS対応のプロフェッショナルな履歴書を作成し、理想のキャリアへの扉を開くことを使命としています。AI履歴書作成ツールで、あなたの転職活動を強力にサポートします。',
+    },
+    story: {
+      badge: '私たちの歩み',
+      heading: 'Best AI Resumeを開発した理由',
+      p1: '優秀な人材が、履歴書がATS（応募者追跡システム）を通過できないという理由だけで見過ごされている現状に気づきました。従来の履歴書作成は時間がかかり、フラストレーションが溜まるものでした。特に日本の就活市場では、履歴書と職務経歴書の両方が求められ、その負担はさらに大きくなります。',
+      p2: 'だからこそ、AIの力とプロフェッショナルなデザインを融合したBest AI Resumeを開発しました。私たちの目標はシンプルです。すべての求職者が、採用担当者に最高の自分を伝えられるようにすること。',
+      p3: '今日まで、50,000人以上のプロフェッショナルが、ATS審査を確実にパスしながら際立つ履歴書を作成し、理想の仕事を獲得しています。',
+    },
+    stats: [
+      { value: '50K+', label: '作成された履歴書' },
+      { value: '98%', label: 'ATS通過率' },
+      { value: '20+', label: 'テンプレート数' },
+      { value: '4.9', label: 'ユーザー評価' },
+    ],
+    values: {
+      badge: '私たちの価値観',
+      heading: '私たちを動かす原動力',
+      cards: [
+        { title: 'プライバシー最優先', text: 'あなたのデータはあなたのもの。履歴書データはブラウザにローカル保存され、サーバーには送信されません。アカウント認証情報のみ安全に管理しています。' },
+        { title: 'イノベーション', text: '最先端のAI技術を活用し、あなたの実績を効果的にアピールする魅力的なコンテンツの作成をサポートします。' },
+        { title: 'アクセシビリティ', text: 'プロフェッショナルな履歴書作成ツールは、高額な有料プランの壁に阻まれるべきではありません。誰もが利用できる強力な機能を提供しています。' },
+      ],
+    },
+    experts: {
+      badge: '信頼できる専門知識',
+      heading: 'キャリアの専門家をご紹介',
+      subtitle: 'キャリアコーチ、採用担当者、業界スペシャリストからなるチームが、履歴書ガイドに深い専門知識を提供しています。',
+    },
+    editorial: {
+      heading: '編集基準',
+      items: [
+        { title: 'データに基づくアドバイス', text: 'すべてのアドバイスは実際のATSシステムでテストし、業界の専門家が検証しています。' },
+        { title: '人を第一に', text: 'AIは人に取って代わるのではなく、人を支えるべきだと考えています。まず人間の採用担当者に響く戦略を優先しています。' },
+      ],
+    },
+    commitment: {
+      heading: 'お客様へのお約束',
+      p1: 'Best AI Resumeでは、キャリアの道のりは一人ひとり異なると考えています。だからこそ、プライバシーを尊重しながら、成功のための強力なツールを提供するプラットフォームを構築しました。履歴書データはお使いの端末に保存され、情報の完全なコントロールが可能です。',
+      p2: 'AIアルゴリズムの改善、新しいテンプレートの追加、ユーザーフィードバックに基づく機能強化を常に行っています。お客様の成功は私たちの成功です。一歩一歩、全力でサポートいたします。',
+    },
+    cta: {
+      title: '50,000+の',
+      titleHighlight: 'サクセスストーリーに加わりませんか？',
+      subtitle: '今すぐプロフェッショナルな履歴書の作成を始めて、理想のキャリアへの第一歩を踏み出しましょう。',
+      button: '無料で始める',
+    },
+  },
+  authors: {
+    meta: {
+      title: '専門家チーム | Best AI Resume',
+      description: '履歴書ガイドを支えるキャリアの専門家、採用担当者、コーチをご紹介します。実際の採用経験を持つ執筆者が、理想の仕事獲得をサポートします。',
+      ogDescription: '履歴書ガイドを支えるキャリアの専門家、採用担当者、コーチをご紹介します。',
+    },
+    breadcrumb: { home: 'ホーム', about: '私たちについて', authors: '執筆者' },
+    hero: {
+      title: '専門家チームのご紹介',
+      subtitle: 'キャリアコーチ、採用担当者、業界スペシャリストが、実際の採用経験に基づいた実践的な履歴書ガイドを執筆しています。',
+    },
+    viewProfile: 'プロフィールを見る',
+    cta: {
+      title: '専門家の知見で履歴書を作成',
+      subtitle: 'AIビルダーが専門家推奨の戦略を自動で適用。数分でプロフェッショナルな履歴書を作成できます。',
+      button: '無料で履歴書を作成',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'ホーム', about: '私たちについて' },
+    atOrg: '{organization}の{jobTitle}',
+    authorOfGuides: ' {count}以上のキャリアガイド・記事の著者。',
+    connectLinkedIn: 'LinkedInでつながる',
+    viewAllGuides: 'すべてのガイドを見る',
+    areasOfExpertise: '専門分野',
+    resumeGuidesBy: '{name}の履歴書ガイド',
+    guidesCount: '{count}件のガイド',
+    coverLetterExamplesBy: '{name}のカバーレター例',
+    examplesCount: '{count}件の例文',
+    blogPostsBy: '{name}のブログ記事',
+    postsCount: '{count}件の記事',
+    viewAllResumes: '{count}件の履歴書ガイドをすべて見る',
+    viewAllCoverLetters: '{count}件のカバーレター例をすべて見る',
+    viewAllBlogPosts: '{count}件のブログ記事をすべて見る',
+    cta: {
+      title: '専門家の知見で履歴書を作成',
+      subtitle: '{name}が推奨する戦略を活用。AIビルダーが専門家の履歴書テクニックを自動で適用します。',
+      button: '無料で履歴書を作成',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }

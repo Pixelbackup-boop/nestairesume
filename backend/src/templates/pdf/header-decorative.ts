@@ -116,9 +116,9 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
     return `
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${sizes.body}; background-color: #ffffff; color: #374151; position: relative; box-sizing: border-box;">
             <!-- Header Area -->
-            <header style="height: ${headerHeight}px; background: radial-gradient(ellipse at 10% 0%, ${accentColor}44, transparent 60%), radial-gradient(ellipse at 90% 100%, ${accentColor}22, transparent 60%), linear-gradient(160deg, ${headerBgColor}, ${headerBgColor}); position: relative; margin-bottom: ${photoOffset + 40}px; overflow: visible;">
+            <header style="height: ${headerHeight}px; background: radial-gradient(ellipse at 10% 0%, ${accentColor}44, transparent 60%), radial-gradient(ellipse at 90% 100%, ${accentColor}22, transparent 60%), linear-gradient(160deg, ${headerBgColor}, ${headerBgColor}); position: relative; margin-bottom: ${photoOffset + 24}px; overflow: visible;">
 
-                <div style="padding: 32px 40px; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; position: relative; z-index: 10;">
+                <div style="padding: 24px 40px; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; position: relative; z-index: 10;">
                     <h1 style="font-family: ${headingFont}; font-size: ${sizes.name}; font-weight: 700; color: ${headerText}; text-align: right; margin-bottom: 4px; letter-spacing: 0.05em;">
                         ${escapeHtml(personalInfo.fullName || 'Your Name')}
                     </h1>
@@ -142,7 +142,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
             </header>
 
             <!-- Main Content Body -->
-            <div style="display: flex; gap: 40px; padding: 0 40px 40px;">
+            <div style="display: flex; gap: 40px; padding: 0 40px 24px;">
 
                 <!-- Main Column (Left) -->
                 <div style="width: 60%;">

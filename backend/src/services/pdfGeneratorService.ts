@@ -353,11 +353,19 @@ export async function renderResumePdf(
         'sidebar-dark-navy',
         'sidebar-narrow-yellow',
         'sidebar-monogram',
-        'header-dark'
+        'header-dark',
+        'classic-professional'
     ];
 
     const headerTemplates = [
         'header-dark-banner',
+        'header-blue-clean',
+        'header-dark-box',
+        'header-decorative',
+        'header-diagonal-yellow',
+        'header-geometric',
+        'header-icon-sections',
+        'header-ribbon-yellow'
     ];
 
     let marginStrategy: 'sidebar' | 'full-bleed' | 'standard' = 'standard';

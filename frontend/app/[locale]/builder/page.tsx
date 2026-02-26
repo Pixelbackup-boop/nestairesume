@@ -96,8 +96,17 @@ function BuilderContent() {
         }
     }, [searchParams, router]);
 
+    // Wait for Zustand hydration
+    const [hydrated, setHydrated] = useState(false);
+    useEffect(() => {
+        const unsub = useResumeStore.persist.onFinishHydration(() => setHydrated(true));
+        if (useResumeStore.persist.hasHydrated()) setHydrated(true);
+        return () => unsub?.();
+    }, []);
+
     // Handle URL parameters for template and prefill
     useEffect(() => {
+        if (!hydrated) return;
         const shouldPrefill = searchParams.get('prefill') === 'true';
         const templateId = searchParams.get('template');
 
@@ -133,7 +142,7 @@ function BuilderContent() {
                 setTemplateId(null);
             }
         }
-    }, [searchParams, setResumeData, setTemplate, setTemplateId, setTheme, setCustomThemeColor]);
+    }, [hydrated, searchParams, setResumeData, setTemplate, setTemplateId, setTheme, setCustomThemeColor]);
 
     // Derive current builder template ID for the switcher dropdown
     const currentBuilderTemplateId = useMemo(() => {

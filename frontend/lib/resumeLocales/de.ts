@@ -1,0 +1,276 @@
+import { LocaleBundle } from './types';
+
+const de: LocaleBundle = {
+    localeData: {
+        cities: ['Berlin', 'München', 'Hamburg', 'Frankfurt', 'Köln'],
+        country: 'Deutschland',
+        nationality: 'German',
+        companies: {
+            tech: ['TechCorp Solutions GmbH', 'InnovaTech AG', 'CloudWorks Deutschland', 'DataLabs Europa', 'AppForge Digital'],
+            design: ['DesignHub Agentur', 'Kreativstudio Pro', 'Pixel Perfect Design', 'UX Kollektiv', 'Visuelle Kunst GmbH'],
+            marketing: ['GrowthMatrix Agentur', 'Brand Elevate GmbH', 'Digital Reach Marketing', 'Engage Media Deutschland', 'Impact Marketing Solutions'],
+            finance: ['Capital Berater GmbH', 'Sterling Finanzgruppe', 'Apex Buchhaltungsservice', 'Investment Partners AG', 'Steuerliche Lösungen'],
+            healthcare: ['Metro Allgemeines Krankenhaus', 'Gemeinschafts-Gesundheitszentrum', 'CarePlus Medizingruppe', 'Wellness Partner Klinik', 'Regionales Medizinzentrum'],
+            education: ['Lincoln Gymnasium', 'Riverside Akademie', 'Staatliche Universität', 'Hochschulzentrum', 'Exzellenz-Lernzentrum'],
+            sales: ['Enterprise Solutions GmbH', 'Globale Handelspartner', 'TechSales Pro', 'Business Growth GmbH', 'Premier Vertriebsgruppe'],
+            hospitality: ['Grand Hotel Restaurant', 'Bistro Eleganz', 'Riverside Grill & Bar', 'Downtown Gastronomie', 'Küstenküche'],
+            general: ['Acme Corporation', 'Globale Unternehmen', 'Premier Solutions GmbH', 'Innovative Industrien', 'Exzellenz Partner'],
+        },
+        degrees: {
+            tech: { degree: 'Bachelor of Science in Informatik', school: 'Technische Universität' },
+            design: { degree: 'Bachelor of Arts in Grafikdesign', school: 'Hochschule für Design' },
+            marketing: { degree: 'Bachelor in Betriebswirtschaft - Marketing', school: 'Wirtschaftshochschule' },
+            finance: { degree: 'Bachelor of Science in Finanzwesen', school: 'Fakultät für Wirtschaft' },
+            healthcare: { degree: 'Bachelor of Science in Pflegewissenschaft', school: 'Fakultät für Gesundheitswissenschaften' },
+            education: { degree: 'Bachelor of Arts in Pädagogik', school: 'Pädagogische Hochschule' },
+            sales: { degree: 'Bachelor in Betriebswirtschaft', school: 'Wirtschaftshochschule' },
+            hospitality: { degree: 'Zertifikat in Hotelmanagement', school: 'Kulinarisches Institut' },
+            general: { degree: 'Bachelor of Arts', school: 'Staatliche Universität' },
+        },
+        educationDescription: 'Abschluss mit Auszeichnung. Aktives Mitglied in Berufsverbänden.',
+        yearsText: (years) => years === 1 ? '1 Jahr' : `${years}+ Jahre`,
+    },
+    summaryTemplates: {
+        tech: {
+            entry: 'Motivierte/r {jobTitle} mit {years} praktischer Erfahrung in der Softwareentwicklung. Leidenschaft für sauberen, effizienten Code.',
+            mid: 'Ergebnisorientierte/r {jobTitle} mit {years} Erfahrung im Aufbau skalierbarer Anwendungen. Systemleistung um 40% verbessert.',
+            senior: 'Erfahrene/r {jobTitle} mit {years} Expertise in Unternehmensarchitektur. Leitung von Teams mit 5+ Entwicklern.',
+            executive: 'Strategische/r Technologieführer/in mit {years} Erfahrung in digitaler Transformation. Verwaltung von Budgets über 2M$.',
+        },
+        design: {
+            entry: 'Kreative/r {jobTitle} mit {years} Erfahrung in nutzerzentriertem Design. Versiert in modernen Design-Tools.',
+            mid: 'Innovative/r {jobTitle} mit {years} Erfahrung in digitalen Erlebnissen. Steigerung der Nutzerinteraktion um 35%.',
+            senior: 'Senior {jobTitle} mit {years} Erfahrung in der Leitung von Design-Teams. Designsysteme für 10+ Produkte etabliert.',
+            executive: 'Design-Führungskraft mit {years} Erfahrung im Aufbau von Design-Organisationen. Kosteneinsparungen von über 5M$.',
+        },
+        marketing: {
+            entry: 'Begeisterte/r {jobTitle} mit {years} Erfahrung im digitalen Marketing. Fähigkeiten in Content-Erstellung und Social Media.',
+            mid: 'Datenorientierte/r {jobTitle} mit {years} Erfahrung in Kampagnendurchführung. Organischer Traffic um 150% gesteigert.',
+            senior: 'Strategische/r {jobTitle} mit {years} Erfahrung in der Leitung von Marketing-Teams. Verwaltung von Budgets über 1M$.',
+            executive: 'Marketing-Führungskraft mit {years} Erfahrung in Umsatzwachstum. Leitung globaler Teams und Budgets über 10M$.',
+        },
+        finance: {
+            entry: 'Detailorientierte/r {jobTitle} mit {years} Erfahrung in Finanzanalyse. Solide Grundlage in Buchhaltungsprinzipien.',
+            mid: 'Analytische/r {jobTitle} mit {years} Erfahrung in Finanzplanung. Jährliche Einsparungen von über 500K$ identifiziert.',
+            senior: 'Senior {jobTitle} mit {years} Erfahrung in Finanzoperationen. Verwaltung von Portfolios über 50M$.',
+            executive: 'Finanz-Führungskraft mit {years} Erfahrung in Finanzstrategie. M&A-Transaktionen über 100M$.',
+        },
+        healthcare: {
+            entry: 'Mitfühlende/r {jobTitle} mit {years} klinischer Erfahrung in patientenzentrierter Pflege.',
+            mid: 'Engagierte/r {jobTitle} mit {years} Erfahrung in qualitativ hochwertiger Pflege. Patientenzufriedenheit um 30% verbessert.',
+            senior: 'Erfahrene/r {jobTitle} mit {years} klinischer Expertise und Führungserfahrung. Wiederaufnahmen um 20% reduziert.',
+            executive: 'Gesundheits-Führungskraft mit {years} Erfahrung in klinischen Operationen. Leitung von Abteilungen mit 50+ Mitarbeitern.',
+        },
+        education: {
+            entry: 'Leidenschaftliche/r {jobTitle} mit {years} Unterrichtserfahrung. Engagement für Studentenerfolg.',
+            mid: 'Innovative/r {jobTitle} mit {years} Erfahrung in Lehrplanentwicklung. Testergebnisse um 25% verbessert.',
+            senior: 'Erfahrene/r {jobTitle} mit {years} Erfahrung in Bildungsgestaltung. Preisgekrönte Programme distriktweit eingeführt.',
+            executive: 'Bildungsleiter/in mit {years} Erfahrung in institutioneller Exzellenz. Zuschüsse über 2M$ gesichert.',
+        },
+        sales: {
+            entry: 'Motivierte/r {jobTitle} mit {years} Erfahrung in Geschäftsentwicklung. Starke Kommunikationsfähigkeiten.',
+            mid: 'Ergebnisorientierte/r {jobTitle} mit {years} Erfahrung im Übertreffen von Quoten. Über 2M$ neue Einnahmen generiert.',
+            senior: 'Leistungsstarke/r {jobTitle} mit {years} Erfahrung in der Leitung von Vertriebsteams. Territorien mit über 10M$ jährlich.',
+            executive: 'Vertriebsleiter/in mit {years} Erfahrung im Aufbau von Vertriebsorganisationen. Umsatzwachstum von 5M$ auf 50M$.',
+        },
+        hospitality: {
+            entry: 'Freundliche/r und energische/r {jobTitle} mit {years} Erfahrung in der Gastronomie. Engagement für exzellenten Service.',
+            mid: 'Engagierte/r {jobTitle} mit {years} Erfahrung in hochvolumiger Gastronomie. 98% Kundenzufriedenheit.',
+            senior: 'Erfahrene/r {jobTitle} mit {years} Expertise in gehobener Gastronomie. Schulung von 15+ Mitarbeitern.',
+            executive: 'Gastro-Profi mit {years} Erfahrung im Restaurantmanagement. Umsatzsteigerung um 40%.',
+        },
+        general: {
+            entry: 'Motivierte/r {jobTitle} mit {years} Berufserfahrung. Starke Arbeitsmoral und ausgezeichnete Kommunikationsfähigkeiten.',
+            mid: 'Erfolgreiche/r {jobTitle} mit {years} Erfahrung in operativer Exzellenz. Teameffizienz um 30% verbessert.',
+            senior: 'Erfahrene/r {jobTitle} mit {years} Erfahrung in Teamführung. Projektverwaltung bis zu 1M$.',
+            executive: 'Führungskraft mit {years} Erfahrung in organisatorischer Transformation. Leitung von Teams mit 50+ Personen.',
+        },
+    },
+    jobDescriptions: {
+        tech: [
+            [
+                '• Leitung der Microservices-Architekturentwicklung, Skalierbarkeit um 300% verbessert',
+                '• Implementierung von CI/CD-Pipelines, Deployment-Zeit von 2h auf 15 Min. reduziert',
+                '• Mentoring eines Teams von 5 Junior-Entwicklern, Code-Reviews und technische Schulungen',
+                '• Zusammenarbeit mit Produktmanagern zur Definition technischer Anforderungen',
+                '• Reduzierung der Ladezeit um 40% durch Performance-Optimierung',
+            ],
+            [
+                '• Entwicklung von RESTful APIs mit 1M+ täglichen Anfragen bei 99,9% Verfügbarkeit',
+                '• Erstellung responsiver Webanwendungen mit React und TypeScript',
+                '• Integration von Drittanbieter-Services und Zahlungsgateways',
+                '• Teilnahme an agilen Zeremonien und Sprint-Planung',
+            ],
+            [
+                '• Beitrag zur Codebasis-Wartung und Fehlerbehebung',
+                '• Unterstützung der Senior-Entwickler bei Feature-Implementierung',
+                '• Schreiben von Unit-Tests, Testabdeckung um 25% verbessert',
+            ],
+        ],
+        design: [
+            [
+                '• Leitung eines Design-Teams von 5 Designern für nutzerzentrierte Produkte',
+                '• Etablierung eines Designsystems für über 10 Projekte',
+                '• Steigerung des Nutzer-Engagements um 40% durch UX-Verbesserungen',
+                '• Nutzerforschung und Usability-Tests mit 100+ Teilnehmern',
+                '• Präsentation von Design-Konzepten und Integration von Feedback',
+            ],
+            [
+                '• Design von mobilen und Web-Anwendungen für iOS und Android',
+                '• Erstellung von Wireframes, Prototypen und High-Fidelity-Mockups',
+                '• Zusammenarbeit mit Entwicklern für präzise Design-Umsetzung',
+                '• Verbesserung der Conversion-Raten um 35% durch A/B-Tests',
+            ],
+            [
+                '• Unterstützung bei der Erstellung visueller Designs für Marketing',
+                '• Aufrechterhaltung der Markenkonsistenz über alle Deliverables',
+                '• Support für Senior-Designer bei Asset-Erstellung',
+            ],
+        ],
+        marketing: [
+            [
+                '• Entwicklung und Umsetzung von Marketing-Strategien mit 200% ROI',
+                '• Verwaltung eines Marketing-Budgets von über 500K$ über digitale Kanäle',
+                '• Leitung eines Teams von 4 Marketern in Kampagnenplanung',
+                '• Steigerung des organischen Traffics um 150% durch SEO-Optimierung',
+                '• Aufbau von Influencer-Partnerschaften mit 2M+ Reichweite',
+            ],
+            [
+                '• Erstellung einer Content-Strategie mit 100K+ monatlichen Blog-Besuchern',
+                '• Verwaltung von Social-Media-Accounts, Follower um 300% gesteigert',
+                '• Durchführung von E-Mail-Kampagnen mit 35% Öffnungsrate und 15% CTR',
+                '• Analyse der Kampagnen-Performance und datenbasierte Optimierung',
+            ],
+            [
+                '• Unterstützung bei Content-Erstellung und -Planung für Social Media',
+                '• Support für Marktforschung und Wettbewerbsanalyse',
+                '• Hilfe bei der Organisation von Marketing-Events und Webinaren',
+            ],
+        ],
+        finance: [
+            [
+                '• Finanzplanung und -analyse für Geschäftsbereich mit über 50M$ verwaltet',
+                '• Leitung des jährlichen Budgetprozesses und quartalsweiser Prognosen',
+                '• Identifizierung von Einsparungsmöglichkeiten von über 1M$',
+                '• Präsentation von Finanzberichten an die Geschäftsleitung',
+                '• Supervision eines Teams von 3 Analysten und Audit-Koordination',
+            ],
+            [
+                '• Erstellung monatlicher Finanzberichte und Abweichungsanalysen',
+                '• Entwicklung von Finanzmodellen für Geschäftsplanung',
+                '• Optimierung der Reporting-Prozesse, Abschlusszeit um 30% reduziert',
+                '• Unterstützung bei M&A Due Diligence und Integration',
+            ],
+            [
+                '• Unterstützung bei Kreditoren- und Debitorenbuchhaltung',
+                '• Abstimmung von Kontoauszügen und Hauptbuchkonten',
+                '• Support für Senior-Buchhalter beim Monatsabschluss',
+            ],
+        ],
+        healthcare: [
+            [
+                '• Supervision des Pflegepersonals von 15+ bei der Patientenversorgung',
+                '• Implementierung von Qualitätsinitiativen, Fehler um 40% reduziert',
+                '• Koordination von Pflegeplänen mit interdisziplinärem Team',
+                '• Einhaltung von HIPAA und regulatorischen Anforderungen',
+                '• Schulung neuer Mitarbeiter in Protokollen und Best Practices',
+            ],
+            [
+                '• Direkte Patientenversorgung für täglich 10+ Patienten',
+                '• Medikamentengabe und Überwachung des Patientenzustands',
+                '• Genaue Dokumentation in EMR-Systemen',
+                '• Zusammenarbeit mit Ärzten bei Behandlungsplänen',
+            ],
+            [
+                '• Unterstützung bei Patientenaufnahme und Vitalzeichen-Monitoring',
+                '• Support für Pflegepersonal bei täglichen Pflegeaktivitäten',
+                '• Aufrechterhaltung sauberer und organisierter Patientenumgebungen',
+            ],
+        ],
+        education: [
+            [
+                '• Entwicklung eines Lehrplans für über 5.000 Schüler im Bezirk',
+                '• Mentoring von 10+ Lehrern bei neuen Unterrichtsstrategien',
+                '• Verbesserung der Schülerleistungen um 25% über 3 Jahre',
+                '• Leitung von Fortbildungsworkshops und Schulungen',
+                '• Sicherung von über 100K$ an Zuschüssen für Bildungsprogramme',
+            ],
+            [
+                '• Unterricht für Klassen mit 25+ Schülern verschiedener Stufen',
+                '• Erstellung engagierender Unterrichtspläne nach Standards',
+                '• Implementierung differenzierter Instruktion für diverse Lerner',
+                '• Regelmäßige Kommunikation mit Eltern über Schülerfortschritte',
+            ],
+            [
+                '• Unterstützung der Hauptlehrer beim Klassenunterricht',
+                '• Support für Schüler mit Einzel- und Kleingruppenunterricht',
+                '• Hilfe bei der Klassenorganisation und Materialverwaltung',
+            ],
+        ],
+        sales: [
+            [
+                '• Jahresquote um 150% übertroffen, über 5M$ Umsatz generiert',
+                '• Aufbau und Führung eines Teams von 8 Vertriebsmitarbeitern',
+                '• Entwicklung strategischer Account-Pläne für Unternehmenskunden',
+                '• Verhandlung von Verträgen über 500K$ mit C-Level-Führungskräften',
+                '• Implementierung von CRM-Prozessen, Prognosegenauigkeit um 40% verbessert',
+            ],
+            [
+                '• 120% der Quote für 8 aufeinanderfolgende Quartale erreicht',
+                '• Verwaltung einer Pipeline von 50+ Opportunities im Wert von 2M$+',
+                '• Durchführung von Produktdemos und Präsentationen',
+                '• Aufrechterhaltung einer Kundenbindungsrate von 95%',
+            ],
+            [
+                '• Lead-Generierung durch Kaltakquise und Networking',
+                '• Unterstützung von Senior-Vertriebsmitarbeitern bei Kundenmeetings',
+                '• Pflege genauer Aufzeichnungen im CRM-System',
+            ],
+        ],
+        hospitality: [
+            [
+                '• Supervision eines Teams von 10+ Kellnern für konstante Servicequalität',
+                '• Schulung neuer Mitarbeiter zu Menü, POS-Systemen und Standards',
+                '• Professionelle Lösung von Beschwerden, 95% Zufriedenheit',
+                '• Koordination mit Küchenpersonal für pünktliche Essenslieferung',
+                '• Verwaltung von 8+ Tischen zu Stoßzeiten, 100+ Gäste täglich',
+            ],
+            [
+                '• Exzellenter Tischservice in Restaurant mit 200 Plätzen',
+                '• Steigerung des durchschnittlichen Bons um 20% durch Upselling',
+                '• Auswendiglernen der Karte inkl. Tagesgerichte und Weinempfehlungen',
+                '• Genaue Zahlungsabwicklung, über 500$ Tagesumsatz',
+            ],
+            [
+                '• Begrüßung und Platzierung der Gäste für positiven ersten Eindruck',
+                '• Genaue Aufnahme von Bestell über POS-System',
+                '• Aufrechterhaltung eines sauberen und organisierten Gastraums',
+            ],
+        ],
+        general: [
+            [
+                '• Leitung eines funktionsübergreifenden Teams von 10+ bei strategischen Initiativen',
+                '• Projektverwaltung mit Budgets bis 500K$, termingerecht geliefert',
+                '• Verbesserung der operativen Effizienz um 30% durch Prozessoptimierung',
+                '• Entwicklung und Implementierung von Abteilungsrichtlinien',
+                '• Präsentation von Quartalsberichten an die Geschäftsleitung',
+            ],
+            [
+                '• Koordination des Tagesgeschäfts und Workflow-Management',
+                '• Zusammenarbeit mit Stakeholdern zur Einhaltung von Fristen',
+                '• Datenanalyse zur Identifizierung von Trends und Chancen',
+                '• Schulung neuer Teammitglieder in Prozessen und Systemen',
+            ],
+            [
+                '• Support für administrative und operative Aufgaben',
+                '• Unterstützung bei Dateneingabe und Berichtserstellung',
+                '• Hilfe bei der Organisation von Teammeetings und Events',
+            ],
+        ],
+    },
+    masterDegree: { tech: 'Master of Science in Informatik', business: 'Master of Business Administration', school: 'Graduate School of Business' },
+    phoneFormat: '+49 170 0000000',
+    titlePrefixes: { senior: 'Senior', lead: 'Leiter', director: 'Direktor' },
+};
+
+export default de;

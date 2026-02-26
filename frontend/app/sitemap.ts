@@ -47,6 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/adobe-alternative', priority: 0.7 },
     { path: '/nova-alternative', priority: 0.7 },
     { path: '/europass-alternative', priority: 0.7 },
+    { path: '/doda-alternative', priority: 0.7 },
     { path: '/compare/chatgpt-vs-ai-resume-builder', priority: 0.7 },
     { path: '/ats-friendly-templates', priority: 0.8 },
     { path: '/free-resume-builder', priority: 0.8 },

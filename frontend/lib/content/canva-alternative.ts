@@ -621,5 +621,129 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'Canva履歴書テンプレートの代替 2026：無料ATS対応テンプレート | Best AI Resume',
+    description: 'ATSを通過するCanva履歴書テンプレートをお探しですか？Canva vs Best AI Resume Builder — 無料ATS対応テンプレート、AI文章作成機能。デザインスキル不要。',
+    keywords: 'canva 履歴書, canva レジュメ テンプレート, canva 代替 履歴書, 履歴書作成ツール 無料, ats 対応 履歴書, AI履歴書, 履歴書サンプル, 職務経歴書 テンプレート',
+  },
+  schemas: {
+    breadcrumbName: 'Canva代替の履歴書作成ツール',
+    articleHeadline: 'Canva履歴書テンプレートの代替 2026：無料ATS対応テンプレート',
+    articleDescription: 'Canva vs Best AI Resume Builderを履歴書作成で徹底比較。機能ごとの比較とメリット・デメリットを正直にレビュー。',
+  },
+  hero: {
+    badge: 'Canva代替',
+    title: 'Canvaの',
+    titleHighlight: 'ATS問題で不合格になっていませんか？',
+    subtitle: 'Canvaは美しい履歴書を作れます — しかし<strong>98%のATSは読み取れません</strong>。見た目だけでなく、採用されるために設計された履歴書作成ツールに切り替えましょう。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'Canvaの履歴書が不合格になる理由',
+    description: 'Canvaはグラフィックデザインツールであり、履歴書作成ツールではありません。Canvaで作成した履歴書は、テキストが画像要素として埋め込まれた平坦な画像や複雑なPDFとしてエクスポートされます。ATSは画像ではなくドキュメントテキストを読み取ります。その結果、<strong>ATSにとってあなたの履歴書は空白に見え</strong>、採用担当者の目に触れることなく自動的に不合格になります。',
+    stats: [
+      { value: '98%', label: 'のFortune 500企業がATSで履歴書をスクリーニング' },
+      { value: '75%', label: 'の履歴書が人の目に触れる前に不合格' },
+      { value: '0%', label: 'ほとんどのCanvaテンプレートのATS読み取り率' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: '求職者のための正直な機能比較',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ATS対応', competitor: '❌ ほとんどのテンプレートがATS非対応', ours: '✅ 全テンプレートATS検証済み' },
+      { feature: 'AI文章作成', competitor: '❌ AI文章作成機能なし', ours: '✅ AIが実績・サマリーを作成' },
+      { feature: 'リアルタイムATSスコア', competitor: '❌ スコアリング機能なし', ours: '✅ 入力中にATSスコアをリアルタイム表示' },
+      { feature: '無料テンプレート', competitor: '⚠️ 限定的（高品質はPro版のみ）', ours: '✅ 20種類以上すべて無料' },
+      { feature: '履歴書専用設計', competitor: '⚠️ 汎用デザインツール', ours: '✅ 履歴書専用に設計' },
+      { feature: 'PDFテキスト読み取り', competitor: '❌ 平坦な画像としてエクスポート', ours: '✅ テキスト選択可能なクリーンなPDF' },
+      { feature: '業界別キーワード', competitor: '❌ キーワード提案なし', ours: '✅ AIが業界キーワードを提案' },
+      { feature: 'エクスポート形式', competitor: '✅ PDF, PNG, JPG', ours: '✅ PDF（ATS最適化済み）' },
+      { feature: 'デザイン品質', competitor: '✅ 優れたビジュアルデザイン', ours: '✅ プロフェッショナルなクリーンテンプレート' },
+      { feature: '使いやすさ', competitor: '⚠️ デザインスキルがあると便利', ours: '✅ デザインスキル不要' },
+    ],
+  },
+  whySwitch: {
+    title: '求職者がCanvaから乗り換える3つの理由',
+    subtitle: 'デザインの問題ではありません — 採用されるかどうかの問題です。',
+    reasons: [
+      { title: 'ATSが確実に読み取れる', description: 'すべてのテンプレートがクリーンで解析可能なPDFテキストを出力。Canvaのグラフィックベースの出力を読み取れないシステムによる自動不合格がなくなります。' },
+      { title: 'AIがコンテンツを作成', description: 'Canvaは白紙のキャンバスを提供するだけ。当社のAIは、カスタマイズされた実績、プロフェッショナルなサマリー、業界固有のキーワードを自動生成します。' },
+      { title: '本当に100%無料', description: 'Canvaは最高の履歴書テンプレートを月額$12.99のProプランに限定しています。当社の20種類以上のプロフェッショナルテンプレートはすべて無料 — 有料制限もウォーターマークもありません。' },
+    ],
+  },
+  recommendation: {
+    title: '正直なおすすめ：どちらを使うべき？',
+    useCompetitor: {
+      title: 'Canvaがおすすめの場合',
+      items: [
+        'デザイン・アート職向けのポートフォリオ型クリエイティブ履歴書が必要な場合',
+        'ATSを使用しない企業（非常に小規模なビジネス）への応募',
+        'ネットワーキングイベント用のビジュアルインフォグラフィック履歴書を作成したい場合',
+        '既に強力な履歴書コンテンツがあり、ビジュアルレイアウトだけ必要な場合',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesがおすすめの場合',
+      items: [
+        '求人サイト（Indeed、LinkedIn、企業サイト）経由で応募する場合',
+        'デザインだけでなく履歴書の内容作成にもサポートが必要な場合',
+        '履歴書がATS審査を確実に通過することを重視する場合',
+        '白紙のデザインキャンバスよりガイド付きの体験を好む場合',
+        'デザインスキルがない場合',
+      ],
+    },
+    bottomLine: '結論：Canvaは優れたデザインツールです。しかし、ATSシステムを経由する求人応募（大多数）には、専用の履歴書作成ツールが必要です。',
+  },
+  resumeExamples: {
+    title: 'ATS対応の履歴書サンプルを見る',
+    description: 'あらゆる職種の300以上の履歴書サンプルをご覧いただけます。すべてATS最適化テンプレートで作成されています。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: 'すべてのテンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'Canvaの履歴書テンプレートは無料で使えますか？', answer: 'Canvaには無料の履歴書テンプレートがありますが、高品質なデザインの多くはCanva Pro（月額$12.99）が必要です。Best AI Resume Builderは、ウォーターマークや有料制限なしで全テンプレートを無料提供しています。' },
+      { question: 'Canvaの履歴書はATS対応ですか？', answer: 'ほとんどのCanva履歴書テンプレートはATS対応ではありません。Canvaは履歴書を平坦な画像や複雑なPDFとしてエクスポートするため、ATSソフトウェアが解析できません。つまり、Fortune 500企業の98%が使用する自動スクリーニングシステムに、あなたの履歴書の内容が見えない状態になります。' },
+      { question: '履歴書作成でCanvaの最良の無料代替は？', answer: 'Best AI Resume Builderが最高の無料代替ツールです。AIによるコンテンツ作成、リアルタイムATSスコアリング、20種類以上のプロフェッショナルテンプレート、クリーンで解析可能なPDFエクスポート — すべて無料です。' },
+      { question: 'なぜCanvaの履歴書はATSに不合格になるのですか？', answer: 'Canvaはテキストを選択可能なテキストレイヤーではなく、ビジュアル要素として埋め込むグラフィックデザインエンジンを使用しています。ATSソフトウェアは画像ではなくドキュメントテキストを読み取ります。履歴書がCanvaのグラフィックである場合、ATSには空白のドキュメントに見え、自動的に不合格になります。' },
+      { question: 'Canvaの履歴書をBest AI Resume Builderにインポートできますか？', answer: 'Canvaからコンテンツをコピーして当社のビルダーに貼り付けることができます。その後、AIが実績の最適化、改善提案、ATS対応テンプレートへの自動フォーマットを行います。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/overleaf-alternative', title: 'Overleaf代替', subtitle: 'LaTeX履歴書 vs AIビルダー' },
+      { href: '/resume-io-alternative', title: 'Resume.io代替', subtitle: '料金と機能比較' },
+      { href: '/rezi-alternative', title: 'Rezi代替', subtitle: 'AI履歴書ツール比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応の履歴書の書き方' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド 2026' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: '履歴書でよくあるミスを避ける方法' },
+      { href: '/blog/best-resume-fonts-2026', label: '2026年おすすめの履歴書フォント' },
+    ],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://www.canva.com/resumes/', label: 'Canva 履歴書テンプレート' },
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS: 履歴書のヒント' },
+    ],
+  },
+  bottomCta: {
+    title: 'ATSを通過する履歴書を作りませんか？',
+    description: 'Canvaからの乗り換えで、採用されるために設計されたAI履歴書作成ツールを利用する数千人の求職者に加わりましょう。',
+    cta: '無料で履歴書を作成 — 登録不要',
+    subtext: 'ずっと無料。クレジットカード不要。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

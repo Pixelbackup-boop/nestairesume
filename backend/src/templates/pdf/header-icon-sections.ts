@@ -105,10 +105,10 @@ export const renderHeaderIconSections = (
     `;
 
     return `
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: ${pageBg}; color: #000000; padding: 32px; box-sizing: border-box;">
+        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${fs.body}; background-color: ${pageBg}; color: #000000; padding: 16px 32px; box-sizing: border-box;">
 
             <!-- Header Box -->
-            <header style="display: flex; align-items: center; gap: 32px; border: 1px solid ${borderColor}; background-color: #ffffff; padding: 32px; margin-bottom: 32px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);">
+            <header style="display: flex; align-items: center; gap: 32px; border: 1px solid ${borderColor}; background-color: #ffffff; padding: 32px; margin-bottom: 24px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);">
                 <!-- Photo -->
                 ${profileImage}
 

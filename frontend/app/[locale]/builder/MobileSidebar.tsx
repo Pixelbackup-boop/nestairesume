@@ -113,7 +113,7 @@ export default function MobileSidebar({
                                     <div className={`font-medium text-sm ${isActive ? 'text-gray-900' : ''}`}>
                                         {tab.label}
                                     </div>
-                                    <div className="text-xs text-gray-400">{tab.description}</div>
+                                    <div className="text-xs text-gray-500">{tab.description}</div>
                                 </div>
                                 {isActive && <Check size={16} className="text-accent-green" />}
                             </button>

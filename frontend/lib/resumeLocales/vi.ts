@@ -1,0 +1,276 @@
+import { LocaleBundle } from './types';
+
+const vi: LocaleBundle = {
+    localeData: {
+        cities: ['Hồ Chí Minh', 'Hà Nội', 'Đà Nẵng', 'Hải Phòng', 'Cần Thơ'],
+        country: 'Việt Nam',
+        nationality: 'Vietnamese',
+        companies: {
+            tech: ['TechCorp Giải Pháp', 'InnovaTech Việt Nam', 'CloudWorks VN', 'DataLabs Á Châu', 'AppForge Digital'],
+            design: ['DesignHub Sáng Tạo', 'CreativeStudio Việt Nam', 'Pixel Hoàn Hảo', 'UX Việt Nam', 'Mỹ Thuật Số VN'],
+            marketing: ['GrowthMatrix Việt Nam', 'Thương Hiệu Việt Co.', 'Tiếp Thị Số VN', 'Truyền Thông Engage', 'Marketing Impact VN'],
+            finance: ['Tư Vấn Tài Chính Việt', 'Sterling Tài Chính VN', 'Kế Toán Apex Việt Nam', 'Đầu Tư Partners VN', 'Giải Pháp Tài Chính SG'],
+            healthcare: ['Bệnh Viện Đa Khoa Trung Ương', 'Trung Tâm Y Tế Cộng Đồng', 'Phòng Khám CarePlus', 'Y Tế Sức Khỏe Vàng', 'Bệnh Viện Quốc Tế'],
+            education: ['Trường THPT Lê Hồng Phong', 'Trường Quốc Tế Việt Úc', 'Đại Học Quốc Gia', 'Cao Đẳng Cộng Đồng', 'Trung Tâm Giáo Dục Xuất Sắc'],
+            sales: ['Giải Pháp Doanh Nghiệp VN', 'Thương Mại Toàn Cầu VN', 'TechSales Việt Nam', 'Phát Triển Kinh Doanh VN', 'Premier Sales VN'],
+            hospitality: ['Nhà Hàng Khách Sạn Grand', 'Bistro Thanh Lịch', 'Nhà Hàng Bờ Sông', 'Ẩm Thực Phố Cổ', 'Bếp Biển Xanh'],
+            general: ['Tập Đoàn Thành Công', 'Doanh Nghiệp Toàn Cầu VN', 'Giải Pháp Premier VN', 'Công Nghiệp Sáng Tạo', 'Đối Tác Xuất Sắc VN'],
+        },
+        degrees: {
+            tech: { degree: 'Cử nhân Khoa học Máy tính', school: 'Đại học Công nghệ' },
+            design: { degree: 'Cử nhân Mỹ thuật Thiết kế Đồ họa', school: 'Trường Đại học Mỹ thuật' },
+            marketing: { degree: 'Cử nhân Quản trị Kinh doanh chuyên ngành Marketing', school: 'Trường Kinh doanh Quốc gia' },
+            finance: { degree: 'Cử nhân Khoa học Tài chính', school: 'Đại học Kinh tế' },
+            healthcare: { degree: 'Cử nhân Khoa học Điều dưỡng', school: 'Đại học Y Dược' },
+            education: { degree: 'Cử nhân Sư phạm', school: 'Đại học Sư phạm' },
+            sales: { degree: 'Cử nhân Quản trị Kinh doanh', school: 'Trường Đại học Thương mại' },
+            hospitality: { degree: 'Chứng chỉ Quản trị Nhà hàng Khách sạn', school: 'Trường Cao đẳng Du lịch' },
+            general: { degree: 'Cử nhân Khoa học Xã hội', school: 'Đại học Quốc gia' },
+        },
+        educationDescription: 'Tốt nghiệp loại giỏi. Thành viên tích cực của các hiệp hội nghề nghiệp.',
+        yearsText: (years) => years === 1 ? '1 năm' : `${years}+ năm`,
+    },
+    summaryTemplates: {
+        tech: {
+            entry: '{jobTitle} đầy nhiệt huyết với {years} kinh nghiệm thực tế trong phát triển phần mềm. Đam mê viết mã sạch, hiệu quả và không ngừng học hỏi công nghệ mới. Mong muốn đóng góp vào các dự án đổi mới sáng tạo và phát triển năng lực chuyên môn.',
+            mid: '{jobTitle} hướng kết quả với {years} kinh nghiệm xây dựng ứng dụng có khả năng mở rộng và dẫn dắt các sáng kiến kỹ thuật. Có thành tích cải thiện hiệu suất hệ thống lên đến 40% thông qua các giải pháp chất lượng cao. Khả năng phối hợp hiệu quả với các nhóm đa chức năng.',
+            senior: '{jobTitle} giàu kinh nghiệm với {years} chuyên môn trong kiến trúc và triển khai các giải pháp quy mô doanh nghiệp. Dẫn dắt nhóm hơn 5 lập trình viên, giảm thời gian triển khai 60% thông qua CI/CD. Tâm huyết trong việc đào tạo lập trình viên trẻ và thúc đẩy chất lượng kỹ thuật.',
+            executive: 'Nhà lãnh đạo công nghệ chiến lược với {years} kinh nghiệm thúc đẩy chuyển đổi số và đổi mới kỹ thuật. Quản lý ngân sách trên 2 triệu USD và đội ngũ hơn 20 kỹ sư. Triển khai thành công các dự án tạo ra tăng trưởng doanh thu trên 10 triệu USD.',
+        },
+        design: {
+            entry: '{jobTitle} sáng tạo với {years} kinh nghiệm thiết kế lấy người dùng làm trung tâm. Thành thạo các công cụ thiết kế hiện đại, đam mê tạo ra giao diện trực quan và hấp dẫn.',
+            mid: '{jobTitle} đổi mới với {years} kinh nghiệm tạo ra trải nghiệm số lấy người dùng làm trung tâm. Thiết kế giúp tăng 35% tương tác người dùng và giảm 25% tỷ lệ thoát trang.',
+            senior: '{jobTitle} cấp cao với {years} kinh nghiệm dẫn dắt nhóm thiết kế và định hình tầm nhìn sản phẩm. Xây dựng hệ thống thiết kế được áp dụng cho hơn 10 sản phẩm, cải thiện 50% tính nhất quán trong thiết kế.',
+            executive: 'Giám đốc thiết kế với {years} kinh nghiệm xây dựng và lãnh đạo tổ chức thiết kế đẳng cấp. Chuyển đổi văn hóa thiết kế tại các tập đoàn lớn, tạo ra giá trị tiết kiệm trên 5 triệu USD.',
+        },
+        marketing: {
+            entry: '{jobTitle} nhiệt tình với {years} kinh nghiệm trong tiếp thị số. Kỹ năng tốt về sáng tạo nội dung, quản lý mạng xã hội và phân tích dữ liệu.',
+            mid: '{jobTitle} dựa trên dữ liệu với {years} kinh nghiệm thực hiện các chiến dịch mang lại kết quả đo lường được. Tăng 150% lưu lượng truy cập tự nhiên và cải thiện 40% tỷ lệ chuyển đổi.',
+            senior: '{jobTitle} chiến lược với {years} kinh nghiệm dẫn dắt đội ngũ marketing hiệu suất cao. Quản lý ngân sách marketing trên 1 triệu USD và triển khai chiến dịch đạt ROI 200%.',
+            executive: 'Giám đốc marketing với {years} kinh nghiệm thúc đẩy tăng trưởng doanh thu thông qua chiến lược tiếp thị đổi mới. Lãnh đạo đội ngũ marketing toàn cầu và quản lý ngân sách trên 10 triệu USD.',
+        },
+        finance: {
+            entry: '{jobTitle} tỉ mỉ với {years} kinh nghiệm trong phân tích tài chính và lập báo cáo. Nền tảng vững chắc về nguyên tắc kế toán và phần mềm tài chính.',
+            mid: '{jobTitle} phân tích với {years} kinh nghiệm trong hoạch định và phân tích tài chính. Phát hiện cơ hội tiết kiệm chi phí mang lại hơn 500 nghìn USD tiết kiệm hàng năm.',
+            senior: '{jobTitle} cấp cao với {years} kinh nghiệm dẫn dắt vận hành và chiến lược tài chính. Quản lý danh mục đầu tư trị giá trên 50 triệu USD và dẫn dắt nhóm qua các cuộc kiểm toán thành công.',
+            executive: 'Giám đốc tài chính với {years} kinh nghiệm định hướng chiến lược tài chính và vận hành xuất sắc. Dẫn dắt các thương vụ M&A tổng giá trị trên 100 triệu USD và cải thiện biên EBITDA 15%.',
+        },
+        healthcare: {
+            entry: '{jobTitle} tận tâm với {years} kinh nghiệm lâm sàng cung cấp dịch vụ chăm sóc lấy bệnh nhân làm trung tâm. Cam kết duy trì tiêu chuẩn chăm sóc cao nhất.',
+            mid: '{jobTitle} tận tụy với {years} kinh nghiệm cung cấp dịch vụ chăm sóc bệnh nhân chất lượng cao. Cải thiện 30% điểm hài lòng bệnh nhân thông qua nâng cao quy trình giao tiếp.',
+            senior: '{jobTitle} giàu kinh nghiệm với {years} chuyên môn lâm sàng và kinh nghiệm lãnh đạo. Dẫn dắt các sáng kiến cải thiện chất lượng giảm 20% tỷ lệ tái nhập viện.',
+            executive: 'Giám đốc y tế với {years} kinh nghiệm chuyển đổi vận hành lâm sàng và cải thiện kết quả điều trị. Lãnh đạo khoa phòng trên 50 nhân viên và quản lý ngân sách trên 5 triệu USD.',
+        },
+        education: {
+            entry: '{jobTitle} đam mê với {years} kinh nghiệm giảng dạy, cam kết vì sự thành công của học sinh. Giỏi xây dựng kế hoạch bài giảng hấp dẫn và tạo môi trường học tập hòa nhập.',
+            mid: '{jobTitle} đổi mới với {years} kinh nghiệm phát triển chương trình giảng dạy thu hút người học đa dạng. Nâng cao 25% điểm kiểm tra của học sinh thông qua phương pháp dạy học phân hóa.',
+            senior: '{jobTitle} kỳ cựu với {years} kinh nghiệm định hình kết quả giáo dục và hướng dẫn đồng nghiệp. Phát triển chương trình đạt giải thưởng được áp dụng toàn quận.',
+            executive: 'Nhà lãnh đạo giáo dục với {years} kinh nghiệm thúc đẩy chất lượng giáo dục xuất sắc. Vận động thành công trên 2 triệu USD tài trợ và dẫn dắt quy trình kiểm định chất lượng.',
+        },
+        sales: {
+            entry: '{jobTitle} năng động với {years} kinh nghiệm trong phát triển kinh doanh. Kỹ năng giao tiếp mạnh mẽ và tập trung vào khách hàng. Quyết tâm vượt chỉ tiêu.',
+            mid: '{jobTitle} hướng kết quả với {years} kinh nghiệm liên tục vượt chỉ tiêu. Tạo ra hơn 2 triệu USD doanh thu mới và duy trì tỷ lệ giữ chân khách hàng 95%.',
+            senior: '{jobTitle} hiệu suất cao với {years} kinh nghiệm dẫn dắt đội ngũ bán hàng và thúc đẩy tăng trưởng doanh thu. Quản lý khu vực tạo ra trên 10 triệu USD doanh thu hàng năm.',
+            executive: 'Giám đốc kinh doanh với {years} kinh nghiệm xây dựng và mở rộng tổ chức bán hàng hiệu suất cao. Tăng trưởng doanh thu từ 5 triệu lên 50 triệu USD và mở rộng sang 3 thị trường mới.',
+        },
+        hospitality: {
+            entry: '{jobTitle} thân thiện và năng động với {years} kinh nghiệm trong môi trường ẩm thực nhịp độ nhanh. Cam kết mang đến dịch vụ khách hàng xuất sắc.',
+            mid: '{jobTitle} tận tâm với {years} kinh nghiệm cung cấp dịch vụ xuất sắc tại các nhà hàng công suất lớn. Duy trì đánh giá hài lòng khách hàng 98%.',
+            senior: '{jobTitle} giàu kinh nghiệm với {years} chuyên môn trong nhà hàng cao cấp và phục vụ số lượng lớn. Đào tạo và hướng dẫn hơn 15 nhân viên.',
+            executive: 'Chuyên gia ngành dịch vụ với {years} kinh nghiệm quản lý vận hành nhà hàng. Giám sát đội ngũ trên 30 nhân viên và tăng doanh thu 40%.',
+        },
+        general: {
+            entry: '{jobTitle} năng động với {years} kinh nghiệm chuyên nghiệp. Tinh thần làm việc cao, kỹ năng giao tiếp xuất sắc và cam kết mang lại kết quả chất lượng.',
+            mid: '{jobTitle} có năng lực với {years} kinh nghiệm thúc đẩy vận hành xuất sắc. Cải thiện 30% hiệu suất nhóm thông qua tối ưu hóa quy trình.',
+            senior: '{jobTitle} dày dạn kinh nghiệm với {years} kinh nghiệm dẫn dắt nhóm và các sáng kiến chiến lược. Quản lý thành công các dự án có ngân sách lên đến 1 triệu USD.',
+            executive: 'Nhà lãnh đạo cấp cao với {years} kinh nghiệm thúc đẩy chuyển đổi tổ chức. Dẫn dắt đội ngũ trên 50 người và chịu trách nhiệm P&L trên 20 triệu USD.',
+        },
+    },
+    jobDescriptions: {
+        tech: [
+            [
+                '• Dẫn dắt phát triển kiến trúc microservices, cải thiện khả năng mở rộng hệ thống 300%',
+                '• Triển khai pipeline CI/CD giảm thời gian triển khai từ 2 giờ xuống 15 phút',
+                '• Hướng dẫn nhóm 5 lập trình viên trẻ, tiến hành review code và đào tạo kỹ thuật',
+                '• Phối hợp với quản lý sản phẩm để xác định yêu cầu kỹ thuật và lập kế hoạch sprint',
+                '• Giảm 40% thời gian tải ứng dụng thông qua tối ưu hóa hiệu suất',
+            ],
+            [
+                '• Phát triển RESTful API phục vụ hơn 1 triệu yêu cầu hàng ngày với uptime 99,9%',
+                '• Xây dựng ứng dụng web responsive sử dụng React và TypeScript',
+                '• Tích hợp dịch vụ bên thứ ba và cổng thanh toán',
+                '• Tham gia các buổi họp agile và đóng góp vào kế hoạch sprint',
+            ],
+            [
+                '• Đóng góp vào bảo trì mã nguồn và sửa lỗi',
+                '• Hỗ trợ lập trình viên cấp cao trong triển khai tính năng',
+                '• Viết unit test cải thiện 25% độ phủ mã nguồn',
+            ],
+        ],
+        design: [
+            [
+                '• Dẫn dắt nhóm thiết kế 5 người tạo ra các sản phẩm số lấy người dùng làm trung tâm',
+                '• Xây dựng hệ thống thiết kế và thư viện component được sử dụng cho hơn 10 dự án',
+                '• Tăng 40% tương tác người dùng thông qua cải tiến UX',
+                '• Tiến hành nghiên cứu người dùng và kiểm thử khả năng sử dụng với hơn 100 người tham gia',
+                '• Trình bày khái niệm thiết kế cho các bên liên quan và tiếp thu phản hồi',
+            ],
+            [
+                '• Thiết kế ứng dụng di động và web cho nền tảng iOS và Android',
+                '• Tạo wireframe, prototype và mockup độ trung thực cao',
+                '• Phối hợp với lập trình viên để đảm bảo triển khai thiết kế chính xác',
+                '• Cải thiện 35% tỷ lệ chuyển đổi thông qua kiểm thử A/B',
+            ],
+            [
+                '• Hỗ trợ tạo thiết kế hình ảnh cho các chiến dịch marketing',
+                '• Duy trì tính nhất quán thương hiệu trên tất cả sản phẩm thiết kế',
+                '• Hỗ trợ nhà thiết kế cấp cao trong tạo tài nguyên đồ họa',
+            ],
+        ],
+        marketing: [
+            [
+                '• Xây dựng và thực hiện chiến lược marketing đạt ROI 200%',
+                '• Quản lý ngân sách marketing hàng năm trên 500 nghìn USD qua các kênh số',
+                '• Dẫn dắt nhóm 4 chuyên viên marketing trong lập kế hoạch và thực hiện chiến dịch',
+                '• Tăng 150% lưu lượng truy cập tự nhiên thông qua tối ưu hóa SEO',
+                '• Xây dựng quan hệ đối tác với KOL tiếp cận hơn 2 triệu khán giả',
+            ],
+            [
+                '• Xây dựng chiến lược nội dung thu hút hơn 100 nghìn lượt truy cập blog hàng tháng',
+                '• Quản lý tài khoản mạng xã hội, tăng 300% lượng người theo dõi',
+                '• Thực hiện chiến dịch email với tỷ lệ mở 35% và CTR 15%',
+                '• Phân tích hiệu suất chiến dịch và tối ưu hóa dựa trên dữ liệu',
+            ],
+            [
+                '• Hỗ trợ sáng tạo và lên lịch nội dung mạng xã hội',
+                '• Hỗ trợ nhóm trong nghiên cứu thị trường và phân tích đối thủ',
+                '• Tham gia tổ chức sự kiện marketing và hội thảo trực tuyến',
+            ],
+        ],
+        finance: [
+            [
+                '• Quản lý hoạch định và phân tích tài chính cho đơn vị kinh doanh trên 50 triệu USD',
+                '• Dẫn dắt quy trình lập ngân sách hàng năm và dự báo hàng quý',
+                '• Phát hiện cơ hội tiết kiệm chi phí mang lại hơn 1 triệu USD tiết kiệm',
+                '• Trình bày báo cáo tài chính cho ban lãnh đạo cấp cao',
+                '• Giám sát nhóm 3 chuyên viên phân tích và điều phối quy trình kiểm toán',
+            ],
+            [
+                '• Lập báo cáo tài chính hàng tháng và phân tích chênh lệch',
+                '• Xây dựng mô hình tài chính cho hoạch định kinh doanh',
+                '• Cải tiến quy trình báo cáo giảm 30% thời gian đóng sổ',
+                '• Hỗ trợ thẩm định M&A và tích hợp sau sáp nhập',
+            ],
+            [
+                '• Hỗ trợ xử lý công nợ phải thu và phải trả',
+                '• Đối chiếu sao kê ngân hàng và tài khoản sổ cái tổng hợp',
+                '• Hỗ trợ kế toán cấp cao trong đóng sổ cuối tháng',
+            ],
+        ],
+        healthcare: [
+            [
+                '• Giám sát đội ngũ điều dưỡng trên 15 người trong cung cấp dịch vụ chăm sóc bệnh nhân',
+                '• Triển khai sáng kiến cải thiện chất lượng giảm 40% sai sót',
+                '• Phối hợp kế hoạch chăm sóc bệnh nhân với nhóm liên chuyên khoa',
+                '• Đảm bảo tuân thủ các quy định y tế và tiêu chuẩn ngành',
+                '• Đào tạo nhân viên mới về quy trình và thực hành tốt nhất',
+            ],
+            [
+                '• Chăm sóc trực tiếp cho hơn 10 bệnh nhân mỗi ngày',
+                '• Thực hiện phát thuốc và theo dõi tình trạng bệnh nhân',
+                '• Ghi chép thông tin bệnh nhân chính xác trên hệ thống EMR',
+                '• Phối hợp với bác sĩ trong xây dựng phác đồ điều trị',
+            ],
+            [
+                '• Hỗ trợ tiếp nhận bệnh nhân và đo sinh hiệu',
+                '• Hỗ trợ đội ngũ điều dưỡng trong các hoạt động chăm sóc hàng ngày',
+                '• Duy trì môi trường bệnh nhân sạch sẽ và ngăn nắp',
+            ],
+        ],
+        education: [
+            [
+                '• Phát triển chương trình giảng dạy được áp dụng toàn quận phục vụ hơn 5.000 học sinh',
+                '• Hướng dẫn hơn 10 giáo viên triển khai phương pháp giảng dạy mới',
+                '• Nâng cao 25% kết quả học tập của học sinh trong 3 năm',
+                '• Tổ chức các buổi tập huấn chuyên môn và hội thảo phương pháp',
+                '• Vận động thành công trên 100 nghìn USD tài trợ cho các chương trình giáo dục',
+            ],
+            [
+                '• Giảng dạy lớp trên 25 học sinh qua nhiều khối lớp',
+                '• Xây dựng kế hoạch bài giảng hấp dẫn phù hợp chuẩn chương trình quốc gia',
+                '• Áp dụng phương pháp dạy học phân hóa cho đối tượng người học đa dạng',
+                '• Thường xuyên liên lạc với phụ huynh về tiến bộ học tập của học sinh',
+            ],
+            [
+                '• Hỗ trợ giáo viên chủ nhiệm trong giảng dạy trên lớp',
+                '• Kèm cặp học sinh theo nhóm nhỏ và cá nhân',
+                '• Hỗ trợ duy trì tổ chức lớp học và tài liệu giảng dạy',
+            ],
+        ],
+        sales: [
+            [
+                '• Vượt chỉ tiêu năm 150%, tạo ra hơn 5 triệu USD doanh thu',
+                '• Xây dựng và quản lý đội ngũ 8 đại diện bán hàng',
+                '• Xây dựng kế hoạch chiến lược cho các khách hàng doanh nghiệp lớn',
+                '• Đàm phán hợp đồng trị giá trên 500 nghìn USD với lãnh đạo cấp C',
+                '• Triển khai quy trình CRM cải thiện 40% độ chính xác dự báo',
+            ],
+            [
+                '• Đạt 120% chỉ tiêu liên tục trong 8 quý liên tiếp',
+                '• Quản lý pipeline hơn 50 cơ hội trị giá trên 2 triệu USD',
+                '• Thực hiện demo sản phẩm và thuyết trình cho khách hàng',
+                '• Duy trì tỷ lệ giữ chân khách hàng 95% thông qua quản lý quan hệ',
+            ],
+            [
+                '• Tạo leads thông qua gọi điện chủ động và mạng lưới quan hệ',
+                '• Hỗ trợ đại diện cấp cao trong các cuộc họp khách hàng',
+                '• Duy trì hồ sơ chính xác trên hệ thống CRM',
+            ],
+        ],
+        hospitality: [
+            [
+                '• Giám sát nhóm hơn 10 nhân viên phục vụ đảm bảo chất lượng dịch vụ nhất quán',
+                '• Đào tạo nhân viên mới về thực đơn, hệ thống POS và tiêu chuẩn phục vụ',
+                '• Giải quyết khiếu nại khách hàng chuyên nghiệp, duy trì tỷ lệ hài lòng 95%',
+                '• Phối hợp với bếp để đảm bảo phục vụ món ăn kịp thời',
+                '• Quản lý khu vực hơn 8 bàn trong giờ cao điểm phục vụ hơn 100 khách mỗi ngày',
+            ],
+            [
+                '• Phục vụ bàn xuất sắc tại nhà hàng 200 chỗ nhịp độ nhanh',
+                '• Tăng 20% giá trị hóa đơn trung bình thông qua kỹ thuật upselling hiệu quả',
+                '• Nắm vững thực đơn bao gồm món đặc biệt và kết hợp rượu vang',
+                '• Xử lý thanh toán chính xác, quản lý trên 500 USD giao dịch hàng ngày',
+            ],
+            [
+                '• Chào đón và hướng dẫn khách đảm bảo ấn tượng ban đầu tích cực',
+                '• Tiếp nhận chính xác đơn đặt món và đồ uống trên hệ thống POS',
+                '• Duy trì khu vực ăn uống sạch sẽ và ngăn nắp trong suốt ca làm việc',
+            ],
+        ],
+        general: [
+            [
+                '• Dẫn dắt nhóm đa chức năng hơn 10 thành viên trong các sáng kiến chiến lược',
+                '• Quản lý dự án ngân sách lên đến 500 nghìn USD và hoàn thành đúng tiến độ',
+                '• Cải thiện 30% hiệu quả vận hành thông qua tối ưu hóa quy trình',
+                '• Xây dựng và triển khai chính sách, quy trình cho bộ phận',
+                '• Trình bày báo cáo quý cho ban lãnh đạo cấp cao',
+            ],
+            [
+                '• Điều phối vận hành hàng ngày và quản lý luồng công việc',
+                '• Phối hợp với các bên liên quan để đảm bảo tiến độ dự án',
+                '• Phân tích dữ liệu để xác định xu hướng và cơ hội cải tiến',
+                '• Đào tạo nhân viên mới về quy trình và hệ thống',
+            ],
+            [
+                '• Hỗ trợ nhóm trong các công việc hành chính và vận hành',
+                '• Hỗ trợ nhập liệu và chuẩn bị báo cáo',
+                '• Tham gia tổ chức các cuộc họp và sự kiện nhóm',
+            ],
+        ],
+    },
+    masterDegree: { tech: 'Thạc sĩ Khoa học Máy tính', business: 'Thạc sĩ Quản trị Kinh doanh (MBA)', school: 'Trường Kinh doanh Sau đại học' },
+    phoneFormat: '+84 90 000 0000',
+    titlePrefixes: { senior: 'Chuyên viên cao cấp', lead: 'Trưởng nhóm', director: 'Giám đốc' },
+};
+
+export default vi;

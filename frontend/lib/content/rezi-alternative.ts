@@ -616,5 +616,130 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+// ── Japanese ──────────────────────────────────────────────────────────
+
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'Rezi.aiの代替ツール2026：無料AI履歴書作成ツール | Best AI Resume',
+    description: 'Rezi.aiの無料代替を探していますか？ReziとBest AI Resume Builderを比較——同等のAI品質、無制限の機能、完全無料。クレジット制限もサブスクリプションも不要。',
+    keywords: 'Rezi.ai 代替, Rezi 履歴書, 履歴書作成ツール 無料, AI履歴書 無料, 履歴書サンプル, 職務経歴書 作成, ATS対応 履歴書メーカー',
+  },
+  schemas: {
+    breadcrumbName: 'Rezi.aiの代替',
+    articleHeadline: 'Rezi.aiの代替ツール2026：無料AI履歴書作成ツール',
+    articleDescription: 'Rezi.aiとBest AI Resume Builderを比較。同じAI搭載の履歴書作成とATS最適化が完全無料で利用可能。',
+  },
+  hero: {
+    badge: 'Rezi.aiの代替',
+    title: 'AIの全パワー。',
+    titleHighlight: '料金ゼロ。',
+    subtitle: 'Rezi.aiはAI履歴書作成の先駆者ですが、フルアクセスには<strong>月額$29</strong>がかかります。同等のAI作成とATS最適化を<strong>完全無料</strong>で入手しましょう。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'Reziは優秀——でも月額$29の価値がある？',
+    description: 'Rezi.aiはAI搭載の履歴書作成の先駆者でした。AI作成機能とATS最適化は優れています。問題は？無料プランが非常に制限的で——<strong>履歴書1件のみ、AIクレジット制限、基本テンプレートのみ</strong>。フルAI作成と無制限の履歴書にはRezi Pro（月額$29または年額$129）が必要です。就職活動中の財政的プレッシャーがある方には高額です。',
+    stats: [
+      { value: '$29', label: 'Rezi Proの月額料金（フルAI + 無制限履歴書）' },
+      { value: '1', label: 'Reziの無料プランで作成できる履歴書数' },
+      { value: '$0', label: 'Best AI Resume Builder — すべて無制限、無料' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi.ai vs Best AI Resume Builder',
+    subtitle: 'どちらもAI搭載。無料なのは一つだけ。',
+    competitorName: 'Rezi.ai',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '料金', competitor: '❌ Pro: 月額$29 / 年額$129', ours: '✅ 完全無料' },
+      { feature: 'AI履歴書作成', competitor: '✅ 優れたAI（無料はクレジット制限あり）', ours: '✅ 無制限のAI作成、無料' },
+      { feature: 'ATSチェッカー', competitor: '✅ ATS分析内蔵', ours: '✅ リアルタイムATSスコア' },
+      { feature: '履歴書作成数', competitor: '❌ 無料プランは1件のみ', ours: '✅ 無制限' },
+      { feature: 'テンプレート種類', competitor: '⚠️ 限られた選択肢', ours: '✅ 20種以上のプロテンプレート' },
+      { feature: 'キーワード最適化', competitor: '✅ 求人説明マッチング', ours: '✅ AIキーワード提案' },
+      { feature: 'カバーレター作成', competitor: '✅ AI搭載（Proのみ）', ours: '✅ AI搭載（無料）' },
+      { feature: 'PDFエクスポート', competitor: '⚠️ 無料プランは制限あり', ours: '✅ 無制限の無料エクスポート' },
+      { feature: '使いやすさ', competitor: '⚠️ 高機能だが複雑なUI', ours: '✅ シンプルなガイド付き体験' },
+      { feature: '無料プランの価値', competitor: '❌ 非常に制限的（1件、少ないAIクレジット）', ours: '✅ 全機能、制限なし' },
+    ],
+  },
+  whySwitch: {
+    title: 'Reziから乗り換える3つの理由',
+    subtitle: '同じAI品質。より良い価値。',
+    reasons: [
+      { title: '年間$348を節約', description: 'Rezi Proは月額$29（年間$348）。当ツールのAI履歴書作成ツールは、同じAI作成、ATS最適化、無制限履歴書を$0で提供します。' },
+      { title: 'テンプレートが豊富', description: 'Reziはテンプレートの選択肢が限られています。当ツールは20種以上のプロデザインテンプレートを提供——すべてATS検証済み、すべて無料。ミニマルからモダンまで幅広いスタイルに対応。' },
+      { title: 'よりシンプルな体験', description: 'Reziのインターフェースは高機能ですが複雑です。当ツールのガイド付きフローは各セクションを段階的に案内し、初めての履歴書作成でも簡単にプロフェッショナルな仕上がりになります。' },
+    ],
+  },
+  recommendation: {
+    title: '正直なおすすめ',
+    useCompetitor: {
+      title: 'Reziが向いている方',
+      items: [
+        '月額$29の履歴書ツールに予算がある',
+        '特定の求人に対する求人説明マッチングが欲しい',
+        '多機能なパワーユーザー向けインターフェースを好む',
+        '履歴書が1件だけで十分（無料プランで対応可能）',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが向いている方',
+      items: [
+        '月額$29を支払わずに無制限のAI作成を利用したい',
+        '異なる求人に合わせた複数の履歴書バージョンが必要',
+        'シンプルでガイド付きの履歴書作成体験を好む',
+        'テンプレートの種類が豊富な方がいい',
+        '出費を抑えたい求職者',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300件以上の無料履歴書サンプル',
+    description: 'データアナリストからプロダクトマネージャー、グラフィックデザイナーまで——あらゆるキャリアのプロフェッショナルな履歴書サンプルをご覧ください。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: 'すべてのテンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'Rezi.aiは無料で使えますか？', answer: 'Reziには制限付きの無料プランがあり、基本機能で1件の履歴書のみ作成可能です。AI作成、無制限履歴書、全テンプレートへのフルアクセスにはRezi Pro（月額$29または年額$129）が必要です。Best AI Resume Builderは全機能を制限なしで無料提供します。' },
+      { question: 'Rezi.aiのAI作成機能は優れていますか？', answer: 'ReziはAI履歴書作成の先駆者であり、優れたAI作成機能を持っています。ただし、無料プランではAIクレジットが制限され、無制限利用には課金が必要です。Best AI Resume Builderは無制限のAI作成を無料で提供し、あなたの職種・業界に合わせた同等品質のコンテンツを生成します。' },
+      { question: 'Reziの最良の無料代替ツールは？', answer: 'Best AI Resume Builderが最良の無料代替です。AI作成品質とATS最適化でReziと同等でありながら、100%無料——クレジット制限なし、機能制限なし、サブスクリプション不要。' },
+      { question: 'Reziは他のAI履歴書作成ツールより優れていますか？', answer: 'Reziは優れたAIとATS機能を持つ強力な製品です。最大の欠点は価格——月額$29は求職者には高額です。Best AI Resume Builderは同等のAI品質、より多いテンプレート、リアルタイムATSスコアをすべて無料で提供します。' },
+      { question: 'Reziの履歴書はATSシステムを通過しますか？', answer: 'はい、ReziのテンプレートはATS互換性のために設計されており、ATSチェッカーを内蔵しています。Best AI Resume BuilderもATS検証済みテンプレートとリアルタイムスコア、さらにAI提案キーワードをすべて無料で提供します。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/canva-alternative', title: 'Canvaの代替', subtitle: 'デザインツール vs AI作成ツール' },
+      { href: '/overleaf-alternative', title: 'Overleafの代替', subtitle: 'LaTeX履歴書 vs AI作成ツール' },
+      { href: '/resume-io-alternative', title: 'Resume.ioの代替', subtitle: '料金・機能比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応履歴書の書き方' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド 2026' },
+      { href: '/resume-examples/data-analyst', label: 'データアナリスト履歴書サンプル' },
+      { href: '/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude 履歴書作成比較' },
+    ],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi AI 履歴書ビルダー' },
+      { href: 'https://www.bls.gov/ooh/', label: '米国労働統計局 OOH' },
+    ],
+  },
+  bottomCta: {
+    title: '同じAIパワー。コストゼロ。',
+    description: 'AI履歴書作成、ATS最適化、20種以上のテンプレート——すべて無料。クレジットカード不要、サブスクリプション不要、制限なし。',
+    cta: '無料で履歴書を作成',
+    subtext: '永久無料。すべて無制限。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

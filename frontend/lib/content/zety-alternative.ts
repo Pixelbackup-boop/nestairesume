@@ -661,5 +661,130 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+// ── Japanese ──────────────────────────────────────────────────────────
+
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'Zetyの代替ツール2026：無料AI履歴書作成ツール（隠れた料金なし）| Best AI Resume',
+    description: 'Zetyの無料代替を探していますか？ZetyとBest AI Resume Builderを比較——AI搭載の履歴書作成、ATSテンプレート、無制限ダウンロード。トライアルの罠やサブスクリプション不要。',
+    keywords: 'Zety 代替, Zety 履歴書, 履歴書作成ツール 無料, AI履歴書, 履歴書サンプル, 職務経歴書 作成, 無料 履歴書メーカー',
+  },
+  schemas: {
+    breadcrumbName: 'Zetyの代替',
+    articleHeadline: 'Zetyの代替ツール2026：隠れた料金なしの無料AI履歴書作成ツール',
+    articleDescription: 'ZetyとBest AI Resume Builderを比較。AI搭載の履歴書作成、ATS最適化、無制限ダウンロードが完全無料。トライアルの罠なし。',
+  },
+  hero: {
+    badge: 'Zetyの代替',
+    title: '履歴書を作成。',
+    titleHighlight: '無料でダウンロード。',
+    subtitle: 'Zetyでは履歴書を無料で作成できますが、ダウンロードには<strong>月額$23.70</strong>が必要です。AI作成、ATSテンプレート、無制限エクスポートが<strong>$0</strong>で利用可能。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'Zetyの料金の落とし穴',
+    description: 'Zetyにはプロフェッショナルなテンプレートと便利なコンテンツ提案があります。問題はその料金モデル：履歴書全体を作成した後に、ダウンロードには支払いが必要だと気づきます。<strong>14日間トライアルは$2.70</strong>で、その後<strong>月額$23.70で自動更新</strong>。レビューサイトでは、解約を忘れた結果、予期しない課金を報告する声が多数あります。',
+    stats: [
+      { value: '$23.70', label: 'トライアル後の月額料金（自動更新）' },
+      { value: '$2.70', label: '14日間「お試し」の料金（自動更新に注意）' },
+      { value: '$0', label: 'Best AI Resume Builder — 永久無料、クレジットカード不要' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: '透明な比較——サプライズなし。',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '料金', competitor: '❌ トライアル後に月額$23.70', ours: '✅ 完全無料' },
+      { feature: 'AI履歴書作成', competitor: '⚠️ 基本的なフレーズ提案', ours: '✅ 高度なAIがカスタム内容を生成' },
+      { feature: 'ATSスコア', competitor: '❌ リアルタイムスコアなし', ours: '✅ リアルタイムATSスコア' },
+      { feature: 'PDFダウンロード', competitor: '❌ 有料プランが必要', ours: '✅ 無料で無制限ダウンロード' },
+      { feature: '履歴書作成数', competitor: '⚠️ 実質的に有料プラン必要', ours: '✅ 無制限' },
+      { feature: 'テンプレートの品質', competitor: '✅ プロフェッショナルなテンプレート', ours: '✅ 20種以上のプロテンプレート' },
+      { feature: 'ATS互換性', competitor: '✅ テンプレートはATS対応', ours: '✅ 全テンプレートATS検証済み' },
+      { feature: 'カバーレター作成', competitor: '✅ 含む（有料）', ours: '✅ 含む（無料）' },
+      { feature: '業界キーワード', competitor: '⚠️ 基本的な提案のみ', ours: '✅ AIが業界キーワードを提案' },
+      { feature: '自動更新の罠', competitor: '❌ 月額$23.70で自動更新', ours: '✅ サブスクリプション不要' },
+    ],
+  },
+  whySwitch: {
+    title: 'Zetyから乗り換える3つの理由',
+    subtitle: '優れた機能。ゼロコスト。サプライズなし。',
+    reasons: [
+      { title: '「ダウンロードペイウォール」なし', description: 'Zetyでは無料で履歴書を作成できますが、ダウンロードには支払いが必要です。当ツールではすべてが無料——作成、編集、PDF/Wordでのダウンロード、制限なし。' },
+      { title: '本物のAI、穴埋めではない', description: 'Zetyは穴埋め式のテンプレート文を提供します。当ツールのAIは、あなたの職種と経験に基づいてオリジナルの実績記述と職務要約を生成します。' },
+      { title: 'ATSスコアを事前確認', description: 'Zetyには応募前にATS互換性を確認する方法がありません。当ツールはリアルタイムのATSスコアを表示し、具体的な改善点を教えてくれます。' },
+    ],
+  },
+  recommendation: {
+    title: '正直なおすすめ',
+    useCompetitor: {
+      title: 'Zetyが向いている方',
+      items: [
+        '月額$23.70を支払う予算がある',
+        'ステップバイステップのウィザードスタイルが好み',
+        '基本的な文章提案で十分',
+        'トライアル終了前に解約することを覚えていられる',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが向いている方',
+      items: [
+        '作成した履歴書を実際に無料でダウンロードしたい',
+        'テンプレート文ではなく、本物のAI作成が欲しい',
+        '応募前にATS互換性を確認したい',
+        'サブスクリプションの罠を避けたい',
+        '複数の求人に合わせた職務経歴書が必要',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300件以上の無料履歴書サンプル',
+    description: 'プロフェッショナルなATS対応履歴書サンプルをあらゆる業界でご覧ください。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: 'すべてのテンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'Zetyで無料で履歴書をダウンロードできますか？', answer: 'いいえ。Zetyでは無料で履歴書を作成できますが、ダウンロードには有料サブスクリプション（14日間$2.70のトライアル後、月額$23.70で自動更新）が必要です。Best AI Resume Builderなら、作成からダウンロードまですべて無料です。' },
+      { question: 'Zetyはなぜ有料に見えないのですか？', answer: 'Zetyは「無料の履歴書作成ツール」として宣伝しています。確かに作成は無料ですが、ダウンロード時に支払いが求められます。これは多くのユーザーが「おとり商法」と感じるビジネスモデルです。' },
+      { question: 'Zetyの最良の無料代替ツールは？', answer: 'Best AI Resume Builderが最良の無料代替です。Zetyが有料で提供するすべて——テンプレート、PDFダウンロード、コンテンツ提案——を無料で提供し、さらに高度なAI作成とリアルタイムATS採点機能が付きます。' },
+      { question: 'ZetyのテンプレートはATS対応ですか？', answer: 'Zetyのテンプレートは一般的にATS互換性がありますが、ATS適合度を確認する方法がありません。Best AI Resume Builderは全テンプレートがATS検証済みで、リアルタイムスコアで確認できます。' },
+      { question: 'Zetyのトライアル後に解約できますか？', answer: 'はい、ただし14日間のトライアル終了前に解約する必要があります。解約を忘れると月額$23.70が自動的に課金されます。Best AI Resume Builderなら、解約の必要すらありません——完全無料です。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/canva-alternative', title: 'Canvaの代替', subtitle: 'デザインツール vs AI作成ツール' },
+      { href: '/overleaf-alternative', title: 'Overleafの代替', subtitle: 'LaTeX履歴書 vs AI作成ツール' },
+      { href: '/rezi-alternative', title: 'Reziの代替', subtitle: 'AI履歴書ツール比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応履歴書の書き方' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド 2026' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: '履歴書でよくある間違い' },
+      { href: '/resume-examples', label: '300件以上の職種別履歴書サンプル' },
+    ],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://www.zety.com/', label: 'Zety 公式サイト' },
+      { href: 'https://www.bls.gov/ooh/', label: '米国労働統計局 OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'トライアルなし。罠なし。ただ無料。',
+    description: 'クレジットカード不要で履歴書を作成・ダウンロード・共有。AI作成、ATSテンプレート、無制限エクスポート——すべて無料。',
+    cta: '無料で履歴書を作成',
+    subtext: '永久無料。クレジットカード不要。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

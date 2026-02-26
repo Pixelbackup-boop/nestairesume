@@ -122,6 +122,7 @@
     "vsLiveCareer": "vs LiveCareer",
     "vsAdobe": "vs Adobe",
     "vsNova": "vs Nova",
+    "vsDoda": "vs doda",
     "chatgptComparison": "ChatGPT vs AI Builder",
     "whyWereBetter": "Why We're the #1 Free Builder",
     "whyWereBetterDesc": "AI-powered, ATS-optimized, completely free"
@@ -702,6 +703,7 @@
     "adobeAlternative": "Adobe Alternative",
     "novaAlternative": "Nova Alternative",
     "europassAlternative": "Europass Alternative",
+    "dodaAlternative": "doda Alternative",
     "chatgptComparison": "ChatGPT Comparison",
     "resumeExamples": "Resume Examples",
     "softwareEngineer": "Software Engineer",

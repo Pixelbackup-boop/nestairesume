@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { useResumeStore, ResumeData } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
-import { builderTemplates, getLayoutPresetId, getTemplateTheme } from '@/lib/templates/builder';
+import { builderTemplates, getLayoutPresetId, getTemplateById, getTemplateTheme } from '@/lib/templates/builder';
 import BuilderTemplatePreview from '@/components/templates/previews/BuilderTemplatePreview';
 import ResumeUpload from '@/components/ResumeUpload';
 import { ParseResult } from '@/lib/resumeImportService';
@@ -58,7 +58,7 @@ export default function OnboardingPage() {
     const router = useRouter();
     const locale = useLocale();
     const t = useTranslations('Onboarding');
-    const { setResumeData, setTemplate, setTheme, setCustomThemeColor } = useResumeStore();
+    const { setResumeData, setTemplate, setTemplateId, setTheme, setCustomThemeColor } = useResumeStore();
     const [step, setStep] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
     const [processingMessageIndex, setProcessingMessageIndex] = useState(0);
@@ -67,7 +67,7 @@ export default function OnboardingPage() {
         fullName: '',
         jobTitle: '',
         experienceLevel: 'mid',
-        selectedTemplate: 'executive', // Default template
+        selectedTemplate: 'classic-pro', // Default template
     });
 
     const localizedHref = (path: string) => `/${locale}${path}`;
@@ -155,7 +155,7 @@ export default function OnboardingPage() {
                 fullName: formData.fullName.trim(),
                 jobTitle: formData.jobTitle.trim(),
                 experienceLevel: formData.experienceLevel,
-                // Always generate English content (no locale passed)
+                locale,
             };
 
             const resumeData = await generateAIResumeAsync(input);
@@ -178,11 +178,12 @@ export default function OnboardingPage() {
     };
 
     const handleFinish = () => {
-        // Get the actual layout preset ID for the selected template
-        const layoutPresetId = getLayoutPresetId(formData.selectedTemplate);
+        const builderTemplate = getTemplateById(formData.selectedTemplate);
+        if (!builderTemplate) return;
 
-        // Set the template using the layout preset ID
-        setTemplate(layoutPresetId);
+        // Set the template layout and component ID
+        setTemplate(builderTemplate.layoutPresetId);
+        setTemplateId(builderTemplate.templateId || null);
 
         // Explicitly set the template's default theme/color
         const themeSettings = getTemplateTheme(formData.selectedTemplate);
@@ -646,11 +647,10 @@ export default function OnboardingPage() {
                                         <button
                                             key={cat}
                                             onClick={() => setSelectedCategory(cat)}
-                                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                                                selectedCategory === cat
+                                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${selectedCategory === cat
                                                     ? 'bg-accent-green text-white'
                                                     : 'bg-[#e0f2ef] text-dark-teal hover:bg-accent-green/20'
-                                            }`}
+                                                }`}
                                         >
                                             <Icon size={14} />
                                             {categoryLabels[cat]}
@@ -711,11 +711,10 @@ export default function OnboardingPage() {
                         <button
                             onClick={handleFinish}
                             disabled={!builderTemplates.some(t => t.id === formData.selectedTemplate)}
-                            className={`px-8 py-3.5 rounded-xl font-bold text-lg flex items-center gap-2 transition-colors ${
-                                builderTemplates.some(t => t.id === formData.selectedTemplate)
+                            className={`px-8 py-3.5 rounded-xl font-bold text-lg flex items-center gap-2 transition-colors ${builderTemplates.some(t => t.id === formData.selectedTemplate)
                                     ? 'bg-accent-orange text-white hover:bg-[#e85a2a] shadow-lg shadow-accent-orange/30'
                                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            }`}
+                                }`}
                         >
                             {t('step4.continue')}
                             <ArrowRight size={20} />

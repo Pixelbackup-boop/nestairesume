@@ -621,5 +621,129 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'LiveCareerの代替ツール2026：無料AI履歴書作成ツール | Best AI Resume',
+    description: 'LiveCareerの無料代替をお探しですか？LiveCareer vs Best AI Resume Builder を比較 — AI作成、ATSテンプレート、無制限ダウンロード。サブスク不要。',
+    keywords: 'livecareer 代替, 履歴書作成ツール, 履歴書サンプル, AI履歴書, 職務経歴書, 無料履歴書作成ツール, livecareer 無料代替',
+  },
+  schemas: {
+    breadcrumbName: 'LiveCareerの代替',
+    articleHeadline: 'LiveCareerの最良代替ツール2026：無料AI履歴書作成ツール',
+    articleDescription: 'LiveCareer vs Best AI Resume Builder を比較。最新AI作成とATS最適化を完全無料で、サブスク不要。',
+  },
+  hero: {
+    badge: 'LiveCareerの代替',
+    title: 'モダンなAI履歴書作成ツール。',
+    titleHighlight: 'ずっと無料。',
+    subtitle: 'LiveCareerは2005年から存在していますが、ツールが時代に追いついていません。月額$19.95の代わりに、<strong>AI作成機能</strong>、モダンなテンプレート、ATSスコアリングが<strong>$0</strong>で利用可能。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'LiveCareerは素晴らしかった — 2015年には',
+    description: 'LiveCareerはオンライン履歴書作成の先駆者でした。しかし業界がAI作成やリアルタイムATS最適化に移行する中、LiveCareerは依然として<strong>定型フレーズライブラリ</strong>と古いインターフェースに頼っています。サブスク料金は<strong>月額$19.95</strong>で、モダンな無料ツールがすでに上回る機能を提供しています。',
+    stats: [
+      { value: '$5.95', label: '14日間トライアル（以降$19.95/月）' },
+      { value: '2005', label: 'LiveCareer設立年' },
+      { value: '$0', label: 'Best AI Resume Builder — ずっと無料' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: 'レガシービルダー vs モダンAI搭載プラットフォーム。',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '料金', competitor: '❌ トライアル$5.95 → $19.95/月', ours: '✅ 100%永久無料' },
+      { feature: 'AI履歴書作成', competitor: '❌ 定型フレーズのみ', ours: '✅ AIによるカスタムコンテンツ生成' },
+      { feature: 'ATS最適化', competitor: '⚠️ 基本的なアドバイスのみ', ours: '✅ リアルタイムATSスコア＋キーワード' },
+      { feature: 'テンプレートデザイン', competitor: '⚠️ 古いデザイン、種類が少ない', ours: '✅ 20以上のモダンATSテンプレート' },
+      { feature: 'ユーザーインターフェース', competitor: '⚠️ 古い印象', ours: '✅ モダンでガイド付きの体験' },
+      { feature: 'PDF出力', competitor: '❌ 有料プラン必須', ours: '✅ 無制限の無料エクスポート' },
+      { feature: 'カバーレター', competitor: '✅ ビルダー付属（有料）', ours: '✅ AI搭載（無料）' },
+      { feature: 'コンテンツ品質', competitor: '⚠️ 汎用的な定型提案', ours: '✅ パーソナライズされたAI作成' },
+      { feature: '求人対応', competitor: '⚠️ 手動キーワードマッチング', ours: '✅ AI搭載キーワード最適化' },
+      { feature: '履歴書サンプル', competitor: '✅ サンプルライブラリ', ours: '✅ 300以上の詳細なサンプル' },
+    ],
+  },
+  whySwitch: {
+    title: 'LiveCareerから乗り換える3つの理由',
+    subtitle: 'コストなしで最新AIにアップグレード。',
+    reasons: [
+      { title: '本物のAI作成', description: 'LiveCareerは定型フレーズを提供します。当社のAIは実際の経験からカスタム実績を生成し、応募する求人ごとに職務経歴書を最適化します。' },
+      { title: 'モダンなテンプレート', description: 'LiveCareerのテンプレートは10年前のデザインのようです。20以上のテンプレートが画面上でも印刷でもプロフェッショナルに見える現代的デザインを採用しています。' },
+      { title: '年間$240の節約', description: 'LiveCareerは月額$19.95（年間$240）。当社のAI履歴書作成ツールはより優れた技術をゼロコストで提供 — トライアルなし、サブスクなし、制約なし。' },
+    ],
+  },
+  recommendation: {
+    title: '正直なおすすめ',
+    useCompetitor: {
+      title: 'LiveCareerが適している場合',
+      items: [
+        'AI非対応の伝統的な履歴書作成アプローチを好む場合',
+        'コピー＆編集できる定型コンテンツが欲しい場合',
+        'サブスク型ツールに慣れている場合',
+        '特定の給与比較機能が必要な場合',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが適している場合',
+      items: [
+        'AIがあなたの経験からカスタムコンテンツを作成してほしい場合',
+        'モダンでクリーンなインターフェースを好む場合',
+        'リアルタイムATSスコアリングとキーワード最適化が必要な場合',
+        '支払いなしで無制限のPDF出力を希望する場合',
+        '履歴書ツールに月額課金したくない場合',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300以上の無料履歴書サンプルを閲覧',
+    description: '会計士から教師、プロジェクトマネージャーまで、プロフェッショナルな履歴書サンプルを探索。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: '全テンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'LiveCareerは無料ですか？', answer: 'LiveCareerは限定的な無料プランを提供していますが、テンプレートへのフルアクセス、PDFダウンロード、履歴書ビルダーなどのほとんどの機能にはサブスクリプション（14日間トライアル$5.95、以降$19.95/月）が必要です。Best AI Resume Builderはトライアルもサブスクも不要で100%無料です。' },
+      { question: 'LiveCareerは良い履歴書作成ツールですか？', answer: 'LiveCareerは最も歴史ある履歴書ビルダーの一つ（2005年設立）で、ステップバイステップのガイダンス付きテンプレートを提供しています。しかし、モダンなAIビルダーと比較してインターフェースが古く、サブスク費用がかさみます。Best AI Resume Builderは無料でAI作成とモダンなテンプレートを提供します。' },
+      { question: 'LiveCareerの最良の無料代替は？', answer: 'Best AI Resume Builderが最良の無料代替です。AI作成、20以上のATSテスト済みテンプレート、リアルタイムATSスコアリング、無制限PDFエクスポート — すべて無料。トライアルなし、クレジットカード不要、機能制限なし。' },
+      { question: 'LiveCareerにはAI作成機能がありますか？', answer: 'LiveCareerは職種別の定型箇条書き提案を提供していますが、カスタムコンテンツを生成するモダンなAIは使用していません。Best AI Resume Builderは高度なAIを使用して、あなたの経験と目標ポジションに基づいたパーソナライズされた実績、サマリー、スキルを作成します。' },
+      { question: 'LiveCareerを解約するには？', answer: 'LiveCareerのサブスクリプションはアカウント設定またはカスタマーサポートへの連絡で解約できます。課金を避けるにはトライアル終了前に解約が必要です。Best AI Resume Builderでは解約の必要はありません — サブスクモデルなしの無料サービスです。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/zety-alternative', title: 'Zetyの代替', subtitle: '料金・トライアル比較' },
+      { href: '/canva-alternative', title: 'Canvaの代替', subtitle: 'デザインツール vs AIビルダー' },
+      { href: '/rezi-alternative', title: 'Reziの代替', subtitle: 'AI機能比較' },
+      { href: '/resume-io-alternative', title: 'Resume.ioの代替', subtitle: '料金・機能比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: '履歴書の書き方（完全ガイド）' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応履歴書の書き方' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド2026' },
+      { href: '/blog/resume-action-verbs', label: '200以上の履歴書アクション動詞' },
+    ],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://www.livecareer.com/', label: 'LiveCareer公式サイト' },
+      { href: 'https://www.shrm.org/', label: 'SHRMキャリアリソース' },
+    ],
+  },
+  bottomCta: {
+    title: 'モダンAI。ゼロコスト。',
+    description: 'LiveCareerからAI搭載の履歴書作成にアップグレード。より優れた技術、モダンなテンプレート、無制限エクスポート — すべて無料。',
+    cta: '無料で履歴書を作成',
+    subtext: 'ずっと無料。クレジットカード不要。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

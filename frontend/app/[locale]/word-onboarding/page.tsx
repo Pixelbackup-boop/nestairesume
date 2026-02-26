@@ -229,6 +229,7 @@ export default function WordOnboardingPage() {
                 fullName: formData.fullName.trim(),
                 jobTitle: formData.jobTitle.trim(),
                 experienceLevel: formData.experienceLevel,
+                locale,
             };
             const resumeData = await generateAIResumeAsync(input);
             setResumeData(resumeData);

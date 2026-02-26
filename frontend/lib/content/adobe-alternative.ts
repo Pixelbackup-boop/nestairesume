@@ -616,5 +616,128 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'Adobe履歴書ビルダーの代替ツール 2026：無料ATS対応テンプレート | Best AI Resume',
+    description: 'Adobeの代わりに使える無料の履歴書作成ツールをお探しですか？Adobe Express vs Best AI Resume Builder — ATS対応テンプレート、AI文章作成、無制限エクスポート。サブスクリプション不要。',
+    keywords: 'adobe 履歴書, adobe レジュメ テンプレート, adobe express 履歴書, 履歴書作成ツール 無料, ats 履歴書, AI履歴書, 履歴書サンプル, 職務経歴書 作成',
+  },
+  schemas: {
+    breadcrumbName: 'Adobe履歴書ビルダーの代替',
+    articleHeadline: 'Adobe履歴書ビルダーの代替ツール 2026：無料ATS対応AI履歴書作成ツール',
+    articleDescription: 'Adobe Express vs Best AI Resume Builderを徹底比較。ATS対応テンプレートとAI文章作成機能を無料で。Creative Cloudサブスクリプション不要。',
+  },
+  hero: {
+    badge: 'Adobe代替の履歴書作成ツール',
+    title: '美しい履歴書。',
+    titleHighlight: 'ATSも確実にパス。',
+    subtitle: 'Adobeは美しいデザインを作れますが、ほとんどのAdobe履歴書テンプレートは<strong>ATS審査に通りません</strong>。プロフェッショナルな見た目<strong>かつ</strong>ATS対応の履歴書を、無料で作成できます。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'Adobeの問題：美しいがATSに認識されない',
+    description: 'Adobe ExpressやCreative Cloudは美しいデザインを作成できます。しかし、履歴書はパンフレットではありません。<strong>Fortune 500企業の99%</strong>がATSで履歴書をスクリーニングしています。Adobeのテンプレートはカラム、テキストボックス、アイコン、グラフィックスなど、ATSが読み取れない要素を使用しています。美しい履歴書が、誰の目にも触れないまま不合格になるのです。',
+    stats: [
+      { value: '75%', label: '履歴書がATS段階で不合格に' },
+      { value: '$9.99', label: 'Adobe Express Premium月額料金' },
+      { value: '¥0', label: 'Best AI Resume Builder — ATS検証済み、完全無料' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: 'デザインツール vs 履歴書専用ビルダー',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '主な用途', competitor: '⚠️ 汎用デザインツール', ours: '✅ 履歴書専用に設計' },
+      { feature: 'ATS対応', competitor: '❌ ほとんどのテンプレートがATS非対応', ours: '✅ 全テンプレートATS検証済み' },
+      { feature: 'AI文章作成', competitor: '❌ 履歴書向けAI機能なし', ours: '✅ AIがカスタムコンテンツを作成' },
+      { feature: 'ATSスコア', competitor: '❌ ATSチェッカーなし', ours: '✅ リアルタイムATSスコアリング' },
+      { feature: '料金', competitor: '⚠️ 無料版は制限あり / $9.99+/月', ours: '✅ 完全無料' },
+      { feature: 'デザイン品質', competitor: '✅ 優れたデザインの自由度', ours: '✅ プロフェッショナルなATS対応デザイン' },
+      { feature: '履歴書テンプレート', competitor: '⚠️ デザイン重視（ATS非対応）', ours: '✅ 20種類以上の採用担当者検証済みテンプレート' },
+      { feature: 'コンテンツガイド', competitor: '❌ 履歴書の書き方サポートなし', ours: '✅ AIによる実績・サマリー作成' },
+      { feature: 'キーワード最適化', competitor: '❌ 対応なし', ours: '✅ AIキーワード提案機能' },
+      { feature: '使いやすさ', competitor: '⚠️ デザインスキルが必要', ours: '✅ ステップバイステップのガイド付き' },
+    ],
+  },
+  whySwitch: {
+    title: 'Adobeが適している場面',
+    subtitle: 'Adobeは特定のクリエイティブなシーンに向いています。',
+    reasons: [
+      { title: 'Adobeを使うべき場面', description: 'クリエイティブ・デザイン職への応募でビジュアルポートフォリオが重視される場合、ATS経由でなく直接担当者に提出する場合、ネットワーキングイベント用のビジュアルCVを作成する場合。' },
+      { title: 'Best AI Resumesを使うべき場面', description: 'オンライン求人ポータルやATSを通じて応募する場合、ATSを使用する企業のポジションを狙う場合、実績重視の職務経歴書をAIで作成したい場合。' },
+      { title: 'まとめ', description: 'Adobeは美しいデザインを作れます。しかし、ATS経由の応募（大多数）には、ATS検証済みテンプレートを備えた履歴書専用ビルダーが必要です。' },
+    ],
+  },
+  recommendation: {
+    title: 'Adobeが最適なケース',
+    useCompetitor: {
+      title: 'Adobeが向いているケース',
+      items: [
+        'ビジュアルポートフォリオ重視のクリエイティブ・デザイン職への応募',
+        'ATS経由でなく直接担当者に提出する場合',
+        'ネットワーキングイベントやパーソナルブランディング用のビジュアルCV作成',
+        'Adobe Creative Cloudのサブスクリプションを既にお持ちの場合',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが向いているケース',
+      items: [
+        'オンライン求人ポータルやATSを通じた応募',
+        'ATS採用の企業ポジションへの応募',
+        'AIによる実績重視の職務経歴書作成が必要な場合',
+        'デザインスキルなしでプロフェッショナルな履歴書を作りたい場合',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300以上の無料履歴書サンプルを閲覧',
+    description: 'グラフィックデザイナーからUXデザイナー、アートディレクターまで、あらゆる職種のプロフェッショナルな履歴書サンプルをご覧いただけます。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: 'すべてのテンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'Adobeに無料の履歴書作成機能はありますか？', answer: 'Adobe Expressには無料の履歴書テンプレートがありますが、高品質なテンプレートや機能はAdobe Express Premium（月額$9.99）やCreative Cloudサブスクリプション（月額$54.99）が必要です。Best AI Resume Builderは、AI文章作成、ATSテンプレート、PDFエクスポートなど、すべての機能を完全無料で提供しています。' },
+      { question: 'Adobe Expressは履歴書作成に適していますか？', answer: 'Adobe Expressは視覚的に美しい履歴書を作成できますが、ATS最適化ではなくデザイン重視です。ほとんどのAdobe履歴書テンプレートは、ATSが読み取れないグラフィックス、カラム、レイアウトを使用しています。Best AI Resume Builderは、見た目がプロフェッショナルかつATS対応の履歴書を作成します。' },
+      { question: '履歴書作成でAdobeの最良の無料代替ツールは？', answer: 'Best AI Resume Builderは履歴書作成における最高の無料代替ツールです。Adobeとは異なり、AI文章作成、ATS最適化、採用担当者検証済みテンプレートを備えた履歴書専用ツールです。Adobeはグラフィックデザインには優れていますが、就職活動には最適化されていません。' },
+      { question: 'ATSはAdobe Expressの履歴書を読み取れますか？', answer: '多くのAdobe Express履歴書テンプレートは、ATSが正しく解析できない要素（カラム、テキストボックス、グラフィックス、アイコン）を使用しています。そのため、大手企業の99%が使用するソフトウェアで履歴書が読み取れない可能性があります。Best AI Resume Builderのテンプレートは、ATS互換性を専門にテスト済みです。' },
+      { question: '履歴書にAdobe InDesignやIllustratorを使うべきですか？', answer: 'グラフィックデザイナーとして、ビジュアルデザインがATS対応よりも重視されるクリエイティブ職に応募する場合のみ推奨します。それ以外のすべての求人応募には、ATS検証済みテンプレートを備えた専用の履歴書作成ツールをお使いください。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/canva-alternative', title: 'Canva代替', subtitle: '別のデザインツール比較' },
+      { href: '/zety-alternative', title: 'Zety代替', subtitle: '料金と無料トライアル比較' },
+      { href: '/rezi-alternative', title: 'Rezi代替', subtitle: 'AI機能比較' },
+      { href: '/overleaf-alternative', title: 'Overleaf代替', subtitle: 'LaTeX履歴書 vs AIビルダー' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [
+      { href: '/blog/what-is-ats-guide', label: 'ATSとは？完全ガイド' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS対応の履歴書の書き方' },
+      { href: '/blog/how-to-write-a-resume', label: '履歴書の書き方（完全ガイド）' },
+      { href: '/resume-format', label: '履歴書フォーマットガイド 2026' },
+    ],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express 履歴書メーカー' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'プロのデザイン。ATS対応保証。',
+    description: '見た目が美しくATSも通過する履歴書を作成。AI文章作成、採用担当者検証済みテンプレート、無制限エクスポート — すべて無料。',
+    cta: '無料で履歴書を作成',
+    subtext: 'ずっと無料。Adobeサブスクリプション不要。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

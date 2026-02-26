@@ -1,0 +1,276 @@
+import { LocaleBundle } from './types';
+
+const pt: LocaleBundle = {
+    localeData: {
+        cities: ['São Paulo', 'Rio de Janeiro', 'Brasília', 'Curitiba', 'Belo Horizonte'],
+        country: 'Brasil',
+        nationality: 'Brazilian',
+        companies: {
+            tech: ['TechCorp Soluções', 'InnovaTech Ltda.', 'CloudWorks Brasil', 'DataLabs América', 'AppForge Digital'],
+            design: ['Design Hub Agência', 'Estúdio Criativo Pro', 'Pixel Perfeito Design', 'UX Coletivo', 'Artes Visuais Ltda.'],
+            marketing: ['GrowthMatrix Agência', 'Marca Elevada Co.', 'Alcance Digital Marketing', 'Engaja Mídia Group', 'Impacto Marketing Soluções'],
+            finance: ['Capital Assessoria Ltda.', 'Sterling Grupo Financeiro', 'Apex Serviços Contábeis', 'Parceiros de Investimento S.A.', 'Fiscal Soluções Corp'],
+            healthcare: ['Hospital Geral Metropolitano', 'Centro de Saúde Comunitário', 'CarePlus Grupo Médico', 'Clínica Bem-Estar', 'Centro Médico Regional'],
+            education: ['Colégio Estadual Lincoln', 'Academia Riverside', 'Universidade Estadual', 'Instituto Federal de Educação', 'Centro de Excelência Educacional'],
+            sales: ['Enterprise Soluções Ltda.', 'Parceiros Comerciais Globais', 'TechVendas Pro', 'Associados de Crescimento Empresarial', 'Grupo Premier de Vendas'],
+            hospitality: ['Restaurante Grand Hotel', 'Bistrô Elegância', 'Grill & Bar Beira-Rio', 'Downtown Gastronomia Ltda.', 'Cozinha Litorânea'],
+            general: ['Acme Corporação', 'Global Empreendimentos', 'Premier Soluções Ltda.', 'Indústrias Inovadoras', 'Excelência Parceiros'],
+        },
+        degrees: {
+            tech: { degree: 'Bacharelado em Ciência da Computação', school: 'Universidade de Tecnologia' },
+            design: { degree: 'Bacharelado em Design Gráfico', school: 'Escola de Design' },
+            marketing: { degree: 'Bacharelado em Administração com Ênfase em Marketing', school: 'Escola de Negócios' },
+            finance: { degree: 'Bacharelado em Ciências Contábeis', school: 'Faculdade de Economia' },
+            healthcare: { degree: 'Bacharelado em Enfermagem', school: 'Faculdade de Ciências da Saúde' },
+            education: { degree: 'Licenciatura em Pedagogia', school: 'Faculdade de Educação' },
+            sales: { degree: 'Bacharelado em Administração de Empresas', school: 'Escola de Negócios' },
+            hospitality: { degree: 'Tecnólogo em Gestão de Hospitalidade', school: 'Instituto de Gastronomia' },
+            general: { degree: 'Bacharelado em Administração', school: 'Universidade Estadual' },
+        },
+        educationDescription: 'Graduado com honras. Membro ativo de associações profissionais.',
+        yearsText: (years) => years === 1 ? '1 ano' : `${years}+ anos`,
+    },
+    summaryTemplates: {
+        tech: {
+            entry: '{jobTitle} motivado com {years} de experiência prática em desenvolvimento de software. Apaixonado por escrever código limpo e eficiente e aprender novas tecnologias. Determinado a contribuir para projetos inovadores e crescer como desenvolvedor.',
+            mid: '{jobTitle} orientado a resultados com {years} de experiência construindo aplicações escaláveis e liderando iniciativas técnicas. Histórico comprovado de entrega de soluções de alta qualidade que melhoram o desempenho do sistema em até 40%. Forte colaborador com equipes multifuncionais.',
+            senior: '{jobTitle} experiente com {years} de expertise em arquitetura e entrega de soluções em escala corporativa. Liderou equipes de mais de 5 desenvolvedores, reduzindo o tempo de implantação em 60% por meio da implementação de CI/CD. Apaixonado por mentorar desenvolvedores juniores e impulsionar a excelência técnica.',
+            executive: 'Líder estratégico de tecnologia com {years} de experiência impulsionando a transformação digital e a inovação técnica. Gerenciou orçamentos superiores a R$ 10M e equipes de mais de 20 engenheiros. Entregou projetos que geraram mais de R$ 50M em crescimento de receita.',
+        },
+        design: {
+            entry: '{jobTitle} criativo com {years} de experiência desenvolvendo designs centrados no usuário. Habilidade com ferramentas modernas de design e paixão por criar interfaces intuitivas e visualmente atraentes.',
+            mid: '{jobTitle} inovador com {years} de experiência criando experiências digitais centradas no usuário. Entregou designs que aumentaram o engajamento do usuário em 35% e reduziram a taxa de rejeição em 25%.',
+            senior: '{jobTitle} Sênior com {years} de experiência liderando equipes de design e moldando a visão do produto. Estabeleceu sistemas de design adotados em mais de 10 produtos, melhorando a consistência visual em 50%.',
+            executive: 'Executivo de design com {years} de experiência construindo e liderando organizações de design de classe mundial. Transformou a cultura de design em empresas de grande porte, gerando mais de R$ 25M em economia de custos.',
+        },
+        marketing: {
+            entry: '{jobTitle} entusiasmado com {years} de experiência em marketing digital. Habilidade em criação de conteúdo, gestão de redes sociais e análise de dados.',
+            mid: '{jobTitle} orientado por dados com {years} de experiência executando campanhas que entregam resultados mensuráveis. Aumentou o tráfego orgânico em 150% e melhorou as taxas de conversão em 40%.',
+            senior: '{jobTitle} estratégico com {years} de experiência liderando equipes de marketing de alto desempenho. Gerenciou orçamentos de marketing acima de R$ 5M e entregou campanhas com ROI de 200%.',
+            executive: 'Executivo de marketing com {years} de experiência impulsionando o crescimento de receita por meio de estratégias inovadoras de marketing. Liderou equipes globais de marketing e gerenciou orçamentos superiores a R$ 50M.',
+        },
+        finance: {
+            entry: '{jobTitle} detalhista com {years} de experiência em análise financeira e relatórios. Sólida formação em princípios contábeis e softwares financeiros.',
+            mid: '{jobTitle} analítico com {years} de experiência em planejamento e análise financeira. Identificou oportunidades de redução de custos resultando em mais de R$ 2,5M em economia anual.',
+            senior: '{jobTitle} Sênior com {years} de experiência liderando operações e estratégias financeiras. Gerenciou portfólios superiores a R$ 250M e conduziu equipes por auditorias bem-sucedidas.',
+            executive: 'Executivo financeiro com {years} de experiência impulsionando estratégia financeira e excelência operacional. Liderou transações de M&A totalizando mais de R$ 500M e melhorou as margens de EBITDA em 15%.',
+        },
+        healthcare: {
+            entry: '{jobTitle} compassivo com {years} de experiência clínica prestando cuidados centrados no paciente. Comprometido com a manutenção de altos padrões de atendimento.',
+            mid: '{jobTitle} dedicado com {years} de experiência entregando cuidados de saúde de alta qualidade. Melhorou os índices de satisfação dos pacientes em 30% por meio de protocolos aprimorados de comunicação.',
+            senior: '{jobTitle} experiente com {years} de expertise clínica e experiência em liderança. Liderou iniciativas de melhoria da qualidade que reduziram as readmissões hospitalares em 20%.',
+            executive: 'Executivo de saúde com {years} de experiência transformando operações clínicas e resultados para pacientes. Liderou departamentos com mais de 50 profissionais e gerenciou orçamentos acima de R$ 25M.',
+        },
+        education: {
+            entry: '{jobTitle} apaixonado com {years} de experiência em ensino comprometido com o sucesso dos alunos. Habilidade em criar planos de aula envolventes e promover ambientes de aprendizagem inclusivos.',
+            mid: '{jobTitle} inovador com {years} de experiência desenvolvendo currículos que engajam alunos diversos. Melhorou as notas dos alunos em 25% por meio de estratégias de ensino diferenciado.',
+            senior: '{jobTitle} veterano com {years} de experiência moldando resultados educacionais e orientando colegas. Desenvolveu programas premiados adotados em toda a rede de ensino.',
+            executive: 'Líder educacional com {years} de experiência impulsionando a excelência institucional. Conquistou mais de R$ 10M em subsídios e liderou processos de acreditação.',
+        },
+        sales: {
+            entry: '{jobTitle} motivado com {years} de experiência em desenvolvimento de negócios. Forte habilidade de comunicação e foco no cliente. Determinado a superar metas.',
+            mid: '{jobTitle} orientado a resultados com {years} de experiência superando metas consistentemente. Gerou mais de R$ 10M em receita de novos negócios e manteve taxa de retenção de clientes de 95%.',
+            senior: '{jobTitle} de alta performance com {years} de experiência liderando equipes de vendas e impulsionando o crescimento da receita. Gerenciou territórios com faturamento anual acima de R$ 50M.',
+            executive: 'Executivo de vendas com {years} de experiência construindo e escalando organizações de vendas de alto desempenho. Cresceu a receita de R$ 25M para R$ 250M e expandiu para 3 novos mercados.',
+        },
+        hospitality: {
+            entry: '{jobTitle} cordial e enérgico com {years} de experiência em ambientes gastronômicos de alto movimento. Comprometido em oferecer atendimento excepcional ao cliente.',
+            mid: '{jobTitle} dedicado com {years} de experiência proporcionando atendimento de excelência em restaurantes de alto volume. Manteve índices de satisfação do cliente de 98%.',
+            senior: '{jobTitle} experiente com {years} de expertise em gastronomia fine dining e estabelecimentos de alto volume. Treinou e orientou mais de 15 colaboradores.',
+            executive: 'Profissional de hospitalidade com {years} de experiência gerenciando operações de restaurante. Supervisionou equipes de mais de 30 colaboradores e aumentou a receita em 40%.',
+        },
+        general: {
+            entry: '{jobTitle} motivado com {years} de experiência profissional. Forte ética de trabalho, excelentes habilidades de comunicação e compromisso com a entrega de resultados de qualidade.',
+            mid: '{jobTitle} realizado com {years} de experiência impulsionando a excelência operacional. Melhorou a eficiência da equipe em 30% por meio da otimização de processos.',
+            senior: '{jobTitle} experiente com {years} de experiência liderando equipes e iniciativas estratégicas. Gerenciou projetos com sucesso com orçamentos de até R$ 5M.',
+            executive: 'Líder executivo com {years} de experiência impulsionando a transformação organizacional. Liderou equipes de mais de 50 pessoas e gerenciou responsabilidade de P&L acima de R$ 100M.',
+        },
+    },
+    jobDescriptions: {
+        tech: [
+            [
+                '• Liderou o desenvolvimento de arquitetura de microsserviços, melhorando a escalabilidade do sistema em 300%',
+                '• Implementou pipelines de CI/CD reduzindo o tempo de implantação de 2 horas para 15 minutos',
+                '• Orientou equipe de 5 desenvolvedores juniores, conduzindo revisões de código e treinamentos técnicos',
+                '• Colaborou com gerentes de produto para definir requisitos técnicos e planejamento de sprints',
+                '• Reduziu o tempo de carregamento da aplicação em 40% por meio de otimização de desempenho',
+            ],
+            [
+                '• Desenvolveu APIs RESTful atendendo mais de 1M de requisições diárias com 99,9% de disponibilidade',
+                '• Construiu aplicações web responsivas utilizando React e TypeScript',
+                '• Integrou serviços de terceiros e gateways de pagamento',
+                '• Participou de cerimônias ágeis e contribuiu para o planejamento de sprints',
+            ],
+            [
+                '• Contribuiu para a manutenção da base de código e correção de bugs',
+                '• Auxiliou desenvolvedores seniores na implementação de funcionalidades',
+                '• Escreveu testes unitários melhorando a cobertura de código em 25%',
+            ],
+        ],
+        design: [
+            [
+                '• Liderou equipe de design de 5 designers na criação de produtos digitais centrados no usuário',
+                '• Estabeleceu sistema de design e biblioteca de componentes utilizada em mais de 10 projetos',
+                '• Aumentou o engajamento do usuário em 40% por meio de melhorias de UX',
+                '• Conduziu pesquisas com usuários e testes de usabilidade com mais de 100 participantes',
+                '• Apresentou conceitos de design para stakeholders e incorporou feedbacks',
+            ],
+            [
+                '• Projetou aplicações mobile e web para plataformas iOS e Android',
+                '• Criou wireframes, protótipos e mockups de alta fidelidade',
+                '• Colaborou com desenvolvedores para garantir a precisão na implementação do design',
+                '• Melhorou as taxas de conversão em 35% por meio de testes A/B',
+            ],
+            [
+                '• Auxiliou na criação de designs visuais para campanhas de marketing',
+                '• Manteve a consistência da marca em todos os entregáveis de design',
+                '• Apoiou designers seniores na criação de assets',
+            ],
+        ],
+        marketing: [
+            [
+                '• Desenvolveu e executou estratégias de marketing resultando em ROI de 200%',
+                '• Gerenciou orçamento anual de marketing acima de R$ 2,5M em canais digitais',
+                '• Liderou equipe de 4 profissionais de marketing no planejamento e execução de campanhas',
+                '• Aumentou o tráfego orgânico em 150% por meio de otimização de SEO',
+                '• Construiu parcerias com influenciadores alcançando audiência de mais de 2M de pessoas',
+            ],
+            [
+                '• Criou estratégia de conteúdo gerando mais de 100 mil visitantes mensais no blog',
+                '• Gerenciou contas de redes sociais aumentando seguidores em 300%',
+                '• Executou campanhas de e-mail marketing com taxa de abertura de 35% e CTR de 15%',
+                '• Analisou o desempenho de campanhas e otimizou com base em dados',
+            ],
+            [
+                '• Auxiliou na criação e agendamento de conteúdo para redes sociais',
+                '• Apoiou a equipe com pesquisa de mercado e análise competitiva',
+                '• Ajudou na organização de eventos de marketing e webinars',
+            ],
+        ],
+        finance: [
+            [
+                '• Gerenciou planejamento financeiro e análise para unidade de negócio acima de R$ 250M',
+                '• Liderou o processo de orçamento anual e previsões trimestrais',
+                '• Identificou oportunidades de redução de custos resultando em mais de R$ 5M em economia',
+                '• Apresentou relatórios financeiros para a diretoria executiva',
+                '• Supervisionou equipe de 3 analistas e coordenou processos de auditoria',
+            ],
+            [
+                '• Preparou demonstrações financeiras mensais e análise de variações',
+                '• Desenvolveu modelos financeiros para planejamento de negócios',
+                '• Otimizou processos de relatórios reduzindo o tempo de fechamento em 30%',
+                '• Apoiou due diligence e integração em processos de M&A',
+            ],
+            [
+                '• Auxiliou no processamento de contas a pagar e a receber',
+                '• Realizou conciliação bancária e de contas do razão geral',
+                '• Apoiou contadores seniores no fechamento mensal',
+            ],
+        ],
+        healthcare: [
+            [
+                '• Supervisionou equipe de enfermagem de mais de 15 profissionais na prestação de cuidados ao paciente',
+                '• Implementou iniciativas de melhoria da qualidade reduzindo erros em 40%',
+                '• Coordenou planos de cuidados ao paciente com equipe interdisciplinar',
+                '• Manteve conformidade com normas regulatórias e de privacidade do paciente',
+                '• Treinou novos colaboradores em protocolos e melhores práticas',
+            ],
+            [
+                '• Prestou cuidados diretos ao paciente para mais de 10 pacientes diariamente',
+                '• Administrou medicamentos e monitorou condições dos pacientes',
+                '• Documentou informações dos pacientes em sistemas de prontuário eletrônico com precisão',
+                '• Colaborou com médicos na elaboração de planos de tratamento',
+            ],
+            [
+                '• Auxiliou na admissão de pacientes e monitoramento de sinais vitais',
+                '• Apoiou a equipe de enfermagem nas atividades de cuidados diários',
+                '• Manteve ambientes de pacientes limpos e organizados',
+            ],
+        ],
+        education: [
+            [
+                '• Desenvolveu currículo adotado em toda a rede de ensino atendendo mais de 5.000 alunos',
+                '• Orientou mais de 10 professores na implementação de novas estratégias pedagógicas',
+                '• Melhorou os índices de desempenho dos alunos em 25% ao longo de 3 anos',
+                '• Liderou workshops de desenvolvimento profissional e sessões de formação',
+                '• Captou mais de R$ 500 mil em subsídios para programas educacionais',
+            ],
+            [
+                '• Ministrou aulas para turmas de mais de 25 alunos em múltiplas séries',
+                '• Criou planos de aula envolventes alinhados aos padrões curriculares estaduais',
+                '• Implementou ensino diferenciado para alunos com perfis diversos',
+                '• Comunicou-se regularmente com os pais sobre o progresso dos alunos',
+            ],
+            [
+                '• Auxiliou professores titulares na instrução em sala de aula',
+                '• Apoiou alunos com tutoria individual e em pequenos grupos',
+                '• Ajudou na organização e manutenção dos materiais da sala de aula',
+            ],
+        ],
+        sales: [
+            [
+                '• Superou a meta anual em 150%, gerando mais de R$ 25M em receita',
+                '• Construiu e gerenciou equipe de 8 representantes de vendas',
+                '• Desenvolveu planos estratégicos de contas para clientes corporativos',
+                '• Negociou contratos acima de R$ 2,5M com executivos de alto nível',
+                '• Implementou processos de CRM melhorando a precisão de previsões em 40%',
+            ],
+            [
+                '• Atingiu 120% da meta consistentemente por 8 trimestres consecutivos',
+                '• Gerenciou pipeline de mais de 50 oportunidades no valor de R$ 10M+',
+                '• Conduziu demonstrações e apresentações de produtos',
+                '• Manteve taxa de retenção de clientes de 95% por meio de gestão de relacionamento',
+            ],
+            [
+                '• Gerou leads por meio de prospecção ativa e networking',
+                '• Auxiliou representantes seniores em reuniões com clientes',
+                '• Manteve registros precisos no sistema de CRM',
+            ],
+        ],
+        hospitality: [
+            [
+                '• Supervisionou equipe de mais de 10 garçons garantindo qualidade de atendimento consistente',
+                '• Treinou novos colaboradores em itens do cardápio, sistemas de PDV e padrões de atendimento',
+                '• Resolveu reclamações de clientes profissionalmente, mantendo taxa de satisfação de 95%',
+                '• Coordenou com a equipe de cozinha para garantir a entrega pontual dos pratos',
+                '• Gerenciou seção de 8+ mesas durante horários de pico atendendo mais de 100 clientes por dia',
+            ],
+            [
+                '• Proporcionou excelente atendimento de mesa em restaurante de alto movimento com 200 lugares',
+                '• Aumentou o ticket médio em 20% por meio de técnicas eficazes de venda sugestiva',
+                '• Memorizou cardápio extenso incluindo pratos do dia e harmonização de vinhos',
+                '• Processou pagamentos com precisão movimentando R$ 2.500+ em transações diárias',
+            ],
+            [
+                '• Recepcionou e acomodou clientes garantindo uma primeira impressão positiva',
+                '• Registrou pedidos de alimentos e bebidas com precisão utilizando sistema de PDV',
+                '• Manteve o salão limpo e organizado durante todo o turno',
+            ],
+        ],
+        general: [
+            [
+                '• Liderou equipe multifuncional de mais de 10 membros em iniciativas estratégicas',
+                '• Gerenciou projetos com orçamentos de até R$ 2,5M e entregou dentro do prazo',
+                '• Melhorou a eficiência operacional em 30% por meio de otimização de processos',
+                '• Desenvolveu e implementou políticas e procedimentos departamentais',
+                '• Apresentou relatórios trimestrais para a diretoria sênior',
+            ],
+            [
+                '• Coordenou operações diárias e gestão de fluxos de trabalho',
+                '• Colaborou com stakeholders para cumprir prazos de projetos',
+                '• Analisou dados para identificar tendências e oportunidades de melhoria',
+                '• Treinou novos membros da equipe em processos e sistemas',
+            ],
+            [
+                '• Apoiou a equipe com tarefas administrativas e operacionais',
+                '• Auxiliou na entrada de dados e preparação de relatórios',
+                '• Ajudou na organização de reuniões de equipe e eventos',
+            ],
+        ],
+    },
+    masterDegree: { tech: 'Mestrado em Ciência da Computação', business: 'Mestrado em Administração de Empresas', school: 'Escola de Negócios' },
+    phoneFormat: '+55 11 90000-0000',
+    titlePrefixes: { senior: 'Sênior', lead: 'Líder de', director: 'Diretor de' },
+};
+
+export default pt;

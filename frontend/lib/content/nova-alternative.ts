@@ -591,5 +591,123 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'NovaResumeの代替ツール2026：無料AI履歴書作成ツール | Best AI Resume',
+    description: 'NovaResume（Nova CV）の無料代替をお探しですか？Nova vs Best AI Resume Builder を比較 — AI作成、ATSテンプレート、無制限エクスポート。ずっと無料。',
+    keywords: 'novaresume 代替, nova cv, 履歴書作成ツール, 履歴書サンプル, AI履歴書, 職務経歴書, 無料履歴書テンプレート',
+  },
+  schemas: {
+    breadcrumbName: 'NovaResumeの代替',
+    articleHeadline: 'NovaResume（Nova CV）の最良代替ツール2026：無料AI履歴書作成ツール',
+    articleDescription: 'NovaResume vs Best AI Resume Builder を比較。AI作成、ATS最適化、無制限PDFエクスポート — 完全無料。',
+  },
+  hero: {
+    badge: 'NovaResumeの代替',
+    title: 'より良いテンプレート。AI作成。',
+    titleHighlight: '本当に無料。',
+    subtitle: 'NovaResumeはプレミアムテンプレートとPDFエクスポートに<strong>月額$19.99</strong>。AI作成、ATSスコアリング、全テンプレートが<strong>$0</strong>で利用可能。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'NovaResume：クリーンなテンプレート、AI不足',
+    description: 'NovaResume（Nova CV Makerとも呼ばれる）はクリーンなテンプレートを備えたシンプルなビルダーです。問題は：<strong>AI作成支援なし</strong>、無料機能の制限、他のツールが無料で提供するテンプレートへの有料課金。2026年にAIなしの履歴書作成ツールは機会損失です。',
+    stats: [
+      { value: '$19.99', label: 'NovaResumeプレミアムの月額' },
+      { value: '0', label: 'NovaResumeのAI機能数' },
+      { value: '$0', label: 'Best AI Resume Builder — フルAI、無料' },
+    ],
+  },
+  comparison: {
+    title: 'NovaResume vs Best AI Resume Builder',
+    subtitle: 'ベーシックビルダー vs AI搭載プラットフォーム。',
+    competitorName: 'NovaResume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '料金', competitor: '❌ 無料は制限あり / $19.99/月プレミアム', ours: '✅ 100%永久無料' },
+      { feature: 'AI履歴書作成', competitor: '❌ AI機能なし', ours: '✅ AIによるカスタムコンテンツ生成' },
+      { feature: 'ATS最適化', competitor: '⚠️ 基本フォーマットのみ', ours: '✅ リアルタイムATSスコア＋キーワード' },
+      { feature: 'テンプレート品質', competitor: '✅ クリーンでミニマルなデザイン', ours: '✅ 20以上のモダンATSテスト済みテンプレート' },
+      { feature: 'PDFエクスポート', competitor: '❌ プレミアムのみ', ours: '✅ 無制限の無料エクスポート' },
+      { feature: 'カバーレター', competitor: '⚠️ 基本ビルダー（プレミアム）', ours: '✅ AI搭載（無料）' },
+      { feature: 'コンテンツ提案', competitor: '❌ 手動入力のみ', ours: '✅ AIがあなたの経験から作成' },
+      { feature: 'キーワードマッチング', competitor: '❌ 利用不可', ours: '✅ AI搭載キーワード最適化' },
+      { feature: '履歴書サンプル', competitor: '⚠️ 限定ライブラリ', ours: '✅ 300以上の詳細なサンプル' },
+      { feature: '多言語対応', competitor: '✅ 多言語サポート', ours: '✅ 5言語サポート' },
+    ],
+  },
+  whySwitch: {
+    title: 'NovaResumeから乗り換える3つの理由',
+    subtitle: 'より多くの機能。より良いAI。ゼロコスト。',
+    reasons: [
+      { title: 'AI搭載の作成機能', description: 'NovaResumeにはAI機能がありません。当社のAIはカスタム箇条書き、プロフェッショナルサマリー、キーワード最適化コンテンツを目標職種に合わせて生成 — すべて無料。' },
+      { title: 'リアルタイムATSスコアリング', description: 'NovaResumeは基本フォーマットのみ。入力中にリアルタイムATSスコアリングと、スクリーニング通過の可能性を最大化するAIキーワード提案を提供します。' },
+      { title: '年間$240の節約', description: 'NovaResumeプレミアムはテンプレートとPDFエクスポートだけで月額$19.99（年間$240）。当社の完全プラットフォーム — AI作成、ATSスコアリング、20以上のテンプレート、無制限エクスポート — は無料。' },
+    ],
+  },
+  recommendation: {
+    title: '正直なおすすめ',
+    useCompetitor: {
+      title: 'NovaResumeが適している場合',
+      items: [
+        '履歴書のすべてのコンテンツを手動で書くことを好む場合',
+        'ヨーロピアンスタイルのミニマルテンプレートが好きな場合',
+        'テンプレートアクセスに月額$19.99を支払う意思がある場合',
+        'AI作成やATSスコアリングが不要な場合',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが適している場合',
+      items: [
+        'AIに履歴書コンテンツの作成を手伝ってほしい場合',
+        'リアルタイムATSスコアリングとキーワード提案が必要な場合',
+        '支払いなしで無制限PDFエクスポートを希望する場合',
+        'すべてのテンプレートと機能を無料で必要とする場合',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300以上の無料履歴書サンプルを閲覧',
+    description: 'ソフトウェア開発者からデータアナリスト、看護師まで履歴書サンプルを探索。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: '全テンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'NovaResume（Nova CV）は無料ですか？', answer: 'NovaResumeは限定的なテンプレートと機能の無料プランを提供しています。プレミアムプランはフルテンプレートアクセスとカスタマイズで月額$19.99から。Best AI Resume Builderはすべての機能、テンプレート、無制限エクスポートが100%無料 — プレミアムプラン不要です。' },
+      { question: 'NovaResumeは良い履歴書作成ツールですか？', answer: 'NovaResumeはクリーンなテンプレートとわかりやすいインターフェースを提供しています。しかし、AI作成機能がなく、プレミアムテンプレートは有料です。Best AI Resume BuilderはAIコンテンツ生成、リアルタイムATSスコアリング、モダンなテンプレートをすべて無料で提供します。' },
+      { question: 'NovaResumeの最良の無料代替は？', answer: 'Best AI Resume Builderが最良の無料代替です。NovaResumeが有料で提供するもの — プロテンプレート、PDFエクスポート、カバーレター — に加えて、NovaResumeにないAI作成とATS最適化を提供します。' },
+      { question: 'NovaResumeにはAI機能がありますか？', answer: 'NovaResumeはAI搭載の履歴書作成を提供していません。手動入力と一部の事前定義された提案に頼っています。Best AI Resume Builderは高度なAIを使用して、目標職種に合わせたカスタム箇条書き、プロフェッショナルサマリー、キーワード最適化コンテンツを生成します。' },
+      { question: 'NovaResumeからPDFをエクスポートできますか？', answer: 'NovaResumeのPDFエクスポートにはプレミアムサブスクリプションが必要です。Best AI Resume Builderでは無制限のPDFを無料でエクスポートできます — アカウントのアップグレード不要。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/zety-alternative', title: 'Zetyの代替', subtitle: '料金比較' },
+      { href: '/canva-alternative', title: 'Canvaの代替', subtitle: 'デザインツール vs AI' },
+      { href: '/livecareer-alternative', title: 'LiveCareerの代替', subtitle: 'レガシー vs モダン' },
+      { href: '/rezi-alternative', title: 'Reziの代替', subtitle: 'AI機能比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://novoresume.com/', label: 'Novoresume公式サイト' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI搭載。ずっと無料。',
+    description: 'AI作成、ATSスコアリング、モダンなテンプレートでプロフェッショナルな履歴書を作成。サブスクなし、制限なし。',
+    cta: '無料で履歴書を作成',
+    subtext: 'ずっと無料。クレジットカード不要。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

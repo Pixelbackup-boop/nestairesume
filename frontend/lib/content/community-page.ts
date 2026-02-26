@@ -252,6 +252,49 @@ const ar: CommunityContent = {
   deleteBtn: 'حذف',
 };
 
-const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar };
+const ja: CommunityContent = {
+  title: 'コミュニティテンプレート',
+  subtitle: 'コミュニティで共有されたテンプレートを閲覧・利用できます',
+  categories: [
+    { value: '', label: 'すべて' },
+    { value: 'professional', label: 'プロフェッショナル' },
+    { value: 'creative', label: 'クリエイティブ' },
+    { value: 'ats', label: 'ATS対応' },
+    { value: 'bold', label: 'インパクト' },
+  ],
+  browseTab: 'テンプレートを探す',
+  myTemplatesTab: 'マイテンプレート',
+  templatesAvailable: '{count}件のテンプレートが利用可能',
+  templateAvailable: '{count}件のテンプレートが利用可能',
+  createYourOwn: '自分のテンプレートを作成 \u2192',
+  errorMessage: 'テンプレートの読み込みに失敗しました。もう一度お試しください。',
+  tryAgain: '再試行',
+  noTemplatesTitle: 'まだテンプレートがありません',
+  noTemplatesSub: 'コミュニティで最初のテンプレートを共有しましょう！',
+  createTemplate: 'テンプレートを作成',
+  pageOf: '{page} / {total}ページ',
+  templatesPosted: '{count}件のテンプレートを公開中',
+  templatePosted: '{count}件のテンプレートを公開中',
+  createNewTemplate: '新しいテンプレートを作成 \u2192',
+  noPostedTitle: 'まだテンプレートを公開していません',
+  noPostedSub: 'キャンバスエディタでデザインを作成し、コミュニティと共有しましょう！',
+  publicLabel: '公開',
+  privateLabel: '非公開',
+  noPreview: 'プレビューなし',
+  downloads: 'ダウンロード',
+  download: 'ダウンロード',
+  signInTitle: 'テンプレートを表示するにはログインしてください',
+  signInSub: '公開したテンプレートの表示・管理にはログインが必要です。',
+  signIn: 'ログイン',
+  deleteConfirm: 'このテンプレートを削除してもよろしいですか？この操作は取り消せません。',
+  deleteError: 'テンプレートの削除に失敗しました。もう一度お試しください。',
+  visibilityError: '公開設定の変更に失敗しました。もう一度お試しください。',
+  makePrivate: '非公開にする',
+  makePublic: '公開にする',
+  edit: '編集',
+  deleteBtn: '削除',
+};
+
+const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar, ja };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

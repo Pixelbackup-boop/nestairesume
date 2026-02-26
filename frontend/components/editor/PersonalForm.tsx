@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useResumeStore, ImageShape, IdDocumentType } from '../../store/useResumeStore';
 import { Mail, Phone, MapPin, Globe, Linkedin, Briefcase, Wand2, Loader2, Camera, X, User, Flag, CreditCard, ChevronDown, Share2, FileText } from 'lucide-react';
 import { generateSummaryOnly } from '../../lib/aiResumeGenerator';
@@ -15,6 +15,7 @@ import IconInput from '../ui/IconInput';
 export default function PersonalForm() {
   const t = useTranslations('Builder');
   const tc = useTranslations('Common');
+  const locale = useLocale();
   const { resumeData, updatePersonalInfo } = useResumeStore();
   const { personalInfo, customFields = [] } = resumeData;
   const [isGenerating, setIsGenerating] = useState(false);
@@ -96,7 +97,7 @@ export default function PersonalForm() {
 
     // Small delay for visual feedback
     setTimeout(() => {
-      const summary = generateSummaryOnly(personalInfo.jobTitle, 'mid');
+      const summary = generateSummaryOnly(personalInfo.jobTitle, 'mid', locale);
       updatePersonalInfo({ summary });
       setIsGenerating(false);
     }, 500);

@@ -85,6 +85,7 @@ export default function Footer() {
         { label: t("adobeAlternative"), href: "/adobe-alternative" },
         { label: t("novaAlternative"), href: "/nova-alternative" },
         { label: t("europassAlternative"), href: "/europass-alternative" },
+        { label: t("dodaAlternative"), href: "/doda-alternative" },
         { label: t("chatgptComparison"), href: "/compare/chatgpt-vs-ai-resume-builder" },
       ],
     },

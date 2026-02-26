@@ -1,0 +1,276 @@
+import { LocaleBundle } from './types';
+
+const tr: LocaleBundle = {
+    localeData: {
+        cities: ['İstanbul', 'Ankara', 'İzmir', 'Bursa', 'Antalya'],
+        country: 'Türkiye',
+        nationality: 'Turkish',
+        companies: {
+            tech: ['TechCorp Çözümler', 'İnovaTek A.Ş.', 'CloudWorks Türkiye', 'VeriLab', 'AppForge Dijital'],
+            design: ['Tasarım Merkezi Ajans', 'Kreatif Stüdyo Pro', 'Piksel Mükemmel Tasarım', 'UX Kolektif', 'Görsel Sanatlar A.Ş.'],
+            marketing: ['BüyümeMatriks Ajans', 'Marka Yükselt A.Ş.', 'Dijital Erişim Pazarlama', 'Engage Medya Grubu', 'Etki Pazarlama Çözümleri'],
+            finance: ['Sermaye Danışmanları A.Ş.', 'Sterling Finans Grubu', 'Apex Muhasebe Hizmetleri', 'Yatırım Ortakları A.Ş.', 'Mali Çözümler Ltd.'],
+            healthcare: ['Şehir Devlet Hastanesi', 'Toplum Sağlık Merkezi', 'CarePlus Tıp Grubu', 'Sağlık Ortakları Kliniği', 'Bölge Tıp Merkezi'],
+            education: ['Anadolu Lisesi', 'Özel Akademi Koleji', 'Devlet Üniversitesi', 'Mesleki Eğitim Merkezi', 'Üstünlük Eğitim Kurumu'],
+            sales: ['Kurumsal Çözümler A.Ş.', 'Global Ticaret Ortakları', 'TeknoSatış Pro', 'İş Geliştirme Ortakları', 'Premier Satış Grubu'],
+            hospitality: ['Grand Otel Restoranı', 'Bistro Zarafet', 'Nehir Kıyısı Grill & Bar', 'Merkez Gastronomi A.Ş.', 'Sahil Mutfağı'],
+            general: ['Acme Şirketler Grubu', 'Global Girişimler', 'Premier Çözümler Ltd.', 'Yenilikçi Endüstriler', 'Mükemmellik Ortakları'],
+        },
+        degrees: {
+            tech: { degree: 'Bilgisayar Mühendisliği Lisans', school: 'Teknoloji Üniversitesi' },
+            design: { degree: 'Grafik Tasarım Güzel Sanatlar Lisans', school: 'Tasarım Fakültesi' },
+            marketing: { degree: 'Pazarlama İşletme Lisans', school: 'İşletme Fakültesi' },
+            finance: { degree: 'Finans Lisans', school: 'İktisat Fakültesi' },
+            healthcare: { degree: 'Hemşirelik Lisans', school: 'Sağlık Bilimleri Fakültesi' },
+            education: { degree: 'Eğitim Bilimleri Lisans', school: 'Eğitim Fakültesi' },
+            sales: { degree: 'İşletme Lisans', school: 'İşletme Fakültesi' },
+            hospitality: { degree: 'Otelcilik ve Turizm Yönetimi Sertifikası', school: 'Aşçılık Enstitüsü' },
+            general: { degree: 'Edebiyat Fakültesi Lisans', school: 'Devlet Üniversitesi' },
+        },
+        educationDescription: 'Onur derecesiyle mezun. Meslek kuruluşlarının aktif üyesi.',
+        yearsText: (years) => years === 1 ? '1 yıl' : `${years}+ yıl`,
+    },
+    summaryTemplates: {
+        tech: {
+            entry: 'Yazılım geliştirme alanında {years} uygulamalı deneyime sahip, motivasyonu yüksek {jobTitle}. Temiz ve verimli kod yazmaya tutkulu, yeni teknolojileri öğrenmeye hevesli. Yenilikçi projelere katkıda bulunmaya ve bir geliştirici olarak büyümeye istekli.',
+            mid: 'Ölçeklenebilir uygulamalar geliştirme ve teknik girişimlere liderlik etme konusunda {years} deneyime sahip, sonuç odaklı {jobTitle}. Sistem performansını %40\'a kadar artıran yüksek kaliteli çözümler sunma konusunda kanıtlanmış başarı geçmişi. Çapraz fonksiyonel ekiplerle güçlü iş birliği yeteneği.',
+            senior: 'Kurumsal ölçekli çözümlerin mimarisini tasarlama ve sunma konusunda {years} uzmanlığa sahip, deneyimli {jobTitle}. 5\'ten fazla geliştiriciden oluşan ekiplere liderlik ederek CI/CD uygulamasıyla dağıtım süresini %60 azalttı. Genç geliştiricilere mentorluk yapma ve teknik mükemmelliği sürdürme konusunda tutkulu.',
+            executive: 'Dijital dönüşüm ve teknik inovasyonu yönlendirme konusunda {years} deneyime sahip stratejik teknoloji lideri. 2 milyon TL\'yi aşan bütçeleri ve 20\'den fazla mühendisten oluşan ekipleri yönetti. 10 milyon TL\'nin üzerinde gelir artışı sağlayan projeleri başarıyla teslim etti.',
+        },
+        design: {
+            entry: 'Kullanıcı odaklı tasarımlar oluşturma konusunda {years} deneyime sahip, yaratıcı {jobTitle}. Modern tasarım araçlarında yetkin, sezgisel ve görsel açıdan çekici arayüzler yaratma konusunda tutkulu.',
+            mid: 'Kullanıcı merkezli dijital deneyimler oluşturma konusunda {years} deneyime sahip, yenilikçi {jobTitle}. Kullanıcı etkileşimini %35 artıran ve hemen çıkma oranlarını %25 azaltan tasarımlar sundu.',
+            senior: 'Tasarım ekiplerine liderlik etme ve ürün vizyonunu şekillendirme konusunda {years} deneyime sahip, kıdemli {jobTitle}. 10\'dan fazla üründe benimsenen tasarım sistemleri kurarak tasarım tutarlılığını %50 artırdı.',
+            executive: 'Dünya standartlarında tasarım organizasyonları kurma ve yönetme konusunda {years} deneyime sahip tasarım yöneticisi. Fortune 500 şirketlerinde tasarım kültürünü dönüştürerek 5 milyon TL\'nin üzerinde maliyet tasarrufu sağladı.',
+        },
+        marketing: {
+            entry: 'Dijital pazarlama alanında {years} deneyime sahip, istekli {jobTitle}. İçerik oluşturma, sosyal medya yönetimi ve veri analizi konularında yetkin.',
+            mid: 'Ölçülebilir sonuçlar veren kampanyalar yürütme konusunda {years} deneyime sahip, veri odaklı {jobTitle}. Organik trafiği %150 artırdı ve dönüşüm oranlarını %40 iyileştirdi.',
+            senior: 'Yüksek performanslı pazarlama ekiplerine liderlik etme konusunda {years} deneyime sahip, stratejik {jobTitle}. 1 milyon TL\'nin üzerinde pazarlama bütçelerini yöneterek %200 yatırım getirisi sağlayan kampanyalar sundu.',
+            executive: 'Yenilikçi pazarlama stratejileriyle gelir artışını yönlendirme konusunda {years} deneyime sahip pazarlama yöneticisi. Küresel pazarlama ekiplerini yönetti ve 10 milyon TL\'nin üzerinde bütçeleri yönettti.',
+        },
+        finance: {
+            entry: 'Finansal analiz ve raporlama konusunda {years} deneyime sahip, detay odaklı {jobTitle}. Muhasebe ilkeleri ve finansal yazılımlar konusunda güçlü temel bilgi.',
+            mid: 'Finansal planlama ve analiz konusunda {years} deneyime sahip, analitik düşünen {jobTitle}. Yıllık 500 bin TL\'nin üzerinde tasarruf sağlayan maliyet düşürme fırsatlarını tespit etti.',
+            senior: 'Finansal operasyonları ve stratejiyi yönetme konusunda {years} deneyime sahip, kıdemli {jobTitle}. 50 milyon TL\'nin üzerinde portföyleri yönetti ve ekipleri başarılı denetim süreçlerinden geçirdi.',
+            executive: 'Finansal strateji ve operasyonel mükemmelliği yönlendirme konusunda {years} deneyime sahip finans yöneticisi. Toplamda 100 milyon TL\'yi aşan birleşme ve satın alma işlemlerini yöneterek FAVÖK marjlarını %15 artırdı.',
+        },
+        healthcare: {
+            entry: 'Hasta merkezli bakım sunma konusunda {years} klinik deneyime sahip, şefkatli {jobTitle}. Yüksek bakım standartlarını sürdürmeye kararlı.',
+            mid: 'Yüksek kaliteli hasta bakımı sunma konusunda {years} deneyime sahip, özverili {jobTitle}. Geliştirilmiş iletişim protokolleriyle hasta memnuniyet puanlarını %30 artırdı.',
+            senior: 'Klinik uzmanlık ve liderlik deneyiminde {years} deneyime sahip, deneyimli {jobTitle}. Hastane yeniden yatış oranlarını %20 azaltan kalite iyileştirme girişimlerine liderlik etti.',
+            executive: 'Klinik operasyonları ve hasta sonuçlarını dönüştürme konusunda {years} deneyime sahip sağlık yöneticisi. 50\'den fazla personelden oluşan bölümleri yönetti ve 5 milyon TL\'nin üzerinde bütçeleri yönettti.',
+        },
+        education: {
+            entry: 'Öğrenci başarısına adanmış, {years} öğretim deneyimine sahip, tutkulu {jobTitle}. İlgi çekici ders planları oluşturma ve kapsayıcı öğrenme ortamları geliştirme konusunda yetkin.',
+            mid: 'Farklı öğrenci profillerini kapsayan müfredat geliştirme konusunda {years} deneyime sahip, yenilikçi {jobTitle}. Farklılaştırılmış öğretim stratejileriyle öğrenci sınav başarısını %25 artırdı.',
+            senior: 'Eğitim çıktılarını şekillendirme ve meslektaşlarına mentorluk yapma konusunda {years} deneyime sahip, kıdemli {jobTitle}. İlçe genelinde benimsenen ödüllü programlar geliştirdi.',
+            executive: 'Kurumsal mükemmelliği sürdürme konusunda {years} deneyime sahip eğitim lideri. 2 milyon TL\'nin üzerinde hibe sağladı ve akreditasyon süreçlerini yönetti.',
+        },
+        sales: {
+            entry: 'İş geliştirme alanında {years} deneyime sahip, motivasyonu yüksek {jobTitle}. Güçlü iletişim becerileri ve müşteri odaklı yaklaşım. Hedefleri aşmaya istekli.',
+            mid: 'Sürekli olarak kotaları aşma konusunda {years} deneyime sahip, sonuç odaklı {jobTitle}. 2 milyon TL\'nin üzerinde yeni iş geliri elde etti ve %95 müşteri elde tutma oranını korudu.',
+            senior: 'Satış ekiplerine liderlik etme ve gelir artışını yönlendirme konusunda {years} deneyime sahip, yüksek performanslı {jobTitle}. Yıllık 10 milyon TL\'nin üzerinde gelir üreten bölgeleri yönetti.',
+            executive: 'Yüksek performanslı satış organizasyonları kurma ve ölçeklendirme konusunda {years} deneyime sahip satış yöneticisi. Geliri 5 milyon TL\'den 50 milyon TL\'ye çıkardı ve 3 yeni pazara genişledi.',
+        },
+        hospitality: {
+            entry: 'Hızlı tempolu yeme-içme ortamlarında {years} deneyime sahip, güler yüzlü ve enerjik {jobTitle}. Olağanüstü müşteri hizmeti sunmaya kararlı.',
+            mid: 'Yüksek kapasiteli restoranlarda üstün hizmet sunma konusunda {years} deneyime sahip, özverili {jobTitle}. %98 müşteri memnuniyet oranını korudu.',
+            senior: 'Fine dining ve yüksek kapasiteli işletmelerde {years} uzmanlığa sahip, deneyimli {jobTitle}. 15\'ten fazla personele eğitim verdi ve mentorluk yaptı.',
+            executive: 'Restoran operasyonlarını yönetme konusunda {years} deneyime sahip konaklama profesyoneli. 30\'dan fazla kişilik ekipleri yönetti ve geliri %40 artırdı.',
+        },
+        general: {
+            entry: '{years} profesyonel deneyime sahip, motivasyonu yüksek {jobTitle}. Güçlü iş ahlakı, mükemmel iletişim becerileri ve kaliteli sonuçlar sunma taahhüdü.',
+            mid: 'Operasyonel mükemmelliği sürdürme konusunda {years} deneyime sahip, başarılı {jobTitle}. Süreç optimizasyonuyla ekip verimliliğini %30 artırdı.',
+            senior: 'Ekiplere ve stratejik girişimlere liderlik etme konusunda {years} deneyime sahip, kıdemli {jobTitle}. 1 milyon TL\'ye kadar bütçeli projeleri başarıyla yönetti.',
+            executive: 'Organizasyonel dönüşümü yönlendirme konusunda {years} deneyime sahip üst düzey yönetici. 50\'den fazla kişilik ekipleri yönetti ve 20 milyon TL\'nin üzerinde kâr-zarar sorumluluğu üstlendi.',
+        },
+    },
+    jobDescriptions: {
+        tech: [
+            [
+                '• Mikroservis mimarisi geliştirerek sistem ölçeklenebilirliğini %300 artırdı',
+                '• CI/CD hatları uygulayarak dağıtım süresini 2 saatten 15 dakikaya düşürdü',
+                '• 5 genç geliştiriciden oluşan ekibe mentorluk yaparak kod incelemeleri ve teknik eğitimler gerçekleştirdi',
+                '• Ürün yöneticileriyle iş birliği yaparak teknik gereksinimleri ve sprint planlamasını belirledi',
+                '• Performans optimizasyonuyla uygulama yüklenme süresini %40 azalttı',
+            ],
+            [
+                '• Günlük 1 milyonun üzerinde istek işleyen RESTful API\'ler geliştirdi, %99,9 çalışma süresi sağladı',
+                '• React ve TypeScript kullanarak duyarlı web uygulamaları oluşturdu',
+                '• Üçüncü taraf hizmetleri ve ödeme ağ geçitlerini entegre etti',
+                '• Çevik seremonilere katıldı ve sprint planlamasına katkıda bulundu',
+            ],
+            [
+                '• Kod tabanı bakımına ve hata düzeltmelerine katkı sağladı',
+                '• Kıdemli geliştiricilere özellik uygulamalarında yardımcı oldu',
+                '• Birim testler yazarak kod kapsamını %25 artırdı',
+            ],
+        ],
+        design: [
+            [
+                '• Kullanıcı odaklı dijital ürünler oluşturan 5 kişilik tasarım ekibine liderlik etti',
+                '• 10\'dan fazla projede kullanılan tasarım sistemi ve bileşen kütüphanesi oluşturdu',
+                '• UX iyileştirmeleriyle kullanıcı etkileşimini %40 artırdı',
+                '• 100\'den fazla katılımcıyla kullanıcı araştırması ve kullanılabilirlik testleri yürüttü',
+                '• Tasarım konseptlerini paydaşlara sundu ve geri bildirimleri entegre etti',
+            ],
+            [
+                '• iOS ve Android platformları için mobil ve web uygulamaları tasarladı',
+                '• Tel çerçeve, prototip ve yüksek kaliteli maketler oluşturdu',
+                '• Tasarım uygulamasının doğruluğunu sağlamak için geliştiricilerle iş birliği yaptı',
+                '• A/B testleriyle dönüşüm oranlarını %35 artırdı',
+            ],
+            [
+                '• Pazarlama kampanyaları için görsel tasarım oluşturmaya yardımcı oldu',
+                '• Tüm tasarım çıktılarında marka tutarlılığını korudu',
+                '• Kıdemli tasarımcılara görsel materyal oluşturmada destek sağladı',
+            ],
+        ],
+        marketing: [
+            [
+                '• %200 yatırım getirisi sağlayan pazarlama stratejileri geliştirdi ve uyguladı',
+                '• Dijital kanallar genelinde yıllık 500 bin TL\'nin üzerinde pazarlama bütçesini yönetti',
+                '• Kampanya planlaması ve uygulamasında 4 kişilik pazarlama ekibine liderlik etti',
+                '• SEO optimizasyonuyla organik trafiği %150 artırdı',
+                '• 2 milyonun üzerinde kitleye ulaşan influencer ortaklıkları kurdu',
+            ],
+            [
+                '• Aylık 100 binin üzerinde blog ziyaretçisi sağlayan içerik stratejisi oluşturdu',
+                '• Sosyal medya hesaplarını yöneterek takipçi sayısını %300 artırdı',
+                '• %35 açılma oranı ve %15 tıklama oranıyla e-posta kampanyaları yürüttü',
+                '• Kampanya performansını analiz ederek veriye dayalı optimizasyonlar yaptı',
+            ],
+            [
+                '• Sosyal medya içerik oluşturma ve zamanlamaya yardımcı oldu',
+                '• Pazar araştırması ve rekabet analizi konusunda ekibe destek sağladı',
+                '• Pazarlama etkinlikleri ve webinarların organizasyonuna katkıda bulundu',
+            ],
+        ],
+        finance: [
+            [
+                '• 50 milyon TL\'nin üzerinde iş birimi için finansal planlama ve analiz yönetti',
+                '• Yıllık bütçeleme sürecini ve üç aylık tahminlemeyi yürüttü',
+                '• 1 milyon TL\'nin üzerinde tasarruf sağlayan maliyet düşürme fırsatlarını tespit etti',
+                '• Üst yönetime finansal raporlar sundu',
+                '• 3 kişilik analist ekibini yönetti ve denetim süreçlerini koordine etti',
+            ],
+            [
+                '• Aylık mali tablolar ve sapma analizleri hazırladı',
+                '• İş planlaması için finansal modeller geliştirdi',
+                '• Raporlama süreçlerini iyileştirerek kapanış süresini %30 kısalttı',
+                '• Birleşme ve satın alma durum tespiti ile entegrasyona destek verdi',
+            ],
+            [
+                '• Alacak ve borç hesapları işlemlerine yardımcı oldu',
+                '• Banka ekstrelerini ve genel muhasebe hesaplarını mutabık kıldı',
+                '• Kıdemli muhasebecilere ay sonu kapanış işlemlerinde destek sağladı',
+            ],
+        ],
+        healthcare: [
+            [
+                '• Hasta bakımı sunan 15\'ten fazla hemşirelik personelini denetledi',
+                '• Hataları %40 azaltan kalite iyileştirme girişimleri uyguladı',
+                '• Disiplinler arası ekiple hasta bakım planlarını koordine etti',
+                '• Sağlık mevzuatı ve düzenleyici gereksinimlere uyumu sağladı',
+                '• Yeni personeli protokoller ve en iyi uygulamalar konusunda eğitti',
+            ],
+            [
+                '• Günlük 10\'dan fazla hastaya doğrudan bakım hizmeti sundu',
+                '• İlaç uygulaması ve hasta takibi gerçekleştirdi',
+                '• Hasta bilgilerini HBS sistemlerine doğru bir şekilde kaydetti',
+                '• Tedavi planları konusunda hekimlerle iş birliği yaptı',
+            ],
+            [
+                '• Hasta kabulü ve yaşamsal bulgu takibine yardımcı oldu',
+                '• Hemşirelik personeline günlük bakım faaliyetlerinde destek sağladı',
+                '• Temiz ve düzenli hasta ortamlarının sürdürülmesini sağladı',
+            ],
+        ],
+        education: [
+            [
+                '• 5.000\'den fazla öğrenciye hizmet veren ilçe genelinde benimsenen müfredat geliştirdi',
+                '• 10\'dan fazla öğretmene yeni öğretim stratejileri uygulamada mentorluk yaptı',
+                '• 3 yıl içinde öğrenci başarı puanlarını %25 artırdı',
+                '• Mesleki gelişim atölyeleri ve eğitim oturumları düzenledi',
+                '• Eğitim programları için 100 bin TL\'nin üzerinde hibe sağladı',
+            ],
+            [
+                '• Birden fazla sınıf düzeyinde 25\'ten fazla öğrenciye ders verdi',
+                '• Devlet standartlarıyla uyumlu ilgi çekici ders planları hazırladı',
+                '• Farklı öğrenci profillerine yönelik farklılaştırılmış öğretim uyguladı',
+                '• Öğrenci gelişimi hakkında velilerle düzenli iletişim kurdu',
+            ],
+            [
+                '• Baş öğretmenlere sınıf öğretiminde yardımcı oldu',
+                '• Bireysel ve küçük grup olarak öğrencilere destek eğitim verdi',
+                '• Sınıf organizasyonu ve materyallerin düzenlenmesine yardımcı oldu',
+            ],
+        ],
+        sales: [
+            [
+                '• Yıllık kotayı %150 aşarak 5 milyon TL\'nin üzerinde gelir elde etti',
+                '• 8 kişilik satış temsilcisi ekibini kurdu ve yönetti',
+                '• Kurumsal müşteriler için stratejik hesap planları geliştirdi',
+                '• Üst düzey yöneticilerle 500 bin TL\'nin üzerinde değerde sözleşmeler müzakere etti',
+                '• CRM süreçlerini uygulayarak tahmin doğruluğunu %40 artırdı',
+            ],
+            [
+                '• Art arda 8 çeyrekte sürekli olarak kotanın %120\'sini gerçekleştirdi',
+                '• 2 milyon TL\'nin üzerinde değerde 50\'den fazla fırsattan oluşan satış hattını yönetti',
+                '• Ürün demoları ve sunumlar gerçekleştirdi',
+                '• İlişki yönetimiyle %95 müşteri elde tutma oranını korudu',
+            ],
+            [
+                '• Soğuk arama ve ağ kurma yoluyla potansiyel müşteriler oluşturdu',
+                '• Kıdemli temsilcilere müşteri toplantılarında yardımcı oldu',
+                '• CRM sisteminde doğru kayıtlar tuttu',
+            ],
+        ],
+        hospitality: [
+            [
+                '• Tutarlı hizmet kalitesini sağlayan 10\'dan fazla garsondan oluşan ekibi denetledi',
+                '• Yeni personeli menü, POS sistemleri ve hizmet standartları konusunda eğitti',
+                '• Müşteri şikayetlerini profesyonelce çözerek %95 memnuniyet oranını korudu',
+                '• Yemeklerin zamanında servisi için mutfak ekibiyle koordinasyon sağladı',
+                '• Yoğun saatlerde 8\'den fazla masalık bölümü yöneterek günlük 100\'den fazla misafire hizmet verdi',
+            ],
+            [
+                '• Hızlı tempolu 200 kişilik restoranda mükemmel masa servisi sundu',
+                '• Etkili satış artırma teknikleriyle ortalama hesap tutarını %20 yükseltti',
+                '• Günlük özel menüler ve şarap eşleştirmeleri dahil kapsamlı menüyü ezberledi',
+                '• Günlük 500 TL\'nin üzerinde işlemi doğru bir şekilde tahsil etti',
+            ],
+            [
+                '• Misafirleri karşıladı ve oturtarak olumlu ilk izlenim oluşturdu',
+                '• POS sistemi kullanarak yiyecek ve içecek siparişlerini doğru şekilde aldı',
+                '• Vardiya boyunca yemek alanının temiz ve düzenli kalmasını sağladı',
+            ],
+        ],
+        general: [
+            [
+                '• Stratejik girişimlerde 10\'dan fazla kişilik çapraz fonksiyonel ekibe liderlik etti',
+                '• 500 bin TL\'ye kadar bütçeli projeleri zamanında teslim etti',
+                '• Süreç optimizasyonuyla operasyonel verimliliği %30 artırdı',
+                '• Departman politikalarını ve prosedürlerini geliştirdi ve uyguladı',
+                '• Üst yönetime üç aylık raporlar sundu',
+            ],
+            [
+                '• Günlük operasyonları ve iş akışı yönetimini koordine etti',
+                '• Proje teslim tarihlerini karşılamak için paydaşlarla iş birliği yaptı',
+                '• Eğilimleri ve iyileştirme fırsatlarını belirlemek için verileri analiz etti',
+                '• Yeni ekip üyelerini süreçler ve sistemler konusunda eğitti',
+            ],
+            [
+                '• İdari ve operasyonel görevlerde ekibe destek sağladı',
+                '• Veri girişi ve rapor hazırlamaya yardımcı oldu',
+                '• Ekip toplantıları ve etkinliklerin organizasyonuna katkıda bulundu',
+            ],
+        ],
+    },
+    masterDegree: { tech: 'Bilgisayar Bilimleri Yüksek Lisans', business: 'İşletme Yüksek Lisansı (MBA)', school: 'İşletme Enstitüsü' },
+    phoneFormat: '+90 500 000 0000',
+    titlePrefixes: { senior: 'Kıdemli', lead: 'Takım Lideri', director: 'Direktör' },
+};
+
+export default tr;

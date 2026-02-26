@@ -132,7 +132,29 @@ const ar: CommunityDetailContent = {
   edited: '(\u0645\u0639\u062f\u0644)',
 };
 
-const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar };
+const ja: CommunityDetailContent = {
+  backToGallery: '\u2190 ギャラリーに戻る',
+  useTemplate: 'テンプレートを使用',
+  downloads: 'ダウンロード',
+  download: 'ダウンロード',
+  by: '作成者:',
+  commentsTitle: 'コメント',
+  commentPlaceholder: 'このテンプレートについてコメントを残す...',
+  postComment: 'コメントを投稿',
+  signInToComment: 'コメントするにはログインしてください',
+  signIn: 'ログイン',
+  noComments: 'まだコメントはありません。最初のコメントを投稿しましょう！',
+  deleteComment: '削除',
+  deleteConfirm: 'このコメントを削除してもよろしいですか？',
+  editComment: '編集',
+  saveEdit: '保存',
+  cancelEdit: 'キャンセル',
+  loadMore: 'さらにコメントを読み込む',
+  charLimit: '{count}/2000',
+  edited: '(編集済み)',
+};
+
+const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja };
 
 export function getContent(locale: string): CommunityDetailContent {
   return selectContent(contentMap, locale);

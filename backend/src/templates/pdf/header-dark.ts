@@ -85,14 +85,14 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
         <div class="sidebar-bg-fixed" style="background-color: ${sidebarBg}; position: fixed; top: -2px; left: 0; width: 33%; height: calc(100% + 4px); min-height: 100vh; z-index: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;"></div>
 
         <!-- Flex layout for content structure (matching frontend) -->
-        <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; font-size: ${s(13)}; color: ${textDark}; display: flex; box-sizing: border-box; position: relative;">
+        <div style="width: 100%; font-family: ${bodyFont}; font-size: ${s(13)}; color: ${textDark}; display: flex; box-sizing: border-box; position: relative;">
 
 
             <!-- Left Sidebar -->
-            <aside class="sidebar-content" style="width: 33%; color: ${sidebarText}; padding: 40px 20px; flex-shrink: 0; min-height: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;">
+            <aside class="sidebar-content" style="width: 33%; color: ${sidebarText}; padding: 32px 20px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;">
 
                 <!-- Photo -->
-                <div style="margin-bottom: 50px;">
+                <div style="margin-bottom: 32px;">
                     ${profileImage}
                 </div>
 
@@ -200,7 +200,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                     <tfoot><tr><td style="height: 20px;"></td></tr></tfoot>
                     <tbody>
                         <tr>
-                            <td style="padding: 40px 40px 60px 40px; vertical-align: top;">
+                            <td style="padding: 24px 40px 32px 40px; vertical-align: top;">
                 
                 <!-- Name Header -->
                 <div style="margin-bottom: 24px;">

@@ -596,5 +596,124 @@ const ar: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar };
+const ja: ComparisonPageContent = {
+  meta: {
+    title: 'Europassの代替ツール2026：AI履歴書作成ツール | Best AI Resume',
+    description: 'Europass CVの代替をお探しですか？Europass vs Best AI Resume Builder を比較 — 20以上のモダンな履歴書サンプル、AI作成、ATS最適化。グローバルな求人応募に無料で対応。',
+    keywords: 'europass 代替, europass cv テンプレート, 履歴書作成ツール, 履歴書サンプル, AI履歴書, 職務経歴書, 無料履歴書作成',
+  },
+  schemas: {
+    breadcrumbName: 'Europass CVの代替',
+    articleHeadline: 'Europass CVの最良代替ツール2026：最新AI履歴書作成ツール',
+    articleDescription: 'Europass CV vs Best AI Resume Builder を比較。堅いEUフォーマットの代わりに、20以上のプロ向けテンプレートとAI作成機能を取得。',
+  },
+  hero: {
+    badge: 'Europassの代替',
+    title: '1つのテンプレートを超えて。',
+    titleHighlight: 'モダン。AI搭載。無料。',
+    subtitle: 'EuropassはEU向けの固定テンプレート1種類のみ。<strong>20以上のモダンな履歴書サンプル</strong>、AI作成機能、ATS最適化で<strong>世界中</strong>の求人市場に対応 — 無料です。',
+    ctaPrimary: '無料で履歴書を作成',
+    ctaSecondary: '比較を見る',
+  },
+  problem: {
+    title: 'Europass：EUには便利、それ以外は制限あり',
+    description: 'Europass CVはEU内の労働移動を目的としたEUイニシアチブです。無料で政府支援がありますが、<strong>テンプレートは1種類のみ</strong>、<strong>AI作成機能なし</strong>、モダンな履歴書デザインと比較して古い印象の固定構造です。EU圏外の求人では、Europassはむしろ不利になることがあります。',
+    stats: [
+      { value: '1', label: 'Europassのテンプレート数' },
+      { value: '0', label: 'EuropassのAI機能数' },
+      { value: '20+', label: 'Best AI Resume Builderのテンプレート数（無料）' },
+    ],
+  },
+  comparison: {
+    title: 'Europass CV vs Best AI Resume Builder',
+    subtitle: 'EU標準フォーマット vs モダンAI搭載ビルダー。',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '料金', competitor: '✅ 無料（EU政府ツール）', ours: '✅ 無料（全機能）' },
+      { feature: 'テンプレート', competitor: '❌ 固定フォーマット1種のみ', ours: '✅ 20以上のプロフェッショナルデザイン' },
+      { feature: 'AI履歴書作成', competitor: '❌ AI機能なし', ours: '✅ AIによるカスタムコンテンツ生成' },
+      { feature: 'ATS最適化', competitor: '⚠️ EU形式の解析のみ', ours: '✅ グローバルATSスコア＋キーワード' },
+      { feature: 'デザインカスタマイズ', competitor: '❌ 最小限 — 色とフォントのみ', ours: '✅ テンプレート＋レイアウトの完全制御' },
+      { feature: 'グローバル対応', competitor: '❌ EU中心、欧州外には不向き', ours: '✅ あらゆる求人市場に対応' },
+      { feature: 'カバーレター', competitor: '✅ 基本的なカバーレタービルダー', ours: '✅ AI搭載カバーレター' },
+      { feature: '言語パスポート', competitor: '✅ EU言語スキルフレームワーク', ours: '⚠️ 標準的な言語セクション' },
+      { feature: 'コンテンツ支援', competitor: '❌ 手動入力のみ', ours: '✅ AIが職務経歴書の実績を作成' },
+      { feature: 'モダンデザイン', competitor: '❌ 古い機関風の外観', ours: '✅ 現代的、採用担当者承認済み' },
+    ],
+  },
+  whySwitch: {
+    title: 'Europass vs Best AI Resumes の使い分け',
+    subtitle: 'それぞれのツールに最適な場面があります。',
+    reasons: [
+      { title: 'グローバルな求人市場', description: 'EuropassはEU向けです。当社のビルダーは米国、英国、カナダ、アジア、中南米、欧州など、あらゆる市場向けの履歴書サンプルを作成します。' },
+      { title: 'モダンなデザインオプション', description: 'Europassは機関風テンプレート1種。20以上の現代的デザインでプロフェッショナルかつATSに対応します。' },
+      { title: 'AIコンテンツ作成', description: 'Europassは手動入力のみ。当社のAIが職務に合わせた実績、プロフェッショナルサマリー、業界キーワードを生成します。' },
+    ],
+  },
+  recommendation: {
+    title: 'Europass vs Best AI Resumes の使い分け',
+    useCompetitor: {
+      title: 'Europassが適している場合',
+      items: [
+        'EUモビリティプログラム（エラスムス、EU機関）に応募する場合',
+        '雇用主がEuropass形式を指定している場合',
+        'EUスキルパスポートまたは言語パスポートが必要な場合',
+        '欧州の政府機関や学術機関に応募する場合',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumesが適している場合',
+      items: [
+        '民間企業に応募する場合（世界中どこでも）',
+        '米国、英国、カナダ、アジアでの求職を目指す場合',
+        'モダンで視覚的に魅力的なデザインを希望する場合',
+        'AIによる実績やサマリー作成のサポートが必要な場合',
+        'ATS経由（Indeed、LinkedIn等）で応募する場合',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300以上の無料履歴書サンプルを閲覧',
+    description: 'あらゆるキャリア向けのプロフェッショナルな履歴書サンプル。',
+    ctaBrowse: '履歴書サンプルを見る',
+    ctaTemplates: '全テンプレートを見る',
+  },
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { question: 'Europass CVは無料ですか？', answer: 'はい、欧州委員会のEuropass CVエディターは完全無料です。ただし、カスタマイズオプションのない標準テンプレート1種のみです。Best AI Resume Builderも無料で、20以上のテンプレート、AI作成、ATS最適化を提供します。' },
+      { question: 'Europass CVは欧州外の求人に適していますか？', answer: 'いいえ。Europass CVは欧州の求人市場向けに設計されており、米国、英国、国際的な雇用主が期待するフォーマットとは異なります。EU外への応募には標準的な履歴書フォーマットを使用しましょう。Best AI Resume Builderは世界中の求人市場に対応した履歴書を作成します。' },
+      { question: 'Europassの最良の代替は何ですか？', answer: 'Best AI Resume Builderが最良の代替です。AI作成、ATS最適化、20以上のプロフェッショナルテンプレートを提供 — Europassは1種の固定フォーマットでAI機能なしです。' },
+      { question: 'ATSシステムはEuropass CVを読み取れますか？', answer: 'Europass CVはATSで解析可能ですが、固定フォーマットやEU固有のセクション（言語パスポートなど）が国際標準フォーマット向けに設定されたATSを混乱させる場合があります。Best AI Resume Builderのテンプレートはグローバル互換性のためにATSテスト済みです。' },
+      { question: 'なぜEuropassにはテンプレートが1つしかないのですか？', answer: 'Europassは欧州各国のCVを標準化するEUイニシアチブのため、単一フォーマットを使用しています。EUモビリティプログラムには有用ですが、プロフェッショナルでモダンなデザインを求める求職者には制約があります。Best AI Resume Builderは20以上のテンプレートであらゆる業界やスタイルに対応します。' },
+    ],
+  },
+  crossLinks: {
+    title: '他の履歴書作成ツールと比較',
+    items: [
+      { href: '/canva-alternative', title: 'Canvaの代替', subtitle: 'デザインツール vs AI' },
+      { href: '/zety-alternative', title: 'Zetyの代替', subtitle: '料金比較' },
+      { href: '/overleaf-alternative', title: 'Overleafの代替', subtitle: 'LaTeX vs AIビルダー' },
+      { href: '/nova-alternative', title: 'Novaの代替', subtitle: 'CVビルダー比較' },
+    ],
+    guidesTitle: '役立つ履歴書ガイド',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://europa.eu/europass/en', label: 'Europass公式ポータル' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'グローバル求人市場向けのモダンな履歴書。',
+    description: 'Europassの単一テンプレートを超えましょう。AI作成、20以上のデザイン、ATS最適化 — あらゆる求人市場で無料。',
+    cta: '無料で履歴書を作成',
+    subtext: 'ずっと無料。世界中で利用可能。',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string) => selectContent(contentMap, locale);
