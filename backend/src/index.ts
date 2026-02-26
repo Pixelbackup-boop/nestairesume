@@ -76,9 +76,10 @@ app.get("/health", async (_req, res) => {
 });
 
 // Detailed health check for monitoring dashboards
-app.get("/health/detailed", async (_req, res) => {
-  const checks: Record<string, "ok" | "error"> = {};
+// Protected: only returns per-service details when the correct secret is provided
+app.get("/health/detailed", async (req, res) => {
   const TIMEOUT_MS = 3000;
+  const checks: Record<string, "ok" | "error"> = {};
 
   // Database
   try {
@@ -101,7 +102,16 @@ app.get("/health/detailed", async (_req, res) => {
   checks.email = config.brevoApiKey ? "ok" : "error";
 
   const allOk = Object.values(checks).every(v => v === "ok");
-  res.status(allOk ? 200 : 503).json({ status: allOk ? "healthy" : "degraded", checks });
+
+  // Only expose per-service details if internal secret header is provided
+  const healthSecret = process.env.HEALTH_SECRET;
+  const showDetails = healthSecret && req.headers["x-health-secret"] === healthSecret;
+
+  if (showDetails) {
+    res.status(allOk ? 200 : 503).json({ status: allOk ? "healthy" : "degraded", checks });
+  } else {
+    res.status(allOk ? 200 : 503).json({ status: allOk ? "healthy" : "degraded" });
+  }
 });
 
 // API Routes
@@ -160,20 +170,21 @@ const SHUTDOWN_TIMEOUT_MS = 8000;
 function gracefulShutdown(signal: string) {
   logger.info({ signal }, 'Received shutdown signal, shutting down gracefully');
 
+  // Force exit if in-flight requests don't finish in time
+  const forceExit = setTimeout(async () => {
+    logger.error('Shutdown timeout reached, forcing exit');
+    await prisma.$disconnect().catch(() => {});
+    process.exit(1);
+  }, SHUTDOWN_TIMEOUT_MS);
+
   // Stop accepting new connections
   server.close(async () => {
+    clearTimeout(forceExit);
     logger.info('All in-flight requests completed, disconnecting DB');
     await prisma.$disconnect();
     logger.info('DB disconnected, exiting');
     process.exit(0);
   });
-
-  // Force exit if in-flight requests don't finish in time
-  setTimeout(async () => {
-    logger.error('Shutdown timeout reached, forcing exit');
-    await prisma.$disconnect().catch(() => {});
-    process.exit(1);
-  }, SHUTDOWN_TIMEOUT_MS);
 }
 
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));

@@ -6,6 +6,7 @@ export class CircuitBreaker {
   private state: CircuitState = "closed";
   private failureCount = 0;
   private lastFailureTime = 0;
+  private probeInFlight = false;
   private readonly threshold: number;
   private readonly cooldownMs: number;
   private readonly name: string;
@@ -19,7 +20,12 @@ export class CircuitBreaker {
   async execute<T>(fn: () => Promise<T>): Promise<T> {
     if (this.state === "open") {
       if (Date.now() - this.lastFailureTime >= this.cooldownMs) {
+        if (this.probeInFlight) {
+          throw new Error(`Circuit breaker "${this.name}" is open — service temporarily unavailable`);
+        }
         this.state = "half-open";
+        this.failureCount = 0;
+        this.probeInFlight = true;
         logger.info({ circuit: this.name }, "Circuit breaker half-open, testing");
       } else {
         throw new Error(`Circuit breaker "${this.name}" is open — service temporarily unavailable`);
@@ -28,9 +34,11 @@ export class CircuitBreaker {
 
     try {
       const result = await fn();
+      this.probeInFlight = false;
       this.onSuccess();
       return result;
     } catch (err) {
+      this.probeInFlight = false;
       this.onFailure();
       throw err;
     }
@@ -48,7 +56,7 @@ export class CircuitBreaker {
     this.failureCount++;
     this.lastFailureTime = Date.now();
 
-    if (this.failureCount >= this.threshold) {
+    if (this.state === "half-open" || this.failureCount >= this.threshold) {
       this.state = "open";
       logger.error({ circuit: this.name, failures: this.failureCount }, "Circuit breaker opened");
     }
