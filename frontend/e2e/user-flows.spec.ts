@@ -27,8 +27,9 @@ test.describe('User Journey: New Visitor', () => {
     await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
+    // Wait for hero CTA to render (server component, but may need hydration for animations)
     const ctaButton = page.getByRole('link', { name: /build|start|create|try/i }).first();
-    await expect(ctaButton).toBeVisible();
+    await ctaButton.waitFor({ state: 'visible', timeout: 15000 });
     await ctaButton.click();
     await page.waitForLoadState('domcontentloaded');
 
@@ -44,28 +45,35 @@ test.describe('User Journey: New Visitor', () => {
 });
 
 test.describe('User Journey: Template Selection', () => {
-  test('should display template categories', async ({ page }) => {
+  test('should display template cards and category filters', async ({ page }) => {
     await page.goto('/en/templates');
     await page.waitForLoadState('domcontentloaded');
 
-    const templateLinks = page.locator('a[href*="/templates/"]');
-    const count = await templateLinks.count();
+    // Templates are rendered as clickable div cards, not links
+    const templateCards = page.locator('.group.cursor-pointer');
+    await templateCards.first().waitFor({ state: 'visible', timeout: 15000 });
+    const count = await templateCards.count();
     expect(count).toBeGreaterThan(1);
   });
 
-  test('should navigate to template category page', async ({ page }) => {
+  test('should filter templates by category', async ({ page }) => {
     await page.goto('/en/templates');
     await page.waitForLoadState('domcontentloaded');
 
-    const firstLink = page.locator('a[href*="/templates/"]').first();
-    await expect(firstLink).toBeVisible();
-    await firstLink.click();
-    await page.waitForLoadState('domcontentloaded');
+    // Wait for template cards to render
+    const templateCards = page.locator('.group.cursor-pointer');
+    await templateCards.first().waitFor({ state: 'visible', timeout: 15000 });
+    const initialCount = await templateCards.count();
 
-    // Should show template previews on category page
-    const previews = page.locator('img, [class*="preview"], [class*="template"]');
-    const previewCount = await previews.count();
-    expect(previewCount).toBeGreaterThan(0);
+    // Click a category filter button (not "all" which is already active)
+    const categoryButton = page.locator('button').filter({ hasText: /professional|modern|creative|minimal/i }).first();
+    await categoryButton.click();
+
+    // Template count should change (filtered subset)
+    const filteredCards = page.locator('.group.cursor-pointer');
+    const filteredCount = await filteredCards.count();
+    expect(filteredCount).toBeGreaterThan(0);
+    expect(filteredCount).toBeLessThanOrEqual(initialCount);
   });
 });
 

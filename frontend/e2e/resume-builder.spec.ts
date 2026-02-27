@@ -93,18 +93,26 @@ test.describe('Resume Builder Complete Flow', () => {
       await page.goto('/en/builder');
       await page.waitForLoadState('domcontentloaded');
 
+      // Wait for form to fully hydrate before filling
       const input = page.locator('input[type="text"]').first();
-      await expect(input).toBeVisible();
+      await input.waitFor({ state: 'visible', timeout: 15000 });
       await input.fill('Persistence Test');
+
+      // Small delay to let Zustand persist to localStorage
+      await page.waitForTimeout(500);
 
       await page.reload();
       await page.waitForLoadState('domcontentloaded');
 
-      // Zustand persists to localStorage — value should survive reload
+      // Wait for Zustand to rehydrate from localStorage after reload
       const reloadedInput = page.locator('input[type="text"]').first();
-      await expect(reloadedInput).toBeVisible();
-      const value = await reloadedInput.inputValue();
-      expect(value).toBe('Persistence Test');
+      await reloadedInput.waitFor({ state: 'visible', timeout: 15000 });
+
+      // Zustand rehydration may take a tick — poll for the value
+      await expect(async () => {
+        const value = await reloadedInput.inputValue();
+        expect(value).toBe('Persistence Test');
+      }).toPass({ timeout: 10000 });
     });
   });
 });

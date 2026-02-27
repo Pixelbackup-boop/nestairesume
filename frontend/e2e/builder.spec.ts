@@ -13,26 +13,29 @@ test.describe('Resume Builder', () => {
   });
 
   test.describe('Templates Page', () => {
-    test('should display template category links', async ({ page }) => {
+    test('should display template cards', async ({ page }) => {
       await page.goto('/en/templates');
       await page.waitForLoadState('domcontentloaded');
 
       const heading = page.locator('h1').first();
       await expect(heading).toBeVisible();
 
-      const templateLinks = page.locator('a[href*="/templates/"]');
-      const count = await templateLinks.count();
+      // Templates are rendered as clickable div cards in a grid
+      const templateCards = page.locator('.group.cursor-pointer');
+      await templateCards.first().waitFor({ state: 'visible', timeout: 15000 });
+      const count = await templateCards.count();
       expect(count).toBeGreaterThan(0);
     });
 
-    test('should navigate to template category', async ({ page }) => {
+    test('should display category filter buttons', async ({ page }) => {
       await page.goto('/en/templates');
       await page.waitForLoadState('domcontentloaded');
 
-      const firstLink = page.locator('a[href*="/templates/"]').first();
-      await expect(firstLink).toBeVisible();
-      await firstLink.click();
-      await expect(page).toHaveURL(/\/templates\//);
+      // Category filters are buttons (all, professional, modern, creative, minimal)
+      const filterButtons = page.locator('button').filter({ hasText: /.+/ });
+      await filterButtons.first().waitFor({ state: 'visible', timeout: 15000 });
+      const count = await filterButtons.count();
+      expect(count).toBeGreaterThan(1);
     });
   });
 

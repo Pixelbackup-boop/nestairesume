@@ -22,8 +22,9 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/blog');
       await page.waitForLoadState('domcontentloaded');
 
+      // Wait for blog cards to render (server component but may need hydration)
       const blogLink = page.locator('a[href*="/blog/"]').first();
-      await expect(blogLink).toBeVisible();
+      await blogLink.waitFor({ state: 'visible', timeout: 15000 });
       await blogLink.click();
       await page.waitForLoadState('domcontentloaded');
 
