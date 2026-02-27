@@ -131,5 +131,28 @@ const ar: CareerTipArticleContent = {
   tagsLabel: 'الوسوم:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar };
+const ja: CareerTipArticleContent = {
+  breadcrumb: { home: 'ホーム', careerTips: 'キャリアアドバイス' },
+  notFound: '記事が見つかりません',
+  share: {
+    title: 'この記事は役に立ちましたか？',
+    subtitle: '参考になりそうな方にシェアしましょう',
+  },
+  cta: {
+    title: '履歴書を作成しませんか？',
+    subtitle: 'このアドバイスをAI履歴書ビルダーで実践しましょう。数分でプロフェッショナルな履歴書を作成できます。',
+    button: '今すぐ履歴書を作成',
+  },
+  sidebar: {
+    tocTitle: '目次',
+    relatedTitle: '関連記事',
+    ctaTitle: '履歴書を作成',
+    ctaSubtitle: 'AIで数分でプロフェッショナルな履歴書を作成。',
+    ctaButton: '始める',
+  },
+  moreCareerTips: 'その他のキャリアアドバイス',
+  tagsLabel: 'タグ：',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

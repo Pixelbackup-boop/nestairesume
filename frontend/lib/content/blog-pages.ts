@@ -306,5 +306,58 @@ const ar: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar };
+const ja: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'ブログ — 履歴書の書き方・キャリアアドバイス | Best AI Resume',
+      description: '履歴書・職務経歴書の書き方、転職活動のコツ、キャリアアップ戦略を専門家が解説。無料ガイドとチュートリアルで理想の仕事を見つけましょう。',
+      ogDescription: '履歴書・職務経歴書の書き方とキャリアアップのための専門家アドバイス。',
+    },
+    heroBadge: 'ブログ',
+    heroTitle: '履歴書の書き方・',
+    heroTitleHighlight: 'キャリアアドバイス',
+    heroSubtitle: '履歴書・職務経歴書の作成と転職活動に役立つ専門家のガイド、ヒント、戦略をお届けします。',
+    featuredArticles: '注目の記事',
+    noArticlesTitle: 'まだ記事がありません',
+    noArticlesSubtitle: '近日中に新しいコンテンツを公開予定です！',
+  },
+  article: {
+    notFound: '記事が見つかりません',
+    faqTitle: 'よくある質問',
+    resourcesTitle: '履歴書ツール・リソース',
+    resources: [
+      { title: '300以上の履歴書サンプル', subtitle: '職種別の書き方ガイド' },
+      { title: '履歴書フォーマットガイド 2026', subtitle: '時系列・機能別・組み合わせ型' },
+      { title: '無料履歴書テンプレート', subtitle: 'ATS対応のプロフェッショナルデザイン' },
+      { title: 'AI履歴書ビルダー', subtitle: '数分で履歴書を作成' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: '記事一覧 | Best AI Resume ブログ',
+    metaDescTemplate: '{category}に関する専門家のアドバイス、ヒント、ガイドをご覧ください。',
+    backToBlog: 'ブログに戻る',
+    articlesCount: 'このカテゴリに{count}件の記事',
+    articleCount: 'このカテゴリに{count}件の記事',
+    noArticlesTitle: 'まだ記事がありません',
+    noArticlesSubtitle: 'このカテゴリの記事は近日公開予定です！',
+  },
+  search: {
+    meta: {
+      title: 'ブログ検索 | Best AI Resume',
+      description: '履歴書の書き方、キャリアアドバイス、転職戦略に関するブログ記事を検索できます。',
+    },
+    backToBlog: 'ブログに戻る',
+    title: '検索結果',
+    resultsCount: '「{count}」件の検索結果',
+    resultCount: '「{count}」件の検索結果',
+    startSearchTitle: '検索を開始',
+    startSearchSubtitle: '検索キーワードを入力して記事を探しましょう',
+    noResultsTitle: '検索結果がありません',
+    noResultsText: '一致する記事が見つかりませんでした',
+    tryLabel: 'ヒント：',
+    trySuggestions: ['別のキーワードを試す', 'スペルを確認する', 'カテゴリから探す'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

@@ -239,5 +239,50 @@ const ar: FeaturesPageContent = {
   },
 };
 
-const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar };
+const ja: FeaturesPageContent = {
+  meta: {
+    title: 'AI履歴書ビルダーの機能 — テンプレート・ATSチェッカー他 | Best AI Resume',
+    description: 'Best AI Resumeの全機能を紹介：AI文章生成、20以上のプレミアムテンプレート、リアルタイムATS最適化、PDF出力、スマート提案で理想の仕事を獲得。',
+    keywords: '履歴書作成ツール 機能, AI履歴書, ATSチェッカー, 履歴書テンプレート, PDF履歴書, 履歴書作成',
+  },
+  hero: {
+    badge: '機能紹介',
+    title: '理想の仕事を手に入れるための',
+    titleHighlight: '全てがここに',
+    subtitle: '強力なAIツールと美しいデザインで、あなたを際立たせます。',
+  },
+  features: [
+    { title: 'AI文章生成', description: 'AIがあなたの実績を引き立てる効果的な箇条書きとプロフェッショナルな要約を作成。基本的な業務記述をインパクトのある表現に変換します。' },
+    { title: '20以上のプレミアムテンプレート', description: 'ATS互換性を保ちながらデザイン性に優れたプロフェッショナルテンプレートから選択。各テンプレートはデザイン専門家が作成。' },
+    { title: 'ATS最適化', description: 'リアルタイムのATSスコアリングで、採用管理システムを確実に通過。スコア改善のフィードバックを即座に取得できます。' },
+    { title: 'リアルタイムプレビュー', description: '入力と同時に変更をプレビュー。あなたが見ているものが採用担当者に見えるものと同じです。' },
+    { title: 'PDF出力', description: 'すぐに送れるピクセルパーフェクトなPDFをダウンロード。デジタル表示と印刷の両方に最適化されています。' },
+    { title: 'スマート提案', description: '応募する職種に基づいたスキル、キーワード、コンテンツのインテリジェントな提案を受け取れます。' },
+  ],
+  steps: {
+    badge: '使い方',
+    title: '3ステップで',
+    titleHighlight: '完璧な履歴書を作成',
+    items: [
+      { title: '情報を入力', description: '職歴、学歴、スキルを入力。AIが各ステップをサポートします。' },
+      { title: 'テンプレートを選択', description: '20以上のプロフェッショナルテンプレートから選択。リアルタイムでカスタマイズをプレビュー。' },
+      { title: 'PDFをダウンロード', description: '完成した履歴書をピクセルパーフェクトなPDFとしてエクスポート。採用担当者を感動させる準備完了。' },
+    ],
+  },
+  cta: {
+    title: '今すぐ作りませんか？',
+    titleHighlight: 'あなたの最強の履歴書を',
+    description: 'Best AI Resumeで理想の仕事を見つけた50,000人以上のプロフェッショナルに加わりましょう。',
+    ctaText: '無料で作成を始める',
+  },
+  externalResources: {
+    title: '外部リソース',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics：キャリアデータ' },
+      { href: 'https://www.shrm.org/', label: 'SHRM：人事・キャリアリソース' },
+    ],
+  },
+};
+
+const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string): FeaturesPageContent => selectContent(content, locale);

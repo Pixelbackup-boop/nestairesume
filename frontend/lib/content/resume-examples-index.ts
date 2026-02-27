@@ -96,5 +96,23 @@ const ar: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar };
+const ja: ResumeExamplesIndexContent = {
+  meta: {
+    title: '職種別 履歴書サンプル 300以上（2026年版）| Best AI Resume',
+    description: '業界・職種別に整理された300以上の無料履歴書サンプルを閲覧。ATS対応のプロフェッショナルな履歴書テンプレート付き。あなたの職種を見つけて履歴書を作成しましょう。',
+  },
+  hero: {
+    badge: '履歴書サンプル 2026',
+    title: '履歴書サンプル',
+    titleHighlight: '職種別',
+    subtitle: '{count}以上のプロフェッショナルな履歴書サンプルを業界別に閲覧。あなたの職種を見つけて、AIビルダーで履歴書を作成しましょう。',
+  },
+  bottomCta: {
+    title: 'お探しの職種が見つかりませんか？',
+    description: 'AIがあらゆる職種の履歴書を数秒で作成します。',
+    ctaText: 'カスタム履歴書を生成',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

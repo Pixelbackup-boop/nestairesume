@@ -1485,7 +1485,160 @@ const ar: ChatGPTComparisonContent = {
   }
 };
 
-const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar };
+const ja: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs AI履歴書ビルダー：どちらが優れた履歴書を作れる？（2026年）| Best AI Resume",
+    description: "履歴書作成にChatGPTと専用AI履歴書ビルダーのどちらを使うべき？フォーマット、ATS対応、出力品質を比較。より多くの面接を獲得できるツールを解説。",
+    keywords: "ChatGPT 履歴書, ChatGPT 職務経歴書, AI 履歴書ビルダー, ChatGPT vs 履歴書ビルダー, AI 履歴書作成",
+    ogTitle: "ChatGPT vs AI履歴書ビルダー：どちらが優れた履歴書を作れる？（2026年）",
+    ogDescription: "ChatGPTと専用AI履歴書ビルダーを機能別に比較。正直なメリット・デメリットを解説。",
+    twitterTitle: "ChatGPT vs AI履歴書ビルダー：どちらが優れた履歴書を作れる？",
+    twitterDescription: "ChatGPTと専用AI履歴書ビルダーを比較。採用される履歴書を作るのはどちら？"
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs AI履歴書ビルダー",
+    articleHeadline: "ChatGPT vs AI履歴書ビルダー：2026年に優れた履歴書を作れるのはどちら？",
+    articleDescription: "ChatGPTと専用AI履歴書ビルダーを機能別に比較。正直なメリット・デメリットを解説。"
+  },
+  hero: {
+    badge: "比較",
+    title: "ChatGPT vs AI履歴書ビルダー：",
+    titleHighlight: "採用されるのはどちら？",
+    subtitle: "ChatGPTはテキストを生成します。履歴書ビルダーは<strong>面接に直結する書類</strong>を作成します。この違いが転職活動で重要な理由を解説します。",
+    ctaPrimary: "無料で履歴書を作成",
+    ctaSecondary: "比較を見る"
+  },
+  problem: {
+    title: "問題点：ChatGPTはテキストを書くが、履歴書は作れない",
+    description: "ChatGPTは汎用AIテキスト生成ツールです。履歴書の箇条書きや要約、カバーレターを書くことはできますが、<strong>書類のフォーマット設定、ATS互換性の確認、PDF出力はできません</strong>。生のテキストを受け取った後、自分でデザイン、フォーマット、最適化する必要があります。",
+    stats: [
+      { value: "0", label: "テンプレートなし — ChatGPTはプレーンテキストのみ出力" },
+      { value: "0%", label: "ATS対応なし — キーワードスコアリングやフォーマットチェックなし" },
+      { value: "3+", label: "追加ツールが必要 — テンプレート、フォーマッター、PDF変換" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "転職者のための正直な機能比較",
+    colFeature: "機能",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      { feature: "AI文章生成", chatgpt: "強力な汎用テキスト生成", best: "業界キーワード特化のAI", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "プロ仕様テンプレート", chatgpt: "テンプレートなし（テキストのみ）", best: "20以上のATS検証済みテンプレート", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "ATS最適化", chatgpt: "ATS対応なし", best: "リアルタイムATSスコアとキーワードマッチング", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "PDF出力", chatgpt: "書類エクスポートなし", best: "ワンクリックPDF出力", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "フォーマット・デザイン", chatgpt: "プレーンテキスト出力のみ", best: "プロ仕様のフォーマット内蔵", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "求人票マッチング", chatgpt: "手動（プロンプトに貼り付け）", best: "自動キーワード抽出・マッチング", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "セクション構成", chatgpt: "プロンプトで構成を指定", best: "ガイド付きセクション別フロー", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "一貫性", chatgpt: "プロンプトの質で出力が変動", best: "毎回一貫した検証済み出力", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "内容のパーソナライズ", chatgpt: "詳細なプロンプトが必要", best: "入力した経歴から自動生成", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "料金", chatgpt: "無料（GPT-3.5）または月額$20（GPT-4）", best: "無料プランあり", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "学習コスト", chatgpt: "プロンプトエンジニアリングが必要", best: "記入するだけのシンプル操作", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "複数の履歴書管理", chatgpt: "毎回ゼロから作成", best: "複数バージョンを保存・編集", chatgptIcon: "partial", bestIcon: "yes" }
+    ]
+  },
+  strengths: {
+    title: "ChatGPTが履歴書作成で優れている点",
+    subtitle: "公平に見て、ChatGPTには本当の強みがあります。履歴書作成で実際に役立つポイントです：",
+    items: [
+      { title: "箇条書きのブレインストーミング", description: "ChatGPTは業務記述から成果重視の箇条書きを複数パターン生成するのが得意です。書き出しに詰まった時に最適。" },
+      { title: "弱い内容のリライト", description: "業務記述をペーストして「成果重視に書き直して」と指示すれば、行動動詞と数値を使った表現に変換してくれます。" },
+      { title: "業界キーワードのリサーチ", description: "特定の職種に必要なスキルやキーワードを聞けば、ATS対策に役立つキーワードリストを提供してくれます。" },
+      { title: "カバーレターの下書き", description: "ChatGPTはカバーレターの初稿を適切に作成できます。パーソナライズは必要ですが、出発点としては優秀です。" }
+    ]
+  },
+  shortcomings: {
+    title: "ChatGPTの限界",
+    items: [
+      { title: "フォーマット・テンプレートなし", description: "ChatGPTはプレーンテキストを出力するだけです。プロフェッショナルな書類にするには別のツール（Googleドキュメント、Word、Canva等）が必要。これは時間がかかり、フォーマットエラーの原因になります。" },
+      { title: "ATS対応なし", description: "ChatGPTはATSがどのキーワードをスキャンしているか、どのセクション見出しを期待しているか、どの形式を解析できるかを知りません。" },
+      { title: "あなたのデータなしでは汎用的な出力", description: "非常に詳細なプロンプトを提供しない限り、ChatGPTは汎用的な内容を生成します。「チームを管理」ではなく「12名のエンジニアチームをリードし3製品を前倒しで出荷」のような具体性が必要です。" },
+      { title: "品質が不安定", description: "ChatGPTの出力品質はプロンプトに完全に依存します。わずかな言い回しの変更で大きく異なる結果になります。" },
+      { title: "PDF出力なし", description: "ChatGPTの会話をそのまま採用担当者に送ることはできません。テキストをコピーし、テンプレートに貼り付け、フォーマットを調整し、PDFに変換する作業が30分以上かかります。" }
+    ]
+  },
+  bestApproach: {
+    title: "最適なアプローチ：両方を使う",
+    description: "2026年にAIで履歴書を作成する最適なワークフロー：",
+    steps: [
+      { title: "ChatGPTでブレインストーミング", description: "箇条書きのアイデア生成、弱い内容のリライト、応募先に合った業界キーワードの特定に使用。" },
+      { title: "専用ビルダーで履歴書を構築", description: "Best AI Resume Builderで、プロ仕様でATS最適化されたテンプレートにコンテンツを落とし込む。" },
+      { title: "実データでパーソナライズ", description: "汎用的なAIテキストを、実際の数値、実績、会社名に置き換える。具体的な成果は本人にしか書けません。" },
+      { title: "エクスポートして応募", description: "ATS最適化されたPDFをダウンロードして直接応募。コピペもフォーマット調整も不要。" }
+    ]
+  },
+  whoShouldUse: {
+    title: "正直なおすすめ：誰がどちらを使うべき？",
+    useChatGPT: {
+      title: "ChatGPTが向いている人",
+      items: [
+        "すでに整ったフォーマットの履歴書テンプレートを持っている",
+        "箇条書きのアイデア出しだけが必要",
+        "書類のフォーマット設定に慣れている",
+        "業界キーワードやトレンドのリサーチがしたい"
+      ]
+    },
+    useBestAI: {
+      title: "Best AI Resumesが向いている人",
+      items: [
+        "1つのツールで完成した履歴書が欲しい",
+        "ATS最適化されたフォーマットとキーワードスコアが必要",
+        "テンプレートやフォーマットに時間をかけたくない",
+        "複数バージョンの履歴書を保存・編集したい",
+        "ワンクリックでPDF出力して送信したい"
+      ]
+    },
+    bottomLine: "結論：ChatGPTは優れた文章作成アシスタントですが、履歴書ビルダーではありません。完成度の高いATS対応の履歴書には、専用ツールが必要です。"
+  },
+  resumeExamples: {
+    title: "AIで作成した履歴書を見てみましょう",
+    description: "300以上の職種別履歴書サンプルを閲覧 — すべてChatGPT単体を超えるATS最適化AIで作成されています。",
+    ctaBrowse: "履歴書サンプルを見る",
+    ctaTemplates: "全テンプレートを見る"
+  },
+  faq: {
+    title: "よくある質問",
+    items: [
+      { question: "ChatGPTで良い履歴書は作れる？", answer: "ChatGPTは履歴書のテキスト（箇条書き、要約、目的）を生成できますが、フォーマット設定、ATS互換性の確保、ダウンロード可能なPDFの出力はできません。書類のデザインとフォーマットには別のツールが必要です。専用AI履歴書ビルダーなら文章作成とフォーマットをワンステップで処理します。" },
+      { question: "AIで履歴書を書いても大丈夫？", answer: "はい。2026年現在、AI活用の履歴書作成は広く受け入れられています。採用担当者が重視するのは履歴書の内容の質であり、作成方法ではありません。重要なのは、AIが生成した内容を自分の実績や数値でパーソナライズすることです。" },
+      { question: "ChatGPTを履歴書に使うデメリットは？", answer: "フォーマットなしのプレーンテキスト出力、ATS対応なし、求人票とのスコアリング不可、具体的な数値なしでは汎用的な内容、テンプレートへの手動コピペが必要。履歴書作成に特化したトレーニングがないため、他のテキスト生成タスクと同じ扱いです。" },
+      { question: "ATSはChatGPTで作った履歴書を弾く？", answer: "ATSはAI作成コンテンツの検出や判別は行いません。ただし、ChatGPTのテキストを不適切なフォーマットのテンプレートに貼り付けると、ATSがパースに失敗する場合があります。専用履歴書ビルダーなら内容とフォーマットの両方がATS対応です。" },
+      { question: "Best AI Resume BuilderはChatGPTより履歴書作成に向いている？", answer: "履歴書作成という特定のタスクにおいては、はい。Best AI Resume BuilderはAI文章生成、プロ仕様フォーマット、ATS最適化、キーワードマッチング、PDF出力を1つのツールで実現します。ChatGPTは汎用AIであり、テキスト生成はできますが履歴書のフォーマット、スコアリング、エクスポートはできません。" }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "他の履歴書ビルダーと比較",
+    links: [
+      { title: "Canva代替", subtitle: "デザインツール vs 履歴書ビルダー" },
+      { title: "Overleaf代替", subtitle: "LaTeX vs AIビルダー" },
+      { title: "Resume.io代替", subtitle: "料金と機能の比較" },
+      { title: "Rezi代替", subtitle: "AIツール同士の比較" }
+    ],
+    guidesTitle: "役立つ履歴書ガイド",
+    guides: [
+      { label: "ATSとは？完全ガイド" },
+      { label: "履歴書の書き方（ステップバイステップ）" },
+      { label: "ChatGPT vs Claude 履歴書作成比較" },
+      { label: "プロフェッショナルサマリーの書き方" }
+    ]
+  },
+  externalResources: {
+    title: "外部リソース",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "OpenAI ChatGPT" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook：履歴書のコツ" }
+    ]
+  },
+  bottomCta: {
+    title: "ChatGPTを超える準備はできましたか？",
+    description: "AI履歴書ビルダーで完全なATS最適化済み履歴書を作成 — 文章生成、フォーマット、PDF出力がワンツールで完結。",
+    ctaText: "無料で履歴書を作成 — 登録不要",
+    subtext: "永久無料。クレジットカード不要。"
+  }
+};
+
+const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja };
 
 export const getContent = (locale: string): ChatGPTComparisonContent =>
   selectContent(content, locale);

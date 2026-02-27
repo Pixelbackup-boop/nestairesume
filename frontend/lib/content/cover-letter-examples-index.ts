@@ -255,5 +255,54 @@ const ar: CoverLetterExamplesIndexContent = {
   },
 };
 
-const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar };
+const ja: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: '職種別カバーレター例文集（2026年版）| Best AI Resume',
+    description: '業界・職種別に整理された100以上の無料カバーレター例文を閲覧。プロフェッショナルなカバーレターテンプレートと書き方のコツ付き。',
+    keywords: 'カバーレター 例文, カバーレター テンプレート, 志望動機書, カバーレター 書き方, 送付状 例文, 添え状 テンプレート',
+  },
+  hero: {
+    badge: 'カバーレター例文 2026',
+    title: 'カバーレター例文',
+    titleHighlight: '職種別',
+    subtitle: '{count}以上のプロフェッショナルなカバーレター例文を業界別に閲覧。あなたの職種を見つけて、AIビルダーでカバーレターを作成しましょう。',
+    ctaBrowse: '例文を見る',
+    ctaCreate: 'AIでカバーレターを作成',
+  },
+  stats: {
+    examples: 'カバーレター例文',
+    industries: '対応業界数',
+    free: '無料で利用可能',
+  },
+  tips: {
+    title: '効果的なカバーレターとは？',
+    items: [
+      { title: '個別化', description: '採用担当者の名前を宛名に書き、応募先ごとに内容をカスタマイズしましょう。採用担当者の77%がパーソナライズされたカバーレターを好みます。' },
+      { title: '具体的な実績', description: '自分の価値を示す1〜2つの定量的な成果を含めましょう。数字は曖昧な主張より記憶に残ります。' },
+      { title: '簡潔な長さ', description: '250〜400文字（日本語）を目安に。採用担当者がカバーレターに目を通す時間は30秒未満です。' },
+    ],
+  },
+  grid: {
+    title: '業界別に探す',
+    examplesLabel: '件の例文',
+    coverLetterSuffix: 'カバーレター',
+    comingSoon: 'カバーレター例文は近日公開予定です！',
+    comingSoonCta: 'AIでカバーレターを作成',
+  },
+  bottomCta: {
+    title: 'お探しの職種が見つかりませんか？',
+    description: 'AIがあらゆる職種のカバーレターを数秒で作成します。',
+    ctaText: 'カスタムカバーレターを生成',
+  },
+  relatedResources: {
+    title: '関連リソース',
+    items: [
+      { title: '履歴書サンプル', description: '300以上の職種別履歴書サンプル' },
+      { title: 'カバーレターガイド', description: 'ステップバイステップの書き方解説' },
+      { title: '履歴書テンプレート', description: 'あらゆる職種に対応したプロ仕様のテンプレート' },
+    ],
+  },
+};
+
+const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string): CoverLetterExamplesIndexContent => selectContent(content, locale);

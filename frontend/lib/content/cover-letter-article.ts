@@ -150,5 +150,30 @@ const ar: CoverLetterArticleContent = {
   updated: 'تم التحديث',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar };
+const ja: CoverLetterArticleContent = {
+  breadcrumb: { home: 'ホーム', coverLetterExamples: 'カバーレター例文' },
+  notFound: '見つかりません',
+  coverLetterSuffix: 'カバーレター例文',
+  keySkillsTitle: 'アピールすべきスキル',
+  relatedTopics: '関連トピック',
+  faqTitle: 'よくある質問',
+  relatedResourcesTitle: '関連リソース',
+  resumeExampleSubtext: '対応する履歴書フォーマットを見る',
+  coverLetterGenerator: 'AIカバーレター生成ツール',
+  coverLetterGeneratorSubtext: '数秒でカバーレターを作成',
+  sidebar: {
+    ctaTitle: 'カバーレターを作成',
+    ctaSubtitle: 'AIを使って{jobTitle}向けのカバーレターを数秒で生成。',
+    ctaButton: 'カバーレターを生成',
+    tocTitle: '目次',
+  },
+  relatedCoverLetters: '関連するカバーレター',
+  bottomCta: {
+    subtitle: 'Best AI Resumeで理想の仕事を見つけた数万人のプロフェッショナルに加わりましょう。',
+    button: 'カバーレターを無料で生成',
+  },
+  updated: '更新日',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);
