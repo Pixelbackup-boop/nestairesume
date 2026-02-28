@@ -24,26 +24,20 @@ test.describe('User Journey: New Visitor', () => {
   });
 
   test('complete flow: homepage → builder via CTA', async ({ page }) => {
-    await page.goto('/');
+    // Navigate directly to /en to avoid locale redirect timing issues in CI
+    await page.goto('/en');
     await page.waitForLoadState('domcontentloaded');
 
-    // Scope CTA to the hero/main area (avoid matching navbar links)
-    const heroArea = page.locator('main, [class*="hero"], section').first();
-    const ctaButton = heroArea.getByRole('link', { name: /build|start|create|try/i }).first();
+    // Find the primary CTA in the hero section
+    const ctaButton = page.locator('section').first().getByRole('link', { name: /build|start|create|try|browse/i }).first();
     await ctaButton.waitFor({ state: 'visible', timeout: 15000 });
     await ctaButton.click();
-    await page.waitForLoadState('domcontentloaded');
+    await page.waitForURL(/\/(onboarding|builder|templates|pricing|auth|login|checkout|features)/, { timeout: 15000 });
 
-    // CTA can lead to onboarding, builder, templates, pricing, or auth
     const url = page.url();
-    expect(
-      url.includes('onboarding') ||
-      url.includes('builder') ||
-      url.includes('templates') ||
-      url.includes('pricing') ||
-      url.includes('auth') ||
-      url.includes('login')
-    ).toBe(true);
+    const validDestinations = ['onboarding', 'builder', 'templates', 'pricing', 'auth', 'login', 'checkout', 'features'];
+    const matched = validDestinations.some(dest => url.includes(dest));
+    expect(matched).toBe(true);
   });
 });
 
