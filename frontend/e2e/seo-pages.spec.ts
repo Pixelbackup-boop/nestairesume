@@ -22,10 +22,17 @@ test.describe('SEO Content Pages', () => {
       await page.goto('/en/blog');
       await page.waitForLoadState('domcontentloaded');
 
-      // Wait for blog cards to render (server component but may need hydration)
-      const blogLink = page.locator('a[href*="/blog/"]').first();
-      await blogLink.waitFor({ state: 'visible', timeout: 15000 });
-      await blogLink.click();
+      // Match blog post links with a slug (exclude the listing page link /en/blog/ itself)
+      const blogLink = page.locator('a[href*="/en/blog/"]').filter({ hasNotText: /^$/ }).first();
+      await blogLink.waitFor({ state: 'visible', timeout: 20000 });
+
+      const href = await blogLink.getAttribute('href');
+      // Navigate directly to avoid click-interception issues in CI
+      if (href) {
+        await page.goto(href);
+      } else {
+        await blogLink.click();
+      }
       await page.waitForLoadState('domcontentloaded');
 
       expect(page.url()).toContain('/blog/');

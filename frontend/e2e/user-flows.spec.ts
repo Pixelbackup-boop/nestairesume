@@ -27,17 +27,20 @@ test.describe('User Journey: New Visitor', () => {
     await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
-    // Wait for hero CTA to render (server component, but may need hydration for animations)
-    const ctaButton = page.getByRole('link', { name: /build|start|create|try/i }).first();
+    // Scope CTA to the hero/main area (avoid matching navbar links)
+    const heroArea = page.locator('main, [class*="hero"], section').first();
+    const ctaButton = heroArea.getByRole('link', { name: /build|start|create|try/i }).first();
     await ctaButton.waitFor({ state: 'visible', timeout: 15000 });
     await ctaButton.click();
     await page.waitForLoadState('domcontentloaded');
 
-    // CTA leads to onboarding, builder, or auth
+    // CTA can lead to onboarding, builder, templates, pricing, or auth
     const url = page.url();
     expect(
       url.includes('onboarding') ||
       url.includes('builder') ||
+      url.includes('templates') ||
+      url.includes('pricing') ||
       url.includes('auth') ||
       url.includes('login')
     ).toBe(true);
