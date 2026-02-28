@@ -84,6 +84,18 @@ const ja: TemplatesCategoryContent = {
   breadcrumbTemplates: 'テンプレート',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja };
+const it: TemplatesCategoryContent = {
+  fallbackTitle: 'Modelli di Curriculum Vitae | Best AI Resume',
+  collectionSuffix: 'Collezione',
+  availableTemplates: 'Modelli Disponibili',
+  editInAI: 'Modifica con IA',
+  tiredTitle: 'Stanco di formattare documenti?',
+  tiredSubtitle: 'Scaricare modelli è utile, ma compilarli è noioso. Il nostro Creatore di CV con IA si occupa della formattazione al posto tuo in un istante.',
+  buildWithAI: 'Crea con l\'IA',
+  breadcrumbHome: 'Home',
+  breadcrumbTemplates: 'Modelli',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

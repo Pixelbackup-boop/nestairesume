@@ -304,5 +304,54 @@ const ja: CoverLetterExamplesIndexContent = {
   },
 };
 
-const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja };
+const it: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: 'Esempi di Lettera di Presentazione per Professione (2026) | Best AI Resume',
+    description: 'Sfoglia oltre 100 esempi gratuiti di lettera di presentazione organizzati per settore e professione. Modelli professionali con consigli di scrittura.',
+    keywords: 'esempi lettera di presentazione, modello lettera di presentazione, lettera di presentazione professionale, lettera di accompagnamento, formato lettera di presentazione',
+  },
+  hero: {
+    badge: 'Esempi di Lettere 2026',
+    title: 'Esempi di Lettera di Presentazione',
+    titleHighlight: 'per Professione',
+    subtitle: 'Sfoglia {count}+ esempi professionali di lettera di presentazione organizzati per settore. Trova la tua professione e crea la tua lettera con il nostro strumento IA.',
+    ctaBrowse: 'Sfoglia gli Esempi',
+    ctaCreate: 'Crea una Lettera con l\'IA',
+  },
+  stats: {
+    examples: 'Esempi di Lettere',
+    industries: 'Settori Coperti',
+    free: 'Gratuiti da Usare',
+  },
+  tips: {
+    title: 'Cosa rende efficace una lettera di presentazione?',
+    items: [
+      { title: 'Personalizzazione', description: 'Rivolgiti al responsabile delle assunzioni per nome e personalizza ogni lettera. Il 77% dei selezionatori preferisce lettere personalizzate.' },
+      { title: 'Risultati Concreti', description: 'Includi 1-2 risultati quantificati che dimostrino il tuo valore. I numeri sono più memorabili delle affermazioni generiche.' },
+      { title: 'Lunghezza Concisa', description: 'Mantieniti tra 250 e 400 parole. I selezionatori dedicano meno di 30 secondi alla lettura — ogni parola conta.' },
+    ],
+  },
+  grid: {
+    title: 'Sfoglia per Settore',
+    examplesLabel: 'esempi',
+    coverLetterSuffix: 'Lettera di Presentazione',
+    comingSoon: 'Esempi di lettere di presentazione in arrivo!',
+    comingSoonCta: 'Crea una Lettera con l\'IA',
+  },
+  bottomCta: {
+    title: 'Non trovi la tua professione?',
+    description: 'La nostra IA può scrivere una lettera di presentazione personalizzata per QUALSIASI professione in pochi secondi.',
+    ctaText: 'Genera Lettera Personalizzata',
+  },
+  relatedResources: {
+    title: 'Risorse Correlate',
+    items: [
+      { title: 'Esempi di Curriculum Vitae', description: 'Oltre 300 esempi per professione' },
+      { title: 'Guida alla Lettera di Presentazione', description: 'Tutorial passo passo per la scrittura' },
+      { title: 'Modelli di Curriculum Vitae', description: 'Modelli professionali per qualsiasi lavoro' },
+    ],
+  },
+};
+
+const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string): CoverLetterExamplesIndexContent => selectContent(content, locale);

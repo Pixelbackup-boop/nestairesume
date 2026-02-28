@@ -359,5 +359,58 @@ const ja: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja };
+const it: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'Blog - Consigli per il CV e la Carriera | Best AI Resume',
+      description: 'Consigli di esperti per scrivere il curriculum vitae, orientamento professionale e strategie per la ricerca di lavoro. Guide e tutorial gratuiti.',
+      ogDescription: 'Consigli di esperti per scrivere il curriculum vitae e strategie per la ricerca di lavoro.',
+    },
+    heroBadge: 'Il Nostro Blog',
+    heroTitle: 'Consigli per il CV e ',
+    heroTitleHighlight: 'la Carriera',
+    heroSubtitle: 'Guide, consigli e strategie di esperti per creare curriculum vitae d\'impatto e far progredire la tua carriera.',
+    featuredArticles: 'Articoli in Evidenza',
+    noArticlesTitle: 'Nessun articolo ancora',
+    noArticlesSubtitle: 'Torna presto per nuovi contenuti!',
+  },
+  article: {
+    notFound: 'Articolo Non Trovato',
+    faqTitle: 'Domande Frequenti',
+    resourcesTitle: 'Strumenti e Risorse per il CV',
+    resources: [
+      { title: 'Oltre 300 Esempi di CV', subtitle: 'Guide alla scrittura per professione' },
+      { title: 'Guida al Formato del CV 2026', subtitle: 'Cronologico, funzionale e combinato' },
+      { title: 'Modelli di CV Gratuiti', subtitle: 'Design professionali compatibili con ATS' },
+      { title: 'Creatore di CV con IA', subtitle: 'Crea il tuo curriculum in pochi minuti' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'Articoli | Blog di Best AI Resume',
+    metaDescTemplate: 'Scopri i nostri articoli su {category} con consigli, guide e suggerimenti degli esperti.',
+    backToBlog: 'Torna al Blog',
+    articlesCount: '{count} articoli in questa categoria',
+    articleCount: '{count} articolo in questa categoria',
+    noArticlesTitle: 'Nessun articolo ancora',
+    noArticlesSubtitle: 'Torna presto per nuovi contenuti in questa categoria!',
+  },
+  search: {
+    meta: {
+      title: 'Cerca nel Blog | Best AI Resume',
+      description: 'Cerca nel nostro blog consigli per il curriculum vitae, orientamento professionale e strategie per la ricerca di lavoro.',
+    },
+    backToBlog: 'Torna al Blog',
+    title: 'Risultati della Ricerca',
+    resultsCount: '{count} risultati per',
+    resultCount: '{count} risultato per',
+    startSearchTitle: 'Inizia a cercare',
+    startSearchSubtitle: 'Inserisci un termine di ricerca per trovare articoli',
+    noResultsTitle: 'Nessun risultato',
+    noResultsText: 'Non abbiamo trovato articoli corrispondenti a',
+    tryLabel: 'Prova:',
+    trySuggestions: ['Usare parole chiave diverse', 'Controllare l\'ortografia', 'Esplorare le categorie'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

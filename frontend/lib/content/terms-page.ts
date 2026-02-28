@@ -448,6 +448,80 @@ const ja: TermsContent = {
   lastUpdated: '最終更新：2026年1月',
 };
 
-const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja };
+// ── Italian ──────────────────────────────────────────────────────────
+
+const it: TermsContent = {
+  hero: {
+    badge: 'Termini e Condizioni',
+    title: 'Condizioni di servizio',
+    titleHighlight: 'semplici e trasparenti',
+    subtitle: 'Crediamo nella trasparenza e nella semplicit\u00e0. I nostri termini sono scritti in un linguaggio chiaro affinch\u00e9 tu sappia esattamente cosa aspettarti utilizzando Best AI Resume.',
+  },
+  highlights: [
+    { title: 'Nessun Costo Nascosto', text: 'Quello che vedi \u00e8 quello che paghi. I nostri prezzi sono chiari, senza addebiti a sorpresa n\u00e9 costi nascosti.' },
+    { title: 'I Tuoi Dati, il Tuo Controllo', text: 'Conserviamo solo la tua e-mail e il tuo nome per il login. I contenuti del tuo curriculum vitae restano nel tuo browser\u2014mai sui nostri server.' },
+    { title: 'Prova Gratuita di 7 Giorni', text: 'Prova tutte le funzionalit\u00e0 premium gratis per 7 giorni. Nessun addebito fino al termine della prova, cancella in qualsiasi momento senza costi aggiuntivi.' },
+  ],
+  sections: [
+    {
+      heading: 'Panoramica del Servizio',
+      intro: 'Best AI Resume \u00e8 un builder di curriculum vitae online che ti aiuta a creare CV professionali con strumenti basati sull\u2019intelligenza artificiale. Utilizzando il nostro servizio, accetti i presenti termini.',
+      items: ['Crea un numero illimitato di curriculum vitae con i nostri strumenti', 'Accedi a suggerimenti e miglioramenti dei contenuti generati dall\u2019AI', 'Scarica i tuoi CV in formato PDF', 'Scegli tra modelli progettati da professionisti'],
+    },
+    {
+      heading: 'Account e Trasparenza dei Dati',
+      subsections: [
+        { subheading: 'Cosa Conserviamo sui Nostri Server', items: ['**Indirizzo e-mail** \u2014 Per il login e le notifiche importanti', '**Nome** \u2014 Per personalizzare la tua esperienza', '**Password (crittografata)** \u2014 Salvata in forma di hash sicuro per l\u2019autenticazione', '**Stato dell\u2019abbonamento** \u2014 Per gestire i vantaggi del tuo piano'] },
+        { subheading: 'Cosa NON Conserviamo', items: ['I contenuti del tuo curriculum vitae (salvati localmente nel browser)', 'La tua storia lavorativa o i dettagli sull\u2019impiego', 'Le tue informazioni su istruzione e competenze', 'Il tuo indirizzo personale o numero di telefono'] },
+      ],
+      intro: 'Ci impegniamo a raccogliere il minimo indispensabile di dati. Conserviamo solo ci\u00f2 che \u00e8 strettamente necessario al funzionamento del tuo account:',
+    },
+    {
+      heading: 'Abbonamento e Pagamenti',
+      subsections: [
+        { subheading: 'Abbonamento Mensile', items: ['**Ciclo di fatturazione** \u2014 La fatturazione avviene mensilmente nella stessa data della sottoscrizione', '**Rinnovo automatico** \u2014 Gli abbonamenti si rinnovano automaticamente salvo disdetta', '**Trasparenza dei prezzi** \u2014 Il prezzo mostrato al momento del pagamento \u00e8 il prezzo che paghi (oltre le imposte applicabili)'] },
+        { subheading: 'Politica di Cancellazione', items: ['Cancella in qualsiasi momento dalla dashboard del tuo account\u2014senza bisogno di giustificazioni', 'L\u2019accesso prosegue fino alla fine del periodo di fatturazione in corso', 'Nessuna penale o costo di cancellazione', 'I tuoi dati locali restano intatti dopo la cancellazione'] },
+        { subheading: 'Prova Gratuita di 7 Giorni', items: ['**Accesso completo** \u2014 Prova tutte le funzionalit\u00e0 premium gratis per 7 giorni', '**Nessun addebito durante la prova** \u2014 Non verrai addebitato fino al termine del periodo di prova', '**Cancella in qualsiasi momento** \u2014 Cancella prima della fine della prova e non pagherai nulla', '**E-mail di promemoria** \u2014 Ti avviseremo prima della scadenza del periodo di prova'] },
+      ],
+    },
+    {
+      heading: 'Accesso Gratuito e Piani a Pagamento',
+      intro: 'Prima di abbonarti, puoi:',
+      items: ['Sfogliare e visualizzare in anteprima tutti i modelli', 'Creare e salvare curriculum vitae nel tuo account', 'Consultare esempi di CV e consigli di carriera'],
+    },
+    {
+      heading: 'Responsabilit\u00e0 dell\u2019Utente',
+      intro: 'Utilizzando il nostro servizio, accetti di:',
+      items: ['Fornire informazioni accurate durante la registrazione dell\u2019account', 'Mantenere sicure le tue credenziali di accesso', 'Utilizzare il servizio esclusivamente per scopi leciti', 'Non tentare di eludere o abusare del servizio'],
+    },
+    {
+      heading: 'Propriet\u00e0 Intellettuale',
+      items: ['**I tuoi contenuti** \u2014 Mantieni la piena titolarit\u00e0 di tutti i contenuti che crei utilizzando il nostro servizio', '**I nostri modelli** \u2014 I design dei modelli sono concessi in licenza per uso personale e professionale', '**Contenuti generati dall\u2019AI** \u2014 Il testo generato dalla nostra intelligenza artificiale diventa tuo e puoi utilizzarlo liberamente'],
+    },
+    {
+      heading: 'Disponibilit\u00e0 del Servizio',
+      intro: 'Ci impegniamo a garantire un\u2019elevata disponibilit\u00e0 del servizio, tuttavia:',
+      items: ['Interventi di manutenzione occasionali possono causare interruzioni temporanee', 'Informeremo gli utenti della manutenzione programmata quando possibile', 'I tuoi dati locali restano accessibili anche quando i nostri server non sono disponibili'],
+    },
+    {
+      heading: 'Modifiche ai Termini',
+      intro: 'Potremmo aggiornare questi termini periodicamente. Ti notificheremo le modifiche significative via e-mail o tramite il nostro servizio. L\u2019uso continuativo del servizio dopo le modifiche costituisce accettazione dei nuovi termini, ai sensi della normativa italiana e del Codice del Consumo (D.lgs. 206/2005).',
+    },
+    {
+      heading: 'Contattaci',
+    },
+  ],
+  contactText: 'Domande su questi termini? Contattaci all\u2019indirizzo',
+  cta: {
+    title: 'Pronto a creare il tuo',
+    titleHighlight: 'curriculum vitae professionale?',
+    subtitle: 'Prezzi semplici, termini trasparenti e i tuoi dati restano tuoi.',
+    primaryBtn: 'Inizia Gratis',
+    secondaryBtn: 'Vedi i Prezzi',
+  },
+  lastUpdated: 'Ultimo aggiornamento: gennaio 2026',
+};
+
+const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

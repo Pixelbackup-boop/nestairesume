@@ -741,5 +741,128 @@ const ja: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
+const it: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa a Rezi.ai 2026: Creatore di Curriculum Vitae AI Gratuito | Best AI Resume',
+    description: 'Cerchi un\'alternativa gratuita a Rezi.ai? Confronta Rezi vs Best AI Resume Builder — stessa qualità AI, funzioni illimitate, costo zero. Nessun limite di crediti, nessun abbonamento.',
+    keywords: 'alternativa rezi.ai, rezi curriculum, creatore cv gratuito, curriculum vitae AI gratuito, rezi recensione, alternativa rezi, curriculum ATS, cv italiano AI',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa a Rezi.ai',
+    articleHeadline: 'Alternativa a Rezi.ai 2026: Creatore di Curriculum Vitae AI Gratuito',
+    articleDescription: 'Confronto Rezi.ai vs Best AI Resume Builder. Ottieni la stessa scrittura AI e ottimizzazione ATS per il curriculum — completamente gratis.',
+  },
+  hero: {
+    badge: 'Alternativa a Rezi.ai',
+    title: 'Tutta la Potenza dell\'AI.',
+    titleHighlight: 'Senza Costi.',
+    subtitle: 'Rezi.ai ha aperto la strada ai curriculum con AI — ma chiede <strong>$29/mese</strong> per l\'accesso completo. Ottieni la stessa scrittura AI e ottimizzazione ATS <strong>completamente gratis</strong>.',
+    ctaPrimary: 'Crea il Mio CV Gratis',
+    ctaSecondary: 'Vedi il Confronto',
+  },
+  problem: {
+    title: 'Rezi È Valido — Ma Vale $29 al Mese?',
+    description: 'Rezi.ai è stato uno dei primi a proporre la creazione di curriculum con AI. Le funzioni di scrittura automatica e ottimizzazione ATS sono solide. Il problema? Il piano gratuito è molto limitato — <strong>solo 1 CV, crediti AI ridotti, modelli base</strong>. Per sbloccare la scrittura AI completa e i CV illimitati servono Rezi Pro a $29/mese o $129/anno. Per chi è in cerca di lavoro in Italia e già sotto pressione economica, è una spesa difficile da giustificare.',
+    stats: [
+      { value: '$29', label: 'al mese per Rezi Pro (AI completa + CV illimitati)' },
+      { value: '1', label: 'solo 1 CV con il piano gratuito di Rezi' },
+      { value: '$0', label: 'Best AI Resume Builder — tutto illimitato, gratis' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi.ai vs Best AI Resume Builder',
+    subtitle: 'Entrambi con AI. Solo uno è gratuito.',
+    competitorName: 'Rezi.ai',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prezzo', competitor: '❌ Pro: $29/mese o $129/anno', ours: '✅ Completamente gratuito' },
+      { feature: 'Scrittura AI', competitor: '✅ Ottima AI (crediti limitati nel piano free)', ours: '✅ Scrittura AI illimitata, gratis' },
+      { feature: 'Controllo ATS', competitor: '✅ Analisi ATS integrata', ours: '✅ Punteggio ATS in tempo reale' },
+      { feature: 'CV creabili', competitor: '❌ Solo 1 con piano gratuito', ours: '✅ Illimitati' },
+      { feature: 'Varietà di modelli', competitor: '⚠️ Scelta limitata', ours: '✅ 20+ modelli professionali' },
+      { feature: 'Ottimizzazione parole chiave', competitor: '✅ Matching con offerta di lavoro', ours: '✅ Suggerimento AI di parole chiave' },
+      { feature: 'Lettera di presentazione', competitor: '✅ AI (solo Pro)', ours: '✅ AI (gratis)' },
+      { feature: 'Esportazione PDF', competitor: '⚠️ Limitata nel piano gratuito', ours: '✅ Esportazione illimitata e gratuita' },
+      { feature: 'Facilità d\'uso', competitor: '⚠️ Interfaccia potente ma complessa', ours: '✅ Esperienza guidata e semplice' },
+      { feature: 'Valore del piano gratuito', competitor: '❌ Molto limitato (1 CV, pochi crediti AI)', ours: '✅ Tutte le funzioni, nessun limite' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivi per Passare da Rezi',
+    subtitle: 'Stessa qualità AI. Valore migliore.',
+    reasons: [
+      { title: 'Risparmi $348 all\'anno', description: 'Rezi Pro costa $29/mese ($348/anno). Il nostro creatore di CV con AI offre la stessa scrittura automatica, ottimizzazione ATS e CV illimitati a $0. Soldi che puoi investire nella tua ricerca di lavoro.' },
+      { title: 'Più modelli tra cui scegliere', description: 'Rezi ha una scelta limitata di modelli. Noi offriamo oltre 20 modelli professionali — tutti verificati ATS, tutti gratuiti. Dal minimalista al moderno, trovi lo stile giusto per il mercato italiano e internazionale.' },
+      { title: 'Esperienza più semplice', description: 'L\'interfaccia di Rezi è potente ma complessa. Il nostro flusso guidato ti accompagna sezione per sezione, rendendo facile creare un curriculum professionale anche se è la prima volta che ne scrivi uno.' },
+    ],
+  },
+  recommendation: {
+    title: 'Il Nostro Consiglio Onesto',
+    useCompetitor: {
+      title: 'Quando Rezi può essere la scelta giusta',
+      items: [
+        'Hai un budget di $29/mese per uno strumento di curriculum',
+        'Cerchi il matching specifico con un\'offerta di lavoro',
+        'Preferisci un\'interfaccia avanzata da power user',
+        'Ti basta un solo CV (sufficiente con il piano gratuito)',
+      ],
+    },
+    useUs: {
+      title: 'Quando Best AI Resumes è la scelta migliore',
+      items: [
+        'Vuoi scrittura AI illimitata senza pagare $29/mese',
+        'Hai bisogno di più versioni del CV per diverse candidature',
+        'Preferisci un\'esperienza guidata e intuitiva',
+        'Vuoi più varietà di modelli',
+        'Cerchi lavoro e vuoi contenere le spese',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Oltre 300 Esempi di Curriculum Gratuiti',
+    description: 'Da data analyst a product manager, da graphic designer a ingegnere — esplora esempi professionali di curriculum per ogni carriera.',
+    ctaBrowse: 'Sfoglia gli Esempi di CV',
+    ctaTemplates: 'Vedi Tutti i Modelli',
+  },
+  faq: {
+    title: 'Domande Frequenti',
+    items: [
+      { question: 'Rezi.ai è gratuito?', answer: 'Rezi ha un piano gratuito molto limitato: consente di creare un solo CV con funzioni base e crediti AI ridotti. Per l\'accesso completo (AI illimitata, più CV, tutti i modelli) serve Rezi Pro a $29/mese o $129/anno. Best AI Resume Builder offre tutte le funzioni senza limiti e senza costi.' },
+      { question: 'La scrittura AI di Rezi.ai è buona?', answer: 'Rezi è stato un pioniere nella scrittura AI per curriculum e offre funzionalità solide. Tuttavia, i crediti AI sono limitati nel piano gratuito e l\'uso illimitato richiede il pagamento. Best AI Resume Builder offre scrittura AI illimitata e gratuita con la stessa qualità, personalizzata per il tuo ruolo e settore.' },
+      { question: 'Qual è la migliore alternativa gratuita a Rezi?', answer: 'Best AI Resume Builder è la migliore alternativa gratuita. Offre la stessa qualità di scrittura AI e ottimizzazione ATS di Rezi, ma al 100% gratis — nessun limite di crediti, nessun limite di funzioni, nessun abbonamento.' },
+      { question: 'Rezi è meglio di altri creatori di CV con AI?', answer: 'Rezi è un prodotto solido con buone funzioni AI e ATS. Il punto debole principale è il prezzo — $29/mese è impegnativo per chi cerca lavoro. Best AI Resume Builder offre la stessa qualità AI, più modelli e punteggio ATS in tempo reale, il tutto gratis.' },
+      { question: 'I curriculum di Rezi superano i sistemi ATS?', answer: 'Sì, i modelli di Rezi sono progettati per la compatibilità ATS e includono un controllo ATS integrato. Anche Best AI Resume Builder offre modelli verificati ATS con punteggio in tempo reale e suggerimento di parole chiave — il tutto gratuitamente.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Confronta Altri Strumenti per Curriculum',
+    items: [
+      { href: '/it/canva-alternative', title: 'Alternativa a Canva', subtitle: 'Strumento di design vs creatore AI' },
+      { href: '/it/overleaf-alternative', title: 'Alternativa a Overleaf', subtitle: 'CV LaTeX vs creatore AI' },
+      { href: '/it/resume-io-alternative', title: 'Alternativa a Resume.io', subtitle: 'Confronto prezzi e funzioni' },
+    ],
+    guidesTitle: 'Guide Utili per il Curriculum',
+    guides: [
+      { href: '/it/blog/how-to-write-ats-friendly-resume', label: 'Come Scrivere un CV Compatibile ATS' },
+      { href: '/it/resume-format', label: 'Guida al Formato del Curriculum 2026' },
+      { href: '/it/resume-examples/data-analyst', label: 'Esempio CV Data Analyst' },
+      { href: '/it/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude per Curriculum' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi AI Creatore di Curriculum' },
+      { href: 'https://www.bls.gov/ooh/', label: 'U.S. Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Stessa Potenza AI. Costo Zero.',
+    description: 'Scrittura AI per curriculum, ottimizzazione ATS, oltre 20 modelli — tutto gratis. Nessuna carta di credito, nessun abbonamento, nessun limite.',
+    cta: 'Crea il Tuo CV Gratis',
+    subtext: 'Gratis per sempre. Tutto illimitato.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

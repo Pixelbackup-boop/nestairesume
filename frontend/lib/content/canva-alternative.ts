@@ -745,5 +745,129 @@ const ja: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
+const it: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa Canva per Curriculum Vitae 2026: Modelli ATS Gratuiti | Best AI Resume',
+    description: 'I modelli Canva per curriculum non superano gli ATS? Confronta Canva vs Best AI Resume Builder — modelli gratuiti ATS, scrittura IA. Nessuna competenza di design richiesta.',
+    keywords: 'alternativa canva curriculum vitae, modello cv canva, canva curriculum, curriculum ats compatibile, creatore cv gratuito, modelli curriculum vitae gratis, cv italiano',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa Canva per Curriculum Vitae',
+    articleHeadline: 'Alternativa Canva per Curriculum Vitae 2026: Modelli ATS Gratuiti',
+    articleDescription: 'Confronto Canva vs Best AI Resume Builder per creare curriculum vitae vincenti. Analisi funzionalità per funzionalità con pro e contro onesti.',
+  },
+  hero: {
+    badge: 'Alternativa Canva',
+    title: 'Basta Perdere Opportunità per',
+    titleHighlight: 'il Problema ATS di Canva.',
+    subtitle: 'Canva crea curriculum bellissimi — che il <strong>98% dei sistemi ATS non riesce a leggere</strong>. Passa a un creatore di CV progettato per farti assumere, non solo per essere bello.',
+    ctaPrimary: 'Crea il Mio CV Gratis',
+    ctaSecondary: 'Vedi il Confronto',
+  },
+  problem: {
+    title: 'Perché i Curriculum Canva Vengono Scartati',
+    description: 'Canva è uno strumento di graphic design, non un creatore di curriculum vitae. Quando crei un CV con Canva, viene esportato come immagine appiattita o PDF complesso dove il testo è incorporato come elemento grafico. I sistemi ATS leggono il testo dei documenti, non le immagini. Il risultato? <strong>Il tuo curriculum appare vuoto all\'ATS</strong>, e vieni scartato automaticamente prima che un selezionatore lo veda.',
+    stats: [
+      { value: '98%', label: 'delle grandi aziende usa ATS per filtrare i curriculum' },
+      { value: '75%', label: 'dei CV viene scartato prima di essere visto da un umano' },
+      { value: '0%', label: 'tasso di lettura ATS per la maggior parte dei modelli Canva' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: 'Confronto onesto funzionalità per funzionalità per chi cerca lavoro.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Compatibilità ATS', competitor: '❌ La maggior parte dei modelli non è ATS-compatibile', ours: '✅ Tutti i modelli verificati ATS' },
+      { feature: 'Scrittura con IA', competitor: '❌ Nessuna funzione di scrittura IA', ours: '✅ L\'IA crea esperienze e sommario professionale' },
+      { feature: 'Punteggio ATS in tempo reale', competitor: '❌ Nessun sistema di punteggio', ours: '✅ Punteggio ATS visibile durante la compilazione' },
+      { feature: 'Modelli gratuiti', competitor: '⚠️ Limitati (i migliori solo con Pro)', ours: '✅ Oltre 20 modelli tutti gratuiti' },
+      { feature: 'Progettato per CV', competitor: '⚠️ Strumento di design generico', ours: '✅ Progettato specificamente per curriculum' },
+      { feature: 'Leggibilità PDF', competitor: '❌ Esporta come immagine appiattita', ours: '✅ PDF pulito con testo selezionabile' },
+      { feature: 'Parole chiave settoriali', competitor: '❌ Nessun suggerimento', ours: '✅ L\'IA suggerisce parole chiave del settore' },
+      { feature: 'Formati di esportazione', competitor: '✅ PDF, PNG, JPG', ours: '✅ PDF (ottimizzato ATS)' },
+      { feature: 'Qualità del design', competitor: '✅ Eccellente design visivo', ours: '✅ Modelli professionali e puliti' },
+      { feature: 'Facilità d\'uso', competitor: '⚠️ Utile avere competenze di design', ours: '✅ Nessuna competenza di design necessaria' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivi per Passare da Canva a un Creatore di CV Dedicato',
+    subtitle: 'Non è una questione di design — è una questione di essere assunti.',
+    reasons: [
+      { title: 'Gli ATS Leggono il Tuo CV', description: 'Tutti i modelli producono PDF con testo pulito e analizzabile. Niente più scarti automatici dai sistemi che non riescono a leggere i file grafici di Canva.' },
+      { title: 'L\'IA Scrive i Contenuti', description: 'Canva ti dà una tela bianca. La nostra IA genera esperienze personalizzate, sommari professionali e parole chiave specifiche del settore italiano.' },
+      { title: 'Veramente 100% Gratuito', description: 'Canva riserva i migliori modelli per CV al piano Pro a $12.99/mese. I nostri oltre 20 modelli professionali sono tutti gratuiti — nessun limite a pagamento, nessun watermark.' },
+    ],
+  },
+  recommendation: {
+    title: 'Consiglio Onesto: Quale Usare?',
+    useCompetitor: {
+      title: 'Canva è consigliato se',
+      items: [
+        'Ti serve un CV creativo stile portfolio per ruoli nel design e nell\'arte',
+        'Ti candidi presso aziende che non usano ATS (microimprese)',
+        'Vuoi creare un curriculum infografico per eventi di networking',
+        'Hai già contenuti forti per il CV e ti serve solo un layout visivo',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes è consigliato se',
+      items: [
+        'Ti candidi tramite portali lavoro (Indeed, LinkedIn, siti aziendali, agenzie italiane)',
+        'Hai bisogno di aiuto sia nella scrittura che nel design del curriculum',
+        'Vuoi che il tuo CV superi lo screening ATS con certezza',
+        'Preferisci un\'esperienza guidata rispetto a una tela di design vuota',
+        'Non hai competenze di graphic design',
+      ],
+    },
+    bottomLine: 'In sintesi: Canva è un ottimo strumento di design. Ma per le candidature che passano dai sistemi ATS (la stragrande maggioranza nel mercato del lavoro italiano), serve un creatore di curriculum dedicato.',
+  },
+  resumeExamples: {
+    title: 'Guarda Esempi di CV Compatibili con ATS',
+    description: 'Sfoglia oltre 300 esempi di curriculum vitae per ogni professione, tutti creati con modelli ottimizzati ATS.',
+    ctaBrowse: 'Sfoglia Esempi di CV',
+    ctaTemplates: 'Vedi Tutti i Modelli',
+  },
+  faq: {
+    title: 'Domande Frequenti',
+    items: [
+      { question: 'I modelli curriculum di Canva sono gratuiti?', answer: 'Canva offre alcuni modelli CV gratuiti, ma i design migliori richiedono Canva Pro ($12.99/mese). Best AI Resume Builder offre tutti i modelli gratuitamente — senza watermark e senza limiti a pagamento.' },
+      { question: 'I curriculum Canva sono compatibili con gli ATS?', answer: 'La maggior parte dei modelli Canva non è compatibile ATS. Canva esporta i curriculum come immagini appiattite o PDF complessi che i software ATS non possono analizzare. Questo significa che il contenuto del tuo CV è invisibile ai sistemi automatici usati dal 98% delle grandi aziende.' },
+      { question: 'Qual è la migliore alternativa gratuita a Canva per il curriculum?', answer: 'Best AI Resume Builder è la migliore alternativa gratuita. Offre scrittura IA dei contenuti, punteggio ATS in tempo reale, oltre 20 modelli professionali e PDF puliti e analizzabili — tutto gratis.' },
+      { question: 'Perché i curriculum Canva non superano gli ATS?', answer: 'Canva incorpora il testo come elemento grafico anziché come testo selezionabile. I software ATS leggono il testo dei documenti, non le immagini. Se il tuo curriculum è una grafica Canva, per l\'ATS appare come un documento vuoto e viene scartato automaticamente.' },
+      { question: 'Posso importare il mio curriculum Canva in Best AI Resume Builder?', answer: 'Puoi copiare i contenuti da Canva e incollarli nel nostro builder. Da lì, l\'IA ottimizzerà le esperienze, suggerirà miglioramenti e formatterà automaticamente tutto in un modello compatibile ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Confronta Altri Creatori di CV',
+    items: [
+      { href: '/overleaf-alternative', title: 'Alternativa Overleaf', subtitle: 'CV LaTeX vs creatore con IA' },
+      { href: '/resume-io-alternative', title: 'Alternativa Resume.io', subtitle: 'Prezzi e funzionalità a confronto' },
+      { href: '/rezi-alternative', title: 'Alternativa Rezi', subtitle: 'Strumenti IA per CV a confronto' },
+    ],
+    guidesTitle: 'Guide Utili per il Curriculum',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'Come Scrivere un CV Compatibile ATS' },
+      { href: '/resume-format', label: 'Guida al Formato del Curriculum 2026' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: 'Errori Comuni nel Curriculum da Evitare' },
+      { href: '/blog/best-resume-fonts-2026', label: 'I Migliori Font per il Curriculum 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.canva.com/resumes/', label: 'Canva Modelli Curriculum' },
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS: Consigli per il Curriculum' },
+    ],
+  },
+  bottomCta: {
+    title: 'Vuoi un Curriculum che Superi gli ATS?',
+    description: 'Passa da Canva e unisciti a migliaia di candidati che usano un creatore di CV con IA progettato per farli assumere nel mercato del lavoro italiano e internazionale.',
+    cta: 'Crea il Mio CV Gratis — Senza Registrazione',
+    subtext: 'Gratis per sempre. Nessuna carta di credito richiesta.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

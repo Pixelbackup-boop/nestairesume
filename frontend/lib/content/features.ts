@@ -284,5 +284,50 @@ const ja: FeaturesPageContent = {
   },
 };
 
-const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja };
+const it: FeaturesPageContent = {
+  meta: {
+    title: 'Funzionalit\u00e0 del Builder CV con AI \u2014 Modelli, Controllo ATS e Altro | Best AI Resume',
+    description: 'Scopri tutte le funzionalit\u00e0 di Best AI Resume: scrittura con intelligenza artificiale, oltre 20 modelli professionali, ottimizzazione ATS in tempo reale, esportazione PDF e suggerimenti intelligenti per il tuo curriculum vitae.',
+    keywords: 'funzionalit\u00e0 builder curriculum vitae, scrittore cv ai, controllo ats curriculum, modelli cv, esportazione pdf curriculum, strumenti creazione cv',
+  },
+  hero: {
+    badge: 'Funzionalit\u00e0',
+    title: 'Tutto ci\u00f2 che ti serve per',
+    titleHighlight: 'ottenere il lavoro dei tuoi sogni',
+    subtitle: 'Strumenti AI potenti combinati con un design elegante per distinguerti dalla concorrenza.',
+  },
+  features: [
+    { title: 'Scrittura con AI', description: 'Lascia che la nostra intelligenza artificiale crei punti elenco convincenti e sommari professionali che valorizzano i tuoi risultati. Trasforma semplici descrizioni lavorative in dichiarazioni d\u2019impatto.' },
+    { title: 'Oltre 20 Modelli Premium', description: 'Scegli tra modelli progettati da professionisti che si distinguono mantenendo la compatibilit\u00e0 con i sistemi ATS. Ogni modello \u00e8 realizzato da esperti di design.' },
+    { title: 'Ottimizzazione ATS', description: 'Il punteggio ATS in tempo reale garantisce che il tuo curriculum vitae superi i sistemi di screening automatizzati in ogni occasione. Ricevi feedback immediato su come migliorare il tuo punteggio.' },
+    { title: 'Anteprima in Tempo Reale', description: 'Visualizza le modifiche istantaneamente mentre digiti. Ci\u00f2 che vedi \u00e8 esattamente ci\u00f2 che vedranno i selezionatori. Niente pi\u00f9 dubbi sull\u2019aspetto del tuo CV.' },
+    { title: 'Esportazione PDF', description: 'Scarica PDF perfetti pronti da inviare. Ottimizzati sia per la visualizzazione digitale che per la stampa. Il tuo curriculum vitae appare professionale ovunque.' },
+    { title: 'Suggerimenti Intelligenti', description: 'Ricevi raccomandazioni intelligenti su competenze, parole chiave e contenuti in base al ruolo desiderato. L\u2019AI analizza migliaia di curriculum vitae di successo.' },
+  ],
+  steps: {
+    badge: 'Come Funziona',
+    title: 'Tre passaggi per il tuo',
+    titleHighlight: 'curriculum vitae perfetto',
+    items: [
+      { title: 'Inserisci i Tuoi Dati', description: 'Aggiungi le tue esperienze, formazione e competenze. La nostra AI ti assiste in ogni fase.' },
+      { title: 'Scegli un Modello', description: 'Seleziona tra oltre 20 modelli professionali. Anteprima in tempo reale mentre personalizzi.' },
+      { title: 'Scarica il PDF', description: 'Esporta il tuo CV curato come un PDF perfetto, pronto a impressionare i selezionatori.' },
+    ],
+  },
+  cta: {
+    title: 'Pronto a creare il tuo',
+    titleHighlight: 'curriculum vitae vincente?',
+    description: 'Unisciti a oltre 50.000 professionisti che hanno gi\u00e0 ottenuto il lavoro dei loro sogni con Best AI Resume.',
+    ctaText: 'Inizia a Creare Gratis',
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Dati sulle Carriere' },
+      { href: 'https://www.shrm.org/', label: 'SHRM: Risorse HR e Carriera' },
+    ],
+  },
+};
+
+const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string): FeaturesPageContent => selectContent(content, locale);

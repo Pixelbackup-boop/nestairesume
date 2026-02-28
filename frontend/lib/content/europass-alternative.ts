@@ -715,5 +715,124 @@ const ja: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
+const it: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa Europass 2026: Crea Curriculum Vitae Moderno con IA Gratis | Best AI Resume',
+    description: 'Cerchi un\'alternativa al CV Europass? Confronta Europass vs Best AI Resume Builder — 20+ modelli moderni, scrittura con IA, ottimizzazione ATS. Crea il tuo curriculum vitae gratis.',
+    keywords: 'alternativa europass, cv europass online, modello europass moderno, curriculum vitae gratis, crea cv gratis, modello curriculum vitae, cv europass, curriculum vitae europass',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa al CV Europass',
+    articleHeadline: 'Alternativa al CV Europass 2026: Creatore Curriculum Vitae con IA',
+    articleDescription: 'Confronta CV Europass vs Best AI Resume Builder. Ottieni 20+ modelli professionali con scrittura IA invece del rigido formato europeo.',
+  },
+  hero: {
+    badge: 'Alternativa al CV Europass',
+    title: 'Oltre il curriculum a formato unico.',
+    titleHighlight: 'Moderno. Con IA. Gratis.',
+    subtitle: 'Europass ti offre un solo modello rigido pensato per le candidature UE. Ottieni <strong>20+ modelli moderni di curriculum vitae</strong>, scrittura assistita dall\'IA e ottimizzazione ATS per il mercato del lavoro <strong>italiano e internazionale</strong> — gratis.',
+    ctaPrimary: 'Crea il mio CV gratis',
+    ctaSecondary: 'Vedi il confronto',
+  },
+  problem: {
+    title: 'Europass: utile per la PA, limitato nel privato',
+    description: 'Il CV Europass è un\'iniziativa UE che standardizza i curriculum per la mobilità lavorativa europea. È gratuito e istituzionale — ma offre <strong>un solo formato</strong>, <strong>nessun aiuto con l\'IA</strong> e una struttura rigida che appare datata rispetto ai modelli di curriculum vitae moderni. Per le aziende private italiane e le candidature internazionali, il formato Europass può penalizzare la tua candidatura.',
+    stats: [
+      { value: '1', label: 'modello disponibile su Europass' },
+      { value: '0', label: 'funzioni IA in Europass' },
+      { value: '20+', label: 'modelli in Best AI Resume Builder (gratis)' },
+    ],
+  },
+  comparison: {
+    title: 'CV Europass vs Best AI Resume Builder',
+    subtitle: 'Il formato standard europeo contro un creatore di CV moderno con IA.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prezzo', competitor: '✅ Gratuito (strumento UE)', ours: '✅ Gratuito (tutte le funzioni)' },
+      { feature: 'Modelli', competitor: '❌ Solo 1 formato rigido', ours: '✅ 20+ design professionali' },
+      { feature: 'Scrittura CV con IA', competitor: '❌ Nessuna funzione IA', ours: '✅ Contenuti personalizzati generati dall\'IA' },
+      { feature: 'Ottimizzazione ATS', competitor: '⚠️ Solo parsing formato UE', ours: '✅ Punteggio ATS globale + parole chiave' },
+      { feature: 'Personalizzazione design', competitor: '❌ Minima — solo colori e font', ours: '✅ Controllo completo di modello e layout' },
+      { feature: 'Compatibilità globale', competitor: '❌ Solo UE, non ideale altrove', ours: '✅ Funziona per qualsiasi mercato del lavoro' },
+      { feature: 'Lettera di presentazione', competitor: '✅ Creatore base di lettere', ours: '✅ Lettere di presentazione con IA' },
+      { feature: 'Passaporto linguistico', competitor: '✅ Framework competenze linguistiche UE', ours: '⚠️ Sezione lingue standard' },
+      { feature: 'Aiuto nella redazione', competitor: '❌ Solo inserimento manuale', ours: '✅ L\'IA scrive le esperienze lavorative' },
+      { feature: 'Design moderno', competitor: '❌ Aspetto istituzionale datato', ours: '✅ Moderno, approvato dai recruiter' },
+    ],
+  },
+  whySwitch: {
+    title: 'Quando usare Europass e quando Best AI Resumes',
+    subtitle: 'Ogni strumento ha il suo utilizzo ideale.',
+    reasons: [
+      { title: 'Mercato del lavoro privato italiano', description: 'Europass è pensato per la PA e le istituzioni UE. Il nostro creatore di CV genera curriculum adatti alle aziende private italiane, alle multinazionali e al mercato del lavoro internazionale.' },
+      { title: 'Design moderni e professionali', description: 'Europass offre un modello istituzionale. Noi offriamo 20+ design contemporanei che superano lo screening ATS e catturano l\'attenzione dei recruiter.' },
+      { title: 'Scrittura assistita dall\'IA', description: 'Europass richiede l\'inserimento manuale. La nostra IA genera esperienze lavorative su misura, riassunti professionali e parole chiave specifiche per il settore.' },
+    ],
+  },
+  recommendation: {
+    title: 'Quando usare Europass e quando Best AI Resumes',
+    useCompetitor: {
+      title: 'Usa Europass quando...',
+      items: [
+        'Ti candidi per programmi di mobilità UE (Erasmus, istituzioni europee)',
+        'Il datore di lavoro richiede esplicitamente il formato Europass',
+        'Hai bisogno del Passaporto Europeo delle Competenze o Linguistico',
+        'Ti candidi per concorsi pubblici o posizioni accademiche in Italia o in Europa',
+      ],
+    },
+    useUs: {
+      title: 'Usa Best AI Resumes quando...',
+      items: [
+        'Ti candidi per aziende private (in Italia o all\'estero)',
+        'Cerchi lavoro in settori come tech, marketing, finanza o consulenza',
+        'Vuoi un curriculum vitae moderno e visivamente accattivante',
+        'Hai bisogno dell\'IA per scrivere esperienze lavorative e profilo professionale',
+        'Ti candidi tramite portali ATS (LinkedIn, Indeed, InfoJobs, ecc.)',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Scopri oltre 300 esempi di curriculum vitae gratis',
+    description: 'Esempi di curriculum vitae professionali per ogni settore e livello di carriera.',
+    ctaBrowse: 'Sfoglia gli esempi di CV',
+    ctaTemplates: 'Vedi tutti i modelli',
+  },
+  faq: {
+    title: 'Domande frequenti',
+    items: [
+      { question: 'Il CV Europass è gratuito?', answer: 'Sì, l\'editor Europass della Commissione Europea è completamente gratuito. Tuttavia, offre solo un modello standard senza opzioni di personalizzazione. Anche Best AI Resume Builder è gratuito, ma offre 20+ modelli di curriculum vitae, scrittura con IA e ottimizzazione ATS.' },
+      { question: 'Il CV Europass è adatto per le aziende private italiane?', answer: 'Il formato Europass è riconosciuto nella pubblica amministrazione e nelle istituzioni UE, ma molti recruiter del settore privato italiano lo considerano datato e poco personalizzabile. Per candidature nel privato, è consigliabile un modello di curriculum vitae moderno e personalizzato. Best AI Resume Builder crea CV adatti a qualsiasi settore.' },
+      { question: 'Qual è la migliore alternativa a Europass?', answer: 'Best AI Resume Builder è la migliore alternativa per candidature moderne. Offre scrittura con IA, ottimizzazione ATS e 20+ modelli professionali di curriculum vitae — mentre Europass offre un solo formato rigido senza funzioni IA.' },
+      { question: 'I sistemi ATS leggono il CV Europass?', answer: 'I CV Europass possono essere analizzati dagli ATS, ma il formato rigido e le sezioni specifiche UE (come il passaporto linguistico) possono confondere i sistemi ATS configurati per formati di CV standard. I modelli di Best AI Resume Builder sono testati per la compatibilità ATS globale.' },
+      { question: 'Perché Europass ha un solo modello?', answer: 'Europass è un\'iniziativa UE progettata per standardizzare i curriculum in tutti i paesi europei, quindi utilizza un formato unico. È utile per i programmi di mobilità UE e per la PA, ma limita chi cerca un curriculum vitae professionale e moderno. Best AI Resume Builder offre 20+ modelli per qualsiasi settore o preferenza di stile.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Confronta altri creatori di CV',
+    items: [
+      { href: '/it/canva-alternative', title: 'Alternativa a Canva', subtitle: 'Strumenti di design vs IA' },
+      { href: '/it/zety-alternative', title: 'Alternativa a Zety', subtitle: 'Confronto prezzi' },
+      { href: '/it/overleaf-alternative', title: 'Alternativa a Overleaf', subtitle: 'LaTeX vs creatore con IA' },
+      { href: '/it/nova-alternative', title: 'Alternativa a Nova', subtitle: 'Confronto creatori di CV' },
+    ],
+    guidesTitle: 'Guide utili per il curriculum vitae',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Risorse esterne',
+    items: [
+      { href: 'https://europa.eu/europass/it', label: 'Portale ufficiale Europass' },
+      { href: 'https://www.istat.it/', label: 'ISTAT — Istituto Nazionale di Statistica' },
+    ],
+  },
+  bottomCta: {
+    title: 'Un curriculum vitae moderno per il mercato del lavoro italiano e globale.',
+    description: 'Vai oltre il formato unico Europass. Scrittura con IA, 20+ modelli, ottimizzazione ATS — crea il tuo curriculum vitae gratis.',
+    cta: 'Crea il mio CV gratis',
+    subtext: 'Gratis per sempre. Funziona in tutto il mondo.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

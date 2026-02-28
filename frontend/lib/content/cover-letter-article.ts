@@ -175,5 +175,30 @@ const ja: CoverLetterArticleContent = {
   updated: '更新日',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja };
+const it: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Home', coverLetterExamples: 'Esempi di Lettera di Presentazione' },
+  notFound: 'Non Trovato',
+  coverLetterSuffix: 'Esempio di Lettera di Presentazione',
+  keySkillsTitle: 'Competenze Chiave da Evidenziare',
+  relatedTopics: 'Argomenti Correlati',
+  faqTitle: 'Domande Frequenti',
+  relatedResourcesTitle: 'Risorse Correlate',
+  resumeExampleSubtext: 'Consulta il formato di CV corrispondente',
+  coverLetterGenerator: 'Generatore di Lettere di Presentazione con IA',
+  coverLetterGeneratorSubtext: 'Crea la tua lettera di presentazione in pochi secondi',
+  sidebar: {
+    ctaTitle: 'Crea la Tua Lettera di Presentazione',
+    ctaSubtitle: 'Usa la nostra IA per generare una lettera di presentazione personalizzata per {jobTitle} in pochi secondi.',
+    ctaButton: 'Genera Lettera di Presentazione',
+    tocTitle: 'Indice',
+  },
+  relatedCoverLetters: 'Lettere di Presentazione Correlate',
+  bottomCta: {
+    subtitle: 'Unisciti a migliaia di professionisti che hanno trovato il lavoro dei loro sogni con Best AI Resume.',
+    button: 'Genera Lettera di Presentazione — Gratis',
+  },
+  updated: 'Aggiornato',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

@@ -743,5 +743,127 @@ const ja: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
+const it: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa a Overleaf per Curriculum Vitae 2026: Senza LaTeX, Ottimizzato ATS | Best AI Resume',
+    description: 'Cerchi modelli di curriculum vitae Overleaf senza la complessità di LaTeX? Confronta Overleaf vs Best AI Resume Builder — modelli gratuiti, ottimizzati ATS, con scrittura AI. Nessuna programmazione.',
+    keywords: 'overleaf curriculum, overleaf modello cv, alternativa overleaf, modello latex curriculum, overleaf cv, creatore curriculum gratuito, curriculum ats, curriculum vitae italiano',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa Overleaf per Curriculum',
+    articleHeadline: 'Migliore Alternativa a Overleaf per Curriculum Vitae 2026: Senza LaTeX',
+    articleDescription: 'Confronto Overleaf vs Best AI Resume Builder per creare curriculum vitae professionali. Comparativa funzione per funzione per accademici e chi cerca lavoro.',
+  },
+  hero: {
+    badge: 'Alternativa a Overleaf',
+    title: 'Curriculum Vitae Impeccabili.',
+    titleHighlight: 'Senza LaTeX.',
+    subtitle: 'Overleaf crea ottimi CV accademici — se conosci LaTeX. Ottieni la stessa qualità professionale con <strong>scrittura potenziata dall\'AI</strong> e <strong>zero programmazione</strong>.',
+    ctaPrimary: 'Crea il Mio CV Gratis',
+    ctaSecondary: 'Vedi il Confronto',
+  },
+  problem: {
+    title: 'Il Problema di Overleaf per il Curriculum',
+    description: 'Overleaf è un potente editor LaTeX progettato per articoli scientifici e documenti tecnici. Molti ingegneri, ricercatori e accademici lo usano per creare CV eleganti. Ma per chi cerca lavoro in Italia ci sono due grandi limiti: <strong>LaTeX ha una curva di apprendimento ripida</strong> e molti modelli Overleaf usano formattazioni complesse che <strong>i sistemi ATS non riescono ad analizzare correttamente</strong>.',
+    stats: [
+      { value: '60%+', label: 'dei CV LaTeX non superano l\'analisi ATS' },
+      { value: '40h+', label: 'ore necessarie per imparare LaTeX' },
+      { value: '15 min', label: 'per creare un CV con l\'AI' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'Editor LaTeX vs creatore di CV con intelligenza artificiale.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prezzo', competitor: '✅ Gratuito (piano base)', ours: '✅ Gratuito (tutte le funzioni)' },
+      { feature: 'Curva di apprendimento', competitor: '❌ Richiede conoscenza LaTeX', ours: '✅ Nessuna competenza tecnica necessaria' },
+      { feature: 'Scrittura AI', competitor: '❌ Nessuna funzione AI', ours: '✅ AI genera contenuti personalizzati' },
+      { feature: 'Compatibilità ATS', competitor: '❌ Molti modelli non superano l\'ATS', ours: '✅ Tutti i modelli testati ATS' },
+      { feature: 'Modelli', competitor: '⚠️ Modelli LaTeX della community', ours: '✅ 20+ modelli professionali' },
+      { feature: 'Esportazione PDF', competitor: '✅ Compilazione LaTeX', ours: '✅ Download gratuito con un clic' },
+      { feature: 'Lettera di presentazione', competitor: '⚠️ Serve un modello LaTeX separato', ours: '✅ Lettera AI inclusa (gratis)' },
+      { feature: 'Assistenza contenuti', competitor: '❌ Inserimento manuale (sintassi LaTeX)', ours: '✅ AI crea esperienze e competenze' },
+      { feature: 'Anteprima in tempo reale', competitor: '⚠️ Solo dopo la compilazione', ours: '✅ Anteprima live istantanea' },
+      { feature: 'Collaborazione', competitor: '✅ Modifica collaborativa in tempo reale', ours: '⚠️ Uso personale' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivi per Passare da Overleaf',
+    subtitle: 'Curriculum professionali senza LaTeX.',
+    reasons: [
+      { title: 'Compatibilità ATS garantita', description: 'I modelli LaTeX di Overleaf usano font personalizzati, layout multi-colonna e formattazioni speciali che gli ATS spesso non riescono a leggere. Tutti i nostri modelli sono testati con i principali sistemi ATS usati dalle aziende italiane e internazionali.' },
+      { title: 'Scrittura potenziata dall\'AI', description: 'Overleaf è un editor LaTeX senza alcuna assistenza ai contenuti. La nostra AI genera bullet point professionali, profili personali e parole chiave a partire dalle tue esperienze lavorative.' },
+      { title: 'Nessun bisogno di imparare LaTeX', description: 'Personalizzare un modello Overleaf richiede conoscenze LaTeX per risolvere errori di compilazione. Il nostro editor visuale crea un curriculum professionale in pochi minuti senza competenze tecniche.' },
+    ],
+  },
+  recommendation: {
+    title: 'Il Nostro Consiglio Onesto',
+    useCompetitor: {
+      title: 'Quando Overleaf è la scelta giusta',
+      items: [
+        'Conosci bene LaTeX e ti piace la composizione tipografica',
+        'Devi creare un CV accademico (pubblicazioni, borse di studio, ecc.)',
+        'Hai bisogno di collaborare con colleghi in ambito universitario',
+        'Vuoi un controllo estremo sulla formattazione del documento',
+      ],
+    },
+    useUs: {
+      title: 'Quando Best AI Resumes è la scelta giusta',
+      items: [
+        'Ti candidi a posizioni aziendali tramite portali online con ATS',
+        'Vuoi che l\'AI ti aiuti a scrivere i contenuti del CV',
+        'Non vuoi investire ore per imparare LaTeX',
+        'Hai bisogno di un curriculum che superi sicuramente gli ATS',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Oltre 300 Esempi di Curriculum Gratuiti',
+    description: 'Esempi professionali di curriculum per ingegneri informatici, data scientist, assistenti di ricerca e molte altre figure.',
+    ctaBrowse: 'Sfoglia gli Esempi di CV',
+    ctaTemplates: 'Vedi Tutti i Modelli',
+  },
+  faq: {
+    title: 'Domande Frequenti',
+    items: [
+      { question: 'Overleaf è adatto per creare un curriculum vitae?', answer: 'Overleaf è eccellente per CV accademici in LaTeX, ma la curva di apprendimento è alta e molti modelli non superano l\'analisi ATS. Se ti candidi tramite portali aziendali online, un creatore di curriculum dedicato è molto più efficace.' },
+      { question: 'I CV creati con Overleaf sono compatibili con gli ATS?', answer: 'Dipende dal modello LaTeX. Molti modelli Overleaf usano font personalizzati, layout multi-colonna e formattazioni speciali che gli ATS non riescono a leggere correttamente. I modelli semplici a colonna singola possono funzionare, ma quelli più elaborati spesso falliscono.' },
+      { question: 'Serve conoscere LaTeX per usare Overleaf?', answer: 'Sì. Overleaf è un editor LaTeX, quindi serve almeno una conoscenza base per personalizzare i modelli, correggere errori di compilazione e modificare la formattazione. Con Best AI Resume Builder non serve alcuna competenza tecnica: inserisci le tue informazioni e l\'AI fa il resto.' },
+      { question: 'Qual è la migliore alternativa gratuita a Overleaf per il curriculum?', answer: 'Best AI Resume Builder è la migliore alternativa gratuita per chi cerca lavoro. Offre scrittura AI, ottimizzazione ATS e modelli professionali senza bisogno di conoscere LaTeX o alcun linguaggio di programmazione.' },
+      { question: 'Posso convertire il mio CV Overleaf in formato ATS?', answer: 'Puoi copiare il testo dal PDF di Overleaf e incollarlo in Best AI Resume Builder. L\'AI manterrà i contenuti, suggerirà miglioramenti e riformatterà tutto in un formato compatibile con gli ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Confronta Altri Strumenti per Curriculum',
+    items: [
+      { href: '/it/canva-alternative', title: 'Alternativa a Canva', subtitle: 'Strumento di design vs creatore AI' },
+      { href: '/it/resume-io-alternative', title: 'Alternativa a Resume.io', subtitle: 'Confronto prezzi e funzioni' },
+      { href: '/it/rezi-alternative', title: 'Alternativa a Rezi', subtitle: 'Confronto strumenti AI per CV' },
+    ],
+    guidesTitle: 'Guide Utili per il Curriculum',
+    guides: [
+      { href: '/it/blog/how-to-write-ats-friendly-resume', label: 'Come Scrivere un CV Compatibile ATS' },
+      { href: '/it/resume-format', label: 'Guida al Formato del Curriculum 2026' },
+      { href: '/it/resume-examples/software-engineer', label: 'Esempio CV Ingegnere Informatico' },
+      { href: '/it/blog/best-resume-fonts-2026', label: 'Migliori Font per Curriculum 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.overleaf.com/gallery/tagged/cv', label: 'Galleria Modelli CV Overleaf' },
+      { href: 'https://www.bls.gov/ooh/computer-and-information-technology/home.htm', label: 'BLS: Professioni Tecnologiche' },
+    ],
+  },
+  bottomCta: {
+    title: 'Oltre LaTeX. Crea un Curriculum che Ti Fa Assumere.',
+    description: 'Migliaia di ingegneri e ricercatori stanno passando a un creatore di CV con AI che gestisce la formattazione mentre tu ti concentri sui contenuti.',
+    cta: 'Crea il Tuo CV Gratis — Senza LaTeX',
+    subtext: 'Gratis per sempre. Nessuna carta di credito richiesta.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

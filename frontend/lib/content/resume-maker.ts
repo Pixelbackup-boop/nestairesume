@@ -657,7 +657,115 @@ const ja: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja };
+const it: LandingPageContent = {
+  meta: {
+    title: 'Creatore Curriculum Vitae Gratis | Crea CV Online con IA 2026',
+    description: 'Crea un curriculum vitae professionale in pochi minuti con il nostro creatore di CV gratuito con IA. Modelli ATS-friendly, scrittura con IA e download PDF istantaneo.',
+    keywords: 'creatore curriculum vitae, crea cv online, generatore curriculum, creatore cv gratis, crea curriculum vitae, curriculum maker, cv online gratis, generatore cv automatico',
+  },
+  schemas: {
+    breadcrumbName: 'Creatore Curriculum Vitae',
+    articleHeadline: 'Creatore Curriculum Vitae Gratis: Crea CV Online con IA 2026',
+    articleDescription: 'Crea curriculum vitae professionali in pochi minuti con il nostro creatore di CV gratuito con IA. Modelli ATS-friendly, scrittura con IA e download PDF istantaneo.',
+    softwareAppName: 'Best AI Creatore Curriculum Vitae',
+  },
+  hero: {
+    badge: 'Creatore Curriculum Vitae con IA Gratis',
+    title: 'Crea il tuo curriculum vitae',
+    titleHighlight: 'professionale in pochi minuti',
+    subtitle: 'Il nostro <strong>creatore di curriculum vitae</strong> gratuito usa l\'IA per scrivere contenuti efficaci, ottimizzare per gli ATS e farti ottenere più colloqui. Con il <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% delle grandi aziende</a> che utilizza software ATS, avere un CV ottimizzato è essenziale. Nessuna competenza di design richiesta.',
+    ctaPrimary: 'Crea il mio CV gratis',
+    ctaSecondary: 'Vedi i modelli',
+    trustBadges: ['Nessuna registrazione', 'Nessuna carta di credito', 'Download PDF gratis'],
+  },
+  features: {
+    title: 'Perché scegliere il nostro creatore di curriculum vitae gratis?',
+    subtitle: 'Più di un semplice modello — il nostro creatore di CV con IA ti aiuta a scrivere contenuti migliori e a superare lo screening ATS.',
+    items: [
+      { feature: 'Scrittura assistita dall\'IA', description: 'L\'IA genera automaticamente esperienze lavorative professionali, profili riassuntivi e descrizioni di competenze su misura per il tuo settore e livello di esperienza.' },
+      { feature: 'Modelli ottimizzati per ATS', description: 'Tutti i modelli sono testati con i principali sistemi ATS come Workday, Taleo, Greenhouse. Supera la selezione automatica con sicurezza.' },
+      { feature: 'Download PDF', description: 'Scarica il tuo curriculum vitae in PDF con un clic. Nessun watermark, nessun costo — completamente gratis.' },
+      { feature: 'Pronto in pochi minuti', description: 'Niente pagine vuote da fissare. Il flusso guidato e i suggerimenti dell\'IA ti permettono di completare un CV professionale in meno di 10 minuti.' },
+      { feature: 'Punteggio ATS in tempo reale', description: 'Visualizza il punteggio ATS del tuo curriculum vitae in tempo reale mentre scrivi. Ottimizza prima di candidarti.' },
+      { feature: '20+ modelli professionali', description: 'Modelli per ogni settore e livello di carriera. Tutti gratis, tutti ATS-friendly.' },
+    ],
+    cta: 'Inizia a creare il tuo CV',
+  },
+  comparison: {
+    title: 'Il nostro creatore vs altri creatori di CV',
+    subtitle: 'Scopri perché chi cerca lavoro sceglie il nostro creatore di curriculum vitae gratuito con IA.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Altri creatori',
+    rows: [
+      { feature: 'Scrittura con IA', ours: 'IA avanzata', others: 'Base o assente' },
+      { feature: 'Ottimizzazione ATS', ours: 'Punteggio in tempo reale', others: 'Test limitati' },
+      { feature: 'Tutti i modelli gratis', ours: '20+', others: 'La maggior parte a pagamento' },
+      { feature: 'Download PDF gratis', ours: 'Sempre gratis', others: 'Molti a pagamento' },
+      { feature: 'Senza account', ours: 'Inizio immediato', others: 'Generalmente richiesto' },
+      { feature: 'Parole chiave di settore', ours: 'Suggerite dall\'IA', others: 'Solo manuale' },
+      { feature: 'Versioni multiple', ours: 'Illimitate', others: 'Spesso limitate' },
+    ],
+  },
+  howItWorks: {
+    title: 'Come usare il creatore di curriculum vitae',
+    subtitle: 'In 3 semplici passaggi crea un curriculum vitae che conquista i recruiter. L\'IA si occupa del lavoro pesante.',
+    steps: [
+      { step: 1, title: 'Scegli un modello', description: 'Seleziona tra 20+ modelli professionali ATS-friendly adatti al tuo settore.' },
+      { step: 2, title: 'Inserisci le informazioni', description: 'Aggiungi le tue esperienze e lascia che l\'IA suggerisca miglioramenti, parole chiave ed espressioni professionali.' },
+      { step: 3, title: 'Scarica e candidati', description: 'Esporta il tuo curriculum vitae in PDF e inizia subito a candidarti.' },
+    ],
+    cta: 'Crea un CV professionale',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'CV creati' },
+      { value: '4.8', label: 'Valutazione utenti' },
+      { value: '20+', label: 'Modelli gratis' },
+      { value: '10 min', label: 'Tempo medio di creazione' },
+    ],
+  },
+  templates: {
+    title: 'Modelli professionali per ogni settore',
+    subtitle: 'Dal designer creativo al dirigente d\'azienda — trova il modello di curriculum vitae perfetto per il tuo settore.',
+    styles: ['Ingegnere software', 'Marketing manager', 'Infermiere', 'Responsabile vendite', 'Data analyst', 'Insegnante', 'Project manager', 'Designer'],
+    cta: 'Vedi tutti i modelli',
+  },
+  faq: {
+    title: 'Domande frequenti',
+    items: [
+      { question: 'Questo creatore di curriculum vitae è davvero gratis?', answer: 'Sì! Il nostro creatore di CV con IA è 100% gratuito. Crea curriculum vitae illimitati, accedi a tutti i 20+ modelli professionali, scarica in PDF — senza carta di credito né abbonamento.' },
+      { question: 'Perché è il miglior creatore di curriculum vitae?', answer: 'A differenza dei creatori di CV generici, il nostro usa l\'IA per generare esperienze lavorative professionali, ottimizzare per gli ATS e suggerire parole chiave specifiche per il tuo settore. Crei un CV che è sia esteticamente curato che efficace nel superare lo screening automatico.' },
+      { question: 'Posso scaricare il CV in PDF gratis?', answer: 'Certo. Tutti i curriculum vitae creati possono essere scaricati gratuitamente in PDF ATS-friendly. Nessun watermark, nessun costo aggiuntivo.' },
+      { question: 'Quanto tempo serve per creare un curriculum vitae?', answer: 'La maggior parte degli utenti completa un curriculum vitae professionale in meno di 10 minuti. L\'IA suggerisce i contenuti, così puoi dedicare il tempo risparmiato alle candidature.' },
+      { question: 'I CV creati sono compatibili con gli ATS?', answer: 'Sì. Tutti i modelli sono testati con i principali sistemi ATS (Workday, Taleo, Greenhouse, Lever). Il punteggio ATS in tempo reale ti aiuta a ottimizzare il CV prima di candidarti.' },
+      { question: 'Posso creare più curriculum vitae per diverse candidature?', answer: 'Sì! Puoi creare quanti curriculum vitae personalizzati desideri. Ottimizzare il CV per ogni posizione aumenta le tue possibilità, e con il nostro strumento è rapido e semplice.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Strumenti correlati per il CV',
+    items: [
+      { href: '/it/resume-ai', title: 'CV con IA', subtitle: 'Creatore di CV con intelligenza artificiale' },
+      { href: '/it/tools/ats-checker', title: 'Verifica ATS', subtitle: 'Testa il punteggio ATS' },
+      { href: '/it/free-resume-builder', title: 'CV gratis', subtitle: 'Creatore di CV 100% gratis' },
+    ],
+    guidesTitle: 'Guide utili',
+    guides: [
+      { href: '/it/blog/how-to-write-a-resume', label: 'Come scrivere un curriculum vitae (guida 2026)' },
+      { href: '/it/blog/how-to-write-ats-friendly-resume', label: 'Come scrivere un CV ATS-friendly' },
+      { href: '/it/resume-format', label: 'Guida al formato del curriculum vitae' },
+      { href: '/it/blog/top-resume-mistakes-to-avoid', label: 'Errori comuni nel curriculum vitae' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pronto a creare il tuo curriculum vitae?',
+    description: 'Oltre 2 milioni di persone in cerca di lavoro hanno creato il loro CV professionale con il nostro creatore gratuito con IA.',
+    cta: 'Crea il mio CV gratis',
+    subtext: 'Gratis per sempre. Nessuna carta di credito.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

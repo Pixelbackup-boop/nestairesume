@@ -786,5 +786,128 @@ const ja: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
+const it: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa a Zety 2026: Creatore di Curriculum Vitae AI Gratuito (Senza Costi Nascosti) | Best AI Resume',
+    description: 'Cerchi un\'alternativa gratuita a Zety? Confronta Zety vs Best AI Resume Builder — scrittura AI, modelli ATS, download illimitati. Nessuna trappola abbonamento, nessun costo nascosto.',
+    keywords: 'alternativa zety, zety curriculum, creatore curriculum gratuito, zety recensione, zety prezzi, curriculum vitae AI, modello cv gratuito, cv italiano online',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa a Zety',
+    articleHeadline: 'Alternativa a Zety 2026: Creatore di CV AI Gratuito Senza Costi Nascosti',
+    articleDescription: 'Confronto Zety vs Best AI Resume Builder. Scrittura AI, ottimizzazione ATS e download illimitati — completamente gratis, senza trappole.',
+  },
+  hero: {
+    badge: 'Alternativa a Zety',
+    title: 'Crea il Tuo Curriculum.',
+    titleHighlight: 'Scaricalo Gratis.',
+    subtitle: 'Zety ti permette di creare un CV gratis — poi chiede <strong>$23,70/mese</strong> per scaricarlo. Noi ti offriamo scrittura AI, modelli ATS e download illimitati a <strong>$0</strong>.',
+    ctaPrimary: 'Crea il Mio CV Gratis',
+    ctaSecondary: 'Vedi il Confronto',
+  },
+  problem: {
+    title: 'La Trappola dei Prezzi di Zety',
+    description: 'Zety ha modelli professionali e suggerimenti di contenuto utili. Il problema è il modello di prezzo: costruisci l\'intero curriculum vitae e solo alla fine scopri che per scaricarlo devi pagare. La <strong>prova di 14 giorni costa $2,70</strong>, poi si <strong>rinnova automaticamente a $23,70/mese</strong>. Migliaia di utenti sui siti di recensioni segnalano addebiti imprevisti dopo aver dimenticato di disdire.',
+    stats: [
+      { value: '$23,70', label: 'al mese dopo la prova (rinnovo automatico)' },
+      { value: '$2,70', label: 'costo della prova di 14 giorni (attenzione al rinnovo)' },
+      { value: '$0', label: 'Best AI Resume Builder — gratis per sempre, nessuna carta di credito' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'Un confronto trasparente — nessuna sorpresa.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prezzo', competitor: '❌ $23,70/mese dopo la prova', ours: '✅ Completamente gratuito' },
+      { feature: 'Scrittura AI', competitor: '⚠️ Suggerimenti di frasi base', ours: '✅ AI avanzata genera contenuti personalizzati' },
+      { feature: 'Punteggio ATS', competitor: '❌ Nessun punteggio in tempo reale', ours: '✅ Punteggio ATS in tempo reale' },
+      { feature: 'Download PDF', competitor: '❌ Richiede piano a pagamento', ours: '✅ Download illimitati e gratuiti' },
+      { feature: 'CV creabili', competitor: '⚠️ Di fatto richiede piano a pagamento', ours: '✅ Illimitati' },
+      { feature: 'Qualità dei modelli', competitor: '✅ Modelli professionali', ours: '✅ 20+ modelli professionali' },
+      { feature: 'Compatibilità ATS', competitor: '✅ Modelli ATS-friendly', ours: '✅ Tutti i modelli verificati ATS' },
+      { feature: 'Lettera di presentazione', competitor: '✅ Inclusa (a pagamento)', ours: '✅ Inclusa (gratis)' },
+      { feature: 'Parole chiave settoriali', competitor: '⚠️ Solo suggerimenti base', ours: '✅ AI suggerisce keywords di settore' },
+      { feature: 'Rinnovo automatico', competitor: '❌ Rinnovo a $23,70/mese', ours: '✅ Nessun abbonamento necessario' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivi per Passare da Zety',
+    subtitle: 'Funzioni migliori. Costo zero. Nessuna sorpresa.',
+    reasons: [
+      { title: 'Nessun paywall al download', description: 'Con Zety crei il CV gratis ma per scaricarlo devi pagare. Con noi è tutto gratuito — crea, modifica, scarica in PDF o Word, senza limiti e senza costi nascosti.' },
+      { title: 'AI vera, non frasi da compilare', description: 'Zety offre frasi preimpostate da compilare. La nostra AI genera descrizioni originali delle esperienze lavorative e profili professionali basati sul tuo ruolo e sulla tua esperienza nel mercato del lavoro.' },
+      { title: 'Verifica ATS prima di candidarti', description: 'Zety non offre la possibilità di verificare la compatibilità ATS del tuo CV. Il nostro strumento mostra un punteggio ATS in tempo reale con suggerimenti concreti per migliorare le possibilità di superare i filtri automatici delle aziende.' },
+    ],
+  },
+  recommendation: {
+    title: 'Il Nostro Consiglio Onesto',
+    useCompetitor: {
+      title: 'Quando Zety può andare bene',
+      items: [
+        'Hai un budget di $23,70/mese per un tool di curriculum',
+        'Preferisci un\'esperienza guidata passo-passo (wizard)',
+        'Ti bastano suggerimenti di frasi base',
+        'Sei sicuro di ricordarti di disdire prima della fine della prova',
+      ],
+    },
+    useUs: {
+      title: 'Quando Best AI Resumes è la scelta migliore',
+      items: [
+        'Vuoi scaricare il CV che hai creato senza pagare',
+        'Vuoi una scrittura AI vera, non frasi preimpostate',
+        'Vuoi verificare la compatibilità ATS prima di candidarti',
+        'Vuoi evitare trappole di abbonamento e rinnovi automatici',
+        'Hai bisogno di più versioni del curriculum per diverse posizioni',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Oltre 300 Esempi di Curriculum Gratuiti',
+    description: 'Esplora esempi professionali di curriculum vitae ottimizzati ATS per ogni settore lavorativo.',
+    ctaBrowse: 'Sfoglia gli Esempi di CV',
+    ctaTemplates: 'Vedi Tutti i Modelli',
+  },
+  faq: {
+    title: 'Domande Frequenti',
+    items: [
+      { question: 'Si può scaricare il CV da Zety gratis?', answer: 'No. Con Zety puoi creare un curriculum gratis, ma per scaricarlo serve un abbonamento a pagamento (prova di 14 giorni a $2,70, poi rinnovo automatico a $23,70/mese). Con Best AI Resume Builder, dalla creazione al download è tutto gratuito.' },
+      { question: 'Perché Zety sembra gratuito ma non lo è?', answer: 'Zety si pubblicizza come "creatore di curriculum gratuito". La creazione è effettivamente gratis, ma al momento del download viene richiesto il pagamento. Molti utenti considerano questo un modello commerciale fuorviante.' },
+      { question: 'Qual è la migliore alternativa gratuita a Zety?', answer: 'Best AI Resume Builder è la migliore alternativa gratuita. Offre tutto ciò che Zety fa pagare — modelli, download PDF, suggerimenti di contenuto — gratis, più scrittura AI avanzata e punteggio ATS in tempo reale.' },
+      { question: 'I modelli di Zety sono compatibili con gli ATS?', answer: 'I modelli di Zety sono generalmente compatibili ATS, ma non c\'è modo di verificare il punteggio di compatibilità. Con Best AI Resume Builder tutti i modelli sono verificati ATS e puoi controllare il punteggio in tempo reale.' },
+      { question: 'Si può disdire dopo la prova di Zety?', answer: 'Sì, ma devi disdire prima della scadenza dei 14 giorni di prova. Se dimentichi, ti viene addebitato automaticamente $23,70/mese. Con Best AI Resume Builder non c\'è nulla da disdire — è completamente gratuito.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Confronta Altri Strumenti per Curriculum',
+    items: [
+      { href: '/it/canva-alternative', title: 'Alternativa a Canva', subtitle: 'Strumento di design vs creatore AI' },
+      { href: '/it/overleaf-alternative', title: 'Alternativa a Overleaf', subtitle: 'CV LaTeX vs creatore AI' },
+      { href: '/it/rezi-alternative', title: 'Alternativa a Rezi', subtitle: 'Confronto strumenti AI per CV' },
+    ],
+    guidesTitle: 'Guide Utili per il Curriculum',
+    guides: [
+      { href: '/it/blog/how-to-write-ats-friendly-resume', label: 'Come Scrivere un CV Compatibile ATS' },
+      { href: '/it/resume-format', label: 'Guida al Formato del Curriculum 2026' },
+      { href: '/it/blog/top-resume-mistakes-to-avoid', label: 'Errori Comuni nel Curriculum Vitae' },
+      { href: '/it/resume-examples', label: 'Oltre 300 Esempi di CV per Professione' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.zety.com/', label: 'Zety Sito Ufficiale' },
+      { href: 'https://www.bls.gov/ooh/', label: 'U.S. Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Nessuna Prova. Nessuna Trappola. Solo Gratis.',
+    description: 'Crea, scarica e condividi il tuo curriculum vitae senza carta di credito. Scrittura AI, modelli ATS, download illimitati — tutto gratis.',
+    cta: 'Crea il Tuo CV Gratis',
+    subtext: 'Gratis per sempre. Nessuna carta di credito richiesta.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

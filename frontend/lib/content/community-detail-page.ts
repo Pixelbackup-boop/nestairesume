@@ -154,7 +154,29 @@ const ja: CommunityDetailContent = {
   edited: '(編集済み)',
 };
 
-const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja };
+const it: CommunityDetailContent = {
+  backToGallery: '\u2190 Torna alla Galleria',
+  useTemplate: 'Usa Modello',
+  downloads: 'download',
+  download: 'download',
+  by: 'Di',
+  commentsTitle: 'Commenti',
+  commentPlaceholder: 'Condividi la tua opinione su questo modello...',
+  postComment: 'Pubblica Commento',
+  signInToComment: 'Accedi per lasciare un commento',
+  signIn: 'Accedi',
+  noComments: 'Nessun commento ancora. Sii il primo a condividere la tua opinione!',
+  deleteComment: 'Elimina',
+  deleteConfirm: 'Sei sicuro di voler eliminare questo commento?',
+  editComment: 'Modifica',
+  saveEdit: 'Salva',
+  cancelEdit: 'Annulla',
+  loadMore: 'Carica altri commenti',
+  charLimit: '{count}/2000',
+  edited: '(modificato)',
+};
+
+const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string): CommunityDetailContent {
   return selectContent(contentMap, locale);

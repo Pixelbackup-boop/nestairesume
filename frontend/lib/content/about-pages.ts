@@ -623,7 +623,103 @@ const ja: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja };
+const it: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Chi Siamo',
+      title: 'Costruiamo il futuro del',
+      titleHighlight: 'successo professionale',
+      subtitle: 'Best AI Resume ha la missione di aiutare chi cerca lavoro in tutto il mondo a creare curriculum vitae professionali e ottimizzati per gli ATS, aprendo le porte alla carriera dei propri sogni.',
+    },
+    story: {
+      badge: 'La Nostra Storia',
+      heading: 'Perch\u00e9 abbiamo creato Best AI Resume',
+      p1: 'Ci siamo resi conto che professionisti di talento venivano ignorati semplicemente perch\u00e9 il loro curriculum vitae non superava i sistemi di screening automatizzati. Il processo tradizionale di creazione del CV era lungo, frustrante e spesso produceva documenti che non valorizzavano il vero potenziale dei candidati.',
+      p2: 'Per questo abbiamo creato Best AI Resume\u2014una piattaforma che unisce la potenza dell\u2019intelligenza artificiale a un design professionale ed elegante. Il nostro obiettivo \u00e8 semplice: aiutare ogni candidato a presentare il meglio di s\u00e9 ai potenziali datori di lavoro.',
+      p3: 'Oggi abbiamo aiutato oltre 50.000 professionisti a ottenere il lavoro dei loro sogni, creando curriculum vitae che si distinguono e superano i filtri ATS con successo.',
+    },
+    stats: [
+      { value: '50K+', label: 'CV Creati' },
+      { value: '98%', label: 'Tasso di Superamento ATS' },
+      { value: '20+', label: 'Modelli' },
+      { value: '4.9', label: 'Valutazione Utenti' },
+    ],
+    values: {
+      badge: 'I Nostri Valori',
+      heading: 'Cosa ci guida ogni giorno',
+      cards: [
+        { title: 'Privacy al Primo Posto', text: 'I tuoi dati appartengono a te. Salviamo i dati del tuo CV localmente nel browser, non sui nostri server. Solo le credenziali del tuo account sono conservate in modo sicuro da noi.' },
+        { title: 'Innovazione', text: 'Sfruttiamo la tecnologia AI pi\u00f9 avanzata per aiutarti a scrivere contenuti efficaci che mettano in risalto i tuoi risultati e attirino l\u2019attenzione dei selezionatori.' },
+        { title: 'Accessibilit\u00e0', text: 'Gli strumenti professionali per il curriculum vitae non dovrebbero essere nascosti dietro costosi abbonamenti. Offriamo funzionalit\u00e0 potenti accessibili e alla portata di tutti.' },
+      ],
+    },
+    experts: {
+      badge: 'Competenza Affidabile',
+      heading: 'Incontra i Nostri Esperti di Carriera',
+      subtitle: 'Il nostro team di career coach, recruiter e specialisti del settore porta una profonda esperienza nelle guide al curriculum vitae che redige.',
+    },
+    editorial: {
+      heading: 'I Nostri Standard Editoriali',
+      items: [
+        { title: 'Consigli Basati sui Dati', text: 'Ogni consiglio che condividiamo \u00e8 testato su veri sistemi ATS e verificato da professionisti del settore.' },
+        { title: 'Approccio Centrato sull\u2019Uomo', text: 'Crediamo che l\u2019AI debba potenziare, non sostituire. Diamo priorit\u00e0 alle strategie che conquistano prima i selezionatori umani.' },
+      ],
+    },
+    commitment: {
+      heading: 'Il Nostro Impegno nei Tuoi Confronti',
+      p1: 'In Best AI Resume crediamo che il percorso professionale sia personale. Ecco perch\u00e9 abbiamo costruito una piattaforma che rispetta la tua privacy offrendoti strumenti potenti per avere successo. I dati del tuo CV restano sul tuo dispositivo, dandoti il controllo totale sulle tue informazioni.',
+      p2: 'Miglioriamo costantemente i nostri algoritmi di intelligenza artificiale, aggiungiamo nuovi modelli e potenziamo le funzionalit\u00e0 in base al feedback degli utenti. Il tuo successo \u00e8 il nostro successo, e ci impegniamo ad accompagnarti in ogni fase del percorso.',
+    },
+    cta: {
+      title: 'Pronto a unirti a',
+      titleHighlight: 'oltre 50.000 storie di successo?',
+      subtitle: 'Inizia a creare il tuo curriculum vitae professionale oggi e fai il primo passo verso la carriera dei tuoi sogni.',
+      button: 'Inizia Gratis',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'I Nostri Autori Esperti | Best AI Resume',
+      description: 'Scopri gli esperti di carriera, recruiter e coach dietro le nostre guide al curriculum vitae. I nostri autori portano esperienza reale nel recruiting per aiutarti a ottenere il lavoro dei tuoi sogni.',
+      ogDescription: 'Scopri gli esperti di carriera, recruiter e coach dietro le nostre guide al curriculum vitae.',
+    },
+    breadcrumb: { home: 'Home', about: 'Chi Siamo', authors: 'Autori' },
+    hero: {
+      title: 'Incontra i Nostri Autori Esperti',
+      subtitle: 'Il nostro team di career coach, recruiter e specialisti del settore crea guide pratiche al curriculum vitae basate su esperienza reale nel recruiting.',
+    },
+    viewProfile: 'Vedi Profilo',
+    cta: {
+      title: 'Crea il Tuo CV con la Guida degli Esperti',
+      subtitle: 'Il nostro builder con AI applica le stesse strategie raccomandate dai nostri esperti. Crea un curriculum vitae professionale in pochi minuti.',
+      button: 'Crea il Mio CV \u2014 Gratis',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Home', about: 'Chi Siamo' },
+    atOrg: '{jobTitle} presso {organization}',
+    authorOfGuides: ' Autore di {count}+ guide di carriera e articoli.',
+    connectLinkedIn: 'Collegati su LinkedIn',
+    viewAllGuides: 'Vedi Tutte le Guide',
+    areasOfExpertise: 'Aree di Competenza',
+    resumeGuidesBy: 'Guide al CV di {name}',
+    guidesCount: '{count} guide',
+    coverLetterExamplesBy: 'Esempi di Lettera di Presentazione di {name}',
+    examplesCount: '{count} esempi',
+    blogPostsBy: 'Articoli del Blog di {name}',
+    postsCount: '{count} articoli',
+    viewAllResumes: 'Vedi tutte le {count} guide al CV',
+    viewAllCoverLetters: 'Vedi tutti i {count} esempi di lettera di presentazione',
+    viewAllBlogPosts: 'Vedi tutti i {count} articoli del blog',
+    cta: {
+      title: 'Crea il Tuo CV con la Guida degli Esperti',
+      subtitle: 'Usa le stesse strategie raccomandate da {name}. Il nostro builder con AI applica automaticamente le tecniche degli esperti per il tuo curriculum vitae.',
+      button: 'Crea il Mio CV \u2014 Gratis',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }

@@ -24,7 +24,7 @@
 | French | fr | ✅ | ✅ 554 | ✅ 566 | ✅ 74 | ✅ 10 | ✅ | **Complete** |
 | German | de | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Arabic | ar | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
-| Italian | it | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
+| Italian | it | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Portuguese | pt | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
 | Japanese | ja | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Chinese | zh | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
@@ -609,4 +609,4 @@ When multiple pages target overlapping job titles (e.g., "CNA" vs "Certified Nur
 
 ---
 
-*Last updated: 2026-02-26*
+*Last updated: 2026-02-28*

@@ -673,7 +673,117 @@ const ja: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja };
+const it: LandingPageContent = {
+  meta: {
+    title: 'Crea Curriculum Vitae Gratis | Creatore CV con IA 2026',
+    description: 'Crea il tuo curriculum vitae gratis online. Nessuna carta di credito, nessun costo nascosto. Scrittura con IA, 20+ modelli ATS-friendly e download PDF istantaneo.',
+    keywords: 'curriculum vitae gratis, crea curriculum vitae gratis, curriculum vitae gratis online, modello curriculum vitae gratis, creatore cv gratis, cv gratis, curriculum gratis, modello cv gratis download',
+  },
+  schemas: {
+    breadcrumbName: 'Curriculum Vitae Gratis',
+    articleHeadline: 'Crea Curriculum Vitae Gratis: Creatore CV con IA 2026',
+    articleDescription: 'Crea il tuo curriculum vitae gratis online. Nessuna carta di credito, nessun costo nascosto. Scrittura con IA, modelli ATS-friendly e download PDF istantaneo.',
+    softwareAppName: 'Creatore Curriculum Vitae Gratis con IA',
+  },
+  hero: {
+    badge: '100% Gratis — Nessuna carta di credito',
+    title: 'Crea il tuo curriculum vitae',
+    titleHighlight: 'completamente gratis',
+    subtitle: 'Il nostro <strong>creatore di curriculum vitae gratis</strong> ti offre tutto: scrittura assistita dall\'IA, modelli professionali, ottimizzazione ATS e download PDF istantaneo. Secondo i dati <a href="https://www.istat.it/it/lavoro-e-retribuzioni" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">ISTAT</a>, il mercato del lavoro italiano è sempre più competitivo — un curriculum vitae professionale non dovrebbe costarti nulla. Nessun costo nascosto. Nessuna scadenza di prova.',
+    ctaPrimary: 'Crea il mio CV gratis',
+    ctaSecondary: 'Scopri cosa include',
+    trustBadges: ['Nessuna registrazione', 'Nessuna carta di credito', 'Download PDF gratis', 'Nessun watermark'],
+  },
+  features: {
+    title: 'Tutto ciò che ti serve — Gratis',
+    subtitle: 'A differenza di altri creatori di CV che fanno pagare le funzioni base, qui tutto è incluso nel piano gratuito. Con il <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">98% delle grandi aziende</a> che usa software ATS, hai bisogno di strumenti professionali — non di barriere a pagamento.',
+    items: [
+      { feature: 'Modelli professionali', description: '20+ design disponibili' },
+      { feature: 'Scrittura contenuti con IA', description: 'Esperienze e profilo professionale' },
+      { feature: 'Ottimizzazione ATS', description: 'Punteggio in tempo reale' },
+      { feature: 'Download PDF', description: 'Esportazioni illimitate' },
+      { feature: 'Nessun watermark', description: 'Risultato pulito e professionale' },
+      { feature: 'CV multipli', description: 'Creane quanti ne vuoi' },
+      { feature: 'Parole chiave di settore', description: 'Suggerite dall\'IA' },
+      { feature: 'Ottimizzato per mobile', description: 'Crea da qualsiasi dispositivo' },
+    ],
+    cta: 'Crea un CV professionale',
+  },
+  comparison: {
+    title: 'Il nostro gratis vs. il "gratis" degli altri',
+    subtitle: 'Molti creatori di CV si dichiarano gratis ma poi fanno pagare il download. Noi no.',
+    oursName: 'Best AI Resumes (gratis)',
+    othersName: 'Altri creatori "gratis"',
+    rows: [
+      { feature: 'Download PDF', ours: 'Gratis e illimitato', others: 'Spesso a pagamento' },
+      { feature: 'Tutti i modelli', ours: 'Tutti i 20+ gratis', others: '1-3 gratis, il resto a pagamento' },
+      { feature: 'Scrittura con IA', ours: 'Inclusa gratis', others: 'Funzione premium' },
+      { feature: 'Punteggio ATS', ours: 'Gratis in tempo reale', others: 'Premium o assente' },
+      { feature: 'Watermark', ours: 'Nessuno', others: 'Presente nella versione gratis' },
+      { feature: 'Account obbligatorio', ours: 'Opzionale', others: 'Generalmente obbligatorio' },
+      { feature: 'Scadenza prova', ours: 'Nessuna — gratis per sempre', others: 'Prova di 7-14 giorni' },
+    ],
+  },
+  howItWorks: {
+    title: 'Crea il tuo curriculum vitae in 3 passi — gratis',
+    subtitle: 'Nessuna sorpresa. Nessuna barriera a pagamento. Solo un CV professionale.',
+    steps: [
+      { step: 1, title: 'Scegli un modello', description: 'Seleziona tra 20+ modelli professionali ATS-friendly — tutti gratis.' },
+      { step: 2, title: 'Inserisci le tue informazioni', description: 'Compila i tuoi dati e lascia che l\'IA ti aiuti a scrivere contenuti efficaci.' },
+      { step: 3, title: 'Scarica gratis', description: 'Esporta il tuo curriculum vitae in PDF — nessun pagamento, nessun watermark.' },
+    ],
+    cta: 'Crea un CV professionale',
+  },
+  trust: {
+    title: 'Scelto da chi cerca lavoro in tutto il mondo',
+    stats: [
+      { value: '2M+', label: 'CV creati gratis' },
+      { value: '4.8', label: 'Valutazione media utenti' },
+      { value: '150+', label: 'Paesi supportati' },
+      { value: '€0', label: 'Costo per il download' },
+    ],
+  },
+  templates: {
+    title: '20+ modelli di curriculum vitae gratis e professionali',
+    subtitle: 'Tutti i modelli sono gratis. Tutti sono testati ATS. Trova lo stile perfetto per la tua candidatura.',
+    styles: ['Moderno', 'Classico', 'Executive', 'Creativo', 'Minimalista', 'Professionale', 'Tecnico', 'Accademico'],
+    cta: 'Vedi tutti i modelli gratis',
+  },
+  faq: {
+    title: 'Domande frequenti',
+    items: [
+      { question: 'Questo creatore di curriculum vitae è davvero gratis al 100%?', answer: 'Sì! Il nostro creatore di curriculum vitae gratis include tutto: 20+ modelli professionali, scrittura con IA, ottimizzazione ATS e download PDF illimitati. Nessuna carta di credito, nessun costo nascosto, nessuna scadenza di prova.' },
+      { question: 'Cosa è gratis e cosa è a pagamento?', answer: 'Le funzionalità principali sono tutte gratis: tutti i modelli, scrittura con IA, punteggio ATS e download PDF. Il piano premium opzionale aggiunge funzioni avanzate come la generazione di lettere di presentazione e l\'ottimizzazione LinkedIn, ma la maggior parte degli utenti non ne ha bisogno.' },
+      { question: 'Perché questo creatore di CV è gratis?', answer: 'Crediamo che tutti meritino accesso a strumenti professionali per il curriculum vitae, indipendentemente dal budget. La versione gratuita è sostenuta da upgrade premium opzionali e partnership. Puoi creare un curriculum vitae completo e professionale senza pagare nulla.' },
+      { question: 'Posso scaricare il CV in PDF gratis?', answer: 'Assolutamente sì. Scarica il tuo curriculum vitae come PDF pulito e ATS-friendly tutte le volte che vuoi — completamente gratis. Nessun watermark, nessun logo, nessuna condizione.' },
+      { question: 'Devo creare un account?', answer: 'No! Puoi iniziare a creare il tuo curriculum vitae immediatamente, senza registrarti. Il tuo lavoro viene salvato localmente nel browser. Crea un account solo se vuoi salvare più CV o accedere da altri dispositivi.' },
+      { question: 'I modelli gratis sono compatibili con gli ATS?', answer: 'Sì, tutti i modelli del nostro creatore di curriculum vitae gratis sono testati con i principali sistemi ATS, inclusi Workday, Taleo, Greenhouse e Lever. Il punteggio ATS in tempo reale ti aiuta a ottimizzare il CV prima di candidarti.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Altri strumenti gratuiti per il CV',
+    items: [
+      { href: '/it/resume-maker', title: 'Creatore di CV', subtitle: 'Con IA gratuita' },
+      { href: '/it/resume-ai', title: 'CV con IA', subtitle: 'Scrittura assistita dall\'IA' },
+      { href: '/it/tools/ats-checker', title: 'Verifica ATS', subtitle: 'Punteggio ATS gratuito' },
+    ],
+    guidesTitle: 'Guide gratuite per il curriculum vitae',
+    guides: [
+      { href: '/it/blog/how-to-write-a-resume', label: 'Come scrivere un curriculum vitae (guida gratuita)' },
+      { href: '/it/resume-format', label: 'Guida al formato del curriculum vitae 2026' },
+      { href: '/it/resume-examples', label: '300+ esempi di curriculum vitae gratis' },
+      { href: '/it/templates', label: 'Modelli di curriculum vitae gratis' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pronto a creare il tuo curriculum vitae gratis?',
+    description: 'Oltre 2 milioni di persone in cerca di lavoro hanno creato il loro curriculum vitae professionale con il nostro creatore gratis.',
+    cta: 'Crea il mio CV gratis',
+    subtext: 'Gratis per sempre. Nessuna carta di credito. Nessun costo nascosto.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

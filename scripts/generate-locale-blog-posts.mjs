@@ -21,8 +21,8 @@ const LANG = args.find((a, i) => args[i - 1] === '--lang') || '';
 const DRY_RUN = args.includes('--dry-run');
 const LIMIT = parseInt(args.find((a, i) => args[i - 1] === '--limit') || '0', 10);
 
-if (!['de', 'ar', 'fr', 'ja'].includes(LANG)) {
-  console.error('Usage: --lang de|ar|fr|ja  [--dry-run] [--limit N]');
+if (!['de', 'ar', 'fr', 'ja', 'it'].includes(LANG)) {
+  console.error('Usage: --lang de|ar|fr|ja|it  [--dry-run] [--limit N]');
   process.exit(1);
 }
 

@@ -739,5 +739,128 @@ const ja: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
+const it: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa Adobe per Curriculum Vitae 2026: Modelli ATS Gratuiti | Best AI Resume',
+    description: 'Cerchi un\'alternativa gratuita ad Adobe per creare il curriculum vitae? Confronta Adobe Express vs Best AI Resume Builder — modelli ATS, scrittura IA, esportazioni illimitate. Nessun abbonamento.',
+    keywords: 'alternativa adobe curriculum, modello curriculum adobe, adobe express cv, creatore curriculum vitae gratuito, curriculum ats, curriculum vitae moderno, cv gratuito',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa Adobe per Curriculum',
+    articleHeadline: 'Alternativa Adobe per Curriculum Vitae 2026: Creatore CV Gratuito con IA e Ottimizzazione ATS',
+    articleDescription: 'Confronto Adobe Express vs Best AI Resume Builder per curriculum vitae. Modelli ATS, scrittura IA, esportazione PDF — tutto gratuito, senza abbonamento Creative Cloud.',
+  },
+  hero: {
+    badge: 'Alternativa Adobe per Curriculum',
+    title: 'Curriculum Vitae Eleganti.',
+    titleHighlight: 'Che Superano Davvero gli ATS.',
+    subtitle: 'Adobe crea design bellissimi — ma la maggior parte dei modelli Adobe per CV <strong>non supera lo screening ATS</strong>. Ottieni curriculum professionali <strong>e</strong> compatibili con i sistemi di tracciamento candidati. Gratis.',
+    ctaPrimary: 'Crea il Mio CV Gratis',
+    ctaSecondary: 'Vedi il Confronto',
+  },
+  problem: {
+    title: 'Il Problema Adobe: Belli Ma Invisibili agli ATS',
+    description: 'Adobe Express e Creative Cloud creano design splendidi. Ma un curriculum vitae non è una brochure. Il <strong>99% delle aziende italiane più grandi</strong> utilizza sistemi ATS per filtrare i CV. I modelli Adobe usano colonne, caselle di testo, icone e grafiche che gli ATS non riescono a leggere. Il tuo bellissimo curriculum viene scartato senza che nessun selezionatore lo veda mai.',
+    stats: [
+      { value: '75%', label: 'dei CV vengono scartati in fase ATS' },
+      { value: '$9.99', label: 'al mese per Adobe Express Premium' },
+      { value: '€0', label: 'Best AI Resume Builder — verificato ATS, completamente gratuito' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: 'Strumento di design vs creatore di CV dedicato',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Scopo principale', competitor: '⚠️ Strumento di design generico', ours: '✅ Progettato specificamente per CV' },
+      { feature: 'Compatibilità ATS', competitor: '❌ La maggior parte dei modelli non è ATS-compatibile', ours: '✅ Tutti i modelli verificati ATS' },
+      { feature: 'Scrittura con IA', competitor: '❌ Nessuna funzione IA per CV', ours: '✅ L\'IA crea contenuti personalizzati' },
+      { feature: 'Punteggio ATS', competitor: '❌ Nessun controllo ATS', ours: '✅ Punteggio ATS in tempo reale' },
+      { feature: 'Prezzo', competitor: '⚠️ Versione gratuita limitata / $9.99+/mese', ours: '✅ Completamente gratuito' },
+      { feature: 'Qualità del design', competitor: '✅ Ottima libertà creativa', ours: '✅ Design professionali compatibili ATS' },
+      { feature: 'Modelli per CV', competitor: '⚠️ Orientati al design (non ATS)', ours: '✅ Oltre 20 modelli verificati dai selezionatori' },
+      { feature: 'Guida ai contenuti', competitor: '❌ Nessun supporto alla scrittura del CV', ours: '✅ IA per esperienze e sommario professionale' },
+      { feature: 'Ottimizzazione parole chiave', competitor: '❌ Non disponibile', ours: '✅ Suggerimenti IA per parole chiave' },
+      { feature: 'Facilità d\'uso', competitor: '⚠️ Servono competenze di design', ours: '✅ Guida passo dopo passo' },
+    ],
+  },
+  whySwitch: {
+    title: 'Quando Adobe è la Scelta Giusta',
+    subtitle: 'Adobe è adatto a specifiche esigenze creative.',
+    reasons: [
+      { title: 'Quando usare Adobe', description: 'Per candidature nel settore creativo e design dove il portfolio visivo conta più della compatibilità ATS, per consegna diretta al selezionatore senza passare dagli ATS, per CV visivi destinati a eventi di networking.' },
+      { title: 'Quando usare Best AI Resumes', description: 'Per candidature tramite portali online e sistemi ATS, per posizioni in aziende che utilizzano software di screening automatico, per creare un curriculum vitae basato sui risultati con l\'aiuto dell\'IA.' },
+      { title: 'In sintesi', description: 'Adobe crea design bellissimi. Ma per le candidature tramite ATS (la stragrande maggioranza in Italia), serve un creatore di CV dedicato con modelli verificati ATS.' },
+    ],
+  },
+  recommendation: {
+    title: 'Quando Adobe è la Scelta Migliore',
+    useCompetitor: {
+      title: 'Adobe è consigliato se',
+      items: [
+        'Ti candidi per ruoli creativi e di design dove il portfolio visivo è prioritario',
+        'Consegni il CV direttamente al selezionatore senza passare da sistemi ATS',
+        'Crei un CV visivo per eventi di networking o personal branding',
+        'Hai già un abbonamento Adobe Creative Cloud',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes è consigliato se',
+      items: [
+        'Ti candidi tramite portali online e sistemi ATS',
+        'Cerchi posizioni in aziende che usano screening automatico',
+        'Vuoi che l\'IA ti aiuti a scrivere esperienze e risultati professionali',
+        'Desideri un curriculum professionale senza competenze di design',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Sfoglia Oltre 300 Esempi di Curriculum Gratuiti',
+    description: 'Dal graphic designer all\'UX designer, dall\'art director al project manager: scopri esempi di curriculum vitae professionali per ogni settore.',
+    ctaBrowse: 'Sfoglia Esempi di CV',
+    ctaTemplates: 'Vedi Tutti i Modelli',
+  },
+  faq: {
+    title: 'Domande Frequenti',
+    items: [
+      { question: 'Adobe offre un creatore di curriculum gratuito?', answer: 'Adobe Express ha alcuni modelli di CV gratuiti, ma i migliori template e le funzionalità avanzate richiedono Adobe Express Premium ($9.99/mese) o un abbonamento Creative Cloud ($54.99/mese). Best AI Resume Builder offre tutte le funzionalità — scrittura IA, modelli ATS, esportazione PDF — completamente gratis.' },
+      { question: 'Adobe Express è adatto per creare un curriculum vitae?', answer: 'Adobe Express crea CV visivamente accattivanti, ma è orientato al design, non all\'ottimizzazione ATS. La maggior parte dei modelli Adobe usa grafiche, colonne e layout che gli ATS non possono leggere. Best AI Resume Builder crea curriculum che sono sia professionali che compatibili con gli ATS.' },
+      { question: 'Qual è la migliore alternativa gratuita ad Adobe per il CV?', answer: 'Best AI Resume Builder è la migliore alternativa gratuita. A differenza di Adobe, è uno strumento dedicato ai curriculum con scrittura IA, ottimizzazione ATS e modelli verificati dai selezionatori. Adobe è eccellente per il graphic design, ma non è ottimizzato per la ricerca di lavoro in Italia.' },
+      { question: 'Gli ATS possono leggere i curriculum creati con Adobe Express?', answer: 'Molti modelli di Adobe Express usano elementi (colonne, caselle di testo, grafiche, icone) che gli ATS non possono analizzare correttamente. Questo significa che il tuo CV potrebbe risultare illeggibile ai software usati dal 99% delle grandi aziende. I modelli di Best AI Resume Builder sono specificamente testati per la compatibilità ATS.' },
+      { question: 'Dovrei usare Adobe InDesign o Illustrator per il curriculum?', answer: 'Solo se sei un graphic designer che si candida per ruoli creativi dove il design visivo è più importante della compatibilità ATS. Per tutte le altre candidature — specialmente tramite portali online e agenzie per il lavoro italiane — usa un creatore di CV dedicato con modelli verificati ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Confronta Altri Creatori di CV',
+    items: [
+      { href: '/canva-alternative', title: 'Alternativa Canva', subtitle: 'Un altro strumento di design a confronto' },
+      { href: '/zety-alternative', title: 'Alternativa Zety', subtitle: 'Prezzi e prova gratuita a confronto' },
+      { href: '/rezi-alternative', title: 'Alternativa Rezi', subtitle: 'Funzionalità IA a confronto' },
+      { href: '/overleaf-alternative', title: 'Alternativa Overleaf', subtitle: 'CV LaTeX vs creatore con IA' },
+    ],
+    guidesTitle: 'Guide Utili per il Curriculum',
+    guides: [
+      { href: '/blog/what-is-ats-guide', label: 'Cos\'è un ATS? Guida Completa' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'Come Scrivere un CV Compatibile ATS' },
+      { href: '/blog/how-to-write-a-resume', label: 'Come Scrivere un Curriculum Vitae (Guida Completa)' },
+      { href: '/resume-format', label: 'Guida al Formato del Curriculum 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express Resume Maker' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Design Professionale. Compatibilità ATS Garantita.',
+    description: 'Crea un curriculum vitae che sia bello da vedere e superi gli ATS. Scrittura IA, modelli verificati dai selezionatori, esportazioni illimitate — tutto gratis.',
+    cta: 'Crea il Mio CV Gratis',
+    subtext: 'Gratis per sempre. Nessun abbonamento Adobe necessario.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

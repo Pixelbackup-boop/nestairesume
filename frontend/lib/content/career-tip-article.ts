@@ -154,5 +154,28 @@ const ja: CareerTipArticleContent = {
   tagsLabel: 'タグ：',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja };
+const it: CareerTipArticleContent = {
+  breadcrumb: { home: 'Home', careerTips: 'Consigli per la Carriera' },
+  notFound: 'Articolo Non Trovato',
+  share: {
+    title: 'Hai trovato utile questo articolo?',
+    subtitle: 'Condividilo con chi potrebbe trarne vantaggio',
+  },
+  cta: {
+    title: 'Pronto a creare il tuo curriculum?',
+    subtitle: 'Metti in pratica questi consigli con il nostro creatore di CV basato sull\'intelligenza artificiale. Crea un curriculum professionale in pochi minuti.',
+    button: 'Crea il Tuo CV Ora',
+  },
+  sidebar: {
+    tocTitle: 'Indice',
+    relatedTitle: 'Articoli Correlati',
+    ctaTitle: 'Crea il Tuo CV',
+    ctaSubtitle: 'Crea un curriculum vitae professionale con l\'IA in pochi minuti.',
+    ctaButton: 'Inizia',
+  },
+  moreCareerTips: 'Altri Consigli per la Carriera',
+  tagsLabel: 'Tag:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

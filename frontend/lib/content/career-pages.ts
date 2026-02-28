@@ -146,7 +146,28 @@ const ja: CareerPagesContent = {
   },
 };
 
-const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja };
+const it: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Risorse per la Carriera e Opportunità di Lavoro | Best AI Resume',
+      description: 'Scopri risorse professionali, opportunità di lavoro, approfondimenti di settore e consigli per lo sviluppo della carriera.',
+      ogTitle: 'Risorse per la Carriera e Opportunità di Lavoro | Best AI Resume',
+      ogDescription: 'Scopri risorse professionali, opportunità di lavoro e consigli per lo sviluppo della carriera.',
+    },
+    badge: 'Centro Carriera',
+    title: 'Risorse per la Carriera e',
+    titleHighlight: 'Opportunità',
+    subtitle: 'Esplora opportunità di lavoro, approfondimenti professionali e risorse per lo sviluppo della carriera.',
+    featured: 'Opportunità in Evidenza',
+    noPostsTitle: 'Nessun articolo ancora',
+    noPostsSub: 'Torna presto per risorse e opportunità professionali!',
+  },
+  article: {
+    notFound: 'Articolo Non Trovato',
+  },
+};
+
+const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it };
 
 export function getCareerListingContent(locale: string) { return selectContent(contentMap, locale).listing; }
 export function getCareerArticleContent(locale: string) { return selectContent(contentMap, locale).article; }

@@ -745,5 +745,129 @@ const ja: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja };
+const it: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa LiveCareer 2026: Creatore CV Gratuito con IA | Best AI Resume',
+    description: 'Cerchi un\'alternativa gratuita a LiveCareer? Confronta LiveCareer vs Best AI Resume Builder — scrittura IA moderna, modelli ATS, download illimitati. Nessun abbonamento.',
+    keywords: 'alternativa livecareer curriculum, livecareer alternativa gratuita, creatore curriculum vitae gratuito, livecareer vs, cv con ia gratis, modelli curriculum ats',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa LiveCareer',
+    articleHeadline: 'Migliore Alternativa a LiveCareer 2026: Creatore di Curriculum Vitae Gratuito con IA',
+    articleDescription: 'Confronto LiveCareer vs Best AI Resume Builder. Scrittura IA moderna e ottimizzazione ATS — completamente gratis, senza abbonamento.',
+  },
+  hero: {
+    badge: 'Alternativa LiveCareer',
+    title: 'Creatore di CV Moderno con IA.',
+    titleHighlight: 'Gratis Per Sempre.',
+    subtitle: 'LiveCareer esiste dal 2005 — ma i suoi strumenti non si sono aggiornati. Ottieni <strong>scrittura IA</strong>, modelli moderni e punteggio ATS a <strong>€0</strong> invece di $19.95/mese.',
+    ctaPrimary: 'Crea il Mio CV Gratis',
+    ctaSecondary: 'Vedi il Confronto',
+  },
+  problem: {
+    title: 'LiveCareer Era Eccellente — Nel 2015',
+    description: 'LiveCareer è stato un pioniere nella creazione di curriculum online. Ma mentre il settore si è evoluto verso la scrittura IA e l\'ottimizzazione ATS in tempo reale, LiveCareer si affida ancora a <strong>librerie di frasi preconfezionate</strong> e un\'interfaccia datata. Il loro abbonamento costa <strong>$19.95/mese</strong> per funzionalità che strumenti gratuiti moderni hanno già superato.',
+    stats: [
+      { value: '$5.95', label: 'prova 14 giorni (poi $19.95/mese)' },
+      { value: '2005', label: 'anno di fondazione LiveCareer' },
+      { value: '€0', label: 'Best AI Resume Builder — gratis per sempre' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: 'Builder tradizionale vs piattaforma moderna con IA.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prezzo', competitor: '❌ Prova $5.95 → $19.95/mese', ours: '✅ 100% gratuito per sempre' },
+      { feature: 'Scrittura CV con IA', competitor: '❌ Solo frasi preconfezionate', ours: '✅ IA genera contenuti personalizzati' },
+      { feature: 'Ottimizzazione ATS', competitor: '⚠️ Solo consigli generici', ours: '✅ Punteggio ATS in tempo reale + parole chiave' },
+      { feature: 'Design modelli', competitor: '⚠️ Design datato, poca scelta', ours: '✅ Oltre 20 modelli moderni ATS' },
+      { feature: 'Interfaccia utente', competitor: '⚠️ Aspetto datato', ours: '✅ Esperienza moderna e guidata' },
+      { feature: 'Esportazione PDF', competitor: '❌ Solo con piano a pagamento', ours: '✅ Esportazioni illimitate gratuite' },
+      { feature: 'Lettera di presentazione', competitor: '✅ Builder incluso (a pagamento)', ours: '✅ Con IA (gratuito)' },
+      { feature: 'Qualità contenuti', competitor: '⚠️ Suggerimenti generici preconfezionati', ours: '✅ Scrittura personalizzata con IA' },
+      { feature: 'Adattamento all\'offerta', competitor: '⚠️ Matching parole chiave manuale', ours: '✅ Ottimizzazione parole chiave con IA' },
+      { feature: 'Esempi di CV', competitor: '✅ Libreria di esempi', ours: '✅ Oltre 300 esempi dettagliati' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivi per Passare da LiveCareer',
+    subtitle: 'Aggiornati all\'IA moderna senza spendere nulla.',
+    reasons: [
+      { title: 'Scrittura IA Autentica', description: 'LiveCareer offre frasi preconfezionate. La nostra IA genera esperienze professionali personalizzate dalla tua storia lavorativa e ottimizza il curriculum per ogni offerta a cui ti candidi nel mercato italiano.' },
+      { title: 'Modelli Moderni', description: 'I modelli LiveCareer sembrano progettati 10 anni fa. I nostri oltre 20 modelli utilizzano design contemporanei che risultano professionali sia su schermo che stampati.' },
+      { title: 'Risparmi €240 all\'Anno', description: 'LiveCareer costa $19.95/mese (circa €240/anno). Il nostro creatore di CV con IA offre tecnologia superiore a costo zero — nessuna prova, nessun abbonamento, nessun vincolo.' },
+    ],
+  },
+  recommendation: {
+    title: 'Consiglio Onesto',
+    useCompetitor: {
+      title: 'LiveCareer è consigliato se',
+      items: [
+        'Preferisci un approccio tradizionale senza IA alla creazione del CV',
+        'Vuoi contenuti preconfezionati da copiare e modificare',
+        'Sei abituato a strumenti con abbonamento mensile',
+        'Hai bisogno di funzionalità specifiche di confronto salariale',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes è consigliato se',
+      items: [
+        'Vuoi che l\'IA crei contenuti personalizzati dalla tua esperienza',
+        'Preferisci un\'interfaccia moderna e pulita',
+        'Hai bisogno di punteggio ATS in tempo reale e ottimizzazione parole chiave',
+        'Desideri esportazioni PDF illimitate senza pagare',
+        'Non vuoi pagare un abbonamento mensile per un creatore di curriculum',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Sfoglia Oltre 300 Esempi di Curriculum Gratuiti',
+    description: 'Dal commercialista all\'insegnante, dal project manager all\'ingegnere: esplora esempi di curriculum vitae professionali per ogni settore.',
+    ctaBrowse: 'Sfoglia Esempi di CV',
+    ctaTemplates: 'Vedi Tutti i Modelli',
+  },
+  faq: {
+    title: 'Domande Frequenti',
+    items: [
+      { question: 'LiveCareer è gratuito?', answer: 'LiveCareer offre un piano gratuito molto limitato, ma la maggior parte delle funzionalità — accesso completo ai modelli, download PDF, builder curriculum — richiede un abbonamento (prova 14 giorni a $5.95, poi $19.95/mese). Best AI Resume Builder è 100% gratuito senza prove né abbonamenti.' },
+      { question: 'LiveCareer è un buon creatore di curriculum?', answer: 'LiveCareer è uno dei builder più storici (fondato nel 2005) e offre modelli con guida passo dopo passo. Tuttavia, rispetto ai builder moderni con IA, ha un\'interfaccia datata e costi di abbonamento elevati. Best AI Resume Builder offre scrittura IA e modelli moderni gratuitamente.' },
+      { question: 'Qual è la migliore alternativa gratuita a LiveCareer?', answer: 'Best AI Resume Builder è la migliore alternativa gratuita. Offre scrittura IA, oltre 20 modelli testati ATS, punteggio ATS in tempo reale e PDF illimitati — tutto gratis. Nessuna prova, nessuna carta di credito, nessuna limitazione.' },
+      { question: 'LiveCareer ha funzioni di scrittura con IA?', answer: 'LiveCareer offre suggerimenti con frasi preconfezionate per settore, ma non utilizza IA moderna per generare contenuti personalizzati. Best AI Resume Builder usa IA avanzata per creare esperienze, sommari e competenze personalizzate in base alla tua storia professionale e al ruolo desiderato.' },
+      { question: 'Come si cancella LiveCareer?', answer: 'L\'abbonamento LiveCareer si cancella dalle impostazioni dell\'account o contattando il servizio clienti. Bisogna cancellare prima della fine della prova per evitare addebiti. Con Best AI Resume Builder non c\'è nulla da cancellare — è un servizio gratuito senza modello ad abbonamento.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Confronta Altri Creatori di CV',
+    items: [
+      { href: '/zety-alternative', title: 'Alternativa Zety', subtitle: 'Prezzi e prova gratuita a confronto' },
+      { href: '/canva-alternative', title: 'Alternativa Canva', subtitle: 'Strumento di design vs creatore IA' },
+      { href: '/rezi-alternative', title: 'Alternativa Rezi', subtitle: 'Funzionalità IA a confronto' },
+      { href: '/resume-io-alternative', title: 'Alternativa Resume.io', subtitle: 'Prezzi e funzionalità a confronto' },
+    ],
+    guidesTitle: 'Guide Utili per il Curriculum',
+    guides: [
+      { href: '/blog/how-to-write-a-resume', label: 'Come Scrivere un Curriculum Vitae (Guida Completa)' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'Come Scrivere un CV Compatibile ATS' },
+      { href: '/resume-format', label: 'Guida al Formato del Curriculum 2026' },
+      { href: '/blog/resume-action-verbs', label: 'Oltre 200 Verbi d\'Azione per il Curriculum' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.livecareer.com/', label: 'Sito Ufficiale LiveCareer' },
+      { href: 'https://www.shrm.org/', label: 'SHRM Risorse Carriera' },
+    ],
+  },
+  bottomCta: {
+    title: 'IA Moderna. Zero Costi.',
+    description: 'Passa da LiveCareer alla creazione di curriculum con IA. Tecnologia migliore, modelli moderni, esportazioni illimitate — tutto gratis.',
+    cta: 'Crea il Mio CV Gratis',
+    subtext: 'Gratis per sempre. Nessuna carta di credito richiesta.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

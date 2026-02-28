@@ -114,5 +114,23 @@ const ja: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja };
+const it: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Oltre 300 Esempi di Curriculum Vitae per Professione (2026) | Best AI Resume',
+    description: 'Sfoglia oltre 300 esempi gratuiti di curriculum vitae organizzati per settore e professione. Modelli di CV professionali con consigli per l\'ottimizzazione ATS.',
+  },
+  hero: {
+    badge: 'Esempi di CV 2026',
+    title: 'Esempi di Curriculum Vitae',
+    titleHighlight: 'per Professione',
+    subtitle: 'Sfoglia {count}+ esempi professionali di curriculum vitae organizzati per settore. Trova la tua professione e crea il tuo CV con il nostro strumento IA.',
+  },
+  bottomCta: {
+    title: 'Non trovi la tua professione?',
+    description: 'La nostra IA può creare un curriculum vitae personalizzato per QUALSIASI professione in pochi secondi.',
+    ctaText: 'Genera CV Personalizzato',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

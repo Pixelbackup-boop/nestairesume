@@ -374,6 +374,66 @@ const ja: PrivacyContent = {
   lastUpdated: '最終更新：2026年1月',
 };
 
-const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja };
+const it: PrivacyContent = {
+  hero: {
+    badge: 'Informativa sulla Privacy',
+    title: 'La tua privacy \u00e8',
+    titleHighlight: 'la nostra priorit\u00e0',
+    subtitle: 'In Best AI Resume crediamo che i tuoi dati personali appartengano a te. Abbiamo costruito la nostra piattaforma con un approccio incentrato sulla privacy, in conformit\u00e0 con il GDPR (Regolamento Generale sulla Protezione dei Dati) e la normativa italiana in materia.',
+  },
+  highlights: [
+    { title: 'I Tuoi Dati Restano Locali', text: 'Tutti i contenuti del tuo curriculum vitae\u2014esperienze lavorative, formazione e competenze\u2014sono salvati localmente nel tuo browser, mai sui nostri server.' },
+    { title: 'Dati Server Minimi', text: 'Conserviamo sui nostri server solo il tuo indirizzo e-mail e la password per l\u2019autenticazione dell\u2019account. Nient\u2019altro. Nessun contenuto del CV, nessun dato personale aggiuntivo.' },
+    { title: 'Trasparenza Totale', text: 'Crediamo nella trasparenza completa. Puoi verificare esattamente quali dati sono salvati nel tuo browser e cancellarli in qualsiasi momento.' },
+  ],
+  sections: [
+    {
+      heading: 'Quali Dati Raccogliamo',
+      subsections: [
+        { subheading: 'Dati Conservati sui Nostri Server (Minimi)', items: ['**Indirizzo e-mail** \u2014 Utilizzato per l\u2019autenticazione dell\u2019account e comunicazioni importanti sul servizio', '**Password (crittografata)** \u2014 Salvata in forma di hash sicuro per l\u2019autenticazione'] },
+        { subheading: 'Dati Conservati Localmente nel Tuo Browser', items: ['Informazioni personali (nome, recapiti, indirizzo)', 'Esperienze lavorative e storia professionale', 'Istruzione e certificazioni', 'Competenze, lingue e traguardi raggiunti', 'Modelli di CV e preferenze di personalizzazione'] },
+      ],
+    },
+    {
+      heading: 'Perch\u00e9 Utilizziamo lo Storage del Browser',
+      intro: 'Abbiamo scelto lo storage del browser (localStorage) come metodo principale di salvataggio dei dati per diverse ragioni importanti:',
+      items: ['**Massima Privacy** \u2014 Le tue informazioni professionali sensibili non lasciano mai il tuo dispositivo', '**Nessuna Violazione di Dati** \u2014 Poich\u00e9 non conserviamo i dati del tuo CV, non possono essere compromessi in caso di violazione del server', '**Controllo Totale** \u2014 Puoi visualizzare, esportare o eliminare i tuoi dati in qualsiasi momento dalle impostazioni del browser', '**Prestazioni Elevate** \u2014 Lo storage locale garantisce accesso istantaneo ai tuoi dati senza latenza del server'],
+    },
+    {
+      heading: 'Come Proteggiamo il Tuo Account',
+      intro: 'Pur minimizzando i dati lato server, prendiamo molto seriamente la sicurezza delle tue credenziali:',
+      items: ['Le password sono crittografate con algoritmi di hashing conformi agli standard di settore', 'Tutte le trasmissioni di dati sono protette con crittografia HTTPS', 'Le password non vengono mai memorizzate in chiaro', 'Audit di sicurezza periodici e monitoraggio continuo'],
+    },
+    {
+      heading: 'I Tuoi Diritti e il Tuo Controllo',
+      intro: 'In conformit\u00e0 con il GDPR e il D.lgs. 196/2003 (Codice Privacy italiano), hai il pieno controllo sui tuoi dati:',
+      items: ['**Accesso** \u2014 Puoi consultare tutti i dati salvati nel browser in qualsiasi momento tramite gli strumenti per sviluppatori del browser', '**Esportazione** \u2014 Scarica i dati del tuo CV in formato PDF o altri formati', '**Cancellazione** \u2014 Svuota lo storage del browser o elimina il tuo account in qualsiasi momento', '**Portabilit\u00e0** \u2014 I tuoi dati sono tuoi e puoi portarli ovunque, come garantito dall\u2019art. 20 del GDPR'],
+    },
+    {
+      heading: 'Cosa Non Facciamo',
+      intro: 'Ci impegniamo a rispettare pratiche etiche nella gestione dei dati. Ecco cosa non faremo mai:',
+      items: ['Vendere le tue informazioni personali a terzi', 'Utilizzare i contenuti del tuo CV a scopi pubblicitari', 'Condividere i tuoi dati con recruiter senza il tuo consenso esplicito', 'Tracciare la tua attivit\u00e0 di navigazione su altri siti web', 'Conservare i contenuti del tuo curriculum vitae sui nostri server'],
+    },
+    {
+      heading: 'Cookie e Analisi',
+      intro: 'Utilizziamo cookie minimi ed essenziali per:',
+      items: ['Mantenere attiva la tua sessione di login', 'Ricordare le tue preferenze di lingua e tema', 'Analisi anonime sull\u2019utilizzo per migliorare il servizio'],
+    },
+    {
+      heading: 'Contattaci',
+    },
+  ],
+  contactText: 'Per qualsiasi domanda sulle nostre pratiche in materia di privacy o per esercitare i tuoi diritti sui dati personali (come previsto dal GDPR e dal Garante per la Protezione dei Dati Personali), contattaci all\u2019indirizzo',
+  cta: {
+    title: 'Crea il tuo curriculum vitae con',
+    titleHighlight: 'fiducia e privacy',
+    subtitle: 'I tuoi dati professionali restano con te. Inizia a creare il tuo CV professionale oggi.',
+    primaryBtn: 'Inizia Gratis',
+    secondaryBtn: 'Scopri Chi Siamo',
+  },
+  lastUpdated: 'Ultimo aggiornamento: gennaio 2026',
+};
+
+const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

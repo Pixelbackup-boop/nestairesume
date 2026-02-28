@@ -1792,9 +1792,288 @@ const ja: BiodataFormatPageContent = {
 };
 
 // ---------------------------------------------------------------------------
+// Italian
+// ---------------------------------------------------------------------------
+const it: BiodataFormatPageContent = {
+  meta: {
+    title: 'Formato Biodata 2026: Modelli Gratuiti, Esempi e Guida alla Compilazione | Best AI Resume',
+    description:
+      'Scopri il formato biodata per candidature di lavoro. Confronta biodata vs curriculum vitae, scarica modelli gratuiti (PDF e Word) e consulta esempi per India, Pakistan e altri paesi.',
+    keywords:
+      'formato biodata, biodata, biodata per lavoro, biodata vs curriculum vitae, biodata matrimoniale, modello biodata, formato dati personali, curriculum vitae formato',
+  },
+  schemas: {
+    breadcrumbName: 'Guida al Formato Biodata',
+    articleHeadline: 'Guida al Formato Biodata 2026: Modelli, Esempi e Come Scriverlo',
+    articleDescription:
+      'Guida completa al formato biodata per candidature di lavoro e matrimonio. Scopri la differenza tra biodata e curriculum vitae, scarica modelli gratuiti e consulta gli esempi.',
+  },
+  hero: {
+    badge: 'Guida Completa 2026',
+    title: 'Guida al Formato Biodata',
+    titleHighlight: '(Modelli Gratuiti)',
+    subtitle:
+      'Il <strong>formato biodata</strong> \u00e8 il documento standard per le candidature di lavoro in India, Pakistan, Bangladesh e Medio Oriente. Scopri quando usare il biodata rispetto al curriculum vitae e scarica modelli gratuiti conformi alle aspettative regionali.',
+    ctaTemplates: 'Scarica i Modelli',
+    ctaBuild: 'Crea il Biodata con l\u2019AI',
+  },
+  whatIs: {
+    title: 'Che cos\u2019\u00e8 il Biodata?',
+    paragraphs: [
+      'Il <strong>biodata</strong> (abbreviazione di <em>biographical data</em>, ovvero dati biografici) \u00e8 un documento che riassume le informazioni personali e professionali di un individuo. A differenza del <strong>curriculum vitae</strong> italiano, che si concentra sulle esperienze lavorative e sulle competenze, il biodata include <strong>dati personali</strong> come data di nascita, stato civile, nazionalit\u00e0, religione e talvolta informazioni sulla famiglia.',
+      'Il formato biodata \u00e8 ampiamente utilizzato in <strong>Asia meridionale</strong> (India, Pakistan, Bangladesh, Sri Lanka), <strong>Medio Oriente</strong> (EAU, Arabia Saudita, Qatar) e in parte del <strong>Sud-Est asiatico</strong> (Filippine, Malesia). In queste regioni, gli enti pubblici, le istituzioni governative e le aziende tradizionali richiedono spesso il formato biodata anzich\u00e9 il curriculum vitae europeo.',
+    ],
+    insightTitle: 'Nota importante:',
+    insightText:
+      'Se ti candidi per posizioni in India, Pakistan o nei paesi del Golfo, conoscere il formato biodata \u00e8 fondamentale. Le candidature che non rispettano il formato richiesto vengono spesso scartate. In Italia il curriculum vitae resta il documento standard, ma chi lavora in contesti internazionali dovrebbe conoscere entrambi i formati.',
+  },
+  vsComparison: {
+    title: 'Biodata vs Curriculum Vitae vs Resume: Quali Differenze?',
+    subtitle: 'Comprendere quale documento utilizzare in ogni contesto \u00e8 essenziale per candidarsi con successo.',
+    headers: { aspect: 'Aspetto', biodata: 'Biodata', resume: 'Curriculum Vitae', cv: 'CV Accademico' },
+    rows: [
+      { aspect: 'Lunghezza', biodata: '1\u20132 pagine', resume: '1\u20132 pagine', cv: '2+ pagine' },
+      {
+        aspect: 'Dati personali',
+        biodata: 'Dettagliati (data di nascita, stato civile, religione, famiglia)',
+        resume: 'Minimi (nome e contatti)',
+        cv: 'Minimi (nome e contatti)',
+        biodataHighlight: 'green',
+      },
+      { aspect: 'Focus', biodata: 'Background personale + esperienza', resume: 'Competenze + risultati', cv: 'Carriera accademica + ricerca' },
+      {
+        aspect: 'Dove si usa',
+        biodata: 'India, Pakistan, Medio Oriente, Filippine',
+        resume: 'Italia, Europa, USA, Canada, Australia',
+        cv: 'Mondo accademico, Regno Unito',
+      },
+      {
+        aspect: 'Contesto tipico',
+        biodata: 'Impiego pubblico, aziende tradizionali, matrimonio',
+        resume: 'Aziende private, startup, settore IT',
+        cv: 'Posizioni accademiche, ricerca, sanit\u00e0',
+      },
+      {
+        aspect: 'Personalizzazione',
+        biodata: 'Contenuto identico per pi\u00f9 candidature',
+        resume: 'Personalizzato per ogni candidatura',
+        cv: 'Aggiornato con nuove pubblicazioni e traguardi',
+      },
+    ],
+  },
+  structure: {
+    title: 'Struttura Standard del Biodata',
+    description: 'Non esiste un formato \u00abofficial\u00bb unico, ma la maggior parte dei selezionatori si aspetta queste sezioni:',
+    sections: [
+      { number: 1, label: 'Dati personali', detail: 'Nome completo, foto, data di nascita, sesso, stato civile, nazionalit\u00e0', colorGroup: 'orange' },
+      { number: 2, label: 'Recapiti', detail: 'Indirizzo (permanente e attuale), telefono, e-mail', colorGroup: 'default' },
+      { number: 3, label: 'Obiettivo professionale', detail: 'Descrizione dell\u2019obiettivo di carriera in 2\u20133 frasi', colorGroup: 'default' },
+      { number: 4, label: 'Istruzione', detail: 'Titolo di studio, istituto, anno di conseguimento, voto/GPA', colorGroup: 'blue' },
+      { number: 5, label: 'Esperienza lavorativa', detail: 'Azienda, ruolo, periodo, mansioni principali', colorGroup: 'blue' },
+      { number: 6, label: 'Competenze', detail: 'Competenze tecniche, lingue conosciute, software', colorGroup: 'default' },
+      { number: 7, label: 'Informazioni aggiuntive', detail: 'Hobby, interessi, premi, referenze', colorGroup: 'default' },
+      { number: 8, label: 'Dichiarazione', detail: '\u00abDichiaro che le informazioni sopra riportate sono veritiere...\u00bb', colorGroup: 'dark' },
+    ],
+    proTipTitle: 'Consiglio dell\u2019esperto:',
+    proTipText:
+      'Includi sempre una fototessera professionale nell\u2019angolo in alto a destra del biodata. \u00c8 un requisito standard in Asia meridionale e Medio Oriente. Anche nel curriculum vitae italiano la foto \u00e8 diffusa, sebbene non obbligatoria, mentre nei resume anglosassoni \u00e8 generalmente sconsigliata.',
+  },
+  personalInfo: {
+    title: 'Dati Personali da Includere nel Biodata',
+    description: 'La sezione dei dati personali \u00e8 l\u2019elemento che distingue maggiormente il biodata dal curriculum vitae tradizionale. Ecco cosa \u00e8 generalmente richiesto:',
+    alwaysInclude: {
+      title: 'Da includere sempre',
+      items: [
+        'Nome completo (come nei documenti ufficiali)',
+        'Data di nascita',
+        'Sesso',
+        'Nazionalit\u00e0',
+        'Stato civile',
+        'Lingue conosciute',
+        'Indirizzo di residenza permanente',
+        'Indirizzo attuale',
+        'Numero di telefono',
+        'Indirizzo e-mail',
+      ],
+    },
+    optional: {
+      title: 'Facoltativo (in base al contesto)',
+      items: [
+        'Nome e professione del padre',
+        'Nome della madre',
+        'Religione (se richiesta dal datore di lavoro)',
+        'Casta/comunit\u00e0 (per impieghi pubblici in India)',
+        'Gruppo sanguigno',
+        'Altezza e peso',
+        'Numero di passaporto (per lavoro all\u2019estero)',
+        'Status del visto',
+      ],
+    },
+    noteTitle: 'Nota importante:',
+    noteText:
+      'Sebbene il biodata tradizionale includa informazioni come religione e casta, molte aziende private moderne in India non le richiedono pi\u00f9. Inserisci solo le informazioni espressamente richieste nell\u2019annuncio di lavoro. In Italia, il curriculum vitae segue le normative GDPR e non richiede dati sensibili come religione o stato civile, salvo che siano rilevanti per la posizione.',
+  },
+  types: {
+    title: 'Tipologie di Biodata',
+    jobBiodata: {
+      title: '1. Biodata Professionale (per Lavoro)',
+      description:
+        'Utilizzato per le candidature di lavoro, particolarmente diffuso nel settore pubblico dell\u2019Asia meridionale, nelle aziende statali e nelle imprese tradizionali.',
+      focusTitle: 'Contenuto principale:',
+      focusItems: [
+        'Percorso formativo con risultati accademici',
+        'Esperienza lavorativa con descrizione delle mansioni',
+        'Competenze professionali e trasversali',
+        'Certificazioni e formazione professionale',
+      ],
+      commonTitle: 'Contesti di utilizzo pi\u00f9 comuni:',
+      commonItems: [
+        'Concorsi UPSC, SSC e bancari (India)',
+        'Selezioni PPSC e FPSC (Pakistan)',
+        'Ricerca di lavoro nei paesi del Golfo',
+        'Candidature per posizioni di insegnamento',
+      ],
+    },
+    marriageBiodata: {
+      title: '2. Biodata Matrimoniale',
+      description:
+        'Utilizzato nella tradizione dei matrimoni combinati in India, Pakistan, Bangladesh e nelle comunit\u00e0 della diaspora. Contiene informazioni personali e familiari dettagliate.',
+      sectionsTitle: 'Sezioni aggiuntive:',
+      sectionsItems: [
+        'Background familiare (genitori, fratelli e sorelle)',
+        'Dettagli dell\u2019oroscopo / Kundali',
+        'Caratteristiche fisiche',
+        'Preferenze per il partner',
+      ],
+      designTitle: 'Elementi di design:',
+      designItems: [
+        'Bordi decorativi',
+        'Fotografia professionale',
+        'Simboli religiosi (facoltativo)',
+        'Di solito 2\u20133 pagine',
+      ],
+    },
+  },
+  regions: {
+    title: 'Formato Biodata per Regione',
+    description: 'Le aspettative variano da paese a paese. Ecco cosa cercano i selezionatori nelle diverse aree geografiche:',
+    items: [
+      {
+        country: 'India',
+        flag: '\ud83c\uddee\ud83c\uddf3',
+        text: 'Il biodata \u00e8 lo standard per la pubblica amministrazione (UPSC, SSC, PSC statali), banche e aziende statali. Le aziende private multinazionali preferiscono il curriculum vitae. Sono richiesti: nome del padre, categoria di casta (per le riserve), dichiarazione e fototessera.',
+      },
+      {
+        country: 'Pakistan',
+        flag: '\ud83c\uddf5\ud83c\uddf0',
+        text: 'Simile all\u2019India. Spesso viene richiesto il numero CNIC (Carta d\u2019Identit\u00e0 Nazionale). Nome del padre e indirizzo sono informazioni di base. Per le posizioni governative e semi-governative \u00e8 necessario un biodata dettagliato.',
+      },
+      {
+        country: 'EAU e Paesi del Golfo',
+        flag: '\ud83c\udde6\ud83c\uddea',
+        text: 'Si aspettano un biodata con foto, nazionalit\u00e0, stato del visto e data di disponibilit\u00e0. La religione pu\u00f2 essere richiesta. Per le candidature dall\u2019estero, includere i dati del passaporto. Sia il biodata che il curriculum vitae sono accettati.',
+      },
+      {
+        country: 'Filippine',
+        flag: '\ud83c\uddf5\ud83c\udded',
+        text: 'Il Personal Data Sheet (PDS) \u00e8 il formato ufficiale per la pubblica amministrazione. Le aziende private accettano sia il biodata che il curriculum vitae. \u00c8 comune indicare altezza, peso e stato civile.',
+      },
+    ],
+  },
+  templates: {
+    title: 'Modelli di Biodata Gratuiti',
+    subtitle:
+      'Scarica modelli di biodata professionali in formato Word e PDF. Personalizzali facilmente con le tue informazioni.',
+    cards: [
+      {
+        title: 'Modello Biodata Professionale',
+        description: 'Modello con tutte le sezioni standard per candidature di lavoro.',
+        ctaLabel: 'Crea con l\u2019AI',
+        color: 'blue',
+      },
+      {
+        title: 'Modello Biodata Semplice',
+        description: 'Design pulito e minimale, ideale per neolaureati e candidati alle prime esperienze.',
+        ctaLabel: 'Inizia a Creare',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: 'Consigli per Scrivere un Biodata Efficace',
+    items: [
+      { title: 'Usa una foto professionale', description: 'Formato tessera, abbigliamento formale, sfondo neutro. Niente selfie o foto informali.' },
+      { title: 'Sii conciso', description: 'Massimo 1\u20132 pagine. I selezionatori non leggono documenti troppo lunghi.' },
+      { title: 'Mantieni un formato coerente', description: 'Stesso carattere tipografico, intestazioni chiare, allineamento uniforme in tutto il documento.' },
+      { title: 'Aggiungi la dichiarazione', description: '\u00abDichiaro che le informazioni sopra riportate sono veritiere e corrette a mia conoscenza.\u00bb' },
+      { title: 'Elenca l\u2019istruzione in ordine cronologico inverso', description: 'Inizia dal titolo di studio pi\u00f9 recente. Includi il voto se significativo.' },
+      { title: 'Ricontrolla con attenzione', description: 'Errori di ortografia e grammatica creano immediatamente un\u2019impressione negativa.' },
+      { title: 'Includi solo informazioni pertinenti', description: 'Non inserire dati che non sono richiesti o non sono rilevanti per la posizione.' },
+      { title: 'Firma e data', description: 'Apponi la firma, la data e il luogo in calce al documento.' },
+    ],
+  },
+  faq: {
+    title: 'Domande Frequenti',
+    items: [
+      {
+        question: 'Qual \u00e8 la differenza tra biodata e curriculum vitae?',
+        answer:
+          'Il curriculum vitae (CV) si concentra sulle esperienze lavorative, competenze e risultati professionali, ed \u00e8 personalizzato per ogni candidatura. Il biodata include inoltre dati personali come data di nascita, stato civile, religione e informazioni sulla famiglia. In Italia e in Europa si usa il curriculum vitae, mentre il biodata \u00e8 il formato preferito in Asia meridionale, Medio Oriente e in parte del Sud-Est asiatico.',
+      },
+      {
+        question: 'Il biodata si usa per cercare lavoro?',
+        answer:
+          'S\u00ec, il biodata \u00e8 comunemente utilizzato per le candidature di lavoro in India, Pakistan, Bangladesh, Filippine e nei paesi del Medio Oriente. Nel settore pubblico e nelle aziende tradizionali \u00e8 spesso espressamente richiesto il formato biodata anzich\u00e9 il curriculum vitae.',
+      },
+      {
+        question: 'Quali dati personali si inseriscono nel biodata?',
+        answer:
+          'Un biodata professionale include tipicamente nome completo, data di nascita, sesso, nazionalit\u00e0, stato civile, lingue conosciute e indirizzi (permanente e attuale). Un biodata matrimoniale pu\u00f2 aggiungere altezza, peso, religione, casta, informazioni sulla famiglia e dettagli dell\u2019oroscopo.',
+      },
+      {
+        question: 'Quanto deve essere lungo un biodata?',
+        answer:
+          'Idealmente 1\u20132 pagine. Un biodata professionale occupa di solito una pagina, mentre quello matrimoniale pu\u00f2 arrivare a due pagine per via delle informazioni sulla famiglia e delle preferenze personali. Cerca di essere conciso senza omettere le informazioni essenziali.',
+      },
+      {
+        question: 'Posso creare un biodata con uno strumento per curriculum vitae?',
+        answer:
+          'S\u00ec, il nostro builder AI pu\u00f2 essere utilizzato per creare un biodata. Parti da un modello standard e aggiungi le sezioni relative ai dati personali tipici del biodata. Le funzionalit\u00e0 di personalizzazione ti permettono di adattare il documento al formato richiesto nella tua area geografica.',
+      },
+      {
+        question: 'Cos\u2019\u00e8 un biodata matrimoniale?',
+        answer:
+          'Il biodata matrimoniale \u00e8 un documento utilizzato nella tradizione dei matrimoni combinati in India, Pakistan e altri paesi dell\u2019Asia meridionale. Contiene informazioni personali dettagliate, background familiare, percorso formativo e professionale, dettagli dell\u2019oroscopo e preferenze per il partner, per facilitare la compatibilit\u00e0 tra le famiglie.',
+      },
+    ],
+  },
+  crossLinks: {
+    title: 'Risorse Correlate',
+    items: [
+      { href: '/it/resume-format', title: 'Guida al Formato del CV', subtitle: 'Formato cronologico, funzionale e combinato' },
+      { href: '/it/templates', title: 'Modelli di Curriculum Vitae', subtitle: 'Oltre 20 modelli professionali' },
+      { href: '/it/resume-examples', title: 'Esempi di Curriculum Vitae', subtitle: 'Oltre 300 esempi per professione' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse Esterne',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Panorama Occupazionale' },
+      { href: 'https://www.glassdoor.com/blog/guide/resume-tips/', label: 'Glassdoor: Guida al CV e alla Carriera' },
+    ],
+  },
+  bottomCta: {
+    title: 'Crea il Tuo Biodata in Pochi Minuti',
+    description:
+      'Il nostro builder con intelligenza artificiale ti aiuta a creare un biodata professionale con la struttura corretta. Scegli tra diversi modelli ed esporta in PDF o Word.',
+    ctaLabel: 'Crea il Biodata Gratis',
+  },
+};
+
+// ---------------------------------------------------------------------------
 // Export
 // ---------------------------------------------------------------------------
-const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja };
+const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string): BiodataFormatPageContent {
   return selectContent(contentMap, locale);

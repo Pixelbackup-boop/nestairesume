@@ -295,6 +295,49 @@ const ja: CommunityContent = {
   deleteBtn: '削除',
 };
 
-const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar, ja };
+const it: CommunityContent = {
+  title: 'Modelli della Comunità',
+  subtitle: 'Esplora e utilizza i modelli condivisi dalla comunità',
+  categories: [
+    { value: '', label: 'Tutti' },
+    { value: 'professional', label: 'Professionale' },
+    { value: 'creative', label: 'Creativo' },
+    { value: 'ats', label: 'Ottimizzato ATS' },
+    { value: 'bold', label: 'Audace' },
+  ],
+  browseTab: 'Sfoglia Modelli',
+  myTemplatesTab: 'I Miei Modelli',
+  templatesAvailable: '{count} modelli disponibili',
+  templateAvailable: '{count} modello disponibile',
+  createYourOwn: 'Crea il tuo \u2192',
+  errorMessage: 'Impossibile caricare i modelli. Riprova.',
+  tryAgain: 'Riprova',
+  noTemplatesTitle: 'Nessun modello ancora',
+  noTemplatesSub: 'Sii il primo a condividere un modello con la comunità!',
+  createTemplate: 'Crea Modello',
+  pageOf: 'Pagina {page} di {total}',
+  templatesPosted: '{count} modelli pubblicati',
+  templatePosted: '{count} modello pubblicato',
+  createNewTemplate: 'Crea nuovo modello \u2192',
+  noPostedTitle: 'Non hai ancora pubblicato modelli',
+  noPostedSub: 'Crea un design nell\'editor canvas e condividilo con la comunità!',
+  publicLabel: 'Pubblico',
+  privateLabel: 'Privato',
+  noPreview: 'Nessuna anteprima',
+  downloads: 'download',
+  download: 'download',
+  signInTitle: 'Accedi per visualizzare i tuoi modelli',
+  signInSub: 'Devi accedere per visualizzare e gestire i modelli che hai pubblicato.',
+  signIn: 'Accedi',
+  deleteConfirm: 'Sei sicuro di voler eliminare questo modello? L\'azione non può essere annullata.',
+  deleteError: 'Impossibile eliminare il modello. Riprova.',
+  visibilityError: 'Impossibile aggiornare la visibilità. Riprova.',
+  makePrivate: 'Rendi privato',
+  makePublic: 'Rendi pubblico',
+  edit: 'Modifica',
+  deleteBtn: 'Elimina',
+};
+
+const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

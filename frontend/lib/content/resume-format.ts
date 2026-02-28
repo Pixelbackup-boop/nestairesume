@@ -1071,7 +1071,147 @@ const ja: ResumeFormatPageContent = {
 
 // ── Export ───────────────────────────────────────────────────────────
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja };
+const it: ResumeFormatPageContent = {
+  meta: {
+    title: 'Formato Curriculum Vitae: Guida Completa 2026 | Modello Curriculum Europeo | Best AI Resume',
+    description: 'Scopri come scegliere il formato curriculum vitae giusto. Confronta cronologico inverso, funzionale e combinato. Modelli di curriculum europeo ATS-friendly gratis. Formato CV 2026.',
+    keywords: 'formato curriculum vitae, modello curriculum europeo, formato cv 2026, modello curriculum vitae, formato curriculum, cv formato europeo, curriculum vitae formato, modello cv europeo',
+  },
+  schemas: {
+    breadcrumbName: 'Formato Curriculum Vitae',
+    howToName: 'Come scegliere il formato del curriculum vitae giusto',
+    howToDescription: 'Confronta i 3 principali formati di curriculum vitae (cronologico inverso, funzionale, combinato) e scegli quello più adatto alla tua situazione professionale.',
+    howToSteps: [
+      'Analizza la tua fase di carriera (neolaureato, professionista esperto, dirigente)',
+      'Confronta i pro e contro dei 3 formati',
+      'Verifica il punteggio di compatibilità ATS',
+      'Scegli un modello e crea il tuo curriculum vitae',
+    ],
+    howToToolName: 'Best AI Resume — Creatore Curriculum Vitae',
+  },
+  hero: {
+    badge: 'Guida al formato curriculum vitae 2026',
+    title: 'Scegli il formato curriculum vitae',
+    titleHighlight: 'giusto per te',
+    subtitle: 'Cronologico inverso, funzionale o combinato — scegliere il <strong>formato curriculum vitae</strong> corretto è il primo passo per superare la selezione. Con il nostro creatore di CV con IA, cambiare formato è questione di un clic.',
+    ctaCompare: 'Confronta i formati',
+    ctaBuild: 'Crea il CV gratis',
+  },
+  comparison: {
+    title: 'Confronto tra i 3 formati di curriculum vitae',
+    subtitle: 'Caratteristiche, casi d\'uso ideali e compatibilità ATS di ogni formato a colpo d\'occhio.',
+    tableHeaders: {
+      format: 'Formato',
+      bestFor: 'Ideale per',
+      avoidIf: 'Da evitare se',
+      atsSafety: 'Compatibilità ATS',
+    },
+    formats: [
+      {
+        name: 'Cronologico inverso',
+        badge: 'Il più diffuso',
+        badgeColor: 'green',
+        bestFor: ['Carriera senza interruzioni significative', 'Crescita professionale nello stesso settore', 'L\'ultima esperienza è direttamente rilevante per la posizione'],
+        avoidIf: 'Hai periodi prolungati di inattività lavorativa',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'Funzionale (basato sulle competenze)',
+        badge: 'Orientato alle competenze',
+        badgeColor: 'amber',
+        bestFor: ['Cambio di settore o carriera', 'Periodi di inattività lavorativa', 'Neolaureati o liberi professionisti'],
+        avoidIf: 'Ti candidi per aziende tradizionali o settori conservativi',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'Combinato',
+        badge: 'Equilibrato',
+        badgeColor: 'blue',
+        bestFor: ['Competenze solide e ampia esperienza lavorativa', 'Posizioni dirigenziali o senior', 'Chi vuole valorizzare sia competenze che risultati'],
+        avoidIf: 'Hai poca esperienza lavorativa',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'Formato cronologico inverso',
+    description: 'Il formato che elenca le esperienze lavorative dalla più recente alla più remota. È il formato più riconosciuto dai recruiter italiani e internazionali e offre la massima compatibilità con i sistemi ATS.',
+    whyLoveTitle: 'Perché i recruiter lo preferiscono',
+    whyLoveText: 'Il curriculum vitae cronologico inverso permette ai recruiter di vedere immediatamente la progressione di carriera. Gli ATS lo analizzano con la massima precisione, rendendolo ideale per candidature ad aziende medio-grandi e multinazionali presenti in Italia.',
+    structureTitle: 'Struttura delle sezioni',
+    sections: [
+      { label: 'Dati personali e contatti', detail: 'Nome, email, telefono, città di residenza', isCore: true },
+      { label: 'Profilo professionale', detail: '3-4 righe che riassumono esperienza e competenze chiave', isCore: true },
+      { label: 'Esperienze lavorative', detail: 'Dalla più recente alla più remota (azienda, periodo, risultati)', isCore: true },
+      { label: 'Formazione', detail: 'Titolo di studio più recente e rilevante' },
+      { label: 'Competenze', detail: 'Competenze tecniche, certificazioni e lingue' },
+    ],
+    downloadLabel: 'Scarica il modello',
+    aiLabel: 'Crea con l\'IA',
+  },
+  functional: {
+    title: 'Formato funzionale (basato sulle competenze)',
+    description: 'Il formato che organizza il curriculum vitae intorno alle competenze e alle capacità, anziché alla cronologia lavorativa. Ideale per chi vuole mettere in primo piano "cosa sa fare" piuttosto che "dove ha lavorato".',
+    warningTitle: 'Attenzione alla compatibilità ATS',
+    warningText: 'Alcuni sistemi ATS faticano ad analizzare CV funzionali con una sezione esperienze ridotta. Questo formato è ideale per chi cambia settore, ha periodi di inattività o passa dal lavoro autonomo al lavoro dipendente, ma va usato con cautela per candidature ad aziende tradizionali o alla pubblica amministrazione.',
+    structureTitle: 'Struttura delle sezioni',
+    sections: [
+      { label: 'Dati personali e contatti', isCore: true },
+      { label: 'Profilo professionale', isCore: true },
+      { label: 'Aree di competenza', detail: '3-4 macro-aree con risultati specifici per ciascuna', isCore: true },
+      { label: 'Esperienze lavorative (sintetico)', detail: 'Solo azienda, ruolo e periodo' },
+      { label: 'Formazione' },
+    ],
+    downloadLabel: 'Scarica il modello',
+    aiLabel: 'Crea con l\'IA',
+  },
+  combination: {
+    title: 'Formato combinato',
+    description: 'Unisce i punti di forza del cronologico inverso e del funzionale. Permette di valorizzare sia le competenze trasversali che l\'esperienza lavorativa concreta.',
+    whoForTitle: 'Quando scegliere questo formato',
+    whoForItems: [
+      'Professionisti di livello medio-senior con competenze manageriali',
+      'Chi vuole evidenziare sia la profondità dell\'esperienza che la varietà delle competenze',
+      'Candidature per posizioni che richiedono sia competenze tecniche che risultati operativi',
+      'Chi ha un percorso professionale trasversale su più settori',
+    ],
+    downloadLabel: 'Scarica il modello',
+    aiLabel: 'Crea con l\'IA',
+  },
+  faq: {
+    title: 'Domande frequenti',
+    items: [
+      { question: 'Qual è il formato curriculum vitae più usato in Italia?', answer: 'In Italia il formato cronologico inverso è il più diffuso nel settore privato. Elenca le esperienze dalla più recente e offre la massima compatibilità con gli ATS. Nelle candidature per la pubblica amministrazione, il formato Europass è ancora spesso richiesto, ma nel privato un CV moderno e personalizzato è più efficace.' },
+      { question: 'Quale formato scegliere se ho cambiato spesso lavoro?', answer: 'Il formato combinato è la scelta migliore. La sezione competenze in apertura mette in evidenza i punti di forza, mentre le esperienze vengono presentate in modo sintetico, spostando l\'attenzione dalle frequenti transizioni alle capacità acquisite.' },
+      { question: 'Quale formato è adatto per i neolaureati?', answer: 'Per i neolaureati il cronologico inverso è ideale. Posiziona la sezione formazione sopra le esperienze e valorizza stage, tirocini e progetti universitari. Il nostro creatore di CV con IA suggerisce automaticamente le espressioni più adatte per chi è all\'inizio della carriera.' },
+      { question: 'Cos\'è un curriculum vitae ATS-friendly?', answer: 'È un curriculum vitae strutturato per essere letto correttamente dai sistemi ATS (Applicant Tracking System). Layout semplice, nomi di sezione standard e formato PDF sono i requisiti fondamentali. Tutti i nostri modelli sono testati e ottimizzati per gli ATS.' },
+      { question: 'Il modello curriculum europeo (Europass) è ancora valido nel 2026?', answer: 'Il formato Europass è ancora richiesto per concorsi pubblici, istituzioni UE e programmi di mobilità europea. Tuttavia, nel settore privato italiano la maggior parte dei recruiter preferisce un curriculum vitae moderno e personalizzato. Il nostro creatore di CV ti permette di scegliere tra 20+ modelli professionali adatti a ogni contesto.' },
+    ],
+  },
+  externalResources: {
+    title: 'Risorse esterne',
+    items: [
+      { href: 'https://www.istat.it/', label: 'ISTAT — Istituto Nazionale di Statistica' },
+      { href: 'https://europa.eu/europass/it', label: 'Europass — Portale ufficiale' },
+    ],
+  },
+  stickyCta: {
+    text: 'Hai trovato il formato curriculum vitae giusto?',
+    ctaLabel: 'Crea il tuo CV adesso',
+  },
+  bottomCta: {
+    title: 'Basta indecisioni sul formato del curriculum vitae',
+    description: 'Il nostro creatore di CV con IA ottimizza automaticamente formato, font e margini. Scegli tra 20+ modelli ATS-friendly e cambia formato con un clic.',
+    ctaLabel: 'Crea il curriculum vitae gratis',
+  },
+};
+
+// ── Export ───────────────────────────────────────────────────────────
+
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

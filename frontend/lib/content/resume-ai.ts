@@ -760,7 +760,120 @@ const ja: ResumeAIPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja };
+const it: ResumeAIPageContent = {
+  meta: {
+    title: 'Curriculum Vitae con Intelligenza Artificiale | Generatore CV con IA Gratis 2026 | Best AI Resume',
+    description: 'Crea il tuo curriculum vitae con l\'intelligenza artificiale in pochi minuti. Scrittura automatica del CV con IA, ottimizzazione ATS, 20+ modelli — tutto gratis.',
+    keywords: 'curriculum vitae intelligenza artificiale, cv con ia, generatore cv automatico, curriculum vitae ia, cv intelligenza artificiale, generatore curriculum con ia, cv automatico gratis',
+  },
+  schemas: {
+    breadcrumbName: 'CV con IA',
+    articleHeadline: 'Curriculum Vitae con Intelligenza Artificiale: Generatore CV con IA Gratis 2026',
+    articleDescription: 'Scopri come l\'IA crea e ottimizza i contenuti del curriculum vitae. Usa il nostro generatore di CV con IA gratuito per ottenere più colloqui.',
+    softwareAppName: 'Generatore Curriculum Vitae con IA',
+  },
+  hero: {
+    badge: 'Creatore di CV con Intelligenza Artificiale',
+    title: 'L\'IA crea il tuo',
+    titleHighlight: 'curriculum vitae perfetto',
+    subtitle: 'Il nostro <strong>generatore di curriculum vitae con intelligenza artificiale</strong> scrive contenuti professionali, ottimizza per gli ATS e ti aiuta a creare un CV che spicca — completamente gratis. Secondo <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn</a>, i recruiter dedicano in media 7 secondi a ogni CV. Con l\'IA, ogni secondo conta.',
+    ctaPrimary: 'Prova il CV con IA gratis',
+    ctaSecondary: 'Come funziona',
+    trustText: 'Nessuna registrazione · 100% gratis · Contenuti generati dall\'IA',
+  },
+  whatIs: {
+    title: 'Cos\'è un curriculum vitae con IA?',
+    description: 'Un <strong>curriculum vitae con intelligenza artificiale</strong> trasforma radicalmente il modo in cui crei il tuo CV. Invece di fissare una pagina vuota, l\'IA analizza le tue esperienze, comprende la posizione desiderata e genera contenuti professionali ottimizzati per il tuo settore. Come evidenzia la <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">SHRM (Society for Human Resource Management)</a>, l\'IA sta trasformando rapidamente i processi di selezione, e i CV creati con l\'IA sono ampiamente accettati dai datori di lavoro.',
+    stats: [
+      { value: '10x', label: 'Più veloce della scrittura manuale' },
+      { value: '85%', label: 'Miglioramento del tasso di superamento ATS' },
+      { value: '3M+', label: 'CV creati con l\'IA' },
+    ],
+  },
+  features: {
+    title: 'Come l\'IA ti aiuta a creare il curriculum vitae',
+    subtitle: 'L\'IA non si limita alla formattazione — ti aiuta concretamente a scrivere contenuti migliori.',
+    items: [
+      { title: 'Scrittura contenuti con IA', description: 'L\'IA genera esperienze lavorative professionali, profili riassuntivi e descrizioni di competenze basate sulle tue esperienze e sulla posizione desiderata.' },
+      { title: 'Ottimizzazione intelligente delle parole chiave', description: 'L\'IA analizza gli annunci di lavoro e suggerisce le parole chiave specifiche del settore che i datori di lavoro cercano.' },
+      { title: 'Analisi punteggio ATS', description: 'Il punteggio in tempo reale ti mostra come il tuo curriculum vitae verrà valutato dai sistemi ATS prima di candidarti.' },
+      { title: 'Quantificazione dei risultati', description: 'L\'IA trasforma descrizioni generiche in risultati quantificati e misurabili che catturano l\'attenzione dei recruiter.' },
+      { title: 'Modelli specifici per settore', description: 'L\'IA consiglia il layout e le sezioni più adatte in base al tuo settore e livello di esperienza.' },
+      { title: 'Controllo grammaticale e stile', description: 'L\'IA verifica grammatica ed errori ortografici per garantire un risultato professionale e curato.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'Guarda come l\'IA trasforma il tuo curriculum vitae',
+    subtitle: 'Esempi reali di miglioramenti apportati dall\'intelligenza artificiale.',
+    beforeLabel: 'Prima',
+    afterLabel: 'Dopo con IA',
+    items: [
+      { before: 'Gestione del team e dei progetti aziendali', after: 'Coordinamento di un team cross-funzionale di 8 ingegneri, consegna di 12 progetti nei tempi previsti con il 98% di soddisfazione del cliente' },
+      { before: 'Aumento delle vendite dell\'azienda', after: 'Incremento del fatturato annuo del 34% (€2,1M) grazie all\'implementazione di strategie di acquisizione basate sui dati' },
+      { before: 'Bravo nel servizio clienti', after: 'Raggiungimento di un punteggio di soddisfazione cliente di 4.9/5, gestendo oltre 150 richieste giornaliere con il 95% di risoluzione al primo contatto' },
+    ],
+    cta: 'Crea un CV professionale',
+  },
+  comparison: {
+    title: 'CV con IA vs CV scritto a mano',
+    subtitle: 'Perché chi cerca lavoro sceglie il curriculum vitae con intelligenza artificiale.',
+    oursName: 'Con IA',
+    othersName: 'Scritto a mano',
+    rows: [
+      { feature: 'Tempo di creazione', ours: '10-15 minuti', others: '2-4 ore' },
+      { feature: 'Scrittura professionale', ours: 'L\'IA genera suggerimenti', others: 'Richiede ricerca' },
+      { feature: 'Ottimizzazione ATS', ours: 'Automatica', others: 'Manuale e approssimativa' },
+      { feature: 'Parole chiave di settore', ours: 'Suggerite dall\'IA', others: 'Da cercare da soli' },
+      { feature: 'Grammatica e ortografia', ours: 'Controllo automatico', others: 'Facile da trascurare' },
+      { feature: 'Quantificazione risultati', ours: 'L\'IA ti assiste', others: 'Spesso dimenticata' },
+      { feature: 'Formattazione e design', ours: '20+ modelli', others: 'Da creare da zero' },
+    ],
+  },
+  useCases: {
+    title: 'Chi usa il curriculum vitae con IA?',
+    subtitle: 'Il generatore di CV con intelligenza artificiale è adatto a tutti.',
+    items: [
+      { title: 'Cambio di carriera', description: 'L\'IA ti aiuta a valorizzare competenze trasferibili tra settori diversi' },
+      { title: 'Neolaureati', description: 'Trasforma stage e progetti universitari in esperienze lavorative convincenti' },
+      { title: 'Professionisti esperti', description: 'Condensa oltre 20 anni di esperienza in un curriculum vitae efficace di due pagine' },
+      { title: 'Chi cerca attivamente lavoro', description: 'Crea rapidamente CV personalizzati per ogni candidatura' },
+    ],
+  },
+  faq: {
+    title: 'Domande frequenti',
+    items: [
+      { question: 'Cos\'è un curriculum vitae con intelligenza artificiale?', answer: 'Un curriculum vitae con IA è un CV creato con il supporto dell\'intelligenza artificiale. Il nostro strumento genera esperienze lavorative professionali, ottimizza per gli ATS, suggerisce parole chiave di settore e formatta automaticamente tutto — ottenendo un CV eccellente in pochi minuti invece che in ore.' },
+      { question: 'È meglio creare il CV con l\'IA o scriverlo da soli?', answer: 'L\'IA ti aiuta a scrivere contenuti migliori più velocemente. Analizza migliaia di CV di successo per suggerire espressioni professionali, risultati quantificati e parole chiave di settore che potresti non conoscere. Mantieni il pieno controllo sul contenuto finale, l\'IA rende semplicemente il processo più efficace.' },
+      { question: 'Un CV creato con l\'IA supera i filtri ATS?', answer: 'Sì! Il nostro generatore di curriculum vitae con IA è progettato specificamente per la compatibilità ATS. Formatta il CV con testo pulito e leggibile, suggerisce parole chiave corrispondenti agli annunci di lavoro e fornisce un punteggio ATS in tempo reale per ottimizzare prima dell\'invio.' },
+      { question: 'Questo strumento per CV con IA è gratuito?', answer: 'Sì, il generatore di curriculum vitae con IA è 100% gratuito. Crea CV illimitati, usa tutti i modelli, scarica in PDF — tutto gratis. Nessuna carta di credito, nessun abbonamento.' },
+      { question: 'Come fa l\'IA a generare i contenuti?', answer: 'L\'IA analizza il tuo ruolo, settore e livello di esperienza per generare suggerimenti personalizzati. Utilizza i pattern di milioni di CV di successo per creare profili professionali, esperienze lavorative orientate ai risultati e descrizioni di competenze che colpiscono i recruiter.' },
+      { question: 'Il CV sembrerà generato dall\'IA?', answer: 'No. Il nostro strumento genera contenuti naturali e professionali, come se fossero scritti da un esperto di curriculum vitae. Puoi modificare ogni suggerimento per aggiungere il tuo tocco personale, e il risultato finale è completamente tuo.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Altri strumenti per il CV con IA',
+    items: [
+      { href: '/it/resume-maker', title: 'Creatore di CV', subtitle: 'Creatore di CV gratuito con IA' },
+      { href: '/it/tools/ats-checker', title: 'Verifica ATS', subtitle: 'Analisi ATS con IA' },
+      { href: '/it/free-resume-builder', title: 'CV gratis', subtitle: 'Creatore 100% gratuito' },
+    ],
+    guidesTitle: 'Guide sul CV con IA',
+    guides: [
+      { href: '/it/career-tips/ai-resume-tools', label: 'Strumenti IA per il curriculum vitae (2026)' },
+      { href: '/it/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: quale IA per il CV?' },
+      { href: '/it/blog/how-to-write-ats-friendly-resume', label: 'Come scrivere un CV ATS-friendly' },
+      { href: '/it/resume-examples', label: '300+ esempi di curriculum vitae' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pronto a creare il tuo curriculum vitae con l\'IA?',
+    description: 'Unisciti ai milioni di persone che ottengono più colloqui grazie al <a href="/it/" class="text-purple-600 hover:underline">curriculum vitae con intelligenza artificiale</a>.',
+    cta: 'Inizia gratis con l\'IA',
+    subtext: 'Gratis per sempre. Nessuna carta di credito.',
+  },
+};
+
+const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it };
 
 export function getContent(locale: string): ResumeAIPageContent {
   return selectContent(contentMap, locale);
