@@ -759,7 +759,12 @@
     "resendIn": "Resend in",
     "resendCode": "Resend Code",
     "wrongEmail": "Wrong email?",
-    "changeEmail": "Change email"
+    "changeEmail": "Change email",
+    "agreeToTermsPrefix": "I agree to the",
+    "termsOfService": "Terms of Service",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy",
+    "bySigningUp": "By signing up, you agree to our"
   },
 
   "Errors": {

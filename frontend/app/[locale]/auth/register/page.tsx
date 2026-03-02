@@ -41,6 +41,7 @@ export default function RegisterPage() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
 
     const localizedHref = (path: string) => `/${locale}${path}`;
 
@@ -80,6 +81,14 @@ export default function RegisterPage() {
                             {error}
                         </div>
                     )}
+
+                    {/* Terms notice for OAuth */}
+                    <p className="text-xs text-gray-400 text-center mb-4">
+                        {t('bySigningUp')}{' '}
+                        <Link href={localizedHref('/terms')} className="text-accent-green hover:underline" target="_blank">{t('termsOfService')}</Link>
+                        {' '}{t('and')}{' '}
+                        <Link href={localizedHref('/privacy')} className="text-accent-green hover:underline" target="_blank">{t('privacyPolicy')}</Link>
+                    </p>
 
                     {/* OAuth Buttons */}
                     <div className="space-y-3 mb-6">
@@ -153,9 +162,25 @@ export default function RegisterPage() {
                             />
                         </div>
 
+                        {/* Terms & Privacy Checkbox */}
+                        <label className="flex items-start gap-3 cursor-pointer">
+                            <input
+                                type="checkbox"
+                                checked={agreedToTerms}
+                                onChange={(e) => setAgreedToTerms(e.target.checked)}
+                                className="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent-green focus:ring-accent-green shrink-0"
+                            />
+                            <span className="text-sm text-gray-300">
+                                {t('agreeToTermsPrefix')}{' '}
+                                <Link href={localizedHref('/terms')} className="text-accent-green hover:underline" target="_blank">{t('termsOfService')}</Link>
+                                {' '}{t('and')}{' '}
+                                <Link href={localizedHref('/privacy')} className="text-accent-green hover:underline" target="_blank">{t('privacyPolicy')}</Link>
+                            </span>
+                        </label>
+
                         <button
                             type="submit"
-                            disabled={isLoading}
+                            disabled={isLoading || !agreedToTerms}
                             className="w-full bg-accent-green text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                         >
                             {isLoading ? <Loader2 className="animate-spin" /> : t('register')}

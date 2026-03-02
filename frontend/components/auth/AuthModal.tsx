@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import {
     X,
     Mail,
@@ -31,10 +31,13 @@ export default function AuthModal({
     initialMode = 'login',
 }: AuthModalProps) {
     const t = useTranslations('Common');
+    const tAuth = useTranslations('Auth');
+    const locale = useLocale();
     const [mode, setMode] = useState<AuthMode>(initialMode);
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
 
     // Form state
     const [formData, setFormData] = useState({
@@ -282,11 +285,29 @@ export default function AuthModal({
                         </div>
                     )}
 
+                    {/* Terms Checkbox (Signup only) */}
+                    {mode === 'signup' && (
+                        <label className="flex items-start gap-3 mt-4 cursor-pointer">
+                            <input
+                                type="checkbox"
+                                checked={agreedToTerms}
+                                onChange={(e) => setAgreedToTerms(e.target.checked)}
+                                className="mt-0.5 h-4 w-4 rounded border-gray-500 text-accent-green focus:ring-accent-green shrink-0"
+                            />
+                            <span className="text-xs text-gray-400">
+                                {tAuth('agreeToTermsPrefix')}{' '}
+                                <a href={`/${locale}/terms`} target="_blank" rel="noopener noreferrer" className="text-accent-green hover:underline">{tAuth('termsOfService')}</a>
+                                {' '}{tAuth('and')}{' '}
+                                <a href={`/${locale}/privacy`} target="_blank" rel="noopener noreferrer" className="text-accent-green hover:underline">{tAuth('privacyPolicy')}</a>
+                            </span>
+                        </label>
+                    )}
+
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        disabled={isLoading}
-                        className="w-full mt-6 py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                        disabled={isLoading || (mode === 'signup' && !agreedToTerms)}
+                        className="w-full mt-4 py-3 bg-accent-green text-gray-900 rounded-lg font-semibold hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                         {isLoading ? (
                             <>
@@ -299,20 +320,6 @@ export default function AuthModal({
                             'Create Account'
                         )}
                     </button>
-
-                    {/* Terms (Signup only) */}
-                    {mode === 'signup' && (
-                        <p className="mt-4 text-xs text-gray-400 text-center">
-                            By signing up, you agree to our{' '}
-                            <a href="#" className="text-accent-green hover:underline">
-                                Terms of Service
-                            </a>{' '}
-                            and{' '}
-                            <a href="#" className="text-accent-green hover:underline">
-                                Privacy Policy
-                            </a>
-                        </p>
-                    )}
                 </form>
             </div>
 
