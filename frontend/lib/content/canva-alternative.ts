@@ -869,5 +869,379 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: ComparisonPageContent = {
+  meta: {
+    title: 'Canva 이력서 템플릿 대안 2026: 무료 ATS 호환 템플릿 | Best AI Resume',
+    description: 'ATS를 통과하는 Canva 이력서 템플릿을 찾고 계신가요? Canva vs Best AI Resume Builder — 무료 ATS 최적화 이력서 템플릿, AI 작성 기능. 디자인 스킬 불필요.',
+    keywords: 'canva 이력서, canva 이력서 템플릿, canva 대안, 이력서 작성 도구 무료, ats 이력서, AI 이력서, 이력서 쓰는 법, 이력서 양식',
+  },
+  schemas: {
+    breadcrumbName: 'Canva 이력서 대안',
+    articleHeadline: 'Canva 이력서 템플릿 대안 2026: 무료 ATS 호환 템플릿',
+    articleDescription: 'Canva vs Best AI Resume Builder 이력서 작성 비교. 기능별 비교와 장단점을 솔직하게 리뷰합니다.',
+  },
+  hero: {
+    badge: 'Canva 대안',
+    title: 'Canva의',
+    titleHighlight: 'ATS 문제로 탈락하고 계신가요?',
+    subtitle: 'Canva는 아름다운 이력서를 만들 수 있지만 — <strong>98%의 ATS가 읽지 못합니다</strong>. 예쁘기만 한 것이 아니라 채용되기 위해 설계된 이력서 작성 도구로 바꾸세요.',
+    ctaPrimary: '무료로 이력서 만들기',
+    ctaSecondary: '비교 보기',
+  },
+  problem: {
+    title: 'Canva 이력서가 탈락하는 이유',
+    description: 'Canva는 그래픽 디자인 도구이지 이력서 작성 도구가 아닙니다. Canva로 만든 이력서는 텍스트가 시각적 요소로 삽입된 평면 이미지나 복잡한 PDF로 내보내집니다. ATS는 이미지가 아닌 문서 텍스트를 읽습니다. 그 결과 <strong>ATS에게 이력서가 빈 문서로 보이고</strong>, 채용 담당자의 눈에 닿기도 전에 자동으로 탈락합니다.',
+    stats: [
+      { value: '98%', label: 'Fortune 500 기업이 ATS로 이력서 스크리닝' },
+      { value: '75%', label: '이력서가 사람의 검토 전에 탈락' },
+      { value: '0%', label: '대부분 Canva 템플릿의 ATS 읽기 성공률' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: '구직자를 위한 솔직한 기능 비교',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ATS 호환', competitor: '❌ 대부분의 템플릿 ATS 비호환', ours: '✅ 전체 템플릿 ATS 검증 완료' },
+      { feature: 'AI 작성', competitor: '❌ AI 작성 기능 없음', ours: '✅ AI가 경력 사항 및 요약 작성' },
+      { feature: '실시간 ATS 점수', competitor: '❌ 스코어링 기능 없음', ours: '✅ 입력 중 실시간 ATS 점수 표시' },
+      { feature: '무료 템플릿', competitor: '⚠️ 제한적(고품질은 Pro 전용)', ours: '✅ 20종 이상 전부 무료' },
+      { feature: '이력서 전용 설계', competitor: '⚠️ 범용 디자인 도구', ours: '✅ 이력서 전용 설계' },
+      { feature: 'PDF 텍스트 읽기', competitor: '❌ 평면 이미지로 내보내기', ours: '✅ 텍스트 선택 가능한 깔끔한 PDF' },
+      { feature: '업종별 키워드', competitor: '❌ 키워드 추천 없음', ours: '✅ AI가 업종 키워드 추천' },
+      { feature: '내보내기 형식', competitor: '✅ PDF, PNG, JPG', ours: '✅ PDF(ATS 최적화)' },
+      { feature: '디자인 품질', competitor: '✅ 뛰어난 비주얼 디자인', ours: '✅ 전문적이고 깔끔한 템플릿' },
+      { feature: '사용 편의성', competitor: '⚠️ 디자인 스킬이 있으면 유리', ours: '✅ 디자인 스킬 불필요' },
+    ],
+  },
+  whySwitch: {
+    title: '구직자가 Canva에서 전환하는 3가지 이유',
+    subtitle: '디자인의 문제가 아닙니다 — 채용 여부의 문제입니다.',
+    reasons: [
+      { title: 'ATS가 확실히 읽을 수 있음', description: '모든 템플릿이 깔끔하고 분석 가능한 PDF 텍스트를 출력합니다. Canva의 그래픽 기반 출력을 읽지 못하는 시스템에 의한 자동 탈락이 사라집니다.' },
+      { title: 'AI가 콘텐츠를 작성', description: 'Canva는 빈 캔버스만 제공합니다. 저희 AI는 맞춤형 경력 사항, 전문 요약, 업종별 키워드를 자동 생성합니다.' },
+      { title: '진짜 100% 무료', description: 'Canva는 최고의 이력서 템플릿을 월 $12.99 Pro 플랜에 제한합니다. 저희 20종 이상의 전문 템플릿은 전부 무료 — 유료 제한도 워터마크도 없습니다.' },
+    ],
+  },
+  recommendation: {
+    title: '솔직한 추천: 어떤 도구를 사용해야 할까요?',
+    useCompetitor: {
+      title: 'Canva 추천 대상',
+      items: [
+        '디자인/아트 직종의 포트폴리오형 크리에이티브 이력서가 필요한 경우',
+        'ATS를 사용하지 않는 기업(매우 소규모 사업체) 지원',
+        '네트워킹 이벤트용 비주얼 인포그래픽 이력서 제작',
+        '이미 강력한 이력서 콘텐츠가 있고 비주얼 레이아웃만 필요한 경우',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes 추천 대상',
+      items: [
+        '채용 사이트(사람인, 잡코리아, LinkedIn, 기업 사이트)를 통해 지원하는 경우',
+        '디자인뿐 아니라 이력서 내용 작성도 도움이 필요한 경우',
+        '이력서가 ATS 심사를 확실히 통과해야 하는 경우',
+        '빈 디자인 캔버스보다 가이드 있는 경험을 선호하는 경우',
+        '디자인 스킬이 없는 경우',
+      ],
+    },
+    bottomLine: '결론: Canva는 훌륭한 디자인 도구입니다. 하지만 ATS 시스템을 거치는 입사 지원(대다수)에는 전용 이력서 작성 도구가 필요합니다.',
+  },
+  resumeExamples: {
+    title: 'ATS 호환 이력서 샘플 보기',
+    description: '모든 직종의 300개 이상 이력서 샘플을 확인하세요. 모두 ATS 최적화 템플릿으로 작성되었습니다.',
+    ctaBrowse: '이력서 샘플 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'Canva 이력서 템플릿은 무료로 사용할 수 있나요?', answer: 'Canva에는 무료 이력서 템플릿이 있지만, 고품질 디자인 대부분은 Canva Pro(월 $12.99)가 필요합니다. Best AI Resume Builder는 워터마크나 유료 제한 없이 전체 템플릿을 무료 제공합니다.' },
+      { question: 'Canva 이력서는 ATS에 호환되나요?', answer: '대부분의 Canva 이력서 템플릿은 ATS에 호환되지 않습니다. Canva는 이력서를 평면 이미지나 복잡한 PDF로 내보내 ATS 소프트웨어가 분석할 수 없습니다. Fortune 500 기업의 98%가 사용하는 자동 스크리닝 시스템에 이력서 내용이 보이지 않게 됩니다.' },
+      { question: '이력서 작성에서 Canva의 최고 무료 대안은?', answer: 'Best AI Resume Builder가 최고의 무료 대안입니다. AI 콘텐츠 작성, 실시간 ATS 스코어링, 20종 이상의 전문 템플릿, 깔끔하고 분석 가능한 PDF 내보내기 — 모두 무료입니다.' },
+      { question: 'Canva 이력서는 왜 ATS에서 탈락하나요?', answer: 'Canva는 텍스트를 선택 가능한 텍스트 레이어가 아닌 비주얼 요소로 삽입하는 그래픽 디자인 엔진을 사용합니다. ATS 소프트웨어는 이미지가 아닌 문서 텍스트를 읽습니다. 이력서가 Canva 그래픽이면 ATS에게는 빈 문서로 보여 자동 탈락됩니다.' },
+      { question: 'Canva 이력서를 Best AI Resume Builder로 가져올 수 있나요?', answer: 'Canva에서 콘텐츠를 복사하여 저희 빌더에 붙여넣을 수 있습니다. 이후 AI가 경력 사항 최적화, 개선 제안, ATS 호환 템플릿으로의 자동 포맷팅을 수행합니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 작성 도구 비교',
+    items: [
+      { href: '/overleaf-alternative', title: 'Overleaf 대안', subtitle: 'LaTeX 이력서 vs AI 빌더' },
+      { href: '/resume-io-alternative', title: 'Resume.io 대안', subtitle: '가격 및 기능 비교' },
+      { href: '/rezi-alternative', title: 'Rezi 대안', subtitle: 'AI 이력서 도구 비교' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS 통과 이력서 쓰는 법' },
+      { href: '/resume-format', label: '이력서 포맷 가이드 2026' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: '이력서에서 흔한 실수 피하는 법' },
+      { href: '/blog/best-resume-fonts-2026', label: '2026년 추천 이력서 글꼴' },
+    ],
+  },
+  externalResources: {
+    title: '외부 리소스',
+    items: [
+      { href: 'https://www.canva.com/resumes/', label: 'Canva 이력서 템플릿' },
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS: 이력서 작성 팁' },
+    ],
+  },
+  bottomCta: {
+    title: 'ATS를 통과하는 이력서를 만드시겠습니까?',
+    description: 'Canva에서 전환하여, 채용을 위해 설계된 AI 이력서 작성 도구를 이용하는 수천 명의 구직자에 합류하세요.',
+    cta: '무료로 이력서 만들기 — 가입 불필요',
+    subtext: '영원히 무료. 신용카드 불필요.',
+  },
+};
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế Canva CV 2026: Mẫu CV ATS Miễn Phí | Best AI Resume',
+    description: 'Tìm mẫu CV Canva vượt qua ATS? So sánh Canva vs Best AI Resume Builder — tạo CV miễn phí tối ưu ATS với AI viết nội dung. Không cần kỹ năng thiết kế.',
+    keywords: 'thay thế canva cv, tạo cv miễn phí, mẫu cv ats, cv xin việc, canva cv tiếng việt, mẫu cv canva, cv đẹp miễn phí, cv xin việc chuyên nghiệp',
+  },
+  schemas: {
+    breadcrumbName: 'Thay Thế Canva cho CV',
+    articleHeadline: 'Thay Thế Canva CV 2026: Mẫu CV ATS Miễn Phí',
+    articleDescription: 'So sánh Canva vs Best AI Resume Builder để tạo CV xin việc hiệu quả. Đánh giá chi tiết từng tính năng với ưu nhược điểm thật sự.',
+  },
+  hero: {
+    badge: 'Thay Thế Canva',
+    title: 'Đừng Để Mất Việc Vì',
+    titleHighlight: 'Lỗi ATS Của Canva',
+    subtitle: 'Canva tạo ra những CV đẹp mắt — nhưng <strong>98% hệ thống ATS không đọc được</strong>. Chuyển sang công cụ tạo CV được thiết kế để giúp bạn được tuyển dụng, không chỉ để trông đẹp.',
+    ctaPrimary: 'Tạo CV Miễn Phí',
+    ctaSecondary: 'Xem So Sánh',
+  },
+  problem: {
+    title: 'Tại Sao CV Canva Bị Loại',
+    description: 'Canva là công cụ thiết kế đồ họa — không phải công cụ tạo CV chuyên dụng. Khi bạn tạo CV bằng Canva, file xuất ra là hình ảnh phẳng hoặc PDF phức tạp với văn bản được nhúng dưới dạng phần tử đồ họa. Hệ thống ATS đọc văn bản tài liệu, không phải hình ảnh. Kết quả? <strong>CV của bạn hiển thị trống trơn với ATS</strong>, và bạn bị loại tự động trước khi nhà tuyển dụng nhìn thấy hồ sơ.',
+    stats: [
+      { value: '98%', label: 'doanh nghiệp lớn sử dụng ATS để sàng lọc CV ứng viên' },
+      { value: '75%', label: 'CV bị loại trước khi nhà tuyển dụng xem qua' },
+      { value: '0₫', label: 'chi phí sử dụng — nhưng mẫu CV Canva vẫn không qua được ATS' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: 'So sánh trung thực từng tính năng dành cho người tìm việc tại Việt Nam.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Tương thích ATS', competitor: '❌ Đa số mẫu không qua ATS', ours: '✅ Tất cả mẫu đã kiểm tra ATS' },
+      { feature: 'AI viết CV', competitor: '❌ Không có hỗ trợ viết bằng AI', ours: '✅ AI viết kinh nghiệm và tóm tắt chuyên nghiệp' },
+      { feature: 'Điểm ATS thời gian thực', competitor: '❌ Không có hệ thống chấm điểm', ours: '✅ Điểm ATS cập nhật trực tiếp khi bạn nhập' },
+      { feature: 'Mẫu miễn phí', competitor: '⚠️ Giới hạn (mẫu đẹp nhất cần Pro)', ours: '✅ Hơn 20 mẫu hoàn toàn miễn phí' },
+      { feature: 'Thiết kế chuyên dụng cho CV', competitor: '⚠️ Công cụ thiết kế đa năng', ours: '✅ Được xây dựng riêng cho CV xin việc' },
+      { feature: 'Đọc được văn bản PDF', competitor: '❌ Xuất dưới dạng hình ảnh phẳng', ours: '✅ PDF sạch, văn bản có thể chọn được' },
+      { feature: 'Từ khóa theo ngành', competitor: '❌ Không gợi ý từ khóa', ours: '✅ AI gợi ý từ khóa ngành nghề phù hợp' },
+      { feature: 'Định dạng xuất', competitor: '✅ PDF, PNG, JPG', ours: '✅ PDF (tối ưu ATS)' },
+      { feature: 'Chất lượng thiết kế', competitor: '✅ Thiết kế đồ họa xuất sắc', ours: '✅ Mẫu chuyên nghiệp, gọn gàng' },
+      { feature: 'Dễ sử dụng', competitor: '⚠️ Cần kỹ năng thiết kế cơ bản', ours: '✅ Không cần kỹ năng thiết kế' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Lý Do Người Tìm Việc Chuyển Từ Canva',
+    subtitle: 'Không phải vấn đề thiết kế — mà là vấn đề được tuyển dụng.',
+    reasons: [
+      { title: 'ATS Đọc Được CV Của Bạn', description: 'Mọi mẫu CV đều xuất PDF văn bản sạch, có thể phân tích. Không còn bị loại tự động vì hệ thống ATS không đọc được file đồ họa của Canva.' },
+      { title: 'AI Viết Nội Dung Cho Bạn', description: 'Canva chỉ cho bạn một trang trắng. AI của chúng tôi tự động tạo kinh nghiệm làm việc, tóm tắt chuyên nghiệp và từ khóa ngành nghề — giúp bạn không phải ngồi nhìn trang CV trống.' },
+      { title: 'Miễn Phí 100% (Thật Sự)', description: 'Canva khóa các mẫu CV đẹp nhất sau gói Pro 12,99$/tháng. Tất cả hơn 20 mẫu chuyên nghiệp của chúng tôi đều miễn phí — không giới hạn trả phí, không watermark.' },
+    ],
+  },
+  recommendation: {
+    title: 'Gợi Ý Trung Thực: Nên Dùng Công Cụ Nào?',
+    useCompetitor: {
+      title: 'Dùng Canva nếu bạn...',
+      items: [
+        'Cần CV sáng tạo kiểu portfolio cho vị trí thiết kế hoặc nghệ thuật',
+        'Ứng tuyển vào công ty không dùng ATS (doanh nghiệp rất nhỏ)',
+        'Muốn tạo CV infographic cho sự kiện networking',
+        'Đã có nội dung CV mạnh và chỉ cần bố cục đồ họa đẹp',
+      ],
+    },
+    useUs: {
+      title: 'Dùng Best AI Resumes nếu bạn...',
+      items: [
+        'Ứng tuyển qua các trang tuyển dụng (VietnamWorks, TopCV, LinkedIn, website công ty)',
+        'Cần hỗ trợ viết nội dung CV, không chỉ thiết kế bố cục',
+        'Muốn chắc chắn CV vượt qua hệ thống sàng lọc ATS',
+        'Thích trải nghiệm có hướng dẫn thay vì trang thiết kế trống',
+        'Không có kỹ năng thiết kế đồ họa',
+      ],
+    },
+    bottomLine: 'Tóm lại: Canva là công cụ thiết kế tuyệt vời. Nhưng với các đơn ứng tuyển phải qua hệ thống ATS (đại đa số tại thị trường tuyển dụng Việt Nam hiện nay), bạn cần công cụ tạo CV chuyên dụng.',
+  },
+  resumeExamples: {
+    title: 'Xem Mẫu CV Tương Thích ATS',
+    description: 'Khám phá hơn 300 mẫu CV xin việc cho mọi ngành nghề — tất cả được tạo bằng mẫu tối ưu ATS giúp vượt qua sàng lọc tự động.',
+    ctaBrowse: 'Xem Mẫu CV',
+    ctaTemplates: 'Xem Tất Cả Mẫu',
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      { question: 'Mẫu CV Canva có miễn phí không?', answer: 'Canva có một số mẫu CV miễn phí, nhưng nhiều thiết kế đẹp nhất yêu cầu Canva Pro (12,99$/tháng). Best AI Resume Builder cung cấp toàn bộ mẫu miễn phí — không watermark, không giới hạn trả phí.' },
+      { question: 'CV tạo bằng Canva có tương thích ATS không?', answer: 'Đa số mẫu CV Canva KHÔNG tương thích ATS. Canva xuất CV dưới dạng hình ảnh phẳng hoặc PDF phức tạp mà phần mềm ATS không thể phân tích. Điều này có nghĩa nội dung CV của bạn vô hình với hệ thống sàng lọc tự động mà 98% doanh nghiệp lớn sử dụng.' },
+      { question: 'Công cụ thay thế Canva miễn phí tốt nhất để tạo CV là gì?', answer: 'Best AI Resume Builder là lựa chọn thay thế miễn phí tốt nhất. Cung cấp viết nội dung bằng AI, chấm điểm ATS thời gian thực, hơn 20 mẫu chuyên nghiệp và xuất PDF sạch, phân tích được — tất cả miễn phí.' },
+      { question: 'Tại sao CV Canva bị ATS loại?', answer: 'Canva sử dụng công cụ thiết kế đồ họa nhúng văn bản dưới dạng phần tử hình ảnh thay vì lớp văn bản có thể chọn. Phần mềm ATS đọc văn bản tài liệu, không đọc hình ảnh. Khi CV là file đồ họa Canva, ATS coi đó là tài liệu trống và tự động loại bỏ.' },
+      { question: 'Tôi có thể chuyển CV từ Canva sang Best AI Resume Builder không?', answer: 'Bạn có thể sao chép nội dung từ Canva và dán vào công cụ tạo CV của chúng tôi. Sau đó AI sẽ tối ưu kinh nghiệm làm việc, gợi ý cải thiện và tự động định dạng mọi thứ vào mẫu tương thích ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So Sánh Các Công Cụ Tạo CV Khác',
+    items: [
+      { href: '/vi/adobe-alternative', title: 'Thay Thế Adobe', subtitle: 'CV Adobe vs công cụ AI' },
+      { href: '/vi/zety-alternative', title: 'Thay Thế Zety', subtitle: 'So sánh giá và tính năng' },
+      { href: '/vi/rezi-alternative', title: 'Thay Thế Rezi', subtitle: 'Công cụ AI tạo CV so sánh' },
+      { href: '/vi/overleaf-alternative', title: 'Thay Thế Overleaf', subtitle: 'CV LaTeX vs công cụ AI' },
+    ],
+    guidesTitle: 'Hướng Dẫn CV Hữu Ích',
+    guides: [
+      { href: '/vi/blog/how-to-write-ats-friendly-resume', label: 'Cách Viết CV Tương Thích ATS' },
+      { href: '/vi/resume-format', label: 'Hướng Dẫn Định Dạng CV 2026' },
+      { href: '/vi/blog/top-resume-mistakes-to-avoid', label: 'Các Lỗi CV Thường Gặp Cần Tránh' },
+      { href: '/vi/blog/best-resume-fonts-2026', label: 'Font Chữ Tốt Nhất Cho CV 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.canva.com/resumes/', label: 'Mẫu CV Trên Canva' },
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS: Mẹo Viết CV Chuyên Nghiệp' },
+    ],
+  },
+  bottomCta: {
+    title: 'Sẵn Sàng Tạo CV Vượt Qua ATS?',
+    description: 'Tham gia cùng hàng nghìn người tìm việc đã chuyển từ Canva sang công cụ tạo CV bằng AI được thiết kế để giúp bạn được tuyển dụng tại thị trường Việt Nam.',
+    cta: 'Tạo CV Miễn Phí — Không Cần Đăng Ký',
+    subtext: 'Miễn phí mãi mãi. Không cần thẻ tín dụng.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน Canva สร้างเรซูเม่ 2026: เทมเพลต ATS ฟรี | Best AI Resume',
+    description: 'มองหาเทมเพลตเรซูเม่ Canva ที่ผ่าน ATS ได้จริง? เปรียบเทียบ Canva กับ Best AI Resume Builder — สร้างเรซูเม่ฟรี เทมเพลต ATS พร้อม AI เขียนเนื้อหา ไม่ต้องมีทักษะออกแบบ',
+    keywords: 'ทางเลือกแทน canva, เทมเพลตเรซูเม่ canva, สร้างเรซูเม่ฟรี, เรซูเม่ ats, เรซูเม่ AI, canva เรซูเม่, เทมเพลตเรซูเม่ฟรี, เรซูเม่สมัครงาน',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน Canva สำหรับเรซูเม่',
+    articleHeadline: 'ทางเลือกแทน Canva สร้างเรซูเม่ 2026: เทมเพลต ATS ฟรี',
+    articleDescription: 'เปรียบเทียบ Canva กับ Best AI Resume Builder สำหรับสร้างเรซูเม่สมัครงาน เปรียบเทียบฟีเจอร์ทีละข้อ พร้อมข้อดีข้อเสียจริง',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน Canva',
+    title: 'หยุดเสียโอกาสงานเพราะ',
+    titleHighlight: 'ปัญหา ATS ของ Canva',
+    subtitle: 'Canva สร้างเรซูเม่สวย — แต่ <strong>ระบบ ATS 98% อ่านไม่ได้</strong> เปลี่ยนมาใช้เครื่องมือสร้างเรซูเม่ที่ออกแบบมาเพื่อให้ได้งาน ไม่ใช่แค่ดูสวย Canva เป็นที่นิยมในไทย แต่เรซูเม่ต้องผ่าน ATS ด้วย',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูการเปรียบเทียบ',
+  },
+  problem: {
+    title: 'ทำไมเรซูเม่ Canva ถึงถูกปฏิเสธ',
+    description: 'Canva เป็นเครื่องมือออกแบบกราฟิก — ไม่ใช่เครื่องมือสร้างเรซูเม่ เมื่อคุณสร้างเรซูเม่ใน Canva มันส่งออกเป็นภาพแบนหรือ PDF ที่ข้อความฝังอยู่ในองค์ประกอบกราฟิก ระบบ ATS อ่านข้อความในเอกสาร ไม่ใช่รูปภาพ ผลลัพธ์คือ <strong>เรซูเม่ของคุณแสดงเป็นหน้าว่างในระบบ ATS</strong> และถูกปฏิเสธอัตโนมัติก่อนที่ HR จะเห็น แม้ว่าคนไทยจำนวนมากใช้ Canva ทำเรซูเม่ แต่นี่เป็นปัญหาที่หลายคนไม่รู้',
+    stats: [
+      { value: '98%', label: 'ของบริษัทชั้นนำใช้ ATS คัดกรองเรซูเม่' },
+      { value: '75%', label: 'ของเรซูเม่ถูกปฏิเสธก่อน HR ดู' },
+      { value: '0%', label: 'อัตราผ่าน ATS ของเทมเพลตเรซูเม่ Canva ส่วนใหญ่' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: 'เปรียบเทียบฟีเจอร์ทีละข้อสำหรับคนหางานในไทย',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'รองรับ ATS', competitor: '❌ เทมเพลตส่วนใหญ่ไม่ผ่าน ATS', ours: '✅ ทุกเทมเพลตผ่านการทดสอบ ATS' },
+      { feature: 'AI เขียนเรซูเม่', competitor: '❌ ไม่มี AI ช่วยเขียน', ours: '✅ AI เขียนผลงานและสรุปประสบการณ์' },
+      { feature: 'คะแนน ATS แบบเรียลไทม์', competitor: '❌ ไม่มีระบบให้คะแนน', ours: '✅ คะแนน ATS อัปเดตทันทีขณะพิมพ์' },
+      { feature: 'เทมเพลตฟรี', competitor: '⚠️ จำกัด (เทมเพลตดี ๆ ต้อง Pro)', ours: '✅ 20+ เทมเพลตฟรีทั้งหมด' },
+      { feature: 'ออกแบบเฉพาะเรซูเม่', competitor: '⚠️ เครื่องมือออกแบบทั่วไป', ours: '✅ สร้างมาเพื่อเรซูเม่โดยเฉพาะ' },
+      { feature: 'PDF อ่านข้อความได้', competitor: '❌ ส่งออกเป็นภาพแบน', ours: '✅ PDF สะอาด เลือกข้อความได้' },
+      { feature: 'คำสำคัญตามสายงาน', competitor: '❌ ไม่มีแนะนำคำสำคัญ', ours: '✅ AI แนะนำคำสำคัญตามอุตสาหกรรม' },
+      { feature: 'รูปแบบส่งออก', competitor: '✅ PDF, PNG, JPG', ours: '✅ PDF (เพิ่มประสิทธิภาพ ATS)' },
+      { feature: 'คุณภาพดีไซน์', competitor: '✅ ออกแบบกราฟิกยอดเยี่ยม', ours: '✅ เทมเพลตมืออาชีพ สะอาดตา' },
+      { feature: 'ง่ายต่อการใช้งาน', competitor: '⚠️ ต้องมีทักษะออกแบบบ้าง', ours: '✅ ไม่ต้องมีทักษะออกแบบเลย' },
+    ],
+  },
+  whySwitch: {
+    title: '3 เหตุผลที่คนหางานเปลี่ยนจาก Canva',
+    subtitle: 'ไม่ใช่เรื่องดีไซน์ — แต่เป็นเรื่องการได้งาน',
+    reasons: [
+      { title: 'ATS อ่านเรซูเม่ของคุณได้', description: 'ทุกเทมเพลตส่งออก PDF ที่ข้อความสะอาด วิเคราะห์ได้ ไม่ต้องถูกปฏิเสธอัตโนมัติอีกต่อไปเพราะ ATS อ่านไฟล์กราฟิกของ Canva ไม่ได้' },
+      { title: 'AI เขียนเนื้อหาให้คุณ', description: 'Canva ให้หน้าว่าง ๆ AI ของเราสร้างผลงาน สรุปประสบการณ์ และคำสำคัญตามสายงานให้อัตโนมัติ — ไม่ต้องนั่งมองหน้าเรซูเม่ว่างเปล่า' },
+      { title: 'ฟรี 100% (จริง ๆ)', description: 'Canva ล็อกเทมเพลตเรซูเม่ดี ๆ ไว้ในแพ็ก Pro ราคา 12.99$/เดือน เทมเพลตมืออาชีพ 20+ แบบของเราฟรีทั้งหมด — ไม่จำกัดฟีเจอร์ ไม่มีลายน้ำ' },
+    ],
+  },
+  recommendation: {
+    title: 'คำแนะนำตรง ๆ: ควรใช้อะไร?',
+    useCompetitor: {
+      title: 'ใช้ Canva ถ้าคุณ...',
+      items: [
+        'ต้องการเรซูเม่แบบพอร์ตโฟลิโอสำหรับงานออกแบบหรือศิลปะ',
+        'สมัครงานกับบริษัทที่ไม่ใช้ ATS (ธุรกิจขนาดเล็กมาก)',
+        'อยากสร้างเรซูเม่แบบอินโฟกราฟิกสำหรับงาน Networking',
+        'มีเนื้อหาเรซูเม่ดีอยู่แล้วและต้องการแค่เลย์เอาต์สวย ๆ',
+      ],
+    },
+    useUs: {
+      title: 'ใช้ Best AI Resumes ถ้าคุณ...',
+      items: [
+        'สมัครงานผ่านเว็บจัดหางาน (JobThai, LinkedIn, JobsDB, เว็บบริษัท)',
+        'ต้องการความช่วยเหลือเขียนเนื้อหาเรซูเม่ ไม่ใช่แค่ออกแบบ',
+        'อยากให้เรซูเม่ผ่านระบบ ATS คัดกรอง',
+        'ชอบการใช้งานแบบมีขั้นตอนแนะนำมากกว่าหน้าออกแบบว่าง ๆ',
+        'ไม่มีทักษะออกแบบกราฟิก',
+      ],
+    },
+    bottomLine: 'สรุป: Canva เป็นเครื่องมือออกแบบที่ยอดเยี่ยม แต่สำหรับการสมัครงานที่ต้องผ่านระบบ ATS (ซึ่งเป็นส่วนใหญ่ในตลาดงานไทย) คุณต้องการเครื่องมือสร้างเรซูเม่โดยเฉพาะ',
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ที่ผ่าน ATS',
+    description: 'ดูตัวอย่างเรซูเม่กว่า 300 แบบสำหรับทุกสายอาชีพ — ทั้งหมดสร้างด้วยเทมเพลตที่ผ่าน ATS ช่วยให้ผ่านระบบคัดกรองอัตโนมัติ',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'เทมเพลตเรซูเม่ Canva ใช้ฟรีได้ไหม?', answer: 'Canva มีเทมเพลตเรซูเม่ฟรีบางส่วน แต่ดีไซน์ดี ๆ หลายแบบต้องสมัคร Canva Pro (12.99$/เดือน) Best AI Resume Builder ให้เทมเพลตทั้งหมดฟรี ไม่มีลายน้ำ ไม่จำกัดฟีเจอร์' },
+      { question: 'เรซูเม่ Canva ผ่าน ATS ไหม?', answer: 'เทมเพลตเรซูเม่ Canva ส่วนใหญ่ไม่ผ่าน ATS Canva ส่งออกเรซูเม่เป็นภาพแบนหรือ PDF ที่ซอฟต์แวร์ ATS ไม่สามารถวิเคราะห์ได้ หมายความว่าเนื้อหาเรซูเม่ของคุณอาจไม่ถูกอ่านโดยระบบที่บริษัทชั้นนำ 98% ใช้' },
+      { question: 'ทางเลือกฟรีแทน Canva ที่ดีที่สุดสำหรับสร้างเรซูเม่คืออะไร?', answer: 'Best AI Resume Builder คือทางเลือกฟรีที่ดีที่สุด มี AI เขียนเนื้อหา คะแนน ATS แบบเรียลไทม์ เทมเพลตมืออาชีพ 20+ แบบ และส่งออก PDF สะอาดที่ ATS อ่านได้ — ฟรีทั้งหมด' },
+      { question: 'ทำไมเรซูเม่ Canva ถึงถูก ATS ปฏิเสธ?', answer: 'Canva ใช้เอนจิ้นออกแบบกราฟิกที่ฝังข้อความเป็นองค์ประกอบภาพแทนชั้นข้อความที่เลือกได้ ซอฟต์แวร์ ATS อ่านข้อความเอกสาร ไม่ใช่รูปภาพ เมื่อเรซูเม่เป็นไฟล์กราฟิกจาก Canva ระบบ ATS จะเห็นว่าเป็นเอกสารว่างและปฏิเสธอัตโนมัติ' },
+      { question: 'นำเรซูเม่จาก Canva มาใช้ใน Best AI Resume Builder ได้ไหม?', answer: 'คุณสามารถคัดลอกเนื้อหาจาก Canva มาวางในเครื่องมือสร้างเรซูเม่ของเรา จากนั้น AI จะช่วยปรับปรุงผลงาน แนะนำการปรับปรุง และจัดรูปแบบทุกอย่างให้เข้ากับเทมเพลตที่ผ่าน ATS โดยอัตโนมัติ' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่น ๆ',
+    items: [
+      { href: '/th/adobe-alternative', title: 'ทางเลือกแทน Adobe', subtitle: 'เรซูเม่ Adobe vs AI' },
+      { href: '/th/zety-alternative', title: 'ทางเลือกแทน Zety', subtitle: 'เปรียบเทียบราคาและฟีเจอร์' },
+      { href: '/th/rezi-alternative', title: 'ทางเลือกแทน Rezi', subtitle: 'เปรียบเทียบเครื่องมือ AI' },
+      { href: '/th/overleaf-alternative', title: 'ทางเลือกแทน Overleaf', subtitle: 'เรซูเม่ LaTeX vs AI' },
+    ],
+    guidesTitle: 'คู่มือเรซูเม่ที่เป็นประโยชน์',
+    guides: [
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/resume-format', label: 'คู่มือรูปแบบเรซูเม่ 2026' },
+      { href: '/th/blog/top-resume-mistakes-to-avoid', label: 'ข้อผิดพลาดเรซูเม่ที่ควรหลีกเลี่ยง' },
+      { href: '/th/blog/best-resume-fonts-2026', label: 'ฟอนต์ที่ดีที่สุดสำหรับเรซูเม่ 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://www.canva.com/resumes/', label: 'เทมเพลตเรซูเม่บน Canva' },
+      { href: 'https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm', label: 'BLS: เคล็ดลับเรซูเม่' },
+    ],
+  },
+  bottomCta: {
+    title: 'พร้อมสร้างเรซูเม่ที่ผ่าน ATS แล้วหรือยัง?',
+    description: 'เข้าร่วมกับคนหางานที่เปลี่ยนจาก Canva มาใช้เครื่องมือสร้างเรซูเม่ AI ที่ออกแบบมาเพื่อช่วยให้คุณได้งานในตลาดงานไทย',
+    cta: 'สร้างเรซูเม่ฟรี — ไม่ต้องสมัครสมาชิก',
+    subtext: 'ฟรีตลอดไป ไม่ต้องใช้บัตรเครดิต',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

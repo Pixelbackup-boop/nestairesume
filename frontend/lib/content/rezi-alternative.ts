@@ -864,5 +864,375 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: ComparisonPageContent = {
+  meta: {
+    title: 'Rezi.ai 대안 2026: 무료 AI 이력서 빌더 | Best AI Resume',
+    description: 'Rezi.ai 무료 대안을 찾고 계신가요? Rezi vs Best AI Resume Builder 비교——동일한 AI 품질, 무제한 기능, 완전 무료. 크레딧 제한 없음, 구독 불필요.',
+    keywords: 'Rezi.ai 대안, Rezi 이력서, 이력서 빌더 무료, AI 이력서 무료, 이력서 작성, ATS 이력서, Rezi 대체, 이력서 만들기',
+  },
+  schemas: {
+    breadcrumbName: 'Rezi.ai 대안',
+    articleHeadline: 'Rezi.ai 대안 2026: 무료 AI 이력서 빌더',
+    articleDescription: 'Rezi.ai vs Best AI Resume Builder 비교. 동일한 AI 이력서 작성과 ATS 최적화를 완전 무료로 이용하세요.',
+  },
+  hero: {
+    badge: 'Rezi.ai 대안',
+    title: 'AI의 모든 힘.',
+    titleHighlight: '비용은 제로.',
+    subtitle: 'Rezi.ai는 AI 이력서 작성의 선구자이지만 풀 액세스에 <strong>월 $29</strong>를 청구합니다. 동일한 AI 작성과 ATS 최적화를 <strong>완전 무료</strong>로 이용하세요.',
+    ctaPrimary: '무료로 이력서 만들기',
+    ctaSecondary: '비교표 보기',
+  },
+  problem: {
+    title: 'Rezi는 훌륭하다——그런데 월 $29의 가치가 있을까?',
+    description: 'Rezi.ai는 AI 기반 이력서 작성의 선구자였습니다. AI 작성 기능과 ATS 최적화는 우수합니다. 문제는? 무료 플랜이 매우 제한적이라는 것——<strong>이력서 1건만, AI 크레딧 제한, 기본 템플릿만</strong>. 풀 AI 작성과 무제한 이력서를 사용하려면 Rezi Pro(월 $29 또는 연 $129)가 필요합니다. 취업 준비로 재정 부담이 큰 한국 구직자에게 쉽지 않은 금액입니다.',
+    stats: [
+      { value: '$29', label: 'Rezi Pro 월 구독료 (풀 AI + 무제한 이력서)' },
+      { value: '1건', label: 'Rezi 무료 플랜으로 작성 가능한 이력서 수' },
+      { value: '₩0', label: 'Best AI Resume Builder — 모든 기능 무제한, 무료' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi.ai vs Best AI Resume Builder',
+    subtitle: '둘 다 AI 탑재. 무료는 하나뿐.',
+    competitorName: 'Rezi.ai',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '가격', competitor: '❌ Pro: 월 $29 / 연 $129', ours: '✅ 완전 무료' },
+      { feature: 'AI 이력서 작성', competitor: '✅ 우수한 AI (무료는 크레딧 제한)', ours: '✅ 무제한 AI 작성, 무료' },
+      { feature: 'ATS 체커', competitor: '✅ ATS 분석 내장', ours: '✅ 실시간 ATS 점수' },
+      { feature: '이력서 작성 수', competitor: '❌ 무료 플랜 1건만', ours: '✅ 무제한' },
+      { feature: '템플릿 종류', competitor: '⚠️ 선택지 제한적', ours: '✅ 20종 이상 프로 템플릿' },
+      { feature: '키워드 최적화', competitor: '✅ 채용 공고 매칭', ours: '✅ AI 키워드 제안' },
+      { feature: '커버 레터 작성', competitor: '✅ AI 탑재 (Pro만)', ours: '✅ AI 탑재 (무료)' },
+      { feature: 'PDF 내보내기', competitor: '⚠️ 무료 플랜 제한', ours: '✅ 무제한 무료 내보내기' },
+      { feature: '사용 편의성', competitor: '⚠️ 고기능이나 복잡한 UI', ours: '✅ 심플한 가이드형 경험' },
+      { feature: '무료 플랜 가치', competitor: '❌ 매우 제한적 (1건, 적은 AI 크레딧)', ours: '✅ 전 기능, 제한 없음' },
+    ],
+  },
+  whySwitch: {
+    title: 'Rezi에서 갈아타야 하는 3가지 이유',
+    subtitle: '동일한 AI 품질. 더 나은 가치.',
+    reasons: [
+      { title: '연간 $348 절약', description: 'Rezi Pro는 월 $29(연 $348)입니다. 본 AI 이력서 빌더는 동일한 AI 작성, ATS 최적화, 무제한 이력서를 ₩0에 제공합니다. 절약한 비용을 취업 준비에 투자하세요.' },
+      { title: '더 풍부한 템플릿', description: 'Rezi는 템플릿 선택지가 제한적입니다. 본 도구는 20종 이상의 프로 디자인 템플릿을 제공합니다——전부 ATS 검증 완료, 전부 무료. 미니멀부터 모던까지 다양한 스타일을 선택할 수 있습니다.' },
+      { title: '더 심플한 사용 경험', description: 'Rezi의 인터페이스는 고기능이지만 복잡합니다. 본 도구의 가이드형 플로우는 각 섹션을 단계별로 안내해 이력서 작성이 처음인 분도 프로페셔널한 결과물을 쉽게 완성할 수 있습니다.' },
+    ],
+  },
+  recommendation: {
+    title: '솔직한 추천',
+    useCompetitor: {
+      title: 'Rezi가 맞는 분',
+      items: [
+        '월 $29의 이력서 도구 예산이 있다',
+        '특정 채용 공고에 대한 JD 매칭 기능이 필요하다',
+        '다기능 파워유저용 인터페이스를 선호한다',
+        '이력서 1건만 있으면 충분하다 (무료 플랜으로 대응 가능)',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes가 맞는 분',
+      items: [
+        '월 $29 없이 무제한 AI 작성을 이용하고 싶다',
+        '다양한 직무에 맞춰 여러 이력서를 만들어야 한다',
+        '심플하고 가이드가 있는 이력서 작성 경험을 원한다',
+        '더 다양한 템플릿을 선택하고 싶다',
+        '비용을 절약하고 싶은 구직자',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300건 이상의 무료 이력서 샘플',
+    description: '데이터 분석가부터 프로덕트 매니저, 그래픽 디자이너까지——모든 직종의 프로페셔널 이력서 샘플을 확인하세요.',
+    ctaBrowse: '이력서 샘플 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'Rezi.ai는 무료로 사용할 수 있나요?', answer: 'Rezi에는 제한적인 무료 플랜이 있어 기본 기능으로 이력서 1건만 작성 가능합니다. AI 작성, 무제한 이력서, 전체 템플릿을 사용하려면 Rezi Pro(월 $29 또는 연 $129)가 필요합니다. Best AI Resume Builder는 모든 기능을 제한 없이 무료로 제공합니다.' },
+      { question: 'Rezi.ai의 AI 작성 기능은 우수한가요?', answer: 'Rezi는 AI 이력서 작성의 선구자로서 우수한 AI 기능을 갖추고 있습니다. 다만 무료 플랜에서는 AI 크레딧이 제한되어 무제한 사용에는 결제가 필요합니다. Best AI Resume Builder는 무제한 AI 작성을 무료로 제공하며, 지원 직무와 업종에 맞춘 동등 품질의 콘텐츠를 생성합니다.' },
+      { question: 'Rezi의 최고 무료 대안은?', answer: 'Best AI Resume Builder가 최고의 무료 대안입니다. AI 작성 품질과 ATS 최적화에서 Rezi와 동등하면서 100% 무료——크레딧 제한 없음, 기능 제한 없음, 구독 불필요.' },
+      { question: 'Rezi는 다른 AI 이력서 도구보다 뛰어난가요?', answer: 'Rezi는 우수한 AI와 ATS 기능을 갖춘 강력한 제품입니다. 가장 큰 단점은 가격——월 $29는 구직자에게 부담입니다. Best AI Resume Builder는 동등한 AI 품질, 더 많은 템플릿, 실시간 ATS 점수를 모두 무료로 제공합니다.' },
+      { question: 'Rezi 이력서는 ATS를 통과하나요?', answer: '네, Rezi 템플릿은 ATS 호환을 위해 설계되었으며 ATS 체커가 내장되어 있습니다. Best AI Resume Builder도 ATS 검증 템플릿과 실시간 점수, AI 키워드 제안을 모두 무료로 제공합니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 도구와 비교',
+    items: [
+      { href: '/ko/canva-alternative', title: 'Canva 대안', subtitle: '디자인 도구 vs AI 이력서 빌더' },
+      { href: '/ko/overleaf-alternative', title: 'Overleaf 대안', subtitle: 'LaTeX 이력서 vs AI 이력서 빌더' },
+      { href: '/ko/resume-io-alternative', title: 'Resume.io 대안', subtitle: '가격·기능 비교' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [
+      { href: '/ko/blog/how-to-write-ats-friendly-resume', label: 'ATS 통과 이력서 쓰는 법' },
+      { href: '/ko/resume-format', label: '이력서 양식 가이드 2026' },
+      { href: '/ko/resume-examples/data-analyst', label: '데이터 분석가 이력서 샘플' },
+      { href: '/ko/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude 이력서 작성 비교' },
+    ],
+  },
+  externalResources: {
+    title: '외부 참고 자료',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi AI 이력서 빌더' },
+      { href: 'https://www.bls.gov/ooh/', label: '미국 노동통계국 OOH' },
+    ],
+  },
+  bottomCta: {
+    title: '동일한 AI 파워. 비용 제로.',
+    description: 'AI 이력서 작성, ATS 최적화, 20종 이상 템플릿——전부 무료. 신용카드 불필요, 구독 불필요, 제한 없음.',
+    cta: '무료로 이력서 만들기',
+    subtext: '영구 무료. 모든 기능 무제한.',
+  },
+};
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế Rezi.ai 2026: Tạo CV Miễn Phí Bằng AI | Best AI Resume',
+    description: 'Tìm thay thế Rezi miễn phí? So sánh Rezi vs Best AI Resume Builder — tạo CV miễn phí bằng AI, mẫu CV ATS, không giới hạn, không mất phí. Không cần đăng ký.',
+    keywords: 'thay thế rezi, tạo cv miễn phí, mẫu cv ats, cv xin việc, rezi alternative, tạo cv bằng ai, cv xin việc miễn phí, mẫu cv chuyên nghiệp',
+  },
+  schemas: {
+    breadcrumbName: 'Thay Thế Rezi.ai',
+    articleHeadline: 'Thay Thế Rezi.ai 2026: Tạo CV Miễn Phí Bằng AI',
+    articleDescription: 'So sánh Rezi.ai vs Best AI Resume Builder. Tạo CV miễn phí với AI viết nội dung và tối ưu ATS — hoàn toàn miễn phí.',
+  },
+  hero: {
+    badge: 'Thay Thế Rezi.ai',
+    title: 'Toàn Bộ Sức Mạnh AI.',
+    titleHighlight: 'Hoàn Toàn Miễn Phí.',
+    subtitle: 'Rezi.ai là công cụ tạo CV bằng AI hàng đầu — nhưng thu phí <strong>$29/tháng</strong> để dùng đầy đủ. Tạo CV miễn phí với cùng chất lượng AI viết nội dung và tối ưu ATS — <strong>không mất đồng nào</strong>.',
+    ctaPrimary: 'Tạo CV Miễn Phí',
+    ctaSecondary: 'Xem So Sánh',
+  },
+  problem: {
+    title: 'Rezi Tốt — Nhưng Có Đáng $29/Tháng Không?',
+    description: 'Rezi.ai là một trong những công cụ tạo CV bằng AI đầu tiên trên thị trường. Tính năng viết nội dung AI và tối ưu ATS rất ấn tượng. Vấn đề là gì? Gói miễn phí quá hạn chế — <strong>chỉ 1 CV, giới hạn lượt dùng AI, mẫu cơ bản</strong>. Để dùng toàn bộ AI và tạo CV không giới hạn, bạn cần Rezi Pro với giá $29/tháng hoặc $129/năm. Với người tìm việc tại Việt Nam, đó là khoản chi không nhỏ.',
+    stats: [
+      { value: '$29', label: 'mỗi tháng cho Rezi Pro (AI đầy đủ + CV không giới hạn)' },
+      { value: '1', label: 'CV duy nhất được tạo trên gói miễn phí của Rezi' },
+      { value: '0₫', label: 'Best AI Resume Builder — tất cả không giới hạn, miễn phí' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi.ai vs Best AI Resume Builder',
+    subtitle: 'Cả hai đều dùng AI. Chỉ một cái miễn phí.',
+    competitorName: 'Rezi.ai',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Giá', competitor: '❌ Pro: $29/tháng hoặc $129/năm', ours: '✅ Miễn phí 100% mãi mãi' },
+      { feature: 'AI viết CV', competitor: '✅ AI tốt (giới hạn lượt dùng miễn phí)', ours: '✅ AI viết không giới hạn, miễn phí' },
+      { feature: 'Kiểm tra ATS', competitor: '✅ Phân tích ATS tích hợp', ours: '✅ Điểm ATS thời gian thực' },
+      { feature: 'Số lượng CV', competitor: '❌ 1 CV trên gói miễn phí', ours: '✅ Không giới hạn' },
+      { feature: 'Mẫu CV', competitor: '⚠️ Ít mẫu để chọn', ours: '✅ Hơn 20 mẫu CV chuyên nghiệp' },
+      { feature: 'Tối ưu từ khóa', competitor: '✅ Đối chiếu với mô tả công việc', ours: '✅ AI gợi ý từ khóa' },
+      { feature: 'Thư xin việc', competitor: '✅ AI (chỉ gói Pro)', ours: '✅ AI (miễn phí)' },
+      { feature: 'Xuất PDF', competitor: '⚠️ Hạn chế trên gói miễn phí', ours: '✅ Xuất PDF không giới hạn' },
+      { feature: 'Dễ sử dụng', competitor: '⚠️ Nhiều tính năng nhưng giao diện phức tạp', ours: '✅ Trải nghiệm hướng dẫn đơn giản' },
+      { feature: 'Giá trị gói miễn phí', competitor: '❌ Rất hạn chế (1 CV, ít lượt AI)', ours: '✅ Đầy đủ tính năng, không giới hạn' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Lý Do Nên Chuyển Từ Rezi',
+    subtitle: 'Cùng chất lượng AI. Giá trị tốt hơn.',
+    reasons: [
+      { title: 'Tiết Kiệm $348/Năm', description: 'Rezi Pro tốn $29/tháng ($348/năm). Công cụ tạo CV bằng AI của chúng tôi cung cấp cùng chất lượng viết nội dung, tối ưu ATS và CV không giới hạn — với giá 0₫. Dành khoản tiết kiệm đó cho hành trình tìm việc của bạn.' },
+      { title: 'Nhiều Mẫu CV ATS Hơn', description: 'Rezi có ít mẫu để lựa chọn. Chúng tôi cung cấp hơn 20 mẫu CV chuyên nghiệp — tất cả đã được kiểm tra ATS, tất cả miễn phí. Từ phong cách tối giản đến hiện đại, phù hợp với thị trường tuyển dụng Việt Nam và quốc tế.' },
+      { title: 'Trải Nghiệm Đơn Giản Hơn', description: 'Giao diện Rezi mạnh mẽ nhưng phức tạp. Quy trình hướng dẫn từng bước của chúng tôi giúp bạn hoàn thành từng phần CV một cách dễ dàng, kể cả khi bạn chưa từng viết CV xin việc trước đây.' },
+    ],
+  },
+  recommendation: {
+    title: 'Lời Khuyên Chân Thành',
+    useCompetitor: {
+      title: 'Khi nào Rezi có thể phù hợp',
+      items: [
+        'Bạn có ngân sách $29/tháng cho công cụ tạo CV',
+        'Bạn cần đối chiếu chính xác với mô tả công việc cụ thể',
+        'Bạn thích giao diện nâng cao dành cho người dùng chuyên nghiệp',
+        'Bạn chỉ cần 1 CV (gói miễn phí đủ dùng)',
+      ],
+    },
+    useUs: {
+      title: 'Khi nào Best AI Resumes là lựa chọn tốt hơn',
+      items: [
+        'Bạn muốn AI viết CV không giới hạn mà không trả $29/tháng',
+        'Bạn cần nhiều phiên bản CV cho các vị trí khác nhau',
+        'Bạn thích trải nghiệm hướng dẫn đơn giản, dễ hiểu',
+        'Bạn muốn nhiều mẫu CV ATS hơn để lựa chọn',
+        'Bạn đang tìm việc và cần tiết kiệm chi phí',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Hơn 300 Mẫu CV Xin Việc Miễn Phí',
+    description: 'Khám phá mẫu CV chuyên nghiệp cho mọi ngành nghề — từ phân tích dữ liệu, quản lý sản phẩm đến thiết kế đồ họa và nhiều hơn nữa.',
+    ctaBrowse: 'Xem Mẫu CV Xin Việc',
+    ctaTemplates: 'Xem Tất Cả Mẫu CV',
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      { question: 'Rezi.ai có miễn phí không?', answer: 'Rezi có gói miễn phí nhưng rất hạn chế — chỉ cho phép tạo 1 CV với tính năng cơ bản và giới hạn lượt dùng AI. Để sử dụng đầy đủ AI viết nội dung, tạo CV không giới hạn và tất cả mẫu CV, bạn cần Rezi Pro với giá $29/tháng hoặc $129/năm. Best AI Resume Builder cung cấp toàn bộ tính năng miễn phí, không giới hạn.' },
+      { question: 'AI viết CV của Rezi.ai có tốt không?', answer: 'Rezi là một trong những công cụ tạo CV bằng AI đầu tiên và có tính năng viết nội dung khá tốt. Tuy nhiên, gói miễn phí giới hạn lượt dùng AI và phải trả phí để dùng không giới hạn. Best AI Resume Builder cung cấp AI viết nội dung không giới hạn hoàn toàn miễn phí, với chất lượng tương đương, phù hợp với vị trí và ngành nghề của bạn.' },
+      { question: 'Công cụ thay thế Rezi miễn phí tốt nhất là gì?', answer: 'Best AI Resume Builder là lựa chọn thay thế Rezi miễn phí tốt nhất. Công cụ này có chất lượng AI viết nội dung và tối ưu ATS ngang bằng Rezi, đồng thời hoàn toàn miễn phí — không giới hạn lượt dùng, không giới hạn tính năng, không cần đăng ký.' },
+      { question: 'Rezi có tốt hơn các công cụ tạo CV bằng AI khác không?', answer: 'Rezi là sản phẩm mạnh với AI và ATS tốt. Nhược điểm lớn nhất là giá cả — $29/tháng là khá cao đối với người tìm việc. Best AI Resume Builder cung cấp chất lượng AI tương đương, nhiều mẫu CV hơn và điểm ATS thời gian thực — tất cả đều miễn phí.' },
+      { question: 'CV từ Rezi có vượt qua hệ thống ATS không?', answer: 'Có, mẫu CV của Rezi được thiết kế tương thích ATS và có tích hợp kiểm tra ATS. Best AI Resume Builder cũng cung cấp mẫu CV đã kiểm tra ATS với điểm số thời gian thực và gợi ý từ khóa bằng AI — tất cả hoàn toàn miễn phí.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So Sánh Các Công Cụ Tạo CV Khác',
+    items: [
+      { href: '/vi/adobe-alternative', title: 'Thay Thế Adobe', subtitle: 'Công cụ thiết kế vs tạo CV bằng AI' },
+      { href: '/vi/canva-alternative', title: 'Thay Thế Canva', subtitle: 'Thiết kế vs tạo CV bằng AI' },
+      { href: '/vi/zety-alternative', title: 'Thay Thế Zety', subtitle: 'So sánh giá và tính năng' },
+      { href: '/vi/overleaf-alternative', title: 'Thay Thế Overleaf', subtitle: 'CV LaTeX vs tạo CV bằng AI' },
+    ],
+    guidesTitle: 'Hướng Dẫn Viết CV Hữu Ích',
+    guides: [
+      { href: '/vi/blog/how-to-write-ats-friendly-resume', label: 'Cách Viết CV Xin Việc Tương Thích ATS' },
+      { href: '/vi/resume-format', label: 'Hướng Dẫn Định Dạng CV 2026' },
+      { href: '/vi/resume-examples/data-analyst', label: 'Mẫu CV Phân Tích Dữ Liệu' },
+      { href: '/vi/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude Cho Viết CV' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi AI — Công Cụ Tạo CV' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Cục Thống Kê Lao Động Hoa Kỳ (BLS OOH)' },
+    ],
+  },
+  bottomCta: {
+    title: 'Cùng Sức Mạnh AI. Hoàn Toàn Miễn Phí.',
+    description: 'Tạo CV xin việc bằng AI, tối ưu ATS, hơn 20 mẫu CV chuyên nghiệp — tất cả miễn phí. Không cần thẻ tín dụng, không đăng ký, không giới hạn.',
+    cta: 'Tạo CV Miễn Phí Ngay',
+    subtext: 'Miễn phí mãi mãi. Không giới hạn.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน Rezi 2026: สร้างเรซูเม่ AI ฟรี ATS',
+    description: 'หาทางเลือกฟรีแทน Rezi? เปรียบเทียบ Rezi vs Best AI Resume Builder — เรซูเม่ AI คุณภาพเดียวกัน เทมเพลต ATS ไม่จำกัด ฟรี 100% ไม่ต้องสมัครสมาชิก',
+    keywords: 'rezi ทางเลือก, rezi alternative ฟรี, สร้างเรซูเม่ AI ฟรี, เรซูเม่ ATS, เทมเพลตเรซูเม่ AI, rezi รีวิว, เครื่องมือสร้างเรซูเม่ฟรี',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน Rezi',
+    articleHeadline: 'ทางเลือกแทน Rezi 2026: สร้างเรซูเม่ด้วย AI ฟรี',
+    articleDescription: 'เปรียบเทียบ Rezi vs Best AI Resume Builder ใช้ AI ช่วยเขียนเรซูเม่และ ATS optimization ฟรีทั้งหมด',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน Rezi',
+    title: 'พลัง AI เต็มรูปแบบ',
+    titleHighlight: 'ไม่ต้องเสียเงิน',
+    subtitle: 'Rezi บุกเบิกการสร้างเรซูเม่ด้วย AI แต่เก็บ <strong>$29/เดือน</strong> สำหรับฟีเจอร์เต็ม ใช้ AI ช่วยเขียนและ ATS optimization เหมือนกัน <strong>ฟรีทั้งหมด</strong>',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูการเปรียบเทียบ',
+  },
+  problem: {
+    title: 'Rezi ดี — แต่คุ้ม $29/เดือนไหม?',
+    description: 'Rezi เป็นผู้บุกเบิกการสร้างเรซูเม่ด้วย AI มีฟีเจอร์ AI ช่วยเขียนและ ATS optimization ที่ดี แต่ปัญหาคือ แผนฟรีจำกัดมาก — <strong>เรซูเม่ได้แค่ 1 ตัว, AI credits จำกัด, เทมเพลตพื้นฐาน</strong> ต้องจ่าย $29/เดือน หรือ $129/ปี เพื่อปลดล็อกทั้งหมด สำหรับผู้หางานในไทยที่กำลังวางแผนการเงิน นี่เป็นค่าใช้จ่ายที่หนัก',
+    stats: [
+      { value: '$29', label: 'ต่อเดือนสำหรับ Rezi Pro (AI เต็ม + เรซูเม่ไม่จำกัด)' },
+      { value: '1', label: 'เรซูเม่ในแผนฟรีของ Rezi' },
+      { value: '฿0', label: 'Best AI Resume Builder — ทุกอย่างไม่จำกัด ฟรี' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi vs Best AI Resume Builder',
+    subtitle: 'ทั้งสองใช้ AI มีตัวเดียวที่ฟรี',
+    competitorName: 'Rezi',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ราคา', competitor: '❌ $29/เดือน หรือ $129/ปี สำหรับ Pro', ours: '✅ ฟรี 100% ตลอดไป' },
+      { feature: 'AI ช่วยเขียนเรซูเม่', competitor: '✅ AI ดี (credits จำกัดในแผนฟรี)', ours: '✅ AI ช่วยเขียนไม่จำกัด ฟรี' },
+      { feature: 'ตรวจ ATS', competitor: '✅ วิเคราะห์ ATS ในตัว', ours: '✅ คะแนน ATS แบบเรียลไทม์' },
+      { feature: 'จำนวนเรซูเม่', competitor: '❌ 1 ตัวในแผนฟรี', ours: '✅ เรซูเม่ไม่จำกัด' },
+      { feature: 'ความหลากหลายเทมเพลต', competitor: '⚠️ เทมเพลตจำกัด', ours: '✅ 20+ เทมเพลตมืออาชีพ' },
+      { feature: 'การเพิ่มประสิทธิภาพคีย์เวิร์ด', competitor: '✅ จับคู่กับ Job Description', ours: '✅ AI แนะนำคีย์เวิร์ด' },
+      { feature: 'เครื่องมือสร้าง Cover Letter', competitor: '✅ AI ช่วยเขียน (Pro เท่านั้น)', ours: '✅ AI ช่วยเขียน (ฟรี)' },
+      { feature: 'ส่งออก PDF', competitor: '⚠️ จำกัดในแผนฟรี', ours: '✅ ส่งออกฟรีไม่จำกัด' },
+      { feature: 'ความง่ายในการใช้', competitor: '⚠️ ฟีเจอร์เยอะแต่ UI ซับซ้อน', ours: '✅ มีระบบนำทางง่ายๆ' },
+      { feature: 'คุณค่าแผนฟรี', competitor: '❌ จำกัดมาก (1 เรซูเม่, AI credits น้อย)', ours: '✅ ฟีเจอร์เต็ม ไม่จำกัด' },
+    ],
+  },
+  whySwitch: {
+    title: '3 เหตุผลที่ควรเปลี่ยนจาก Rezi',
+    subtitle: 'AI คุณภาพเดียวกัน ราคาดีกว่า',
+    reasons: [
+      { title: 'ประหยัด $348/ปี', description: 'Rezi Pro ราคา $29/เดือน ($348/ปี หรือราว ฿12,000) AI resume builder ของเราให้ AI ช่วยเขียน ATS optimization และเรซูเม่ไม่จำกัด ทั้งหมดฟรี เงินนั้นเก็บไว้ใช้อย่างอื่นดีกว่า' },
+      { title: 'เทมเพลตหลากหลายกว่า', description: 'Rezi มีเทมเพลตจำกัด เรามีเทมเพลตมืออาชีพกว่า 20 แบบ ทุกตัวผ่านการทดสอบ ATS ทั้งหมดฟรี ครอบคลุมทุกสไตล์ตั้งแต่เรียบง่ายถึงโมเดิร์น' },
+      { title: 'ใช้งานง่ายกว่า', description: 'อินเทอร์เฟซของ Rezi มีพลังแต่ซับซ้อน ระบบนำทางของเราพาคุณผ่านแต่ละส่วน ง่ายแม้ไม่เคยสร้างเรซูเม่มาก่อน เหมาะกับผู้หางานไทยทุกระดับประสบการณ์' },
+    ],
+  },
+  recommendation: {
+    title: 'แนะนำตรงๆ',
+    useCompetitor: {
+      title: 'Rezi อาจเหมาะถ้าคุณ...',
+      items: [
+        'มีงบประมาณสำหรับเครื่องมือเรซูเม่ $29/เดือน',
+        'ต้องการจับคู่ Job Description สำหรับตำแหน่งเฉพาะ',
+        'ชอบอินเทอร์เฟซที่มีออปชันเยอะ',
+        'ต้องการแค่เรซูเม่เดียว (แผนฟรีใช้ได้)',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes ดีกว่าถ้าคุณ...',
+      items: [
+        'ต้องการ AI ช่วยเขียนไม่จำกัดโดยไม่ต้องจ่าย $29/เดือน',
+        'ต้องการเรซูเม่หลายเวอร์ชันสำหรับสมัครงานหลายตำแหน่ง',
+        'ชอบประสบการณ์สร้างเรซูเม่แบบง่ายมีระบบนำทาง',
+        'ต้องการเทมเพลตหลากหลายกว่า',
+        'เป็นผู้หางานที่ต้องการประหยัดเงิน',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ฟรีกว่า 300 แบบ',
+    description: 'เรียกดูตัวอย่างเรซูเม่มืออาชีพสำหรับทุกอาชีพ ตั้งแต่นักวิเคราะห์ข้อมูลถึง Product Manager และนักออกแบบกราฟิก',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'Rezi ใช้ฟรีได้ไหม?', answer: 'Rezi มีแผนฟรีที่จำกัดให้แค่ 1 เรซูเม่กับฟีเจอร์พื้นฐาน ต้องจ่าย $29/เดือน หรือ $129/ปี สำหรับ AI เต็มรูปแบบ เรซูเม่ไม่จำกัด และเทมเพลตทั้งหมด Best AI Resume Builder ให้ฟีเจอร์ทั้งหมดฟรีไม่จำกัด' },
+      { question: 'AI ของ Rezi เขียนเรซูเม่ดีไหม?', answer: 'Rezi เป็นผู้บุกเบิก AI resume builder ที่ดี มี AI ช่วยเขียนที่แข็งแกร่ง แต่จำกัด AI credits ในแผนฟรีและเก็บเงินสำหรับใช้ไม่จำกัด Best AI Resume Builder ให้ AI ช่วยเขียนไม่จำกัดฟรี คุณภาพใกล้เคียงกัน' },
+      { question: 'ทางเลือกฟรีที่ดีที่สุดแทน Rezi คืออะไร?', answer: 'Best AI Resume Builder เป็นทางเลือกฟรีที่ดีที่สุด AI ช่วยเขียนคุณภาพเทียบเท่า ATS optimization เหมือนกัน ฟรี 100% ไม่มี credit จำกัด ไม่จำกัดฟีเจอร์ ไม่ต้องสมัครสมาชิก' },
+      { question: 'Rezi ดีกว่า AI resume builder ตัวอื่นไหม?', answer: 'Rezi เป็นผลิตภัณฑ์ที่แข็งแกร่งกับ AI และ ATS ดี ข้อเสียหลักคือราคา $29/เดือน ซึ่งสูงสำหรับผู้หางาน Best AI Resume Builder มี AI คุณภาพเทียบเท่า เทมเพลตเยอะกว่า และคะแนน ATS แบบเรียลไทม์ ทั้งหมดฟรี' },
+      { question: 'เรซูเม่จาก Rezi ผ่านระบบ ATS ไหม?', answer: 'ใช่ เทมเพลตของ Rezi ออกแบบมาให้ผ่าน ATS และมีตัวตรวจ ATS ในตัว Best AI Resume Builder ก็มีเทมเพลตที่ผ่านการทดสอบ ATS คะแนน ATS แบบเรียลไทม์ และ AI แนะนำคีย์เวิร์ด ทั้งหมดฟรี' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่นๆ',
+    items: [
+      { href: '/th/canva-alternative', title: 'ทางเลือกแทน Canva', subtitle: 'เครื่องมือออกแบบ vs AI builder' },
+      { href: '/th/overleaf-alternative', title: 'ทางเลือกแทน Overleaf', subtitle: 'เรซูเม่ LaTeX vs AI builder' },
+      { href: '/th/resume-io-alternative', title: 'ทางเลือกแทน Resume.io', subtitle: 'เปรียบเทียบราคาและฟีเจอร์' },
+    ],
+    guidesTitle: 'คู่มือเรซูเม่ที่มีประโยชน์',
+    guides: [
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/resume-format', label: 'คู่มือรูปแบบเรซูเม่ 2026' },
+      { href: '/th/resume-examples/data-analyst', label: 'ตัวอย่างเรซูเม่นักวิเคราะห์ข้อมูล' },
+      { href: '/th/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude สำหรับเรซูเม่' },
+    ],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi AI Resume Builder' },
+      { href: 'https://www.bls.gov/ooh/', label: 'สำนักงานสถิติแรงงาน (BLS OOH)' },
+    ],
+  },
+  bottomCta: {
+    title: 'พลัง AI เหมือนกัน ราคาศูนย์',
+    description: 'สร้างเรซูเม่ด้วย AI ช่วยเขียน ATS optimization และเทมเพลตกว่า 20 แบบ ทั้งหมดฟรี ไม่ต้องใช้บัตรเครดิต ไม่ต้องสมัครสมาชิก ไม่จำกัด',
+    cta: 'สร้างเรซูเม่ฟรี',
+    subtext: 'ฟรีตลอด ไม่จำกัดทุกอย่าง',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

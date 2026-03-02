@@ -834,5 +834,362 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: ComparisonPageContent = {
+  meta: {
+    title: 'Europass 대안 2026: AI 이력서 작성기 | Best AI Resume',
+    description: 'Europass CV 대안을 찾고 계신가요? Europass vs Best AI Resume Builder 비교 — 20개 이상의 이력서 템플릿, AI 이력서 작성, ATS 최적화. 무료 이력서 작성.',
+    keywords: 'europass 대안, europass cv 템플릿, 이력서 작성기, 이력서 템플릿, AI 이력서, 무료 이력서, ATS 이력서, 이력서 쓰는 법',
+  },
+  schemas: {
+    breadcrumbName: 'Europass CV 대안',
+    articleHeadline: 'Europass CV 최고의 대안 2026: AI 이력서 작성기',
+    articleDescription: 'Europass CV vs Best AI Resume Builder 비교. 딱딱한 EU 형식 대신 20개 이상의 전문 이력서 템플릿과 AI 작성 기능을 무료로 이용하세요.',
+  },
+  hero: {
+    badge: 'Europass 대안',
+    title: '하나의 템플릿을 넘어서.',
+    titleHighlight: '현대적. AI 기반. 무료.',
+    subtitle: 'Europass는 EU 지원용 고정 템플릿 하나만 제공합니다. <strong>20개 이상의 현대적인 이력서 템플릿</strong>, AI 이력서 작성, ATS 최적화로 <strong>전 세계</strong> 취업 시장에 대응하세요 — 완전 무료.',
+    ctaPrimary: '무료 이력서 만들기',
+    ctaSecondary: '비교 확인하기',
+  },
+  problem: {
+    title: 'Europass: EU에선 유용하지만, 그 외에는 한계',
+    description: 'Europass CV는 유럽 내 노동 이동을 위한 EU 공식 이니셔티브입니다. 무료이고 정부가 지원하지만, <strong>템플릿은 단 1종</strong>, <strong>AI 작성 기능 없음</strong>, 현대적인 이력서 디자인에 비해 구식 느낌의 고정 구조입니다. EU 외 취업에서는 Europass가 오히려 불리할 수 있습니다.',
+    stats: [
+      { value: '1', label: 'Europass 템플릿 수' },
+      { value: '0', label: 'Europass AI 기능 수' },
+      { value: '20+', label: 'Best AI Resume Builder 템플릿 수 (무료)' },
+    ],
+  },
+  comparison: {
+    title: 'Europass CV vs Best AI Resume Builder',
+    subtitle: 'EU 표준 형식 vs 현대 AI 기반 이력서 작성기.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '가격', competitor: '✅ 무료 (EU 정부 도구)', ours: '✅ 무료 (전 기능)' },
+      { feature: '이력서 템플릿', competitor: '❌ 고정 형식 1종만', ours: '✅ 20개 이상 전문 디자인' },
+      { feature: 'AI 이력서 작성', competitor: '❌ AI 기능 없음', ours: '✅ AI 맞춤 콘텐츠 생성' },
+      { feature: 'ATS 최적화', competitor: '⚠️ EU 형식 파싱만 가능', ours: '✅ 글로벌 ATS 점수 + 키워드' },
+      { feature: '디자인 커스터마이징', competitor: '❌ 최소한 — 색상과 글꼴만', ours: '✅ 템플릿 + 레이아웃 완전 제어' },
+      { feature: '글로벌 호환성', competitor: '❌ EU 중심, 유럽 밖에선 부적합', ours: '✅ 모든 취업 시장에 대응' },
+      { feature: '커버 레터', competitor: '✅ 기본 커버 레터 작성기', ours: '✅ AI 기반 커버 레터' },
+      { feature: '언어 패스포트', competitor: '✅ EU 언어 역량 프레임워크', ours: '⚠️ 표준 언어 섹션' },
+      { feature: '콘텐츠 지원', competitor: '❌ 수동 입력만 가능', ours: '✅ AI가 경력 성과를 작성' },
+      { feature: '현대적 디자인', competitor: '❌ 구식 관공서 느낌', ours: '✅ 현대적, 채용 담당자 인증' },
+    ],
+  },
+  whySwitch: {
+    title: 'Europass vs Best AI Resumes 활용법',
+    subtitle: '각 도구에 맞는 최적의 활용 상황이 있습니다.',
+    reasons: [
+      { title: '글로벌 취업 시장', description: 'Europass는 EU 전용입니다. 저희 작성기는 미국, 영국, 캐나다, 아시아, 한국 등 전 세계 시장에 맞는 이력서를 작성합니다.' },
+      { title: '현대적인 디자인 옵션', description: 'Europass는 관공서 스타일 템플릿 1종뿐입니다. 20개 이상의 현대적 디자인으로 전문적이면서 ATS에도 최적화된 이력서를 만드세요.' },
+      { title: 'AI 콘텐츠 작성', description: 'Europass는 수동 입력만 가능합니다. 저희 AI가 직무에 맞는 경력 성과, 자기소개, 업계 키워드를 자동으로 생성합니다.' },
+    ],
+  },
+  recommendation: {
+    title: 'Europass vs Best AI Resumes 활용 가이드',
+    useCompetitor: {
+      title: 'Europass가 적합한 경우',
+      items: [
+        'EU 교류 프로그램(에라스무스, EU 기관)에 지원하는 경우',
+        '고용주가 Europass 형식을 지정한 경우',
+        'EU 역량 패스포트 또는 언어 패스포트가 필요한 경우',
+        '유럽 공공기관이나 학술기관에 지원하는 경우',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes가 적합한 경우',
+      items: [
+        '민간 기업에 지원하는 경우 (한국 포함 전 세계)',
+        '미국, 영국, 캐나다, 아시아 취업을 목표로 하는 경우',
+        '현대적이고 시각적으로 매력적인 디자인을 원하는 경우',
+        'AI를 활용한 경력 성과 및 자기소개 작성이 필요한 경우',
+        'ATS 시스템(사람인, 잡코리아, LinkedIn 등)을 통해 지원하는 경우',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300개 이상의 무료 이력서 샘플 보기',
+    description: '모든 직종을 위한 전문 이력서 샘플을 확인하세요.',
+    ctaBrowse: '이력서 샘플 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'Europass CV는 무료인가요?', answer: '네, 유럽위원회의 Europass CV 편집기는 완전 무료입니다. 다만 커스터마이징 옵션 없이 표준 템플릿 1종만 제공됩니다. Best AI Resume Builder도 무료이며, 20개 이상의 이력서 템플릿, AI 작성, ATS 최적화를 제공합니다.' },
+      { question: 'Europass CV는 유럽 외 취업에 적합한가요?', answer: '아닙니다. Europass CV는 유럽 취업 시장용으로 설계되어 한국, 미국, 영국 등의 고용주가 기대하는 이력서 형식과 다릅니다. EU 외 지원에는 표준 이력서 형식을 사용하세요. Best AI Resume Builder는 전 세계 취업 시장에 맞는 이력서를 작성합니다.' },
+      { question: 'Europass의 가장 좋은 대안은 무엇인가요?', answer: 'Best AI Resume Builder가 최고의 대안입니다. AI 이력서 작성, ATS 최적화, 20개 이상의 전문 이력서 템플릿을 무료로 제공합니다. Europass는 고정 형식 1종에 AI 기능이 없습니다.' },
+      { question: 'ATS 시스템이 Europass CV를 읽을 수 있나요?', answer: 'Europass CV는 ATS에서 파싱이 가능하지만, 고정 형식과 EU 전용 섹션(언어 패스포트 등)이 국제 표준 형식에 맞춰진 ATS를 혼동시킬 수 있습니다. Best AI Resume Builder의 템플릿은 글로벌 호환을 위해 ATS 테스트를 거쳤습니다.' },
+      { question: 'Europass에 템플릿이 하나뿐인 이유는 무엇인가요?', answer: 'Europass는 유럽 각국의 CV를 표준화하려는 EU 이니셔티브이므로 단일 형식을 사용합니다. EU 교류 프로그램에는 유용하지만, 전문적이고 현대적인 이력서 디자인을 원하는 취업 준비생에게는 한계가 있습니다. Best AI Resume Builder는 20개 이상의 이력서 템플릿으로 모든 업종과 스타일에 대응합니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 작성기와 비교',
+    items: [
+      { href: '/ko/canva-alternative', title: 'Canva 대안', subtitle: '디자인 도구 vs AI' },
+      { href: '/ko/zety-alternative', title: 'Zety 대안', subtitle: '가격 비교' },
+      { href: '/ko/overleaf-alternative', title: 'Overleaf 대안', subtitle: 'LaTeX vs AI 작성기' },
+      { href: '/ko/nova-alternative', title: 'Nova 대안', subtitle: 'CV 작성기 비교' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [],
+  },
+  externalResources: {
+    title: '외부 리소스',
+    items: [
+      { href: 'https://europa.eu/europass/en', label: 'Europass 공식 포털' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: '글로벌 취업 시장을 위한 현대적인 이력서.',
+    description: 'Europass의 단일 템플릿을 넘어서세요. AI 이력서 작성, 20개 이상의 디자인, ATS 최적화 — 모든 취업 시장에서 무료.',
+    cta: '무료 이력서 만들기',
+    subtext: '영원히 무료. 전 세계에서 이용 가능.',
+  },
+};
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế Europass 2026: Tạo CV Miễn Phí Với AI — Mẫu CV ATS Hiện Đại | Best AI Resume',
+    description: 'Tìm giải pháp thay thế Europass? So sánh Europass vs Best AI Resume Builder — 20+ mẫu CV ATS hiện đại, viết CV bằng AI, tối ưu ATS. Tạo CV miễn phí cho thị trường việc làm toàn cầu.',
+    keywords: 'thay thế europass, tạo cv miễn phí, mẫu cv ats, cv xin việc, mẫu cv chuyên nghiệp, viết cv bằng ai, cv europass, tạo cv online',
+  },
+  schemas: {
+    breadcrumbName: 'Thay thế CV Europass',
+    articleHeadline: 'Thay Thế Europass 2026: Tạo CV Miễn Phí Với AI — Mẫu CV ATS Hiện Đại',
+    articleDescription: 'So sánh CV Europass vs Best AI Resume Builder. Nhận 20+ mẫu CV chuyên nghiệp với AI viết nội dung thay vì một định dạng EU cứng nhắc.',
+  },
+  hero: {
+    badge: 'Thay thế Europass',
+    title: 'Vượt xa định dạng CV một mẫu.',
+    titleHighlight: 'Hiện đại. AI hỗ trợ. Miễn phí.',
+    subtitle: 'Europass chỉ cung cấp một mẫu CV cứng nhắc dành cho xin việc tại EU. Hãy sở hữu <strong>20+ mẫu CV ATS hiện đại</strong>, viết CV bằng AI và tối ưu ATS cho thị trường việc làm <strong>toàn cầu</strong> — hoàn toàn miễn phí.',
+    ctaPrimary: 'Tạo CV miễn phí',
+    ctaSecondary: 'Xem so sánh chi tiết',
+  },
+  problem: {
+    title: 'Europass: Hữu ích cho EU, hạn chế ở nơi khác',
+    description: 'CV Europass là sáng kiến của Liên minh Châu Âu nhằm chuẩn hóa hồ sơ xin việc trong khu vực EU. Nó miễn phí và được chính phủ hỗ trợ — nhưng chỉ cung cấp <strong>duy nhất một mẫu CV</strong>, <strong>không có tính năng AI</strong>, và cấu trúc cứng nhắc trông lỗi thời so với các thiết kế CV hiện đại. Đối với các công việc ngoài EU, đặc biệt tại Việt Nam, Europass có thể khiến hồ sơ của bạn kém cạnh tranh.',
+    stats: [
+      { value: '1', label: 'mẫu CV duy nhất trên Europass' },
+      { value: '0₫', label: 'chi phí — cả hai đều miễn phí' },
+      { value: '20+', label: 'mẫu CV ATS trong Best AI Resume Builder (miễn phí)' },
+    ],
+  },
+  comparison: {
+    title: 'CV Europass vs Best AI Resume Builder',
+    subtitle: 'Định dạng tiêu chuẩn EU so với công cụ tạo CV hiện đại bằng AI.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Chi phí', competitor: '✅ Miễn phí (công cụ EU)', ours: '✅ Miễn phí (toàn bộ tính năng)' },
+      { feature: 'Mẫu CV', competitor: '❌ Chỉ 1 định dạng cứng nhắc', ours: '✅ 20+ thiết kế chuyên nghiệp' },
+      { feature: 'Viết CV bằng AI', competitor: '❌ Không có tính năng AI', ours: '✅ Nội dung tùy chỉnh do AI tạo' },
+      { feature: 'Tối ưu ATS', competitor: '⚠️ Chỉ phân tích định dạng EU', ours: '✅ Chấm điểm ATS toàn cầu + từ khóa' },
+      { feature: 'Tùy chỉnh thiết kế', competitor: '❌ Tối thiểu — chỉ màu sắc và phông chữ', ours: '✅ Toàn quyền kiểm soát mẫu và bố cục' },
+      { feature: 'Tương thích toàn cầu', competitor: '❌ Chỉ EU, không phù hợp thị trường Việt Nam', ours: '✅ Phù hợp mọi thị trường việc làm' },
+      { feature: 'Thư xin việc', competitor: '✅ Công cụ tạo thư cơ bản', ours: '✅ Thư xin việc viết bằng AI' },
+      { feature: 'Hộ chiếu ngôn ngữ', competitor: '✅ Khung năng lực ngôn ngữ EU', ours: '⚠️ Mục ngôn ngữ tiêu chuẩn' },
+      { feature: 'Hỗ trợ nội dung', competitor: '❌ Chỉ nhập thủ công', ours: '✅ AI viết các mục kinh nghiệm' },
+      { feature: 'Thiết kế hiện đại', competitor: '❌ Giao diện hành chính lỗi thời', ours: '✅ Hiện đại, được nhà tuyển dụng đánh giá cao' },
+    ],
+  },
+  whySwitch: {
+    title: 'Khi nào nên dùng Europass và khi nào nên dùng Best AI Resumes',
+    subtitle: 'Mỗi công cụ có mục đích sử dụng riêng.',
+    reasons: [
+      { title: 'Thị trường việc làm Việt Nam và quốc tế', description: 'Europass được thiết kế cho EU. Công cụ của chúng tôi tạo CV xin việc phù hợp với thị trường Việt Nam, các công ty đa quốc gia, và thị trường lao động tại Mỹ, Anh, Canada, Úc, Nhật Bản.' },
+      { title: 'Mẫu CV hiện đại và chuyên nghiệp', description: 'Europass chỉ có một mẫu mang tính hành chính. Chúng tôi cung cấp 20+ thiết kế đương đại vượt qua hệ thống sàng lọc ATS và thu hút sự chú ý của nhà tuyển dụng.' },
+      { title: 'Viết nội dung CV bằng AI', description: 'Europass yêu cầu nhập thủ công toàn bộ. AI của chúng tôi tự động tạo mô tả kinh nghiệm làm việc, tóm tắt chuyên môn và từ khóa theo ngành nghề cụ thể.' },
+    ],
+  },
+  recommendation: {
+    title: 'Khi nào nên dùng Europass và khi nào nên dùng Best AI Resumes',
+    useCompetitor: {
+      title: 'Nên dùng Europass khi...',
+      items: [
+        'Nộp hồ sơ cho chương trình trao đổi EU (Erasmus, các tổ chức Châu Âu)',
+        'Nhà tuyển dụng yêu cầu cụ thể định dạng Europass',
+        'Bạn cần Hộ chiếu Kỹ năng EU hoặc Hộ chiếu Ngôn ngữ',
+        'Xin việc tại cơ quan chính phủ hoặc học thuật Châu Âu',
+      ],
+    },
+    useUs: {
+      title: 'Nên dùng Best AI Resumes khi...',
+      items: [
+        'Xin việc tại các công ty tư nhân (ở Việt Nam hoặc quốc tế)',
+        'Nhắm đến vị trí tại Mỹ, Anh, Canada, Úc, Nhật Bản hoặc Châu Á',
+        'Muốn CV xin việc hiện đại, bắt mắt và chuyên nghiệp',
+        'Cần AI hỗ trợ viết kinh nghiệm làm việc và tóm tắt chuyên môn',
+        'Nộp hồ sơ qua cổng ATS (VietnamWorks, TopCV, LinkedIn, Indeed, v.v.)',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Xem hơn 300 mẫu CV xin việc miễn phí',
+    description: 'Mẫu CV chuyên nghiệp cho mọi ngành nghề và cấp bậc.',
+    ctaBrowse: 'Xem mẫu CV xin việc',
+    ctaTemplates: 'Xem tất cả mẫu CV',
+  },
+  faq: {
+    title: 'Câu hỏi thường gặp',
+    items: [
+      { question: 'CV Europass có miễn phí không?', answer: 'Có, trình soạn thảo CV Europass của Ủy ban Châu Âu hoàn toàn miễn phí. Tuy nhiên, nó chỉ tạo ra một mẫu tiêu chuẩn duy nhất mà không có tùy chọn tùy chỉnh. Best AI Resume Builder cũng miễn phí nhưng cung cấp 20+ mẫu CV ATS, viết CV bằng AI và tối ưu ATS.' },
+      { question: 'CV Europass có phù hợp khi xin việc tại Việt Nam không?', answer: 'Không. CV Europass được thiết kế cho thị trường lao động Châu Âu và theo định dạng EU mà các nhà tuyển dụng Việt Nam không quen thuộc. Đối với thị trường Việt Nam, hãy sử dụng mẫu CV xin việc hiện đại và phù hợp với ATS. Best AI Resume Builder tạo CV phù hợp với mọi thị trường việc làm trên thế giới.' },
+      { question: 'Đâu là giải pháp thay thế Europass tốt nhất?', answer: 'Best AI Resume Builder là giải pháp thay thế tốt nhất cho hồ sơ xin việc hiện đại. Công cụ này cung cấp viết CV bằng AI, tối ưu ATS và 20+ mẫu CV chuyên nghiệp — trong khi Europass chỉ có một định dạng cứng nhắc duy nhất và không có tính năng AI.' },
+      { question: 'Hệ thống ATS có đọc được CV Europass không?', answer: 'CV Europass có thể được hệ thống ATS phân tích, nhưng định dạng cứng nhắc và các mục dành riêng cho EU (như hộ chiếu ngôn ngữ) có thể gây nhầm lẫn cho hệ thống ATS được cấu hình theo định dạng CV quốc tế. Các mẫu CV của Best AI Resume Builder đã được kiểm tra tương thích ATS toàn cầu.' },
+      { question: 'Tại sao Europass chỉ có một mẫu CV duy nhất?', answer: 'Europass là sáng kiến của EU nhằm chuẩn hóa CV trên toàn Châu Âu, nên sử dụng một định dạng chung duy nhất. Điều này hữu ích cho các chương trình trao đổi EU nhưng hạn chế đối với người tìm việc muốn có thiết kế CV xin việc chuyên nghiệp và hiện đại. Best AI Resume Builder cung cấp 20+ mẫu CV phù hợp với mọi ngành nghề và phong cách.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So sánh các công cụ tạo CV khác',
+    items: [
+      { href: '/vi/adobe-alternative', title: 'Thay thế Adobe', subtitle: 'Công cụ thiết kế vs AI' },
+      { href: '/vi/canva-alternative', title: 'Thay thế Canva', subtitle: 'Thiết kế vs AI tạo CV' },
+      { href: '/vi/zety-alternative', title: 'Thay thế Zety', subtitle: 'So sánh chi phí' },
+      { href: '/vi/rezi-alternative', title: 'Thay thế Rezi', subtitle: 'So sánh công cụ tạo CV' },
+    ],
+    guidesTitle: 'Hướng dẫn viết CV hữu ích',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Tài nguyên bên ngoài',
+    items: [
+      { href: 'https://europa.eu/europass/en', label: 'Cổng thông tin chính thức Europass' },
+      { href: 'https://www.gso.gov.vn/', label: 'Tổng cục Thống kê Việt Nam' },
+    ],
+  },
+  bottomCta: {
+    title: 'CV xin việc hiện đại cho thị trường lao động Việt Nam và toàn cầu.',
+    description: 'Vượt xa định dạng Europass một mẫu. Viết CV bằng AI, 20+ thiết kế, tối ưu ATS — tạo CV miễn phí cho mọi thị trường việc làm.',
+    cta: 'Tạo CV miễn phí',
+    subtext: 'Miễn phí mãi mãi. Phù hợp toàn cầu.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน Europass สร้างเรซูเม่ 2026',
+    description: 'มองหาทางเลือกแทน Europass? เปรียบเทียบ Europass กับ Best AI Resume Builder — เทมเพลตเรซูเม่ AI กว่า 20 แบบ เขียนเรซูเม่ด้วย AI ปรับแต่ง ATS ฟรี',
+    keywords: 'ทางเลือก europass, สร้างเรซูเม่, เทมเพลตเรซูเม่, เรซูเม่ AI, cv europass, สร้าง cv ฟรี, เรซูเม่ ATS, เรซูเม่สมัครงาน',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน Europass',
+    articleHeadline: 'ทางเลือกแทน Europass สร้างเรซูเม่ 2026 ด้วย AI',
+    articleDescription: 'เปรียบเทียบ CV Europass กับ Best AI Resume Builder รับเทมเพลตเรซูเม่มืออาชีพกว่า 20 แบบพร้อม AI ช่วยเขียน แทนรูปแบบ EU ที่จำกัด',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน Europass',
+    title: 'ก้าวข้าม CV แบบเดิมๆ',
+    titleHighlight: 'ทันสมัย. AI ช่วยเขียน. ฟรี.',
+    subtitle: 'Europass มีเทมเพลตเดียวสำหรับสมัครงานในยุโรป สร้างเรซูเม่ด้วย <strong>เทมเพลตกว่า 20 แบบ</strong> เขียนด้วย AI ปรับแต่ง ATS สำหรับตลาดงาน<strong>ทั่วโลกและในไทย</strong> — ฟรีทั้งหมด',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูตารางเปรียบเทียบ',
+  },
+  problem: {
+    title: 'Europass: ใช้ได้ดีในยุโรป แต่จำกัดสำหรับตลาดงานอื่น',
+    description: 'Europass CV เป็นเครื่องมือของสหภาพยุโรปที่ช่วยมาตรฐาน CV สำหรับการสมัครงานข้ามประเทศในยุโรป ฟรีและรัฐบาลสนับสนุน แต่มี<strong>เทมเพลตเพียงแบบเดียว</strong> <strong>ไม่มี AI ช่วยเขียน</strong> และโครงสร้างตายตัวที่ดูล้าสมัย สำหรับนักศึกษาไทยที่เรียนในยุโรปและต้องการกลับมาทำงานในไทย Europass อาจทำให้ใบสมัครดูไม่เหมาะกับตลาดงานไทย',
+    stats: [
+      { value: '1', label: 'เทมเพลตเดียวบน Europass' },
+      { value: '0', label: 'ฟีเจอร์ AI ใน Europass' },
+      { value: '20+', label: 'เทมเพลตใน Best AI Resume Builder (ฟรี)' },
+    ],
+  },
+  comparison: {
+    title: 'Europass CV เทียบกับ Best AI Resume Builder',
+    subtitle: 'รูปแบบมาตรฐาน EU เทียบกับเครื่องมือสร้างเรซูเม่ AI',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ราคา', competitor: '✅ ฟรี (เครื่องมือ EU)', ours: '✅ ฟรี (ทุกฟีเจอร์)' },
+      { feature: 'เทมเพลต', competitor: '❌ รูปแบบเดียวตายตัว', ours: '✅ 20+ ดีไซน์มืออาชีพ' },
+      { feature: 'เขียนเรซูเม่ด้วย AI', competitor: '❌ ไม่มี AI', ours: '✅ AI สร้างเนื้อหาเฉพาะบุคคล' },
+      { feature: 'ปรับแต่ง ATS', competitor: '⚠️ รองรับเฉพาะรูปแบบ EU', ours: '✅ ให้คะแนน ATS + คีย์เวิร์ดทั่วโลก' },
+      { feature: 'ปรับแต่งดีไซน์', competitor: '❌ จำกัด — แค่สีและฟอนต์', ours: '✅ ควบคุมเทมเพลตและเลย์เอาต์ได้เต็มที่' },
+      { feature: 'ใช้ได้ทั่วโลก', competitor: '❌ เน้นเฉพาะ EU ไม่เหมาะกับตลาดไทย', ours: '✅ ใช้ได้กับทุกตลาดงาน รวมถึงไทย' },
+      { feature: 'จดหมายสมัครงาน', competitor: '✅ เครื่องมือสร้างจดหมายพื้นฐาน', ours: '✅ จดหมายสมัครงานเขียนด้วย AI' },
+      { feature: 'Language Passport', competitor: '✅ กรอบทักษะภาษา EU', ours: '⚠️ ส่วนภาษาแบบมาตรฐาน' },
+      { feature: 'ช่วยเขียนเนื้อหา', competitor: '❌ กรอกเองทั้งหมด', ours: '✅ AI เขียนรายละเอียดประสบการณ์' },
+      { feature: 'ดีไซน์ทันสมัย', competitor: '❌ หน้าตาแบบราชการ ล้าสมัย', ours: '✅ ทันสมัย ถูกใจผู้สรรหา' },
+    ],
+  },
+  whySwitch: {
+    title: 'เมื่อไหร่ควรใช้ Europass และเมื่อไหร่ควรใช้ Best AI Resumes',
+    subtitle: 'เครื่องมือแต่ละตัวมีจุดเด่นต่างกัน',
+    reasons: [
+      { title: 'ตลาดงานไทยและต่างประเทศ', description: 'Europass ออกแบบมาเพื่อ EU เครื่องมือของเราสร้างเรซูเม่ที่เหมาะกับตลาดงานไทย บริษัทข้ามชาติ และตลาดแรงงานทั่วโลก ไม่ว่าจะสหรัฐฯ อังกฤษ แคนาดา ญี่ปุ่น หรือสิงคโปร์' },
+      { title: 'เทมเพลตเรซูเม่ทันสมัย', description: 'Europass มีเทมเพลตแบบราชการเพียงแบบเดียว เรามีดีไซน์ร่วมสมัยกว่า 20 แบบที่ผ่านระบบ ATS และดึงดูดสายตาผู้สรรหาในไทย' },
+      { title: 'เรซูเม่ AI ช่วยเขียนเนื้อหา', description: 'Europass ต้องกรอกข้อมูลเองทั้งหมด AI ของเราสร้างรายละเอียดประสบการณ์ สรุปความเชี่ยวชาญ และคีย์เวิร์ดตามสายงานให้อัตโนมัติ' },
+    ],
+  },
+  recommendation: {
+    title: 'เมื่อไหร่ควรใช้ Europass และเมื่อไหร่ควรใช้ Best AI Resumes',
+    useCompetitor: {
+      title: 'ควรใช้ Europass เมื่อ...',
+      items: [
+        'สมัครโปรแกรมแลกเปลี่ยน EU (Erasmus หรือองค์กรยุโรป)',
+        'นายจ้างระบุชัดเจนว่าต้องการรูปแบบ Europass',
+        'ต้องการ EU Skills Passport หรือ Language Passport',
+        'สมัครตำแหน่งในหน่วยงานรัฐหรือสถาบันการศึกษาในยุโรป',
+      ],
+    },
+    useUs: {
+      title: 'ควรใช้ Best AI Resumes เมื่อ...',
+      items: [
+        'สมัครงานบริษัทเอกชน (ในไทยหรือต่างประเทศ)',
+        'เป้าหมายคือตำแหน่งงานในสหรัฐฯ อังกฤษ แคนาดา ญี่ปุ่น หรือสิงคโปร์',
+        'ต้องการเรซูเม่สมัครงานที่ดีไซน์สวย ทันสมัย ดูเป็นมืออาชีพ',
+        'ต้องการ AI ช่วยเขียนประสบการณ์ทำงานและสรุปความเชี่ยวชาญ',
+        'สมัครงานผ่านระบบ ATS (JobThai, LinkedIn, Indeed เป็นต้น)',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ฟรีกว่า 300 แบบ',
+    description: 'ตัวอย่างเรซูเม่สมัครงานมืออาชีพสำหรับทุกสายอาชีพ',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'Europass CV ฟรีไหม?', answer: 'ใช่ เครื่องมือ Europass CV จากคณะกรรมาธิการยุโรปฟรีทั้งหมด แต่สร้างได้เพียงเทมเพลตเดียวโดยไม่มีตัวเลือกปรับแต่ง Best AI Resume Builder ก็ฟรีเช่นกัน แต่มีเทมเพลตกว่า 20 แบบ เขียนด้วย AI และปรับแต่ง ATS' },
+      { question: 'Europass CV เหมาะกับการสมัครงานในไทยไหม?', answer: 'ไม่เหมาะ Europass CV ออกแบบมาสำหรับตลาดแรงงานยุโรปและใช้รูปแบบ EU ที่นายจ้างไทยไม่คุ้นเคย สำหรับตลาดงานไทย ควรใช้เรซูเม่สมัครงานที่ทันสมัยและรองรับ ATS Best AI Resume Builder สร้างเรซูเม่ที่เหมาะกับทุกตลาดงานทั่วโลก' },
+      { question: 'ทางเลือกแทน Europass ที่ดีที่สุดคืออะไร?', answer: 'Best AI Resume Builder เป็นทางเลือกที่ดีที่สุดสำหรับการสมัครงานยุคใหม่ มี AI ช่วยเขียนเรซูเม่ ปรับแต่ง ATS และเทมเพลตมืออาชีพกว่า 20 แบบ ในขณะที่ Europass มีเพียงรูปแบบเดียวที่ตายตัวและไม่มี AI' },
+      { question: 'ระบบ ATS อ่าน CV Europass ได้ไหม?', answer: 'ATS สามารถอ่าน CV Europass ได้ แต่โครงสร้างตายตัวและส่วน EU เฉพาะ (เช่น Language Passport) อาจทำให้ระบบ ATS ที่ตั้งค่าสำหรับรูปแบบเรซูเม่สากลสับสน เทมเพลตของ Best AI Resume Builder ผ่านการทดสอบ ATS แล้วสำหรับการใช้งานทั่วโลก' },
+      { question: 'ทำไม Europass ถึงมีแค่เทมเพลตเดียว?', answer: 'Europass เป็นโครงการของ EU ที่ออกแบบมาเพื่อมาตรฐาน CV ทั่วยุโรป จึงใช้รูปแบบเดียว เหมาะสำหรับโปรแกรมแลกเปลี่ยน EU แต่จำกัดสำหรับผู้หางานที่ต้องการดีไซน์ที่ทันสมัยและเป็นมืออาชีพ Best AI Resume Builder มีกว่า 20 เทมเพลตสำหรับทุกสายงาน' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่นๆ',
+    items: [
+      { href: '/th/adobe-alternative', title: 'ทางเลือกแทน Adobe', subtitle: 'เครื่องมือดีไซน์ vs AI' },
+      { href: '/th/canva-alternative', title: 'ทางเลือกแทน Canva', subtitle: 'ดีไซน์ vs AI สร้างเรซูเม่' },
+      { href: '/th/zety-alternative', title: 'ทางเลือกแทน Zety', subtitle: 'เปรียบเทียบราคา' },
+      { href: '/th/rezi-alternative', title: 'ทางเลือกแทน Rezi', subtitle: 'เปรียบเทียบเครื่องมือ' },
+    ],
+    guidesTitle: 'คู่มือเขียนเรซูเม่ที่มีประโยชน์',
+    guides: [],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://europa.eu/europass/en', label: 'เว็บไซต์ทางการ Europass' },
+      { href: 'https://www.mol.go.th/', label: 'กระทรวงแรงงาน ประเทศไทย' },
+    ],
+  },
+  bottomCta: {
+    title: 'เรซูเม่สมัครงานทันสมัย สำหรับตลาดงานไทยและทั่วโลก',
+    description: 'ก้าวข้ามรูปแบบ Europass ที่มีเทมเพลตเดียว สร้างเรซูเม่ด้วย AI เทมเพลตกว่า 20 แบบ ปรับแต่ง ATS — ฟรีสำหรับทุกตลาดงาน',
+    cta: 'สร้างเรซูเม่ฟรี',
+    subtext: 'ฟรีตลอดไป ใช้ได้ทั่วโลก',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

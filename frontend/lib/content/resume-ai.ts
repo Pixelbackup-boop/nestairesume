@@ -873,7 +873,346 @@ const it: ResumeAIPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it };
+const vi: ResumeAIPageContent = {
+  meta: {
+    title: 'CV Bằng AI | Công Cụ Tạo CV Bằng AI Miễn Phí 2026 | Best AI Resume',
+    description: 'Tạo CV bằng AI chỉ trong vài phút. Công cụ AI viết CV chuyên nghiệp, tối ưu ATS, 20+ mẫu CV — hoàn toàn miễn phí cho người tìm việc Việt Nam.',
+    keywords: 'cv bằng ai, tạo cv bằng ai, công cụ ai viết cv, cv xin việc, tạo cv miễn phí, cv thông minh, viết cv tự động, cv ats việt nam',
+  },
+  schemas: {
+    breadcrumbName: 'CV bằng AI',
+    articleHeadline: 'CV Bằng AI: Công Cụ Tạo CV Xin Việc Bằng AI Miễn Phí 2026',
+    articleDescription: 'Khám phá cách AI tạo và tối ưu nội dung CV xin việc. Sử dụng công cụ tạo CV bằng AI miễn phí để nhận nhiều lời mời phỏng vấn hơn.',
+    softwareAppName: 'Công Cụ Tạo CV Bằng AI',
+  },
+  hero: {
+    badge: 'Công Nghệ AI Tiên Tiến',
+    title: 'Tạo CV Xin Việc',
+    titleHighlight: 'Bằng AI Chỉ Trong Vài Giây',
+    subtitle: '<strong>Công cụ tạo CV bằng AI</strong> của chúng tôi viết nội dung chuyên nghiệp, tối ưu hóa cho hệ thống ATS và giúp bạn tạo CV xin việc nổi bật — hoàn toàn miễn phí. Theo nghiên cứu của <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn</a>, nhà tuyển dụng chỉ dành trung bình 7 giây để xem mỗi CV. Tại Việt Nam, nơi cạnh tranh trên <a href="https://www.vietnamworks.com" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">VietnamWorks</a> và <a href="https://www.topcv.vn" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">TopCV</a> ngày càng gay gắt, hãy để AI giúp bạn tận dụng mỗi giây.',
+    ctaPrimary: 'Tạo CV Bằng AI Miễn Phí',
+    ctaSecondary: 'Xem Cách Hoạt Động',
+    trustText: 'Không cần đăng ký · 100% miễn phí · Nội dung do AI tạo',
+  },
+  whatIs: {
+    title: 'CV bằng AI là gì?',
+    description: '<strong>CV bằng AI</strong> sử dụng trí tuệ nhân tạo để thay đổi hoàn toàn cách bạn tạo CV xin việc. Thay vì ngồi loay hoay trước trang trắng, AI phân tích kinh nghiệm của bạn, hiểu vị trí mục tiêu và tạo nội dung chuyên nghiệp phù hợp với ngành nghề. Theo <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">SHRM (Society for Human Resource Management)</a>, AI đang nhanh chóng thay đổi quy trình tuyển dụng — và CV được tạo bằng AI ngày càng được nhà tuyển dụng Việt Nam chấp nhận rộng rãi, đặc biệt khi các công ty áp dụng hệ thống ATS để lọc hồ sơ.',
+    stats: [
+      { value: '10x', label: 'Nhanh hơn viết thủ công' },
+      { value: '85%', label: 'Tỷ lệ vượt qua ATS cao hơn' },
+      { value: '3M+', label: 'CV đã được tạo bằng AI' },
+    ],
+  },
+  features: {
+    title: 'AI giúp bạn tạo CV xin việc như thế nào',
+    subtitle: 'AI không chỉ định dạng — mà thực sự giúp bạn viết nội dung CV tốt hơn.',
+    items: [
+      { title: 'Viết nội dung bằng AI', description: 'AI tạo mô tả kinh nghiệm làm việc chuyên nghiệp, tóm tắt hồ sơ và mô tả kỹ năng dựa trên kinh nghiệm và vị trí mục tiêu của bạn.' },
+      { title: 'Tối ưu từ khóa thông minh', description: 'AI phân tích tin tuyển dụng trên TopCV, VietnamWorks và các nền tảng khác để gợi ý từ khóa ngành nghề mà nhà tuyển dụng tìm kiếm.' },
+      { title: 'Phân tích điểm ATS', description: 'Chấm điểm theo thời gian thực cho bạn biết CV xin việc của bạn sẽ được hệ thống ATS đánh giá ra sao trước khi nộp hồ sơ.' },
+      { title: 'Lượng hóa thành tích', description: 'AI biến những mô tả chung chung thành thành tích cụ thể với số liệu đo lường được, thu hút sự chú ý của nhà tuyển dụng.' },
+      { title: 'Mẫu CV theo ngành nghề', description: 'AI gợi ý bố cục và các mục phù hợp nhất dựa trên ngành nghề và cấp độ kinh nghiệm của bạn tại thị trường Việt Nam.' },
+      { title: 'Kiểm tra ngữ pháp và văn phong', description: 'AI rà soát lỗi chính tả, ngữ pháp và đảm bảo văn phong chuyên nghiệp, phù hợp với chuẩn mực ứng tuyển tại Việt Nam.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'Xem AI cải thiện CV xin việc của bạn',
+    subtitle: 'Ví dụ thực tế về cách công cụ AI viết CV nâng cấp nội dung.',
+    beforeLabel: 'Trước',
+    afterLabel: 'Sau khi dùng AI',
+    items: [
+      { before: 'Quản lý nhóm và các dự án', after: 'Điều phối nhóm liên phòng ban gồm 8 kỹ sư, hoàn thành 12 dự án đúng tiến độ với tỷ lệ hài lòng khách hàng đạt 98%' },
+      { before: 'Tăng doanh thu cho công ty', after: 'Tăng doanh thu hàng năm 34% (5,2 tỷ VNĐ) nhờ triển khai chiến lược tiếp cận khách hàng dựa trên dữ liệu' },
+      { before: 'Giỏi chăm sóc khách hàng', after: 'Đạt điểm hài lòng khách hàng 4.9/5, xử lý hơn 150 yêu cầu mỗi ngày với tỷ lệ giải quyết ngay lần đầu đạt 95%' },
+    ],
+    cta: 'Tạo CV chuyên nghiệp ngay',
+  },
+  comparison: {
+    title: 'CV bằng AI so với CV viết tay',
+    subtitle: 'Tại sao người tìm việc Việt Nam chọn tạo CV bằng AI.',
+    oursName: 'Với AI',
+    othersName: 'Viết thủ công',
+    rows: [
+      { feature: 'Thời gian hoàn thành', ours: '10-15 phút', others: '2-4 giờ' },
+      { feature: 'Câu từ chuyên nghiệp', ours: 'AI gợi ý tự động', others: 'Phải tự tìm hiểu' },
+      { feature: 'Tối ưu hóa ATS', ours: 'Tự động', others: 'Thủ công, dễ sai sót' },
+      { feature: 'Từ khóa ngành nghề', ours: 'AI gợi ý', others: 'Tự nghiên cứu' },
+      { feature: 'Chính tả & ngữ pháp', ours: 'Kiểm tra tự động', others: 'Dễ bỏ sót lỗi' },
+      { feature: 'Số liệu thành tích', ours: 'AI hỗ trợ lượng hóa', others: 'Thường bị bỏ qua' },
+      { feature: 'Định dạng & thiết kế', ours: '20+ mẫu CV', others: 'Phải tạo từ đầu' },
+    ],
+  },
+  useCases: {
+    title: 'Ai nên sử dụng công cụ tạo CV bằng AI?',
+    subtitle: 'Công cụ AI viết CV phù hợp với mọi đối tượng tìm việc tại Việt Nam.',
+    items: [
+      { title: 'Người chuyển ngành', description: 'AI giúp chuyển đổi kỹ năng từ ngành này sang ngành khác một cách thuyết phục' },
+      { title: 'Sinh viên mới ra trường', description: 'Biến thực tập, đồ án tốt nghiệp và hoạt động ngoại khóa thành kinh nghiệm chuyên nghiệp' },
+      { title: 'Chuyên gia giàu kinh nghiệm', description: 'Tóm gọn hơn 20 năm kinh nghiệm vào một CV xin việc ấn tượng chỉ trong 2 trang' },
+      { title: 'Người đang tìm việc', description: 'Tạo nhanh CV tùy chỉnh cho từng vị trí trên TopCV, VietnamWorks hay Jobsgo' },
+    ],
+  },
+  faq: {
+    title: 'Câu hỏi thường gặp',
+    items: [
+      { question: 'CV bằng AI là gì?', answer: 'CV bằng AI là hồ sơ xin việc được tạo với sự hỗ trợ của trí tuệ nhân tạo. Công cụ của chúng tôi viết mô tả kinh nghiệm chuyên nghiệp, tối ưu cho hệ thống ATS, gợi ý từ khóa ngành nghề phổ biến tại Việt Nam và tự động định dạng — giúp bạn có CV xin việc chất lượng trong vài phút thay vì hàng giờ.' },
+      { question: 'Tạo CV bằng AI có tốt hơn viết tay không?', answer: 'AI giúp bạn viết nội dung tốt hơn và nhanh hơn. Công cụ phân tích hàng nghìn CV thành công để gợi ý cách diễn đạt chuyên nghiệp, thành tích có số liệu cụ thể và từ khóa phù hợp với thị trường tuyển dụng Việt Nam. Bạn vẫn toàn quyền kiểm soát nội dung cuối cùng — AI chỉ giúp quá trình hiệu quả hơn.' },
+      { question: 'CV tạo bằng AI có vượt qua được bộ lọc ATS không?', answer: 'Có! Công cụ tạo CV bằng AI của chúng tôi được thiết kế đặc biệt để tương thích ATS — hệ thống lọc hồ sơ ngày càng phổ biến tại các công ty Việt Nam. CV được định dạng với văn bản sạch, gợi ý từ khóa khớp với tin tuyển dụng và cung cấp điểm ATS theo thời gian thực để bạn tối ưu trước khi nộp.' },
+      { question: 'Công cụ tạo CV bằng AI này có miễn phí không?', answer: 'Có, công cụ tạo CV bằng AI hoàn toàn miễn phí. Tạo CV không giới hạn, sử dụng tất cả mẫu CV, tải xuống PDF — tất cả đều miễn phí. Không cần thẻ tín dụng, không cần đăng ký gói trả phí.' },
+      { question: 'AI tạo nội dung CV như thế nào?', answer: 'AI phân tích chức danh, ngành nghề và cấp độ kinh nghiệm của bạn để tạo gợi ý phù hợp. Công cụ sử dụng dữ liệu từ hàng triệu CV thành công để viết tóm tắt hồ sơ, mô tả kinh nghiệm tập trung vào thành tích và mô tả kỹ năng gây ấn tượng với nhà tuyển dụng Việt Nam.' },
+      { question: 'CV có bị lộ là do AI viết không?', answer: 'Không. Công cụ của chúng tôi tạo nội dung tự nhiên, chuyên nghiệp — như thể được viết bởi chuyên gia tư vấn nghề nghiệp. Bạn có thể chỉnh sửa mọi gợi ý để thêm dấu ấn cá nhân, và kết quả cuối cùng hoàn toàn là của bạn.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Công cụ CV bằng AI khác',
+    items: [
+      { href: '/vi/resume-maker', title: 'Tạo CV', subtitle: 'Tạo CV miễn phí bằng AI' },
+      { href: '/vi/tools/ats-checker', title: 'Kiểm tra ATS', subtitle: 'Phân tích ATS bằng AI' },
+      { href: '/vi/free-resume-builder', title: 'CV miễn phí', subtitle: 'Công cụ tạo CV 100% miễn phí' },
+    ],
+    guidesTitle: 'Hướng dẫn CV bằng AI',
+    guides: [
+      { href: '/vi/career-tips/ai-resume-tools', label: 'Công cụ AI viết CV xin việc (2026)' },
+      { href: '/vi/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: AI nào viết CV tốt hơn?' },
+      { href: '/vi/blog/cach-viet-cv-xin-viec', label: 'Cách viết CV xin việc chuẩn ATS' },
+      { href: '/vi/resume-examples', label: '300+ mẫu CV xin việc' },
+    ],
+  },
+  bottomCta: {
+    title: 'Sẵn sàng tạo CV xin việc bằng AI?',
+    description: 'Tham gia cùng hàng triệu người đã nhận được nhiều lời mời phỏng vấn hơn nhờ <a href="/vi/" class="text-purple-600 hover:underline">công cụ tạo CV bằng AI</a>.',
+    cta: 'Bắt đầu miễn phí với AI',
+    subtext: 'Miễn phí mãi mãi. Không cần thẻ tín dụng.',
+  },
+};
+
+const ko: ResumeAIPageContent = {
+  meta: {
+    title: 'AI 이력서 | 무료 AI 이력서 빌더 및 생성기 2026',
+    description: 'AI로 몇 분 만에 이력서를 작성하세요. 무료 AI 이력서 도구가 전문 콘텐츠를 작성하고, ATS에 최적화하며, 면접 기회를 높여줍니다.',
+    keywords: 'AI 이력서, AI 이력서 빌더, AI 이력서 생성기, 인공지능 이력서, AI 이력서 작성, 무료 이력서 빌더, 이력서 자동 작성, AI 이력서 무료',
+  },
+  schemas: {
+    breadcrumbName: 'AI 이력서',
+    articleHeadline: 'AI 이력서: 무료 AI 이력서 빌더 및 생성기 2026',
+    articleDescription: 'AI로 이력서를 작성하세요. 무료 AI 이력서 도구가 전문 콘텐츠 작성, ATS 최적화, 합격하는 이력서 생성을 도와줍니다.',
+    softwareAppName: 'AI 이력서 빌더',
+  },
+  hero: {
+    badge: '인공지능 기반 이력서 빌더',
+    title: 'AI가 만드는',
+    titleHighlight: '합격하는 이력서',
+    subtitle: '<strong>AI 이력서 빌더</strong>가 전문적인 콘텐츠를 작성하고, ATS 시스템에 최적화하며, 돋보이는 이력서 작성을 도와줍니다 — 완전 무료. <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn 조사</a>에 따르면, 채용 담당자는 이력서 한 장에 평균 7초만 사용합니다. AI로 모든 순간을 최대한 활용하세요.',
+    ctaPrimary: '무료로 AI 이력서 시작',
+    ctaSecondary: '작동 원리 보기',
+    trustText: '가입 불필요 · 100% 무료 · AI 기반 콘텐츠',
+  },
+  whatIs: {
+    title: 'AI 이력서란?',
+    description: '<strong>AI 이력서</strong>는 인공지능 기술로 이력서 작성 방식을 혁신합니다. 빈 페이지를 바라보는 대신, AI가 여러분의 경력을 분석하고, 지원 직무를 파악하며, 업종에 맞는 전문 콘텐츠를 생성합니다. <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">미국인적자원관리협회(SHRM)</a>에 따르면, AI는 채용 과정을 빠르게 변화시키고 있으며, AI로 작성한 이력서는 고용주들에게 널리 인정받고 있습니다.',
+    stats: [
+      { value: '10배', label: '수동 작성보다 빠름' },
+      { value: '85%', label: 'ATS 통과율 향상' },
+      { value: '300만+', label: 'AI로 작성된 이력서' },
+    ],
+  },
+  features: {
+    title: 'AI 이력서가 도와주는 방법',
+    subtitle: 'AI는 서식 정리뿐만 아니라, 더 나은 콘텐츠 작성을 적극적으로 도와줍니다.',
+    items: [
+      { title: 'AI 콘텐츠 작성', description: 'AI가 여러분의 경력과 지원 직무를 기반으로 전문적인 성과 기술문, 자기소개서, 역량 설명을 작성합니다.' },
+      { title: '스마트 키워드 최적화', description: 'AI가 채용 공고를 분석하고, 기업이 찾는 업종별 핵심 키워드를 제안합니다.' },
+      { title: 'ATS 점수 분석', description: '실시간 AI 점수로 지원 전 ATS 시스템에서의 이력서 평가 결과를 정확히 확인할 수 있습니다.' },
+      { title: '성과 수치화', description: 'AI가 모호한 업무 설명을 채용 담당자의 눈길을 사로잡는 구체적인 수치 기반 성과로 변환합니다.' },
+      { title: '업종별 맞춤 템플릿', description: 'AI가 업종과 경력 수준에 맞는 최적의 레이아웃과 섹션 구성을 추천합니다.' },
+      { title: '문법 및 어조 검사', description: 'AI가 문법, 맞춤법, 전문적 어조를 검토하여 오류 없는 완성도 높은 결과물을 보장합니다.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'AI가 이력서를 어떻게 바꾸는지 확인하세요',
+    subtitle: 'AI 이력서 개선의 실제 사례.',
+    beforeLabel: '개선 전',
+    afterLabel: 'AI 개선 후',
+    items: [
+      { before: '팀 관리 및 프로젝트 업무 담당', after: '8명의 크로스펑셔널 엔지니어 팀을 이끌고, 12개 프로젝트를 기한 내 완료, 고객 만족도 98% 달성' },
+      { before: '매출 증가에 기여', after: '데이터 기반 영업 전략 도입으로 전년 대비 매출 34% 성장(24억 원) 달성' },
+      { before: '고객 서비스에 능숙', after: '고객 만족도 4.9/5점 달성, 하루 150건 이상 문의 처리, 첫 통화 해결률 95% 기록' },
+    ],
+    cta: '프리미엄 이력서 만들기',
+  },
+  comparison: {
+    title: 'AI 이력서 vs 직접 작성',
+    subtitle: '구직자들이 AI 이력서를 선택하는 이유.',
+    oursName: 'AI 활용',
+    othersName: '직접 작성',
+    rows: [
+      { feature: '작성 시간', ours: '10-15분', others: '2-4시간' },
+      { feature: '전문적 문장', ours: 'AI가 제안 생성', others: '별도 조사 필요' },
+      { feature: 'ATS 최적화', ours: '자동', others: '수동 추측' },
+      { feature: '업종 키워드', ours: 'AI가 제안', others: '직접 조사' },
+      { feature: '문법/맞춤법', ours: '자동 검사', others: '오류 간과 쉬움' },
+      { feature: '성과 수치화', ours: 'AI가 지원', others: '자주 누락' },
+      { feature: '서식/디자인', ours: '20개 이상 템플릿', others: '처음부터 직접' },
+    ],
+  },
+  useCases: {
+    title: 'AI 이력서는 누가 사용하나요?',
+    subtitle: 'AI 이력서 작성은 모든 구직자에게 유용합니다.',
+    items: [
+      { title: '경력 전환자', description: 'AI가 한 업종의 역량을 다른 업종에 맞게 전환하는 것을 도와줍니다' },
+      { title: '신입/취업 준비생', description: '인턴십과 프로젝트 경험을 전문적인 성과로 변환합니다' },
+      { title: '경력직 전문가', description: '20년 이상의 경력을 효과적인 2페이지 이력서로 압축합니다' },
+      { title: '이직 준비자', description: '각 지원 기업에 맞춘 맞춤형 이력서를 빠르게 생성합니다' },
+    ],
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'AI 이력서란 무엇인가요?', answer: 'AI 이력서란 인공지능의 도움을 받아 작성된 이력서입니다. 저희 도구는 전문적인 성과 기술문 작성, ATS 최적화, 업종 키워드 제안, 자동 서식 적용까지 — 몇 시간이 아닌 몇 분 만에 합격하는 이력서를 완성합니다.' },
+      { question: 'AI로 이력서를 작성하는 것이 직접 쓰는 것보다 나은가요?', answer: 'AI는 더 나은 콘텐츠를 더 빠르게 작성하도록 도와줍니다. 수천 건의 합격 이력서를 분석하여 전문적인 표현, 수치화된 성과, 놓치기 쉬운 업종별 키워드를 제안합니다. 최종 내용의 결정권은 여러분에게 있으며, AI는 과정을 더 쉽고 효과적으로 만들어줄 뿐입니다.' },
+      { question: 'AI로 작성한 이력서가 ATS를 통과할 수 있나요?', answer: '네! 저희 AI 이력서 빌더는 ATS 호환성을 위해 특별히 설계되었습니다. 깔끔하게 파싱 가능한 텍스트로 이력서를 구성하고, 채용 공고에 맞는 키워드를 제안하며, 제출 전 최적화를 위한 실시간 ATS 점수를 제공합니다.' },
+      { question: '이 AI 이력서 도구는 무료인가요?', answer: '네, AI 이력서 빌더는 100% 무료입니다. 무제한으로 이력서를 생성하고, 모든 템플릿을 이용하며, PDF를 다운로드하세요 — 모두 무료. 신용카드나 구독이 필요 없습니다.' },
+      { question: 'AI는 어떻게 이력서 콘텐츠를 생성하나요?', answer: 'AI는 직무, 업종, 경력 수준을 분석하여 맞춤형 제안을 생성합니다. 수백만 건의 합격 이력서 패턴을 활용하여, 전문 요약문, 성과 중심 기술문, 채용 담당자에게 어필하는 역량 설명을 작성합니다.' },
+      { question: '이력서가 AI로 작성된 것처럼 보이나요?', answer: '아닙니다. 저희 도구는 전문 이력서 작성가가 쓴 것처럼 자연스럽고 전문적인 콘텐츠를 생성합니다. 모든 제안을 편집하여 개인적인 색깔을 더할 수 있으며, 최종 결과물은 완전히 여러분의 것입니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '기타 AI 이력서 도구',
+    items: [
+      { href: '/resume-maker', title: '이력서 메이커', subtitle: '무료 AI 이력서 메이커' },
+      { href: '/tools/ats-checker', title: 'ATS 검사기', subtitle: 'AI 기반 ATS 분석' },
+      { href: '/free-resume-builder', title: '무료 이력서 빌더', subtitle: '100% 무료 AI 빌더' },
+    ],
+    guidesTitle: 'AI 이력서 가이드',
+    guides: [
+      { href: '/career-tips/ai-resume-tools', label: '이력서 작성을 위한 AI 도구(2026년)' },
+      { href: '/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: 이력서 작성 비교' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS 통과 이력서 작성법' },
+      { href: '/resume-examples', label: '300개 이상 이력서 예시' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI 이력서를 시작할 준비가 되셨나요?',
+    description: '<a href="/" class="text-purple-600 hover:underline">AI 이력서 작성</a>으로 더 많은 면접 기회를 얻고 있는 수백만 구직자와 함께하세요.',
+    cta: '무료로 AI 이력서 시작',
+    subtext: '영원히 무료. 신용카드 불필요.',
+  },
+};
+
+const th: ResumeAIPageContent = {
+  meta: {
+    title: 'เรซูเม่ AI | เครื่องมือสร้างเรซูเม่ AI ฟรี 2026',
+    description: 'สร้างเรซูเม่ด้วย AI ในไม่กี่วินาที เครื่องมือเรซูเม่ AI ฟรีที่เขียนเนื้อหามืออาชีพ ปรับให้ผ่าน ATS และช่วยให้คุณได้สัมภาษณ์',
+    keywords: 'เรซูเม่ AI, สร้างเรซูเม่ AI, เรซูเม่อัจฉริยะ, AI เขียนเรซูเม่, สร้างเรซูเม่ฟรี, เรซูเม่สมัครงาน, ประวัติย่อ AI, เรซูเม่อัตโนมัติ',
+  },
+  schemas: {
+    breadcrumbName: 'เรซูเม่ AI',
+    articleHeadline: 'เรซูเม่ AI: เครื่องมือสร้างเรซูเม่ AI ฟรี 2026',
+    articleDescription: 'สร้างเรซูเม่ด้วย AI เครื่องมือเรซูเม่ AI ฟรีเขียนเนื้อหามืออาชีพ ปรับ ATS และสร้างเรซูเม่สมัครงานภายในไม่กี่นาที',
+    softwareAppName: 'เครื่องมือสร้างเรซูเม่ AI',
+  },
+  hero: {
+    badge: 'ขับเคลื่อนด้วย AI ขั้นสูง',
+    title: 'สร้างเรซูเม่ของคุณ',
+    titleHighlight: 'ด้วย AI ในไม่กี่วินาที',
+    subtitle: '<strong>เรซูเม่ AI</strong> ของเราเขียนเนื้อหามืออาชีพ ปรับให้เหมาะกับระบบ ATS และช่วยสร้างเรซูเม่สมัครงานที่โดดเด่น — ฟรีทั้งหมด จากข้อมูลของ <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn</a> ฝ่ายทรัพยากรบุคคลใช้เวลาเฉลี่ยเพียง 7 วินาทีในการดูเรซูเม่แต่ละฉบับ ในตลาดงานไทยที่แข่งขันสูงบน <a href="https://www.jobthai.com/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">JobThai</a> และ JobsDB ให้ AI ช่วยคุณใช้ทุกวินาทีอย่างคุ้มค่า',
+    ctaPrimary: 'ลองเรซูเม่ AI ฟรี',
+    ctaSecondary: 'ดูวิธีการทำงาน',
+    trustText: 'ไม่ต้องสมัครสมาชิก · ฟรี 100% · เนื้อหาจาก AI',
+  },
+  whatIs: {
+    title: 'เรซูเม่ AI คืออะไร?',
+    description: '<strong>เรซูเม่ AI</strong> ใช้ปัญญาประดิษฐ์เปลี่ยนวิธีการสร้างเรซูเม่สมัครงานของคุณ แทนที่จะนั่งจ้องหน้าจอว่างเปล่า AI จะวิเคราะห์ประสบการณ์ เข้าใจตำแหน่งที่คุณสมัคร และสร้างเนื้อหามืออาชีพที่ตรงกับสายงาน ตามข้อมูลของ <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">SHRM</a> AI กำลังเปลี่ยนแปลงกระบวนการสรรหาบุคลากรอย่างรวดเร็ว และเรซูเม่ที่ AI ช่วยเขียนได้รับการยอมรับจากนายจ้างทั่วโลก รวมถึงบริษัทในไทย',
+    stats: [
+      { value: '10 เท่า', label: 'เร็วกว่าเขียนเอง' },
+      { value: '85%', label: 'ผ่าน ATS สูงขึ้น' },
+      { value: '3 ล้าน+', label: 'เรซูเม่ที่สร้างด้วย AI' },
+    ],
+  },
+  features: {
+    title: 'เรซูเม่ AI ช่วยคุณอย่างไร',
+    subtitle: 'AI ทำมากกว่าแค่จัดรูปแบบ — ช่วยเขียนเนื้อหาที่ดีขึ้นจริงๆ',
+    items: [
+      { title: 'AI เขียนเนื้อหา', description: 'AI เขียนประสบการณ์ทำงาน สรุปตัวเอง และคำอธิบายทักษะที่ตรงกับประสบการณ์และตำแหน่งที่สมัคร' },
+      { title: 'คีย์เวิร์ดอัจฉริยะ', description: 'AI วิเคราะห์ประกาศรับสมัครงานและแนะนำคีย์เวิร์ดตามสายงานที่ HR และระบบ ATS ค้นหา' },
+      { title: 'วิเคราะห์คะแนน ATS', description: 'คะแนน ATS แบบเรียลไทม์บอกคุณว่าเรซูเม่จะผ่านระบบคัดกรองหรือไม่ ก่อนที่คุณจะกดส่ง' },
+      { title: 'แปลงผลงานเป็นตัวเลข', description: 'AI ช่วยเปลี่ยนคำอธิบายทั่วไปให้เป็นผลงานที่วัดได้ด้วยตัวเลขที่สร้างความประทับใจ' },
+      { title: 'เทมเพลตตามสายงาน', description: 'AI แนะนำเทมเพลตและส่วนต่างๆ ที่เหมาะสมตามสายงานและระดับประสบการณ์ในตลาดงานไทย' },
+      { title: 'ตรวจไวยากรณ์และโทน', description: 'AI ตรวจสอบไวยากรณ์ การสะกดคำ และโทนเสียงที่เป็นมืออาชีพ — ให้ผลลัพธ์ที่สมบูรณ์แบบ' },
+    ],
+  },
+  beforeAfter: {
+    title: 'ดู AI เปลี่ยนเรซูเม่ของคุณ',
+    subtitle: 'ตัวอย่างจริงของการปรับปรุงเรซูเม่ด้วย AI',
+    beforeLabel: 'ก่อน',
+    afterLabel: 'หลัง AI ช่วย',
+    items: [
+      { before: 'รับผิดชอบดูแลทีมและโครงการ', after: 'นำทีมข้ามแผนก 8 คน ส่งมอบ 12 โครงการตรงเวลา ลูกค้าพึงพอใจ 98%' },
+      { before: 'ช่วยเพิ่มยอดขาย', after: 'สร้างรายได้เพิ่ม 34% YoY (72 ล้านบาท) จากการใช้กลยุทธ์การขายแบบ Data-driven' },
+      { before: 'ให้บริการลูกค้าดี', after: 'ได้คะแนนความพึงพอใจลูกค้า 4.9/5 ดูแลลูกค้า 150+ คนต่อวัน แก้ปัญหาสำเร็จรอบแรก 95%' },
+    ],
+    cta: 'สร้างเรซูเม่มืออาชีพ',
+  },
+  comparison: {
+    title: 'เรซูเม่ AI vs. เขียนเอง',
+    subtitle: 'ทำไมผู้หางานไทยเลือกสร้างเรซูเม่ด้วย AI',
+    oursName: 'ใช้ AI',
+    othersName: 'เขียนเอง',
+    rows: [
+      { feature: 'เวลาที่ใช้', ours: '10-15 นาที', others: '2-4 ชั่วโมง' },
+      { feature: 'สำนวนมืออาชีพ', ours: 'AI แนะนำอัตโนมัติ', others: 'ต้องค้นคว้าเอง' },
+      { feature: 'ปรับ ATS', ours: 'อัตโนมัติ', others: 'เดาเอง' },
+      { feature: 'คีย์เวิร์ดตามสายงาน', ours: 'AI แนะนำ', others: 'ต้องค้นหาเอง' },
+      { feature: 'ไวยากรณ์/สะกดคำ', ours: 'ตรวจอัตโนมัติ', others: 'พลาดได้ง่าย' },
+      { feature: 'ตัวเลขผลงาน', ours: 'AI ช่วยคำนวณ', others: 'มักลืมใส่' },
+      { feature: 'รูปแบบ/ดีไซน์', ours: 'เทมเพลต 20+ แบบ', others: 'เริ่มจากศูนย์' },
+    ],
+  },
+  useCases: {
+    title: 'ใครควรใช้เรซูเม่ AI?',
+    subtitle: 'เรซูเม่ AI เหมาะกับทุกคนที่กำลังหางาน',
+    items: [
+      { title: 'คนเปลี่ยนสายงาน', description: 'AI ช่วยแปลงทักษะจากสายงานเดิมให้ตรงกับงานใหม่' },
+      { title: 'จบใหม่', description: 'เปลี่ยนประสบการณ์ฝึกงานและโปรเจกต์เป็นผลงานมืออาชีพ' },
+      { title: 'ผู้บริหาร/ผู้มีประสบการณ์', description: 'สรุปประสบการณ์กว่า 20 ปีให้เป็นเรซูเม่ 2 หน้าที่น่าสนใจ' },
+      { title: 'คนหางาน', description: 'สร้างเรซูเม่ปรับแต่งสำหรับแต่ละตำแหน่งบน JobThai หรือ JobsDB ได้อย่างรวดเร็ว' },
+    ],
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'เรซูเม่ AI คืออะไร?', answer: 'เรซูเม่ AI คือเรซูเม่สมัครงานที่สร้างด้วยความช่วยเหลือของปัญญาประดิษฐ์ เครื่องมือของเราเขียนประสบการณ์ทำงาน ปรับให้ผ่าน ATS แนะนำคีย์เวิร์ดตามสายงาน และจัดรูปแบบอัตโนมัติ — สร้างเรซูเม่คุณภาพได้ในไม่กี่นาที ไม่ใช่หลายชั่วโมง' },
+      { question: 'ใช้ AI สร้างเรซูเม่ดีกว่าเขียนเองไหม?', answer: 'AI ช่วยให้คุณเขียนเนื้อหาที่ดีขึ้นและเร็วขึ้น วิเคราะห์เรซูเม่ที่ประสบความสำเร็จหลายพันฉบับเพื่อแนะนำสำนวนมืออาชีพ ผลงานเป็นตัวเลข และคีย์เวิร์ดที่ตรงกับตลาดงานไทย คุณยังคงเป็นคนตัดสินใจเนื้อหาสุดท้าย — AI เป็นเพียงผู้ช่วย' },
+      { question: 'เรซูเม่จาก AI ผ่าน ATS ได้ไหม?', answer: 'ได้! เครื่องมือเรซูเม่ AI ของเราออกแบบมาให้รองรับ ATS โดยเฉพาะ จัดรูปแบบให้ระบบอ่านได้ง่าย แนะนำคีย์เวิร์ดที่ตรงกับประกาศรับสมัคร และให้คะแนน ATS แบบเรียลไทม์เพื่อปรับปรุงก่อนส่ง' },
+      { question: 'เครื่องมือเรซูเม่ AI นี้ฟรีไหม?', answer: 'ใช่ เครื่องมือสร้างเรซูเม่ AI ฟรี 100% สร้างเรซูเม่ไม่จำกัด ใช้เทมเพลตทุกแบบ ดาวน์โหลด PDF ได้ — ทั้งหมดฟรี ไม่ต้องใช้บัตรเครดิตหรือสมัครสมาชิก' },
+      { question: 'AI สร้างเนื้อหาเรซูเม่อย่างไร?', answer: 'AI วิเคราะห์ตำแหน่ง สายงาน และระดับประสบการณ์ของคุณเพื่อสร้างคำแนะนำที่เหมาะสม ใช้ข้อมูลจากเรซูเม่ที่ประสบความสำเร็จหลายล้านฉบับเพื่อเขียนสรุปตัวเอง ประสบการณ์เน้นผลงาน และคำอธิบายทักษะที่สร้างความประทับใจ' },
+      { question: 'เรซูเม่จะดูเหมือน AI เขียนไหม?', answer: 'ไม่ เครื่องมือของเราสร้างเนื้อหาที่เป็นธรรมชาติและมืออาชีพ — เหมือนผู้เชี่ยวชาญด้านอาชีพเขียนให้ คุณสามารถแก้ไขทุกข้อเสนอแนะเพื่อเพิ่มเอกลักษณ์ส่วนตัว ผลลัพธ์สุดท้ายเป็นของคุณทั้งหมด' },
+    ],
+  },
+  crossLinks: {
+    title: 'เครื่องมือเรซูเม่ AI อื่นๆ',
+    items: [
+      { href: '/th/resume-maker', title: 'สร้างเรซูเม่', subtitle: 'สร้างเรซูเม่ฟรีด้วย AI' },
+      { href: '/th/tools/ats-checker', title: 'ตรวจ ATS', subtitle: 'วิเคราะห์ ATS ด้วย AI' },
+      { href: '/th/free-resume-builder', title: 'เรซูเม่ฟรี', subtitle: 'เครื่องมือสร้างเรซูเม่ฟรี 100%' },
+    ],
+    guidesTitle: 'คู่มือเรซูเม่ AI',
+    guides: [
+      { href: '/th/career-tips/ai-resume-tools', label: 'เครื่องมือ AI สำหรับเขียนเรซูเม่ (2026)' },
+      { href: '/th/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: AI ไหนเขียนเรซูเม่ดีกว่า?' },
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/resume-examples', label: 'ตัวอย่างเรซูเม่ 300+ แบบ' },
+    ],
+  },
+  bottomCta: {
+    title: 'พร้อมสร้างเรซูเม่ด้วย AI แล้วหรือยัง?',
+    description: 'ร่วมกับผู้หางานหลายล้านคนที่ได้รับโอกาสสัมภาษณ์มากขึ้นด้วย <a href="/th/" class="text-purple-600 hover:underline">เครื่องมือเรซูเม่ AI</a>',
+    cta: 'ลองเรซูเม่ AI ฟรี',
+    subtext: 'ฟรีตลอดไป ไม่ต้องใช้บัตรเครดิต',
+  },
+};
+
+const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
 
 export function getContent(locale: string): ResumeAIPageContent {
   return selectContent(contentMap, locale);

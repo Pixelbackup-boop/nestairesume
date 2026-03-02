@@ -2071,9 +2071,572 @@ const it: BiodataFormatPageContent = {
 };
 
 // ---------------------------------------------------------------------------
+// Korean
+// ---------------------------------------------------------------------------
+const ko: BiodataFormatPageContent = {
+  meta: {
+    title: '바이오데이터 형식 가이드 2026: 무료 템플릿, 예시, 작성법 | Best AI Resume',
+    description:
+      '바이오데이터(Biodata) 형식을 상세히 안내합니다. 이력서와의 차이점, 무료 템플릿(PDF/Word) 다운로드, 인도·파키스탄·중동 지역 작성 예시를 소개합니다.',
+    keywords:
+      '바이오데이터, biodata 작성법, 바이오데이터 템플릿, 바이오데이터 이력서 차이, 이력서 작성 도구, 이력서 샘플, AI 이력서, 이력서 쓰는 법',
+  },
+  schemas: {
+    breadcrumbName: '바이오데이터 형식 가이드',
+    articleHeadline: '바이오데이터 형식 가이드 2026: 템플릿, 예시, 작성법',
+    articleDescription:
+      '취업 및 결혼용 바이오데이터(Biodata) 완전 가이드. 이력서와의 차이점, 무료 템플릿 다운로드, 지역별 작성 예시를 안내합니다.',
+  },
+  hero: {
+    badge: '2026년 완전 가이드',
+    title: '바이오데이터 형식 가이드',
+    titleHighlight: '(무료 템플릿 포함)',
+    subtitle:
+      '<strong>바이오데이터(Biodata)</strong>는 인도, 파키스탄, 방글라데시, 중동에서 입사 지원에 사용되는 표준 문서 형식입니다. 한국의 <strong>이력서</strong>와 다른 고유한 형식을 이해하고, 각 지역의 기대에 맞는 템플릿을 다운로드하세요.',
+    ctaTemplates: '템플릿 다운로드',
+    ctaBuild: 'AI로 바이오데이터 작성',
+  },
+  whatIs: {
+    title: '바이오데이터(Biodata)란?',
+    paragraphs: [
+      '<strong>바이오데이터</strong>(<em>biographical data</em> = 경력 데이터의 약자)는 개인의 경력 및 직무 정보를 정리한 문서입니다. 직무 경력과 스킬을 중심으로 하는 한국의 <strong>이력서</strong>와 달리, 바이오데이터에는 생년월일, 혼인 여부, 국적, 종교, 경우에 따라 가족 정보 등 <strong>개인 정보</strong>가 포함됩니다.',
+      '바이오데이터 형식은 <strong>남아시아</strong>(인도, 파키스탄, 방글라데시, 스리랑카), <strong>중동</strong>(UAE, 사우디아라비아, 카타르), <strong>동남아시아</strong> 일부(필리핀, 말레이시아)에서 널리 사용됩니다. 이 지역의 공무원 채용, 공공기관, 전통적 기업에서는 서구식 이력서 대신 바이오데이터 형식을 요구하는 경우가 많습니다.',
+    ],
+    insightTitle: '핵심 포인트:',
+    insightText:
+      '인도, 파키스탄, 걸프 국가의 일자리에 지원할 경우 바이오데이터 형식을 이해하는 것이 필수입니다. 기대되는 포맷을 따르지 않은 지원서는 많은 기업에서 탈락 사유가 됩니다.',
+  },
+  vsComparison: {
+    title: '바이오데이터 vs 이력서 vs CV: 차이점은?',
+    subtitle: '어떤 문서를 언제 사용하는지 정확히 이해하는 것이 취업 활동 성공의 핵심입니다.',
+    headers: { aspect: '항목', biodata: '바이오데이터', resume: '이력서(레쥬메)', cv: 'CV' },
+    rows: [
+      { aspect: '길이', biodata: '1~2페이지', resume: '1~2페이지', cv: '2페이지 이상' },
+      {
+        aspect: '개인 정보',
+        biodata: '상세(생년월일, 혼인 여부, 종교, 가족 구성)',
+        resume: '최소(이름과 연락처만)',
+        cv: '최소(이름과 연락처만)',
+        biodataHighlight: 'green',
+      },
+      { aspect: '중점', biodata: '개인 배경 + 경력', resume: '스킬 + 성과', cv: '학술 + 연구 업적' },
+      {
+        aspect: '주요 사용 지역',
+        biodata: '인도, 파키스탄, 중동, 필리핀',
+        resume: '미국, 캐나다, 호주, 한국',
+        cv: '유럽, 영국, 학계',
+      },
+      {
+        aspect: '적합한 상황',
+        biodata: '공무원, 전통 기업, 결혼 용도',
+        resume: '일반 기업, 스타트업, IT 업계',
+        cv: '학술직, 연구직, 의료직',
+      },
+      {
+        aspect: '맞춤화',
+        biodata: '여러 지원에 동일 내용 사용',
+        resume: '지원처마다 맞춤 작성',
+        cv: '업적 축적에 따라 업데이트',
+      },
+    ],
+  },
+  structure: {
+    title: '바이오데이터 표준 구성',
+    description: '"공식적인" 바이오데이터 형식은 없지만, 대부분의 채용 담당자가 기대하는 섹션 구성은 다음과 같습니다:',
+    sections: [
+      { number: 1, label: '개인 정보', detail: '성명, 사진, 생년월일, 성별, 혼인 여부, 국적', colorGroup: 'orange' },
+      { number: 2, label: '연락처', detail: '주소(본적/현주소), 전화번호, 이메일', colorGroup: 'default' },
+      { number: 3, label: '지원 동기/목표', detail: '커리어 목표를 2~3문장으로 기재', colorGroup: 'default' },
+      { number: 4, label: '학력', detail: '학위, 교육기관, 졸업 연도, 성적/GPA', colorGroup: 'blue' },
+      { number: 5, label: '경력', detail: '회사명, 직위, 기간, 담당 업무', colorGroup: 'blue' },
+      { number: 6, label: '기술/역량', detail: '전문 기술, 어학 능력, 소프트웨어 스킬', colorGroup: 'default' },
+      { number: 7, label: '기타 정보', detail: '취미, 특기, 수상 경력, 추천인', colorGroup: 'default' },
+      { number: 8, label: '선서문', detail: '"위 정보가 정확함을 선언합니다…"', colorGroup: 'dark' },
+    ],
+    proTipTitle: '전문가 조언:',
+    proTipText:
+      '바이오데이터 우측 상단에 여권 사이즈 증명사진을 반드시 부착하세요. 남아시아와 중동에서는 필수 사항입니다. 한국 이력서에서도 증명사진은 표준이지만, 서양식 레쥬메에서는 권장되지 않습니다.',
+  },
+  personalInfo: {
+    title: '바이오데이터에 기재하는 개인 정보',
+    description: '개인 정보 섹션이 바이오데이터를 일반 이력서와 구별 짓는 가장 큰 요소입니다. 일반적으로 기대되는 정보는 다음과 같습니다:',
+    alwaysInclude: {
+      title: '필수 기재 항목',
+      items: [
+        '성명(공식 문서 기준)',
+        '생년월일',
+        '성별',
+        '국적',
+        '혼인 여부',
+        '사용 가능 언어',
+        '본적 주소',
+        '현 주소',
+        '전화번호',
+        '이메일 주소',
+      ],
+    },
+    optional: {
+      title: '선택 사항(상황에 따라)',
+      items: [
+        '부친 성명 및 직업',
+        '모친 성명',
+        '종교(고용주가 요구하는 경우)',
+        '카스트/커뮤니티(인도 공무원 채용)',
+        '혈액형',
+        '신장/체중',
+        '여권 번호(해외 취업의 경우)',
+        '비자 상태',
+      ],
+    },
+    noteTitle: '중요 참고:',
+    noteText:
+      '바이오데이터에는 전통적으로 종교나 카스트 등의 정보가 포함되지만, 인도의 현대적 민간 기업 다수는 이러한 정보를 더 이상 요구하지 않습니다. 구인 공고에서 구체적으로 요구하는 정보만 기재하세요.',
+  },
+  types: {
+    title: '바이오데이터의 종류',
+    jobBiodata: {
+      title: '1. 취업용 바이오데이터(프로페셔널 바이오데이터)',
+      description:
+        '입사 지원에 사용됩니다. 특히 남아시아의 공무원 채용, 공기업(PSU), 전통적 기업에서 일반적입니다.',
+      focusTitle: '주요 기재 내용:',
+      focusItems: [
+        '성적을 포함한 학력 정보',
+        '직무 내용을 포함한 경력 사항',
+        '전문 기술 및 대인 기술',
+        '자격증 및 연수 이력',
+      ],
+      commonTitle: '주요 사용 상황:',
+      commonItems: [
+        'UPSC/SSC/은행 시험(인도)',
+        'PPSC/FPSC 채용 시험(파키스탄)',
+        '걸프 국가 취업 활동',
+        '교직 지원',
+      ],
+    },
+    marriageBiodata: {
+      title: '2. 맞선용 바이오데이터(매리지 바이오데이터)',
+      description:
+        '인도, 파키스탄, 방글라데시 및 해외 거주 커뮤니티의 중매(어레인지드 매리지) 전통에서 사용됩니다. 상세한 개인 정보와 가족 정보를 포함하는 문서입니다.',
+      sectionsTitle: '추가 섹션:',
+      sectionsItems: [
+        '가족 배경(부모, 형제자매)',
+        '점성술/쿤달리 세부 사항',
+        '신체적 특징',
+        '배우자 희망 조건',
+      ],
+      designTitle: '디자인 요소:',
+      designItems: [
+        '장식적 테두리',
+        '전문 사진',
+        '종교적 상징(선택)',
+        '보통 2~3페이지',
+      ],
+    },
+  },
+  regions: {
+    title: '지역별 바이오데이터 형식',
+    description: '국가마다 기대되는 내용이 다릅니다. 각 지역의 채용 담당자가 요구하는 포인트를 소개합니다:',
+    items: [
+      {
+        country: '인도',
+        flag: '\ud83c\uddee\ud83c\uddf3',
+        text: '바이오데이터는 공무원 채용(UPSC, SSC, 주 PSC), 은행, 공기업에서 표준입니다. 외국계 민간 기업은 레쥬메를 선호합니다. 부친 성명, 카스트 카테고리(예약제도용), 선서문이 필수이며 증명사진도 필수입니다.',
+      },
+      {
+        country: '파키스탄',
+        flag: '\ud83c\uddf5\ud83c\uddf0',
+        text: '인도와 유사합니다. CNIC(국민신분증) 번호 기재가 요구되는 경우가 많습니다. 부친 성명과 주소는 기본 정보입니다. 공무원 및 준공공 직위에서는 상세한 바이오데이터가 필요합니다.',
+      },
+      {
+        country: 'UAE 및 걸프 국가',
+        flag: '\ud83c\udde6\ud83c\uddea',
+        text: '사진, 국적, 비자 상태, 입사 가능일을 포함한 바이오데이터가 기대됩니다. 종교 기재를 요구받을 수도 있습니다. 해외 지원 시 여권 정보를 기재하세요. 바이오데이터와 레쥬메 모두 허용됩니다.',
+      },
+      {
+        country: '필리핀',
+        flag: '\ud83c\uddf5\ud83c\udded',
+        text: 'Personal Data Sheet(PDS)가 공무원의 공식 포맷입니다. 민간 기업은 바이오데이터 또는 레쥬메를 허용합니다. 신장, 체중, 혼인 여부 기재가 일반적입니다.',
+      },
+    ],
+  },
+  templates: {
+    title: '무료 바이오데이터 템플릿',
+    subtitle:
+      '전문적으로 디자인된 Word/PDF 형식의 바이오데이터 템플릿을 다운로드하세요. 본인의 정보로 쉽게 맞춤 설정할 수 있습니다.',
+    cards: [
+      {
+        title: '취업용 바이오데이터 템플릿',
+        description: '표준 섹션을 모두 포함한 입사 지원용 전문 템플릿입니다.',
+        ctaLabel: 'AI 도구로 작성하기',
+        color: 'blue',
+      },
+      {
+        title: '심플 바이오데이터 템플릿',
+        description: '신입 및 경력이 적은 분을 위한 심플하고 깔끔한 디자인 템플릿입니다.',
+        ctaLabel: '작성 시작하기',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: '효과적인 바이오데이터를 작성하기 위한 팁',
+    items: [
+      { title: '전문적인 증명사진 사용', description: '여권 사이즈, 정장 차림, 무지 배경. 셀피나 캐주얼 사진은 불가.' },
+      { title: '간결하게 작성', description: '최대 1~2페이지. 채용 담당자는 긴 문서를 읽지 않습니다.' },
+      { title: '일관된 포맷 유지', description: '전체적으로 동일한 글꼴, 명확한 섹션 제목, 적절한 정렬을 유지하세요.' },
+      { title: '선서문 추가', description: '"위 정보가 제가 아는 한 정확함을 선서합니다."' },
+      { title: '학력은 최신순으로 기재', description: '가장 최근 학위를 먼저 기재. 성적/GPA가 우수한 경우 반드시 포함.' },
+      { title: '오탈자를 꼼꼼히 확인', description: '맞춤법 오류나 오탈자는 즉시 부정적인 인상을 줍니다.' },
+      { title: '관련 정보만 기재', description: '요구되지 않거나 직무와 관련 없는 정보는 기재하지 마세요.' },
+      { title: '서명 및 날짜 기입', description: '하단에 자필 서명, 현재 날짜와 장소를 기재하세요.' },
+    ],
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      {
+        question: '바이오데이터와 이력서의 차이점은 무엇인가요?',
+        answer:
+          '이력서(레쥬메)는 경력, 스킬, 성과를 중심으로 특정 구인에 맞춰 맞춤 작성하는 문서입니다. 바이오데이터에는 추가로 생년월일, 혼인 여부, 종교, 가족 정보 등의 개인 정보가 포함됩니다. 한국이나 서구에서는 이력서가 표준이지만, 남아시아, 중동, 동남아시아 일부에서는 바이오데이터가 선호됩니다.',
+      },
+      {
+        question: '바이오데이터는 취업 활동에 사용되나요?',
+        answer:
+          '네, 바이오데이터는 인도, 파키스탄, 방글라데시, 필리핀, 중동 국가의 취업 활동에서 일반적으로 사용됩니다. 공무원, 공공기관, 전통적 기업에서는 레쥬메가 아닌 바이오데이터 형식을 명시적으로 요구하는 경우가 많습니다.',
+      },
+      {
+        question: '바이오데이터에는 어떤 개인 정보를 기재하나요?',
+        answer:
+          '취업용 바이오데이터에는 보통 성명, 생년월일, 성별, 국적, 혼인 여부, 사용 언어, 본적/현주소를 기재합니다. 맞선용 바이오데이터에서는 신장, 체중, 종교, 카스트, 가족 정보, 점성술 정보를 추가할 수 있습니다.',
+      },
+      {
+        question: '바이오데이터의 적절한 길이는?',
+        answer:
+          '이상적으로는 1~2페이지입니다. 취업용 바이오데이터는 보통 1페이지, 맞선용 바이오데이터는 가족 정보와 개인적 희망 조건을 포함하여 2페이지가 될 수 있습니다. 간결하게 작성하되 필요한 정보는 모두 포함하세요.',
+      },
+      {
+        question: '이력서 작성 도구로 바이오데이터를 만들 수 있나요?',
+        answer:
+          '네, 저희 AI 이력서 작성 도구로 바이오데이터를 만들 수 있습니다. 표준 템플릿을 기반으로 바이오데이터에 필요한 개인 정보 섹션을 추가하세요. 섹션 맞춤 기능으로 거주 지역에서 기대되는 바이오데이터 형식에 맞출 수 있습니다.',
+      },
+      {
+        question: '맞선용 바이오데이터(매리지 바이오데이터)란?',
+        answer:
+          '매리지 바이오데이터는 인도나 파키스탄 등 중매(어레인지드 매리지) 전통이 있는 나라에서 사용되는 문서입니다. 상세한 개인 정보, 가족 배경, 학력, 경력, 점성술 정보, 배우자 희망 조건을 기재하여 가족 간 궁합 판단에 활용됩니다.',
+      },
+    ],
+  },
+  crossLinks: {
+    title: '관련 리소스',
+    items: [
+      { href: '/resume-format', title: '이력서 포맷 가이드', subtitle: '시간순/기능별/혼합 형식' },
+      { href: '/templates', title: '이력서 템플릿', subtitle: '20종 이상의 전문 템플릿' },
+      { href: '/resume-examples', title: '이력서 샘플', subtitle: '300개 이상 직종별 샘플' },
+    ],
+  },
+  externalResources: {
+    title: '외부 리소스',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: 직업 전망' },
+      { href: 'https://www.glassdoor.com/blog/guide/resume-tips/', label: 'Glassdoor: 이력서 및 커리어 가이드' },
+    ],
+  },
+  bottomCta: {
+    title: '몇 분 만에 바이오데이터 작성',
+    description:
+      'AI 기반 빌더로 올바른 섹션 구성의 전문적인 바이오데이터를 쉽게 작성하세요. 다양한 템플릿 중 선택하여 PDF 또는 Word로 내보내기 가능합니다.',
+    ctaLabel: '무료로 바이오데이터 작성',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Vietnamese
+// ---------------------------------------------------------------------------
+const vi: BiodataFormatPageContent = {
+  meta: {
+    title: 'Mẫu Sơ Yếu Lý Lịch 2026: Biodata Miễn Phí, Ví Dụ & Hướng Dẫn Viết | Best AI Resume',
+    description:
+      'Tìm hiểu mẫu sơ yếu lý lịch (biodata) xin việc chuẩn. So sánh sơ yếu lý lịch với CV, tải mẫu miễn phí (PDF & Word) và xem ví dụ cho Ấn Độ, Pakistan, Việt Nam và các nước khác.',
+    keywords:
+      'mẫu sơ yếu lý lịch, sơ yếu lý lịch xin việc, biodata, lý lịch cá nhân, sơ yếu lý lịch mẫu, biodata xin việc, mẫu lý lịch, sơ yếu lý lịch tự thuật',
+  },
+  schemas: {
+    breadcrumbName: 'Hướng Dẫn Mẫu Sơ Yếu Lý Lịch',
+    articleHeadline: 'Hướng Dẫn Mẫu Sơ Yếu Lý Lịch 2026: Biodata, Ví Dụ & Cách Viết',
+    articleDescription:
+      'Hướng dẫn toàn diện về mẫu sơ yếu lý lịch (biodata) cho xin việc và hôn nhân. Tìm hiểu sự khác biệt giữa sơ yếu lý lịch và CV, tải mẫu miễn phí và xem các ví dụ thực tế.',
+  },
+  hero: {
+    badge: 'Hướng Dẫn Đầy Đủ 2026',
+    title: 'Hướng Dẫn Mẫu Sơ Yếu Lý Lịch',
+    titleHighlight: '(Biodata Miễn Phí)',
+    subtitle:
+      '<strong>Sơ yếu lý lịch</strong> (biodata) là tài liệu tiêu chuẩn để xin việc tại Ấn Độ, Pakistan, Bangladesh và Trung Đông. Tại Việt Nam, <strong>sơ yếu lý lịch</strong> (SYLL) là biểu mẫu bắt buộc cho các cơ quan nhà nước và khu vực công. Tìm hiểu khi nào dùng biodata thay vì CV và tải mẫu miễn phí phù hợp với yêu cầu từng khu vực.',
+    ctaTemplates: 'Tải Mẫu Miễn Phí',
+    ctaBuild: 'Tạo Sơ Yếu Lý Lịch Bằng AI',
+  },
+  whatIs: {
+    title: 'Sơ Yếu Lý Lịch (Biodata) Là Gì?',
+    paragraphs: [
+      '<strong>Sơ yếu lý lịch</strong> (biodata — viết tắt của <em>biographical data</em>, tức dữ liệu tiểu sử) là tài liệu tổng hợp thông tin cá nhân và nghề nghiệp của một người. Khác với <strong>CV</strong> (curriculum vitae) tập trung vào kinh nghiệm làm việc và kỹ năng, sơ yếu lý lịch bao gồm <strong>thông tin cá nhân</strong> như ngày sinh, tình trạng hôn nhân, quốc tịch, tôn giáo và đôi khi cả thông tin gia đình.',
+      'Tại <strong>Việt Nam</strong>, "sơ yếu lý lịch" (SYLL) là một biểu mẫu hành chính chính thức, bắt buộc khi xin việc vào cơ quan nhà nước, đơn vị sự nghiệp công lập và lực lượng vũ trang. SYLL yêu cầu kê khai chi tiết về bản thân, gia đình (cha mẹ, anh chị em, vợ/chồng), quá trình học tập, quá trình công tác, và quan hệ xã hội. Ngoài ra, mẫu sơ yếu lý lịch cũng phổ biến ở <strong>Nam Á</strong> (Ấn Độ, Pakistan, Bangladesh, Sri Lanka), <strong>Trung Đông</strong> (UAE, Ả Rập Xê Út, Qatar) và một phần <strong>Đông Nam Á</strong> (Philippines, Malaysia).',
+    ],
+    insightTitle: 'Lưu ý quan trọng:',
+    insightText:
+      'Nếu bạn nộp đơn xin việc vào cơ quan nhà nước Việt Nam, bạn bắt buộc phải có sơ yếu lý lịch theo mẫu quy định, có xác nhận của chính quyền địa phương. Đối với doanh nghiệp tư nhân và công ty nước ngoài tại Việt Nam, CV hiện đại thường được ưu tiên hơn. Nếu ứng tuyển tại Ấn Độ, Pakistan hay các nước Vùng Vịnh, hiểu rõ mẫu biodata là điều thiết yếu — hồ sơ không đúng định dạng thường bị loại ngay.',
+  },
+  vsComparison: {
+    title: 'Sơ Yếu Lý Lịch vs CV vs Resume: Khác Nhau Ở Đâu?',
+    subtitle: 'Hiểu rõ khi nào dùng tài liệu nào là chìa khóa để ứng tuyển thành công.',
+    headers: { aspect: 'Tiêu chí', biodata: 'Sơ Yếu Lý Lịch (Biodata)', resume: 'Resume (CV ngắn)', cv: 'CV Học thuật' },
+    rows: [
+      { aspect: 'Độ dài', biodata: '1–2 trang', resume: '1–2 trang', cv: '2+ trang' },
+      {
+        aspect: 'Thông tin cá nhân',
+        biodata: 'Chi tiết (ngày sinh, hôn nhân, tôn giáo, gia đình)',
+        resume: 'Tối thiểu (tên và liên lạc)',
+        cv: 'Tối thiểu (tên và liên lạc)',
+        biodataHighlight: 'green',
+      },
+      { aspect: 'Trọng tâm', biodata: 'Lý lịch cá nhân + kinh nghiệm', resume: 'Kỹ năng + thành tích', cv: 'Sự nghiệp học thuật + nghiên cứu' },
+      {
+        aspect: 'Nơi sử dụng',
+        biodata: 'Ấn Độ, Pakistan, Trung Đông, Việt Nam (khu vực công)',
+        resume: 'Mỹ, Canada, Úc, doanh nghiệp tư nhân Việt Nam',
+        cv: 'Giới học thuật, Anh Quốc',
+      },
+      {
+        aspect: 'Bối cảnh phù hợp',
+        biodata: 'Cơ quan nhà nước, doanh nghiệp truyền thống, hôn nhân',
+        resume: 'Doanh nghiệp tư nhân, startup, ngành CNTT',
+        cv: 'Vị trí học thuật, nghiên cứu, y tế',
+      },
+      {
+        aspect: 'Tùy chỉnh',
+        biodata: 'Nội dung giống nhau cho nhiều đơn ứng tuyển',
+        resume: 'Tùy chỉnh cho từng vị trí',
+        cv: 'Cập nhật khi có thêm công trình và thành tích',
+      },
+    ],
+  },
+  structure: {
+    title: 'Cấu Trúc Tiêu Chuẩn Của Sơ Yếu Lý Lịch',
+    description: 'Không có mẫu "chính thức" duy nhất, nhưng hầu hết nhà tuyển dụng mong đợi các phần sau:',
+    sections: [
+      { number: 1, label: 'Thông tin cá nhân', detail: 'Họ tên đầy đủ, ảnh, ngày sinh, giới tính, tình trạng hôn nhân, quốc tịch', colorGroup: 'orange' },
+      { number: 2, label: 'Thông tin liên lạc', detail: 'Địa chỉ (thường trú và tạm trú), số điện thoại, email', colorGroup: 'default' },
+      { number: 3, label: 'Mục tiêu nghề nghiệp', detail: 'Mô tả mục tiêu sự nghiệp trong 2–3 câu', colorGroup: 'default' },
+      { number: 4, label: 'Trình độ học vấn', detail: 'Bằng cấp, trường, năm tốt nghiệp, điểm GPA/xếp loại', colorGroup: 'blue' },
+      { number: 5, label: 'Kinh nghiệm làm việc', detail: 'Tên công ty, chức vụ, thời gian, nhiệm vụ chính', colorGroup: 'blue' },
+      { number: 6, label: 'Kỹ năng', detail: 'Kỹ năng chuyên môn, ngoại ngữ, phần mềm', colorGroup: 'default' },
+      { number: 7, label: 'Thông tin bổ sung', detail: 'Sở thích, giải thưởng, người tham chiếu', colorGroup: 'default' },
+      { number: 8, label: 'Lời cam đoan', detail: '"Tôi xin cam đoan những thông tin trên là đúng sự thật…"', colorGroup: 'dark' },
+    ],
+    proTipTitle: 'Mẹo chuyên gia:',
+    proTipText:
+      'Luôn dán ảnh thẻ chuyên nghiệp ở góc trên bên phải của sơ yếu lý lịch. Đây là yêu cầu bắt buộc ở Nam Á và Trung Đông. Tại Việt Nam, ảnh thẻ 3x4 hoặc 4x6 cũng là yêu cầu tiêu chuẩn trong sơ yếu lý lịch xin việc vào cơ quan nhà nước, trong khi resume kiểu phương Tây thường không yêu cầu ảnh.',
+  },
+  personalInfo: {
+    title: 'Thông Tin Cá Nhân Cần Ghi Trong Sơ Yếu Lý Lịch',
+    description: 'Phần thông tin cá nhân là yếu tố phân biệt lớn nhất giữa sơ yếu lý lịch (biodata) và CV hiện đại. Dưới đây là những thông tin thường được yêu cầu:',
+    alwaysInclude: {
+      title: 'Bắt buộc ghi',
+      items: [
+        'Họ và tên đầy đủ (theo giấy tờ tùy thân)',
+        'Ngày sinh',
+        'Giới tính',
+        'Quốc tịch',
+        'Tình trạng hôn nhân',
+        'Ngoại ngữ sử dụng được',
+        'Địa chỉ thường trú',
+        'Địa chỉ tạm trú',
+        'Số điện thoại',
+        'Địa chỉ email',
+      ],
+    },
+    optional: {
+      title: 'Tùy chọn (tùy theo ngữ cảnh)',
+      items: [
+        'Họ tên và nghề nghiệp của cha',
+        'Họ tên của mẹ',
+        'Tôn giáo (nếu nhà tuyển dụng yêu cầu)',
+        'Dân tộc (bắt buộc trong SYLL Việt Nam)',
+        'Nhóm máu',
+        'Chiều cao và cân nặng',
+        'Số hộ chiếu (khi xin việc ở nước ngoài)',
+        'Tình trạng visa',
+      ],
+    },
+    noteTitle: 'Lưu ý quan trọng:',
+    noteText:
+      'Tại Việt Nam, sơ yếu lý lịch theo mẫu nhà nước yêu cầu kê khai thêm thành phần gia đình (cha mẹ, anh chị em, vợ/chồng), quá trình hoạt động và quan hệ xã hội — những mục không có trong CV thông thường. Đối với doanh nghiệp tư nhân hiện đại tại Việt Nam, CV tiếng Việt hoặc tiếng Anh tập trung vào kinh nghiệm và kỹ năng thường được ưu tiên hơn. Chỉ kê khai những thông tin mà nhà tuyển dụng yêu cầu cụ thể trong thông báo tuyển dụng.',
+  },
+  types: {
+    title: 'Các Loại Sơ Yếu Lý Lịch (Biodata)',
+    jobBiodata: {
+      title: '1. Sơ Yếu Lý Lịch Xin Việc (Biodata Nghề Nghiệp)',
+      description:
+        'Dùng khi nộp đơn xin việc, đặc biệt phổ biến trong khu vực công tại Nam Á, doanh nghiệp nhà nước và các công ty truyền thống. Tại Việt Nam, mẫu SYLL là tài liệu bắt buộc khi xin việc vào cơ quan nhà nước, đơn vị sự nghiệp và lực lượng vũ trang.',
+      focusTitle: 'Nội dung trọng tâm:',
+      focusItems: [
+        'Quá trình học tập với kết quả học tập',
+        'Kinh nghiệm làm việc với mô tả nhiệm vụ',
+        'Kỹ năng chuyên môn và kỹ năng mềm',
+        'Chứng chỉ và đào tạo nghề nghiệp',
+      ],
+      commonTitle: 'Bối cảnh sử dụng phổ biến:',
+      commonItems: [
+        'Thi tuyển công chức, viên chức tại Việt Nam',
+        'Kỳ thi UPSC, SSC và ngân hàng (Ấn Độ)',
+        'Tuyển dụng PPSC và FPSC (Pakistan)',
+        'Tìm việc tại các nước Vùng Vịnh',
+      ],
+    },
+    marriageBiodata: {
+      title: '2. Sơ Yếu Lý Lịch Hôn Nhân (Biodata Kết Hôn)',
+      description:
+        'Được sử dụng trong truyền thống hôn nhân sắp đặt tại Ấn Độ, Pakistan, Bangladesh và các cộng đồng kiều bào. Chứa thông tin cá nhân và gia đình chi tiết để hai bên gia đình đánh giá sự phù hợp.',
+      sectionsTitle: 'Các phần bổ sung:',
+      sectionsItems: [
+        'Hoàn cảnh gia đình (cha mẹ, anh chị em)',
+        'Chi tiết tử vi / Kundali',
+        'Đặc điểm ngoại hình',
+        'Tiêu chí mong muốn ở bạn đời',
+      ],
+      designTitle: 'Yếu tố thiết kế:',
+      designItems: [
+        'Viền trang trí',
+        'Ảnh chân dung chuyên nghiệp',
+        'Biểu tượng tôn giáo (tùy chọn)',
+        'Thường 2–3 trang',
+      ],
+    },
+  },
+  regions: {
+    title: 'Mẫu Sơ Yếu Lý Lịch Theo Khu Vực',
+    description: 'Yêu cầu khác nhau tùy theo quốc gia. Dưới đây là những gì nhà tuyển dụng ở các khu vực mong đợi:',
+    items: [
+      {
+        country: 'Việt Nam',
+        flag: '🇻🇳',
+        text: '"Sơ yếu lý lịch" (SYLL) là biểu mẫu hành chính bắt buộc cho cơ quan nhà nước, đơn vị sự nghiệp và lực lượng vũ trang. Mẫu SYLL yêu cầu kê khai chi tiết về bản thân, gia đình, quá trình học tập và công tác, đoàn thể, và phải có xác nhận của UBND phường/xã. Doanh nghiệp tư nhân và công ty nước ngoài thường chấp nhận CV hiện đại thay vì SYLL.',
+      },
+      {
+        country: 'Ấn Độ',
+        flag: '🇮🇳',
+        text: 'Biodata là tiêu chuẩn cho tuyển dụng công chức (UPSC, SSC, PSC bang), ngân hàng và doanh nghiệp nhà nước. Các công ty đa quốc gia tư nhân ưu tiên resume. Yêu cầu: tên cha, danh mục đẳng cấp (cho hệ thống bảo lưu), lời cam đoan và ảnh thẻ.',
+      },
+      {
+        country: 'Pakistan',
+        flag: '🇵🇰',
+        text: 'Tương tự Ấn Độ. Thường yêu cầu số CNIC (Thẻ Căn cước Quốc gia). Tên cha và địa chỉ là thông tin cơ bản. Các vị trí nhà nước và bán công yêu cầu biodata chi tiết.',
+      },
+      {
+        country: 'UAE & Các Nước Vùng Vịnh',
+        flag: '🇦🇪',
+        text: 'Mong đợi biodata có ảnh, quốc tịch, tình trạng visa và ngày có thể bắt đầu làm việc. Tôn giáo có thể được yêu cầu. Khi ứng tuyển từ nước ngoài, hãy ghi thông tin hộ chiếu. Cả biodata và resume đều được chấp nhận.',
+      },
+      {
+        country: 'Philippines',
+        flag: '🇵🇭',
+        text: 'Personal Data Sheet (PDS) là mẫu chính thức cho khu vực công. Doanh nghiệp tư nhân chấp nhận cả biodata và resume. Việc ghi chiều cao, cân nặng và tình trạng hôn nhân là phổ biến.',
+      },
+    ],
+  },
+  templates: {
+    title: 'Mẫu Sơ Yếu Lý Lịch Miễn Phí',
+    subtitle:
+      'Tải mẫu sơ yếu lý lịch chuyên nghiệp dạng Word và PDF. Dễ dàng tùy chỉnh với thông tin của bạn.',
+    cards: [
+      {
+        title: 'Mẫu Sơ Yếu Lý Lịch Xin Việc',
+        description: 'Mẫu chuyên nghiệp với đầy đủ các mục tiêu chuẩn cho đơn xin việc.',
+        ctaLabel: 'Tạo Bằng AI',
+        color: 'blue',
+      },
+      {
+        title: 'Mẫu Sơ Yếu Lý Lịch Đơn Giản',
+        description: 'Thiết kế gọn gàng, tối giản, phù hợp cho sinh viên mới ra trường và ứng viên chưa có nhiều kinh nghiệm.',
+        ctaLabel: 'Bắt Đầu Tạo',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: 'Mẹo Viết Sơ Yếu Lý Lịch Hiệu Quả',
+    items: [
+      { title: 'Dùng ảnh thẻ chuyên nghiệp', description: 'Ảnh kiểu hộ chiếu, trang phục lịch sự, nền trơn. Không dùng ảnh selfie hay ảnh đời thường.' },
+      { title: 'Viết ngắn gọn', description: 'Tối đa 1–2 trang. Nhà tuyển dụng không đọc tài liệu quá dài.' },
+      { title: 'Giữ định dạng nhất quán', description: 'Cùng phông chữ, tiêu đề rõ ràng, căn lề đồng nhất trong toàn bộ tài liệu.' },
+      { title: 'Thêm lời cam đoan', description: '"Tôi xin cam đoan những thông tin kê khai trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm."' },
+      { title: 'Ghi học vấn theo thứ tự mới nhất', description: 'Bằng cấp cao nhất ghi trước. Ghi điểm GPA hoặc xếp loại nếu tốt.' },
+      { title: 'Kiểm tra kỹ chính tả', description: 'Lỗi chính tả và ngữ pháp gây ấn tượng xấu ngay lập tức với nhà tuyển dụng.' },
+      { title: 'Chỉ ghi thông tin liên quan', description: 'Không kê khai thông tin không được yêu cầu hoặc không liên quan đến vị trí ứng tuyển.' },
+      { title: 'Ký tên và ghi ngày', description: 'Ký tên, ghi ngày tháng và nơi lập tại cuối tài liệu. Tại Việt Nam, SYLL cần có xác nhận của chính quyền địa phương.' },
+    ],
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      {
+        question: 'Sơ yếu lý lịch (biodata) khác CV như thế nào?',
+        answer:
+          'CV (curriculum vitae) tập trung vào kinh nghiệm làm việc, kỹ năng và thành tích nghề nghiệp, được tùy chỉnh cho từng vị trí ứng tuyển. Sơ yếu lý lịch (biodata) bao gồm thêm thông tin cá nhân như ngày sinh, tình trạng hôn nhân, tôn giáo và thông tin gia đình. Tại Việt Nam, "sơ yếu lý lịch" (SYLL) là biểu mẫu hành chính riêng, bắt buộc cho khu vực nhà nước. Doanh nghiệp tư nhân thường sử dụng CV hiện đại. Ở Nam Á và Trung Đông, biodata là định dạng được ưa chuộng.',
+      },
+      {
+        question: 'Sơ yếu lý lịch có dùng để xin việc không?',
+        answer:
+          'Có, sơ yếu lý lịch được sử dụng rộng rãi để xin việc tại Ấn Độ, Pakistan, Bangladesh, Philippines và các nước Trung Đông. Tại Việt Nam, SYLL là tài liệu bắt buộc khi thi tuyển công chức, viên chức và xin việc vào cơ quan nhà nước. Trong khu vực công và doanh nghiệp truyền thống, mẫu biodata/SYLL thường được yêu cầu cụ thể thay vì CV.',
+      },
+      {
+        question: 'Cần ghi những thông tin cá nhân gì trong sơ yếu lý lịch?',
+        answer:
+          'Sơ yếu lý lịch xin việc thường bao gồm họ tên đầy đủ, ngày sinh, giới tính, quốc tịch, tình trạng hôn nhân, ngoại ngữ và địa chỉ (thường trú và tạm trú). Tại Việt Nam, SYLL còn yêu cầu kê khai dân tộc, thành phần gia đình và quá trình hoạt động. Biodata hôn nhân có thể bổ sung chiều cao, cân nặng, tôn giáo, đẳng cấp, thông tin gia đình và chi tiết tử vi.',
+      },
+      {
+        question: 'Sơ yếu lý lịch nên dài bao nhiêu?',
+        answer:
+          'Lý tưởng là 1–2 trang. Sơ yếu lý lịch xin việc thường 1 trang, trong khi biodata hôn nhân có thể dài đến 2 trang do có thêm thông tin gia đình và tiêu chí cá nhân. Tại Việt Nam, mẫu SYLL nhà nước có số trang cố định theo biểu mẫu quy định. Hãy viết ngắn gọn nhưng đầy đủ thông tin thiết yếu.',
+      },
+      {
+        question: 'Có thể tạo sơ yếu lý lịch bằng công cụ viết CV không?',
+        answer:
+          'Có, công cụ tạo CV bằng AI của chúng tôi có thể được sử dụng để tạo sơ yếu lý lịch (biodata). Bắt đầu với một mẫu tiêu chuẩn và thêm các mục thông tin cá nhân đặc trưng của biodata. Tính năng tùy chỉnh cho phép bạn điều chỉnh tài liệu theo đúng định dạng yêu cầu ở khu vực của bạn.',
+      },
+      {
+        question: 'Biodata hôn nhân (sơ yếu lý lịch kết hôn) là gì?',
+        answer:
+          'Biodata hôn nhân là tài liệu được sử dụng trong truyền thống hôn nhân sắp đặt tại Ấn Độ, Pakistan và các nước Nam Á khác. Tài liệu chứa thông tin cá nhân chi tiết, hoàn cảnh gia đình, trình độ học vấn, nghề nghiệp, chi tiết tử vi và tiêu chí mong muốn ở bạn đời, giúp hai bên gia đình đánh giá sự tương thích.',
+      },
+    ],
+  },
+  crossLinks: {
+    title: 'Tài Nguyên Liên Quan',
+    items: [
+      { href: '/vi/resume-format', title: 'Hướng Dẫn Định Dạng CV', subtitle: 'Định dạng theo thời gian, chức năng và kết hợp' },
+      { href: '/vi/templates', title: 'Mẫu CV Chuyên Nghiệp', subtitle: 'Hơn 20 mẫu chuyên nghiệp' },
+      { href: '/vi/resume-examples', title: 'Ví Dụ CV Theo Ngành', subtitle: 'Hơn 300 ví dụ theo nghề nghiệp' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Triển Vọng Nghề Nghiệp' },
+      { href: 'https://www.glassdoor.com/blog/guide/resume-tips/', label: 'Glassdoor: Hướng Dẫn CV & Sự Nghiệp' },
+    ],
+  },
+  bottomCta: {
+    title: 'Tạo Sơ Yếu Lý Lịch Chỉ Trong Vài Phút',
+    description:
+      'Công cụ tạo sơ yếu lý lịch bằng AI giúp bạn tạo biodata chuyên nghiệp với cấu trúc chuẩn. Chọn mẫu phù hợp và xuất ra PDF hoặc Word.',
+    ctaLabel: 'Tạo Sơ Yếu Lý Lịch Miễn Phí',
+  },
+};
+
+// ---------------------------------------------------------------------------
 // Export
 // ---------------------------------------------------------------------------
-const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it };
+const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi };
 
 export function getContent(locale: string): BiodataFormatPageContent {
   return selectContent(contentMap, locale);

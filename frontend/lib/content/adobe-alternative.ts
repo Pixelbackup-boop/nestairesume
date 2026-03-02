@@ -862,5 +862,374 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: ComparisonPageContent = {
+  meta: {
+    title: 'Adobe 이력서 빌더 대안 2026: 무료 ATS 최적화 템플릿 | Best AI Resume',
+    description: 'Adobe 대신 사용할 무료 이력서 작성 도구를 찾고 계신가요? Adobe Express vs Best AI Resume Builder — ATS 최적화 이력서 템플릿, AI 작성, 무제한 내보내기. 구독 불필요.',
+    keywords: 'adobe 이력서, adobe 이력서 템플릿, adobe express 이력서, 이력서 작성 도구 무료, ats 이력서, AI 이력서, 이력서 쓰는 법, 이력서 양식',
+  },
+  schemas: {
+    breadcrumbName: 'Adobe 이력서 빌더 대안',
+    articleHeadline: 'Adobe 이력서 빌더 대안 2026: 무료 ATS 최적화 AI 이력서 작성 도구',
+    articleDescription: 'Adobe Express vs Best AI Resume Builder 비교. ATS 최적화 이력서 템플릿과 AI 작성 기능을 무료로. Creative Cloud 구독 불필요.',
+  },
+  hero: {
+    badge: 'Adobe 이력서 대안',
+    title: '아름다운 이력서.',
+    titleHighlight: 'ATS도 확실히 통과.',
+    subtitle: 'Adobe는 멋진 디자인을 만들 수 있지만, 대부분의 Adobe 이력서 템플릿은 <strong>ATS 심사를 통과하지 못합니다</strong>. 전문적인 외관<strong>과</strong> ATS 호환성을 모두 갖춘 이력서를 무료로 만드세요.',
+    ctaPrimary: '무료로 이력서 만들기',
+    ctaSecondary: '비교 보기',
+  },
+  problem: {
+    title: 'Adobe의 문제: 아름답지만 ATS가 인식하지 못함',
+    description: 'Adobe Express와 Creative Cloud는 아름다운 디자인을 만들 수 있습니다. 하지만 이력서는 브로셔가 아닙니다. <strong>Fortune 500 기업의 99%</strong>가 ATS로 이력서를 스크리닝합니다. Adobe 템플릿은 칼럼, 텍스트 박스, 아이콘, 그래픽 등 ATS가 읽을 수 없는 요소를 사용합니다. 아름다운 이력서가 아무도 보지 못한 채 탈락합니다.',
+    stats: [
+      { value: '75%', label: '이력서가 ATS 단계에서 탈락' },
+      { value: '$9.99', label: 'Adobe Express Premium 월 구독료' },
+      { value: '₩0', label: 'Best AI Resume Builder — ATS 검증 완료, 완전 무료' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: '디자인 도구 vs 이력서 전문 빌더',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '주요 용도', competitor: '⚠️ 범용 디자인 도구', ours: '✅ 이력서 전용 설계' },
+      { feature: 'ATS 호환', competitor: '❌ 대부분의 템플릿 ATS 비호환', ours: '✅ 전체 템플릿 ATS 검증 완료' },
+      { feature: 'AI 작성', competitor: '❌ 이력서용 AI 기능 없음', ours: '✅ AI가 맞춤 콘텐츠 작성' },
+      { feature: 'ATS 점수', competitor: '❌ ATS 체커 없음', ours: '✅ 실시간 ATS 스코어링' },
+      { feature: '가격', competitor: '⚠️ 무료 버전 제한 / $9.99+/월', ours: '✅ 완전 무료' },
+      { feature: '디자인 품질', competitor: '✅ 뛰어난 디자인 자유도', ours: '✅ 전문적인 ATS 호환 디자인' },
+      { feature: '이력서 템플릿', competitor: '⚠️ 디자인 중심(ATS 비호환)', ours: '✅ 20종 이상 채용 담당자 검증 템플릿' },
+      { feature: '콘텐츠 가이드', competitor: '❌ 이력서 작성 지원 없음', ours: '✅ AI 경력 사항 및 요약 작성' },
+      { feature: '키워드 최적화', competitor: '❌ 미지원', ours: '✅ AI 키워드 추천 기능' },
+      { feature: '사용 편의성', competitor: '⚠️ 디자인 스킬 필요', ours: '✅ 단계별 가이드 제공' },
+    ],
+  },
+  whySwitch: {
+    title: 'Adobe가 적합한 경우',
+    subtitle: 'Adobe는 특정 크리에이티브 상황에 적합합니다.',
+    reasons: [
+      { title: 'Adobe를 사용해야 할 때', description: '비주얼 포트폴리오가 중요한 크리에이티브/디자인 직종 지원, ATS 없이 채용 담당자에게 직접 제출하는 경우, 네트워킹 이벤트용 비주얼 이력서 제작 시.' },
+      { title: 'Best AI Resumes를 사용해야 할 때', description: '온라인 채용 포털이나 ATS를 통해 지원하는 경우, ATS를 사용하는 기업의 포지션에 지원하는 경우, AI로 성과 중심 경력 사항을 작성하고 싶은 경우.' },
+      { title: '결론', description: 'Adobe는 아름다운 디자인을 만들 수 있습니다. 하지만 ATS를 거치는 입사 지원(대다수)에는 ATS 검증 템플릿을 갖춘 이력서 전문 빌더가 필요합니다.' },
+    ],
+  },
+  recommendation: {
+    title: 'Adobe가 적합한 케이스',
+    useCompetitor: {
+      title: 'Adobe가 적합한 경우',
+      items: [
+        '비주얼 포트폴리오 중심의 크리에이티브/디자인 직종 지원',
+        'ATS 없이 채용 담당자에게 직접 제출하는 경우',
+        '네트워킹 이벤트나 퍼스널 브랜딩용 비주얼 이력서 제작',
+        '이미 Adobe Creative Cloud 구독을 보유한 경우',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes가 적합한 경우',
+      items: [
+        '온라인 채용 포털이나 ATS를 통한 지원',
+        'ATS를 사용하는 기업 포지션 지원',
+        'AI 기반 성과 중심 경력 사항 작성이 필요한 경우',
+        '디자인 스킬 없이 전문적인 이력서를 만들고 싶은 경우',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300개 이상의 무료 이력서 샘플 보기',
+    description: '그래픽 디자이너부터 UX 디자이너, 아트 디렉터까지 모든 직종의 전문 이력서 샘플을 확인하세요.',
+    ctaBrowse: '이력서 샘플 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'Adobe에 무료 이력서 작성 기능이 있나요?', answer: 'Adobe Express에는 무료 이력서 템플릿이 있지만, 고품질 템플릿과 기능은 Adobe Express Premium(월 $9.99) 또는 Creative Cloud 구독(월 $54.99)이 필요합니다. Best AI Resume Builder는 AI 작성, ATS 템플릿, PDF 내보내기 등 모든 기능을 완전 무료로 제공합니다.' },
+      { question: 'Adobe Express는 이력서 작성에 적합한가요?', answer: 'Adobe Express는 시각적으로 멋진 이력서를 만들 수 있지만 ATS 최적화가 아닌 디자인 중심입니다. 대부분의 Adobe 이력서 템플릿은 ATS가 읽을 수 없는 그래픽, 칼럼, 레이아웃을 사용합니다. Best AI Resume Builder는 전문적인 외관과 ATS 호환성을 모두 갖춘 이력서를 만듭니다.' },
+      { question: '이력서 작성에서 Adobe의 최고 무료 대안은?', answer: 'Best AI Resume Builder가 이력서 작성에서 최고의 무료 대안입니다. Adobe와 달리 AI 작성, ATS 최적화, 채용 담당자 검증 템플릿을 갖춘 이력서 전용 도구입니다. Adobe는 그래픽 디자인에는 뛰어나지만 취업 활동에는 최적화되어 있지 않습니다.' },
+      { question: 'ATS가 Adobe Express 이력서를 읽을 수 있나요?', answer: '많은 Adobe Express 이력서 템플릿은 ATS가 올바르게 분석할 수 없는 요소(칼럼, 텍스트 박스, 그래픽, 아이콘)를 사용합니다. 즉, 대기업의 99%가 사용하는 소프트웨어에서 이력서를 읽을 수 없을 수 있습니다. Best AI Resume Builder 템플릿은 ATS 호환성을 전문적으로 테스트합니다.' },
+      { question: '이력서에 Adobe InDesign이나 Illustrator를 사용해야 하나요?', answer: '비주얼 디자인이 ATS 호환보다 중요한 크리에이티브 직종에 지원하는 그래픽 디자이너에게만 추천합니다. 그 외 모든 입사 지원에는 ATS 검증 템플릿을 갖춘 전용 이력서 작성 도구를 사용하세요.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 작성 도구 비교',
+    items: [
+      { href: '/canva-alternative', title: 'Canva 대안', subtitle: '또 다른 디자인 도구 비교' },
+      { href: '/zety-alternative', title: 'Zety 대안', subtitle: '가격 및 무료 체험 비교' },
+      { href: '/rezi-alternative', title: 'Rezi 대안', subtitle: 'AI 기능 비교' },
+      { href: '/overleaf-alternative', title: 'Overleaf 대안', subtitle: 'LaTeX 이력서 vs AI 빌더' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [
+      { href: '/blog/what-is-ats-guide', label: 'ATS란? 완전 가이드' },
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS 통과 이력서 쓰는 법' },
+      { href: '/blog/how-to-write-a-resume', label: '이력서 쓰는 법 (완전 가이드)' },
+      { href: '/resume-format', label: '이력서 포맷 가이드 2026' },
+    ],
+  },
+  externalResources: {
+    title: '외부 리소스',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express 이력서 메이커' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: '전문 디자인. ATS 호환 보장.',
+    description: '보기 좋으면서 ATS도 통과하는 이력서를 만드세요. AI 작성, 채용 담당자 검증 템플릿, 무제한 내보내기 — 모두 무료.',
+    cta: '무료로 이력서 만들기',
+    subtext: '영원히 무료. Adobe 구독 불필요.',
+  },
+};
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế Adobe Để Tạo CV 2026: Mẫu CV ATS Miễn Phí | Best AI Resume',
+    description: 'Tìm cách thay thế Adobe để tạo CV miễn phí? So sánh Adobe Express vs Best AI Resume Builder — mẫu CV ATS, viết CV bằng AI, xuất không giới hạn. Không cần đăng ký.',
+    keywords: 'thay thế adobe, tạo cv miễn phí, mẫu cv ats, cv xin việc, tạo cv online, mẫu cv đẹp, cv chuyên nghiệp, adobe express cv',
+  },
+  schemas: {
+    breadcrumbName: 'Thay Thế Adobe Để Tạo CV',
+    articleHeadline: 'Thay Thế Adobe Để Tạo CV 2026: Công Cụ Tạo CV Miễn Phí Tối Ưu ATS Với AI',
+    articleDescription: 'So sánh Adobe Express vs Best AI Resume Builder cho CV xin việc. Mẫu CV ATS, viết bằng AI, xuất PDF — hoàn toàn miễn phí, không cần đăng ký Creative Cloud.',
+  },
+  hero: {
+    badge: 'Thay Thế Adobe Để Tạo CV',
+    title: 'CV Xin Việc Chuyên Nghiệp.',
+    titleHighlight: 'Vượt Qua Mọi Hệ Thống ATS.',
+    subtitle: 'Adobe tạo ra thiết kế đẹp mắt — nhưng hầu hết mẫu CV Adobe <strong>không vượt qua được bộ lọc ATS</strong>. Tạo CV xin việc vừa chuyên nghiệp <strong>vừa</strong> tương thích hệ thống sàng lọc ứng viên. Miễn phí.',
+    ctaPrimary: 'Tạo CV Miễn Phí',
+    ctaSecondary: 'Xem So Sánh',
+  },
+  problem: {
+    title: 'Vấn Đề Của Adobe: Đẹp Nhưng ATS Không Đọc Được',
+    description: 'Adobe Express và Creative Cloud tạo ra thiết kế tuyệt đẹp. Nhưng CV xin việc không phải tờ rơi quảng cáo — <strong>99% doanh nghiệp lớn tại Việt Nam và quốc tế</strong> sử dụng hệ thống ATS để sàng lọc hồ sơ trước khi nhà tuyển dụng xem. Mẫu CV Adobe dùng cột, hộp văn bản, biểu tượng và đồ họa mà ATS không thể đọc. CV đẹp của bạn bị loại trước khi ai kịp nhìn thấy.',
+    stats: [
+      { value: '75%', label: 'CV bị ATS loại trước khi nhà tuyển dụng xem' },
+      { value: '$9.99', label: 'mỗi tháng cho Adobe Express Premium' },
+      { value: '0₫', label: 'Best AI Resume Builder — đã kiểm tra ATS, hoàn toàn miễn phí' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: 'Công cụ thiết kế vs công cụ tạo CV chuyên dụng.',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Mục đích chính', competitor: '⚠️ Công cụ thiết kế đa năng', ours: '✅ Được xây dựng chuyên cho CV' },
+      { feature: 'Tương thích ATS', competitor: '❌ Hầu hết mẫu không qua ATS', ours: '✅ Tất cả mẫu đã kiểm tra ATS' },
+      { feature: 'Viết CV bằng AI', competitor: '❌ Không có AI cho CV', ours: '✅ AI viết nội dung tùy chỉnh' },
+      { feature: 'Điểm ATS', competitor: '❌ Không có trình kiểm tra ATS', ours: '✅ Chấm điểm ATS thời gian thực' },
+      { feature: 'Chi phí', competitor: '⚠️ Miễn phí giới hạn / $9.99+/tháng', ours: '✅ Miễn phí 100% mãi mãi' },
+      { feature: 'Thiết kế', competitor: '✅ Linh hoạt về thiết kế', ours: '✅ Thiết kế chuyên nghiệp, an toàn ATS' },
+      { feature: 'Mẫu CV', competitor: '⚠️ Thiên về thiết kế (không ATS)', ours: '✅ Hơn 20 mẫu được nhà tuyển dụng kiểm duyệt' },
+      { feature: 'Hướng dẫn nội dung', competitor: '❌ Không hỗ trợ viết CV', ours: '✅ AI viết thành tích và tóm tắt chuyên môn' },
+      { feature: 'Tối ưu từ khóa', competitor: '❌ Không có', ours: '✅ AI gợi ý từ khóa phù hợp' },
+      { feature: 'Dễ sử dụng', competitor: '⚠️ Cần kỹ năng thiết kế', ours: '✅ Hướng dẫn từng bước' },
+    ],
+  },
+  whySwitch: {
+    title: 'Khi Nào Nên Dùng Adobe và Khi Nào Nên Chọn Chúng Tôi',
+    subtitle: 'Adobe phù hợp với một số trường hợp sáng tạo cụ thể.',
+    reasons: [
+      { title: 'Dùng Adobe khi...', description: 'Ứng tuyển vị trí sáng tạo/thiết kế coi trọng portfolio trực quan, gửi CV trực tiếp cho nhà tuyển dụng (không qua cổng ATS), hoặc tạo CV trực quan cho sự kiện networking.' },
+      { title: 'Dùng Best AI Resumes khi...', description: 'Ứng tuyển qua cổng tuyển dụng trực tuyến hoặc hệ thống ATS, nhắm đến vị trí tại các công ty sử dụng phần mềm sàng lọc tự động, hoặc cần AI hỗ trợ viết thành tích chuyên nghiệp.' },
+      { title: 'Kết luận', description: 'Adobe tạo thiết kế đẹp mắt. Nhưng với hồ sơ xin việc qua ATS (đại đa số tại thị trường Việt Nam hiện nay), bạn cần công cụ tạo CV chuyên dụng với mẫu đã kiểm tra ATS.' },
+    ],
+  },
+  recommendation: {
+    title: 'Khi Nào Adobe Là Lựa Chọn Phù Hợp',
+    useCompetitor: {
+      title: 'Dùng Adobe khi...',
+      items: [
+        'Ứng tuyển vị trí sáng tạo/thiết kế coi trọng portfolio trực quan',
+        'Gửi CV trực tiếp cho nhà tuyển dụng (không qua cổng ATS)',
+        'Tạo CV trực quan cho sự kiện networking hoặc xây dựng thương hiệu cá nhân',
+        'Bạn đã có sẵn gói đăng ký Adobe Creative Cloud',
+      ],
+    },
+    useUs: {
+      title: 'Dùng Best AI Resumes khi...',
+      items: [
+        'Ứng tuyển qua cổng tuyển dụng trực tuyến hoặc hệ thống ATS',
+        'Nhắm đến vị trí tại công ty sử dụng phần mềm sàng lọc ứng viên',
+        'Cần AI hỗ trợ viết các thành tích nổi bật trong CV xin việc',
+        'Muốn có CV chuyên nghiệp mà không cần kỹ năng thiết kế',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Xem Hơn 300 Mẫu CV Miễn Phí',
+    description: 'CV chuyên nghiệp cho mọi ngành nghề — từ thiết kế đồ họa đến UX designer, từ giám đốc sáng tạo đến quản lý dự án.',
+    ctaBrowse: 'Xem Mẫu CV',
+    ctaTemplates: 'Xem Tất Cả Mẫu',
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      { question: 'Adobe có công cụ tạo CV miễn phí không?', answer: 'Adobe Express có một số mẫu CV miễn phí, nhưng các mẫu tốt nhất và tính năng nâng cao yêu cầu Adobe Express Premium ($9.99/tháng) hoặc đăng ký Creative Cloud ($54.99/tháng). Best AI Resume Builder cung cấp tất cả tính năng — viết bằng AI, mẫu ATS, xuất PDF — hoàn toàn miễn phí.' },
+      { question: 'Adobe Express có phù hợp để tạo CV xin việc không?', answer: 'Adobe Express tạo CV đẹp về mặt thị giác, nhưng thiên về thiết kế chứ không tối ưu cho ATS. Hầu hết mẫu CV Adobe sử dụng đồ họa, cột và bố cục mà hệ thống ATS không đọc được. Best AI Resume Builder tạo CV vừa chuyên nghiệp vừa tương thích ATS.' },
+      { question: 'Thay thế Adobe miễn phí tốt nhất để tạo CV là gì?', answer: 'Best AI Resume Builder là lựa chọn thay thế Adobe miễn phí tốt nhất để tạo CV xin việc. Khác với Adobe, đây là công cụ chuyên dụng cho CV với AI viết nội dung, tối ưu ATS và mẫu được nhà tuyển dụng kiểm duyệt. Adobe tuyệt vời cho thiết kế đồ họa nhưng không được tối ưu cho việc xin việc tại Việt Nam.' },
+      { question: 'ATS có đọc được CV tạo từ Adobe Express không?', answer: 'Nhiều mẫu CV Adobe Express sử dụng các yếu tố (cột, hộp văn bản, đồ họa, biểu tượng) mà ATS không phân tích được chính xác. Điều này có nghĩa CV của bạn có thể không đọc được bởi phần mềm mà 99% doanh nghiệp lớn sử dụng. Các mẫu Best AI Resume Builder được kiểm tra chuyên biệt về tương thích ATS.' },
+      { question: 'Có nên dùng Adobe InDesign hoặc Illustrator để làm CV không?', answer: 'Chỉ nên nếu bạn là designer đồ họa ứng tuyển vị trí sáng tạo mà thiết kế trực quan quan trọng hơn tương thích ATS. Với tất cả các hồ sơ xin việc khác — đặc biệt qua các trang tuyển dụng như VietnamWorks, TopCV, LinkedIn — hãy dùng công cụ tạo CV chuyên dụng với mẫu đã kiểm tra ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So Sánh Các Công Cụ Tạo CV Khác',
+    items: [
+      { href: '/vi/canva-alternative', title: 'Thay Thế Canva', subtitle: 'So sánh công cụ thiết kế khác' },
+      { href: '/vi/zety-alternative', title: 'Thay Thế Zety', subtitle: 'So sánh giá và bản dùng thử' },
+      { href: '/vi/rezi-alternative', title: 'Thay Thế Rezi', subtitle: 'So sánh tính năng AI' },
+      { href: '/vi/overleaf-alternative', title: 'Thay Thế Overleaf', subtitle: 'CV LaTeX vs công cụ AI' },
+    ],
+    guidesTitle: 'Hướng Dẫn CV Hữu Ích',
+    guides: [
+      { href: '/vi/blog/what-is-ats-guide', label: 'ATS Là Gì? Hướng Dẫn Đầy Đủ' },
+      { href: '/vi/blog/how-to-write-ats-friendly-resume', label: 'Cách Viết CV Tương Thích ATS' },
+      { href: '/vi/blog/how-to-write-a-resume', label: 'Cách Viết CV Xin Việc (Hướng Dẫn Đầy Đủ)' },
+      { href: '/vi/resume-format', label: 'Hướng Dẫn Định Dạng CV 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express Resume Maker' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Thiết Kế Chuyên Nghiệp. Tương Thích ATS.',
+    description: 'Tạo CV xin việc đẹp mắt và vượt qua bộ lọc ATS. Viết bằng AI, mẫu được nhà tuyển dụng kiểm duyệt, xuất không giới hạn — tất cả miễn phí.',
+    cta: 'Tạo CV Miễn Phí',
+    subtext: 'Miễn phí mãi mãi. Không cần đăng ký Adobe.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน Adobe Express สร้างเรซูเม่ 2026 ฟรี | Best AI Resume',
+    description: 'มองหาทางเลือกแทน Adobe สร้างเรซูเม่ฟรี? เปรียบเทียบ Adobe Express กับ Best AI Resume Builder — เทมเพลตเรซูเม่ ATS, AI เขียนเรซูเม่, ส่งออกไม่จำกัด ไม่ต้องสมัครสมาชิก',
+    keywords: 'ทางเลือกแทน adobe, สร้างเรซูเม่ฟรี, เทมเพลตเรซูเม่ ats, เรซูเม่ AI, ตัวอย่างเรซูเม่, เรซูเม่สมัครงาน, adobe express เรซูเม่',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน Adobe สร้างเรซูเม่',
+    articleHeadline: 'ทางเลือกแทน Adobe Express สร้างเรซูเม่ 2026: เครื่องมือสร้างเรซูเม่ AI ฟรี ผ่าน ATS',
+    articleDescription: 'เปรียบเทียบ Adobe Express กับ Best AI Resume Builder สำหรับสร้างเรซูเม่สมัครงาน เทมเพลต ATS, เขียนด้วย AI, ส่งออก PDF — ฟรีทั้งหมด ไม่ต้องสมัคร Creative Cloud',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน Adobe สร้างเรซูเม่',
+    title: 'เรซูเม่สวยระดับมืออาชีพ',
+    titleHighlight: 'ที่ผ่านระบบ ATS ได้จริง',
+    subtitle: 'Adobe ออกแบบสวย — แต่เทมเพลตเรซูเม่ Adobe ส่วนใหญ่ <strong>ไม่ผ่านการคัดกรอง ATS</strong> สร้างเรซูเม่ที่ทั้งดูดีและผ่านระบบคัดกรองอัตโนมัติของบริษัทชั้นนำในไทย ฟรี',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูการเปรียบเทียบ',
+  },
+  problem: {
+    title: 'ปัญหาของ Adobe: สวยแต่ ATS อ่านไม่ได้',
+    description: 'Adobe Express และ Creative Cloud สร้างงานออกแบบที่สวยงาม แต่เรซูเม่ไม่ใช่โบรชัวร์ — <strong>บริษัทชั้นนำในไทยและต่างประเทศ</strong> ใช้ระบบ ATS คัดกรองเรซูเม่ก่อนที่ HR จะเห็น เทมเพลต Adobe ใช้คอลัมน์ กล่องข้อความ ไอคอน และกราฟิกที่ ATS ไม่สามารถอ่านได้ เรซูเม่สวยของคุณถูกปฏิเสธก่อนที่ใครจะได้ดู',
+    stats: [
+      { value: '75%', label: 'ของเรซูเม่ถูก ATS ปฏิเสธก่อน HR ดู' },
+      { value: '$9.99', label: 'ต่อเดือนสำหรับ Adobe Express Premium' },
+      { value: '฿0', label: 'Best AI Resume Builder — ผ่าน ATS, ฟรีตลอด' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: 'เครื่องมือออกแบบ vs เครื่องมือสร้างเรซูเม่โดยเฉพาะ',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'จุดประสงค์หลัก', competitor: '⚠️ เครื่องมือออกแบบทั่วไป', ours: '✅ สร้างมาเพื่อเรซูเม่โดยเฉพาะ' },
+      { feature: 'รองรับ ATS', competitor: '❌ เทมเพลตส่วนใหญ่ไม่ผ่าน ATS', ours: '✅ ทุกเทมเพลตผ่านการทดสอบ ATS' },
+      { feature: 'AI เขียนเรซูเม่', competitor: '❌ ไม่มี AI สำหรับเรซูเม่', ours: '✅ AI เขียนเนื้อหาให้เหมาะกับตำแหน่ง' },
+      { feature: 'คะแนน ATS', competitor: '❌ ไม่มีตัวตรวจ ATS', ours: '✅ ให้คะแนน ATS แบบเรียลไทม์' },
+      { feature: 'ราคา', competitor: '⚠️ ฟรีจำกัด / $9.99+/เดือน', ours: '✅ ฟรี 100% ตลอดไป' },
+      { feature: 'การออกแบบ', competitor: '✅ ออกแบบได้หลากหลาย', ours: '✅ ดีไซน์มืออาชีพ ปลอดภัยสำหรับ ATS' },
+      { feature: 'เทมเพลตเรซูเม่', competitor: '⚠️ เน้นดีไซน์ (ไม่ผ่าน ATS)', ours: '✅ 20+ เทมเพลตผ่านการตรวจสอบ' },
+      { feature: 'แนะนำเนื้อหา', competitor: '❌ ไม่มีช่วยเขียนเรซูเม่', ours: '✅ AI เขียนผลงานและสรุปประสบการณ์' },
+      { feature: 'เพิ่มประสิทธิภาพคำสำคัญ', competitor: '❌ ไม่มี', ours: '✅ AI แนะนำคำสำคัญตามสายงาน' },
+      { feature: 'ง่ายต่อการใช้งาน', competitor: '⚠️ ต้องมีทักษะออกแบบ', ours: '✅ มีขั้นตอนแนะนำทีละขั้น' },
+    ],
+  },
+  whySwitch: {
+    title: 'เมื่อไหร่ควรใช้ Adobe และเมื่อไหร่ควรเลือกเรา',
+    subtitle: 'Adobe เหมาะกับงานสร้างสรรค์บางประเภท',
+    reasons: [
+      { title: 'ใช้ Adobe เมื่อ...', description: 'สมัครงานสายครีเอทีฟ/ออกแบบที่ต้องการพอร์ตโฟลิโอ ส่งเรซูเม่ตรงถึงผู้จ้าง (ไม่ผ่านระบบ ATS) หรือสร้างเรซูเม่สำหรับงานเน็ตเวิร์กกิ้ง' },
+      { title: 'ใช้ Best AI Resumes เมื่อ...', description: 'สมัครงานผ่านเว็บไซต์จัดหางานหรือระบบ ATS เช่น JobThai, LinkedIn, JobsDB หรือต้องการ AI ช่วยเขียนผลงานและประสบการณ์ให้โดดเด่น' },
+      { title: 'สรุป', description: 'Adobe ออกแบบสวย แต่สำหรับการสมัครงานที่ต้องผ่าน ATS (ซึ่งเป็นส่วนใหญ่ในตลาดงานไทย) คุณต้องการเครื่องมือสร้างเรซูเม่ที่ออกแบบมาเพื่อผ่านระบบคัดกรองโดยเฉพาะ' },
+    ],
+  },
+  recommendation: {
+    title: 'เมื่อไหร่ที่ Adobe เป็นตัวเลือกที่เหมาะสม',
+    useCompetitor: {
+      title: 'ใช้ Adobe เมื่อ...',
+      items: [
+        'สมัครงานสายครีเอทีฟ/ออกแบบที่ต้องแสดงพอร์ตโฟลิโอ',
+        'ส่งเรซูเม่ตรงถึงผู้ว่าจ้าง (ไม่ผ่านระบบ ATS)',
+        'สร้างเรซูเม่แบบภาพสำหรับงาน Networking หรือสร้างแบรนด์ส่วนตัว',
+        'สมัครสมาชิก Adobe Creative Cloud อยู่แล้ว',
+      ],
+    },
+    useUs: {
+      title: 'ใช้ Best AI Resumes เมื่อ...',
+      items: [
+        'สมัครงานผ่านเว็บจัดหางาน (JobThai, LinkedIn, JobsDB, เว็บบริษัท)',
+        'ต้องการ AI ช่วยเขียนผลงานและประสบการณ์ทำงาน',
+        'ต้องการให้เรซูเม่ผ่านระบบ ATS คัดกรองอัตโนมัติ',
+        'อยากได้เรซูเม่มืออาชีพโดยไม่ต้องมีทักษะออกแบบ',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ฟรีกว่า 300 แบบ',
+    description: 'เรซูเม่มืออาชีพสำหรับทุกสายอาชีพ — ตั้งแต่นักออกแบบกราฟิก นักพัฒนาซอฟต์แวร์ ไปจนถึงผู้จัดการโครงการ',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'Adobe มีเครื่องมือสร้างเรซูเม่ฟรีไหม?', answer: 'Adobe Express มีเทมเพลตเรซูเม่ฟรีบางส่วน แต่เทมเพลตและฟีเจอร์ที่ดีที่สุดต้องสมัคร Adobe Express Premium ($9.99/เดือน) หรือ Creative Cloud ($54.99/เดือน) Best AI Resume Builder ให้ทุกฟีเจอร์ฟรี — AI เขียนเรซูเม่, เทมเพลต ATS, ส่งออก PDF — ไม่มีค่าใช้จ่าย' },
+      { question: 'Adobe Express เหมาะกับการทำเรซูเม่สมัครงานไหม?', answer: 'Adobe Express สร้างเรซูเม่ที่สวยงาม แต่เน้นด้านดีไซน์มากกว่าการผ่าน ATS เทมเพลตส่วนใหญ่ใช้กราฟิก คอลัมน์ และเลย์เอาต์ที่ระบบ ATS อ่านไม่ได้ Best AI Resume Builder สร้างเรซูเม่ที่ทั้งดูดีและผ่าน ATS ได้' },
+      { question: 'ทางเลือกแทน Adobe ฟรีที่ดีที่สุดสำหรับสร้างเรซูเม่คืออะไร?', answer: 'Best AI Resume Builder เป็นทางเลือกฟรีที่ดีที่สุดสำหรับสร้างเรซูเม่ ต่างจาก Adobe ตรงที่ถูกสร้างมาเพื่อเรซูเม่โดยเฉพาะ มี AI เขียนเนื้อหา เพิ่มประสิทธิภาพ ATS และเทมเพลตที่ผ่านการตรวจสอบจากผู้เชี่ยวชาญ' },
+      { question: 'ATS อ่านเรซูเม่จาก Adobe Express ได้ไหม?', answer: 'เทมเพลตเรซูเม่ Adobe Express หลายแบบใช้องค์ประกอบ (คอลัมน์ กล่องข้อความ กราฟิก ไอคอน) ที่ระบบ ATS ไม่สามารถวิเคราะห์ได้ถูกต้อง หมายความว่าเรซูเม่ของคุณอาจอ่านไม่ได้โดยซอฟต์แวร์ที่บริษัทชั้นนำใช้คัดกรอง เทมเพลตของ Best AI Resume Builder ผ่านการทดสอบ ATS เป็นพิเศษ' },
+      { question: 'ควรใช้ Adobe InDesign หรือ Illustrator ทำเรซูเม่ไหม?', answer: 'ควรใช้เฉพาะเมื่อคุณเป็นนักออกแบบกราฟิกที่สมัครงานสายครีเอทีฟ ซึ่งดีไซน์สำคัญกว่า ATS สำหรับการสมัครงานทั่วไปผ่าน JobThai, LinkedIn หรือ JobsDB ควรใช้เครื่องมือสร้างเรซูเม่ที่เทมเพลตผ่านการทดสอบ ATS' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่น ๆ',
+    items: [
+      { href: '/th/canva-alternative', title: 'ทางเลือกแทน Canva', subtitle: 'เปรียบเทียบเครื่องมือออกแบบ' },
+      { href: '/th/zety-alternative', title: 'ทางเลือกแทน Zety', subtitle: 'เปรียบเทียบราคาและทดลองใช้' },
+      { href: '/th/rezi-alternative', title: 'ทางเลือกแทน Rezi', subtitle: 'เปรียบเทียบฟีเจอร์ AI' },
+      { href: '/th/overleaf-alternative', title: 'ทางเลือกแทน Overleaf', subtitle: 'เรซูเม่ LaTeX vs AI' },
+    ],
+    guidesTitle: 'คู่มือเรซูเม่ที่เป็นประโยชน์',
+    guides: [
+      { href: '/th/blog/what-is-ats-guide', label: 'ATS คืออะไร? คู่มือฉบับสมบูรณ์' },
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/blog/how-to-write-a-resume', label: 'วิธีเขียนเรซูเม่ (คู่มือฉบับสมบูรณ์)' },
+      { href: '/th/resume-format', label: 'คู่มือรูปแบบเรซูเม่ 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express Resume Maker' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'ดีไซน์มืออาชีพ ผ่าน ATS ได้จริง',
+    description: 'สร้างเรซูเม่ที่ทั้งสวยและผ่านระบบ ATS AI เขียนเนื้อหา เทมเพลตผ่านการตรวจสอบ ส่งออกไม่จำกัด — ฟรีทั้งหมด',
+    cta: 'สร้างเรซูเม่ฟรี',
+    subtext: 'ฟรีตลอดไป ไม่ต้องสมัคร Adobe',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

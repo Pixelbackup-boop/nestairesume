@@ -719,7 +719,295 @@ const it: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it };
+const ko: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: '소개',
+      title: '커리어 성공의',
+      titleHighlight: '미래를 만들어갑니다',
+      subtitle: 'Best AI Resume는 전 세계 구직자들이 ATS 최적화된 전문 이력서를 작성하여 꿈의 커리어로 나아갈 수 있도록 돕는 것을 사명으로 합니다. AI 이력서 작성 도구로 취업 활동을 강력하게 지원합니다.',
+    },
+    story: {
+      badge: '우리의 이야기',
+      heading: 'Best AI Resume를 만든 이유',
+      p1: '우수한 인재들이 이력서가 ATS(지원자 추적 시스템)를 통과하지 못한다는 이유만으로 기회를 잃고 있다는 사실을 알게 되었습니다. 기존의 이력서 작성 방식은 시간이 오래 걸리고, 답답하며, 지원자의 진정한 역량을 보여주지 못하는 경우가 많았습니다.',
+      p2: '그래서 AI의 힘과 전문적인 디자인을 결합한 Best AI Resume를 개발했습니다. 목표는 단순합니다. 모든 구직자가 채용 담당자에게 최고의 모습을 보여줄 수 있도록 돕는 것입니다.',
+      p3: '지금까지 50,000명 이상의 전문가들이 ATS 심사를 확실히 통과하면서도 돋보이는 이력서를 작성하여 꿈의 직장을 얻었습니다.',
+    },
+    stats: [
+      { value: '50K+', label: '작성된 이력서' },
+      { value: '98%', label: 'ATS 통과율' },
+      { value: '20+', label: '이력서 템플릿 수' },
+      { value: '4.9', label: '사용자 평점' },
+    ],
+    values: {
+      badge: '핵심 가치',
+      heading: '우리를 움직이는 원동력',
+      cards: [
+        { title: '개인정보 보호 최우선', text: '귀하의 데이터는 귀하의 것입니다. 이력서 데이터는 브라우저에 로컬 저장되며 서버로 전송되지 않습니다. 계정 인증 정보만 안전하게 관리합니다.' },
+        { title: '혁신', text: '최첨단 AI 기술을 활용하여 성과를 효과적으로 어필하는 매력적인 콘텐츠 작성을 지원합니다.' },
+        { title: '접근성', text: '전문적인 이력서 작성 도구가 비싼 유료 서비스 뒤에 숨어있어서는 안 됩니다. 누구나 이용할 수 있는 강력한 기능을 제공합니다.' },
+      ],
+    },
+    experts: {
+      badge: '신뢰할 수 있는 전문성',
+      heading: '커리어 전문가를 소개합니다',
+      subtitle: '커리어 코치, 채용 담당자, 업계 전문가로 구성된 팀이 이력서 가이드에 깊은 전문 지식을 제공합니다.',
+    },
+    editorial: {
+      heading: '편집 기준',
+      items: [
+        { title: '데이터 기반 조언', text: '모든 조언은 실제 ATS 시스템에서 테스트하고 업계 전문가가 검증합니다.' },
+        { title: '사람 중심 접근', text: 'AI는 사람을 대체하는 것이 아니라 돕는 것이어야 한다고 믿습니다. 인간 채용 담당자에게 먼저 어필하는 전략을 우선시합니다.' },
+      ],
+    },
+    commitment: {
+      heading: '고객에 대한 약속',
+      p1: 'Best AI Resume는 커리어의 여정이 한 사람 한 사람 다르다고 믿습니다. 그래서 개인정보를 존중하면서도 성공을 위한 강력한 도구를 제공하는 플랫폼을 구축했습니다. 이력서 데이터는 사용자의 기기에 저장되어 정보에 대한 완전한 통제가 가능합니다.',
+      p2: 'AI 알고리즘 개선, 새로운 템플릿 추가, 사용자 피드백에 기반한 기능 강화를 꾸준히 진행하고 있습니다. 고객의 성공이 곧 우리의 성공입니다. 한 걸음 한 걸음 전력으로 지원하겠습니다.',
+    },
+    cta: {
+      title: '50,000+',
+      titleHighlight: '성공 스토리에 함께하시겠습니까?',
+      subtitle: '지금 바로 전문적인 이력서 작성을 시작하고, 꿈의 커리어를 향한 첫걸음을 내딛으세요.',
+      button: '무료로 시작하기',
+    },
+  },
+  authors: {
+    meta: {
+      title: '전문가 팀 | Best AI Resume',
+      description: '이력서 가이드를 집필하는 커리어 전문가, 채용 담당자, 코치를 소개합니다. 실제 채용 경험을 바탕으로 꿈의 직장 취업을 지원합니다.',
+      ogDescription: '이력서 가이드를 집필하는 커리어 전문가, 채용 담당자, 코치를 소개합니다.',
+    },
+    breadcrumb: { home: '홈', about: '소개', authors: '저자' },
+    hero: {
+      title: '전문가 팀 소개',
+      subtitle: '커리어 코치, 채용 담당자, 업계 전문가가 실제 채용 경험에 기반한 실용적인 이력서 가이드를 집필합니다.',
+    },
+    viewProfile: '프로필 보기',
+    cta: {
+      title: '전문가의 노하우로 이력서를 작성하세요',
+      subtitle: 'AI 빌더가 전문가 추천 전략을 자동으로 적용합니다. 몇 분 만에 전문적인 이력서를 완성하세요.',
+      button: '무료로 이력서 만들기',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: '홈', about: '소개' },
+    atOrg: '{organization} {jobTitle}',
+    authorOfGuides: ' {count}개 이상의 커리어 가이드 및 기사 저자.',
+    connectLinkedIn: 'LinkedIn에서 연결하기',
+    viewAllGuides: '모든 가이드 보기',
+    areasOfExpertise: '전문 분야',
+    resumeGuidesBy: '{name}의 이력서 가이드',
+    guidesCount: '{count}개 가이드',
+    coverLetterExamplesBy: '{name}의 자기소개서 예시',
+    examplesCount: '{count}개 예시',
+    blogPostsBy: '{name}의 블로그 글',
+    postsCount: '{count}개 글',
+    viewAllResumes: '{count}개 이력서 가이드 모두 보기',
+    viewAllCoverLetters: '{count}개 자기소개서 예시 모두 보기',
+    viewAllBlogPosts: '{count}개 블로그 글 모두 보기',
+    cta: {
+      title: '전문가의 노하우로 이력서를 작성하세요',
+      subtitle: '{name}이(가) 추천하는 전략을 활용하세요. AI 빌더가 전문가의 이력서 기법을 자동으로 적용합니다.',
+      button: '무료로 이력서 만들기',
+    },
+  },
+};
+
+const vi: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Về Chúng Tôi',
+      title: 'Xây dựng tương lai của',
+      titleHighlight: 'thành công nghề nghiệp',
+      subtitle: 'Best AI Resume có sứ mệnh giúp người tìm việc trên toàn thế giới tạo CV chuyên nghiệp, tối ưu ATS, mở cánh cửa đến sự nghiệp mơ ước.',
+    },
+    story: {
+      badge: 'Câu Chuyện Của Chúng Tôi',
+      heading: 'Tại sao chúng tôi xây dựng Best AI Resume',
+      p1: 'Chúng tôi nhận ra rằng nhiều chuyên gia tài năng bị bỏ qua chỉ vì CV của họ không vượt qua được hệ thống sàng lọc tự động ATS. Quy trình tạo CV truyền thống tốn thời gian, gây bực bội và thường tạo ra những tài liệu không thể hiện hết tiềm năng thực sự của ứng viên.',
+      p2: 'Vì vậy chúng tôi đã tạo Best AI Resume—nền tảng kết hợp sức mạnh trí tuệ nhân tạo với thiết kế chuyên nghiệp. Mục tiêu rất đơn giản: giúp mọi ứng viên thể hiện tốt nhất trước nhà tuyển dụng.',
+      p3: 'Đến nay, chúng tôi đã giúp hơn 50.000 chuyên gia có được công việc mơ ước bằng những CV nổi bật và vượt qua hệ thống ATS thành công.',
+    },
+    stats: [
+      { value: '50K+', label: 'CV Đã Tạo' },
+      { value: '98%', label: 'Tỷ Lệ Vượt ATS' },
+      { value: '20+', label: 'Mẫu CV' },
+      { value: '4.9', label: 'Đánh Giá Người Dùng' },
+    ],
+    values: {
+      badge: 'Giá Trị Cốt Lõi',
+      heading: 'Điều thúc đẩy chúng tôi mỗi ngày',
+      cards: [
+        { title: 'Bảo Mật Hàng Đầu', text: 'Dữ liệu của bạn thuộc về bạn. Chúng tôi lưu dữ liệu CV trên trình duyệt, không phải trên server. Chỉ thông tin đăng nhập được lưu trữ an toàn bởi chúng tôi.' },
+        { title: 'Đổi Mới Sáng Tạo', text: 'Chúng tôi tận dụng công nghệ AI tiên tiến nhất để giúp bạn viết nội dung hấp dẫn, nổi bật thành tích và thu hút nhà tuyển dụng.' },
+        { title: 'Dễ Tiếp Cận', text: 'Công cụ CV chuyên nghiệp không nên bị giấu sau những gói đăng ký đắt đỏ. Chúng tôi cung cấp tính năng mạnh mẽ cho mọi người.' },
+      ],
+    },
+    experts: {
+      badge: 'Chuyên Gia Uy Tín',
+      heading: 'Gặp Gỡ Chuyên Gia Nghề Nghiệp',
+      subtitle: 'Đội ngũ tư vấn viên nghề nghiệp, nhà tuyển dụng và chuyên gia ngành mang đến kinh nghiệm sâu rộng trong các hướng dẫn viết CV.',
+    },
+    editorial: {
+      heading: 'Tiêu Chuẩn Biên Tập',
+      items: [
+        { title: 'Tư Vấn Dựa Trên Dữ Liệu', text: 'Mọi lời khuyên đều được kiểm tra trên hệ thống ATS thực và xác minh bởi chuyên gia ngành.' },
+        { title: 'Tiếp Cận Lấy Con Người Làm Trung Tâm', text: 'Chúng tôi tin rằng AI nên hỗ trợ chứ không thay thế. Ưu tiên chiến lược chinh phục nhà tuyển dụng trước tiên.' },
+      ],
+    },
+    commitment: {
+      heading: 'Cam Kết Với Bạn',
+      p1: 'Tại Best AI Resume, chúng tôi tin rằng hành trình nghề nghiệp là riêng của mỗi người. Vì vậy chúng tôi xây dựng nền tảng tôn trọng quyền riêng tư đồng thời cung cấp công cụ mạnh mẽ giúp bạn thành công. Dữ liệu CV ở trên thiết bị của bạn, cho bạn toàn quyền kiểm soát.',
+      p2: 'Chúng tôi liên tục cải tiến thuật toán AI, bổ sung mẫu mới và nâng cấp tính năng dựa trên phản hồi người dùng. Thành công của bạn là thành công của chúng tôi.',
+    },
+    cta: {
+      title: 'Sẵn sàng gia nhập',
+      titleHighlight: 'hơn 50.000 câu chuyện thành công?',
+      subtitle: 'Bắt đầu tạo CV chuyên nghiệp ngay hôm nay và bước đầu tiên đến sự nghiệp mơ ước.',
+      button: 'Bắt Đầu Miễn Phí',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Đội Ngũ Chuyên Gia | Best AI Resume',
+      description: 'Gặp gỡ các chuyên gia nghề nghiệp, nhà tuyển dụng và tư vấn viên đứng sau các hướng dẫn viết CV. Đội ngũ mang kinh nghiệm tuyển dụng thực tế giúp bạn có được công việc mơ ước.',
+      ogDescription: 'Gặp gỡ các chuyên gia nghề nghiệp, nhà tuyển dụng và tư vấn viên đứng sau các hướng dẫn viết CV.',
+    },
+    breadcrumb: { home: 'Trang Chủ', about: 'Về Chúng Tôi', authors: 'Tác Giả' },
+    hero: {
+      title: 'Gặp Gỡ Đội Ngũ Chuyên Gia',
+      subtitle: 'Đội ngũ tư vấn viên nghề nghiệp, nhà tuyển dụng và chuyên gia ngành tạo ra các hướng dẫn CV thực tiễn dựa trên kinh nghiệm tuyển dụng thực tế.',
+    },
+    viewProfile: 'Xem Hồ Sơ',
+    cta: {
+      title: 'Tạo CV Với Hướng Dẫn Từ Chuyên Gia',
+      subtitle: 'Công cụ AI áp dụng các chiến lược được chuyên gia khuyên dùng. Tạo CV chuyên nghiệp trong vài phút.',
+      button: 'Tạo CV Miễn Phí',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Trang Chủ', about: 'Về Chúng Tôi' },
+    atOrg: '{jobTitle} tại {organization}',
+    authorOfGuides: ' Tác giả của hơn {count} hướng dẫn nghề nghiệp và bài viết.',
+    connectLinkedIn: 'Kết Nối Trên LinkedIn',
+    viewAllGuides: 'Xem Tất Cả Hướng Dẫn',
+    areasOfExpertise: 'Lĩnh Vực Chuyên Môn',
+    resumeGuidesBy: 'Hướng Dẫn CV của {name}',
+    guidesCount: '{count} hướng dẫn',
+    coverLetterExamplesBy: 'Mẫu Thư Xin Việc của {name}',
+    examplesCount: '{count} mẫu',
+    blogPostsBy: 'Bài Viết Blog của {name}',
+    postsCount: '{count} bài viết',
+    viewAllResumes: 'Xem tất cả {count} hướng dẫn CV',
+    viewAllCoverLetters: 'Xem tất cả {count} mẫu thư xin việc',
+    viewAllBlogPosts: 'Xem tất cả {count} bài viết blog',
+    cta: {
+      title: 'Tạo CV Với Hướng Dẫn Từ Chuyên Gia',
+      subtitle: 'Áp dụng chiến lược được {name} khuyên dùng. Công cụ AI tự động áp dụng kỹ thuật viết CV từ chuyên gia.',
+      button: 'Tạo CV Miễn Phí',
+    },
+  },
+};
+
+const th: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'เกี่ยวกับเรา',
+      title: 'สร้างอนาคตของ',
+      titleHighlight: 'ความสำเร็จในอาชีพ',
+      subtitle: 'Best AI Resume มีพันธกิจช่วยให้ผู้หางานทั่วโลกสร้างเรซูเม่มืออาชีพที่ผ่านระบบ ATS ได้อย่างมั่นใจ เปิดประตูสู่อาชีพในฝันของคุณ',
+    },
+    story: {
+      badge: 'เรื่องราวของเรา',
+      heading: 'ทำไมเราจึงสร้าง Best AI Resume',
+      p1: 'เราพบว่ามืออาชีพที่มีความสามารถจำนวนมากถูกมองข้าม เพียงเพราะเรซูเม่ของพวกเขาไม่ผ่านระบบคัดกรองอัตโนมัติ กระบวนการสร้างเรซูเม่แบบเดิมนั้นใช้เวลานาน สร้างความหงุดหงิด และมักสร้างเอกสารที่ไม่สามารถแสดงศักยภาพที่แท้จริงของผู้สมัครได้',
+      p2: 'นั่นคือเหตุผลที่เราสร้าง Best AI Resume ขึ้นมา แพลตฟอร์มที่ผสมผสานพลังของปัญญาประดิษฐ์เข้ากับดีไซน์ที่สวยงามและเป็นมืออาชีพ เป้าหมายของเรานั้นเรียบง่าย: ช่วยให้ผู้หางานทุกคนนำเสนอตัวเองได้ดีที่สุดต่อนายจ้าง',
+      p3: 'จนถึงวันนี้ เราได้ช่วยผู้เชี่ยวชาญกว่า 50,000 คนให้ได้งานในฝัน ด้วยการสร้างเรซูเม่ที่โดดเด่นและผ่านระบบ ATS ได้อย่างราบรื่น',
+    },
+    stats: [
+      { value: '50K+', label: 'เรซูเม่ที่สร้างแล้ว' },
+      { value: '98%', label: 'อัตราผ่าน ATS' },
+      { value: '20+', label: 'เทมเพลต' },
+      { value: '4.9', label: 'คะแนนจากผู้ใช้' },
+    ],
+    values: {
+      badge: 'ค่านิยมของเรา',
+      heading: 'สิ่งที่ขับเคลื่อนเราไปข้างหน้า',
+      cards: [
+        { title: 'ความเป็นส่วนตัวมาก่อน', text: 'ข้อมูลของคุณเป็นของคุณ เราจัดเก็บข้อมูลเรซูเม่ในเบราว์เซอร์ของคุณ ไม่ใช่บนเซิร์ฟเวอร์ของเรา มีเพียงข้อมูลยืนยันตัวตนเท่านั้นที่จัดเก็บอย่างปลอดภัยฝั่งเรา' },
+        { title: 'นวัตกรรม', text: 'เราใช้เทคโนโลยี AI ล้ำสมัยเพื่อช่วยคุณเขียนเนื้อหาที่น่าสนใจ เน้นผลงาน และดึงดูดความสนใจจากผู้จ้างงาน' },
+        { title: 'การเข้าถึง', text: 'เครื่องมือสร้างเรซูเม่มืออาชีพไม่ควรอยู่เบื้องหลังราคาที่แพงเกินไป เรามอบฟีเจอร์อันทรงพลังที่ทุกคนเข้าถึงได้' },
+      ],
+    },
+    experts: {
+      badge: 'ความเชี่ยวชาญที่น่าเชื่อถือ',
+      heading: 'พบกับผู้เชี่ยวชาญด้านอาชีพของเรา',
+      subtitle: 'ทีมงานของเราประกอบด้วยโค้ชด้านอาชีพ ผู้เชี่ยวชาญด้านการสรรหาบุคลากร และผู้เชี่ยวชาญเฉพาะด้าน ที่นำความรู้เชิงลึกมาสู่คู่มือเรซูเม่ที่พวกเขาเขียน',
+    },
+    editorial: {
+      heading: 'มาตรฐานบรรณาธิการของเรา',
+      items: [
+        { title: 'คำแนะนำที่อิงข้อมูล', text: 'ทุกคำแนะนำที่เราแบ่งปันได้รับการทดสอบกับระบบ ATS จริง และตรวจสอบโดยผู้เชี่ยวชาญในอุตสาหกรรม' },
+        { title: 'แนวทางที่เน้นมนุษย์เป็นหลัก', text: 'เราเชื่อว่า AI ควรเสริมศักยภาพ ไม่ใช่ทดแทน เราให้ความสำคัญกับกลยุทธ์ที่ดึงดูดผู้จ้างงานจริง ๆ ก่อน' },
+      ],
+    },
+    commitment: {
+      heading: 'คำมั่นสัญญาของเราต่อคุณ',
+      p1: 'ที่ Best AI Resume เราเชื่อว่าเส้นทางอาชีพเป็นเรื่องเฉพาะตัวของแต่ละคน นั่นคือเหตุผลที่เราสร้างแพลตฟอร์มที่เคารพความเป็นส่วนตัวของคุณ พร้อมมอบเครื่องมืออันทรงพลังเพื่อความสำเร็จ ข้อมูลเรซูเม่จะอยู่บนอุปกรณ์ของคุณ ให้คุณควบคุมข้อมูลได้อย่างสมบูรณ์',
+      p2: 'เราพัฒนาอัลกอริทึม AI อย่างต่อเนื่อง เพิ่มเทมเพลตใหม่ และปรับปรุงฟีเจอร์ต่าง ๆ ตามความคิดเห็นของผู้ใช้ ความสำเร็จของคุณคือความสำเร็จของเรา และเรามุ่งมั่นสนับสนุนคุณทุกขั้นตอน',
+    },
+    cta: {
+      title: 'พร้อมเข้าร่วมกับ',
+      titleHighlight: 'เรื่องราวความสำเร็จกว่า 50,000 เรื่อง?',
+      subtitle: 'เริ่มสร้างเรซูเม่มืออาชีพของคุณวันนี้ และก้าวแรกสู่อาชีพในฝัน',
+      button: 'เริ่มต้นฟรี',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'ทีมผู้เชี่ยวชาญของเรา | Best AI Resume',
+      description: 'พบกับผู้เชี่ยวชาญด้านอาชีพ ผู้จ้างงาน และโค้ชที่อยู่เบื้องหลังคู่มือเรซูเม่ของเรา ผู้เขียนของเรานำประสบการณ์จริงด้านการสรรหาบุคลากรมาช่วยคุณได้งานในฝัน',
+      ogDescription: 'พบกับผู้เชี่ยวชาญด้านอาชีพ ผู้จ้างงาน และโค้ชที่อยู่เบื้องหลังคู่มือเรซูเม่ของเรา',
+    },
+    breadcrumb: { home: 'หน้าแรก', about: 'เกี่ยวกับเรา', authors: 'ผู้เขียน' },
+    hero: {
+      title: 'พบกับทีมผู้เชี่ยวชาญของเรา',
+      subtitle: 'ทีมโค้ชด้านอาชีพ ผู้เชี่ยวชาญด้านการสรรหาบุคลากร และผู้เชี่ยวชาญเฉพาะด้านสร้างคู่มือเรซูเม่ที่ใช้ได้จริง จากประสบการณ์จริงในการจ้างงาน',
+    },
+    viewProfile: 'ดูโปรไฟล์',
+    cta: {
+      title: 'สร้างเรซูเม่ด้วยคำแนะนำจากผู้เชี่ยวชาญ',
+      subtitle: 'เครื่องมือ AI ของเราใช้กลยุทธ์เดียวกับที่ผู้เชี่ยวชาญแนะนำ สร้างเรซูเม่มืออาชีพได้ในไม่กี่นาที',
+      button: 'สร้างเรซูเม่ฟรี',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'หน้าแรก', about: 'เกี่ยวกับเรา' },
+    atOrg: '{jobTitle} ที่ {organization}',
+    authorOfGuides: ' ผู้เขียนคู่มืออาชีพและบทความมากกว่า {count} ชิ้น',
+    connectLinkedIn: 'เชื่อมต่อบน LinkedIn',
+    viewAllGuides: 'ดูคู่มือทั้งหมด',
+    areasOfExpertise: 'ด้านที่เชี่ยวชาญ',
+    resumeGuidesBy: 'คู่มือเรซูเม่โดย {name}',
+    guidesCount: '{count} คู่มือ',
+    coverLetterExamplesBy: 'ตัวอย่างจดหมายสมัครงานโดย {name}',
+    examplesCount: '{count} ตัวอย่าง',
+    blogPostsBy: 'บทความบล็อกโดย {name}',
+    postsCount: '{count} บทความ',
+    viewAllResumes: 'ดูคู่มือเรซูเม่ทั้งหมด {count} รายการ',
+    viewAllCoverLetters: 'ดูตัวอย่างจดหมายสมัครงานทั้งหมด {count} รายการ',
+    viewAllBlogPosts: 'ดูบทความบล็อกทั้งหมด {count} รายการ',
+    cta: {
+      title: 'สร้างเรซูเม่ด้วยคำแนะนำจากผู้เชี่ยวชาญ',
+      subtitle: 'ใช้กลยุทธ์เดียวกับที่ {name} แนะนำ เครื่องมือ AI ของเราจะนำเทคนิคการเขียนเรซูเม่จากผู้เชี่ยวชาญมาใช้โดยอัตโนมัติ',
+      button: 'สร้างเรซูเม่ฟรี',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }

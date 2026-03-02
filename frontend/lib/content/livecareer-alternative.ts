@@ -869,5 +869,377 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: ComparisonPageContent = {
+  meta: {
+    title: 'LiveCareer 대안 2026: 무료 AI 이력서 작성기 | Best AI Resume',
+    description: 'LiveCareer 무료 대안을 찾고 계신가요? LiveCareer vs Best AI Resume Builder 비교 — AI 이력서 작성, ATS 이력서 템플릿, 무제한 다운로드. 구독 불필요.',
+    keywords: 'livecareer 대안, 이력서 작성기, 이력서 템플릿, AI 이력서, 무료 이력서, ATS 이력서, 이력서 쓰는 법, livecareer 무료 대안',
+  },
+  schemas: {
+    breadcrumbName: 'LiveCareer 대안',
+    articleHeadline: 'LiveCareer 최고의 대안 2026: 무료 AI 이력서 작성기',
+    articleDescription: 'LiveCareer vs Best AI Resume Builder 비교. 최신 AI 이력서 작성과 ATS 최적화를 완전 무료로, 구독 없이 이용하세요.',
+  },
+  hero: {
+    badge: 'LiveCareer 대안',
+    title: '현대적인 AI 이력서 작성기.',
+    titleHighlight: '영원히 무료.',
+    subtitle: 'LiveCareer는 2005년부터 서비스해왔지만, 기능이 시대에 뒤처졌습니다. 월 $19.95 대신 <strong>AI 이력서 작성</strong>, 현대적 템플릿, ATS 점수를 <strong>₩0</strong>으로 이용하세요.',
+    ctaPrimary: '무료 이력서 만들기',
+    ctaSecondary: '비교 확인하기',
+  },
+  problem: {
+    title: 'LiveCareer는 훌륭했습니다 — 2015년에는',
+    description: 'LiveCareer는 온라인 이력서 작성의 선구자였습니다. 하지만 업계가 AI 이력서 작성과 실시간 ATS 최적화로 전환하는 동안, LiveCareer는 여전히 <strong>기성 문구 라이브러리</strong>와 오래된 인터페이스에 의존하고 있습니다. 구독료는 <strong>월 $19.95</strong>로, 현대적인 무료 도구가 이미 능가한 기능에 대한 비용입니다.',
+    stats: [
+      { value: '$5.95', label: '14일 체험판 (이후 $19.95/월)' },
+      { value: '2005', label: 'LiveCareer 설립 연도' },
+      { value: '₩0', label: 'Best AI Resume Builder — 영원히 무료' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: '레거시 이력서 작성기 vs 현대 AI 플랫폼.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '가격', competitor: '❌ 체험판 $5.95 → $19.95/월', ours: '✅ 100% 영원히 무료' },
+      { feature: 'AI 이력서 작성', competitor: '❌ 기성 문구만 제공', ours: '✅ AI 맞춤 콘텐츠 생성' },
+      { feature: 'ATS 최적화', competitor: '⚠️ 기본적인 조언만', ours: '✅ 실시간 ATS 점수 + 키워드' },
+      { feature: '이력서 템플릿 디자인', competitor: '⚠️ 구식 디자인, 적은 선택지', ours: '✅ 20개 이상 현대적 ATS 템플릿' },
+      { feature: '사용자 인터페이스', competitor: '⚠️ 오래된 느낌', ours: '✅ 현대적이고 안내형 경험' },
+      { feature: 'PDF 출력', competitor: '❌ 유료 플랜 필수', ours: '✅ 무제한 무료 내보내기' },
+      { feature: '커버 레터', competitor: '✅ 작성기 포함 (유료)', ours: '✅ AI 기반 (무료)' },
+      { feature: '콘텐츠 품질', competitor: '⚠️ 일반적인 기성 제안', ours: '✅ 개인 맞춤 AI 작성' },
+      { feature: '채용 공고 대응', competitor: '⚠️ 수동 키워드 매칭', ours: '✅ AI 기반 키워드 최적화' },
+      { feature: '이력서 샘플', competitor: '✅ 샘플 라이브러리', ours: '✅ 300개 이상 상세 샘플' },
+    ],
+  },
+  whySwitch: {
+    title: 'LiveCareer에서 전환해야 할 3가지 이유',
+    subtitle: '비용 없이 최신 AI로 업그레이드하세요.',
+    reasons: [
+      { title: '진짜 AI 이력서 작성', description: 'LiveCareer는 기성 문구를 제공합니다. 저희 AI는 실제 경력에서 맞춤 성과를 생성하고, 지원하는 각 채용 공고에 맞춰 이력서를 최적화합니다.' },
+      { title: '현대적인 이력서 템플릿', description: 'LiveCareer의 템플릿은 10년 전 디자인처럼 보입니다. 20개 이상의 템플릿으로 화면에서도 인쇄에서도 전문적인 현대적 디자인을 제공합니다.' },
+      { title: '연간 약 30만원 절약', description: 'LiveCareer는 월 $19.95 (연간 약 $240). 저희 AI 이력서 작성기는 더 나은 기술을 무료로 제공합니다 — 체험판 없음, 구독 없음, 제약 없음.' },
+    ],
+  },
+  recommendation: {
+    title: '솔직한 추천',
+    useCompetitor: {
+      title: 'LiveCareer가 적합한 경우',
+      items: [
+        'AI 없이 전통적인 이력서 작성 방식을 선호하는 경우',
+        '복사 후 편집 가능한 기성 콘텐츠가 필요한 경우',
+        '구독형 도구에 익숙한 경우',
+        '특정 급여 비교 기능이 필요한 경우',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes가 적합한 경우',
+      items: [
+        'AI가 내 경력에 기반한 맞춤 콘텐츠를 작성해주길 원하는 경우',
+        '현대적이고 깔끔한 인터페이스를 선호하는 경우',
+        '실시간 ATS 점수와 키워드 최적화가 필요한 경우',
+        '결제 없이 무제한 PDF 출력을 원하는 경우',
+        '이력서 도구에 월 구독료를 내고 싶지 않은 경우',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300개 이상의 무료 이력서 샘플 보기',
+    description: '회계사부터 교사, 프로젝트 매니저까지 모든 직종의 전문 이력서 샘플을 탐색하세요.',
+    ctaBrowse: '이력서 샘플 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'LiveCareer는 무료인가요?', answer: 'LiveCareer는 제한적인 무료 플랜을 제공하지만, 전체 템플릿 접근, PDF 다운로드, 이력서 작성기 등 대부분의 기능에는 구독 (14일 체험판 $5.95, 이후 $19.95/월)이 필요합니다. Best AI Resume Builder는 체험판도 구독도 없이 100% 무료입니다.' },
+      { question: 'LiveCareer는 좋은 이력서 작성기인가요?', answer: 'LiveCareer는 가장 오래된 이력서 작성기 중 하나(2005년 설립)로, 단계별 안내와 템플릿을 제공합니다. 하지만 현대적인 AI 이력서 작성기와 비교하면 인터페이스가 구식이고 구독 비용이 부담됩니다. Best AI Resume Builder는 무료로 AI 작성과 현대적 이력서 템플릿을 제공합니다.' },
+      { question: 'LiveCareer의 가장 좋은 무료 대안은?', answer: 'Best AI Resume Builder가 최고의 무료 대안입니다. AI 이력서 작성, 20개 이상의 ATS 테스트 완료 이력서 템플릿, 실시간 ATS 점수, 무제한 PDF 내보내기 — 전부 무료. 체험판 없음, 신용카드 불필요, 기능 제한 없음.' },
+      { question: 'LiveCareer에는 AI 작성 기능이 있나요?', answer: 'LiveCareer는 직종별 기성 문구 제안을 제공하지만, 맞춤 콘텐츠를 생성하는 현대적 AI는 사용하지 않습니다. Best AI Resume Builder는 고급 AI를 활용해 경력과 목표 포지션에 맞는 개인화된 성과, 자기소개, 역량을 작성합니다.' },
+      { question: 'LiveCareer를 해지하려면 어떻게 하나요?', answer: 'LiveCareer 구독은 계정 설정 또는 고객 지원 연락을 통해 해지할 수 있습니다. 요금 청구를 피하려면 체험 기간 종료 전에 해지해야 합니다. Best AI Resume Builder에서는 해지할 것이 없습니다 — 구독 모델 없이 무료 서비스입니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 작성기와 비교',
+    items: [
+      { href: '/ko/zety-alternative', title: 'Zety 대안', subtitle: '가격 & 체험판 비교' },
+      { href: '/ko/canva-alternative', title: 'Canva 대안', subtitle: '디자인 도구 vs AI 작성기' },
+      { href: '/ko/rezi-alternative', title: 'Rezi 대안', subtitle: 'AI 기능 비교' },
+      { href: '/ko/resume-io-alternative', title: 'Resume.io 대안', subtitle: '가격 & 기능 비교' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [
+      { href: '/ko/blog/how-to-write-a-resume', label: '이력서 쓰는 법 (완전 가이드)' },
+      { href: '/ko/blog/how-to-write-ats-friendly-resume', label: 'ATS 이력서 작성법' },
+      { href: '/ko/resume-format', label: '이력서 형식 가이드 2026' },
+      { href: '/ko/blog/resume-action-verbs', label: '200개 이상의 이력서 액션 동사' },
+    ],
+  },
+  externalResources: {
+    title: '외부 리소스',
+    items: [
+      { href: 'https://www.livecareer.com/', label: 'LiveCareer 공식 사이트' },
+      { href: 'https://www.shrm.org/', label: 'SHRM 커리어 리소스' },
+    ],
+  },
+  bottomCta: {
+    title: '현대 AI. 비용 제로.',
+    description: 'LiveCareer에서 AI 기반 이력서 작성으로 업그레이드하세요. 더 나은 기술, 현대적인 이력서 템플릿, 무제한 내보내기 — 전부 무료.',
+    cta: '무료 이력서 만들기',
+    subtext: '영원히 무료. 신용카드 불필요.',
+  },
+};
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế LiveCareer 2026: Tạo CV Miễn Phí Với AI | Best AI Resume',
+    description: 'Tìm thay thế LiveCareer miễn phí? So sánh LiveCareer vs Best AI Resume Builder — tạo CV miễn phí với AI, mẫu CV ATS, tải không giới hạn. Không cần đăng ký.',
+    keywords: 'thay thế livecareer, tạo cv miễn phí, mẫu cv ats, cv xin việc, livecareer miễn phí, công cụ tạo cv ai, mẫu cv chuyên nghiệp',
+  },
+  schemas: {
+    breadcrumbName: 'Thay Thế LiveCareer',
+    articleHeadline: 'Thay Thế LiveCareer Tốt Nhất 2026: Công Cụ Tạo CV Miễn Phí Với AI',
+    articleDescription: 'So sánh LiveCareer vs Best AI Resume Builder. Tạo CV miễn phí với AI hiện đại và tối ưu ATS — hoàn toàn miễn phí, không cần đăng ký.',
+  },
+  hero: {
+    badge: 'Thay Thế LiveCareer',
+    title: 'Công Cụ Tạo CV AI Hiện Đại.',
+    titleHighlight: 'Miễn Phí Mãi Mãi.',
+    subtitle: 'LiveCareer ra đời từ 2005 — nhưng công cụ của họ không theo kịp thời đại. Nhận <strong>viết CV bằng AI</strong>, mẫu CV ATS hiện đại và chấm điểm ATS với giá <strong>0₫</strong> thay vì $19.95/tháng.',
+    ctaPrimary: 'Tạo CV Miễn Phí',
+    ctaSecondary: 'Xem So Sánh',
+  },
+  problem: {
+    title: 'LiveCareer Từng Tuyệt Vời — Vào Năm 2015',
+    description: 'LiveCareer là tiên phong trong lĩnh vực tạo CV trực tuyến. Nhưng trong khi ngành đã chuyển sang viết CV bằng AI và tối ưu ATS theo thời gian thực, LiveCareer vẫn dựa vào <strong>thư viện câu văn mẫu có sẵn</strong> và giao diện lỗi thời. Phí đăng ký của họ là <strong>$19.95/tháng</strong> cho những tính năng mà các công cụ tạo CV miễn phí hiện đại đã vượt qua.',
+    stats: [
+      { value: '$5.95', label: 'dùng thử 14 ngày (sau đó $19.95/tháng)' },
+      { value: '2005', label: 'năm LiveCareer được thành lập' },
+      { value: '0₫', label: 'Best AI Resume Builder — miễn phí mãi mãi' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: 'Công cụ cũ vs nền tảng AI hiện đại.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Chi phí', competitor: '❌ Dùng thử $5.95 → $19.95/tháng', ours: '✅ 100% miễn phí mãi mãi' },
+      { feature: 'Viết CV bằng AI', competitor: '❌ Chỉ có câu văn mẫu có sẵn', ours: '✅ AI tạo nội dung CV cá nhân hóa' },
+      { feature: 'Tối ưu ATS', competitor: '⚠️ Chỉ có gợi ý cơ bản', ours: '✅ Chấm điểm ATS thời gian thực + từ khóa' },
+      { feature: 'Thiết kế mẫu CV', competitor: '⚠️ Thiết kế lỗi thời, ít lựa chọn', ours: '✅ Hơn 20 mẫu CV ATS hiện đại' },
+      { feature: 'Giao diện người dùng', competitor: '⚠️ Cảm giác lỗi thời', ours: '✅ Trải nghiệm hiện đại, có hướng dẫn' },
+      { feature: 'Xuất PDF', competitor: '❌ Yêu cầu gói trả phí', ours: '✅ Xuất PDF miễn phí không giới hạn' },
+      { feature: 'Thư xin việc', competitor: '✅ Có công cụ tạo (trả phí)', ours: '✅ Tạo bằng AI (miễn phí)' },
+      { feature: 'Chất lượng nội dung', competitor: '⚠️ Gợi ý mẫu chung chung', ours: '✅ AI viết nội dung cá nhân hóa' },
+      { feature: 'Tùy chỉnh theo vị trí', competitor: '⚠️ Ghép từ khóa thủ công', ours: '✅ Tối ưu từ khóa bằng AI' },
+      { feature: 'Mẫu CV tham khảo', competitor: '✅ Thư viện mẫu CV', ours: '✅ Hơn 300 mẫu CV chi tiết' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Lý Do Nên Chuyển Từ LiveCareer',
+    subtitle: 'Nâng cấp lên AI hiện đại mà không tốn chi phí.',
+    reasons: [
+      { title: 'AI Viết CV Thực Sự', description: 'LiveCareer chỉ cung cấp câu văn mẫu có sẵn. AI của chúng tôi tạo các thành tích và kinh nghiệm cá nhân hóa từ lịch sử công việc thực tế của bạn, tối ưu cho từng vị trí ứng tuyển trên thị trường Việt Nam.' },
+      { title: 'Mẫu CV ATS Hiện Đại', description: 'Mẫu CV của LiveCareer trông như được thiết kế từ mười năm trước. Hơn 20 mẫu CV của chúng tôi sử dụng thiết kế đương đại, chuyên nghiệp trên màn hình lẫn khi in — phù hợp với tiêu chuẩn tuyển dụng Việt Nam.' },
+      { title: 'Tiết Kiệm ~5.7 Triệu ₫/Năm', description: 'LiveCareer tốn $19.95/tháng (khoảng 5.7 triệu ₫/năm). Công cụ tạo CV AI của chúng tôi cung cấp công nghệ tốt hơn với chi phí 0₫ — không dùng thử, không đăng ký, không ràng buộc.' },
+    ],
+  },
+  recommendation: {
+    title: 'Đề Xuất Trung Thực',
+    useCompetitor: {
+      title: 'LiveCareer có thể phù hợp nếu bạn...',
+      items: [
+        'Thích cách tạo CV truyền thống, không cần AI',
+        'Muốn nội dung mẫu có sẵn để sao chép và chỉnh sửa',
+        'Quen sử dụng các công cụ đăng ký trả phí hàng tháng',
+        'Cần tính năng so sánh lương chuyên biệt của họ',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes phù hợp hơn nếu bạn...',
+      items: [
+        'Muốn AI viết nội dung CV cá nhân hóa từ kinh nghiệm thực tế',
+        'Thích giao diện hiện đại, gọn gàng và dễ sử dụng',
+        'Cần chấm điểm ATS thời gian thực và tối ưu từ khóa',
+        'Muốn xuất PDF không giới hạn mà không trả phí',
+        'Không muốn trả phí đăng ký hàng tháng chỉ để tạo CV xin việc',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Xem Hơn 300 Mẫu CV Miễn Phí',
+    description: 'Khám phá các mẫu CV xin việc chuyên nghiệp — từ kế toán, giáo viên đến quản lý dự án và kỹ sư.',
+    ctaBrowse: 'Xem Mẫu CV Tham Khảo',
+    ctaTemplates: 'Xem Tất Cả Mẫu CV',
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      { question: 'LiveCareer có miễn phí không?', answer: 'LiveCareer cung cấp gói miễn phí rất hạn chế, nhưng hầu hết các tính năng hữu ích — bao gồm truy cập đầy đủ mẫu CV, tải PDF và công cụ tạo CV — đều yêu cầu đăng ký từ $5.95 cho 14 ngày dùng thử, sau đó $19.95/tháng. Best AI Resume Builder hoàn toàn miễn phí 100%, không dùng thử, không đăng ký.' },
+      { question: 'LiveCareer có phải công cụ tạo CV tốt không?', answer: 'LiveCareer là một trong những công cụ tạo CV lâu đời nhất (thành lập năm 2005), cung cấp mẫu CV với hướng dẫn từng bước. Tuy nhiên, giao diện đã lỗi thời so với các công cụ AI hiện đại và chi phí đăng ký khá cao. Best AI Resume Builder cung cấp viết CV bằng AI và mẫu CV hiện đại hoàn toàn miễn phí.' },
+      { question: 'Công cụ thay thế LiveCareer miễn phí tốt nhất là gì?', answer: 'Best AI Resume Builder là lựa chọn thay thế miễn phí tốt nhất. Cung cấp viết nội dung CV bằng AI, hơn 20 mẫu CV ATS đã được kiểm chứng, chấm điểm ATS thời gian thực và xuất PDF không giới hạn — tất cả đều miễn phí. Không cần dùng thử, không cần thẻ tín dụng, không giới hạn tính năng.' },
+      { question: 'LiveCareer có tính năng viết bằng AI không?', answer: 'LiveCareer cung cấp các gợi ý câu văn mẫu có sẵn theo ngành nghề, nhưng không sử dụng AI hiện đại để tạo nội dung cá nhân hóa. Best AI Resume Builder sử dụng AI tiên tiến để tạo thành tích, tóm tắt nghề nghiệp và kỹ năng được cá nhân hóa dựa trên kinh nghiệm thực tế và vị trí ứng tuyển của bạn.' },
+      { question: 'Làm thế nào để hủy đăng ký LiveCareer?', answer: 'Đăng ký LiveCareer có thể hủy qua cài đặt tài khoản hoặc liên hệ bộ phận hỗ trợ. Bạn phải hủy trước khi hết thời gian dùng thử để tránh bị tính phí. Với Best AI Resume Builder, không có gì cần hủy — dịch vụ hoàn toàn miễn phí, không có mô hình đăng ký trả phí.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So Sánh Các Công Cụ Tạo CV Khác',
+    items: [
+      { href: '/vi/adobe-alternative', title: 'Thay Thế Adobe', subtitle: 'So sánh thiết kế vs tạo CV AI' },
+      { href: '/vi/canva-alternative', title: 'Thay Thế Canva', subtitle: 'Công cụ thiết kế vs tạo CV AI' },
+      { href: '/vi/zety-alternative', title: 'Thay Thế Zety', subtitle: 'So sánh giá và bản dùng thử' },
+      { href: '/vi/rezi-alternative', title: 'Thay Thế Rezi', subtitle: 'So sánh tính năng AI' },
+    ],
+    guidesTitle: 'Hướng Dẫn CV Hữu Ích',
+    guides: [
+      { href: '/vi/blog/how-to-write-a-resume', label: 'Cách Viết CV Xin Việc (Hướng Dẫn Chi Tiết)' },
+      { href: '/vi/blog/how-to-write-ats-friendly-resume', label: 'Cách Viết CV Tương Thích ATS' },
+      { href: '/vi/resume-format', label: 'Hướng Dẫn Định Dạng CV 2026' },
+      { href: '/vi/blog/resume-action-verbs', label: 'Hơn 200 Động Từ Hành Động Cho CV' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.livecareer.com/', label: 'Trang Chính Thức LiveCareer' },
+      { href: 'https://www.shrm.org/', label: 'SHRM Tài Nguyên Nghề Nghiệp' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI Hiện Đại. Hoàn Toàn Miễn Phí.',
+    description: 'Nâng cấp từ LiveCareer sang công cụ tạo CV xin việc bằng AI. Công nghệ tốt hơn, mẫu CV ATS hiện đại, xuất PDF không giới hạn — tất cả đều miễn phí.',
+    cta: 'Tạo CV Miễn Phí',
+    subtext: 'Miễn phí mãi mãi. Không cần thẻ tín dụng.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน LiveCareer สร้างเรซูเม่ 2026',
+    description: 'มองหาทางเลือกแทน LiveCareer ฟรี? เปรียบเทียบ LiveCareer กับ Best AI Resume Builder — เรซูเม่ AI เทมเพลต ATS ดาวน์โหลดไม่จำกัด ไม่ต้องสมัครสมาชิก',
+    keywords: 'ทางเลือก livecareer, สร้างเรซูเม่ฟรี, เรซูเม่ AI, เทมเพลตเรซูเม่, livecareer ฟรี, สร้าง cv ฟรี, เรซูเม่สมัครงาน, เรซูเม่ ATS',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน LiveCareer',
+    articleHeadline: 'ทางเลือกแทน LiveCareer สร้างเรซูเม่ 2026 ด้วย AI ฟรี',
+    articleDescription: 'เปรียบเทียบ LiveCareer กับ Best AI Resume Builder สร้างเรซูเม่ด้วย AI สมัยใหม่ ปรับแต่ง ATS — ฟรีทั้งหมด ไม่ต้องสมัครสมาชิก',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน LiveCareer',
+    title: 'สร้างเรซูเม่ AI สมัยใหม่',
+    titleHighlight: 'ฟรีตลอดไป',
+    subtitle: 'LiveCareer เปิดตัวมาตั้งแต่ปี 2005 แต่เครื่องมือไม่ได้พัฒนาตามยุคสมัย รับ<strong>เรซูเม่เขียนด้วย AI</strong> เทมเพลตทันสมัย และให้คะแนน ATS ในราคา <strong>0 บาท</strong> แทนที่จะจ่าย $19.95/เดือน',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูตารางเปรียบเทียบ',
+  },
+  problem: {
+    title: 'LiveCareer เคยดี — เมื่อปี 2015',
+    description: 'LiveCareer เป็นผู้บุกเบิกการสร้างเรซูเม่ออนไลน์ แต่ในขณะที่อุตสาหกรรมก้าวสู่การเขียนด้วย AI และปรับแต่ง ATS แบบเรียลไทม์ LiveCareer ยังคงใช้<strong>คลังประโยคสำเร็จรูป</strong>และอินเทอร์เฟซที่ล้าสมัย ค่าสมาชิก <strong>$19.95/เดือน</strong> สำหรับฟีเจอร์ที่เครื่องมือฟรีสมัยใหม่ทำได้ดีกว่าแล้ว',
+    stats: [
+      { value: '$5.95', label: 'ทดลองใช้ 14 วัน (หลังจากนั้น $19.95/เดือน)' },
+      { value: '2005', label: 'ปีที่ LiveCareer ก่อตั้ง' },
+      { value: '฿0', label: 'Best AI Resume Builder — ฟรีตลอดไป' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer เทียบกับ Best AI Resume Builder',
+    subtitle: 'เครื่องมือรุ่นเก่า เทียบกับแพลตฟอร์ม AI สมัยใหม่',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ราคา', competitor: '❌ ทดลอง $5.95 → $19.95/เดือน', ours: '✅ ฟรี 100% ตลอดไป' },
+      { feature: 'เขียนเรซูเม่ด้วย AI', competitor: '❌ มีแค่ประโยคสำเร็จรูป', ours: '✅ AI สร้างเนื้อหาเฉพาะบุคคล' },
+      { feature: 'ปรับแต่ง ATS', competitor: '⚠️ คำแนะนำพื้นฐานเท่านั้น', ours: '✅ ให้คะแนน ATS แบบเรียลไทม์ + คีย์เวิร์ด' },
+      { feature: 'ดีไซน์เทมเพลต', competitor: '⚠️ ดีไซน์ล้าสมัย เลือกได้น้อย', ours: '✅ 20+ เทมเพลต ATS ทันสมัย' },
+      { feature: 'อินเทอร์เฟซ', competitor: '⚠️ ใช้งานรู้สึกล้าสมัย', ours: '✅ ทันสมัย มีขั้นตอนแนะนำ' },
+      { feature: 'ส่งออก PDF', competitor: '❌ ต้องจ่ายเงิน', ours: '✅ ส่งออก PDF ฟรีไม่จำกัด' },
+      { feature: 'จดหมายสมัครงาน', competitor: '✅ มีเครื่องมือสร้าง (เสียเงิน)', ours: '✅ เขียนด้วย AI (ฟรี)' },
+      { feature: 'คุณภาพเนื้อหา', competitor: '⚠️ ข้อเสนอแนะสำเร็จรูปทั่วไป', ours: '✅ AI เขียนเฉพาะบุคคล' },
+      { feature: 'ปรับแต่งตามตำแหน่งงาน', competitor: '⚠️ จับคู่คีย์เวิร์ดด้วยตัวเอง', ours: '✅ AI ปรับแต่งคีย์เวิร์ดให้อัตโนมัติ' },
+      { feature: 'ตัวอย่างเรซูเม่', competitor: '✅ มีคลังตัวอย่าง', ours: '✅ ตัวอย่างเรซูเม่กว่า 300 แบบ' },
+    ],
+  },
+  whySwitch: {
+    title: '3 เหตุผลที่ควรเปลี่ยนจาก LiveCareer',
+    subtitle: 'อัปเกรดเป็น AI สมัยใหม่โดยไม่ต้องเสียเงิน',
+    reasons: [
+      { title: 'AI เขียนเรซูเม่จริงๆ', description: 'LiveCareer ให้แค่ประโยคสำเร็จรูป AI ของเราสร้างรายละเอียดประสบการณ์จากข้อมูลจริงของคุณ ปรับแต่งให้เหมาะกับแต่ละตำแหน่งที่สมัครในตลาดงานไทย' },
+      { title: 'เทมเพลตเรซูเม่ทันสมัย', description: 'เทมเพลตของ LiveCareer ดูเหมือนออกแบบมาเมื่อสิบปีก่อน เทมเพลตกว่า 20 แบบของเราใช้ดีไซน์ร่วมสมัย ดูเป็นมืออาชีพทั้งบนหน้าจอและเมื่อพิมพ์' },
+      { title: 'ประหยัดประมาณ 8,500 บาท/ปี', description: 'LiveCareer คิดค่าบริการ $19.95/เดือน (ประมาณ 8,500 บาท/ปี) เครื่องมือสร้างเรซูเม่ AI ของเราให้เทคโนโลยีที่ดีกว่าในราคา 0 บาท — ไม่ต้องทดลองใช้ ไม่ต้องสมัครสมาชิก' },
+    ],
+  },
+  recommendation: {
+    title: 'คำแนะนำอย่างตรงไปตรงมา',
+    useCompetitor: {
+      title: 'LiveCareer อาจเหมาะถ้าคุณ...',
+      items: [
+        'ชอบสร้างเรซูเม่แบบดั้งเดิมโดยไม่ต้องพึ่ง AI',
+        'ต้องการเนื้อหาสำเร็จรูปให้ก็อปแล้วแก้ไขเอง',
+        'คุ้นชินกับการจ่ายค่าสมาชิกรายเดือน',
+        'ต้องการฟีเจอร์เปรียบเทียบเงินเดือนเฉพาะของ LiveCareer',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes เหมาะกว่าถ้าคุณ...',
+      items: [
+        'ต้องการ AI ที่เขียนเนื้อหาจากประสบการณ์จริงของคุณ',
+        'ชอบอินเทอร์เฟซที่ทันสมัย สะอาดตา ใช้ง่าย',
+        'ต้องการให้คะแนน ATS แบบเรียลไทม์และปรับแต่งคีย์เวิร์ด',
+        'ต้องการส่งออก PDF ไม่จำกัดโดยไม่ต้องจ่ายเงิน',
+        'ไม่อยากจ่ายค่าสมาชิกรายเดือนแค่เพื่อสร้างเรซูเม่สมัครงาน',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ฟรีกว่า 300 แบบ',
+    description: 'ตัวอย่างเรซูเม่สมัครงานมืออาชีพ — จากนักบัญชี ครู ไปจนถึงผู้จัดการโครงการและวิศวกร',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'LiveCareer ฟรีไหม?', answer: 'LiveCareer มีแผนฟรีแบบจำกัดมาก แต่ฟีเจอร์ที่ใช้ประโยชน์ได้จริง เช่น เทมเพลตครบ ดาวน์โหลด PDF และเครื่องมือสร้างเรซูเม่ ต้องสมัครสมาชิกเริ่มต้นที่ $5.95 ทดลอง 14 วัน แล้วเพิ่มเป็น $19.95/เดือน Best AI Resume Builder ฟรี 100% ไม่มีทดลองใช้ ไม่ต้องสมัครสมาชิก' },
+      { question: 'LiveCareer เป็นเครื่องมือสร้างเรซูเม่ที่ดีไหม?', answer: 'LiveCareer เป็นเครื่องมือสร้างเรซูเม่ที่เก่าแก่ที่สุดแห่งหนึ่ง (ก่อตั้งปี 2005) มีเทมเพลตพร้อมคำแนะนำทีละขั้นตอน แต่อินเทอร์เฟซดูล้าสมัยเมื่อเทียบกับเครื่องมือ AI สมัยใหม่ และค่าสมาชิกก็สะสมเป็นจำนวนมาก Best AI Resume Builder ให้เรซูเม่เขียนด้วย AI และเทมเพลตทันสมัยฟรี' },
+      { question: 'ทางเลือกแทน LiveCareer ฟรีที่ดีที่สุดคืออะไร?', answer: 'Best AI Resume Builder เป็นทางเลือกฟรีที่ดีที่สุด มี AI ช่วยเขียนเนื้อหา เทมเพลต ATS กว่า 20 แบบที่ผ่านการทดสอบแล้ว ให้คะแนน ATS แบบเรียลไทม์ และส่งออก PDF ไม่จำกัด — ทั้งหมดฟรี ไม่ต้องทดลองใช้ ไม่ต้องใช้บัตรเครดิต' },
+      { question: 'LiveCareer มีฟีเจอร์เขียนด้วย AI ไหม?', answer: 'LiveCareer มีคำแนะนำประโยคสำเร็จรูปจัดตามสายงาน แต่ไม่ได้ใช้ AI สมัยใหม่สร้างเนื้อหาเฉพาะบุคคล Best AI Resume Builder ใช้ AI ขั้นสูงสร้างรายละเอียดประสบการณ์ สรุปอาชีพ และทักษะที่ปรับแต่งตามประสบการณ์และตำแหน่งที่คุณสมัคร' },
+      { question: 'จะยกเลิกสมาชิก LiveCareer ได้อย่างไร?', answer: 'สมาชิก LiveCareer ยกเลิกได้ผ่านหน้าตั้งค่าบัญชีหรือติดต่อฝ่ายสนับสนุน ต้องยกเลิกก่อนหมดช่วงทดลองใช้เพื่อหลีกเลี่ยงการถูกเรียกเก็บเงิน สำหรับ Best AI Resume Builder ไม่มีอะไรต้องยกเลิก เพราะบริการฟรีทั้งหมดโดยไม่มีระบบสมาชิก' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่นๆ',
+    items: [
+      { href: '/th/adobe-alternative', title: 'ทางเลือกแทน Adobe', subtitle: 'ดีไซน์ vs AI สร้างเรซูเม่' },
+      { href: '/th/canva-alternative', title: 'ทางเลือกแทน Canva', subtitle: 'เครื่องมือดีไซน์ vs AI' },
+      { href: '/th/zety-alternative', title: 'ทางเลือกแทน Zety', subtitle: 'เปรียบเทียบราคาและทดลองใช้' },
+      { href: '/th/rezi-alternative', title: 'ทางเลือกแทน Rezi', subtitle: 'เปรียบเทียบฟีเจอร์ AI' },
+    ],
+    guidesTitle: 'คู่มือเขียนเรซูเม่ที่มีประโยชน์',
+    guides: [
+      { href: '/th/blog/how-to-write-a-resume', label: 'วิธีเขียนเรซูเม่ (คู่มือฉบับสมบูรณ์)' },
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/resume-format', label: 'คู่มือรูปแบบเรซูเม่ 2026' },
+      { href: '/th/blog/resume-action-verbs', label: 'คำกริยาสำหรับเรซูเม่กว่า 200 คำ' },
+    ],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://www.livecareer.com/', label: 'เว็บไซต์ทางการ LiveCareer' },
+      { href: 'https://www.mol.go.th/', label: 'กระทรวงแรงงาน ประเทศไทย' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI สมัยใหม่ ฟรีทั้งหมด',
+    description: 'อัปเกรดจาก LiveCareer สู่เครื่องมือสร้างเรซูเม่ AI เทคโนโลยีดีกว่า เทมเพลตทันสมัย ส่งออก PDF ไม่จำกัด — ฟรีทั้งหมด',
+    cta: 'สร้างเรซูเม่ฟรี',
+    subtext: 'ฟรีตลอดไป ไม่ต้องใช้บัตรเครดิต',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

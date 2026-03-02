@@ -167,7 +167,70 @@ const it: CareerPagesContent = {
   },
 };
 
-const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it };
+const ko: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: '취업 자료 및 채용 정보 | Best AI Resume',
+      description: '취업에 필요한 커리어 자료, 채용 정보, 업계 동향, 이력서 작성 팁 등 경력 개발에 도움이 되는 정보를 확인하세요.',
+      ogTitle: '취업 자료 및 채용 정보 | Best AI Resume',
+      ogDescription: '취업 자료, 채용 정보, 경력 개발 팁을 확인하세요.',
+    },
+    badge: '커리어 센터',
+    title: '취업 자료 및',
+    titleHighlight: '채용 정보',
+    subtitle: '채용 공고, 커리어 인사이트, 이력서 쓰는 법 등 취업 준비에 필요한 자료를 한눈에 살펴보세요.',
+    featured: '주요 채용 정보',
+    noPostsTitle: '아직 게시된 글이 없습니다',
+    noPostsSub: '곧 유용한 취업 자료와 채용 정보가 업데이트됩니다!',
+  },
+  article: {
+    notFound: '게시글을 찾을 수 없습니다',
+  },
+};
+
+const vi: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Tài Nguyên Nghề Nghiệp & Cơ Hội Việc Làm | Best AI Resume',
+      description: 'Khám phá tài nguyên nghề nghiệp, cơ hội việc làm, xu hướng ngành nghề và mẹo phát triển sự nghiệp tại Việt Nam.',
+      ogTitle: 'Tài Nguyên Nghề Nghiệp & Cơ Hội Việc Làm | Best AI Resume',
+      ogDescription: 'Khám phá tài nguyên nghề nghiệp, cơ hội việc làm và mẹo phát triển sự nghiệp.',
+    },
+    badge: 'Trung Tâm Nghề Nghiệp',
+    title: 'Tài Nguyên Nghề Nghiệp &',
+    titleHighlight: 'Cơ Hội Việc Làm',
+    subtitle: 'Khám phá cơ hội việc làm, xu hướng nghề nghiệp và tài nguyên phát triển chuyên môn giúp bạn thăng tiến sự nghiệp.',
+    featured: 'Cơ Hội Nổi Bật',
+    noPostsTitle: 'Chưa có bài viết nào',
+    noPostsSub: 'Hãy quay lại sớm để cập nhật tài nguyên nghề nghiệp và cơ hội việc làm!',
+  },
+  article: {
+    notFound: 'Không Tìm Thấy Bài Viết',
+  },
+};
+
+const th: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'แหล่งข้อมูลอาชีพและโอกาสในการทำงาน | Best AI Resume',
+      description: 'ค้นพบแหล่งข้อมูลอาชีพ โอกาสงาน ข้อมูลเชิงลึกของอุตสาหกรรม และเคล็ดลับอาชีพเพื่อพัฒนาความก้าวหน้าในสายงานของคุณ',
+      ogTitle: 'แหล่งข้อมูลอาชีพและโอกาสในการทำงาน | Best AI Resume',
+      ogDescription: 'ค้นพบแหล่งข้อมูลอาชีพ โอกาสงาน และเคล็ดลับการพัฒนาวิชาชีพ',
+    },
+    badge: 'ศูนย์อาชีพ',
+    title: 'แหล่งข้อมูลอาชีพและ',
+    titleHighlight: 'โอกาสงาน',
+    subtitle: 'สำรวจโอกาสงาน ข้อมูลเชิงลึกด้านอาชีพ และแหล่งข้อมูลพัฒนาวิชาชีพเพื่อช่วยคุณก้าวหน้าในสายงาน',
+    featured: 'โอกาสแนะนำ',
+    noPostsTitle: 'ยังไม่มีบทความอาชีพ',
+    noPostsSub: 'กลับมาใหม่เร็ว ๆ นี้เพื่อแหล่งข้อมูลและโอกาสด้านอาชีพ!',
+  },
+  article: {
+    notFound: 'ไม่พบบทความ',
+  },
+};
+
+const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 
 export function getCareerListingContent(locale: string) { return selectContent(contentMap, locale).listing; }
 export function getCareerArticleContent(locale: string) { return selectContent(contentMap, locale).article; }

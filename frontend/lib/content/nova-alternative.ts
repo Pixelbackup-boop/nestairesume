@@ -827,5 +827,359 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: ComparisonPageContent = {
+  meta: {
+    title: 'NovaResume 대안 2026: 무료 AI 이력서 빌더 | Best AI Resume',
+    description: 'NovaResume(Nova CV) 무료 대안을 찾고 계신가요? Nova vs Best AI Resume Builder 비교 — AI 이력서 작성, ATS 템플릿, 무제한 내보내기. 영원히 무료.',
+    keywords: 'novaresume 대안, nova cv, 이력서 빌더, AI 이력서, 무료 이력서, 이력서 템플릿, 이력서 작성, nova cv 대체',
+  },
+  schemas: {
+    breadcrumbName: 'NovaResume 대안',
+    articleHeadline: 'NovaResume(Nova CV) 최고의 대안 2026: 무료 AI 이력서 빌더',
+    articleDescription: 'NovaResume vs Best AI Resume Builder 비교. AI 작성, ATS 최적화, 무제한 PDF 내보내기 — 완전 무료.',
+  },
+  hero: {
+    badge: 'NovaResume 대안',
+    title: '더 나은 템플릿. AI 작성.',
+    titleHighlight: '진짜 무료.',
+    subtitle: 'NovaResume는 프리미엄 템플릿과 PDF 내보내기에 <strong>월 $19.99</strong>를 청구합니다. AI 이력서 작성, ATS 점수 분석, 모든 템플릿을 <strong>$0</strong>에 이용하세요.',
+    ctaPrimary: '무료로 이력서 만들기',
+    ctaSecondary: '비교 보기',
+  },
+  problem: {
+    title: 'NovaResume: 깔끔한 템플릿, AI는 없음',
+    description: 'NovaResume(Nova CV Maker)는 깔끔한 템플릿을 제공하는 간단한 이력서 빌더입니다. 문제점은 <strong>AI 작성 지원이 없고</strong>, 무료 기능이 제한적이며, 다른 도구에서 무료로 제공하는 템플릿에 프리미엄 요금을 부과한다는 것입니다. 2026년, AI 없는 이력서 빌더는 경쟁력이 떨어집니다.',
+    stats: [
+      { value: '$19.99', label: 'NovaResume 프리미엄 월 요금' },
+      { value: '0', label: 'NovaResume의 AI 기능 수' },
+      { value: '$0', label: 'Best AI Resume Builder — 전체 AI, 무료' },
+    ],
+  },
+  comparison: {
+    title: 'NovaResume vs Best AI Resume Builder',
+    subtitle: '기본 빌더 vs AI 기반 플랫폼.',
+    competitorName: 'NovaResume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '요금', competitor: '❌ 무료는 제한적 / $19.99/월 프리미엄', ours: '✅ 100% 영원히 무료' },
+      { feature: 'AI 이력서 작성', competitor: '❌ AI 기능 없음', ours: '✅ AI 맞춤형 콘텐츠 생성' },
+      { feature: 'ATS 최적화', competitor: '⚠️ 기본 서식만 지원', ours: '✅ 실시간 ATS 점수 + 키워드' },
+      { feature: '템플릿 품질', competitor: '✅ 깔끔하고 미니멀한 디자인', ours: '✅ 20개 이상 ATS 테스트 완료 템플릿' },
+      { feature: 'PDF 내보내기', competitor: '❌ 프리미엄 전용', ours: '✅ 무제한 무료 내보내기' },
+      { feature: '커버 레터', competitor: '⚠️ 기본 빌더(프리미엄)', ours: '✅ AI 기반(무료)' },
+      { feature: '콘텐츠 제안', competitor: '❌ 수동 입력만 가능', ours: '✅ AI가 경력 기반으로 작성' },
+      { feature: '키워드 매칭', competitor: '❌ 지원 안 됨', ours: '✅ AI 키워드 최적화' },
+      { feature: '이력서 예시', competitor: '⚠️ 제한된 라이브러리', ours: '✅ 300개 이상 상세 예시' },
+      { feature: '다국어 지원', competitor: '✅ 다국어 지원', ours: '✅ 5개 언어 지원' },
+    ],
+  },
+  whySwitch: {
+    title: 'NovaResume에서 전환해야 하는 3가지 이유',
+    subtitle: '더 많은 기능. 더 나은 AI. 비용 제로.',
+    reasons: [
+      { title: 'AI 기반 이력서 작성', description: 'NovaResume에는 AI 기능이 없습니다. Best AI Resume Builder의 AI는 맞춤형 성과 기술, 전문 요약문, 키워드 최적화 콘텐츠를 지원 직무에 맞게 생성합니다 — 모두 무료.' },
+      { title: '실시간 ATS 점수 분석', description: 'NovaResume는 기본 서식만 제공합니다. 저희는 작성 중 실시간 ATS 점수와 서류 심사 통과 가능성을 높이는 AI 키워드 제안을 제공합니다.' },
+      { title: '연간 $240 절약', description: 'NovaResume 프리미엄은 템플릿과 PDF 내보내기만으로 월 $19.99(연간 $240)입니다. 저희 플랫폼은 AI 작성, ATS 점수 분석, 20개 이상 템플릿, 무제한 내보내기 — 모두 무료입니다.' },
+    ],
+  },
+  recommendation: {
+    title: '솔직한 추천',
+    useCompetitor: {
+      title: 'NovaResume가 적합한 경우',
+      items: [
+        '이력서 내용을 모두 직접 작성하고 싶은 경우',
+        '유럽식 미니멀 이력서 템플릿을 선호하는 경우',
+        '템플릿 이용에 월 $19.99를 지불할 의향이 있는 경우',
+        'AI 작성이나 ATS 점수 분석이 필요 없는 경우',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes가 적합한 경우',
+      items: [
+        'AI가 이력서 작성을 도와주길 원하는 경우',
+        '실시간 ATS 점수와 키워드 제안이 필요한 경우',
+        '비용 없이 무제한 PDF 내보내기를 원하는 경우',
+        '모든 템플릿과 기능을 무료로 사용하고 싶은 경우',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300개 이상 무료 이력서 예시 보기',
+    description: '소프트웨어 개발자부터 데이터 분석가, 간호사까지 다양한 이력서 예시를 둘러보세요.',
+    ctaBrowse: '이력서 예시 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'NovaResume(Nova CV)는 무료인가요?', answer: 'NovaResume는 제한된 템플릿과 기능의 무료 플랜을 제공합니다. 프리미엄 플랜은 전체 템플릿 이용 및 커스터마이징에 월 $19.99부터 시작합니다. Best AI Resume Builder는 모든 기능, 템플릿, 무제한 내보내기가 100% 무료입니다 — 프리미엄 플랜이 필요 없습니다.' },
+      { question: 'NovaResume는 좋은 이력서 빌더인가요?', answer: 'NovaResume는 깔끔한 템플릿과 직관적인 인터페이스를 제공합니다. 하지만 AI 작성 기능이 없고 프리미엄 템플릿은 유료입니다. Best AI Resume Builder는 AI 콘텐츠 생성, 실시간 ATS 점수 분석, 최신 템플릿을 모두 무료로 제공합니다.' },
+      { question: 'NovaResume의 최고 무료 대안은 무엇인가요?', answer: 'Best AI Resume Builder가 최고의 무료 대안입니다. NovaResume가 유료로 제공하는 모든 것 — 전문 템플릿, PDF 내보내기, 커버 레터 — 에 더해 NovaResume에 없는 AI 작성과 ATS 최적화를 제공합니다.' },
+      { question: 'NovaResume에는 AI 기능이 있나요?', answer: 'NovaResume는 AI 기반 이력서 작성 기능을 제공하지 않습니다. 수동 입력과 일부 미리 만들어진 제안에 의존합니다. Best AI Resume Builder는 고급 AI를 활용하여 목표 직무에 맞춘 맞춤형 성과 기술, 전문 요약문, 키워드 최적화 콘텐츠를 생성합니다.' },
+      { question: 'NovaResume에서 PDF로 내보낼 수 있나요?', answer: 'NovaResume의 PDF 내보내기는 프리미엄 구독이 필요합니다. Best AI Resume Builder에서는 무제한 PDF를 무료로 내보낼 수 있습니다 — 계정 업그레이드가 필요 없습니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 빌더 비교',
+    items: [
+      { href: '/zety-alternative', title: 'Zety 대안', subtitle: '요금 비교' },
+      { href: '/canva-alternative', title: 'Canva 대안', subtitle: '디자인 도구 vs AI' },
+      { href: '/livecareer-alternative', title: 'LiveCareer 대안', subtitle: '레거시 vs 최신' },
+      { href: '/rezi-alternative', title: 'Rezi 대안', subtitle: 'AI 기능 비교' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [],
+  },
+  externalResources: {
+    title: '외부 리소스',
+    items: [
+      { href: 'https://novoresume.com/', label: 'NovaResume 공식 사이트' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI 기반. 영원히 무료.',
+    description: 'AI 이력서 작성, ATS 점수 분석, 최신 템플릿으로 전문적인 이력서를 만들어 보세요. 구독 없음, 제한 없음.',
+    cta: '무료로 이력서 만들기',
+    subtext: '영원히 무료. 신용카드 불필요.',
+  },
+};
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế NovaResume 2026: Tạo CV Miễn Phí Bằng AI | Best AI Resume',
+    description: 'Tìm giải pháp thay thế NovaResume miễn phí? So sánh Nova vs Best AI Resume Builder — viết CV bằng AI, mẫu ATS, xuất PDF không giới hạn. Miễn phí mãi mãi.',
+    keywords: 'thay thế novoresume, tạo cv miễn phí, mẫu cv ats, cv xin việc, nova cv, công cụ tạo cv ai, nova resume thay thế, cv chuyên nghiệp miễn phí',
+  },
+  schemas: {
+    breadcrumbName: 'Thay Thế NovaResume',
+    articleHeadline: 'Giải Pháp Thay Thế NovaResume (Nova CV) Tốt Nhất 2026: Tạo CV Miễn Phí Bằng AI',
+    articleDescription: 'So sánh NovaResume vs Best AI Resume Builder. Viết CV bằng AI, tối ưu ATS và xuất PDF không giới hạn — hoàn toàn miễn phí.',
+  },
+  hero: {
+    badge: 'Thay Thế NovaResume',
+    title: 'Mẫu CV Đẹp Hơn. Viết Bằng AI.',
+    titleHighlight: 'Hoàn Toàn Miễn Phí.',
+    subtitle: 'NovaResume thu phí <strong>$19.99/tháng</strong> cho mẫu premium và xuất PDF. Nhận viết CV bằng AI, chấm điểm ATS và tất cả mẫu CV với giá <strong>0₫</strong>.',
+    ctaPrimary: 'Tạo CV Miễn Phí',
+    ctaSecondary: 'Xem So Sánh',
+  },
+  problem: {
+    title: 'NovaResume: Mẫu Đẹp, Thiếu AI',
+    description: 'NovaResume (còn gọi là Nova CV Maker) cung cấp công cụ tạo CV đơn giản với các mẫu gọn gàng. Vấn đề là: <strong>không có hỗ trợ viết bằng AI</strong>, tính năng miễn phí hạn chế và thu phí premium cho những mẫu mà các công cụ khác cung cấp miễn phí. Năm 2026, tại thị trường tuyển dụng cạnh tranh ở Việt Nam, một công cụ tạo CV không có AI đồng nghĩa với việc bỏ lỡ cơ hội.',
+    stats: [
+      { value: '$19.99', label: 'mỗi tháng cho NovaResume premium' },
+      { value: '0', label: 'tính năng AI trong NovaResume' },
+      { value: '0₫', label: 'Best AI Resume Builder — đầy đủ AI, miễn phí' },
+    ],
+  },
+  comparison: {
+    title: 'NovaResume vs Best AI Resume Builder',
+    subtitle: 'Công cụ cơ bản vs nền tảng hỗ trợ AI.',
+    competitorName: 'NovaResume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Giá', competitor: '❌ Miễn phí giới hạn / $19.99/tháng premium', ours: '✅ 100% miễn phí mãi mãi' },
+      { feature: 'Viết CV bằng AI', competitor: '❌ Không có tính năng AI', ours: '✅ AI tạo nội dung phù hợp từng ngành' },
+      { feature: 'Tối ưu ATS', competitor: '⚠️ Chỉ định dạng cơ bản', ours: '✅ Chấm điểm ATS thời gian thực + từ khóa' },
+      { feature: 'Chất lượng mẫu', competitor: '✅ Thiết kế gọn gàng, tối giản', ours: '✅ Hơn 20 mẫu hiện đại đã kiểm tra ATS' },
+      { feature: 'Xuất PDF', competitor: '❌ Chỉ dành cho premium', ours: '✅ Xuất không giới hạn miễn phí' },
+      { feature: 'Thư xin việc', competitor: '⚠️ Công cụ cơ bản (premium)', ours: '✅ Viết bằng AI (miễn phí)' },
+      { feature: 'Gợi ý nội dung', competitor: '❌ Chỉ nhập thủ công', ours: '✅ AI tạo nội dung từ kinh nghiệm của bạn' },
+      { feature: 'Khớp từ khóa', competitor: '❌ Không hỗ trợ', ours: '✅ Tối ưu từ khóa bằng AI' },
+      { feature: 'Mẫu CV tham khảo', competitor: '⚠️ Thư viện hạn chế', ours: '✅ Hơn 300 mẫu CV chi tiết' },
+      { feature: 'Hỗ trợ đa ngôn ngữ', competitor: '✅ Hỗ trợ đa ngôn ngữ', ours: '✅ Hỗ trợ 5 ngôn ngữ' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Lý Do Chuyển Từ NovaResume',
+    subtitle: 'Nhiều tính năng hơn. AI tốt hơn. Không tốn phí.',
+    reasons: [
+      { title: 'Viết CV Được Hỗ Trợ Bởi AI', description: 'NovaResume không có bất kỳ tính năng AI nào. AI của chúng tôi tạo mô tả kinh nghiệm chuyên nghiệp, tóm tắt hồ sơ và nội dung được tối ưu từ khóa — tất cả được điều chỉnh phù hợp với thị trường tuyển dụng Việt Nam. Hoàn toàn miễn phí.' },
+      { title: 'Chấm Điểm ATS Thời Gian Thực', description: 'NovaResume chỉ cung cấp định dạng cơ bản. Chúng tôi cung cấp chấm điểm ATS ngay khi bạn viết và gợi ý từ khóa bằng AI giúp tối đa hóa cơ hội vượt qua hệ thống sàng lọc tự động.' },
+      { title: 'Tiết Kiệm Hơn 5.700.000₫ Mỗi Năm', description: 'NovaResume premium tính phí $19.99/tháng (khoảng 5.700.000₫/năm) chỉ cho mẫu CV và xuất PDF. Nền tảng đầy đủ của chúng tôi — viết bằng AI, chấm điểm ATS, hơn 20 mẫu, xuất không giới hạn — hoàn toàn miễn phí.' },
+    ],
+  },
+  recommendation: {
+    title: 'Lời Khuyên Thật Lòng',
+    useCompetitor: {
+      title: 'NovaResume phù hợp nếu bạn',
+      items: [
+        'Muốn tự viết toàn bộ nội dung CV bằng tay',
+        'Thích các mẫu CV tối giản kiểu châu Âu',
+        'Sẵn sàng trả $19.99/tháng để sử dụng các mẫu',
+        'Không cần hỗ trợ viết bằng AI hay chấm điểm ATS',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes phù hợp nếu bạn',
+      items: [
+        'Muốn AI hỗ trợ viết nội dung CV chuyên nghiệp',
+        'Cần chấm điểm ATS thời gian thực và gợi ý từ khóa',
+        'Muốn xuất PDF không giới hạn mà không tốn phí',
+        'Muốn sử dụng tất cả mẫu và tính năng miễn phí',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Khám Phá Hơn 300 Mẫu CV Miễn Phí',
+    description: 'Từ kỹ sư phần mềm đến nhân viên kế toán, từ y tá đến nhân viên kinh doanh: khám phá các mẫu CV xin việc chuyên nghiệp cho mọi ngành nghề.',
+    ctaBrowse: 'Xem Mẫu CV',
+    ctaTemplates: 'Xem Tất Cả Mẫu',
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      { question: 'NovaResume (Nova CV) có miễn phí không?', answer: 'NovaResume cung cấp gói miễn phí với mẫu và tính năng hạn chế. Gói premium bắt đầu từ $19.99/tháng để truy cập đầy đủ mẫu và tùy chỉnh. Best AI Resume Builder miễn phí 100% với tất cả tính năng, mẫu CV và xuất file không giới hạn — không cần nâng cấp gói premium.' },
+      { question: 'NovaResume có phải là công cụ tạo CV tốt không?', answer: 'NovaResume cung cấp các mẫu gọn gàng và giao diện thân thiện. Tuy nhiên, NovaResume thiếu tính năng viết bằng AI và các mẫu premium đều phải trả phí. Best AI Resume Builder cung cấp tạo nội dung bằng AI, chấm điểm ATS thời gian thực và các mẫu hiện đại — tất cả đều miễn phí.' },
+      { question: 'Đâu là giải pháp thay thế NovaResume miễn phí tốt nhất?', answer: 'Best AI Resume Builder là giải pháp thay thế miễn phí tốt nhất. Cung cấp mọi thứ mà NovaResume tính phí — mẫu CV chuyên nghiệp, xuất PDF, thư xin việc — cùng với viết bằng AI và tối ưu ATS mà NovaResume không có.' },
+      { question: 'NovaResume có tính năng AI không?', answer: 'NovaResume không cung cấp tính năng viết CV bằng AI. Công cụ này dựa vào nhập liệu thủ công và một số gợi ý có sẵn. Best AI Resume Builder sử dụng AI tiên tiến để tạo mô tả kinh nghiệm, tóm tắt hồ sơ chuyên nghiệp và nội dung tối ưu từ khóa phù hợp với vị trí bạn ứng tuyển.' },
+      { question: 'Có thể xuất PDF từ NovaResume không?', answer: 'Tính năng xuất PDF của NovaResume yêu cầu đăng ký gói premium. Với Best AI Resume Builder, bạn có thể xuất PDF không giới hạn miễn phí — không cần nâng cấp tài khoản.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So Sánh Các Công Cụ Tạo CV Khác',
+    items: [
+      { href: '/adobe-alternative', title: 'Thay Thế Adobe', subtitle: 'Thiết kế vs AI' },
+      { href: '/canva-alternative', title: 'Thay Thế Canva', subtitle: 'Công cụ thiết kế vs AI' },
+      { href: '/zety-alternative', title: 'Thay Thế Zety', subtitle: 'So sánh giá' },
+      { href: '/rezi-alternative', title: 'Thay Thế Rezi', subtitle: 'So sánh tính năng AI' },
+    ],
+    guidesTitle: 'Hướng Dẫn Hữu Ích Về CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://novoresume.com/', label: 'Trang Chủ NovaResume' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Được Hỗ Trợ Bởi AI. Miễn Phí Mãi Mãi.',
+    description: 'Tạo CV xin việc chuyên nghiệp với viết bằng AI, chấm điểm ATS và các mẫu hiện đại. Không đăng ký, không giới hạn.',
+    cta: 'Tạo CV Miễn Phí',
+    subtext: 'Miễn phí mãi mãi. Không cần thẻ tín dụng.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน Novoresume สร้างเรซูเม่ 2026',
+    description: 'มองหาทางเลือกแทน Novoresume ฟรี? เปรียบเทียบ Nova กับ Best AI Resume Builder — เรซูเม่ AI เทมเพลต ATS ส่งออก PDF ไม่จำกัด ฟรีตลอดไป',
+    keywords: 'ทางเลือก novoresume, สร้างเรซูเม่ฟรี, เรซูเม่ AI, nova cv, เทมเพลตเรซูเม่, สร้าง cv ฟรี, เรซูเม่ ATS, เรซูเม่สมัครงาน',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน Novoresume',
+    articleHeadline: 'ทางเลือกแทน Novoresume (Nova CV) สร้างเรซูเม่ 2026 ด้วย AI ฟรี',
+    articleDescription: 'เปรียบเทียบ Novoresume กับ Best AI Resume Builder สร้างเรซูเม่ด้วย AI ปรับแต่ง ATS ส่งออก PDF ไม่จำกัด — ฟรีทั้งหมด',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน Novoresume',
+    title: 'เทมเพลตสวยกว่า AI ช่วยเขียน',
+    titleHighlight: 'ฟรีจริง ไม่มีกั๊ก',
+    subtitle: 'Novoresume คิดค่าบริการ <strong>$19.99/เดือน</strong> สำหรับเทมเพลตพรีเมียมและส่งออก PDF รับเรซูเม่เขียนด้วย AI ให้คะแนน ATS และเทมเพลตทั้งหมดในราคา <strong>0 บาท</strong>',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูตารางเปรียบเทียบ',
+  },
+  problem: {
+    title: 'Novoresume: เทมเพลตสวย แต่ขาด AI',
+    description: 'Novoresume (หรือ Nova CV Maker) เป็นเครื่องมือสร้างเรซูเม่ง่ายๆ พร้อมเทมเพลตสะอาดตา ปัญหาคือ: <strong>ไม่มี AI ช่วยเขียน</strong> ฟีเจอร์ฟรีจำกัด และเก็บค่าพรีเมียมสำหรับเทมเพลตที่เครื่องมืออื่นให้ฟรี ในปี 2026 ตลาดงานไทยมีการแข่งขันสูง เครื่องมือสร้างเรซูเม่ที่ไม่มี AI หมายถึงการพลาดโอกาส',
+    stats: [
+      { value: '$19.99', label: 'ต่อเดือนสำหรับ Novoresume พรีเมียม' },
+      { value: '0', label: 'ฟีเจอร์ AI ใน Novoresume' },
+      { value: '฿0', label: 'Best AI Resume Builder — AI ครบ ฟรีทั้งหมด' },
+    ],
+  },
+  comparison: {
+    title: 'Novoresume เทียบกับ Best AI Resume Builder',
+    subtitle: 'เครื่องมือพื้นฐาน เทียบกับแพลตฟอร์ม AI ครบวงจร',
+    competitorName: 'Novoresume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ราคา', competitor: '❌ ฟรีจำกัด / $19.99/เดือน พรีเมียม', ours: '✅ ฟรี 100% ตลอดไป' },
+      { feature: 'เขียนเรซูเม่ด้วย AI', competitor: '❌ ไม่มีฟีเจอร์ AI', ours: '✅ AI สร้างเนื้อหาเฉพาะบุคคล' },
+      { feature: 'ปรับแต่ง ATS', competitor: '⚠️ รูปแบบพื้นฐานเท่านั้น', ours: '✅ ให้คะแนน ATS แบบเรียลไทม์ + คีย์เวิร์ด' },
+      { feature: 'คุณภาพเทมเพลต', competitor: '✅ ดีไซน์สะอาด เรียบง่าย', ours: '✅ 20+ เทมเพลตทันสมัย ผ่านการทดสอบ ATS' },
+      { feature: 'ส่งออก PDF', competitor: '❌ เฉพาะพรีเมียม', ours: '✅ ส่งออกฟรีไม่จำกัด' },
+      { feature: 'จดหมายสมัครงาน', competitor: '⚠️ เครื่องมือพื้นฐาน (พรีเมียม)', ours: '✅ เขียนด้วย AI (ฟรี)' },
+      { feature: 'แนะนำเนื้อหา', competitor: '❌ กรอกเองทั้งหมด', ours: '✅ AI เขียนจากประสบการณ์ของคุณ' },
+      { feature: 'จับคู่คีย์เวิร์ด', competitor: '❌ ไม่มี', ours: '✅ AI ปรับแต่งคีย์เวิร์ดอัตโนมัติ' },
+      { feature: 'ตัวอย่างเรซูเม่', competitor: '⚠️ คลังจำกัด', ours: '✅ ตัวอย่างกว่า 300 แบบ' },
+      { feature: 'รองรับหลายภาษา', competitor: '✅ รองรับหลายภาษา', ours: '✅ รองรับ 5 ภาษา' },
+    ],
+  },
+  whySwitch: {
+    title: '3 เหตุผลที่ควรเปลี่ยนจาก Novoresume',
+    subtitle: 'ฟีเจอร์มากกว่า AI ดีกว่า ไม่ต้องเสียเงิน',
+    reasons: [
+      { title: 'เรซูเม่ AI ช่วยเขียน', description: 'Novoresume ไม่มีฟีเจอร์ AI เลย AI ของเราสร้างรายละเอียดประสบการณ์ สรุปความเชี่ยวชาญ และเนื้อหาที่ปรับแต่งคีย์เวิร์ดสำหรับตำแหน่งที่คุณสนใจ — ฟรีทั้งหมด เหมาะกับตลาดงานไทย' },
+      { title: 'ให้คะแนน ATS แบบเรียลไทม์', description: 'Novoresume มีแค่รูปแบบพื้นฐาน เราให้คะแนน ATS ขณะที่คุณพิมพ์ พร้อมแนะนำคีย์เวิร์ดด้วย AI เพื่อเพิ่มโอกาสผ่านระบบคัดกรองอัตโนมัติ' },
+      { title: 'ประหยัดกว่า 8,500 บาท/ปี', description: 'Novoresume พรีเมียมคิดค่าบริการ $19.99/เดือน (ประมาณ 8,500 บาท/ปี) แค่เพื่อเทมเพลตและส่งออก PDF แพลตฟอร์มเต็มรูปแบบของเรา — AI ช่วยเขียน ให้คะแนน ATS เทมเพลตกว่า 20 แบบ ส่งออกไม่จำกัด — ฟรีทั้งหมด' },
+    ],
+  },
+  recommendation: {
+    title: 'คำแนะนำอย่างตรงไปตรงมา',
+    useCompetitor: {
+      title: 'Novoresume อาจเหมาะถ้าคุณ...',
+      items: [
+        'ต้องการเขียนเนื้อหาเรซูเม่เองทั้งหมดด้วยมือ',
+        'ชอบเทมเพลต CV สไตล์ยุโรปแบบเรียบง่าย',
+        'ยินดีจ่าย $19.99/เดือน เพื่อใช้เทมเพลต',
+        'ไม่ต้องการ AI ช่วยเขียนหรือให้คะแนน ATS',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes เหมาะกว่าถ้าคุณ...',
+      items: [
+        'ต้องการ AI ช่วยเขียนเนื้อหาเรซูเม่สมัครงาน',
+        'ต้องการให้คะแนน ATS แบบเรียลไทม์และแนะนำคีย์เวิร์ด',
+        'ต้องการส่งออก PDF ไม่จำกัดโดยไม่ต้องจ่ายเงิน',
+        'ต้องการเทมเพลตและฟีเจอร์ทั้งหมดฟรี',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ฟรีกว่า 300 แบบ',
+    description: 'จากวิศวกรซอฟต์แวร์ นักบัญชี พยาบาล ไปจนถึงพนักงานขาย: ตัวอย่างเรซูเม่สมัครงานมืออาชีพสำหรับทุกสายงาน',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'Novoresume (Nova CV) ฟรีไหม?', answer: 'Novoresume มีแผนฟรีที่จำกัดเทมเพลตและฟีเจอร์ แผนพรีเมียมเริ่มต้นที่ $19.99/เดือน เพื่อใช้เทมเพลตทั้งหมดและปรับแต่งได้ Best AI Resume Builder ฟรี 100% ทุกฟีเจอร์ ทุกเทมเพลต ส่งออกไม่จำกัด — ไม่ต้องอัปเกรดพรีเมียม' },
+      { question: 'Novoresume เป็นเครื่องมือสร้างเรซูเม่ที่ดีไหม?', answer: 'Novoresume มีเทมเพลตสะอาดตาและอินเทอร์เฟซที่ใช้ง่าย แต่ขาดฟีเจอร์เขียนด้วย AI และเทมเพลตพรีเมียมต้องเสียเงิน Best AI Resume Builder มี AI สร้างเนื้อหา ให้คะแนน ATS แบบเรียลไทม์ และเทมเพลตทันสมัย — ฟรีทั้งหมด' },
+      { question: 'ทางเลือกแทน Novoresume ฟรีที่ดีที่สุดคืออะไร?', answer: 'Best AI Resume Builder เป็นทางเลือกฟรีที่ดีที่สุด มีทุกอย่างที่ Novoresume เก็บเงิน — เทมเพลตมืออาชีพ ส่งออก PDF จดหมายสมัครงาน — พร้อม AI ช่วยเขียนและปรับแต่ง ATS ที่ Novoresume ไม่มี' },
+      { question: 'Novoresume มีฟีเจอร์ AI ไหม?', answer: 'Novoresume ไม่มีฟีเจอร์เขียนเรซูเม่ด้วย AI ต้องกรอกข้อมูลเองพร้อมคำแนะนำสำเร็จรูปบ้าง Best AI Resume Builder ใช้ AI ขั้นสูงสร้างรายละเอียดประสบการณ์ สรุปอาชีพ และเนื้อหาที่ปรับแต่งคีย์เวิร์ดเหมาะกับตำแหน่งที่คุณสมัคร' },
+      { question: 'ส่งออก PDF จาก Novoresume ได้ไหม?', answer: 'การส่งออก PDF บน Novoresume ต้องสมัครพรีเมียม Best AI Resume Builder ให้คุณส่งออก PDF ไม่จำกัดฟรี — ไม่ต้องอัปเกรดบัญชี' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่นๆ',
+    items: [
+      { href: '/th/adobe-alternative', title: 'ทางเลือกแทน Adobe', subtitle: 'ดีไซน์ vs AI' },
+      { href: '/th/canva-alternative', title: 'ทางเลือกแทน Canva', subtitle: 'เครื่องมือดีไซน์ vs AI' },
+      { href: '/th/zety-alternative', title: 'ทางเลือกแทน Zety', subtitle: 'เปรียบเทียบราคา' },
+      { href: '/th/rezi-alternative', title: 'ทางเลือกแทน Rezi', subtitle: 'เปรียบเทียบฟีเจอร์ AI' },
+    ],
+    guidesTitle: 'คู่มือเขียนเรซูเม่ที่มีประโยชน์',
+    guides: [],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://novoresume.com/', label: 'เว็บไซต์ทางการ Novoresume' },
+      { href: 'https://www.mol.go.th/', label: 'กระทรวงแรงงาน ประเทศไทย' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI ช่วยเขียนเรซูเม่ ฟรีตลอดไป',
+    description: 'สร้างเรซูเม่สมัครงานมืออาชีพด้วย AI ให้คะแนน ATS และเทมเพลตทันสมัย ไม่ต้องสมัครสมาชิก ไม่จำกัด',
+    cta: 'สร้างเรซูเม่ฟรี',
+    subtext: 'ฟรีตลอดไป ไม่ต้องใช้บัตรเครดิต',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

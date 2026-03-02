@@ -176,7 +176,73 @@ const it: CommunityDetailContent = {
   edited: '(modificato)',
 };
 
-const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it };
+const ko: CommunityDetailContent = {
+  backToGallery: '\u2190 갤러리로 돌아가기',
+  useTemplate: '이력서 템플릿 사용',
+  downloads: '다운로드',
+  download: '다운로드',
+  by: '작성자:',
+  commentsTitle: '댓글',
+  commentPlaceholder: '이 이력서 템플릿에 대한 의견을 남겨주세요...',
+  postComment: '댓글 작성',
+  signInToComment: '댓글을 남기려면 로그인하세요',
+  signIn: '로그인',
+  noComments: '아직 댓글이 없습니다. 첫 번째 댓글을 남겨보세요!',
+  deleteComment: '삭제',
+  deleteConfirm: '이 댓글을 정말 삭제하시겠습니까?',
+  editComment: '수정',
+  saveEdit: '저장',
+  cancelEdit: '취소',
+  loadMore: '댓글 더 보기',
+  charLimit: '{count}/2000',
+  edited: '(수정됨)',
+};
+
+const vi: CommunityDetailContent = {
+  backToGallery: '\u2190 Quay Lại Thư Viện',
+  useTemplate: 'Dùng Mẫu Này',
+  downloads: 'lượt tải',
+  download: 'lượt tải',
+  by: 'Bởi',
+  commentsTitle: 'Bình Luận',
+  commentPlaceholder: 'Chia sẻ nhận xét của bạn về mẫu CV này...',
+  postComment: 'Đăng Bình Luận',
+  signInToComment: 'Đăng nhập để bình luận',
+  signIn: 'Đăng Nhập',
+  noComments: 'Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ nhận xét!',
+  deleteComment: 'Xóa',
+  deleteConfirm: 'Bạn có chắc chắn muốn xóa bình luận này?',
+  editComment: 'Sửa',
+  saveEdit: 'Lưu',
+  cancelEdit: 'Hủy',
+  loadMore: 'Tải thêm bình luận',
+  charLimit: '{count}/2000',
+  edited: '(đã sửa)',
+};
+
+const th: CommunityDetailContent = {
+  backToGallery: '\u2190 กลับไปยังแกลเลอรี',
+  useTemplate: 'ใช้เทมเพลตนี้',
+  downloads: 'ดาวน์โหลด',
+  download: 'ดาวน์โหลด',
+  by: 'โดย',
+  commentsTitle: 'ความคิดเห็น',
+  commentPlaceholder: 'แบ่งปันความคิดเห็นของคุณเกี่ยวกับเทมเพลตนี้...',
+  postComment: 'โพสต์ความคิดเห็น',
+  signInToComment: 'เข้าสู่ระบบเพื่อแสดงความคิดเห็น',
+  signIn: 'เข้าสู่ระบบ',
+  noComments: 'ยังไม่มีความคิดเห็น เป็นคนแรกที่แสดงความคิดเห็น!',
+  deleteComment: 'ลบ',
+  deleteConfirm: 'คุณแน่ใจหรือไม่ว่าต้องการลบความคิดเห็นนี้?',
+  editComment: 'แก้ไข',
+  saveEdit: 'บันทึก',
+  cancelEdit: 'ยกเลิก',
+  loadMore: 'โหลดความคิดเห็นเพิ่มเติม',
+  charLimit: '{count}/2000',
+  edited: '(แก้ไขแล้ว)',
+};
+
+const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 
 export function getContent(locale: string): CommunityDetailContent {
   return selectContent(contentMap, locale);

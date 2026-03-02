@@ -522,6 +522,224 @@ const it: TermsContent = {
   lastUpdated: 'Ultimo aggiornamento: gennaio 2026',
 };
 
-const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it };
+const vi: TermsContent = {
+  hero: {
+    badge: 'Điều Khoản Sử Dụng',
+    title: 'Điều khoản dịch vụ',
+    titleHighlight: 'đơn giản, minh bạch',
+    subtitle: 'Chúng tôi tin vào sự minh bạch và đơn giản. Điều khoản được viết bằng ngôn ngữ dễ hiểu để bạn biết chính xác những gì mong đợi khi sử dụng Best AI Resume.',
+  },
+  highlights: [
+    { title: 'Không Phí Ẩn', text: 'Bạn thấy gì trả nấy. Bảng giá rõ ràng, không có khoản phí bất ngờ hay chi phí ẩn.' },
+    { title: 'Dữ Liệu Của Bạn, Bạn Kiểm Soát', text: 'Chúng tôi chỉ lưu email và tên để đăng nhập. Nội dung CV được lưu trên trình duyệt—không bao giờ lên server.' },
+    { title: 'Dùng Thử 7 Ngày Miễn Phí', text: 'Trải nghiệm tất cả tính năng cao cấp miễn phí trong 7 ngày. Không tính phí cho đến khi hết thời gian dùng thử, hủy bất kỳ lúc nào.' },
+  ],
+  sections: [
+    {
+      heading: 'Tổng Quan Dịch Vụ',
+      intro: 'Best AI Resume là công cụ tạo CV online giúp bạn xây dựng CV chuyên nghiệp bằng các công cụ hỗ trợ bởi AI. Khi sử dụng dịch vụ, bạn đồng ý với các điều khoản này.',
+      items: ['Tạo không giới hạn CV với các công cụ của chúng tôi', 'Truy cập gợi ý nội dung và cải thiện CV bằng AI', 'Tải CV xuống dạng PDF', 'Chọn từ nhiều mẫu CV được thiết kế chuyên nghiệp'],
+    },
+    {
+      heading: 'Tài Khoản & Minh Bạch Dữ Liệu',
+      subsections: [
+        { subheading: 'Những Gì Chúng Tôi Lưu Trên Server', items: ['**Địa chỉ email** \u2014 Để đăng nhập và nhận thông báo quan trọng', '**Tên** \u2014 Để cá nhân hóa trải nghiệm', '**Mật khẩu (đã mã hóa)** \u2014 Được băm an toàn để xác thực', '**Trạng thái đăng ký** \u2014 Để quản lý quyền lợi gói dịch vụ'] },
+        { subheading: 'Những Gì Chúng Tôi KHÔNG Lưu', items: ['Nội dung CV (lưu trên trình duyệt của bạn)', 'Lịch sử công tác hay chi tiết việc làm', 'Thông tin học vấn hay kỹ năng', 'Địa chỉ cá nhân hay số điện thoại'] },
+      ],
+      intro: 'Chúng tôi cam kết thu thập dữ liệu tối thiểu. Chỉ lưu những gì thực sự cần thiết cho tài khoản hoạt động:',
+    },
+    {
+      heading: 'Đăng Ký & Thanh Toán',
+      subsections: [
+        { subheading: 'Đăng Ký Hàng Tháng', items: ['**Chu kỳ thanh toán** \u2014 Thanh toán hàng tháng vào cùng ngày bạn đăng ký', '**Tự động gia hạn** \u2014 Đăng ký tự động gia hạn trừ khi bạn hủy', '**Minh bạch giá** \u2014 Giá hiển thị khi thanh toán là giá bạn trả (cộng thuế nếu có)'] },
+        { subheading: 'Chính Sách Hủy', items: ['Hủy bất kỳ lúc nào từ bảng điều khiển tài khoản—không cần lý do', 'Tiếp tục truy cập cho đến hết chu kỳ thanh toán hiện tại', 'Không phí phạt hay chi phí hủy', 'Dữ liệu trên trình duyệt không bị ảnh hưởng sau khi hủy'] },
+        { subheading: 'Dùng Thử 7 Ngày Miễn Phí', items: ['**Truy cập đầy đủ** \u2014 Dùng tất cả tính năng cao cấp miễn phí 7 ngày', '**Không tính phí trong thời gian thử** \u2014 Bạn không bị tính phí cho đến khi hết thời gian dùng thử', '**Hủy bất kỳ lúc nào** \u2014 Hủy trước khi hết thử nghiệm và không phải trả gì', '**Email nhắc nhở** \u2014 Chúng tôi sẽ thông báo trước khi hết thời gian dùng thử'] },
+      ],
+    },
+    {
+      heading: 'Truy Cập Miễn Phí và Gói Trả Phí',
+      intro: 'Trước khi đăng ký, bạn có thể:',
+      items: ['Duyệt và xem trước tất cả mẫu CV', 'Tạo và lưu CV trong tài khoản', 'Tham khảo ví dụ CV và mẹo nghề nghiệp'],
+    },
+    {
+      heading: 'Trách Nhiệm Người Dùng',
+      intro: 'Khi sử dụng dịch vụ, bạn đồng ý:',
+      items: ['Cung cấp thông tin chính xác khi đăng ký tài khoản', 'Bảo mật thông tin đăng nhập', 'Chỉ sử dụng dịch vụ cho mục đích hợp pháp', 'Không cố gắng vượt qua hoặc lạm dụng dịch vụ'],
+    },
+    {
+      heading: 'Sở Hữu Trí Tuệ',
+      items: ['**Nội dung của bạn** \u2014 Bạn sở hữu hoàn toàn mọi nội dung bạn tạo bằng dịch vụ', '**Mẫu CV của chúng tôi** \u2014 Thiết kế mẫu được cấp phép cho mục đích cá nhân và chuyên nghiệp', '**Nội dung do AI tạo** \u2014 Văn bản do AI tạo thuộc về bạn và bạn tự do sử dụng'],
+    },
+    {
+      heading: 'Tính Khả Dụng Dịch Vụ',
+      intro: 'Chúng tôi cam kết duy trì dịch vụ ổn định, tuy nhiên:',
+      items: ['Bảo trì định kỳ có thể gây gián đoạn tạm thời', 'Chúng tôi sẽ thông báo trước khi bảo trì theo lịch khi có thể', 'Dữ liệu trên trình duyệt vẫn truy cập được ngay cả khi server không khả dụng'],
+    },
+    {
+      heading: 'Thay Đổi Điều Khoản',
+      intro: 'Chúng tôi có thể cập nhật điều khoản định kỳ. Chúng tôi sẽ thông báo các thay đổi quan trọng qua email hoặc trên dịch vụ. Việc tiếp tục sử dụng dịch vụ sau khi thay đổi đồng nghĩa với việc chấp nhận điều khoản mới.',
+    },
+    {
+      heading: 'Liên Hệ',
+    },
+  ],
+  contactText: 'Có câu hỏi về điều khoản? Liên hệ chúng tôi tại',
+  cta: {
+    title: 'Sẵn sàng tạo',
+    titleHighlight: 'CV chuyên nghiệp?',
+    subtitle: 'Giá minh bạch, điều khoản rõ ràng và dữ liệu thuộc về bạn.',
+    primaryBtn: 'Bắt Đầu Miễn Phí',
+    secondaryBtn: 'Xem Bảng Giá',
+  },
+  lastUpdated: 'Cập nhật lần cuối: tháng 1 năm 2026',
+};
+
+// ── Korean ───────────────────────────────────────────────────────────
+
+const ko: TermsContent = {
+  hero: {
+    badge: '이용약관',
+    title: '간결하고 투명한',
+    titleHighlight: '서비스 이용약관',
+    subtitle: '저희는 투명성과 간결함을 중요시합니다. Best AI Resume 이용 시 무엇을 기대할 수 있는지 명확하게 안내드리기 위해, 이용약관을 쉬운 언어로 작성하였습니다.',
+  },
+  highlights: [
+    { title: '숨겨진 비용 없음', text: '표시된 금액이 결제 금액입니다. 추가 요금이나 숨겨진 비용 없이 명확한 가격 정책을 운영합니다.' },
+    { title: '개인정보는 본인이 관리', text: '로그인을 위한 이메일 주소와 이름만 저장합니다. 이력서 내용은 사용자의 브라우저에만 저장되며 서버에는 보관하지 않습니다.' },
+    { title: '7일 무료 체험', text: '모든 프리미엄 기능을 7일간 무료로 체험하세요. 체험 기간 종료 전까지 요금이 부과되지 않으며, 언제든 수수료 없이 해지 가능합니다.' },
+  ],
+  sections: [
+    {
+      heading: '서비스 개요',
+      intro: 'Best AI Resume는 AI 기반 도구를 활용하여 전문적인 이력서 작성을 지원하는 온라인 이력서 작성 서비스입니다. 본 서비스를 이용하시면 아래 이용약관에 동의하신 것으로 간주됩니다.',
+      items: ['이력서 작성 도구를 사용하여 무제한 이력서 생성', 'AI 기반 콘텐츠 제안 및 개선 기능 이용', 'PDF 형식으로 이력서 다운로드', '전문 디자이너가 제작한 템플릿 중 선택'],
+    },
+    {
+      heading: '계정 및 데이터 투명성',
+      subsections: [
+        { subheading: '서버에 저장하는 정보', items: ['**이메일 주소** — 계정 로그인 및 중요 알림을 위해 사용', '**이름** — 맞춤형 서비스 제공을 위해 사용', '**비밀번호(암호화)** — 인증을 위해 안전하게 해시 처리하여 저장', '**구독 상태** — 요금제 혜택 관리를 위해 사용'] },
+        { subheading: '저장하지 않는 정보', items: ['이력서 내용(사용자의 브라우저에 로컬 저장)', '경력 사항 및 고용 세부 정보', '학력 또는 보유 기술 정보', '개인 주소 또는 전화번호'] },
+      ],
+      intro: '최소한의 데이터만 수집하는 것을 원칙으로 합니다. 계정 운영에 반드시 필요한 정보만 저장합니다:',
+    },
+    {
+      heading: '구독 및 결제',
+      subsections: [
+        { subheading: '월간 구독', items: ['**결제 주기** — 구독 개시일과 동일한 날짜에 매월 결제', '**자동 갱신** — 해지하지 않는 한 구독이 자동으로 갱신됩니다', '**가격 투명성** — 결제 시 표시된 금액이 실제 결제 금액입니다(세금 별도)'] },
+        { subheading: '해지 정책', items: ['계정 대시보드에서 언제든 즉시 해지 가능 — 사유를 묻지 않습니다', '현재 결제 기간 종료일까지 서비스 이용 가능', '해지 수수료 또는 위약금 없음', '해지 후에도 로컬에 저장된 데이터는 그대로 유지됩니다'] },
+        { subheading: '7일 무료 체험', items: ['**전체 기능 이용** — 모든 프리미엄 기능을 7일간 무료 체험', '**체험 기간 중 무료** — 체험 종료 시까지 요금이 청구되지 않습니다', '**언제든 해지 가능** — 체험 종료 전 해지 시 비용 부담 없음', '**알림 메일 발송** — 체험 종료 전에 안내 메일을 보내드립니다'] },
+      ],
+    },
+    {
+      heading: '무료 이용 및 유료 요금제',
+      intro: '구독 전에 다음을 이용하실 수 있습니다:',
+      items: ['모든 이력서 템플릿 검색 및 미리보기', '이력서 작성 및 계정에 저장', '이력서 예시 및 취업 관련 팁 열람'],
+    },
+    {
+      heading: '이용자의 의무',
+      intro: '본 서비스를 이용함으로써 다음 사항에 동의하신 것으로 간주됩니다:',
+      items: ['계정 등록 시 정확한 정보 제공', '계정 인증 정보를 안전하게 관리', '합법적인 목적으로만 서비스 이용', '서비스를 우회하거나 악용하는 행위를 하지 않을 것'],
+    },
+    {
+      heading: '지적재산권',
+      items: ['**사용자의 콘텐츠** — 본 서비스를 이용하여 작성한 모든 콘텐츠의 소유권은 사용자에게 귀속됩니다', '**당사의 템플릿** — 템플릿 디자인은 개인적 및 업무적 용도로 사용이 허가됩니다', '**AI 생성 콘텐츠** — 당사 AI가 생성한 텍스트는 사용자의 소유이며 자유롭게 활용하실 수 있습니다'],
+    },
+    {
+      heading: '서비스 가용성',
+      intro: '높은 서비스 가용성을 유지하기 위해 최선을 다하고 있으나:',
+      items: ['정기 점검으로 인해 일시적으로 서비스가 중단될 수 있습니다', '예정된 점검은 가능한 한 사전에 공지합니다', '서버가 중단되더라도 로컬에 저장된 데이터에는 접근 가능합니다'],
+    },
+    {
+      heading: '이용약관 변경',
+      intro: '본 이용약관은 수시로 변경될 수 있습니다. 중요한 변경 사항은 이메일 또는 서비스 내 공지를 통해 안내드립니다. 변경 후 서비스를 계속 이용하시면 변경된 약관에 동의하신 것으로 간주됩니다.',
+    },
+    {
+      heading: '문의하기',
+    },
+  ],
+  contactText: '본 이용약관에 대해 궁금하신 점이 있으시면 아래로 연락해 주세요:',
+  cta: {
+    title: '전문적인',
+    titleHighlight: '이력서를 작성해 보세요',
+    subtitle: '명확한 가격, 투명한 약관, 데이터는 오직 본인의 것입니다.',
+    primaryBtn: '무료로 시작하기',
+    secondaryBtn: '요금제 보기',
+  },
+  lastUpdated: '최종 업데이트: 2026년 1월',
+};
+
+const th: TermsContent = {
+  hero: {
+    badge: 'ข้อกำหนดและเงื่อนไข',
+    title: 'ข้อกำหนดการให้บริการที่',
+    titleHighlight: 'เรียบง่ายและโปร่งใส',
+    subtitle: 'เราเชื่อมั่นในความโปร่งใสและความเรียบง่าย ข้อกำหนดของเราเขียนด้วยภาษาที่เข้าใจง่าย เพื่อให้คุณทราบอย่างชัดเจนว่าจะได้รับอะไรจากการใช้ Best AI Resume',
+  },
+  highlights: [
+    { title: 'ไม่มีค่าธรรมเนียมแอบแฝง', text: 'สิ่งที่คุณเห็นคือสิ่งที่คุณจ่าย ราคาของเราตรงไปตรงมา ไม่มีค่าใช้จ่ายเพิ่มเติมหรือค่าธรรมเนียมแอบแฝง' },
+    { title: 'ข้อมูลของคุณ คุณควบคุม', text: 'เราจัดเก็บเฉพาะอีเมลและชื่อของคุณสำหรับการเข้าสู่ระบบ เนื้อหาเรซูเม่จะอยู่ในเบราว์เซอร์ของคุณเท่านั้น ไม่อยู่บนเซิร์ฟเวอร์ของเรา' },
+    { title: 'ทดลองใช้ฟรี 7 วัน', text: 'ทดลองใช้ฟีเจอร์พรีเมียมทั้งหมดฟรี 7 วัน ไม่มีค่าใช้จ่ายจนกว่าจะหมดระยะทดลอง ยกเลิกได้ทุกเมื่อโดยไม่เสียค่าธรรมเนียม' },
+  ],
+  sections: [
+    {
+      heading: 'ภาพรวมบริการ',
+      intro: 'Best AI Resume เป็นเครื่องมือสร้างเรซูเม่ออนไลน์ที่ช่วยให้คุณสร้างเรซูเม่มืออาชีพด้วยเครื่องมือที่ขับเคลื่อนโดย AI เมื่อใช้บริการของเรา ถือว่าคุณยอมรับข้อกำหนดเหล่านี้',
+      items: ['สร้างเรซูเม่ได้ไม่จำกัดด้วยเครื่องมือของเรา', 'เข้าถึงคำแนะนำและการปรับปรุงเนื้อหาที่ขับเคลื่อนโดย AI', 'ดาวน์โหลดเรซูเม่ในรูปแบบ PDF', 'เลือกจากเทมเพลตที่ออกแบบอย่างมืออาชีพ'],
+    },
+    {
+      heading: 'บัญชีผู้ใช้และความโปร่งใสของข้อมูล',
+      subsections: [
+        { subheading: 'ข้อมูลที่เราจัดเก็บบนเซิร์ฟเวอร์', items: ['**อีเมล** \u2014 สำหรับการเข้าสู่ระบบและการแจ้งเตือนสำคัญ', '**ชื่อ** \u2014 เพื่อปรับแต่งประสบการณ์การใช้งานของคุณ', '**รหัสผ่าน (เข้ารหัสแล้ว)** \u2014 เข้ารหัสอย่างปลอดภัยด้วย Hash เพื่อการยืนยันตัวตน', '**สถานะการสมัครสมาชิก** \u2014 เพื่อจัดการสิทธิประโยชน์ของแพ็กเกจของคุณ'] },
+        { subheading: 'ข้อมูลที่เราไม่ได้จัดเก็บ', items: ['เนื้อหาเรซูเม่ของคุณ (จัดเก็บในเบราว์เซอร์ของคุณ)', 'ประวัติการทำงานหรือรายละเอียดการจ้างงาน', 'ข้อมูลการศึกษาหรือทักษะ', 'ที่อยู่ส่วนตัวหรือหมายเลขโทรศัพท์'] },
+      ],
+      intro: 'เรามุ่งมั่นในการเก็บรวบรวมข้อมูลให้น้อยที่สุด เราจัดเก็บเฉพาะสิ่งที่จำเป็นอย่างยิ่งสำหรับการทำงานของบัญชี:',
+    },
+    {
+      heading: 'การสมัครสมาชิกและการชำระเงิน',
+      subsections: [
+        { subheading: 'การสมัครสมาชิกรายเดือน', items: ['**รอบการเรียกเก็บเงิน** \u2014 เรียกเก็บเงินรายเดือนในวันเดียวกับที่คุณสมัคร', '**ต่ออายุอัตโนมัติ** \u2014 การสมัครสมาชิกจะต่ออายุอัตโนมัติเว้นแต่จะยกเลิก', '**ความโปร่งใสด้านราคา** \u2014 ราคาที่แสดงขณะชำระเงินคือราคาที่คุณจ่าย (บวกภาษีที่เกี่ยวข้อง)'] },
+        { subheading: 'นโยบายการยกเลิก', items: ['ยกเลิกได้ทุกเมื่อจากแดชบอร์ดบัญชีของคุณ โดยไม่ต้องให้เหตุผล', 'ยังคงเข้าใช้งานได้จนถึงสิ้นสุดรอบการเรียกเก็บเงินปัจจุบัน', 'ไม่มีค่าธรรมเนียมหรือค่าปรับสำหรับการยกเลิก', 'ข้อมูลในเครื่องของคุณจะยังคงอยู่หลังการยกเลิก'] },
+        { subheading: 'ทดลองใช้ฟรี 7 วัน', items: ['**เข้าถึงเต็มรูปแบบ** \u2014 ทดลองใช้ฟีเจอร์พรีเมียมทั้งหมดฟรี 7 วัน', '**ไม่เสียค่าใช้จ่ายระหว่างทดลอง** \u2014 จะไม่มีการเรียกเก็บเงินจนกว่าจะสิ้นสุดระยะทดลอง', '**ยกเลิกได้ทุกเมื่อ** \u2014 ยกเลิกก่อนหมดระยะทดลองและไม่ต้องจ่ายอะไร', '**อีเมลเตือน** \u2014 เราจะแจ้งเตือนคุณก่อนหมดระยะทดลอง'] },
+      ],
+    },
+    {
+      heading: 'การใช้งานฟรีและแพ็กเกจเสียเงิน',
+      intro: 'ก่อนสมัครสมาชิก คุณสามารถ:',
+      items: ['เรียกดูและดูตัวอย่างเทมเพลตทั้งหมด', 'สร้างและบันทึกเรซูเม่ในบัญชีของคุณ', 'ดูตัวอย่างเรซูเม่และเคล็ดลับอาชีพ'],
+    },
+    {
+      heading: 'ความรับผิดชอบของผู้ใช้',
+      intro: 'เมื่อใช้บริการของเรา คุณยอมรับว่าจะ:',
+      items: ['ให้ข้อมูลที่ถูกต้องในการลงทะเบียนบัญชี', 'รักษาความปลอดภัยของข้อมูลยืนยันตัวตนบัญชี', 'ใช้บริการเพื่อวัตถุประสงค์ที่ชอบด้วยกฎหมายเท่านั้น', 'ไม่พยายามหลีกเลี่ยงหรือใช้บริการในทางที่ผิด'],
+    },
+    {
+      heading: 'ทรัพย์สินทางปัญญา',
+      items: ['**เนื้อหาของคุณ** \u2014 คุณเป็นเจ้าของเนื้อหาทั้งหมดที่สร้างขึ้นโดยใช้บริการของเราอย่างสมบูรณ์', '**เทมเพลตของเรา** \u2014 การออกแบบเทมเพลตได้รับอนุญาตให้คุณใช้ส่วนบุคคลและเพื่อวัตถุประสงค์ทางวิชาชีพ', '**เนื้อหาที่สร้างโดย AI** \u2014 ข้อความที่สร้างโดย AI ของเราเป็นของคุณและใช้ได้อย่างอิสระ'],
+    },
+    {
+      heading: 'ความพร้อมใช้งานของบริการ',
+      intro: 'เรามุ่งมั่นรักษาความพร้อมใช้งานของบริการให้สูงอยู่เสมอ แต่:',
+      items: ['การบำรุงรักษาเป็นครั้งคราวอาจทำให้เกิดการหยุดชะงักชั่วคราว', 'เราจะแจ้งผู้ใช้เกี่ยวกับการบำรุงรักษาตามกำหนดเมื่อเป็นไปได้', 'ข้อมูลในเครื่องของคุณยังคงเข้าถึงได้แม้เซิร์ฟเวอร์ของเราไม่พร้อมใช้งาน'],
+    },
+    {
+      heading: 'การเปลี่ยนแปลงข้อกำหนด',
+      intro: 'เราอาจปรับปรุงข้อกำหนดเหล่านี้เป็นครั้งคราว เราจะแจ้งให้คุณทราบเกี่ยวกับการเปลี่ยนแปลงที่สำคัญผ่านทางอีเมลหรือผ่านบริการของเรา การใช้บริการต่อหลังจากมีการเปลี่ยนแปลงถือเป็นการยอมรับข้อกำหนดใหม่',
+    },
+    {
+      heading: 'ติดต่อเรา',
+    },
+  ],
+  contactText: 'มีคำถามเกี่ยวกับข้อกำหนดเหล่านี้? ติดต่อเราที่',
+  cta: {
+    title: 'พร้อมสร้าง',
+    titleHighlight: 'เรซูเม่มืออาชีพของคุณหรือยัง?',
+    subtitle: 'ราคาเรียบง่าย ข้อกำหนดโปร่งใส และข้อมูลยังคงเป็นของคุณ',
+    primaryBtn: 'เริ่มต้นฟรี',
+    secondaryBtn: 'ดูราคา',
+  },
+  lastUpdated: 'อัปเดตล่าสุด: มกราคม 2569',
+};
+
+const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

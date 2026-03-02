@@ -96,6 +96,42 @@ const it: TemplatesCategoryContent = {
   breadcrumbTemplates: 'Modelli',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it };
+const vi: TemplatesCategoryContent = {
+  fallbackTitle: 'Mẫu CV Xin Việc | Best AI Resume',
+  collectionSuffix: 'Bộ Sưu Tập',
+  availableTemplates: 'Mẫu CV Có Sẵn',
+  editInAI: 'Chỉnh Sửa Bằng AI',
+  tiredTitle: 'Mệt mỏi với việc định dạng CV?',
+  tiredSubtitle: 'Tải mẫu CV về thì dễ, nhưng điền thông tin vào rất mất thời gian. Công cụ tạo CV bằng AI của chúng tôi định dạng tự động cho bạn ngay lập tức.',
+  buildWithAI: 'Tạo CV Bằng AI',
+  breadcrumbHome: 'Trang Chủ',
+  breadcrumbTemplates: 'Mẫu CV',
+};
+
+const ko: TemplatesCategoryContent = {
+  fallbackTitle: '이력서 템플릿 | Best AI Resume',
+  collectionSuffix: '컬렉션',
+  availableTemplates: '이력서 템플릿 모음',
+  editInAI: 'AI로 편집',
+  tiredTitle: '이력서 양식 맞추느라 지치셨나요?',
+  tiredSubtitle: '이력서 템플릿을 다운로드하는 건 쉽지만, 직접 내용을 채우는 건 번거롭습니다. AI 이력서 작성 도구가 양식과 서식을 즉시 자동으로 완성해 드립니다.',
+  buildWithAI: 'AI로 이력서 만들기',
+  breadcrumbHome: '홈',
+  breadcrumbTemplates: '이력서 템플릿',
+};
+
+const th: TemplatesCategoryContent = {
+  fallbackTitle: 'เทมเพลตเรซูเม่ | Best AI Resume',
+  collectionSuffix: 'คอลเลกชัน',
+  availableTemplates: 'เทมเพลตที่ใช้งานได้',
+  editInAI: 'แก้ไขด้วย AI',
+  tiredTitle: 'เหนื่อยกับการจัดรูปแบบไฟล์ไหม?',
+  tiredSubtitle: 'การดาวน์โหลดเทมเพลตเป็นเรื่องง่าย แต่การกรอกข้อมูลนั้นยุ่งยาก เครื่องมือสร้างเรซูเม่ด้วย AI ของเราจัดรูปแบบให้คุณโดยอัตโนมัติทันที',
+  buildWithAI: 'สร้างด้วย AI แทน',
+  breadcrumbHome: 'หน้าแรก',
+  breadcrumbTemplates: 'เทมเพลต',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

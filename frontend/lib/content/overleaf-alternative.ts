@@ -865,5 +865,374 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: ComparisonPageContent = {
+  meta: {
+    title: '이력서용 Overleaf 대안 2026: LaTeX 없이 ATS 호환 | Best AI Resume',
+    description: 'LaTeX 없이 Overleaf 이력서 템플릿을 찾고 계신가요? Overleaf vs Best AI Resume Builder 비교 — 무료, ATS 최적화 템플릿과 AI 이력서 작성. 코딩 불필요.',
+    keywords: 'overleaf 이력서, overleaf 대안, latex 이력서 템플릿, overleaf cv, 무료 이력서 빌더, ATS 이력서, AI 이력서 빌더, 이력서 템플릿',
+  },
+  schemas: {
+    breadcrumbName: '이력서용 Overleaf 대안',
+    articleHeadline: '이력서용 Overleaf 최고의 대안 2026: LaTeX 불필요',
+    articleDescription: '전문 이력서 작성에서 Overleaf vs Best AI Resume Builder 비교. 취업 준비생을 위한 기능별 상세 비교.',
+  },
+  hero: {
+    badge: 'Overleaf 대안',
+    title: '완벽한 이력서.',
+    titleHighlight: 'LaTeX 필요 없음.',
+    subtitle: 'Overleaf는 LaTeX를 알아야 훌륭한 학술 CV를 만들 수 있습니다. <strong>AI 기반 작성</strong>으로 동일한 전문 품질을 <strong>코딩 없이</strong> 실현하세요.',
+    ctaPrimary: '무료로 이력서 만들기',
+    ctaSecondary: '비교 보기',
+  },
+  problem: {
+    title: 'Overleaf 이력서의 문제점',
+    description: 'Overleaf는 학술 논문과 기술 문서를 위한 강력한 LaTeX 편집기입니다. 많은 엔지니어, 연구원, 학자들이 세련된 CV를 만드는 데 사용합니다. 하지만 취업 준비생에게는 두 가지 큰 단점이 있습니다: <strong>LaTeX의 높은 학습 곡선</strong>과 많은 Overleaf 이력서 템플릿이 <strong>ATS 시스템에서 제대로 파싱되지 않는</strong> 복잡한 서식을 사용한다는 점입니다.',
+    stats: [
+      { value: '60%+', label: 'LaTeX 이력서의 ATS 파싱 실패율' },
+      { value: '40시간+', label: 'LaTeX 학습에 필요한 시간' },
+      { value: '15분', label: 'AI 이력서 작성 시간' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'LaTeX 편집기 vs 전용 AI 이력서 빌더.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '요금', competitor: '✅ 무료(기본 플랜)', ours: '✅ 무료(전체 기능)' },
+      { feature: '학습 곡선', competitor: '❌ LaTeX 지식 필수', ours: '✅ 기술 지식 불필요' },
+      { feature: 'AI 작성', competitor: '❌ AI 기능 없음', ours: '✅ AI 맞춤형 콘텐츠 생성' },
+      { feature: 'ATS 호환성', competitor: '❌ 많은 템플릿이 ATS 비호환', ours: '✅ 모든 템플릿 ATS 테스트 완료' },
+      { feature: '템플릿', competitor: '⚠️ 커뮤니티 제작 LaTeX 템플릿', ours: '✅ 20개 이상 전문 디자인 템플릿' },
+      { feature: 'PDF 내보내기', competitor: '✅ LaTeX 컴파일', ours: '✅ 원클릭 무료 다운로드' },
+      { feature: '커버 레터', competitor: '⚠️ 별도 LaTeX 템플릿 필요', ours: '✅ AI 커버 레터(무료)' },
+      { feature: '콘텐츠 지원', competitor: '❌ 수동 입력(LaTeX 구문)', ours: '✅ AI가 경력 및 성과 작성' },
+      { feature: '실시간 미리보기', competitor: '⚠️ 컴파일 후에만 가능', ours: '✅ 즉시 라이브 미리보기' },
+      { feature: '공동 작업', competitor: '✅ 실시간 공동 편집', ours: '⚠️ 개인 사용 최적화' },
+    ],
+  },
+  whySwitch: {
+    title: 'Overleaf에서 전환해야 하는 3가지 이유',
+    subtitle: 'LaTeX 없이도 전문적인 이력서 작성 가능.',
+    reasons: [
+      { title: 'ATS 호환성 보장', description: 'Overleaf LaTeX 템플릿은 커스텀 폰트, 다단 레이아웃, 특수 서식을 사용하여 ATS가 정확히 파싱하지 못하는 경우가 많습니다. 한국 대기업과 글로벌 기업에서 사용하는 주요 ATS 시스템에서 저희 템플릿은 모두 테스트 완료되었습니다.' },
+      { title: 'AI 기반 콘텐츠 작성', description: 'Overleaf는 LaTeX 편집기일 뿐 콘텐츠 지원이 없습니다. 저희 AI는 여러분의 경력을 바탕으로 전문적인 성과 기술문, 자기소개서, 직무 키워드를 자동 생성합니다.' },
+      { title: 'LaTeX 학습 불필요', description: 'Overleaf 템플릿 커스터마이징에는 컴파일 오류 해결을 위한 LaTeX 지식이 필요합니다. 저희 비주얼 편집기로 기술적 지식 없이도 몇 분 만에 전문 이력서를 완성할 수 있습니다.' },
+    ],
+  },
+  recommendation: {
+    title: '솔직한 추천',
+    useCompetitor: {
+      title: 'Overleaf가 적합한 경우',
+      items: [
+        'LaTeX에 능숙하고 조판을 즐기는 경우',
+        '학술 CV(논문 목록, 연구비 이력 등)를 작성하는 경우',
+        '학술 기관 내 공동 작업이 필요한 경우',
+        '서식 제어를 극한까지 추구하고 싶은 경우',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes가 적합한 경우',
+      items: [
+        '기업 채용 포털(사람인, 잡코리아 등)에 ATS를 통해 지원하는 경우',
+        'AI의 이력서 콘텐츠 작성 지원을 원하는 경우',
+        'LaTeX 학습에 시간을 투자하고 싶지 않은 경우',
+        'ATS를 확실히 통과하는 전문 이력서가 필요한 경우',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300개 이상 무료 이력서 예시 보기',
+    description: '소프트웨어 엔지니어, 데이터 사이언티스트, 연구 조교 등 다양한 직무의 전문 이력서 예시를 확인하세요.',
+    ctaBrowse: '이력서 예시 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'Overleaf는 이력서 작성에 적합한가요?', answer: 'Overleaf는 LaTeX 학술 CV에는 탁월하지만, 학습 곡선이 높고 ATS 파싱에 실패할 수 있습니다. 사람인이나 잡코리아 같은 온라인 채용 포털을 통해 지원하는 경우, 전용 이력서 빌더가 훨씬 효과적입니다.' },
+      { question: 'Overleaf로 만든 이력서는 ATS 호환이 되나요?', answer: 'LaTeX 템플릿에 따라 다릅니다. 많은 Overleaf 이력서 템플릿은 커스텀 폰트, 다단 레이아웃, 특수 서식을 사용하여 ATS가 올바르게 파싱하지 못합니다. 단순한 단일 열 템플릿은 작동할 수 있지만, 장식적인 템플릿은 실패합니다.' },
+      { question: 'Overleaf로 이력서를 만들려면 LaTeX를 알아야 하나요?', answer: '네. Overleaf는 LaTeX 편집기이므로 템플릿 커스터마이징, 컴파일 오류 수정, 서식 조정에 최소한의 LaTeX 지식이 필요합니다. Best AI Resume Builder는 기술적 지식이 필요 없습니다 — 정보를 입력하면 AI가 나머지를 처리합니다.' },
+      { question: '이력서 작성에 Overleaf의 최고 무료 대안은?', answer: 'Best AI Resume Builder가 취업 준비생을 위한 최고의 무료 대안입니다. LaTeX나 코딩 지식 없이도 AI 작성, ATS 최적화, 전문 템플릿을 제공합니다.' },
+      { question: 'Overleaf CV를 ATS 호환 형식으로 변환할 수 있나요?', answer: 'Overleaf PDF에서 텍스트를 복사하여 Best AI Resume Builder에 붙여넣을 수 있습니다. AI가 콘텐츠를 유지하면서 개선 제안을 하고, ATS 호환 형식으로 재구성합니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 빌더 비교',
+    items: [
+      { href: '/canva-alternative', title: 'Canva 대안', subtitle: '디자인 도구 vs AI 빌더' },
+      { href: '/resume-io-alternative', title: 'Resume.io 대안', subtitle: '요금 및 기능 비교' },
+      { href: '/rezi-alternative', title: 'Rezi 대안', subtitle: 'AI 이력서 도구 비교' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS 통과 이력서 작성법' },
+      { href: '/resume-format', label: '이력서 형식 가이드 2026' },
+      { href: '/resume-examples/software-engineer', label: '소프트웨어 엔지니어 이력서 예시' },
+      { href: '/blog/best-resume-fonts-2026', label: '2026년 추천 이력서 글꼴' },
+    ],
+  },
+  externalResources: {
+    title: '외부 리소스',
+    items: [
+      { href: 'https://www.overleaf.com/gallery/tagged/cv', label: 'Overleaf CV 템플릿 갤러리' },
+      { href: 'https://www.bls.gov/ooh/computer-and-information-technology/home.htm', label: 'BLS: 기술 직종' },
+    ],
+  },
+  bottomCta: {
+    title: 'LaTeX를 넘어서. 합격하는 이력서를 만드세요.',
+    description: '수천 명의 엔지니어와 연구원이 서식은 도구에 맡기고 내용에 집중할 수 있는 AI 이력서 빌더로 전환하고 있습니다.',
+    cta: '무료로 이력서 만들기 — LaTeX 불필요',
+    subtext: '영원히 무료. 신용카드 불필요.',
+  },
+};
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế Overleaf Cho CV 2026: Tạo CV LaTeX Miễn Phí, Tương Thích ATS | Best AI Resume',
+    description: 'Tìm mẫu CV ATS thay thế Overleaf không cần LaTeX? So sánh Overleaf vs Best AI Resume Builder — tạo CV LaTeX miễn phí với AI viết nội dung, tối ưu ATS. Không cần lập trình.',
+    keywords: 'thay thế overleaf cv, tạo cv latex, mẫu cv ats, cv xin việc, overleaf cv tiếng việt, mẫu cv miễn phí, cv ats, tạo cv online miễn phí',
+  },
+  schemas: {
+    breadcrumbName: 'Thay Thế Overleaf Cho CV',
+    articleHeadline: 'Thay Thế Overleaf Tốt Nhất Cho CV 2026: Không Cần LaTeX',
+    articleDescription: 'So sánh Overleaf vs Best AI Resume Builder để tạo CV xin việc chuyên nghiệp. Đánh giá chi tiết từng tính năng dành cho người tìm việc tại Việt Nam.',
+  },
+  hero: {
+    badge: 'Thay Thế Overleaf',
+    title: 'CV Chuyên Nghiệp.',
+    titleHighlight: 'Không Cần LaTeX.',
+    subtitle: 'Overleaf tạo CV học thuật tuyệt vời — nếu bạn biết LaTeX. Đạt chất lượng tương đương với <strong>AI viết nội dung</strong> và <strong>không cần viết code</strong>.',
+    ctaPrimary: 'Tạo CV Miễn Phí',
+    ctaSecondary: 'Xem So Sánh',
+  },
+  problem: {
+    title: 'Vấn Đề Khi Dùng Overleaf Để Tạo CV',
+    description: 'Overleaf là trình soạn thảo LaTeX mạnh mẽ dành cho bài báo khoa học và tài liệu kỹ thuật. Nhiều kỹ sư, nghiên cứu sinh và giảng viên tại Việt Nam dùng Overleaf để tạo CV. Tuy nhiên, có hai hạn chế lớn cho người xin việc: <strong>LaTeX rất khó học</strong> và nhiều mẫu CV Overleaf sử dụng định dạng phức tạp mà <strong>hệ thống ATS không thể đọc được</strong>.',
+    stats: [
+      { value: '60%+', label: 'CV LaTeX không vượt qua hệ thống lọc ATS' },
+      { value: '40h+', label: 'thời gian cần để học LaTeX cơ bản' },
+      { value: '15 phút', label: 'để tạo CV xin việc với AI' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'Trình soạn thảo LaTeX vs công cụ tạo CV bằng AI.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Chi phí', competitor: '✅ Miễn phí (gói cơ bản)', ours: '✅ Miễn phí (tất cả tính năng)' },
+      { feature: 'Độ khó sử dụng', competitor: '❌ Cần biết LaTeX', ours: '✅ Không cần kỹ năng kỹ thuật' },
+      { feature: 'Viết nội dung bằng AI', competitor: '❌ Không có tính năng AI', ours: '✅ AI tạo nội dung CV cá nhân hóa' },
+      { feature: 'Tương thích ATS', competitor: '❌ Nhiều mẫu không tương thích ATS', ours: '✅ Tất cả mẫu đã kiểm tra ATS' },
+      { feature: 'Mẫu CV', competitor: '⚠️ Mẫu LaTeX từ cộng đồng', ours: '✅ 20+ mẫu thiết kế chuyên nghiệp' },
+      { feature: 'Xuất PDF', competitor: '✅ Biên dịch LaTeX', ours: '✅ Tải miễn phí chỉ một cú nhấp' },
+      { feature: 'Thư xin việc', competitor: '⚠️ Cần mẫu LaTeX riêng', ours: '✅ AI viết thư xin việc (miễn phí)' },
+      { feature: 'Hỗ trợ nội dung', competitor: '❌ Nhập thủ công (cú pháp LaTeX)', ours: '✅ AI tạo kinh nghiệm và kỹ năng' },
+      { feature: 'Xem trước trực tiếp', competitor: '⚠️ Chỉ sau khi biên dịch', ours: '✅ Xem trước tức thì khi chỉnh sửa' },
+      { feature: 'Cộng tác', competitor: '✅ Chỉnh sửa cộng tác thời gian thực', ours: '⚠️ Sử dụng cá nhân' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Lý Do Nên Chuyển Từ Overleaf',
+    subtitle: 'CV chuyên nghiệp không cần LaTeX.',
+    reasons: [
+      { title: 'Đảm bảo tương thích ATS', description: 'Các mẫu LaTeX của Overleaf dùng font tuỳ chỉnh, bố cục nhiều cột và định dạng đặc biệt mà hệ thống ATS thường không đọc được. Tất cả mẫu CV của chúng tôi đã được kiểm tra với các hệ thống ATS phổ biến tại các công ty Việt Nam và quốc tế.' },
+      { title: 'AI viết nội dung cho bạn', description: 'Overleaf chỉ là trình soạn thảo LaTeX, không hỗ trợ viết nội dung. AI của chúng tôi tự động tạo các bullet point thành tích, tóm tắt chuyên nghiệp và từ khóa ngành nghề dựa trên kinh nghiệm làm việc của bạn.' },
+      { title: 'Không cần học LaTeX', description: 'Tuỳ chỉnh mẫu Overleaf đòi hỏi kiến thức LaTeX để sửa lỗi biên dịch. Trình soạn thảo trực quan của chúng tôi giúp bạn tạo CV xin việc chuyên nghiệp trong vài phút mà không cần kỹ năng kỹ thuật nào.' },
+    ],
+  },
+  recommendation: {
+    title: 'Gợi Ý Trung Thực',
+    useCompetitor: {
+      title: 'Nên dùng Overleaf khi...',
+      items: [
+        'Bạn thành thạo LaTeX và thích kiểm soát chi tiết bố cục',
+        'Cần tạo CV học thuật (danh sách công bố, dự án nghiên cứu, v.v.)',
+        'Cần cộng tác với đồng nghiệp trong môi trường đại học',
+        'Muốn kiểm soát tuyệt đối định dạng tài liệu',
+      ],
+    },
+    useUs: {
+      title: 'Nên dùng Best AI Resumes khi...',
+      items: [
+        'Bạn ứng tuyển qua các cổng việc làm có hệ thống ATS (VietnamWorks, TopCV, v.v.)',
+        'Muốn AI hỗ trợ viết nội dung CV xin việc thuyết phục',
+        'Không muốn mất hàng chục giờ để học LaTeX',
+        'Cần một CV 1-2 trang đảm bảo vượt qua hệ thống lọc ATS',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Hơn 300 Mẫu CV Miễn Phí Tối Ưu ATS',
+    description: 'Xem các mẫu CV xin việc chuyên nghiệp cho kỹ sư phần mềm, nhà khoa học dữ liệu, trợ lý nghiên cứu và nhiều ngành nghề khác.',
+    ctaBrowse: 'Xem Mẫu CV',
+    ctaTemplates: 'Xem Tất Cả Mẫu',
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      { question: 'Overleaf có phù hợp để tạo CV xin việc không?', answer: 'Overleaf rất tốt cho CV học thuật bằng LaTeX, nhưng độ khó cao và nhiều mẫu không vượt qua hệ thống lọc ATS. Nếu bạn ứng tuyển qua các cổng tuyển dụng trực tuyến như VietnamWorks hay TopCV, một công cụ tạo CV chuyên dụng sẽ hiệu quả hơn nhiều.' },
+      { question: 'CV tạo bằng Overleaf có tương thích ATS không?', answer: 'Tuỳ thuộc vào mẫu LaTeX. Nhiều mẫu Overleaf dùng font tuỳ chỉnh, bố cục nhiều cột và định dạng đặc biệt mà ATS không đọc được chính xác. Các mẫu đơn giản một cột có thể hoạt động, nhưng mẫu trang trí phức tạp thường thất bại.' },
+      { question: 'Có cần biết LaTeX để dùng Overleaf tạo CV không?', answer: 'Có. Overleaf là trình soạn thảo LaTeX, nên bạn cần ít nhất kiến thức LaTeX cơ bản để tuỳ chỉnh mẫu, sửa lỗi biên dịch và thay đổi định dạng. Best AI Resume Builder không yêu cầu kỹ năng kỹ thuật — chỉ cần nhập thông tin và AI sẽ xử lý phần còn lại.' },
+      { question: 'Công cụ thay thế Overleaf miễn phí tốt nhất cho CV là gì?', answer: 'Best AI Resume Builder là lựa chọn thay thế miễn phí tốt nhất cho người tìm việc. Cung cấp tính năng viết CV bằng AI, mẫu CV ATS tối ưu và tất cả miễn phí — không cần biết LaTeX hay bất kỳ ngôn ngữ lập trình nào.' },
+      { question: 'Có thể chuyển CV từ Overleaf sang định dạng tương thích ATS không?', answer: 'Bạn có thể sao chép nội dung từ PDF Overleaf và dán vào Best AI Resume Builder. AI sẽ giữ nguyên nội dung, gợi ý cải thiện và định dạng lại toàn bộ thành mẫu CV ATS tương thích.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So Sánh Các Công Cụ Tạo CV Khác',
+    items: [
+      { href: '/vi/adobe-alternative', title: 'Thay Thế Adobe', subtitle: 'Phần mềm thiết kế vs tạo CV bằng AI' },
+      { href: '/vi/canva-alternative', title: 'Thay Thế Canva', subtitle: 'Công cụ thiết kế vs tạo CV bằng AI' },
+      { href: '/vi/zety-alternative', title: 'Thay Thế Zety', subtitle: 'So sánh giá cả và tính năng' },
+      { href: '/vi/rezi-alternative', title: 'Thay Thế Rezi', subtitle: 'So sánh công cụ AI cho CV' },
+    ],
+    guidesTitle: 'Hướng Dẫn CV Hữu Ích',
+    guides: [
+      { href: '/vi/blog/how-to-write-ats-friendly-resume', label: 'Cách Viết CV Tương Thích ATS' },
+      { href: '/vi/resume-format', label: 'Hướng Dẫn Định Dạng CV 2026' },
+      { href: '/vi/resume-examples/software-engineer', label: 'Mẫu CV Kỹ Sư Phần Mềm' },
+      { href: '/vi/blog/best-resume-fonts-2026', label: 'Font Chữ Tốt Nhất Cho CV 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.overleaf.com/gallery/tagged/cv', label: 'Thư Viện Mẫu CV Overleaf' },
+      { href: 'https://www.bls.gov/ooh/computer-and-information-technology/home.htm', label: 'BLS: Ngành Nghề Công Nghệ' },
+    ],
+  },
+  bottomCta: {
+    title: 'Bỏ Qua LaTeX. Tạo CV Xin Việc Thành Công.',
+    description: 'Hàng nghìn kỹ sư và nghiên cứu sinh đã chuyển sang công cụ tạo CV bằng AI để tập trung vào nội dung thay vì loay hoay với định dạng LaTeX.',
+    cta: 'Tạo CV Miễn Phí — Không Cần LaTeX',
+    subtext: 'Miễn phí mãi mãi. Không cần thẻ tín dụng.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน Overleaf สร้างเรซูเม่ 2026: ไม่ต้องใช้ LaTeX',
+    description: 'หาเทมเพลตเรซูเม่แทน Overleaf ไม่ต้องเขียน LaTeX? เปรียบเทียบ Overleaf vs Best AI Resume Builder — สร้างเรซูเม่ฟรี เทมเพลต ATS พร้อม AI ช่วยเขียน',
+    keywords: 'overleaf เรซูเม่, overleaf ทางเลือก, เทมเพลตเรซูเม่ latex, สร้างเรซูเม่ฟรี, เรซูเม่ AI, เทมเพลตเรซูเม่ ATS, overleaf cv ภาษาไทย',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน Overleaf สำหรับเรซูเม่',
+    articleHeadline: 'ทางเลือกแทน Overleaf สร้างเรซูเม่ 2026: ไม่ต้องใช้ LaTeX',
+    articleDescription: 'เปรียบเทียบ Overleaf vs Best AI Resume Builder สำหรับสร้างเรซูเม่มืออาชีพ เหมาะสำหรับนักวิชาการและผู้หางานชาวไทย',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน Overleaf',
+    title: 'เรซูเม่สวยมืออาชีพ',
+    titleHighlight: 'ไม่ต้องเขียน LaTeX',
+    subtitle: 'Overleaf เหมาะกับงานวิชาการ แต่ต้องรู้ LaTeX ก่อน สร้างเรซูเม่คุณภาพเดียวกันด้วย <strong>AI ช่วยเขียน</strong> และ <strong>ไม่ต้องเขียนโค้ดเลย</strong>',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูการเปรียบเทียบ',
+  },
+  problem: {
+    title: 'ปัญหาของการใช้ Overleaf ทำเรซูเม่',
+    description: 'Overleaf เป็นโปรแกรม LaTeX ที่ออกแบบมาสำหรับงานวิชาการ วิศวกรและนักวิจัยไทยบางท่านใช้มันสร้าง CV แต่สำหรับคนหางานทั่วไป มีปัญหาสองอย่างใหญ่: <strong>LaTeX เรียนรู้ยากมาก</strong> และเทมเพลตส่วนใหญ่ใช้รูปแบบที่ <strong>ระบบ ATS อ่านไม่ได้</strong> ในตลาดงานไทยที่บริษัทใหญ่ใช้ระบบ ATS มากขึ้น นี่เป็นปัญหาจริงๆ',
+    stats: [
+      { value: '~4 ชม.', label: 'เวลาเฉลี่ยเรียน LaTeX ขั้นต่ำเพื่อแก้ไขเทมเพลตเรซูเม่' },
+      { value: '60%+', label: 'เทมเพลต Overleaf ใช้หลายคอลัมน์ที่ ATS อ่านไม่ได้' },
+      { value: '0', label: 'ความช่วยเหลือจาก AI — Overleaf เป็นแค่ text editor' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'เปรียบเทียบตรงๆ สำหรับวิศวกร นักวิจัย และผู้หางานชาวไทย',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ความง่ายในการใช้', competitor: '❌ ต้องรู้ LaTeX', ours: '✅ ไม่ต้องมีทักษะเทคนิค' },
+      { feature: 'AI ช่วยเขียนเรซูเม่', competitor: '❌ ไม่มี AI', ours: '✅ AI เขียนหัวข้อย่อยและสรุป' },
+      { feature: 'รองรับ ATS', competitor: '⚠️ ขึ้นอยู่กับเทมเพลต', ours: '✅ ทุกเทมเพลตผ่านการทดสอบ ATS' },
+      { feature: 'คะแนน ATS แบบเรียลไทม์', competitor: '❌ ไม่มีระบบให้คะแนน', ours: '✅ คะแนน ATS แสดงผลทันที' },
+      { feature: 'เวลาเริ่มต้น', competitor: '❌ หลายชั่วโมง (เรียน LaTeX + แก้ไข)', ours: '✅ ไม่กี่นาที (มีระบบนำทาง)' },
+      { feature: 'ปรับแต่งเทมเพลต', competitor: '✅ ควบคุมเต็มที่ผ่าน LaTeX', ours: '✅ แก้ไขแบบ visual' },
+      { feature: 'คุณภาพตัวอักษร', competitor: '✅ ดีเยี่ยม (Computer Modern)', ours: '✅ ฟอนต์มืออาชีพ' },
+      { feature: 'การแก้ Error', competitor: '❌ LaTeX error บ่อย', ours: '✅ ไม่มี error (WYSIWYG)' },
+      { feature: 'คีย์เวิร์ดเฉพาะงาน', competitor: '❌ ไม่มีการแนะนำ', ours: '✅ AI แนะนำคีย์เวิร์ดตามอุตสาหกรรม' },
+      { feature: 'แผนฟรี', competitor: '✅ ฟรี (มีข้อจำกัด)', ours: '✅ เทมเพลตทั้งหมดฟรี' },
+    ],
+  },
+  whySwitch: {
+    title: '3 เหตุผลที่ควรเปลี่ยนจาก Overleaf',
+    subtitle: 'ใช้เวลากับอาชีพคุณ ไม่ใช่กับ LaTeX syntax',
+    reasons: [
+      { title: 'เสร็จในไม่กี่นาที ไม่ใช่หลายชั่วโมง', description: 'ไม่ต้อง debug \\hfill error หรือ Google หา LaTeX syntax อีก เลือกเทมเพลต กรอกข้อมูล แล้วให้ AI ช่วยปรับเนื้อหาให้มืออาชีพ' },
+      { title: 'AI เขียนเนื้อหาให้คุณ', description: 'Overleaf เป็นแค่ text editor คุณต้องเขียนเอง AI ของเราสร้างหัวข้อย่อย สรุปอาชีพ และแนะนำคีย์เวิร์ดที่ HR และระบบ ATS ในไทยค้นหา' },
+      { title: 'ATS อ่านได้แน่นอน', description: 'เทมเพลต Overleaf หลายตัวใช้หลายคอลัมน์และฟอนต์พิเศษที่ ATS อ่านไม่ได้ เทมเพลตของเราผ่านการทดสอบ ATS ทุกตัว เหมาะกับการสมัครงานผ่านเว็บไซต์หางานในไทยอย่าง JobThai และ JobsDB' },
+    ],
+  },
+  recommendation: {
+    title: 'แนะนำตรงๆ: ใครควรใช้อะไร?',
+    useCompetitor: {
+      title: 'ใช้ Overleaf ถ้าคุณ...',
+      items: [
+        'ต้องทำ CV วิชาการหลายหน้ารวมผลงาน ทุน และงานวิจัย',
+        'เก่ง LaTeX และชอบควบคุมรูปแบบตัวอักษรอย่างละเอียด',
+        'สมัครงานสายวิชาการที่รูปแบบ CV สำคัญน้อยกว่าเนื้อหา',
+        'ต้องการ version control เรซูเม่ใน Git คู่กับโค้ด',
+      ],
+    },
+    useUs: {
+      title: 'ใช้ Best AI Resumes ถ้าคุณ...',
+      items: [
+        'สมัครงานบริษัทเอกชนผ่านเว็บหางานที่ใช้ระบบ ATS',
+        'ต้องการ AI ช่วยเขียนหัวข้อย่อยและสรุปให้น่าสนใจ',
+        'ไม่อยากเรียน LaTeX แค่เพื่อทำเรซูเม่',
+        'ต้องการเรซูเม่ 1-2 หน้าสำหรับสมัครงาน ไม่ใช่ CV วิชาการ',
+        'ต้องการคะแนน ATS แบบเรียลไทม์เพื่อเพิ่มโอกาสสัมภาษณ์',
+      ],
+    },
+    bottomLine: 'สรุป: Overleaf เป็นมาตรฐานทองสำหรับ CV วิชาการ แต่ถ้าคุณสมัครงานบริษัทเอกชนในไทยผ่านระบบออนไลน์ ใช้ AI resume builder ที่ออกแบบมาเฉพาะจะประหยัดเวลาและเพิ่มอัตราผ่าน ATS',
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ที่ผ่าน ATS',
+    description: 'เรียกดูตัวอย่างเรซูเม่มืออาชีพกว่า 300 แบบ รวมถึงเรซูเม่สำหรับวิศวกรซอฟต์แวร์ นักวิทยาศาสตร์ข้อมูล และผู้ช่วยนักวิจัย',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'Overleaf ดีสำหรับทำเรซูเม่ไหม?', answer: 'Overleaf เหมาะกับ CV วิชาการแบบ LaTeX แต่เรียนรู้ยากและเรซูเม่ที่ได้อาจผ่าน ATS ไม่ได้ ถ้าคุณสมัครงานบริษัทเอกชนในไทยผ่านเว็บหางาน ใช้ resume builder โดยเฉพาะจะได้ผลดีกว่า' },
+      { question: 'เรซูเม่จาก Overleaf ผ่าน ATS ไหม?', answer: 'ขึ้นอยู่กับเทมเพลต LaTeX เทมเพลตหลายตัวใน Overleaf ใช้ฟอนต์พิเศษ หลายคอลัมน์ และรูปแบบที่ ATS อ่านไม่ได้ เทมเพลตคอลัมน์เดียวแบบง่ายอาจใช้ได้ แต่เทมเพลตสวยๆ ส่วนใหญ่จะมีปัญหา' },
+      { question: 'ต้องรู้ LaTeX ไหมถึงจะใช้ Overleaf ทำเรซูเม่?', answer: 'ใช่ Overleaf เป็น LaTeX editor คุณต้องรู้ LaTeX ขั้นพื้นฐานเพื่อปรับแต่งเทมเพลต แก้ compilation error และจัดรูปแบบ Best AI Resume Builder ไม่ต้องมีทักษะเทคนิค แค่กรอกข้อมูลแล้ว AI จัดการที่เหลือ' },
+      { question: 'ทางเลือกฟรีที่ดีที่สุดแทน Overleaf สำหรับเรซูเม่คืออะไร?', answer: 'Best AI Resume Builder เป็นทางเลือกฟรีที่ดีที่สุดสำหรับผู้หางาน มี AI ช่วยเขียน คะแนน ATS แบบเรียลไทม์ และเทมเพลตมืออาชีพ ทั้งหมดไม่ต้องรู้ LaTeX หรือเขียนโค้ด' },
+      { question: 'เอาเรซูเม่จาก Overleaf มาแปลงเป็นรูปแบบ ATS ได้ไหม?', answer: 'ได้ คุณสามารถคัดลอกข้อความจาก Overleaf PDF มาวางใน Best AI Resume Builder AI ของเราจะจัดโครงสร้างใหม่ให้เป็นรูปแบบที่ ATS อ่านได้ พร้อมแนะนำจุดที่ปรับปรุง' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่นๆ',
+    items: [
+      { href: '/th/canva-alternative', title: 'ทางเลือกแทน Canva', subtitle: 'เครื่องมือออกแบบ vs AI builder' },
+      { href: '/th/resume-io-alternative', title: 'ทางเลือกแทน Resume.io', subtitle: 'เปรียบเทียบราคาและฟีเจอร์' },
+      { href: '/th/rezi-alternative', title: 'ทางเลือกแทน Rezi', subtitle: 'เปรียบเทียบเครื่องมือ AI เรซูเม่' },
+    ],
+    guidesTitle: 'คู่มือเรซูเม่ที่มีประโยชน์',
+    guides: [
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/resume-format', label: 'คู่มือรูปแบบเรซูเม่ 2026' },
+      { href: '/th/resume-examples/software-engineer', label: 'ตัวอย่างเรซูเม่วิศวกรซอฟต์แวร์' },
+      { href: '/th/blog/best-resume-fonts-2026', label: 'ฟอนต์เรซูเม่ที่ดีที่สุดปี 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://www.overleaf.com/gallery/tagged/cv', label: 'เทมเพลต CV ของ Overleaf' },
+      { href: 'https://www.bls.gov/ooh/computer-and-information-technology/home.htm', label: 'BLS: อาชีพสายเทคโนโลยี' },
+    ],
+  },
+  bottomCta: {
+    title: 'ข้าม LaTeX ไปเลย สร้างเรซูเม่ที่ได้งาน',
+    description: 'วิศวกรและนักวิจัยหลายพันคนเปลี่ยนมาใช้ AI resume builder เพื่อโฟกัสที่เนื้อหาแทนการจัดรูปแบบ LaTeX',
+    cta: 'สร้างเรซูเม่ฟรี — ไม่ต้องใช้ LaTeX',
+    subtext: 'ฟรีตลอด ไม่ต้องใช้บัตรเครดิต',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

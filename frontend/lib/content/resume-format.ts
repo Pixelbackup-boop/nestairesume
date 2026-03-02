@@ -1209,9 +1209,468 @@ const it: ResumeFormatPageContent = {
   },
 };
 
+const ko: ResumeFormatPageContent = {
+  meta: {
+    title: '이력서 양식 완벽 가이드 2026 | 이력서 빌더 | Best AI Resume',
+    description: '이력서 양식 선택 방법을 완벽 해설. 역순형·기능형·혼합형 이력서 양식을 비교하고 나에게 맞는 최적의 이력서 양식을 찾아보세요. ATS 통과 이력서 템플릿 20종 이상 무료 제공.',
+    keywords: '이력서 양식, 이력서 빌더, 이력서 템플릿, 이력서 쓰는 법, 영문 이력서 양식, 한글 이력서 양식, ATS 이력서 양식, 무료 이력서',
+  },
+  schemas: {
+    breadcrumbName: '이력서 양식',
+    howToName: '나에게 맞는 이력서 양식 선택하는 법',
+    howToDescription: '3가지 주요 이력서 양식(역순형·기능형·혼합형)을 비교하고 자신의 경력 단계와 목표에 맞는 최적의 양식을 선택하세요.',
+    howToSteps: [
+      '자신의 경력 단계를 파악한다 (신입, 경력직, 임원급 등)',
+      '3가지 이력서 양식의 장단점을 비교한다',
+      'ATS 호환성 점수를 확인한다',
+      '템플릿을 선택하고 이력서를 작성한다',
+    ],
+    howToToolName: 'Best AI Resume 이력서 빌더',
+  },
+  hero: {
+    badge: '이력서 양식 가이드 2026',
+    title: '나에게 맞는 이력서 양식을',
+    titleHighlight: '선택하세요',
+    subtitle: '역순형·기능형·혼합형——나의 경력에 맞는 <strong>이력서 양식</strong>을 선택하는 것이 서류 합격의 첫걸음입니다. AI 이력서 빌더를 사용하면 양식 전환도 원클릭으로 완료됩니다.',
+    ctaCompare: '양식 비교하기',
+    ctaBuild: '이력서 무료 작성',
+  },
+  comparison: {
+    title: '3대 이력서 양식 비교',
+    subtitle: '각 양식의 특징, 적합한 상황, ATS 호환도를 한눈에 확인하세요.',
+    tableHeaders: {
+      format: '양식',
+      bestFor: '적합한 경우',
+      avoidIf: '피해야 할 경우',
+      atsSafety: 'ATS 호환도',
+    },
+    formats: [
+      {
+        name: '역순형 (시간순)',
+        badge: '가장 인기',
+        badgeColor: 'green',
+        bestFor: ['경력 공백 없이 꾸준히 근무한 분', '같은 업계에서 승진·이직을 준비하는 분', '최근 경력이 지원 직무와 직접 관련된 분'],
+        avoidIf: '장기간 경력 공백이 있는 경우',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: '기능형 (스킬 기반)',
+        badge: '스킬 중심',
+        badgeColor: 'amber',
+        bestFor: ['이직 또는 직종 전환을 준비하는 분', '경력 공백이 있는 분', '신입·프리랜서·인턴 경험 위주인 분'],
+        avoidIf: '대기업이나 보수적인 업계에 지원하는 경우',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: '혼합형',
+        badge: '균형잡힌',
+        badgeColor: 'blue',
+        bestFor: ['전문 역량과 풍부한 경력을 모두 갖춘 분', '관리자·임원급 포지션 지원자', '스킬과 실적을 동시에 어필하고 싶은 분'],
+        avoidIf: '직무 경험이 적은 경우',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: '역순형 이력서 양식',
+    description: '가장 최근 경력부터 시간 역순으로 기재하는 양식입니다. 한국 채용 시장에서 가장 보편적이며 ATS(지원자 추적 시스템)와의 호환성도 최상입니다.',
+    whyLoveTitle: '채용 담당자가 선호하는 이유',
+    whyLoveText: '역순형 이력서 양식은 경력 성장 과정을 한눈에 파악할 수 있어 채용 담당자가 가장 읽기 쉬운 형식입니다. ATS 파싱 정확도가 높아 대기업·공기업 지원에 최적입니다.',
+    structureTitle: '섹션 구성',
+    sections: [
+      { label: '인적 사항', detail: '이름, 이메일, 전화번호, 거주 지역', isCore: true },
+      { label: '경력 요약', detail: '3~4줄로 핵심 경험과 강점 요약', isCore: true },
+      { label: '경력 사항', detail: '최근 경력부터 역순 기재 (회사명·기간·성과)', isCore: true },
+      { label: '학력', detail: '최종 학력 기재' },
+      { label: '보유 스킬', detail: '직무 관련 기술 스킬·자격증' },
+    ],
+    downloadLabel: '템플릿 다운로드',
+    aiLabel: 'AI로 작성하기',
+  },
+  functional: {
+    title: '기능형 (스킬 기반) 이력서 양식',
+    description: '스킬과 역량을 중심으로 구성하는 양식입니다. 경력보다 "무엇을 할 수 있는가"를 강조하고 싶을 때 적합합니다.',
+    warningTitle: 'ATS 호환성 주의',
+    warningText: '일부 ATS에서는 경력 섹션이 짧으면 파싱 정확도가 떨어질 수 있습니다. 직종 전환 중이거나 경력 공백이 있는 분, 프리랜서에서 정규직으로 전환하는 분에게 최적이지만, 대기업이나 보수적인 업계 지원 시에는 주의가 필요합니다.',
+    structureTitle: '섹션 구성',
+    sections: [
+      { label: '인적 사항', isCore: true },
+      { label: '경력 요약', isCore: true },
+      { label: '핵심 역량', detail: '3~4개 스킬 분야별 실적 기재', isCore: true },
+      { label: '경력 사항 (간략)', detail: '회사명·직책·재직 기간만 기재' },
+      { label: '학력' },
+    ],
+    downloadLabel: '템플릿 다운로드',
+    aiLabel: 'AI로 작성하기',
+  },
+  combination: {
+    title: '혼합형 이력서 양식',
+    description: '역순형과 기능형의 장점을 결합한 양식입니다. 풍부한 스킬과 탄탄한 경력을 동시에 어필할 수 있습니다.',
+    whoForTitle: '이 양식이 적합한 경우',
+    whoForItems: [
+      '중견~시니어급 전문직 또는 관리직 경력이 있는 분',
+      '역량의 폭과 경력의 깊이를 동시에 보여주고 싶은 분',
+      '기술 스킬과 업무 성과를 모두 요구하는 포지션에 지원하는 분',
+      '여러 분야에 걸친 커리어를 보유한 분',
+    ],
+    downloadLabel: '템플릿 다운로드',
+    aiLabel: 'AI로 작성하기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: '한국에서 가장 일반적인 이력서 양식은?', answer: '한국에서는 역순형 이력서 양식이 가장 보편적입니다. 경력을 최근 순으로 기재하는 이 형식은 채용 담당자에게 가장 익숙하며 ATS 호환성도 가장 높습니다. 대기업, 중견기업, 공기업 채용 모두 이 형식이 표준입니다.' },
+      { question: '이직 횟수가 많으면 어떤 이력서 양식이 좋나요?', answer: '이직이 잦은 경우 혼합형 이력서 양식을 추천합니다. 핵심 역량 섹션에서 강점을 먼저 어필하고, 경력 사항은 간결하게 정리하면 이직 횟수보다 역량에 초점을 맞출 수 있습니다.' },
+      { question: '신입인 경우 어떤 이력서 양식을 사용해야 하나요?', answer: '신입은 역순형 이력서 양식이 가장 적합합니다. 학력을 경력 섹션 위에 배치하고, 인턴십·아르바이트·대외활동·프로젝트 경험을 기재하세요. AI 이력서 빌더를 사용하면 신입에게 적합한 표현을 자동으로 제안해 줍니다.' },
+      { question: 'ATS 호환 이력서 양식이란 무엇인가요?', answer: 'ATS(지원자 추적 시스템)가 정확히 파싱할 수 있도록 구성된 이력서 양식입니다. 심플한 레이아웃, 표준 섹션명, PDF 파일 형식이 핵심입니다. 본 툴의 모든 템플릿은 ATS 최적화 검증을 완료했습니다.' },
+      { question: '한글 이력서 양식과 영문 이력서 양식의 차이점은?', answer: '한글 이력서는 인적 사항·학력·경력·자격증 중심의 국내 표준 양식이며, 영문 이력서(Resume)는 경력 중심으로 구성됩니다. 외국계 기업이나 해외 취업 시에는 영문 이력서가 필수입니다. 본 AI 이력서 빌더는 한글과 영문 이력서를 모두 지원합니다.' },
+    ],
+  },
+  externalResources: {
+    title: '참고 자료',
+    items: [
+      { href: 'https://www.work.go.kr/', label: '워크넷 (고용노동부 취업 포털)' },
+      { href: 'https://www.bls.gov/ooh/', label: '미국 노동통계국 직업 전망' },
+    ],
+  },
+  stickyCta: {
+    text: '나에게 맞는 이력서 양식을 찾으셨나요?',
+    ctaLabel: '지금 바로 이력서 작성',
+  },
+  bottomCta: {
+    title: '이력서 양식 고민은 이제 그만',
+    description: 'AI 이력서 빌더가 양식·폰트·여백을 자동 최적화합니다. 20종 이상의 ATS 통과 템플릿에서 선택하고, 원클릭으로 양식을 전환하세요.',
+    ctaLabel: '이력서 무료로 작성하기',
+  },
+};
+
+const vi: ResumeFormatPageContent = {
+  meta: {
+    title: 'Định Dạng CV Xin Việc: Hướng Dẫn Toàn Diện 2026 | Mẫu CV | Best AI Resume',
+    description: 'Tìm hiểu cách chọn định dạng CV xin việc phù hợp nhất. So sánh CV theo thời gian ngược, CV theo kỹ năng và CV kết hợp. Tải mẫu CV xin việc ATS-friendly miễn phí 2026.',
+    keywords: 'định dạng cv, mẫu cv xin việc, cách trình bày cv, cv xin việc, định dạng cv 2026, mẫu cv chuyên nghiệp, cv theo thời gian ngược, cv theo kỹ năng',
+  },
+  schemas: {
+    breadcrumbName: 'Định Dạng CV',
+    howToName: 'Cách chọn định dạng CV xin việc phù hợp',
+    howToDescription: 'So sánh 3 định dạng CV phổ biến nhất (theo thời gian ngược, theo kỹ năng, kết hợp) và chọn định dạng phù hợp với tình trạng nghề nghiệp của bạn.',
+    howToSteps: [
+      'Xác định giai đoạn sự nghiệp của bạn (sinh viên mới ra trường, chuyên viên, quản lý)',
+      'So sánh ưu nhược điểm của 3 định dạng CV',
+      'Kiểm tra điểm tương thích ATS của từng định dạng',
+      'Chọn mẫu CV và bắt đầu tạo CV xin việc',
+    ],
+    howToToolName: 'Best AI Resume — Công Cụ Tạo CV Xin Việc',
+  },
+  hero: {
+    badge: 'Hướng dẫn định dạng CV 2026',
+    title: 'Chọn định dạng CV xin việc',
+    titleHighlight: 'phù hợp với bạn',
+    subtitle: 'CV theo thời gian ngược, theo kỹ năng hay kết hợp — chọn đúng <strong>định dạng CV xin việc</strong> là bước đầu tiên để vượt qua vòng sàng lọc hồ sơ. Với công cụ tạo CV bằng AI, bạn có thể đổi định dạng chỉ bằng một cú nhấp chuột.',
+    ctaCompare: 'So sánh các định dạng',
+    ctaBuild: 'Tạo CV miễn phí',
+  },
+  comparison: {
+    title: 'So sánh 3 định dạng CV phổ biến nhất',
+    subtitle: 'Đặc điểm, trường hợp sử dụng lý tưởng và mức tương thích ATS của từng định dạng trong một cái nhìn.',
+    tableHeaders: {
+      format: 'Định dạng',
+      bestFor: 'Phù hợp nhất cho',
+      avoidIf: 'Nên tránh nếu',
+      atsSafety: 'Tương thích ATS',
+    },
+    formats: [
+      {
+        name: 'CV theo thời gian ngược',
+        badge: 'Phổ biến nhất',
+        badgeColor: 'green',
+        bestFor: ['Quá trình làm việc liên tục, không có khoảng trống lớn', 'Thăng tiến nghề nghiệp trong cùng một lĩnh vực', 'Kinh nghiệm gần nhất liên quan trực tiếp đến vị trí ứng tuyển'],
+        avoidIf: 'Bạn có thời gian dài không đi làm',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'CV theo kỹ năng (chức năng)',
+        badge: 'Tập trung kỹ năng',
+        badgeColor: 'amber',
+        bestFor: ['Chuyển đổi ngành nghề hoặc lĩnh vực', 'Có khoảng trống trong lịch sử làm việc', 'Sinh viên mới ra trường, freelancer hoặc thực tập sinh'],
+        avoidIf: 'Bạn ứng tuyển vào doanh nghiệp truyền thống hoặc cơ quan nhà nước',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'CV kết hợp',
+        badge: 'Cân bằng',
+        badgeColor: 'blue',
+        bestFor: ['Có kỹ năng chuyên sâu lẫn kinh nghiệm dày dặn', 'Ứng tuyển vị trí quản lý hoặc cấp cao', 'Muốn thể hiện cả năng lực lẫn thành tích công việc'],
+        avoidIf: 'Bạn có ít kinh nghiệm làm việc',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'Định dạng CV theo thời gian ngược',
+    description: 'Định dạng liệt kê kinh nghiệm làm việc từ gần nhất đến xa nhất. Đây là định dạng phổ biến nhất tại Việt Nam và trên thế giới, đồng thời có mức tương thích cao nhất với hệ thống ATS.',
+    whyLoveTitle: 'Tại sao nhà tuyển dụng ưa thích định dạng này',
+    whyLoveText: 'CV theo thời gian ngược giúp nhà tuyển dụng nhanh chóng nắm bắt quá trình thăng tiến của ứng viên. Hệ thống ATS phân tích chính xác nhất với định dạng này, khiến nó trở thành lựa chọn lý tưởng khi ứng tuyển vào các công ty lớn, tập đoàn đa quốc gia và doanh nghiệp FDI tại Việt Nam.',
+    structureTitle: 'Cấu trúc các phần',
+    sections: [
+      { label: 'Thông tin cá nhân & liên hệ', detail: 'Họ tên, email, số điện thoại, thành phố', isCore: true },
+      { label: 'Tóm tắt nghề nghiệp', detail: '3-4 dòng tóm tắt kinh nghiệm và thế mạnh cốt lõi', isCore: true },
+      { label: 'Kinh nghiệm làm việc', detail: 'Từ gần nhất đến xa nhất (công ty, thời gian, thành tích)', isCore: true },
+      { label: 'Học vấn', detail: 'Bằng cấp cao nhất và liên quan nhất' },
+      { label: 'Kỹ năng', detail: 'Kỹ năng chuyên môn, chứng chỉ và ngoại ngữ' },
+    ],
+    downloadLabel: 'Tải mẫu CV',
+    aiLabel: 'Tạo bằng AI',
+  },
+  functional: {
+    title: 'Định dạng CV theo kỹ năng (chức năng)',
+    description: 'Định dạng sắp xếp CV xin việc xoay quanh kỹ năng và năng lực thay vì trình tự thời gian. Phù hợp cho những ai muốn nhấn mạnh "bạn làm được gì" hơn là "bạn đã làm ở đâu".',
+    warningTitle: 'Lưu ý về tương thích ATS',
+    warningText: 'Một số hệ thống ATS gặp khó khăn khi phân tích CV theo kỹ năng có phần kinh nghiệm quá ngắn. Định dạng này phù hợp nhất cho người chuyển ngành, có khoảng trống trong sự nghiệp hoặc chuyển từ làm tự do sang làm toàn thời gian, nhưng cần cân nhắc kỹ khi ứng tuyển vào doanh nghiệp truyền thống hoặc cơ quan nhà nước.',
+    structureTitle: 'Cấu trúc các phần',
+    sections: [
+      { label: 'Thông tin cá nhân & liên hệ', isCore: true },
+      { label: 'Tóm tắt nghề nghiệp', isCore: true },
+      { label: 'Các lĩnh vực kỹ năng', detail: '3-4 nhóm kỹ năng với thành tích cụ thể cho mỗi nhóm', isCore: true },
+      { label: 'Kinh nghiệm làm việc (tóm tắt)', detail: 'Chỉ ghi tên công ty, chức danh và thời gian' },
+      { label: 'Học vấn' },
+    ],
+    downloadLabel: 'Tải mẫu CV',
+    aiLabel: 'Tạo bằng AI',
+  },
+  combination: {
+    title: 'Định dạng CV kết hợp',
+    description: 'Kết hợp điểm mạnh của CV theo thời gian ngược và CV theo kỹ năng. Giúp bạn thể hiện đồng thời cả năng lực chuyên môn lẫn kinh nghiệm thực tế.',
+    whoForTitle: 'Khi nào nên chọn định dạng này',
+    whoForItems: [
+      'Chuyên viên cấp trung hoặc cấp cao với kinh nghiệm quản lý',
+      'Muốn thể hiện cả chiều sâu kinh nghiệm lẫn sự đa dạng của kỹ năng',
+      'Ứng tuyển vị trí đòi hỏi cả năng lực chuyên môn lẫn thành tích thực tế',
+      'Có lộ trình sự nghiệp đa ngành, đa lĩnh vực',
+    ],
+    downloadLabel: 'Tải mẫu CV',
+    aiLabel: 'Tạo bằng AI',
+  },
+  faq: {
+    title: 'Câu hỏi thường gặp',
+    items: [
+      { question: 'Định dạng CV nào phổ biến nhất tại Việt Nam?', answer: 'Tại Việt Nam, CV theo thời gian ngược là định dạng phổ biến nhất. Liệt kê kinh nghiệm từ gần nhất giúp nhà tuyển dụng dễ dàng đánh giá năng lực hiện tại của bạn. Định dạng này cũng có tương thích ATS cao nhất, phù hợp với cả doanh nghiệp trong nước lẫn công ty nước ngoài tại Việt Nam.' },
+      { question: 'Nên chọn định dạng nào nếu thay đổi công việc nhiều lần?', answer: 'Định dạng CV kết hợp là lựa chọn tốt nhất. Phần kỹ năng được đặt lên đầu giúp nhà tuyển dụng thấy ngay thế mạnh của bạn, trong khi phần kinh nghiệm được trình bày ngắn gọn, chuyển trọng tâm từ số lần chuyển việc sang năng lực tích lũy được.' },
+      { question: 'Sinh viên mới ra trường nên dùng định dạng CV nào?', answer: 'Sinh viên mới ra trường nên dùng CV theo thời gian ngược. Đặt phần học vấn lên trên kinh nghiệm và tận dụng các hoạt động thực tập, dự án tốt nghiệp, hoạt động ngoại khóa và tình nguyện. Công cụ tạo CV bằng AI sẽ tự động gợi ý cách diễn đạt phù hợp cho người mới đi làm.' },
+      { question: 'CV ATS-friendly là gì?', answer: 'CV ATS-friendly là CV được thiết kế để hệ thống ATS (Applicant Tracking System — hệ thống quản lý tuyển dụng) có thể đọc và phân tích chính xác. Bố cục đơn giản, tên phần chuẩn và định dạng PDF là yêu cầu cơ bản. Tất cả mẫu CV của chúng tôi đều đã được kiểm tra và tối ưu hóa cho ATS.' },
+      { question: 'Có nên viết CV bằng tiếng Anh khi ứng tuyển tại Việt Nam?', answer: 'Nếu bạn ứng tuyển vào công ty nước ngoài, tập đoàn đa quốc gia hoặc vị trí đòi hỏi tiếng Anh, CV tiếng Anh là bắt buộc. Với công ty Việt Nam, CV tiếng Việt là đủ nhưng việc có thêm bản CV tiếng Anh sẽ là điểm cộng lớn. Công cụ tạo CV bằng AI của chúng tôi hỗ trợ cả tiếng Việt và tiếng Anh.' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài liệu tham khảo',
+    items: [
+      { href: 'https://www.molisa.gov.vn/', label: 'Bộ Lao động — Thương binh và Xã hội' },
+      { href: 'https://www.vietnamworks.com/', label: 'VietnamWorks — Trang tuyển dụng hàng đầu Việt Nam' },
+    ],
+  },
+  stickyCta: {
+    text: 'Bạn đã tìm được định dạng CV phù hợp chưa?',
+    ctaLabel: 'Tạo CV ngay bây giờ',
+  },
+  bottomCta: {
+    title: 'Không cần băn khoăn về định dạng CV nữa',
+    description: 'Công cụ tạo CV bằng AI tự động tối ưu hóa định dạng, phông chữ và lề. Chọn từ hơn 20 mẫu CV ATS-friendly và đổi định dạng chỉ bằng một cú nhấp chuột.',
+    ctaLabel: 'Tạo CV xin việc miễn phí',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Thai
+// ---------------------------------------------------------------------------
+const th: ResumeFormatPageContent = {
+  meta: {
+    title: 'รูปแบบเรซูเม่ที่ดีที่สุด 2026 | คู่มือฉบับสมบูรณ์ | Best AI Resume',
+    description:
+      'เลือกรูปแบบเรซูเม่ที่เหมาะกับคุณ เปรียบเทียบรูปแบบลำดับเวลาย้อนกลับ เชิงทักษะ และผสมผสาน พร้อมเทมเพลตเรซูเม่ ATS ฟรีกว่า 20 แบบ',
+    keywords:
+      'รูปแบบเรซูเม่, เทมเพลตเรซูเม่, สร้างเรซูเม่, เรซูเม่ AI, เรซูเม่ ATS, วิธีเขียนเรซูเม่, รูปแบบเรซูเม่ภาษาไทย, เรซูเม่สมัครงาน',
+  },
+  schemas: {
+    breadcrumbName: 'รูปแบบเรซูเม่',
+    howToName: 'วิธีเลือกรูปแบบเรซูเม่ที่เหมาะสม',
+    howToDescription:
+      'เปรียบเทียบ 3 รูปแบบเรซูเม่หลัก (ลำดับเวลาย้อนกลับ เชิงทักษะ ผสมผสาน) แล้วเลือกรูปแบบที่เหมาะกับระดับประสบการณ์และเป้าหมายอาชีพของคุณ',
+    howToSteps: [
+      'ประเมินระดับประสบการณ์ของคุณ (จบใหม่ มีประสบการณ์ ผู้บริหาร)',
+      'เปรียบเทียบข้อดีข้อเสียของ 3 รูปแบบเรซูเม่',
+      'ตรวจสอบคะแนนความเข้ากันได้กับ ATS',
+      'เลือกเทมเพลตแล้วเริ่มสร้างเรซูเม่',
+    ],
+    howToToolName: 'Best AI Resume เครื่องมือสร้างเรซูเม่',
+  },
+  hero: {
+    badge: 'คู่มือรูปแบบเรซูเม่ 2026',
+    title: 'เลือกรูปแบบเรซูเม่',
+    titleHighlight: 'ที่เหมาะกับคุณ',
+    subtitle:
+      'ลำดับเวลาย้อนกลับ เชิงทักษะ หรือผสมผสาน — การเลือก<strong>รูปแบบเรซูเม่</strong>ที่ถูกต้องคือก้าวแรกสู่การผ่านการคัดเลือก เครื่องมือสร้างเรซูเม่ AI ช่วยให้สลับรูปแบบได้ในคลิกเดียว',
+    ctaCompare: 'เปรียบเทียบรูปแบบ',
+    ctaBuild: 'สร้างเรซูเม่ฟรี',
+  },
+  comparison: {
+    title: 'เปรียบเทียบ 3 รูปแบบเรซูเม่หลัก',
+    subtitle: 'ดูคุณสมบัติ ความเหมาะสม และคะแนน ATS ของแต่ละรูปแบบ',
+    tableHeaders: {
+      format: 'รูปแบบ',
+      bestFor: 'เหมาะสำหรับ',
+      avoidIf: 'หลีกเลี่ยงถ้า',
+      atsSafety: 'ความเข้ากันกับ ATS',
+    },
+    formats: [
+      {
+        name: 'ลำดับเวลาย้อนกลับ',
+        badge: 'นิยมที่สุด',
+        badgeColor: 'green',
+        bestFor: [
+          'มีประวัติการทำงานต่อเนื่องไม่มีช่องว่าง',
+          'กำลังเลื่อนตำแหน่งหรือย้ายงานในอุตสาหกรรมเดิม',
+          'ประสบการณ์ล่าสุดตรงกับตำแหน่งที่สมัคร',
+        ],
+        avoidIf: 'มีช่วงว่างในประวัติการทำงานนาน',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'เชิงทักษะ (Functional)',
+        badge: 'เน้นทักษะ',
+        badgeColor: 'amber',
+        bestFor: [
+          'กำลังเปลี่ยนสายงานหรืออุตสาหกรรม',
+          'มีช่วงว่างในประวัติการทำงาน',
+          'จบใหม่ ฟรีแลนซ์ หรือมีแค่ประสบการณ์ฝึกงาน',
+        ],
+        avoidIf: 'สมัครงานบริษัทใหญ่หรืออุตสาหกรรมอนุรักษ์นิยม',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'ผสมผสาน (Combination)',
+        badge: 'สมดุล',
+        badgeColor: 'blue',
+        bestFor: [
+          'มีทั้งทักษะเฉพาะทางและประสบการณ์ที่แข็งแกร่ง',
+          'สมัครตำแหน่งผู้จัดการหรือผู้บริหาร',
+          'ต้องการโชว์ทั้งทักษะและผลงานพร้อมกัน',
+        ],
+        avoidIf: 'มีประสบการณ์ทำงานน้อย',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'รูปแบบเรซูเม่ลำดับเวลาย้อนกลับ',
+    description:
+      'เริ่มจากประสบการณ์ล่าสุดแล้วไล่ย้อนกลับไป เป็นรูปแบบที่นิยมที่สุดในตลาดงานไทยและทั่วโลก มีความเข้ากันได้กับระบบ ATS สูงที่สุด',
+    whyLoveTitle: 'ทำไม HR ชอบรูปแบบนี้',
+    whyLoveText:
+      'รูปแบบลำดับเวลาย้อนกลับแสดงความก้าวหน้าในอาชีพอย่างชัดเจน ทำให้ผู้สรรหาอ่านและประเมินได้ง่ายที่สุด ระบบ ATS แปลผลได้แม่นยำ เหมาะสำหรับสมัครงานบริษัทใหญ่และข้ามชาติในไทย',
+    structureTitle: 'โครงสร้างส่วนต่าง ๆ',
+    sections: [
+      { label: 'ข้อมูลส่วนตัว', detail: 'ชื่อ อีเมล เบอร์โทร ที่อยู่', isCore: true },
+      { label: 'สรุปประวัติ', detail: 'สรุปประสบการณ์และจุดแข็งหลักใน 3-4 บรรทัด', isCore: true },
+      { label: 'ประสบการณ์ทำงาน', detail: 'เรียงจากล่าสุด (ชื่อบริษัท ตำแหน่ง ระยะเวลา ผลงาน)', isCore: true },
+      { label: 'การศึกษา', detail: 'วุฒิการศึกษาสูงสุด' },
+      { label: 'ทักษะ', detail: 'ทักษะเฉพาะทางและใบรับรอง' },
+    ],
+    downloadLabel: 'ดาวน์โหลดเทมเพลต',
+    aiLabel: 'สร้างด้วย AI',
+  },
+  functional: {
+    title: 'รูปแบบเรซูเม่เชิงทักษะ (Functional)',
+    description:
+      'เน้นทักษะและความสามารถเป็นหลัก เหมาะเมื่อต้องการแสดง "สิ่งที่ทำได้" มากกว่าลำดับประสบการณ์',
+    warningTitle: 'ข้อควรระวังเรื่อง ATS',
+    warningText:
+      'ระบบ ATS บางตัวอาจแปลผลได้ไม่ดีถ้าส่วนประสบการณ์ทำงานสั้นเกินไป เหมาะสำหรับคนเปลี่ยนสายงาน มีช่วงว่างในอาชีพ หรือเปลี่ยนจากฟรีแลนซ์เป็นพนักงานประจำ แต่ควรระวังเมื่อสมัครบริษัทใหญ่หรืออุตสาหกรรมที่อนุรักษ์นิยม',
+    structureTitle: 'โครงสร้างส่วนต่าง ๆ',
+    sections: [
+      { label: 'ข้อมูลส่วนตัว', isCore: true },
+      { label: 'สรุปประวัติ', isCore: true },
+      { label: 'ทักษะหลัก', detail: 'จัดกลุ่ม 3-4 ด้านพร้อมผลงาน', isCore: true },
+      { label: 'ประสบการณ์ทำงาน (ย่อ)', detail: 'ชื่อบริษัท ตำแหน่ง ระยะเวลาเท่านั้น' },
+      { label: 'การศึกษา' },
+    ],
+    downloadLabel: 'ดาวน์โหลดเทมเพลต',
+    aiLabel: 'สร้างด้วย AI',
+  },
+  combination: {
+    title: 'รูปแบบเรซูเม่ผสมผสาน (Combination)',
+    description:
+      'รวมข้อดีของรูปแบบลำดับเวลาย้อนกลับและเชิงทักษะเข้าด้วยกัน แสดงทั้งทักษะที่หลากหลายและประสบการณ์ที่แข็งแกร่ง',
+    whoForTitle: 'เหมาะสำหรับใคร',
+    whoForItems: [
+      'ผู้มีประสบการณ์ระดับกลางถึงซีเนียร์ในสายอาชีพเฉพาะทาง',
+      'ต้องการแสดงทั้งความกว้างของทักษะและความลึกของประสบการณ์',
+      'สมัครตำแหน่งที่ต้องการทั้งทักษะเทคนิคและผลงานที่ผ่านมา',
+      'มีอาชีพที่ครอบคลุมหลายสาขา',
+    ],
+    downloadLabel: 'ดาวน์โหลดเทมเพลต',
+    aiLabel: 'สร้างด้วย AI',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      {
+        question: 'รูปแบบเรซูเม่ที่นิยมที่สุดในไทยคืออะไร?',
+        answer:
+          'ในประเทศไทย รูปแบบลำดับเวลาย้อนกลับเป็นที่นิยมมากที่สุด เรียงประสบการณ์จากล่าสุดไปเก่าสุด ผู้สรรหาคุ้นเคยกับรูปแบบนี้มากที่สุดและ ATS รองรับได้ดีที่สุด ทั้งบริษัทไทยและบริษัทข้ามชาติในไทยยอมรับรูปแบบนี้เป็นมาตรฐาน',
+      },
+      {
+        question: 'เปลี่ยนงานบ่อยควรใช้รูปแบบไหน?',
+        answer:
+          'ถ้าเปลี่ยนงานบ่อย แนะนำรูปแบบผสมผสาน ส่วนทักษะหลักช่วยแสดงจุดแข็งก่อน แล้วจัดส่วนประสบการณ์ให้กระชับ ทำให้โฟกัสที่ความสามารถมากกว่าจำนวนครั้งที่เปลี่ยนงาน',
+      },
+      {
+        question: 'จบใหม่ควรใช้รูปแบบเรซูเม่แบบไหน?',
+        answer:
+          'จบใหม่เหมาะกับรูปแบบลำดับเวลาย้อนกลับ วางส่วนการศึกษาไว้เหนือประสบการณ์ทำงาน ใส่ฝึกงาน กิจกรรมนอกหลักสูตร และโปรเจกต์ เครื่องมือสร้างเรซูเม่ AI จะแนะนำสำนวนที่เหมาะสมสำหรับคนเพิ่งจบใหม่โดยอัตโนมัติ',
+      },
+      {
+        question: 'รูปแบบเรซูเม่ที่ผ่าน ATS คืออะไร?',
+        answer:
+          'รูปแบบเรซูเม่ที่ ATS (ระบบติดตามผู้สมัคร) อ่านได้อย่างถูกต้อง หลักสำคัญคือเลย์เอาต์เรียบง่าย ชื่อส่วนมาตรฐาน และไฟล์ PDF เทมเพลตทั้งหมดของเราผ่านการทดสอบความเข้ากันได้กับ ATS แล้ว',
+      },
+      {
+        question: 'เรซูเม่ภาษาไทยกับเรซูเม่ภาษาอังกฤษต่างกันอย่างไร?',
+        answer:
+          'เรซูเม่ภาษาไทยมักมีรูปถ่าย ข้อมูลส่วนตัวมากกว่า (เช่น วันเกิด สถานภาพ) ตามธรรมเนียมไทย ส่วนเรซูเม่ภาษาอังกฤษ (Resume) เน้นประสบการณ์และผลงาน สำหรับบริษัทข้ามชาติในไทย แนะนำเตรียมทั้งสองภาษา เครื่องมือสร้างเรซูเม่ AI ของเรารองรับทั้งภาษาไทยและภาษาอังกฤษ',
+      },
+    ],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://www.doe.go.th/', label: 'กรมการจัดหางาน กระทรวงแรงงาน' },
+      { href: 'https://www.bls.gov/ooh/', label: 'สำนักสถิติแรงงานสหรัฐฯ: ภาพรวมอาชีพ' },
+    ],
+  },
+  stickyCta: {
+    text: 'พบรูปแบบเรซูเม่ที่เหมาะกับคุณแล้วหรือยัง?',
+    ctaLabel: 'สร้างเรซูเม่เลย',
+  },
+  bottomCta: {
+    title: 'ไม่ต้องกังวลเรื่องรูปแบบเรซูเม่อีกต่อไป',
+    description:
+      'เครื่องมือสร้างเรซูเม่ AI ปรับรูปแบบ ฟอนต์ และระยะขอบให้อัตโนมัติ เลือกจากเทมเพลตเรซูเม่ ATS มากกว่า 20 แบบ แล้วสลับรูปแบบได้ในคลิกเดียว',
+    ctaLabel: 'สร้างเรซูเม่ฟรี',
+  },
+};
+
 // ── Export ───────────────────────────────────────────────────────────
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it };
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

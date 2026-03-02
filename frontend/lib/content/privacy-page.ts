@@ -434,6 +434,186 @@ const it: PrivacyContent = {
   lastUpdated: 'Ultimo aggiornamento: gennaio 2026',
 };
 
-const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it };
+const vi: PrivacyContent = {
+  hero: {
+    badge: 'Chính Sách Bảo Mật',
+    title: 'Quyền riêng tư của bạn là',
+    titleHighlight: 'ưu tiên hàng đầu',
+    subtitle: 'Tại Best AI Resume, chúng tôi tin rằng dữ liệu cá nhân thuộc về bạn. Nền tảng của chúng tôi được xây dựng với nguyên tắc bảo mật đặt lên hàng đầu, giúp bạn kiểm soát hoàn toàn thông tin của mình.',
+  },
+  highlights: [
+    { title: 'Dữ Liệu Lưu Trên Máy Bạn', text: 'Toàn bộ nội dung CV—kinh nghiệm làm việc, học vấn và kỹ năng—được lưu trữ trên trình duyệt của bạn, không bao giờ lên máy chủ của chúng tôi.' },
+    { title: 'Dữ Liệu Server Tối Thiểu', text: 'Chúng tôi chỉ lưu trữ email và mật khẩu trên server để xác thực tài khoản. Không lưu nội dung CV hay bất kỳ thông tin cá nhân nào khác.' },
+    { title: 'Minh Bạch Tuyệt Đối', text: 'Chúng tôi tin vào sự minh bạch hoàn toàn. Bạn có thể xem chính xác dữ liệu nào được lưu trong trình duyệt và xóa bất kỳ lúc nào.' },
+  ],
+  sections: [
+    {
+      heading: 'Dữ Liệu Chúng Tôi Thu Thập',
+      subsections: [
+        { subheading: 'Dữ Liệu Lưu Trên Server (Tối Thiểu)', items: ['**Địa chỉ email** \u2014 Dùng để xác thực tài khoản và thông báo quan trọng về dịch vụ', '**Mật khẩu (đã mã hóa)** \u2014 Được băm an toàn để xác thực'] },
+        { subheading: 'Dữ Liệu Lưu Trên Trình Duyệt', items: ['Thông tin cá nhân (tên, thông tin liên hệ, địa chỉ)', 'Kinh nghiệm làm việc và lịch sử công tác', 'Học vấn và chứng chỉ', 'Kỹ năng, ngoại ngữ và thành tích', 'Mẫu CV và tùy chọn cá nhân hóa'] },
+      ],
+    },
+    {
+      heading: 'Tại Sao Chúng Tôi Dùng Bộ Nhớ Trình Duyệt',
+      intro: 'Chúng tôi chọn bộ nhớ trình duyệt (localStorage) làm phương thức lưu trữ chính vì nhiều lý do quan trọng:',
+      items: ['**Bảo Mật Tối Đa** \u2014 Thông tin nghề nghiệp nhạy cảm không bao giờ rời khỏi thiết bị của bạn', '**Không Rò Rỉ Dữ Liệu** \u2014 Vì chúng tôi không lưu dữ liệu CV, nên không thể bị xâm phạm khi server gặp sự cố', '**Kiểm Soát Hoàn Toàn** \u2014 Bạn có thể xem, xuất hoặc xóa dữ liệu bất kỳ lúc nào qua cài đặt trình duyệt', '**Hiệu Suất Cao** \u2014 Lưu trữ cục bộ giúp truy cập dữ liệu tức thì không cần chờ server'],
+    },
+    {
+      heading: 'Cách Chúng Tôi Bảo Vệ Tài Khoản',
+      intro: 'Dù tối thiểu hóa dữ liệu phía server, chúng tôi rất nghiêm túc trong việc bảo mật thông tin đăng nhập:',
+      items: ['Mật khẩu được mã hóa bằng thuật toán băm tiêu chuẩn ngành', 'Tất cả truyền tải dữ liệu được bảo vệ bằng mã hóa HTTPS', 'Mật khẩu không bao giờ được lưu dạng văn bản thuần', 'Kiểm tra và giám sát bảo mật định kỳ'],
+    },
+    {
+      heading: 'Quyền Và Kiểm Soát Của Bạn',
+      intro: 'Bạn có toàn quyền kiểm soát dữ liệu của mình:',
+      items: ['**Truy Cập** \u2014 Xem tất cả dữ liệu trong trình duyệt bất kỳ lúc nào qua công cụ nhà phát triển', '**Xuất Dữ Liệu** \u2014 Tải CV dưới dạng PDF hoặc các định dạng khác', '**Xóa** \u2014 Xóa bộ nhớ trình duyệt hoặc xóa tài khoản bất kỳ lúc nào', '**Di Chuyển** \u2014 Dữ liệu là của bạn, bạn có thể mang đi bất cứ đâu'],
+    },
+    {
+      heading: 'Những Điều Chúng Tôi Không Làm',
+      intro: 'Chúng tôi cam kết thực hành đạo đức trong quản lý dữ liệu:',
+      items: ['Bán thông tin cá nhân cho bên thứ ba', 'Sử dụng nội dung CV cho mục đích quảng cáo', 'Chia sẻ dữ liệu với nhà tuyển dụng mà không có sự đồng ý rõ ràng của bạn', 'Theo dõi hoạt động duyệt web của bạn trên các trang khác', 'Lưu trữ nội dung CV trên server của chúng tôi'],
+    },
+    {
+      heading: 'Cookie và Phân Tích',
+      intro: 'Chúng tôi sử dụng cookie tối thiểu và cần thiết để:',
+      items: ['Duy trì phiên đăng nhập', 'Ghi nhớ tùy chọn ngôn ngữ và giao diện', 'Phân tích ẩn danh để cải thiện dịch vụ'],
+    },
+    {
+      heading: 'Liên Hệ',
+    },
+  ],
+  contactText: 'Nếu bạn có bất kỳ câu hỏi nào về chính sách bảo mật hoặc muốn thực hiện quyền kiểm soát dữ liệu cá nhân, vui lòng liên hệ',
+  cta: {
+    title: 'Tạo CV chuyên nghiệp với',
+    titleHighlight: 'sự tin tưởng và bảo mật',
+    subtitle: 'Dữ liệu nghề nghiệp của bạn luôn thuộc về bạn. Bắt đầu tạo CV chuyên nghiệp ngay hôm nay.',
+    primaryBtn: 'Bắt Đầu Miễn Phí',
+    secondaryBtn: 'Tìm Hiểu Về Chúng Tôi',
+  },
+  lastUpdated: 'Cập nhật lần cuối: tháng 1 năm 2026',
+};
+
+const ko: PrivacyContent = {
+  hero: {
+    badge: '개인정보 처리방침',
+    title: '여러분의 개인정보는',
+    titleHighlight: '최우선 보호 대상입니다',
+    subtitle: 'Best AI Resume에서는 개인 데이터가 여러분의 것이라고 믿습니다. 개인정보 보호를 최우선으로 하는 접근 방식으로 플랫폼을 구축하여, 여러분의 정보가 여러분의 관리 하에 있도록 합니다.',
+  },
+  highlights: [
+    { title: '데이터는 로컬에 보관', text: '이력서의 모든 내용, 경력사항, 학력, 기술 정보는 브라우저의 로컬 저장소에 저장되며, 당사 서버에는 전송되지 않습니다.' },
+    { title: '최소한의 서버 데이터', text: '서버에 저장하는 것은 계정 인증을 위한 이메일 주소와 비밀번호뿐입니다. 이력서 내용이나 개인 정보는 일절 저장하지 않습니다.' },
+    { title: '완전한 투명성', text: '완전한 투명성을 지향합니다. 브라우저에 저장된 데이터를 정확히 확인할 수 있으며, 언제든지 삭제할 수 있습니다.' },
+  ],
+  sections: [
+    {
+      heading: '수집하는 데이터',
+      subsections: [
+        { subheading: '서버에 저장하는 데이터(최소한)', items: ['**이메일 주소** — 계정 인증 및 중요한 서비스 업데이트에 사용', '**비밀번호(암호화됨)** — 안전하게 해시 처리되어 인증용으로 저장'] },
+        { subheading: '브라우저에 로컬 저장되는 데이터', items: ['개인 정보(이름, 연락처, 주소)', '경력사항 및 근무 이력', '학력 및 자격증', '기술, 언어, 성과', '이력서 템플릿 및 맞춤 설정'] },
+      ],
+    },
+    {
+      heading: '브라우저 저장소를 사용하는 이유',
+      intro: '브라우저 저장소(localStorage)를 주요 데이터 저장 방식으로 선택한 중요한 이유가 있습니다:',
+      items: ['**최대한의 개인정보 보호** — 민감한 경력 정보가 기기 밖으로 유출되지 않습니다', '**데이터 유출 위험 없음** — 이력서 데이터를 서버에 저장하지 않으므로, 서버 침해 시에도 유출되지 않습니다', '**완전한 통제** — 브라우저 설정을 통해 언제든지 데이터를 조회, 내보내기, 삭제할 수 있습니다', '**빠른 성능** — 로컬 저장으로 서버 지연 없이 즉시 데이터에 접근합니다'],
+    },
+    {
+      heading: '계정 보호 방법',
+      intro: '서버 측 데이터를 최소화하면서도 계정 인증 정보의 보안을 철저히 관리합니다:',
+      items: ['업계 표준 해시 알고리즘으로 비밀번호를 암호화합니다', '모든 데이터 전송은 HTTPS 암호화로 보호됩니다', '비밀번호를 평문으로 저장하지 않습니다', '정기적인 보안 감사 및 모니터링을 실시합니다'],
+    },
+    {
+      heading: '이용자의 권리와 통제',
+      intro: '개인정보에 대한 완전한 관리 권한을 보유합니다:',
+      items: ['**접근** — 브라우저 개발자 도구를 통해 언제든지 저장된 데이터를 확인할 수 있습니다', '**내보내기** — 이력서 데이터를 PDF 또는 다른 형식으로 다운로드할 수 있습니다', '**삭제** — 브라우저 저장소를 비우거나 계정을 언제든지 삭제할 수 있습니다', '**이동성** — 데이터는 이용자의 소유이며 원하는 곳으로 가져갈 수 있습니다'],
+    },
+    {
+      heading: '하지 않는 일',
+      intro: '윤리적인 데이터 처리를 준수합니다. 다음은 절대 하지 않겠다는 약속입니다:',
+      items: ['이용자의 개인정보를 제3자에게 판매하는 행위', '이력서 내용을 광고 목적으로 사용하는 행위', '이용자의 명시적 동의 없이 채용 담당자에게 정보를 공유하는 행위', '다른 웹사이트에서의 브라우징 활동을 추적하는 행위', '이력서 내용을 당사 서버에 저장하는 행위'],
+    },
+    {
+      heading: '쿠키 및 분석',
+      intro: '최소한의 필수 쿠키를 다음 목적으로 사용합니다:',
+      items: ['계정 로그인 상태 유지', '언어 및 테마 설정 기억', '서비스 개선을 위한 익명 사용 분석'],
+    },
+    {
+      heading: '문의하기',
+    },
+  ],
+  contactText: '개인정보 처리방침에 관한 질문이나 데이터 권리 행사를 원하시면 다음으로 연락해 주십시오',
+  cta: {
+    title: '안심하고 프라이버시가 보호되는 환경에서',
+    titleHighlight: '이력서를 작성하세요',
+    subtitle: '경력 데이터는 여러분의 것입니다. 지금 바로 전문적인 이력서 작성을 시작하세요.',
+    primaryBtn: '무료로 시작하기',
+    secondaryBtn: '더 알아보기',
+  },
+  lastUpdated: '최종 업데이트: 2026년 1월',
+};
+
+const th: PrivacyContent = {
+  hero: {
+    badge: 'นโยบายความเป็นส่วนตัว',
+    title: 'ความเป็นส่วนตัวของคุณคือ',
+    titleHighlight: 'สิ่งสำคัญสูงสุดของเรา',
+    subtitle: 'ที่ Best AI Resume เราเชื่อว่าข้อมูลส่วนบุคคลเป็นของคุณ เราสร้างแพลตฟอร์มด้วยแนวทางที่ให้ความสำคัญกับความเป็นส่วนตัวเป็นอันดับแรก เพื่อให้คุณสามารถควบคุมข้อมูลของตนเองได้อย่างเต็มที่ ตามหลักการของพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)',
+  },
+  highlights: [
+    { title: 'ข้อมูลของคุณจัดเก็บในเครื่อง', text: 'ข้อมูลเรซูเม่ทั้งหมดของคุณ ประสบการณ์การทำงาน การศึกษา และทักษะ จะถูกจัดเก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น ไม่มีการส่งไปยังเซิร์ฟเวอร์ของเรา' },
+    { title: 'ข้อมูลบนเซิร์ฟเวอร์น้อยที่สุด', text: 'เราจัดเก็บเฉพาะอีเมลและรหัสผ่านบนเซิร์ฟเวอร์เพื่อการยืนยันตัวตนเท่านั้น ไม่มีข้อมูลเรซูเม่หรือข้อมูลส่วนบุคคลอื่นใด' },
+    { title: 'ความโปร่งใสอย่างสมบูรณ์', text: 'เราเชื่อมั่นในความโปร่งใสอย่างเต็มที่ คุณสามารถตรวจสอบข้อมูลที่จัดเก็บในเบราว์เซอร์ได้อย่างชัดเจน และลบข้อมูลเหล่านั้นได้ทุกเมื่อ' },
+  ],
+  sections: [
+    {
+      heading: 'ข้อมูลที่เราเก็บรวบรวม',
+      subsections: [
+        { subheading: 'ข้อมูลที่จัดเก็บบนเซิร์ฟเวอร์ (น้อยที่สุด)', items: ['**อีเมล** \u2014 ใช้สำหรับการยืนยันตัวตนและการแจ้งเตือนสำคัญเกี่ยวกับบริการ', '**รหัสผ่าน (เข้ารหัสแล้ว)** \u2014 เข้ารหัสอย่างปลอดภัยด้วย Hash เพื่อการยืนยันตัวตน'] },
+        { subheading: 'ข้อมูลที่จัดเก็บในเบราว์เซอร์ของคุณ', items: ['ข้อมูลส่วนบุคคล (ชื่อ ข้อมูลติดต่อ ที่อยู่)', 'ประสบการณ์การทำงานและประวัติการจ้างงาน', 'การศึกษาและใบรับรองต่าง ๆ', 'ทักษะ ภาษา และผลงาน', 'เทมเพลตเรซูเม่และการตั้งค่าส่วนบุคคล'] },
+      ],
+    },
+    {
+      heading: 'เหตุผลที่เราใช้พื้นที่จัดเก็บของเบราว์เซอร์',
+      intro: 'เราเลือกใช้พื้นที่จัดเก็บของเบราว์เซอร์ (localStorage) เป็นวิธีจัดเก็บข้อมูลหลักด้วยเหตุผลสำคัญหลายประการ:',
+      items: ['**ความเป็นส่วนตัวสูงสุด** \u2014 ข้อมูลอาชีพที่ละเอียดอ่อนของคุณจะไม่ออกจากอุปกรณ์ของคุณ', '**ไม่มีความเสี่ยงการรั่วไหลของข้อมูล** \u2014 เนื่องจากเราไม่ได้จัดเก็บข้อมูลเรซูเม่ ข้อมูลจึงไม่สามารถถูกเข้าถึงได้แม้เซิร์ฟเวอร์ถูกโจมตี', '**ควบคุมได้อย่างสมบูรณ์** \u2014 คุณสามารถดู ส่งออก หรือลบข้อมูลได้ทุกเมื่อผ่านการตั้งค่าเบราว์เซอร์', '**ประสิทธิภาพสูง** \u2014 การจัดเก็บในเครื่องช่วยให้เข้าถึงข้อมูลได้ทันทีโดยไม่ต้องรอเซิร์ฟเวอร์'],
+    },
+    {
+      heading: 'วิธีการปกป้องบัญชีของคุณ',
+      intro: 'แม้เราจะลดข้อมูลที่จัดเก็บบนเซิร์ฟเวอร์ให้น้อยที่สุด แต่เราให้ความสำคัญอย่างยิ่งกับความปลอดภัยของข้อมูลยืนยันตัวตน:',
+      items: ['รหัสผ่านถูกเข้ารหัสด้วยอัลกอริทึมแฮชตามมาตรฐานอุตสาหกรรม', 'การรับส่งข้อมูลทั้งหมดได้รับการปกป้องด้วยการเข้ารหัส HTTPS', 'เราไม่มีการจัดเก็บรหัสผ่านในรูปแบบข้อความธรรมดา', 'มีการตรวจสอบและเฝ้าระวังด้านความปลอดภัยอย่างสม่ำเสมอ'],
+    },
+    {
+      heading: 'สิทธิ์และการควบคุมของคุณ',
+      intro: 'ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA) คุณมีสิทธิ์ในการควบคุมข้อมูลของคุณอย่างเต็มที่:',
+      items: ['**เข้าถึง** \u2014 ดูข้อมูลทั้งหมดที่จัดเก็บในเบราว์เซอร์ได้ทุกเมื่อผ่านเครื่องมือสำหรับนักพัฒนา', '**ส่งออก** \u2014 ดาวน์โหลดข้อมูลเรซูเม่ในรูปแบบ PDF หรือรูปแบบอื่น ๆ', '**ลบ** \u2014 ล้างพื้นที่จัดเก็บของเบราว์เซอร์หรือลบบัญชีของคุณได้ทุกเมื่อ', '**เคลื่อนย้าย** \u2014 ข้อมูลของคุณเป็นของคุณ สามารถนำไปใช้ที่ใดก็ได้'],
+    },
+    {
+      heading: 'สิ่งที่เราไม่ทำ',
+      intro: 'เรายึดมั่นในหลักจริยธรรมด้านข้อมูล สิ่งต่อไปนี้เป็นสิ่งที่เราจะไม่ทำโดยเด็ดขาด:',
+      items: ['ขายข้อมูลส่วนบุคคลของคุณให้กับบุคคลที่สาม', 'ใช้เนื้อหาเรซูเม่ของคุณเพื่อวัตถุประสงค์ทางโฆษณา', 'แชร์ข้อมูลของคุณกับผู้ว่าจ้างโดยไม่ได้รับความยินยอมอย่างชัดแจ้ง', 'ติดตามกิจกรรมการท่องเว็บของคุณในเว็บไซต์อื่น', 'จัดเก็บเนื้อหาเรซูเม่ของคุณบนเซิร์ฟเวอร์ของเรา'],
+    },
+    {
+      heading: 'คุกกี้และการวิเคราะห์',
+      intro: 'เราใช้คุกกี้ที่จำเป็นขั้นต่ำเพื่อ:',
+      items: ['รักษาสถานะการเข้าสู่ระบบของคุณ', 'จดจำการตั้งค่าภาษาและธีมของคุณ', 'การวิเคราะห์การใช้งานแบบไม่ระบุตัวตนเพื่อปรับปรุงบริการ'],
+    },
+    {
+      heading: 'ติดต่อเรา',
+    },
+  ],
+  contactText: 'หากคุณมีคำถามเกี่ยวกับแนวปฏิบัติด้านความเป็นส่วนตัวของเราหรือต้องการใช้สิทธิ์ด้านข้อมูล กรุณาติดต่อเราที่',
+  cta: {
+    title: 'สร้างเรซูเม่ของคุณด้วย',
+    titleHighlight: 'ความมั่นใจและความเป็นส่วนตัว',
+    subtitle: 'ข้อมูลอาชีพของคุณอยู่กับคุณเสมอ เริ่มสร้างเรซูเม่มืออาชีพของคุณวันนี้',
+    primaryBtn: 'เริ่มต้นฟรี',
+    secondaryBtn: 'เรียนรู้เกี่ยวกับเรา',
+  },
+  lastUpdated: 'อัปเดตล่าสุด: มกราคม 2569',
+};
+
+const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

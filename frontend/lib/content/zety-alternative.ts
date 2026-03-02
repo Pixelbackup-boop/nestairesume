@@ -909,5 +909,388 @@ const it: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it };
+// ── Korean ───────────────────────────────────────────────────────────
+
+const ko: ComparisonPageContent = {
+  meta: {
+    title: 'Zety 대안 2026: 무료 AI 이력서 작성기 (숨겨진 비용 없음) | Best AI Resume',
+    description: 'Zety 무료 대안을 찾고 계신가요? Zety vs Best AI Resume Builder 비교 — AI 이력서 작성, ATS 호환 템플릿, 무제한 다운로드. 체험판 함정 없이 완전 무료.',
+    keywords: 'Zety 대안, 이력서 작성기 무료, 무료 이력서, AI 이력서, 이력서 템플릿, 이력서 양식, 무료 이력서 다운로드, Zety 대체',
+  },
+  schemas: {
+    breadcrumbName: 'Zety 대안',
+    articleHeadline: 'Zety 대안 2026: 숨겨진 비용 없는 무료 AI 이력서 작성기',
+    articleDescription: 'Zety vs Best AI Resume Builder 비교. AI 이력서 작성, ATS 최적화, 무제한 다운로드를 완전 무료로 이용하세요. 체험판 함정 없음.',
+  },
+  hero: {
+    badge: 'Zety 대안',
+    title: '이력서를 작성하세요.',
+    titleHighlight: '무료로 다운로드하세요.',
+    subtitle: 'Zety는 이력서를 무료로 만들 수 있지만, 다운로드하려면 <strong>월 $23.70</strong>를 결제해야 합니다. 저희는 AI 이력서 작성, ATS 템플릿, 무제한 내보내기를 <strong>$0</strong>에 제공합니다.',
+    ctaPrimary: '무료 이력서 만들기',
+    ctaSecondary: '비교 보기',
+  },
+  problem: {
+    title: 'Zety의 가격 함정',
+    description: 'Zety는 전문적인 템플릿과 유용한 콘텐츠 제안 기능을 갖추고 있습니다. 문제는 가격 모델입니다: 이력서를 다 작성한 후에야 다운로드에 결제가 필요하다는 것을 알게 됩니다. <strong>14일 체험판은 $2.70</strong>이며 이후 <strong>월 $23.70으로 자동 갱신</strong>됩니다. 해지를 잊어 예상치 못한 결제가 발생했다는 사용자 후기가 다수 있습니다.',
+    stats: [
+      { value: '$23.70', label: '체험 종료 후 월간 요금 (자동 갱신)' },
+      { value: '$2.70', label: '14일 체험판 비용 (자동 갱신 주의)' },
+      { value: '$0', label: 'Best AI Resume Builder — 영구 무료, 카드 불필요' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: '투명한 기능 비교 — 숨겨진 것 없이.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '요금', competitor: '❌ 체험 후 월 $23.70', ours: '✅ 완전 무료' },
+      { feature: 'AI 이력서 작성', competitor: '⚠️ 기본적인 문구 제안', ours: '✅ 고급 AI가 맞춤 콘텐츠 생성' },
+      { feature: 'ATS 점수', competitor: '❌ 실시간 점수 없음', ours: '✅ 실시간 ATS 점수 확인' },
+      { feature: 'PDF 다운로드', competitor: '❌ 유료 플랜 필요', ours: '✅ 무료 무제한 다운로드' },
+      { feature: '이력서 생성 수', competitor: '⚠️ 사실상 유료 플랜 필요', ours: '✅ 무제한' },
+      { feature: '템플릿 품질', competitor: '✅ 전문적인 템플릿', ours: '✅ 20종 이상 전문 템플릿' },
+      { feature: 'ATS 호환성', competitor: '✅ ATS 호환 템플릿', ours: '✅ 전체 템플릿 ATS 검증 완료' },
+      { feature: '자기소개서 작성', competitor: '✅ 포함 (유료)', ours: '✅ 포함 (무료)' },
+      { feature: '업종별 키워드', competitor: '⚠️ 기본 제안만 제공', ours: '✅ AI가 업종별 키워드 추천' },
+      { feature: '자동 갱신 함정', competitor: '❌ 월 $23.70 자동 갱신', ours: '✅ 구독 불필요' },
+    ],
+  },
+  whySwitch: {
+    title: 'Zety에서 갈아탈 3가지 이유',
+    subtitle: '더 나은 기능. 비용 제로. 함정 없음.',
+    reasons: [
+      { title: '다운로드 유료화 없음', description: 'Zety에서는 이력서를 무료로 작성할 수 있지만 다운로드에는 결제가 필요합니다. 저희 서비스는 작성부터 PDF/Word 다운로드까지 모두 무료이며, 횟수 제한도 없습니다.' },
+      { title: '진짜 AI, 빈칸 채우기가 아닙니다', description: 'Zety는 미리 작성된 문구를 선택하는 방식입니다. 저희 AI는 사용자의 직종과 경력을 기반으로 성과 설명과 직무 요약을 직접 생성합니다.' },
+      { title: 'ATS 점수를 사전에 확인', description: 'Zety에는 지원 전 ATS 호환성을 확인할 방법이 없습니다. 저희 도구는 실시간 ATS 점수를 표시하고 구체적인 개선 사항을 안내합니다.' },
+    ],
+  },
+  recommendation: {
+    title: '솔직한 추천',
+    useCompetitor: {
+      title: 'Zety가 적합한 경우',
+      items: [
+        '월 $23.70를 지불할 예산이 있는 경우',
+        '단계별 마법사 방식을 선호하는 경우',
+        '기본적인 문구 제안만으로 충분한 경우',
+        '체험 종료 전 해지를 잊지 않을 자신이 있는 경우',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes가 더 나은 경우',
+      items: [
+        '작성한 이력서를 무료로 다운로드하고 싶은 경우',
+        '템플릿 문구가 아닌 진짜 AI 작성을 원하는 경우',
+        '지원 전 ATS 호환성을 확인하고 싶은 경우',
+        '구독 함정을 피하고 싶은 경우',
+        '여러 채용 공고에 맞춘 이력서가 필요한 경우',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300개 이상의 무료 이력서 예시',
+    description: '모든 직종에 맞는 전문 이력서 예시를 ATS 최적화된 형태로 확인하세요.',
+    ctaBrowse: '이력서 예시 보기',
+    ctaTemplates: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: 'Zety에서 이력서를 무료로 다운로드할 수 있나요?', answer: '아니요. Zety에서는 이력서를 무료로 작성할 수 있지만, 다운로드하려면 유료 구독(14일 $2.70 체험 후 월 $23.70 자동 갱신)이 필요합니다. Best AI Resume Builder는 작성부터 다운로드까지 모두 무료입니다.' },
+      { question: 'Zety는 왜 무료처럼 보이지만 유료인가요?', answer: 'Zety는 "무료 이력서 작성기"로 홍보합니다. 작성 자체는 무료이지만, 다운로드 단계에서 결제를 요구합니다. 많은 사용자들이 이를 "미끼 상술"이라고 느끼고 있습니다.' },
+      { question: 'Zety의 가장 좋은 무료 대안은?', answer: 'Best AI Resume Builder가 최고의 무료 대안입니다. Zety가 유료로 제공하는 모든 기능 — 이력서 템플릿, PDF 다운로드, 콘텐츠 제안 — 을 무료로 제공하며, 고급 AI 작성 기능과 실시간 ATS 점수까지 추가로 지원합니다.' },
+      { question: 'Zety의 이력서 템플릿은 ATS와 호환되나요?', answer: 'Zety의 템플릿은 일반적으로 ATS와 호환되지만, ATS 적합도를 확인할 방법은 없습니다. Best AI Resume Builder는 전체 템플릿이 ATS 검증 완료이며, 실시간 점수로 확인할 수 있습니다.' },
+      { question: 'Zety 체험 후 해지할 수 있나요?', answer: '네, 다만 14일 체험 기간 종료 전에 해지해야 합니다. 해지를 잊으면 월 $23.70이 자동으로 결제됩니다. Best AI Resume Builder는 해지할 필요조차 없습니다 — 완전 무료이니까요.' },
+    ],
+  },
+  crossLinks: {
+    title: '다른 이력서 작성 도구 비교',
+    items: [
+      { href: '/canva-alternative', title: 'Canva 대안', subtitle: '디자인 도구 vs AI 작성 도구' },
+      { href: '/overleaf-alternative', title: 'Overleaf 대안', subtitle: 'LaTeX 이력서 vs AI 작성 도구' },
+      { href: '/rezi-alternative', title: 'Rezi 대안', subtitle: 'AI 이력서 도구 비교' },
+    ],
+    guidesTitle: '유용한 이력서 가이드',
+    guides: [
+      { href: '/blog/how-to-write-ats-friendly-resume', label: 'ATS 호환 이력서 작성법' },
+      { href: '/resume-format', label: '2026 이력서 양식 가이드' },
+      { href: '/blog/top-resume-mistakes-to-avoid', label: '이력서 작성 시 흔한 실수' },
+      { href: '/resume-examples', label: '300개 이상 직종별 이력서 예시' },
+    ],
+  },
+  externalResources: {
+    title: '외부 자료',
+    items: [
+      { href: 'https://www.zety.com/', label: 'Zety 공식 사이트' },
+      { href: 'https://www.bls.gov/ooh/', label: '미국 노동통계국 OOH' },
+    ],
+  },
+  bottomCta: {
+    title: '체험판 없음. 함정 없음. 그냥 무료.',
+    description: '신용카드 없이 이력서를 작성하고 다운로드하고 공유하세요. AI 이력서 작성, ATS 템플릿, 무제한 내보내기 — 모두 무료.',
+    cta: '무료 이력서 만들기',
+    subtext: '영구 무료. 신용카드 불필요.',
+  },
+};
+
+// ── Vietnamese ──────────────────────────────────────────────────────
+
+const vi: ComparisonPageContent = {
+  meta: {
+    title: 'Thay Thế Zety 2026: Tạo CV Miễn Phí Bằng AI (Không Phí Ẩn) | Best AI Resume',
+    description: 'Tìm giải pháp thay thế Zety miễn phí? So sánh Zety vs Best AI Resume Builder — tạo CV miễn phí bằng AI, mẫu CV ATS, tải không giới hạn. Không bẫy dùng thử, không phí ẩn.',
+    keywords: 'thay thế zety, tạo cv miễn phí, mẫu cv ats, cv xin việc, zety miễn phí, viết cv bằng ai, mẫu cv chuyên nghiệp, cv xin việc miễn phí',
+  },
+  schemas: {
+    breadcrumbName: 'Thay Thế Zety',
+    articleHeadline: 'Thay Thế Zety 2026: Tạo CV Miễn Phí Bằng AI Không Phí Ẩn',
+    articleDescription: 'So sánh Zety vs Best AI Resume Builder. Tạo CV miễn phí bằng AI, tối ưu hóa ATS và tải không giới hạn — hoàn toàn miễn phí, không bẫy dùng thử.',
+  },
+  hero: {
+    badge: 'Thay Thế Zety',
+    title: 'Tạo CV Của Bạn.',
+    titleHighlight: 'Tải Miễn Phí.',
+    subtitle: 'Zety cho phép bạn tạo CV miễn phí — nhưng tính <strong>$23,70/tháng</strong> để tải về. Chúng tôi cung cấp viết CV bằng AI, mẫu CV ATS và xuất không giới hạn với giá <strong>0₫</strong>.',
+    ctaPrimary: 'Tạo CV Miễn Phí',
+    ctaSecondary: 'Xem So Sánh',
+  },
+  problem: {
+    title: 'Bẫy Giá Của Zety',
+    description: 'Zety có mẫu CV chuyên nghiệp và gợi ý nội dung hữu ích. Vấn đề nằm ở mô hình định giá: bạn dành thời gian tạo toàn bộ CV xin việc rồi mới phát hiện phải trả tiền để tải về. <strong>Bản dùng thử 14 ngày tốn $2,70</strong>, sau đó <strong>tự động gia hạn $23,70/tháng</strong>. Hàng nghìn người dùng trên các trang đánh giá phản ánh bị trừ tiền bất ngờ sau khi quên hủy.',
+    stats: [
+      { value: '$23,70', label: 'mỗi tháng sau khi hết dùng thử (tự động gia hạn)' },
+      { value: '$2,70', label: 'phí dùng thử 14 ngày (cẩn thận tự động gia hạn)' },
+      { value: '0₫', label: 'Best AI Resume Builder — miễn phí mãi mãi, không cần thẻ' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'So sánh minh bạch — không bất ngờ nào.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Giá', competitor: '❌ $23,70/tháng sau dùng thử', ours: '✅ Hoàn toàn miễn phí' },
+      { feature: 'Viết CV bằng AI', competitor: '⚠️ Gợi ý câu mẫu cơ bản', ours: '✅ AI tạo nội dung cá nhân hóa' },
+      { feature: 'Điểm ATS', competitor: '❌ Không có điểm ATS thời gian thực', ours: '✅ Điểm ATS thời gian thực' },
+      { feature: 'Tải PDF', competitor: '❌ Cần gói trả phí', ours: '✅ Tải không giới hạn, miễn phí' },
+      { feature: 'Số CV được tạo', competitor: '⚠️ Thực tế cần gói trả phí', ours: '✅ Không giới hạn' },
+      { feature: 'Chất lượng mẫu CV', competitor: '✅ Mẫu chuyên nghiệp', ours: '✅ 20+ mẫu CV chuyên nghiệp' },
+      { feature: 'Tương thích ATS', competitor: '✅ Mẫu thân thiện ATS', ours: '✅ Tất cả mẫu đã kiểm tra ATS' },
+      { feature: 'Thư xin việc', competitor: '✅ Có sẵn (trả phí)', ours: '✅ Có sẵn (miễn phí)' },
+      { feature: 'Từ khóa ngành nghề', competitor: '⚠️ Chỉ gợi ý cơ bản', ours: '✅ AI gợi ý từ khóa theo ngành' },
+      { feature: 'Tự động gia hạn', competitor: '❌ Gia hạn $23,70/tháng', ours: '✅ Không cần đăng ký gói nào' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Lý Do Chuyển Từ Zety',
+    subtitle: 'Tính năng tốt hơn. Chi phí bằng không. Không bẫy giá.',
+    reasons: [
+      { title: 'Không trả phí khi tải về', description: 'Với Zety, bạn tạo CV miễn phí nhưng phải trả tiền mới tải được. Với chúng tôi, mọi thứ đều miễn phí — tạo, chỉnh sửa, tải PDF hoặc Word, không giới hạn và không phí ẩn.' },
+      { title: 'AI thực sự, không phải điền mẫu có sẵn', description: 'Zety cung cấp các câu mẫu để bạn chọn và điền vào. AI của chúng tôi tạo ra mô tả kinh nghiệm làm việc và tóm tắt nghề nghiệp dựa trên vị trí và kinh nghiệm thực tế của bạn trong thị trường việc làm Việt Nam.' },
+      { title: 'Kiểm tra ATS trước khi ứng tuyển', description: 'Zety không cung cấp tính năng kiểm tra khả năng tương thích ATS cho CV xin việc của bạn. Công cụ của chúng tôi hiển thị điểm ATS thời gian thực với các gợi ý cụ thể để tăng khả năng vượt qua bộ lọc tự động của nhà tuyển dụng.' },
+    ],
+  },
+  recommendation: {
+    title: 'Lời Khuyên Thành Thật',
+    useCompetitor: {
+      title: 'Khi nào Zety phù hợp với bạn',
+      items: [
+        'Bạn có ngân sách $23,70/tháng cho công cụ tạo CV',
+        'Bạn thích trải nghiệm hướng dẫn từng bước (wizard)',
+        'Bạn chỉ cần gợi ý câu mẫu cơ bản',
+        'Bạn chắc chắn sẽ nhớ hủy trước khi hết hạn dùng thử',
+      ],
+    },
+    useUs: {
+      title: 'Khi nào Best AI Resumes là lựa chọn tốt hơn',
+      items: [
+        'Bạn muốn tải CV xin việc đã tạo mà không phải trả tiền',
+        'Bạn muốn AI viết nội dung thực sự, không phải câu mẫu có sẵn',
+        'Bạn muốn kiểm tra tương thích ATS trước khi ứng tuyển',
+        'Bạn muốn tránh bẫy đăng ký và tự động gia hạn',
+        'Bạn cần nhiều phiên bản CV cho các vị trí tuyển dụng khác nhau',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Hơn 300 Mẫu CV Miễn Phí',
+    description: 'Khám phá các mẫu CV xin việc chuyên nghiệp được tối ưu ATS cho mọi ngành nghề.',
+    ctaBrowse: 'Xem Mẫu CV',
+    ctaTemplates: 'Xem Tất Cả Mẫu',
+  },
+  faq: {
+    title: 'Câu Hỏi Thường Gặp',
+    items: [
+      { question: 'Có tải CV từ Zety miễn phí được không?', answer: 'Không. Zety cho phép bạn tạo CV miễn phí, nhưng để tải về cần đăng ký trả phí (dùng thử 14 ngày giá $2,70, sau đó tự động gia hạn $23,70/tháng). Best AI Resume Builder cho phép tạo và tải CV hoàn toàn miễn phí.' },
+      { question: 'Tại sao Zety trông miễn phí nhưng lại tính phí?', answer: 'Zety quảng cáo là "tạo CV miễn phí". Việc tạo CV thực sự miễn phí, nhưng khi bạn muốn tải về thì yêu cầu thanh toán. Nhiều người dùng tại Việt Nam coi đây là mô hình kinh doanh gây hiểu lầm.' },
+      { question: 'Giải pháp thay thế Zety miễn phí tốt nhất là gì?', answer: 'Best AI Resume Builder là giải pháp thay thế Zety miễn phí tốt nhất. Cung cấp mọi tính năng mà Zety thu phí — mẫu CV ATS, tải PDF, gợi ý nội dung — hoàn toàn miễn phí, cùng với viết CV bằng AI và điểm ATS thời gian thực.' },
+      { question: 'Mẫu CV của Zety có tương thích ATS không?', answer: 'Mẫu CV của Zety nhìn chung tương thích ATS, nhưng không có cách nào kiểm tra điểm tương thích. Best AI Resume Builder có tất cả mẫu CV ATS đã được kiểm tra và bạn có thể theo dõi điểm ATS thời gian thực.' },
+      { question: 'Có thể hủy sau khi dùng thử Zety không?', answer: 'Có, nhưng bạn phải hủy trước khi hết 14 ngày dùng thử. Nếu quên, bạn sẽ bị trừ tự động $23,70/tháng. Với Best AI Resume Builder, không có gì cần hủy — tạo CV miễn phí mãi mãi.' },
+    ],
+  },
+  crossLinks: {
+    title: 'So Sánh Các Công Cụ Tạo CV Khác',
+    items: [
+      { href: '/vi/adobe-alternative', title: 'Thay Thế Adobe', subtitle: 'Công cụ thiết kế vs tạo CV bằng AI' },
+      { href: '/vi/canva-alternative', title: 'Thay Thế Canva', subtitle: 'Thiết kế đồ họa vs tạo CV bằng AI' },
+      { href: '/vi/rezi-alternative', title: 'Thay Thế Rezi', subtitle: 'So sánh công cụ AI tạo CV' },
+      { href: '/vi/overleaf-alternative', title: 'Thay Thế Overleaf', subtitle: 'CV LaTeX vs tạo CV bằng AI' },
+    ],
+    guidesTitle: 'Hướng Dẫn Viết CV Hữu Ích',
+    guides: [
+      { href: '/vi/blog/how-to-write-ats-friendly-resume', label: 'Cách Viết CV Xin Việc Tương Thích ATS' },
+      { href: '/vi/blog/how-to-write-a-resume', label: 'Hướng Dẫn Viết CV Xin Việc Đầy Đủ 2026' },
+      { href: '/vi/blog/top-resume-mistakes-to-avoid', label: 'Những Lỗi Thường Gặp Khi Viết CV' },
+      { href: '/vi/resume-examples', label: 'Hơn 300 Mẫu CV Theo Ngành Nghề' },
+    ],
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.zety.com/', label: 'Trang Chủ Zety' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Cục Thống Kê Lao Động Hoa Kỳ OOH' },
+    ],
+  },
+  bottomCta: {
+    title: 'Không Dùng Thử. Không Bẫy Giá. Chỉ Miễn Phí.',
+    description: 'Tạo, tải và chia sẻ CV xin việc mà không cần nhập thẻ tín dụng. Viết CV bằng AI, mẫu CV ATS, tải không giới hạn — tất cả miễn phí.',
+    cta: 'Tạo CV Miễn Phí Ngay',
+    subtext: 'Miễn phí mãi mãi. Không cần thẻ tín dụng.',
+  },
+};
+
+const th: ComparisonPageContent = {
+  meta: {
+    title: 'ทางเลือกแทน Zety 2026: สร้างเรซูเม่ AI ฟรี ไม่มีค่าแอบแฝง',
+    description: 'หาทางเลือกฟรีแทน Zety? เปรียบเทียบ Zety vs Best AI Resume Builder — สร้างเรซูเม่ AI ฟรี เทมเพลต ATS ดาวน์โหลดไม่จำกัด ไม่มีค่าสมัครสมาชิก',
+    keywords: 'zety ทางเลือก, สร้างเรซูเม่ฟรี, zety รีวิว, zety ราคา, เทมเพลตเรซูเม่ฟรี, เรซูเม่ AI, zety alternative ไทย, เครื่องมือสร้างเรซูเม่',
+  },
+  schemas: {
+    breadcrumbName: 'ทางเลือกแทน Zety',
+    articleHeadline: 'ทางเลือกแทน Zety 2026: สร้างเรซูเม่ AI ฟรีไม่มีค่าแอบแฝง',
+    articleDescription: 'เปรียบเทียบ Zety vs Best AI Resume Builder ใช้ AI ช่วยเขียนเรซูเม่ เทมเพลต ATS และดาวน์โหลดไม่จำกัด ฟรี 100%',
+  },
+  hero: {
+    badge: 'ทางเลือกแทน Zety',
+    title: 'สร้างเรซูเม่ของคุณ',
+    titleHighlight: 'ดาวน์โหลดฟรี',
+    subtitle: 'Zety ให้สร้างเรซูเม่ฟรี แต่เก็บ <strong>$23.70/เดือน</strong> ตอนจะดาวน์โหลด เราให้ AI ช่วยเขียน เทมเพลต ATS และส่งออกไม่จำกัด ราคา <strong>฿0</strong>',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูการเปรียบเทียบ',
+  },
+  problem: {
+    title: 'กับดักราคาของ Zety',
+    description: 'Zety มีเทมเพลตมืออาชีพและคำแนะนำเนื้อหาที่ดี ปัญหาคือรูปแบบการเก็บเงิน: คุณสร้างเรซูเม่ทั้งตัวก่อนจะรู้ว่าต้องจ่ายเพื่อดาวน์โหลด ทดลองใช้ <strong>14 วันราคา $2.70</strong> แล้วต่ออายุอัตโนมัติ <strong>$23.70/เดือน</strong> ผู้ใช้ทั่วโลกรวมถึงคนไทยรายงานว่าถูกเก็บเงินโดยไม่คาดคิด',
+    stats: [
+      { value: '$2.70', label: 'ทดลอง 14 วัน (ต่ออายุเป็น $23.70/เดือน)' },
+      { value: '$284', label: 'ค่าใช้จ่ายต่อปีถ้าลืมยกเลิก' },
+      { value: '฿0', label: 'Best AI Resume Builder — ฟรีตลอดไป' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'เปรียบเทียบฟีเจอร์แบบเทียบกัน',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ราคา', competitor: '❌ ทดลอง $2.70 → $23.70/เดือน ต่ออายุอัตโนมัติ', ours: '✅ ฟรี 100% ตลอดไป' },
+      { feature: 'ดาวน์โหลดฟรี', competitor: '❌ ต้องจ่ายเพื่อดาวน์โหลด PDF', ours: '✅ ส่งออก PDF ฟรีไม่จำกัด' },
+      { feature: 'AI ช่วยเขียนเรซูเม่', competitor: '⚠️ ข้อความสำเร็จรูป (ไม่ใช่ AI จริง)', ours: '✅ AI สร้างเนื้อหาเฉพาะทาง' },
+      { feature: 'ATS Optimization', competitor: '✅ มี Resume Checker', ours: '✅ คะแนน ATS แบบเรียลไทม์ + คีย์เวิร์ด' },
+      { feature: 'คุณภาพเทมเพลต', competitor: '✅ ดีไซน์สวยมืออาชีพ', ours: '✅ 20+ เทมเพลตผ่านทดสอบ ATS' },
+      { feature: 'จำนวนเรซูเม่', competitor: '⚠️ ไม่จำกัด (แต่ล็อกหลัง paywall)', ours: '✅ เรซูเม่ไม่จำกัด ฟรี' },
+      { feature: 'เครื่องมือสร้าง Cover Letter', competitor: '✅ มี (แผนเสียเงิน)', ours: '✅ AI ช่วยเขียน (ฟรี)' },
+      { feature: 'คำแนะนำเนื้อหา', competitor: '✅ ข้อความสำเร็จรูปตามตำแหน่งงาน', ours: '✅ AI ปรับตามประสบการณ์ของคุณ' },
+      { feature: 'การยกเลิก', competitor: '❌ ต้องยกเลิกก่อนทดลองหมด', ours: '✅ ไม่มีอะไรต้องยกเลิก' },
+      { feature: 'รีวิวผู้ใช้ (Trustpilot)', competitor: '⚠️ ผสม — ร้องเรียนเรื่องเรียกเก็บเงินบ่อย', ours: '✅ ไม่มีปัญหาเรียกเก็บเงิน' },
+    ],
+  },
+  whySwitch: {
+    title: 'จุดเด่นของ Zety',
+    subtitle: 'ให้เครดิตตามที่สมควร',
+    reasons: [
+      { title: 'การออกแบบเทมเพลต', description: 'เทมเพลตของ Zety สวยและมืออาชีพ มีหลากหลายสไตล์ตั้งแต่แบบดั้งเดิมถึงโมเดิร์น ตัวอักษรสวยจัดวางดี' },
+      { title: 'คำแนะนำเนื้อหา', description: 'ข้อความสำเร็จรูปตามตำแหน่งงานช่วยผู้ที่เขียนเรซูเม่ไม่เก่ง เลือกจากข้อความที่แนะนำแล้วปรับแต่งเองได้' },
+      { title: 'Resume Checker', description: 'ตัวตรวจเรซูเม่ในตัวของ Zety วิเคราะห์เนื้อหาและแนะนำปรับปรุงเรื่องความยาว การเลือกคำ และความครบถ้วนของแต่ละส่วน' },
+    ],
+  },
+  shortcomings: {
+    title: 'จุดอ่อนของ Zety',
+    items: [
+      { title: 'ต้องจ่ายเพื่อดาวน์โหลด', description: 'คุณใช้เวลาสร้างเรซูเม่ทั้งตัว แล้วขั้นตอนสุดท้ายก็พบว่าต้องจ่ายเงินเพื่อดาวน์โหลด สร้างความผิดหวังให้ผู้ใช้ที่คิดว่าฟรี' },
+      { title: 'สมัครสมาชิกต่ออายุอัตโนมัติ', description: 'ทดลอง $2.70 ต่ออายุเป็น $23.70/เดือนอัตโนมัติ ผู้ใช้จำนวนมากใน Reddit และ Trustpilot รายงานว่าถูกเก็บเงินหลายเดือนโดยไม่คาดคิด' },
+      { title: 'ไม่มี AI ช่วยเขียนจริง', description: 'Zety ใช้ข้อความสำเร็จรูปและคลังข้อความ ไม่ใช่ AI ที่สร้างเนื้อหาเฉพาะจากประสบการณ์ของคุณ คำแนะนำจึงรู้สึกเป็นแบบทั่วไป' },
+      { title: 'ฟังก์ชันฟรีจำกัดมาก', description: 'สร้างได้ในแผนฟรี แต่ไม่สามารถส่งออก แชร์ หรือใช้เรซูเม่ได้จริงโดยไม่จ่ายเงิน' },
+    ],
+  },
+  recommendation: {
+    title: 'แนะนำตรงๆ',
+    useCompetitor: {
+      title: 'Zety อาจเหมาะถ้าคุณ...',
+      items: [
+        'ยินดีจ่าย $23.70/เดือน สำหรับเครื่องมือสร้างเรซูเม่',
+        'ชอบข้อความสำเร็จรูปมากกว่า AI สร้างเนื้อหา',
+        'ต้องการแบรนด์ที่มีชื่อเสียงระดับสากล',
+        'จำได้ว่าต้องยกเลิกสมัครสมาชิกก่อนทดลองหมด',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes ดีกว่าถ้าคุณ...',
+      items: [
+        'ต้องการดาวน์โหลดเรซูเม่โดยไม่ต้องจ่ายเงิน',
+        'ต้องการ AI ที่เขียนเนื้อหาเฉพาะจากประสบการณ์ของคุณ',
+        'ต้องการเรซูเม่หลายเวอร์ชันสำหรับสมัครงานหลายที่',
+        'ต้องการคะแนน ATS แบบเรียลไทม์พร้อมแนะนำคีย์เวิร์ด',
+        'ไม่อยากยุ่งกับทดลองใช้ การยกเลิก หรือเก็บเงินเซอร์ไพรส์',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'ดูตัวอย่างเรซูเม่ฟรีกว่า 300 แบบ',
+    description: 'เรียกดูตัวอย่างเรซูเม่มืออาชีพสำหรับทุกอาชีพ',
+    ctaBrowse: 'ดูตัวอย่างเรซูเม่',
+    ctaTemplates: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'Zety ใช้ฟรีได้ไหม?', answer: 'Zety ให้สร้างเรซูเม่ฟรี แต่ดาวน์โหลดต้องจ่ายสมัครสมาชิก ทดลอง 14 วัน $2.70 ต่ออายุ $23.70/เดือนอัตโนมัติ ผู้ใช้หลายคนรายงานว่าถูกเก็บเงินโดยไม่คาดคิด Best AI Resume Builder ฟรี 100% ไม่มีกับดัก' },
+      { question: 'Zety เป็นเครื่องมือสร้างเรซูเม่ที่ถูกต้องไหม?', answer: 'ใช่ Zety เป็นบริษัทที่ถูกต้องตามกฎหมายที่มีเทมเพลตมืออาชีพและเคล็ดลับการเขียน แต่รูปแบบการเก็บเงินสร้างความผิดหวัง คุณสร้างเรซูเม่ทั้งตัวก่อนจะรู้ว่าต้องจ่ายเพื่อดาวน์โหลด Best AI Resume Builder ให้สร้าง ดาวน์โหลด และส่งออกฟรีตั้งแต่เริ่มต้น' },
+      { question: 'ทางเลือกฟรีที่ดีที่สุดแทน Zety คืออะไร?', answer: 'Best AI Resume Builder เป็นทางเลือกฟรีที่ดีที่สุด มี AI ช่วยเขียน เทมเพลต ATS กว่า 20 แบบ คะแนน ATS แบบเรียลไทม์ และส่งออก PDF ไม่จำกัด ทั้งหมดฟรี ไม่ต้องทดลอง ไม่ต้องใช้บัตรเครดิต' },
+      { question: 'Zety มีฟีเจอร์ AI ไหม?', answer: 'Zety มีข้อความสำเร็จรูปและ Resume Checker แต่ไม่มี AI ช่วยเขียนจริงที่ใช้ large language model Best AI Resume Builder ใช้ AI สร้างหัวข้อย่อย สรุปอาชีพ และเนื้อหาเฉพาะทางตามประสบการณ์และตำแหน่งเป้าหมายของคุณ' },
+      { question: 'ยกเลิก Zety หลังดาวน์โหลดเรซูเม่ได้ไหม?', answer: 'ได้ แต่ต้องยกเลิกก่อนทดลอง 14 วันหมดอายุเพื่อหลีกเลี่ยง $23.70/เดือน ผู้ใช้หลายคนรายงานว่ายกเลิกยากหรือถูกเก็บเงินโดยไม่คาดคิด กับ Best AI Resume Builder ไม่มีอะไรต้องยกเลิก ฟรีตลอดไม่มีสมัครสมาชิก' },
+    ],
+  },
+  crossLinks: {
+    title: 'เปรียบเทียบเครื่องมือสร้างเรซูเม่อื่นๆ',
+    items: [
+      { href: '/th/canva-alternative', title: 'ทางเลือกแทน Canva', subtitle: 'เครื่องมือออกแบบ vs AI builder' },
+      { href: '/th/rezi-alternative', title: 'ทางเลือกแทน Rezi', subtitle: 'เปรียบเทียบฟีเจอร์ AI' },
+      { href: '/th/resume-io-alternative', title: 'ทางเลือกแทน Resume.io', subtitle: 'เปรียบเทียบราคาและฟีเจอร์' },
+    ],
+    guidesTitle: 'คู่มือเรซูเม่ที่มีประโยชน์',
+    guides: [
+      { href: '/th/blog/how-to-write-a-resume', label: 'วิธีเขียนเรซูเม่ (คู่มือฉบับเต็ม)' },
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/blog/how-to-list-skills-on-resume', label: 'วิธีใส่ทักษะในเรซูเม่' },
+      { href: '/th/blog/what-is-ats-guide', label: 'ATS คืออะไร? คู่มือฉบับเต็ม' },
+    ],
+  },
+  externalResources: {
+    title: 'แหล่งข้อมูลภายนอก',
+    items: [
+      { href: 'https://zety.com/', label: 'เว็บไซต์ Zety' },
+      { href: 'https://www.shrm.org/topics-tools/tools/hr-answers/what-are-applicant-tracking-systems', label: 'SHRM: ระบบ ATS คืออะไร' },
+    ],
+  },
+  bottomCta: {
+    title: 'ไม่ทดลอง ไม่มีกับดัก แค่ฟรี',
+    description: 'สร้าง ดาวน์โหลด และแชร์เรซูเม่โดยไม่ต้องกรอกบัตรเครดิต AI ช่วยเขียน เทมเพลต ATS ส่งออกไม่จำกัด ทั้งหมดฟรี',
+    cta: 'สร้างเรซูเม่ฟรี',
+    subtext: 'ฟรีตลอด ไม่ต้องใช้บัตรเครดิต',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

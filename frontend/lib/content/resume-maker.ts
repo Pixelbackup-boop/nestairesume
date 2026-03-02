@@ -765,7 +765,331 @@ const it: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it };
+const ko: LandingPageContent = {
+  meta: {
+    title: '무료 이력서 만들기 | AI 이력서 작성 도구 2026',
+    description: '무료 AI 이력서 만들기 도구로 프로페셔널한 이력서를 몇 분 만에 작성하세요. ATS 통과 이력서 템플릿, AI 이력서 작성, PDF 다운로드 무료.',
+    keywords: '이력서 만들기, 이력서 작성, 이력서 제작, AI 이력서, 무료 이력서, 이력서 빌더, 이력서 쓰는 법, 이력서 템플릿 무료',
+  },
+  schemas: {
+    breadcrumbName: '이력서 만들기',
+    articleHeadline: '무료 이력서 만들기: AI 이력서 작성 도구 2026',
+    articleDescription: '무료 AI 이력서 만들기 도구로 프로페셔널한 이력서를 몇 분 만에 작성. ATS 통과 이력서 템플릿, AI 작성 지원, PDF 즉시 다운로드.',
+    softwareAppName: 'Best AI 이력서 만들기',
+  },
+  hero: {
+    badge: '무료 AI 이력서 만들기',
+    title: '프로페셔널한 이력서를',
+    titleHighlight: '몇 분 만에 작성',
+    subtitle: '무료 <strong>이력서 만들기</strong> 도구가 AI로 설득력 있는 콘텐츠 작성, ATS 최적화, 면접 기회 확대를 도와드립니다. <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">포춘 500 기업의 98%</a>가 ATS를 사용하는 지금, 최적화된 이력서는 필수입니다. 디자인 스킬 불필요.',
+    ctaPrimary: '무료로 이력서 만들기',
+    ctaSecondary: '템플릿 보기',
+    trustBadges: ['가입 불필요', '신용카드 불필요', 'PDF 무료 다운로드'],
+  },
+  features: {
+    title: '무료 이력서 만들기 도구가 선택받는 이유',
+    subtitle: '단순한 템플릿이 아닙니다——AI 이력서 작성 도구가 더 나은 콘텐츠 작성과 ATS 통과를 도와줍니다.',
+    items: [
+      { feature: 'AI 작성 지원', description: 'AI가 지원 업종과 경력 수준에 맞춘 프로페셔널한 성과 기술, 경력 요약, 스킬 설명을 자동 생성합니다.' },
+      { feature: 'ATS 최적화 템플릿', description: '모든 템플릿은 Workday, Taleo, Greenhouse 등 주요 ATS에서 테스트 완료. 서류 심사를 확실히 통과하세요.' },
+      { feature: 'PDF 다운로드', description: '원클릭으로 PDF 다운로드. 워터마크 없음, 비용 없음——완전 무료입니다.' },
+      { feature: '몇 분 만에 완성', description: '빈 페이지에서 헤매지 마세요. 가이드 플로우와 AI 제안으로 10분 이내에 완성도 높은 이력서를 작성할 수 있습니다.' },
+      { feature: '실시간 ATS 점수', description: '작성하면서 ATS 점수를 실시간으로 확인. 제출 전에 최적화할 수 있습니다.' },
+      { feature: '20종 이상 프로 템플릿', description: '모든 업종·경력 수준에 맞는 프로페셔널 템플릿. 전부 무료, 전부 ATS 호환.' },
+    ],
+    cta: '지금 바로 작성 시작',
+  },
+  comparison: {
+    title: '본 도구 vs 다른 이력서 만들기 서비스',
+    subtitle: '왜 많은 구직자가 본 무료 AI 이력서 만들기 도구를 선택하는지 확인하세요.',
+    oursName: 'Best AI Resumes',
+    othersName: '다른 서비스',
+    rows: [
+      { feature: 'AI 작성 지원', ours: '고급 AI 작성', others: '기본 또는 없음' },
+      { feature: 'ATS 최적화', ours: '실시간 채점', others: '제한적 테스트' },
+      { feature: '전체 템플릿 무료', ours: '20종 이상', others: '대부분 유료' },
+      { feature: 'PDF 무료 다운로드', ours: '항상 무료', others: '많은 곳이 유료' },
+      { feature: '가입 불필요', ours: '바로 시작', others: '보통 필요' },
+      { feature: '업종 키워드', ours: 'AI 제안', others: '수동 입력만 가능' },
+      { feature: '다수 이력서 작성', ours: '무제한', others: '대부분 제한' },
+    ],
+  },
+  howItWorks: {
+    title: '이력서 만들기 사용법',
+    subtitle: '3단계로 합격하는 이력서를 작성하세요. AI가 어려운 작업을 대신합니다.',
+    steps: [
+      { step: 1, title: '템플릿 선택', description: '업종에 맞는 20종 이상의 ATS 통과 프로 템플릿에서 선택하세요.' },
+      { step: 2, title: '정보 입력', description: '경력을 입력하면 AI가 개선 제안·키워드·프로페셔널 표현을 제안합니다.' },
+      { step: 3, title: '다운로드 후 지원', description: 'PDF로 이력서를 내보내고 바로 지원을 시작하세요.' },
+    ],
+    cta: '프리미엄 이력서 만들기',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '200만+', label: '작성된 이력서' },
+      { value: '4.8', label: '사용자 평점' },
+      { value: '20+', label: '무료 템플릿' },
+      { value: '10분', label: '평균 작성 시간' },
+    ],
+  },
+  templates: {
+    title: '모든 직종에 맞는 프로 템플릿',
+    subtitle: '크리에이티브 디자이너부터 기업 임원까지——당신의 업종에 최적화된 이력서 템플릿을 찾아보세요.',
+    styles: ['소프트웨어 엔지니어', '마케팅 매니저', '간호사', '영업 팀장', '데이터 분석가', '교사', '프로젝트 매니저', '디자이너'],
+    cta: '전체 템플릿 보기',
+  },
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { question: '이 이력서 만들기 도구는 정말 무료인가요?', answer: '네! AI 이력서 만들기 도구는 100% 무료입니다. 무제한 이력서 작성, 20종 이상 프로 템플릿 접근, PDF 다운로드——신용카드도 구독도 필요 없습니다.' },
+      { question: '왜 최고의 이력서 만들기 도구인가요?', answer: '일반적인 이력서 만들기와 달리, 본 도구는 AI를 활용해 프로페셔널한 성과 기술 작성, ATS 최적화, 업종 맞춤 키워드 제안을 합니다. 보기 좋을 뿐 아니라 ATS 심사도 통과하는 이력서를 만들 수 있습니다.' },
+      { question: 'PDF로 무료 다운로드 가능한가요?', answer: '물론입니다. 작성한 모든 이력서를 ATS 호환 PDF로 무료 다운로드할 수 있습니다. 워터마크 없음, 추가 비용 없음.' },
+      { question: '이력서 작성에 얼마나 걸리나요?', answer: '대부분의 사용자가 10분 이내에 프로페셔널한 이력서를 완성합니다. AI가 내용을 제안해 주므로, 빈 페이지에서 고민하는 시간을 지원 활동에 쓸 수 있습니다.' },
+      { question: '작성한 이력서는 ATS 호환인가요?', answer: '네. 모든 템플릿은 주요 ATS(Workday, Taleo, Greenhouse, Lever)에서 테스트 완료입니다. 실시간 ATS 점수로 제출 전 최적화할 수 있습니다.' },
+      { question: '여러 직무에 맞춰 다수의 이력서를 만들 수 있나요?', answer: '네! 필요한 만큼 맞춤 이력서를 작성할 수 있습니다. 직무별로 이력서를 최적화하면 합격률이 높아지며, 본 도구를 사용하면 빠르고 쉽게 가능합니다.' },
+    ],
+  },
+  crossLinks: {
+    title: '관련 이력서 도구',
+    items: [
+      { href: '/ko/resume-ai', title: 'AI 이력서', subtitle: 'AI 기반 이력서 작성 도구' },
+      { href: '/ko/tools/ats-checker', title: 'ATS 체커', subtitle: 'ATS 점수 테스트' },
+      { href: '/ko/free-resume-builder', title: '무료 이력서 빌더', subtitle: '100% 무료 이력서 작성' },
+    ],
+    guidesTitle: '유용한 가이드',
+    guides: [
+      { href: '/ko/blog/how-to-write-a-resume', label: '이력서 쓰는 법 (2026년 가이드)' },
+      { href: '/ko/blog/how-to-write-ats-friendly-resume', label: 'ATS 통과 이력서 작성법' },
+      { href: '/ko/resume-format', label: '이력서 양식 가이드' },
+      { href: '/ko/blog/top-resume-mistakes-to-avoid', label: '이력서 작성 시 흔한 실수' },
+    ],
+  },
+  bottomCta: {
+    title: '이력서 작성할 준비가 되셨나요?',
+    description: '200만 명 이상의 구직자가 본 무료 AI 이력서 만들기 도구로 프로페셔널한 이력서를 작성했습니다.',
+    cta: '무료로 이력서 만들기',
+    subtext: '영구 무료. 신용카드 불필요.',
+  },
+};
+
+const vi: LandingPageContent = {
+  meta: {
+    title: 'Công Cụ Tạo CV Online Miễn Phí | Tạo CV Bằng AI 2026',
+    description: 'Tạo CV xin việc chuyên nghiệp trong vài phút với công cụ tạo CV miễn phí bằng AI. Mẫu CV thân thiện ATS, viết bằng AI và tải PDF ngay lập tức.',
+    keywords: 'tạo cv online, tạo cv miễn phí, công cụ tạo cv, mẫu cv xin việc, tạo cv bằng ai, cv maker, cv online miễn phí, tạo cv tự động',
+  },
+  schemas: {
+    breadcrumbName: 'Công Cụ Tạo CV',
+    articleHeadline: 'Công Cụ Tạo CV Online Miễn Phí: Tạo CV Bằng AI 2026',
+    articleDescription: 'Tạo CV xin việc chuyên nghiệp trong vài phút với công cụ tạo CV miễn phí bằng AI. Mẫu ATS, viết bằng AI và tải PDF ngay.',
+    softwareAppName: 'Best AI Công Cụ Tạo CV',
+  },
+  hero: {
+    badge: 'Công Cụ Tạo CV Bằng AI Miễn Phí',
+    title: 'Tạo CV xin việc',
+    titleHighlight: 'chuyên nghiệp trong vài phút',
+    subtitle: '<strong>Công cụ tạo CV</strong> miễn phí của chúng tôi sử dụng AI để viết nội dung ấn tượng, tối ưu ATS và giúp bạn được gọi phỏng vấn nhiều hơn. Với <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% doanh nghiệp lớn</a> sử dụng phần mềm ATS, CV tối ưu là điều thiết yếu. Không cần kỹ năng thiết kế.',
+    ctaPrimary: 'Tạo CV miễn phí',
+    ctaSecondary: 'Xem mẫu CV',
+    trustBadges: ['Không cần đăng ký', 'Không cần thẻ tín dụng', 'Tải PDF miễn phí'],
+  },
+  features: {
+    title: 'Tại sao chọn công cụ tạo CV miễn phí của chúng tôi?',
+    subtitle: 'Không chỉ là mẫu — công cụ tạo CV bằng AI giúp bạn viết nội dung tốt hơn và vượt qua sàng lọc ATS.',
+    items: [
+      { feature: 'Viết CV bằng AI', description: 'AI tự động tạo kinh nghiệm làm việc, tóm tắt chuyên môn và mô tả kỹ năng phù hợp với ngành nghề và cấp bậc của bạn.' },
+      { feature: 'Mẫu tối ưu ATS', description: 'Tất cả mẫu được kiểm tra với hệ thống ATS phổ biến như Workday, Taleo, Greenhouse. Tự tin vượt qua sàng lọc tự động.' },
+      { feature: 'Tải PDF', description: 'Tải CV dạng PDF chỉ với một cú nhấp. Không watermark, không phí — hoàn toàn miễn phí.' },
+      { feature: 'Hoàn thành trong vài phút', description: 'Không cần nhìn trang trống. Quy trình hướng dẫn và gợi ý AI giúp bạn hoàn thành CV chuyên nghiệp dưới 10 phút.' },
+      { feature: 'Điểm ATS thời gian thực', description: 'Xem điểm ATS trực tiếp khi viết. Tối ưu trước khi ứng tuyển.' },
+      { feature: '20+ mẫu chuyên nghiệp', description: 'Mẫu cho mọi ngành nghề và cấp bậc. Tất cả miễn phí, tất cả thân thiện ATS.' },
+    ],
+    cta: 'Bắt đầu tạo CV',
+  },
+  comparison: {
+    title: 'Công cụ của chúng tôi vs các công cụ tạo CV khác',
+    subtitle: 'Tìm hiểu tại sao người tìm việc chọn công cụ tạo CV miễn phí bằng AI của chúng tôi.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Công cụ khác',
+    rows: [
+      { feature: 'Viết bằng AI', ours: 'AI nâng cao', others: 'Cơ bản hoặc không có' },
+      { feature: 'Tối ưu ATS', ours: 'Chấm điểm thời gian thực', others: 'Kiểm tra hạn chế' },
+      { feature: 'Tất cả mẫu miễn phí', ours: '20+', others: 'Hầu hết trả phí' },
+      { feature: 'Tải PDF miễn phí', ours: 'Luôn miễn phí', others: 'Nhiều nơi tính phí' },
+      { feature: 'Không cần đăng ký', ours: 'Bắt đầu ngay', others: 'Thường bắt buộc' },
+      { feature: 'Từ khóa ngành', ours: 'AI gợi ý', others: 'Chỉ nhập thủ công' },
+      { feature: 'Nhiều phiên bản CV', ours: 'Không giới hạn', others: 'Thường bị giới hạn' },
+    ],
+  },
+  howItWorks: {
+    title: 'Cách sử dụng công cụ tạo CV',
+    subtitle: '3 bước đơn giản để tạo CV chinh phục nhà tuyển dụng. AI lo phần khó.',
+    steps: [
+      { step: 1, title: 'Chọn mẫu', description: 'Chọn từ 20+ mẫu chuyên nghiệp thân thiện ATS phù hợp với ngành của bạn.' },
+      { step: 2, title: 'Nhập thông tin', description: 'Thêm kinh nghiệm và để AI gợi ý cải thiện, từ khóa và cách diễn đạt chuyên nghiệp.' },
+      { step: 3, title: 'Tải về và ứng tuyển', description: 'Xuất CV dạng PDF và bắt đầu ứng tuyển ngay.' },
+    ],
+    cta: 'Tạo CV chuyên nghiệp',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'CV đã tạo' },
+      { value: '4.8', label: 'Đánh giá người dùng' },
+      { value: '20+', label: 'Mẫu miễn phí' },
+      { value: '10 phút', label: 'Thời gian trung bình' },
+    ],
+  },
+  templates: {
+    title: 'Mẫu chuyên nghiệp cho mọi ngành nghề',
+    subtitle: 'Từ nhà thiết kế sáng tạo đến giám đốc doanh nghiệp — tìm mẫu CV hoàn hảo cho ngành của bạn.',
+    styles: ['Kỹ sư phần mềm', 'Marketing Manager', 'Y tá', 'Trưởng phòng kinh doanh', 'Data Analyst', 'Giáo viên', 'Project Manager', 'Designer'],
+    cta: 'Xem tất cả mẫu',
+  },
+  faq: {
+    title: 'Câu hỏi thường gặp',
+    items: [
+      { question: 'Công cụ tạo CV này thực sự miễn phí?', answer: 'Đúng vậy! Công cụ tạo CV bằng AI 100% miễn phí. Tạo CV không giới hạn, truy cập toàn bộ 20+ mẫu, tải PDF — không cần thẻ tín dụng hay đăng ký gói dịch vụ.' },
+      { question: 'Tại sao đây là công cụ tạo CV tốt nhất?', answer: 'Khác với các công cụ tạo CV thông thường, chúng tôi sử dụng AI để viết kinh nghiệm làm việc chuyên nghiệp, tối ưu ATS và gợi ý từ khóa theo ngành. Bạn tạo được CV vừa đẹp vừa vượt qua sàng lọc ATS.' },
+      { question: 'Tôi có thể tải CV dạng PDF miễn phí không?', answer: 'Tất nhiên. Tất cả CV đều có thể tải miễn phí dạng PDF thân thiện ATS. Không watermark, không phí phụ.' },
+      { question: 'Tạo CV mất bao lâu?', answer: 'Hầu hết người dùng hoàn thành CV chuyên nghiệp trong dưới 10 phút. AI gợi ý nội dung nên bạn tiết kiệm thời gian cho việc ứng tuyển.' },
+      { question: 'CV tạo ra có tương thích ATS không?', answer: 'Có. Tất cả mẫu đều được kiểm tra với hệ thống ATS phổ biến (Workday, Taleo, Greenhouse, Lever). Điểm ATS thời gian thực giúp bạn tối ưu trước khi ứng tuyển.' },
+      { question: 'Tôi có thể tạo nhiều CV cho các vị trí khác nhau không?', answer: 'Có! Tạo bao nhiêu CV tùy chỉnh tùy thích. Tối ưu CV cho từng vị trí tăng cơ hội thành công, và với công cụ của chúng tôi rất nhanh và dễ dàng.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Công cụ CV liên quan',
+    items: [
+      { href: '/vi/resume-ai', title: 'CV Bằng AI', subtitle: 'Công cụ tạo CV bằng AI' },
+      { href: '/vi/tools/ats-checker', title: 'Kiểm Tra ATS', subtitle: 'Kiểm tra điểm ATS' },
+      { href: '/vi/free-resume-builder', title: 'CV Miễn Phí', subtitle: 'Tạo CV 100% miễn phí' },
+    ],
+    guidesTitle: 'Hướng dẫn hữu ích',
+    guides: [
+      { href: '/vi/blog/cach-viet-cv-xin-viec', label: 'Cách viết CV xin việc (hướng dẫn 2026)' },
+      { href: '/vi/blog/cv-than-thien-ats', label: 'Cách viết CV thân thiện ATS' },
+      { href: '/vi/resume-format', label: 'Hướng dẫn định dạng CV' },
+      { href: '/vi/blog/loi-pho-bien-trong-cv', label: 'Lỗi phổ biến trong CV' },
+    ],
+  },
+  bottomCta: {
+    title: 'Sẵn sàng tạo CV xin việc?',
+    description: 'Hơn 2 triệu người tìm việc đã tạo CV chuyên nghiệp với công cụ miễn phí bằng AI của chúng tôi.',
+    cta: 'Tạo CV miễn phí',
+    subtext: 'Miễn phí mãi mãi. Không cần thẻ tín dụng.',
+  },
+};
+
+const th: LandingPageContent = {
+  meta: {
+    title: 'สร้างเรซูเม่ออนไลน์ | เครื่องมือทำเรซูเม่ AI 2026',
+    description: 'สร้างเรซูเม่ออนไลน์ฟรีด้วย AI ช่วยเขียน เทมเพลต ATS กว่า 20 แบบ ดาวน์โหลด PDF ทันที เรซูเม่สมัครงานพร้อมใช้ใน 10 นาที',
+    keywords: 'สร้างเรซูเม่ออนไลน์, สร้างเรซูเม่, ทำเรซูเม่, เรซูเม่ AI, เรซูเม่ฟรี, เรซูเม่สมัครงาน, เทมเพลตเรซูเม่, ประวัติย่อออนไลน์',
+  },
+  schemas: {
+    breadcrumbName: 'สร้างเรซูเม่ออนไลน์',
+    articleHeadline: 'สร้างเรซูเม่ออนไลน์ฟรี: เครื่องมือทำเรซูเม่ AI 2026',
+    articleDescription: 'สร้างเรซูเม่สมัครงานออนไลน์ฟรีภายในไม่กี่นาที เทมเพลต ATS พร้อม AI ช่วยเขียน ดาวน์โหลด PDF ฟรี',
+    softwareAppName: 'Best AI เครื่องมือสร้างเรซูเม่',
+  },
+  hero: {
+    badge: 'สร้างเรซูเม่ออนไลน์ฟรีด้วย AI',
+    title: 'สร้างเรซูเม่มืออาชีพ',
+    titleHighlight: 'เสร็จภายในไม่กี่นาที',
+    subtitle: 'เครื่องมือ<strong>สร้างเรซูเม่ออนไลน์</strong>ฟรีของเราใช้ AI ช่วยเขียนเนื้อหาที่น่าสนใจ ปรับให้เหมาะกับระบบ ATS และเพิ่มโอกาสได้สัมภาษณ์ เมื่อ <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% ของบริษัทชั้นนำ</a>ใช้ระบบ ATS คัดกรอง การมีเรซูเม่ที่ปรับแต่งมาอย่างดีจึงสำคัญมาก ไม่ต้องมีทักษะออกแบบ',
+    ctaPrimary: 'สร้างเรซูเม่ฟรี',
+    ctaSecondary: 'ดูเทมเพลต',
+    trustBadges: ['ไม่ต้องสมัครสมาชิก', 'ไม่ต้องใช้บัตรเครดิต', 'ดาวน์โหลด PDF ฟรี'],
+  },
+  features: {
+    title: 'ทำไมต้องเลือกเครื่องมือสร้างเรซูเม่ฟรีของเรา?',
+    subtitle: 'มากกว่าแค่เทมเพลต — AI ช่วยเขียนเนื้อหาที่ดีขึ้นและผ่านการคัดกรอง ATS',
+    items: [
+      { feature: 'AI ช่วยเขียน', description: 'AI เขียนประสบการณ์ทำงาน สรุปตัวเอง และคำอธิบายทักษะที่ตรงกับสายงานและประสบการณ์ของคุณ' },
+      { feature: 'เทมเพลต ATS', description: 'ทุกเทมเพลตผ่านการทดสอบกับระบบ ATS หลัก เช่น Workday, Taleo และ Greenhouse เรซูเม่ของคุณจะผ่านการคัดกรอง' },
+      { feature: 'ดาวน์โหลด PDF ทันที', description: 'ดาวน์โหลดเรซูเม่เป็น PDF คลิกเดียว ไม่มีลายน้ำ ไม่เสียเงิน — ฟรีทั้งหมด' },
+      { feature: 'เสร็จภายไม่กี่นาที', description: 'ไม่ต้องเริ่มจากหน้าว่าง ระบบแนะนำและ AI ช่วยให้คุณสร้างเรซูเม่เสร็จภายใน 10 นาที' },
+      { feature: 'คะแนน ATS เรียลไทม์', description: 'ดูคะแนน ATS ของเรซูเม่ขณะพิมพ์ ปรับแต่งก่อนส่งสมัครงาน' },
+      { feature: 'เทมเพลตมืออาชีพ 20+ แบบ', description: 'เทมเพลตสำหรับทุกสายงานและระดับประสบการณ์ ฟรีทั้งหมด รองรับ ATS ทั้งหมด' },
+    ],
+    cta: 'เริ่มสร้างเลย',
+  },
+  comparison: {
+    title: 'เครื่องมือของเรา vs. คู่แข่ง',
+    subtitle: 'ดูว่าทำไมผู้หางานเลือกเครื่องมือสร้างเรซูเม่ออนไลน์ฟรีของเรา',
+    oursName: 'Best AI Resumes',
+    othersName: 'เครื่องมืออื่น',
+    rows: [
+      { feature: 'AI ช่วยเขียน', ours: 'AI ช่วยเต็มรูปแบบ', others: 'พื้นฐานหรือไม่มี' },
+      { feature: 'ระบบ ATS', ours: 'ให้คะแนนเรียลไทม์', others: 'จำกัดหรือไม่มี' },
+      { feature: 'เทมเพลตฟรีทั้งหมด', ours: 'กว่า 20 แบบ', others: 'ส่วนใหญ่เสียเงิน' },
+      { feature: 'ดาวน์โหลด PDF ฟรี', ours: 'ฟรีเสมอ', others: 'มักเก็บเงิน' },
+      { feature: 'ไม่ต้องสมัครสมาชิก', ours: 'เริ่มได้เลย', others: 'มักบังคับสมัคร' },
+      { feature: 'คีย์เวิร์ดตามสายงาน', ours: 'AI แนะนำ', others: 'ต้องทำเอง' },
+      { feature: 'สร้างได้หลายฉบับ', ours: 'ไม่จำกัด', others: 'มักจำกัด' },
+    ],
+  },
+  howItWorks: {
+    title: 'วิธีสร้างเรซูเม่ออนไลน์',
+    subtitle: 'สร้างเรซูเม่สมัครงานใน 3 ขั้นตอนง่ายๆ AI ช่วยทำงานหนักแทนคุณ',
+    steps: [
+      { step: 1, title: 'เลือกเทมเพลต', description: 'เลือกจากเทมเพลตมืออาชีพที่ผ่านการทดสอบ ATS กว่า 20 แบบ' },
+      { step: 2, title: 'กรอกข้อมูล', description: 'กรอกประสบการณ์ แล้ว AI จะแนะนำการปรับปรุง คีย์เวิร์ด และสำนวนมืออาชีพ' },
+      { step: 3, title: 'ดาวน์โหลดและสมัครงาน', description: 'ส่งออกเรซูเม่เป็น PDF แล้วเริ่มสมัครงานได้ทันที' },
+    ],
+    cta: 'สร้างเรซูเม่มืออาชีพ',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2 ล้าน+', label: 'เรซูเม่ที่สร้างแล้ว' },
+      { value: '4.8', label: 'คะแนนผู้ใช้' },
+      { value: '20+', label: 'เทมเพลตฟรี' },
+      { value: '10 นาที', label: 'เวลาสร้างเฉลี่ย' },
+    ],
+  },
+  templates: {
+    title: 'เทมเพลตมืออาชีพสำหรับทุกสายงาน',
+    subtitle: 'ตั้งแต่นักออกแบบสร้างสรรค์ไปจนถึงผู้บริหาร — หาเทมเพลตเรซูเม่ที่เหมาะกับสายงานของคุณ',
+    styles: ['วิศวกรซอฟต์แวร์', 'ผู้จัดการการตลาด', 'พยาบาล', 'ผู้บริหารฝ่ายขาย', 'นักวิเคราะห์ข้อมูล', 'ครู', 'ผู้จัดการโครงการ', 'นักออกแบบ'],
+    cta: 'ดูเทมเพลตทั้งหมด',
+  },
+  faq: {
+    title: 'คำถามที่พบบ่อย',
+    items: [
+      { question: 'เครื่องมือสร้างเรซูเม่นี้ฟรีจริงหรือ?', answer: 'ใช่! เครื่องมือสร้างเรซูเม่ออนไลน์ด้วย AI ของเราฟรี 100% สร้างเรซูเม่ไม่จำกัด ใช้เทมเพลตกว่า 20 แบบ และดาวน์โหลด PDF ได้ — ไม่ต้องใช้บัตรเครดิตหรือสมัครสมาชิก' },
+      { question: 'อะไรที่ทำให้เครื่องมือนี้ดีที่สุด?', answer: 'ต่างจากเครื่องมือทั่วไป เราใช้ AI ช่วยเขียนประสบการณ์ทำงานอย่างมืออาชีพ ปรับเนื้อหาให้ผ่าน ATS และแนะนำคีย์เวิร์ดตามสายงาน ได้เรซูเม่ที่ทั้งสวยและผ่านระบบคัดกรองอัตโนมัติ' },
+      { question: 'ดาวน์โหลดเป็น PDF ได้ฟรีไหม?', answer: 'แน่นอน ดาวน์โหลดเรซูเม่ทุกฉบับเป็น PDF ที่ผ่าน ATS ได้ฟรี ไม่มีลายน้ำ ไม่มีค่าใช้จ่ายเพิ่มเติม' },
+      { question: 'ใช้เวลาสร้างเรซูเม่นานเท่าไหร่?', answer: 'ผู้ใช้ส่วนใหญ่สร้างเรซูเม่มืออาชีพเสร็จภายใน 10 นาที AI ช่วยแนะนำเนื้อหา ทำให้คุณไม่ต้องเสียเวลาคิดเองหมดตั้งแต่ต้น' },
+      { question: 'เรซูเม่ที่สร้างรองรับ ATS ไหม?', answer: 'ใช่ ทุกเทมเพลตในเครื่องมือของเราผ่านการทดสอบกับระบบ ATS หลัก (Workday, Taleo, Greenhouse, Lever) คะแนน ATS เรียลไทม์ช่วยคุณปรับเรซูเม่ก่อนส่ง' },
+      { question: 'สร้างเรซูเม่หลายฉบับสำหรับงานต่างๆ ได้ไหม?', answer: 'ได้! สร้างเรซูเม่ปรับแต่งได้ไม่จำกัด ผู้หางานหลายคนปรับเรซูเม่ให้ตรงกับแต่ละตำแหน่ง — เครื่องมือของเราทำให้เร็วและง่าย' },
+    ],
+  },
+  crossLinks: {
+    title: 'เครื่องมือเรซูเม่ที่เกี่ยวข้อง',
+    items: [
+      { href: '/th/resume-ai', title: 'เรซูเม่ AI', subtitle: 'เครื่องมือเรซูเม่ด้วย AI' },
+      { href: '/th/tools/ats-checker', title: 'ตรวจ ATS', subtitle: 'ทดสอบคะแนน ATS' },
+      { href: '/th/free-resume-builder', title: 'สร้างเรซูเม่ฟรี', subtitle: 'ฟรี 100%' },
+    ],
+    guidesTitle: 'คู่มือที่มีประโยชน์',
+    guides: [
+      { href: '/th/blog/how-to-write-a-resume', label: 'วิธีเขียนเรซูเม่ (คู่มือ 2026)' },
+      { href: '/th/blog/how-to-write-ats-friendly-resume', label: 'วิธีเขียนเรซูเม่ให้ผ่าน ATS' },
+      { href: '/th/resume-format', label: 'คู่มือรูปแบบเรซูเม่' },
+      { href: '/th/blog/top-resume-mistakes-to-avoid', label: 'ข้อผิดพลาดในเรซูเม่ที่พบบ่อย' },
+    ],
+  },
+  bottomCta: {
+    title: 'พร้อมสร้างเรซูเม่แล้วหรือยัง?',
+    description: 'ผู้หางานกว่า 2 ล้านคนสร้างเรซูเม่มืออาชีพด้วยเครื่องมือสร้างเรซูเม่ออนไลน์ฟรีของเราแล้ว',
+    cta: 'สร้างเรซูเม่ฟรี',
+    subtext: 'ฟรีตลอดไป ไม่ต้องใช้บัตรเครดิต',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);
