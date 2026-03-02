@@ -412,5 +412,58 @@ const it: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it };
+const th: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'บล็อก - เคล็ดลับเรซูเม่และคำแนะนำอาชีพ | Best AI Resume',
+      description: 'เคล็ดลับการเขียนเรซูเม่จากผู้เชี่ยวชาญ คำแนะนำด้านอาชีพ และกลยุทธ์การหางาน คู่มือและบทเรียนฟรี',
+      ogDescription: 'เคล็ดลับการเขียนเรซูเม่จากผู้เชี่ยวชาญและกลยุทธ์การหางาน',
+    },
+    heroBadge: 'บล็อกของเรา',
+    heroTitle: 'เคล็ดลับเรซูเม่และ',
+    heroTitleHighlight: 'คำแนะนำอาชีพ',
+    heroSubtitle: 'คู่มือ เคล็ดลับ และกลยุทธ์จากผู้เชี่ยวชาญ เพื่อช่วยคุณสร้างเรซูเม่ที่โดดเด่นและก้าวหน้าในอาชีพ',
+    featuredArticles: 'บทความแนะนำ',
+    noArticlesTitle: 'ยังไม่มีบทความ',
+    noArticlesSubtitle: 'กลับมาใหม่เร็ว ๆ นี้เพื่อเนื้อหาใหม่!',
+  },
+  article: {
+    notFound: 'ไม่พบบทความ',
+    faqTitle: 'คำถามที่พบบ่อย',
+    resourcesTitle: 'เครื่องมือและแหล่งข้อมูลเรซูเม่',
+    resources: [
+      { title: 'ตัวอย่างเรซูเม่กว่า 300 แบบ', subtitle: 'คู่มือการเขียนตามสายอาชีพ' },
+      { title: 'คู่มือรูปแบบเรซูเม่ 2026', subtitle: 'แบบลำดับเวลา แบบตามทักษะ และแบบผสม' },
+      { title: 'เทมเพลตเรซูเม่ฟรี', subtitle: 'ดีไซน์มืออาชีพที่รองรับ ATS' },
+      { title: 'สร้างเรซูเม่ด้วย AI', subtitle: 'สร้างเรซูเม่ของคุณในไม่กี่นาที' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'บทความ | บล็อก Best AI Resume',
+    metaDescTemplate: 'เรียกดูบทความ{category}ของเราเพื่อรับคำแนะนำ เคล็ดลับ และคู่มือจากผู้เชี่ยวชาญ',
+    backToBlog: 'กลับไปที่บล็อก',
+    articlesCount: '{count} บทความในหมวดหมู่นี้',
+    articleCount: '{count} บทความในหมวดหมู่นี้',
+    noArticlesTitle: 'ยังไม่มีบทความ',
+    noArticlesSubtitle: 'กลับมาใหม่เร็ว ๆ นี้เพื่อเนื้อหาใหม่ในหมวดหมู่นี้!',
+  },
+  search: {
+    meta: {
+      title: 'ค้นหาบล็อก | Best AI Resume',
+      description: 'ค้นหาบล็อกของเราเพื่อรับเคล็ดลับเรซูเม่ คำแนะนำอาชีพ และกลยุทธ์การหางาน',
+    },
+    backToBlog: 'กลับไปที่บล็อก',
+    title: 'ผลการค้นหา',
+    resultsCount: '{count} ผลลัพธ์สำหรับ',
+    resultCount: '{count} ผลลัพธ์สำหรับ',
+    startSearchTitle: 'เริ่มค้นหา',
+    startSearchSubtitle: 'พิมพ์คำค้นหาเพื่อหาบทความ',
+    noResultsTitle: 'ไม่พบผลลัพธ์',
+    noResultsText: 'ไม่พบบทความที่ตรงกับ',
+    tryLabel: 'ลองดู:',
+    trySuggestions: ['ใช้คำค้นหาอื่น', 'ตรวจสอบการสะกดคำ', 'เรียกดูตามหมวดหมู่แทน'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, th };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

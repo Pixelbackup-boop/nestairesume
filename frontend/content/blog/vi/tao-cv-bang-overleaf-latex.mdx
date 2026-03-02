@@ -1,0 +1,81 @@
+---
+title: 'Cách Tạo CV Bằng Overleaf (LaTeX): Hướng Dẫn Chi Tiết'
+slug: tao-cv-bang-overleaf-latex
+description: >-
+  Hướng dẫn tạo CV bằng Overleaf và LaTeX từng bước. Mẫu LaTeX CV chuyên nghiệp cho ngành học thuật, kỹ thuật, và CNTT tại Việt Nam.
+date: '2026-03-03'
+author: Nguyễn Minh Tuấn
+authorBio: >-
+  Chuyên gia tư vấn nghề nghiệp và viết CV với hơn 10 năm kinh nghiệm trong lĩnh vực tuyển dụng tại Việt Nam. Đã hỗ trợ hàng nghìn ứng viên xây dựng hồ sơ xin việc chuyên nghiệp.
+category: Công Cụ CV
+tags:
+  - cv overleaf
+  - cv latex
+  - tạo cv overleaf
+  - mẫu cv latex
+  - overleaf resume
+  - cv overleaf mẫu
+  - latex cv tiếng việt
+  - overleaf hướng dẫn
+image: /blog/vi-placeholder.svg
+imageAlt: Cách tạo CV bằng Overleaf LaTeX hướng dẫn chi tiết
+featured: false
+faq:
+  - question: 'Overleaf là gì?'
+    answer: >-
+      Overleaf là nền tảng online miễn phí để viết tài liệu LaTeX, bao gồm CV. LaTeX cho chất lượng typography vượt trội so với Word hay Google Docs. Đặc biệt phổ biến trong ngành học thuật, kỹ thuật, và CNTT.
+  - question: 'Cần biết LaTeX để dùng Overleaf?'
+    answer: >-
+      Không nhất thiết. Overleaf có templates sẵn, chỉ cần thay text. Tuy nhiên, biết LaTeX cơ bản giúp tùy chỉnh tốt hơn. Cú pháp cơ bản: \section{}, \textbf{}, \begin{itemize} — học trong 30 phút.
+  - question: 'LaTeX có hỗ trợ tiếng Việt không?'
+    answer: >-
+      Có. Dùng package fontspec với LuaLaTeX hoặc XeLaTeX, kết hợp font hỗ trợ Unicode (Roboto, EB Garamond). Thêm dòng: \usepackage{fontspec} và chọn compiler LuaLaTeX trên Overleaf.
+  - question: 'CV LaTeX có tương thích ATS không?'
+    answer: >-
+      Rất tốt. CV LaTeX xuất PDF text-based, ATS đọc được hoàn hảo. LaTeX không dùng đồ họa phức tạp như Canva nên ATS parse chính xác hơn. Đây là ưu điểm lớn của LaTeX.
+  - question: 'Mẫu LaTeX CV nào phổ biến?'
+    answer: >-
+      Top templates: (1) Awesome-CV — hiện đại, nhiều màu, (2) ModernCV — classic, chuyên nghiệp, (3) AltaCV — 2 cột, compact, (4) Deedy-Resume — minimalist, 1 trang. Tìm trên Overleaf Gallery hoặc GitHub.
+---
+
+## Cách Tạo CV Bằng Overleaf (LaTeX)
+
+Overleaf cho phép tạo CV chất lượng typography cao nhất, phổ biến trong ngành học thuật và kỹ thuật.
+
+### Khi Nào Dùng LaTeX CV
+
+**Phù hợp:** Ngành học thuật (giảng viên, nghiên cứu sinh), CNTT/kỹ thuật, toán/khoa học, xin PhD/postdoc.
+
+**Không cần thiết:** Ngành kinh doanh, marketing, y tế — dùng [Resume Builder](/vi/resume-builder) tiện hơn.
+
+### Bắt Đầu Với Overleaf
+
+**Bước 1:** Đăng ký tại overleaf.com (miễn phí)
+**Bước 2:** New Project → Templates → Search "Resume" hoặc "CV"
+**Bước 3:** Chọn template, click "Open as Template"
+**Bước 4:** Thay đổi nội dung trong cột bên trái
+**Bước 5:** Bấm "Recompile" để xem preview
+**Bước 6:** Download PDF
+
+### Hỗ Trợ Tiếng Việt
+
+Thêm vào đầu file .tex:
+- Chọn compiler: Menu → Compiler → LuaLaTeX
+- Thêm: \usepackage{fontspec}
+- Font hỗ trợ tiếng Việt: Roboto, EB Garamond, Noto Sans
+
+### Top Mẫu LaTeX CV
+
+| Template | Phong cách | Phù hợp |
+|----------|-----------|---------|
+| Awesome-CV | Hiện đại, màu sắc | IT, startup |
+| ModernCV | Classic, chuyên nghiệp | Mọi ngành |
+| AltaCV | 2 cột, compact | Senior, nhiều kinh nghiệm |
+| Deedy-Resume | Minimalist, 1 trang | Junior, đơn giản |
+| Academic CV | Dài, chi tiết | Học thuật, PhD |
+
+### LaTeX vs Công Cụ Khác
+
+LaTeX: typography tốt nhất, ATS friendly, miễn phí, cần học cú pháp.
+[Resume Builder](/vi/resume-builder): dễ dùng nhất, ATS friendly, gợi ý AI, không cần kỹ năng kỹ thuật.
+Canva: đẹp nhất, KHÔNG ATS friendly, phù hợp nộp trực tiếp.

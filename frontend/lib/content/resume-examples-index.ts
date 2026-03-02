@@ -132,5 +132,23 @@ const it: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it };
+const th: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'ตัวอย่างเรซูเม่กว่า 300 แบบตามตำแหน่งงาน (2026) | Best AI Resume',
+    description: 'เรียกดูตัวอย่างเรซูเม่ฟรีกว่า 300 แบบจัดตามอุตสาหกรรมและตำแหน่งงาน เทมเพลตเรซูเม่มืออาชีพพร้อมเคล็ดลับรองรับ ATS',
+  },
+  hero: {
+    badge: 'ตัวอย่างเรซูเม่ 2026',
+    title: 'ตัวอย่างเรซูเม่',
+    titleHighlight: 'ตามตำแหน่งงาน',
+    subtitle: 'เรียกดู {count}+ ตัวอย่างเรซูเม่มืออาชีพจัดตามอุตสาหกรรม ค้นหาตำแหน่งของคุณ ศึกษารูปแบบ แล้วสร้างเรซูเม่ด้วย AI',
+  },
+  bottomCta: {
+    title: 'ไม่พบตำแหน่งงานของคุณ?',
+    description: 'AI ของเราสามารถสร้างเรซูเม่สำหรับทุกตำแหน่งในไม่กี่วินาที',
+    ctaText: 'สร้างเรซูเม่ที่ปรับแต่งเอง',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

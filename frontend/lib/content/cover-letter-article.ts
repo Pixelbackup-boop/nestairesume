@@ -200,5 +200,30 @@ const it: CoverLetterArticleContent = {
   updated: 'Aggiornato',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it };
+const th: CoverLetterArticleContent = {
+  breadcrumb: { home: 'หน้าแรก', coverLetterExamples: 'ตัวอย่างจดหมายสมัครงาน' },
+  notFound: 'ไม่พบ',
+  coverLetterSuffix: 'ตัวอย่างจดหมายสมัครงาน',
+  keySkillsTitle: 'ทักษะสำคัญที่ควรเน้น',
+  relatedTopics: 'หัวข้อที่เกี่ยวข้อง',
+  faqTitle: 'คำถามที่พบบ่อย',
+  relatedResourcesTitle: 'แหล่งข้อมูลที่เกี่ยวข้อง',
+  resumeExampleSubtext: 'ดูรูปแบบเรซูเม่ที่ตรงกัน',
+  coverLetterGenerator: 'เครื่องมือสร้างจดหมายสมัครงาน AI',
+  coverLetterGeneratorSubtext: 'สร้างจดหมายสมัครงานของคุณในไม่กี่วินาที',
+  sidebar: {
+    ctaTitle: 'สร้างจดหมายสมัครงานของคุณ',
+    ctaSubtitle: 'ใช้ AI ของเราสร้างจดหมายสมัครงานสำหรับตำแหน่ง {jobTitle} แบบเฉพาะบุคคลในไม่กี่วินาที',
+    ctaButton: 'สร้างจดหมายสมัครงาน',
+    tocTitle: 'สารบัญ',
+  },
+  relatedCoverLetters: 'จดหมายสมัครงานที่เกี่ยวข้อง',
+  bottomCta: {
+    subtitle: 'ร่วมกับมืออาชีพหลายพันคนที่ได้งานในฝันด้วย Best AI Resume',
+    button: 'สร้างจดหมายสมัครงาน — ฟรี',
+  },
+  updated: 'อัปเดต',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, th };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

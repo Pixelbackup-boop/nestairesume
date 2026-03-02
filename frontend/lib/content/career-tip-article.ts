@@ -177,5 +177,28 @@ const it: CareerTipArticleContent = {
   tagsLabel: 'Tag:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it };
+const th: CareerTipArticleContent = {
+  breadcrumb: { home: 'หน้าแรก', careerTips: 'เคล็ดลับอาชีพ' },
+  notFound: 'ไม่พบบทความ',
+  share: {
+    title: 'บทความนี้มีประโยชน์ไหม?',
+    subtitle: 'แชร์ให้คนอื่นที่อาจได้ประโยชน์',
+  },
+  cta: {
+    title: 'พร้อมสร้างเรซูเม่ของคุณหรือยัง?',
+    subtitle: 'นำเคล็ดลับเหล่านี้ไปใช้จริงด้วยเครื่องมือสร้างเรซูเม่ AI ของเรา สร้างเรซูเม่มืออาชีพได้ในไม่กี่นาที',
+    button: 'สร้างเรซูเม่ตอนนี้',
+  },
+  sidebar: {
+    tocTitle: 'สารบัญ',
+    relatedTitle: 'บทความที่เกี่ยวข้อง',
+    ctaTitle: 'สร้างเรซูเม่ของคุณ',
+    ctaSubtitle: 'สร้างเรซูเม่มืออาชีพด้วย AI ในไม่กี่นาที',
+    ctaButton: 'เริ่มต้น',
+  },
+  moreCareerTips: 'เคล็ดลับอาชีพเพิ่มเติม',
+  tagsLabel: 'แท็ก:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, th };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);
