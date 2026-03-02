@@ -13,9 +13,9 @@ import {
   getAuthor,
 } from "@/lib/resume-examples/posts";
 import { getLocalizedUrl } from "@/lib/localized-paths";
+import { locales } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
-const locales = ["en", "de", "fr", "es", "ar"];
 
 // Generate static params for all examples and locales
 export async function generateStaticParams() {

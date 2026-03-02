@@ -29,8 +29,8 @@
 | Japanese | ja | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Chinese | zh | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
 | Korean | ko | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
-| Vietnamese | vi | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
-| Thai | th | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
+| Vietnamese | vi | ✅ | ✅ 554 | ✅ 566 | ✅ 72 | ✅ 10 | ✅ | **Complete** |
+| Thai | th | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Malay | ms | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
 | Indonesian | id | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
 | Polish | pl | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |

@@ -12,9 +12,9 @@ import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import { getContent } from '@/lib/content/blog-pages';
+import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
-const locales = ['en', 'de', 'fr', 'es', 'ar'];
 
 interface PostPageProps {
   params: Promise<{ locale: string; slug: string }>;

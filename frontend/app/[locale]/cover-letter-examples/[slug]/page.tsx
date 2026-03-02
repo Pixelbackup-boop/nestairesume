@@ -13,9 +13,9 @@ import {
 } from "@/lib/cover-letter-examples/posts";
 import { getLocalizedUrl } from "@/lib/localized-paths";
 import { getContent } from "@/lib/content/cover-letter-article";
+import { locales } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
-const locales = ["en", "de", "fr", "es", "ar"];
 
 // Generate static params for all examples and locales
 export async function generateStaticParams() {
