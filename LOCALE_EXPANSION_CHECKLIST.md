@@ -25,7 +25,7 @@
 | German | de | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Arabic | ar | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Italian | it | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
-| Portuguese | pt | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
+| Portuguese | pt | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Japanese | ja | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Chinese | zh | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
 | Korean | ko | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |

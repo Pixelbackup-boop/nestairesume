@@ -1670,7 +1670,145 @@ const th: ResumeFormatPageContent = {
 
 // ── Export ───────────────────────────────────────────────────────────
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: ResumeFormatPageContent = {
+  meta: {
+    title: 'Formato de Curriculo: Guia Completo 2026 | Modelo de Curriculo ATS | Best AI Resume',
+    description: 'Aprenda a escolher o formato de curriculo certo. Compare cronologico inverso, funcional e combinado. Modelos de curriculo ATS gratis. Formato curriculo 2026.',
+    keywords: 'formato de curriculo, modelo de curriculo, formato curriculo 2026, modelo curriculo profissional, formato curriculum vitae, curriculo cronologico, formato curriculo simples, modelo cv profissional',
+  },
+  schemas: {
+    breadcrumbName: 'Formato de Curriculo',
+    howToName: 'Como escolher o formato de curriculo certo',
+    howToDescription: 'Compare os 3 principais formatos de curriculo (cronologico inverso, funcional, combinado) e escolha o mais adequado para sua situacao profissional.',
+    howToSteps: [
+      'Analise seu estagio de carreira (recém-formado, profissional experiente, executivo)',
+      'Compare os pros e contras dos 3 formatos',
+      'Verifique a pontuacao de compatibilidade ATS',
+      'Escolha um modelo e crie seu curriculo',
+    ],
+    howToToolName: 'Best AI Resume — Criador de Curriculo',
+  },
+  hero: {
+    badge: 'Guia de formato de curriculo 2026',
+    title: 'Escolha o formato de curriculo',
+    titleHighlight: 'certo para voce',
+    subtitle: 'Cronologico inverso, funcional ou combinado — escolher o <strong>formato de curriculo</strong> correto e o primeiro passo para passar pela triagem. Com nosso criador de curriculo com IA, mudar de formato e questao de um clique.',
+    ctaCompare: 'Comparar formatos',
+    ctaBuild: 'Criar curriculo gratis',
+  },
+  comparison: {
+    title: 'Comparacao dos 3 formatos de curriculo',
+    subtitle: 'Caracteristicas, casos de uso ideais e compatibilidade ATS de cada formato de forma clara.',
+    tableHeaders: {
+      format: 'Formato',
+      bestFor: 'Ideal para',
+      avoidIf: 'Evite se',
+      atsSafety: 'Compatibilidade ATS',
+    },
+    formats: [
+      {
+        name: 'Cronologico inverso',
+        badge: 'O mais usado',
+        badgeColor: 'green',
+        bestFor: ['Carreira sem interrupcoes significativas', 'Crescimento profissional no mesmo setor', 'A ultima experiencia e diretamente relevante para a vaga'],
+        avoidIf: 'Voce tem periodos prolongados de inatividade profissional',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'Funcional (baseado em habilidades)',
+        badge: 'Orientado a habilidades',
+        badgeColor: 'amber',
+        bestFor: ['Mudanca de setor ou carreira', 'Periodos de inatividade profissional', 'Recém-formados ou freelancers'],
+        avoidIf: 'Voce se candidata a empresas tradicionais ou setores conservadores',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'Combinado',
+        badge: 'Equilibrado',
+        badgeColor: 'blue',
+        bestFor: ['Habilidades solidas e ampla experiencia profissional', 'Posicoes de lideranca ou senior', 'Quem quer valorizar tanto habilidades quanto resultados'],
+        avoidIf: 'Voce tem pouca experiencia profissional',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'Formato cronologico inverso',
+    description: 'O formato que lista as experiencias profissionais da mais recente para a mais antiga. E o formato mais reconhecido pelos recrutadores brasileiros e internacionais e oferece maxima compatibilidade com sistemas ATS.',
+    whyLoveTitle: 'Por que os recrutadores preferem',
+    whyLoveText: 'O curriculo cronologico inverso permite que os recrutadores vejam imediatamente a progressao de carreira. Os sistemas ATS o analisam com maxima precisao, tornando-o ideal para candidaturas a empresas de medio e grande porte e multinacionais no Brasil.',
+    structureTitle: 'Estrutura das secoes',
+    sections: [
+      { label: 'Dados pessoais e contatos', detail: 'Nome, e-mail, telefone, cidade', isCore: true },
+      { label: 'Resumo profissional', detail: '3-4 linhas resumindo experiencia e principais habilidades', isCore: true },
+      { label: 'Experiencias profissionais', detail: 'Da mais recente para a mais antiga (empresa, periodo, resultados)', isCore: true },
+      { label: 'Formacao academica', detail: 'Titulo mais recente e relevante' },
+      { label: 'Habilidades', detail: 'Habilidades tecnicas, certificacoes e idiomas' },
+    ],
+    downloadLabel: 'Baixar modelo',
+    aiLabel: 'Criar com IA',
+  },
+  functional: {
+    title: 'Formato funcional (baseado em habilidades)',
+    description: 'O formato que organiza o curriculo em torno das habilidades e competencias, em vez da cronologia profissional. Ideal para quem quer destacar "o que sabe fazer" em vez de "onde trabalhou".',
+    warningTitle: 'Atencao a compatibilidade ATS',
+    warningText: 'Alguns sistemas ATS tem dificuldade em analisar curriculos funcionais com secao de experiencias reduzida. Este formato e ideal para quem muda de setor, tem periodos de inatividade ou passa do trabalho autonomo para o CLT, mas deve ser usado com cautela para candidaturas a empresas tradicionais.',
+    structureTitle: 'Estrutura das secoes',
+    sections: [
+      { label: 'Dados pessoais e contatos', isCore: true },
+      { label: 'Resumo profissional', isCore: true },
+      { label: 'Areas de competencia', detail: '3-4 grandes areas com resultados especificos para cada uma', isCore: true },
+      { label: 'Experiencias profissionais (sintetico)', detail: 'Apenas empresa, cargo e periodo' },
+      { label: 'Formacao academica' },
+    ],
+    downloadLabel: 'Baixar modelo',
+    aiLabel: 'Criar com IA',
+  },
+  combination: {
+    title: 'Formato combinado',
+    description: 'Une os pontos fortes do cronologico inverso e do funcional. Permite valorizar tanto as competencias transversais quanto a experiencia profissional concreta.',
+    whoForTitle: 'Quando escolher este formato',
+    whoForItems: [
+      'Profissionais de nivel medio-senior com habilidades de gestao',
+      'Quem quer destacar tanto a profundidade da experiencia quanto a variedade de habilidades',
+      'Candidaturas para posicoes que exigem tanto habilidades tecnicas quanto resultados operacionais',
+      'Quem tem trajetoria profissional transversal em varios setores',
+    ],
+    downloadLabel: 'Baixar modelo',
+    aiLabel: 'Criar com IA',
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'Qual e o formato de curriculo mais usado no Brasil?', answer: 'No Brasil, o formato cronologico inverso e o mais difundido no setor privado. Lista as experiencias da mais recente e oferece maxima compatibilidade com os ATS. Para concursos publicos, pode ser exigido formato especifico, mas no mercado privado um curriculo moderno e personalizado e mais eficaz.' },
+      { question: 'Qual formato escolher se troquei muito de emprego?', answer: 'O formato combinado e a melhor escolha. A secao de habilidades no inicio destaca os pontos fortes, enquanto as experiencias sao apresentadas de forma sintetica, deslocando a atencao das transicoes frequentes para as competencias adquiridas.' },
+      { question: 'Qual formato e adequado para recém-formados?', answer: 'Para recém-formados, o cronologico inverso e ideal. Posicione a secao de formacao acima das experiencias e valorize estagios, trainee e projetos academicos. Nosso criador de curriculo com IA sugere automaticamente as expressoes mais adequadas para quem esta iniciando a carreira.' },
+      { question: 'O que e um curriculo ATS?', answer: 'E um curriculo estruturado para ser lido corretamente pelos sistemas ATS (Applicant Tracking System). Layout simples, nomes de secao padroes e formato PDF sao os requisitos fundamentais. Todos os nossos modelos sao testados e otimizados para ATS.' },
+      { question: 'O modelo Europass ainda e valido no Brasil em 2026?', answer: 'O Europass e um formato europeu, pouco usado no mercado de trabalho brasileiro. No Brasil, os recrutadores preferem curriculos modernos e personalizados. Nosso criador de curriculo permite escolher entre 20+ modelos profissionais adequados ao mercado brasileiro.' },
+    ],
+  },
+  externalResources: {
+    title: 'Recursos externos',
+    items: [
+      { href: 'https://www.ibge.gov.br/estatisticas/sociais/trabalho.html', label: 'IBGE — Instituto Brasileiro de Geografia e Estatistica' },
+      { href: 'https://www.mte.gov.br/', label: 'Ministerio do Trabalho e Emprego — Brasil' },
+    ],
+  },
+  stickyCta: {
+    text: 'Encontrou o formato de curriculo certo?',
+    ctaLabel: 'Criar seu curriculo agora',
+  },
+  bottomCta: {
+    title: 'Chega de duvidas sobre o formato do curriculo',
+    description: 'Nosso criador de curriculo com IA otimiza automaticamente formato, fonte e margens. Escolha entre 20+ modelos ATS e mude o formato com um clique.',
+    ctaLabel: 'Criar curriculo gratis',
+  },
+};
+
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

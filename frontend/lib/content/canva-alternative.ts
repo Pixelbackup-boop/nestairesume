@@ -1243,5 +1243,123 @@ const th: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa ao Canva para Curriculo 2026: Modelos ATS Gratis | Best AI Resume',
+    description: 'Os modelos Canva para curriculo nao passam nos ATS? Compare Canva vs Best AI Resume Builder — modelos gratis ATS, escrita com IA. Nenhuma habilidade de design necessaria.',
+    keywords: 'alternativa canva curriculo, modelo curriculo canva, canva curriculo, curriculo compativel com ats, criador curriculo gratis, modelos curriculo gratis, curriculo brasil',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa Canva para Curriculo',
+    articleHeadline: 'Alternativa ao Canva para Curriculo 2026: Modelos ATS Gratis',
+    articleDescription: 'Comparacao Canva vs Best AI Resume Builder para criar curriculos vencedores. Analise funcao a funcao com prós e contras honestos.',
+  },
+  hero: {
+    badge: 'Alternativa ao Canva',
+    title: 'Chega de Perder Oportunidades por',
+    titleHighlight: 'Causa do Problema ATS do Canva.',
+    subtitle: 'O Canva cria curriculos belissimos — que o <strong>98% dos sistemas ATS nao consegue ler</strong>. Mude para um criador de curriculo projetado para te contratar, nao apenas para ser bonito.',
+    ctaPrimary: 'Criar meu curriculo gratis',
+    ctaSecondary: 'Ver comparacao',
+  },
+  problem: {
+    title: 'Por Que os Curriculos do Canva Sao Descartados',
+    description: 'O Canva e uma ferramenta de design grafico, nao um criador de curriculo. Quando voce cria um curriculo no Canva, ele e exportado como imagem achatada ou PDF complexo onde o texto e incorporado como elemento grafico. Os sistemas ATS leem o texto dos documentos, nao imagens. O resultado? <strong>Seu curriculo aparece vazio para o ATS</strong>, e voce e descartado automaticamente antes que um recrutador o veja.',
+    stats: [
+      { value: '98%', label: 'das grandes empresas usa ATS para filtrar curriculos' },
+      { value: '75%', label: 'dos curriculos e descartado antes de ser visto por humano' },
+      { value: '0%', label: 'taxa de leitura ATS para a maioria dos modelos Canva' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: 'Comparacao honesta funcao a funcao para quem busca emprego.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Compatibilidade ATS', competitor: '❌ A maioria dos modelos nao e ATS', ours: '✅ Todos os modelos verificados ATS' },
+      { feature: 'Escrita com IA', competitor: '❌ Nenhuma funcao de escrita com IA', ours: '✅ IA cria experiencias e resumo profissional' },
+      { feature: 'Pontuacao ATS em tempo real', competitor: '❌ Nenhum sistema de pontuacao', ours: '✅ Pontuacao ATS visivel durante preenchimento' },
+      { feature: 'Modelos gratis', competitor: '⚠️ Limitados (os melhores so no Pro)', ours: '✅ 20+ modelos todos gratis' },
+      { feature: 'Projetado para curriculo', competitor: '⚠️ Ferramenta de design generica', ours: '✅ Projetado especificamente para curriculo' },
+      { feature: 'Legibilidade PDF', competitor: '❌ Exporta como imagem achatada', ours: '✅ PDF limpo com texto selecionavel' },
+      { feature: 'Palavras-chave do setor', competitor: '❌ Nenhuma sugestao', ours: '✅ IA sugere palavras-chave do setor' },
+      { feature: 'Formatos de exportacao', competitor: '✅ PDF, PNG, JPG', ours: '✅ PDF (otimizado ATS)' },
+      { feature: 'Qualidade do design', competitor: '✅ Excelente design visual', ours: '✅ Modelos profissionais e limpos' },
+      { feature: 'Facilidade de uso', competitor: '⚠️ Util ter habilidade de design', ours: '✅ Nenhuma habilidade de design necessaria' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivos para Trocar o Canva por um Criador de Curriculo Dedicado',
+    subtitle: 'Nao e questao de design — e questao de ser contratado.',
+    reasons: [
+      { title: 'Seus curriculos serao realmente lidos', description: 'Os modelos Canva falham nos ATS de portais como Gupy, Kenoby e Catho. Nossos modelos sao testados especificamente para compatibilidade com os sistemas ATS mais usados no Brasil.' },
+      { title: 'IA escreve o conteudo por voce', description: 'O Canva nao tem funcoes de escrita. Nossa IA gera pontos de experiencia profissional, resumos e palavras-chave do setor — o trabalho pesado do curriculo feito para voce.' },
+      { title: 'Designs profissionais sem aprender design', description: 'Nossos modelos foram criados por designers profissionais para equilibrar impacto visual com parsing perfeito por ATS. Sem curva de aprendizado de design.' },
+    ],
+  },
+  recommendation: {
+    title: 'Recomendacao Honesta',
+    useCompetitor: {
+      title: 'Use o Canva quando...',
+      items: [
+        'Voce precisa de um portfolio visual ou material de marca pessoal',
+        'O design visual e mais importante que a compatibilidade ATS',
+        'Voce se candidata a funcoes que permitem envio de arquivos visuais',
+        'Voce precisa de infograficos ou apresentacoes, nao de curriculos para ATS',
+      ],
+    },
+    useUs: {
+      title: 'Use o Best AI Resumes quando...',
+      items: [
+        'Voce se candidata via Gupy, Catho, LinkedIn, Indeed ou qualquer portal ATS',
+        'Voce quer um curriculo que passe pela triagem automatica',
+        'Voce precisa de ajuda da IA para escrever suas experiencias',
+        'Voce quer modelos profissionais sem precisar saber design',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Explore mais de 300 exemplos de curriculo gratis',
+    description: 'Exemplos de curriculos profissionais para cada setor e nivel de carreira.',
+    ctaBrowse: 'Ver exemplos de curriculo',
+    ctaTemplates: 'Ver todos os modelos',
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'Os curriculos feitos no Canva passam nos ATS?', answer: 'Geralmente nao. O Canva exporta curriculos como imagens achatadas ou PDFs baseados em graficos que os sistemas ATS nao conseguem analisar. Ao se candidatar via Gupy, Catho, Kenoby ou outros portais, seu curriculo Canva pode aparecer vazio para o sistema.' },
+      { question: 'Por que o Canva nao e recomendado para curriculo?', answer: 'O Canva e uma ferramenta de design grafico, nao foi desenvolvido para criar curriculos compativeis com ATS. Os modelos usam colunas, caixas de texto e elementos graficos que impedem a leitura correta pelos sistemas de triagem usados pelas empresas.' },
+      { question: 'Qual e a melhor alternativa ao Canva para curriculo?', answer: 'O Best AI Resume Builder e a melhor alternativa. Oferece modelos verificados ATS, escrita com IA e exportacao PDF gratuita — sem os problemas de compatibilidade do Canva.' },
+      { question: 'Posso usar o Canva para curriculo criativo?', answer: 'Se a vaga nao usa triagem ATS e o empregador aceita PDFs visuais (algumas vagas criativas), o Canva pode funcionar. Mas a maioria das empresas, mesmo em areas criativas, usa ATS. Use uma ferramenta dedicada para maximizar suas chances.' },
+      { question: 'O Best AI Resume Builder cria curriculos bonitos?', answer: 'Sim! Nossos modelos sao desenvolvidos por designers profissionais para serem visualmente atraentes E compativeis com ATS. Voce nao precisa sacrificar estetica por funcionalidade.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Compare outros criadores de curriculo',
+    items: [
+      { href: '/pt/adobe-alternative', title: 'Alternativa ao Adobe', subtitle: 'Adobe Express vs criador de curriculo' },
+      { href: '/pt/zety-alternative', title: 'Alternativa ao Zety', subtitle: 'Comparacao de precos' },
+      { href: '/pt/resume-io-alternative', title: 'Alternativa ao Resume.io', subtitle: 'Comparacao de criadores' },
+      { href: '/pt/overleaf-alternative', title: 'Alternativa ao Overleaf', subtitle: 'LaTeX vs criador com IA' },
+    ],
+    guidesTitle: 'Guias uteis para curriculo',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Recursos externos',
+    items: [
+      { href: 'https://www.jobscan.co/blog/ats-resume/', label: 'Jobscan: Guia de Curriculo ATS' },
+      { href: 'https://www.ibge.gov.br/estatisticas/sociais/trabalho.html', label: 'IBGE — Estatisticas do Mercado de Trabalho Brasileiro' },
+    ],
+  },
+  bottomCta: {
+    title: 'Curriculos que sao lidos — pelos ATS e pelos recrutadores.',
+    description: 'Pare de perder oportunidades por causa do problema ATS do Canva. Crie um curriculo profissional que passa na triagem automatica — gratis.',
+    cta: 'Criar meu curriculo gratis',
+    subtext: 'Gratis para sempre. Nenhuma habilidade de design necessaria.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

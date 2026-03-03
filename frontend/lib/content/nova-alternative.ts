@@ -1181,5 +1181,123 @@ const th: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa NovaResume 2026: Criador de Curriculo Gratis com IA | Best AI Resume',
+    description: 'Procura uma alternativa gratis ao NovaResume (Nova CV)? Compare Nova vs Best AI Resume Builder — escrita com IA, modelos ATS, exportacoes ilimitadas. Gratis para sempre.',
+    keywords: 'alternativa novaresume curriculo, nova cv alternativa, criador de curriculo gratis, novaresume vs, curriculo com ia gratis, modelos curriculo ats gratis',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa NovaResume',
+    articleHeadline: 'Melhor Alternativa ao NovaResume (Nova CV) 2026: Criador de Curriculo Gratis com IA',
+    articleDescription: 'Comparacao NovaResume vs Best AI Resume Builder. Escrita com IA, otimizacao ATS e exportacoes PDF ilimitadas — completamente gratis.',
+  },
+  hero: {
+    badge: 'Alternativa NovaResume',
+    title: 'Melhores Modelos. Escrita com IA.',
+    titleHighlight: 'Realmente Gratis.',
+    subtitle: 'NovaResume cobra <strong>$19,99/mes</strong> por modelos premium e PDF. Tenha escrita com IA, pontuacao ATS e todos os modelos por <strong>R$0</strong>.',
+    ctaPrimary: 'Criar Meu Curriculo Gratis',
+    ctaSecondary: 'Ver Comparacao',
+  },
+  problem: {
+    title: 'NovaResume: Modelos Limpos, Sem IA',
+    description: 'NovaResume (tambem conhecido como Nova CV Maker) oferece um builder simples com modelos limpos. O problema: <strong>nenhuma escrita com IA</strong>, funcoes gratis limitadas e precos premium por modelos que outras ferramentas oferecem de graca. Em 2026, um criador de curriculo sem IA significa perder oportunidades no competitivo mercado de trabalho brasileiro.',
+    stats: [
+      { value: '$19,99', label: 'por mes pelo NovaResume premium' },
+      { value: '0', label: 'funcoes de IA no NovaResume' },
+      { value: 'R$0', label: 'Best AI Resume Builder — IA completa, gratis' },
+    ],
+  },
+  comparison: {
+    title: 'NovaResume vs Best AI Resume Builder',
+    subtitle: 'Builder basico vs plataforma com IA.',
+    competitorName: 'NovaResume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Preco', competitor: '❌ Gratis limitado / $19,99/mes premium', ours: '✅ 100% gratis para sempre' },
+      { feature: 'Escrita de Curriculo com IA', competitor: '❌ Nenhuma funcao de IA', ours: '✅ IA gera conteudo personalizado' },
+      { feature: 'Otimizacao ATS', competitor: '⚠️ Apenas formatacao basica', ours: '✅ Pontuacao ATS em tempo real + palavras-chave' },
+      { feature: 'Qualidade dos Modelos', competitor: '✅ Design limpo e minimalista', ours: '✅ Mais de 20 modelos modernos testados ATS' },
+      { feature: 'Exportacao PDF', competitor: '❌ Apenas premium', ours: '✅ Exportacoes ilimitadas gratis' },
+      { feature: 'Carta de Apresentacao', competitor: '⚠️ Builder basico (premium)', ours: '✅ Com IA (gratis)' },
+      { feature: 'Sugestoes de Conteudo', competitor: '❌ Apenas insercao manual', ours: '✅ IA cria conteudo a partir da sua experiencia' },
+      { feature: 'Palavras-chave', competitor: '❌ Nao disponivel', ours: '✅ Otimizacao de palavras-chave com IA' },
+      { feature: 'Exemplos de Curriculo', competitor: '⚠️ Biblioteca limitada', ours: '✅ Mais de 300 exemplos detalhados' },
+      { feature: 'Suporte Multilingual', competitor: '✅ Suporte multilingue', ours: '✅ Suporte em 5 idiomas' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivos para Sair do NovaResume',
+    subtitle: 'Mais funcoes. IA melhor. Zero custo.',
+    reasons: [
+      { title: 'Escrita Potencializada por IA', description: 'NovaResume nao tem funcoes de IA. Nossa IA gera experiencias profissionais personalizadas, resumos e conteudo otimizado para palavras-chave — tudo calibrado para o seu setor no mercado brasileiro. Completamente gratis.' },
+      { title: 'Pontuacao ATS em Tempo Real', description: 'NovaResume oferece apenas formatacao basica. Fornecemos pontuacao ATS em tempo real enquanto voce preenche e sugestoes de palavras-chave com IA que maximizam suas chances de passar pelo Gupy, Catho e Kenoby.' },
+      { title: 'Economize R$1.200/ano', description: 'NovaResume premium custa $19,99/mes (cerca de R$1.200/ano) apenas por modelos e exportacao PDF. Nossa plataforma completa — escrita com IA, pontuacao ATS, mais de 20 modelos, exportacoes ilimitadas — e gratuita.' },
+    ],
+  },
+  recommendation: {
+    title: 'Recomendacao Honesta',
+    useCompetitor: {
+      title: 'NovaResume e recomendado se',
+      items: [
+        'Prefere escrever todo o conteudo do curriculo manualmente',
+        'Gosta de modelos minimalistas no estilo europeu',
+        'Esta disposto a pagar $19,99/mes para acessar os modelos',
+        'Nao precisa de escrita com IA nem de pontuacao ATS',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes e recomendado se',
+      items: [
+        'Quer que a IA ajude a escrever o conteudo do curriculo',
+        'Precisa de pontuacao ATS em tempo real e sugestoes de palavras-chave',
+        'Deseja exportacoes PDF ilimitadas sem pagar',
+        'Quer todos os modelos e funcoes gratuitamente',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Explore Mais de 300 Exemplos de Curriculo Gratis',
+    description: 'De desenvolvedor de software a analista de dados, de enfermeiro a vendedor: explore exemplos de curriculos profissionais para todas as areas.',
+    ctaBrowse: 'Explorar Exemplos de Curriculo',
+    ctaTemplates: 'Ver Todos os Modelos',
+  },
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      { question: 'NovaResume (Nova CV) e gratis?', answer: 'NovaResume oferece um plano gratis com modelos e funcoes limitadas. O plano premium comeca em $19,99/mes para acesso completo aos modelos e personalizacao. Best AI Resume Builder e 100% gratis com todas as funcoes, modelos e exportacoes ilimitadas — nenhum plano premium necessario.' },
+      { question: 'NovaResume e um bom criador de curriculo?', answer: 'NovaResume oferece modelos limpos e uma interface intuitiva. No entanto, falta funcoes de escrita com IA e os modelos premium sao pagos. Best AI Resume Builder oferece geracao de conteudo com IA, pontuacao ATS em tempo real e modelos modernos — tudo gratuitamente.' },
+      { question: 'Qual e a melhor alternativa gratis ao NovaResume?', answer: 'Best AI Resume Builder e a melhor alternativa gratis. Oferece tudo o que NovaResume cobra — modelos profissionais, exportacao PDF, cartas de apresentacao — mais escrita com IA e otimizacao ATS que o NovaResume nao possui.' },
+      { question: 'NovaResume tem funcoes de IA?', answer: 'NovaResume nao oferece escrita de curriculo com IA. Depende de insercao manual e algumas sugestoes predefinidas. Best AI Resume Builder usa IA avancada para gerar experiencias, resumos profissionais e conteudo otimizado para palavras-chave, personalizado para o cargo desejado.' },
+      { question: 'Posso exportar PDF do NovaResume?', answer: 'A exportacao PDF do NovaResume requer uma assinatura premium. Com Best AI Resume Builder voce pode exportar PDFs ilimitados gratis — sem necessidade de atualizar a conta.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Compare Outros Criadores de Curriculo',
+    items: [
+      { href: '/pt/zety-alternative', title: 'Alternativa Zety', subtitle: 'Comparacao de precos' },
+      { href: '/pt/canva-alternative', title: 'Alternativa Canva', subtitle: 'Ferramenta de design vs IA' },
+      { href: '/pt/livecareer-alternative', title: 'Alternativa LiveCareer', subtitle: 'Tradicional vs moderno' },
+      { href: '/pt/rezi-alternative', title: 'Alternativa Rezi', subtitle: 'Comparacao de funcoes de IA' },
+    ],
+    guidesTitle: 'Guias Uteis para Curriculo',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Recursos Externos',
+    items: [
+      { href: 'https://novoresume.com/', label: 'Site Oficial NovaResume' },
+      { href: 'https://www.ibge.gov.br/', label: 'IBGE — Estatisticas do Mercado de Trabalho Brasileiro' },
+    ],
+  },
+  bottomCta: {
+    title: 'Potencializado por IA. Gratis Para Sempre.',
+    description: 'Crie um curriculo profissional com escrita com IA, pontuacao ATS e modelos modernos. Nenhuma assinatura, nenhum limite.',
+    cta: 'Criar Meu Curriculo Gratis',
+    subtext: 'Gratis para sempre. Nenhum cartao de credito necessario.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

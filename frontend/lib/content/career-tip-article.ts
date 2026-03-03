@@ -200,5 +200,28 @@ const th: CareerTipArticleContent = {
   tagsLabel: 'แท็ก:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, th };
+const pt: CareerTipArticleContent = {
+  breadcrumb: { home: 'Inicio', careerTips: 'Dicas de Carreira' },
+  notFound: 'Artigo Nao Encontrado',
+  share: {
+    title: 'Achou este artigo util?',
+    subtitle: 'Compartilhe com quem pode se beneficiar',
+  },
+  cta: {
+    title: 'Pronto para criar seu curriculo?',
+    subtitle: 'Aplique essas dicas com nosso construtor de curriculo com inteligencia artificial. Crie um curriculo profissional em poucos minutos.',
+    button: 'Criar Meu Curriculo Agora',
+  },
+  sidebar: {
+    tocTitle: 'Indice',
+    relatedTitle: 'Artigos Relacionados',
+    ctaTitle: 'Crie Seu Curriculo',
+    ctaSubtitle: 'Crie um curriculo profissional com IA em poucos minutos.',
+    ctaButton: 'Comecar',
+  },
+  moreCareerTips: 'Mais Dicas de Carreira',
+  tagsLabel: 'Tags:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, th, pt };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

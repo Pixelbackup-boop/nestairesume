@@ -1113,7 +1113,117 @@ const th: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: LandingPageContent = {
+  meta: {
+    title: 'Criar Curriculo Gratis | Criador de Curriculo com IA 2026',
+    description: 'Crie seu curriculo gratis online. Sem cartao de credito, sem taxas ocultas. Escrita com IA, 20+ modelos ATS e download PDF instantaneo.',
+    keywords: 'curriculo gratis, criar curriculo gratis, curriculo gratis online, modelo de curriculo gratis, criador de curriculo gratis, curriculo gratuito, modelo curriculo gratis download, fazer curriculo gratis',
+  },
+  schemas: {
+    breadcrumbName: 'Curriculo Gratis',
+    articleHeadline: 'Criar Curriculo Gratis: Criador de Curriculo com IA 2026',
+    articleDescription: 'Crie seu curriculo gratis online. Sem cartao de credito, sem taxas ocultas. Escrita com IA, modelos ATS e download PDF instantaneo.',
+    softwareAppName: 'Criador de Curriculo Gratis com IA',
+  },
+  hero: {
+    badge: '100% Gratis — Sem cartao de credito',
+    title: 'Crie seu curriculo',
+    titleHighlight: 'completamente gratis',
+    subtitle: 'Nosso <strong>criador de curriculo gratis</strong> oferece tudo: escrita com IA, modelos profissionais, otimizacao ATS e download PDF instantaneo. Segundo o <a href="https://www.ibge.gov.br/estatisticas/sociais/trabalho.html" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">IBGE</a>, o mercado de trabalho brasileiro e cada vez mais competitivo — um curriculo profissional nao deveria custar nada. Sem taxas ocultas. Sem prazo de teste.',
+    ctaPrimary: 'Criar meu curriculo gratis',
+    ctaSecondary: 'Ver o que esta incluido',
+    trustBadges: ['Sem cadastro', 'Sem cartao de credito', 'Download PDF gratis', 'Sem marca d\'agua'],
+  },
+  features: {
+    title: 'Tudo que voce precisa — Gratis',
+    subtitle: 'Ao contrario de outros criadores de curriculo que cobram pelas funcoes basicas, aqui tudo esta incluido no plano gratuito. Com o <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">98% das grandes empresas</a> usando software ATS, voce precisa de ferramentas profissionais — nao de barreiras pagas.',
+    items: [
+      { feature: 'Modelos profissionais', description: '20+ designs disponiveis' },
+      { feature: 'Escrita de conteudo com IA', description: 'Experiencias e perfil profissional' },
+      { feature: 'Otimizacao ATS', description: 'Pontuacao em tempo real' },
+      { feature: 'Download PDF', description: 'Exportacoes ilimitadas' },
+      { feature: 'Sem marca d\'agua', description: 'Resultado limpo e profissional' },
+      { feature: 'Varios curriculos', description: 'Crie quantos quiser' },
+      { feature: 'Palavras-chave do setor', description: 'Sugeridas pela IA' },
+      { feature: 'Otimizado para mobile', description: 'Crie de qualquer dispositivo' },
+    ],
+    cta: 'Criar curriculo profissional',
+  },
+  comparison: {
+    title: 'Nosso gratis vs. o "gratis" dos outros',
+    subtitle: 'Muitos criadores de curriculo se dizem gratis mas cobram pelo download. Nos nao.',
+    oursName: 'Best AI Resumes (gratis)',
+    othersName: 'Outros criadores "gratis"',
+    rows: [
+      { feature: 'Download PDF', ours: 'Gratis e ilimitado', others: 'Frequentemente pago' },
+      { feature: 'Todos os modelos', ours: 'Todos os 20+ gratis', others: '1-3 gratis, o resto pago' },
+      { feature: 'Escrita com IA', ours: 'Incluida gratis', others: 'Recurso premium' },
+      { feature: 'Pontuacao ATS', ours: 'Gratis em tempo real', others: 'Premium ou ausente' },
+      { feature: 'Marca d\'agua', ours: 'Nenhuma', others: 'Presente na versao gratis' },
+      { feature: 'Conta obrigatoria', ours: 'Opcional', others: 'Geralmente obrigatoria' },
+      { feature: 'Prazo de teste', ours: 'Nenhum — gratis para sempre', others: 'Teste de 7-14 dias' },
+    ],
+  },
+  howItWorks: {
+    title: 'Crie seu curriculo em 3 passos — gratis',
+    subtitle: 'Sem surpresas. Sem barreiras pagas. So um curriculo profissional.',
+    steps: [
+      { step: 1, title: 'Escolha um modelo', description: 'Selecione entre 20+ modelos profissionais ATS — todos gratis.' },
+      { step: 2, title: 'Insira suas informacoes', description: 'Preencha seus dados e deixe a IA ajudar a escrever conteudo eficaz.' },
+      { step: 3, title: 'Baixe gratis', description: 'Exporte seu curriculo em PDF — sem pagamento, sem marca d\'agua.' },
+    ],
+    cta: 'Criar curriculo profissional',
+  },
+  trust: {
+    title: 'Escolhido por quem busca emprego no mundo todo',
+    stats: [
+      { value: '2M+', label: 'Curriculos criados gratis' },
+      { value: '4.8', label: 'Avaliacao media dos usuarios' },
+      { value: '150+', label: 'Paises atendidos' },
+      { value: 'R$0', label: 'Custo para baixar' },
+    ],
+  },
+  templates: {
+    title: '20+ modelos de curriculo gratis e profissionais',
+    subtitle: 'Todos os modelos sao gratis. Todos testados para ATS. Encontre o estilo perfeito para sua candidatura.',
+    styles: ['Moderno', 'Classico', 'Executivo', 'Criativo', 'Minimalista', 'Profissional', 'Tecnico', 'Academico'],
+    cta: 'Ver todos os modelos gratis',
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'Este criador de curriculo e realmente 100% gratis?', answer: 'Sim! Nosso criador de curriculo gratis inclui tudo: 20+ modelos profissionais, escrita com IA, otimizacao ATS e downloads PDF ilimitados. Sem cartao de credito, sem taxas ocultas, sem prazo de teste.' },
+      { question: 'O que e gratis e o que e pago?', answer: 'Os recursos principais sao todos gratis: todos os modelos, escrita com IA, pontuacao ATS e download PDF. O plano premium opcional adiciona recursos avancados como geracao de carta de apresentacao e otimizacao para o LinkedIn, mas a maioria dos usuarios nao precisa deles.' },
+      { question: 'Por que este criador de curriculo e gratis?', answer: 'Acreditamos que todos merecem acesso a ferramentas profissionais de curriculo, independentemente do orcamento. A versao gratuita e sustentada por upgrades premium opcionais e parcerias. Voce pode criar um curriculo completo e profissional sem pagar nada.' },
+      { question: 'Posso baixar o curriculo em PDF gratis?', answer: 'Com certeza. Baixe seu curriculo como PDF limpo e ATS quantas vezes quiser — completamente gratis. Sem marca d\'agua, sem logo, sem condicoes.' },
+      { question: 'Preciso criar uma conta?', answer: 'Nao! Voce pode comecar a criar seu curriculo imediatamente, sem se cadastrar. Seu trabalho e salvo localmente no navegador. Crie uma conta apenas se quiser salvar varios curriculos ou acessar de outros dispositivos.' },
+      { question: 'Os modelos gratis sao compativeis com ATS?', answer: 'Sim, todos os modelos do nosso criador de curriculo gratis sao testados com os principais sistemas ATS, incluindo Workday, Taleo, Greenhouse e Lever. A pontuacao ATS em tempo real ajuda a otimizar o curriculo antes de se candidatar.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Outras ferramentas gratuitas para curriculo',
+    items: [
+      { href: '/pt/resume-maker', title: 'Criador de Curriculo', subtitle: 'Com IA gratuita' },
+      { href: '/pt/resume-ai', title: 'Curriculo com IA', subtitle: 'Escrita assistida por IA' },
+      { href: '/pt/tools/ats-checker', title: 'Verificador ATS', subtitle: 'Pontuacao ATS gratis' },
+    ],
+    guidesTitle: 'Guias gratuitos para curriculo',
+    guides: [
+      { href: '/pt/blog/how-to-write-a-resume', label: 'Como fazer um curriculo (guia gratis)' },
+      { href: '/pt/resume-format', label: 'Guia de formato de curriculo 2026' },
+      { href: '/pt/resume-examples', label: '300+ exemplos de curriculo gratis' },
+      { href: '/pt/templates', label: 'Modelos de curriculo gratis' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pronto para criar seu curriculo gratis?',
+    description: 'Mais de 2 milhoes de candidatos criaram seu curriculo profissional com nosso criador gratis.',
+    cta: 'Criar meu curriculo gratis',
+    subtext: 'Gratis para sempre. Sem cartao de credito. Sem taxas ocultas.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

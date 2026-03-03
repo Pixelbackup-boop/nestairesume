@@ -2913,9 +2913,288 @@ const th: BiodataFormatPageContent = {
 };
 
 // ---------------------------------------------------------------------------
+// Portuguese
+// ---------------------------------------------------------------------------
+const pt: BiodataFormatPageContent = {
+  meta: {
+    title: 'Formato Biodata 2026: Modelos Gratis, Exemplos e Guia de Preenchimento | Best AI Resume',
+    description:
+      'Descubra o formato biodata para candidaturas de emprego. Compare biodata vs curriculo, baixe modelos gratis (PDF e Word) e confira exemplos para India, Paquistao e outros paises.',
+    keywords:
+      'formato biodata, biodata, biodata para emprego, biodata vs curriculo, biodata matrimonial, modelo biodata, formato dados pessoais, curriculo formato',
+  },
+  schemas: {
+    breadcrumbName: 'Guia de Formato Biodata',
+    articleHeadline: 'Guia de Formato Biodata 2026: Modelos, Exemplos e Como Preencher',
+    articleDescription:
+      'Guia completo do formato biodata para candidaturas de emprego e casamento. Descubra a diferenca entre biodata e curriculo, baixe modelos gratis e confira os exemplos.',
+  },
+  hero: {
+    badge: 'Guia Completo 2026',
+    title: 'Guia de Formato Biodata',
+    titleHighlight: '(Modelos Gratis)',
+    subtitle:
+      'O <strong>formato biodata</strong> e o documento padrao para candidaturas de emprego na India, Paquistao, Bangladesh e Oriente Medio. Descubra quando usar o biodata em vez do curriculo e baixe modelos gratis adequados as expectativas regionais.',
+    ctaTemplates: 'Baixar Modelos',
+    ctaBuild: 'Criar Biodata com IA',
+  },
+  whatIs: {
+    title: 'O que e Biodata?',
+    paragraphs: [
+      'O <strong>biodata</strong> (abreviacao de <em>biographical data</em>, ou dados biograficos) e um documento que resume as informacoes pessoais e profissionais de um individuo. Ao contrario do <strong>curriculo</strong> brasileiro, que se concentra em experiencias de trabalho e competencias, o biodata inclui <strong>dados pessoais</strong> como data de nascimento, estado civil, nacionalidade, religiao e, as vezes, informacoes sobre a familia.',
+      'O formato biodata e amplamente utilizado na <strong>Asia Meridional</strong> (India, Paquistao, Bangladesh, Sri Lanka), no <strong>Oriente Medio</strong> (EAU, Arabia Saudita, Catar) e em partes do <strong>Sudeste Asiatico</strong> (Filipinas, Malasia). Nessas regioes, orgaos publicos, instituicoes governamentais e empresas tradicionais frequentemente exigem o formato biodata em vez do curriculo europeu ou americano.',
+    ],
+    insightTitle: 'Nota importante:',
+    insightText:
+      'Se voce esta se candidatando a posicoes na India, Paquistao ou nos paises do Golfo, conhecer o formato biodata e fundamental. Candidaturas que nao respeitam o formato exigido sao frequentemente descartadas. No Brasil, o curriculo e o documento padrao do mercado de trabalho, mas quem atua em contextos internacionais deve conhecer ambos os formatos.',
+  },
+  vsComparison: {
+    title: 'Biodata vs Curriculo vs CV Academico: Quais as Diferencas?',
+    subtitle: 'Entender qual documento usar em cada contexto e essencial para se candidatar com sucesso.',
+    headers: { aspect: 'Aspecto', biodata: 'Biodata', resume: 'Curriculo', cv: 'CV Academico' },
+    rows: [
+      { aspect: 'Extensao', biodata: '1–2 paginas', resume: '1–2 paginas', cv: '2+ paginas' },
+      {
+        aspect: 'Dados pessoais',
+        biodata: 'Detalhados (data de nascimento, estado civil, religiao, familia)',
+        resume: 'Minimos (nome e contatos)',
+        cv: 'Minimos (nome e contatos)',
+        biodataHighlight: 'green',
+      },
+      { aspect: 'Foco', biodata: 'Historico pessoal + experiencia', resume: 'Competencias + resultados', cv: 'Carreira academica + pesquisa' },
+      {
+        aspect: 'Onde se usa',
+        biodata: 'India, Paquistao, Oriente Medio, Filipinas',
+        resume: 'Brasil, America Latina, EUA, Canada, Australia',
+        cv: 'Mundo academico, Reino Unido, Curriculo Lattes (Brasil academico)',
+      },
+      {
+        aspect: 'Contexto tipico',
+        biodata: 'Setor publico, empresas tradicionais, casamento',
+        resume: 'Empresas privadas, startups, setor de TI',
+        cv: 'Posicoes academicas, pesquisa, saude',
+      },
+      {
+        aspect: 'Personalizacao',
+        biodata: 'Conteudo identico para multiplas candidaturas',
+        resume: 'Personalizado para cada vaga',
+        cv: 'Atualizado com novas publicacoes e conquistas',
+      },
+    ],
+  },
+  structure: {
+    title: 'Estrutura Padrao do Biodata',
+    description: 'Nao existe um formato oficial unico, mas a maioria dos recrutadores espera estas secoes:',
+    sections: [
+      { number: 1, label: 'Dados pessoais', detail: 'Nome completo, foto, data de nascimento, sexo, estado civil, nacionalidade', colorGroup: 'orange' },
+      { number: 2, label: 'Contatos', detail: 'Endereco (permanente e atual), telefone, e-mail', colorGroup: 'default' },
+      { number: 3, label: 'Objetivo profissional', detail: 'Descricao do objetivo de carreira em 2–3 frases', colorGroup: 'default' },
+      { number: 4, label: 'Formacao academica', detail: 'Titulo, instituicao, ano de conclusao, nota/GPA', colorGroup: 'blue' },
+      { number: 5, label: 'Experiencia profissional', detail: 'Empresa, cargo, periodo, principais responsabilidades', colorGroup: 'blue' },
+      { number: 6, label: 'Competencias', detail: 'Habilidades tecnicas, idiomas, softwares', colorGroup: 'default' },
+      { number: 7, label: 'Informacoes adicionais', detail: 'Hobbies, interesses, premios, referencias', colorGroup: 'default' },
+      { number: 8, label: 'Declaracao', detail: '"Declaro que as informacoes acima sao verdadeiras e corretas..."', colorGroup: 'dark' },
+    ],
+    proTipTitle: 'Dica do especialista:',
+    proTipText:
+      'Inclua sempre uma foto 3x4 profissional no canto superior direito do biodata. E um requisito padrao na Asia Meridional e no Oriente Medio. No Brasil, a foto no curriculo e comum mas nao obrigatoria, enquanto nos curriculos norte-americanos e geralmente desaconselhada.',
+  },
+  personalInfo: {
+    title: 'Dados Pessoais a Incluir no Biodata',
+    description: 'A secao de dados pessoais e o elemento que mais diferencia o biodata do curriculo tradicional. Veja o que geralmente e solicitado:',
+    alwaysInclude: {
+      title: 'Incluir sempre',
+      items: [
+        'Nome completo (como nos documentos oficiais)',
+        'Data de nascimento',
+        'Sexo',
+        'Nacionalidade',
+        'Estado civil',
+        'Idiomas conhecidos',
+        'Endereco de residencia permanente',
+        'Endereco atual',
+        'Numero de telefone',
+        'Endereco de e-mail',
+      ],
+    },
+    optional: {
+      title: 'Opcional (de acordo com o contexto)',
+      items: [
+        'Nome e profissao do pai',
+        'Nome da mae',
+        'Religiao (se solicitado pelo empregador)',
+        'Casta/comunidade (para empregos publicos na India)',
+        'Tipo sanguineo',
+        'Altura e peso',
+        'Numero do passaporte (para trabalho no exterior)',
+        'Status do visto',
+      ],
+    },
+    noteTitle: 'Nota importante:',
+    noteText:
+      'Embora o biodata tradicional inclua informacoes como religiao e casta, muitas empresas privadas modernas na India nao as exigem mais. Inclua apenas as informacoes expressamente solicitadas no anuncio de emprego. No Brasil, o curriculo segue as diretrizes da LGPD (Lei 13.709/2018) e nao exige dados sensiveis como religiao ou estado civil, salvo se forem relevantes para a posicao.',
+  },
+  types: {
+    title: 'Tipos de Biodata',
+    jobBiodata: {
+      title: '1. Biodata Profissional (para Emprego)',
+      description:
+        'Utilizado para candidaturas de emprego, particularmente difundido no setor publico da Asia Meridional, em empresas estatais e em empresas tradicionais.',
+      focusTitle: 'Conteudo principal:',
+      focusItems: [
+        'Percurso academico com resultados',
+        'Experiencia profissional com descricao das atividades',
+        'Competencias profissionais e interpessoais',
+        'Certificacoes e formacao profissional',
+      ],
+      commonTitle: 'Contextos de uso mais comuns:',
+      commonItems: [
+        'Concursos UPSC, SSC e bancarios (India)',
+        'Selecoes PPSC e FPSC (Paquistao)',
+        'Busca de emprego nos paises do Golfo',
+        'Candidaturas para cargos de ensino',
+      ],
+    },
+    marriageBiodata: {
+      title: '2. Biodata Matrimonial',
+      description:
+        'Utilizado na tradicao de casamentos arranjados na India, Paquistao, Bangladesh e nas comunidades da diaspora. Contem informacoes pessoais e familiares detalhadas.',
+      sectionsTitle: 'Secoes adicionais:',
+      sectionsItems: [
+        'Historico familiar (pais, irmaos)',
+        'Detalhes do horoscopo / Kundali',
+        'Caracteristicas fisicas',
+        'Preferencias para o parceiro',
+      ],
+      designTitle: 'Elementos de design:',
+      designItems: [
+        'Bordas decorativas',
+        'Fotografia profissional',
+        'Simbolos religiosos (opcional)',
+        'Geralmente 2–3 paginas',
+      ],
+    },
+  },
+  regions: {
+    title: 'Formato Biodata por Regiao',
+    description: 'As expectativas variam de pais para pais. Veja o que os recrutadores esperam nas diferentes areas geograficas:',
+    items: [
+      {
+        country: 'India',
+        flag: '\ud83c\uddee\ud83c\uddf3',
+        text: 'O biodata e o padrao para a administracao publica (UPSC, SSC, PSC estaduais), bancos e empresas estatais. Empresas privadas multinacionais preferem o curriculo. Sao exigidos: nome do pai, categoria de casta (para cotas), declaracao e foto 3x4.',
+      },
+      {
+        country: 'Paquistao',
+        flag: '\ud83c\uddf5\ud83c\uddf0',
+        text: 'Semelhante a India. Frequentemente e solicitado o numero CNIC (Cartao Nacional de Identidade). Nome do pai e endereco sao informacoes basicas. Para posicoes governamentais e semi-governamentais e necessario um biodata detalhado.',
+      },
+      {
+        country: 'EAU e Paises do Golfo',
+        flag: '\ud83c\udde6\ud83c\uddea',
+        text: 'Espera-se um biodata com foto, nacionalidade, status do visto e data de disponibilidade. A religiao pode ser solicitada. Para candidaturas do exterior, incluir dados do passaporte. Tanto o biodata quanto o curriculo sao aceitos.',
+      },
+      {
+        country: 'Filipinas',
+        flag: '\ud83c\uddf5\ud83c\udded',
+        text: 'O Personal Data Sheet (PDS) e o formato oficial para a administracao publica. Empresas privadas aceitam tanto o biodata quanto o curriculo. E comum indicar altura, peso e estado civil.',
+      },
+    ],
+  },
+  templates: {
+    title: 'Modelos de Biodata Gratis',
+    subtitle:
+      'Baixe modelos de biodata profissionais em formato Word e PDF. Personalize-os facilmente com suas informacoes.',
+    cards: [
+      {
+        title: 'Modelo Biodata Profissional',
+        description: 'Modelo com todas as secoes padrao para candidaturas de emprego.',
+        ctaLabel: 'Criar com IA',
+        color: 'blue',
+      },
+      {
+        title: 'Modelo Biodata Simples',
+        description: 'Design limpo e minimalista, ideal para recém-formados e candidatos em inicio de carreira.',
+        ctaLabel: 'Comecar a Criar',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: 'Dicas para Escrever um Biodata Eficaz',
+    items: [
+      { title: 'Use uma foto profissional', description: 'Formato 3x4, traje formal, fundo neutro. Nada de selfies ou fotos informais.' },
+      { title: 'Seja conciso', description: 'Maximo 1–2 paginas. Os recrutadores nao leem documentos muito longos.' },
+      { title: 'Mantenha um formato coerente', description: 'Mesma fonte, titulos claros, alinhamento uniforme em todo o documento.' },
+      { title: 'Adicione a declaracao', description: '"Declaro que as informacoes acima sao verdadeiras e corretas ao meu melhor conhecimento."' },
+      { title: 'Liste a formacao em ordem cronologica inversa', description: 'Comece pelo titulo mais recente. Inclua a nota se for relevante.' },
+      { title: 'Revise com atencao', description: 'Erros de ortografia e gramatica causam uma impressao negativa imediata.' },
+      { title: 'Inclua apenas informacoes pertinentes', description: 'Nao insira dados que nao sejam solicitados ou relevantes para a posicao.' },
+      { title: 'Assine e date', description: 'Coloque sua assinatura, data e local no rodape do documento.' },
+    ],
+  },
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      {
+        question: 'Qual e a diferenca entre biodata e curriculo?',
+        answer:
+          'O curriculo se concentra em experiencias de trabalho, competencias e resultados profissionais, e e personalizado para cada candidatura. O biodata tambem inclui dados pessoais como data de nascimento, estado civil, religiao e informacoes sobre a familia. No Brasil e na America Latina usa-se o curriculo, enquanto o biodata e o formato preferido na Asia Meridional, Oriente Medio e partes do Sudeste Asiatico.',
+      },
+      {
+        question: 'O biodata e usado para buscar emprego?',
+        answer:
+          'Sim, o biodata e comumente utilizado para candidaturas de emprego na India, Paquistao, Bangladesh, Filipinas e nos paises do Oriente Medio. No setor publico e em empresas tradicionais, frequentemente e exigido o formato biodata em vez do curriculo.',
+      },
+      {
+        question: 'Quais dados pessoais se incluem no biodata?',
+        answer:
+          'Um biodata profissional tipicamente inclui nome completo, data de nascimento, sexo, nacionalidade, estado civil, idiomas conhecidos e enderecos (permanente e atual). Um biodata matrimonial pode adicionar altura, peso, religiao, casta, informacoes sobre a familia e detalhes do horoscopo.',
+      },
+      {
+        question: 'Qual deve ser o tamanho de um biodata?',
+        answer:
+          'Idealmente 1–2 paginas. Um biodata profissional geralmente ocupa uma pagina, enquanto o matrimonial pode chegar a duas paginas por causa das informacoes familiares e preferencias pessoais. Procure ser conciso sem omitir as informacoes essenciais.',
+      },
+      {
+        question: 'Posso criar um biodata com uma ferramenta de curriculo?',
+        answer:
+          'Sim, nosso builder com IA pode ser usado para criar um biodata. Comece com um modelo padrao e adicione as secoes de dados pessoais tipicas do biodata. As funcoes de personalizacao permitem adaptar o documento ao formato exigido na sua area geografica.',
+      },
+      {
+        question: 'O que e um biodata matrimonial?',
+        answer:
+          'O biodata matrimonial e um documento usado na tradicao de casamentos arranjados na India, Paquistao e outros paises da Asia Meridional. Contem informacoes pessoais detalhadas, historico familiar, percurso academico e profissional, detalhes do horoscopo e preferencias para o parceiro, para facilitar a compatibilidade entre as familias.',
+      },
+    ],
+  },
+  crossLinks: {
+    title: 'Recursos Relacionados',
+    items: [
+      { href: '/pt/resume-format', title: 'Guia de Formato de Curriculo', subtitle: 'Formato cronologico, funcional e combinado' },
+      { href: '/pt/templates', title: 'Modelos de Curriculo', subtitle: 'Mais de 20 modelos profissionais' },
+      { href: '/pt/resume-examples', title: 'Exemplos de Curriculo', subtitle: 'Mais de 300 exemplos por profissao' },
+    ],
+  },
+  externalResources: {
+    title: 'Recursos Externos',
+    items: [
+      { href: 'https://www.ibge.gov.br/', label: 'IBGE: Mercado de Trabalho no Brasil' },
+      { href: 'https://www.glassdoor.com.br/blog/', label: 'Glassdoor: Guia de Curriculo e Carreira' },
+    ],
+  },
+  bottomCta: {
+    title: 'Crie Seu Biodata em Poucos Minutos',
+    description:
+      'Nosso builder com inteligencia artificial ajuda a criar um biodata profissional com a estrutura correta. Escolha entre varios modelos e exporte em PDF ou Word.',
+    ctaLabel: 'Criar Biodata Gratis',
+  },
+};
+
+// ---------------------------------------------------------------------------
 // Export
 // ---------------------------------------------------------------------------
-const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 
 export function getContent(locale: string): BiodataFormatPageContent {
   return selectContent(contentMap, locale);

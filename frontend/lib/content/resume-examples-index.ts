@@ -150,5 +150,23 @@ const th: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th };
+const pt: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Mais de 300 Exemplos de Curriculo por Profissao (2026) | Best AI Resume',
+    description: 'Explore mais de 300 exemplos gratuitos de curriculo organizados por setor e profissao. Modelos de curriculo profissional com dicas de otimizacao para ATS.',
+  },
+  hero: {
+    badge: 'Exemplos de Curriculo 2026',
+    title: 'Exemplos de Curriculo',
+    titleHighlight: 'por Profissao',
+    subtitle: 'Explore {count}+ exemplos profissionais de curriculo organizados por setor. Encontre sua profissao e crie o seu com nosso construtor com IA.',
+  },
+  bottomCta: {
+    title: 'Nao encontrou sua profissao?',
+    description: 'Nossa IA pode criar um curriculo personalizado para QUALQUER profissao em segundos.',
+    ctaText: 'Gerar Curriculo Personalizado',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

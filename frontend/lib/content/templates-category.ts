@@ -132,6 +132,18 @@ const th: TemplatesCategoryContent = {
   breadcrumbTemplates: 'เทมเพลต',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
+const pt: TemplatesCategoryContent = {
+  fallbackTitle: 'Modelos de Curriculo | Best AI Resume',
+  collectionSuffix: 'Colecao',
+  availableTemplates: 'Modelos Disponiveis',
+  editInAI: 'Editar com IA',
+  tiredTitle: 'Cansado de formatar documentos?',
+  tiredSubtitle: 'Baixar modelos e util, mas preenche-los e trabalhoso. Nosso Construtor de Curriculo com IA faz a formatacao por voce instantaneamente.',
+  buildWithAI: 'Criar com IA',
+  breadcrumbHome: 'Inicio',
+  breadcrumbTemplates: 'Modelos',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

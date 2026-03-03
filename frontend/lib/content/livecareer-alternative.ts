@@ -1241,5 +1241,123 @@ const th: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa ao LiveCareer 2026: Criador de Curriculo Gratis com IA | Best AI Resume',
+    description: 'Procurando alternativa gratuita ao LiveCareer? Compare LiveCareer vs Best AI Resume Builder — escrita com IA moderna, modelos ATS, downloads ilimitados. Sem assinatura.',
+    keywords: 'alternativa livecareer curriculo, livecareer alternativa gratis, criador curriculo gratis, livecareer vs, curriculo com ia gratis, modelos curriculo ats',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa LiveCareer',
+    articleHeadline: 'Melhor Alternativa ao LiveCareer 2026: Criador de Curriculo Gratis com IA',
+    articleDescription: 'Comparacao LiveCareer vs Best AI Resume Builder. Escrita com IA moderna e otimizacao ATS — completamente gratis, sem assinatura.',
+  },
+  hero: {
+    badge: 'Alternativa ao LiveCareer',
+    title: 'Criador de Curriculo Moderno com IA.',
+    titleHighlight: 'Gratis Para Sempre.',
+    subtitle: 'O LiveCareer existe desde 2005 — mas suas ferramentas nao se atualizaram. Obtenha <strong>escrita com IA</strong>, modelos modernos e pontuacao ATS a <strong>R$0</strong> em vez de $19,95/mes.',
+    ctaPrimary: 'Criar meu curriculo gratis',
+    ctaSecondary: 'Ver comparacao',
+  },
+  problem: {
+    title: 'LiveCareer Era Excelente — Em 2015',
+    description: 'O LiveCareer foi um pioneiro na criacao de curriculos online. Mas enquanto o setor evoluiu para escrita com IA e otimizacao ATS em tempo real, o LiveCareer ainda depende de <strong>bibliotecas de frases preconfeccionadas</strong> e uma interface desatualizada. Sua assinatura custa <strong>$19,95/mes</strong> por funcoes que ferramentas gratuitas modernas ja superaram.',
+    stats: [
+      { value: '$5,95', label: 'teste de 14 dias (depois $19,95/mes)' },
+      { value: '2005', label: 'ano de fundacao do LiveCareer' },
+      { value: 'R$0', label: 'Best AI Resume Builder — gratis para sempre' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: 'Builder tradicional vs plataforma moderna com IA.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Preco', competitor: '❌ Teste $5,95 → $19,95/mes', ours: '✅ 100% gratis para sempre' },
+      { feature: 'Escrita com IA', competitor: '❌ Apenas frases preconfeccionadas', ours: '✅ IA gera conteudo personalizado' },
+      { feature: 'Otimizacao ATS', competitor: '⚠️ Apenas dicas genericas', ours: '✅ Pontuacao ATS em tempo real + palavras-chave' },
+      { feature: 'Design dos modelos', competitor: '⚠️ Design desatualizado, pouca escolha', ours: '✅ 20+ modelos modernos ATS' },
+      { feature: 'Interface do usuario', competitor: '⚠️ Aparencia desatualizada', ours: '✅ Experiencia moderna e guiada' },
+      { feature: 'Exportacao PDF', competitor: '❌ Apenas com plano pago', ours: '✅ Exportacoes ilimitadas gratis' },
+      { feature: 'Carta de apresentacao', competitor: '✅ Builder incluido (pago)', ours: '✅ Com IA (gratis)' },
+      { feature: 'Qualidade do conteudo', competitor: '⚠️ Sugestoes genericas preconfeccionadas', ours: '✅ Escrita personalizada com IA' },
+      { feature: 'Adaptacao a vaga', competitor: '⚠️ Matching manual de palavras-chave', ours: '✅ Otimizacao de palavras-chave com IA' },
+      { feature: 'Exemplos de curriculo', competitor: '✅ Biblioteca de exemplos', ours: '✅ 300+ exemplos detalhados' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivos para Trocar o LiveCareer',
+    subtitle: 'Atualize para IA moderna sem gastar nada.',
+    reasons: [
+      { title: 'Escrita com IA Real, Nao Frases Enlatadas', description: 'O LiveCareer usa bibliotecas de frases dos anos 2000. Nossa IA gera descricoes de experiencia unicas e personalizadas baseadas no seu setor e vaga — incluindo terminologia relevante para o mercado brasileiro.' },
+      { title: 'Pontuacao ATS em Tempo Real', description: 'O LiveCareer oferece apenas dicas genericas. Nossa pontuacao ATS em tempo real mostra exatamente como sistemas como Gupy, Kenoby e Taleo analisarao seu curriculo.' },
+      { title: 'Economize R$1.200/ano', description: 'O LiveCareer custa $19,95/mes. Nossa plataforma completa — escrita com IA, pontuacao ATS, 20+ modelos, exportacoes ilimitadas — e gratuita.' },
+    ],
+  },
+  recommendation: {
+    title: 'Recomendacao Honesta',
+    useCompetitor: {
+      title: 'Use o LiveCareer quando...',
+      items: [
+        'Voce prefere a interface do LiveCareer especificamente',
+        'Voce precisa de suporte ao cliente dedicado',
+        'Voce esta familiarizado com o sistema e nao quer mudar',
+        'Voce precisa de funcionalidades especificas que so o LiveCareer oferece',
+      ],
+    },
+    useUs: {
+      title: 'Use o Best AI Resumes quando...',
+      items: [
+        'Voce quer escrita com IA genuina, nao frases preconfeccionadas',
+        'Voce precisa de pontuacao ATS em tempo real',
+        'Voce quer modelos modernos sem pagar assinatura',
+        'Voce quer exportacoes PDF ilimitadas gratis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Explore mais de 300 exemplos de curriculo gratis',
+    description: 'Exemplos de curriculos profissionais para cada setor e nivel de carreira.',
+    ctaBrowse: 'Ver exemplos de curriculo',
+    ctaTemplates: 'Ver todos os modelos',
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'LiveCareer e gratuito?', answer: 'O LiveCareer tem um plano gratuito com recursos limitados. O plano completo custa $5,95 pelo teste de 14 dias, depois $19,95/mes. O Best AI Resume Builder e 100% gratuito com todas as funcionalidades, modelos e exportacoes ilimitadas — sem plano premium necessario.' },
+      { question: 'LiveCareer e um bom criador de curriculo?', answer: 'O LiveCareer foi inovador quando lancado, mas suas ferramentas de IA ficaram para tras. Usa bibliotecas de frases estaticas em vez de IA generativa. O Best AI Resume Builder usa IA moderna para criar conteudo personalizado, pontuacao ATS em tempo real e modelos contemporaneos.' },
+      { question: 'Qual e a melhor alternativa gratuita ao LiveCareer?', answer: 'O Best AI Resume Builder e a melhor alternativa gratuita. Oferece tudo o que o LiveCareer coloca atras de paywall — modelos profissionais, exportacao PDF, cartas de apresentacao — mais escrita com IA avancada e otimizacao ATS que o LiveCareer nao tem.' },
+      { question: 'LiveCareer tem IA para escrever curriculo?', answer: 'O LiveCareer tem sugestoes de frases preconfeccionadas, mas nao e escrita com IA verdadeira. O Best AI Resume Builder usa IA avancada para gerar experiencias profissionais personalizadas, resumos e palavras-chave adaptadas ao seu setor e vaga.' },
+      { question: 'Posso exportar PDF do LiveCareer gratis?', answer: 'A exportacao PDF do LiveCareer requer assinatura paga. Com o Best AI Resume Builder voce pode exportar PDFs ilimitados gratis — sem necessidade de atualizar a conta.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Compare outros criadores de curriculo',
+    items: [
+      { href: '/pt/zety-alternative', title: 'Alternativa ao Zety', subtitle: 'Comparacao de precos' },
+      { href: '/pt/canva-alternative', title: 'Alternativa ao Canva', subtitle: 'Ferramenta de design vs IA' },
+      { href: '/pt/rezi-alternative', title: 'Alternativa ao Rezi', subtitle: 'Comparacao de funcoes de IA' },
+      { href: '/pt/resume-io-alternative', title: 'Alternativa ao Resume.io', subtitle: 'Comparacao de criadores' },
+    ],
+    guidesTitle: 'Guias uteis para curriculo',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Recursos externos',
+    items: [
+      { href: 'https://www.ibge.gov.br/estatisticas/sociais/trabalho.html', label: 'IBGE — Estatisticas do Mercado de Trabalho Brasileiro' },
+      { href: 'https://www.glassdoor.com.br/Pesquisa/index.htm', label: 'Glassdoor Brasil — Salarios e Oportunidades' },
+    ],
+  },
+  bottomCta: {
+    title: 'Ferramentas modernas de curriculo sem o preco do LiveCareer.',
+    description: 'Atualize para escrita com IA, pontuacao ATS em tempo real e modelos modernos — tudo gratis. Nenhum cartao de credito necessario.',
+    cta: 'Criar meu curriculo gratis',
+    subtext: 'Gratis para sempre. Melhor que o LiveCareer — sem custo.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

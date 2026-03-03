@@ -467,6 +467,49 @@ const th: CommunityContent = {
   deleteBtn: 'ลบ',
 };
 
-const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: CommunityContent = {
+  title: 'Modelos da Comunidade',
+  subtitle: 'Explore e use modelos compartilhados pela comunidade',
+  categories: [
+    { value: '', label: 'Todos' },
+    { value: 'professional', label: 'Profissional' },
+    { value: 'creative', label: 'Criativo' },
+    { value: 'ats', label: 'Otimizado ATS' },
+    { value: 'bold', label: 'Ousado' },
+  ],
+  browseTab: 'Explorar Modelos',
+  myTemplatesTab: 'Meus Modelos',
+  templatesAvailable: '{count} modelos disponiveis',
+  templateAvailable: '{count} modelo disponivel',
+  createYourOwn: 'Crie o seu →',
+  errorMessage: 'Nao foi possivel carregar os modelos. Tente novamente.',
+  tryAgain: 'Tentar Novamente',
+  noTemplatesTitle: 'Nenhum modelo ainda',
+  noTemplatesSub: 'Seja o primeiro a compartilhar um modelo com a comunidade!',
+  createTemplate: 'Criar Modelo',
+  pageOf: 'Pagina {page} de {total}',
+  templatesPosted: '{count} modelos publicados',
+  templatePosted: '{count} modelo publicado',
+  createNewTemplate: 'Criar novo modelo →',
+  noPostedTitle: 'Voce ainda nao publicou modelos',
+  noPostedSub: 'Crie um design no editor canvas e compartilhe com a comunidade!',
+  publicLabel: 'Publico',
+  privateLabel: 'Privado',
+  noPreview: 'Sem previa',
+  downloads: 'downloads',
+  download: 'download',
+  signInTitle: 'Faca login para ver seus modelos',
+  signInSub: 'Voce precisa estar logado para ver e gerenciar os modelos que publicou.',
+  signIn: 'Entrar',
+  deleteConfirm: 'Tem certeza que deseja excluir este modelo? Esta acao nao pode ser desfeita.',
+  deleteError: 'Nao foi possivel excluir o modelo. Tente novamente.',
+  visibilityError: 'Nao foi possivel atualizar a visibilidade. Tente novamente.',
+  makePrivate: 'Tornar privado',
+  makePublic: 'Tornar publico',
+  edit: 'Editar',
+  deleteBtn: 'Excluir',
+};
+
+const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

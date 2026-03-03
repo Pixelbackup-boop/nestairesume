@@ -1242,5 +1242,128 @@ const th: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa ao Resume.io 2026: Criador de Curriculo Gratis com IA | Best AI Resume',
+    description: 'Cansado das cobranças ocultas do Resume.io? Compare Resume.io vs Best AI Resume Builder — modelos de curriculo gratis, escrita com IA e otimizacao ATS. Sem assinatura, sem cartao de credito.',
+    keywords: 'alternativa resume.io, resume.io precos, criador curriculo gratis, curriculo ia, modelo cv gratis, curriculo ats, resume.io cobrancas, curriculo brasileiro',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa ao Resume.io',
+    articleHeadline: 'Alternativa ao Resume.io 2026: Criador de Curriculo Gratis com IA',
+    articleDescription: 'Comparacao Resume.io vs Best AI Resume Builder. Descubra por que candidatos brasileiros estao migrando para um criador de curriculo verdadeiramente gratis com IA e otimizacao ATS.',
+  },
+  hero: {
+    badge: 'Alternativa ao Resume.io',
+    title: 'Mesma Qualidade.',
+    titleHighlight: 'Realmente Gratis.',
+    subtitle: 'Resume.io cobra <strong>$24,95/mes</strong> apos um periodo de teste enganoso. Obtenha modelos profissionais, escrita com IA e otimizacao ATS — <strong>100% gratis, para sempre</strong>.',
+    ctaPrimary: 'Criar Meu Curriculo Gratis',
+    ctaSecondary: 'Ver Comparacao',
+  },
+  problem: {
+    title: 'A Armadilha de Precos do Resume.io',
+    description: 'Resume.io se apresenta como um criador de curriculo gratis. Voce pode realmente criar um CV de graca — mas quando tenta baixar, encontra um paywall. O "teste gratis" custa $2,95 por 7 dias, depois <strong>renova automaticamente por $24,95/mes</strong>. Muitos usuarios relatam cobranças inesperadas porque o cancelamento nao e imediato. Para quem busca emprego no Brasil, esses custos se somam rapidamente.',
+    stats: [
+      { value: '$24,95', label: 'por mes apos o teste de 7 dias' },
+      { value: '$299', label: 'custo anual se esquecer de cancelar (reclamacao frequente)' },
+      { value: 'R$0', label: 'Best AI Resume Builder — gratis para sempre, sem cartao de credito' },
+    ],
+  },
+  comparison: {
+    title: 'Resume.io vs Best AI Resume Builder',
+    subtitle: 'Uma comparacao transparente — sem custos ocultos.',
+    competitorName: 'Resume.io',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Preco', competitor: '❌ $24,95/mes apos o teste', ours: '✅ Completamente gratis' },
+      { feature: 'Escrita com IA', competitor: '⚠️ Apenas frases genericas preconfiguradas', ours: '✅ IA avancada gera conteudo personalizado' },
+      { feature: 'Pontuacao ATS em Tempo Real', competitor: '❌ Sem avaliacao ATS', ours: '✅ Pontuacao ATS enquanto voce escreve' },
+      { feature: 'Download PDF', competitor: '❌ Requer plano pago', ours: '✅ Downloads ilimitados e gratis' },
+      { feature: 'Numero de Curriculos', competitor: '⚠️ Limitado no plano gratis', ours: '✅ Ilimitados' },
+      { feature: 'Qualidade dos Modelos', competitor: '✅ Modelos profissionais', ours: '✅ 20+ modelos profissionais' },
+      { feature: 'Compatibilidade ATS', competitor: '✅ A maioria dos modelos e ATS-friendly', ours: '✅ Todos os modelos verificados ATS' },
+      { feature: 'Carta de Apresentacao', competitor: '✅ Incluida (paga)', ours: '✅ Incluida (gratis)' },
+      { feature: 'Palavras-chave Setoriais', competitor: '❌ Sem sugestao de keywords', ours: '✅ IA sugere keywords do setor' },
+      { feature: 'Renovacao Automatica', competitor: '❌ Renovacao a $24,95/mes', ours: '✅ Nenhuma assinatura necessaria' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivos para Sair do Resume.io',
+    subtitle: 'Funcoes melhores. Custo zero. Sem surpresas.',
+    reasons: [
+      { title: 'Nenhum Custo Oculto', description: 'Nenhum teste a $2,95, nenhuma surpresa de $24,95/mes. Nem sequer um cartao de credito. Voce cria, baixa e usa seu curriculo completamente de graca.' },
+      { title: 'IA Real, Nao Frases Preconfiguradas', description: 'Resume.io oferece apenas frases genericas preconfiguradas. Nossa IA gera descricoes originais das experiencias de trabalho, perfis profissionais e competencias especificas para sua area no mercado de trabalho brasileiro.' },
+      { title: 'Pontuacao ATS Integrada', description: 'Resume.io nao tem nenhuma funcao para verificar compatibilidade ATS. Nossa ferramenta mostra uma pontuacao ATS em tempo real e sugere melhorias concretas para passar pelos filtros automaticos de portais como Gupy, Catho e Kenoby.' },
+    ],
+  },
+  recommendation: {
+    title: 'Nossa Recomendacao Honesta',
+    useCompetitor: {
+      title: 'Quando o Resume.io pode ser uma boa opcao',
+      items: [
+        'Voce tem orcamento de $24,95/mes para uma ferramenta de curriculo',
+        'Ja sabe exatamente o que escrever no seu CV',
+        'Precisa apenas de um modelo simples sem assistencia de IA',
+        'Esta confiante de se lembrar de cancelar antes do fim do teste',
+      ],
+    },
+    useUs: {
+      title: 'Quando o Best AI Resumes e a melhor escolha',
+      items: [
+        'Procura um criador de curriculo verdadeiramente gratis',
+        'Quer usar a IA para escrever um curriculo convincente',
+        'Quer verificar a compatibilidade ATS antes de se candidatar',
+        'Quer evitar cobranças inesperadas',
+        'Precisa criar varias versoes do curriculo para diferentes vagas',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Mais de 300 Exemplos de Curriculo Gratis',
+    description: 'Explore exemplos profissionais de curriculo otimizados ATS para todos os setores do mercado de trabalho brasileiro.',
+    ctaBrowse: 'Explorar Exemplos de Curriculo',
+    ctaTemplates: 'Guia de Formatos de Curriculo',
+  },
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      { question: 'Resume.io e realmente gratis?', answer: 'Com Resume.io voce pode criar um curriculo de graca, mas para baixar e necessaria uma assinatura paga (teste de 7 dias por $2,95, depois renovacao automatica a $24,95/mes). Com Best AI Resume Builder, da criacao ao download e tudo completamente gratis.' },
+      { question: 'Qual e a melhor alternativa gratis ao Resume.io?', answer: 'Best AI Resume Builder e a melhor alternativa gratis. Oferece tudo o que Resume.io cobra — modelos profissionais, download PDF, criacao de varios curriculos — mais escrita com IA e pontuacao ATS em tempo real, tudo gratis.' },
+      { question: 'Resume.io tem funcoes de escrita com IA?', answer: 'Resume.io oferece apenas sugestoes de frases genericas preconfiguradas, sem geracao personalizada de conteudo. Best AI Resume Builder usa IA avancada para gerar descricoes de experiencias, perfis profissionais e palavras-chave especificas para o seu setor.' },
+      { question: 'Os modelos do Resume.io sao compativeis com ATS?', answer: 'A maioria dos modelos Resume.io e compativel com ATS, mas alguns modelos premium podem ter problemas de analise. Todos os modelos de Best AI Resume Builder sao verificados ATS com pontuacao em tempo real para portais brasileiros.' },
+      { question: 'E possivel cancelar apos o teste do Resume.io?', answer: 'Sim, mas muitos usuarios relatam dificuldades para cancelar antes da renovacao automatica. Com Best AI Resume Builder nao ha nada para cancelar — o servico e completamente gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Compare Outras Ferramentas de Curriculo',
+    items: [
+      { href: '/pt/canva-alternative', title: 'Alternativa ao Canva', subtitle: 'Ferramenta de design vs criador com IA' },
+      { href: '/pt/overleaf-alternative', title: 'Alternativa ao Overleaf', subtitle: 'CV LaTeX vs criador com IA' },
+      { href: '/pt/rezi-alternative', title: 'Alternativa ao Rezi', subtitle: 'Comparacao de ferramentas de IA para curriculo' },
+    ],
+    guidesTitle: 'Guias Uteis para Curriculo',
+    guides: [
+      { href: '/pt/blog/how-to-write-ats-friendly-resume', label: 'Como Escrever um Curriculo Compativel com ATS' },
+      { href: '/pt/resume-format', label: 'Guia de Formato de Curriculo 2026' },
+      { href: '/pt/blog/top-resume-mistakes-to-avoid', label: 'Erros Comuns no Curriculo a Evitar' },
+      { href: '/pt/resume-examples', label: 'Mais de 300 Exemplos de Curriculo por Profissao' },
+    ],
+  },
+  externalResources: {
+    title: 'Recursos Externos',
+    items: [
+      { href: 'https://resume.io/', label: 'Resume.io Site Oficial' },
+      { href: 'https://www.ibge.gov.br/', label: 'IBGE — Estatisticas do Mercado de Trabalho Brasileiro' },
+    ],
+  },
+  bottomCta: {
+    title: 'Por Que Pagar por Algo que Deveria Ser Gratis?',
+    description: 'Junte-se a milhares de candidatos que migraram de criadores de curriculo pagos para um criador com IA gratis e com funcoes superiores.',
+    cta: 'Criar Meu Curriculo Gratis — Sem Cartao de Credito',
+    subtext: 'Gratis para sempre. Sem teste. Sem renovacao automatica.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

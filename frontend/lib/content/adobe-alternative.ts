@@ -1231,5 +1231,123 @@ const th: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa ao Adobe para Curriculo 2026: Modelos ATS Gratis | Best AI Resume',
+    description: 'Procurando alternativa gratuita ao Adobe para criar curriculo? Compare Adobe Express vs Best AI Resume Builder — modelos ATS, escrita com IA, exportacoes ilimitadas. Sem assinatura.',
+    keywords: 'alternativa adobe curriculo, modelo curriculo adobe, adobe express curriculo, criador curriculo gratis, curriculo ats, modelo curriculo profissional, curriculo gratis',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa Adobe para Curriculo',
+    articleHeadline: 'Alternativa ao Adobe para Curriculo 2026: Criador de Curriculo Gratis com IA e Otimizacao ATS',
+    articleDescription: 'Comparacao Adobe Express vs Best AI Resume Builder para curriculo. Modelos ATS, escrita com IA, exportacao PDF — tudo gratis, sem assinatura Creative Cloud.',
+  },
+  hero: {
+    badge: 'Alternativa ao Adobe para Curriculo',
+    title: 'Curriculos Elegantes.',
+    titleHighlight: 'Que Realmente Passam nos ATS.',
+    subtitle: 'Adobe cria designs belissimos — mas a maioria dos modelos Adobe para curriculo <strong>nao passa na triagem ATS</strong>. Obtenha curriculos profissionais <strong>e</strong> compativeis com os sistemas de rastreamento de candidatos. Gratis.',
+    ctaPrimary: 'Criar meu curriculo gratis',
+    ctaSecondary: 'Ver comparacao',
+  },
+  problem: {
+    title: 'O Problema do Adobe: Bonito, Mas Invisivel para os ATS',
+    description: 'Adobe Express e Creative Cloud criam designs esplendidos. Mas um curriculo nao e um folder. O <strong>98% das grandes empresas brasileiras</strong> usa sistemas ATS para filtrar curriculos. Os modelos Adobe usam colunas, caixas de texto, icones e graficos que os ATS nao conseguem ler. Seu lindo curriculo e descartado sem que nenhum recrutador o veja.',
+    stats: [
+      { value: '75%', label: 'dos curriculos sao descartados na triagem ATS' },
+      { value: '$9.99', label: 'por mes pelo Adobe Express Premium' },
+      { value: 'R$0', label: 'Best AI Resume Builder — verificado ATS, completamente gratis' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe vs Best AI Resume Builder',
+    subtitle: 'Ferramenta de design vs criador de curriculo dedicado',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Proposito principal', competitor: '⚠️ Ferramenta de design generica', ours: '✅ Projetado especificamente para curriculo' },
+      { feature: 'Compatibilidade ATS', competitor: '❌ A maioria dos modelos nao e ATS', ours: '✅ Todos os modelos verificados ATS' },
+      { feature: 'Escrita com IA', competitor: '❌ Nenhuma funcao de IA para curriculo', ours: '✅ IA cria conteudo personalizado' },
+      { feature: 'Pontuacao ATS', competitor: '❌ Nenhuma verificacao ATS', ours: '✅ Pontuacao ATS em tempo real' },
+      { feature: 'Preco', competitor: '⚠️ Versao gratuita limitada / $9.99+/mes', ours: '✅ Completamente gratis' },
+      { feature: 'Qualidade de design', competitor: '✅ Otima liberdade criativa', ours: '✅ Designs profissionais e ATS' },
+      { feature: 'Modelos para curriculo', competitor: '⚠️ Orientados ao design (nao ATS)', ours: '✅ 20+ modelos verificados por recrutadores' },
+      { feature: 'Orientacao de conteudo', competitor: '❌ Nenhum suporte a redacao', ours: '✅ IA para experiencias e resumo profissional' },
+      { feature: 'Otimizacao palavras-chave', competitor: '❌ Nao disponivel', ours: '✅ Sugestoes de IA para palavras-chave' },
+      { feature: 'Facilidade de uso', competitor: '⚠️ Requer habilidade de design', ours: '✅ Guia passo a passo' },
+    ],
+  },
+  whySwitch: {
+    title: 'Quando o Adobe e a Escolha Certa',
+    subtitle: 'Adobe e adequado para necessidades criativas especificas.',
+    reasons: [
+      { title: 'Compatibilidade ATS garantida', description: 'Os modelos Adobe sao projetados para impacto visual, nao para parsing de ATS. Nossos modelos sao testados com os principais sistemas ATS usados no Brasil, garantindo que seu curriculo seja lido corretamente.' },
+      { title: 'Escrita assistida por IA', description: 'O Adobe nao tem funcoes de escrita para curriculo. Nossa IA gera experiencias profissionais, resumos e palavras-chave especificas do setor para o mercado brasileiro.' },
+      { title: 'Gratis sem restricoes', description: 'O Adobe Express cobra pelo download ou pelo plano premium. Nossa plataforma e completamente gratuita — escrita com IA, todos os modelos e exportacoes PDF ilimitadas.' },
+    ],
+  },
+  recommendation: {
+    title: 'Recomendacao Honesta',
+    useCompetitor: {
+      title: 'Use o Adobe quando...',
+      items: [
+        'Voce precisa de um portfolio visual ou brochure criativa',
+        'O design visual e mais importante que a compatibilidade ATS',
+        'Voce ja tem assinatura Creative Cloud e quer economizar tempo',
+        'Voce se candidata para funcoes criativas onde o design e obrigatorio',
+      ],
+    },
+    useUs: {
+      title: 'Use o Best AI Resumes quando...',
+      items: [
+        'Voce quer um curriculo que passe na triagem ATS',
+        'Voce precisa de ajuda para escrever o conteudo do curriculo',
+        'Voce quer modelos profissionais sem pagar pelo Creative Cloud',
+        'Voce se candidata via Gupy, Catho, LinkedIn ou outros portais ATS',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Explore mais de 300 exemplos de curriculo gratis',
+    description: 'Exemplos de curriculos profissionais para cada setor e nivel de carreira.',
+    ctaBrowse: 'Ver exemplos de curriculo',
+    ctaTemplates: 'Ver todos os modelos',
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'Os modelos de curriculo do Adobe Express passam nos ATS?', answer: 'A maioria dos modelos do Adobe Express usa design em colunas, caixas graficas e icones que os sistemas ATS nao conseguem analisar corretamente. Os modelos do Best AI Resume Builder sao testados especificamente para compatibilidade ATS com Gupy, Kenoby, Taleo, Workday e outros sistemas usados no Brasil.' },
+      { question: 'Adobe Express e gratuito para criar curriculo?', answer: 'O Adobe Express tem um plano gratuito com recursos limitados. Funcoes avancadas e alguns modelos requerem o plano premium ($9.99+/mes ou assinatura Creative Cloud). O Best AI Resume Builder e 100% gratuito, com todos os modelos, escrita com IA e exportacoes PDF sem custo.' },
+      { question: 'Qual e a melhor alternativa ao Adobe para curriculo?', answer: 'Para curriculos ATS-friendly com escrita assistida por IA, o Best AI Resume Builder e a melhor alternativa. Oferece modelos verificados ATS, escrita com IA e exportacao PDF gratuita — sem precisar do Creative Cloud.' },
+      { question: 'Posso usar o Canva ou Adobe para criar meu curriculo?', answer: 'Tecnicamente sim, mas esses sao ferramentas de design genericas, nao criadores de curriculo. A maioria dos modelos exporta como imagem ou PDF complexo que os ATS nao conseguem ler. Para candidaturas no mercado brasileiro, use uma ferramenta criada especificamente para curriculo.' },
+      { question: 'Qual e a diferenca entre Adobe Express e Adobe Acrobat para curriculo?', answer: 'O Adobe Express e para criar designs visuais (incluindo modelos de curriculo), enquanto o Adobe Acrobat e para editar PDFs. Ambos carecem de funcoes especificas para curriculo, como escrita com IA e otimizacao ATS. O Best AI Resume Builder foi desenvolvido especificamente para criar curriculos que passam na triagem automatica.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Compare outros criadores de curriculo',
+    items: [
+      { href: '/pt/canva-alternative', title: 'Alternativa ao Canva', subtitle: 'Ferramentas de design vs criador de curriculo' },
+      { href: '/pt/zety-alternative', title: 'Alternativa ao Zety', subtitle: 'Comparacao de precos' },
+      { href: '/pt/livecareer-alternative', title: 'Alternativa ao LiveCareer', subtitle: 'Tradicional vs moderno' },
+      { href: '/pt/resume-io-alternative', title: 'Alternativa ao Resume.io', subtitle: 'Comparacao de criadores' },
+    ],
+    guidesTitle: 'Guias uteis para curriculo',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Recursos externos',
+    items: [
+      { href: 'https://www.jobscan.co/blog/ats-resume/', label: 'Jobscan: Guia de Curriculo ATS' },
+      { href: 'https://www.ibge.gov.br/estatisticas/sociais/trabalho.html', label: 'IBGE — Estatisticas do Mercado de Trabalho Brasileiro' },
+    ],
+  },
+  bottomCta: {
+    title: 'Curriculos bonitos que tambem passam na triagem ATS.',
+    description: 'Obtenha o melhor dos dois mundos — design profissional e compatibilidade ATS. Escrita com IA, 20+ modelos, exportacao PDF — gratis.',
+    cta: 'Criar meu curriculo gratis',
+    subtext: 'Gratis para sempre. Sem assinatura.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

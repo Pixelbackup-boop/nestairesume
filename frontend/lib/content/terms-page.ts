@@ -740,6 +740,78 @@ const th: TermsContent = {
   lastUpdated: 'อัปเดตล่าสุด: มกราคม 2569',
 };
 
-const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
+const pt: TermsContent = {
+  hero: {
+    badge: 'Termos e Condicoes',
+    title: 'Termos de servico',
+    titleHighlight: 'simples e transparentes',
+    subtitle: 'Acreditamos em transparencia e simplicidade. Nossos termos sao escritos em linguagem clara para que voce saiba exatamente o que esperar ao usar o Best AI Resume.',
+  },
+  highlights: [
+    { title: 'Sem Cobranças Ocultas', text: 'O que voce ve e o que voce paga. Nossos precos sao claros, sem cobranças surpresa nem taxas ocultas.' },
+    { title: 'Seus Dados, Seu Controle', text: 'Armazenamos apenas seu e-mail e nome para login. O conteudo do seu curriculo fica no seu navegador — nunca em nossos servidores.' },
+    { title: 'Teste Gratuito de 7 Dias', text: 'Experimente todos os recursos premium gratuitamente por 7 dias. Sem cobrança ate o fim do periodo de teste, cancele a qualquer momento sem custo.' },
+  ],
+  sections: [
+    {
+      heading: 'Visao Geral do Servico',
+      intro: 'Best AI Resume e um criador de curriculos online que ajuda voce a criar curriculos profissionais com ferramentas baseadas em inteligencia artificial. Ao usar nosso servico, voce concorda com estes termos.',
+      items: ['Crie curriculos ilimitados com nossas ferramentas', 'Acesse sugestoes de conteudo e melhorias geradas por IA', 'Baixe seus curriculos em formato PDF', 'Escolha entre modelos desenvolvidos por profissionais'],
+    },
+    {
+      heading: 'Conta e Transparencia de Dados',
+      subsections: [
+        { subheading: 'O Que Armazenamos em Nossos Servidores', items: ['**Endereco de e-mail** \u2014 Para login e notificacoes importantes', '**Nome** \u2014 Para personalizar sua experiencia', '**Senha (criptografada)** \u2014 Armazenada com hash seguro para autenticacao', '**Status da assinatura** \u2014 Para gerenciar os beneficios do seu plano'] },
+        { subheading: 'O Que NAO Armazenamos', items: ['Conteudo do curriculo (salvo localmente no seu navegador)', 'Historico profissional ou detalhes de emprego', 'Informacoes de formacao ou habilidades', 'Endereco pessoal ou numero de telefone'] },
+      ],
+      intro: 'Nos comprometemos a coletar o minimo de dados necessarios. Armazenamos apenas o que e essencial para o funcionamento da sua conta:',
+    },
+    {
+      heading: 'Assinatura e Pagamentos',
+      subsections: [
+        { subheading: 'Assinatura Mensal', items: ['**Ciclo de cobranca** \u2014 A cobranca ocorre mensalmente na mesma data da assinatura', '**Renovacao automatica** \u2014 As assinaturas renovam automaticamente salvo cancelamento', '**Transparencia de precos** \u2014 O preco exibido no momento do pagamento e o valor cobrado (mais impostos, se aplicavel)'] },
+        { subheading: 'Politica de Cancelamento', items: ['Cancele a qualquer momento pelo painel da conta — sem precisar justificar', 'O acesso continua ate o fim do periodo de cobranca vigente', 'Sem multa ou custo de cancelamento', 'Seus dados locais permanecem intactos apos o cancelamento'] },
+        { subheading: 'Teste Gratuito de 7 Dias', items: ['**Acesso completo** \u2014 Experimente todos os recursos premium gratuitamente por 7 dias', '**Sem cobranca durante o teste** \u2014 Voce nao sera cobrado ate o fim do periodo de teste', '**Cancele a qualquer momento** \u2014 Cancele antes do fim do teste e nao pagara nada', '**E-mail de lembrete** \u2014 Avisaremos antes do fim do periodo de teste'] },
+      ],
+    },
+    {
+      heading: 'Acesso Gratuito e Planos Pagos',
+      intro: 'Antes de assinar, voce pode:',
+      items: ['Navegar e visualizar todos os modelos', 'Criar e salvar curriculos na sua conta', 'Consultar exemplos de curriculos e dicas de carreira'],
+    },
+    {
+      heading: 'Responsabilidades do Usuario',
+      intro: 'Ao usar nosso servico, voce concorda em:',
+      items: ['Fornecer informacoes precisas no cadastro da conta', 'Manter suas credenciais de acesso em seguranca', 'Usar o servico apenas para fins licitos', 'Nao tentar contornar ou abusar do servico'],
+    },
+    {
+      heading: 'Propriedade Intelectual',
+      items: ['**Seu conteudo** \u2014 Voce mantem total propriedade de todo o conteudo criado com nosso servico', '**Nossos modelos** \u2014 Os designs dos modelos sao licenciados para uso pessoal e profissional', '**Conteudo gerado por IA** \u2014 O texto gerado por nossa IA pertence a voce e pode ser usado livremente'],
+    },
+    {
+      heading: 'Disponibilidade do Servico',
+      intro: 'Nos comprometemos a manter alta disponibilidade do servico, porem:',
+      items: ['Manutencoes periodicas podem causar interrupcoes temporarias', 'Avisaremos sobre manutencoes programadas quando possivel', 'Seus dados locais permanecem acessiveis mesmo quando nossos servidores estiverem indisponiveis'],
+    },
+    {
+      heading: 'Alteracoes nos Termos',
+      intro: 'Podemos atualizar estes termos periodicamente. Notificaremos alteracoes significativas por e-mail ou pelo servico. O uso continuado apos as alteracoes implica aceitacao dos novos termos, nos termos do Codigo de Defesa do Consumidor (Lei n. 8.078/1990).',
+    },
+    {
+      heading: 'Fale Conosco',
+    },
+  ],
+  contactText: 'Duvidas sobre estes termos? Entre em contato conosco pelo e-mail',
+  cta: {
+    title: 'Pronto para criar seu',
+    titleHighlight: 'curriculo profissional?',
+    subtitle: 'Precos simples, termos transparentes e seus dados pertencem a voce.',
+    primaryBtn: 'Comece Gratuitamente',
+    secondaryBtn: 'Ver Planos',
+  },
+  lastUpdated: 'Ultima atualizacao: janeiro de 2026',
+};
+
+const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

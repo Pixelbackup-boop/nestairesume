@@ -225,5 +225,30 @@ const th: CoverLetterArticleContent = {
   updated: 'อัปเดต',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, th };
+const pt: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Inicio', coverLetterExamples: 'Exemplos de Carta de Apresentacao' },
+  notFound: 'Nao Encontrado',
+  coverLetterSuffix: 'Exemplo de Carta de Apresentacao',
+  keySkillsTitle: 'Habilidades-Chave a Destacar',
+  relatedTopics: 'Topicos Relacionados',
+  faqTitle: 'Perguntas Frequentes',
+  relatedResourcesTitle: 'Recursos Relacionados',
+  resumeExampleSubtext: 'Confira o formato de curriculo correspondente',
+  coverLetterGenerator: 'Gerador de Carta de Apresentacao com IA',
+  coverLetterGeneratorSubtext: 'Crie sua carta de apresentacao em segundos',
+  sidebar: {
+    ctaTitle: 'Crie Sua Carta de Apresentacao',
+    ctaSubtitle: 'Use nossa IA para gerar uma carta de apresentacao personalizada para {jobTitle} em segundos.',
+    ctaButton: 'Gerar Carta de Apresentacao',
+    tocTitle: 'Indice',
+  },
+  relatedCoverLetters: 'Cartas de Apresentacao Relacionadas',
+  bottomCta: {
+    subtitle: 'Junte-se a milhares de profissionais que encontraram o emprego dos sonhos com a Best AI Resume.',
+    button: 'Gerar Carta de Apresentacao — Gratis',
+  },
+  updated: 'Atualizado',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, th, pt };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

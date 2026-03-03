@@ -1089,7 +1089,115 @@ const th: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: LandingPageContent = {
+  meta: {
+    title: 'Criador de Curriculo Gratis | Fazer Curriculo Online com IA 2026',
+    description: 'Crie um curriculo profissional em minutos com nosso criador de curriculo gratuito com IA. Modelos ATS, escrita com IA e download PDF instantaneo.',
+    keywords: 'criador de curriculo, fazer curriculo online, criar curriculo, criador curriculo gratis, modelo de curriculo, curriculo online gratis, gerador de curriculo automatico',
+  },
+  schemas: {
+    breadcrumbName: 'Criador de Curriculo',
+    articleHeadline: 'Criador de Curriculo Gratis: Fazer Curriculo Online com IA 2026',
+    articleDescription: 'Crie curriculos profissionais em minutos com nosso criador de curriculo gratuito com IA. Modelos ATS, escrita com IA e download PDF instantaneo.',
+    softwareAppName: 'Best AI Criador de Curriculo',
+  },
+  hero: {
+    badge: 'Criador de Curriculo com IA Gratis',
+    title: 'Crie seu curriculo',
+    titleHighlight: 'profissional em minutos',
+    subtitle: 'Nosso <strong>criador de curriculo</strong> gratuito usa IA para escrever conteudo eficaz, otimizar para ATS e ajudar a conseguir mais entrevistas. Com o <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% das grandes empresas</a> usando software ATS, ter um curriculo otimizado e essencial. Nenhuma habilidade de design necessaria.',
+    ctaPrimary: 'Criar meu curriculo gratis',
+    ctaSecondary: 'Ver modelos',
+    trustBadges: ['Sem cadastro', 'Sem cartao de credito', 'Download PDF gratis'],
+  },
+  features: {
+    title: 'Por que escolher nosso criador de curriculo gratis?',
+    subtitle: 'Mais do que um simples modelo — nosso criador com IA ajuda a escrever conteudo melhor e superar a triagem ATS.',
+    items: [
+      { feature: 'Escrita assistida por IA', description: 'A IA gera automaticamente experiencias profissionais, resumos e descricoes de habilidades adaptados ao seu setor e nivel de experiencia.' },
+      { feature: 'Modelos otimizados para ATS', description: 'Todos os modelos sao testados com os principais sistemas ATS como Workday, Taleo, Greenhouse. Passe pela triagem automatica com confianca.' },
+      { feature: 'Download PDF', description: 'Baixe seu curriculo em PDF com um clique. Sem marca d\'agua, sem custo — completamente gratis.' },
+      { feature: 'Pronto em minutos', description: 'Sem paginas em branco. O fluxo guiado e as sugestoes da IA permitem criar um curriculo profissional em menos de 10 minutos.' },
+      { feature: 'Pontuacao ATS em tempo real', description: 'Veja a pontuacao ATS do seu curriculo em tempo real enquanto escreve. Otimize antes de se candidatar.' },
+      { feature: '20+ modelos profissionais', description: 'Modelos para cada setor e nivel de carreira. Todos gratis, todos ATS.' },
+    ],
+    cta: 'Comecar a criar meu curriculo',
+  },
+  comparison: {
+    title: 'Nosso criador vs outros criadores de curriculo',
+    subtitle: 'Descubra por que os candidatos escolhem nosso criador de curriculo gratuito com IA.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Outros criadores',
+    rows: [
+      { feature: 'Escrita com IA', ours: 'IA avancada', others: 'Basica ou ausente' },
+      { feature: 'Otimizacao ATS', ours: 'Pontuacao em tempo real', others: 'Testes limitados' },
+      { feature: 'Todos os modelos gratis', ours: '20+', others: 'A maioria paga' },
+      { feature: 'Download PDF gratis', ours: 'Sempre gratis', others: 'Muitos pagos' },
+      { feature: 'Sem conta', ours: 'Inicio imediato', others: 'Geralmente necessaria' },
+      { feature: 'Palavras-chave do setor', ours: 'Sugeridas pela IA', others: 'Apenas manual' },
+      { feature: 'Versoes multiplas', ours: 'Ilimitadas', others: 'Frequentemente limitadas' },
+    ],
+  },
+  howItWorks: {
+    title: 'Como usar o criador de curriculo',
+    subtitle: 'Em 3 simples passos crie um curriculo que conquista recrutadores. A IA faz o trabalho pesado.',
+    steps: [
+      { step: 1, title: 'Escolha um modelo', description: 'Selecione entre 20+ modelos profissionais ATS adequados ao seu setor.' },
+      { step: 2, title: 'Insira as informacoes', description: 'Adicione suas experiencias e deixe a IA sugerir melhorias, palavras-chave e expressoes profissionais.' },
+      { step: 3, title: 'Baixe e candidate-se', description: 'Exporte seu curriculo em PDF e comece a se candidatar imediatamente.' },
+    ],
+    cta: 'Criar curriculo profissional',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'Curriculos criados' },
+      { value: '4.8', label: 'Avaliacao dos usuarios' },
+      { value: '20+', label: 'Modelos gratis' },
+      { value: '10 min', label: 'Tempo medio de criacao' },
+    ],
+  },
+  templates: {
+    title: 'Modelos profissionais para cada setor',
+    subtitle: 'Do designer criativo ao executivo — encontre o modelo de curriculo perfeito para sua area.',
+    styles: ['Engenheiro de software', 'Gerente de marketing', 'Enfermeiro', 'Gerente de vendas', 'Analista de dados', 'Professor', 'Gerente de projetos', 'Designer'],
+    cta: 'Ver todos os modelos',
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'Este criador de curriculo e realmente gratis?', answer: 'Sim! Nosso criador de curriculo com IA e 100% gratuito. Crie curriculos ilimitados, acesse todos os 20+ modelos profissionais, baixe em PDF — sem cartao de credito nem assinatura.' },
+      { question: 'Por que e o melhor criador de curriculo?', answer: 'Ao contrario dos criadores de curriculo genericos, o nosso usa IA para gerar experiencias profissionais, otimizar para ATS e sugerir palavras-chave especificas do seu setor. Voce cria um curriculo que e visualmente atraente e eficaz na triagem automatica.' },
+      { question: 'Posso baixar o curriculo em PDF gratis?', answer: 'Claro. Todos os curriculos criados podem ser baixados gratuitamente em PDF. Sem marca d\'agua, sem custo adicional.' },
+      { question: 'Quanto tempo leva para criar um curriculo?', answer: 'A maioria dos usuarios completa um curriculo profissional em menos de 10 minutos. A IA sugere o conteudo, entao voce pode dedicar o tempo economizado as candidaturas.' },
+      { question: 'Os curriculos criados sao compativeis com ATS?', answer: 'Sim. Todos os modelos sao testados com os principais sistemas ATS (Workday, Taleo, Greenhouse, Lever). A pontuacao ATS em tempo real ajuda a otimizar o curriculo antes de se candidatar.' },
+      { question: 'Posso criar varios curriculos para diferentes candidaturas?', answer: 'Sim! Voce pode criar quantos curriculos personalizados quiser. Otimizar o curriculo para cada vaga aumenta suas chances, e com nossa ferramenta e rapido e simples.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Ferramentas relacionadas para curriculo',
+    items: [
+      { href: '/pt/resume-ai', title: 'Curriculo com IA', subtitle: 'Criador de curriculo com inteligencia artificial' },
+      { href: '/pt/tools/ats-checker', title: 'Verificador ATS', subtitle: 'Teste sua pontuacao ATS' },
+      { href: '/pt/free-resume-builder', title: 'Curriculo gratis', subtitle: 'Criador de curriculo 100% gratis' },
+    ],
+    guidesTitle: 'Guias uteis',
+    guides: [
+      { href: '/pt/blog/how-to-write-a-resume', label: 'Como fazer um curriculo (guia 2026)' },
+      { href: '/pt/blog/how-to-write-ats-friendly-resume', label: 'Como fazer um curriculo ATS' },
+      { href: '/pt/resume-format', label: 'Guia de formato de curriculo' },
+      { href: '/pt/blog/top-resume-mistakes-to-avoid', label: 'Erros comuns no curriculo' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pronto para criar seu curriculo?',
+    description: 'Mais de 2 milhoes de candidatos criaram seu curriculo profissional com nosso criador gratuito com IA.',
+    cta: 'Criar meu curriculo gratis',
+    subtext: 'Gratis para sempre. Sem cartao de credito.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

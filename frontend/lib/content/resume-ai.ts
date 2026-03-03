@@ -1212,7 +1212,120 @@ const th: ResumeAIPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
+const pt: ResumeAIPageContent = {
+  meta: {
+    title: 'Curriculo com Inteligencia Artificial | Gerador de Curriculo com IA Gratis 2026 | Best AI Resume',
+    description: 'Crie seu curriculo com inteligencia artificial em minutos. Escrita automatica com IA, otimizacao ATS, 20+ modelos — tudo gratis.',
+    keywords: 'curriculo inteligencia artificial, curriculo com ia, gerador de curriculo automatico, criar curriculo ia, curriculo ia gratis, gerador curriculo com ia, curriculo automatico gratis',
+  },
+  schemas: {
+    breadcrumbName: 'Curriculo com IA',
+    articleHeadline: 'Curriculo com Inteligencia Artificial: Gerador de Curriculo com IA Gratis 2026',
+    articleDescription: 'Descubra como a IA cria e otimiza o conteudo do curriculo. Use nosso gerador de curriculo com IA gratuito para conseguir mais entrevistas.',
+    softwareAppName: 'Gerador de Curriculo com IA',
+  },
+  hero: {
+    badge: 'Criador de Curriculo com Inteligencia Artificial',
+    title: 'A IA cria seu',
+    titleHighlight: 'curriculo perfeito',
+    subtitle: 'Nosso <strong>gerador de curriculo com inteligencia artificial</strong> escreve conteudo profissional, otimiza para ATS e ajuda a criar um curriculo que se destaca — completamente gratis. Segundo o <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn</a>, os recrutadores dedicam em media 7 segundos a cada curriculo. Com IA, cada segundo conta.',
+    ctaPrimary: 'Testar curriculo com IA gratis',
+    ctaSecondary: 'Como funciona',
+    trustText: 'Sem cadastro · 100% gratis · Conteudo gerado por IA',
+  },
+  whatIs: {
+    title: 'O que e um curriculo com IA?',
+    description: 'Um <strong>curriculo com inteligencia artificial</strong> transforma radicalmente como voce cria seu curriculo. Em vez de encarar uma pagina em branco, a IA analisa suas experiencias, entende a vaga desejada e gera conteudo profissional otimizado para o seu setor. Como destaca a <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">SHRM (Society for Human Resource Management)</a>, a IA esta transformando rapidamente os processos seletivos, e curriculos criados com IA sao amplamente aceitos pelos empregadores.',
+    stats: [
+      { value: '10x', label: 'Mais rapido que escrever manualmente' },
+      { value: '85%', label: 'Melhora na taxa de aprovacao ATS' },
+      { value: '3M+', label: 'Curriculos criados com IA' },
+    ],
+  },
+  features: {
+    title: 'Como a IA ajuda a criar seu curriculo',
+    subtitle: 'A IA nao apenas formata — ela ajuda a escrever conteudo melhor de verdade.',
+    items: [
+      { title: 'Escrita de conteudo com IA', description: 'A IA gera experiencias profissionais, resumos e descricoes de habilidades baseados nas suas experiencias e na vaga desejada.' },
+      { title: 'Otimizacao inteligente de palavras-chave', description: 'A IA analisa vagas de emprego e sugere palavras-chave especificas do setor que os empregadores buscam.' },
+      { title: 'Analise de pontuacao ATS', description: 'A pontuacao em tempo real mostra como seu curriculo sera avaliado pelos sistemas ATS antes de se candidatar.' },
+      { title: 'Quantificacao de resultados', description: 'A IA transforma descricoes genericas em resultados quantificados e mensuraveis que chamam a atencao dos recrutadores.' },
+      { title: 'Modelos especificos por setor', description: 'A IA recomenda o layout e as secoes mais adequados com base no seu setor e nivel de experiencia.' },
+      { title: 'Verificacao gramatical e de estilo', description: 'A IA verifica gramatica e ortografia para garantir um resultado profissional e polido.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'Veja como a IA transforma seu curriculo',
+    subtitle: 'Exemplos reais de melhorias feitas pela inteligencia artificial.',
+    beforeLabel: 'Antes',
+    afterLabel: 'Depois com IA',
+    items: [
+      { before: 'Gestao de equipe e projetos da empresa', after: 'Coordenacao de equipe multifuncional de 8 engenheiros, entrega de 12 projetos dentro do prazo com 98% de satisfacao dos clientes' },
+      { before: 'Aumento das vendas da empresa', after: 'Crescimento da receita anual em 34% (R$2,1M) com implementacao de estrategias de aquisicao baseadas em dados' },
+      { before: 'Bom atendimento ao cliente', after: 'Pontuacao de satisfacao de 4,9/5, gerenciando mais de 150 solicitacoes diarias com 95% de resolucao no primeiro contato' },
+    ],
+    cta: 'Criar curriculo profissional',
+  },
+  comparison: {
+    title: 'Curriculo com IA vs Curriculo escrito manualmente',
+    subtitle: 'Por que os candidatos escolhem o curriculo com inteligencia artificial.',
+    oursName: 'Com IA',
+    othersName: 'Escrito manualmente',
+    rows: [
+      { feature: 'Tempo de criacao', ours: '10-15 minutos', others: '2-4 horas' },
+      { feature: 'Escrita profissional', ours: 'IA gera sugestoes', others: 'Requer pesquisa' },
+      { feature: 'Otimizacao ATS', ours: 'Automatica', others: 'Manual e imprecisa' },
+      { feature: 'Palavras-chave do setor', ours: 'Sugeridas pela IA', others: 'A pesquisar sozinho' },
+      { feature: 'Gramatica e ortografia', ours: 'Verificacao automatica', others: 'Facil de negligenciar' },
+      { feature: 'Quantificacao de resultados', ours: 'IA auxilia', others: 'Frequentemente esquecida' },
+      { feature: 'Formatacao e design', ours: '20+ modelos', others: 'A criar do zero' },
+    ],
+  },
+  useCases: {
+    title: 'Quem usa curriculo com IA?',
+    subtitle: 'O gerador de curriculo com inteligencia artificial e ideal para todos.',
+    items: [
+      { title: 'Mudanca de carreira', description: 'A IA ajuda a valorizar habilidades transferiveis entre setores diferentes' },
+      { title: 'Recém-formados', description: 'Transforme estagios e projetos academicos em experiencias profissionais convincentes' },
+      { title: 'Profissionais experientes', description: 'Condense mais de 20 anos de experiencia em um curriculo eficaz de duas paginas' },
+      { title: 'Quem busca emprego ativamente', description: 'Crie rapidamente curriculos personalizados para cada candidatura' },
+    ],
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'O que e um curriculo com inteligencia artificial?', answer: 'Um curriculo com IA e um curriculo criado com suporte de inteligencia artificial. Nossa ferramenta gera experiencias profissionais, otimiza para ATS, sugere palavras-chave do setor e formata tudo automaticamente — obtendo um curriculo excelente em minutos ao inves de horas.' },
+      { question: 'E melhor criar o curriculo com IA ou escrever manualmente?', answer: 'A IA ajuda a escrever conteudo melhor mais rapido. Ela analisa milhares de curriculos de sucesso para sugerir expressoes profissionais, resultados quantificados e palavras-chave do setor que voce talvez nao conheca. Voce mantem controle total sobre o conteudo final — a IA apenas torna o processo mais eficaz.' },
+      { question: 'Um curriculo criado com IA passa pelos filtros ATS?', answer: 'Sim! Nosso gerador de curriculo com IA e projetado especificamente para compatibilidade ATS. Formata o curriculo com texto limpo e legivel, sugere palavras-chave correspondentes as vagas e fornece pontuacao ATS em tempo real para otimizar antes do envio.' },
+      { question: 'Esta ferramenta de curriculo com IA e gratuita?', answer: 'Sim, o gerador de curriculo com IA e 100% gratuito. Crie curriculos ilimitados, use todos os modelos, baixe em PDF — tudo gratis. Sem cartao de credito, sem assinatura.' },
+      { question: 'Como a IA gera o conteudo?', answer: 'A IA analisa seu cargo, setor e nivel de experiencia para gerar sugestoes personalizadas. Ela utiliza padroes de milhoes de curriculos de sucesso para criar resumos profissionais, experiencias orientadas a resultados e descricoes de habilidades que impressionam recrutadores.' },
+      { question: 'O curriculo vai parecer gerado por IA?', answer: 'Nao. Nossa ferramenta gera conteudo natural e profissional, como se fosse escrito por um especialista em curriculos. Voce pode editar cada sugestao para adicionar seu toque pessoal, e o resultado final e completamente seu.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Outras ferramentas de curriculo com IA',
+    items: [
+      { href: '/pt/resume-maker', title: 'Criador de Curriculo', subtitle: 'Criador de curriculo gratuito com IA' },
+      { href: '/pt/tools/ats-checker', title: 'Verificador ATS', subtitle: 'Analise ATS com IA' },
+      { href: '/pt/free-resume-builder', title: 'Curriculo gratis', subtitle: 'Criador 100% gratuito' },
+    ],
+    guidesTitle: 'Guias sobre curriculo com IA',
+    guides: [
+      { href: '/pt/career-tips/ai-resume-tools', label: 'Ferramentas de IA para curriculo (2026)' },
+      { href: '/pt/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: qual IA para o curriculo?' },
+      { href: '/pt/blog/how-to-write-ats-friendly-resume', label: 'Como fazer um curriculo ATS' },
+      { href: '/pt/resume-examples', label: '300+ exemplos de curriculo' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pronto para criar seu curriculo com IA?',
+    description: 'Junte-se a milhoes de pessoas que conseguem mais entrevistas com o <a href="/pt/" class="text-purple-600 hover:underline">curriculo com inteligencia artificial</a>.',
+    cta: 'Comecar gratis com IA',
+    subtext: 'Gratis para sempre. Sem cartao de credito.',
+  },
+};
+
+const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
 
 export function getContent(locale: string): ResumeAIPageContent {
   return selectContent(contentMap, locale);

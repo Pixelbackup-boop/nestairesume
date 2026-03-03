@@ -614,6 +614,66 @@ const th: PrivacyContent = {
   lastUpdated: 'อัปเดตล่าสุด: มกราคม 2569',
 };
 
-const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th };
+const pt: PrivacyContent = {
+  hero: {
+    badge: 'Politica de Privacidade',
+    title: 'Sua privacidade e',
+    titleHighlight: 'nossa prioridade',
+    subtitle: 'Na Best AI Resume, acreditamos que seus dados pessoais pertencem a voce. Nossa plataforma foi desenvolvida com uma abordagem que prioriza a privacidade, em conformidade com a Lei Geral de Protecao de Dados (LGPD - Lei n. 13.709/2018).',
+  },
+  highlights: [
+    { title: 'Seus Dados Ficam no Seu Dispositivo', text: 'Todo o conteudo do seu curriculo — experiencias profissionais, formacao e habilidades — e salvo localmente no seu navegador, nunca nos nossos servidores.' },
+    { title: 'Minimos Dados no Servidor', text: 'Armazenamos apenas seu e-mail e senha em nossos servidores para autenticacao da conta. Nenhum conteudo de curriculo, nenhum dado pessoal adicional.' },
+    { title: 'Transparencia Total', text: 'Acreditamos em total transparencia. Voce pode verificar exatamente quais dados estao salvos no seu navegador e exclui-los a qualquer momento.' },
+  ],
+  sections: [
+    {
+      heading: 'Quais Dados Coletamos',
+      subsections: [
+        { subheading: 'Dados Armazenados em Nossos Servidores (Minimos)', items: ['**Endereco de e-mail** \u2014 Usado para autenticacao da conta e comunicacoes importantes sobre o servico', '**Senha (criptografada)** \u2014 Armazenada de forma segura com hash para autenticacao'] },
+        { subheading: 'Dados Armazenados Localmente no Seu Navegador', items: ['Informacoes pessoais (nome, contatos, endereco)', 'Experiencias profissionais e historico de emprego', 'Formacao academica e certificacoes', 'Habilidades, idiomas e conquistas', 'Modelos de curriculo e preferencias de personalizacao'] },
+      ],
+    },
+    {
+      heading: 'Por Que Usamos o Armazenamento do Navegador',
+      intro: 'Escolhemos o armazenamento do navegador (localStorage) como metodo principal de salvamento por diversas razoes importantes:',
+      items: ['**Maxima Privacidade** \u2014 Suas informacoes profissionais sensiveis nunca saem do seu dispositivo', '**Sem Risco de Vazamento** \u2014 Como nao armazenamos dados do curriculo, eles nao podem ser comprometidos em caso de falha no servidor', '**Controle Total** \u2014 Voce pode visualizar, exportar ou excluir seus dados a qualquer momento pelas configuracoes do navegador', '**Alto Desempenho** \u2014 O armazenamento local garante acesso instantaneo aos seus dados sem latencia de servidor'],
+    },
+    {
+      heading: 'Como Protegemos Sua Conta',
+      intro: 'Mesmo minimizando os dados no servidor, levamos muito a serio a seguranca das suas credenciais:',
+      items: ['Senhas sao criptografadas com algoritmos de hash conforme padroes do setor', 'Todas as transmissoes de dados sao protegidas com criptografia HTTPS', 'Senhas nunca sao armazenadas em texto simples', 'Auditorias e monitoramento de seguranca periodicos'],
+    },
+    {
+      heading: 'Seus Direitos e Controle',
+      intro: 'Em conformidade com a LGPD (Lei n. 13.709/2018), voce tem pleno controle sobre seus dados:',
+      items: ['**Acesso** \u2014 Consulte todos os dados salvos no navegador a qualquer momento pelas ferramentas do desenvolvedor', '**Exportacao** \u2014 Baixe os dados do seu curriculo em PDF ou outros formatos', '**Exclusao** \u2014 Limpe o armazenamento do navegador ou exclua sua conta a qualquer momento', '**Portabilidade** \u2014 Seus dados sao seus e voce pode leva-los para onde quiser'],
+    },
+    {
+      heading: 'O Que Nao Fazemos',
+      intro: 'Nos comprometemos com praticas eticas no tratamento de dados. Isto e o que jamais faremos:',
+      items: ['Vender suas informacoes pessoais a terceiros', 'Usar o conteudo do seu curriculo para fins publicitarios', 'Compartilhar seus dados com recrutadores sem seu consentimento explicito', 'Rastrear sua atividade de navegacao em outros sites', 'Armazenar o conteudo do seu curriculo em nossos servidores'],
+    },
+    {
+      heading: 'Cookies e Analise',
+      intro: 'Usamos apenas cookies essenciais e minimos para:',
+      items: ['Manter sua sessao de login ativa', 'Lembrar suas preferencias de idioma e tema', 'Analises anonimas de uso para melhorar o servico'],
+    },
+    {
+      heading: 'Fale Conosco',
+    },
+  ],
+  contactText: 'Em caso de duvidas sobre nossas praticas de privacidade ou para exercer seus direitos previstos na LGPD, entre em contato conosco pelo e-mail',
+  cta: {
+    title: 'Crie seu curriculo com',
+    titleHighlight: 'confianca e privacidade',
+    subtitle: 'Seus dados profissionais ficam com voce. Comece a criar seu curriculo profissional hoje.',
+    primaryBtn: 'Comece Gratuitamente',
+    secondaryBtn: 'Saiba Mais Sobre Nos',
+  },
+  lastUpdated: 'Ultima atualizacao: janeiro de 2026',
+};
+
+const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

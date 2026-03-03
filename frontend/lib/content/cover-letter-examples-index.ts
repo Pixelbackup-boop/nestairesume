@@ -402,5 +402,54 @@ const th: CoverLetterExamplesIndexContent = {
   },
 };
 
-const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th };
+const pt: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: 'Exemplos de Carta de Apresentacao por Profissao (2026) | Best AI Resume',
+    description: 'Explore mais de 100 exemplos gratuitos de carta de apresentacao organizados por setor e profissao. Modelos profissionais com dicas de redacao.',
+    keywords: 'exemplos carta de apresentacao, modelo carta de apresentacao, carta de apresentacao profissional, carta de motivacao, formato carta de apresentacao',
+  },
+  hero: {
+    badge: 'Exemplos de Cartas 2026',
+    title: 'Exemplos de Carta de Apresentacao',
+    titleHighlight: 'por Profissao',
+    subtitle: 'Explore {count}+ exemplos profissionais de carta de apresentacao organizados por setor. Encontre sua profissao e crie a sua com nosso construtor com IA.',
+    ctaBrowse: 'Ver Exemplos',
+    ctaCreate: 'Criar Carta com IA',
+  },
+  stats: {
+    examples: 'Exemplos de Cartas',
+    industries: 'Setores Cobertos',
+    free: 'Gratis para Usar',
+  },
+  tips: {
+    title: 'O que torna uma carta de apresentacao eficaz?',
+    items: [
+      { title: 'Personalizacao', description: 'Dirija-se ao recrutador pelo nome e personalize cada carta. 77% dos recrutadores preferem cartas personalizadas.' },
+      { title: 'Resultados Concretos', description: 'Inclua 1-2 conquistas quantificadas que demonstrem seu valor. Numeros sao mais memoraveis do que afirmacoes vagas.' },
+      { title: 'Extensao Concisa', description: 'Mantenha entre 250 e 400 palavras. Recrutadores dedicam menos de 30 segundos — cada palavra conta.' },
+    ],
+  },
+  grid: {
+    title: 'Explorar por Setor',
+    examplesLabel: 'exemplos',
+    coverLetterSuffix: 'Carta de Apresentacao',
+    comingSoon: 'Exemplos de carta de apresentacao em breve!',
+    comingSoonCta: 'Criar Carta com IA',
+  },
+  bottomCta: {
+    title: 'Nao encontrou sua profissao?',
+    description: 'Nossa IA pode escrever uma carta de apresentacao personalizada para QUALQUER profissao em segundos.',
+    ctaText: 'Gerar Carta Personalizada',
+  },
+  relatedResources: {
+    title: 'Recursos Relacionados',
+    items: [
+      { title: 'Exemplos de Curriculo', description: 'Mais de 300 exemplos por profissao' },
+      { title: 'Guia de Carta de Apresentacao', description: 'Tutorial passo a passo' },
+      { title: 'Modelos de Curriculo', description: 'Modelos profissionais para qualquer emprego' },
+    ],
+  },
+};
+
+const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt };
 export const getContent = (locale: string): CoverLetterExamplesIndexContent => selectContent(content, locale);

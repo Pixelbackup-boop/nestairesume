@@ -1007,7 +1007,103 @@ const th: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Sobre Nos',
+      title: 'Construindo o futuro do',
+      titleHighlight: 'sucesso profissional',
+      subtitle: 'A Best AI Resume tem a missao de ajudar candidatos em todo o mundo a criar curriculos profissionais e otimizados para ATS, abrindo as portas para a carreira dos sonhos.',
+    },
+    story: {
+      badge: 'Nossa Historia',
+      heading: 'Por que criamos a Best AI Resume',
+      p1: 'Percebemos que profissionais talentosos eram ignorados simplesmente porque seu curriculo nao passava pelos sistemas de triagem automatizada. O processo tradicional de criacao de curriculo era demorado, frustrante e muitas vezes produzia documentos que nao valorizavam o real potencial dos candidatos.',
+      p2: 'Por isso criamos a Best AI Resume — uma plataforma que une o poder da inteligencia artificial a um design profissional e elegante. Nosso objetivo e simples: ajudar cada candidato a apresentar o melhor de si mesmo aos potenciais empregadores.',
+      p3: 'Hoje ja ajudamos mais de 50.000 profissionais a conquistar o emprego dos sonhos, criando curriculos que se destacam e passam pelos filtros ATS com sucesso.',
+    },
+    stats: [
+      { value: '50K+', label: 'Curriculos Criados' },
+      { value: '98%', label: 'Taxa de Aprovacao ATS' },
+      { value: '20+', label: 'Modelos' },
+      { value: '4.9', label: 'Avaliacao dos Usuarios' },
+    ],
+    values: {
+      badge: 'Nossos Valores',
+      heading: 'O que nos guia todos os dias',
+      cards: [
+        { title: 'Privacidade em Primeiro Lugar', text: 'Seus dados sao seus. Salvamos os dados do seu curriculo localmente no navegador, nao em nossos servidores. Apenas as credenciais da sua conta sao armazenadas de forma segura por nos.' },
+        { title: 'Inovacao', text: 'Utilizamos a mais avancada tecnologia de IA para ajudar voce a escrever conteudo eficaz que destaque suas conquistas e atraia a atencao dos recrutadores.' },
+        { title: 'Acessibilidade', text: 'Ferramentas profissionais de curriculo nao deveriam estar escondidas atras de assinaturas caras. Oferecemos funcionalidades poderosas acessiveis a todos.' },
+      ],
+    },
+    experts: {
+      badge: 'Especialistas de Confianca',
+      heading: 'Conheca Nossos Especialistas de Carreira',
+      subtitle: 'Nossa equipe de coaches de carreira, recrutadores e especialistas do setor traz experiencia profunda nos guias de curriculo que elabora.',
+    },
+    editorial: {
+      heading: 'Nossos Padroes Editoriais',
+      items: [
+        { title: 'Conselhos Baseados em Dados', text: 'Cada dica que compartilhamos e testada em sistemas ATS reais e verificada por profissionais do setor.' },
+        { title: 'Abordagem Centrada no Humano', text: 'Acreditamos que a IA deve potencializar, nao substituir. Priorizamos estrategias que conquistam primeiro os recrutadores humanos.' },
+      ],
+    },
+    commitment: {
+      heading: 'Nosso Compromisso com Voce',
+      p1: 'Na Best AI Resume acreditamos que a trajetoria profissional e pessoal. Por isso construimos uma plataforma que respeita sua privacidade oferecendo ferramentas poderosas para ter sucesso. Os dados do seu curriculo permanecem no seu dispositivo, dando a voce controle total sobre suas informacoes.',
+      p2: 'Melhoramos constantemente nossos algoritmos de inteligencia artificial, adicionamos novos modelos e aprimoramos funcionalidades com base no feedback dos usuarios. Seu sucesso e o nosso sucesso, e nos comprometemos a acompanha-lo em cada etapa.',
+    },
+    cta: {
+      title: 'Pronto para se juntar a',
+      titleHighlight: 'mais de 50.000 historias de sucesso?',
+      subtitle: 'Comece a criar seu curriculo profissional hoje e da o primeiro passo em direcao a carreira dos seus sonhos.',
+      button: 'Comecar Gratis',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Nossos Autores Especialistas | Best AI Resume',
+      description: 'Conheca os especialistas de carreira, recrutadores e coaches por tras de nossos guias de curriculo. Nossos autores trazem experiencia real em recrutamento para ajuda-lo a conquistar o emprego dos sonhos.',
+      ogDescription: 'Conheca os especialistas de carreira, recrutadores e coaches por tras de nossos guias de curriculo.',
+    },
+    breadcrumb: { home: 'Inicio', about: 'Sobre Nos', authors: 'Autores' },
+    hero: {
+      title: 'Conheca Nossos Autores Especialistas',
+      subtitle: 'Nossa equipe de coaches de carreira, recrutadores e especialistas do setor cria guias praticos de curriculo baseados em experiencia real em recrutamento.',
+    },
+    viewProfile: 'Ver Perfil',
+    cta: {
+      title: 'Crie Seu Curriculo com Orientacao de Especialistas',
+      subtitle: 'Nosso construtor com IA aplica as mesmas estrategias recomendadas por nossos especialistas. Crie um curriculo profissional em poucos minutos.',
+      button: 'Criar Meu Curriculo — Gratis',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Inicio', about: 'Sobre Nos' },
+    atOrg: '{jobTitle} na {organization}',
+    authorOfGuides: ' Autor(a) de {count}+ guias de carreira e artigos.',
+    connectLinkedIn: 'Conectar no LinkedIn',
+    viewAllGuides: 'Ver Todos os Guias',
+    areasOfExpertise: 'Areas de Especialidade',
+    resumeGuidesBy: 'Guias de Curriculo de {name}',
+    guidesCount: '{count} guias',
+    coverLetterExamplesBy: 'Exemplos de Carta de Apresentacao de {name}',
+    examplesCount: '{count} exemplos',
+    blogPostsBy: 'Artigos do Blog de {name}',
+    postsCount: '{count} artigos',
+    viewAllResumes: 'Ver todos os {count} guias de curriculo',
+    viewAllCoverLetters: 'Ver todos os {count} exemplos de carta de apresentacao',
+    viewAllBlogPosts: 'Ver todos os {count} artigos do blog',
+    cta: {
+      title: 'Crie Seu Curriculo com Orientacao de Especialistas',
+      subtitle: 'Use as mesmas estrategias recomendadas por {name}. Nosso construtor com IA aplica automaticamente as tecnicas dos especialistas para o seu curriculo.',
+      button: 'Criar Meu Curriculo — Gratis',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }

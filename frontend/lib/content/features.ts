@@ -374,5 +374,50 @@ const th: FeaturesPageContent = {
   },
 };
 
-const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, th };
+const pt: FeaturesPageContent = {
+  meta: {
+    title: 'Funcionalidades do Construtor de Curriculo com IA — Modelos, ATS e Mais | Best AI Resume',
+    description: 'Descubra todas as funcionalidades da Best AI Resume: redacao com IA, mais de 20 modelos profissionais, otimizacao ATS em tempo real, exportacao em PDF e sugestoes inteligentes para seu curriculo.',
+    keywords: 'funcionalidades construtor curriculo, redator curriculo ia, verificador ats curriculo, modelos curriculo, exportacao pdf curriculo, ferramentas criacao curriculo',
+  },
+  hero: {
+    badge: 'Funcionalidades',
+    title: 'Tudo o que voce precisa para',
+    titleHighlight: 'conquistar o emprego dos sonhos',
+    subtitle: 'Ferramentas de IA poderosas combinadas com design elegante para se destacar da concorrencia.',
+  },
+  features: [
+    { title: 'Redacao com IA', description: 'Deixe nossa inteligencia artificial criar bullets convincentes e resumos profissionais que valorizam suas conquistas. Transforme descricoes simples em declaracoes de impacto.' },
+    { title: 'Mais de 20 Modelos Premium', description: 'Escolha entre modelos criados por profissionais que se destacam mantendo compatibilidade com sistemas ATS. Cada modelo e desenvolvido por especialistas em design.' },
+    { title: 'Otimizacao ATS', description: 'A pontuacao ATS em tempo real garante que seu curriculo passe pelos sistemas de triagem automatizados. Receba feedback imediato sobre como melhorar sua pontuacao.' },
+    { title: 'Previa em Tempo Real', description: 'Visualize as alteracoes instantaneamente enquanto digita. O que voce ve e exatamente o que os recrutadores verao. Sem mais duvidas sobre a aparencia do seu CV.' },
+    { title: 'Exportacao em PDF', description: 'Baixe PDFs perfeitos prontos para enviar. Otimizados tanto para visualizacao digital quanto para impressao. Seu curriculo fica profissional em qualquer lugar.' },
+    { title: 'Sugestoes Inteligentes', description: 'Receba recomendacoes inteligentes sobre habilidades, palavras-chave e conteudo com base na vaga desejada. A IA analisa milhares de curriculos de sucesso.' },
+  ],
+  steps: {
+    badge: 'Como Funciona',
+    title: 'Tres passos para o seu',
+    titleHighlight: 'curriculo perfeito',
+    items: [
+      { title: 'Insira Seus Dados', description: 'Adicione suas experiencias, formacao e habilidades. Nossa IA te auxilia em cada etapa.' },
+      { title: 'Escolha um Modelo', description: 'Selecione entre mais de 20 modelos profissionais. Previa em tempo real enquanto personaliza.' },
+      { title: 'Baixe o PDF', description: 'Exporte seu curriculo polido como um PDF perfeito, pronto para impressionar os recrutadores.' },
+    ],
+  },
+  cta: {
+    title: 'Pronto para criar o seu',
+    titleHighlight: 'curriculo vencedor?',
+    description: 'Junte-se a mais de 50.000 profissionais que ja conquistaram o emprego dos sonhos com a Best AI Resume.',
+    ctaText: 'Comecar a Criar Gratis',
+  },
+  externalResources: {
+    title: 'Recursos Externos',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Dados de Carreira' },
+      { href: 'https://www.shrm.org/', label: 'SHRM: Recursos de RH e Carreira' },
+    ],
+  },
+};
+
+const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, th, pt };
 export const getContent = (locale: string): FeaturesPageContent => selectContent(content, locale);

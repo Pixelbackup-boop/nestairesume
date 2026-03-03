@@ -1292,5 +1292,123 @@ const th: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th };
+const pt: ComparisonPageContent = {
+  meta: {
+    title: 'Alternativa ao Zety 2026: Criador de Curriculo IA Gratis (Sem Custos Ocultos) | Best AI Resume',
+    description: 'Procurando alternativa gratuita ao Zety? Compare Zety vs Best AI Resume Builder — escrita com IA, modelos ATS, downloads ilimitados. Sem armadilha de assinatura, sem custos ocultos.',
+    keywords: 'alternativa zety, zety curriculo, criador curriculo gratis, zety preco, zety review, curriculo ia, modelo curriculo gratis, curriculo online brasil',
+  },
+  schemas: {
+    breadcrumbName: 'Alternativa ao Zety',
+    articleHeadline: 'Alternativa ao Zety 2026: Criador de Curriculo IA Gratis Sem Custos Ocultos',
+    articleDescription: 'Comparacao Zety vs Best AI Resume Builder. Escrita com IA, otimizacao ATS e downloads ilimitados — completamente gratis, sem armadilhas.',
+  },
+  hero: {
+    badge: 'Alternativa ao Zety',
+    title: 'Crie seu Curriculo.',
+    titleHighlight: 'Baixe Gratis.',
+    subtitle: 'O Zety deixa voce criar um curriculo gratis — depois cobra <strong>$23,70/mes</strong> para baixar. Nos oferecemos escrita com IA, modelos ATS e downloads ilimitados a <strong>R$0</strong>.',
+    ctaPrimary: 'Criar meu curriculo gratis',
+    ctaSecondary: 'Ver comparacao',
+  },
+  problem: {
+    title: 'A Armadilha de Precos do Zety',
+    description: 'O Zety tem modelos profissionais e sugestoes de conteudo uteis. O problema e o modelo de precos: voce cria todo o curriculo e so no final descobre que precisa pagar para baixar. A <strong>versao de teste de 14 dias custa $2,70</strong>, depois <strong>renova automaticamente para $23,70/mes</strong>. Muitos usuarios relatam cobranças inesperadas por esquecer de cancelar.',
+    stats: [
+      { value: '$23,70', label: 'por mes apos o teste (renovacao automatica)' },
+      { value: '$2,70', label: 'custo do teste de 14 dias (atencao a renovacao)' },
+      { value: 'R$0', label: 'Best AI Resume Builder — gratis para sempre, sem cartao de credito' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'Uma comparacao transparente — sem surpresas.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Preco', competitor: '❌ $23,70/mes apos o teste', ours: '✅ Completamente gratis' },
+      { feature: 'Escrita com IA', competitor: '⚠️ Sugestoes de frases basicas', ours: '✅ IA avancada gera conteudo personalizado' },
+      { feature: 'Pontuacao ATS', competitor: '❌ Nenhuma pontuacao em tempo real', ours: '✅ Pontuacao ATS em tempo real' },
+      { feature: 'Download PDF', competitor: '❌ Requer plano pago', ours: '✅ Downloads ilimitados gratis' },
+      { feature: 'Curriculos criados', competitor: '⚠️ Na pratica requer plano pago', ours: '✅ Ilimitados' },
+      { feature: 'Qualidade dos modelos', competitor: '✅ Modelos profissionais', ours: '✅ 20+ modelos profissionais' },
+      { feature: 'Compatibilidade ATS', competitor: '✅ Modelos ATS-friendly', ours: '✅ Todos os modelos verificados ATS' },
+      { feature: 'Carta de apresentacao', competitor: '✅ Incluida (paga)', ours: '✅ Incluida (gratis)' },
+      { feature: 'Palavras-chave do setor', competitor: '⚠️ Apenas sugestoes basicas', ours: '✅ IA sugere palavras-chave do setor' },
+      { feature: 'Renovacao automatica', competitor: '❌ Renovacao a $23,70/mes', ours: '✅ Nenhuma assinatura necessaria' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Motivos para Trocar o Zety',
+    subtitle: 'Mais funcoes. Custo zero. Sem surpresas.',
+    reasons: [
+      { title: 'Realmente gratis — sem armadilhas', description: 'O Zety coleta suas informacoes antes de revelar os precos. Nos somos completamente gratis — sem teste, sem assinatura, sem cartao de credito necessario para baixar seu curriculo.' },
+      { title: 'Escrita com IA mais avancada', description: 'As sugestoes de frases do Zety sao estaticas. Nossa IA gera conteudo dinamico e personalizado baseado no seu setor, nivel de experiencia e vaga desejada — adaptado ao mercado brasileiro.' },
+      { title: 'Pontuacao ATS em tempo real', description: 'O Zety nao oferece verificacao ATS durante a criacao. Nossa pontuacao ATS em tempo real mostra exatamente como os recrutadores e os sistemas de triagem verao seu curriculo.' },
+    ],
+  },
+  recommendation: {
+    title: 'Recomendacao Honesta',
+    useCompetitor: {
+      title: 'Use o Zety quando...',
+      items: [
+        'Voce esta disposto a pagar $23,70/mes pela comodidade',
+        'Voce prefere as sugestoes de frases especificas do Zety',
+        'Voce precisa de um recurso especifico que so o Zety tem',
+        'Voce quer suporte ao cliente pago',
+      ],
+    },
+    useUs: {
+      title: 'Use o Best AI Resumes quando...',
+      items: [
+        'Voce quer criar e baixar seu curriculo gratuitamente',
+        'Voce precisa de IA avancada para escrever o conteudo',
+        'Voce quer pontuacao ATS em tempo real durante a criacao',
+        'Voce nao quer lidar com assinaturas ou renovacoes automaticas',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Explore mais de 300 exemplos de curriculo gratis',
+    description: 'Exemplos de curriculos profissionais para cada setor e nivel de carreira.',
+    ctaBrowse: 'Ver exemplos de curriculo',
+    ctaTemplates: 'Ver todos os modelos',
+  },
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { question: 'O Zety e gratuito?', answer: 'O Zety permite criar curriculos gratuitamente, mas cobra para baixar. O plano de teste de 14 dias custa $2,70, depois renova automaticamente para $23,70/mes. O Best AI Resume Builder e 100% gratuito — crie e baixe curriculos ilimitados sem cartao de credito.' },
+      { question: 'Por que o Zety cobra pelo download?', answer: 'O modelo de negocios do Zety e "freemium" — o processo de criacao e gratuito para atrair usuarios, mas monetiza no download. Muitos usuarios so descobrem o preco quando estao prontos para baixar. O Best AI Resume Builder e transparente: tudo e gratis, sem surpresas.' },
+      { question: 'Qual e a melhor alternativa gratuita ao Zety?', answer: 'O Best AI Resume Builder e a melhor alternativa gratuita. Oferece tudo o que o Zety coloca atras de paywall — modelos profissionais, exportacao PDF, cartas de apresentacao — mais escrita com IA e otimizacao ATS que o Zety nao tem.' },
+      { question: 'O Zety tem escrita com IA?', answer: 'O Zety tem sugestoes de frases preconfeccionadas, mas nao gera conteudo verdadeiramente com IA. O Best AI Resume Builder usa IA avancada para gerar experiencias profissionais personalizadas, resumos e palavras-chave especificas do seu setor e vaga.' },
+      { question: 'Como cancelar o Zety?', answer: 'Para cancelar o Zety, acesse as configuracoes da conta antes do fim do periodo de teste. O Best AI Resume Builder nao requer assinatura — nao ha nada para cancelar. Simplesmente use a plataforma gratuitamente.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Compare outros criadores de curriculo',
+    items: [
+      { href: '/pt/livecareer-alternative', title: 'Alternativa ao LiveCareer', subtitle: 'Tradicional vs moderno' },
+      { href: '/pt/resume-io-alternative', title: 'Alternativa ao Resume.io', subtitle: 'Comparacao de precos' },
+      { href: '/pt/canva-alternative', title: 'Alternativa ao Canva', subtitle: 'Ferramenta de design vs IA' },
+      { href: '/pt/rezi-alternative', title: 'Alternativa ao Rezi', subtitle: 'Comparacao de funcoes de IA' },
+    ],
+    guidesTitle: 'Guias uteis para curriculo',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Recursos externos',
+    items: [
+      { href: 'https://www.ibge.gov.br/estatisticas/sociais/trabalho.html', label: 'IBGE — Estatisticas do Mercado de Trabalho Brasileiro' },
+      { href: 'https://www.glassdoor.com.br/Pesquisa/index.htm', label: 'Glassdoor Brasil — Salarios e Oportunidades' },
+    ],
+  },
+  bottomCta: {
+    title: 'Um criador de curriculo que e realmente gratis.',
+    description: 'Sem armadilhas de precos, sem renovacoes automaticas. Apenas um criador de curriculo com IA — 100% gratuito para sempre.',
+    cta: 'Criar meu curriculo gratis',
+    subtext: 'Gratis para sempre. Sem cartao de credito. Sem surpresas.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
 export const getContent = (locale: string) => selectContent(contentMap, locale);
