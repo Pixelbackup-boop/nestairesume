@@ -500,5 +500,103 @@ const tr: CoverLetterExamplesIndexContent = {
   },
 };
 
-const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
+const vi: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: 'Mẫu Thư Xin Việc Theo Vị Trí Công Việc (2026) | Best AI Resume',
+    description: 'Khám phá hơn 100 mẫu thư xin việc miễn phí theo ngành và vị trí. Thư xin việc chuyên nghiệp với mẹo viết hiệu quả. Tìm vị trí của bạn và tạo thư xin việc ngay.',
+    keywords: 'ví dụ thư xin việc, mẫu thư xin việc, thư xin việc chuyên nghiệp, thư ứng tuyển, viết thư xin việc, thư xin việc tiếng Việt',
+  },
+  hero: {
+    badge: 'Mẫu Thư Xin Việc 2026',
+    title: 'Mẫu Thư Xin Việc',
+    titleHighlight: 'Theo Vị Trí Công Việc',
+    subtitle: 'Khám phá {count}+ mẫu thư xin việc chuyên nghiệp theo ngành. Tìm vị trí của bạn, nghiên cứu định dạng và tạo thư với công cụ AI.',
+    ctaBrowse: 'Xem Mẫu',
+    ctaCreate: 'Tạo Thư Xin Việc với AI',
+  },
+  stats: {
+    examples: 'Mẫu Thư Xin Việc',
+    industries: 'Ngành Nghề',
+    free: 'Miễn Phí Sử Dụng',
+  },
+  tips: {
+    title: 'Điều Gì Làm Nên Thư Xin Việc Tốt?',
+    items: [
+      { title: 'Cá nhân hóa', description: 'Gọi tên người quản lý và tùy chỉnh từng thư theo vị trí. 77% nhà tuyển dụng thích thư được cá nhân hóa.' },
+      { title: 'Thành tích cụ thể', description: 'Đưa vào 1-2 thành tích có số liệu để chứng minh giá trị của bạn. Con số ấn tượng hơn lời khẳng định mơ hồ.' },
+      { title: 'Độ dài súc tích', description: 'Giữ trong 250-400 từ. Nhà tuyển dụng dành dưới 30 giây đọc thư — mỗi từ đều quan trọng.' },
+    ],
+  },
+  grid: {
+    title: 'Khám Phá Theo Ngành',
+    examplesLabel: 'mẫu',
+    coverLetterSuffix: 'Thư Xin Việc',
+    comingSoon: 'Mẫu thư xin việc sắp ra mắt!',
+    comingSoonCta: 'Tạo Thư Xin Việc với AI',
+  },
+  bottomCta: {
+    title: 'Không tìm thấy vị trí của bạn?',
+    description: 'AI của chúng tôi có thể viết thư xin việc cho BẤT KỲ vị trí nào trong vài giây.',
+    ctaText: 'Tạo Thư Tùy Chỉnh',
+  },
+  relatedResources: {
+    title: 'Tài Nguyên Liên Quan',
+    items: [
+      { title: 'Mẫu CV', description: 'Hơn 300 mẫu CV theo nghề nghiệp' },
+      { title: 'Hướng Dẫn Thư Xin Việc', description: 'Hướng dẫn viết từng bước' },
+      { title: 'Mẫu Hồ Sơ', description: 'Mẫu chuyên nghiệp cho mọi công việc' },
+    ],
+  },
+};
+
+const ko: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: '직종별 자기소개서 예시 (2026) | Best AI Resume',
+    description: '산업 및 직종별로 정리된 100개 이상의 무료 자기소개서 예시를 확인하세요. 작성 팁이 포함된 전문 자기소개서 양식. 원하는 직종을 찾아 자기소개서를 작성하세요.',
+    keywords: '자기소개서 예시, 자기소개서 양식, 자기소개서 작성법, 커버레터 예시, 지원서 작성, 자기소개서 샘플',
+  },
+  hero: {
+    badge: '자기소개서 예시 2026',
+    title: '자기소개서 예시',
+    titleHighlight: '직종별',
+    subtitle: '{count}개 이상의 전문 자기소개서 예시를 산업별로 확인하세요. 원하는 직종을 찾아 AI로 자기소개서를 작성하세요.',
+    ctaBrowse: '예시 보기',
+    ctaCreate: 'AI로 자기소개서 작성',
+  },
+  stats: {
+    examples: '자기소개서 예시',
+    industries: '직종 분야',
+    free: '무료 이용',
+  },
+  tips: {
+    title: '좋은 자기소개서의 조건은?',
+    items: [
+      { title: '개인화', description: '채용 담당자의 이름을 쓰고 각 지원서에 맞게 내용을 맞춤화하세요. 77%의 채용 담당자가 개인화된 자기소개서를 선호합니다.' },
+      { title: '구체적인 성과', description: '자신의 가치를 보여주는 수치화된 성과 1-2개를 포함하세요. 숫자는 막연한 주장보다 인상적입니다.' },
+      { title: '적절한 분량', description: '250-400단어로 작성하세요. 채용 담당자는 30초 미만으로 검토합니다 — 모든 단어가 중요합니다.' },
+    ],
+  },
+  grid: {
+    title: '분야별 탐색',
+    examplesLabel: '개 예시',
+    coverLetterSuffix: '자기소개서',
+    comingSoon: '자기소개서 예시가 곧 추가됩니다!',
+    comingSoonCta: 'AI로 자기소개서 작성',
+  },
+  bottomCta: {
+    title: '찾는 직종이 없으신가요?',
+    description: 'AI가 몇 초 안에 모든 직종에 맞는 맞춤형 자기소개서를 작성합니다.',
+    ctaText: '맞춤 자기소개서 생성',
+  },
+  relatedResources: {
+    title: '관련 자료',
+    items: [
+      { title: '이력서 예시', description: '300개 이상의 직종별 이력서 예시' },
+      { title: '자기소개서 가이드', description: '단계별 작성 튜토리얼' },
+      { title: '이력서 양식', description: '모든 직종을 위한 전문 양식' },
+    ],
+  },
+};
+
+const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string): CoverLetterExamplesIndexContent => selectContent(content, locale);

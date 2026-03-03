@@ -186,5 +186,41 @@ const tr: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
+const vi: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Hơn 300 Mẫu CV Theo Vị Trí Công Việc (2026) | Best AI Resume',
+    description: 'Khám phá hơn 300 mẫu CV miễn phí được tổ chức theo ngành nghề và vị trí. Mẫu CV chuyên nghiệp với mẹo tối ưu hóa ATS. Tìm vị trí của bạn và tạo CV ngay.',
+  },
+  hero: {
+    badge: 'Mẫu CV 2026',
+    title: 'Mẫu CV',
+    titleHighlight: 'Theo Vị Trí Công Việc',
+    subtitle: 'Khám phá {count}+ mẫu CV chuyên nghiệp được tổ chức theo ngành. Tìm vị trí của bạn, nghiên cứu định dạng và xây dựng CV với công cụ AI.',
+  },
+  bottomCta: {
+    title: 'Không tìm thấy vị trí của bạn?',
+    description: 'AI của chúng tôi có thể tạo CV tùy chỉnh cho BẤT KỲ vị trí nào trong vài giây.',
+    ctaText: 'Tạo CV Tùy Chỉnh',
+  },
+};
+
+const ko: ResumeExamplesIndexContent = {
+  meta: {
+    title: '직종별 이력서 예시 300개 이상 (2026) | Best AI Resume',
+    description: '산업 및 직종별로 정리된 300개 이상의 무료 이력서 예시를 확인하세요. ATS 친화적 이력서 양식과 전문 팁 포함. 원하는 직종을 찾아 이력서를 작성하세요.',
+  },
+  hero: {
+    badge: '이력서 예시 2026',
+    title: '이력서 예시',
+    titleHighlight: '직종별',
+    subtitle: '{count}개 이상의 전문 이력서 예시를 산업별로 확인하세요. 원하는 직종을 찾아 AI 빌더로 이력서를 작성하세요.',
+  },
+  bottomCta: {
+    title: '찾는 직종이 없으신가요?',
+    description: 'AI가 몇 초 안에 모든 직종에 맞는 맞춤형 이력서를 작성합니다.',
+    ctaText: '맞춤 이력서 생성',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

@@ -2203,7 +2203,476 @@ const tr: ChatGPTComparisonContent = {
   }
 };
 
-const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th, tr };
+
+// ---------------------------------------------------------------------------
+// Portuguese
+// ---------------------------------------------------------------------------
+const pt: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs Construtor de Curriculo AI 2026 | Best AI Resume",
+    description: "ChatGPT ou construtor de curriculo AI dedicado? Compare formatacao, compatibilidade ATS e qualidade dos resultados. Descubra qual ferramenta ajuda mais a conseguir emprego.",
+    keywords: "chatgpt curriculo, criador curriculo ai, construtor curriculo, chatgpt vs curriculo, escrever curriculo chatgpt, curriculo ai, modelo curriculo",
+    ogTitle: "ChatGPT vs Construtor de Curriculo AI 2026",
+    ogDescription: "Compare ChatGPT com construtores de curriculo AI dedicados. Analise recurso por recurso com pros e contras reais.",
+    twitterTitle: "ChatGPT vs Construtor de Curriculo AI: Qual cria melhor curriculo?",
+    twitterDescription: "Compare ChatGPT vs construtor de curriculo AI para criar curriculos que conseguem emprego"
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs Construtor de Curriculo AI",
+    articleHeadline: "ChatGPT vs Construtor de Curriculo AI: Qual cria melhor curriculo em 2026?",
+    articleDescription: "Compare ChatGPT com construtores de curriculo AI dedicados. Analise recurso por recurso com pros e contras reais."
+  },
+  hero: {
+    badge: "Comparacao",
+    title: "ChatGPT vs Construtor de Curriculo AI:",
+    titleHighlight: "Qual ajuda a conseguir emprego?",
+    subtitle: "ChatGPT escreve texto mas construtores de curriculo criam <strong>documentos prontos para entrevista</strong>. Veja porque essa diferenca importa na sua busca de emprego.",
+    ctaPrimary: "Criar Curriculo Gratis",
+    ctaSecondary: "Ver Comparacao"
+  },
+  problem: {
+    title: "O Problema: ChatGPT Escreve Texto, Nao Cria Curriculos",
+    description: "ChatGPT e uma IA de uso geral que gera texto. Pode escrever topicos de curriculo, resumos e cartas de apresentacao — mas <strong>nao pode formatar documentos, verificar compatibilidade ATS ou exportar PDF</strong>. Voce recebe texto bruto que precisa ser designado, formatado e polido por conta propria.",
+    stats: [
+      { value: "0", label: "Modelos — ChatGPT fornece apenas texto simples" },
+      { value: "0%", label: "Suporte ATS — sem pontuacao de palavras-chave ou verificacao de formato" },
+      { value: "3+", label: "Ferramentas extras necessarias — modelo, formatador, conversor PDF" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "Comparacao real recurso por recurso para candidatos a emprego",
+    colFeature: "Recurso",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      { feature: "Escrita com IA", chatgpt: "Gera bem texto generico", best: "IA especializada em curriculo com palavras-chave do setor", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "Modelos profissionais", chatgpt: "Sem modelos — apenas texto", best: "20+ modelos aprovados por ATS", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Otimizacao ATS", chatgpt: "Nenhum suporte ATS", best: "Pontuacao ATS em tempo real e correspondencia de palavras-chave", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Exportacao PDF", chatgpt: "Nao pode exportar documentos", best: "PDF perfeito em um clique", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Formatacao e design", chatgpt: "Fornece apenas texto simples", best: "Formatacao profissional integrada", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Personalizacao por vaga", chatgpt: "Manual — cole a vaga no prompt", best: "Extracao automatica e correspondencia de palavras-chave", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Estrutura de secoes", chatgpt: "Precisa definir estrutura no prompt", best: "Orientacao sistematica secao por secao", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Consistencia", chatgpt: "Resultados variam com qualidade do prompt", best: "Resultados consistentes e testados sempre", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Personalizacao de conteudo", chatgpt: "Exige prompt detalhado", best: "Extrai da experiencia que voce inseriu", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Preco", chatgpt: "Gratis (GPT-3.5) ou $20/mes (GPT-4)", best: "Plano gratuito disponivel", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "Facilidade de uso", chatgpt: "Precisa aprender a escrever prompts", best: "Simples — so preencha as informacoes", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Multiplos curriculos", chatgpt: "Precisa comecar do zero cada vez", best: "Salve e edite multiplas versoes", chatgptIcon: "partial", bestIcon: "yes" }
+    ]
+  },
+  strengths: {
+    title: "O que ChatGPT Faz Bem para Curriculos",
+    subtitle: "Sendo honesto, ChatGPT tem pontos fortes reais. Aqui esta o que realmente ajuda na escrita de curriculo:",
+    items: [
+      { title: "Brainstorm de topicos", description: "ChatGPT e excelente para gerar multiplas versoes de topicos focados em conquistas a partir de descricoes de cargo. Otimo para superar o bloqueio de nao saber o que escrever." },
+      { title: "Reescrever conteudo fraco", description: "Cole topicos centrados em responsabilidades e deixe o ChatGPT reescrever como conquistas. Excelente para transformar verbos de responsabilidade em verbos de acao com numeros reais." },
+      { title: "Encontrar palavras-chave do setor", description: "Peca ao ChatGPT para identificar habilidades e palavras-chave importantes para um cargo especifico. Boas listas para correspondencia com ATS." },
+      { title: "Rascunho de carta de apresentacao", description: "ChatGPT escreve um primeiro rascunho razoavel de carta de apresentacao. Voce precisa editar, mas e um bom ponto de partida para o mercado de trabalho brasileiro." }
+    ]
+  },
+  shortcomings: {
+    title: "Limitacoes do ChatGPT",
+    items: [
+      { title: "Sem formatacao ou modelos", description: "ChatGPT fornece apenas texto simples. Voce precisa de uma ferramenta separada para formatar em documento profissional. Consome tempo e propenso a erros." },
+      { title: "Sem suporte ATS", description: "ChatGPT nao sabe quais palavras-chave o ATS procura, quais cabecalhos de secao espera ou quais formatos a maquina consegue ler. Gera texto sem entender sistemas automatizados de triagem." },
+      { title: "Resultado generico sem suas informacoes", description: "Sem um prompt detalhado com numeros e conquistas especificas suas, ChatGPT gera conteudo generico como gerenciou equipe profissional em vez de liderou equipe de 12 engenheiros entregando projetos antes do prazo." },
+      { title: "Qualidade inconsistente", description: "A qualidade do resultado do ChatGPT depende inteiramente do prompt. Pequenas mudancas de palavras geram resultados muito diferentes. Construtores de curriculo dedicados fornecem resultados consistentes." },
+      { title: "Nao pode exportar PDF", description: "Voce nao pode enviar uma conversa do ChatGPT para empregadores. Precisa copiar o texto, colar em um modelo, corrigir a formatacao e exportar como PDF — um processo que leva mais de 30 minutos." }
+    ]
+  },
+  bestApproach: {
+    title: "A Melhor Abordagem: Use Ambos",
+    description: "Aqui esta o melhor fluxo de trabalho para criar curriculos com IA em 2026:",
+    steps: [
+      { title: "Use ChatGPT para brainstorm", description: "Peca ao ChatGPT para gerar ideias de topicos, reescrever conteudo fraco e identificar palavras-chave do setor para o cargo desejado." },
+      { title: "Construa o curriculo em ferramenta dedicada", description: "Use o Best AI Resume Builder para formatar o conteudo em modelos profissionais otimizados para ATS com estrutura correta e correspondencia de palavras-chave." },
+      { title: "Personalize com seus dados reais", description: "Substitua o texto generico da IA por numeros reais, conquistas e nomes de empresas seus. Nenhuma IA sabe suas conquistas especificas — voce precisa inserir." },
+      { title: "Exporte e candidate-se", description: "Baixe o PDF otimizado para ATS e candidate-se. Sem copiar colar, sem corrigir formatacao, sem ferramentas extras." }
+    ]
+  },
+  whoShouldUse: {
+    title: "Recomendacao Direta: Quem Deve Usar O Que?",
+    useChatGPT: {
+      title: "Use ChatGPT se...",
+      items: [
+        "Voce ja tem um modelo de curriculo bem formatado",
+        "Precisa apenas de ajuda para brainstorm de topicos",
+        "Confortavel com formatacao de documentos por conta propria",
+        "Quer pesquisar palavras-chave e tendencias do setor"
+      ]
+    },
+    useBestAI: {
+      title: "Use Best AI Resumes se...",
+      items: [
+        "Quer curriculo completo pronto para enviar de uma ferramenta",
+        "Precisa de formatacao ATS e pontuacao de palavras-chave",
+        "Nao quer gerenciar modelos e formatacao sozinho",
+        "Quer salvar e editar multiplas versoes de curriculo",
+        "Quer exportar PDF em um clique pronto para enviar"
+      ]
+    },
+    bottomLine: "Conclusao: ChatGPT e um bom assistente de escrita mas nao e um construtor de curriculo. Para curriculo completo aprovado por ATS, voce precisa de ferramenta dedicada."
+  },
+  resumeExamples: {
+    title: "Veja Exemplos de Curriculo Criados com IA",
+    description: "Navegue por mais de 300 exemplos reais de curriculo para todas as profissoes — todos criados com IA otimizada para ATS que faz muito mais do que o ChatGPT sozinho.",
+    ctaBrowse: "Navegar Exemplos de Curriculo",
+    ctaTemplates: "Ver Todos os Modelos"
+  },
+  faq: {
+    title: "Perguntas Frequentes",
+    items: [
+      { question: "ChatGPT escreve curriculo bem?", answer: "ChatGPT pode gerar texto para curriculo mas nao pode formatar o curriculo, verificar compatibilidade ATS ou criar PDF para download. Ainda precisa de ferramenta separada para formatacao e design. Construtores de curriculo AI dedicados gerenciam escrita e formatacao em uma etapa." },
+      { question: "Pode usar IA para escrever curriculo?", answer: "Sim. Usar IA para escrever curriculo e amplamente aceito em 2026. Empregadores brasileiros se importam com a qualidade do conteudo do curriculo, nao como foi feito. O importante e personalizar o conteudo gerado por IA com suas conquistas reais, numeros e experiencia." },
+      { question: "Quais as desvantagens de usar ChatGPT para curriculo?", answer: "ChatGPT fornece texto simples sem formatacao, nao suporta ATS, nao pode avaliar curriculo contra vaga, gera conteudo generico sem seus numeros especificos, e requer que voce copie e cole em modelo por conta propria." },
+      { question: "Sistemas ATS rejeitam curriculos escritos com ChatGPT?", answer: "Sistemas ATS nao detectam nem se importam com conteudo escrito por IA. Mas se voce colar texto do ChatGPT em modelo mal formatado, o ATS pode nao conseguir ler. Construtores de curriculo dedicados garantem que tanto conteudo quanto formatacao sejam compativeis com ATS." },
+      { question: "Best AI Resume Builder e melhor que ChatGPT para curriculo?", answer: "Para a tarefa especifica de criar curriculo pronto para candidatura, sim. Best AI Resume Builder combina escrita AI com formatacao profissional, otimizacao ATS, correspondencia de palavras-chave e exportacao PDF em uma ferramenta." }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "Comparar Outros Construtores de Curriculo",
+    links: [
+      { title: "Alternativa ao Canva", subtitle: "Ferramenta de design vs construtor de curriculo" },
+      { title: "Alternativa ao Overleaf", subtitle: "LaTeX vs construtor com IA" },
+      { title: "Alternativa ao Resume.io", subtitle: "Comparacao de precos e recursos" },
+      { title: "Alternativa ao Rezi", subtitle: "Comparacao de ferramentas AI" }
+    ],
+    guidesTitle: "Guias de Curriculo Uteis",
+    guides: [
+      { label: "O que e ATS? Guia Completo" },
+      { label: "Como Escrever Curriculo (Passo a Passo)" },
+      { label: "ChatGPT vs Claude para Curriculo" },
+      { label: "Como Escrever Resumo Profissional" }
+    ]
+  },
+  externalResources: {
+    title: "Recursos Externos",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "ChatGPT pela OpenAI" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: Dicas de Curriculo" }
+    ]
+  },
+  bottomCta: {
+    title: "Pronto para Ir Alem do ChatGPT?",
+    description: "Crie um curriculo completo otimizado para ATS com nosso construtor de curriculo AI — escrita, formatacao e exportacao PDF em uma ferramenta.",
+    ctaText: "Criar Curriculo Gratis — Sem Conta Necessaria",
+    subtext: "Gratis para sempre. Sem cartao de credito."
+  }
+};
+
+// ---------------------------------------------------------------------------
+// Vietnamese
+// ---------------------------------------------------------------------------
+const vi: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs Cong Cu Tao CV AI 2026 | Best AI Resume",
+    description: "Nen dung ChatGPT hay cong cu tao CV AI chuyen dung? So sanh dinh dang, kha nang tuong thich ATS va chat luong ket qua. Xem cong cu nao giup ban co duoc viec lam hon.",
+    keywords: "chatgpt cv, tao cv ai, cong cu tao cv, chatgpt vs tao cv, viet cv chatgpt, cv ai, mau cv",
+    ogTitle: "ChatGPT vs Cong Cu Tao CV AI 2026",
+    ogDescription: "So sanh ChatGPT voi cong cu tao CV AI chuyen dung. Phan tich tung tinh nang voi uu nhuoc diem thuc te.",
+    twitterTitle: "ChatGPT vs Cong Cu Tao CV AI: Cong cu nao tao CV tot hon?",
+    twitterDescription: "So sanh ChatGPT vs cong cu tao CV AI cho viec tao CV giup ban co viec lam"
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs Cong Cu Tao CV AI",
+    articleHeadline: "ChatGPT vs Cong Cu Tao CV AI: Cong cu nao tao CV tot hon nam 2026?",
+    articleDescription: "So sanh ChatGPT voi cong cu tao CV AI chuyen dung. Phan tich tung tinh nang voi uu nhuoc diem thuc te."
+  },
+  hero: {
+    badge: "So Sanh",
+    title: "ChatGPT vs Cong Cu Tao CV AI:",
+    titleHighlight: "Cong cu nao giup ban co viec?",
+    subtitle: "ChatGPT viet van ban nhung cong cu tao CV tao <strong>tai lieu san sang de phong van</strong>. Su khac biet nay quan trong the nao voi viec tim viec cua ban.",
+    ctaPrimary: "Tao CV Mien Phi",
+    ctaSecondary: "Xem So Sanh"
+  },
+  problem: {
+    title: "Van De: ChatGPT Viet Van Ban, Khong Phai CV",
+    description: "ChatGPT la AI da nang tao van ban. No co the viet gach dau dong cho CV, tom tat va thu xin viec — nhung <strong>khong the dinh dang tai lieu, kiem tra tinh tuong thich ATS hay xuat PDF</strong>. Ban nhan duoc van ban tho can thiet ke, dinh dang va tinh chinh rieng.",
+    stats: [
+      { value: "0", label: "Mau — ChatGPT chi cho van ban thuan" },
+      { value: "0%", label: "Ho tro ATS — khong co cham diem tu khoa hay kiem tra dinh dang" },
+      { value: "3+", label: "Cong cu bo sung can thiet — mau, cong cu dinh dang, bo chuyen PDF" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "So sanh tung tinh nang thuc te cho nguoi tim viec",
+    colFeature: "Tinh Nang",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      { feature: "Viet bang AI", chatgpt: "Tao van ban chung tot", best: "AI chuyen CV voi tu khoa theo nganh", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "Mau chuyen nghiep", chatgpt: "Khong co mau — chi van ban", best: "20+ mau dat chuan ATS", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Toi uu hoa ATS", chatgpt: "Khong ho tro ATS", best: "Diem ATS thoi gian thuc va khop tu khoa", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Xuat PDF", chatgpt: "Khong the xuat tai lieu", best: "PDF dep chi mot cu nhap", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Dinh dang va thiet ke", chatgpt: "Chi cho van ban thuan", best: "Dinh dang chuyen nghiep tich hop", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Tuy chinh theo tin tuyen dung", chatgpt: "Thu cong — dan tin tuyen dung vao prompt", best: "Tu dong trich xuat va khop tu khoa", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Cau truc cac phan", chatgpt: "Can tu dinh nghia cau truc trong prompt", best: "Huong dan tung phan co he thong", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Nhat quan", chatgpt: "Ket qua thay doi theo chat luong prompt", best: "Ket qua nhat quan va duoc kiem nghiem", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Ca nhan hoa noi dung", chatgpt: "Can viet prompt chi tiet", best: "Lay tu kinh nghiem ban nhap", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Gia", chatgpt: "Mien phi (GPT-3.5) hoac $20/thang (GPT-4)", best: "Co goi mien phi", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "De su dung", chatgpt: "Phai hoc viet prompt", best: "Don gian — chi dien thong tin", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Nhieu CV", chatgpt: "Phai bat dau lai moi lan", best: "Luu va chinh sua nhieu phien ban", chatgptIcon: "partial", bestIcon: "yes" }
+    ]
+  },
+  strengths: {
+    title: "Nhung Thu ChatGPT Lam Tot Cho CV",
+    subtitle: "Thanh that ma noi, ChatGPT co diem manh thuc su. Day la nhung gi no thuc su giup duoc trong viec viet CV:",
+    items: [
+      { title: "Brainstorm gach dau dong", description: "ChatGPT rat gioi tao nhieu phien ban gach dau dong tap trung vao thanh tich tu mo ta cong viec. Tot de vuot qua chung khong biet viet gi." },
+      { title: "Viet lai noi dung yeu", description: "Dan cac gach dau dong chi mo ta nhiem vu va de ChatGPT viet lai thanh thanh tich. Rat gioi chuyen dong tu trach nhiem thanh dong tu hanh dong co so lieu thuc." },
+      { title: "Tim tu khoa theo nganh", description: "Nho ChatGPT xac dinh cac ky nang va tu khoa quan trong cho vi tri cu the. Co danh sach tot de khop voi ATS." },
+      { title: "Phac thao thu xin viec", description: "ChatGPT viet ban thao dau tien cua thu xin viec kha tot. Ban can chinh sua nhung do la diem khoi dau tot cho thi truong viec lam Viet Nam." }
+    ]
+  },
+  shortcomings: {
+    title: "Diem Yeu Cua ChatGPT",
+    items: [
+      { title: "Khong co dinh dang hay mau", description: "ChatGPT chi cho van ban thuan tuy. Can cong cu rieng biet de dinh dang thanh tai lieu chuyen nghiep. Ton thoi gian va de mac loi." },
+      { title: "Khong ho tro ATS", description: "ChatGPT khong biet ATS tim kiem tu khoa gi, mong doi tieu de phan nao hay dinh dang nao may doc duoc. Tao van ban khong hieu cac he thong sang loc tu dong." },
+      { title: "Ket qua chung chung neu khong co thong tin cua ban", description: "Neu khong viet prompt chi tiet voi so lieu va thanh tich cu the, ChatGPT tao noi dung chung chung thay vi neu cu the voi so lieu thuc te cua ban." },
+      { title: "Chat luong khong nhat quan", description: "Chat luong ket qua cua ChatGPT phu thuoc hoan toan vao prompt. Thay doi tu ngu nho cho ket qua rat khac nhau. Cong cu tao CV chuyen dung cho ket qua nhat quan." },
+      { title: "Khong the xuat PDF", description: "Ban khong the gui cuoc tro chuyen ChatGPT cho nha tuyen dung. Can sao chep van ban, dan vao mau, sua dinh dang roi xuat PDF — quy trinh mat hon 30 phut." }
+    ]
+  },
+  bestApproach: {
+    title: "Cach Tiep Can Tot Nhat: Dung Ca Hai",
+    description: "Day la quy trinh tot nhat de tao CV bang AI nam 2026:",
+    steps: [
+      { title: "Dung ChatGPT de brainstorm", description: "Nho ChatGPT tao y tuong gach dau dong, viet lai noi dung yeu va xac dinh tu khoa nganh cho vi tri muc tieu." },
+      { title: "Xay dung CV trong cong cu chuyen dung", description: "Dung Best AI Resume Builder de dinh dang noi dung trong mau chuyen nghiep toi uu ATS voi cau truc dung va khop tu khoa." },
+      { title: "Ca nhan hoa voi du lieu thuc cua ban", description: "Thay van ban AI chung bang so lieu thuc, thanh tich va ten cong ty cua ban. Khong AI nao biet thanh tich cu the cua ban — ban phai tu nhap." },
+      { title: "Xuat va ung tuyen", description: "Tai PDF toi uu ATS xuong va ung tuyen ngay. Khong can sao chep dan, khong can sua dinh dang, khong can cong cu them." }
+    ]
+  },
+  whoShouldUse: {
+    title: "Khuyen Nghi Thang Than: Ai Nen Dung Gi?",
+    useChatGPT: {
+      title: "Dung ChatGPT neu...",
+      items: [
+        "Ban da co mau CV duoc dinh dang tot",
+        "Chi can giup brainstorm gach dau dong",
+        "Thoai mai voi viec tu dinh dang tai lieu",
+        "Muon nghien cuu tu khoa va xu huong nganh"
+      ]
+    },
+    useBestAI: {
+      title: "Dung Best AI Resumes neu...",
+      items: [
+        "Muon CV hoan chinh san sang gui tu mot cong cu",
+        "Can dinh dang ATS va cham diem tu khoa",
+        "Khong muon tu quan ly mau va dinh dang",
+        "Muon luu va chinh sua nhieu phien ban CV",
+        "Muon xuat PDF mot cu nhap san sang gui"
+      ]
+    },
+    bottomLine: "Tom lai: ChatGPT la tro ly viet tot nhung khong phai cong cu tao CV. De co CV hoan chinh dat chuan ATS, can cong cu chuyen dung."
+  },
+  resumeExamples: {
+    title: "Xem Cac Mau CV Duoc Tao Bang AI",
+    description: "Duyet hon 300 mau CV thuc te cho moi nghe nghiep — tat ca duoc tao voi AI toi uu ATS lam duoc nhieu hon ChatGPT don thuan.",
+    ctaBrowse: "Duyet Mau CV",
+    ctaTemplates: "Xem Tat Ca Mau"
+  },
+  faq: {
+    title: "Cau Hoi Thuong Gap",
+    items: [
+      { question: "ChatGPT co viet CV tot khong?", answer: "ChatGPT co the tao van ban cho CV nhung khong the dinh dang CV, kiem tra tinh tuong thich ATS hay tao PDF de tai xuong. Van can cong cu rieng de dinh dang va thiet ke tai lieu. Cong cu tao CV AI chuyen dung xu ly ca viet lan dinh dang trong mot buoc." },
+      { question: "Co dung AI de viet CV duoc khong?", answer: "Duoc. Viet CV bang AI duoc chap nhan rong rai nam 2026. Nha tuyen dung tai Viet Nam quan tam den chat luong noi dung CV, khong phai cach tao ra. Dieu quan trong la ca nhan hoa noi dung AI voi thanh tich, so lieu va kinh nghiem thuc cua ban." },
+      { question: "Nhuoc diem cua ChatGPT cho CV la gi?", answer: "ChatGPT cho van ban thuan khong co dinh dang, khong ho tro ATS, khong the danh gia CV so voi tin tuyen dung, tao noi dung chung chung neu khong co so lieu cu the cua ban, va can ban tu sao chep dan vao mau." },
+      { question: "He thong ATS co loai CV duoc viet bang ChatGPT khong?", answer: "He thong ATS khong phat hien hay quan tam den noi dung duoc viet bang AI. Nhung neu ban dan van ban ChatGPT vao mau duoc dinh dang kem, ATS co the khong doc duoc. Cong cu tao CV chuyen dung dam bao ca noi dung va dinh dang deu tuong thich ATS." },
+      { question: "Best AI Resume Builder co tot hon ChatGPT khong?", answer: "Cho cong viec cu the la tao CV san sang ung tuyen, co. Best AI Resume Builder ket hop viet AI voi dinh dang chuyen nghiep, toi uu ATS, khop tu khoa va xuat PDF trong mot cong cu. ChatGPT la AI da nang — viet van ban nhung khong the dinh dang, danh gia hay xuat CV." }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "So Sanh Cac Cong Cu Tao CV Khac",
+    links: [
+      { title: "Thay The Canva", subtitle: "Cong cu thiet ke vs cong cu tao CV" },
+      { title: "Thay The Overleaf", subtitle: "LaTeX vs tao bang AI" },
+      { title: "Thay The Resume.io", subtitle: "So sanh gia va tinh nang" },
+      { title: "Thay The Rezi", subtitle: "So sanh cong cu AI" }
+    ],
+    guidesTitle: "Huong Dan CV Huu Ich",
+    guides: [
+      { label: "ATS La Gi? Huong Dan Toan Dien" },
+      { label: "Cach Viet CV (Tung Buoc)" },
+      { label: "ChatGPT vs Claude Cho CV" },
+      { label: "Cach Viet Tom Tat So Yeu Ly Lich" }
+    ]
+  },
+  externalResources: {
+    title: "Tai Nguyen Ben Ngoai",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "ChatGPT boi OpenAI" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: Meo CV" }
+    ]
+  },
+  bottomCta: {
+    title: "San Sang Vuot Troi Hon ChatGPT?",
+    description: "Tao CV hoan chinh toi uu ATS voi cong cu tao CV AI cua chung toi — viet, dinh dang va xuat PDF trong mot cong cu.",
+    ctaText: "Tao CV Mien Phi — Khong Can Tai Khoan",
+    subtext: "Mien phi mai mai. Khong can the tin dung."
+  }
+};
+
+// ---------------------------------------------------------------------------
+// Korean
+// ---------------------------------------------------------------------------
+const ko: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs AI 이력서 빌더 2026 | Best AI Resume",
+    description: "ChatGPT와 전문 AI 이력서 빌더 중 무엇을 써야 할까요? 형식, ATS 호환성, 결과 품질을 비교해보세요. 어떤 도구가 취업에 더 도움이 되는지 알아보세요.",
+    keywords: "chatgpt 이력서, ai 이력서 작성, 이력서 빌더, chatgpt vs 이력서 빌더, chatgpt 이력서 쓰기, ai 이력서, 이력서 양식",
+    ogTitle: "ChatGPT vs AI 이력서 빌더 2026",
+    ogDescription: "ChatGPT와 전문 AI 이력서 빌더를 비교합니다. 실제 장단점과 함께 기능별 분석.",
+    twitterTitle: "ChatGPT vs AI 이력서 빌더: 어떤 도구가 이력서를 더 잘 만드나요?",
+    twitterDescription: "취업에 도움이 되는 이력서를 만들기 위해 ChatGPT vs AI 이력서 빌더를 비교합니다"
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs AI 이력서 빌더",
+    articleHeadline: "ChatGPT vs AI 이력서 빌더: 2026년에 어떤 도구가 이력서를 더 잘 만드나요?",
+    articleDescription: "ChatGPT와 전문 AI 이력서 빌더를 비교합니다. 실제 장단점과 함께 기능별 분석."
+  },
+  hero: {
+    badge: "비교",
+    title: "ChatGPT vs AI 이력서 빌더:",
+    titleHighlight: "어떤 도구가 취업을 도와주나요?",
+    subtitle: "ChatGPT는 텍스트를 작성하지만 이력서 빌더는 <strong>면접 준비가 된 문서</strong>를 만듭니다. 이 차이가 취업 활동에 왜 중요한지 알아보세요.",
+    ctaPrimary: "무료로 이력서 만들기",
+    ctaSecondary: "비교 보기"
+  },
+  problem: {
+    title: "문제: ChatGPT는 텍스트를 작성하지 이력서를 만들지 않습니다",
+    description: "ChatGPT는 텍스트를 생성하는 범용 AI입니다. 이력서 항목, 요약, 자기소개서를 작성할 수 있지만 — <strong>문서 형식 지정, ATS 호환성 확인, PDF 내보내기는 불가능합니다</strong>. 직접 디자인, 형식 지정, 수정이 필요한 원시 텍스트만 받게 됩니다.",
+    stats: [
+      { value: "0", label: "양식 없음 — ChatGPT는 일반 텍스트만 제공" },
+      { value: "0%", label: "ATS 지원 없음 — 키워드 점수나 형식 확인 없음" },
+      { value: "3+", label: "추가 도구 필요 — 양식, 형식 도구, PDF 변환기" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "구직자를 위한 실제 기능별 비교",
+    colFeature: "기능",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      { feature: "AI 글쓰기", chatgpt: "일반 텍스트를 잘 생성", best: "산업별 키워드를 갖춘 이력서 전용 AI", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "전문 양식", chatgpt: "양식 없음 — 텍스트만", best: "ATS 통과 양식 20개 이상", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "ATS 최적화", chatgpt: "ATS 지원 없음", best: "실시간 ATS 점수 및 키워드 매칭", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "PDF 내보내기", chatgpt: "문서 내보내기 불가", best: "클릭 한 번으로 완벽한 PDF", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "형식 및 디자인", chatgpt: "일반 텍스트만 제공", best: "내장 전문 형식", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "채용 공고 맞춤화", chatgpt: "수동 — 채용 공고를 프롬프트에 붙여넣기", best: "자동 키워드 추출 및 매칭", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "섹션 구조", chatgpt: "프롬프트에서 직접 구조 정의 필요", best: "체계적인 단계별 안내", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "일관성", chatgpt: "프롬프트 품질에 따라 결과 다양", best: "일관되고 검증된 결과", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "콘텐츠 개인화", chatgpt: "상세한 프롬프트 필요", best: "입력한 경험에서 자동 추출", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "가격", chatgpt: "무료(GPT-3.5) 또는 월 $20(GPT-4)", best: "무료 플랜 제공", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "사용 편의성", chatgpt: "프롬프트 작성 학습 필요", best: "간단함 — 정보만 입력하면 됨", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "여러 이력서", chatgpt: "매번 처음부터 시작", best: "여러 버전 저장 및 편집", chatgptIcon: "partial", bestIcon: "yes" }
+    ]
+  },
+  strengths: {
+    title: "이력서에서 ChatGPT가 잘하는 것",
+    subtitle: "솔직히 말하면 ChatGPT에는 진짜 강점이 있습니다. 이력서 작성에 실제로 도움이 되는 것들입니다:",
+    items: [
+      { title: "항목 아이디어 구상", description: "ChatGPT는 직무 설명에서 성과 중심 항목의 여러 버전을 생성하는 데 탁월합니다. 무엇을 써야 할지 모르겠다는 문제를 극복하는 데 좋습니다." },
+      { title: "약한 내용 다시 작성", description: "임무 중심 항목을 붙여넣고 ChatGPT가 성과로 다시 작성하게 하세요. 책임 동사를 실제 수치가 있는 행동 동사로 바꾸는 데 탁월합니다." },
+      { title: "산업 키워드 찾기", description: "ChatGPT에게 특정 직무에 중요한 기술과 키워드를 식별해달라고 하세요. ATS 매칭을 위한 좋은 목록을 얻을 수 있습니다." },
+      { title: "자기소개서 초안 작성", description: "ChatGPT는 자기소개서의 첫 번째 초안을 꽤 잘 작성합니다. 직접 수정이 필요하지만 한국 취업 시장에 좋은 시작점입니다." }
+    ]
+  },
+  shortcomings: {
+    title: "ChatGPT의 단점",
+    items: [
+      { title: "형식이나 양식 없음", description: "ChatGPT는 일반 텍스트만 제공합니다. 전문 문서로 형식화하려면 별도 도구가 필요합니다. 시간이 많이 걸리고 오류 발생 가능성이 높습니다." },
+      { title: "ATS 지원 없음", description: "ChatGPT는 ATS가 어떤 키워드를 찾는지, 어떤 섹션 헤딩을 기대하는지, 어떤 형식을 기계가 읽을 수 있는지 모릅니다. 자동화된 스크리닝 시스템에 대한 이해 없이 텍스트를 생성합니다." },
+      { title: "정보 없이 일반적인 결과", description: "구체적인 수치와 성과가 포함된 상세한 프롬프트를 작성하지 않으면 ChatGPT는 일반적인 내용을 생성합니다. 구체적인 수치와 성과 대신 모호한 표현이 나옵니다." },
+      { title: "일관성 없는 품질", description: "ChatGPT 결과 품질은 전적으로 프롬프트에 달려 있습니다. 작은 단어 변경이 매우 다른 결과를 만들어냅니다. 전문 이력서 빌더는 일관되고 검증된 결과를 제공합니다." },
+      { title: "PDF 내보내기 불가", description: "ChatGPT 대화를 고용주에게 보낼 수 없습니다. 텍스트를 복사하고, 양식에 붙여넣고, 형식을 고치고, PDF로 내보내야 합니다 — 30분 이상 걸리는 과정입니다." }
+    ]
+  },
+  bestApproach: {
+    title: "최선의 접근: 둘 다 사용하기",
+    description: "2026년 AI로 이력서를 만드는 최선의 워크플로우입니다:",
+    steps: [
+      { title: "ChatGPT로 아이디어 구상", description: "ChatGPT에게 항목 아이디어 생성, 약한 내용 다시 작성, 목표 직무의 산업 키워드 식별을 요청하세요." },
+      { title: "전문 도구에서 이력서 작성", description: "Best AI Resume Builder를 사용해 올바른 구조와 키워드 매칭을 갖춘 ATS 최적화 전문 양식에 내용을 형식화하세요." },
+      { title: "실제 데이터로 개인화", description: "AI의 일반적인 텍스트를 실제 수치, 성과, 회사 이름으로 교체하세요. 어떤 AI도 당신의 구체적인 성과를 모릅니다 — 직접 입력해야 합니다." },
+      { title: "내보내기 및 지원", description: "ATS 최적화 PDF를 다운로드하고 지원하세요. 복사 붙여넣기 없음, 형식 수정 없음, 추가 도구 없음." }
+    ]
+  },
+  whoShouldUse: {
+    title: "솔직한 추천: 누가 무엇을 써야 하나요?",
+    useChatGPT: {
+      title: "ChatGPT 사용 시...",
+      items: [
+        "이미 잘 형식화된 이력서 양식이 있는 경우",
+        "항목 아이디어 구상에만 도움이 필요한 경우",
+        "직접 문서 형식화에 편안한 경우",
+        "키워드 및 산업 트렌드를 연구하고 싶은 경우"
+      ]
+    },
+    useBestAI: {
+      title: "Best AI Resumes 사용 시...",
+      items: [
+        "하나의 도구에서 완성된 이력서를 원하는 경우",
+        "ATS 형식 및 키워드 점수가 필요한 경우",
+        "양식과 형식을 직접 관리하고 싶지 않은 경우",
+        "여러 버전의 이력서를 저장하고 편집하려는 경우",
+        "클릭 한 번으로 PDF를 내보내고 싶은 경우"
+      ]
+    },
+    bottomLine: "결론: ChatGPT는 좋은 글쓰기 보조 도구이지만 이력서 빌더는 아닙니다. ATS 통과 완성 이력서를 위해서는 전문 도구가 필요합니다."
+  },
+  resumeExamples: {
+    title: "AI로 만든 이력서 예시 보기",
+    description: "모든 직업에 대한 300개 이상의 실제 이력서 예시를 탐색하세요 — 모두 ChatGPT만으로 가능한 것보다 더 많은 것을 하는 ATS 최적화 AI로 만들어졌습니다.",
+    ctaBrowse: "이력서 예시 탐색",
+    ctaTemplates: "모든 양식 보기"
+  },
+  faq: {
+    title: "자주 묻는 질문",
+    items: [
+      { question: "ChatGPT가 이력서를 잘 작성하나요?", answer: "ChatGPT는 이력서용 텍스트를 생성할 수 있지만 이력서 형식 지정, ATS 호환성 확인, 다운로드 가능한 PDF 생성은 불가능합니다. 문서 형식 지정과 디자인을 위한 별도 도구가 여전히 필요합니다. 전문 AI 이력서 빌더는 한 단계에서 글쓰기와 형식 지정을 모두 처리합니다." },
+      { question: "이력서 작성에 AI를 사용해도 되나요?", answer: "네. AI를 이용한 이력서 작성은 2026년에 광범위하게 수용됩니다. 한국의 고용주들은 이력서 내용 품질에 관심을 갖지, 만들어진 방법에는 관심이 없습니다. 중요한 것은 실제 성과, 수치, 경험으로 AI가 생성한 내용을 개인화하는 것입니다." },
+      { question: "이력서에 ChatGPT를 사용할 때의 단점은 무엇인가요?", answer: "ChatGPT는 형식 없는 일반 텍스트를 제공하고, ATS를 지원하지 않으며, 채용 공고에 대한 이력서를 평가할 수 없고, 구체적인 수치 없이 일반적인 내용을 생성하며, 양식에 직접 복사 붙여넣기가 필요합니다." },
+      { question: "ATS 시스템이 ChatGPT로 작성된 이력서를 거부하나요?", answer: "ATS 시스템은 AI가 작성한 내용을 감지하거나 신경 쓰지 않습니다. 하지만 ChatGPT 텍스트를 형식화가 잘못된 양식에 붙여넣으면 ATS가 읽지 못할 수 있습니다. 전문 이력서 빌더는 내용과 형식 모두 ATS 호환성을 보장합니다." },
+      { question: "Best AI Resume Builder가 ChatGPT보다 이력서 작성에 더 좋은가요?", answer: "이력서 작성이라는 특정 작업에서는 네. Best AI Resume Builder는 AI 글쓰기, 전문 형식, ATS 최적화, 키워드 매칭, PDF 내보내기를 하나의 도구에서 결합합니다. ChatGPT는 범용 AI입니다 — 텍스트를 작성하지만 이력서를 형식화, 평가, 내보낼 수 없습니다." }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "다른 이력서 빌더 비교",
+    links: [
+      { title: "Canva 대안", subtitle: "디자인 도구 vs 이력서 빌더" },
+      { title: "Overleaf 대안", subtitle: "LaTeX vs AI 빌더" },
+      { title: "Resume.io 대안", subtitle: "가격 및 기능 비교" },
+      { title: "Rezi 대안", subtitle: "AI 도구 비교" }
+    ],
+    guidesTitle: "유용한 이력서 가이드",
+    guides: [
+      { label: "ATS란 무엇인가? 완전 가이드" },
+      { label: "이력서 작성 방법 (단계별)" },
+      { label: "이력서용 ChatGPT vs Claude" },
+      { label: "자기소개 요약 작성 방법" }
+    ]
+  },
+  externalResources: {
+    title: "외부 자료",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "OpenAI의 ChatGPT" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: 이력서 팁" }
+    ]
+  },
+  bottomCta: {
+    title: "ChatGPT를 넘어설 준비가 되셨나요?",
+    description: "AI 이력서 빌더로 ATS 최적화된 완성 이력서를 만드세요 — 글쓰기, 형식 지정, PDF 내보내기가 하나의 도구에서.",
+    ctaText: "무료 이력서 만들기 — 계정 불필요",
+    subtext: "영원히 무료. 신용카드 불필요."
+  }
+};
+
+const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th, pt, vi, ko, tr };
 
 export const getContent = (locale: string): ChatGPTComparisonContent =>
   selectContent(content, locale);

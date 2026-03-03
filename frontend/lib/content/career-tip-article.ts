@@ -246,5 +246,51 @@ const tr: CareerTipArticleContent = {
   tagsLabel: 'Etiketler:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
+const vi: CareerTipArticleContent = {
+  breadcrumb: { home: 'Trang Chủ', careerTips: 'Mẹo Nghề Nghiệp' },
+  notFound: 'Không Tìm Thấy Bài Viết',
+  share: {
+    title: 'Bài viết này có hữu ích không?',
+    subtitle: 'Chia sẻ với những người khác có thể hưởng lợi',
+  },
+  cta: {
+    title: 'Sẵn Sàng Tạo CV của Bạn?',
+    subtitle: 'Áp dụng những mẹo này với công cụ tạo CV AI của chúng tôi. Tạo CV chuyên nghiệp trong vài phút.',
+    button: 'Tạo CV Ngay',
+  },
+  sidebar: {
+    tocTitle: 'Mục Lục',
+    relatedTitle: 'Bài Viết Liên Quan',
+    ctaTitle: 'Tạo CV Của Bạn',
+    ctaSubtitle: 'Tạo CV chuyên nghiệp với AI trong vài phút.',
+    ctaButton: 'Bắt Đầu',
+  },
+  moreCareerTips: 'Mẹo Nghề Nghiệp Khác',
+  tagsLabel: 'Thẻ:',
+};
+
+const ko: CareerTipArticleContent = {
+  breadcrumb: { home: '홈', careerTips: '커리어 팁' },
+  notFound: '기사를 찾을 수 없습니다',
+  share: {
+    title: '도움이 되셨나요?',
+    subtitle: '도움이 필요한 다른 분들과 공유하세요',
+  },
+  cta: {
+    title: '이력서를 만들 준비가 되셨나요?',
+    subtitle: 'AI 이력서 빌더로 이 팁들을 실제로 적용해 보세요. 몇 분 만에 전문적인 이력서를 만드세요.',
+    button: '지금 이력서 만들기',
+  },
+  sidebar: {
+    tocTitle: '목차',
+    relatedTitle: '관련 기사',
+    ctaTitle: '이력서 만들기',
+    ctaSubtitle: 'AI로 몇 분 만에 전문적인 이력서를 만드세요.',
+    ctaButton: '시작하기',
+  },
+  moreCareerTips: '더 많은 커리어 팁',
+  tagsLabel: '태그:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

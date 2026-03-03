@@ -275,5 +275,55 @@ const tr: CoverLetterArticleContent = {
   updated: 'Güncellendi',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
+const vi: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Trang Chủ', coverLetterExamples: 'Mẫu Thư Xin Việc' },
+  notFound: 'Không Tìm Thấy',
+  coverLetterSuffix: 'Mẫu Thư Xin Việc',
+  keySkillsTitle: 'Kỹ Năng Chính Cần Làm Nổi Bật',
+  relatedTopics: 'Chủ Đề Liên Quan',
+  faqTitle: 'Câu Hỏi Thường Gặp',
+  relatedResourcesTitle: 'Tài Nguyên Liên Quan',
+  resumeExampleSubtext: 'Xem định dạng CV tương ứng',
+  coverLetterGenerator: 'Công Cụ Tạo Thư Xin Việc AI',
+  coverLetterGeneratorSubtext: 'Tạo thư xin việc trong vài giây',
+  sidebar: {
+    ctaTitle: 'Tạo Thư Xin Việc Của Bạn',
+    ctaSubtitle: 'Dùng AI để tạo thư xin việc cho vị trí {jobTitle} trong vài giây.',
+    ctaButton: 'Tạo Thư Xin Việc',
+    tocTitle: 'Mục Lục',
+  },
+  relatedCoverLetters: 'Thư Xin Việc Liên Quan',
+  bottomCta: {
+    subtitle: 'Tham gia cùng hàng nghìn chuyên gia đã có được công việc mơ ước với Best AI Resume.',
+    button: 'Tạo Thư Xin Việc — Miễn Phí',
+  },
+  updated: 'Cập Nhật',
+};
+
+const ko: CoverLetterArticleContent = {
+  breadcrumb: { home: '홈', coverLetterExamples: '자기소개서 예시' },
+  notFound: '찾을 수 없음',
+  coverLetterSuffix: '자기소개서 예시',
+  keySkillsTitle: '강조해야 할 핵심 역량',
+  relatedTopics: '관련 주제',
+  faqTitle: '자주 묻는 질문',
+  relatedResourcesTitle: '관련 자료',
+  resumeExampleSubtext: '해당 이력서 형식 보기',
+  coverLetterGenerator: 'AI 자기소개서 생성기',
+  coverLetterGeneratorSubtext: '자기소개서를 몇 초 만에 작성',
+  sidebar: {
+    ctaTitle: '자기소개서 만들기',
+    ctaSubtitle: 'AI로 {jobTitle} 포지션에 맞는 맞춤형 자기소개서를 몇 초 안에 생성하세요.',
+    ctaButton: '자기소개서 생성',
+    tocTitle: '목차',
+  },
+  relatedCoverLetters: '관련 자기소개서',
+  bottomCta: {
+    subtitle: 'Best AI Resume로 꿈의 직장을 찾은 수천 명의 전문가와 함께하세요.',
+    button: '자기소개서 생성 — 무료',
+  },
+  updated: '업데이트',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

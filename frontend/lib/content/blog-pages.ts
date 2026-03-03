@@ -571,5 +571,111 @@ const tr: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
+const vi: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'Blog - Mẹo Viết CV và Lời Khuyên Nghề Nghiệp | Best AI Resume',
+      description: 'Mẹo viết CV từ chuyên gia, lời khuyên nghề nghiệp và chiến lược tìm việc giúp bạn đạt được công việc mơ ước. Hướng dẫn và tài liệu miễn phí.',
+      ogDescription: 'Mẹo viết CV từ chuyên gia và chiến lược tìm việc hiệu quả.',
+    },
+    heroBadge: 'Blog Của Chúng Tôi',
+    heroTitle: 'Mẹo Viết CV và ',
+    heroTitleHighlight: 'Lời Khuyên Nghề Nghiệp',
+    heroSubtitle: 'Hướng dẫn, mẹo và chiến lược từ chuyên gia để tạo CV nổi bật và thăng tiến trong sự nghiệp.',
+    featuredArticles: 'Bài Viết Nổi Bật',
+    noArticlesTitle: 'Chưa có bài viết',
+    noArticlesSubtitle: 'Hãy quay lại sớm để xem nội dung mới!',
+  },
+  article: {
+    notFound: 'Không Tìm Thấy Bài Viết',
+    faqTitle: 'Câu Hỏi Thường Gặp',
+    resourcesTitle: 'Công Cụ và Tài Nguyên CV',
+    resources: [
+      { title: 'Hơn 300 Mẫu CV', subtitle: 'Hướng dẫn viết theo nghề nghiệp' },
+      { title: 'Hướng Dẫn Định Dạng CV 2026', subtitle: 'Theo thời gian, theo kỹ năng và kết hợp' },
+      { title: 'Mẫu CV Miễn Phí', subtitle: 'Thiết kế chuyên nghiệp tương thích ATS' },
+      { title: 'Tạo CV bằng AI', subtitle: 'Tạo CV của bạn trong vài phút' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'Bài Viết | Blog Best AI Resume',
+    metaDescTemplate: 'Xem các bài viết về {category} với lời khuyên, hướng dẫn từ chuyên gia.',
+    backToBlog: 'Quay Lại Blog',
+    articlesCount: '{count} bài viết trong danh mục này',
+    articleCount: '{count} bài viết trong danh mục này',
+    noArticlesTitle: 'Chưa có bài viết',
+    noArticlesSubtitle: 'Hãy quay lại sớm để xem nội dung mới trong danh mục này!',
+  },
+  search: {
+    meta: {
+      title: 'Tìm Kiếm Blog | Best AI Resume',
+      description: 'Tìm kiếm blog của chúng tôi để có mẹo viết CV, lời khuyên nghề nghiệp và chiến lược tìm việc.',
+    },
+    backToBlog: 'Quay Lại Blog',
+    title: 'Kết Quả Tìm Kiếm',
+    resultsCount: '{count} kết quả cho',
+    resultCount: '{count} kết quả cho',
+    startSearchTitle: 'Bắt đầu tìm kiếm',
+    startSearchSubtitle: 'Nhập từ khóa để tìm bài viết',
+    noResultsTitle: 'Không có kết quả',
+    noResultsText: 'Chúng tôi không tìm thấy bài viết nào phù hợp với',
+    tryLabel: 'Thử:',
+    trySuggestions: ['Sử dụng từ khóa khác', 'Kiểm tra chính tả', 'Duyệt theo danh mục thay thế'],
+  },
+};
+
+const ko: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: '블로그 - 이력서 팁 및 커리어 조언 | Best AI Resume',
+      description: '전문가의 이력서 작성 팁, 커리어 조언 및 취업 전략으로 원하는 직장을 얻으세요. 무료 가이드와 튜토리얼.',
+      ogDescription: '전문가의 이력서 작성 팁과 취업 전략.',
+    },
+    heroBadge: '우리 블로그',
+    heroTitle: '이력서 팁 및 ',
+    heroTitleHighlight: '커리어 조언',
+    heroSubtitle: '전문가 가이드, 팁 및 전략으로 돋보이는 이력서를 만들고 커리어를 발전시키세요.',
+    featuredArticles: '주요 기사',
+    noArticlesTitle: '아직 기사가 없습니다',
+    noArticlesSubtitle: '새 콘텐츠를 위해 곧 다시 확인하세요!',
+  },
+  article: {
+    notFound: '게시물을 찾을 수 없습니다',
+    faqTitle: '자주 묻는 질문',
+    resourcesTitle: '이력서 도구 및 자료',
+    resources: [
+      { title: '300개 이상 이력서 예시', subtitle: '직종별 작성 가이드' },
+      { title: '이력서 형식 가이드 2026', subtitle: '시간순, 기능별 및 혼합형' },
+      { title: '무료 이력서 양식', subtitle: 'ATS 친화적 전문 디자인' },
+      { title: 'AI 이력서 빌더', subtitle: '몇 분 만에 이력서 작성' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: '기사 | Best AI Resume 블로그',
+    metaDescTemplate: '전문가 조언, 팁, 가이드를 위한 {category} 기사를 확인하세요.',
+    backToBlog: '블로그로 돌아가기',
+    articlesCount: '이 카테고리에 {count}개 기사',
+    articleCount: '이 카테고리에 {count}개 기사',
+    noArticlesTitle: '아직 기사가 없습니다',
+    noArticlesSubtitle: '이 카테고리의 새 콘텐츠를 위해 곧 다시 확인하세요!',
+  },
+  search: {
+    meta: {
+      title: '블로그 검색 | Best AI Resume',
+      description: '블로그에서 이력서 팁, 커리어 조언 및 취업 전략을 검색하세요.',
+    },
+    backToBlog: '블로그로 돌아가기',
+    title: '검색 결과',
+    resultsCount: '{count}개 결과',
+    resultCount: '{count}개 결과',
+    startSearchTitle: '검색 시작',
+    startSearchSubtitle: '기사를 찾으려면 검색어를 입력하세요',
+    noResultsTitle: '결과 없음',
+    noResultsText: '다음과 일치하는 기사를 찾을 수 없습니다',
+    tryLabel: '시도해 보세요:',
+    trySuggestions: ['다른 키워드 사용', '철자 확인', '대신 카테고리 탐색'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

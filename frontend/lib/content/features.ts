@@ -464,5 +464,95 @@ const tr: FeaturesPageContent = {
   },
 };
 
-const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
+const vi: FeaturesPageContent = {
+  meta: {
+    title: 'Tính Năng Tạo CV AI — Mẫu, Kiểm Tra ATS và Hơn Thế | Best AI Resume',
+    description: 'Khám phá tất cả tính năng của Best AI Resume: viết bằng AI, hơn 20 mẫu CV chuyên nghiệp, tối ưu hóa ATS thời gian thực, xuất PDF và gợi ý thông minh.',
+    keywords: 'tính năng tạo CV, viết CV bằng AI, kiểm tra ATS, mẫu CV, xuất PDF, công cụ tạo CV miễn phí',
+  },
+  hero: {
+    badge: 'Tính Năng',
+    title: 'Mọi thứ bạn cần để',
+    titleHighlight: 'có được công việc mơ ước',
+    subtitle: 'Công cụ AI mạnh mẽ kết hợp với thiết kế đẹp giúp bạn nổi bật so với đám đông.',
+  },
+  features: [
+    { title: 'Viết bằng AI', description: 'Để AI của chúng tôi tạo ra các gạch đầu dòng ấn tượng và tóm tắt chuyên nghiệp làm nổi bật thành tích của bạn. Chuyển mô tả công việc cơ bản thành tuyên bố có tác động.' },
+    { title: 'Hơn 20 Mẫu Cao Cấp', description: 'Chọn từ các mẫu được thiết kế chuyên nghiệp, nổi bật và tương thích ATS. Mỗi mẫu được tạo bởi các chuyên gia thiết kế.' },
+    { title: 'Tối Ưu Hóa ATS', description: 'Điểm ATS theo thời gian thực đảm bảo CV của bạn vượt qua hệ thống sàng lọc tự động. Nhận phản hồi tức thì về cách cải thiện điểm số.' },
+    { title: 'Xem Trước Thời Gian Thực', description: 'Xem thay đổi ngay lập tức khi bạn nhập. Những gì bạn thấy chính xác là những gì nhà tuyển dụng sẽ thấy. Không còn đoán mò nữa.' },
+    { title: 'Xuất PDF', description: 'Tải xuống PDF hoàn hảo sẵn sàng gửi đi. Tối ưu cho cả xem kỹ thuật số và in ấn. CV của bạn trông chuyên nghiệp ở mọi nơi.' },
+    { title: 'Gợi Ý Thông Minh', description: 'Nhận đề xuất thông minh về kỹ năng, từ khóa và nội dung dựa trên vị trí mục tiêu. AI phân tích hàng nghìn CV thành công.' },
+  ],
+  steps: {
+    badge: 'Cách Hoạt Động',
+    title: 'Ba bước đến',
+    titleHighlight: 'CV hoàn hảo của bạn',
+    items: [
+      { title: 'Điền Thông Tin', description: 'Nhập kinh nghiệm, học vấn và kỹ năng của bạn. AI hỗ trợ bạn ở mọi bước.' },
+      { title: 'Chọn Mẫu', description: 'Chọn từ hơn 20 mẫu chuyên nghiệp. Xem trước thời gian thực khi bạn tùy chỉnh.' },
+      { title: 'Tải PDF', description: 'Xuất CV hoàn thiện dưới dạng PDF hoàn hảo, sẵn sàng gây ấn tượng với nhà tuyển dụng.' },
+    ],
+  },
+  cta: {
+    title: 'Sẵn sàng xây dựng',
+    titleHighlight: 'CV chiến thắng của bạn?',
+    description: 'Tham gia cùng hơn 50.000 chuyên gia đã tìm được công việc mơ ước với Best AI Resume.',
+    ctaText: 'Bắt Đầu Miễn Phí',
+  },
+  externalResources: {
+    title: 'Tài Nguyên Bên Ngoài',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Dữ liệu nghề nghiệp' },
+      { href: 'https://www.shrm.org/', label: 'SHRM: Tài nguyên nhân sự và nghề nghiệp' },
+    ],
+  },
+};
+
+const ko: FeaturesPageContent = {
+  meta: {
+    title: 'AI 이력서 빌더 기능 — 양식, ATS 검사 등 | Best AI Resume',
+    description: 'Best AI Resume의 모든 기능을 확인하세요: AI 글쓰기, 20개 이상 전문 양식, 실시간 ATS 최적화, PDF 내보내기, 스마트 제안으로 원하는 일자리를 얻으세요.',
+    keywords: '이력서 빌더 기능, AI 이력서 작성, ATS 이력서 검사, 이력서 양식, PDF 이력서, 이력서 작성 도구',
+  },
+  hero: {
+    badge: '기능',
+    title: '원하는 직장을 얻기 위한',
+    titleHighlight: '모든 것',
+    subtitle: '강력한 AI 도구와 아름다운 디자인으로 경쟁자들보다 돋보이세요.',
+  },
+  features: [
+    { title: 'AI 글쓰기', description: 'AI가 성과를 강조하는 설득력 있는 글머리 기호와 전문적인 요약을 작성합니다. 기본적인 직무 설명을 임팩트 있는 문장으로 변환하세요.' },
+    { title: '20개 이상 프리미엄 양식', description: 'ATS 호환성을 유지하면서 돋보이는 전문적으로 디자인된 양식 중에서 선택하세요. 각 양식은 디자인 전문가가 제작합니다.' },
+    { title: 'ATS 최적화', description: '실시간 ATS 점수로 이력서가 자동 스크리닝 시스템을 통과하도록 보장합니다. 점수 향상 방법에 대한 즉각적인 피드백을 받으세요.' },
+    { title: '실시간 미리보기', description: '입력하면서 변경 사항을 즉시 확인하세요. 당신이 보는 것이 바로 채용 담당자가 보는 것입니다.' },
+    { title: 'PDF 내보내기', description: '바로 보낼 수 있는 완벽한 PDF를 다운로드하세요. 디지털 보기와 인쇄 모두에 최적화되어 있습니다.' },
+    { title: '스마트 제안', description: '목표 직무에 맞는 기술, 키워드 및 콘텐츠에 대한 지능적인 추천을 받으세요. AI가 수천 개의 성공적인 이력서를 분석합니다.' },
+  ],
+  steps: {
+    badge: '사용 방법',
+    title: '완벽한 이력서를 위한',
+    titleHighlight: '세 단계',
+    items: [
+      { title: '정보 입력', description: '경력, 학력, 기술을 입력하세요. AI가 매 단계를 도와드립니다.' },
+      { title: '양식 선택', description: '20개 이상의 전문 양식에서 선택하세요. 사용자 정의하면서 실시간으로 미리보기하세요.' },
+      { title: 'PDF 다운로드', description: '완성된 이력서를 완벽한 PDF로 내보내어 채용 담당자에게 인상을 남기세요.' },
+    ],
+  },
+  cta: {
+    title: '합격하는 이력서를',
+    titleHighlight: '지금 만들어 보세요',
+    description: 'Best AI Resume로 꿈의 직장을 찾은 50,000명 이상의 전문가와 함께하세요.',
+    ctaText: '무료로 시작하기',
+  },
+  externalResources: {
+    title: '외부 자료',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: 직업 데이터' },
+      { href: 'https://www.shrm.org/', label: 'SHRM: HR 및 경력 자료' },
+    ],
+  },
+};
+
+const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string): FeaturesPageContent => selectContent(content, locale);
