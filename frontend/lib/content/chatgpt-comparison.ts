@@ -1947,7 +1947,263 @@ const th: ChatGPTComparisonContent = {
   }
 };
 
-const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th };
+// ---------------------------------------------------------------------------
+// Turkish
+// ---------------------------------------------------------------------------
+const tr: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT ile CV Yazmak vs AI CV Oluşturucu: Hangisi Daha İyi? (2026) | Best AI Resume",
+    description: "ChatGPT mi, özel AI CV oluşturucu mu kullanmalısınız? Biçimlendirme, ATS uyumluluğu ve çıktı kalitesini karşılaştırın. Hangi araç daha fazla mülakat kazandırıyor?",
+    keywords: "chatgpt cv, chatgpt cv yazma, yapay zeka cv oluşturucu, chatgpt vs cv oluşturucu, chatgpt ile cv yaz, ai cv yazma, cv oluşturucu türkçe",
+    ogTitle: "ChatGPT vs AI CV Oluşturucu: Hangisi Daha İyi CV Yaratır? (2026)",
+    ogDescription: "ChatGPT ile özel AI CV oluşturucu karşılaştırması. Dürüst artı ve eksilerle özellik bazlı karşılaştırma.",
+    twitterTitle: "ChatGPT vs AI CV Oluşturucu: Hangisi Daha İyi CV Yaratır?",
+    twitterDescription: "ChatGPT ile özel AI CV oluşturucu karşılaştırması — iş kazandıran CV\'ler için hangisi daha iyi?"
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs AI CV Oluşturucu",
+    articleHeadline: "ChatGPT vs AI CV Oluşturucu: 2026\'da Hangisi Daha İyi CV Yapar?",
+    articleDescription: "İş kazandıran CV\'ler için ChatGPT ile özel AI CV oluşturucu karşılaştırması. Dürüst artı ve eksilerle özellik bazlı karşılaştırma."
+  },
+  hero: {
+    badge: "Karşılaştırma",
+    title: "ChatGPT mi,",
+    titleHighlight: "AI CV Oluşturucu mu?",
+    subtitle: "ChatGPT CV metni yazabilir — ama biçimlendiremez, ATS uyumluluğunu kontrol edemez, PDF oluşturamaz. Özel <strong>AI CV oluşturucumuz</strong> yazma, biçimlendirme ve ATS optimizasyonunu tek bir adımda yapar. Üstelik ücretsiz.",
+    ctaPrimary: "Ücretsiz CV Oluştur",
+    ctaSecondary: "Karşılaştırmayı Gör"
+  },
+  problem: {
+    title: "ChatGPT ile CV Yazmanın Sorunu",
+    description: "ChatGPT güçlü bir dil modelidir, ancak CV oluşturma konusunda kritik eksiklikler vardır. <strong>Ham metin</strong> üretir — profesyonel biçimlendirme, ATS uyumluluk taraması veya PDF çıktısı olmadan. ChatGPT\'den aldığınız metni ayrı bir şablona kopyalayıp yapıştırmanız, ATS uyumluluğunu kendiniz kontrol etmeniz ve her bölümü manuel olarak biçimlendirmeniz gerekir.",
+    stats: [
+      { value: "0 Biçimlendirme", label: "ChatGPT yalnızca düz metin üretir" },
+      { value: "ATS Yok", label: "ATS uyumluluğu kontrol edilmez" },
+      { value: "%100 Ücretsiz", label: "Best AI Resume — yazma + biçimlendirme + ATS" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI CV Oluşturucu",
+    subtitle: "Özellik bazlı karşılaştırma.",
+    colFeature: "Özellik",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resume",
+    rows: [
+      {
+        feature: "CV Biçimlendirme",
+        chatgpt: "❌ Yalnızca düz metin çıktısı",
+        best: "✅ Profesyonel şablonlar, sürükle-bırak düzenleme",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "ATS Uyumluluk Kontrolü",
+        chatgpt: "❌ ATS değerlendirmesi yapamaz",
+        best: "✅ Yerleşik ATS optimizasyonu",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "PDF Çıktısı",
+        chatgpt: "❌ PDF oluşturamaz",
+        best: "✅ Tek tıklamayla profesyonel PDF",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "CV İçerik Yazımı",
+        chatgpt: "✅ Güçlü — ilgi çekici metin üretir",
+        best: "✅ İş ilanına göre uyarlanmış AI yazımı",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Anahtar Kelime Eşleştirme",
+        chatgpt: "⚠️ Manuel istem gerektirir",
+        best: "✅ İlan taramasıyla otomatik",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Şablon Çeşitliliği",
+        chatgpt: "❌ Şablon yok",
+        best: "✅ 50+ profesyonel şablon",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Ön Yazı Oluşturucu",
+        chatgpt: "⚠️ Metin yazar, biçimlendiremez",
+        best: "✅ AI destekli, biçimlendirilmiş ön yazı",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "İtalyanca/Türkçe Dil Desteği",
+        chatgpt: "✅ Çok dilli metin üretir",
+        best: "✅ Yerelleştirilmiş CV\'ler",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Öğrenme Eğrisi",
+        chatgpt: "⚠️ Etkili istem yazmayı öğrenmek gerekir",
+        best: "✅ Rehberli — istem yazmaya gerek yok",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Ücret",
+        chatgpt: "⚠️ Ücretsiz (GPT-3.5) / Ücretli (GPT-4)",
+        best: "✅ Temel özellikler tamamen ücretsiz",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      }
+    ]
+  },
+  strengths: {
+    title: "ChatGPT\'nin Gerçekten İyi Olduğu Durumlar",
+    subtitle: "Dürüst bir değerlendirme.",
+    items: [
+      {
+        title: "Yaratıcı İçerik Üretimi",
+        description: "ChatGPT, profesyonel özetler, başarı madde işaretleri ve kapak mektubu taslakları gibi ikna edici CV metinleri üretmek için mükemmeldir. Birden fazla sürüm oluşturabilir ve tonu ayarlayabilirsiniz."
+      },
+      {
+        title: "Sektöre Özel Terminoloji",
+        description: "Fintech, teknoloji veya sağlık gibi sektöre özgü terimler ve ifadeler için ChatGPT\'den yardım isteyebilirsiniz; bu, ATS anahtar kelimeleri eklemede yararlı olabilir."
+      },
+      {
+        title: "Beyin Fırtınası ve Yeniden Çerçeveleme",
+        description: "Sorumlulukları başarılara dönüştürmek veya iş geçmişinizin zayıf yönlerini güçlü çerçevelemek için ChatGPT ideal bir araçtır."
+      }
+    ]
+  },
+  shortcomings: {
+    title: "ChatGPT\'nin CV Yazımındaki Eksiklikleri",
+    items: [
+      {
+        title: "Biçimlendirme yapamaz",
+        description: "ChatGPT düz metin üretir. Profesyonel CV görünümü için metni ayrı bir şablona kopyalayıp yapıştırmanız, yazı tiplerini ayarlamanız ve düzeni manuel olarak biçimlendirmeniz gerekir."
+      },
+      {
+        title: "ATS değerlendirmesi yok",
+        description: "ChatGPT, CV\'nizin ATS sistemleri tarafından doğru okunup okunmadığını bilemez. Tablo, grafik veya standart dışı bölüm başlıkları içeren şablonlar ATS tarafından reddedilebilir."
+      },
+      {
+        title: "Genel içerik üretme riski",
+        description: "Gerçek metriklerinizi (satışlarda %23 artış, 12 kişilik ekip) belirtmezseniz ChatGPT herhangi bir pozisyona uyabilecek genel ifadeler üretir."
+      },
+      {
+        title: "Çok adımlı iş akışı",
+        description: "ChatGPT ile CV oluşturmak; istem yazmayı, metni kopyalamayı, şablona yapıştırmayı, biçimlendirmeyi ve ATS kontrolünü ayrı araçlarla yapmayı gerektirir."
+      }
+    ]
+  },
+  bestApproach: {
+    title: "En İyi Yaklaşım: İkisini Birlikte Kullanın",
+    description: "ChatGPT ve AI CV oluşturucu birbirini dışlamaz. Birçok profesyonel ikisini birleştirir:",
+    steps: [
+      {
+        title: "İçerik üretmek için ChatGPT kullanın",
+        description: "ChatGPT\'den iş görevinizi, temel başarılarınızı ve kullandığınız araçları vererek CV madde işaretleri oluşturmasını isteyin."
+      },
+      {
+        title: "Biçimlendirme için CV oluşturucu kullanın",
+        description: "ChatGPT\'den aldığınız içeriği AI CV oluşturucuya yapıştırın; profesyonel şablonlar, ATS optimizasyonu ve tek tıklamayla PDF çıktısı alın."
+      },
+      {
+        title: "Gerçek metriklerinizle kişiselleştirin",
+        description: "Genel AI çıktısını gerçek verilerinizle zenginleştirin: yüzdeler, rakamlar, proje boyutları ve sektöre özgü başarılar."
+      }
+    ]
+  },
+  whoShouldUse: {
+    title: "Kim Neyi Kullanmalı?",
+    useChatGPT: {
+      title: "ChatGPT uygundur eğer...",
+      items: [
+        "İçerik fikirleri ve madde işareti taslakları oluşturmak istiyorsanız",
+        "İş deneyiminizi farklı çerçevelerle yeniden ifade etmek istiyorsanız",
+        "Sektöre özel anahtar kelimeler ve terminoloji arıyorsanız",
+        "Ön yazı için beyin fırtınası yapıyorsanız"
+      ]
+    },
+    useBestAI: {
+      title: "Best AI Resume daha iyi eğer...",
+      items: [
+        "Biçimlendirme ile uğraşmadan tam CV oluşturmak istiyorsanız",
+        "ATS uyumluluğunun garantili olmasını istiyorsanız",
+        "Profesyonel PDF çıktısına ihtiyaç duyuyorsanız",
+        "Birden fazla iş için CV\'yi hızla uyarlamak istiyorsanız",
+        "CV yazımında yeni olup rehberli süreç istiyorsanız"
+      ]
+    },
+    bottomLine: "Özet: ChatGPT iyi bir yazma yardımcısıdır, ancak tam CV oluşturucu değildir. ATS geçen, profesyonel biçimli bir CV için özel araçlar gereklidir."
+  },
+  resumeExamples: {
+    title: "AI ile Oluşturulmuş CV Örneklerini Görün",
+    description: "Her meslek için 300\'den fazla gerçek CV örneği — tümü ChatGPT\'nin tek başına yapabileceğinden fazlasını yapan ATS uyumlu AI ile oluşturulmuş.",
+    ctaBrowse: "CV Örneklerine Göz At",
+    ctaTemplates: "Tüm Şablonları Gör"
+  },
+  faq: {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "ChatGPT ile iyi bir CV yazılabilir mi?",
+        answer: "ChatGPT CV için metin içeriği üretebilir (madde işaretleri, özet, hedef) ancak CV biçimlendiremez, ATS uyumluluğunu kontrol edemez ve indirilebilir PDF oluşturamaz. Biçimlendirme ve tasarım için ayrı bir araç gerekir. Özel AI CV oluşturucular yazma ve biçimlendirmeyi tek adımda halleder."
+      },
+      {
+        question: "AI ile CV yazmak kabul edilir mi?",
+        answer: "Evet. 2026 itibarıyla AI CV yazımı yaygın olarak kabul görmektedir. İşverenler içerik kalitesiyle ilgilenir, nasıl oluşturulduğuyla değil. Önemli olan AI çıktısını gerçek başarılarınız, metrikleriniz ve kişisel deneyimlerinizle özelleştirmenizdir — genel AI çıktısını olduğu gibi göndermeyin."
+      },
+      {
+        question: "ChatGPT\'yi CV yazımında kullanmanın dezavantajları nelerdir?",
+        answer: "ChatGPT düz metin üretir, biçimlendirme yapmaz. ATS uyumluluğunu değerlendiremez, CV\'yi iş ilanıyla karşılaştıramaz, özel metrikler vermezseniz genel içerik üretir ve şablona kopyalamayı kendiniz yapmanız gerekir. Ayrıca CV yazımı için özel olarak eğitilmemiştir."
+      },
+      {
+        question: "ATS sistemleri ChatGPT ile yazılmış CV\'leri reddeder mi?",
+        answer: "ATS sistemleri AI yazılmış içerikleri tespit etmez veya pediklemez. Ancak ChatGPT metnini kötü biçimlendirilmiş bir şablona (Canva grafikleri veya Word tabloları gibi) yapıştırırsanız ATS okuyamayabilir. Özel CV araçları hem içeriğin hem biçimlendirmenin ATS uyumlu olmasını garanti eder."
+      },
+      {
+        question: "CV oluşturmak için Best AI Resume, ChatGPT\'den daha mı iyi?",
+        answer: "CV oluşturma konusunda evet. Best AI Resume, AI yazımını profesyonel biçimlendirme, ATS optimizasyonu, anahtar kelime eşleştirme ve PDF çıktısıyla tek bir araçta birleştirir. ChatGPT genel amaçlı bir AI\'dir — metin yazar ancak CV biçimlendiremez, değerlendiremez veya dışa aktaramaz."
+      }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "Diğer CV Oluşturucularla Karşılaştırın",
+    links: [
+      { title: "Canva Alternatifi", subtitle: "Tasarım araçları vs AI oluşturucu" },
+      { title: "Overleaf Alternatifi", subtitle: "LaTeX vs AI CV oluşturucu" },
+      { title: "Resume.io Alternatifi", subtitle: "Fiyat ve özellik karşılaştırması" },
+      { title: "Rezi Alternatifi", subtitle: "AI araç karşılaştırması" }
+    ],
+    guidesTitle: "Yararlı CV Rehberleri",
+    guides: [
+      { label: "ATS Nedir? Kapsamlı Rehber" },
+      { label: "CV Nasıl Yazılır (Adım Adım)" },
+      { label: "ChatGPT vs Claude: CV için Hangisi Daha İyi?" },
+      { label: "Profesyonel Özet Nasıl Yazılır" }
+    ]
+  },
+  externalResources: {
+    title: "Harici Kaynaklar",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "OpenAI tarafından ChatGPT" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Kariyer Görünümü: CV İpuçları" }
+    ]
+  },
+  bottomCta: {
+    title: "ChatGPT\'nin Ötesine Geçmeye Hazır mısınız?",
+    description: "AI CV oluşturucumuzla ATS uyumlu, tam biçimlendirilmiş bir CV oluşturun — yazma, biçimlendirme ve PDF çıktısı tek araçta.",
+    ctaText: "Ücretsiz CV Oluştur — Hesap Gerekmez",
+    subtext: "Sonsuza kadar ücretsiz. Kredi kartı gerekmez."
+  }
+};
+
+const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th, tr };
 
 export const getContent = (locale: string): ChatGPTComparisonContent =>
   selectContent(content, locale);

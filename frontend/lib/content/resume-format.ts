@@ -1828,7 +1828,7 @@ const tr: ResumeFormatPageContent = {
       'Kariyer aşamanızı değerlendirin (yeni mezun, deneyimli profesyonel, yönetici)',
       '3 CV formatının artı ve eksilerini karşılaştırın',
       'ATS uyumluluk puanını kontrol edin',
-      "Bir şablon seçin ve CV'nizi oluşturun",
+      "Bir şablon seçin ve CV\'nizi oluşturun",
     ],
     howToToolName: 'Best AI Resume — CV Oluşturucu',
   },
@@ -1898,7 +1898,7 @@ const tr: ResumeFormatPageContent = {
       "İş deneyimlerini en yeniden başlayarak sıralayan format. Türk ve uluslararası işe alım uzmanları tarafından en çok tercih edilen format olup ATS sistemleriyle maksimum uyumluluk sağlar.",
     whyLoveTitle: 'Neden işverenler bu formatı tercih ediyor',
     whyLoveText:
-      "Kronolojik CV, işe alım uzmanlarının kariyer gelişimini anında görmesini sağlar. ATS sistemleri bu formatı en yüksek doğrulukla ayrıştırır; bu nedenle Türkiye'deki büyük şirketler, çok uluslu firmalar ve kamu kurumları başvurularında bu format tercih edilir.",
+      "Kronolojik CV, işe alım uzmanlarının kariyer gelişimini anında görmesini sağlar. ATS sistemleri bu formatı en yüksek doğrulukla ayrıştırır; bu nedenle Türkiye\'deki büyük şirketler, çok uluslu firmalar ve kamu kurumları başvurularında bu format tercih edilir.",
     structureTitle: 'Bölüm yapısı',
     sections: [
       { label: 'Kişisel bilgiler ve iletişim', detail: 'Ad soyad, e-posta, telefon, şehir', isCore: true },
@@ -1912,10 +1912,10 @@ const tr: ResumeFormatPageContent = {
   },
   functional: {
     title: 'Fonksiyonel (beceri odaklı) format',
-    description: "CV'yi kronoloji yerine beceri ve yetkinlikler etrafında düzenleyen format.",
+    description: "CV\'yi kronoloji yerine beceri ve yetkinlikler etrafında düzenleyen format.",
     warningTitle: 'ATS uyumluluğuna dikkat',
     warningText:
-      "Bazı ATS sistemleri deneyim bölümü küçültülmüş fonksiyonel CV'leri doğru okumakta güçlük çeker.",
+      "Bazı ATS sistemleri deneyim bölümü küçültülmüş fonksiyonel CV\'leri doğru okumakta güçlük çeker.",
     structureTitle: 'Bölüm yapısı',
     sections: [
       { label: 'Kişisel bilgiler ve iletişim', isCore: true },
@@ -1948,9 +1948,9 @@ const tr: ResumeFormatPageContent = {
     title: 'Sık sorulan sorular',
     items: [
       {
-        question: "Türkiye'de en yaygın kullanılan CV formatı hangisi?",
+        question: "Türkiye\'de en yaygın kullanılan CV formatı hangisi?",
         answer:
-          "Türkiye'de özel sektörde kronolojik (ters sıralı) format en yaygın tercih edilenidir. Büyük şirketler, çok uluslu firmalar ve teknoloji şirketleri bu formatı bekler. Kamu sektöründe ise özel başvuru formları kullanılabilir.",
+          "Türkiye\'de özel sektörde kronolojik (ters sıralı) format en yaygın tercih edilenidir. Büyük şirketler, çok uluslu firmalar ve teknoloji şirketleri bu formatı bekler. Kamu sektöründe ise özel başvuru formları kullanılabilir.",
       },
       {
         question: 'Çok iş değiştirdim — hangi format daha iyi?',
@@ -1965,12 +1965,12 @@ const tr: ResumeFormatPageContent = {
       {
         question: 'ATS uyumlu CV nedir?',
         answer:
-          "ATS (Applicant Tracking System — Aday Takip Sistemi), şirketlerin CV'leri filtrelemek için kullandığı yazılımlardır. ATS uyumlu CV, basit biçimlendirme, net başlıklar ve anahtar kelimeler içeren, tablosuz ve grafiksiz bir CV'dir. Kronolojik format bu sistemlerle en iyi çalışan formattır.",
+          "ATS (Applicant Tracking System — Aday Takip Sistemi), şirketlerin CV\'leri filtrelemek için kullandığı yazılımlardır. ATS uyumlu CV, basit biçimlendirme, net başlıklar ve anahtar kelimeler içeren, tablosuz ve grafiksiz bir CV\'dir. Kronolojik format bu sistemlerle en iyi çalışan formattır.",
       },
       {
-        question: "Europass CV Türkiye'de geçerli mi?",
+        question: "Europass CV Türkiye\'de geçerli mi?",
         answer:
-          "Europass, AB kurumlarına başvurularda kullanılan standart bir format olup Türkiye iş piyasasında nadir görülür. AB ülkelerine iş başvurusu yapıyorsanız Europass tercih edilebilir; ancak Türkiye'deki özel sektör başvurularında kronolojik format çok daha etkilidir.",
+          "Europass, AB kurumlarına başvurularda kullanılan standart bir format olup Türkiye iş piyasasında nadir görülür. AB ülkelerine iş başvurusu yapıyorsanız Europass tercih edilebilir; ancak Türkiye\'deki özel sektör başvurularında kronolojik format çok daha etkilidir.",
       },
     ],
   },
@@ -1978,14 +1978,14 @@ const tr: ResumeFormatPageContent = {
     title: 'Harici kaynaklar',
     items: [
       { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
-      { href: 'https://www.kariyer.net/', label: "Kariyer.net — Türkiye'nin önde gelen iş ilanı platformu" },
+      { href: 'https://www.kariyer.net/', label: "Kariyer.net — Türkiye\'nin önde gelen iş ilanı platformu" },
     ],
   },
   stickyCta: { text: "Doğru CV formatını buldunuz mu?", ctaLabel: "Hemen CV oluşturun" },
   bottomCta: {
     title: 'CV format sorunlarını geride bırakın',
     description:
-      "AI destekli CV oluşturucumuz format, yazı tipi ve kenar boşluklarını otomatik optimize eder. 20'den fazla ATS uyumlu şablon arasından seçin.",
+      "AI destekli CV oluşturucumuz format, yazı tipi ve kenar boşluklarını otomatik optimize eder. 20\'den fazla ATS uyumlu şablon arasından seçin.",
     ctaLabel: 'Ücretsiz CV oluştur',
   },
 };

@@ -3201,7 +3201,7 @@ const tr: BiodataFormatPageContent = {
   meta: {
     title: 'Biodata Nedir? İş Başvurusu Biyografi Formu Rehberi 2026 | Best AI Resume',
     description:
-      'Biodata formatı nedir, özgeçmiş ve CV'den farkı nedir? Güney Asya ve Orta Doğu iş başvurularında kullanılan biyografi formunu öğrenin. Ücretsiz şablonlar. 2026.',
+      'Biodata formatı nedir, özgeçmiş ve CV\'den farkı nedir? Güney Asya ve Orta Doğu iş başvurularında kullanılan biyografi formunu öğrenin. Ücretsiz şablonlar. 2026.',
     keywords:
       'biodata nedir, biodata formatı, biyografi formu, iş başvurusu biodata, biodata vs cv, biodata şablonu, biodata örneği, iş başvurusu belgesi',
   },
@@ -3216,15 +3216,15 @@ const tr: BiodataFormatPageContent = {
     title: 'Biodata Format Rehberi',
     titleHighlight: '(Ücretsiz Şablonlar)',
     subtitle:
-      '<strong>Biodata formatı</strong>, Hindistan, Pakistan, Bangladeş ve Orta Doğu'daki iş başvurularında kullanılan standart belgedir. Biodata ile CV veya özgeçmiş arasındaki farkı öğrenin ve bölgesel beklentilere uygun ücretsiz şablonları indirin.',
+      '<strong>Biodata formatı</strong>, Hindistan, Pakistan, Bangladeş ve Orta Doğu\'daki iş başvurularında kullanılan standart belgedir. Biodata ile CV veya özgeçmiş arasındaki farkı öğrenin ve bölgesel beklentilere uygun ücretsiz şablonları indirin.',
     ctaTemplates: 'Şablonları İndir',
     ctaBuild: 'AI ile Biodata Oluştur',
   },
   whatIs: {
     title: 'Biodata Nedir?',
     paragraphs: [
-      '<strong>Biodata</strong> (biyografik veri kısaltması), kişisel ve mesleki geçmişinizin kapsamlı bir özetini sunan belgedir. Yalnızca iş deneyimi ve becerilere odaklanan özgeçmiş veya CV'den farklı olarak biodata; <strong>doğum tarihi, medeni durum, uyruk, din</strong> ve bazen aile bilgileri gibi kişisel ayrıntıları da içerir.',
-      'Biodata formatı, <strong>Güney Asya ülkelerinde</strong> (Hindistan, Pakistan, Bangladeş, Sri Lanka), <strong>Orta Doğu'da</strong> (BAE, Suudi Arabistan, Katar) ve <strong>Güneydoğu Asya'nın</strong> bazı bölgelerinde (Filipinler, Malezya) yaygın olarak kullanılır. Bu bölgelerdeki kamu kurumları ve geleneksel şirketler, Batı tarzı özgeçmiş yerine sıklıkla biodata talep eder.',
+      '<strong>Biodata</strong> (biyografik veri kısaltması), kişisel ve mesleki geçmişinizin kapsamlı bir özetini sunan belgedir. Yalnızca iş deneyimi ve becerilere odaklanan özgeçmiş veya CV\'den farklı olarak biodata; <strong>doğum tarihi, medeni durum, uyruk, din</strong> ve bazen aile bilgileri gibi kişisel ayrıntıları da içerir.',
+      'Biodata formatı, <strong>Güney Asya ülkelerinde</strong> (Hindistan, Pakistan, Bangladeş, Sri Lanka), <strong>Orta Doğu\'da</strong> (BAE, Suudi Arabistan, Katar) ve <strong>Güneydoğu Asya\'nın</strong> bazı bölgelerinde (Filipinler, Malezya) yaygın olarak kullanılır. Bu bölgelerdeki kamu kurumları ve geleneksel şirketler, Batı tarzı özgeçmiş yerine sıklıkla biodata talep eder.',
     ],
     insightTitle: 'Önemli Not:',
     insightText:
@@ -3328,7 +3328,7 @@ const tr: BiodataFormatPageContent = {
   },
   personalInfo: {
     title: 'Kişisel Bilgiler Bölümü',
-    description: 'Biodata'nın en kritik bölümü kişisel bilgilerdir — bölgeye göre beklentiler farklılaşır.',
+    description: 'Biodata\'nın en kritik bölümü kişisel bilgilerdir — bölgeye göre beklentiler farklılaşır.',
     alwaysInclude: {
       title: 'Her Zaman Dahil Edin',
       items: [
@@ -3353,7 +3353,7 @@ const tr: BiodataFormatPageContent = {
     },
     noteTitle: 'Türk İş Piyasasına Not:',
     noteText:
-      'Türkiye'de standart CV veya özgeçmiş tercih edilir. Türk şirketlerine başvuru yaparken biodata yerine kronolojik özgeçmiş kullanın. Biodata yalnızca Güney Asya veya Körfez ülkelerindeki işverenler tarafından talep edildiğinde gereklidir.',
+      'Türkiye\'de standart CV veya özgeçmiş tercih edilir. Türk şirketlerine başvuru yaparken biodata yerine kronolojik özgeçmiş kullanın. Biodata yalnızca Güney Asya veya Körfez ülkelerindeki işverenler tarafından talep edildiğinde gereklidir.',
   },
   types: {
     title: 'Biodata Türleri',
@@ -3398,7 +3398,7 @@ const tr: BiodataFormatPageContent = {
       {
         country: 'Pakistan',
         flag: '🇵🇰',
-        text: "Hindistan'a benzer şekilde CNIC (kimlik kartı) numarası ve baba adı temel bilgiler arasındadır. Kamu ve yarı kamu pozisyonları ayrıntılı biodata gerektirir.",
+        text: "Hindistan\'a benzer şekilde CNIC (kimlik kartı) numarası ve baba adı temel bilgiler arasındadır. Kamu ve yarı kamu pozisyonları ayrıntılı biodata gerektirir.",
       },
       {
         country: 'BAE ve Körfez',
@@ -3474,12 +3474,12 @@ const tr: BiodataFormatPageContent = {
       {
         question: 'Biodata ile özgeçmiş arasındaki fark nedir?',
         answer:
-          "Özgeçmiş, deneyim, beceri ve başarılara odaklanır ve her iş başvurusu için özelleştirilir. Biodata ise doğum tarihi, medeni durum, din ve aile bilgileri gibi ek kişisel bilgileri içerir. Türkiye ve Batı ülkelerinde özgeçmiş standarttır; ancak Güney Asya, Orta Doğu ve Güneydoğu Asya'nın bazı bölgelerinde biodata tercih edilir.",
+          "Özgeçmiş, deneyim, beceri ve başarılara odaklanır ve her iş başvurusu için özelleştirilir. Biodata ise doğum tarihi, medeni durum, din ve aile bilgileri gibi ek kişisel bilgileri içerir. Türkiye ve Batı ülkelerinde özgeçmiş standarttır; ancak Güney Asya, Orta Doğu ve Güneydoğu Asya\'nın bazı bölgelerinde biodata tercih edilir.",
       },
       {
         question: 'Biodata gerçekten iş başvurularında kullanılır mı?',
         answer:
-          "Evet. Biodata, Hindistan, Pakistan, Bangladeş, Filipinler ve Orta Doğu'da yaygın olarak kullanılır. Bu bölgelerdeki kamu kurumları ve geleneksel şirketler, özgeçmiş yerine özellikle biodata talep edebilir.",
+          "Evet. Biodata, Hindistan, Pakistan, Bangladeş, Filipinler ve Orta Doğu\'da yaygın olarak kullanılır. Bu bölgelerdeki kamu kurumları ve geleneksel şirketler, özgeçmiş yerine özellikle biodata talep edebilir.",
       },
       {
         question: 'Biodataya hangi kişisel bilgiler eklenmeli?',
@@ -3497,7 +3497,7 @@ const tr: BiodataFormatPageContent = {
           "Evet. AI özgeçmiş oluşturucumuz biodata oluşturmak için de kullanılabilir. Standart bir şablon seçin ve kişisel bilgiler bölümünü biodata gereksinimlerine göre özelleştirin. Bölümlerinizi bölgesel beklentilere uygun şekilde düzenleyin.",
       },
       {
-        question: 'Türkiye'de biodata gerekli mi?',
+        question: 'Türkiye\'de biodata gerekli mi?',
         answer:
           "Türkiye iş piyasasında biodata nadir talep edilir. Türk şirketleri kronolojik CV veya özgeçmiş bekler. Biodata yalnızca Güney Asya veya Körfez ülkelerindeki işverenler tarafından talep edildiğinde gereklidir.",
       },
@@ -3507,15 +3507,15 @@ const tr: BiodataFormatPageContent = {
     title: 'İlgili Kaynaklar',
     items: [
       { href: '/resume-format', title: 'CV Format Rehberi', subtitle: 'Kronolojik / Fonksiyonel / Kombine' },
-      { href: '/templates', title: 'CV Şablonları', subtitle: '20'den fazla profesyonel şablon' },
-      { href: '/resume-examples', title: 'CV Örnekleri', subtitle: '300'den fazla meslek için CV örnekleri' },
+      { href: '/templates', title: 'CV Şablonları', subtitle: '20\'den fazla profesyonel şablon' },
+      { href: '/resume-examples', title: 'CV Örnekleri', subtitle: '300\'den fazla meslek için CV örnekleri' },
     ],
   },
   externalResources: {
     title: 'Harici Kaynaklar',
     items: [
       { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
-      { href: 'https://www.kariyer.net/', label: "Kariyer.net — Türkiye'nin önde gelen iş ilanı platformu" },
+      { href: 'https://www.kariyer.net/', label: "Kariyer.net — Türkiye\'nin önde gelen iş ilanı platformu" },
     ],
   },
   bottomCta: {
