@@ -9,6 +9,13 @@ const ROUTE_TRANSLATIONS: Record<string, Record<string, string>> = {
     'tools': 'herramientas',
     'builder': 'creador-de-curriculum',
   },
+  pt: {
+    'resume-examples': 'exemplos-de-curriculo',
+    'cover-letter-examples': 'exemplos-de-carta-de-apresentacao',
+    'career-tips': 'dicas-de-carreira',
+    'tools': 'ferramentas',
+    'builder': 'construtor-de-curriculo',
+  },
 };
 
 // Reverse maps: localized segment → English segment (per locale)
