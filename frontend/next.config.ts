@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from 'path';
 import createNextIntlPlugin from 'next-intl/plugin';
 import bundleAnalyzer from '@next/bundle-analyzer';
 
@@ -97,6 +98,11 @@ const nextConfig: NextConfig = {
       dynamic: 30,   // cache dynamic pages for 30s (back/forward navigation)
       static: 300,   // cache static pages for 5min (content pages, blog, examples)
     },
+  },
+
+  // Fix Turbopack workspace root detection (multiple lockfiles in monorepo)
+  turbopack: {
+    root: path.resolve(process.cwd()),
   },
 
   // Webpack configuration for bundle splitting
