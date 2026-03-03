@@ -1325,7 +1325,120 @@ const pt: ResumeAIPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
+const tr: ResumeAIPageContent = {
+  meta: {
+    title: 'Yapay Zeka ile CV | AI CV Oluşturucu Ücretsiz 2026 | Best AI Resume',
+    description: 'Yapay zeka ile dakikalar içinde CV oluşturun. Otomatik AI yazımı, ATS optimizasyonu, 20\'den fazla şablon — hepsi ücretsiz.',
+    keywords: 'yapay zeka cv, ai ile cv oluştur, otomatik cv oluşturucu, ai cv hazırla, ai cv ücretsiz, yapay zeka özgeçmiş oluşturucu',
+  },
+  schemas: {
+    breadcrumbName: 'AI CV',
+    articleHeadline: 'Yapay Zeka ile CV: AI CV Oluşturucu Ücretsiz 2026',
+    articleDescription: 'AI\'nın CV içeriğini nasıl oluşturup optimize ettiğini keşfedin. Daha fazla mülakat almak için ücretsiz AI CV oluşturucumuzu kullanın.',
+    softwareAppName: 'AI CV Oluşturucu',
+  },
+  hero: {
+    badge: 'Yapay Zeka ile CV Oluşturucu',
+    title: 'AI sizin için',
+    titleHighlight: 'mükemmel CV\'nizi oluşturuyor',
+    subtitle: '<strong>Yapay zeka CV oluşturucumuz</strong> profesyonel içerik yazıyor, ATS için optimize ediyor ve öne çıkan CV oluşturmanıza yardımcı oluyor — tamamen ücretsiz. <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn\'e</a> göre işe alım uzmanları her CV\'ye ortalama 7 saniye ayırıyor. AI ile her saniye önemli.',
+    ctaPrimary: 'AI CV\'yi ücretsiz dene',
+    ctaSecondary: 'Nasıl çalışır',
+    trustText: 'Kayıt gerekmez · %100 ücretsiz · AI ile oluşturulmuş içerik',
+  },
+  whatIs: {
+    title: 'AI ile CV nedir?',
+    description: '<strong>Yapay zeka CV</strong>, CV oluşturma şeklinizi kökten değiştiriyor. Boş bir sayfayla uğraşmak yerine, AI deneyimlerinizi analiz ediyor, istenen pozisyonu anlıyor ve sektörünüz için optimize edilmiş profesyonel içerik üretiyor. <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">SHRM (Society for Human Resource Management)</a>\'nin vurguladığı üzere AI, işe alım süreçlerini hızla dönüştürüyor ve AI ile oluşturulan CV\'ler işverenler tarafından geniş çapta kabul görüyor.',
+    stats: [
+      { value: '10x', label: 'Manuel yazmadan daha hızlı' },
+      { value: '%85', label: 'ATS geçme oranında iyileşme' },
+      { value: '3M+', label: 'AI ile oluşturulan CV' },
+    ],
+  },
+  features: {
+    title: 'AI CV\'nizi oluşturmaya nasıl yardımcı olur',
+    subtitle: 'AI sadece biçimlendirmiyor — gerçekten daha iyi içerik yazmanıza yardımcı oluyor.',
+    items: [
+      { title: 'AI ile içerik yazımı', description: 'AI, deneyimlerinize ve istenen pozisyona dayalı profesyonel deneyimler, özetler ve beceri açıklamaları üretiyor.' },
+      { title: 'Akıllı anahtar kelime optimizasyonu', description: 'AI iş ilanlarını analiz ediyor ve işverenlerin aradığı sektöre özel anahtar kelimeleri öneriyor.' },
+      { title: 'ATS puan analizi', description: 'Gerçek zamanlı puanlama, başvurmadan önce CV\'nizin ATS sistemleri tarafından nasıl değerlendirileceğini gösteriyor.' },
+      { title: 'Sonuçların sayısallaştırılması', description: 'AI genel açıklamaları, işe alım uzmanlarının dikkatini çeken ölçülebilir ve somut sonuçlara dönüştürüyor.' },
+      { title: 'Sektöre özel şablonlar', description: 'AI sektörünüze ve deneyim seviyenize göre en uygun düzeni ve bölümleri öneriyor.' },
+      { title: 'Dilbilgisi ve ton kontrolü', description: 'AI dilbilgisi ve yazım denetimi yaparak profesyonel ve cilalı bir sonuç sağlıyor.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'AI\'nın CV\'nizi nasıl dönüştürdüğünü görün',
+    subtitle: 'Yapay zeka tarafından yapılan iyileştirmelerin gerçek örnekleri.',
+    beforeLabel: 'Önce',
+    afterLabel: 'AI Sonrası',
+    items: [
+      { before: 'Ekip ve projeleri yönettim', after: '8 kişilik çok disiplinli ekibi koordine ettim; 12 projeyi zamanında ve %98 müşteri memnuniyetiyle teslim ettim' },
+      { before: 'Satışları artırdım', after: 'Veri odaklı satın alma stratejileriyle yıllık geliri %34 artırdım (₺35M)' },
+      { before: 'İyi müşteri hizmeti verdim', after: '4,9/5 memnuniyet puanı; günlük 150\'den fazla talebi yöneterek %95 ilk temas çözüm oranı sağladım' },
+    ],
+    cta: 'Profesyonel CV oluştur',
+  },
+  comparison: {
+    title: 'AI CV vs. Elle yazılmış CV',
+    subtitle: 'Adayların yapay zeka CV\'sini neden tercih ettiği.',
+    oursName: 'AI ile',
+    othersName: 'Elle yazılmış',
+    rows: [
+      { feature: 'Oluşturma süresi', ours: '10-15 dakika', others: '2-4 saat' },
+      { feature: 'Profesyonel yazım', ours: 'AI önerir', others: 'Araştırma gerektirir' },
+      { feature: 'ATS optimizasyonu', ours: 'Otomatik', others: 'Manuel ve hatalı' },
+      { feature: 'Sektör anahtar kelimeleri', ours: 'AI tarafından önerilir', others: 'Kendi araştırmanız' },
+      { feature: 'Dilbilgisi/yazım', ours: 'Otomatik kontrol', others: 'Kolayca atlanır' },
+      { feature: 'Sonuçların sayısallaştırılması', ours: 'AI yardımcı olur', others: 'Çoğunlukla unutulur' },
+      { feature: 'Biçimlendirme/tasarım', ours: '20\'den fazla şablon', others: 'Sıfırdan oluşturma' },
+    ],
+  },
+  useCases: {
+    title: 'AI CV kimler için?',
+    subtitle: 'Yapay zeka CV oluşturucu iş arayan herkes için idealdir.',
+    items: [
+      { title: 'Kariyer değiştirenler', description: 'AI, aktarılabilir becerilerin farklı sektörler arasında değerini öne çıkarmanıza yardımcı olur' },
+      { title: 'Yeni mezunlar', description: 'Staj ve akademik projeleri ikna edici profesyonel deneyimlere dönüştürün' },
+      { title: 'Deneyimli profesyoneller', description: '20 yıllık deneyimi etkili 2 sayfalık CV\'ye sıkıştırın' },
+      { title: 'Aktif iş arayanlar', description: 'Her başvuru için hızlıca özelleştirilmiş CV oluşturun' },
+    ],
+  },
+  faq: {
+    title: 'Sık sorulan sorular',
+    items: [
+      { question: 'Yapay zeka ile CV nedir?', answer: 'AI CV, yapay zeka yardımıyla oluşturulan bir CV\'dir. Aracımız profesyonel deneyimler üretiyor, ATS için optimize ediyor, sektör anahtar kelimeleri öneriyor ve her şeyi otomatik biçimlendiriyor — saatler yerine dakikalar içinde mükemmel CV elde ediyorsunuz.' },
+      { question: 'AI ile CV oluşturmak mı daha iyi yoksa elle yazmak mı?', answer: 'AI daha iyi içeriği daha hızlı yazmanıza yardımcı olur. Binlerce başarılı CV\'yi analiz ederek Türkiye iş piyasasına uygun profesyonel ifadeler, sayısallaştırılmış sonuçlar ve anahtar kelimeler öneriyor. Nihai içerik üzerinde tam kontrolü siz koruyorsunuz — AI yalnızca süreci daha etkili hale getiriyor.' },
+      { question: 'AI ile oluşturulan CV ATS filtrelerinden geçer mi?', answer: 'Evet! AI CV oluşturucumuz özellikle ATS uyumluluğu için tasarlanmıştır. CV\'yi okunabilir temiz metinle biçimlendiriyor, pozisyonla eşleşen anahtar kelimeler öneriyor ve göndermeden önce optimize etmek için gerçek zamanlı ATS puanlama sağlıyor.' },
+      { question: 'Bu AI CV aracı ücretsiz mi?', answer: 'Evet, AI CV oluşturucu %100 ücretsiz. Sınırsız CV oluşturun, tüm şablonları kullanın, PDF olarak indirin — hepsi ücretsiz. Kredi kartı veya abonelik gerekmez.' },
+      { question: 'AI içeriği nasıl oluşturuyor?', answer: 'AI pozisyonunuzu, sektörünüzü ve deneyim seviyenizi analiz ederek kişiselleştirilmiş öneriler üretiyor. Milyonlarca başarılı CV\'nin kalıplarını kullanarak işe alım uzmanlarını etkileyen profesyonel özetler, sonuç odaklı deneyimler ve beceri açıklamaları oluşturuyor.' },
+      { question: 'CV AI tarafından yazılmış gibi görünür mü?', answer: 'Hayır. Aracımız, bir kariyer uzmanı tarafından yazılmış gibi doğal ve profesyonel içerik üretiyor. Her öneriyi kişisel dokunuşunuzu eklemek için düzenleyebilirsiniz ve nihai sonuç tamamen size ait.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer AI CV araçları',
+    items: [
+      { href: '/tr/resume-maker', title: 'CV Oluşturucu', subtitle: 'AI ile ücretsiz CV oluşturucu' },
+      { href: '/tr/tools/ats-checker', title: 'ATS Kontrolü', subtitle: 'AI ile ATS analizi' },
+      { href: '/tr/free-resume-builder', title: 'Ücretsiz CV', subtitle: '%100 ücretsiz oluşturucu' },
+    ],
+    guidesTitle: 'AI CV kılavuzları',
+    guides: [
+      { href: '/tr/career-tips/ai-resume-tools', label: 'CV için AI araçları (2026)' },
+      { href: '/tr/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: CV için hangi AI?' },
+      { href: '/tr/career-tips/how-to-write-ats-friendly-resume', label: 'ATS uyumlu CV nasıl yazılır' },
+      { href: '/tr/resume-examples', label: '300\'den fazla CV örneği' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI ile CV\'nizi oluşturmaya hazır mısınız?',
+    description: 'Daha fazla mülakat alan milyonlarca kişiye katılın — <a href="/tr/" class="text-purple-600 hover:underline">yapay zeka CV oluşturucu</a> ile.',
+    cta: 'AI ile ücretsiz başla',
+    subtext: 'Sonsuza kadar ücretsiz. Kredi kartı gerekmez.',
+  },
+};
+
+const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
 
 export function getContent(locale: string): ResumeAIPageContent {
   return selectContent(contentMap, locale);

@@ -451,5 +451,54 @@ const pt: CoverLetterExamplesIndexContent = {
   },
 };
 
-const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt };
+const tr: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: 'Mesleğe Göre Ön Yazı Örnekleri (2026) | Best AI Resume',
+    description: 'Sektöre ve mesleğe göre düzenlenmiş 100\'den fazla ücretsiz ön yazı örneği inceleyin. Yazım ipuçlarıyla profesyonel ön yazı şablonları.',
+    keywords: 'ön yazı örnekleri, ön yazı şablonu, profesyonel ön yazı, ön yazı nasıl yazılır, ön yazı formatı',
+  },
+  hero: {
+    badge: 'Ön Yazı Örnekleri 2026',
+    title: 'Mesleğe Göre',
+    titleHighlight: 'Ön Yazı Örnekleri',
+    subtitle: 'Sektöre göre düzenlenmiş {count}\'den fazla profesyonel ön yazı örneğine göz atın. Mesleğinizi bulun ve AI oluşturucumuzla kendi ön yazınızı hazırlayın.',
+    ctaBrowse: 'Örneklere Bak',
+    ctaCreate: 'AI ile Ön Yazı Oluştur',
+  },
+  stats: {
+    examples: 'Ön Yazı Örneği',
+    industries: 'Kapsanan Sektör',
+    free: 'Ücretsiz Kullanım',
+  },
+  tips: {
+    title: 'Etkili bir ön yazıyı ne yapar?',
+    items: [
+      { title: 'Kişiselleştirme', description: 'İşe alım uzmanına adıyla hitap edin ve her ön yazıyı kişiselleştirin. İşe alım uzmanlarının %77\'si kişiselleştirilmiş ön yazıları tercih eder.' },
+      { title: 'Somut Sonuçlar', description: 'Değerinizi kanıtlayan 1-2 ölçülebilir başarı ekleyin. Rakamlar belirsiz ifadelerden daha akılda kalıcıdır.' },
+      { title: 'Özlü Uzunluk', description: '250-400 kelime arasında tutun. İşe alım uzmanları 30 saniyeden az ayırır — her kelime önemlidir.' },
+    ],
+  },
+  grid: {
+    title: 'Sektöre Göre Keşfet',
+    examplesLabel: 'örnek',
+    coverLetterSuffix: 'Ön Yazı',
+    comingSoon: 'Ön yazı örnekleri yakında geliyor!',
+    comingSoonCta: 'AI ile Ön Yazı Oluştur',
+  },
+  bottomCta: {
+    title: 'Mesleğinizi bulamadınız mı?',
+    description: 'AI\'mız saniyeler içinde HERHANGİ bir meslek için özelleştirilmiş ön yazı yazabilir.',
+    ctaText: 'Özelleştirilmiş Ön Yazı Oluştur',
+  },
+  relatedResources: {
+    title: 'İlgili Kaynaklar',
+    items: [
+      { title: 'CV Örnekleri', description: 'Mesleğe göre 300\'den fazla örnek' },
+      { title: 'Ön Yazı Rehberi', description: 'Adım adım yazım öğreticisi' },
+      { title: 'CV Şablonları', description: 'Her iş için profesyonel şablonlar' },
+    ],
+  },
+};
+
+const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
 export const getContent = (locale: string): CoverLetterExamplesIndexContent => selectContent(content, locale);

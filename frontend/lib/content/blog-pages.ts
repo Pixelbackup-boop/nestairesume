@@ -518,5 +518,58 @@ const pt: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, th, pt };
+const tr: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'Blog - CV ve Kariyer İpuçları | Best AI Resume',
+      description: 'CV yazma, kariyer rehberliği ve iş arama stratejileri için uzman tavsiyeleri. Ücretsiz kılavuzlar ve öğreticiler.',
+      ogDescription: 'CV yazma ve iş arama stratejileri için uzman tavsiyeleri.',
+    },
+    heroBadge: 'Blogumuz',
+    heroTitle: 'CV ve Kariyer ',
+    heroTitleHighlight: 'İpuçları',
+    heroSubtitle: 'Etkileyici CV\'ler oluşturmak ve kariyerinizi ilerletmek için uzman kılavuzları, ipuçları ve stratejileri.',
+    featuredArticles: 'Öne Çıkan Makaleler',
+    noArticlesTitle: 'Henüz makale yok',
+    noArticlesSubtitle: 'Yeni içerikler için yakında geri gelin!',
+  },
+  article: {
+    notFound: 'Makale Bulunamadı',
+    faqTitle: 'Sık Sorulan Sorular',
+    resourcesTitle: 'CV Araçları ve Kaynakları',
+    resources: [
+      { title: '300\'den Fazla CV Örneği', subtitle: 'Mesleğe göre yazım kılavuzları' },
+      { title: 'CV Format Rehberi 2026', subtitle: 'Kronolojik, işlevsel ve karma' },
+      { title: 'Ücretsiz CV Şablonları', subtitle: 'ATS uyumlu profesyonel tasarımlar' },
+      { title: 'AI CV Oluşturucu', subtitle: 'CV\'nizi dakikalar içinde oluşturun' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'Makaleler | Best AI Resume Blog',
+    metaDescTemplate: '{category} konusundaki makalelerimize göz atın; uzman ipuçları, kılavuzlar ve öneriler.',
+    backToBlog: 'Bloga Dön',
+    articlesCount: 'Bu kategoride {count} makale',
+    articleCount: 'Bu kategoride {count} makale',
+    noArticlesTitle: 'Henüz makale yok',
+    noArticlesSubtitle: 'Bu kategoride yeni içerikler için yakında geri gelin!',
+  },
+  search: {
+    meta: {
+      title: 'Blog\'da Ara | Best AI Resume',
+      description: 'Blogumuzda CV ipuçları, kariyer rehberliği ve iş arama stratejilerini arayın.',
+    },
+    backToBlog: 'Bloga Dön',
+    title: 'Arama Sonuçları',
+    resultsCount: '{count} sonuç',
+    resultCount: '{count} sonuç',
+    startSearchTitle: 'Aramaya başlayın',
+    startSearchSubtitle: 'Makale bulmak için bir arama terimi girin',
+    noResultsTitle: 'Sonuç bulunamadı',
+    noResultsText: 'Şununla eşleşen makale bulunamadı:',
+    tryLabel: 'Deneyin:',
+    trySuggestions: ['Farklı anahtar kelimeler kullanın', 'Yazımı kontrol edin', 'Kategorilere göz atın'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

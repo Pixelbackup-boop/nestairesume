@@ -1359,5 +1359,123 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'LiveCareer Alternatifi 2026: Ücretsiz Yapay Zeka Özgeçmiş Oluşturucu | Best AI Resume',
+    description: 'Ücretsiz LiveCareer alternatifi mi arıyorsunuz? LiveCareer ile Best AI Resume Builder\'ı karşılaştırın — modern yapay zeka yazımı, ATS şablonları, sınırsız indirme. Abonelik gerekmez.',
+    keywords: 'livecareer alternatifi, livecareer özgeçmiş, livecareer ücretsiz alternatif, livecareer inceleme, en iyi ücretsiz özgeçmiş, yapay zeka özgeçmiş',
+  },
+  schemas: {
+    breadcrumbName: 'LiveCareer Alternatifi',
+    articleHeadline: 'LiveCareer Alternatifi 2026: Ücretsiz Yapay Zeka Özgeçmiş Oluşturucu',
+    articleDescription: 'LiveCareer ile Best AI Resume Builder\'ı karşılaştırın. Modern yapay zeka destekli özgeçmiş yazımı ve ATS optimizasyonunu tamamen ücretsiz alın.',
+  },
+  hero: {
+    badge: 'LiveCareer Alternatifi',
+    title: 'Modern Yapay Zeka Özgeçmiş Oluşturucu.',
+    titleHighlight: 'Sonsuza Kadar Ücretsiz.',
+    subtitle: 'LiveCareer 2005\'ten beri var — ama araçları yenilenmedi. Aylık $19.95 yerine <strong>$0\'a</strong> <strong>yapay zeka destekli yazım</strong>, modern şablonlar ve ATS puanlama alın.',
+    ctaPrimary: 'Özgeçmişimi Ücretsiz Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'LiveCareer 2015\'te Harika Olabilirdi',
+    description: 'LiveCareer çevrimiçi özgeçmiş oluşturmaya öncülük etti. Ancak sektör yapay zeka destekli yazıma ve gerçek zamanlı ATS optimizasyonuna geçerken, LiveCareer hâlâ <strong>önceden yazılmış ifade kütüphanelerine</strong> ve eski bir arayüze dayanıyor. Abonelikleri modern ücretsiz araçların gerisinde kalan özellikler için <strong>aylık $19.95</strong> alıyor.',
+    stats: [
+      { value: '$5.95', label: '14 günlük deneme (sonra $19.95/ay)' },
+      { value: '2005', label: 'LiveCareer\'ın kuruluş yılı' },
+      { value: '₺0', label: 'Best AI Resume Builder — sonsuza kadar ücretsiz' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer ile Best AI Resume Builder Karşılaştırması',
+    subtitle: 'Eski nesil oluşturucu vs modern yapay zeka destekli platform.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Fiyatlandırma', competitor: '❌ $5.95 deneme → $19.95/ay', ours: '✅ Sonsuza kadar %100 ücretsiz' },
+      { feature: 'Yapay Zeka Yazımı', competitor: '❌ Yalnızca önceden yazılmış ifadeler', ours: '✅ Yapay zeka tarafından üretilen özel içerik' },
+      { feature: 'ATS Optimizasyonu', competitor: '⚠️ Yalnızca temel ipuçları', ours: '✅ Gerçek zamanlı ATS puanı + anahtar kelimeler' },
+      { feature: 'Şablon Tasarımı', competitor: '⚠️ Eski tasarımlar, sınırlı çeşit', ours: '✅ 20+ modern ATS şablonu' },
+      { feature: 'Kullanıcı Arayüzü', competitor: '⚠️ Eski görünüm', ours: '✅ Modern, rehberli deneyim' },
+      { feature: 'PDF Dışa Aktarma', competitor: '❌ Ücretli plan gerektirir', ours: '✅ Sınırsız ücretsiz dışa aktarma' },
+      { feature: 'Ön Yazı', competitor: '✅ Oluşturucu dahil (ücretli)', ours: '✅ Yapay zeka destekli (ücretsiz)' },
+      { feature: 'İçerik Kalitesi', competitor: '⚠️ Genel önceden yazılmış öneriler', ours: '✅ Kişiselleştirilmiş yapay zeka yazımı' },
+      { feature: 'İşe Özel Uyarlama', competitor: '⚠️ Manuel anahtar kelime eşleştirme', ours: '✅ Yapay zeka destekli anahtar kelime optimizasyonu' },
+      { feature: 'Özgeçmiş Örnekleri', competitor: '✅ Örnek kütüphanesi', ours: '✅ 300+ detaylı örnek' },
+    ],
+  },
+  whySwitch: {
+    title: 'LiveCareer\'dan Geçmek İçin 3 Neden',
+    subtitle: 'Eski nesil araçlar iş için yeterli değil.',
+    reasons: [
+      { title: 'Gerçek Yapay Zeka Yazımı', description: 'LiveCareer yıllardır değişmeyen önceden yazılmış ifade kütüphaneleri kullanıyor. Yapay zekamız deneyiminizi, sektörünüzü ve hedef işinizi anlayarak gerçekten özel içerik üretiyor.' },
+      { title: 'Gerçek Zamanlı ATS Puanlama', description: 'LiveCareer genel ATS ipuçları sunuyor. Biz Workday, SAP SuccessFactors ve Kariyer.net gibi Türkiye\'de kullanılan sistemler için özel anahtar kelime önerileriyle anlık ATS puanlaması yapıyoruz.' },
+      { title: 'Modern Şablonlar, Sıfır Maliyet', description: 'LiveCareer\'ın ücretli şablonları eski görünüyor. Bizim 20+ modern şablonumuz hem profesyonel hem de ATS uyumlu — ve hepsi tamamen ücretsiz.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Öneri',
+    useCompetitor: {
+      title: 'LiveCareer\'ı şu durumlarda kullanın...',
+      items: [
+        'LiveCareer arayüzünü özellikle tercih ediyorsanız',
+        'Özel müşteri desteğine ihtiyacınız varsa',
+        'Sisteme alışkınsınız ve değişmek istemiyorsanız',
+        'Yalnızca LiveCareer\'ın sunduğu belirli işlevlere ihtiyacınız varsa',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes\'i şu durumlarda kullanın...',
+      items: [
+        'Önceden yazılmış ifadeler değil, gerçek yapay zeka yazımı istiyorsanız',
+        'Gerçek zamanlı ATS puanlamasına ihtiyacınız varsa',
+        'Abonelik ödemeden modern şablonlar istiyorsanız',
+        'Sınırsız ücretsiz PDF dışa aktarma istiyorsanız',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300+ Ücretsiz Özgeçmiş Örneği Keşfedin',
+    description: 'Her sektör ve kariyer seviyesi için profesyonel özgeçmiş örnekleri.',
+    ctaBrowse: 'Özgeçmiş Örneklerini Gör',
+    ctaTemplates: 'Tüm Şablonları Gör',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'LiveCareer ücretsiz mi?', answer: 'LiveCareer sınırlı özelliklere sahip ücretsiz bir plan sunuyor. Tam plan 14 günlük deneme için $5.95, ardından $19.95/ay. Best AI Resume Builder tüm özellikler, şablonlar ve sınırsız dışa aktarma ile %100 ücretsiz — premium plan gerekmez.' },
+      { question: 'LiveCareer iyi bir özgeçmiş oluşturucu mu?', answer: 'LiveCareer başladığında yenilikçiydi ama yapay zeka araçları geride kaldı. Üretken yapay zeka yerine statik ifade kütüphaneleri kullanıyor. Best AI Resume Builder özel içerik oluşturmak, gerçek zamanlı ATS puanlama ve çağdaş şablonlar için modern yapay zeka kullanıyor.' },
+      { question: 'LiveCareer\'a en iyi ücretsiz alternatif nedir?', answer: 'Best AI Resume Builder en iyi ücretsiz alternatif. LiveCareer\'ın ödeme duvarı arkasına koyduğu her şeyi sunuyor — profesyonel şablonlar, PDF dışa aktarma, ön yazılar — ayrıca LiveCareer\'ın sahip olmadığı gelişmiş yapay zeka yazımı ve ATS optimizasyonu ile.' },
+      { question: 'LiveCareer\'ın yapay zekası var mı?', answer: 'LiveCareer önceden hazırlanmış ifade önerileri sunuyor, ama gerçek yapay zeka yazımı değil. Best AI Resume Builder sektörünüze ve ilanınıza uyarlanmış profesyonel deneyimler, özetler ve anahtar kelimeler oluşturmak için gelişmiş yapay zeka kullanıyor.' },
+      { question: 'LiveCareer\'dan PDF ücretsiz indirebilir miyim?', answer: 'LiveCareer\'ın PDF dışa aktarması ücretli abonelik gerektiriyor. Best AI Resume Builder ile hesabınızı yükseltmek zorunda kalmadan sınırsız PDF ücretsiz indirebilirsiniz.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer Özgeçmiş Oluşturucuları Karşılaştırın',
+    items: [
+      { href: '/tr/zety-alternative', title: 'Zety Alternatifi', subtitle: 'Fiyat karşılaştırması' },
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Tasarım aracı vs yapay zeka' },
+      { href: '/tr/rezi-alternative', title: 'Rezi Alternatifi', subtitle: 'Yapay zeka özellikleri karşılaştırması' },
+      { href: '/tr/resume-io-alternative', title: 'Resume.io Alternatifi', subtitle: 'Oluşturucu karşılaştırması' },
+    ],
+    guidesTitle: 'Faydalı Özgeçmiş Rehberleri',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+      { href: 'https://www.glassdoor.com.tr/', label: 'Glassdoor Türkiye — Maaşlar ve Fırsatlar' },
+    ],
+  },
+  bottomCta: {
+    title: 'LiveCareer Fiyatı Olmadan Modern Özgeçmiş Araçları.',
+    description: 'Yapay zeka yazımına, gerçek zamanlı ATS puanlamasına ve modern şablonlara yükseltin — hepsi ücretsiz. Kredi kartı gerekmez.',
+    cta: 'Özgeçmişimi Ücretsiz Oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. LiveCareer\'dan daha iyi — hiçbir maliyet olmadan.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

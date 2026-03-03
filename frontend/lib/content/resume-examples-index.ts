@@ -168,5 +168,23 @@ const pt: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt };
+const tr: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Mesleğe Göre 300\'den Fazla CV Örneği (2026) | Best AI Resume',
+    description: 'Sektöre ve mesleğe göre düzenlenmiş 300\'den fazla ücretsiz cv örneği inceleyin. ATS optimizasyon ipuçlarıyla profesyonel cv şablonları.',
+  },
+  hero: {
+    badge: 'CV Örnekleri 2026',
+    title: 'Mesleğe Göre',
+    titleHighlight: 'CV Örnekleri',
+    subtitle: 'Sektöre göre düzenlenmiş {count}\'den fazla profesyonel cv örneğine göz atın. Mesleğinizi bulun ve AI oluşturucumuzla kendi CV\'nizi hazırlayın.',
+  },
+  bottomCta: {
+    title: 'Mesleğinizi bulamadınız mı?',
+    description: 'AI\'mız saniyeler içinde HERHANGİ bir meslek için özelleştirilmiş CV oluşturabilir.',
+    ctaText: 'Özelleştirilmiş CV Oluştur',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

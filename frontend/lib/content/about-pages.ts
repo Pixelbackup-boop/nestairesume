@@ -1103,7 +1103,103 @@ const pt: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Hakkımızda',
+      title: 'Mesleki başarının geleceğini',
+      titleHighlight: 'inşa ediyoruz',
+      subtitle: 'Best AI Resume, dünya genelindeki iş arayanların ATS uyumlu profesyonel CV\'ler oluşturmasına yardımcı olma misyonuyla, kariyer hayallerine açılan kapıyı açıyor.',
+    },
+    story: {
+      badge: 'Hikayemiz',
+      heading: 'Best AI Resume\'yu neden oluşturduk',
+      p1: 'Yetenekli profesyonellerin, CV\'leri otomatik tarama sistemlerinden geçemediği için göz ardı edildiğini fark ettik. Geleneksel CV oluşturma süreci zaman alıcı, sinir bozucu ve çoğu zaman adayların gerçek potansiyelini yansıtmayan belgeler üretiyordu.',
+      p2: 'Bu yüzden Best AI Resume\'yu oluşturduk — yapay zekanın gücünü profesyonel ve zarif bir tasarımla birleştiren bir platform. Amacımız basit: her adayın potansiyel işverenlere en iyi şekilde kendini sunmasına yardımcı olmak.',
+      p3: 'Bugüne kadar 50.000\'den fazla profesyonelin hayallerindeki işi bulmasına yardımcı olduk; öne çıkan ve ATS filtrelerinden başarıyla geçen CV\'ler oluşturduk.',
+    },
+    stats: [
+      { value: '50K+', label: 'Oluşturulan CV' },
+      { value: '98%', label: 'ATS Geçme Oranı' },
+      { value: '20+', label: 'Şablon' },
+      { value: '4.9', label: 'Kullanıcı Puanı' },
+    ],
+    values: {
+      badge: 'Değerlerimiz',
+      heading: 'Bizi her gün ileriye taşıyan şey',
+      cards: [
+        { title: 'Önce Gizlilik', text: 'Verileriniz size aittir. CV verilerinizi sunucularımızda değil, tarayıcınızda yerel olarak kaydediyoruz. Yalnızca hesap kimlik bilgileriniz güvenli şekilde tarafımızca saklanır.' },
+        { title: 'İnovasyon', text: 'Başarılarınızı öne çıkaran ve işe alım uzmanlarının dikkatini çeken etkili içerik yazmanıza yardımcı olmak için en gelişmiş AI teknolojisini kullanıyoruz.' },
+        { title: 'Erişilebilirlik', text: 'Profesyonel CV araçları pahalı aboneliklerin arkasına gizlenmemelidir. Herkese açık güçlü özellikler sunuyoruz.' },
+      ],
+    },
+    experts: {
+      badge: 'Güvenilir Uzmanlık',
+      heading: 'Kariyer Uzmanlarımızla Tanışın',
+      subtitle: 'Kariyer koçları, işe alım uzmanları ve sektör profesyonellerinden oluşan ekibimiz, hazırladıkları CV rehberlerine derin uzmanlık katar.',
+    },
+    editorial: {
+      heading: 'Editoryal Standartlarımız',
+      items: [
+        { title: 'Veriye Dayalı Tavsiyeler', text: 'Paylaştığımız her ipucu gerçek ATS sistemlerinde test edilmiş ve sektör profesyonelleri tarafından doğrulanmıştır.' },
+        { title: 'İnsan Odaklı Yaklaşım', text: 'AI\'nın güçlendirmesi gerektiğine, yerini almaması gerektiğine inanıyoruz. Önce gerçek işe alım uzmanlarını etkileyen stratejileri ön plana çıkarıyoruz.' },
+      ],
+    },
+    commitment: {
+      heading: 'Size Olan Taahhüdümüz',
+      p1: 'Best AI Resume olarak kariyer yolculuğunun kişisel olduğuna inanıyoruz. Bu yüzden gizliliğinize saygı gösteren ve başarı için güçlü araçlar sunan bir platform oluşturduk. CV verileriniz cihazınızda kalır, bilgileriniz üzerinde tam kontrol sizdedir.',
+      p2: 'AI algoritmalarımızı sürekli iyileştiriyor, yeni şablonlar ekliyor ve kullanıcı geri bildirimlerine göre özellikleri geliştiriyoruz. Başarınız bizim başarımızdır ve her adımda yanınızda olmaya kararlıyız.',
+    },
+    cta: {
+      title: 'Katılmaya hazır mısınız:',
+      titleHighlight: '50.000\'den fazla başarı hikayesi?',
+      subtitle: 'Bugün profesyonel CV\'nizi oluşturmaya başlayın ve hayalinizdeki kariyere ilk adımı atın.',
+      button: 'Ücretsiz Başla',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Uzman Yazarlarımız | Best AI Resume',
+      description: 'CV rehberlerimizin arkasındaki kariyer uzmanları, işe alım uzmanları ve koçlarla tanışın. Yazarlarımız, hayalinizdeki işi bulmanıza yardımcı olmak için gerçek işe alım deneyimi sunuyor.',
+      ogDescription: 'CV rehberlerimizin arkasındaki kariyer uzmanları, işe alım uzmanları ve koçlarla tanışın.',
+    },
+    breadcrumb: { home: 'Ana Sayfa', about: 'Hakkımızda', authors: 'Yazarlar' },
+    hero: {
+      title: 'Uzman Yazarlarımızla Tanışın',
+      subtitle: 'Kariyer koçları, işe alım uzmanları ve sektör profesyonellerinden oluşan ekibimiz, gerçek işe alım deneyimine dayanan pratik CV rehberleri hazırlar.',
+    },
+    viewProfile: 'Profili Gör',
+    cta: {
+      title: 'Uzman Rehberliğiyle CV\'nizi Oluşturun',
+      subtitle: 'AI oluşturucumuz, uzmanlarımızın önerdiği stratejilerin aynısını uygular. Dakikalar içinde profesyonel bir CV hazırlayın.',
+      button: 'CV\'mi Oluştur — Ücretsiz',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Ana Sayfa', about: 'Hakkımızda' },
+    atOrg: '{organization}\'da {jobTitle}',
+    authorOfGuides: ' {count}\'den fazla kariyer rehberi ve makalenin yazarı.',
+    connectLinkedIn: 'LinkedIn\'de Bağlan',
+    viewAllGuides: 'Tüm Rehberleri Gör',
+    areasOfExpertise: 'Uzmanlık Alanları',
+    resumeGuidesBy: '{name} tarafından CV Rehberleri',
+    guidesCount: '{count} rehber',
+    coverLetterExamplesBy: '{name} tarafından Ön Yazı Örnekleri',
+    examplesCount: '{count} örnek',
+    blogPostsBy: '{name} tarafından Blog Yazıları',
+    postsCount: '{count} yazı',
+    viewAllResumes: '{count} CV rehberinin tamamını gör',
+    viewAllCoverLetters: '{count} ön yazı örneğinin tamamını gör',
+    viewAllBlogPosts: '{count} blog yazısının tamamını gör',
+    cta: {
+      title: 'Uzman Rehberliğiyle CV\'nizi Oluşturun',
+      subtitle: '{name}\'in önerdiği stratejilerin aynısını kullanın. AI oluşturucumuz, uzman CV yazma tekniklerini otomatik olarak uygular.',
+      button: 'CV\'mi Oluştur — Ücretsiz',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }

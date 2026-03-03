@@ -35,7 +35,7 @@
 | Indonesian | id | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
 | Polish | pl | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
 | Dutch | nl | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
-| Turkish | tr | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
+| Turkish | tr | ✅ | ✅ 554 | ✅ 566 | ✅ 74 | ✅ 10 | ✅ | **Complete** |
 
 **Update this table after completing each locale.**
 

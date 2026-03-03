@@ -223,5 +223,28 @@ const pt: CareerTipArticleContent = {
   tagsLabel: 'Tags:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, th, pt };
+const tr: CareerTipArticleContent = {
+  breadcrumb: { home: 'Ana Sayfa', careerTips: 'Kariyer İpuçları' },
+  notFound: 'Makale Bulunamadı',
+  share: {
+    title: 'Bu makale faydalı mıydı?',
+    subtitle: 'Fayda görebilecek biriyle paylaşın',
+  },
+  cta: {
+    title: 'CV\'nizi oluşturmaya hazır mısınız?',
+    subtitle: 'Bu ipuçlarını yapay zeka destekli CV oluşturucumuzla hayata geçirin. Dakikalar içinde profesyonel bir CV hazırlayın.',
+    button: 'Şimdi CV\'mi Oluştur',
+  },
+  sidebar: {
+    tocTitle: 'İçindekiler',
+    relatedTitle: 'İlgili Makaleler',
+    ctaTitle: 'CV\'nizi Oluşturun',
+    ctaSubtitle: 'Dakikalar içinde AI ile profesyonel CV hazırlayın.',
+    ctaButton: 'Başla',
+  },
+  moreCareerTips: 'Daha Fazla Kariyer İpucu',
+  tagsLabel: 'Etiketler:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

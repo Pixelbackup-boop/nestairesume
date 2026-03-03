@@ -1808,7 +1808,189 @@ const pt: ResumeFormatPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+// ---------------------------------------------------------------------------
+// Turkish
+// ---------------------------------------------------------------------------
+const tr: ResumeFormatPageContent = {
+  meta: {
+    title: 'CV Formatı Rehberi 2026: Doğru Özgeçmiş Formatı Seçimi | Best AI Resume',
+    description:
+      'Doğru cv formatını seçmek için rehber. Kronolojik, fonksiyonel ve kombine cv formatları karşılaştırması. ATS uyumlu cv şablonları ücretsiz. 2026.',
+    keywords:
+      'cv formatı, özgeçmiş formatı, cv şablonu, cv nasıl hazırlanır, kronolojik cv, cv formatı 2026, ats uyumlu cv formatı, özgeçmiş şablonu',
+  },
+  schemas: {
+    breadcrumbName: 'CV Formatı Rehberi',
+    howToName: 'Doğru CV formatı nasıl seçilir',
+    howToDescription:
+      '3 temel CV formatını (kronolojik, fonksiyonel, kombine) karşılaştırın ve kariyer durumunuza en uygun formatı seçin.',
+    howToSteps: [
+      'Kariyer aşamanızı değerlendirin (yeni mezun, deneyimli profesyonel, yönetici)',
+      '3 CV formatının artı ve eksilerini karşılaştırın',
+      'ATS uyumluluk puanını kontrol edin',
+      "Bir şablon seçin ve CV'nizi oluşturun",
+    ],
+    howToToolName: 'Best AI Resume — CV Oluşturucu',
+  },
+  hero: {
+    badge: 'CV format rehberi 2026',
+    title: 'Doğru CV formatını seçin',
+    titleHighlight: 'ilk elemeden geçin',
+    subtitle:
+      'Kronolojik, fonksiyonel veya kombine — doğru <strong>cv formatını</strong> seçmek, başvuru sürecinin ilk kritik adımıdır. Yapay zeka destekli CV oluşturucumuzla format değiştirmek bir tıklama kadar kolay.',
+    ctaCompare: 'Formatları karşılaştır',
+    ctaBuild: 'Ücretsiz CV oluştur',
+  },
+  comparison: {
+    title: '3 CV formatının karşılaştırması',
+    subtitle: 'Her formatın özellikleri, ideal kullanım alanları ve ATS uyumluluğu açık ve net biçimde.',
+    tableHeaders: {
+      format: 'Format',
+      bestFor: 'İdeal kullanım',
+      avoidIf: 'Kaçının eğer',
+      atsSafety: 'ATS uyumluluğu',
+    },
+    formats: [
+      {
+        name: 'Kronolojik (ters sıralı)',
+        badge: 'En yaygın',
+        badgeColor: 'green',
+        bestFor: [
+          'Önemli kariyer boşluğu olmayan adaylar',
+          'Aynı sektörde ilerleyen profesyoneller',
+          'Son deneyim doğrudan pozisyonla ilgili olanlar',
+        ],
+        avoidIf: 'Uzun süreli kariyer boşluklarınız varsa',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'Fonksiyonel (beceri odaklı)',
+        badge: 'Beceri odaklı',
+        badgeColor: 'amber',
+        bestFor: [
+          'Sektör değiştirmek isteyenler',
+          'Kariyer boşluğu olanlar',
+          'Yeni mezunlar veya serbest çalışanlar',
+        ],
+        avoidIf: 'Geleneksel sektörlere veya büyük şirketlere başvuruyorsanız',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'Kombine',
+        badge: 'Dengeli',
+        badgeColor: 'blue',
+        bestFor: [
+          'Güçlü becerileri ve geniş deneyimi olanlar',
+          'Liderlik veya üst düzey pozisyonlar',
+          'Hem beceri hem sonuçları öne çıkarmak isteyenler',
+        ],
+        avoidIf: 'Az iş deneyiminiz varsa',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'Kronolojik (ters sıralı) format',
+    description:
+      "İş deneyimlerini en yeniden başlayarak sıralayan format. Türk ve uluslararası işe alım uzmanları tarafından en çok tercih edilen format olup ATS sistemleriyle maksimum uyumluluk sağlar.",
+    whyLoveTitle: 'Neden işverenler bu formatı tercih ediyor',
+    whyLoveText:
+      "Kronolojik CV, işe alım uzmanlarının kariyer gelişimini anında görmesini sağlar. ATS sistemleri bu formatı en yüksek doğrulukla ayrıştırır; bu nedenle Türkiye'deki büyük şirketler, çok uluslu firmalar ve kamu kurumları başvurularında bu format tercih edilir.",
+    structureTitle: 'Bölüm yapısı',
+    sections: [
+      { label: 'Kişisel bilgiler ve iletişim', detail: 'Ad soyad, e-posta, telefon, şehir', isCore: true },
+      { label: 'Profesyonel özet', detail: 'Deneyim ve temel becerileri özetleyen 3-4 cümle', isCore: true },
+      { label: 'İş deneyimi', detail: 'En yeniden en eskiye sıralı (şirket, dönem, sonuçlar)', isCore: true },
+      { label: 'Eğitim', detail: 'En son ve ilgili derece' },
+      { label: 'Beceriler', detail: 'Teknik beceriler, sertifikalar ve dil bilgisi' },
+    ],
+    downloadLabel: 'Şablonu indir',
+    aiLabel: 'AI ile oluştur',
+  },
+  functional: {
+    title: 'Fonksiyonel (beceri odaklı) format',
+    description: "CV'yi kronoloji yerine beceri ve yetkinlikler etrafında düzenleyen format.",
+    warningTitle: 'ATS uyumluluğuna dikkat',
+    warningText:
+      "Bazı ATS sistemleri deneyim bölümü küçültülmüş fonksiyonel CV'leri doğru okumakta güçlük çeker.",
+    structureTitle: 'Bölüm yapısı',
+    sections: [
+      { label: 'Kişisel bilgiler ve iletişim', isCore: true },
+      { label: 'Profesyonel özet', isCore: true },
+      {
+        label: 'Temel yetkinlik alanları',
+        detail: 'Her biri için somut sonuçlar içeren 3-4 ana alan',
+        isCore: true,
+      },
+      { label: 'İş deneyimi (özet)', detail: 'Yalnızca şirket, unvan ve dönem' },
+      { label: 'Eğitim' },
+    ],
+    downloadLabel: 'Şablonu indir',
+    aiLabel: 'AI ile oluştur',
+  },
+  combination: {
+    title: 'Kombine format',
+    description: 'Kronolojik ve fonksiyonel formatların güçlü yönlerini bir araya getirir.',
+    whoForTitle: 'Bu formatı ne zaman tercih edin',
+    whoForItems: [
+      'Yönetim becerileriyle birlikte geniş deneyime sahip orta-kıdemli profesyoneller',
+      'Hem deneyim derinliğini hem beceri çeşitliliğini vurgulamak isteyenler',
+      'Hem teknik hem operasyonel sonuçların önemli olduğu pozisyonlara başvuranlar',
+      'Birden fazla sektörde kesişen kariyer geçmişi olanlar',
+    ],
+    downloadLabel: 'Şablonu indir',
+    aiLabel: 'AI ile oluştur',
+  },
+  faq: {
+    title: 'Sık sorulan sorular',
+    items: [
+      {
+        question: "Türkiye'de en yaygın kullanılan CV formatı hangisi?",
+        answer:
+          "Türkiye'de özel sektörde kronolojik (ters sıralı) format en yaygın tercih edilenidir. Büyük şirketler, çok uluslu firmalar ve teknoloji şirketleri bu formatı bekler. Kamu sektöründe ise özel başvuru formları kullanılabilir.",
+      },
+      {
+        question: 'Çok iş değiştirdim — hangi format daha iyi?',
+        answer:
+          'Kombine format en iyi seçimdir. Becerilerinizi öne çıkarırken kronolojik iş geçmişinizi de korursunuz. Bu şekilde deneyim derinliğinizi ve esnekliğinizi birlikte gösterirsiniz.',
+      },
+      {
+        question: 'Yeni mezun için hangi format uygun?',
+        answer:
+          "Yeni mezunlar için kronolojik format idealdir. Eğitim bölümünü iş deneyimi bölümünün önüne yerleştirerek akademik başarılarınızı, stajlarınızı ve proje çalışmalarınızı öne çıkarabilirsiniz.",
+      },
+      {
+        question: 'ATS uyumlu CV nedir?',
+        answer:
+          "ATS (Applicant Tracking System — Aday Takip Sistemi), şirketlerin CV'leri filtrelemek için kullandığı yazılımlardır. ATS uyumlu CV, basit biçimlendirme, net başlıklar ve anahtar kelimeler içeren, tablosuz ve grafiksiz bir CV'dir. Kronolojik format bu sistemlerle en iyi çalışan formattır.",
+      },
+      {
+        question: "Europass CV Türkiye'de geçerli mi?",
+        answer:
+          "Europass, AB kurumlarına başvurularda kullanılan standart bir format olup Türkiye iş piyasasında nadir görülür. AB ülkelerine iş başvurusu yapıyorsanız Europass tercih edilebilir; ancak Türkiye'deki özel sektör başvurularında kronolojik format çok daha etkilidir.",
+      },
+    ],
+  },
+  externalResources: {
+    title: 'Harici kaynaklar',
+    items: [
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+      { href: 'https://www.kariyer.net/', label: "Kariyer.net — Türkiye'nin önde gelen iş ilanı platformu" },
+    ],
+  },
+  stickyCta: { text: "Doğru CV formatını buldunuz mu?", ctaLabel: "Hemen CV oluşturun" },
+  bottomCta: {
+    title: 'CV format sorunlarını geride bırakın',
+    description:
+      "AI destekli CV oluşturucumuz format, yazı tipi ve kenar boşluklarını otomatik optimize eder. 20'den fazla ATS uyumlu şablon arasından seçin.",
+    ctaLabel: 'Ücretsiz CV oluştur',
+  },
+};
+
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

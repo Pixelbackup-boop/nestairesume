@@ -419,5 +419,50 @@ const pt: FeaturesPageContent = {
   },
 };
 
-const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, th, pt };
+const tr: FeaturesPageContent = {
+  meta: {
+    title: 'AI CV Oluşturucu Özellikleri — Şablonlar, ATS ve Daha Fazlası | Best AI Resume',
+    description: 'Best AI Resume\'nun tüm özelliklerini keşfedin: AI yazımı, 20\'den fazla profesyonel şablon, gerçek zamanlı ATS optimizasyonu, PDF dışa aktarma ve akıllı öneriler.',
+    keywords: 'cv oluşturucu özellikleri, ai cv yazımı, ats cv kontrolü, cv şablonları, pdf cv dışa aktarma, cv oluşturma araçları',
+  },
+  hero: {
+    badge: 'Özellikler',
+    title: 'Hayalinizdeki işi kazanmak için',
+    titleHighlight: 'ihtiyacınız olan her şey',
+    subtitle: 'Rakiplerinizden öne çıkmak için zarif tasarımla birleştirilmiş güçlü AI araçları.',
+  },
+  features: [
+    { title: 'AI ile Yazım', description: 'Yapay zekamızın başarılarınızı öne çıkaran ikna edici bullet noktalar ve profesyonel özetler oluşturmasına izin verin. Basit açıklamaları etki yaratan ifadelere dönüştürün.' },
+    { title: '20\'den Fazla Premium Şablon', description: 'ATS uyumluluğunu korurken öne çıkacak şekilde tasarlanmış profesyoneller tarafından hazırlanmış şablonlar arasından seçim yapın. Her şablon tasarım uzmanları tarafından geliştirilmiştir.' },
+    { title: 'ATS Optimizasyonu', description: 'Gerçek zamanlı ATS puanlaması CV\'nizin otomatik tarama sistemlerinden geçmesini sağlar. Puanınızı nasıl artıracağınız konusunda anında geri bildirim alın.' },
+    { title: 'Gerçek Zamanlı Önizleme', description: 'Yazarken değişiklikleri anında görün. Gördüğünüz şey tam olarak işe alım uzmanlarının göreceği şeydir. CV\'nizin nasıl görüneceği konusunda artık tahmin yok.' },
+    { title: 'PDF Dışa Aktarma', description: 'Göndermeye hazır mükemmel PDF\'ler indirin. Hem dijital görüntüleme hem de baskı için optimize edilmiş. CV\'niz her yerde profesyonel görünür.' },
+    { title: 'Akıllı Öneriler', description: 'Hedef pozisyona göre beceriler, anahtar kelimeler ve içerik hakkında akıllı öneriler alın. AI, binlerce başarılı CV\'yi analiz eder.' },
+  ],
+  steps: {
+    badge: 'Nasıl Çalışır',
+    title: 'Mükemmel CV\'niz için',
+    titleHighlight: 'üç adım',
+    items: [
+      { title: 'Bilgilerinizi Girin', description: 'Deneyimlerinizi, eğitiminizi ve becerilerinizi ekleyin. AI\'mız her adımda size yardımcı olur.' },
+      { title: 'Şablon Seçin', description: '20\'den fazla profesyonel şablon arasından seçin. Özelleştirirken gerçek zamanlı önizleme.' },
+      { title: 'PDF\'i İndirin', description: 'Cilalı CV\'nizi mükemmel bir PDF olarak dışa aktarın, işe alım uzmanlarını etkilemeye hazır.' },
+    ],
+  },
+  cta: {
+    title: 'Kazandıran CV\'nizi',
+    titleHighlight: 'oluşturmaya hazır mısınız?',
+    description: 'Best AI Resume ile hayallerindeki işi bulan 50.000\'den fazla profesyonele katılın.',
+    ctaText: 'Ücretsiz Oluşturmaya Başla',
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Kariyer Verileri' },
+      { href: 'https://www.shrm.org/', label: 'SHRM: İK ve Kariyer Kaynakları' },
+    ],
+  },
+};
+
+const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
 export const getContent = (locale: string): FeaturesPageContent => selectContent(content, locale);

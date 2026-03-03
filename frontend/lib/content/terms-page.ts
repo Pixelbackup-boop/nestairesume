@@ -812,6 +812,78 @@ const pt: TermsContent = {
   lastUpdated: 'Ultima atualizacao: janeiro de 2026',
 };
 
-const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
+const tr: TermsContent = {
+  hero: {
+    badge: 'Kullanım Şartları',
+    title: 'Şeffaf, adil',
+    titleHighlight: 'kullanım şartları',
+    subtitle: 'Bu şartlar, sizinle aramızdaki anlaşmayı açık bir dille tanımlar. Karmaşık hukuki jargon yok — sadece net ve dürüst koşullar.',
+  },
+  highlights: [
+    { title: 'Gizli Ücret Yok', text: 'Gördüğünüz şey ödediğiniz şeydir. Fiyatlandırmamız nettir; sürpriz ücret veya gizli masraf yoktur.' },
+    { title: 'Verileriniz, Kontrolünüz', text: 'Yalnızca giriş için e-posta adresinizi ve adınızı saklıyoruz. CV içeriğiniz tarayıcınızda kalır — sunucularımızda asla.' },
+    { title: '7 Günlük Ücretsiz Deneme', text: 'Tüm premium özellikleri 7 gün boyunca ücretsiz deneyin. Deneme süresi boyunca ücretlendirme yapılmaz, istediğiniz zaman ücretsiz iptal edin.' },
+  ],
+  sections: [
+    {
+      heading: 'Hizmet Genel Bakış',
+      intro: 'Best AI Resume, yapay zeka tabanlı araçlarla profesyonel CV\'ler oluşturmanıza yardımcı olan çevrimiçi bir CV oluşturucudur. Hizmetimizi kullanarak bu şartları kabul etmiş olursunuz.',
+      items: ['Araçlarımızla sınırsız CV oluşturun', 'AI tarafından oluşturulan içerik önerilerine ve geliştirmelere erişin', 'CV\'lerinizi PDF formatında indirin', 'Profesyoneller tarafından tasarlanmış şablonlar arasından seçin'],
+    },
+    {
+      heading: 'Hesap ve Veri Şeffaflığı',
+      subsections: [
+        { subheading: 'Sunucularımızda Sakladıklarımız', items: ['**E-posta adresi** — Giriş ve önemli bildirimler için', '**Ad** — Deneyiminizi kişiselleştirmek için', '**Şifre (şifrelenmiş)** — Kimlik doğrulama için güvenli hash ile saklanır', '**Abonelik durumu** — Plan avantajlarınızı yönetmek için'] },
+        { subheading: 'Saklamadıklarımız', items: ['CV içeriği (tarayıcınızda yerel olarak kaydedilir)', 'İş geçmişi veya istihdam detayları', 'Eğitim bilgileri veya beceriler', 'Kişisel adres veya telefon numarası'] },
+      ],
+      intro: 'Minimum gerekli veriyi toplamayı taahhüt ediyoruz. Yalnızca hesabınızın işlevselliği için gerekli olanları saklıyoruz:',
+    },
+    {
+      heading: 'Abonelik ve Ödemeler',
+      subsections: [
+        { subheading: 'Aylık Abonelik', items: ['**Faturalama döngüsü** — Abonelik tarihinden itibaren aylık olarak faturalandırılır', '**Otomatik yenileme** — İptal edilmedikçe abonelikler otomatik olarak yenilenir', '**Fiyat şeffaflığı** — Ödeme sırasında görüntülenen fiyat, uygulanan vergi dahil, tahsil edilen tutardır'] },
+        { subheading: 'İptal Politikası', items: ['Hesap panelinizden istediğiniz zaman iptal edin — gerekçe belirtmenize gerek yok', 'Mevcut faturalama döneminin sonuna kadar erişim devam eder', 'İptal cezası veya ücreti yoktur', 'Yerel verileriniz iptalden sonra da bozulmadan kalır'] },
+        { subheading: '7 Günlük Ücretsiz Deneme', items: ['**Tam erişim** — Tüm premium özellikleri 7 gün boyunca ücretsiz deneyin', '**Deneme sırasında ücretlendirme yok** — Deneme süresi dolana kadar ücretlendirilmezsiniz', '**İstediğiniz zaman iptal edin** — Deneme süresi dolmadan iptal edin ve hiçbir şey ödemezsiniz', '**Hatırlatma e-postası** — Deneme süreniz dolmadan önce size haber vereceğiz'] },
+      ],
+    },
+    {
+      heading: 'Ücretsiz Erişim ve Ücretli Planlar',
+      intro: 'Abone olmadan önce şunları yapabilirsiniz:',
+      items: ['Tüm şablonlara göz atın ve önizleyin', 'Hesabınızda CV\'ler oluşturun ve kaydedin', 'CV örneklerine ve kariyer ipuçlarına bakın'],
+    },
+    {
+      heading: 'Kullanıcı Sorumlulukları',
+      intro: 'Hizmetimizi kullanarak şunları kabul etmiş olursunuz:',
+      items: ['Hesap kaydınızda doğru bilgi sağlamak', 'Giriş kimlik bilgilerinizi güvende tutmak', 'Hizmeti yalnızca yasal amaçlarla kullanmak', 'Hizmeti atlatmaya veya istismar etmeye çalışmamak'],
+    },
+    {
+      heading: 'Fikri Mülkiyet',
+      items: ['**İçeriğiniz** — Hizmetimizle oluşturduğunuz tüm içeriğin tam mülkiyetini elinde tutarsınız', '**Şablonlarımız** — Şablon tasarımları kişisel ve profesyonel kullanım için lisanslanmıştır', '**AI tarafından oluşturulan içerik** — AI\'mız tarafından oluşturulan metinler size aittir ve serbestçe kullanılabilir'],
+    },
+    {
+      heading: 'Hizmet Kullanılabilirliği',
+      intro: 'Yüksek hizmet kullanılabilirliğini sürdürmeyi taahhüt ediyoruz, ancak:',
+      items: ['Periyodik bakımlar geçici kesintilere neden olabilir', 'Mümkün olduğunda planlı bakımlar hakkında önceden bilgi vereceğiz', 'Sunucularımız kullanılamadığında bile yerel verilerinize erişilebilir'],
+    },
+    {
+      heading: 'Şartlardaki Değişiklikler',
+      intro: 'Bu şartları zaman zaman güncelleyebiliriz. Önemli değişiklikleri e-posta veya hizmet aracılığıyla bildireceğiz. Değişikliklerden sonra hizmeti kullanmaya devam etmek yeni şartları kabul ettiğiniz anlamına gelir.',
+    },
+    {
+      heading: 'Bize Ulaşın',
+    },
+  ],
+  contactText: 'Bu şartlar hakkında sorularınız mı var? Bize e-posta ile ulaşın:',
+  cta: {
+    title: 'Profesyonel CV\'nizi',
+    titleHighlight: 'oluşturmaya hazır mısınız?',
+    subtitle: 'Basit fiyatlandırma, şeffaf şartlar ve verileriniz size aittir.',
+    primaryBtn: 'Ücretsiz Başla',
+    secondaryBtn: 'Planları Gör',
+  },
+  lastUpdated: 'Son güncelleme: Ocak 2026',
+};
+
+const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

@@ -1357,5 +1357,128 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'Rezi.ai Alternatifi 2026: Ücretsiz Yapay Zeka Özgeçmiş Oluşturucu | Best AI Resume',
+    description: 'Ücretsiz Rezi.ai alternatifi mi arıyorsunuz? Rezi ile Best AI Resume Builder\'ı karşılaştırın — aynı yapay zeka kalitesi, sınırsız özellikler, sıfır maliyet. Kredi sınırı veya abonelik yok.',
+    keywords: 'rezi.ai alternatifi, rezi özgeçmiş oluşturucu, rezi alternatifi ücretsiz, yapay zeka özgeçmiş ücretsiz, rezi.ai inceleme, rezi karşılaştırması, en iyi yapay zeka özgeçmiş',
+  },
+  schemas: {
+    breadcrumbName: 'Rezi.ai Alternatifi',
+    articleHeadline: 'Rezi.ai Alternatifi 2026: Ücretsiz Yapay Zeka Özgeçmiş Oluşturucu',
+    articleDescription: 'Rezi.ai ile Best AI Resume Builder\'ı karşılaştırın. Aynı yapay zeka destekli özgeçmiş yazımı ve ATS optimizasyonunu tamamen ücretsiz alın.',
+  },
+  hero: {
+    badge: 'Rezi.ai Alternatifi',
+    title: 'Tüm Yapay Zeka Gücü.',
+    titleHighlight: 'Fiyat Etiketi Olmadan.',
+    subtitle: 'Rezi.ai tam erişim için <strong>$29/ay</strong> talep ediyor. Aynı yapay zeka yazımı ve ATS optimizasyonunu <strong>tamamen ücretsiz</strong> alın.',
+    ctaPrimary: 'Özgeçmişimi Ücretsiz Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'Rezi İyi — Ama Aylık $29\'a Değer mi?',
+    description: 'Rezi.ai, yapay zeka destekli özgeçmiş oluşturmada erken liderlerden biri. Yapay zeka yazımı ve ATS optimizasyon özellikleri sağlam. Sorun? Ücretsiz plan ciddi şekilde sınırlı — <strong>1 özgeçmiş, sınırlı yapay zeka kredisi, temel şablonlar</strong>. Tam yapay zeka yazımı ve sınırsız özgeçmiş için Rezi Pro\'ya $29/ay veya $129/yıl ödemeniz gerekiyor. Zaten finansal baskı altındaki iş arayanlar için bu zor bir talep.',
+    stats: [
+      { value: '$29', label: 'Rezi Pro için aylık ücret (tam yapay zeka + sınırsız özgeçmiş)' },
+      { value: '1', label: 'Rezi\'nin ücretsiz planında izin verilen özgeçmiş sayısı' },
+      { value: '₺0', label: 'Best AI Resume Builder — sınırsız her şey, ücretsiz' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi.ai ile Best AI Resume Builder Karşılaştırması',
+    subtitle: 'İkisi de yapay zeka destekli. Sadece biri ücretsiz.',
+    competitorName: 'Rezi.ai',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Fiyatlandırma', competitor: '❌ $29/ay veya $129/yıl Pro için', ours: '✅ Sonsuza kadar %100 ücretsiz' },
+      { feature: 'Yapay Zeka Yazımı', competitor: '✅ İyi yapay zeka (ücretsizde sınırlı kredi)', ours: '✅ Sınırsız yapay zeka yazımı, ücretsiz' },
+      { feature: 'ATS Kontrolcüsü', competitor: '✅ Dahili ATS analizi', ours: '✅ Gerçek zamanlı ATS puanı' },
+      { feature: 'Özgeçmiş Sayısı', competitor: '❌ Ücretsiz planda 1', ours: '✅ Sınırsız özgeçmiş' },
+      { feature: 'Şablon Çeşitliliği', competitor: '⚠️ Sınırlı şablon seçimi', ours: '✅ 20+ profesyonel şablon' },
+      { feature: 'Anahtar Kelime Optimizasyonu', competitor: '✅ İş ilanı eşleştirme', ours: '✅ Yapay zeka anahtar kelime önerileri' },
+      { feature: 'Ön Yazı Oluşturucu', competitor: '✅ Yapay zeka destekli (sadece Pro)', ours: '✅ Yapay zeka destekli (ücretsiz)' },
+      { feature: 'PDF Dışa Aktarma', competitor: '⚠️ Ücretsiz planda sınırlı', ours: '✅ Sınırsız ücretsiz dışa aktarma' },
+      { feature: 'Öğrenme Eğrisi', competitor: '⚠️ Özellik zengin ama karmaşık arayüz', ours: '✅ Basit rehberli deneyim' },
+      { feature: 'Ücretsiz Plan Değeri', competitor: '❌ Çok sınırlı (1 özgeçmiş, az yapay zeka kredisi)', ours: '✅ Tam özellikler, sınır yok' },
+    ],
+  },
+  whySwitch: {
+    title: 'Rezi\'den Geçmek İçin 3 Neden',
+    subtitle: 'Aynı yapay zeka kalitesi. Daha iyi değer.',
+    reasons: [
+      { title: 'Yılda 3.600 TL Tasarruf Edin', description: 'Rezi Pro $29/ay ($348/yıl) ediyor. Yapay zeka özgeçmiş oluşturucumuz aynı yapay zeka yazımı, ATS optimizasyonu ve sınırsız özgeçmişleri ₺0\'a sunuyor.' },
+      { title: 'Daha Fazla Şablon', description: 'Rezi\'nin sınırlı şablon seçimi var. Biz 20+ profesyonelce tasarlanmış şablon sunuyoruz — hepsi ATS test edilmiş, hepsi ücretsiz, minimalden moderne her tarza uygun.' },
+      { title: 'Daha Basit Deneyim', description: 'Rezi\'nin arayüzü güçlü ama karmaşık. Rehberli akışımız her bölümde adım adım yönlendirir, daha önce hiç özgeçmiş yapmamış olsanız bile profesyonel bir özgeçmiş oluşturmayı kolaylaştırır.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Öneri',
+    useCompetitor: {
+      title: 'Rezi işe yarayabilir eğer...',
+      items: [
+        'Aylık $29\'lık özgeçmiş aracına bütçeniz varsa',
+        'Belirli ilanlar için iş ilanı eşleştirmesi istiyorsanız',
+        'Birçok seçenekli güçlü kullanıcı arayüzü tercih ediyorsanız',
+        'Tek özgeçmiş yeterli (ücretsiz plan işe yarar)',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes daha iyi eğer...',
+      items: [
+        'Aylık $29 ödemeden sınırsız yapay zeka yazımı istiyorsanız',
+        'Farklı işler için birden fazla özgeçmiş versiyonuna ihtiyacınız varsa',
+        'Basit, rehberli özgeçmiş oluşturma deneyimi tercih ediyorsanız',
+        'Daha fazla şablon çeşitliliği istiyorsanız',
+        'İş arayan biri olarak tasarruf etmek istiyorsanız',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300+ Ücretsiz Özgeçmiş Örneği Keşfedin',
+    description: 'Veri analistinden ürün müdürüne, grafik tasarımcıdan mühendise — her kariyer için profesyonel özgeçmiş örnekleri.',
+    ctaBrowse: 'Özgeçmiş Örneklerini Gözat',
+    ctaTemplates: 'Tüm Şablonları Gör',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'Rezi.ai ücretsiz mi?', answer: 'Rezi, temel özellikleri ve sınırlı yapay zeka kredisiyle yalnızca 1 özgeçmiş izin veren çok sınırlı bir ücretsiz plan sunuyor. Tam erişim için Rezi Pro $29/ay veya $129/yıl gerekiyor. Best AI Resume Builder tüm özellikleri sınırsız ve ücretsiz sunuyor.' },
+      { question: 'Rezi.ai\'ın yapay zeka yazımı iyi mi?', answer: 'Rezi, özgeçmişlerde yapay zeka yazımında öncülerden biri ve sağlam özelliklere sahip. Ancak ücretsiz planda yapay zeka kredisi sınırlı ve sınırsız kullanım ücretli. Best AI Resume Builder aynı kalitede sınırsız ücretsiz yapay zeka yazımı sunuyor.' },
+      { question: 'Rezi\'ye en iyi ücretsiz alternatif nedir?', answer: 'Best AI Resume Builder en iyi ücretsiz alternatif. Rezi ile aynı yapay zeka yazım kalitesi ve ATS optimizasyonunu sunarken %100 ücretsiz — kredi sınırı yok, özellik kısıtlaması yok, abonelik gerekmez.' },
+      { question: 'Rezi diğer yapay zeka özgeçmiş oluşturuculardan iyi mi?', answer: 'Rezi, iyi yapay zeka ve ATS özelliklerine sahip sağlam bir üründür. Ana dezavantajı fiyat — $29/ay iş arayanlar için yüksek. Best AI Resume Builder benzer yapay zeka kalitesi, daha fazla şablon ve gerçek zamanlı ATS puanlamasını herhangi bir maliyet olmadan sunuyor.' },
+      { question: 'Rezi özgeçmişleri ATS sistemlerini geçebilir mi?', answer: 'Evet, Rezi şablonları ATS uyumluluğu için tasarlanmış ve dahili ATS kontrolcüsü içeriyor. Best AI Resume Builder da Workday, SAP SuccessFactors ve Kariyer.net için test edilmiş ATS şablonlarını gerçek zamanlı puanlama ve anahtar kelime önerileriyle birlikte ücretsiz sunuyor.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer Özgeçmiş Oluşturucuları Karşılaştırın',
+    items: [
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Tasarım araçları vs yapay zeka oluşturucu' },
+      { href: '/tr/overleaf-alternative', title: 'Overleaf Alternatifi', subtitle: 'LaTeX özgeçmiş vs yapay zeka oluşturucu' },
+      { href: '/tr/resume-io-alternative', title: 'Resume.io Alternatifi', subtitle: 'Fiyat ve özellik karşılaştırması' },
+    ],
+    guidesTitle: 'Faydalı Özgeçmiş Rehberleri',
+    guides: [
+      { href: '/tr/blog/how-to-write-ats-friendly-resume', label: 'ATS Uyumlu Özgeçmiş Nasıl Yazılır' },
+      { href: '/tr/resume-format', label: 'Özgeçmiş Format Rehberi 2026' },
+      { href: '/tr/resume-examples/data-analyst', label: 'Veri Analisti Özgeçmiş Örneği' },
+      { href: '/tr/blog/chatgpt-vs-claude-for-resumes', label: 'Özgeçmiş için ChatGPT vs Claude' },
+    ],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi AI Özgeçmiş Oluşturucu' },
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+    ],
+  },
+  bottomCta: {
+    title: 'Aynı Yapay Zeka Gücü. Sıfır Maliyet.',
+    description: 'Yapay zeka destekli özgeçmiş yazımı, ATS optimizasyonu ve 20+ şablon — hepsi ücretsiz. Kredi kartı yok, abonelik yok, sınır yok.',
+    cta: 'Özgeçmişimi Ücretsiz Oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. Her şey sınırsız.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

@@ -1197,7 +1197,115 @@ const pt: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: LandingPageContent = {
+  meta: {
+    title: 'CV Oluşturucu | AI ile Online CV Yap 2026',
+    description: 'AI destekli ücretsiz CV oluşturucumuzla dakikalar içinde profesyonel CV hazırlayın. ATS şablonları, AI yazımı ve anında PDF indirme.',
+    keywords: 'cv oluşturucu, online cv yap, cv hazırla, ücretsiz cv oluşturucu, cv şablonu, ücretsiz online özgeçmiş, otomatik cv oluşturucu',
+  },
+  schemas: {
+    breadcrumbName: 'CV Oluşturucu',
+    articleHeadline: 'Ücretsiz CV Oluşturucu: AI ile Online CV Yap 2026',
+    articleDescription: 'Dakikalar içinde AI ile profesyonel CV oluşturun. ATS şablonları, AI yazımı ve anında PDF indirme.',
+    softwareAppName: 'Best AI CV Oluşturucu',
+  },
+  hero: {
+    badge: 'AI ile Ücretsiz CV Oluşturucu',
+    title: 'Profesyonel CV\'nizi',
+    titleHighlight: 'dakikalar içinde oluşturun',
+    subtitle: '<strong>CV oluşturucumuz</strong>, etkili içerik yazmak, ATS için optimize etmek ve daha fazla mülakat almaya yardımcı olmak için AI kullanıyor. <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">Büyük şirketlerin %98\'i</a> ATS yazılımı kullanıyor — optimize edilmiş bir CV şart. Tasarım becerisi gerekmez.',
+    ctaPrimary: 'Ücretsiz CV\'mi oluştur',
+    ctaSecondary: 'Şablonları gör',
+    trustBadges: ['Kayıt gerekmez', 'Kredi kartı gerekmez', 'Ücretsiz PDF indirme'],
+  },
+  features: {
+    title: 'Neden ücretsiz CV oluşturucumuzu seçmelisiniz?',
+    subtitle: 'Basit bir şablondan fazlası — AI oluşturucumuz daha iyi içerik yazmanıza ve ATS taramasını geçmenize yardımcı olur.',
+    items: [
+      { feature: 'AI destekli yazım', description: 'AI, sektörünüze ve deneyim seviyenize göre uyarlanmış profesyonel deneyimler, özetler ve beceri açıklamaları otomatik olarak oluşturur.' },
+      { feature: 'ATS için optimize şablonlar', description: 'Tüm şablonlar Workday, Taleo, Greenhouse gibi önde gelen ATS sistemleriyle test edilmiştir. Otomatik taramadan güvenle geçin.' },
+      { feature: 'PDF indirme', description: 'CV\'nizi tek tıklamayla PDF olarak indirin. Filigran yok, maliyet yok — tamamen ücretsiz.' },
+      { feature: 'Dakikalar içinde hazır', description: 'Boş sayfayla uğraşmak yok. Rehberli akış ve AI önerileri, 10 dakikadan kısa sürede profesyonel CV oluşturmanızı sağlar.' },
+      { feature: 'Gerçek zamanlı ATS puanlama', description: 'CV\'nizin yazarken ATS puanını gerçek zamanlı görün. Başvurmadan önce optimize edin.' },
+      { feature: '20\'den fazla profesyonel şablon', description: 'Her sektör ve kariyer seviyesi için şablonlar. Hepsi ücretsiz, hepsi ATS uyumlu.' },
+    ],
+    cta: 'CV oluşturmaya başla',
+  },
+  comparison: {
+    title: 'Bizim oluşturucu vs. diğer CV oluşturucular',
+    subtitle: 'Adayların neden ücretsiz AI CV oluşturucumuzu tercih ettiğini keşfedin.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Diğer oluşturucular',
+    rows: [
+      { feature: 'AI yazımı', ours: 'Gelişmiş AI', others: 'Temel veya yok' },
+      { feature: 'ATS optimizasyonu', ours: 'Gerçek zamanlı puanlama', others: 'Sınırlı test' },
+      { feature: 'Tüm şablonlar ücretsiz', ours: '20\'den fazla', others: 'Çoğu ücretli' },
+      { feature: 'Ücretsiz PDF indirme', ours: 'Her zaman ücretsiz', others: 'Birçoğu ücretli' },
+      { feature: 'Hesapsız başlangıç', ours: 'Anında başla', others: 'Genellikle gerekli' },
+      { feature: 'Sektör anahtar kelimeleri', ours: 'AI tarafından önerilir', others: 'Yalnızca manuel' },
+      { feature: 'Çoklu sürümler', ours: 'Sınırsız', others: 'Çoğunlukla sınırlı' },
+    ],
+  },
+  howItWorks: {
+    title: 'CV oluşturucu nasıl kullanılır',
+    subtitle: '3 basit adımda işe alım uzmanlarını etkileyen CV oluşturun. AI ağır işi halleder.',
+    steps: [
+      { step: 1, title: 'Şablon seçin', description: 'Sektörünüze uygun 20\'den fazla profesyonel ATS şablonu arasından seçin.' },
+      { step: 2, title: 'Bilgilerinizi girin', description: 'Deneyimlerinizi ekleyin ve AI\'nın iyileştirmeler, anahtar kelimeler ve profesyonel ifadeler önermesine izin verin.' },
+      { step: 3, title: 'İndirin ve başvurun', description: 'CV\'nizi PDF olarak dışa aktarın ve hemen başvurmaya başlayın.' },
+    ],
+    cta: 'Profesyonel CV oluştur',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'Oluşturulan CV' },
+      { value: '4.8', label: 'Kullanıcı puanı' },
+      { value: '20+', label: 'Ücretsiz şablon' },
+      { value: '10 dk', label: 'Ortalama oluşturma süresi' },
+    ],
+  },
+  templates: {
+    title: 'Her sektör için profesyonel şablonlar',
+    subtitle: 'Yaratıcı tasarımcıdan yöneticiye — alanınız için mükemmel CV şablonunu bulun.',
+    styles: ['Yazılım Mühendisi', 'Pazarlama Müdürü', 'Hemşire', 'Satış Müdürü', 'Veri Analisti', 'Öğretmen', 'Proje Müdürü', 'Tasarımcı'],
+    cta: 'Tüm şablonları gör',
+  },
+  faq: {
+    title: 'Sık sorulan sorular',
+    items: [
+      { question: 'Bu CV oluşturucu gerçekten ücretsiz mi?', answer: 'Evet! AI CV oluşturucumuz %100 ücretsiz. Sınırsız CV oluşturun, 20\'den fazla profesyonel şablona erişin, PDF olarak indirin — kredi kartı veya abonelik gerekmez.' },
+      { question: 'Neden bu en iyi CV oluşturucu?', answer: 'Genel CV oluşturuculardan farklı olarak, profesyonel deneyimler oluşturmak, ATS için optimize etmek ve sektörünüze özel anahtar kelimeler önermek için AI kullanıyoruz. Hem görsel açıdan çekici hem de otomatik taramada etkili bir CV oluşturuyorsunuz.' },
+      { question: 'CV\'mi ücretsiz PDF olarak indirebilir miyim?', answer: 'Elbette. Oluşturulan tüm CV\'ler ücretsiz PDF olarak indirilebilir. Filigran yok, ek maliyet yok.' },
+      { question: 'CV oluşturmak ne kadar sürer?', answer: 'Kullanıcıların çoğu 10 dakikadan kısa sürede profesyonel CV tamamlar. AI içerik önerir, böylece tasarruf ettiğiniz zamanı başvurulara ayırabilirsiniz.' },
+      { question: 'Oluşturulan CV\'ler ATS uyumlu mu?', answer: 'Evet. Tüm şablonlar önde gelen ATS sistemleriyle (Workday, Taleo, Greenhouse, Lever) test edilmiştir. Gerçek zamanlı ATS puanlama, başvurmadan önce CV\'nizi optimize etmenize yardımcı olur.' },
+      { question: 'Farklı başvurular için birden fazla CV oluşturabilir miyim?', answer: 'Evet! İstediğiniz kadar özelleştirilmiş CV oluşturabilirsiniz. Her pozisyon için CV\'nizi optimize etmek şansınızı artırır ve aracımızla bu hızlı ve kolaydır.' },
+    ],
+  },
+  crossLinks: {
+    title: 'İlgili CV araçları',
+    items: [
+      { href: '/tr/resume-ai', title: 'AI CV', subtitle: 'AI ile CV oluşturucu' },
+      { href: '/tr/tools/ats-checker', title: 'ATS Kontrolü', subtitle: 'ATS puanınızı test edin' },
+      { href: '/tr/free-resume-builder', title: 'Ücretsiz CV', subtitle: '%100 ücretsiz oluşturucu' },
+    ],
+    guidesTitle: 'Faydalı kılavuzlar',
+    guides: [
+      { href: '/tr/blog/how-to-write-a-resume', label: 'CV nasıl yazılır (2026 kılavuzu)' },
+      { href: '/tr/career-tips/how-to-write-ats-friendly-resume', label: 'ATS uyumlu CV nasıl yazılır' },
+      { href: '/tr/resume-format', label: 'CV format rehberi' },
+      { href: '/tr/blog/top-resume-mistakes-to-avoid', label: 'CV\'de yapılan yaygın hatalar' },
+    ],
+  },
+  bottomCta: {
+    title: 'CV\'nizi oluşturmaya hazır mısınız?',
+    description: '2 milyondan fazla iş arayan, ücretsiz AI CV oluşturucumuzla profesyonel CV hazırladı.',
+    cta: 'Ücretsiz CV\'mi oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. Kredi kartı gerekmez.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

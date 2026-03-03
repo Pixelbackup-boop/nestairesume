@@ -1365,5 +1365,128 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'Resume.io Alternatifi 2026: Yapay Zeka ile %100 Ücretsiz Özgeçmiş | Best AI Resume',
+    description: 'Resume.io\'nun gizli ücretlerinden bıktınız mı? Resume.io ile Best AI Resume Builder\'ı karşılaştırın — gerçekten ücretsiz şablonlar, yapay zeka yazımı ve ATS optimizasyonu. Deneme sürümü yok, kredi kartı yok.',
+    keywords: 'resume.io alternatifi, resume.io inceleme, ücretsiz özgeçmiş oluşturucu, resume.io karşılaştırma, resume.io fiyat, en iyi ücretsiz özgeçmiş, ats özgeçmiş, yapay zeka özgeçmiş',
+  },
+  schemas: {
+    breadcrumbName: 'Resume.io Alternatifi',
+    articleHeadline: 'Resume.io Alternatifi 2026: Yapay Zeka ile Ücretsiz Özgeçmiş Oluşturucu',
+    articleDescription: 'Resume.io ile Best AI Resume Builder\'ı karşılaştırın. İş arayanların neden gerçekten ücretsiz bir yapay zeka özgeçmiş oluşturucuya geçtiğini görün.',
+  },
+  hero: {
+    badge: 'Resume.io Alternatifi',
+    title: 'Aynı Kaliteli Özgeçmişler.',
+    titleHighlight: 'Gerçekten Ücretsiz.',
+    subtitle: 'Resume.io sinsi bir deneme sonrası <strong>$24.95/ay</strong> talep ediyor. Profesyonel şablonlar, yapay zeka yazımı ve ATS optimizasyonunu <strong>%100 ücretsiz, sonsuza kadar</strong> alın.',
+    ctaPrimary: 'Özgeçmişimi Ücretsiz Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'Resume.io Fiyat Tuzağı',
+    description: 'Resume.io kendini ücretsiz bir özgeçmiş oluşturucu olarak tanıtıyor. Ücretsiz bir özgeçmiş oluşturabilirsiniz — ama indirmeye çalıştığınızda bir ödeme duvarıyla karşılaşırsınız. "Ücretsiz deneme" 7 gün için $2.95 tutuyor, sonra <strong>$24.95/ay\'a otomatik yenileniyor</strong>. İptal kolay olmadığı için beklenmedik şekilde ücretlendirildiğini bildiren pek çok kullanıcı var.',
+    stats: [
+      { value: '$24.95', label: '7 günlük deneme otomatik yenilenince aylık ücret' },
+      { value: '$299', label: 'İptal etmeyi unutursanız yıllık maliyet' },
+      { value: '₺0', label: 'Best AI Resume Builder — sonsuza kadar ücretsiz, kredi kartı yok' },
+    ],
+  },
+  comparison: {
+    title: 'Resume.io ile Best AI Resume Builder Karşılaştırması',
+    subtitle: 'Şeffaf bir karşılaştırma — burada gizli ücret yok.',
+    competitorName: 'Resume.io',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Fiyatlandırma', competitor: '❌ Deneme sonrası $24.95/ay', ours: '✅ Sonsuza kadar %100 ücretsiz' },
+      { feature: 'Yapay Zeka Yazımı', competitor: '⚠️ Temel önceden yazılmış ifadeler', ours: '✅ Gelişmiş yapay zeka özel içerik üretiyor' },
+      { feature: 'Gerçek Zamanlı ATS Puanı', competitor: '❌ ATS puanlama yok', ours: '✅ Yazarken canlı ATS puanı' },
+      { feature: 'PDF İndirme', competitor: '❌ Ücretli plan gerektirir', ours: '✅ Ücretsiz indirme, sınır yok' },
+      { feature: 'Özgeçmiş Sayısı', competitor: '⚠️ Ücretsiz planda sınırlı', ours: '✅ Sınırsız özgeçmiş' },
+      { feature: 'Şablon Kalitesi', competitor: '✅ İyi profesyonel şablonlar', ours: '✅ 20+ profesyonel şablon' },
+      { feature: 'ATS Uyumluluğu', competitor: '✅ Çoğu şablon ATS güvenli', ours: '✅ Tüm şablonlar ATS test edilmiş' },
+      { feature: 'Ön Yazı Oluşturucu', competitor: '✅ Dahil (ücretli)', ours: '✅ Dahil (ücretsiz)' },
+      { feature: 'İşe Özgü Anahtar Kelimeler', competitor: '❌ Anahtar kelime önerisi yok', ours: '✅ Yapay zeka sektör anahtar kelimeleri öneriyor' },
+      { feature: 'Otomatik Yenileme Tuzakları', competitor: '❌ $24.95/ay otomatik yenileme', ours: '✅ Abonelik gerekmez' },
+    ],
+  },
+  whySwitch: {
+    title: 'Resume.io\'dan Geçmek İçin 3 Neden',
+    subtitle: 'Ücretsiz. Daha iyi yapay zeka. Gerçek ATS puanlama.',
+    reasons: [
+      { title: 'Gerçekten Ücretsiz', description: 'Resume.io, özgeçmişinizi oluşturduktan sonra indirmek için ödeme yapmanızı istiyor. Bizde oluşturduğunuz her şey ücretsiz indirilebilir — deneme, kredi kartı veya abonelik gerekmez.' },
+      { title: 'Gerçek Yapay Zeka Yazımı', description: 'Resume.io önceden yazılmış ifadeler sunuyor. Bizim yapay zekamız deneyimlerinize ve hedef işinize göre özelleştirilmiş içerik oluşturuyor.' },
+      { title: 'Gerçek Zamanlı ATS Puanlaması', description: 'Resume.io ATS puanlama sunmuyor. Yapay zekamız her yazdığınızda Workday, SAP SuccessFactors ve Kariyer.net gibi Türkiye\'de kullanılan sistemler için anlık ATS puanı sağlıyor.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Öneri',
+    useCompetitor: {
+      title: 'Resume.io\'yu şu durumlarda kullanın...',
+      items: [
+        'Aylık $24.95\'lık özgeçmiş aracına bütçeniz varsa',
+        'CV\'nize ne yazacağınızı tam olarak biliyorsunuz',
+        'Yapay zeka yardımı olmadan basit bir şablona ihtiyacınız var',
+        'Deneme süresinden önce iptal etmeyi unutmayacağınıza güveniyorsunuz',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes\'i şu durumlarda kullanın...',
+      items: [
+        'Gerçekten ücretsiz bir özgeçmiş oluşturucu arıyorsanız',
+        'İkna edici özgeçmiş oluşturmak için yapay zeka kullanmak istiyorsanız',
+        'Başvurmadan önce ATS uyumluluğunu doğrulamak istiyorsanız',
+        'Beklenmedik ödemelerden kaçınmak istiyorsanız',
+        'Farklı işler için birden fazla özgeçmiş versiyonu oluşturmanız gerekiyorsa',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300+ Ücretsiz Özgeçmiş Örneği Keşfedin',
+    description: 'Türkiye iş piyasasının tüm sektörleri ve kariyer seviyeleri için ATS uyumlu profesyonel özgeçmiş örnekleri.',
+    ctaBrowse: 'Özgeçmiş Örneklerini Gözat',
+    ctaTemplates: 'Özgeçmiş Format Rehberi',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'Resume.io gerçekten ücretsiz mi?', answer: 'Resume.io ile ücretsiz özgeçmiş oluşturabilirsiniz, ama indirmek için ücretli abonelik gerekiyor (7 günlük deneme $2.95, ardından $24.95/ay otomatik yenileme). Best AI Resume Builder\'da oluşturmaktan indirmeye her şey tamamen ücretsizdir.' },
+      { question: 'Resume.io\'ya en iyi ücretsiz alternatif nedir?', answer: 'Best AI Resume Builder en iyi ücretsiz alternatiftir. Resume.io\'nun ücret aldığı her şeyi sunuyor — profesyonel şablonlar, PDF indirme, birden fazla özgeçmiş — ayrıca Resume.io\'da olmayan yapay zeka yazımı ve gerçek zamanlı ATS puanlaması ile.' },
+      { question: 'Resume.io\'nun yapay zeka yazım özellikleri var mı?', answer: 'Resume.io yalnızca genel önceden yazılmış ifadeler sunuyor, gerçek kişiselleştirilmiş içerik üretmiyor. Best AI Resume Builder, sektörünüze özel deneyim açıklamaları, profesyonel profiller ve anahtar kelimeler oluşturmak için gelişmiş yapay zeka kullanıyor.' },
+      { question: 'Resume.io şablonları ATS uyumlu mu?', answer: 'Resume.io şablonlarının çoğu ATS uyumlu, ancak bazı premium şablonlarda ayrıştırma sorunları olabilir. Best AI Resume Builder\'ın tüm şablonları Workday, SAP SuccessFactors ve Kariyer.net için gerçek zamanlı puan ile ATS test edilmiştir.' },
+      { question: 'Resume.io deneme sürümünden sonra iptal etmek mümkün mü?', answer: 'Evet, ama pek çok kullanıcı otomatik yenilemeden önce iptal etmekte zorlandığını bildiriyor. Best AI Resume Builder\'da iptal edecek bir şey yok — hizmet tamamen ücretsizdir.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer Özgeçmiş Oluşturucuları Karşılaştırın',
+    items: [
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Tasarım aracı vs yapay zeka oluşturucu' },
+      { href: '/tr/overleaf-alternative', title: 'Overleaf Alternatifi', subtitle: 'LaTeX özgeçmiş vs yapay zeka oluşturucu' },
+      { href: '/tr/rezi-alternative', title: 'Rezi Alternatifi', subtitle: 'Yapay zeka özgeçmiş araçları karşılaştırması' },
+    ],
+    guidesTitle: 'Faydalı Özgeçmiş Rehberleri',
+    guides: [
+      { href: '/tr/blog/how-to-write-ats-friendly-resume', label: 'ATS Uyumlu Özgeçmiş Nasıl Yazılır' },
+      { href: '/tr/resume-format', label: 'Özgeçmiş Format Rehberi 2026' },
+      { href: '/tr/blog/top-resume-mistakes-to-avoid', label: 'Kaçınılması Gereken Yaygın Özgeçmiş Hataları' },
+      { href: '/tr/resume-examples', label: '300+ Mesleğe Göre Özgeçmiş Örneği' },
+    ],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://resume.io/', label: 'Resume.io Resmi Sitesi' },
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+    ],
+  },
+  bottomCta: {
+    title: 'Ücretsiz Olması Gereken Şey İçin Neden Para Ödeyelim?',
+    description: 'Ücretli özgeçmiş oluşturuculardan üstün özelliklere sahip ücretsiz yapay zeka oluşturucuya geçen binlerce adayın arasına katılın.',
+    cta: 'Özgeçmişimi Ücretsiz Oluştur — Kredi Kartı Gerekmez',
+    subtext: 'Sonsuza kadar ücretsiz. Deneme yok. Otomatik yenileme yok.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

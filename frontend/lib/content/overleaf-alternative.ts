@@ -1356,5 +1356,129 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'Overleaf Alternatifi 2026: LaTeX Gerektirmeyen ATS Uyumlu CV | Best AI Resume',
+    description: 'LaTeX karmaşası olmadan Overleaf özgeçmiş şablonu mu arıyorsunuz? Overleaf ile Best AI Resume Builder\'ı karşılaştırın — ücretsiz, ATS uyumlu şablonlar ve yapay zeka destekli yazım. Kodlama gerekmez.',
+    keywords: 'overleaf özgeçmiş, overleaf şablonu, overleaf alternatifi, latex özgeçmiş şablonu, overleaf cv, ücretsiz özgeçmiş oluşturucu, ats uyumlu özgeçmiş',
+  },
+  schemas: {
+    breadcrumbName: 'Overleaf Özgeçmiş Alternatifi',
+    articleHeadline: 'Overleaf Alternatifi 2026: LaTeX Gerektirmeyen ATS Uyumlu Özgeçmiş',
+    articleDescription: 'Overleaf ile Best AI Resume Builder\'ı özgeçmiş oluşturmak için karşılaştırın. Akademisyenler ve iş arayanlar için özellik özellik karşılaştırma.',
+  },
+  hero: {
+    badge: 'Overleaf Alternatifi',
+    title: 'Şık Özgeçmişler.',
+    titleHighlight: 'LaTeX Gerekmez.',
+    subtitle: 'Overleaf harika akademik CV\'ler yapıyor — LaTeX biliyorsanız. <strong>Yapay zeka destekli yazım</strong> ve <strong>sıfır kodlama</strong> ile aynı profesyonel kaliteyi elde edin.',
+    ctaPrimary: 'Özgeçmişimi Ücretsiz Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'Overleaf\'in Özgeçmiş Sorunu',
+    description: 'Overleaf, akademik makaleler ve teknik belgeler için oluşturulmuş güçlü bir LaTeX editörüdür. Pek çok mühendis, araştırmacı ve akademisyen CV oluşturmak için kullanıyor. Ancak iş arayanlar için iki önemli dezavantajı var: <strong>LaTeX\'in dik bir öğrenme eğrisi var</strong> ve birçok Overleaf özgeçmiş şablonu <strong>ATS sistemlerinin güvenilir şekilde ayrıştıramadığı</strong> karmaşık biçimlendirme kullanıyor.',
+    stats: [
+      { value: '~4 sa', label: 'Bir özgeçmiş şablonunu özelleştirmek için yeterli LaTeX öğrenmek ortalama süre' },
+      { value: '%60+', label: 'Overleaf özgeçmiş şablonlarının ATS\'yi karıştıran çok sütunlu düzen kullanması' },
+      { value: '0', label: 'Yapay zeka yazım yardımı — Overleaf bir metin editörü, özgeçmiş oluşturucu değil' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf ile Best AI Resume Builder Karşılaştırması',
+    subtitle: 'Mühendisler, araştırmacılar ve iş arayanlar için dürüst bir karşılaştırma.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Öğrenme Eğrisi', competitor: '❌ LaTeX bilgisi gerektirir', ours: '✅ Teknik beceri gerekmez' },
+      { feature: 'Yapay Zeka Yazımı', competitor: '❌ Yapay zeka yardımı yok', ours: '✅ Yapay zeka madde noktaları ve özet yazıyor' },
+      { feature: 'ATS Uyumluluğu', competitor: '⚠️ Şablon seçimine göre değişir', ours: '✅ Tüm şablonlar ATS test edilmiş' },
+      { feature: 'Gerçek Zamanlı ATS Puanı', competitor: '❌ Puanlama sistemi yok', ours: '✅ Yazarken canlı ATS puanı' },
+      { feature: 'Kurulum Süresi', competitor: '❌ Saatler (LaTeX + özelleştirme)', ours: '✅ Dakikalar (rehberli akış)' },
+      { feature: 'Şablon Özelleştirme', competitor: '✅ LaTeX kodu ile tam kontrol', ours: '✅ Görsel sürükle-bırak düzenleme' },
+      { feature: 'Tipografi Kalitesi', competitor: '✅ Mükemmel (Computer Modern fontları)', ours: '✅ Profesyonel web fontları' },
+      { feature: 'Hata Ayıklama', competitor: '❌ LaTeX derleme hataları yaygın', ours: '✅ Hata yok (WYSIWYG)' },
+      { feature: 'İşe Özgü Anahtar Kelimeler', competitor: '❌ Anahtar kelime önerisi yok', ours: '✅ Yapay zeka sektör anahtar kelimeleri öneriyor' },
+      { feature: 'Ücretsiz Plan', competitor: '✅ Ücretsiz (sınırlamalarla)', ours: '✅ Tüm şablonlar ücretsiz' },
+    ],
+  },
+  whySwitch: {
+    title: 'Overleaf\'den Geçmek İçin 3 Neden',
+    subtitle: 'Zamanınızı kariyerinize harcayın, LaTeX sözdizimine değil.',
+    reasons: [
+      { title: 'Saatler Değil, Dakikalar', description: '\\hfill hatalarını düzeltmek veya LaTeX sözdizimi aramak zorunda değilsiniz. Bir şablon seçin, bilgilerinizi doldurun ve yapay zekanın içeriğinizi parlatmasına izin verin.' },
+      { title: 'Yapay Zeka İçeriğinizi Yazar', description: 'Overleaf bir metin editörü — her şeyi kendiniz yazıyorsunuz. Yapay zekamız özel madde noktaları, profesyonel özetler oluşturuyor ve işe alımcıların aradığı anahtar kelimeleri öneriyor.' },
+      { title: 'Garantili ATS Ayrıştırması', description: 'Birçok Overleaf şablonu, ATS sistemlerinin ayrıştıramadığı çok sütunlu düzenler ve özel fontlar kullanıyor. Her şablonumuz Workday, SAP SuccessFactors ve Kariyer.net için %100 ATS okunabilirliği sağlamak üzere test edilmiştir.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Öneri: Kim Ne Kullanmalı?',
+    useCompetitor: {
+      title: 'Overleaf\'i şu durumlarda kullanın...',
+      items: [
+        'Yayınlar, hibeler ve araştırma içeren çok sayfalı akademik CV\'ye ihtiyacınız varsa',
+        'LaTeX konusunda rahatsanız ve ayrıntılı tipografik kontrol istiyorsanız',
+        'İçerikten çok format önem taşıyan akademik pozisyonlara başvuruyorsanız',
+        'Özgeçmişinizi kodunuzla birlikte Git\'te versiyonlamak istiyorsanız',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes\'i şu durumlarda kullanın...',
+      items: [
+        'ATS destekli iş panelleri üzerinden sektör işlerine başvuruyorsanız',
+        'İkna edici madde noktaları ve özetler yazmak için yapay zeka yardımı istiyorsanız',
+        'Özgeçmiş için LaTeX öğrenmek istemiyorsanız',
+        'Akademik CV değil, 1-2 sayfalık sektör özgeçmişine ihtiyacınız varsa',
+        'Şansınızı artırmak için gerçek zamanlı ATS puanlaması istiyorsanız',
+      ],
+    },
+    bottomLine: 'Sonuç olarak: Overleaf akademik CV\'lerin altın standardıdır. Ama sektör rollerini hedefliyor ve çevrimiçi portaller üzerinden başvuruyorsanız, amaca özel bir yapay zeka özgeçmiş oluşturucu saatlerinizi kurtarır ve ATS geçiş oranınızı artırır.',
+  },
+  resumeExamples: {
+    title: 'ATS Uyumlu Özgeçmiş Örneklerini Görün',
+    description: '300+ profesyonel özgeçmiş örneğine göz atın — yazılım mühendisi, veri bilimcisi ve araştırma asistanı özgeçmişleri dahil.',
+    ctaBrowse: 'Özgeçmiş Örneklerini Gözat',
+    ctaTemplates: 'Tüm Şablonları Gör',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'Overleaf özgeçmiş yapmak için iyi midir?', answer: 'Overleaf LaTeX tabanlı akademik CV\'ler için mükemmeldir, ancak dik bir öğrenme eğrisi var ve bazı şablonlar ATS ayrıştırmasında başarısız olabiliyor. Kariyer.net veya LinkedIn gibi çevrimiçi portaller üzerinden kurumsal işlere başvuruyorsanız, özel bir özgeçmiş oluşturucu çok daha etkilidir.' },
+      { question: 'Overleaf özgeçmişleri ATS uyumlu mudur?', answer: 'LaTeX şablonuna bağlıdır. Birçok Overleaf şablonu, ATS sistemlerinin doğru şekilde ayrıştıramadığı özel fontlar, çok sütunlu düzenler ve özel biçimlendirme kullanıyor. Basit tek sütunlu şablonlar işe yarayabilir ama dekoratif şablonların çoğu başarısız olur.' },
+      { question: 'Overleaf kullanmak için LaTeX bilmek gerekiyor mu?', answer: 'Evet. Overleaf bir LaTeX editörüdür, bu nedenle şablonları özelleştirmek, derleme hatalarını düzeltmek ve biçimlendirmeyi ayarlamak için en azından temel LaTeX bilgisi gerekir. Best AI Resume Builder ile sıfır teknik beceri yeterlidir.' },
+      { question: 'Özgeçmiş için Overleaf\'e en iyi ücretsiz alternatif nedir?', answer: 'Best AI Resume Builder iş arayanlar için en iyi ücretsiz alternatiftir. LaTeX veya kodlama bilgisi gerektirmeden yapay zeka destekli içerik yazımı, ATS optimizasyon puanlaması ve profesyonel şablonlar sunuyor.' },
+      { question: 'Overleaf özgeçmişimi ATS uyumlu formata çevirebilir miyim?', answer: 'Overleaf PDF\'inizdeki metin içeriğini kopyalayıp Best AI Resume Builder\'a yapıştırabilirsiniz. Yapay zekamız içeriğinizi ATS uyumlu formata yeniden düzenlerken iyileştirmeler de önerecektir.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer Özgeçmiş Oluşturucuları Karşılaştırın',
+    items: [
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Tasarım araçları vs yapay zeka oluşturucu' },
+      { href: '/tr/resume-io-alternative', title: 'Resume.io Alternatifi', subtitle: 'Fiyat ve özellik karşılaştırması' },
+      { href: '/tr/rezi-alternative', title: 'Rezi Alternatifi', subtitle: 'Yapay zeka özgeçmiş araçları karşılaştırması' },
+    ],
+    guidesTitle: 'Faydalı Özgeçmiş Rehberleri',
+    guides: [
+      { href: '/tr/blog/how-to-write-ats-friendly-resume', label: 'ATS Uyumlu Özgeçmiş Nasıl Yazılır' },
+      { href: '/tr/resume-format', label: 'Özgeçmiş Format Rehberi 2026' },
+      { href: '/tr/resume-examples/software-engineer', label: 'Yazılım Mühendisi Özgeçmiş Örneği' },
+      { href: '/tr/blog/best-resume-fonts-2026', label: '2026\'da En İyi Özgeçmiş Fontları' },
+    ],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://www.overleaf.com/gallery/tagged/cv', label: 'Overleaf CV Şablonları' },
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+    ],
+  },
+  bottomCta: {
+    title: 'LaTeX\'i Bırakın. İşe Alınan Özgeçmiş Oluşturun.',
+    description: 'Biçimlendirmeyi yapay zekaya bırakıp içeriğe odaklanan binlerce mühendis ve araştırmacıya katılın.',
+    cta: 'Özgeçmişimi Ücretsiz Oluştur — LaTeX Gerekmez',
+    subtext: 'Sonsuza kadar ücretsiz. Kredi kartı gerekmez.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

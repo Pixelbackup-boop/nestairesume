@@ -1,0 +1,119 @@
+---
+title: Overleaf ile LaTeX CV Hazırlama Rehberi 2026
+slug: overleaf-cv-hazirlama
+description: >-
+  Overleaf ile LaTeX CV hazırlama rehberi. Akademik ve teknik pozisyonlar için Overleaf CV şablonları, LaTeX komutları ve profesyonel özgeçmiş oluşturma ipuçları.
+date: '2026-03-01'
+author: Elif Yılmaz
+authorBio: >-
+  Elif Yılmaz, 12 yılı aşkın deneyime sahip kariyer danışmanı ve CV uzmanıdır. Türkiye'nin önde gelen teknoloji şirketleri ve uluslararası kuruluşlarda İK departmanlarıyla çalışmış; binlerce profesyonelin kariyer geçişlerinde ve iş arayış süreçlerinde rehberlik etmiştir. LinkedIn sertifikalı kariyer koçu olan Elif, CV optimizasyonu, mülakat hazırlığı ve Türk iş piyasası dinamikleri konularında uzmanlaşmıştır.
+category: Araçlar ve Şablonlar
+tags:
+  - overleaf cv hazırlama
+  - latex cv şablonu
+  - overleaf özgeçmiş
+  - akademik cv hazırlama
+  - latex cv türkçe
+  - overleaf şablon
+  - teknik cv formatı
+  - overleaf 2026
+image: /blog/tr-placeholder.svg
+imageAlt: Overleaf LaTeX cv hazırlama rehberi
+featured: false
+faq:
+  - question: 'LaTeX bilmeden Overleaf kullanabilir miyim?'
+    answer: >-
+      Overleaf şablonları sayesinde temel düzeyde evet. Şablondaki metinleri değiştirmek için LaTeX bilmenize gerek yok. Ancak yapıyı değiştirmek veya bölüm eklemek için temel LaTeX komutlarını bilmek gerekir.
+  - question: 'Overleaf ücretsiz mi?'
+    answer: >-
+      Overleaf'in ücretsiz planı tek kişilik projeler için yeterlidir. İşbirliği özellikleri ve uzun derleme süreleri için ücretli plana ihtiyaç duyabilirsiniz.
+  - question: 'Overleaf CV''leri ATS uyumlu mu?'
+    answer: >-
+      LaTeX ile oluşturulan PDF'ler genellikle metin tabanlı ve ATS uyumludur. Ancak karmaşık düzenler ve özel paketler sorun çıkarabilir — basit şablonları tercih edin.
+  - question: 'Overleaf''te Türkçe karakter sorunu nasıl çözülür?'
+    answer: >-
+      \usepackage[utf8]{inputenc} ve \usepackage[turkish]{babel} paketlerini kullanarak Türkçe karakterleri (ğ, ü, ş, ı, ö, ç) sorunsuz kullanabilirsiniz.
+  - question: 'Hangi sektörler için Overleaf CV uygun?'
+    answer: >-
+      Akademik pozisyonlar, araştırma görevleri, mühendislik ve bilgisayar bilimi alanları için LaTeX CV özellikle değerlidir. Bu alanlarda LaTeX bilgisi ayrı bir yetkinlik göstergesidir.
+---
+
+## Overleaf ile LaTeX CV Hazırlama: 2026 Kapsamlı Rehberi
+
+Overleaf cv hazırlama platformu, özellikle akademik ve teknik pozisyonlar için profesyonel latex cv şablonları sunar. LaTeX'in tipografi gücüyle oluşturulan CV'ler, mükemmel görünüm ve ATS uyumluluk sağlar. Bu rehberde Overleaf ile CV hazırlama sürecini adım adım anlatıyoruz.
+
+### Overleaf Nedir ve Neden Kullanmalısınız?
+
+Overleaf, tarayıcı tabanlı bir LaTeX editörüdür. Bilgisayarınıza LaTeX kurmanıza gerek kalmadan profesyonel belgeler oluşturmanızı sağlar. CV hazırlama için özellikle şu avantajları sunar:
+
+- **Mükemmel tipografi:** LaTeX'in üstün font işleme ve sayfa düzenleme yetenekleri
+- **Tutarlı format:** Her derleme aynı sonucu verir — format asla bozulmaz
+- **Profesyonel görünüm:** Akademik camiada LaTeX kullanımı başlı başına bir yetkinlik göstergesi
+- **Versiyon kontrolü:** Git entegrasyonu ile tüm değişiklikler takip edilir
+
+### Overleaf ile CV Hazırlama Adımları
+
+#### 1. Hesap Oluşturun
+
+overleaf.com adresine giderek ücretsiz hesap oluşturun. Google, Twitter veya e-posta ile kayıt olabilirsiniz.
+
+#### 2. CV Şablonu Seçin
+
+"New Project" > "Templates" > "CV/Resume" yolunu izleyin. Popüler şablonlar:
+
+- **ModernCV:** Temiz, profesyonel görünüm — en popüler seçenek
+- **AltaCV:** Modern, tek sütunlu tasarım
+- **Deedy CV:** Teknoloji sektörü için kompakt format
+- **Academic CV:** Yayınlar, konferanslar ve projeler için detaylı yapı
+
+#### 3. Türkçe Karakter Ayarları
+
+LaTeX'te Türkçe karakterleri kullanmak için belgenizin başına şu paketleri ekleyin:
+
+```
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[turkish]{babel}
+```
+
+#### 4. İçeriği Düzenleyin
+
+Şablondaki örnek metinleri kendi bilgilerinizle değiştirin. Temel LaTeX komutları:
+
+- `\section{Bölüm Adı}` — yeni bölüm
+- `\textbf{kalın metin}` — kalın yazı
+- `\begin{itemize}..\end{itemize}` — madde listesi
+- `\href{url}{metin}` — bağlantı ekleme
+
+#### 5. Derleyin ve İndirin
+
+"Recompile" butonuyla PDF'i oluşturun. Sonucu önizlemede kontrol ettikten sonra "Download PDF" ile indirin.
+
+### LaTeX CV'nin Avantajları
+
+- **Piksel mükemmelliğinde çıktı** — Word veya Google Docs'tan çok daha temiz tipografi
+- **Otomatik düzenleme** — LaTeX sayfa düzenini otomatik optimize eder
+- **Formül desteği** — matematik, fizik veya mühendislik formülleri eklenebilir
+- **Kaynak yönetimi** — BibTeX ile yayın listesi otomatik oluşturulabilir
+- **Yeniden kullanım** — bir kez yazılan yapı her güncelleme için kullanılabilir
+
+### LaTeX CV'nin Dezavantajları
+
+- **Öğrenme eğrisi** — LaTeX sözdizimini öğrenmek zaman alır
+- **Hızlı düzenleme zorluğu** — basit bir değişiklik bile derleme gerektirir
+- **Görsel tasarım sınırlı** — Canva gibi serbest tasarım yapılamaz
+- **Derleme hataları** — küçük sözdizimi hataları tüm belgeyi bozabilir
+
+### Kimler İçin Overleaf CV Önerilir?
+
+Overleaf ile LaTeX CV özellikle şu profiller için idealdir:
+- **Akademisyenler ve araştırmacılar** — yayın listesi ve proje detayları için
+- **Mühendisler** — teknik yetkinlik göstergesi olarak
+- **Bilgisayar bilimciler** — sektör standardı olarak LaTeX bilgisi beklenir
+- **Yüksek lisans/doktora öğrencileri** — akademik kariyer başvuruları için
+
+Kurumsal pozisyonlar veya yaratıcı sektörler için [ATS uyumlu CV oluşturucu](/tr/builder) daha uygun bir seçenek olabilir. Yapay zeka desteği ve hazır şablonlarla dakikalar içinde profesyonel bir CV oluşturabilirsiniz.
+
+### Sonuç
+
+Overleaf cv hazırlama, akademik ve teknik kariyerler için güçlü bir araçtır. LaTeX'in tipografi mükemmelliğiyle öne çıkan CV'niz, teknik yetkinliğinizin bir kanıtı olarak da işlev görür. LaTeX deneyiminiz yoksa veya hızlı bir çözüm arıyorsanız, [AI destekli CV oluşturucumuzu](/tr/builder) deneyerek profesyonel sonuçlara dakikalar içinde ulaşabilirsiniz.

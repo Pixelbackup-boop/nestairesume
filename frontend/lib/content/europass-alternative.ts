@@ -1310,5 +1310,124 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'Europass CV Alternatifi 2026: Modern Yapay Zeka Özgeçmiş Oluşturucu | Best AI Resume',
+    description: 'Europass CV alternatifi mi arıyorsunuz? Europass ile Best AI Resume Builder\'ı karşılaştırın — 20+ modern şablon, yapay zeka yazımı, ATS optimizasyonu. Küresel iş başvuruları için ücretsiz.',
+    keywords: 'europass alternatifi, europass cv yapıcı, europass cv şablonu, europass özgeçmiş, ücretsiz özgeçmiş oluşturucu, yapay zeka özgeçmiş, cv yapıcı',
+  },
+  schemas: {
+    breadcrumbName: 'Europass CV Alternatifi',
+    articleHeadline: 'Europass CV Alternatifi 2026: Modern Yapay Zeka Özgeçmiş Oluşturucu',
+    articleDescription: 'Europass CV ile Best AI Resume Builder\'ı karşılaştırın. Tek katı AB formatı yerine yapay zeka yazımı ile 20+ profesyonel şablon alın.',
+  },
+  hero: {
+    badge: 'Europass CV Alternatifi',
+    title: 'Tek Şablonlu CV\'nin Ötesinde.',
+    titleHighlight: 'Modern. Yapay Zeka Destekli. Ücretsiz.',
+    subtitle: 'Europass size AB başvuruları için tasarlanmış tek katı şablon sunuyor. <strong>Dünya genelinde</strong> iş piyasaları için <strong>20+ modern şablon</strong>, yapay zeka destekli yazım ve ATS optimizasyonu alın — ücretsiz.',
+    ctaPrimary: 'Özgeçmişimi Ücretsiz Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'Europass: AB İçin İyi, Başka Yerlerde Sınırlı',
+    description: 'Europass CV, sınır ötesi Avrupa iş hareketliliğinde CV\'leri standartlaştırmak için oluşturulmuş bir AB girişimidir. Ücretsiz ve devlet desteklidir — ancak <strong>yalnızca bir şablon formatı</strong> sunuyor, <strong>yapay zeka yazım yardımı yok</strong> ve modern özgeçmiş tasarımlarına kıyasla eski görünen katı bir yapı var. AB dışı işler için Europass başvurunuza zarar verebilir.',
+    stats: [
+      { value: '1', label: 'Europass\'ta mevcut şablon' },
+      { value: '0', label: 'Europass\'taki yapay zeka özelliği' },
+      { value: '20+', label: 'Best AI Resume Builder\'daki şablon (ücretsiz)' },
+    ],
+  },
+  comparison: {
+    title: 'Europass CV ile Best AI Resume Builder Karşılaştırması',
+    subtitle: 'AB standart formatı vs modern yapay zeka destekli oluşturucu.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Fiyatlandırma', competitor: '✅ Ücretsiz (AB hükümeti aracı)', ours: '✅ Ücretsiz (tüm özellikler)' },
+      { feature: 'Şablonlar', competitor: '❌ Yalnızca 1 katı format', ours: '✅ 20+ profesyonel tasarım' },
+      { feature: 'Yapay Zeka Yazımı', competitor: '❌ Yapay zeka özelliği yok', ours: '✅ Yapay zeka tarafından üretilen özel içerik' },
+      { feature: 'ATS Optimizasyonu', competitor: '⚠️ Yalnızca AB formatı ayrıştırma', ours: '✅ Küresel ATS puanlama + anahtar kelimeler' },
+      { feature: 'Tasarım Özelleştirme', competitor: '❌ Minimum — yalnızca renkler ve fontlar', ours: '✅ Tam şablon + düzen kontrolü' },
+      { feature: 'Küresel Uyumluluk', competitor: '❌ AB odaklı, Avrupa dışında ideal değil', ours: '✅ Her iş piyasası için çalışır' },
+      { feature: 'Ön Yazı', competitor: '✅ Temel ön yazı oluşturucu', ours: '✅ Yapay zeka destekli ön yazılar' },
+      { feature: 'Dil Pasaportu', competitor: '✅ AB dil becerileri çerçevesi', ours: '⚠️ Standart dil bölümü' },
+      { feature: 'İçerik Yardımı', competitor: '❌ Yalnızca manuel giriş', ours: '✅ Yapay zeka madde noktaları yazıyor' },
+      { feature: 'Modern Tasarım', competitor: '❌ Eski, kurumsal görünüm', ours: '✅ Çağdaş, işe alımcı onaylı' },
+    ],
+  },
+  whySwitch: {
+    title: 'Europass\'tan Geçmek İçin 3 Neden',
+    subtitle: 'Türk iş piyasası için daha iyi.',
+    reasons: [
+      { title: 'Tek Şablonun Ötesinde', description: 'Europass tek bir katı format sunuyor. Kariyer seviyenize, sektörünüze ve tercih ettiğiniz stile uyacak şekilde tüm ATS test edilmiş 20+ şablondan birini seçin.' },
+      { title: 'Yapay Zeka İçeriğinizi Yazar', description: 'Europass manuel giriş gerektiriyor. Yapay zekamız özelleştirilmiş başarı madde noktaları oluşturuyor, profesyonel özetler yazıyor ve Türk işe alımcıların aradığı anahtar kelimeleri öneriyor.' },
+      { title: 'Küresel ATS Uyumluluğu', description: 'Europass AB odaklı. Şablonlarımız Türkiye\'de kullanılan Workday, SAP SuccessFactors ve Kariyer.net dahil küresel ATS sistemleri için test edilmiştir.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Öneri: Europass Ne Zaman Mantıklı?',
+    useCompetitor: {
+      title: 'Europass\'ı şu durumlarda kullanın...',
+      items: [
+        'AB hareketlilik programlarına (Erasmus, Avrupa kurumları) başvururken',
+        'İşveren açıkça Europass formatı istiyorsa',
+        'Avrupa Dil Pasaportu veya Yeterlilik Pasaportu gerekiyorsa',
+        'Avrupa\'daki kamu kurumları veya akademik pozisyonlara başvururken',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes\'i şu durumlarda kullanın...',
+      items: [
+        'Özel şirketlere (Türkiye\'de veya yurt dışında) başvururken',
+        'Teknoloji, pazarlama, finans veya danışmanlık gibi sektörlerde iş ararken',
+        'Modern ve görsel açıdan çekici bir özgeçmiş istediğinizde',
+        'Deneyimleri ve özeti yazmak için yapay zeka yardımına ihtiyaç duyduğunuzda',
+        'ATS portalleri üzerinden başvurularda (LinkedIn, Indeed, Kariyer.net)',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300+ Ücretsiz Özgeçmiş Örneği Keşfedin',
+    description: 'Her sektör ve kariyer seviyesi için profesyonel özgeçmiş örnekleri.',
+    ctaBrowse: 'Özgeçmiş Örneklerini Gör',
+    ctaTemplates: 'Tüm Şablonları Gör',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'Europass CV ücretsiz mi?', answer: 'Evet, Avrupa Komisyonu\'nun Europass editörü tamamen ücretsiz. Ancak yalnızca özelleştirme seçeneği olmayan bir standart şablon sunuyor. Best AI Resume Builder da ücretsiz, ama 20+ özgeçmiş şablonu, yapay zeka yazımı ve ATS optimizasyonu ile.' },
+      { question: 'Europass CV Türk özel şirketleri için uygun mu?', answer: 'Europass formatı AB kurumlarında tanınıyor, ancak Türk özel sektör işe alımcıları genellikle onu eski ve az özelleştirilebilir buluyor. Özel sektör başvuruları için modern, kişiselleştirilmiş bir özgeçmiş şablonu önerilir. Best AI Resume Builder her sektöre uygun özgeçmiş oluşturuyor.' },
+      { question: 'Europass\'a en iyi alternatif nedir?', answer: 'Best AI Resume Builder modern başvurular için en iyi alternatif. Yapay zeka yazımı, ATS optimizasyonu ve 20+ profesyonel şablon sunuyor — Europass yalnızca yapay zeka özelliği olmayan tek katı bir format sunarken.' },
+      { question: 'ATS sistemleri Europass CV\'yi okuyabilir mi?', answer: 'Europass CV\'ler ATS tarafından ayrıştırılabilir, ancak katı format ve AB\'ye özgü bölümler, standart özgeçmiş formatları için yapılandırılmış ATS sistemlerini karıştırabilir. Best AI Resume Builder şablonları küresel ATS uyumluluğu için test edilmiştir.' },
+      { question: 'Europass neden yalnızca bir şablona sahip?', answer: 'Europass, tüm Avrupa ülkelerinde CV\'leri standartlaştırmak için geliştirilmiş bir AB girişimidir. AB hareketlilik programları için faydalıdır, ancak profesyonel ve modern bir özgeçmiş arayanları kısıtlar. Best AI Resume Builder her sektör veya stil tercihi için 20+ şablon sunuyor.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer Özgeçmiş Oluşturucuları Karşılaştırın',
+    items: [
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Tasarım araçları vs yapay zeka' },
+      { href: '/tr/zety-alternative', title: 'Zety Alternatifi', subtitle: 'Fiyat karşılaştırması' },
+      { href: '/tr/overleaf-alternative', title: 'Overleaf Alternatifi', subtitle: 'LaTeX vs yapay zeka oluşturucu' },
+      { href: '/tr/nova-alternative', title: 'Nova Alternatifi', subtitle: 'Özgeçmiş oluşturucu karşılaştırması' },
+    ],
+    guidesTitle: 'Faydalı Özgeçmiş Rehberleri',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://europa.eu/europass/tr', label: 'Europass Resmi Portalı' },
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+    ],
+  },
+  bottomCta: {
+    title: 'Türk ve Küresel İş Piyasası İçin Modern Özgeçmiş.',
+    description: 'Tek formatlı Europass\'ın ötesine geçin. Yapay zeka yazımı, 20+ şablon, ATS optimizasyonu — özgeçmişinizi ücretsiz oluşturun.',
+    cta: 'Özgeçmişimi Ücretsiz Oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. Dünya genelinde çalışır.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

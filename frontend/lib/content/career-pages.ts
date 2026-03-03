@@ -251,7 +251,28 @@ const pt: CareerPagesContent = {
   },
 };
 
-const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Kariyer Kaynakları ve İş Fırsatları | Best AI Resume',
+      description: 'Kariyerinizi ilerletmek için kariyer kaynaklarını, iş fırsatlarını, sektör trendlerini ve mesleki gelişim ipuçlarını keşfedin.',
+      ogTitle: 'Kariyer Kaynakları ve İş Fırsatları | Best AI Resume',
+      ogDescription: 'Kariyer kaynaklarını, iş fırsatlarını ve mesleki gelişim ipuçlarını keşfedin.',
+    },
+    badge: 'Kariyer Merkezi',
+    title: 'Kariyer Kaynakları ve',
+    titleHighlight: 'İş Fırsatları',
+    subtitle: 'Kariyerinizde ilerlemek için iş fırsatlarını, kariyer içgörülerini ve mesleki gelişim kaynaklarını keşfedin.',
+    featured: 'Öne Çıkan Fırsatlar',
+    noPostsTitle: 'Henüz makale yok',
+    noPostsSub: 'Kariyer kaynakları ve fırsatlar için yakında geri gelin!',
+  },
+  article: {
+    notFound: 'Makale Bulunamadı',
+  },
+};
+
+const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 
 export function getCareerListingContent(locale: string) { return selectContent(contentMap, locale).listing; }
 export function getCareerArticleContent(locale: string) { return selectContent(contentMap, locale).article; }

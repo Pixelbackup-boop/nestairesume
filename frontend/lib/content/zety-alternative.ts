@@ -1410,5 +1410,123 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'Zety Alternatifi 2026: Gizli Ücret Olmayan Ücretsiz Yapay Zeka Özgeçmiş | Best AI Resume',
+    description: 'Ücretsiz Zety alternatifi mi arıyorsunuz? Zety ile Best AI Resume Builder\'ı karşılaştırın — yapay zeka destekli yazım, ATS şablonları, sınırsız indirme. Deneme tuzağı yok, abonelik yok.',
+    keywords: 'zety alternatifi, zety özgeçmiş oluşturucu, zety özgeçmiş yapıcı, zety ücretsiz alternatifi, zety inceleme, en iyi ücretsiz özgeçmiş oluşturucu',
+  },
+  schemas: {
+    breadcrumbName: 'Zety Alternatifi',
+    articleHeadline: 'Zety Alternatifi 2026: Gizli Ücret Olmayan Ücretsiz Yapay Zeka Özgeçmiş Oluşturucu',
+    articleDescription: 'Zety ile Best AI Resume Builder\'ı karşılaştırın. Yapay zeka destekli özgeçmiş yazımı, ATS optimizasyonu ve sınırsız indirmeyi tamamen ücretsiz alın.',
+  },
+  hero: {
+    badge: 'Zety Alternatifi',
+    title: 'Özgeçmişinizi Oluşturun.',
+    titleHighlight: 'Ücretsiz İndirin.',
+    subtitle: 'Zety özgeçmiş oluşturmanıza izin veriyor — sonra indirmek için <strong>$23.70/ay</strong> talep ediyor. Yapay zeka yazımı, ATS şablonları ve sınırsız dışa aktarmayı <strong>₺0\'a</strong> alın.',
+    ctaPrimary: 'Özgeçmişimi Ücretsiz Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'Zety Fiyat Tuzağı',
+    description: 'Zety\'nin profesyonel şablonları ve faydalı içerik önerileri var. Sorun fiyatlandırma modellerinde: tüm özgeçmişinizi oluşturduktan sonra indirmek için ödemeniz gerektiğini keşfediyorsunuz. <strong>14 günlük deneme $2.70</strong> tutuyor, ardından <strong>$23.70/ay\'a otomatik yenileniyor</strong>. İptal etmeyi unuttuktan sonra beklenmedik ödemeler bildiren binlerce kullanıcı inceleme sitelerinde görülebilir.',
+    stats: [
+      { value: '$2.70', label: '14 günlük deneme ($23.70/ay\'a otomatik yenileme)' },
+      { value: '$284', label: 'İptal etmeyi unutursanız yıllık maliyet' },
+      { value: '₺0', label: 'Best AI Resume Builder — sonsuza kadar ücretsiz' },
+    ],
+  },
+  comparison: {
+    title: 'Zety ile Best AI Resume Builder Karşılaştırması',
+    subtitle: 'Yan yana özellik karşılaştırması.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Fiyatlandırma', competitor: '❌ $2.70 deneme → $23.70/ay otomatik', ours: '✅ Sonsuza kadar %100 ücretsiz' },
+      { feature: 'Ücretsiz İndirme', competitor: '❌ PDF indirmek için ödeme gerekli', ours: '✅ Sınırsız ücretsiz PDF dışa aktarma' },
+      { feature: 'Yapay Zeka Yazımı', competitor: '⚠️ Önceden yazılmış öneriler (gerçek yapay zeka değil)', ours: '✅ Yapay zeka tarafından üretilen özel içerik' },
+      { feature: 'ATS Optimizasyonu', competitor: '✅ Özgeçmiş kontrolcüsü dahil', ours: '✅ Gerçek zamanlı ATS puanı + anahtar kelimeler' },
+      { feature: 'Şablon Kalitesi', competitor: '✅ Profesyonel, modern tasarımlar', ours: '✅ 20+ ATS test edilmiş şablon' },
+      { feature: 'Özgeçmiş Sayısı', competitor: '⚠️ Sınırsız (ama ödeme duvarı arkasında)', ours: '✅ Sınırsız özgeçmiş, ücretsiz' },
+      { feature: 'Ön Yazı Oluşturucu', competitor: '✅ Dahil (ücretli plan)', ours: '✅ Yapay zeka destekli (ücretsiz)' },
+      { feature: 'İçerik Önerileri', competitor: '✅ İş unvanına göre önceden yazılmış ifadeler', ours: '✅ Deneyiminize göre yapay zeka uyarlaması' },
+      { feature: 'İptal', competitor: '❌ Deneme bitmeden iptal edilmeli', ours: '✅ İptal edilecek bir şey yok' },
+      { feature: 'Kullanıcı Yorumları (Trustpilot)', competitor: '⚠️ Karışık — faturalandırma şikayetleri yaygın', ours: '✅ Faturalandırma sorunu mümkün değil' },
+    ],
+  },
+  whySwitch: {
+    title: 'Zety\'den Geçmek İçin 3 Neden',
+    subtitle: 'Gerçekten ücretsiz. Daha iyi yapay zeka. Tuzak yok.',
+    reasons: [
+      { title: 'Gerçekten Ücretsiz İndirme', description: 'Zety, özgeçmişinizi oluşturduktan sonra indirmek için para ister. Bizde oluşturduğunuz her şeyi anında ücretsiz indirebilirsiniz — deneme, kredi kartı veya otomatik yenileme yok.' },
+      { title: 'Gerçek Yapay Zeka (Önceden Yazılmış İfadeler Değil)', description: 'Zety\'nin önerileri önceden yazılmış ifade kütüphanelerine dayanıyor. Bizim yapay zekamız özgeçmişin her bölümü için gerçekten özelleştirilmiş içerik üretiyor.' },
+      { title: 'Daha İyi ATS Optimizasyonu', description: 'Zety\'nin temel ATS özelliklerine kıyasla, gerçek zamanlı ATS puanlaması, sektöre özel anahtar kelime önerileri ve Workday, SAP SuccessFactors ile Kariyer.net gibi Türkiye\'de kullanılan sistemler için test edilmiş şablonlar sunuyoruz.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Öneri',
+    useCompetitor: {
+      title: 'Zety\'yi şu durumlarda kullanın...',
+      items: [
+        'Rahatlık için aylık $23.70 ödemeye hazırsanız',
+        'Zety\'nin belirli ifade önerilerini tercih ediyorsanız',
+        'Yalnızca Zety\'nin sahip olduğu belirli bir özelliğe ihtiyacınız varsa',
+        'Ücretli müşteri desteği istiyorsanız',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes\'i şu durumlarda kullanın...',
+      items: [
+        'Özgeçmişinizi ücretsiz oluşturup indirmek istiyorsanız',
+        'İçerik yazmak için gelişmiş yapay zekaya ihtiyacınız varsa',
+        'Oluştururken gerçek zamanlı ATS puanlaması istiyorsanız',
+        'Abonelikler veya otomatik yenilemelerle uğraşmak istemiyorsanız',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300+ Ücretsiz Özgeçmiş Örneği Keşfedin',
+    description: 'Her sektör ve kariyer seviyesi için profesyonel özgeçmiş örnekleri.',
+    ctaBrowse: 'Özgeçmiş Örneklerini Gör',
+    ctaTemplates: 'Tüm Şablonları Gör',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'Zety ücretsiz mi?', answer: 'Zety özgeçmiş oluşturmanıza ücretsiz izin veriyor ama indirmek için ücret alıyor. 14 günlük deneme planı $2.70, ardından aylık $23.70\'a otomatik yenileniyor. Best AI Resume Builder %100 ücretsiz — kredi kartı olmadan sınırsız özgeçmiş oluşturun ve indirin.' },
+      { question: 'Zety neden indirme için ücret alıyor?', answer: 'Zety\'nin iş modeli "freemium" — oluşturma süreci kullanıcıları çekmek için ücretsiz, para indirmede alınıyor. Pek çok kullanıcı ancak indirmeye hazır olduklarında fiyatı öğreniyor. Best AI Resume Builder şeffaftır: her şey ücretsiz, sürpriz yok.' },
+      { question: 'Zety\'ye en iyi ücretsiz alternatif nedir?', answer: 'Best AI Resume Builder en iyi ücretsiz alternatif. Zety\'nin ödeme duvarı arkasına koyduğu her şeyi sunuyor — profesyonel şablonlar, PDF dışa aktarma, ön yazılar — ayrıca Zety\'nin sahip olmadığı yapay zeka yazımı ve ATS optimizasyonu ile.' },
+      { question: 'Zety\'nin yapay zeka yazımı var mı?', answer: 'Zety\'nin önceden hazırlanmış ifade önerileri var, ama gerçek anlamda yapay zeka içerik üretimi yok. Best AI Resume Builder, sektörünüze ve ilanınıza özel profesyonel deneyimler, özetler ve anahtar kelimeler oluşturmak için gelişmiş yapay zeka kullanıyor.' },
+      { question: 'Zety nasıl iptal edilir?', answer: 'Zety\'yi iptal etmek için deneme süresi bitmeden hesap ayarlarına gidin. Best AI Resume Builder abonelik gerektirmez — iptal edilecek hiçbir şey yok. Platformu ücretsiz olarak kullanmaya devam edin.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer Özgeçmiş Oluşturucuları Karşılaştırın',
+    items: [
+      { href: '/tr/livecareer-alternative', title: 'LiveCareer Alternatifi', subtitle: 'Geleneksel vs modern' },
+      { href: '/tr/resume-io-alternative', title: 'Resume.io Alternatifi', subtitle: 'Fiyat karşılaştırması' },
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Tasarım aracı vs yapay zeka' },
+      { href: '/tr/rezi-alternative', title: 'Rezi Alternatifi', subtitle: 'Yapay zeka özellikleri karşılaştırması' },
+    ],
+    guidesTitle: 'Faydalı Özgeçmiş Rehberleri',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+      { href: 'https://www.glassdoor.com.tr/', label: 'Glassdoor Türkiye — Maaşlar ve Fırsatlar' },
+    ],
+  },
+  bottomCta: {
+    title: 'Gerçekten Ücretsiz Bir Özgeçmiş Oluşturucu.',
+    description: 'Fiyat tuzağı yok, otomatik yenileme yok. Sadece yapay zeka destekli bir özgeçmiş oluşturucu — sonsuza kadar %100 ücretsiz.',
+    cta: 'Özgeçmişimi Ücretsiz Oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. Kredi kartı yok. Sürpriz yok.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

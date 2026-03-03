@@ -510,6 +510,49 @@ const pt: CommunityContent = {
   deleteBtn: 'Excluir',
 };
 
-const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: CommunityContent = {
+  title: 'Topluluk Şablonları',
+  subtitle: 'Topluluk tarafından paylaşılan şablonları keşfedin ve kullanın',
+  categories: [
+    { value: '', label: 'Tümü' },
+    { value: 'professional', label: 'Profesyonel' },
+    { value: 'creative', label: 'Yaratıcı' },
+    { value: 'ats', label: 'ATS Optimize' },
+    { value: 'bold', label: 'Dikkat Çekici' },
+  ],
+  browseTab: 'Şablonları Keşfet',
+  myTemplatesTab: 'Şablonlarım',
+  templatesAvailable: '{count} şablon mevcut',
+  templateAvailable: '{count} şablon mevcut',
+  createYourOwn: 'Kendinizinkini Oluşturun →',
+  errorMessage: 'Şablonlar yüklenemedi. Lütfen tekrar deneyin.',
+  tryAgain: 'Tekrar Dene',
+  noTemplatesTitle: 'Henüz şablon yok',
+  noTemplatesSub: 'Toplulukla ilk şablonu paylaşan siz olun!',
+  createTemplate: 'Şablon Oluştur',
+  pageOf: 'Sayfa {page} / {total}',
+  templatesPosted: '{count} şablon yayınlandı',
+  templatePosted: '{count} şablon yayınlandı',
+  createNewTemplate: 'Yeni şablon oluştur →',
+  noPostedTitle: 'Henüz şablon yayınlamadınız',
+  noPostedSub: 'Canvas editörde bir tasarım oluşturun ve toplulukla paylaşın!',
+  publicLabel: 'Herkese Açık',
+  privateLabel: 'Özel',
+  noPreview: 'Önizleme yok',
+  downloads: 'indirme',
+  download: 'indir',
+  signInTitle: 'Şablonlarınızı görmek için giriş yapın',
+  signInSub: 'Yayınladığınız şablonları görmek ve yönetmek için giriş yapmanız gerekiyor.',
+  signIn: 'Giriş Yap',
+  deleteConfirm: 'Bu şablonu silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.',
+  deleteError: 'Şablon silinemedi. Lütfen tekrar deneyin.',
+  visibilityError: 'Görünürlük güncellenemedi. Lütfen tekrar deneyin.',
+  makePrivate: 'Özel Yap',
+  makePublic: 'Herkese Açık Yap',
+  edit: 'Düzenle',
+  deleteBtn: 'Sil',
+};
+
+const contentMap: Record<string, CommunityContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

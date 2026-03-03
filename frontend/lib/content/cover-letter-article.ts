@@ -250,5 +250,30 @@ const pt: CoverLetterArticleContent = {
   updated: 'Atualizado',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, th, pt };
+const tr: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Ana Sayfa', coverLetterExamples: 'Ön Yazı Örnekleri' },
+  notFound: 'Bulunamadı',
+  coverLetterSuffix: 'Ön Yazı Örneği',
+  keySkillsTitle: 'Öne Çıkarılacak Temel Beceriler',
+  relatedTopics: 'İlgili Konular',
+  faqTitle: 'Sık Sorulan Sorular',
+  relatedResourcesTitle: 'İlgili Kaynaklar',
+  resumeExampleSubtext: 'Eşleşen CV formatını inceleyin',
+  coverLetterGenerator: 'AI Ön Yazı Oluşturucu',
+  coverLetterGeneratorSubtext: 'Ön yazınızı saniyeler içinde oluşturun',
+  sidebar: {
+    ctaTitle: 'Ön Yazınızı Oluşturun',
+    ctaSubtitle: 'AI\'mızı kullanarak {jobTitle} pozisyonu için kişiselleştirilmiş ön yazınızı saniyeler içinde oluşturun.',
+    ctaButton: 'Ön Yazı Oluştur',
+    tocTitle: 'İçindekiler',
+  },
+  relatedCoverLetters: 'İlgili Ön Yazılar',
+  bottomCta: {
+    subtitle: 'Best AI Resume ile hayallerindeki işi bulan binlerce profesyonele katılın.',
+    button: 'Ön Yazı Oluştur — Ücretsiz',
+  },
+  updated: 'Güncellendi',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, th, pt, tr };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

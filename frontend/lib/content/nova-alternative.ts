@@ -1299,5 +1299,123 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'NovaResume Alternatifi 2026: Ücretsiz AI CV Oluşturucu | Best AI Resume',
+    description: 'Ücretsiz NovaResume (Nova CV) alternatifi mi arıyorsunuz? Nova vs Best AI Resume Builder karşılaştırması — AI yazımı, ATS şablonları, sınırsız dışa aktarma. Sonsuza kadar ücretsiz.',
+    keywords: 'novaresume alternatifi, nova cv alternatifi, ücretsiz cv oluşturucu, novaresume karşılaştırma, ai ile cv ücretsiz, ats cv şablonları ücretsiz',
+  },
+  schemas: {
+    breadcrumbName: 'NovaResume Alternatifi',
+    articleHeadline: 'En İyi NovaResume (Nova CV) Alternatifi 2026: Ücretsiz AI CV Oluşturucu',
+    articleDescription: 'NovaResume vs Best AI Resume Builder karşılaştırması. AI yazımı, ATS optimizasyonu ve sınırsız PDF dışa aktarma — tamamen ücretsiz.',
+  },
+  hero: {
+    badge: 'NovaResume Alternatifi',
+    title: 'Daha İyi Şablonlar. AI Yazımı.',
+    titleHighlight: 'Gerçekten Ücretsiz.',
+    subtitle: 'NovaResume premium şablonlar ve PDF için <strong>$19,99/ay</strong> ücret alıyor. AI yazımı, ATS puanlama ve tüm şablonları <strong>₺0</strong> karşılığında alın.',
+    ctaPrimary: 'Ücretsiz CV\'mi Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'NovaResume: Temiz Şablonlar, AI Yok',
+    description: 'NovaResume (Nova CV Maker olarak da bilinir) temiz şablonlarla basit bir oluşturucu sunuyor. Sorun: <strong>hiç AI yazım özelliği yok</strong>, sınırlı ücretsiz özellikler ve diğer araçların ücretsiz verdiği şablonlar için premium fiyat. 2026\'da AI\'sız bir CV oluşturucu, Türkiye\'nin rekabetçi iş piyasasında fırsatları kaçırmak demek.',
+    stats: [
+      { value: '$19,99', label: 'aylık NovaResume premium ücreti' },
+      { value: '0', label: 'NovaResume\'daki AI özellikleri' },
+      { value: '₺0', label: 'Best AI Resume Builder — tam AI, ücretsiz' },
+    ],
+  },
+  comparison: {
+    title: 'NovaResume vs Best AI Resume Builder',
+    subtitle: 'Temel oluşturucu vs AI platformu.',
+    competitorName: 'NovaResume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Fiyat', competitor: '❌ Sınırlı ücretsiz / $19,99/ay premium', ours: '✅ Sonsuza kadar %100 ücretsiz' },
+      { feature: 'AI ile CV Yazımı', competitor: '❌ Hiç AI özelliği yok', ours: '✅ AI kişiselleştirilmiş içerik üretiyor' },
+      { feature: 'ATS Optimizasyonu', competitor: '⚠️ Yalnızca temel biçimlendirme', ours: '✅ Gerçek zamanlı ATS puanlama + anahtar kelimeler' },
+      { feature: 'Şablon Kalitesi', competitor: '✅ Temiz minimalist tasarım', ours: '✅ ATS test edilmiş 20\'den fazla modern şablon' },
+      { feature: 'PDF Dışa Aktarma', competitor: '❌ Yalnızca premium', ours: '✅ Sınırsız ücretsiz dışa aktarma' },
+      { feature: 'Ön Yazı', competitor: '⚠️ Temel oluşturucu (premium)', ours: '✅ AI ile (ücretsiz)' },
+      { feature: 'İçerik Önerileri', competitor: '❌ Yalnızca manuel giriş', ours: '✅ AI deneyiminizden içerik oluşturuyor' },
+      { feature: 'Anahtar Kelimeler', competitor: '❌ Mevcut değil', ours: '✅ AI ile anahtar kelime optimizasyonu' },
+      { feature: 'CV Örnekleri', competitor: '⚠️ Sınırlı kütüphane', ours: '✅ 300\'den fazla detaylı örnek' },
+      { feature: 'Çok Dil Desteği', competitor: '✅ Çok dil desteği', ours: '✅ 17 dil desteği' },
+    ],
+  },
+  whySwitch: {
+    title: 'NovaResume\'dan Geçmek İçin 3 Neden',
+    subtitle: 'Daha fazla özellik. Daha iyi AI. Sıfır maliyet.',
+    reasons: [
+      { title: 'AI Destekli Yazım', description: 'NovaResume\'un hiç AI özelliği yok. AI\'mız kişiselleştirilmiş profesyonel deneyimler, özetler ve anahtar kelime optimizasyonlu içerik üretiyor — hepsi Türkiye iş piyasasına göre ayarlanmış. Tamamen ücretsiz.' },
+      { title: 'Gerçek Zamanlı ATS Puanlama', description: 'NovaResume yalnızca temel biçimlendirme sunuyor. Doldururken gerçek zamanlı ATS puanlama ve Workday, SAP SuccessFactors üzerindeki şansınızı artıran AI anahtar kelime önerileri sağlıyoruz.' },
+      { title: 'Yılda $240 Tasarruf Edin', description: 'NovaResume premium yalnızca şablonlar ve PDF dışa aktarma için $19,99/ay (yaklaşık $240/yıl) ücret alıyor. Tam platformumuz — AI yazımı, ATS puanlama, 20\'den fazla şablon, sınırsız dışa aktarma — ücretsiz.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Tavsiye',
+    useCompetitor: {
+      title: 'NovaResume şu durumlarda önerilir:',
+      items: [
+        'Tüm CV içeriğini kendiniz yazmayı tercih ediyorsanız',
+        'Minimalist Avrupa tarzı şablonları beğeniyorsanız',
+        'Şablonlara erişmek için $19,99/ay ödemeye razıysanız',
+        'AI yazımına veya ATS puanlamaya ihtiyaç duymuyorsanız',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes şu durumlarda önerilir:',
+      items: [
+        'AI\'nın CV içeriği yazmasına yardımcı olmasını istiyorsanız',
+        'Gerçek zamanlı ATS puanlama ve anahtar kelime önerilerine ihtiyacınız varsa',
+        'Ödeme yapmadan sınırsız PDF dışa aktarma istiyorsanız',
+        'Tüm şablonları ve özellikleri ücretsiz istiyorsanız',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300\'den Fazla Ücretsiz CV Örneğini Keşfedin',
+    description: 'Yazılım mühendisinden veri analistine, hemşireden satış uzmanına: tüm alanlar için profesyonel CV örnekleri.',
+    ctaBrowse: 'CV Örneklerini Keşfet',
+    ctaTemplates: 'Tüm Şablonları Gör',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'NovaResume (Nova CV) ücretsiz mi?', answer: 'NovaResume sınırlı şablonlar ve özelliklerle ücretsiz bir plan sunuyor. Premium plan, tam şablon erişimi ve özelleştirme için $19,99/ay\'dan başlıyor. Best AI Resume Builder tüm özellikler, şablonlar ve sınırsız dışa aktarma ile %100 ücretsiz — premium plan gerekmiyor.' },
+      { question: 'NovaResume iyi bir CV oluşturucu mu?', answer: 'NovaResume temiz şablonlar ve kullanımı kolay arayüz sunuyor. Ancak AI yazım özellikleri eksik ve premium şablonlar ücretli. Best AI Resume Builder AI içerik üretimi, gerçek zamanlı ATS puanlama ve modern şablonlar sunuyor — hepsi ücretsiz.' },
+      { question: 'En iyi ücretsiz NovaResume alternatifi hangisi?', answer: 'Best AI Resume Builder en iyi ücretsiz alternatif. NovaResume\'nun ücretli her şeyi sunuyor — profesyonel şablonlar, PDF dışa aktarma, ön yazı — artı NovaResume\'nun sahip olmadığı AI yazımı ve ATS optimizasyonu.' },
+      { question: 'NovaResume\'un AI özellikleri var mı?', answer: 'NovaResume AI CV yazımı sunmuyor. Manuel girişe ve bazı önceden tanımlanmış önerilere dayanıyor. Best AI Resume Builder, istenen pozisyon için deneyimler, profesyonel özetler ve anahtar kelime optimizasyonlu içerik oluşturmak için gelişmiş AI kullanıyor.' },
+      { question: 'NovaResume\'dan PDF dışa aktarabilir miyim?', answer: 'NovaResume\'daki PDF dışa aktarma premium abonelik gerektiriyor. Best AI Resume Builder ile sınırsız PDF\'i ücretsiz dışa aktarabilirsiniz — hesabı yükseltmenize gerek yok.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer CV Oluşturucularla Karşılaştırın',
+    items: [
+      { href: '/tr/zety-alternative', title: 'Zety Alternatifi', subtitle: 'Fiyat karşılaştırması' },
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Tasarım aracı vs AI' },
+      { href: '/tr/livecareer-alternative', title: 'LiveCareer Alternatifi', subtitle: 'Geleneksel vs modern' },
+      { href: '/tr/rezi-alternative', title: 'Rezi Alternatifi', subtitle: 'AI özellik karşılaştırması' },
+    ],
+    guidesTitle: 'Faydalı CV Kılavuzları',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://novoresume.com/', label: 'NovaResume Resmi Sitesi' },
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+    ],
+  },
+  bottomCta: {
+    title: 'AI Destekli. Sonsuza Kadar Ücretsiz.',
+    description: 'AI yazımı, ATS puanlama ve modern şablonlarla profesyonel CV oluşturun. Abonelik yok, sınır yok.',
+    cta: 'Ücretsiz CV\'mi Oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. Kredi kartı gerekmez.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

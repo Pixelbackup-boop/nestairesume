@@ -264,7 +264,29 @@ const pt: CommunityDetailContent = {
   edited: '(editado)',
 };
 
-const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: CommunityDetailContent = {
+  backToGallery: '← Galeriye Dön',
+  useTemplate: 'Bu Şablonu Kullan',
+  downloads: 'indirme',
+  download: 'indir',
+  by: 'Tarafından',
+  commentsTitle: 'Yorumlar',
+  commentPlaceholder: 'Bu şablon hakkındaki düşüncelerinizi paylaşın...',
+  postComment: 'Yorum Yap',
+  signInToComment: 'Yorum yapmak için giriş yapın',
+  signIn: 'Giriş Yap',
+  noComments: 'Henüz yorum yok. İlk yorumu siz yapın!',
+  deleteComment: 'Sil',
+  deleteConfirm: 'Bu yorumu silmek istediğinizden emin misiniz?',
+  editComment: 'Düzenle',
+  saveEdit: 'Kaydet',
+  cancelEdit: 'İptal',
+  loadMore: 'Daha fazla yorum yükle',
+  charLimit: '{count}/2000',
+  edited: '(düzenlendi)',
+};
+
+const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 
 export function getContent(locale: string): CommunityDetailContent {
   return selectContent(contentMap, locale);

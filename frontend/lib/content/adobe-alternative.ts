@@ -1349,5 +1349,128 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'Adobe CV Yapıcı Alternatifi 2026: Ücretsiz ATS Uyumlu Özgeçmiş | Best AI Resume',
+    description: 'Ücretsiz Adobe özgeçmiş yapıcı alternatifi mi arıyorsunuz? Adobe Express ile Best AI Resume Builder\'ı karşılaştırın — ATS uyumlu şablonlar, yapay zeka yazımı, sınırsız dışa aktarma. Abonelik yok.',
+    keywords: 'adobe özgeçmiş, adobe cv yapıcı, adobe cv şablonu, adobe express özgeçmiş, adobe alternatifi, ücretsiz özgeçmiş oluşturucu, ats özgeçmiş',
+  },
+  schemas: {
+    breadcrumbName: 'Adobe CV Yapıcı Alternatifi',
+    articleHeadline: 'Adobe CV Yapıcı Alternatifi 2026: Ücretsiz ATS Uyumlu Yapay Zeka Özgeçmiş Oluşturucu',
+    articleDescription: 'Adobe Express ile Best AI Resume Builder\'ı karşılaştırın. ATS uyumlu şablonlar ve yapay zeka yazımı — ücretsiz, Creative Cloud aboneliği gerekmez.',
+  },
+  hero: {
+    badge: 'Adobe CV Yapıcı Alternatifi',
+    title: 'Şık Özgeçmişler.',
+    titleHighlight: 'ATS\'yi Gerçekten Geçen.',
+    subtitle: 'Adobe etkileyici tasarımlar yapıyor — ama Adobe özgeçmiş şablonlarının çoğu <strong>ATS taramasında başarısız oluyor</strong>. Hem profesyonel görünen hem de başvuru takip sistemlerini geçen özgeçmişler alın. Ücretsiz.',
+    ctaPrimary: 'Özgeçmişimi Ücretsiz Oluştur',
+    ctaSecondary: 'Karşılaştırmayı Gör',
+  },
+  problem: {
+    title: 'Adobe Özgeçmiş Sorunu: Güzel Ama ATS\'ye Görünmez',
+    description: 'Adobe Express ve Creative Cloud muhteşem tasarımlar üretiyor. Ama özgeçmişler broşür değildir — <strong>Fortune 500 şirketlerinin %99\'u</strong> insan görmeden önce özgeçmişleri taramak için ATS kullanıyor. Adobe şablonları, ATS ayrıştırıcılarının okuyamadığı sütunlar, metin kutuları, simgeler ve grafikler kullanıyor. Güzel özgeçmişiniz kimse bakmadan reddediliyor.',
+    stats: [
+      { value: '%75', label: 'özgeçmiş insan incelemesinden önce ATS tarafından reddediliyor' },
+      { value: '$9.99', label: 'Adobe Express Premium için aylık ücret' },
+      { value: '₺0', label: 'Best AI Resume Builder — ATS test edilmiş, ücretsiz' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe ile Best AI Resume Builder Karşılaştırması',
+    subtitle: 'Tasarım aracı mı, amaca özel özgeçmiş oluşturucu mu?',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Temel Amaç', competitor: '⚠️ Genel tasarım aracı', ours: '✅ Özgeçmişler için özel yapılmış' },
+      { feature: 'ATS Uyumluluğu', competitor: '❌ Şablonların çoğu ATS\'de başarısız', ours: '✅ Tüm şablonlar ATS test edilmiş' },
+      { feature: 'Yapay Zeka Yazımı', competitor: '❌ Özgeçmiş özelinde yapay zeka yok', ours: '✅ Yapay zeka özel içerik yazıyor' },
+      { feature: 'ATS Puanı', competitor: '❌ ATS kontrolcüsü yok', ours: '✅ Gerçek zamanlı ATS puanlama' },
+      { feature: 'Fiyatlandırma', competitor: '⚠️ Sınırlı ücretsiz / $9.99+/ay', ours: '✅ Sonsuza kadar %100 ücretsiz' },
+      { feature: 'Görsel Tasarım', competitor: '✅ Mükemmel tasarım esnekliği', ours: '✅ Profesyonel, ATS güvenli tasarımlar' },
+      { feature: 'Özgeçmiş Şablonları', competitor: '⚠️ Tasarım odaklı (ATS güvenli değil)', ours: '✅ 20+ işe alımcı tarafından test edilmiş şablon' },
+      { feature: 'İçerik Rehberliği', competitor: '❌ Özgeçmiş yazma yardımı yok', ours: '✅ Yapay zeka madde noktaları ve özet' },
+      { feature: 'Anahtar Kelime Optimizasyonu', competitor: '❌ Mevcut değil', ours: '✅ Yapay zeka anahtar kelime önerileri' },
+      { feature: 'Öğrenme Eğrisi', competitor: '⚠️ Tasarım becerileri gerektiriyor', ours: '✅ Rehberli adım adım akış' },
+    ],
+  },
+  whySwitch: {
+    title: 'Adobe\'nin Doğru Seçim Olduğu Durumlar',
+    subtitle: 'Adobe belirli yaratıcı senaryolar için işe yarar.',
+    reasons: [
+      { title: 'Adobe\'yi Şu Durumlarda Kullanın...', description: 'Görsel portföylerin önem taşıdığı yaratıcı/tasarım rollerine başvururken, doğrudan bir kişiye (ATS portalı üzerinden değil) gönderirken veya ağ oluşturma etkinlikleri için görsel bir CV oluştururken.' },
+      { title: 'Best AI Resumes\'i Şu Durumlarda Kullanın...', description: 'Herhangi bir çevrimiçi iş portalı veya ATS aracılığıyla başvururken, başvuru takibi kullanan şirketlerdeki rolleri hedeflerken veya başarı odaklı madde noktaları yazmak için yapay zeka yardımına ihtiyaç duyduğunuzda.' },
+      { title: 'Özet', description: 'Adobe güzel tasarımlar oluşturuyor. Ancak ATS üzerinden geçen iş başvuruları için (büyük çoğunluk) ATS test edilmiş şablonlara sahip amaca özel bir özgeçmiş oluşturucuya ihtiyacınız var.' },
+    ],
+  },
+  recommendation: {
+    title: 'Adobe\'nin Mantıklı Olduğu Durumlar',
+    useCompetitor: {
+      title: 'Adobe\'yi şu durumlarda kullanın...',
+      items: [
+        'Görsel portföylerin değer taşıdığı yaratıcı/tasarım rollerine başvururken',
+        'Doğrudan bir kişiye (ATS portalı üzerinden değil) gönderirken',
+        'Ağ oluşturma veya kişisel markalaşma için görsel CV oluştururken',
+        'Zaten Adobe Creative Cloud aboneliğiniz varsa',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes\'i şu durumlarda kullanın...',
+      items: [
+        'Herhangi bir çevrimiçi iş portalı veya ATS aracılığıyla başvururken',
+        'Başvuru takibi kullanan şirketlerdeki rolleri hedeflerken',
+        'Başarı odaklı madde noktaları yazmak için yapay zeka yardımına ihtiyaç duyduğunuzda',
+        'Tasarım becerisi olmadan profesyonel özgeçmiş istediğinizde',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300+ Ücretsiz Özgeçmiş Örneği Keşfedin',
+    description: 'Grafik tasarımcıdan UX tasarımcısına, sanat yönetmenine kadar her kariyer için profesyonel özgeçmişler.',
+    ctaBrowse: 'Özgeçmiş Örneklerini Gözat',
+    ctaTemplates: 'Tüm Şablonları Gör',
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      { question: 'Adobe\'nin ücretsiz bir özgeçmiş oluşturucusu var mı?', answer: 'Adobe Express ücretsiz özgeçmiş şablonları sunuyor, ancak en iyi şablonlar Adobe Express Premium (aylık $9.99) veya Creative Cloud aboneliği gerektiriyor. Best AI Resume Builder tüm özellikleri — yapay zeka yazımı, ATS şablonları, PDF dışa aktarma — tamamen ücretsiz sunuyor.' },
+      { question: 'Adobe Express özgeçmiş için iyi midir?', answer: 'Adobe Express görsel açıdan çekici özgeçmişler üretiyor, ancak bunlar tasarım odaklı, ATS optimize edilmiş değil. Şablonların çoğu ATS sistemlerinin ayrıştırmakta zorlandığı grafikler, sütunlar ve düzenler kullanıyor. Best AI Resume Builder hem profesyonel görünen hem de ATS uyumlu özgeçmişler oluşturuyor.' },
+      { question: 'Adobe\'ye en iyi ücretsiz özgeçmiş alternatifi nedir?', answer: 'Best AI Resume Builder özgeçmiş oluşturma için en iyi ücretsiz alternatiftir. Adobe\'den farklı olarak yapay zeka yazımı, ATS optimizasyonu ve işe alımcı tarafından test edilmiş şablonlarla özgeçmişler için amaca özel yapılmıştır.' },
+      { question: 'ATS, Adobe Express özgeçmişlerini okuyabilir mi?', answer: 'Birçok Adobe Express şablonu, ATS sistemlerinin ayrıştıramadığı tasarım öğeleri (sütunlar, metin kutuları, grafikler) kullanıyor. Best AI Resume Builder şablonları Workday, SAP SuccessFactors ve Kariyer.net gibi Türkiye\'de yaygın ATS sistemleri için özel olarak test edilmiştir.' },
+      { question: 'Özgeçmiş için Adobe InDesign veya Illustrator kullanmalı mıyım?', answer: 'Yalnızca görsel tasarımın ATS ayrıştırmasından daha önemli olduğu yaratıcı bir role başvuruyorsanız. Diğer tüm iş başvuruları için ATS test edilmiş şablonlara sahip özel bir özgeçmiş oluşturucu kullanın. Best AI Resume Builder ATS taramasını geçen profesyonel tasarımlar sunar.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer Özgeçmiş Oluşturucuları Karşılaştırın',
+    items: [
+      { href: '/tr/canva-alternative', title: 'Canva Alternatifi', subtitle: 'Başka bir tasarım aracı karşılaştırması' },
+      { href: '/tr/zety-alternative', title: 'Zety Alternatifi', subtitle: 'Fiyat ve deneme karşılaştırması' },
+      { href: '/tr/rezi-alternative', title: 'Rezi Alternatifi', subtitle: 'Yapay zeka özellikleri karşılaştırması' },
+      { href: '/tr/overleaf-alternative', title: 'Overleaf Alternatifi', subtitle: 'LaTeX özgeçmiş vs yapay zeka oluşturucu' },
+    ],
+    guidesTitle: 'Faydalı Özgeçmiş Rehberleri',
+    guides: [
+      { href: '/tr/blog/what-is-ats-guide', label: 'ATS Nedir? Kapsamlı Rehber' },
+      { href: '/tr/blog/how-to-write-ats-friendly-resume', label: 'ATS Uyumlu Özgeçmiş Nasıl Yazılır' },
+      { href: '/tr/blog/how-to-write-a-resume', label: 'Özgeçmiş Nasıl Yazılır (Tam Rehber)' },
+      { href: '/tr/resume-format', label: 'Özgeçmiş Format Rehberi 2026' },
+    ],
+  },
+  externalResources: {
+    title: 'Dış Kaynaklar',
+    items: [
+      { href: 'https://www.adobe.com/express/create/resume', label: 'Adobe Express Özgeçmiş Yapıcı' },
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+    ],
+  },
+  bottomCta: {
+    title: 'Profesyonel Tasarım. ATS Onaylı.',
+    description: 'Hem şık görünen hem de ATS taramasını geçen özgeçmişler alın. Yapay zeka yazımı, işe alımcı tarafından test edilmiş şablonlar, sınırsız dışa aktarma — hepsi ücretsiz.',
+    cta: 'Özgeçmişimi Ücretsiz Oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. Adobe aboneliği gerekmez.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

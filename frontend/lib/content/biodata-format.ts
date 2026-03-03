@@ -3194,7 +3194,339 @@ const pt: BiodataFormatPageContent = {
 // ---------------------------------------------------------------------------
 // Export
 // ---------------------------------------------------------------------------
-const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+// ---------------------------------------------------------------------------
+// Turkish
+// ---------------------------------------------------------------------------
+const tr: BiodataFormatPageContent = {
+  meta: {
+    title: 'Biodata Nedir? İş Başvurusu Biyografi Formu Rehberi 2026 | Best AI Resume',
+    description:
+      'Biodata formatı nedir, özgeçmiş ve CV'den farkı nedir? Güney Asya ve Orta Doğu iş başvurularında kullanılan biyografi formunu öğrenin. Ücretsiz şablonlar. 2026.',
+    keywords:
+      'biodata nedir, biodata formatı, biyografi formu, iş başvurusu biodata, biodata vs cv, biodata şablonu, biodata örneği, iş başvurusu belgesi',
+  },
+  schemas: {
+    breadcrumbName: 'Biodata Format Rehberi',
+    articleHeadline: 'Biodata Nedir? Format Rehberi, Şablonlar ve Örnekler 2026',
+    articleDescription:
+      'Biodata formatı hakkında kapsamlı rehber. Biyografi formu ile özgeçmiş ve CV arasındaki farkları öğrenin, ücretsiz şablonlar indirin.',
+  },
+  hero: {
+    badge: '2026 için kapsamlı rehber',
+    title: 'Biodata Format Rehberi',
+    titleHighlight: '(Ücretsiz Şablonlar)',
+    subtitle:
+      '<strong>Biodata formatı</strong>, Hindistan, Pakistan, Bangladeş ve Orta Doğu'daki iş başvurularında kullanılan standart belgedir. Biodata ile CV veya özgeçmiş arasındaki farkı öğrenin ve bölgesel beklentilere uygun ücretsiz şablonları indirin.',
+    ctaTemplates: 'Şablonları İndir',
+    ctaBuild: 'AI ile Biodata Oluştur',
+  },
+  whatIs: {
+    title: 'Biodata Nedir?',
+    paragraphs: [
+      '<strong>Biodata</strong> (biyografik veri kısaltması), kişisel ve mesleki geçmişinizin kapsamlı bir özetini sunan belgedir. Yalnızca iş deneyimi ve becerilere odaklanan özgeçmiş veya CV'den farklı olarak biodata; <strong>doğum tarihi, medeni durum, uyruk, din</strong> ve bazen aile bilgileri gibi kişisel ayrıntıları da içerir.',
+      'Biodata formatı, <strong>Güney Asya ülkelerinde</strong> (Hindistan, Pakistan, Bangladeş, Sri Lanka), <strong>Orta Doğu'da</strong> (BAE, Suudi Arabistan, Katar) ve <strong>Güneydoğu Asya'nın</strong> bazı bölgelerinde (Filipinler, Malezya) yaygın olarak kullanılır. Bu bölgelerdeki kamu kurumları ve geleneksel şirketler, Batı tarzı özgeçmiş yerine sıklıkla biodata talep eder.',
+    ],
+    insightTitle: 'Önemli Not:',
+    insightText:
+      'Hindistan, Pakistan veya Körfez ülkelerine iş başvurusu yapıyorsanız biodata formatını bilmek önemlidir. Pek çok işveren beklenen formata uymayan başvuruları reddedebilir.',
+  },
+  vsComparison: {
+    title: 'Biodata, Özgeçmiş ve CV: Farkları Neler?',
+    subtitle: 'Hangi belgeyi ne zaman kullanacağınızı bilmek iş arama sürecinizde kritik öneme sahiptir.',
+    headers: { aspect: 'Özellik', biodata: 'Biodata', resume: 'Özgeçmiş/CV', cv: 'Akademik CV' },
+    rows: [
+      { aspect: 'Uzunluk', biodata: '1-2 sayfa', resume: '1-2 sayfa', cv: '2+ sayfa' },
+      {
+        aspect: 'Kişisel Bilgiler',
+        biodata: 'Kapsamlı (doğum tarihi, medeni durum, din, aile)',
+        resume: 'Minimal (ad, iletişim)',
+        cv: 'Minimal (ad, iletişim)',
+        biodataHighlight: 'green',
+      },
+      {
+        aspect: 'Odak',
+        biodata: 'Kişisel geçmiş + kariyer',
+        resume: 'Beceriler + başarılar',
+        cv: 'Akademik + araştırma',
+      },
+      {
+        aspect: 'Yaygın Bölgeler',
+        biodata: 'Hindistan, Pakistan, Orta Doğu, Filipinler',
+        resume: 'ABD, Kanada, Avustralya, Türkiye',
+        cv: 'Avrupa, İngiltere, akademik çevreler',
+      },
+      {
+        aspect: 'İdeal Kullanım',
+        biodata: 'Kamu işleri, geleneksel şirketler, evlilik başvuruları',
+        resume: 'Kurumsal işler, girişimler, teknoloji',
+        cv: 'Akademik pozisyonlar, araştırma, tıp',
+      },
+      {
+        aspect: 'Özelleştirme',
+        biodata: 'Birden fazla başvuruda aynı biodata kullanılır',
+        resume: 'Her iş için özelleştirilir',
+        cv: 'Başarılar eklendikçe güncellenir',
+      },
+    ],
+  },
+  structure: {
+    title: 'Standart Biodata Format Yapısı',
+    description: 'Tek bir "resmi" biodata formatı olmasa da çoğu işveren bu bölümlerin bu sırayla sunulmasını bekler:',
+    sections: [
+      {
+        number: 1,
+        label: 'Kişisel Bilgiler',
+        detail: 'Ad, Fotoğraf, Doğum Tarihi, Cinsiyet, Medeni Durum, Uyruk',
+        colorGroup: 'orange',
+      },
+      {
+        number: 2,
+        label: 'İletişim Bilgileri',
+        detail: 'Adres (Kalıcı ve Geçici), Telefon, E-posta',
+        colorGroup: 'default',
+      },
+      {
+        number: 3,
+        label: 'Kariyer Hedefi',
+        detail: 'Kariyer hedeflerinizi anlatan 2-3 cümle',
+        colorGroup: 'default',
+      },
+      {
+        number: 4,
+        label: 'Eğitim Bilgileri',
+        detail: 'Dereceler, Kurumlar, Yıllar, Not Ortalamaları',
+        colorGroup: 'blue',
+      },
+      {
+        number: 5,
+        label: 'İş Deneyimi',
+        detail: 'Şirket, Unvan, Süre, Sorumluluklar',
+        colorGroup: 'blue',
+      },
+      {
+        number: 6,
+        label: 'Beceriler ve Yetkinlikler',
+        detail: 'Teknik beceriler, Dil bilgisi, Yazılım yetkinliği',
+        colorGroup: 'default',
+      },
+      {
+        number: 7,
+        label: 'Ek Bilgiler',
+        detail: 'Hobiler, İlgi Alanları, Başarılar, Referanslar',
+        colorGroup: 'default',
+      },
+      {
+        number: 8,
+        label: 'Beyanname',
+        detail: '"Yukarıdaki bilgilerin doğru ve eksiksiz olduğunu beyan ederim…"',
+        colorGroup: 'dark',
+      },
+    ],
+    proTipTitle: 'Profesyonel İpucu:',
+    proTipText:
+      'Başvurduğunuz ülkenin veya kurumun özelliklerine göre bölümleri uyarlayın. Bazı bölgeler din veya kast bilgisi isterken, diğerleri yalnızca standart mesleki bilgilerle yetinir.',
+  },
+  personalInfo: {
+    title: 'Kişisel Bilgiler Bölümü',
+    description: 'Biodata'nın en kritik bölümü kişisel bilgilerdir — bölgeye göre beklentiler farklılaşır.',
+    alwaysInclude: {
+      title: 'Her Zaman Dahil Edin',
+      items: [
+        'Tam ad',
+        'Doğum tarihi (veya yaş)',
+        'Cinsiyet',
+        'Uyruk/vatandaşlık',
+        'İletişim bilgileri (telefon, e-posta)',
+        'Adres (kalıcı ve/veya geçici)',
+      ],
+    },
+    optional: {
+      title: 'Bölgeye Göre Opsiyonel',
+      items: [
+        'Medeni durum',
+        'Din / mezhep',
+        'Pasaport bilgileri (yurt dışı başvurular için)',
+        'Boy ve kilo (bazı Güney Asya başvurularında)',
+        'Baba adı / ebeveyn bilgileri',
+        'Vesikalık fotoğraf',
+      ],
+    },
+    noteTitle: 'Türk İş Piyasasına Not:',
+    noteText:
+      'Türkiye'de standart CV veya özgeçmiş tercih edilir. Türk şirketlerine başvuru yaparken biodata yerine kronolojik özgeçmiş kullanın. Biodata yalnızca Güney Asya veya Körfez ülkelerindeki işverenler tarafından talep edildiğinde gereklidir.',
+  },
+  types: {
+    title: 'Biodata Türleri',
+    jobBiodata: {
+      title: 'İş Başvurusu Biodatası',
+      description: 'Profesyonel geçmiş ve kariyer hedefleriyle birlikte kişisel ayrıntıları içerir.',
+      focusTitle: 'Odak Noktaları',
+      focusItems: ['Kariyer hedefi', 'Eğitim geçmişi', 'İş deneyimi', 'Beceriler ve sertifikalar', 'Referanslar'],
+      commonTitle: 'Yaygın Bölgeler',
+      commonItems: ['Hindistan kamu sektörü', 'Pakistan devlet kurumları', 'Orta Doğu işverenleri', 'Filipin şirketleri'],
+    },
+    marriageBiodata: {
+      title: 'Evlilik Biodatası (Marriage Biodata)',
+      description: 'Geleneksel Güney Asya düzenlenmiş evliliklerde aile bilgileri ve kişisel özellikler dahil edilir.',
+      sectionsTitle: 'Tipik Bölümler',
+      sectionsItems: [
+        'Kişisel bilgiler (boy, kilo, ten rengi)',
+        'Din / mezhep / kast',
+        'Aile geçmişi',
+        'Eğitim ve kariyer',
+        'Fiziksel özellikler',
+        'İstenen eş özellikleri',
+      ],
+      designTitle: 'Tasarım İpuçları',
+      designItems: [
+        'Profesyonel fotoğraf ekleyin',
+        'Ailenin onayladığı bilgileri dahil edin',
+        'Sadelik ve güvenilirliği ön planda tutun',
+        'Dini ve kültürel değerleri yansıtın',
+      ],
+    },
+  },
+  regions: {
+    title: 'Bölgelere Göre Biodata Formatı',
+    description: 'Her ülkenin farklı beklentileri vardır. İşte her bölgedeki işverenlerin aradığı bilgiler:',
+    items: [
+      {
+        country: 'Hindistan',
+        flag: '🇮🇳',
+        text: 'Biodata, kamu kurumları (UPSC, SSC) ve kamu bankaları için standarttır. Özel çok uluslu şirketler özgeçmiş tercih eder. Baba adı, kast (kota sistemi için) ve referans mektubu genellikle istenir.',
+      },
+      {
+        country: 'Pakistan',
+        flag: '🇵🇰',
+        text: "Hindistan'a benzer şekilde CNIC (kimlik kartı) numarası ve baba adı temel bilgiler arasındadır. Kamu ve yarı kamu pozisyonları ayrıntılı biodata gerektirir.",
+      },
+      {
+        country: 'BAE ve Körfez',
+        flag: '🇦🇪',
+        text: "Fotoğraflı, uyruk, vize durumu ve işe başlama tarihi belirtilmiş bir biodata beklenir. Din bilgisi istenebilir. Uluslararası başvurucular için pasaport bilgileri eklenmeli; hem biodata hem özgeçmiş kabul edilir.",
+      },
+      {
+        country: 'Filipinler',
+        flag: '🇵🇭',
+        text: "Personal Data Sheet (PDS), kamu sektörü için resmi formattır. Özel şirketler hem biodata hem özgeçmiş kabul eder. Boy, kilo ve medeni durum belirtmek yaygındır.",
+      },
+    ],
+  },
+  templates: {
+    title: 'Ücretsiz Biodata Şablonları',
+    subtitle:
+      'Profesyonelce tasarlanmış Word/PDF biodata şablonları indirin. Kendi bilgilerinizle kolayca özelleştirin.',
+    cards: [
+      {
+        title: 'İş Başvurusu Biodata Şablonu',
+        description: 'Standart bölümleri olan, iş başvurusu için profesyonel şablon.',
+        ctaLabel: 'AI ile Oluştur',
+        color: 'blue',
+      },
+      {
+        title: 'Sade Biodata Şablonu',
+        description: 'Yeni mezunlar veya az deneyimliler için sade ve temiz tasarım.',
+        ctaLabel: 'Oluşturmaya Başla',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: 'Etkili Biodata Oluşturma İpuçları',
+    items: [
+      {
+        title: 'Profesyonel Fotoğraf Kullanın',
+        description: 'Pasaport boyutunda, sade arka planlı, resmi kıyafetli fotoğraf tercih edin. Selfie veya günlük fotoğraf kullanmayın.',
+      },
+      {
+        title: 'Özlü Tutun',
+        description: '1-2 sayfayı aşmayın. İşe alım uzmanları uzun belgeler okumak istemez.',
+      },
+      {
+        title: 'Tutarlı Biçimlendirme',
+        description: 'Aynı yazı tipini ve boyutunu kullanın. Başlıkları belirginleştirin ve düzenli bir görünüm sağlayın.',
+      },
+      {
+        title: 'Beyanname Ekleyin',
+        description: '"Yukarıdaki bilgilerin eksiksiz ve doğru olduğunu beyan ederim" ifadesini dahil edin.',
+      },
+      {
+        title: 'Eğitimi Yeniden Eskiye Sıralayın',
+        description: 'En son dereceyi en üste yerleştirin. Not ortalamanız iyiyse belirtin.',
+      },
+      {
+        title: 'Yazım Hatalarını Kontrol Edin',
+        description: 'Yazım ve imla hataları olumsuz ilk izlenim yaratır. Göndermeden önce dikkatle kontrol edin.',
+      },
+      {
+        title: 'Yalnızca İlgili Bilgileri Ekleyin',
+        description: 'İstenmeyen veya pozisyonla ilgisi olmayan kişisel bilgileri dahil etmekten kaçının.',
+      },
+      {
+        title: 'İmzalayın ve Tarih Ekleyin',
+        description: 'Belgenin altına imzanızı, güncel tarihi ve bulunduğunuz şehri ekleyin.',
+      },
+    ],
+  },
+  faq: {
+    title: 'Sık Sorulan Sorular',
+    items: [
+      {
+        question: 'Biodata ile özgeçmiş arasındaki fark nedir?',
+        answer:
+          "Özgeçmiş, deneyim, beceri ve başarılara odaklanır ve her iş başvurusu için özelleştirilir. Biodata ise doğum tarihi, medeni durum, din ve aile bilgileri gibi ek kişisel bilgileri içerir. Türkiye ve Batı ülkelerinde özgeçmiş standarttır; ancak Güney Asya, Orta Doğu ve Güneydoğu Asya'nın bazı bölgelerinde biodata tercih edilir.",
+      },
+      {
+        question: 'Biodata gerçekten iş başvurularında kullanılır mı?',
+        answer:
+          "Evet. Biodata, Hindistan, Pakistan, Bangladeş, Filipinler ve Orta Doğu'da yaygın olarak kullanılır. Bu bölgelerdeki kamu kurumları ve geleneksel şirketler, özgeçmiş yerine özellikle biodata talep edebilir.",
+      },
+      {
+        question: 'Biodataya hangi kişisel bilgiler eklenmeli?',
+        answer:
+          "İş amaçlı biodatada genellikle ad soyad, doğum tarihi, cinsiyet, uyruk, medeni durum, iletişim bilgileri ve ikamet adresi bulunur. Evlilik biodataları boy, kilo, din, kast bilgisi ve aile geçmişi de içerebilir.",
+      },
+      {
+        question: 'Biodata kaç sayfa olmalı?',
+        answer:
+          "1-2 sayfa idealdir. İş başvurusu biodatası genellikle 1 sayfa olup evlilik biodataları aile bilgileri nedeniyle 2 sayfaya çıkabilir. Öz ve kapsamlı olmasına dikkat edin.",
+      },
+      {
+        question: "CV oluşturucu ile biodata yapılabilir mi?",
+        answer:
+          "Evet. AI özgeçmiş oluşturucumuz biodata oluşturmak için de kullanılabilir. Standart bir şablon seçin ve kişisel bilgiler bölümünü biodata gereksinimlerine göre özelleştirin. Bölümlerinizi bölgesel beklentilere uygun şekilde düzenleyin.",
+      },
+      {
+        question: 'Türkiye'de biodata gerekli mi?',
+        answer:
+          "Türkiye iş piyasasında biodata nadir talep edilir. Türk şirketleri kronolojik CV veya özgeçmiş bekler. Biodata yalnızca Güney Asya veya Körfez ülkelerindeki işverenler tarafından talep edildiğinde gereklidir.",
+      },
+    ],
+  },
+  crossLinks: {
+    title: 'İlgili Kaynaklar',
+    items: [
+      { href: '/resume-format', title: 'CV Format Rehberi', subtitle: 'Kronolojik / Fonksiyonel / Kombine' },
+      { href: '/templates', title: 'CV Şablonları', subtitle: '20'den fazla profesyonel şablon' },
+      { href: '/resume-examples', title: 'CV Örnekleri', subtitle: '300'den fazla meslek için CV örnekleri' },
+    ],
+  },
+  externalResources: {
+    title: 'Harici Kaynaklar',
+    items: [
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+      { href: 'https://www.kariyer.net/', label: "Kariyer.net — Türkiye'nin önde gelen iş ilanı platformu" },
+    ],
+  },
+  bottomCta: {
+    title: 'Birkaç Dakikada Biodata veya CV Oluşturun',
+    description:
+      "Yapay zeka destekli CV oluşturucumuz, doğru yapıya sahip profesyonel bir belge hazırlamanıza yardımcı olur. Çeşitli şablonlar arasından seçin ve PDF veya Word formatında dışa aktarın.",
+    ctaLabel: 'Ücretsiz Biodata Oluştur',
+  },
+};
+
+const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 
 export function getContent(locale: string): BiodataFormatPageContent {
   return selectContent(contentMap, locale);

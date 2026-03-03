@@ -674,6 +674,66 @@ const pt: PrivacyContent = {
   lastUpdated: 'Ultima atualizacao: janeiro de 2026',
 };
 
-const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
+const tr: PrivacyContent = {
+  hero: {
+    badge: 'Gizlilik Politikası',
+    title: 'Gizliliğiniz bizim',
+    titleHighlight: 'önceliğimizdir',
+    subtitle: 'Best AI Resume olarak kişisel verilerinizin size ait olduğuna inanıyoruz. Platformumuz, 6698 sayılı Kişisel Verilerin Korunması Kanunu\'na (KVKK) uygun olarak gizlilik öncelikli bir yaklaşımla geliştirilmiştir.',
+  },
+  highlights: [
+    { title: 'Verileriniz Cihazınızda Kalır', text: 'CV içeriğinizin tamamı — iş deneyimleriniz, eğitiminiz ve becerileriniz — sunucularımızda değil, tarayıcınızda yerel olarak kaydedilir.' },
+    { title: 'Sunucuda Minimum Veri', text: 'Sunucularımızda yalnızca hesap doğrulaması için e-posta adresinizi ve şifrenizi saklıyoruz. Hiçbir CV içeriği, hiçbir ek kişisel veri.' },
+    { title: 'Tam Şeffaflık', text: 'Tam şeffaflığa inanıyoruz. Tarayıcınızda tam olarak hangi verilerin kaydedildiğini kontrol edebilir ve istediğiniz zaman silebilirsiniz.' },
+  ],
+  sections: [
+    {
+      heading: 'Hangi Verileri Topluyoruz',
+      subsections: [
+        { subheading: 'Sunucularımızda Saklanan Veriler (Minimum)', items: ['**E-posta adresi** — Hesap doğrulaması ve önemli hizmet iletişimleri için kullanılır', '**Şifre (şifrelenmiş)** — Kimlik doğrulama için güvenli hash ile saklanır'] },
+        { subheading: 'Tarayıcınızda Yerel Olarak Saklanan Veriler', items: ['Kişisel bilgiler (ad, iletişim bilgileri, adres)', 'Profesyonel deneyimler ve iş geçmişi', 'Eğitim bilgileri ve sertifikalar', 'Beceriler, diller ve başarılar', 'CV şablonları ve kişiselleştirme tercihleri'] },
+      ],
+    },
+    {
+      heading: 'Neden Tarayıcı Depolama Kullanıyoruz',
+      intro: 'Tarayıcı depolamayı (localStorage) birincil kaydetme yöntemi olarak seçtik; bunun birkaç önemli nedeni var:',
+      items: ['**Maksimum Gizlilik** — Hassas mesleki bilgileriniz cihazınızı hiçbir zaman terk etmez', '**Sızıntı Riski Yok** — CV verilerini depolamadığımız için sunucu arızası durumunda tehlikeye giremez', '**Tam Kontrol** — Verilerinizi tarayıcı ayarlarından istediğiniz zaman görüntüleyebilir, dışa aktarabilir veya silebilirsiniz', '**Yüksek Performans** — Yerel depolama, sunucu gecikmesi olmaksızın verilerinize anında erişimi garanti eder'],
+    },
+    {
+      heading: 'Hesabınızı Nasıl Koruyoruz',
+      intro: 'Sunucudaki verileri en aza indirmiş olsak da kimlik bilgilerinizin güvenliğini ciddiye alıyoruz:',
+      items: ['Şifreler sektör standartlarına uygun hash algoritmalarıyla şifrelenir', 'Tüm veri iletimi HTTPS şifrelemesiyle korunur', 'Şifreler hiçbir zaman düz metin olarak saklanmaz', 'Düzenli güvenlik denetimleri ve izleme'],
+    },
+    {
+      heading: 'Haklarınız ve Kontrolünüz',
+      intro: 'KVKK (6698 sayılı Kanun) uyarınca verileriniz üzerinde tam kontrole sahipsiniz:',
+      items: ['**Erişim** — Tarayıcı geliştirici araçları aracılığıyla istediğiniz zaman tarayıcınızdaki tüm verileri görüntüleyin', '**Dışa Aktarma** — CV verilerinizi PDF veya diğer formatlarda indirin', '**Silme** — Tarayıcı depolamasını temizleyin veya istediğiniz zaman hesabınızı silin', '**Taşınabilirlik** — Verileriniz size aittir ve istediğiniz yere taşıyabilirsiniz'],
+    },
+    {
+      heading: 'Yapmadıklarımız',
+      intro: 'Etik veri işleme uygulamalarına bağlıyız. İşte asla yapmayacaklarımız:',
+      items: ['Kişisel bilgilerinizi üçüncü taraflara satmak', 'CV içeriğinizi reklam amaçlı kullanmak', 'Verilerinizi açık rızanız olmadan işe alım uzmanlarıyla paylaşmak', 'Diğer sitelerdeki tarama etkinliğinizi takip etmek', 'CV içeriğinizi sunucularımızda depolamak'],
+    },
+    {
+      heading: 'Çerezler ve Analitik',
+      intro: 'Yalnızca şunlar için temel ve minimum çerezler kullanıyoruz:',
+      items: ['Giriş oturumunuzu aktif tutmak', 'Dil ve tema tercihlerinizi hatırlamak', 'Hizmeti iyileştirmek için anonim kullanım analitiği'],
+    },
+    {
+      heading: 'Bize Ulaşın',
+    },
+  ],
+  contactText: 'Gizlilik uygulamalarımız hakkında sorularınız veya KVKK kapsamındaki haklarınızı kullanmak için bize e-posta ile ulaşın:',
+  cta: {
+    title: 'CV\'nizi güven ve',
+    titleHighlight: 'gizlilikle oluşturun',
+    subtitle: 'Mesleki verileriniz size aittir. Bugün profesyonel CV\'nizi oluşturmaya başlayın.',
+    primaryBtn: 'Ücretsiz Başla',
+    secondaryBtn: 'Hakkımızda',
+  },
+  lastUpdated: 'Son güncelleme: Ocak 2026',
+};
+
+const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

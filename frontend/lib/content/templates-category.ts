@@ -144,6 +144,18 @@ const pt: TemplatesCategoryContent = {
   breadcrumbTemplates: 'Modelos',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt };
+const tr: TemplatesCategoryContent = {
+  fallbackTitle: 'CV Şablonları | Best AI Resume',
+  collectionSuffix: 'Koleksiyonu',
+  availableTemplates: 'Mevcut Şablonlar',
+  editInAI: 'AI ile Düzenle',
+  tiredTitle: 'Belgeleri biçimlendirmekten sıkıldınız mı?',
+  tiredSubtitle: 'Şablon indirmek kolaydır, ancak doldurmak zahmetlidir. AI CV Oluşturucumuz biçimlendirmeyi sizin için anında yapar.',
+  buildWithAI: 'AI ile Oluştur',
+  breadcrumbHome: 'Ana Sayfa',
+  breadcrumbTemplates: 'Şablonlar',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

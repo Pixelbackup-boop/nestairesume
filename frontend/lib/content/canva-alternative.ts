@@ -1361,5 +1361,123 @@ const pt: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt };
+const tr: ComparisonPageContent = {
+  meta: {
+    title: 'Canva CV Alternatifi 2026: ATS Uyumlu Ücretsiz CV Oluşturucu | Best AI Resume',
+    description: 'Ücretsiz Canva CV alternatifi mi arıyorsunuz? Canva vs Best AI Resume Builder karşılaştırması — ATS uyumlu şablonlar, AI yazımı, sınırsız dışa aktarma. Kayıt gerekmez.',
+    keywords: 'canva cv alternatifi, canva özgeçmiş şablonu, ücretsiz cv oluşturucu, ats cv, canva cv sorun, cv şablonu profesyonel',
+  },
+  schemas: {
+    breadcrumbName: 'Canva CV Alternatifi',
+    articleHeadline: 'Canva CV Alternatifi 2026: Ücretsiz ATS Uyumlu CV Oluşturucu',
+    articleDescription: 'Canva CV şablonlarının çoğu ATS taramasını geçemiyor. Hem güzel hem de otomatik taramadan geçen CV\'ler oluşturun — ücretsiz.',
+  },
+  hero: {
+    badge: 'Canva CV Alternatifi',
+    title: 'Gerçekten Okunan CV\'ler',
+    titleHighlight: 'ATS Sistemleri ve İşe Alım Uzmanları Tarafından.',
+    subtitle: 'Canva CV şablonlarının çoğu <strong>ATS taramasından geçemiyor</strong>. İşe alım uzmanının görünmeden önce otomatik olarak elenen CV\'nizi değiştirin. Ücretsiz AI CV oluşturucumuzla hem güzel hem de ATS uyumlu CV hazırlayın.',
+    ctaPrimary: 'Ücretsiz CV\'mi oluştur',
+    ctaSecondary: 'Karşılaştırmayı gör',
+  },
+  problem: {
+    title: 'Canva\'nın CV Sorunu: Güzel Ama Görünmez',
+    description: 'Canva harika bir tasarım aracı — ama CV bir grafik tasarım projesi değil. <strong>Workday, SAP SuccessFactors ve diğer ATS sistemleri kullanan şirketler</strong>, CV\'lerinizi işe alım uzmanları görmeden önce filtreler. Canva şablonları sütunlar, grafikler ve kutuların içindeki metinler kullanır; ATS\'ler bunları okuyamaz. CV\'niz tam veya boş görünebilir.',
+    stats: [
+      { value: '%75', label: 'CV\'ler ATS tarafından reddediliyor' },
+      { value: '0', label: 'Canva\'daki CV\'ye özgü AI özelliği' },
+      { value: '₺0', label: 'Best AI Resume Builder — ATS test edilmiş, tamamen ücretsiz' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: 'Grafik tasarım aracı vs özel CV oluşturucu.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'ATS Uyumluluğu', competitor: '❌ Canva CV\'leri genellikle ATS\'de başarısız', ours: '✅ Tüm şablonlar ATS için doğrulanmış' },
+      { feature: 'AI Yazımı', competitor: '❌ CV yazımı için AI özelliği yok', ours: '✅ AI profesyonel içerik üretiyor' },
+      { feature: 'ATS Puanlama', competitor: '❌ ATS kontrolü yok', ours: '✅ Gerçek zamanlı ATS puanlama' },
+      { feature: 'Tasarım', competitor: '✅ Yaratıcı şablonlar', ours: '✅ Profesyonel tasarımlar — ATS güvenli' },
+      { feature: 'PDF Dışa Aktarma', competitor: '✅ Mevcut (temel)', ours: '✅ ATS uyumlu ücretsiz PDF' },
+      { feature: 'Fiyat', competitor: '⚠️ Ücretsiz/Premium; bazı özellikler ücretli', ours: '✅ Sonsuza kadar %100 ücretsiz' },
+      { feature: 'CV\'ye Özgü Özellikler', competitor: '❌ Genel tasarım aracı', ours: '✅ Özellikle CV için oluşturulmuş' },
+      { feature: 'Anahtar Kelime Önerileri', competitor: '❌ Yok', ours: '✅ AI destekli sektör anahtar kelimeleri' },
+      { feature: 'ATS Şablonları', competitor: '❌ Çoğunlukla tasarım odaklı', ours: '✅ 20\'den fazla ATS onaylı şablon' },
+      { feature: 'Ön Yazı', competitor: '⚠️ Sınırlı', ours: '✅ AI ile ücretsiz' },
+    ],
+  },
+  whySwitch: {
+    title: 'Canva\'dan Geçmek İçin 3 Neden',
+    subtitle: 'CV\'leriniz gerçekten okunacak.',
+    reasons: [
+      { title: 'CV\'leriniz Gerçekten Okunacak', description: 'Canva şablonları LinkedIn, Kariyer.net ve şirket web sitelerinin ATS\'lerinde başarısız oluyor. Şablonlarımız özellikle Türkiye\'de kullanılan önde gelen ATS sistemleriyle uyumluluk için test edilmiştir.' },
+      { title: 'AI İçeriği Sizin İçin Yazıyor', description: 'Canva\'nın yazım özellikleri yok. AI\'mız profesyonel deneyim noktaları, özetler ve sektör anahtar kelimeleri üretiyor — CV\'nin ağır işini sizin için yapıyor.' },
+      { title: 'Tasarım Öğrenmeden Profesyonel Tasarım', description: 'Şablonlarımız görsel etki ile mükemmel ATS ayrıştırmasını dengeleyen profesyonel tasarımcılar tarafından hazırlandı. Tasarım öğrenme eğrisi yok.' },
+    ],
+  },
+  recommendation: {
+    title: 'Dürüst Tavsiye',
+    useCompetitor: {
+      title: 'Canva şu durumlarda kullanın:',
+      items: [
+        'Görsel bir portföy veya kişisel marka materyali ihtiyacınız olduğunda',
+        'ATS uyumluluğundan daha önemli görsel tasarım olduğunda',
+        'Görsel dosya göndermeye izin veren pozisyonlara başvuruyorsanız',
+        'İnfografikler veya sunumlar istiyorsanız, ATS CV\'si değil',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes şu durumlarda kullanın:',
+      items: [
+        'LinkedIn, Kariyer.net, Indeed veya herhangi bir ATS portalı üzerinden başvuruyorsanız',
+        'Otomatik taramadan geçecek bir CV istiyorsanız',
+        'Deneyimlerinizi yazma konusunda AI yardımı istiyorsanız',
+        'Tasarım bilmeden profesyonel şablonlar istiyorsanız',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '300\'den fazla ücretsiz CV örneğini keşfet',
+    description: 'Her sektör ve kariyer seviyesi için profesyonel CV örnekleri.',
+    ctaBrowse: 'CV örneklerini gör',
+    ctaTemplates: 'Tüm şablonları gör',
+  },
+  faq: {
+    title: 'Sık sorulan sorular',
+    items: [
+      { question: 'Canva\'da yapılan CV\'ler ATS\'den geçer mi?', answer: 'Genellikle geçemez. Canva CV\'leri ATS sistemlerinin ayrıştıramadığı grafikler veya grafik tabanlı PDF\'ler olarak dışa aktarılıyor. LinkedIn, Kariyer.net veya şirket web siteleri üzerinden başvururken, Canva CV\'niz sistemde boş görünebilir.' },
+      { question: 'Canva neden CV için önerilmiyor?', answer: 'Canva bir grafik tasarım aracıdır, ATS uyumlu CV oluşturmak için geliştirilmemiştir. Şablonlar, şirketlerin kullandığı tarama sistemlerinin doğru okumasını engelleyen sütunlar, metin kutuları ve grafik öğeleri kullanıyor.' },
+      { question: 'CV için en iyi Canva alternatifi hangisi?', answer: 'Best AI Resume Builder en iyi alternatif. ATS onaylı şablonlar, AI yazımı ve ücretsiz PDF dışa aktarma sunuyor — Canva\'nın ATS uyumluluk sorunları olmadan.' },
+      { question: 'Yaratıcı CV için Canva kullanabilir miyim?', answer: 'Pozisyon ATS taraması kullanmıyorsa ve işveren görsel PDF kabul ediyorsa (bazı yaratıcı roller), Canva işe yarayabilir. Ama çoğu şirket, yaratıcı alanlarda bile ATS kullanıyor. Şansınızı artırmak için özel araç kullanın.' },
+      { question: 'Best AI Resume Builder güzel CV\'ler oluşturuyor mu?', answer: 'Evet! Şablonlarımız hem görsel açıdan çekici HEM DE ATS uyumlu olacak şekilde profesyonel tasarımcılar tarafından geliştirilmiştir. Estetiği işlevsellik için feda etmenize gerek yok.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Diğer CV oluşturucularla karşılaştırın',
+    items: [
+      { href: '/tr/adobe-alternative', title: 'Adobe Alternatifi', subtitle: 'Adobe Express vs CV oluşturucu' },
+      { href: '/tr/zety-alternative', title: 'Zety Alternatifi', subtitle: 'Fiyat karşılaştırması' },
+      { href: '/tr/resume-io-alternative', title: 'Resume.io Alternatifi', subtitle: 'Oluşturucu karşılaştırması' },
+      { href: '/tr/overleaf-alternative', title: 'Overleaf Alternatifi', subtitle: 'LaTeX vs AI CV' },
+    ],
+    guidesTitle: 'Faydalı CV kılavuzları',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Dış kaynaklar',
+    items: [
+      { href: 'https://www.jobscan.co/blog/ats-resume/', label: 'Jobscan: ATS CV Kılavuzu' },
+      { href: 'https://www.iskur.gov.tr/', label: 'İŞKUR — Türkiye İş Kurumu' },
+    ],
+  },
+  bottomCta: {
+    title: 'ATS ve İşe Alım Uzmanları Tarafından Okunan CV\'ler.',
+    description: 'Canva\'nın ATS sorunlarına son verin. Otomatik taramadan geçen profesyonel CV hazırlayın — ücretsiz.',
+    cta: 'Ücretsiz CV\'mi oluştur',
+    subtext: 'Sonsuza kadar ücretsiz. Tasarım becerisi gerekmez.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
 export const getContent = (locale: string) => selectContent(contentMap, locale);
