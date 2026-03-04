@@ -200,10 +200,26 @@ export default async function CoverLetterExamplePage({
     })),
   } : null;
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `How to Write a ${example.jobTitle} Cover Letter`,
+    description: example.description,
+    step: [
+      { "@type": "HowToStep", text: "Research the company and job requirements" },
+      { "@type": "HowToStep", text: "Write a compelling opening paragraph" },
+      { "@type": "HowToStep", text: "Highlight 2-3 relevant achievements with metrics" },
+      { "@type": "HowToStep", text: "Explain why you want this specific company" },
+      { "@type": "HowToStep", text: "Close with a call to action and contact info" },
+    ],
+    tool: { "@type": "HowToTool", name: "Best AI Resume Builder", url: siteUrl },
+  };
+
   // All JSON-LD objects are built from hardcoded constants and sanitized frontmatter
   const articleSchema = JSON.stringify(articleJsonLd);
   const breadcrumbSchema = JSON.stringify(breadcrumbJsonLd);
   const faqSchema = faqJsonLd ? JSON.stringify(faqJsonLd) : null;
+  const howToSchema = JSON.stringify(howToJsonLd);
 
   // Split rendered HTML for mid-content ad placement
   const fullHtml = renderContent(example.content);
@@ -230,6 +246,8 @@ export default async function CoverLetterExamplePage({
           dangerouslySetInnerHTML={{ __html: faqSchema }}
         />
       )}
+      {/* HowTo JSON-LD - hardcoded schema object */}
+      <script type="application/ld+json">{howToSchema}</script>
 
       {/* Breadcrumb */}
       <nav className="pt-24 pb-4 bg-light-teal">

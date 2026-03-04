@@ -47,7 +47,27 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
   const featuredPosts = await getFeaturedPosts(3);
   const { posts, totalPages } = paginatePosts(allPosts, currentPage, 9);
 
+  const collectionSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: c.meta.title,
+    description: c.meta.description,
+    url: `${BASE_URL}/${locale}/blog`,
+    hasPart: {
+      '@type': 'ItemList',
+      numberOfItems: allPosts.length,
+      itemListElement: allPosts.slice(0, 20).map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: p.title,
+        url: `${BASE_URL}/${locale}/blog/${p.slug}`,
+      })),
+    },
+  });
+
   return (
+    <>
+      <script type="application/ld+json">{collectionSchema}</script>
     <div className="max-w-6xl mx-auto px-6 py-12">
       {/* Hero Section */}
       <div className="text-center mb-12">
@@ -122,5 +142,6 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
         </div>
       </div>
     </div>
+    </>
   );
 }

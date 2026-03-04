@@ -68,17 +68,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.description,
       images: post.image ? [post.image] : [],
     },
-    alternates: {
-      canonical: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale),
-      languages: {
+    alternates: (() => {
+      const languages: Record<string, string> = {
         'x-default': `${siteConfig.url}/en/career-tips/${slug}`,
-        en: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'en'),
-        es: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'es'),
-        fr: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'fr'),
-        de: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'de'),
-        ar: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, 'ar'),
-      },
-    },
+      };
+      locales.forEach((loc) => {
+        languages[loc] = getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, loc);
+      });
+      return {
+        canonical: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale),
+        languages,
+      };
+    })(),
   };
 }
 

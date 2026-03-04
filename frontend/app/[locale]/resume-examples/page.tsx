@@ -44,8 +44,27 @@ export default async function ResumeExamplesIndex({ params }: { params: Promise<
     description: e.description,
   }));
 
+  const collectionSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: c.meta.title,
+    description: c.meta.description,
+    url: `${BASE_URL}/${locale}${getLocalizedPath('/resume-examples', locale)}`,
+    hasPart: {
+      '@type': 'ItemList',
+      numberOfItems: allExamples.length,
+      itemListElement: allExamples.slice(0, 20).map((e, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: e.jobTitle,
+        url: `${BASE_URL}/${locale}/resume-examples/${e.slug}`,
+      })),
+    },
+  });
+
   return (
     <>
+      <script type="application/ld+json">{collectionSchema}</script>
       <Header />
 
       <section className="pt-32 pb-16 bg-gray-50 border-b border-gray-100">
