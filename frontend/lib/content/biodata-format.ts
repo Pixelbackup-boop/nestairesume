@@ -3855,6 +3855,335 @@ const id: BiodataFormatPageContent = {
   },
 };
 
+const pl: BiodataFormatPageContent = {
+  meta: {
+    title: 'Format Biodata 2026: Darmowe Szablony, Przykłady i Poradnik | Best AI Resume',
+    description:
+      'Dowiedz się, czym jest biodata i kiedy jej używać. Porównaj biodata vs CV, pobierz darmowe szablony biodata (PDF i Word) i przejrzyj przykłady dla rynków azjatyckich i bliskowschodnich.',
+    keywords:
+      'biodata, format biodata, biodata do pracy, biodata vs cv, biodata ślubna, szablon biodata, prosty format biodata, przykład biodata',
+  },
+  schemas: {
+    breadcrumbName: 'Przewodnik po Formacie Biodata',
+    articleHeadline: 'Przewodnik po Formacie Biodata 2026: Szablony, Przykłady i Jak Pisać',
+    articleDescription:
+      'Kompletny przewodnik po formacie biodata do aplikacji o pracę. Poznaj różnicę między biodata a CV, pobierz darmowe szablony i przejrzyj przykłady.',
+  },
+  hero: {
+    badge: 'Kompletny Przewodnik na 2026',
+    title: 'Przewodnik po Formacie Biodata',
+    titleHighlight: '(Darmowe Szablony)',
+    subtitle:
+      '<strong>Format biodata</strong> to standardowy dokument aplikacyjny w Indiach, Pakistanie, Bangladeszu i na Bliskim Wschodzie. Dowiedz się, kiedy używać biodata zamiast CV, i pobierz darmowe szablony zgodne z regionalnymi oczekiwaniami.',
+    ctaTemplates: 'Pobierz Szablony',
+    ctaBuild: 'Stwórz Biodata z AI',
+  },
+  whatIs: {
+    title: 'Czym Jest Biodata?',
+    paragraphs: [
+      '<strong>Biodata</strong> (skrót od <em>danych biograficznych</em>) to dokument zawierający kompleksowy przegląd Twojego osobistego i zawodowego tła. W odróżnieniu od CV skupiającego się na doświadczeniu zawodowym i umiejętnościach, biodata zawiera również <strong>dane osobowe</strong> takie jak data urodzenia, stan cywilny, obywatelstwo, religia, a czasem informacje o rodzinie.',
+      'Format biodata jest powszechnie stosowany w <strong>krajach Azji Południowej</strong> (Indie, Pakistan, Bangladesz, Sri Lanka), na <strong>Bliskim Wschodzie</strong> (ZEA, Arabia Saudyjska, Katar) i w częściach <strong>Azji Południowo-Wschodniej</strong> (Filipiny, Malezja). Instytucje rządowe i tradycyjne organizacje w tych regionach często wymagają biodata zamiast zachodniego CV.',
+    ],
+    insightTitle: 'Ważna Uwaga:',
+    insightText:
+      'W Polsce i Unii Europejskiej obowiązuje RODO — pracodawcy nie mogą wymagać danych osobowych takich jak wiek, religia czy stan cywilny. Biodata jest stosowana głównie przy aplikowaniu do firm z Azji, Bliskiego Wschodu lub krajów, gdzie jest standardem.',
+  },
+  vsComparison: {
+    title: 'Biodata vs CV vs Akademickie CV: Jaka Jest Różnica?',
+    subtitle: 'Zrozumienie, kiedy używać którego dokumentu, ma kluczowe znaczenie dla sukcesu w poszukiwaniu pracy.',
+    headers: { aspect: 'Aspekt', biodata: 'Biodata', resume: 'CV', cv: 'CV Akademickie' },
+    rows: [
+      { aspect: 'Długość', biodata: '1-2 strony', resume: '1-2 strony', cv: '2+ strony' },
+      {
+        aspect: 'Dane Osobowe',
+        biodata: 'Rozbudowane (data urodzenia, stan cywilny, religia, rodzina)',
+        resume: 'Minimalne (imię, dane kontaktowe)',
+        cv: 'Minimalne (imię, dane kontaktowe)',
+        biodataHighlight: 'green',
+      },
+      {
+        aspect: 'Fokus',
+        biodata: 'Historia osobista + kariera',
+        resume: 'Umiejętności + osiągnięcia',
+        cv: 'Akademickie + badania',
+      },
+      {
+        aspect: 'Typowe Regiony',
+        biodata: 'Indie, Pakistan, Malezja, Bangladesz, Bliski Wschód',
+        resume: 'USA, Kanada, Australia, Europa',
+        cv: 'Europa, Wielka Brytania, środowiska akademickie',
+      },
+      {
+        aspect: 'Idealne Zastosowanie',
+        biodata: 'Praca w administracji publicznej, tradycyjne firmy, spółki państwowe',
+        resume: 'Prywatne firmy, startupy, technologia',
+        cv: 'Stanowiska akademickie, badania, medycyna',
+      },
+      {
+        aspect: 'Personalizacja',
+        biodata: 'Ta sama biodata używana do wielu aplikacji',
+        resume: 'Dostosowane do każdej oferty pracy',
+        cv: 'Aktualizowane wraz z osiągnięciami',
+      },
+    ],
+  },
+  structure: {
+    title: 'Standardowa Struktura Formatu Biodata',
+    description: 'Choć nie istnieje jeden "oficjalny" format biodata, większość pracodawców oczekuje tych sekcji w następującej kolejności:',
+    sections: [
+      {
+        number: 1,
+        label: 'Dane Osobowe',
+        detail: 'Imię i nazwisko, Zdjęcie, Data urodzenia, Płeć, Stan cywilny, Obywatelstwo',
+        colorGroup: 'orange',
+      },
+      {
+        number: 2,
+        label: 'Dane Kontaktowe',
+        detail: 'Adres (stały i tymczasowy), Telefon, E-mail',
+        colorGroup: 'default',
+      },
+      {
+        number: 3,
+        label: 'Cel Zawodowy',
+        detail: '2-3 zdania opisujące Twój cel zawodowy',
+        colorGroup: 'default',
+      },
+      {
+        number: 4,
+        label: 'Historia Edukacji',
+        detail: 'Stopnie naukowe, Uczelnia, Rok, Średnia ocen',
+        colorGroup: 'blue',
+      },
+      {
+        number: 5,
+        label: 'Doświadczenie Zawodowe',
+        detail: 'Firma, Stanowisko, Okres, Obowiązki',
+        colorGroup: 'blue',
+      },
+      {
+        number: 6,
+        label: 'Umiejętności i Kompetencje',
+        detail: 'Umiejętności techniczne, biegłość językowa, znajomość oprogramowania',
+        colorGroup: 'default',
+      },
+      {
+        number: 7,
+        label: 'Informacje Dodatkowe',
+        detail: 'Hobby, Zainteresowania, Osiągnięcia, Referencje',
+        colorGroup: 'default',
+      },
+      {
+        number: 8,
+        label: 'Oświadczenie',
+        detail: '"Niniejszym oświadczam, że powyższe informacje są zgodne z prawdą i kompletne…"',
+        colorGroup: 'dark',
+      },
+    ],
+    proTipTitle: 'Wskazówka Eksperta:',
+    proTipText:
+      'Dostosuj sekcje do kraju lub instytucji, do której aplikujesz. Niektóre regiony wymagają informacji religijnych lub grupy krwi, podczas gdy inne zadowalają się standardowymi danymi zawodowymi.',
+  },
+  personalInfo: {
+    title: 'Sekcja Danych Osobowych',
+    description: 'Dane osobowe są najbardziej krytyczną częścią biodata — oczekiwania różnią się w zależności od regionu.',
+    alwaysInclude: {
+      title: 'Zawsze Uwzględniaj',
+      items: [
+        'Pełne imię i nazwisko',
+        'Data urodzenia (lub wiek)',
+        'Płeć',
+        'Obywatelstwo',
+        'Dane kontaktowe (telefon, e-mail)',
+        'Adres (stały i/lub tymczasowy)',
+      ],
+    },
+    optional: {
+      title: 'Opcjonalne Według Regionu',
+      items: [
+        'Stan cywilny',
+        'Religia',
+        'Informacje paszportowe (do aplikacji zagranicznych)',
+        'Wzrost i waga (niektóre aplikacje azjatyckie)',
+        'Imię ojca / dane rodziców',
+        'Zdjęcie paszportowe',
+      ],
+    },
+    noteTitle: 'Uwaga dla Polskiego Rynku:',
+    noteText:
+      'W Polsce i Unii Europejskiej obowiązuje RODO — rygorystyczne zasady dotyczące zbierania danych osobowych. Pracodawcy zazwyczaj nie mogą pytać o wiek, religię, narodowość ani stan cywilny. Jeśli aplikujesz do firm wymagających biodata (np. azjatyckich lub bliskowschodnich pracodawców), sprawdź wcześniej, jakich konkretnych danych potrzebują.',
+  },
+  types: {
+    title: 'Rodzaje Biodata',
+    jobBiodata: {
+      title: 'Biodata do Aplikacji o Pracę',
+      description: 'Zawiera dane osobowe wraz z zawodowym tłem i celami kariery.',
+      focusTitle: 'Główny Fokus',
+      focusItems: ['Cel zawodowy', 'Historia edukacji', 'Doświadczenie zawodowe', 'Umiejętności i certyfikaty', 'Referencje'],
+      commonTitle: 'Typowe Regiony',
+      commonItems: ['Indyjska administracja publiczna', 'Pakistański sektor publiczny', 'Tradycyjne firmy Azji Południowo-Wschodniej', 'Bliskowschodni pracodawcy'],
+    },
+    marriageBiodata: {
+      title: 'Biodata Ślubna',
+      description: 'Używana w tradycjach matrymonialnych Azji Południowej, zawiera dane rodzinne i cechy osobiste.',
+      sectionsTitle: 'Typowe Sekcje',
+      sectionsItems: [
+        'Dane osobowe (wzrost, waga, karnacja)',
+        'Religia / etniczność / kasta',
+        'Tło rodzinne',
+        'Wykształcenie i kariera',
+        'Cechy fizyczne',
+        'Preferencje dotyczące partnera',
+      ],
+      designTitle: 'Wskazówki Projektowe',
+      designItems: [
+        'Dodaj profesjonalne zdjęcie',
+        'Uwzględnij informacje zatwierdzone przez rodzinę',
+        'Priorytetem jest prostota i wiarygodność',
+        'Odzwierciedlaj wartości religijne i kulturowe',
+      ],
+    },
+  },
+  regions: {
+    title: 'Formaty Biodata według Regionów',
+    description: 'Każdy kraj ma inne oczekiwania. Oto, czego szukają pracodawcy w poszczególnych regionach:',
+    items: [
+      {
+        country: 'Indie',
+        flag: '🇮🇳',
+        text: 'Biodata jest standardem dla służb rządowych (UPSC, SSC) i bankowości państwowej. Wielonarodowe firmy prywatne preferują CV. Imię ojca, kasta (dla systemu kwotowego) i listy referencyjne są zazwyczaj wymagane.',
+      },
+      {
+        country: 'Pakistan',
+        flag: '🇵🇰',
+        text: 'Podobnie jak w Indiach — numer CNIC (dowód tożsamości) i imię ojca są podstawowymi danymi. Stanowiska rządowe i półrządowe wymagają pełnej biodata.',
+      },
+      {
+        country: 'ZEA i Zatoka Perska',
+        flag: '🇦🇪',
+        text: 'Oczekuje się biodata ze zdjęciem, obywatelstwem, statusem wizowym i pożądaną datą rozpoczęcia. Informacje religijne mogą być wymagane. Kandydaci zagraniczni muszą dołączyć dane paszportowe.',
+      },
+      {
+        country: 'Malezja i Indonezja',
+        flag: '🇲🇾',
+        text: 'Biodata jest standardem dla instytucji rządowych. Nowoczesne firmy prywatne i międzynarodowe korporacje preferują standardowe CV. Zdjęcie i obywatelstwo są często wymagane.',
+      },
+    ],
+  },
+  templates: {
+    title: 'Darmowe Szablony Biodata',
+    subtitle:
+      'Pobierz profesjonalnie zaprojektowane szablony biodata w formacie Word/PDF. Łatwe do dostosowania z własnymi danymi.',
+    cards: [
+      {
+        title: 'Szablon Biodata do Pracy',
+        description: 'Profesjonalny szablon ze standardowymi sekcjami do aplikacji o pracę.',
+        ctaLabel: 'Stwórz z AI',
+        color: 'blue',
+      },
+      {
+        title: 'Prosty Szablon Biodata',
+        description: 'Czysty i prosty projekt dla absolwentów lub kandydatów z niewielkim doświadczeniem.',
+        ctaLabel: 'Zacznij Tworzyć',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: 'Wskazówki do Tworzenia Skutecznej Biodata',
+    items: [
+      {
+        title: 'Użyj Profesjonalnego Zdjęcia',
+        description: 'Użyj zdjęcia paszportowego z jednolitym tłem i formalnym strojem. Unikaj selfie lub zdjęć nieformalnych.',
+      },
+      {
+        title: 'Zachowaj Zwięzłość',
+        description: 'Nie przekraczaj 1-2 stron. Rekruterzy nie chcą czytać zbyt długich dokumentów.',
+      },
+      {
+        title: 'Spójny Format',
+        description: 'Używaj tych samych czcionek i rozmiarów. Zadbaj o wyróżniające się nagłówki i przejrzysty układ.',
+      },
+      {
+        title: 'Dodaj Oświadczenie',
+        description: 'Dodaj zdanie: "Niniejszym oświadczam, że powyższe informacje są zgodne z prawdą i kompletne."',
+      },
+      {
+        title: 'Sortuj Edukację od Najnowszej do Najstarszej',
+        description: 'Umieść najnowszy dyplom na górze. Podaj średnią ocen, jeśli jest dobra.',
+      },
+      {
+        title: 'Sprawdź Literówki',
+        description: 'Błędy ortograficzne i gramatyczne robią złe pierwsze wrażenie. Dokładnie sprawdź przed wysłaniem.',
+      },
+      {
+        title: 'Uwzględnij Tylko Istotne Informacje',
+        description: 'Unikaj podawania danych osobowych, które nie są istotne dla stanowiska.',
+      },
+      {
+        title: 'Podpisz i Opatrz Datą Dokument',
+        description: 'Dodaj swój podpis, aktualną datę i miejsce zamieszkania na dole dokumentu.',
+      },
+    ],
+  },
+  faq: {
+    title: 'Najczęściej Zadawane Pytania',
+    items: [
+      {
+        question: 'Jaka jest różnica między biodata a CV?',
+        answer:
+          'CV skupia się na doświadczeniu, umiejętnościach i osiągnięciach i jest dostosowywane do każdej aplikacji. Biodata zawiera dodatkowe dane osobowe takie jak data urodzenia, stan cywilny, religia i informacje rodzinne. W Indiach i wielu krajach azjatyckich biodata jest standardowym dokumentem do aplikacji w instytucjach rządowych i tradycyjnych firmach.',
+      },
+      {
+        question: 'Czy biodata jest rzeczywiście używana w aplikacjach o pracę?',
+        answer:
+          'Tak. Biodata jest bardzo powszechna w Indiach, Malezji, Pakistanie, Bangladeszu i na Bliskim Wschodzie. Instytucje rządowe i tradycyjne firmy w tych regionach mogą wymagać biodata zamiast CV.',
+      },
+      {
+        question: 'Jakie dane osobowe powinny znaleźć się w biodata?',
+        answer:
+          'Biodata do pracy zazwyczaj zawiera pełne imię i nazwisko, datę urodzenia, płeć, obywatelstwo, stan cywilny, dane kontaktowe i adres. Niektórzy pracodawcy azjatyccy proszą również o religię, grupę krwi i zdjęcie.',
+      },
+      {
+        question: 'Ile stron powinna mieć biodata?',
+        answer:
+          'Idealne są 1-2 strony. Biodata do pracy zazwyczaj ma 1 stronę, podczas gdy biodata ślubna może mieć 2 strony z powodu danych rodzinnych. Zadbaj o zwięzłość, ale kompletność.',
+      },
+      {
+        question: 'Czy kreator CV można użyć do tworzenia biodata?',
+        answer:
+          'Tak. Nasz kreator CV z AI może być również używany do tworzenia biodata. Wybierz standardowy szablon i dostosuj sekcję danych osobowych do wymagań biodata. Ułóż sekcje zgodnie z regionalnymi oczekiwaniami.',
+      },
+      {
+        question: 'Czy biodata jest wymagana w polskich aplikacjach o pracę?',
+        answer:
+          'Nie. W Polsce biodata nie jest standardowym dokumentem aplikacyjnym — tu używa się profesjonalnego CV. Biodata może być jednak przydatna przy aplikowaniu do firm azjatyckich lub bliskowschodnich, albo na stanowiska w krajach, gdzie biodata jest normą.',
+      },
+    ],
+  },
+  crossLinks: {
+    title: 'Powiązane Zasoby',
+    items: [
+      { href: '/pl/resume-format', title: 'Przewodnik po Formacie CV', subtitle: 'Chronologiczne / Funkcjonalne / Kombinowane' },
+      { href: '/pl/templates', title: 'Szablony CV', subtitle: '20+ profesjonalnych szablonów' },
+      { href: '/pl/resume-examples', title: 'Wzory CV', subtitle: '300+ wzorów CV według zawodu' },
+    ],
+  },
+  externalResources: {
+    title: 'Zewnętrzne Zasoby',
+    items: [
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+      { href: 'https://www.gov.pl/web/gov/znajdz-prace', label: 'Gov.pl — Oficjalny portal pracy i zatrudnienia' },
+    ],
+  },
+  bottomCta: {
+    title: 'Stwórz Biodata lub CV w Kilka Minut',
+    description:
+      'Nasz kreator CV z AI pomaga stworzyć profesjonalny dokument z odpowiednią strukturą. Wybierz spośród różnych szablonów i eksportuj do PDF lub Word.',
+    ctaLabel: 'Stwórz Biodata Za Darmo',
+  },
+};
+
 const nl: BiodataFormatPageContent = {
   meta: {
     title: 'Biodata Formaat 2026: Gratis Sjablonen, Voorbeelden & Schrijfgids | Best AI Resume',
@@ -4184,7 +4513,7 @@ const nl: BiodataFormatPageContent = {
   },
 };
 
-const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
+const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string): BiodataFormatPageContent {
   return selectContent(contentMap, locale);

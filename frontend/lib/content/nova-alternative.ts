@@ -1535,6 +1535,124 @@ const id: ComparisonPageContent = {
   },
 };
 
+const pl: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatywa Nova 2026: Darmowy Kreator CV AI | Best AI Resume',
+    description: 'Szukasz darmowej alternatywy dla Nova? Porównaj Nova vs Best AI Resume — kreator CV z AI, szablony ATS, nieograniczone pobieranie. Bez ukrytych kosztów na polskim rynku pracy.',
+    keywords: 'alternatywa nova, nova cv, kreator cv za darmo, szablon cv, cv ai polska, darmowy kreator cv, nova resume builder',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatywa Nova',
+    articleHeadline: 'Alternatywa Nova 2026: Darmowy Kreator CV z AI Bez Ukrytych Kosztów',
+    articleDescription: 'Porównaj Nova vs Best AI Resume Builder. Twórz profesjonalne CV z pomocą AI, optymalizacją ATS i nieograniczonym pobieraniem — całkowicie za darmo.',
+  },
+  hero: {
+    badge: 'Alternatywa Nova',
+    title: 'Twórz CV.',
+    titleHighlight: 'Pobieraj Za Darmo.',
+    subtitle: 'Nova pozwala tworzyć CV — ale potem żąda płatności za pobranie. Oferujemy pisanie z pomocą AI, szablony CV ATS i nieograniczone eksporty za <strong>0 zł</strong>.',
+    ctaPrimary: 'Utwórz Moje CV Za Darmo',
+    ctaSecondary: 'Zobacz Porównanie',
+  },
+  problem: {
+    title: 'Problem z Cenami Nova',
+    description: 'Nova ma profesjonalne szablony i przydatne sugestie treści. Problem tkwi w ich modelu cenowym: budujesz pełne CV, a dopiero potem odkrywasz, że musisz zapłacić za pobranie. Wielu użytkowników na portalach z recenzjami zgłasza nieoczekiwane opłaty po zapomnieniu o anulowaniu subskrypcji.',
+    stats: [
+      { value: '$2,70', label: '14-dniowy okres próbny (automatyczne odnowienie za $23,70/mies.)' },
+      { value: '$284', label: 'roczny koszt, jeśli zapomnisz anulować' },
+      { value: '0 zł', label: 'Best AI Resume Builder — darmowy na zawsze' },
+    ],
+  },
+  comparison: {
+    title: 'Nova vs Best AI Resume Builder',
+    subtitle: 'Porównanie funkcja po funkcji.',
+    competitorName: 'Nova',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Cena', competitor: '❌ Płatność wymagana do pobrania', ours: '✅ 100% darmowy na zawsze' },
+      { feature: 'Darmowe Pobieranie', competitor: '❌ Płatność za PDF', ours: '✅ Nieograniczone darmowe eksporty PDF' },
+      { feature: 'Pisanie z AI', competitor: '⚠️ Ograniczone sugestie', ours: '✅ AI tworzy spersonalizowaną treść CV' },
+      { feature: 'Optymalizacja ATS', competitor: '✅ Podstawowa kontrola', ours: '✅ Wynik ATS w czasie rzeczywistym + słowa kluczowe' },
+      { feature: 'Jakość Szablonów', competitor: '✅ Profesjonalne projekty', ours: '✅ 20+ testowanych szablonów ATS' },
+      { feature: 'Liczba CV', competitor: '⚠️ Ograniczona na planie darmowym', ours: '✅ Nieograniczone CV, za darmo' },
+      { feature: 'Kreator Listu Motywacyjnego', competitor: '✅ Dostępny (płatna subskrypcja)', ours: '✅ Wspomagany AI (darmowy)' },
+      { feature: 'Sugestie Treści', competitor: '✅ Gotowe zdania', ours: '✅ AI dostosowane do Twojego doświadczenia' },
+      { feature: 'Anulowanie', competitor: '❌ Trzeba anulować przed końcem okresu próbnego', ours: '✅ Nic do anulowania' },
+      { feature: 'Opinie Użytkowników', competitor: '⚠️ Mieszane — skargi na fakturowanie', ours: '✅ Brak problemów z fakturowaniem' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Powody, by Przejść z Nova',
+    subtitle: 'Naprawdę za darmo. Lepsza AI. Bez pułapek.',
+    reasons: [
+      { title: 'Naprawdę Darmowe Pobieranie', description: 'Nova pobiera opłatę po stworzeniu CV. U nas pobierasz wszystko bezpłatnie — bez okresu próbnego, bez karty kredytowej, bez automatycznego odnowienia.' },
+      { title: 'Prawdziwa AI (Nie Gotowe Zdania)', description: 'Sugestie Nova opierają się na bibliotekach gotowych zdań. Nasza AI generuje naprawdę spersonalizowaną treść dla każdej sekcji CV.' },
+      { title: 'Lepsza Optymalizacja ATS', description: 'W porównaniu z podstawowymi funkcjami ATS Nova, oferujemy wyniki ATS w czasie rzeczywistym, sugestie słów kluczowych dla branży i szablony testowane pod systemy używane na polskim rynku pracy.' },
+    ],
+  },
+  recommendation: {
+    title: 'Uczciwa Rekomendacja',
+    useCompetitor: {
+      title: 'Nova jest odpowiednia, jeśli...',
+      items: [
+        'Jesteś gotowy zapłacić za określone funkcje Nova',
+        'Preferujesz specyficzny interfejs Nova',
+        'Potrzebujesz funkcji dostępnych wyłącznie w Nova',
+        'Chcesz płatną obsługę klienta',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes jest lepszy, jeśli...',
+      items: [
+        'Chcesz tworzyć i pobierać CV za darmo',
+        'Potrzebujesz zaawansowanej AI do pisania treści',
+        'Chcesz wyników ATS w czasie rzeczywistym podczas tworzenia CV',
+        'Nie chcesz kłopotów z subskrypcjami i automatycznym odnowieniem',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Przeglądaj 300+ Darmowych Wzorów CV',
+    description: 'Profesjonalne wzory CV dla każdej branży i poziomu kariery.',
+    ctaBrowse: 'Przeglądaj Wzory CV',
+    ctaTemplates: 'Przeglądaj Wszystkie Szablony',
+  },
+  faq: {
+    title: 'Najczęściej Zadawane Pytania',
+    items: [
+      { question: 'Czy Nova jest darmowa?', answer: 'Nova pozwala tworzyć CV za darmo, ale pobiera opłaty za pobranie. Best AI Resume Builder jest w 100% darmowy — twórz i pobieraj nieograniczone CV bez karty kredytowej.' },
+      { question: 'Dlaczego Nova pobiera opłaty za pobieranie?', answer: 'Model biznesowy Nova to "freemium" — proces tworzenia jest darmowy, aby przyciągnąć użytkowników, ale monetyzacja następuje przy pobieraniu. Best AI Resume Builder jest transparentny: wszystko jest darmowe, bez niespodzianek.' },
+      { question: 'Jaka jest najlepsza darmowa alternatywa dla Nova?', answer: 'Best AI Resume Builder to najlepsza darmowa alternatywa. Oferujemy wszystko, co kryje się za paywallem Nova — profesjonalne szablony CV, eksporty PDF, listy motywacyjne — plus pisanie z AI i optymalizację ATS.' },
+      { question: 'Czy Nova ma funkcje AI?', answer: 'Nova ma pewne sugestie treści, ale bez prawdziwych funkcji pisania AI. Best AI Resume Builder używa zaawansowanej AI do generowania profesjonalnych opisów pracy, podsumowań i spersonalizowanych słów kluczowych.' },
+      { question: 'Jak anulować Nova?', answer: 'Aby anulować Nova, przejdź do ustawień konta przed końcem okresu próbnego. Best AI Resume Builder nie wymaga subskrypcji — nie ma nic do anulowania. Po prostu korzystaj z platformy za darmo.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Porównaj Inne Kreatory CV',
+    items: [
+      { href: '/pl/livecareer-alternative', title: 'Alternatywa LiveCareer', subtitle: 'Tradycyjny vs nowoczesny' },
+      { href: '/pl/resume-io-alternative', title: 'Alternatywa Resume.io', subtitle: 'Porównanie cen i funkcji' },
+      { href: '/pl/canva-alternative', title: 'Alternatywa Canva', subtitle: 'Narzędzie do projektowania vs kreator CV AI' },
+      { href: '/pl/rezi-alternative', title: 'Alternatywa Rezi', subtitle: 'Porównanie funkcji AI' },
+    ],
+    guidesTitle: 'Przydatne Poradniki CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Zewnętrzne Zasoby',
+    items: [
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+      { href: 'https://www.glassdoor.pl/', label: 'Glassdoor Polska — Zarobki i oferty pracy' },
+    ],
+  },
+  bottomCta: {
+    title: 'Naprawdę Darmowy Kreator CV.',
+    description: 'Bez pułapek cenowych, bez automatycznych odnowień. Tylko kreator CV wspomagany AI — 100% darmowy na zawsze.',
+    cta: 'Utwórz Moje CV Za Darmo',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej. Bez niespodzianek.',
+  },
+};
+
 const nl: ComparisonPageContent = {
   meta: {
     title: 'Nova Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
@@ -1653,5 +1771,5 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);
