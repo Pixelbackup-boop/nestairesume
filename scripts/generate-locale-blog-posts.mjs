@@ -21,8 +21,8 @@ const LANG = args.find((a, i) => args[i - 1] === '--lang') || '';
 const DRY_RUN = args.includes('--dry-run');
 const LIMIT = parseInt(args.find((a, i) => args[i - 1] === '--limit') || '0', 10);
 
-if (!['de', 'ar', 'fr', 'ja', 'it', 'ko', 'th', 'vi', 'pt', 'tr'].includes(LANG)) {
-  console.error('Usage: --lang de|ar|fr|ja|it|ko|th|vi|pt|tr  [--dry-run] [--limit N]');
+if (!['de', 'ar', 'fr', 'ja', 'it', 'ko', 'th', 'vi', 'pt', 'tr', 'id', 'nl', 'pl'].includes(LANG)) {
+  console.error('Usage: --lang de|ar|fr|ja|it|ko|th|vi|pt|tr|id|nl|pl  [--dry-run] [--limit N]');
   process.exit(1);
 }
 

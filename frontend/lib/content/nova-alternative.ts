@@ -1417,5 +1417,241 @@ const tr: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Nova 2026: Pembuat CV AI Gratis | Best AI Resume',
+    description: 'Cari alternatif Nova gratis? Bandingkan Nova vs Best AI Resume Builder — penulisan AI, template ATS, unduhan tak terbatas. Tanpa biaya tersembunyi.',
+    keywords: 'alternatif nova, nova vs best ai resume, pembuat cv gratis alternatif nova, cv builder gratis indonesia',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Nova',
+    articleHeadline: 'Alternatif Nova 2026: Pembuat CV AI Gratis Tanpa Biaya Tersembunyi',
+    articleDescription: 'Bandingkan Nova vs Best AI Resume Builder. Dapatkan penulisan AI, optimasi ATS, dan unduhan tak terbatas sepenuhnya gratis.',
+  },
+  hero: {
+    badge: 'Alternatif Nova',
+    title: 'Buat CV Anda.',
+    titleHighlight: 'Unduh Gratis.',
+    subtitle: 'Nova memungkinkan Anda membuat CV — lalu memungut biaya untuk mengunduhnya. Dapatkan penulisan AI, template ATS, dan ekspor tak terbatas seharga <strong>Rp 0</strong>.',
+    ctaPrimary: 'Buat CV Saya Gratis',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah dengan Nova',
+    description: 'Nova memiliki template profesional dan saran konten yang berguna. Masalahnya ada di model harganya: Anda baru mengetahui biaya unduhan setelah menyelesaikan seluruh CV. Banyak pengguna melaporkan biaya tak terduga di situs ulasan.',
+    stats: [
+      { value: '$2.70', label: 'Masa percobaan (perpanjang otomatis ke $23.70/bln)' },
+      { value: '$284', label: 'Biaya tahunan jika lupa membatalkan' },
+      { value: 'Rp 0', label: 'Best AI Resume Builder — gratis selamanya' },
+    ],
+  },
+  comparison: {
+    title: 'Perbandingan Nova vs Best AI Resume Builder',
+    subtitle: 'Perbandingan fitur secara berdampingan.',
+    competitorName: 'Nova',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Berbayar untuk mengunduh', ours: '✅ 100% gratis selamanya' },
+      { feature: 'Unduhan Gratis', competitor: '❌ Perlu bayar untuk PDF', ours: '✅ Unduhan PDF gratis tak terbatas' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Saran terbatas', ours: '✅ Konten yang dibuat AI sepenuhnya' },
+      { feature: 'Optimasi ATS', competitor: '✅ Pemeriksaan dasar', ours: '✅ Skor ATS real-time + kata kunci' },
+      { feature: 'Kualitas Template', competitor: '✅ Desain profesional', ours: '✅ 20+ template yang diuji ATS' },
+      { feature: 'Jumlah CV', competitor: '⚠️ Terbatas di paket gratis', ours: '✅ CV tak terbatas, gratis' },
+      { feature: 'Pembuat Surat Lamaran', competitor: '✅ Tersedia (paket berbayar)', ours: '✅ Bertenaga AI (gratis)' },
+      { feature: 'Saran Konten', competitor: '✅ Frasa yang ditulis sebelumnya', ours: '✅ Adaptasi AI berdasarkan pengalaman Anda' },
+      { feature: 'Pembatalan', competitor: '❌ Harus dibatalkan sebelum masa percobaan', ours: '✅ Tidak ada yang perlu dibatalkan' },
+      { feature: 'Ulasan Pengguna', competitor: '⚠️ Campuran — keluhan penagihan umum', ours: '✅ Tidak mungkin ada masalah penagihan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Alasan Beralih dari Nova',
+    subtitle: 'Benar-benar gratis. AI lebih baik. Tanpa jebakan.',
+    reasons: [
+      { title: 'Unduhan Benar-benar Gratis', description: 'Nova meminta bayaran setelah Anda selesai membuat CV. Di sini, Anda bisa mengunduh apapun yang Anda buat secara instan dan gratis — tidak ada percobaan, kartu kredit, atau perpanjangan otomatis.' },
+      { title: 'AI Nyata (Bukan Frasa yang Ditulis Sebelumnya)', description: 'Saran Nova didasarkan pada pustaka frasa yang telah ditulis sebelumnya. AI kami menghasilkan konten yang benar-benar disesuaikan untuk setiap bagian CV.' },
+      { title: 'Optimasi ATS Lebih Baik', description: 'Dibandingkan fitur ATS dasar Nova, kami menawarkan penilaian ATS real-time, saran kata kunci spesifik industri, dan template yang diuji untuk sistem yang umum digunakan di Indonesia.' },
+    ],
+  },
+  recommendation: {
+    title: 'Rekomendasi Jujur',
+    useCompetitor: {
+      title: 'Gunakan Nova jika...',
+      items: [
+        'Anda bersedia membayar untuk fitur tertentu yang dimiliki Nova',
+        'Anda lebih suka antarmuka spesifik Nova',
+        'Anda membutuhkan fitur tertentu yang hanya ada di Nova',
+        'Anda menginginkan dukungan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Gunakan Best AI Resumes jika...',
+      items: [
+        'Anda ingin membuat dan mengunduh CV secara gratis',
+        'Anda membutuhkan AI canggih untuk membantu menulis konten',
+        'Anda ingin penilaian ATS real-time saat membuat CV',
+        'Anda tidak ingin berurusan dengan langganan atau perpanjangan otomatis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Jelajahi 300+ Contoh CV Gratis',
+    description: 'Contoh CV profesional untuk setiap industri dan level karier.',
+    ctaBrowse: 'Lihat Contoh CV',
+    ctaTemplates: 'Lihat Semua Template',
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      { question: 'Apakah Nova gratis?', answer: 'Nova mengizinkan pembuatan CV gratis tetapi mengenakan biaya untuk mengunduh. Best AI Resume Builder 100% gratis — buat dan unduh CV tak terbatas tanpa kartu kredit.' },
+      { question: 'Mengapa Nova mengenakan biaya untuk mengunduh?', answer: 'Model bisnis Nova adalah "freemium" — proses pembuatan gratis untuk menarik pengguna, tetapi monetisasi terjadi saat mengunduh. Best AI Resume Builder transparan: semuanya gratis, tanpa kejutan.' },
+      { question: 'Apa alternatif gratis terbaik untuk Nova?', answer: 'Best AI Resume Builder adalah alternatif gratis terbaik. Kami menawarkan semua yang ada di balik paywall Nova — template profesional, ekspor PDF, surat lamaran — ditambah penulisan AI dan optimasi ATS.' },
+      { question: 'Apakah Nova memiliki penulisan AI?', answer: 'Nova memiliki beberapa saran konten, tetapi bukan penulisan AI yang sebenarnya. Best AI Resume Builder menggunakan AI canggih untuk menghasilkan pengalaman profesional, ringkasan, dan kata kunci yang dipersonalisasi.' },
+      { question: 'Bagaimana cara membatalkan Nova?', answer: 'Untuk membatalkan Nova, akses pengaturan akun sebelum masa percobaan berakhir. Best AI Resume Builder tidak memerlukan langganan — tidak ada yang perlu dibatalkan. Cukup gunakan platform secara gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat CV Lainnya',
+    items: [
+      { href: '/id/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs modern' },
+      { href: '/id/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga' },
+      { href: '/id/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat desain vs AI' },
+      { href: '/id/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan fitur AI' },
+    ],
+    guidesTitle: 'Panduan CV yang Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glassdoor.co.id/', label: 'Glassdoor Indonesia — Gaji dan Peluang Karier' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat CV yang Benar-benar Gratis.',
+    description: 'Tanpa jebakan harga, tanpa perpanjangan otomatis. Hanya pembuat CV bertenaga AI — 100% gratis selamanya.',
+    cta: 'Buat CV Saya Gratis',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa kejutan.',
+  },
+};
+
+const nl: ComparisonPageContent = {
+  meta: {
+    title: 'Nova Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
+    description: 'Op zoek naar een gratis Nova alternatief? Vergelijk Nova vs Best AI Resume Builder — AI cv schrijven, ATS cv sjablonen, onbeperkt downloaden. Geen verborgen kosten.',
+    keywords: 'nova alternatief, nova cv maker, gratis cv sjabloon, cv maken gratis, cv builder nederland, alternatief voor nova',
+  },
+  schemas: {
+    breadcrumbName: 'Nova Alternatief',
+    articleHeadline: 'Nova Alternatief 2026: Gratis CV Maken met AI Zonder Verborgen Kosten',
+    articleDescription: 'Vergelijk Nova vs Best AI Resume Builder. Maak een professioneel cv met AI, ATS-optimalisatie en onbeperkt downloaden — volledig gratis.',
+  },
+  hero: {
+    badge: 'Nova Alternatief',
+    title: 'Maak Je CV.',
+    titleHighlight: 'Download Gratis.',
+    subtitle: 'Nova laat je een cv maken — maar vraagt daarna betaling om het te downloaden. Wij bieden AI-schrijven, ATS cv sjablonen en onbeperkte exports voor <strong>€0</strong>.',
+    ctaPrimary: 'Maak Mijn CV Gratis',
+    ctaSecondary: 'Bekijk de Vergelijking',
+  },
+  problem: {
+    title: 'Het Nova Prijsprobleem',
+    description: 'Nova heeft professionele sjablonen en handige inhoudssuggesties. Het probleem is hun prijsmodel: je bouwt je volledige cv voordat je ontdekt dat je moet betalen om het te downloaden. Veel gebruikers op reviewsites melden onverwachte kosten na het vergeten te annuleren.',
+    stats: [
+      { value: '$2,70', label: '14-daagse proef (automatische verlenging naar $23,70/mnd)' },
+      { value: '$284', label: 'jaarlijkse kosten als je vergeet te annuleren' },
+      { value: '€0', label: 'Best AI Resume Builder — voor altijd gratis' },
+    ],
+  },
+  comparison: {
+    title: 'Nova vs Best AI Resume Builder',
+    subtitle: 'Functie-voor-functie vergelijking.',
+    competitorName: 'Nova',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prijs', competitor: '❌ Betalen vereist voor download', ours: '✅ 100% gratis voor altijd' },
+      { feature: 'Gratis Downloaden', competitor: '❌ Betaling vereist voor PDF', ours: '✅ Onbeperkt gratis PDF exporteren' },
+      { feature: 'AI Schrijven', competitor: '⚠️ Beperkte suggesties', ours: '✅ AI genereert volledig op maat gemaakte inhoud' },
+      { feature: 'ATS-optimalisatie', competitor: '✅ Basiscontrole', ours: '✅ Realtime ATS-score + zoekwoorden' },
+      { feature: 'Sjabloenkwaliteit', competitor: '✅ Professionele ontwerpen', ours: '✅ 20+ ATS-geteste cv sjablonen' },
+      { feature: 'Aantal CV\'s', competitor: '⚠️ Beperkt op gratis plan', ours: '✅ Onbeperkt cv\'s maken, gratis' },
+      { feature: 'Motivatiebriefbouwer', competitor: '✅ Beschikbaar (betaald abonnement)', ours: '✅ AI-aangedreven (gratis)' },
+      { feature: 'Inhoudssuggesties', competitor: '✅ Vooraf geschreven zinnen', ours: '✅ AI afgestemd op jouw werkervaring' },
+      { feature: 'Annuleren', competitor: '❌ Moet annuleren voor einde proefperiode', ours: '✅ Niets te annuleren' },
+      { feature: 'Gebruikersreviews', competitor: '⚠️ Gemengd — factureringklachten komen voor', ours: '✅ Geen factureringsproblemen mogelijk' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Redenen om over te stappen van Nova',
+    subtitle: 'Echt gratis. Betere AI. Geen valkuilen.',
+    reasons: [
+      { title: 'Echt Gratis Downloaden', description: 'Nova vraagt betaling nadat je je cv hebt afgemaakt. Hier download je alles wat je maakt direct en gratis — geen proefperiode, geen creditcard, geen automatische verlenging.' },
+      { title: 'Echte AI (Geen Vooraf Geschreven Zinnen)', description: 'De suggesties van Nova zijn gebaseerd op vooraf geschreven zinsbibliotheken. Onze AI genereert echt op maat gemaakte inhoud voor elk onderdeel van je cv.' },
+      { title: 'Betere ATS-optimalisatie', description: 'Vergeleken met de basis-ATS-functies van Nova bieden wij realtime ATS-scores, branchespecifieke zoekwoordsuggesties en sjablonen getest voor de Nederlandse arbeidsmarkt.' },
+    ],
+  },
+  recommendation: {
+    title: 'Eerlijke Aanbeveling',
+    useCompetitor: {
+      title: 'Nova is geschikt als je...',
+      items: [
+        'Bereid bent te betalen voor bepaalde functies van Nova',
+        'De voorkeur geeft aan de specifieke interface van Nova',
+        'Bepaalde functies nodig hebt die alleen in Nova beschikbaar zijn',
+        'Betaalde klantenondersteuning wilt',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes is beter als je...',
+      items: [
+        'Je cv gratis wilt maken en downloaden',
+        'Geavanceerde AI nodig hebt om inhoud te schrijven',
+        'Realtime ATS-scores wilt tijdens het maken van je cv',
+        'Geen gedoe wilt met abonnementen of automatische verlengingen',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Bekijk 300+ Gratis CV Voorbeelden',
+    description: 'Professionele cv voorbeelden voor elke sector en carriereniveau.',
+    ctaBrowse: 'Bekijk CV Voorbeelden',
+    ctaTemplates: 'Bekijk Alle Sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      { question: 'Is Nova gratis?', answer: 'Nova laat je gratis een cv maken maar rekent kosten voor downloaden. Best AI Resume Builder is 100% gratis — maak en download onbeperkt cv\'s zonder creditcard.' },
+      { question: 'Waarom rekent Nova kosten voor downloaden?', answer: 'Het businessmodel van Nova is "freemium" — het maakproces is gratis om gebruikers aan te trekken, maar monetisatie vindt plaats bij het downloaden. Best AI Resume Builder is transparant: alles is gratis, geen verrassingen.' },
+      { question: 'Wat is het beste gratis alternatief voor Nova?', answer: 'Best AI Resume Builder is het beste gratis alternatief. Wij bieden alles wat achter de betaalmuur van Nova zit — professionele cv sjablonen, PDF-exports, sollicitatiebrieven — plus AI-schrijven en ATS-optimalisatie.' },
+      { question: 'Heeft Nova AI-functies?', answer: 'Nova heeft enkele inhoudssuggesties, maar geen echte AI-schrijffuncties. Best AI Resume Builder gebruikt geavanceerde AI om professionele werkervaring, samenvattingen en gepersonaliseerde zoekwoorden te genereren.' },
+      { question: 'Hoe annuleer ik Nova?', answer: 'Om Nova te annuleren, ga naar je accountinstellingen voor het einde van de proefperiode. Best AI Resume Builder vereist geen abonnement — er is niets te annuleren. Gebruik het platform gewoon gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Vergelijk Andere CV Bouwers',
+    items: [
+      { href: '/nl/livecareer-alternative', title: 'LiveCareer Alternatief', subtitle: 'Traditioneel vs modern' },
+      { href: '/nl/resume-io-alternative', title: 'Resume.io Alternatief', subtitle: 'Prijs- en functievergelijking' },
+      { href: '/nl/canva-alternative', title: 'Canva Alternatief', subtitle: 'Ontwerptool vs AI cv maker' },
+      { href: '/nl/rezi-alternative', title: 'Rezi Alternatief', subtitle: 'AI-functies vergelijking' },
+    ],
+    guidesTitle: 'Handige CV Gidsen',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://www.uwv.nl/', label: 'UWV — Uitvoeringsinstituut Werknemersverzekeringen' },
+      { href: 'https://www.glassdoor.nl/', label: 'Glassdoor Nederland — Salarissen en Vacatures' },
+    ],
+  },
+  bottomCta: {
+    title: 'Echte Gratis CV Bouwer.',
+    description: 'Geen prijsvalkuilen, geen automatische verlengingen. Gewoon een AI-aangedreven cv maker — 100% gratis voor altijd.',
+    cta: 'Maak Mijn CV Gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard. Geen verrassingen.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

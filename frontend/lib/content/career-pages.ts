@@ -272,7 +272,70 @@ const tr: CareerPagesContent = {
   },
 };
 
-const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Sumber Daya Karier dan Peluang Kerja | Best AI Resume',
+      description: 'Temukan sumber daya karier, peluang kerja, tren industri, dan tips pengembangan profesional untuk memajukan karier Anda.',
+      ogTitle: 'Sumber Daya Karier dan Peluang Kerja | Best AI Resume',
+      ogDescription: 'Temukan sumber daya karier, peluang kerja, dan tips pengembangan profesional.',
+    },
+    badge: 'Pusat Karier',
+    title: 'Sumber Daya Karier dan',
+    titleHighlight: 'Peluang Kerja',
+    subtitle: 'Temukan peluang kerja, wawasan karier, dan sumber daya pengembangan profesional untuk memajukan karier Anda.',
+    featured: 'Peluang Unggulan',
+    noPostsTitle: 'Belum ada artikel',
+    noPostsSub: 'Kembali lagi segera untuk sumber daya karier dan peluang kerja!',
+  },
+  article: {
+    notFound: 'Artikel Tidak Ditemukan',
+  },
+};
+
+const pl: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Zasoby Kariery i Porady Zawodowe | Best AI Resume',
+      description: 'Odkryj zasoby kariery, porady zawodowe, trendy branżowe i wskazówki dotyczące rozwoju zawodowego, aby rozwijać swoją karierę.',
+      ogTitle: 'Zasoby Kariery i Porady Zawodowe | Best AI Resume',
+      ogDescription: 'Odkryj zasoby kariery, porady zawodowe i wskazówki dotyczące rozwoju zawodowego.',
+    },
+    badge: 'Centrum Kariery',
+    title: 'Zasoby Kariery i',
+    titleHighlight: 'Porady Zawodowe',
+    subtitle: 'Odkryj oferty pracy, spostrzeżenia zawodowe i zasoby do rozwoju kariery w Polsce i za granicą.',
+    featured: 'Wyróżnione Artykuły',
+    noPostsTitle: 'Brak artykułów',
+    noPostsSub: 'Wróć wkrótce po nowe zasoby kariery i porady zawodowe!',
+  },
+  article: {
+    notFound: 'Artykuł Nie Znaleziony',
+  },
+};
+
+const nl: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Loopbaanbronnen en Vacatures | Best AI Resume',
+      description: 'Ontdek loopbaanbronnen, vacatures, branche-inzichten en tips voor professionele ontwikkeling om je loopbaan vooruit te helpen.',
+      ogTitle: 'Loopbaanbronnen en Vacatures | Best AI Resume',
+      ogDescription: 'Ontdek loopbaanbronnen, vacatures en tips voor professionele ontwikkeling.',
+    },
+    badge: 'Loopbaancentrum',
+    title: 'Loopbaanbronnen en',
+    titleHighlight: 'Vacatures',
+    subtitle: 'Verken vacatures, loopbaaninzichten en bronnen voor professionele ontwikkeling om je carrière verder te helpen.',
+    featured: 'Uitgelichte Vacatures',
+    noPostsTitle: 'Nog geen loopbaanartikelen',
+    noPostsSub: 'Kom snel terug voor loopbaanbronnen en vacatures!',
+  },
+  article: {
+    notFound: 'Artikel Niet Gevonden',
+  },
+};
+
+const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 
 export function getCareerListingContent(locale: string) { return selectContent(contentMap, locale).listing; }
 export function getCareerArticleContent(locale: string) { return selectContent(contentMap, locale).article; }

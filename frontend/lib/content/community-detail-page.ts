@@ -286,7 +286,73 @@ const tr: CommunityDetailContent = {
   edited: '(düzenlendi)',
 };
 
-const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: CommunityDetailContent = {
+  backToGallery: '← Kembali ke Galeri',
+  useTemplate: 'Gunakan Template Ini',
+  downloads: 'unduhan',
+  download: 'unduh',
+  by: 'Oleh',
+  commentsTitle: 'Komentar',
+  commentPlaceholder: 'Bagikan pendapat Anda tentang template ini...',
+  postComment: 'Posting Komentar',
+  signInToComment: 'Masuk untuk berkomentar',
+  signIn: 'Masuk',
+  noComments: 'Belum ada komentar. Jadilah yang pertama!',
+  deleteComment: 'Hapus',
+  deleteConfirm: 'Apakah Anda yakin ingin menghapus komentar ini?',
+  editComment: 'Edit',
+  saveEdit: 'Simpan',
+  cancelEdit: 'Batal',
+  loadMore: 'Muat lebih banyak komentar',
+  charLimit: '{count}/2000',
+  edited: '(diedit)',
+};
+
+const pl: CommunityDetailContent = {
+  backToGallery: '← Powrót do galerii',
+  useTemplate: 'Użyj tego szablonu',
+  downloads: 'pobrania',
+  download: 'pobierz',
+  by: 'Przez',
+  commentsTitle: 'Komentarze',
+  commentPlaceholder: 'Podziel się swoją opinią na temat tego szablonu...',
+  postComment: 'Dodaj komentarz',
+  signInToComment: 'Zaloguj się, aby skomentować',
+  signIn: 'Zaloguj się',
+  noComments: 'Brak komentarzy. Bądź pierwszy!',
+  deleteComment: 'Usuń',
+  deleteConfirm: 'Czy na pewno chcesz usunąć ten komentarz?',
+  editComment: 'Edytuj',
+  saveEdit: 'Zapisz',
+  cancelEdit: 'Anuluj',
+  loadMore: 'Załaduj więcej komentarzy',
+  charLimit: '{count}/2000',
+  edited: '(edytowano)',
+};
+
+const nl: CommunityDetailContent = {
+  backToGallery: '\u2190 Terug naar Galerij',
+  useTemplate: 'Sjabloon Gebruiken',
+  downloads: 'downloads',
+  download: 'download',
+  by: 'Door',
+  commentsTitle: 'Reacties',
+  commentPlaceholder: 'Deel je mening over dit sjabloon...',
+  postComment: 'Reactie Plaatsen',
+  signInToComment: 'Log in om een reactie achter te laten',
+  signIn: 'Inloggen',
+  noComments: 'Nog geen reacties. Wees de eerste die zijn mening deelt!',
+  deleteComment: 'Verwijderen',
+  deleteConfirm: 'Weet je zeker dat je deze reactie wilt verwijderen?',
+  editComment: 'Bewerken',
+  saveEdit: 'Opslaan',
+  cancelEdit: 'Annuleren',
+  loadMore: 'Meer reacties laden',
+  charLimit: '{count}/2000',
+  edited: '(bewerkt)',
+};
+
+const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string): CommunityDetailContent {
   return selectContent(contentMap, locale);

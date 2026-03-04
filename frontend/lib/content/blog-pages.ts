@@ -677,5 +677,58 @@ const ko: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const nl: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'Blog - CV Tips en Loopbaanadvies | Best AI Resume',
+      description: 'Expertadvies voor het schrijven van een cv, loopbaanbegeleiding en strategieën voor je zoektocht naar een baan. Gratis gidsen en tutorials.',
+      ogDescription: 'Expertadvies voor het schrijven van een cv en strategieën voor je zoektocht naar een baan.',
+    },
+    heroBadge: 'Ons Blog',
+    heroTitle: 'CV Tips en ',
+    heroTitleHighlight: 'Loopbaanadvies',
+    heroSubtitle: 'Expertgidsen, tips en strategieën om opvallende cv\'s te maken en je loopbaan vooruit te helpen.',
+    featuredArticles: 'Uitgelichte Artikelen',
+    noArticlesTitle: 'Nog geen artikelen',
+    noArticlesSubtitle: 'Kom snel terug voor nieuwe content!',
+  },
+  article: {
+    notFound: 'Artikel Niet Gevonden',
+    faqTitle: 'Veelgestelde Vragen',
+    resourcesTitle: 'CV-tools en -bronnen',
+    resources: [
+      { title: '300+ CV-voorbeelden', subtitle: 'Schrijfgidsen per beroep' },
+      { title: 'CV-formaatgids 2026', subtitle: 'Chronologisch, functioneel en combinatie' },
+      { title: 'Gratis CV-sjablonen', subtitle: 'ATS-vriendelijke professionele ontwerpen' },
+      { title: 'AI CV Maker', subtitle: 'Maak je cv in minuten' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'Artikelen | Best AI Resume Blog',
+    metaDescTemplate: 'Bekijk onze {category}-artikelen voor expertadvies, tips en gidsen.',
+    backToBlog: 'Terug naar Blog',
+    articlesCount: '{count} artikelen in deze categorie',
+    articleCount: '{count} artikel in deze categorie',
+    noArticlesTitle: 'Nog geen artikelen',
+    noArticlesSubtitle: 'Kom snel terug voor nieuwe content in deze categorie!',
+  },
+  search: {
+    meta: {
+      title: 'Blog Zoeken | Best AI Resume',
+      description: 'Zoek in ons blog naar cv-tips, loopbaanadvies en strategieën voor je zoektocht naar een baan.',
+    },
+    backToBlog: 'Terug naar Blog',
+    title: 'Zoekresultaten',
+    resultsCount: '{count} resultaten voor',
+    resultCount: '{count} resultaat voor',
+    startSearchTitle: 'Begin met zoeken',
+    startSearchSubtitle: 'Voer een zoekterm in om artikelen te vinden',
+    noResultsTitle: 'Geen resultaten',
+    noResultsText: 'We konden geen artikelen vinden die overeenkomen met',
+    tryLabel: 'Probeer:',
+    trySuggestions: ['Andere zoekwoorden gebruiken', 'Spellingcontrole uitvoeren', 'In plaats daarvan categorieën bekijken'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

@@ -884,6 +884,150 @@ const tr: TermsContent = {
   lastUpdated: 'Son güncelleme: Ocak 2026',
 };
 
-const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
+const id: TermsContent = {
+  hero: {
+    badge: 'Syarat dan Ketentuan',
+    title: 'Transparan, adil',
+    titleHighlight: 'syarat dan ketentuan',
+    subtitle: 'Syarat ini mendefinisikan perjanjian antara Anda dan kami dalam bahasa yang jelas. Tidak ada jargon hukum yang rumit — hanya ketentuan yang bersih dan jujur.',
+  },
+  highlights: [
+    { title: 'Tidak Ada Biaya Tersembunyi', text: 'Yang Anda lihat adalah yang Anda bayar. Harga kami transparan; tidak ada biaya kejutan atau biaya tersembunyi.' },
+    { title: 'Data Anda, Kendali Anda', text: 'Kami hanya menyimpan alamat email dan nama Anda untuk login. Konten CV Anda tetap di browser — tidak pernah di server kami.' },
+    { title: 'Uji Coba Gratis 7 Hari', text: 'Coba semua fitur premium selama 7 hari secara gratis. Tidak ada tagihan selama masa uji coba, batalkan kapan saja secara gratis.' },
+  ],
+  sections: [
+    {
+      heading: 'Gambaran Umum Layanan',
+      intro: 'Best AI Resume adalah pembuat CV online yang membantu Anda membuat CV profesional dengan alat bertenaga AI. Dengan menggunakan layanan kami, Anda menyetujui syarat-syarat ini.',
+      items: ['Buat CV tak terbatas dengan alat kami', 'Akses saran dan peningkatan konten yang dihasilkan AI', 'Unduh CV Anda dalam format PDF', 'Pilih dari template yang dirancang oleh para profesional'],
+    },
+    {
+      heading: 'Akun dan Transparansi Data',
+      subsections: [
+        { subheading: 'Yang Kami Simpan di Server Kami', items: ['**Alamat email** — Untuk login dan notifikasi penting', '**Nama** — Untuk mempersonalisasi pengalaman Anda', '**Kata sandi (terenkripsi)** — Disimpan dengan hash aman untuk autentikasi', '**Status langganan** — Untuk mengelola manfaat paket Anda'] },
+        { subheading: 'Yang Tidak Kami Simpan', items: ['Konten CV (disimpan secara lokal di browser Anda)', 'Riwayat pekerjaan atau detail pekerjaan', 'Informasi pendidikan atau keahlian', 'Alamat pribadi atau nomor telepon'] },
+      ],
+      intro: 'Kami berkomitmen untuk mengumpulkan data minimum yang diperlukan. Kami hanya menyimpan apa yang diperlukan untuk fungsionalitas akun Anda:',
+    },
+    {
+      heading: 'Langganan dan Pembayaran',
+      subsections: [
+        { subheading: 'Langganan Bulanan', items: ['**Siklus penagihan** — Ditagih setiap bulan dari tanggal berlangganan', '**Perpanjangan otomatis** — Langganan diperpanjang otomatis kecuali dibatalkan', '**Transparansi harga** — Harga yang ditampilkan saat checkout, termasuk pajak yang berlaku, adalah jumlah yang dikenakan'] },
+        { subheading: 'Kebijakan Pembatalan', items: ['Batalkan kapan saja dari panel akun Anda — tidak perlu alasan', 'Akses berlanjut hingga akhir periode penagihan saat ini', 'Tidak ada penalti atau biaya pembatalan', 'Data lokal Anda tetap utuh setelah pembatalan'] },
+        { subheading: 'Uji Coba Gratis 7 Hari', items: ['**Akses penuh** — Coba semua fitur premium selama 7 hari secara gratis', '**Tidak ada tagihan selama uji coba** — Anda tidak akan ditagih sampai masa uji coba berakhir', '**Batalkan kapan saja** — Batalkan sebelum uji coba berakhir dan Anda tidak membayar apapun', '**Email pengingat** — Kami akan memberi tahu Anda sebelum masa uji coba berakhir'] },
+      ],
+    },
+    {
+      heading: 'Akses Gratis dan Paket Berbayar',
+      intro: 'Sebelum berlangganan, Anda dapat:',
+      items: ['Menelusuri dan melihat pratinjau semua template', 'Membuat dan menyimpan CV di akun Anda', 'Melihat contoh CV dan tips karier'],
+    },
+    {
+      heading: 'Tanggung Jawab Pengguna',
+      intro: 'Dengan menggunakan layanan kami, Anda setuju untuk:',
+      items: ['Memberikan informasi akurat saat mendaftar akun', 'Menjaga keamanan kredensial login Anda', 'Menggunakan layanan hanya untuk tujuan yang sah', 'Tidak mencoba melewati atau menyalahgunakan layanan'],
+    },
+    {
+      heading: 'Kekayaan Intelektual',
+      items: ['**Konten Anda** — Anda mempertahankan kepemilikan penuh atas semua konten yang Anda buat dengan layanan kami', '**Template kami** — Desain template dilisensikan untuk penggunaan pribadi dan profesional', '**Konten yang dihasilkan AI** — Teks yang dihasilkan oleh AI kami adalah milik Anda dan dapat digunakan secara bebas'],
+    },
+    {
+      heading: 'Ketersediaan Layanan',
+      intro: 'Kami berkomitmen untuk mempertahankan ketersediaan layanan yang tinggi, namun:',
+      items: ['Pemeliharaan berkala dapat menyebabkan gangguan sementara', 'Kami akan memberi pemberitahuan terlebih dahulu tentang pemeliharaan terjadwal bila memungkinkan', 'Data lokal Anda dapat diakses bahkan ketika server kami tidak tersedia'],
+    },
+    {
+      heading: 'Perubahan pada Syarat',
+      intro: 'Kami dapat memperbarui syarat ini dari waktu ke waktu. Kami akan memberi tahu Anda tentang perubahan penting melalui email atau layanan. Melanjutkan penggunaan layanan setelah perubahan berarti Anda menerima syarat baru.',
+    },
+    {
+      heading: 'Hubungi Kami',
+    },
+  ],
+  contactText: 'Ada pertanyaan tentang syarat ini? Hubungi kami melalui email:',
+  cta: {
+    title: 'Siap membuat CV',
+    titleHighlight: 'profesional Anda?',
+    subtitle: 'Harga sederhana, syarat transparan, dan data Anda adalah milik Anda.',
+    primaryBtn: 'Mulai Gratis',
+    secondaryBtn: 'Lihat Paket',
+  },
+  lastUpdated: 'Terakhir diperbarui: Januari 2026',
+};
+
+const nl: TermsContent = {
+  hero: {
+    badge: 'Algemene Voorwaarden',
+    title: 'Eenvoudige, transparante',
+    titleHighlight: 'gebruiksvoorwaarden',
+    subtitle: 'Wij geloven in transparantie en eenvoud. Onze voorwaarden zijn geschreven in begrijpelijke taal, zodat u precies weet wat u kunt verwachten bij het gebruik van Best AI Resume.',
+  },
+  highlights: [
+    { title: 'Geen Verborgen Kosten', text: 'Wat u ziet is wat u betaalt. Onze prijzen zijn transparant zonder verrassingen of verborgen kosten.' },
+    { title: 'Uw Gegevens, Uw Controle', text: 'Wij slaan alleen uw e-mailadres en naam op voor inlogdoeleinden. Uw cv-inhoud blijft in uw browser — nooit op onze servers.' },
+    { title: '7 Dagen Gratis Proefperiode', text: 'Probeer alle premium-functies 7 dagen gratis. Geen kosten tot het einde van de proefperiode, op elk moment opzegbaar zonder kosten.' },
+  ],
+  sections: [
+    {
+      heading: 'Overzicht van de Dienst',
+      intro: 'Best AI Resume is een online cv-bouwer waarmee u professionele cv\'s kunt maken met behulp van AI-aangedreven tools. Door gebruik te maken van onze dienst gaat u akkoord met deze voorwaarden.',
+      items: ['Maak onbeperkt cv\'s met onze bouwtools', 'Toegang tot AI-gestuurde inhoudsuggesties en verbeteringen', 'Download uw cv\'s in PDF-formaat', 'Kies uit professioneel ontworpen sjablonen'],
+    },
+    {
+      heading: 'Account en Gegevenstransparantie',
+      subsections: [
+        { subheading: 'Wat Wij Opslaan op Onze Servers', items: ['**E-mailadres** — Voor account-login en belangrijke meldingen', '**Naam** — Om uw ervaring te personaliseren', '**Wachtwoord (versleuteld)** — Veilig gehashed voor authenticatie', '**Abonnementsstatus** — Om uw planvoordelen te beheren'] },
+        { subheading: 'Wat Wij NIET Opslaan', items: ['Uw cv-inhoud (lokaal opgeslagen in uw browser)', 'Uw werkgeschiedenis of arbeidsgegevens', 'Uw opleidings- of vaardighedeninformatie', 'Uw persoonlijk adres of telefoonnummer'] },
+      ],
+      intro: 'Wij zijn toegewijd aan minimale gegevensverzameling. Wij slaan alleen op wat absoluut noodzakelijk is voor de werking van uw account:',
+    },
+    {
+      heading: 'Abonnement en Betalingen',
+      subsections: [
+        { subheading: 'Maandelijks Abonnement', items: ['**Factureringscyclus** — U wordt maandelijks gefactureerd op de datum waarop u zich heeft geabonneerd', '**Automatische verlenging** — Abonnementen worden automatisch verlengd tenzij opgezegd', '**Prijstransparantie** — De prijs die wordt weergegeven bij het afrekenen is de prijs die u betaalt (plus eventuele belastingen)'] },
+        { subheading: 'Opzeggingsbeleid', items: ['Op elk moment opzeggen via uw accountdashboard — geen vragen gesteld', 'Toegang blijft actief tot het einde van uw huidige factureringsperiode', 'Geen opzegkosten of boetes', 'Uw lokale gegevens blijven intact na opzegging'] },
+        { subheading: '7 Dagen Gratis Proefperiode', items: ['**Volledige toegang** — Probeer alle premium-functies 7 dagen gratis', '**Geen kosten tijdens de proefperiode** — U wordt niet gefactureerd tot het einde van uw proefperiode', '**Op elk moment opzeggen** — Zeg op voor het einde van de proefperiode en u betaalt niets', '**Herinneringsmail** — Wij informeren u voor het einde van uw proefperiode'] },
+      ],
+    },
+    {
+      heading: 'Gratis Toegang en Betaalde Abonnementen',
+      intro: 'Voordat u zich abonneert, kunt u:',
+      items: ['Alle sjablonen bekijken en als voorbeeld weergeven', 'Cv\'s aanmaken en opslaan in uw account', 'Cv-voorbeelden en carrièretips bekijken'],
+    },
+    {
+      heading: 'Verantwoordelijkheden van de Gebruiker',
+      intro: 'Door gebruik te maken van onze dienst gaat u akkoord met:',
+      items: ['Het verstrekken van nauwkeurige informatie bij het registreren van uw account', 'Het veilig houden van uw accountgegevens', 'Het uitsluitend gebruiken van de dienst voor wettige doeleinden', 'Het niet proberen de dienst te omzeilen of misbruiken'],
+    },
+    {
+      heading: 'Intellectueel Eigendom',
+      items: ['**Uw inhoud** — U behoudt het volledige eigendom van alle inhoud die u met onze dienst maakt', '**Onze sjablonen** — Sjabloonontwerpen zijn aan u in licentie gegeven voor persoonlijk en professioneel gebruik', '**AI-gegenereerde inhoud** — Tekst gegenereerd door onze AI is van u om vrij te gebruiken'],
+    },
+    {
+      heading: 'Beschikbaarheid van de Dienst',
+      intro: 'Wij streven naar een hoge beschikbaarheid van de dienst, maar:',
+      items: ['Incidenteel onderhoud kan tijdelijke onderbrekingen veroorzaken', 'Wij informeren gebruikers waar mogelijk over gepland onderhoud', 'Uw lokale gegevens blijven toegankelijk zelfs wanneer onze servers offline zijn'],
+    },
+    {
+      heading: 'Wijzigingen in de Voorwaarden',
+      intro: 'Wij kunnen deze voorwaarden van tijd tot tijd bijwerken. Wij zullen u op de hoogte stellen van belangrijke wijzigingen via e-mail of via onze dienst. Voortgezet gebruik van de dienst na wijzigingen betekent dat u de nieuwe voorwaarden aanvaardt.',
+    },
+    {
+      heading: 'Neem Contact Op',
+    },
+  ],
+  contactText: 'Vragen over deze voorwaarden? Neem contact met ons op via',
+  cta: {
+    title: 'Klaar om uw',
+    titleHighlight: 'professionele cv te maken?',
+    subtitle: 'Eenvoudige prijzen, transparante voorwaarden en uw gegevens zijn van u.',
+    primaryBtn: 'Gratis Beginnen',
+    secondaryBtn: 'Bekijk Abonnementen',
+  },
+  lastUpdated: 'Laatste update: januari 2026',
+};
+
+const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

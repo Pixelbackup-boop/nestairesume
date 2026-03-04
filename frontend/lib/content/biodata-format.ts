@@ -3526,7 +3526,665 @@ const tr: BiodataFormatPageContent = {
   },
 };
 
-const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: BiodataFormatPageContent = {
+  meta: {
+    title: 'Biodata / Daftar Riwayat Hidup: Panduan Format & Template Gratis 2026 | Best AI Resume',
+    description:
+      'Apa itu biodata atau daftar riwayat hidup? Pelajari format biodata untuk lamaran kerja di Indonesia. Template gratis siap unduh. 2026.',
+    keywords:
+      'biodata, daftar riwayat hidup, format biodata, biodata lamaran kerja, biodata vs cv, template biodata, contoh biodata, form daftar riwayat hidup',
+  },
+  schemas: {
+    breadcrumbName: 'Panduan Format Biodata',
+    articleHeadline: 'Biodata / Daftar Riwayat Hidup: Panduan Format, Template, dan Contoh 2026',
+    articleDescription:
+      'Panduan lengkap format biodata dan daftar riwayat hidup. Pelajari perbedaannya dengan CV dan resume, unduh template gratis.',
+  },
+  hero: {
+    badge: 'Panduan lengkap untuk 2026',
+    title: 'Panduan Format Biodata',
+    titleHighlight: '(Template Gratis)',
+    subtitle:
+      '<strong>Biodata atau daftar riwayat hidup</strong> adalah dokumen standar yang digunakan dalam lamaran kerja di Indonesia dan Asia Tenggara. Pelajari perbedaan biodata dengan CV dan resume, lalu unduh template gratis yang siap digunakan.',
+    ctaTemplates: 'Unduh Template',
+    ctaBuild: 'Buat Biodata dengan AI',
+  },
+  whatIs: {
+    title: 'Apa Itu Biodata?',
+    paragraphs: [
+      '<strong>Biodata</strong> (singkatan dari data biografis) adalah dokumen yang menyajikan ringkasan komprehensif latar belakang pribadi dan profesional Anda. Berbeda dengan CV atau resume yang hanya berfokus pada pengalaman kerja dan keahlian, biodata juga mencakup detail pribadi seperti <strong>tanggal lahir, status pernikahan, kewarganegaraan</strong>, dan terkadang informasi keluarga.',
+      'Format biodata umum digunakan di <strong>Indonesia dan Asia Tenggara</strong> (terutama untuk instansi pemerintah dan perusahaan tradisional), <strong>Asia Selatan</strong> (India, Pakistan, Bangladesh), dan <strong>Timur Tengah</strong> (UEA, Arab Saudi, Qatar). Instansi pemerintah dan perusahaan tradisional di wilayah-wilayah ini sering meminta biodata daripada resume bergaya Barat.',
+    ],
+    insightTitle: 'Catatan Penting:',
+    insightText:
+      'Di Indonesia, banyak instansi pemerintah dan BUMN masih menggunakan formulir "daftar riwayat hidup" sebagai dokumen standar. Namun perusahaan swasta modern dan startup umumnya menerima CV atau resume biasa.',
+  },
+  vsComparison: {
+    title: 'Biodata, CV, dan Resume: Apa Bedanya?',
+    subtitle: 'Mengetahui dokumen mana yang digunakan kapan sangat penting dalam pencarian kerja Anda.',
+    headers: { aspect: 'Aspek', biodata: 'Biodata', resume: 'CV/Resume', cv: 'CV Akademik' },
+    rows: [
+      { aspect: 'Panjang', biodata: '1-2 halaman', resume: '1-2 halaman', cv: '2+ halaman' },
+      {
+        aspect: 'Informasi Pribadi',
+        biodata: 'Lengkap (tanggal lahir, status, agama, keluarga)',
+        resume: 'Minimal (nama, kontak)',
+        cv: 'Minimal (nama, kontak)',
+        biodataHighlight: 'green',
+      },
+      {
+        aspect: 'Fokus',
+        biodata: 'Riwayat pribadi + karier',
+        resume: 'Keahlian + pencapaian',
+        cv: 'Akademik + penelitian',
+      },
+      {
+        aspect: 'Wilayah Umum',
+        biodata: 'Indonesia, Malaysia, India, Pakistan, Timur Tengah',
+        resume: 'AS, Kanada, Australia, Eropa',
+        cv: 'Eropa, Inggris, lingkungan akademik',
+      },
+      {
+        aspect: 'Penggunaan Ideal',
+        biodata: 'Pekerjaan pemerintah, perusahaan tradisional, BUMN',
+        resume: 'Perusahaan swasta, startup, teknologi',
+        cv: 'Posisi akademik, penelitian, medis',
+      },
+      {
+        aspect: 'Kustomisasi',
+        biodata: 'Biodata yang sama digunakan untuk banyak lamaran',
+        resume: 'Disesuaikan untuk setiap pekerjaan',
+        cv: 'Diperbarui seiring pencapaian',
+      },
+    ],
+  },
+  structure: {
+    title: 'Struktur Format Biodata Standar',
+    description: 'Meskipun tidak ada format biodata "resmi" yang tunggal, sebagian besar pemberi kerja mengharapkan bagian-bagian ini dalam urutan berikut:',
+    sections: [
+      {
+        number: 1,
+        label: 'Informasi Pribadi',
+        detail: 'Nama, Foto, Tanggal Lahir, Jenis Kelamin, Status Pernikahan, Kewarganegaraan',
+        colorGroup: 'orange',
+      },
+      {
+        number: 2,
+        label: 'Informasi Kontak',
+        detail: 'Alamat (Tetap dan Sementara), Telepon, Email',
+        colorGroup: 'default',
+      },
+      {
+        number: 3,
+        label: 'Tujuan Karier',
+        detail: '2-3 kalimat yang mendeskripsikan tujuan karier Anda',
+        colorGroup: 'default',
+      },
+      {
+        number: 4,
+        label: 'Riwayat Pendidikan',
+        detail: 'Gelar, Institusi, Tahun, IPK',
+        colorGroup: 'blue',
+      },
+      {
+        number: 5,
+        label: 'Pengalaman Kerja',
+        detail: 'Perusahaan, Jabatan, Periode, Tanggung Jawab',
+        colorGroup: 'blue',
+      },
+      {
+        number: 6,
+        label: 'Keahlian dan Kompetensi',
+        detail: 'Keahlian teknis, kemampuan bahasa, penguasaan software',
+        colorGroup: 'default',
+      },
+      {
+        number: 7,
+        label: 'Informasi Tambahan',
+        detail: 'Hobi, Minat, Prestasi, Referensi',
+        colorGroup: 'default',
+      },
+      {
+        number: 8,
+        label: 'Pernyataan',
+        detail: '"Dengan ini saya menyatakan bahwa informasi di atas adalah benar dan lengkap…"',
+        colorGroup: 'dark',
+      },
+    ],
+    proTipTitle: 'Tips Profesional:',
+    proTipText:
+      'Sesuaikan bagian-bagian sesuai dengan negara atau institusi yang Anda lamar. Beberapa daerah meminta informasi agama atau golongan darah, sementara yang lain cukup dengan informasi profesional standar.',
+  },
+  personalInfo: {
+    title: 'Bagian Informasi Pribadi',
+    description: 'Informasi pribadi adalah bagian paling kritis dari biodata — ekspektasi berbeda berdasarkan wilayah.',
+    alwaysInclude: {
+      title: 'Selalu Sertakan',
+      items: [
+        'Nama lengkap',
+        'Tanggal lahir (atau usia)',
+        'Jenis kelamin',
+        'Kewarganegaraan',
+        'Informasi kontak (telepon, email)',
+        'Alamat (tetap dan/atau sementara)',
+      ],
+    },
+    optional: {
+      title: 'Opsional Berdasarkan Wilayah',
+      items: [
+        'Status pernikahan',
+        'Agama',
+        'Informasi paspor (untuk lamaran luar negeri)',
+        'Tinggi dan berat badan (beberapa lamaran Asia)',
+        'Nama ayah / informasi orang tua',
+        'Foto pasfoto',
+      ],
+    },
+    noteTitle: 'Catatan untuk Pasar Kerja Indonesia:',
+    noteText:
+      'Di Indonesia, banyak lowongan kerja — terutama di BUMN dan instansi pemerintah — masih meminta foto, agama, dan golongan darah dalam biodata. Perusahaan swasta modern dan multinasional umumnya hanya meminta CV standar tanpa informasi tersebut.',
+  },
+  types: {
+    title: 'Jenis-Jenis Biodata',
+    jobBiodata: {
+      title: 'Biodata Lamaran Kerja',
+      description: 'Mencakup detail pribadi beserta latar belakang profesional dan tujuan karier.',
+      focusTitle: 'Fokus Utama',
+      focusItems: ['Tujuan karier', 'Riwayat pendidikan', 'Pengalaman kerja', 'Keahlian dan sertifikasi', 'Referensi'],
+      commonTitle: 'Wilayah Umum',
+      commonItems: ['Instansi pemerintah Indonesia', 'BUMN', 'Perusahaan tradisional Asia Tenggara', 'Pemberi kerja Timur Tengah'],
+    },
+    marriageBiodata: {
+      title: 'Biodata Pernikahan',
+      description: 'Digunakan dalam tradisi perjodohan Asia Selatan, mencakup informasi keluarga dan ciri pribadi.',
+      sectionsTitle: 'Bagian Khas',
+      sectionsItems: [
+        'Informasi pribadi (tinggi, berat, warna kulit)',
+        'Agama / suku / golongan',
+        'Latar belakang keluarga',
+        'Pendidikan dan karier',
+        'Ciri fisik',
+        'Preferensi pasangan',
+      ],
+      designTitle: 'Tips Desain',
+      designItems: [
+        'Sertakan foto profesional',
+        'Cantumkan informasi yang disetujui keluarga',
+        'Utamakan kesederhanaan dan kredibilitas',
+        'Cerminkan nilai agama dan budaya',
+      ],
+    },
+  },
+  regions: {
+    title: 'Format Biodata Berdasarkan Wilayah',
+    description: 'Setiap negara memiliki ekspektasi berbeda. Berikut informasi yang dicari pemberi kerja di setiap wilayah:',
+    items: [
+      {
+        country: 'Indonesia',
+        flag: '🇮🇩',
+        text: 'Biodata atau daftar riwayat hidup adalah standar untuk instansi pemerintah dan BUMN. Perusahaan swasta multinasional lebih memilih CV. Foto, agama, dan golongan darah sering diminta. Pernyataan kebenaran data di bagian akhir adalah umum.',
+      },
+      {
+        country: 'India',
+        flag: '🇮🇳',
+        text: 'Biodata adalah standar untuk instansi pemerintah (UPSC, SSC) dan bank pemerintah. Perusahaan multinasional swasta lebih memilih resume. Nama ayah, kasta (untuk sistem kuota), dan surat referensi biasanya diperlukan.',
+      },
+      {
+        country: 'Pakistan',
+        flag: '🇵🇰',
+        text: 'Mirip dengan India, nomor CNIC (kartu identitas nasional) dan nama ayah adalah informasi dasar. Posisi pemerintah dan semi-pemerintah memerlukan biodata lengkap.',
+      },
+      {
+        country: 'UEA dan Teluk',
+        flag: '🇦🇪',
+        text: 'Biodata berfoto dengan kewarganegaraan, status visa, dan tanggal mulai kerja diharapkan. Informasi agama bisa diminta. Untuk pelamar internasional, informasi paspor harus disertakan.',
+      },
+    ],
+  },
+  templates: {
+    title: 'Template Biodata Gratis',
+    subtitle:
+      'Unduh template biodata Word/PDF yang dirancang secara profesional. Mudah dikustomisasi dengan informasi Anda sendiri.',
+    cards: [
+      {
+        title: 'Template Biodata Lamaran Kerja',
+        description: 'Template profesional dengan bagian standar untuk lamaran kerja.',
+        ctaLabel: 'Buat dengan AI',
+        color: 'blue',
+      },
+      {
+        title: 'Template Biodata Sederhana',
+        description: 'Desain bersih dan sederhana untuk fresh graduate atau yang berpengalaman sedikit.',
+        ctaLabel: 'Mulai Membuat',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: 'Tips Membuat Biodata yang Efektif',
+    items: [
+      {
+        title: 'Gunakan Foto Profesional',
+        description: 'Gunakan foto pasfoto ukuran 3x4 atau 4x6 dengan latar belakang polos dan pakaian formal. Jangan gunakan selfie atau foto kasual.',
+      },
+      {
+        title: 'Buat Ringkas',
+        description: 'Jangan melebihi 1-2 halaman. Rekruter tidak ingin membaca dokumen yang terlalu panjang.',
+      },
+      {
+        title: 'Format Konsisten',
+        description: 'Gunakan jenis dan ukuran font yang sama. Buat judul menonjol dan pastikan tampilan teratur.',
+      },
+      {
+        title: 'Sertakan Pernyataan',
+        description: 'Sertakan kalimat "Dengan ini saya menyatakan bahwa informasi di atas adalah benar dan lengkap."',
+      },
+      {
+        title: 'Urutkan Pendidikan dari Terbaru',
+        description: 'Tempatkan gelar terakhir di atas. Cantumkan IPK jika bagus.',
+      },
+      {
+        title: 'Periksa Kesalahan Ketik',
+        description: 'Kesalahan ejaan dan penulisan menciptakan kesan pertama yang buruk. Periksa dengan teliti sebelum mengirim.',
+      },
+      {
+        title: 'Sertakan Hanya Informasi yang Relevan',
+        description: 'Hindari memasukkan informasi pribadi yang tidak diminta atau tidak relevan dengan posisi.',
+      },
+      {
+        title: 'Tanda Tangani dan Beri Tanggal',
+        description: 'Tambahkan tanda tangan, tanggal terkini, dan kota Anda di bagian bawah dokumen.',
+      },
+    ],
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      {
+        question: 'Apa perbedaan biodata dan CV?',
+        answer:
+          'CV berfokus pada pengalaman, keahlian, dan pencapaian, dan disesuaikan untuk setiap lamaran kerja. Biodata mencakup detail pribadi tambahan seperti tanggal lahir, status pernikahan, agama, dan informasi keluarga. Di Indonesia dan banyak negara Asia, biodata adalah dokumen standar untuk lamaran ke instansi pemerintah dan perusahaan tradisional.',
+      },
+      {
+        question: 'Apakah biodata benar-benar digunakan dalam lamaran kerja?',
+        answer:
+          'Ya. Biodata atau daftar riwayat hidup sangat umum di Indonesia, Malaysia, India, Pakistan, Bangladesh, dan Timur Tengah. Instansi pemerintah dan perusahaan tradisional di wilayah-wilayah ini mungkin secara khusus meminta biodata daripada resume.',
+      },
+      {
+        question: 'Informasi pribadi apa yang harus disertakan dalam biodata?',
+        answer:
+          'Biodata untuk pekerjaan biasanya mencakup nama lengkap, tanggal lahir, jenis kelamin, kewarganegaraan, status pernikahan, informasi kontak, dan alamat. Beberapa pemberi kerja Indonesia juga meminta agama, golongan darah, dan foto.',
+      },
+      {
+        question: 'Berapa halaman biodata?',
+        answer:
+          '1-2 halaman adalah ideal. Biodata lamaran kerja biasanya 1 halaman, sementara biodata pernikahan bisa 2 halaman karena informasi keluarga. Perhatikan agar ringkas namun komprehensif.',
+      },
+      {
+        question: 'Bisakah pembuat CV digunakan untuk membuat biodata?',
+        answer:
+          'Ya. Pembuat CV AI kami bisa digunakan untuk membuat biodata juga. Pilih template standar dan sesuaikan bagian informasi pribadi sesuai persyaratan biodata. Susun bagian Anda sesuai ekspektasi regional.',
+      },
+      {
+        question: 'Apakah biodata diperlukan di Indonesia?',
+        answer:
+          'Di Indonesia, biodata atau daftar riwayat hidup masih diminta oleh banyak instansi pemerintah dan BUMN. Perusahaan swasta modern dan startup umumnya menerima CV standar. Sesuaikan dengan jenis perusahaan yang Anda lamar.',
+      },
+    ],
+  },
+  crossLinks: {
+    title: 'Sumber Daya Terkait',
+    items: [
+      { href: '/resume-format', title: 'Panduan Format CV', subtitle: 'Kronologis / Fungsional / Kombinasi' },
+      { href: '/templates', title: 'Template CV', subtitle: '20+ template profesional' },
+      { href: '/resume-examples', title: 'Contoh CV', subtitle: '300+ contoh CV berbagai profesi' },
+    ],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glints.com/id', label: 'Glints Indonesia — Platform lowongan kerja terkemuka' },
+    ],
+  },
+  bottomCta: {
+    title: 'Buat Biodata atau CV dalam Beberapa Menit',
+    description:
+      'Pembuat CV bertenaga AI kami membantu Anda menyiapkan dokumen profesional dengan struktur yang tepat. Pilih dari berbagai template dan ekspor ke PDF atau Word.',
+    ctaLabel: 'Buat Biodata Gratis',
+  },
+};
+
+const nl: BiodataFormatPageContent = {
+  meta: {
+    title: 'Biodata Formaat 2026: Gratis Sjablonen, Voorbeelden & Schrijfgids | Best AI Resume',
+    description:
+      'Leer wat een biodata is en wanneer u het gebruikt. Vergelijk biodata vs cv, download gratis biodatasjablonen (PDF & Word) en bekijk voorbeelden voor Aziatische en Midden-Oosterse markten.',
+    keywords:
+      'biodata formaat, biodata, biodata voor sollicitatie, biodata vs cv, huwelijks biodata, biodata sjabloon, eenvoudig biodata formaat, biodata voorbeeld',
+  },
+  schemas: {
+    breadcrumbName: 'Biodata Formaatgids',
+    articleHeadline: 'Biodata Formaatgids 2026: Sjablonen, Voorbeelden & Schrijfinstructies',
+    articleDescription:
+      'Complete gids over het biodataformaat voor sollicitaties. Leer het verschil tussen biodata en cv, download gratis sjablonen en bekijk voorbeelden.',
+  },
+  hero: {
+    badge: 'Complete Gids voor 2026',
+    title: 'Biodata Formaatgids',
+    titleHighlight: '(Gratis Sjablonen)',
+    subtitle:
+      'Het <strong>biodataformaat</strong> is het standaarddocument voor sollicitaties in India, Pakistan, Bangladesh en het Midden-Oosten. Leer wanneer u biodata versus een cv gebruikt, en download gratis sjablonen die aansluiten bij regionale verwachtingen.',
+    ctaTemplates: 'Sjablonen Downloaden',
+    ctaBuild: 'Maak Biodata met AI',
+  },
+  whatIs: {
+    title: 'Wat Is een Biodata?',
+    paragraphs: [
+      '<strong>Biodata</strong> (afkorting van <em>biografische gegevens</em>) is een document dat een uitgebreid overzicht biedt van uw persoonlijke en professionele achtergrond. Anders dan een cv dat primair gericht is op werkervaring en vaardigheden, bevat biodata ook <strong>persoonlijke gegevens</strong> zoals geboortedatum, burgerlijke staat, nationaliteit, religie en soms familiegegevens.',
+      'Het biodataformaat wordt veel gebruikt in <strong>Zuid-Aziatische landen</strong> (India, Pakistan, Bangladesh, Sri Lanka), het <strong>Midden-Oosten</strong> (VAE, Saudi-Arabië, Qatar) en delen van <strong>Zuidoost-Azië</strong> (Filippijnen, Maleisië). Overheidsbanen, publieke sector bedrijven en traditionele organisaties in deze regio\'s vragen vaak specifiek om biodata in plaats van een westers cv.',
+    ],
+    insightTitle: 'Belangrijk:',
+    insightText:
+      'Als u solliciteert naar banen in India, Pakistan of de Golfstaten, is kennis van het biodataformaat essentieel. Veel werkgevers wijzen sollicitaties af die niet het verwachte formaat volgen.',
+  },
+  vsComparison: {
+    title: 'Biodata vs Cv vs Academisch CV: Wat is het Verschil?',
+    subtitle: 'Begrijpen wanneer u welk document gebruikt, is cruciaal voor succes in uw zoektocht naar werk.',
+    headers: { aspect: 'Aspect', biodata: 'Biodata', resume: 'Cv', cv: 'Academisch CV' },
+    rows: [
+      { aspect: 'Lengte', biodata: '1-2 pagina\'s', resume: '1-2 pagina\'s', cv: '2+ pagina\'s' },
+      {
+        aspect: 'Persoonlijke Informatie',
+        biodata: 'Uitgebreid (geboortedatum, status, religie, familie)',
+        resume: 'Minimaal (naam, contactgegevens)',
+        cv: 'Minimaal (naam, contactgegevens)',
+        biodataHighlight: 'green',
+      },
+      {
+        aspect: 'Focus',
+        biodata: 'Persoonlijke + carrièregeschiedenis',
+        resume: 'Vaardigheden + prestaties',
+        cv: 'Academisch + onderzoek',
+      },
+      {
+        aspect: 'Gebruikelijke Regio',
+        biodata: 'India, Pakistan, Maleisië, Bangladesh, Midden-Oosten',
+        resume: 'VS, Canada, Australië, Europa',
+        cv: 'Europa, VK, academische omgevingen',
+      },
+      {
+        aspect: 'Ideaal Gebruik',
+        biodata: 'Overheidsbanen, traditionele bedrijven, staatsbedrijven',
+        resume: 'Particuliere bedrijven, startups, technologie',
+        cv: 'Academische functies, onderzoek, medisch',
+      },
+      {
+        aspect: 'Aanpassing',
+        biodata: 'Dezelfde biodata voor meerdere sollicitaties',
+        resume: 'Aangepast per vacature',
+        cv: 'Bijgewerkt naarmate prestaties toenemen',
+      },
+    ],
+  },
+  structure: {
+    title: 'Standaard Biodataformaatstructuur',
+    description: 'Hoewel er geen enkel "officieel" biodataformaat bestaat, verwachten de meeste werkgevers deze secties in de volgende volgorde:',
+    sections: [
+      {
+        number: 1,
+        label: 'Persoonlijke Informatie',
+        detail: 'Naam, Foto, Geboortedatum, Geslacht, Burgerlijke Staat, Nationaliteit',
+        colorGroup: 'orange',
+      },
+      {
+        number: 2,
+        label: 'Contactgegevens',
+        detail: 'Adres (Vast en Tijdelijk), Telefoon, E-mail',
+        colorGroup: 'default',
+      },
+      {
+        number: 3,
+        label: 'Carrièredoelstelling',
+        detail: '2-3 zinnen die uw carrièredoelstelling beschrijven',
+        colorGroup: 'default',
+      },
+      {
+        number: 4,
+        label: 'Opleidingsgeschiedenis',
+        detail: 'Diploma\'s, Instelling, Jaar, Cijferlijst',
+        colorGroup: 'blue',
+      },
+      {
+        number: 5,
+        label: 'Werkervaring',
+        detail: 'Bedrijf, Functie, Periode, Verantwoordelijkheden',
+        colorGroup: 'blue',
+      },
+      {
+        number: 6,
+        label: 'Vaardigheden en Competenties',
+        detail: 'Technische vaardigheden, taalvaardigheden, softwarebeheersing',
+        colorGroup: 'default',
+      },
+      {
+        number: 7,
+        label: 'Aanvullende Informatie',
+        detail: 'Hobby\'s, Interesses, Prestaties, Referenties',
+        colorGroup: 'default',
+      },
+      {
+        number: 8,
+        label: 'Verklaring',
+        detail: '"Ik verklaar hierbij dat de bovenstaande informatie naar waarheid en volledig is ingevuld…"',
+        colorGroup: 'dark',
+      },
+    ],
+    proTipTitle: 'Professionele Tip:',
+    proTipText:
+      'Pas de secties aan op het land of de instelling waarvoor u solliciteert. Sommige regio\'s vragen om religieuze informatie of bloedgroep, terwijl andere volstaan met standaard professionele informatie.',
+  },
+  personalInfo: {
+    title: 'Sectie Persoonlijke Informatie',
+    description: 'Persoonlijke informatie is het meest kritieke onderdeel van een biodata — verwachtingen verschillen per regio.',
+    alwaysInclude: {
+      title: 'Altijd Opnemen',
+      items: [
+        'Volledige naam',
+        'Geboortedatum (of leeftijd)',
+        'Geslacht',
+        'Nationaliteit',
+        'Contactgegevens (telefoon, e-mail)',
+        'Adres (vast en/of tijdelijk)',
+      ],
+    },
+    optional: {
+      title: 'Optioneel Per Regio',
+      items: [
+        'Burgerlijke staat',
+        'Religie',
+        'Paspoortinformatie (voor buitenlandse sollicitaties)',
+        'Lengte en gewicht (sommige Aziatische sollicitaties)',
+        'Naam vader / oudersgegevens',
+        'Pasfoto',
+      ],
+    },
+    noteTitle: 'Opmerking voor de Nederlandse Markt:',
+    noteText:
+      'In Nederland en de Europese Unie gelden strikte AVG-regels voor het verzamelen van persoonlijke gegevens. Werkgevers mogen doorgaans niet naar leeftijd, religie, nationaliteit of burgerlijke staat vragen. Als u solliciteert bij bedrijven die biodata eisen (bijv. Aziatische of Midden-Oosterse werkgevers), informeer dan vooraf welke gegevens zij specifiek nodig hebben.',
+  },
+  types: {
+    title: 'Soorten Biodata',
+    jobBiodata: {
+      title: 'Biodata voor Sollicitaties',
+      description: 'Bevat persoonlijke gegevens samen met professionele achtergrond en carrièredoelstellingen.',
+      focusTitle: 'Hoofdfocus',
+      focusItems: ['Carrièredoelstelling', 'Opleidingsgeschiedenis', 'Werkervaring', 'Vaardigheden en certificeringen', 'Referenties'],
+      commonTitle: 'Gebruikelijke Regio\'s',
+      commonItems: ['Indiase overheidsdiensten', 'Pakistaanse publieke sector', 'Traditionele Zuidoost-Aziatische bedrijven', 'Midden-Oosterse werkgevers'],
+    },
+    marriageBiodata: {
+      title: 'Huwelijksbiodata',
+      description: 'Gebruikt in Zuid-Aziatische huwelijkstradities, bevat familiegegevens en persoonlijke kenmerken.',
+      sectionsTitle: 'Typische Secties',
+      sectionsItems: [
+        'Persoonlijke informatie (lengte, gewicht, huidskleur)',
+        'Religie / etniciteit / kaste',
+        'Familieachtergrond',
+        'Opleiding en carrière',
+        'Fysieke kenmerken',
+        'Voorkeur voor partner',
+      ],
+      designTitle: 'Ontwerptips',
+      designItems: [
+        'Voeg een professionele foto toe',
+        'Neem door de familie goedgekeurde informatie op',
+        'Geef prioriteit aan eenvoud en geloofwaardigheid',
+        'Weerspiegel religieuze en culturele waarden',
+      ],
+    },
+  },
+  regions: {
+    title: 'Biodataformaten Per Regio',
+    description: 'Elk land heeft andere verwachtingen. Dit zijn de gegevens die werkgevers per regio zoeken:',
+    items: [
+      {
+        country: 'India',
+        flag: '🇮🇳',
+        text: 'Biodata is standaard voor overheidsdiensten (UPSC, SSC) en staatsbankieren. Multinationale private bedrijven geven de voorkeur aan een cv. Vadersnaam, kaste (voor quotasysteem) en referentiebrieven zijn meestal vereist.',
+      },
+      {
+        country: 'Pakistan',
+        flag: '🇵🇰',
+        text: 'Vergelijkbaar met India — CNIC-nummer (nationale identiteitskaart) en vadersnaam zijn basisgegevens. Overheids- en semi-overheidsfuncties vereisen volledige biodata.',
+      },
+      {
+        country: 'VAE en Golf',
+        flag: '🇦🇪',
+        text: 'Biodata met foto, inclusief nationaliteit, visumstatus en gewenste startdatum wordt verwacht. Religieuze informatie kan worden gevraagd. Voor internationale sollicitanten moet paspoortinformatie worden meegestuurd.',
+      },
+      {
+        country: 'Maleisië en Indonesië',
+        flag: '🇲🇾',
+        text: 'Biodata of daftar riwayat hidup is standaard voor overheidsinstellingen. Moderne private bedrijven en multinationals geven de voorkeur aan een standaard cv. Foto en nationaliteit worden vaak gevraagd.',
+      },
+    ],
+  },
+  templates: {
+    title: 'Gratis Biodatasjablonen',
+    subtitle:
+      'Download professioneel ontworpen Word/PDF-biodatasjablonen. Eenvoudig aan te passen met uw eigen gegevens.',
+    cards: [
+      {
+        title: 'Biodata Sjabloon voor Sollicitaties',
+        description: 'Professioneel sjabloon met standaardsecties voor sollicitaties.',
+        ctaLabel: 'Maak met AI',
+        color: 'blue',
+      },
+      {
+        title: 'Eenvoudig Biodatasjabloon',
+        description: 'Schoon en eenvoudig ontwerp voor pas afgestudeerden of kandidaten met weinig ervaring.',
+        ctaLabel: 'Begin met Maken',
+        color: 'orange',
+      },
+    ],
+  },
+  tips: {
+    title: 'Tips voor het Maken van een Effectieve Biodata',
+    items: [
+      {
+        title: 'Gebruik een Professionele Foto',
+        description: 'Gebruik een pasfoto met een effen achtergrond en formele kleding. Gebruik geen selfie of informele foto\'s.',
+      },
+      {
+        title: 'Houd het Beknopt',
+        description: 'Overschrijd niet de 1-2 pagina\'s. Recruiters willen geen te lang document lezen.',
+      },
+      {
+        title: 'Consistent Formaat',
+        description: 'Gebruik hetzelfde lettertype en dezelfde lettergrootte. Zorg dat koppen opvallen en dat de lay-out overzichtelijk is.',
+      },
+      {
+        title: 'Voeg een Verklaring toe',
+        description: 'Voeg de zin toe: "Ik verklaar hierbij dat de bovenstaande informatie naar waarheid en volledig is ingevuld."',
+      },
+      {
+        title: 'Sorteer Opleiding van Nieuwste naar Oudste',
+        description: 'Zet uw meest recente diploma bovenaan. Vermeld uw cijfergemiddelde als dat goed is.',
+      },
+      {
+        title: 'Controleer op Typefouten',
+        description: 'Spel- en schrijffouten maken een slechte eerste indruk. Controleer zorgvuldig voor het verzenden.',
+      },
+      {
+        title: 'Neem Alleen Relevante Informatie op',
+        description: 'Vermijd het opnemen van gevraagde persoonlijke informatie die niet relevant is voor de functie.',
+      },
+      {
+        title: 'Onderteken en Dateer het Document',
+        description: 'Voeg onderaan het document uw handtekening, de huidige datum en uw woonplaats toe.',
+      },
+    ],
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      {
+        question: 'Wat is het verschil tussen biodata en een cv?',
+        answer:
+          'Een cv richt zich op ervaring, vaardigheden en prestaties, en wordt aangepast per sollicitatie. Biodata bevat aanvullende persoonlijke gegevens zoals geboortedatum, burgerlijke staat, religie en familiegegevens. In India en veel Aziatische landen is biodata het standaarddocument voor sollicitaties bij overheids- en traditionele bedrijven.',
+      },
+      {
+        question: 'Wordt biodata echt gebruikt bij sollicitaties?',
+        answer:
+          'Ja. Biodata is heel gebruikelijk in India, Maleisië, Pakistan, Bangladesh en het Midden-Oosten. Overheidsinstellingen en traditionele bedrijven in deze regio\'s vragen mogelijk specifiek om biodata in plaats van een cv.',
+      },
+      {
+        question: 'Welke persoonlijke informatie moet in een biodata staan?',
+        answer:
+          'Biodata voor sollicitaties bevat doorgaans volledige naam, geboortedatum, geslacht, nationaliteit, burgerlijke staat, contactgegevens en adres. Sommige Aziatische werkgevers vragen ook om religie, bloedgroep en een foto.',
+      },
+      {
+        question: 'Hoeveel pagina\'s heeft een biodata?',
+        answer:
+          '1-2 pagina\'s is ideaal. Biodata voor sollicitaties is meestal 1 pagina, terwijl huwelijksbiodata 2 pagina\'s kan zijn vanwege de familiegegevens. Zorg dat het beknopt maar volledig is.',
+      },
+      {
+        question: 'Kan een cv-bouwer worden gebruikt om biodata te maken?',
+        answer:
+          'Ja. Onze AI-cv-bouwer kan ook worden gebruikt om biodata te maken. Kies een standaardsjabloon en pas de sectie persoonlijke informatie aan op de biodatavereisten. Rangschik uw secties op basis van regionale verwachtingen.',
+      },
+      {
+        question: 'Is biodata vereist bij sollicitaties in Nederland?',
+        answer:
+          'Nee. In Nederland is biodata niet het standaard sollicitatiedocument — hier wordt een professioneel cv gebruikt. Biodata kan echter nuttig zijn als u solliciteert bij Aziatische of Midden-Oosterse bedrijven, of voor functies in landen waar biodata de norm is.',
+      },
+    ],
+  },
+  crossLinks: {
+    title: 'Gerelateerde Bronnen',
+    items: [
+      { href: '/nl/resume-format', title: 'Cv-Formaatgids', subtitle: 'Chronologisch / Functioneel / Combinatie' },
+      { href: '/nl/templates', title: 'Cv-Sjablonen', subtitle: '20+ professionele sjablonen' },
+      { href: '/nl/resume-examples', title: 'Cv-Voorbeelden', subtitle: '300+ cv-voorbeelden per beroep' },
+    ],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://www.werk.nl/', label: 'Werk.nl — Het UWV werkportaal voor werkzoekenden in Nederland' },
+      { href: 'https://www.nationaleberoepengids.nl/', label: 'Nationale Beroepengids — Beroepen en carrièreinformatie' },
+    ],
+  },
+  bottomCta: {
+    title: 'Maak een Biodata of Cv in Enkele Minuten',
+    description:
+      'Onze AI-cv-bouwer helpt u een professioneel document op te stellen met de juiste structuur. Kies uit verschillende sjablonen en exporteer naar PDF of Word.',
+    ctaLabel: 'Maak Gratis een Biodata',
+  },
+};
+
+const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 
 export function getContent(locale: string): BiodataFormatPageContent {
   return selectContent(contentMap, locale);

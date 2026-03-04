@@ -1480,5 +1480,241 @@ const tr: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Overleaf 2026: Pembuat CV AI Gratis | Best AI Resume',
+    description: 'Cari alternatif Overleaf gratis? Bandingkan Overleaf vs Best AI Resume Builder — penulisan AI, template ATS, unduhan tak terbatas. Tanpa biaya tersembunyi.',
+    keywords: 'alternatif overleaf, overleaf vs best ai resume, pembuat cv gratis alternatif overleaf, cv builder gratis indonesia',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Overleaf',
+    articleHeadline: 'Alternatif Overleaf 2026: Pembuat CV AI Gratis Tanpa Biaya Tersembunyi',
+    articleDescription: 'Bandingkan Overleaf vs Best AI Resume Builder. Dapatkan penulisan AI, optimasi ATS, dan unduhan tak terbatas sepenuhnya gratis.',
+  },
+  hero: {
+    badge: 'Alternatif Overleaf',
+    title: 'Buat CV Anda.',
+    titleHighlight: 'Unduh Gratis.',
+    subtitle: 'Overleaf memungkinkan Anda membuat CV — lalu memungut biaya untuk mengunduhnya. Dapatkan penulisan AI, template ATS, dan ekspor tak terbatas seharga <strong>Rp 0</strong>.',
+    ctaPrimary: 'Buat CV Saya Gratis',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah dengan Overleaf',
+    description: 'Overleaf memiliki template profesional dan saran konten yang berguna. Masalahnya ada di model harganya: Anda baru mengetahui biaya unduhan setelah menyelesaikan seluruh CV. Banyak pengguna melaporkan biaya tak terduga di situs ulasan.',
+    stats: [
+      { value: '$2.70', label: 'Masa percobaan (perpanjang otomatis ke $23.70/bln)' },
+      { value: '$284', label: 'Biaya tahunan jika lupa membatalkan' },
+      { value: 'Rp 0', label: 'Best AI Resume Builder — gratis selamanya' },
+    ],
+  },
+  comparison: {
+    title: 'Perbandingan Overleaf vs Best AI Resume Builder',
+    subtitle: 'Perbandingan fitur secara berdampingan.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Berbayar untuk mengunduh', ours: '✅ 100% gratis selamanya' },
+      { feature: 'Unduhan Gratis', competitor: '❌ Perlu bayar untuk PDF', ours: '✅ Unduhan PDF gratis tak terbatas' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Saran terbatas', ours: '✅ Konten yang dibuat AI sepenuhnya' },
+      { feature: 'Optimasi ATS', competitor: '✅ Pemeriksaan dasar', ours: '✅ Skor ATS real-time + kata kunci' },
+      { feature: 'Kualitas Template', competitor: '✅ Desain profesional', ours: '✅ 20+ template yang diuji ATS' },
+      { feature: 'Jumlah CV', competitor: '⚠️ Terbatas di paket gratis', ours: '✅ CV tak terbatas, gratis' },
+      { feature: 'Pembuat Surat Lamaran', competitor: '✅ Tersedia (paket berbayar)', ours: '✅ Bertenaga AI (gratis)' },
+      { feature: 'Saran Konten', competitor: '✅ Frasa yang ditulis sebelumnya', ours: '✅ Adaptasi AI berdasarkan pengalaman Anda' },
+      { feature: 'Pembatalan', competitor: '❌ Harus dibatalkan sebelum masa percobaan', ours: '✅ Tidak ada yang perlu dibatalkan' },
+      { feature: 'Ulasan Pengguna', competitor: '⚠️ Campuran — keluhan penagihan umum', ours: '✅ Tidak mungkin ada masalah penagihan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Alasan Beralih dari Overleaf',
+    subtitle: 'Benar-benar gratis. AI lebih baik. Tanpa jebakan.',
+    reasons: [
+      { title: 'Unduhan Benar-benar Gratis', description: 'Overleaf meminta bayaran setelah Anda selesai membuat CV. Di sini, Anda bisa mengunduh apapun yang Anda buat secara instan dan gratis — tidak ada percobaan, kartu kredit, atau perpanjangan otomatis.' },
+      { title: 'AI Nyata (Bukan Frasa yang Ditulis Sebelumnya)', description: 'Saran Overleaf didasarkan pada pustaka frasa yang telah ditulis sebelumnya. AI kami menghasilkan konten yang benar-benar disesuaikan untuk setiap bagian CV.' },
+      { title: 'Optimasi ATS Lebih Baik', description: 'Dibandingkan fitur ATS dasar Overleaf, kami menawarkan penilaian ATS real-time, saran kata kunci spesifik industri, dan template yang diuji untuk sistem yang umum digunakan di Indonesia.' },
+    ],
+  },
+  recommendation: {
+    title: 'Rekomendasi Jujur',
+    useCompetitor: {
+      title: 'Gunakan Overleaf jika...',
+      items: [
+        'Anda bersedia membayar untuk fitur tertentu yang dimiliki Overleaf',
+        'Anda lebih suka antarmuka spesifik Overleaf',
+        'Anda membutuhkan fitur tertentu yang hanya ada di Overleaf',
+        'Anda menginginkan dukungan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Gunakan Best AI Resumes jika...',
+      items: [
+        'Anda ingin membuat dan mengunduh CV secara gratis',
+        'Anda membutuhkan AI canggih untuk membantu menulis konten',
+        'Anda ingin penilaian ATS real-time saat membuat CV',
+        'Anda tidak ingin berurusan dengan langganan atau perpanjangan otomatis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Jelajahi 300+ Contoh CV Gratis',
+    description: 'Contoh CV profesional untuk setiap industri dan level karier.',
+    ctaBrowse: 'Lihat Contoh CV',
+    ctaTemplates: 'Lihat Semua Template',
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      { question: 'Apakah Overleaf gratis?', answer: 'Overleaf mengizinkan pembuatan CV gratis tetapi mengenakan biaya untuk mengunduh. Best AI Resume Builder 100% gratis — buat dan unduh CV tak terbatas tanpa kartu kredit.' },
+      { question: 'Mengapa Overleaf mengenakan biaya untuk mengunduh?', answer: 'Model bisnis Overleaf adalah "freemium" — proses pembuatan gratis untuk menarik pengguna, tetapi monetisasi terjadi saat mengunduh. Best AI Resume Builder transparan: semuanya gratis, tanpa kejutan.' },
+      { question: 'Apa alternatif gratis terbaik untuk Overleaf?', answer: 'Best AI Resume Builder adalah alternatif gratis terbaik. Kami menawarkan semua yang ada di balik paywall Overleaf — template profesional, ekspor PDF, surat lamaran — ditambah penulisan AI dan optimasi ATS.' },
+      { question: 'Apakah Overleaf memiliki penulisan AI?', answer: 'Overleaf memiliki beberapa saran konten, tetapi bukan penulisan AI yang sebenarnya. Best AI Resume Builder menggunakan AI canggih untuk menghasilkan pengalaman profesional, ringkasan, dan kata kunci yang dipersonalisasi.' },
+      { question: 'Bagaimana cara membatalkan Overleaf?', answer: 'Untuk membatalkan Overleaf, akses pengaturan akun sebelum masa percobaan berakhir. Best AI Resume Builder tidak memerlukan langganan — tidak ada yang perlu dibatalkan. Cukup gunakan platform secara gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat CV Lainnya',
+    items: [
+      { href: '/id/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs modern' },
+      { href: '/id/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga' },
+      { href: '/id/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat desain vs AI' },
+      { href: '/id/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan fitur AI' },
+    ],
+    guidesTitle: 'Panduan CV yang Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glassdoor.co.id/', label: 'Glassdoor Indonesia — Gaji dan Peluang Karier' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat CV yang Benar-benar Gratis.',
+    description: 'Tanpa jebakan harga, tanpa perpanjangan otomatis. Hanya pembuat CV bertenaga AI — 100% gratis selamanya.',
+    cta: 'Buat CV Saya Gratis',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa kejutan.',
+  },
+};
+
+const nl: ComparisonPageContent = {
+  meta: {
+    title: 'Overleaf Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
+    description: 'Op zoek naar een gratis Overleaf alternatief voor cv maken? Vergelijk Overleaf vs Best AI Resume Builder — AI cv schrijven, ATS cv sjablonen, onbeperkt downloaden. Geen LaTeX vereist.',
+    keywords: 'overleaf alternatief, overleaf cv maken, gratis cv sjabloon, cv maken gratis, cv builder nederland, latex cv alternatief',
+  },
+  schemas: {
+    breadcrumbName: 'Overleaf Alternatief',
+    articleHeadline: 'Overleaf Alternatief 2026: Gratis CV Maken met AI Zonder LaTeX',
+    articleDescription: 'Vergelijk Overleaf vs Best AI Resume Builder. Maak een professioneel cv met AI, ATS-optimalisatie en onbeperkt downloaden — geen LaTeX kennis vereist, volledig gratis.',
+  },
+  hero: {
+    badge: 'Overleaf Alternatief',
+    title: 'Maak Je CV.',
+    titleHighlight: 'Zonder LaTeX.',
+    subtitle: 'Overleaf vereist LaTeX-kennis om een cv te maken — een hoge drempel voor de meeste mensen. Wij bieden AI-schrijven, ATS cv sjablonen en onbeperkte exports voor <strong>€0</strong>, geen code vereist.',
+    ctaPrimary: 'Maak Mijn CV Gratis',
+    ctaSecondary: 'Bekijk de Vergelijking',
+  },
+  problem: {
+    title: 'Het Overleaf CV-probleem',
+    description: 'Overleaf is uitstekend voor academische documenten en papers, maar voor cv\'s vereist het LaTeX-kennis die de meeste mensen niet hebben. Het maken van een cv in Overleaf kost veel meer tijd dan nodig, en de sjablonen zijn niet geoptimaliseerd voor de Nederlandse arbeidsmarkt of moderne ATS-systemen.',
+    stats: [
+      { value: 'LaTeX', label: 'Programmeertaal vereist voor aanpassingen' },
+      { value: 'Academisch', label: 'Formaat minder geschikt voor Nederlandse arbeidsmarkt' },
+      { value: '€0', label: 'Best AI Resume Builder — geen code, wel gratis' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'Functie-voor-functie vergelijking.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prijs', competitor: '⚠️ Gratis basis; betaald voor premium functies', ours: '✅ 100% gratis voor altijd' },
+      { feature: 'Gratis Downloaden', competitor: '✅ PDF-download beschikbaar', ours: '✅ Onbeperkt gratis PDF exporteren' },
+      { feature: 'AI Schrijven', competitor: '❌ Geen AI-schrijffuncties', ours: '✅ AI genereert volledig op maat gemaakte inhoud' },
+      { feature: 'ATS-optimalisatie', competitor: '⚠️ Afhankelijk van gekozen sjabloon', ours: '✅ Realtime ATS-score + zoekwoorden' },
+      { feature: 'Gebruiksgemak', competitor: '❌ LaTeX kennis vereist', ours: '✅ Geen technische kennis nodig' },
+      { feature: 'CV-specifieke functies', competitor: '❌ Algemene documenten-tool', ours: '✅ Gebouwd specifiek voor cv\'s' },
+      { feature: 'Motivatiebrief', competitor: '⚠️ Handmatig aanpassen in LaTeX', ours: '✅ AI-aangedreven sollicitatiebrief (gratis)' },
+      { feature: 'Inhoudssuggesties', competitor: '❌ Geen cv-inhoudssuggesties', ours: '✅ AI afgestemd op jouw werkervaring' },
+      { feature: 'Snelheid', competitor: '❌ Tijdrovend zonder LaTeX-ervaring', ours: '✅ Minuten om een volledig cv te maken' },
+      { feature: 'Aanpasbaarheid', competitor: '✅ Volledig aanpasbaar (met LaTeX kennis)', ours: '✅ Aanpasbaar via intuïtieve interface' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Redenen om over te stappen van Overleaf voor cv\'s',
+    subtitle: 'Geen LaTeX. Echte AI. Gratis.',
+    reasons: [
+      { title: 'Geen LaTeX Kennis Nodig', description: 'Overleaf vereist LaTeX-kennis voor aanpassingen — een programmeertaal die de meeste mensen niet kennen. Onze cv builder gebruikt een intuïtieve interface zodat iedereen in minuten een professioneel cv kan maken zonder technische kennis.' },
+      { title: 'AI Schrijft Je CV-inhoud', description: 'Overleaf biedt geen inhoudshulp voor cv\'s — je moet alles zelf schrijven. Onze AI genereert professionele bullet points, een overtuigende samenvatting en ATS-zoekwoorden op basis van jouw werkervaring.' },
+      { title: 'Geoptimaliseerd voor de Nederlandse Arbeidsmarkt', description: 'Overleaf-sjablonen zijn primair gericht op academisch werk. Onze cv sjablonen zijn afgestemd op de verwachtingen van Nederlandse recruiters en geoptimaliseerd voor ATS-systemen die op de Nederlandse arbeidsmarkt worden gebruikt.' },
+    ],
+  },
+  recommendation: {
+    title: 'Eerlijke Aanbeveling',
+    useCompetitor: {
+      title: 'Overleaf is geschikt als je...',
+      items: [
+        'LaTeX-kennis hebt en de voorkeur geeft aan code-gebaseerd cv maken',
+        'Een academisch cv maakt voor universitaire functies',
+        'Perfecte typografische controle wilt die alleen LaTeX biedt',
+        'Al een LaTeX-omgeving gebruikt voor andere documenten',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes is beter als je...',
+      items: [
+        'Geen LaTeX-kennis hebt of wilt leren',
+        'Snel een professioneel cv wilt maken voor de Nederlandse arbeidsmarkt',
+        'AI schrijfhulp wilt voor professionele cv-inhoud',
+        'Een modern, ATS-vriendelijk cv nodig hebt',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Bekijk 300+ Gratis CV Voorbeelden',
+    description: 'Professionele cv voorbeelden voor elke sector en carriereniveau.',
+    ctaBrowse: 'Bekijk CV Voorbeelden',
+    ctaTemplates: 'Bekijk Alle Sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      { question: 'Kan ik een cv maken in Overleaf zonder LaTeX te kennen?', answer: 'Je kunt bestaande LaTeX-sjablonen gebruiken, maar voor aanpassingen heb je LaTeX-kennis nodig. Best AI Resume Builder vereist geen technische kennis — maak een professioneel cv in minuten via een intuïtieve interface.' },
+      { question: 'Is Overleaf gratis voor cv\'s?', answer: 'Overleaf heeft een gratis versie, maar sommige functies vereisen een betaald abonnement. Best AI Resume Builder is 100% gratis — maak en download onbeperkt cv\'s zonder abonnement of creditcard.' },
+      { question: 'Wat is het beste gratis Overleaf alternatief voor cv\'s?', answer: 'Best AI Resume Builder is het beste gratis alternatief voor cv\'s. We bieden ATS-vriendelijke cv sjablonen, AI-schrijfhulp, realtime ATS-scores en onbeperkte PDF-exports — volledig gratis, geen LaTeX vereist.' },
+      { question: 'Zijn Overleaf cv\'s ATS-vriendelijk?', answer: 'Het hangt af van het gekozen sjabloon. Sommige LaTeX-sjablonen zijn ATS-vriendelijk, andere niet. Best AI Resume Builder garandeert ATS-vriendelijke cv\'s met realtime scores en optimalisatiesuggesties.' },
+      { question: 'Hoe maak ik snel een professioneel cv zonder LaTeX?', answer: 'Best AI Resume Builder is de snelste manier. Maak een professioneel, ATS-vriendelijk cv met AI-schrijfhulp in minuten — geen code, geen sjabloon-aanpassingen, gewoon invullen en downloaden.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Vergelijk Andere CV Bouwers',
+    items: [
+      { href: '/nl/livecareer-alternative', title: 'LiveCareer Alternatief', subtitle: 'Traditioneel vs modern' },
+      { href: '/nl/resume-io-alternative', title: 'Resume.io Alternatief', subtitle: 'Prijs- en functievergelijking' },
+      { href: '/nl/canva-alternative', title: 'Canva Alternatief', subtitle: 'Ontwerptool vs AI cv maker' },
+      { href: '/nl/rezi-alternative', title: 'Rezi Alternatief', subtitle: 'AI-functies vergelijking' },
+    ],
+    guidesTitle: 'Handige CV Gidsen',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://www.overleaf.com/', label: 'Overleaf Officiële Website' },
+      { href: 'https://www.uwv.nl/', label: 'UWV — Uitvoeringsinstituut Werknemersverzekeringen' },
+    ],
+  },
+  bottomCta: {
+    title: 'Geen LaTeX. Geen Gedoe. Gewoon Gratis.',
+    description: 'Maak een professioneel, ATS-vriendelijk cv met AI — geen LaTeX kennis of technische vaardigheden vereist. Volledig gratis voor altijd.',
+    cta: 'Maak Mijn CV Gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard. Geen verrassingen.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

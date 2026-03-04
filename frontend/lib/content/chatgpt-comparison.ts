@@ -2672,7 +2672,244 @@ const ko: ChatGPTComparisonContent = {
   }
 };
 
-const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th, pt, vi, ko, tr };
+const nl: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs AI CV Maker: Welke Maakt Betere CV's? (2026) | Best AI Resume",
+    description: "Moet je ChatGPT of een dedicated AI cv maker gebruiken om je cv te schrijven? Vergelijk opmaak, ATS-compatibiliteit en outputkwaliteit. Zie welk tool meer sollicitatiegesprekken oplevert.",
+    keywords: "chatgpt cv, chatgpt cv maken, ai cv maker, chatgpt vs cv maker, cv schrijven met chatgpt, ai cv schrijven, cv sjabloon",
+    ogTitle: "ChatGPT vs AI CV Maker: Welke Maakt Betere CV's? (2026)",
+    ogDescription: "Vergelijk ChatGPT met een dedicated AI cv maker. Functie-voor-functie vergelijking met eerlijke voor- en nadelen.",
+    twitterTitle: "ChatGPT vs AI CV Maker: Welke Maakt Betere CV's?",
+    twitterDescription: "Vergelijk ChatGPT met een dedicated AI cv maker voor cv's die sollicitatiegesprekken opleveren."
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs AI CV Maker",
+    articleHeadline: "ChatGPT vs AI CV Maker: Welke Maakt Betere CV's in 2026?",
+    articleDescription: "Vergelijk ChatGPT met dedicated AI cv makers. Functie-voor-functie analyse met eerlijke voor- en nadelen."
+  },
+  hero: {
+    badge: "Vergelijking",
+    title: "ChatGPT vs AI CV Maker:",
+    titleHighlight: "Welke helpt jou aan een baan?",
+    subtitle: "ChatGPT schrijft tekst. Een cv maker maakt <strong>sollicitatieklare documenten</strong>. Hier lees je waarom dit verschil cruciaal is voor je zoektocht naar een baan.",
+    ctaPrimary: "Maak Mijn CV Gratis",
+    ctaSecondary: "Bekijk Vergelijking"
+  },
+  problem: {
+    title: "Het Probleem: ChatGPT Schrijft Tekst, Geen CV's",
+    description: "ChatGPT is een algemene AI die tekst genereert. Het kan bullet points, samenvattingen en motivatiebrieven schrijven — maar het <strong>kan geen documenten opmaken, ATS-compatibiliteit garanderen of PDF exporteren</strong>. Je krijgt ruwe tekst die je zelf moet vormgeven, opmaken en optimaliseren.",
+    stats: [
+      { value: "0", label: "Sjablonen — ChatGPT geeft alleen platte tekst" },
+      { value: "0%", label: "ATS-kennis — geen trefwoordanalyse of formaatcontrole" },
+      { value: "3+", label: "Extra tools nodig — sjabloon, opmaakprogramma, PDF-convertor" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "Een eerlijke functie-voor-functie vergelijking voor werkzoekenden.",
+    colFeature: "Functie",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      {
+        feature: "AI-schrijven",
+        chatgpt: "Sterke algemene tekstgeneratie",
+        best: "CV-specifieke AI met branchetrefwoorden",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Professionele sjablonen",
+        chatgpt: "Geen sjablonen — alleen tekst",
+        best: "20+ ATS-getest sjablonen",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "ATS-optimalisatie",
+        chatgpt: "Geen ATS-kennis",
+        best: "Realtime ATS-score en trefwoordmatching",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "PDF-export",
+        chatgpt: "Geen documentexport",
+        best: "Schone PDF-export met één klik",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Opmaak en design",
+        chatgpt: "Alleen platte tekstuitvoer",
+        best: "Professionele opmaak ingebouwd",
+        chatgptIcon: "no",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Vacaturematching",
+        chatgpt: "Handmatig — vacature in prompt plakken",
+        best: "Automatische trefwoordextractie en -matching",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Sectieopbouw",
+        chatgpt: "Jij definieert de structuur in prompts",
+        best: "Begeleide workflow sectie voor sectie",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Consistentie",
+        chatgpt: "Resultaten variëren op basis van promptkwaliteit",
+        best: "Consistente, geteste resultaten elke keer",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Inhoudspersonalisatie",
+        chatgpt: "Vereist gedetailleerde prompts",
+        best: "Gebruikt je ingevoerde ervaring",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Prijs",
+        chatgpt: "Gratis (GPT-3.5) of $20/maand (GPT-4)",
+        best: "Gratis plan beschikbaar",
+        chatgptIcon: "yes",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Leercurve",
+        chatgpt: "Prompt-engineering vereist",
+        best: "Gewoon invullen — klaar",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      },
+      {
+        feature: "Meerdere cv's",
+        chatgpt: "Elke keer opnieuw beginnen",
+        best: "Meerdere versies opslaan en bewerken",
+        chatgptIcon: "partial",
+        bestIcon: "yes"
+      }
+    ]
+  },
+  strengths: {
+    title: "Wat ChatGPT Goed Doet voor CV's",
+    subtitle: "Eerlijk gezegd heeft ChatGPT echte sterke punten. Dit is wat echt helpt bij het schrijven van een cv:",
+    items: [
+      { title: "Brainstormen over bullet points", description: "ChatGPT is uitstekend in het genereren van meerdere versies van prestatiegerichte bullet points vanuit functiebeschrijvingen. Ideaal om het schrijfblok te doorbreken." },
+      { title: "Zwakke inhoud herschrijven", description: "Plak verantwoordelijkheidsgerichte bullet points en laat ChatGPT ze herschrijven als prestaties. Geweldig om verantwoordelijkheidswoorden om te zetten in actiewoorden met echte cijfers." },
+      { title: "Branchetrefwoorden vinden", description: "Vraag ChatGPT om belangrijke vaardigheden en trefwoorden voor een specifieke functie te identificeren. Goede lijsten voor ATS-matching." },
+      { title: "Motivatiebrief opstellen", description: "ChatGPT schrijft een redelijk eerste concept voor een motivatiebrief. Je moet het bewerken, maar het is een goed startpunt." }
+    ]
+  },
+  shortcomings: {
+    title: "Tekortkomingen van ChatGPT",
+    items: [
+      { title: "Geen opmaak of sjablonen", description: "ChatGPT levert alleen platte tekst. Je hebt een apart tool nodig om het in een professioneel document op te maken. Tijdrovend en foutgevoelig." },
+      { title: "Geen ATS-ondersteuning", description: "ChatGPT weet niet welke trefwoorden ATS zoekt, welke sectiekoppen het verwacht of welke formaten de machine kan lezen. Het genereert tekst zonder geautomatiseerde screeningsystemen te begrijpen." },
+      { title: "Generieke output zonder jouw gegevens", description: "Zonder een gedetailleerde prompt met jouw specifieke cijfers en prestaties genereert ChatGPT generieke inhoud zoals 'leidde professioneel team' in plaats van 'leidde team van 12 engineers dat projecten op tijd opleverde'." },
+      { title: "Inconsistente kwaliteit", description: "De kwaliteit van ChatGPT-output hangt volledig af van de prompt. Kleine woordwijzigingen leveren sterk verschillende resultaten op. Dedicated cv builders leveren consistente resultaten." },
+      { title: "Kan geen PDF exporteren", description: "Je kunt een ChatGPT-conversatie niet naar werkgevers sturen. Je moet de tekst kopiëren, in een sjabloon plakken, de opmaak corrigeren en als PDF exporteren — een proces dat meer dan 30 minuten duurt." }
+    ]
+  },
+  bestApproach: {
+    title: "De Beste Aanpak: Gebruik Ze Beide",
+    description: "Hier is de beste workflow voor het maken van cv's met AI in 2026:",
+    steps: [
+      {
+        title: "Gebruik ChatGPT voor brainstormen",
+        description: "Vraag ChatGPT om bullet point ideeën te genereren, zwakke inhoud te herschrijven en branchetrefwoorden te identificeren voor je gewenste functie."
+      },
+      {
+        title: "Bouw het cv in een dedicated tool",
+        description: "Gebruik de Best AI Resume Builder om de inhoud op te maken in professionele ATS-geoptimaliseerde sjablonen met de juiste structuur en trefwoordmatching."
+      },
+      {
+        title: "Personaliseer met je echte gegevens",
+        description: "Vervang de generieke AI-tekst door jouw echte cijfers, prestaties en bedrijfsnamen. Geen enkele AI kent jouw specifieke prestaties — jij moet ze invoeren."
+      },
+      {
+        title: "Exporteer en solliciteer",
+        description: "Download de ATS-geoptimaliseerde PDF en solliciteer. Geen kopiëren en plakken, geen opmaak corrigeren, geen extra tools."
+      }
+    ]
+  },
+  whoShouldUse: {
+    title: "Eerlijke Aanbeveling: Wie Moet Wat Gebruiken?",
+    useChatGPT: {
+      title: "Gebruik ChatGPT als...",
+      items: [
+        "Je al een goed opgemaakte cv-sjabloon hebt",
+        "Je alleen hulp nodig hebt bij het bedenken van bullet points",
+        "Je comfortabel bent met het zelf opmaken van documenten",
+        "Je trefwoorden en branchetrends wilt onderzoeken"
+      ]
+    },
+    useBestAI: {
+      title: "Gebruik Best AI Resumes als...",
+      items: [
+        "Je een compleet cv wilt in één tool",
+        "Je ATS-opmaak en trefwoordscores nodig hebt",
+        "Je sjablonen en opmaak niet zelf wilt beheren",
+        "Je meerdere versies van je cv wilt opslaan en bewerken",
+        "Je je PDF met één klik wilt exporteren"
+      ]
+    },
+    bottomLine: "Conclusie: ChatGPT is een goede schrijfhulp, maar geen cv builder. Voor een ATS-doorslaand, volledig opgemaakt cv heb je een gespecialiseerd tool nodig."
+  },
+  resumeExamples: {
+    title: "Bekijk CV's Gemaakt met AI",
+    description: "Verken 300+ echte cv-voorbeelden voor alle beroepen — allemaal gemaakt met ATS-geoptimaliseerde AI die meer doet dan ChatGPT alleen ooit kan.",
+    ctaBrowse: "CV-voorbeelden Verkennen",
+    ctaTemplates: "Alle Sjablonen Bekijken"
+  },
+  faq: {
+    title: "Veelgestelde Vragen",
+    items: [
+      { question: "Schrijft ChatGPT goede cv's?", answer: "ChatGPT kan tekst voor cv's genereren, maar kan geen cv-opmaak uitvoeren, ATS-compatibiliteit controleren of downloadbare PDF's maken. Je hebt nog steeds een apart tool nodig voor documentopmaak en design. Gespecialiseerde AI cv builders verwerken schrijven en opmaken in één stap." },
+      { question: "Is het oké om AI te gebruiken voor je cv?", answer: "Ja. AI-gebruik voor cv's is in 2026 breed geaccepteerd. Werkgevers geven om de inhoudskwaliteit van het cv, niet om hoe het gemaakt is. Wat telt is dat je de AI-gegenereerde inhoud personaliseert met je echte prestaties, cijfers en ervaring." },
+      { question: "Wat zijn de nadelen van ChatGPT voor cv's?", answer: "ChatGPT levert platte tekst zonder opmaak, ondersteunt geen ATS, kan je cv niet evalueren tegen een vacature, genereert generieke inhoud zonder je specifieke cijfers, en vereist dat je alles zelf kopieert naar een sjabloon." },
+      { question: "Wijzen ATS-systemen cv's geschreven met ChatGPT af?", answer: "ATS-systemen detecteren of geven niet om AI-geschreven inhoud. Maar als je ChatGPT-tekst in een slecht opgemaakt sjabloon plakt, kan ATS het mogelijk niet lezen. Gespecialiseerde cv-tools garanderen ATS-compatibiliteit voor zowel inhoud als opmaak." },
+      { question: "Is Best AI Resume Builder beter dan ChatGPT voor cv's maken?", answer: "Voor de specifieke taak van cv maken: ja. Best AI Resume Builder combineert AI-schrijven, professionele opmaak, ATS-optimalisatie, trefwoordmatching en PDF-export in één tool. ChatGPT is een algemene AI — het schrijft tekst maar kan geen cv opmaken, evalueren of exporteren." }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "Vergelijk Andere CV Builders",
+    links: [
+      { title: "Canva Alternatief", subtitle: "Designtool vs cv builder" },
+      { title: "Overleaf Alternatief", subtitle: "LaTeX vs AI builder" },
+      { title: "Resume.io Alternatief", subtitle: "Prijs- en functievergelijking" },
+      { title: "Rezi Alternatief", subtitle: "AI-tool vergelijking" }
+    ],
+    guidesTitle: "Handige CV-gidsen",
+    guides: [
+      { label: "Wat is ATS? Volledige Gids" },
+      { label: "Hoe schrijf je een cv (stap voor stap)" },
+      { label: "ChatGPT vs Claude voor cv's" },
+      { label: "Hoe schrijf je een professionele samenvatting" }
+    ]
+  },
+  externalResources: {
+    title: "Externe Bronnen",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "ChatGPT door OpenAI" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: CV-tips" }
+    ]
+  },
+  bottomCta: {
+    title: "Klaar om verder te gaan dan ChatGPT?",
+    description: "Maak een volledig ATS-geoptimaliseerd cv met onze AI cv maker — schrijven, opmaken en PDF exporteren in één tool.",
+    ctaText: "Maak Mijn Gratis CV — Geen Account Nodig",
+    subtext: "Voor altijd gratis. Geen creditcard vereist."
+  }
+};
+
+const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th, pt, vi, ko, tr, nl };
 
 export const getContent = (locale: string): ChatGPTComparisonContent =>
   selectContent(content, locale);

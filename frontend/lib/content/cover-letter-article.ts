@@ -325,5 +325,30 @@ const ko: CoverLetterArticleContent = {
   updated: '업데이트',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const nl: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Home', coverLetterExamples: 'Motivatiebrief Voorbeelden' },
+  notFound: 'Niet Gevonden',
+  coverLetterSuffix: 'Motivatiebrief Voorbeeld',
+  keySkillsTitle: 'Belangrijke Vaardigheden om te Benadrukken',
+  relatedTopics: 'Gerelateerde Onderwerpen',
+  faqTitle: 'Veelgestelde Vragen',
+  relatedResourcesTitle: 'Gerelateerde Bronnen',
+  resumeExampleSubtext: 'Bekijk het bijpassende cv-formaat',
+  coverLetterGenerator: 'AI Motivatiebrief Generator',
+  coverLetterGeneratorSubtext: 'Maak je motivatiebrief in seconden',
+  sidebar: {
+    ctaTitle: 'Maak Je Motivatiebrief',
+    ctaSubtitle: 'Gebruik onze AI om in seconden een gepersonaliseerde motivatiebrief voor {jobTitle} te genereren.',
+    ctaButton: 'Genereer Motivatiebrief',
+    tocTitle: 'Inhoudsopgave',
+  },
+  relatedCoverLetters: 'Gerelateerde Motivatiebrieven',
+  bottomCta: {
+    subtitle: 'Sluit je aan bij duizenden professionals die hun droombaan vonden met Best AI Resume.',
+    button: 'Genereer Motivatiebrief — Gratis',
+  },
+  updated: 'Bijgewerkt',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

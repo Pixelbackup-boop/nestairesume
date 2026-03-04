@@ -1480,5 +1480,241 @@ const tr: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Rezi 2026: Pembuat CV AI Gratis | Best AI Resume',
+    description: 'Cari alternatif Rezi gratis? Bandingkan Rezi vs Best AI Resume Builder — penulisan AI, template ATS, unduhan tak terbatas. Tanpa biaya tersembunyi.',
+    keywords: 'alternatif rezi, rezi vs best ai resume, pembuat cv gratis alternatif rezi, cv builder gratis indonesia',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Rezi',
+    articleHeadline: 'Alternatif Rezi 2026: Pembuat CV AI Gratis Tanpa Biaya Tersembunyi',
+    articleDescription: 'Bandingkan Rezi vs Best AI Resume Builder. Dapatkan penulisan AI, optimasi ATS, dan unduhan tak terbatas sepenuhnya gratis.',
+  },
+  hero: {
+    badge: 'Alternatif Rezi',
+    title: 'Buat CV Anda.',
+    titleHighlight: 'Unduh Gratis.',
+    subtitle: 'Rezi memungkinkan Anda membuat CV — lalu memungut biaya untuk mengunduhnya. Dapatkan penulisan AI, template ATS, dan ekspor tak terbatas seharga <strong>Rp 0</strong>.',
+    ctaPrimary: 'Buat CV Saya Gratis',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah dengan Rezi',
+    description: 'Rezi memiliki template profesional dan saran konten yang berguna. Masalahnya ada di model harganya: Anda baru mengetahui biaya unduhan setelah menyelesaikan seluruh CV. Banyak pengguna melaporkan biaya tak terduga di situs ulasan.',
+    stats: [
+      { value: '$2.70', label: 'Masa percobaan (perpanjang otomatis ke $23.70/bln)' },
+      { value: '$284', label: 'Biaya tahunan jika lupa membatalkan' },
+      { value: 'Rp 0', label: 'Best AI Resume Builder — gratis selamanya' },
+    ],
+  },
+  comparison: {
+    title: 'Perbandingan Rezi vs Best AI Resume Builder',
+    subtitle: 'Perbandingan fitur secara berdampingan.',
+    competitorName: 'Rezi',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Berbayar untuk mengunduh', ours: '✅ 100% gratis selamanya' },
+      { feature: 'Unduhan Gratis', competitor: '❌ Perlu bayar untuk PDF', ours: '✅ Unduhan PDF gratis tak terbatas' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Saran terbatas', ours: '✅ Konten yang dibuat AI sepenuhnya' },
+      { feature: 'Optimasi ATS', competitor: '✅ Pemeriksaan dasar', ours: '✅ Skor ATS real-time + kata kunci' },
+      { feature: 'Kualitas Template', competitor: '✅ Desain profesional', ours: '✅ 20+ template yang diuji ATS' },
+      { feature: 'Jumlah CV', competitor: '⚠️ Terbatas di paket gratis', ours: '✅ CV tak terbatas, gratis' },
+      { feature: 'Pembuat Surat Lamaran', competitor: '✅ Tersedia (paket berbayar)', ours: '✅ Bertenaga AI (gratis)' },
+      { feature: 'Saran Konten', competitor: '✅ Frasa yang ditulis sebelumnya', ours: '✅ Adaptasi AI berdasarkan pengalaman Anda' },
+      { feature: 'Pembatalan', competitor: '❌ Harus dibatalkan sebelum masa percobaan', ours: '✅ Tidak ada yang perlu dibatalkan' },
+      { feature: 'Ulasan Pengguna', competitor: '⚠️ Campuran — keluhan penagihan umum', ours: '✅ Tidak mungkin ada masalah penagihan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Alasan Beralih dari Rezi',
+    subtitle: 'Benar-benar gratis. AI lebih baik. Tanpa jebakan.',
+    reasons: [
+      { title: 'Unduhan Benar-benar Gratis', description: 'Rezi meminta bayaran setelah Anda selesai membuat CV. Di sini, Anda bisa mengunduh apapun yang Anda buat secara instan dan gratis — tidak ada percobaan, kartu kredit, atau perpanjangan otomatis.' },
+      { title: 'AI Nyata (Bukan Frasa yang Ditulis Sebelumnya)', description: 'Saran Rezi didasarkan pada pustaka frasa yang telah ditulis sebelumnya. AI kami menghasilkan konten yang benar-benar disesuaikan untuk setiap bagian CV.' },
+      { title: 'Optimasi ATS Lebih Baik', description: 'Dibandingkan fitur ATS dasar Rezi, kami menawarkan penilaian ATS real-time, saran kata kunci spesifik industri, dan template yang diuji untuk sistem yang umum digunakan di Indonesia.' },
+    ],
+  },
+  recommendation: {
+    title: 'Rekomendasi Jujur',
+    useCompetitor: {
+      title: 'Gunakan Rezi jika...',
+      items: [
+        'Anda bersedia membayar untuk fitur tertentu yang dimiliki Rezi',
+        'Anda lebih suka antarmuka spesifik Rezi',
+        'Anda membutuhkan fitur tertentu yang hanya ada di Rezi',
+        'Anda menginginkan dukungan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Gunakan Best AI Resumes jika...',
+      items: [
+        'Anda ingin membuat dan mengunduh CV secara gratis',
+        'Anda membutuhkan AI canggih untuk membantu menulis konten',
+        'Anda ingin penilaian ATS real-time saat membuat CV',
+        'Anda tidak ingin berurusan dengan langganan atau perpanjangan otomatis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Jelajahi 300+ Contoh CV Gratis',
+    description: 'Contoh CV profesional untuk setiap industri dan level karier.',
+    ctaBrowse: 'Lihat Contoh CV',
+    ctaTemplates: 'Lihat Semua Template',
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      { question: 'Apakah Rezi gratis?', answer: 'Rezi mengizinkan pembuatan CV gratis tetapi mengenakan biaya untuk mengunduh. Best AI Resume Builder 100% gratis — buat dan unduh CV tak terbatas tanpa kartu kredit.' },
+      { question: 'Mengapa Rezi mengenakan biaya untuk mengunduh?', answer: 'Model bisnis Rezi adalah "freemium" — proses pembuatan gratis untuk menarik pengguna, tetapi monetisasi terjadi saat mengunduh. Best AI Resume Builder transparan: semuanya gratis, tanpa kejutan.' },
+      { question: 'Apa alternatif gratis terbaik untuk Rezi?', answer: 'Best AI Resume Builder adalah alternatif gratis terbaik. Kami menawarkan semua yang ada di balik paywall Rezi — template profesional, ekspor PDF, surat lamaran — ditambah penulisan AI dan optimasi ATS.' },
+      { question: 'Apakah Rezi memiliki penulisan AI?', answer: 'Rezi memiliki beberapa saran konten, tetapi bukan penulisan AI yang sebenarnya. Best AI Resume Builder menggunakan AI canggih untuk menghasilkan pengalaman profesional, ringkasan, dan kata kunci yang dipersonalisasi.' },
+      { question: 'Bagaimana cara membatalkan Rezi?', answer: 'Untuk membatalkan Rezi, akses pengaturan akun sebelum masa percobaan berakhir. Best AI Resume Builder tidak memerlukan langganan — tidak ada yang perlu dibatalkan. Cukup gunakan platform secara gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat CV Lainnya',
+    items: [
+      { href: '/id/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs modern' },
+      { href: '/id/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga' },
+      { href: '/id/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat desain vs AI' },
+      { href: '/id/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan fitur AI' },
+    ],
+    guidesTitle: 'Panduan CV yang Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glassdoor.co.id/', label: 'Glassdoor Indonesia — Gaji dan Peluang Karier' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat CV yang Benar-benar Gratis.',
+    description: 'Tanpa jebakan harga, tanpa perpanjangan otomatis. Hanya pembuat CV bertenaga AI — 100% gratis selamanya.',
+    cta: 'Buat CV Saya Gratis',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa kejutan.',
+  },
+};
+
+const nl: ComparisonPageContent = {
+  meta: {
+    title: 'Rezi Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
+    description: 'Op zoek naar een gratis Rezi alternatief? Vergelijk Rezi vs Best AI Resume Builder — AI cv schrijven, ATS cv sjablonen, onbeperkt downloaden. Geen verborgen kosten.',
+    keywords: 'rezi alternatief, rezi cv maker, gratis cv sjabloon, cv maken gratis, cv builder nederland, alternatief voor rezi, ats cv gratis',
+  },
+  schemas: {
+    breadcrumbName: 'Rezi Alternatief',
+    articleHeadline: 'Rezi Alternatief 2026: Gratis CV Maken met AI Zonder Verborgen Kosten',
+    articleDescription: 'Vergelijk Rezi vs Best AI Resume Builder. Maak een professioneel cv met AI, ATS-optimalisatie en onbeperkt downloaden — volledig gratis.',
+  },
+  hero: {
+    badge: 'Rezi Alternatief',
+    title: 'Maak Je CV.',
+    titleHighlight: 'Download Gratis.',
+    subtitle: 'Rezi heeft sterke ATS-functies, maar rekent tot $29/maand voor volledige toegang. Wij bieden AI-schrijven, ATS cv sjablonen en onbeperkte exports voor <strong>€0</strong>.',
+    ctaPrimary: 'Maak Mijn CV Gratis',
+    ctaSecondary: 'Bekijk de Vergelijking',
+  },
+  problem: {
+    title: 'Het Rezi Prijsprobleem',
+    description: 'Rezi is gericht op ATS-optimalisatie — dat is hun kracht. Maar voor volledige AI-schrijffuncties en onbeperkte downloads moet je betalen. Het gratis plan is sterk beperkt in functionaliteit. Voor de Nederlandse arbeidsmarkt is een volledig gratis, ATS-vriendelijke cv builder de betere keuze.',
+    stats: [
+      { value: '$29', label: 'Per maand voor volledige Rezi toegang' },
+      { value: 'Beperkt', label: 'Gratis plan biedt beperkte AI-functies' },
+      { value: '€0', label: 'Best AI Resume Builder — volledig gratis, inclusief AI' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi vs Best AI Resume Builder',
+    subtitle: 'Functie-voor-functie vergelijking.',
+    competitorName: 'Rezi',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prijs', competitor: '❌ Tot $29/maand voor volledige toegang', ours: '✅ 100% gratis voor altijd' },
+      { feature: 'Gratis Downloaden', competitor: '⚠️ Beperkt in gratis plan', ours: '✅ Onbeperkt gratis PDF exporteren' },
+      { feature: 'AI Schrijven', competitor: '✅ AI-schrijffuncties (betaald plan)', ours: '✅ AI genereert volledig op maat gemaakte inhoud' },
+      { feature: 'ATS-optimalisatie', competitor: '✅ Sterke ATS-analyse', ours: '✅ Realtime ATS-score + zoekwoorden' },
+      { feature: 'Sjabloenkwaliteit', competitor: '⚠️ Beperkt aantal sjablonen', ours: '✅ 20+ ATS-geteste cv sjablonen' },
+      { feature: 'Aantal CV\'s', competitor: '⚠️ Beperkt op gratis plan', ours: '✅ Onbeperkt cv\'s maken, gratis' },
+      { feature: 'Motivatiebrief', competitor: '✅ Beschikbaar (betaald plan)', ours: '✅ AI-aangedreven sollicitatiebrief (gratis)' },
+      { feature: 'Inhoudssuggesties', competitor: '✅ AI-suggesties (betaald)', ours: '✅ AI afgestemd op jouw werkervaring' },
+      { feature: 'Annuleren', competitor: '⚠️ Abonnement beheer vereist', ours: '✅ Niets te annuleren' },
+      { feature: 'Gebruikersreviews', competitor: '✅ Positief over ATS-functies', ours: '✅ Geen factureringsproblemen mogelijk' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Redenen om over te stappen van Rezi',
+    subtitle: 'Dezelfde ATS-kracht. Volledig gratis.',
+    reasons: [
+      { title: 'Volledig Gratis ATS-optimalisatie', description: 'Rezi rekent voor zijn beste ATS-functies. Best AI Resume Builder biedt realtime ATS-scores, zoekwoordsuggesties en ATS-vriendelijke sjablonen — allemaal gratis, zonder betaald plan.' },
+      { title: 'AI-schrijven Inclusief', description: 'Bij Rezi zijn de AI-schrijffuncties achter een betaalmuur. Onze AI genereert professionele bullet points, samenvattingen en op maat gemaakte inhoud voor elke gebruiker — gratis.' },
+      { title: 'Meer Sjabloonkeuze voor de Nederlandse Markt', description: 'Rezi heeft een beperkt aantal sjablonen. Wij bieden 20+ ATS-vriendelijke cv sjablonen die zijn afgestemd op de verwachtingen van Nederlandse recruiters en werkgevers.' },
+    ],
+  },
+  recommendation: {
+    title: 'Eerlijke Aanbeveling',
+    useCompetitor: {
+      title: 'Rezi is geschikt als je...',
+      items: [
+        'Bereid bent te betalen voor geavanceerde ATS-analyse functies',
+        'Intensief focust op ATS-optimalisatie boven alles',
+        'De specifieke Rezi-interface prefereert',
+        'Betaalde klantenondersteuning wilt',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes is beter als je...',
+      items: [
+        'Dezelfde ATS-kwaliteit wilt zonder te betalen',
+        'AI schrijfhulp wilt inclusief in het gratis plan',
+        'Meer sjabloonkeuze wilt voor de Nederlandse markt',
+        'Geen abonnement of betalingsproblemen wilt',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Bekijk 300+ Gratis CV Voorbeelden',
+    description: 'Professionele cv voorbeelden voor elke sector en carriereniveau.',
+    ctaBrowse: 'Bekijk CV Voorbeelden',
+    ctaTemplates: 'Bekijk Alle Sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      { question: 'Is Rezi gratis?', answer: 'Rezi heeft een gratis plan maar de beste functies — inclusief volledige AI-schrijven en onbeperkte downloads — vereisen een betaald abonnement van tot $29/maand. Best AI Resume Builder is 100% gratis met volledige AI-functies en onbeperkte downloads.' },
+      { question: 'Wat maakt Rezi anders dan andere cv-bouwers?', answer: 'Rezi focust sterk op ATS-optimalisatie en job-targeting functies. Best AI Resume Builder biedt vergelijkbare ATS-optimalisatie plus AI-schrijfhulp — allemaal gratis. Voor de Nederlandse arbeidsmarkt is de gratis optie logisch.' },
+      { question: 'Wat is het beste gratis alternatief voor Rezi?', answer: 'Best AI Resume Builder is het beste gratis alternatief. We bieden ATS-vriendelijke cv sjablonen, AI-schrijfhulp, realtime ATS-scores en onbeperkte PDF-exports — volledig gratis, inclusief alle functies.' },
+      { question: 'Heeft Rezi betere AI dan andere cv-bouwers?', answer: 'Rezi heeft goede AI-functies in zijn betaald plan. Best AI Resume Builder biedt vergelijkbare AI-schrijf- en ATS-optimalisatiefuncties volledig gratis voor alle gebruikers.' },
+      { question: 'Hoe annuleer ik Rezi?', answer: 'Om Rezi te annuleren, ga naar je accountinstellingen. Best AI Resume Builder vereist geen abonnement — er is niets te annuleren. Gebruik het platform gewoon gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Vergelijk Andere CV Bouwers',
+    items: [
+      { href: '/nl/livecareer-alternative', title: 'LiveCareer Alternatief', subtitle: 'Traditioneel vs modern' },
+      { href: '/nl/resume-io-alternative', title: 'Resume.io Alternatief', subtitle: 'Prijs- en functievergelijking' },
+      { href: '/nl/canva-alternative', title: 'Canva Alternatief', subtitle: 'Ontwerptool vs AI cv maker' },
+      { href: '/nl/zety-alternative', title: 'Zety Alternatief', subtitle: 'Prijsvergelijking' },
+    ],
+    guidesTitle: 'Handige CV Gidsen',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi Officiële Website' },
+      { href: 'https://www.uwv.nl/', label: 'UWV — Uitvoeringsinstituut Werknemersverzekeringen' },
+    ],
+  },
+  bottomCta: {
+    title: 'ATS-kracht. Geen Abonnementskosten.',
+    description: 'Maak een ATS-geoptimaliseerd cv met AI schrijfhulp — volledig gratis, zonder Rezi-abonnement of verborgen kosten.',
+    cta: 'Maak Mijn CV Gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard. Geen verrassingen.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

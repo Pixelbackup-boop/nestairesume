@@ -1528,5 +1528,241 @@ const tr: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Zety 2026: Pembuat CV AI Gratis | Best AI Resume',
+    description: 'Cari alternatif Zety gratis? Bandingkan Zety vs Best AI Resume Builder — penulisan AI, template ATS, unduhan tak terbatas. Tanpa biaya tersembunyi.',
+    keywords: 'alternatif zety, zety vs best ai resume, pembuat cv gratis alternatif zety, cv builder gratis indonesia',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Zety',
+    articleHeadline: 'Alternatif Zety 2026: Pembuat CV AI Gratis Tanpa Biaya Tersembunyi',
+    articleDescription: 'Bandingkan Zety vs Best AI Resume Builder. Dapatkan penulisan AI, optimasi ATS, dan unduhan tak terbatas sepenuhnya gratis.',
+  },
+  hero: {
+    badge: 'Alternatif Zety',
+    title: 'Buat CV Anda.',
+    titleHighlight: 'Unduh Gratis.',
+    subtitle: 'Zety memungkinkan Anda membuat CV — lalu memungut biaya untuk mengunduhnya. Dapatkan penulisan AI, template ATS, dan ekspor tak terbatas seharga <strong>Rp 0</strong>.',
+    ctaPrimary: 'Buat CV Saya Gratis',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah dengan Zety',
+    description: 'Zety memiliki template profesional dan saran konten yang berguna. Masalahnya ada di model harganya: Anda baru mengetahui biaya unduhan setelah menyelesaikan seluruh CV. Banyak pengguna melaporkan biaya tak terduga di situs ulasan.',
+    stats: [
+      { value: '$2.70', label: 'Masa percobaan (perpanjang otomatis ke $23.70/bln)' },
+      { value: '$284', label: 'Biaya tahunan jika lupa membatalkan' },
+      { value: 'Rp 0', label: 'Best AI Resume Builder — gratis selamanya' },
+    ],
+  },
+  comparison: {
+    title: 'Perbandingan Zety vs Best AI Resume Builder',
+    subtitle: 'Perbandingan fitur secara berdampingan.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Berbayar untuk mengunduh', ours: '✅ 100% gratis selamanya' },
+      { feature: 'Unduhan Gratis', competitor: '❌ Perlu bayar untuk PDF', ours: '✅ Unduhan PDF gratis tak terbatas' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Saran terbatas', ours: '✅ Konten yang dibuat AI sepenuhnya' },
+      { feature: 'Optimasi ATS', competitor: '✅ Pemeriksaan dasar', ours: '✅ Skor ATS real-time + kata kunci' },
+      { feature: 'Kualitas Template', competitor: '✅ Desain profesional', ours: '✅ 20+ template yang diuji ATS' },
+      { feature: 'Jumlah CV', competitor: '⚠️ Terbatas di paket gratis', ours: '✅ CV tak terbatas, gratis' },
+      { feature: 'Pembuat Surat Lamaran', competitor: '✅ Tersedia (paket berbayar)', ours: '✅ Bertenaga AI (gratis)' },
+      { feature: 'Saran Konten', competitor: '✅ Frasa yang ditulis sebelumnya', ours: '✅ Adaptasi AI berdasarkan pengalaman Anda' },
+      { feature: 'Pembatalan', competitor: '❌ Harus dibatalkan sebelum masa percobaan', ours: '✅ Tidak ada yang perlu dibatalkan' },
+      { feature: 'Ulasan Pengguna', competitor: '⚠️ Campuran — keluhan penagihan umum', ours: '✅ Tidak mungkin ada masalah penagihan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Alasan Beralih dari Zety',
+    subtitle: 'Benar-benar gratis. AI lebih baik. Tanpa jebakan.',
+    reasons: [
+      { title: 'Unduhan Benar-benar Gratis', description: 'Zety meminta bayaran setelah Anda selesai membuat CV. Di sini, Anda bisa mengunduh apapun yang Anda buat secara instan dan gratis — tidak ada percobaan, kartu kredit, atau perpanjangan otomatis.' },
+      { title: 'AI Nyata (Bukan Frasa yang Ditulis Sebelumnya)', description: 'Saran Zety didasarkan pada pustaka frasa yang telah ditulis sebelumnya. AI kami menghasilkan konten yang benar-benar disesuaikan untuk setiap bagian CV.' },
+      { title: 'Optimasi ATS Lebih Baik', description: 'Dibandingkan fitur ATS dasar Zety, kami menawarkan penilaian ATS real-time, saran kata kunci spesifik industri, dan template yang diuji untuk sistem yang umum digunakan di Indonesia.' },
+    ],
+  },
+  recommendation: {
+    title: 'Rekomendasi Jujur',
+    useCompetitor: {
+      title: 'Gunakan Zety jika...',
+      items: [
+        'Anda bersedia membayar untuk fitur tertentu yang dimiliki Zety',
+        'Anda lebih suka antarmuka spesifik Zety',
+        'Anda membutuhkan fitur tertentu yang hanya ada di Zety',
+        'Anda menginginkan dukungan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Gunakan Best AI Resumes jika...',
+      items: [
+        'Anda ingin membuat dan mengunduh CV secara gratis',
+        'Anda membutuhkan AI canggih untuk membantu menulis konten',
+        'Anda ingin penilaian ATS real-time saat membuat CV',
+        'Anda tidak ingin berurusan dengan langganan atau perpanjangan otomatis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Jelajahi 300+ Contoh CV Gratis',
+    description: 'Contoh CV profesional untuk setiap industri dan level karier.',
+    ctaBrowse: 'Lihat Contoh CV',
+    ctaTemplates: 'Lihat Semua Template',
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      { question: 'Apakah Zety gratis?', answer: 'Zety mengizinkan pembuatan CV gratis tetapi mengenakan biaya untuk mengunduh. Best AI Resume Builder 100% gratis — buat dan unduh CV tak terbatas tanpa kartu kredit.' },
+      { question: 'Mengapa Zety mengenakan biaya untuk mengunduh?', answer: 'Model bisnis Zety adalah "freemium" — proses pembuatan gratis untuk menarik pengguna, tetapi monetisasi terjadi saat mengunduh. Best AI Resume Builder transparan: semuanya gratis, tanpa kejutan.' },
+      { question: 'Apa alternatif gratis terbaik untuk Zety?', answer: 'Best AI Resume Builder adalah alternatif gratis terbaik. Kami menawarkan semua yang ada di balik paywall Zety — template profesional, ekspor PDF, surat lamaran — ditambah penulisan AI dan optimasi ATS.' },
+      { question: 'Apakah Zety memiliki penulisan AI?', answer: 'Zety memiliki beberapa saran konten, tetapi bukan penulisan AI yang sebenarnya. Best AI Resume Builder menggunakan AI canggih untuk menghasilkan pengalaman profesional, ringkasan, dan kata kunci yang dipersonalisasi.' },
+      { question: 'Bagaimana cara membatalkan Zety?', answer: 'Untuk membatalkan Zety, akses pengaturan akun sebelum masa percobaan berakhir. Best AI Resume Builder tidak memerlukan langganan — tidak ada yang perlu dibatalkan. Cukup gunakan platform secara gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat CV Lainnya',
+    items: [
+      { href: '/id/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs modern' },
+      { href: '/id/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga' },
+      { href: '/id/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat desain vs AI' },
+      { href: '/id/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan fitur AI' },
+    ],
+    guidesTitle: 'Panduan CV yang Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glassdoor.co.id/', label: 'Glassdoor Indonesia — Gaji dan Peluang Karier' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat CV yang Benar-benar Gratis.',
+    description: 'Tanpa jebakan harga, tanpa perpanjangan otomatis. Hanya pembuat CV bertenaga AI — 100% gratis selamanya.',
+    cta: 'Buat CV Saya Gratis',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa kejutan.',
+  },
+};
+
+const nl: ComparisonPageContent = {
+  meta: {
+    title: 'Zety Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
+    description: 'Op zoek naar een gratis Zety alternatief? Vergelijk Zety vs Best AI Resume Builder — AI-schrijven, ATS cv sjablonen, onbeperkt downloaden. Geen verborgen kosten.',
+    keywords: 'zety alternatief, zety cv maker, gratis cv sjabloon, cv maken gratis, cv builder nederland, alternatief voor zety, gratis cv maken',
+  },
+  schemas: {
+    breadcrumbName: 'Zety Alternatief',
+    articleHeadline: 'Zety Alternatief 2026: Gratis CV Maken met AI Zonder Verborgen Kosten',
+    articleDescription: 'Vergelijk Zety vs Best AI Resume Builder. Maak een professioneel cv met AI, ATS-optimalisatie en onbeperkt downloaden — volledig gratis.',
+  },
+  hero: {
+    badge: 'Zety Alternatief',
+    title: 'Maak Je CV.',
+    titleHighlight: 'Download Gratis.',
+    subtitle: 'Zety laat je een cv maken — maar vraagt daarna <strong>$23,70/maand</strong> om het te downloaden. Wij bieden AI-schrijven, ATS cv sjablonen en onbeperkte exports voor <strong>€0</strong>.',
+    ctaPrimary: 'Maak Mijn CV Gratis',
+    ctaSecondary: 'Bekijk de Vergelijking',
+  },
+  problem: {
+    title: 'De Zety Prijsval',
+    description: 'Zety heeft professionele sjablonen en handige inhoudssuggesties. Het probleem is hun prijsmodel: je bouwt je volledige cv voordat je ontdekt dat je moet betalen om het te downloaden. De <strong>proefperiode van 14 dagen kost $2,70</strong>, waarna automatisch verlengd wordt naar <strong>$23,70/maand</strong>. Duizenden gebruikers melden onverwachte kosten na het vergeten te annuleren.',
+    stats: [
+      { value: '$2,70', label: '14-daagse proef (automatische verlenging naar $23,70/mnd)' },
+      { value: '$284', label: 'jaarlijkse kosten als je vergeet te annuleren' },
+      { value: '€0', label: 'Best AI Resume Builder — voor altijd gratis' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'Functie-voor-functie vergelijking.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prijs', competitor: '❌ $2,70 proef → $23,70/mnd automatisch verlengd', ours: '✅ 100% gratis voor altijd' },
+      { feature: 'Gratis Downloaden', competitor: '❌ Betalen vereist voor PDF-download', ours: '✅ Onbeperkt gratis PDF exporteren' },
+      { feature: 'AI Schrijven', competitor: '⚠️ Vooraf geschreven suggesties (geen echte AI)', ours: '✅ AI genereert gepersonaliseerde inhoud' },
+      { feature: 'ATS-optimalisatie', competitor: '✅ CV-checker inbegrepen', ours: '✅ Realtime ATS-score + zoekwoorden' },
+      { feature: 'Sjabloenkwaliteit', competitor: '✅ Professionele, moderne ontwerpen', ours: '✅ 20+ ATS-geteste cv sjablonen' },
+      { feature: 'Aantal CV\'s', competitor: '⚠️ Onbeperkt (maar achter betaalmuur)', ours: '✅ Onbeperkt cv\'s maken, gratis' },
+      { feature: 'Motivatiebriefbouwer', competitor: '✅ Inbegrepen (betaald abonnement)', ours: '✅ AI-aangedreven (gratis)' },
+      { feature: 'Inhoudssuggesties', competitor: '✅ Vooraf geschreven zinnen per functietitel', ours: '✅ AI afgestemd op jouw werkervaring' },
+      { feature: 'Annuleren', competitor: '❌ Moet annuleren voor einde proefperiode', ours: '✅ Niets te annuleren' },
+      { feature: 'Gebruikersreviews (Trustpilot)', competitor: '⚠️ Gemengd — klachten over facturering komen veel voor', ours: '✅ Geen factureringsproblemen mogelijk' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Redenen om over te stappen van Zety',
+    subtitle: 'Echt gratis. Betere AI. Geen valkuilen.',
+    reasons: [
+      { title: 'Echt Gratis Downloaden', description: 'Zety vraagt betaling nadat je je cv hebt afgemaakt. Hier download je alles wat je maakt direct en gratis — geen proefperiode, geen creditcard, geen automatische verlenging.' },
+      { title: 'Echte AI (Geen Vooraf Geschreven Zinnen)', description: 'De suggesties van Zety zijn gebaseerd op vooraf geschreven zinsbibliotheken. Onze AI genereert echt op maat gemaakte inhoud voor elk onderdeel van je cv, afgestemd op de Nederlandse arbeidsmarkt.' },
+      { title: 'Betere ATS-optimalisatie', description: 'Vergeleken met de basisATS-functies van Zety bieden wij realtime ATS-scores, branchespecifieke zoekwoordsuggesties en sjablonen die zijn getest voor veelgebruikte systemen op de Nederlandse arbeidsmarkt.' },
+    ],
+  },
+  recommendation: {
+    title: 'Eerlijke Aanbeveling',
+    useCompetitor: {
+      title: 'Zety is geschikt als je...',
+      items: [
+        'Bereid bent $23,70/maand te betalen voor een cv-tool',
+        'De voorkeur geeft aan vooraf geschreven inhoudssuggesties boven AI-generatie',
+        'Een bekende merknaam wilt voor je cv-bouwer',
+        'Proefabonnementen altijd op tijd annuleert',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes is beter als je...',
+      items: [
+        'Je cv wilt downloaden zonder te betalen',
+        'AI prefereert die aangepaste inhoud schrijft op basis van jouw werkervaring',
+        'Meerdere cv-versies nodig hebt voor verschillende sollicitaties',
+        'Realtime ATS-scores wilt met zoekwoordsuggesties',
+        'Geen gedoe wilt met proefperiodes, annuleringen of onverwachte kosten',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Bekijk 300+ Gratis CV Voorbeelden',
+    description: 'Blader door professionele cv voorbeelden voor elke baan en sector.',
+    ctaBrowse: 'Bekijk CV Voorbeelden',
+    ctaTemplates: 'Bekijk Alle Sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      { question: 'Is Zety gratis te gebruiken?', answer: 'Zety laat je gratis een cv maken, maar voor het downloaden is een betaald abonnement vereist — $2,70 voor een proefperiode van 14 dagen die automatisch verlengd wordt naar $23,70/maand. Veel gebruikers melden onverwachte kosten na de proefperiode. Best AI Resume Builder is 100% gratis zonder proefvalkuilen of verborgen kosten.' },
+      { question: 'Is Zety een legitieme cv-bouwer?', answer: 'Ja, Zety is een legitiem bedrijf met professionele sjablonen en schrijftips. Het prijsmodel frustreert echter veel gebruikers — je bouwt het volledige cv voordat je te weten komt dat je moet betalen om het te downloaden. Best AI Resume Builder laat je gratis bouwen, downloaden en exporteren vanaf het begin.' },
+      { question: 'Wat is het beste gratis alternatief voor Zety?', answer: 'Best AI Resume Builder is het beste gratis alternatief. Het biedt AI-schrijven, 20+ ATS-geteste cv sjablonen, realtime ATS-scores en onbeperkte PDF-exports — volledig gratis. Geen proefperiode, geen creditcard vereist.' },
+      { question: 'Heeft Zety AI-functies?', answer: 'Zety biedt vooraf geschreven inhoudssuggesties en een cv-checker, maar mist echte AI aangedreven door grote taalmodellen. Best AI Resume Builder gebruikt geavanceerde AI om aangepaste bullet points, professionele samenvattingen en op maat gemaakte inhoud te genereren op basis van jouw specifieke werkervaring en doelfunctie.' },
+      { question: 'Kan ik Zety annuleren na het downloaden van mijn cv?', answer: 'Ja, maar je moet annuleren voor het einde van de 14-daagse proefperiode om de kosten van $23,70/maand te vermijden. Veel gebruikers melden moeilijkheden met annuleren of onverwachte kosten. Bij Best AI Resume Builder is er niets te annuleren — het is voor altijd gratis zonder abonnement.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Vergelijk Andere CV Bouwers',
+    items: [
+      { href: '/nl/canva-alternative', title: 'Canva Alternatief', subtitle: 'Ontwerptool vs AI cv maker' },
+      { href: '/nl/rezi-alternative', title: 'Rezi Alternatief', subtitle: 'AI-functies vergelijking' },
+      { href: '/nl/resume-io-alternative', title: 'Resume.io Alternatief', subtitle: 'Prijs- en functievergelijking' },
+    ],
+    guidesTitle: 'Handige CV Gidsen',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://zety.com/', label: 'Zety Officiële Website' },
+      { href: 'https://www.uwv.nl/', label: 'UWV — Uitvoeringsinstituut Werknemersverzekeringen' },
+    ],
+  },
+  bottomCta: {
+    title: 'Geen Proefperiodes. Geen Valkuilen. Gewoon Gratis.',
+    description: 'Maak, download en deel je cv zonder ooit een creditcard in te voeren. AI schrijven, ATS cv sjablonen, onbeperkte exports — allemaal gratis.',
+    cta: 'Maak Mijn CV Gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard vereist.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

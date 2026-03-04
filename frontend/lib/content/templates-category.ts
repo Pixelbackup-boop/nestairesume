@@ -156,6 +156,30 @@ const tr: TemplatesCategoryContent = {
   breadcrumbTemplates: 'Şablonlar',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
+const id: TemplatesCategoryContent = {
+  fallbackTitle: 'Template CV | Best AI Resume',
+  collectionSuffix: 'Koleksi',
+  availableTemplates: 'Template Tersedia',
+  editInAI: 'Edit dengan AI',
+  tiredTitle: 'Bosan memformat dokumen?',
+  tiredSubtitle: 'Mengunduh template mudah, tapi mengisinya memakan waktu. Pembuat CV AI kami melakukan pemformatan untuk Anda secara instan.',
+  buildWithAI: 'Buat dengan AI',
+  breadcrumbHome: 'Beranda',
+  breadcrumbTemplates: 'Template',
+};
+
+const nl: TemplatesCategoryContent = {
+  fallbackTitle: 'CV-sjablonen | Best AI Resume',
+  collectionSuffix: 'Collectie',
+  availableTemplates: 'Beschikbare Sjablonen',
+  editInAI: 'Bewerken met AI',
+  tiredTitle: 'Moe van het opmaken van bestanden?',
+  tiredSubtitle: 'Sjablonen downloaden is handig, maar invullen is een gedoe. Onze AI CV Maker doet de opmaak direct voor jou.',
+  buildWithAI: 'Bouwen met AI',
+  breadcrumbHome: 'Home',
+  breadcrumbTemplates: 'Sjablonen',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

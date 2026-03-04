@@ -1305,7 +1305,223 @@ const tr: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: LandingPageContent = {
+  meta: {
+    title: 'Pembuat CV Online | Buat CV Profesional dengan AI 2026',
+    description: 'Buat CV profesional dalam hitungan menit dengan pembuat CV online bertenaga AI. Template ATS, penulisan AI, dan unduh PDF langsung.',
+    keywords: 'pembuat cv online, buat cv online, cv online gratis, pembuat cv, buat cv profesional, cv otomatis, generator cv online',
+  },
+  schemas: {
+    breadcrumbName: 'Pembuat CV Online',
+    articleHeadline: 'Pembuat CV Online Gratis: Buat CV Profesional dengan AI 2026',
+    articleDescription: 'Buat CV profesional dalam hitungan menit dengan AI. Template ATS, penulisan AI, dan unduh PDF langsung.',
+    softwareAppName: 'Best AI Pembuat CV',
+  },
+  hero: {
+    badge: 'Pembuat CV Online Gratis dengan AI',
+    title: 'CV profesional Anda',
+    titleHighlight: 'siap dalam hitungan menit',
+    subtitle: '<strong>Pembuat CV online kami</strong> menggunakan AI untuk menulis konten yang efektif, mengoptimalkan untuk ATS, dan membantu Anda mendapatkan lebih banyak panggilan interview. <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% perusahaan besar</a> menggunakan ATS — CV yang teroptimasi adalah keharusan. Tidak perlu kemampuan desain.',
+    ctaPrimary: 'Buat CV saya gratis',
+    ctaSecondary: 'Lihat template',
+    trustBadges: ['Tanpa pendaftaran', 'Tanpa kartu kredit', 'Unduh PDF gratis'],
+  },
+  features: {
+    title: 'Mengapa memilih pembuat CV online kami?',
+    subtitle: 'Lebih dari sekadar template — pembuat CV AI kami membantu menulis konten yang lebih baik dan melewati seleksi ATS.',
+    items: [
+      { feature: 'Penulisan bertenaga AI', description: 'AI secara otomatis menghasilkan pengalaman profesional, ringkasan, dan deskripsi keahlian yang disesuaikan dengan industri dan level pengalaman Anda.' },
+      { feature: 'Template teroptimasi ATS', description: 'Semua template telah diuji dengan sistem ATS terkemuka seperti Workday, Taleo, Greenhouse. Lewati seleksi otomatis dengan percaya diri.' },
+      { feature: 'Unduh PDF', description: 'Unduh CV Anda sebagai PDF dengan satu klik. Tanpa watermark, tanpa biaya — sepenuhnya gratis.' },
+      { feature: 'Siap dalam hitungan menit', description: 'Tidak perlu bergulat dengan halaman kosong. Alur terpandu dan saran AI memungkinkan CV profesional dalam kurang dari 10 menit.' },
+      { feature: 'Penilaian ATS real-time', description: 'Lihat skor ATS CV Anda secara real-time saat menulis. Optimalkan sebelum melamar.' },
+      { feature: '20+ template profesional', description: 'Template untuk setiap industri dan level karier. Semuanya gratis, semuanya kompatibel ATS.' },
+    ],
+    cta: 'Mulai buat CV',
+  },
+  comparison: {
+    title: 'Pembuat CV kami vs. pembuat CV lainnya',
+    subtitle: 'Temukan mengapa pencari kerja memilih pembuat CV AI gratis kami.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Pembuat CV lainnya',
+    rows: [
+      { feature: 'Penulisan AI', ours: 'AI canggih', others: 'Dasar atau tidak ada' },
+      { feature: 'Optimasi ATS', ours: 'Penilaian real-time', others: 'Pengujian terbatas' },
+      { feature: 'Semua template gratis', ours: '20+', others: 'Kebanyakan berbayar' },
+      { feature: 'Unduh PDF gratis', ours: 'Selalu gratis', others: 'Banyak yang berbayar' },
+      { feature: 'Mulai tanpa akun', ours: 'Langsung mulai', others: 'Biasanya wajib' },
+      { feature: 'Kata kunci industri', ours: 'Disarankan AI', others: 'Manual saja' },
+      { feature: 'Beberapa versi', ours: 'Tak terbatas', others: 'Biasanya terbatas' },
+    ],
+  },
+  howItWorks: {
+    title: 'Cara menggunakan pembuat CV',
+    subtitle: 'Buat CV yang mengesankan rekruter dalam 3 langkah sederhana. AI menangani pekerjaan berat.',
+    steps: [
+      { step: 1, title: 'Pilih template', description: 'Pilih dari 20+ template ATS profesional yang sesuai dengan industri Anda.' },
+      { step: 2, title: 'Masukkan informasi Anda', description: 'Tambahkan pengalaman Anda dan biarkan AI menyarankan peningkatan, kata kunci, dan frasa profesional.' },
+      { step: 3, title: 'Unduh dan lamar', description: 'Ekspor CV Anda sebagai PDF dan mulai melamar sekarang.' },
+    ],
+    cta: 'Buat CV profesional',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'CV yang dibuat' },
+      { value: '4.8', label: 'Rating pengguna' },
+      { value: '20+', label: 'Template gratis' },
+      { value: '10 mnt', label: 'Rata-rata waktu pembuatan' },
+    ],
+  },
+  templates: {
+    title: 'Template profesional untuk setiap industri',
+    subtitle: 'Dari desainer kreatif hingga eksekutif — temukan template CV yang sempurna untuk bidang Anda.',
+    styles: ['Software Engineer', 'Manajer Marketing', 'Perawat', 'Manajer Penjualan', 'Analis Data', 'Guru', 'Manajer Proyek', 'Desainer'],
+    cta: 'Lihat semua template',
+  },
+  faq: {
+    title: 'Pertanyaan yang sering diajukan',
+    items: [
+      { question: 'Apakah pembuat CV ini benar-benar gratis?', answer: 'Ya! Pembuat CV AI kami 100% gratis. Buat CV tak terbatas, akses 20+ template profesional, unduh sebagai PDF — tidak perlu kartu kredit atau langganan.' },
+      { question: 'Mengapa ini adalah pembuat CV terbaik?', answer: 'Berbeda dari pembuat CV biasa, kami menggunakan AI untuk menghasilkan pengalaman profesional, mengoptimalkan untuk ATS, dan menyarankan kata kunci khusus industri. Anda mendapatkan CV yang menarik secara visual sekaligus efektif dalam seleksi otomatis.' },
+      { question: 'Bisakah saya mengunduh CV saya sebagai PDF gratis?', answer: 'Tentu saja. Semua CV yang dibuat bisa diunduh sebagai PDF gratis. Tanpa watermark, tanpa biaya tambahan.' },
+      { question: 'Berapa lama membuat CV?', answer: 'Sebagian besar pengguna menyelesaikan CV profesional dalam kurang dari 10 menit. AI menyarankan konten sehingga Anda bisa menghemat waktu untuk lamaran kerja.' },
+      { question: 'Apakah CV yang dibuat kompatibel ATS?', answer: 'Ya. Semua template telah diuji dengan sistem ATS terkemuka (Workday, Taleo, Greenhouse, Lever). Penilaian ATS real-time membantu Anda mengoptimalkan CV sebelum melamar.' },
+      { question: 'Bisakah saya membuat beberapa CV untuk lamaran berbeda?', answer: 'Ya! Anda bisa membuat CV yang disesuaikan sebanyak yang Anda inginkan. Mengoptimalkan CV untuk setiap posisi meningkatkan peluang Anda, dan alat kami membuat ini cepat dan mudah.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Alat CV terkait',
+    items: [
+      { href: '/id/resume-ai', title: 'CV dengan AI', subtitle: 'Pembuat CV bertenaga AI' },
+      { href: '/id/tools/ats-checker', title: 'Cek ATS', subtitle: 'Uji skor ATS Anda' },
+      { href: '/id/free-resume-builder', title: 'CV Gratis', subtitle: 'Pembuat 100% gratis' },
+    ],
+    guidesTitle: 'Panduan berguna',
+    guides: [
+      { href: '/id/blog/how-to-write-a-resume', label: 'Cara membuat CV (panduan 2026)' },
+      { href: '/id/career-tips/how-to-write-ats-friendly-resume', label: 'Cara membuat CV ATS friendly' },
+      { href: '/id/resume-format', label: 'Panduan format CV' },
+      { href: '/id/blog/top-resume-mistakes-to-avoid', label: 'Kesalahan umum dalam CV' },
+    ],
+  },
+  bottomCta: {
+    title: 'Siap membuat CV Anda?',
+    description: 'Lebih dari 2 juta pencari kerja telah membuat CV profesional mereka dengan pembuat CV AI gratis kami.',
+    cta: 'Buat CV gratis saya',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit.',
+  },
+};
+
+const nl: LandingPageContent = {
+  meta: {
+    title: 'CV Maker | Gratis AI CV Maker 2026 | CV Maken Online',
+    description: 'Maak een professioneel cv in minuten met onze gratis AI cv maker. ATS-vriendelijke sjablonen, AI schrijfhulp en direct als pdf downloaden.',
+    keywords: 'cv maker, cv maken, gratis cv maker, ai cv maker, cv builder, cv maken online, cv opstellen, professioneel cv maken',
+  },
+  schemas: {
+    breadcrumbName: 'CV Maker',
+    articleHeadline: 'Gratis CV Maker: AI CV Maken Online 2026',
+    articleDescription: 'Maak een professioneel cv in minuten met onze gratis AI cv maker. ATS-vriendelijke sjablonen, AI schrijfhulp en direct als pdf downloaden.',
+    softwareAppName: 'Best AI CV Maker',
+  },
+  hero: {
+    badge: 'Gratis AI CV Maker',
+    title: 'Maak je professionele cv',
+    titleHighlight: 'in een paar minuten klaar',
+    subtitle: 'Onze gratis <strong>cv maker</strong> gebruikt AI om overtuigende content te schrijven, je cv te optimaliseren voor ATS-systemen en je meer sollicitatie-uitnodigingen te bezorgen. <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% van de grote werkgevers</a> gebruikt ATS-software — een geoptimaliseerd cv is onmisbaar. Geen ontwerpkennis vereist.',
+    ctaPrimary: 'Maak mijn cv gratis',
+    ctaSecondary: 'Bekijk sjablonen',
+    trustBadges: ['Geen account nodig', 'Geen creditcard', 'Gratis pdf downloaden'],
+  },
+  features: {
+    title: 'Waarom onze gratis cv maker kiezen?',
+    subtitle: 'Meer dan alleen een sjabloon — onze AI cv maker helpt je betere content te schrijven en door ATS-selectie heen te komen.',
+    items: [
+      { feature: 'AI schrijfassistentie', description: 'Onze AI schrijft professionele bullet points, samenvattingen en vaardigheidsbeschrijvingen die zijn afgestemd op jouw branche en ervaringsniveau.' },
+      { feature: 'ATS-geoptimaliseerde sjablonen', description: 'Elk sjabloon is getest op de grote ATS-systemen zoals Workday, Taleo en Greenhouse. Jouw cv passeert de selectiefilters.' },
+      { feature: 'Direct pdf downloaden', description: 'Download je voltooide cv als verzorgde pdf met één klik. Geen watermerken, geen betaalmuur — volledig gratis.' },
+      { feature: 'In enkele minuten klaar', description: 'Geen blanco-pagina-angst meer. Onze begeleide workflow en AI-suggesties helpen je een volledig cv te maken in minder dan 10 minuten.' },
+      { feature: 'Real-time ATS-score', description: 'Zie hoe je cv scoort op ATS-vereisten terwijl je typt. Optimaliseer voordat je solliciteert.' },
+      { feature: '20+ professionele sjablonen', description: 'Kies uit professioneel ontworpen sjablonen voor elke branche en elk carrièreniveau. Allemaal gratis, allemaal ATS-vriendelijk.' },
+    ],
+    cta: 'Begin nu met cv maken',
+  },
+  comparison: {
+    title: 'Onze cv maker vs. de concurrentie',
+    subtitle: 'Ontdek waarom werkzoekenden kiezen voor onze gratis AI cv maker.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Andere cv makers',
+    rows: [
+      { feature: 'AI schrijfassistentie', ours: 'Volwaardige AI', others: 'Beperkt of geen' },
+      { feature: 'ATS-optimalisatie', ours: 'Real-time score', others: 'Beperkte controle' },
+      { feature: 'Alle sjablonen gratis', ours: '20+ sjablonen', others: 'Meeste betaald' },
+      { feature: 'Gratis pdf downloaden', ours: 'Altijd gratis', others: 'Vaak betaalmuur' },
+      { feature: 'Geen account nodig', ours: 'Direct starten', others: 'Meestal verplicht' },
+      { feature: 'Branchezoekwoorden', ours: 'AI-suggesties', others: 'Handmatig' },
+      { feature: 'Meerdere versies', ours: 'Onbeperkt', others: 'Vaak beperkt' },
+    ],
+  },
+  howItWorks: {
+    title: 'Hoe onze cv maker werkt',
+    subtitle: 'Maak een cv dat sollicitaties wint in drie eenvoudige stappen. De AI doet het zware werk.',
+    steps: [
+      { step: 1, title: 'Kies een sjabloon', description: 'Kies uit 20+ ATS-vriendelijke professionele sjablonen die zijn ontworpen voor jouw branche.' },
+      { step: 2, title: 'Voeg je gegevens in', description: 'Vul je ervaring in en laat de AI verbeteringen, zoekwoorden en professionele formuleringen voorstellen.' },
+      { step: 3, title: 'Downloaden en solliciteren', description: 'Exporteer je verzorgde cv als pdf en begin meteen met solliciteren.' },
+    ],
+    cta: 'Maak professioneel cv',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: "CV's aangemaakt" },
+      { value: '4.8', label: 'Gebruikersbeoordeling' },
+      { value: '20+', label: 'Gratis sjablonen' },
+      { value: '10 min', label: 'Gem. bouwtijd' },
+    ],
+  },
+  templates: {
+    title: 'Professionele sjablonen voor elke carrière',
+    subtitle: 'Van creatieve ontwerpers tot directeuren — vind het perfecte cv-sjabloon voor jouw branche.',
+    styles: ['Software Engineer', 'Marketingmanager', 'Verpleegkundige', 'Salesmanager', 'Data Analist', 'Leraar', 'Projectmanager', 'Ontwerper'],
+    cta: 'Bekijk alle sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde vragen',
+    items: [
+      { question: 'Is deze cv maker echt gratis?', answer: 'Ja! Onze AI cv maker is 100% gratis te gebruiken. Maak onbeperkt cv\'s, gebruik alle 20+ professionele sjablonen en download je cv als pdf — geen creditcard of abonnement vereist.' },
+      { question: 'Wat maakt dit de beste cv maker?', answer: 'In tegenstelling tot generieke cv makers gebruikt onze tool AI om professionele bullet points te schrijven, je content te optimaliseren voor ATS-systemen en branchespecifieke zoekwoorden voor te stellen. Je krijgt een cv dat er goed uitziet én de automatische selectie doorstaat.' },
+      { question: 'Kan ik mijn cv gratis als pdf downloaden?', answer: 'Absoluut. Elk cv dat je maakt, kan worden gedownload als een verzorgde, ATS-vriendelijke pdf zonder kosten. Geen watermerken, geen betaalmuur.' },
+      { question: 'Hoe lang duurt het om een cv te maken?', answer: 'De meeste gebruikers maken een professioneel cv in minder dan 10 minuten. Onze AI vult alvast contentvoorstellen in, zodat je minder tijd kwijt bent aan het staren naar een leeg scherm en meer tijd hebt om te solliciteren.' },
+      { question: 'Is mijn cv ATS-compatibel?', answer: 'Ja. Elk sjabloon in onze cv maker is getest op de grote ATS-systemen (Workday, Taleo, Greenhouse, Lever). Onze real-time ATS-score helpt je cv te optimaliseren voordat je het instuurt.' },
+      { question: 'Kan ik meerdere cv\'s maken voor verschillende vacatures?', answer: 'Ja! Maak zoveel op maat gemaakte cv\'s als je nodig hebt. Veel werkzoekenden passen hun cv aan voor elke sollicitatie — onze cv maker maakt dit snel en eenvoudig.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Gerelateerde cv-tools',
+    items: [
+      { href: '/nl/resume-ai', title: 'CV met AI', subtitle: 'AI-gedreven cv maker' },
+      { href: '/nl/tools/ats-checker', title: 'ATS Checker', subtitle: 'Test je ATS-score' },
+      { href: '/nl/free-resume-builder', title: 'Gratis CV Maker', subtitle: '100% gratis cv maken' },
+    ],
+    guidesTitle: 'Handige gidsen',
+    guides: [
+      { href: '/nl/blog/how-to-write-a-resume', label: 'Hoe schrijf je een cv (gids 2026)' },
+      { href: '/nl/career-tips/how-to-write-ats-friendly-resume', label: 'Hoe maak je een ATS-vriendelijk cv' },
+      { href: '/nl/resume-format', label: 'CV-format gids' },
+      { href: '/nl/blog/top-resume-mistakes-to-avoid', label: 'Veelgemaakte fouten in een cv' },
+    ],
+  },
+  bottomCta: {
+    title: 'Klaar om je cv te maken?',
+    description: 'Meer dan 2 miljoen werkzoekenden hebben hun professionele cv gemaakt met onze gratis AI cv maker.',
+    cta: 'Maak mijn cv gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

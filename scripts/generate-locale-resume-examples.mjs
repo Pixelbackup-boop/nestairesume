@@ -28,8 +28,8 @@ const LANG = args[langIdx + 1];
 const DRY_RUN = args.includes('--dry-run');
 const limitArg = args.includes('--limit') ? parseInt(args[args.indexOf('--limit') + 1], 10) : null;
 
-if (!['fr', 'de', 'ar', 'ja', 'it', 'ko', 'th', 'vi', 'pt', 'tr'].includes(LANG)) {
-  console.error(`Unsupported language: ${LANG}. Use fr, de, ar, ja, it, ko, th, vi, pt, or tr.`);
+if (!['fr', 'de', 'ar', 'ja', 'it', 'ko', 'th', 'vi', 'pt', 'tr', 'id', 'nl', 'pl'].includes(LANG)) {
+  console.error(`Unsupported language: ${LANG}. Use fr, de, ar, ja, it, ko, th, vi, pt, tr, id, nl, or pl.`);
   process.exit(1);
 }
 

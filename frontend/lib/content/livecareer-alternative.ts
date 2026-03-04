@@ -1477,5 +1477,359 @@ const tr: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif LiveCareer 2026: Pembuat CV AI Gratis | Best AI Resume',
+    description: 'Cari alternatif LiveCareer gratis? Bandingkan LiveCareer vs Best AI Resume Builder — penulisan AI, template ATS, unduhan tak terbatas. Tanpa biaya tersembunyi.',
+    keywords: 'alternatif livecareer, livecareer vs best ai resume, pembuat cv gratis alternatif livecareer, cv builder gratis indonesia',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif LiveCareer',
+    articleHeadline: 'Alternatif LiveCareer 2026: Pembuat CV AI Gratis Tanpa Biaya Tersembunyi',
+    articleDescription: 'Bandingkan LiveCareer vs Best AI Resume Builder. Dapatkan penulisan AI, optimasi ATS, dan unduhan tak terbatas sepenuhnya gratis.',
+  },
+  hero: {
+    badge: 'Alternatif LiveCareer',
+    title: 'Buat CV Anda.',
+    titleHighlight: 'Unduh Gratis.',
+    subtitle: 'LiveCareer memungkinkan Anda membuat CV — lalu memungut biaya untuk mengunduhnya. Dapatkan penulisan AI, template ATS, dan ekspor tak terbatas seharga <strong>Rp 0</strong>.',
+    ctaPrimary: 'Buat CV Saya Gratis',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah dengan LiveCareer',
+    description: 'LiveCareer memiliki template profesional dan saran konten yang berguna. Masalahnya ada di model harganya: Anda baru mengetahui biaya unduhan setelah menyelesaikan seluruh CV. Banyak pengguna melaporkan biaya tak terduga di situs ulasan.',
+    stats: [
+      { value: '$2.70', label: 'Masa percobaan (perpanjang otomatis ke $23.70/bln)' },
+      { value: '$284', label: 'Biaya tahunan jika lupa membatalkan' },
+      { value: 'Rp 0', label: 'Best AI Resume Builder — gratis selamanya' },
+    ],
+  },
+  comparison: {
+    title: 'Perbandingan LiveCareer vs Best AI Resume Builder',
+    subtitle: 'Perbandingan fitur secara berdampingan.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Berbayar untuk mengunduh', ours: '✅ 100% gratis selamanya' },
+      { feature: 'Unduhan Gratis', competitor: '❌ Perlu bayar untuk PDF', ours: '✅ Unduhan PDF gratis tak terbatas' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Saran terbatas', ours: '✅ Konten yang dibuat AI sepenuhnya' },
+      { feature: 'Optimasi ATS', competitor: '✅ Pemeriksaan dasar', ours: '✅ Skor ATS real-time + kata kunci' },
+      { feature: 'Kualitas Template', competitor: '✅ Desain profesional', ours: '✅ 20+ template yang diuji ATS' },
+      { feature: 'Jumlah CV', competitor: '⚠️ Terbatas di paket gratis', ours: '✅ CV tak terbatas, gratis' },
+      { feature: 'Pembuat Surat Lamaran', competitor: '✅ Tersedia (paket berbayar)', ours: '✅ Bertenaga AI (gratis)' },
+      { feature: 'Saran Konten', competitor: '✅ Frasa yang ditulis sebelumnya', ours: '✅ Adaptasi AI berdasarkan pengalaman Anda' },
+      { feature: 'Pembatalan', competitor: '❌ Harus dibatalkan sebelum masa percobaan', ours: '✅ Tidak ada yang perlu dibatalkan' },
+      { feature: 'Ulasan Pengguna', competitor: '⚠️ Campuran — keluhan penagihan umum', ours: '✅ Tidak mungkin ada masalah penagihan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Alasan Beralih dari LiveCareer',
+    subtitle: 'Benar-benar gratis. AI lebih baik. Tanpa jebakan.',
+    reasons: [
+      { title: 'Unduhan Benar-benar Gratis', description: 'LiveCareer meminta bayaran setelah Anda selesai membuat CV. Di sini, Anda bisa mengunduh apapun yang Anda buat secara instan dan gratis — tidak ada percobaan, kartu kredit, atau perpanjangan otomatis.' },
+      { title: 'AI Nyata (Bukan Frasa yang Ditulis Sebelumnya)', description: 'Saran LiveCareer didasarkan pada pustaka frasa yang telah ditulis sebelumnya. AI kami menghasilkan konten yang benar-benar disesuaikan untuk setiap bagian CV.' },
+      { title: 'Optimasi ATS Lebih Baik', description: 'Dibandingkan fitur ATS dasar LiveCareer, kami menawarkan penilaian ATS real-time, saran kata kunci spesifik industri, dan template yang diuji untuk sistem yang umum digunakan di Indonesia.' },
+    ],
+  },
+  recommendation: {
+    title: 'Rekomendasi Jujur',
+    useCompetitor: {
+      title: 'Gunakan LiveCareer jika...',
+      items: [
+        'Anda bersedia membayar untuk fitur tertentu yang dimiliki LiveCareer',
+        'Anda lebih suka antarmuka spesifik LiveCareer',
+        'Anda membutuhkan fitur tertentu yang hanya ada di LiveCareer',
+        'Anda menginginkan dukungan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Gunakan Best AI Resumes jika...',
+      items: [
+        'Anda ingin membuat dan mengunduh CV secara gratis',
+        'Anda membutuhkan AI canggih untuk membantu menulis konten',
+        'Anda ingin penilaian ATS real-time saat membuat CV',
+        'Anda tidak ingin berurusan dengan langganan atau perpanjangan otomatis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Jelajahi 300+ Contoh CV Gratis',
+    description: 'Contoh CV profesional untuk setiap industri dan level karier.',
+    ctaBrowse: 'Lihat Contoh CV',
+    ctaTemplates: 'Lihat Semua Template',
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      { question: 'Apakah LiveCareer gratis?', answer: 'LiveCareer mengizinkan pembuatan CV gratis tetapi mengenakan biaya untuk mengunduh. Best AI Resume Builder 100% gratis — buat dan unduh CV tak terbatas tanpa kartu kredit.' },
+      { question: 'Mengapa LiveCareer mengenakan biaya untuk mengunduh?', answer: 'Model bisnis LiveCareer adalah "freemium" — proses pembuatan gratis untuk menarik pengguna, tetapi monetisasi terjadi saat mengunduh. Best AI Resume Builder transparan: semuanya gratis, tanpa kejutan.' },
+      { question: 'Apa alternatif gratis terbaik untuk LiveCareer?', answer: 'Best AI Resume Builder adalah alternatif gratis terbaik. Kami menawarkan semua yang ada di balik paywall LiveCareer — template profesional, ekspor PDF, surat lamaran — ditambah penulisan AI dan optimasi ATS.' },
+      { question: 'Apakah LiveCareer memiliki penulisan AI?', answer: 'LiveCareer memiliki beberapa saran konten, tetapi bukan penulisan AI yang sebenarnya. Best AI Resume Builder menggunakan AI canggih untuk menghasilkan pengalaman profesional, ringkasan, dan kata kunci yang dipersonalisasi.' },
+      { question: 'Bagaimana cara membatalkan LiveCareer?', answer: 'Untuk membatalkan LiveCareer, akses pengaturan akun sebelum masa percobaan berakhir. Best AI Resume Builder tidak memerlukan langganan — tidak ada yang perlu dibatalkan. Cukup gunakan platform secara gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat CV Lainnya',
+    items: [
+      { href: '/id/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs modern' },
+      { href: '/id/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga' },
+      { href: '/id/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat desain vs AI' },
+      { href: '/id/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan fitur AI' },
+    ],
+    guidesTitle: 'Panduan CV yang Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glassdoor.co.id/', label: 'Glassdoor Indonesia — Gaji dan Peluang Karier' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat CV yang Benar-benar Gratis.',
+    description: 'Tanpa jebakan harga, tanpa perpanjangan otomatis. Hanya pembuat CV bertenaga AI — 100% gratis selamanya.',
+    cta: 'Buat CV Saya Gratis',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa kejutan.',
+  },
+};
+
+const pl: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatywa LiveCareer 2026: Darmowy Kreator CV AI | Best AI Resume',
+    description: 'Szukasz darmowej alternatywy dla LiveCareer? Porównaj LiveCareer vs Best AI Resume — kreator CV z AI, szablony ATS, nieograniczone pobieranie. Bez ukrytych kosztów.',
+    keywords: 'alternatywa livecareer, livecareer cv, kreator cv za darmo, szablon cv, cv ai polska, darmowy kreator cv, livecareer darmowy',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatywa LiveCareer',
+    articleHeadline: 'Alternatywa LiveCareer 2026: Darmowy Kreator CV z AI Bez Ukrytych Kosztów',
+    articleDescription: 'Porównaj LiveCareer vs Best AI Resume Builder. Twórz profesjonalne CV z pomocą AI, optymalizacją ATS i nieograniczonym pobieraniem — całkowicie za darmo.',
+  },
+  hero: {
+    badge: 'Alternatywa LiveCareer',
+    title: 'Twórz CV.',
+    titleHighlight: 'Pobieraj Za Darmo.',
+    subtitle: 'LiveCareer pozwala tworzyć CV — ale potem żąda płatności za pobranie. Oferujemy pisanie z pomocą AI, szablony CV ATS i nieograniczone eksporty za <strong>0 zł</strong>.',
+    ctaPrimary: 'Utwórz Moje CV Za Darmo',
+    ctaSecondary: 'Zobacz Porównanie',
+  },
+  problem: {
+    title: 'Problem z Cenami LiveCareer',
+    description: 'LiveCareer ma profesjonalne szablony i przydatne sugestie treści. Problem tkwi w ich modelu cenowym: budujesz pełne CV, a dopiero potem odkrywasz, że musisz zapłacić za pobranie. Wielu użytkowników na portalach z recenzjami zgłasza nieoczekiwane opłaty po zapomnieniu o anulowaniu subskrypcji.',
+    stats: [
+      { value: '$2,70', label: '14-dniowy okres próbny (automatyczne odnowienie za $23,70/mies.)' },
+      { value: '$284', label: 'roczny koszt, jeśli zapomnisz anulować' },
+      { value: '0 zł', label: 'Best AI Resume Builder — darmowy na zawsze' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: 'Porównanie funkcja po funkcji.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Cena', competitor: '❌ Płatność wymagana do pobrania', ours: '✅ 100% darmowy na zawsze' },
+      { feature: 'Darmowe Pobieranie', competitor: '❌ Płatność za PDF', ours: '✅ Nieograniczone darmowe eksporty PDF' },
+      { feature: 'Pisanie z AI', competitor: '⚠️ Ograniczone sugestie', ours: '✅ AI tworzy spersonalizowaną treść CV' },
+      { feature: 'Optymalizacja ATS', competitor: '✅ Podstawowa kontrola', ours: '✅ Wynik ATS w czasie rzeczywistym + słowa kluczowe' },
+      { feature: 'Jakość Szablonów', competitor: '✅ Profesjonalne projekty', ours: '✅ 20+ testowanych szablonów ATS' },
+      { feature: 'Liczba CV', competitor: '⚠️ Ograniczona na planie darmowym', ours: '✅ Nieograniczone CV, za darmo' },
+      { feature: 'Kreator Listu Motywacyjnego', competitor: '✅ Dostępny (płatna subskrypcja)', ours: '✅ Wspomagany AI (darmowy)' },
+      { feature: 'Sugestie Treści', competitor: '✅ Gotowe zdania', ours: '✅ AI dostosowane do Twojego doświadczenia' },
+      { feature: 'Anulowanie', competitor: '❌ Trzeba anulować przed końcem okresu próbnego', ours: '✅ Nic do anulowania' },
+      { feature: 'Opinie Użytkowników', competitor: '⚠️ Mieszane — skargi na fakturowanie', ours: '✅ Brak problemów z fakturowaniem' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Powody, by Przejść z LiveCareer',
+    subtitle: 'Naprawdę za darmo. Lepsza AI. Bez pułapek.',
+    reasons: [
+      { title: 'Naprawdę Darmowe Pobieranie', description: 'LiveCareer pobiera opłatę po stworzeniu CV. U nas pobierasz wszystko bezpłatnie — bez okresu próbnego, bez karty kredytowej, bez automatycznego odnowienia.' },
+      { title: 'Prawdziwa AI (Nie Gotowe Zdania)', description: 'Sugestie LiveCareer opierają się na bibliotekach gotowych zdań. Nasza AI generuje naprawdę spersonalizowaną treść dla każdej sekcji CV, dostosowaną do polskiego rynku pracy.' },
+      { title: 'Lepsza Optymalizacja ATS', description: 'W porównaniu z podstawowymi funkcjami ATS LiveCareer, oferujemy wyniki ATS w czasie rzeczywistym, sugestie słów kluczowych dla branży i szablony testowane pod systemy używane na polskim rynku pracy.' },
+    ],
+  },
+  recommendation: {
+    title: 'Uczciwa Rekomendacja',
+    useCompetitor: {
+      title: 'LiveCareer jest odpowiedni, jeśli...',
+      items: [
+        'Jesteś gotowy zapłacić za określone funkcje LiveCareer',
+        'Preferujesz specyficzny interfejs LiveCareer',
+        'Potrzebujesz funkcji dostępnych wyłącznie w LiveCareer',
+        'Chcesz płatną obsługę klienta',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes jest lepszy, jeśli...',
+      items: [
+        'Chcesz tworzyć i pobierać CV za darmo',
+        'Potrzebujesz zaawansowanej AI do pisania treści',
+        'Chcesz wyników ATS w czasie rzeczywistym podczas tworzenia CV',
+        'Nie chcesz kłopotów z subskrypcjami i automatycznym odnowieniem',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Przeglądaj 300+ Darmowych Wzorów CV',
+    description: 'Profesjonalne wzory CV dla każdej branży i poziomu kariery.',
+    ctaBrowse: 'Przeglądaj Wzory CV',
+    ctaTemplates: 'Przeglądaj Wszystkie Szablony',
+  },
+  faq: {
+    title: 'Najczęściej Zadawane Pytania',
+    items: [
+      { question: 'Czy LiveCareer jest darmowy?', answer: 'LiveCareer pozwala tworzyć CV za darmo, ale pobiera opłaty za pobranie. Best AI Resume Builder jest w 100% darmowy — twórz i pobieraj nieograniczone CV bez karty kredytowej.' },
+      { question: 'Dlaczego LiveCareer pobiera opłaty za pobieranie?', answer: 'Model biznesowy LiveCareer to "freemium" — proces tworzenia jest darmowy, aby przyciągnąć użytkowników, ale monetyzacja następuje przy pobieraniu. Best AI Resume Builder jest transparentny: wszystko jest darmowe, bez niespodzianek.' },
+      { question: 'Jaka jest najlepsza darmowa alternatywa dla LiveCareer?', answer: 'Best AI Resume Builder to najlepsza darmowa alternatywa. Oferujemy wszystko, co kryje się za paywallem LiveCareer — profesjonalne szablony, eksporty PDF, listy motywacyjne — plus pisanie z AI i optymalizację ATS.' },
+      { question: 'Czy LiveCareer ma funkcje AI?', answer: 'LiveCareer ma pewne sugestie treści, ale bez prawdziwych funkcji pisania AI. Best AI Resume Builder używa zaawansowanej AI do generowania profesjonalnych opisów pracy, podsumowań i spersonalizowanych słów kluczowych.' },
+      { question: 'Jak anulować LiveCareer?', answer: 'Aby anulować LiveCareer, przejdź do ustawień konta przed końcem okresu próbnego. Best AI Resume Builder nie wymaga subskrypcji — nie ma nic do anulowania. Po prostu korzystaj z platformy za darmo.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Porównaj Inne Kreatory CV',
+    items: [
+      { href: '/pl/resume-io-alternative', title: 'Alternatywa Resume.io', subtitle: 'Porównanie cen i funkcji' },
+      { href: '/pl/canva-alternative', title: 'Alternatywa Canva', subtitle: 'Narzędzie do projektowania vs kreator CV AI' },
+      { href: '/pl/rezi-alternative', title: 'Alternatywa Rezi', subtitle: 'Porównanie funkcji AI' },
+      { href: '/pl/zety-alternative', title: 'Alternatywa Zety', subtitle: 'Porównanie cen' },
+    ],
+    guidesTitle: 'Przydatne Poradniki CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Zewnętrzne Zasoby',
+    items: [
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+      { href: 'https://www.glassdoor.pl/', label: 'Glassdoor Polska — Zarobki i oferty pracy' },
+    ],
+  },
+  bottomCta: {
+    title: 'Naprawdę Darmowy Kreator CV.',
+    description: 'Bez pułapek cenowych, bez automatycznych odnowień. Tylko kreator CV wspomagany AI — 100% darmowy na zawsze.',
+    cta: 'Utwórz Moje CV Za Darmo',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej. Bez niespodzianek.',
+  },
+};
+
+const nl: ComparisonPageContent = {
+  meta: {
+    title: 'LiveCareer Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
+    description: 'Op zoek naar een gratis LiveCareer alternatief? Vergelijk LiveCareer vs Best AI Resume Builder — AI cv schrijven, ATS cv sjablonen, onbeperkt downloaden. Geen verborgen kosten.',
+    keywords: 'livecareer alternatief, livecareer cv maken, gratis cv sjabloon, cv maken gratis, cv builder nederland, alternatief voor livecareer',
+  },
+  schemas: {
+    breadcrumbName: 'LiveCareer Alternatief',
+    articleHeadline: 'LiveCareer Alternatief 2026: Gratis CV Maken met AI Zonder Verborgen Kosten',
+    articleDescription: 'Vergelijk LiveCareer vs Best AI Resume Builder. Maak een professioneel cv met AI, ATS-optimalisatie en onbeperkt downloaden — volledig gratis.',
+  },
+  hero: {
+    badge: 'LiveCareer Alternatief',
+    title: 'Maak Je CV.',
+    titleHighlight: 'Download Gratis.',
+    subtitle: 'LiveCareer laat je een cv maken — maar vraagt daarna betaling om het te downloaden. Wij bieden AI-schrijven, ATS cv sjablonen en onbeperkte exports voor <strong>€0</strong>.',
+    ctaPrimary: 'Maak Mijn CV Gratis',
+    ctaSecondary: 'Bekijk de Vergelijking',
+  },
+  problem: {
+    title: 'Het LiveCareer Prijsprobleem',
+    description: 'LiveCareer heeft professionele sjablonen en handige inhoudssuggesties. Het probleem is hun prijsmodel: je bouwt je volledige cv voordat je ontdekt dat je moet betalen om het te downloaden. Veel gebruikers op reviewsites melden onverwachte kosten na het vergeten te annuleren.',
+    stats: [
+      { value: '$2,70', label: '14-daagse proef (automatische verlenging naar $23,70/mnd)' },
+      { value: '$284', label: 'jaarlijkse kosten als je vergeet te annuleren' },
+      { value: '€0', label: 'Best AI Resume Builder — voor altijd gratis' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: 'Functie-voor-functie vergelijking.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prijs', competitor: '❌ Betalen vereist voor download', ours: '✅ 100% gratis voor altijd' },
+      { feature: 'Gratis Downloaden', competitor: '❌ Betaling vereist voor PDF', ours: '✅ Onbeperkt gratis PDF exporteren' },
+      { feature: 'AI Schrijven', competitor: '⚠️ Beperkte suggesties', ours: '✅ AI genereert volledig op maat gemaakte inhoud' },
+      { feature: 'ATS-optimalisatie', competitor: '✅ Basiscontrole', ours: '✅ Realtime ATS-score + zoekwoorden' },
+      { feature: 'Sjabloenkwaliteit', competitor: '✅ Professionele ontwerpen', ours: '✅ 20+ ATS-geteste cv sjablonen' },
+      { feature: 'Aantal CV\'s', competitor: '⚠️ Beperkt op gratis plan', ours: '✅ Onbeperkt cv\'s maken, gratis' },
+      { feature: 'Motivatiebriefbouwer', competitor: '✅ Beschikbaar (betaald abonnement)', ours: '✅ AI-aangedreven (gratis)' },
+      { feature: 'Inhoudssuggesties', competitor: '✅ Vooraf geschreven zinnen', ours: '✅ AI afgestemd op jouw werkervaring' },
+      { feature: 'Annuleren', competitor: '❌ Moet annuleren voor einde proefperiode', ours: '✅ Niets te annuleren' },
+      { feature: 'Gebruikersreviews', competitor: '⚠️ Gemengd — factureringklachten komen voor', ours: '✅ Geen factureringsproblemen mogelijk' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Redenen om over te stappen van LiveCareer',
+    subtitle: 'Echt gratis. Betere AI. Geen valkuilen.',
+    reasons: [
+      { title: 'Echt Gratis Downloaden', description: 'LiveCareer vraagt betaling nadat je je cv hebt afgemaakt. Hier download je alles wat je maakt direct en gratis — geen proefperiode, geen creditcard, geen automatische verlenging.' },
+      { title: 'Echte AI (Geen Vooraf Geschreven Zinnen)', description: 'De suggesties van LiveCareer zijn gebaseerd op vooraf geschreven zinsbibliotheken. Onze AI genereert echt op maat gemaakte inhoud voor elk onderdeel van je cv, afgestemd op de Nederlandse arbeidsmarkt.' },
+      { title: 'Betere ATS-optimalisatie', description: 'Vergeleken met de basis-ATS-functies van LiveCareer bieden wij realtime ATS-scores, branchespecifieke zoekwoordsuggesties en sjablonen getest voor systemen die op de Nederlandse arbeidsmarkt worden gebruikt.' },
+    ],
+  },
+  recommendation: {
+    title: 'Eerlijke Aanbeveling',
+    useCompetitor: {
+      title: 'LiveCareer is geschikt als je...',
+      items: [
+        'Bereid bent te betalen voor bepaalde functies van LiveCareer',
+        'De voorkeur geeft aan de specifieke interface van LiveCareer',
+        'Bepaalde functies nodig hebt die alleen in LiveCareer beschikbaar zijn',
+        'Betaalde klantenondersteuning wilt',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes is beter als je...',
+      items: [
+        'Je cv gratis wilt maken en downloaden',
+        'Geavanceerde AI nodig hebt om inhoud te schrijven',
+        'Realtime ATS-scores wilt tijdens het maken van je cv',
+        'Geen gedoe wilt met abonnementen of automatische verlengingen',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Bekijk 300+ Gratis CV Voorbeelden',
+    description: 'Professionele cv voorbeelden voor elke sector en carriereniveau.',
+    ctaBrowse: 'Bekijk CV Voorbeelden',
+    ctaTemplates: 'Bekijk Alle Sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      { question: 'Is LiveCareer gratis?', answer: 'LiveCareer laat je gratis een cv maken maar rekent kosten voor downloaden. Best AI Resume Builder is 100% gratis — maak en download onbeperkt cv\'s zonder creditcard.' },
+      { question: 'Waarom rekent LiveCareer kosten voor downloaden?', answer: 'Het businessmodel van LiveCareer is "freemium" — het maakproces is gratis om gebruikers aan te trekken, maar monetisatie vindt plaats bij het downloaden. Best AI Resume Builder is transparant: alles is gratis, geen verrassingen.' },
+      { question: 'Wat is het beste gratis alternatief voor LiveCareer?', answer: 'Best AI Resume Builder is het beste gratis alternatief. Wij bieden alles wat achter de betaalmuur van LiveCareer zit — professionele sjablonen, PDF-exports, sollicitatiebrieven — plus AI-schrijven en ATS-optimalisatie.' },
+      { question: 'Heeft LiveCareer AI-functies?', answer: 'LiveCareer heeft enkele inhoudssuggesties, maar geen echte AI-schrijffuncties. Best AI Resume Builder gebruikt geavanceerde AI om professionele werkervaring, samenvattingen en gepersonaliseerde zoekwoorden te genereren.' },
+      { question: 'Hoe annuleer ik LiveCareer?', answer: 'Om LiveCareer te annuleren, ga naar je accountinstellingen voor het einde van de proefperiode. Best AI Resume Builder vereist geen abonnement — er is niets te annuleren. Gebruik het platform gewoon gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Vergelijk Andere CV Bouwers',
+    items: [
+      { href: '/nl/resume-io-alternative', title: 'Resume.io Alternatief', subtitle: 'Prijs- en functievergelijking' },
+      { href: '/nl/canva-alternative', title: 'Canva Alternatief', subtitle: 'Ontwerptool vs AI cv maker' },
+      { href: '/nl/rezi-alternative', title: 'Rezi Alternatief', subtitle: 'AI-functies vergelijking' },
+      { href: '/nl/zety-alternative', title: 'Zety Alternatief', subtitle: 'Prijsvergelijking' },
+    ],
+    guidesTitle: 'Handige CV Gidsen',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://www.uwv.nl/', label: 'UWV — Uitvoeringsinstituut Werknemersverzekeringen' },
+      { href: 'https://www.glassdoor.nl/', label: 'Glassdoor Nederland — Salarissen en Vacatures' },
+    ],
+  },
+  bottomCta: {
+    title: 'Echte Gratis CV Bouwer.',
+    description: 'Geen prijsvalkuilen, geen automatische verlengingen. Gewoon een AI-aangedreven cv maker — 100% gratis voor altijd.',
+    cta: 'Maak Mijn CV Gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard. Geen verrassingen.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

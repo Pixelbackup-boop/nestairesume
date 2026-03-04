@@ -1199,7 +1199,295 @@ const tr: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Tentang Kami',
+      title: 'Membangun masa depan',
+      titleHighlight: 'kesuksesan profesional',
+      subtitle: 'Best AI Resume hadir dengan misi membantu pencari kerja di seluruh dunia membuat CV profesional yang kompatibel ATS, membuka pintu menuju karier impian mereka.',
+    },
+    story: {
+      badge: 'Cerita Kami',
+      heading: 'Mengapa kami membangun Best AI Resume',
+      p1: 'Kami menyadari bahwa banyak profesional berbakat diabaikan hanya karena CV mereka tidak bisa lolos sistem seleksi otomatis. Proses pembuatan CV tradisional memakan waktu, membuat frustrasi, dan seringkali menghasilkan dokumen yang tidak mencerminkan potensi nyata kandidat.',
+      p2: 'Itulah mengapa kami membangun Best AI Resume — platform yang menggabungkan kekuatan kecerdasan buatan dengan desain yang elegan dan profesional. Tujuan kami sederhana: membantu setiap kandidat mempresentasikan diri mereka sebaik mungkin kepada calon pemberi kerja.',
+      p3: 'Hingga kini, kami telah membantu lebih dari 50.000 profesional menemukan pekerjaan impian mereka; membuat CV yang menonjol dan berhasil melewati filter ATS.',
+    },
+    stats: [
+      { value: '50K+', label: 'CV yang Dibuat' },
+      { value: '98%', label: 'Tingkat Lolos ATS' },
+      { value: '20+', label: 'Template' },
+      { value: '4.9', label: 'Rating Pengguna' },
+    ],
+    values: {
+      badge: 'Nilai-Nilai Kami',
+      heading: 'Yang mendorong kami setiap hari',
+      cards: [
+        { title: 'Privasi Pertama', text: 'Data Anda adalah milik Anda. Kami menyimpan data CV Anda secara lokal di browser, bukan di server kami. Hanya kredensial akun Anda yang kami simpan dengan aman.' },
+        { title: 'Inovasi', text: 'Kami menggunakan teknologi AI terdepan untuk membantu Anda menulis konten yang efektif, menonjolkan pencapaian, dan menarik perhatian rekruter.' },
+        { title: 'Aksesibilitas', text: 'Alat CV profesional seharusnya tidak tersembunyi di balik langganan mahal. Kami menyediakan fitur-fitur hebat yang bisa diakses semua orang.' },
+      ],
+    },
+    experts: {
+      badge: 'Keahlian Terpercaya',
+      heading: 'Temukan Pakar Karier Kami',
+      subtitle: 'Tim kami yang terdiri dari pelatih karier, rekruter, dan profesional industri memberikan keahlian mendalam pada panduan CV yang mereka tulis.',
+    },
+    editorial: {
+      heading: 'Standar Editorial Kami',
+      items: [
+        { title: 'Saran Berbasis Data', text: 'Setiap tips yang kami bagikan telah diuji pada sistem ATS nyata dan divalidasi oleh profesional industri.' },
+        { title: 'Pendekatan Human-First', text: 'Kami percaya AI harus memperkuat, bukan menggantikan. Kami mengutamakan strategi yang benar-benar berdampak pada rekruter nyata.' },
+      ],
+    },
+    commitment: {
+      heading: 'Komitmen Kami kepada Anda',
+      p1: 'Di Best AI Resume, kami percaya bahwa perjalanan karier itu personal. Itulah mengapa kami membangun platform yang menghormati privasi Anda dan memberikan alat yang kuat untuk meraih kesuksesan. Data CV Anda tetap ada di perangkat Anda — Anda memiliki kendali penuh atas informasi Anda.',
+      p2: 'Kami terus meningkatkan algoritma AI kami, menambahkan template baru, dan mengembangkan fitur berdasarkan umpan balik pengguna. Kesuksesan Anda adalah kesuksesan kami, dan kami berkomitmen untuk selalu mendampingi Anda.',
+    },
+    cta: {
+      title: 'Siap bergabung dengan:',
+      titleHighlight: '50.000+ kisah sukses?',
+      subtitle: 'Mulai buat CV profesional Anda hari ini dan ambil langkah pertama menuju karier impian Anda.',
+      button: 'Mulai Gratis',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Penulis Ahli Kami | Best AI Resume',
+      description: 'Kenali para pakar karier, rekruter, dan pelatih di balik panduan CV kami. Penulis kami membawa pengalaman rekrutmen nyata untuk membantu Anda menemukan pekerjaan impian.',
+      ogDescription: 'Kenali para pakar karier, rekruter, dan pelatih di balik panduan CV kami.',
+    },
+    breadcrumb: { home: 'Beranda', about: 'Tentang Kami', authors: 'Penulis' },
+    hero: {
+      title: 'Temukan Penulis Ahli Kami',
+      subtitle: 'Tim kami yang terdiri dari pelatih karier, rekruter, dan profesional industri menyusun panduan CV praktis berdasarkan pengalaman rekrutmen nyata.',
+    },
+    viewProfile: 'Lihat Profil',
+    cta: {
+      title: 'Buat CV Anda dengan Panduan Ahli',
+      subtitle: 'Pembuat AI kami menerapkan strategi yang sama yang direkomendasikan oleh para ahli kami. Siapkan CV profesional dalam hitungan menit.',
+      button: 'Buat CV Saya — Gratis',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Beranda', about: 'Tentang Kami' },
+    atOrg: '{jobTitle} di {organization}',
+    authorOfGuides: ' Penulis {count}+ panduan karier dan artikel.',
+    connectLinkedIn: 'Terhubung di LinkedIn',
+    viewAllGuides: 'Lihat Semua Panduan',
+    areasOfExpertise: 'Area Keahlian',
+    resumeGuidesBy: 'Panduan CV oleh {name}',
+    guidesCount: '{count} panduan',
+    coverLetterExamplesBy: 'Contoh Surat Lamaran oleh {name}',
+    examplesCount: '{count} contoh',
+    blogPostsBy: 'Artikel Blog oleh {name}',
+    postsCount: '{count} artikel',
+    viewAllResumes: 'Lihat semua {count} panduan CV',
+    viewAllCoverLetters: 'Lihat semua {count} contoh surat lamaran',
+    viewAllBlogPosts: 'Lihat semua {count} artikel blog',
+    cta: {
+      title: 'Buat CV Anda dengan Panduan Ahli',
+      subtitle: 'Gunakan strategi yang sama yang direkomendasikan oleh {name}. Pembuat AI kami secara otomatis menerapkan teknik penulisan CV dari para ahli.',
+      button: 'Buat CV Saya — Gratis',
+    },
+  },
+};
+
+const pl: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'O nas',
+      title: 'Budujemy przyszłość',
+      titleHighlight: 'sukcesu zawodowego',
+      subtitle: 'Best AI Resume pomaga kandydatom na całym świecie tworzyć profesjonalne CV zgodne z ATS, otwierając drzwi do wymarzonej kariery.',
+    },
+    story: {
+      badge: 'Nasza historia',
+      heading: 'Dlaczego stworzyliśmy Best AI Resume',
+      p1: 'Dostrzegliśmy, że utalentowani profesjonaliści są pomijani tylko dlatego, że ich CV nie przechodzi przez automatyczne systemy selekcji. Tradycyjny proces tworzenia CV jest czasochłonny, frustrujący i często daje dokumenty, które nie odzwierciedlają prawdziwego potencjału kandydata.',
+      p2: 'Dlatego zbudowaliśmy Best AI Resume — platformę łączącą moc sztucznej inteligencji z eleganckim, profesjonalnym designem. Nasz cel jest prosty: pomóc każdemu kandydatowi zaprezentować się jak najlepiej potencjalnym pracodawcom.',
+      p3: 'Do tej pory pomogliśmy ponad 50 000 profesjonalistów znaleźć wymarzoną pracę, tworząc CV, które wyróżniają się i przechodzą przez filtry ATS.',
+    },
+    stats: [
+      { value: '50K+', label: 'Utworzonych CV' },
+      { value: '98%', label: 'Skuteczność ATS' },
+      { value: '20+', label: 'Szablonów' },
+      { value: '4.9', label: 'Ocena użytkowników' },
+    ],
+    values: {
+      badge: 'Nasze wartości',
+      heading: 'Co nas napędza każdego dnia',
+      cards: [
+        { title: 'Prywatność na pierwszym miejscu', text: 'Twoje dane należą do Ciebie. Dane CV przechowujemy lokalnie w Twojej przeglądarce, nie na naszych serwerach. Tylko dane logowania są bezpiecznie przechowywane przez nas.' },
+        { title: 'Innowacja', text: 'Używamy najnowocześniejszej technologii AI, aby pomóc Ci pisać skuteczne treści, podkreślać osiągnięcia i przyciągać uwagę rekruterów.' },
+        { title: 'Dostępność', text: 'Profesjonalne narzędzia CV nie powinny być ukryte za drogimi subskrypcjami. Oferujemy potężne funkcje dostępne dla wszystkich.' },
+      ],
+    },
+    experts: {
+      badge: 'Zaufana wiedza ekspercka',
+      heading: 'Poznaj naszych ekspertów kariery',
+      subtitle: 'Nasz zespół coachów kariery, rekruterów i specjalistów branżowych wnosi głęboką wiedzę do przewodników CV, które tworzą.',
+    },
+    editorial: {
+      heading: 'Nasze standardy redakcyjne',
+      items: [
+        { title: 'Porady oparte na danych', text: 'Każda wskazówka, którą udostępniamy, została przetestowana na prawdziwych systemach ATS i zweryfikowana przez specjalistów branżowych.' },
+        { title: 'Podejście human-first', text: 'Wierzymy, że AI powinna wzmacniać, a nie zastępować. Stawiamy na strategie, które naprawdę robią wrażenie na prawdziwych rekruterach.' },
+      ],
+    },
+    commitment: {
+      heading: 'Nasze zobowiązanie wobec Ciebie',
+      p1: 'W Best AI Resume wierzymy, że droga zawodowa jest sprawą osobistą. Dlatego zbudowaliśmy platformę, która szanuje Twoją prywatność i daje potężne narzędzia do osiągnięcia sukcesu. Dane CV pozostają na Twoim urządzeniu — masz pełną kontrolę nad swoimi informacjami.',
+      p2: 'Stale ulepszamy nasze algorytmy AI, dodajemy nowe szablony i rozwijamy funkcje na podstawie opinii użytkowników. Twój sukces jest naszym sukcesem i jesteśmy zaangażowani, aby towarzyszyć Ci na każdym kroku.',
+    },
+    cta: {
+      title: 'Gotowy dołączyć do:',
+      titleHighlight: 'ponad 50 000 historii sukcesu?',
+      subtitle: 'Zacznij tworzyć swoje profesjonalne CV już dziś i zrób pierwszy krok ku wymarzonej karierze.',
+      button: 'Zacznij za darmo',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Nasi eksperci | Best AI Resume',
+      description: 'Poznaj ekspertów kariery, rekruterów i coachów stojących za naszymi przewodnikami CV. Nasi autorzy wnoszą prawdziwe doświadczenie rekrutacyjne, aby pomóc Ci znaleźć wymarzoną pracę.',
+      ogDescription: 'Poznaj ekspertów kariery, rekruterów i coachów stojących za naszymi przewodnikami CV.',
+    },
+    breadcrumb: { home: 'Strona główna', about: 'O nas', authors: 'Autorzy' },
+    hero: {
+      title: 'Poznaj naszych ekspertów',
+      subtitle: 'Nasz zespół coachów kariery, rekruterów i specjalistów branżowych tworzy praktyczne przewodniki CV oparte na prawdziwym doświadczeniu rekrutacyjnym.',
+    },
+    viewProfile: 'Zobacz profil',
+    cta: {
+      title: 'Stwórz CV z pomocą eksperta',
+      subtitle: 'Nasz kreator AI stosuje te same strategie, które rekomendują nasi eksperci. Przygotuj profesjonalne CV w kilka minut.',
+      button: 'Stwórz moje CV — za darmo',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Strona główna', about: 'O nas' },
+    atOrg: '{jobTitle} w {organization}',
+    authorOfGuides: ' Autor {count}+ przewodników kariery i artykułów.',
+    connectLinkedIn: 'Połącz się na LinkedIn',
+    viewAllGuides: 'Zobacz wszystkie przewodniki',
+    areasOfExpertise: 'Obszary ekspertyzy',
+    resumeGuidesBy: 'Przewodniki CV autorstwa {name}',
+    guidesCount: '{count} przewodników',
+    coverLetterExamplesBy: 'Przykłady listów motywacyjnych autorstwa {name}',
+    examplesCount: '{count} przykładów',
+    blogPostsBy: 'Artykuły blogowe autorstwa {name}',
+    postsCount: '{count} artykułów',
+    viewAllResumes: 'Zobacz wszystkie {count} przewodniki CV',
+    viewAllCoverLetters: 'Zobacz wszystkie {count} przykłady listów motywacyjnych',
+    viewAllBlogPosts: 'Zobacz wszystkie {count} artykuły blogowe',
+    cta: {
+      title: 'Stwórz CV z pomocą eksperta',
+      subtitle: 'Stosuj te same strategie, które rekomenduje {name}. Nasz kreator AI automatycznie stosuje eksperckie techniki pisania CV.',
+      button: 'Stwórz moje CV — za darmo',
+    },
+  },
+};
+
+const nl: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Over Ons',
+      title: 'Bouwen aan de toekomst van',
+      titleHighlight: 'carrièresucces',
+      subtitle: 'Best AI Resume heeft als missie werkzoekenden wereldwijd te helpen professionele, ATS-geoptimaliseerde cv\'s te maken die deuren openen naar hun droombaan.',
+    },
+    story: {
+      badge: 'Ons Verhaal',
+      heading: 'Waarom wij Best AI Resume hebben gebouwd',
+      p1: 'We merkten dat getalenteerde professionals over het hoofd werden gezien, simpelweg omdat hun cv niet door automatische screeningssystemen kwam. Het traditionele cv-maakproces was tijdrovend, frustrerend en leverde documenten op die het ware potentieel van kandidaten niet toonden.',
+      p2: 'Daarom ontwikkelden wij Best AI Resume — een platform dat de kracht van kunstmatige intelligentie combineert met professioneel, aantrekkelijk ontwerp. Ons doel is eenvoudig: elke werkzoekende helpen zijn of haar beste kant te laten zien aan potentiële werkgevers.',
+      p3: 'Tot op heden hebben wij meer dan 50.000 professionals geholpen hun droombaan te vinden door cv\'s te maken die opvallen én ATS-filters doorstaan.',
+    },
+    stats: [
+      { value: '50K+', label: 'Cv\'s Gemaakt' },
+      { value: '98%', label: 'ATS-slagingspercentage' },
+      { value: '20+', label: 'Sjablonen' },
+      { value: '4.9', label: 'Gebruikersbeoordeling' },
+    ],
+    values: {
+      badge: 'Onze Waarden',
+      heading: 'Wat ons elke dag aandrijft',
+      cards: [
+        { title: 'Privacy Voorop', text: 'Uw gegevens zijn van u. Wij slaan uw cv-inhoud lokaal op in uw browser, niet op onze servers. Alleen uw accountgegevens bewaren we veilig aan onze kant.' },
+        { title: 'Innovatie', text: 'Wij maken gebruik van geavanceerde AI-technologie om u te helpen overtuigende inhoud te schrijven die uw prestaties belicht en recruiters aanspreekt.' },
+        { title: 'Toegankelijkheid', text: 'Professionele cv-tools horen niet achter dure betaalmuren verborgen te zijn. Wij bieden krachtige functies die iedereen kan gebruiken en betalen.' },
+      ],
+    },
+    experts: {
+      badge: 'Vertrouwde Expertise',
+      heading: 'Ontmoet Onze Carrière-experts',
+      subtitle: 'Ons team van carrièrecoaches, recruiters en brancheprofessionals brengt diepgaande expertise in de cv-gidsen die zij schrijven.',
+    },
+    editorial: {
+      heading: 'Onze Redactionele Standaarden',
+      items: [
+        { title: 'Datagedreven Advies', text: 'Elk stukje advies dat wij delen, is getest op echte ATS-systemen en gevalideerd door brancheprofessionals.' },
+        { title: 'Mensgerichte Aanpak', text: 'Wij geloven dat AI moet versterken, niet vervangen. Wij geven prioriteit aan strategieën die daadwerkelijk impact hebben bij echte recruiters.' },
+      ],
+    },
+    commitment: {
+      heading: 'Onze Belofte aan U',
+      p1: 'Bij Best AI Resume geloven wij dat een carrièrepad persoonlijk is. Daarom hebben wij een platform gebouwd dat uw privacy respecteert en u krachtige tools geeft om succes te behalen. Uw cv-gegevens blijven op uw apparaat — u heeft volledige controle over uw informatie.',
+      p2: 'Wij verbeteren voortdurend onze AI-algoritmen, voegen nieuwe sjablonen toe en ontwikkelen functies op basis van gebruikersfeedback. Uw succes is ons succes, en wij zijn toegewijd u te blijven ondersteunen.',
+    },
+    cta: {
+      title: 'Klaar om mee te doen aan:',
+      titleHighlight: '50.000+ succesverhalen?',
+      subtitle: 'Begin vandaag met het maken van uw professionele cv en zet de eerste stap naar uw droombaan.',
+      button: 'Gratis Beginnen',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Onze Expertauteurs | Best AI Resume',
+      description: 'Maak kennis met de carrièreexperts, recruiters en coaches achter onze cv-gidsen. Onze auteurs brengen echte rekruteringservaring mee om u te helpen uw droombaan te vinden.',
+      ogDescription: 'Maak kennis met de carrièreexperts, recruiters en coaches achter onze cv-gidsen.',
+    },
+    breadcrumb: { home: 'Home', about: 'Over Ons', authors: 'Auteurs' },
+    hero: {
+      title: 'Ontmoet Onze Expertauteurs',
+      subtitle: 'Ons team van carrièrecoaches, recruiters en brancheprofessionals schrijft praktische cv-gidsen op basis van echte rekruteringservaring.',
+    },
+    viewProfile: 'Profiel Bekijken',
+    cta: {
+      title: 'Maak Uw Cv met Expertbegeleiding',
+      subtitle: 'Onze AI-bouwer past dezelfde strategieën toe die door onze experts worden aanbevolen. Stel in enkele minuten een professioneel cv op.',
+      button: 'Maak Mijn Cv — Gratis',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Home', about: 'Over Ons' },
+    atOrg: '{jobTitle} bij {organization}',
+    authorOfGuides: ' Auteur van {count}+ carrièregidsen en artikelen.',
+    connectLinkedIn: 'Verbinden op LinkedIn',
+    viewAllGuides: 'Alle Gidsen Bekijken',
+    areasOfExpertise: 'Expertisegebieden',
+    resumeGuidesBy: 'Cv-gidsen door {name}',
+    guidesCount: '{count} gidsen',
+    coverLetterExamplesBy: 'Sollicitatiebriefvoorbeelden door {name}',
+    examplesCount: '{count} voorbeelden',
+    blogPostsBy: 'Blogartikelen door {name}',
+    postsCount: '{count} artikelen',
+    viewAllResumes: 'Bekijk alle {count} cv-gidsen',
+    viewAllCoverLetters: 'Bekijk alle {count} sollicitatiebriefvoorbeelden',
+    viewAllBlogPosts: 'Bekijk alle {count} blogartikelen',
+    cta: {
+      title: 'Maak Uw Cv met Expertbegeleiding',
+      subtitle: 'Gebruik dezelfde strategieën die worden aanbevolen door {name}. Onze AI-bouwer past automatisch schrijftechnieken van cv-experts toe.',
+      button: 'Maak Mijn Cv — Gratis',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }

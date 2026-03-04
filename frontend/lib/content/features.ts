@@ -554,5 +554,50 @@ const ko: FeaturesPageContent = {
   },
 };
 
-const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const nl: FeaturesPageContent = {
+  meta: {
+    title: 'AI CV Maker Functies — Sjablonen, ATS Checker en Meer | Best AI Resume',
+    description: 'Ontdek alle functies van Best AI Resume: AI-aangedreven schrijven, 20+ premium sjablonen, realtime ATS-optimalisatie, PDF-export en slimme suggesties om je droombaan te vinden.',
+    keywords: 'cv maker functies, ai cv schrijver, ats cv checker, cv sjablonen, cv pdf export, cv maker tools',
+  },
+  hero: {
+    badge: 'Functies',
+    title: 'Alles wat je nodig hebt om',
+    titleHighlight: 'je droombaan te vinden',
+    subtitle: 'Krachtige AI-tools gecombineerd met prachtig design om je te laten opvallen tussen de massa.',
+  },
+  features: [
+    { title: 'AI-aangedreven Schrijven', description: 'Laat onze AI overtuigende bullet points en professionele samenvattingen opstellen die je prestaties benadrukken. Verander eenvoudige functiebeschrijvingen in krachtige uitspraken.' },
+    { title: '20+ Premium Sjablonen', description: 'Kies uit professioneel ontworpen sjablonen die opvallen en tegelijkertijd ATS-compatibel zijn. Elk sjabloon is gemaakt door designexperts.' },
+    { title: 'ATS-optimalisatie', description: 'Realtime ATS-scoring zorgt ervoor dat je cv elke keer de geautomatiseerde screensystemen doorstaat. Ontvang direct feedback over hoe je score te verbeteren.' },
+    { title: 'Realtime Preview', description: 'Zie wijzigingen onmiddellijk terwijl je typt. Wat je ziet is precies wat recruiters zullen zien. Geen giswerk meer over hoe je cv eruitziet.' },
+    { title: 'PDF-export', description: 'Download pixel-perfecte PDF\'s klaar om te verzenden. Geoptimaliseerd voor zowel digitale weergave als afdrukken. Je cv ziet er professioneel uit overal.' },
+    { title: 'Slimme Suggesties', description: 'Ontvang intelligente aanbevelingen voor vaardigheden, trefwoorden en inhoud op basis van je doelrol. AI analyseert duizenden succesvolle cv\'s.' },
+  ],
+  steps: {
+    badge: 'Hoe Het Werkt',
+    title: 'Drie stappen naar je',
+    titleHighlight: 'perfecte cv',
+    items: [
+      { title: 'Vul Je Gegevens In', description: 'Voer je werkervaring, opleiding en vaardigheden in. Onze AI helpt je bij elke stap.' },
+      { title: 'Kies een Sjabloon', description: 'Selecteer uit 20+ professioneel ontworpen sjablonen. Bekijk een realtime preview terwijl je aanpast.' },
+      { title: 'Download PDF', description: 'Exporteer je afgewerkte cv als een pixel-perfecte PDF, klaar om recruiters te imponeren.' },
+    ],
+  },
+  cta: {
+    title: 'Klaar om je',
+    titleHighlight: 'winnend cv te bouwen?',
+    description: 'Sluit je aan bij 50.000+ professionals die al hun droombaan hebben gevonden met Best AI Resume.',
+    ctaText: 'Begin Gratis',
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Loopbaangegevens' },
+      { href: 'https://www.shrm.org/', label: 'SHRM: HR- en Loopbaanbronnen' },
+    ],
+  },
+};
+
+const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
 export const getContent = (locale: string): FeaturesPageContent => selectContent(content, locale);

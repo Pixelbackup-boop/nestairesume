@@ -222,5 +222,23 @@ const ko: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const nl: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Meer dan 300 CV-voorbeelden per Functie (2026) | Best AI Resume',
+    description: 'Bekijk 300+ gratis cv-voorbeelden georganiseerd per branche en functie. Professionele cv-sjablonen met ATS-vriendelijke tips. Vind je rol en bouw je cv.',
+  },
+  hero: {
+    badge: 'CV-voorbeelden 2026',
+    title: 'CV-voorbeelden',
+    titleHighlight: 'per Functie',
+    subtitle: 'Bekijk {count}+ professionele cv-voorbeelden georganiseerd per branche. Vind je rol, bestudeer het cv-format en bouw de jouwe met onze AI builder.',
+  },
+  bottomCta: {
+    title: 'Je functie niet gevonden?',
+    description: 'Onze AI kan in seconden een op maat gemaakt cv schrijven voor ELKE functie.',
+    ctaText: 'Genereer Aangepast CV',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

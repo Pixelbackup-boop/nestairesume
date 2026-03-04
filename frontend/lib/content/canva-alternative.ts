@@ -1479,5 +1479,359 @@ const tr: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Canva 2026: Pembuat CV AI Gratis | Best AI Resume',
+    description: 'Cari alternatif Canva gratis? Bandingkan Canva vs Best AI Resume Builder — penulisan AI, template ATS, unduhan tak terbatas. Tanpa biaya tersembunyi.',
+    keywords: 'alternatif canva, canva vs best ai resume, pembuat cv gratis alternatif canva, cv builder gratis indonesia',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Canva',
+    articleHeadline: 'Alternatif Canva 2026: Pembuat CV AI Gratis Tanpa Biaya Tersembunyi',
+    articleDescription: 'Bandingkan Canva vs Best AI Resume Builder. Dapatkan penulisan AI, optimasi ATS, dan unduhan tak terbatas sepenuhnya gratis.',
+  },
+  hero: {
+    badge: 'Alternatif Canva',
+    title: 'Buat CV Anda.',
+    titleHighlight: 'Unduh Gratis.',
+    subtitle: 'Canva memungkinkan Anda membuat CV — lalu memungut biaya untuk mengunduhnya. Dapatkan penulisan AI, template ATS, dan ekspor tak terbatas seharga <strong>Rp 0</strong>.',
+    ctaPrimary: 'Buat CV Saya Gratis',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah dengan Canva',
+    description: 'Canva memiliki template profesional dan saran konten yang berguna. Masalahnya ada di model harganya: Anda baru mengetahui biaya unduhan setelah menyelesaikan seluruh CV. Banyak pengguna melaporkan biaya tak terduga di situs ulasan.',
+    stats: [
+      { value: '$2.70', label: 'Masa percobaan (perpanjang otomatis ke $23.70/bln)' },
+      { value: '$284', label: 'Biaya tahunan jika lupa membatalkan' },
+      { value: 'Rp 0', label: 'Best AI Resume Builder — gratis selamanya' },
+    ],
+  },
+  comparison: {
+    title: 'Perbandingan Canva vs Best AI Resume Builder',
+    subtitle: 'Perbandingan fitur secara berdampingan.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Berbayar untuk mengunduh', ours: '✅ 100% gratis selamanya' },
+      { feature: 'Unduhan Gratis', competitor: '❌ Perlu bayar untuk PDF', ours: '✅ Unduhan PDF gratis tak terbatas' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Saran terbatas', ours: '✅ Konten yang dibuat AI sepenuhnya' },
+      { feature: 'Optimasi ATS', competitor: '✅ Pemeriksaan dasar', ours: '✅ Skor ATS real-time + kata kunci' },
+      { feature: 'Kualitas Template', competitor: '✅ Desain profesional', ours: '✅ 20+ template yang diuji ATS' },
+      { feature: 'Jumlah CV', competitor: '⚠️ Terbatas di paket gratis', ours: '✅ CV tak terbatas, gratis' },
+      { feature: 'Pembuat Surat Lamaran', competitor: '✅ Tersedia (paket berbayar)', ours: '✅ Bertenaga AI (gratis)' },
+      { feature: 'Saran Konten', competitor: '✅ Frasa yang ditulis sebelumnya', ours: '✅ Adaptasi AI berdasarkan pengalaman Anda' },
+      { feature: 'Pembatalan', competitor: '❌ Harus dibatalkan sebelum masa percobaan', ours: '✅ Tidak ada yang perlu dibatalkan' },
+      { feature: 'Ulasan Pengguna', competitor: '⚠️ Campuran — keluhan penagihan umum', ours: '✅ Tidak mungkin ada masalah penagihan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Alasan Beralih dari Canva',
+    subtitle: 'Benar-benar gratis. AI lebih baik. Tanpa jebakan.',
+    reasons: [
+      { title: 'Unduhan Benar-benar Gratis', description: 'Canva meminta bayaran setelah Anda selesai membuat CV. Di sini, Anda bisa mengunduh apapun yang Anda buat secara instan dan gratis — tidak ada percobaan, kartu kredit, atau perpanjangan otomatis.' },
+      { title: 'AI Nyata (Bukan Frasa yang Ditulis Sebelumnya)', description: 'Saran Canva didasarkan pada pustaka frasa yang telah ditulis sebelumnya. AI kami menghasilkan konten yang benar-benar disesuaikan untuk setiap bagian CV.' },
+      { title: 'Optimasi ATS Lebih Baik', description: 'Dibandingkan fitur ATS dasar Canva, kami menawarkan penilaian ATS real-time, saran kata kunci spesifik industri, dan template yang diuji untuk sistem yang umum digunakan di Indonesia.' },
+    ],
+  },
+  recommendation: {
+    title: 'Rekomendasi Jujur',
+    useCompetitor: {
+      title: 'Gunakan Canva jika...',
+      items: [
+        'Anda bersedia membayar untuk fitur tertentu yang dimiliki Canva',
+        'Anda lebih suka antarmuka spesifik Canva',
+        'Anda membutuhkan fitur tertentu yang hanya ada di Canva',
+        'Anda menginginkan dukungan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Gunakan Best AI Resumes jika...',
+      items: [
+        'Anda ingin membuat dan mengunduh CV secara gratis',
+        'Anda membutuhkan AI canggih untuk membantu menulis konten',
+        'Anda ingin penilaian ATS real-time saat membuat CV',
+        'Anda tidak ingin berurusan dengan langganan atau perpanjangan otomatis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Jelajahi 300+ Contoh CV Gratis',
+    description: 'Contoh CV profesional untuk setiap industri dan level karier.',
+    ctaBrowse: 'Lihat Contoh CV',
+    ctaTemplates: 'Lihat Semua Template',
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      { question: 'Apakah Canva gratis?', answer: 'Canva mengizinkan pembuatan CV gratis tetapi mengenakan biaya untuk mengunduh. Best AI Resume Builder 100% gratis — buat dan unduh CV tak terbatas tanpa kartu kredit.' },
+      { question: 'Mengapa Canva mengenakan biaya untuk mengunduh?', answer: 'Model bisnis Canva adalah "freemium" — proses pembuatan gratis untuk menarik pengguna, tetapi monetisasi terjadi saat mengunduh. Best AI Resume Builder transparan: semuanya gratis, tanpa kejutan.' },
+      { question: 'Apa alternatif gratis terbaik untuk Canva?', answer: 'Best AI Resume Builder adalah alternatif gratis terbaik. Kami menawarkan semua yang ada di balik paywall Canva — template profesional, ekspor PDF, surat lamaran — ditambah penulisan AI dan optimasi ATS.' },
+      { question: 'Apakah Canva memiliki penulisan AI?', answer: 'Canva memiliki beberapa saran konten, tetapi bukan penulisan AI yang sebenarnya. Best AI Resume Builder menggunakan AI canggih untuk menghasilkan pengalaman profesional, ringkasan, dan kata kunci yang dipersonalisasi.' },
+      { question: 'Bagaimana cara membatalkan Canva?', answer: 'Untuk membatalkan Canva, akses pengaturan akun sebelum masa percobaan berakhir. Best AI Resume Builder tidak memerlukan langganan — tidak ada yang perlu dibatalkan. Cukup gunakan platform secara gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat CV Lainnya',
+    items: [
+      { href: '/id/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs modern' },
+      { href: '/id/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga' },
+      { href: '/id/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat desain vs AI' },
+      { href: '/id/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan fitur AI' },
+    ],
+    guidesTitle: 'Panduan CV yang Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glassdoor.co.id/', label: 'Glassdoor Indonesia — Gaji dan Peluang Karier' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat CV yang Benar-benar Gratis.',
+    description: 'Tanpa jebakan harga, tanpa perpanjangan otomatis. Hanya pembuat CV bertenaga AI — 100% gratis selamanya.',
+    cta: 'Buat CV Saya Gratis',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa kejutan.',
+  },
+};
+
+const pl: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatywa Canva 2026: Darmowy Kreator CV AI | Best AI Resume',
+    description: 'Szukasz darmowej alternatywy dla Canva? Porównaj Canva vs Best AI Resume Builder — pisanie AI, szablony ATS, nieograniczone pobieranie. Bez ukrytych opłat.',
+    keywords: 'alternatywa canva, canva vs best ai resume, darmowy kreator cv alternatywa canva, kreator cv darmowy polska',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatywa Canva',
+    articleHeadline: 'Alternatywa Canva 2026: Darmowy Kreator CV AI Bez Ukrytych Opłat',
+    articleDescription: 'Porównaj Canva vs Best AI Resume Builder. Uzyskaj pisanie AI, optymalizację ATS i nieograniczone pobieranie całkowicie za darmo.',
+  },
+  hero: {
+    badge: 'Alternatywa Canva',
+    title: 'Stwórz swoje CV.',
+    titleHighlight: 'Pobierz za darmo.',
+    subtitle: 'Canva pozwala tworzyć CV — a potem każe za to płacić. Uzyskaj pisanie AI, szablony ATS i nieograniczony eksport za <strong>0 zł</strong>.',
+    ctaPrimary: 'Stwórz moje CV za darmo',
+    ctaSecondary: 'Zobacz porównanie',
+  },
+  problem: {
+    title: 'Problem z Canva',
+    description: 'Canva ma profesjonalne szablony i pomocne sugestie treści. Problem tkwi w modelu cenowym: opłatę za pobranie odkrywasz dopiero po ukończeniu całego CV. Wielu użytkowników zgłasza nieoczekiwane koszty w recenzjach.',
+    stats: [
+      { value: '$2.70', label: 'Okres próbny (automatycznie przedłużany do $23.70/mies.)' },
+      { value: '$284', label: 'Roczny koszt przy zapomnieniu o anulowaniu' },
+      { value: '0 zł', label: 'Best AI Resume Builder — za darmo na zawsze' },
+    ],
+  },
+  comparison: {
+    title: 'Porównanie: Canva vs Best AI Resume Builder',
+    subtitle: 'Zestawienie funkcji obok siebie.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Cena', competitor: '❌ Płatne pobieranie', ours: '✅ 100% darmowe na zawsze' },
+      { feature: 'Darmowe pobieranie', competitor: '❌ Wymaga płatności za PDF', ours: '✅ Nieograniczone darmowe pobieranie PDF' },
+      { feature: 'Pisanie AI', competitor: '⚠️ Ograniczone sugestie', ours: '✅ W pełni generowane przez AI treści' },
+      { feature: 'Optymalizacja ATS', competitor: '✅ Podstawowe sprawdzenie', ours: '✅ Wynik ATS w czasie rzeczywistym + słowa kluczowe' },
+      { feature: 'Jakość szablonów', competitor: '✅ Profesjonalny design', ours: '✅ 20+ szablonów testowanych pod ATS' },
+      { feature: 'Liczba CV', competitor: '⚠️ Ograniczone w darmowym planie', ours: '✅ Nieograniczone CV, bezpłatne' },
+      { feature: 'Kreator listu motywacyjnego', competitor: '✅ Dostępne (plan płatny)', ours: '✅ Zasilane AI (bezpłatne)' },
+      { feature: 'Sugestie treści', competitor: '✅ Gotowe frazy', ours: '✅ Adaptacja AI na podstawie Twojego doświadczenia' },
+      { feature: 'Anulowanie', competitor: '❌ Wymaga anulowania przed końcem próby', ours: '✅ Nic do anulowania' },
+      { feature: 'Opinie użytkowników', competitor: '⚠️ Mieszane — skargi na rozliczenia', ours: '✅ Brak możliwości problemów z rozliczeniami' },
+    ],
+  },
+  whySwitch: {
+    title: '3 powody, by przejść z Canva',
+    subtitle: 'Naprawdę bezpłatne. Lepsze AI. Bez pułapek.',
+    reasons: [
+      { title: 'Naprawdę darmowe pobieranie', description: 'Canva prosi o płatność po ukończeniu CV. Tutaj możesz pobrać wszystko, co stworzysz — natychmiast i bezpłatnie. Bez prób, kart kredytowych ani automatycznych przedłużeń.' },
+      { title: 'Prawdziwe AI (nie gotowe frazy)', description: 'Sugestie Canva opierają się na bibliotece gotowych fraz. Nasze AI generuje treści naprawdę spersonalizowane dla każdej sekcji CV.' },
+      { title: 'Lepsza optymalizacja ATS', description: 'W porównaniu z podstawowymi funkcjami ATS Canva, oferujemy ocenę ATS w czasie rzeczywistym, sugestie słów kluczowych dla branży i szablony testowane na popularnych systemach.' },
+    ],
+  },
+  recommendation: {
+    title: 'Uczciwa rekomendacja',
+    useCompetitor: {
+      title: 'Użyj Canva jeśli...',
+      items: [
+        'Jesteś gotowy płacić za konkretne funkcje Canva',
+        'Preferujesz interfejs Canva i jego możliwości projektowania',
+        'Potrzebujesz funkcji dostępnych tylko w Canva',
+        'Chcesz płatnej obsługi klienta',
+      ],
+    },
+    useUs: {
+      title: 'Użyj Best AI Resumes jeśli...',
+      items: [
+        'Chcesz tworzyć i pobierać CV za darmo',
+        'Potrzebujesz zaawansowanego AI do pisania treści',
+        'Chcesz oceny ATS w czasie rzeczywistym podczas tworzenia CV',
+        'Nie chcesz zajmować się subskrypcjami ani automatycznymi przedłużeniami',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Przeglądaj 300+ darmowych przykładów CV',
+    description: 'Profesjonalne przykłady CV dla każdej branży i poziomu kariery.',
+    ctaBrowse: 'Zobacz przykłady CV',
+    ctaTemplates: 'Zobacz wszystkie szablony',
+  },
+  faq: {
+    title: 'Najczęściej zadawane pytania',
+    items: [
+      { question: 'Czy Canva jest darmowa?', answer: 'Canva umożliwia darmowe tworzenie CV, ale pobiera opłaty za pobranie. Best AI Resume Builder jest w 100% darmowy — twórz i pobieraj nieograniczone CV bez karty kredytowej.' },
+      { question: 'Dlaczego Canva pobiera opłaty za pobieranie?', answer: 'Model biznesowy Canva to "freemium" — tworzenie jest darmowe, żeby przyciągnąć użytkowników, ale monetyzacja następuje przy pobieraniu. Best AI Resume Builder jest transparentny: wszystko jest darmowe, bez niespodzianek.' },
+      { question: 'Jaka jest najlepsza darmowa alternatywa dla Canva?', answer: 'Best AI Resume Builder to najlepsza darmowa alternatywa. Oferujemy wszystko, co jest za paywallem Canva — profesjonalne szablony, eksport PDF, listy motywacyjne — plus pisanie AI i optymalizację ATS.' },
+      { question: 'Czy Canva ma pisanie AI?', answer: 'Canva ma pewne sugestie treści, ale nie jest to prawdziwe pisanie AI. Best AI Resume Builder używa zaawansowanego AI do generowania spersonalizowanych doświadczeń zawodowych, podsumowań i słów kluczowych.' },
+      { question: 'Jak anulować Canva Pro?', answer: 'Aby anulować Canva Pro, przejdź do ustawień konta przed końcem okresu próbnego. Best AI Resume Builder nie wymaga subskrypcji — nie ma czego anulować. Po prostu korzystaj z platformy za darmo.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Porównaj inne kreatory CV',
+    items: [
+      { href: '/pl/livecareer-alternative', title: 'Alternatywa LiveCareer', subtitle: 'Tradycyjne vs nowoczesne' },
+      { href: '/pl/resume-io-alternative', title: 'Alternatywa Resume.io', subtitle: 'Porównanie cen' },
+      { href: '/pl/adobe-alternative', title: 'Alternatywa Adobe Express', subtitle: 'Narzędzie Adobe vs AI' },
+      { href: '/pl/rezi-alternative', title: 'Alternatywa Rezi', subtitle: 'Porównanie funkcji AI' },
+    ],
+    guidesTitle: 'Przydatne przewodniki CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Zewnętrzne zasoby',
+    items: [
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+      { href: 'https://www.glassdoor.pl/', label: 'Glassdoor Polska — Wynagrodzenia i możliwości kariery' },
+    ],
+  },
+  bottomCta: {
+    title: 'Naprawdę darmowy kreator CV.',
+    description: 'Bez pułapek cenowych, bez automatycznych przedłużeń. Tylko kreator CV zasilany AI — 100% darmowy na zawsze.',
+    cta: 'Stwórz moje CV za darmo',
+    subtext: 'Darmowe na zawsze. Bez karty kredytowej. Bez niespodzianek.',
+  },
+};
+
+const nl: ComparisonPageContent = {
+  meta: {
+    title: 'Canva Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
+    description: 'Op zoek naar een gratis Canva alternatief voor cv maken? Vergelijk Canva vs Best AI Resume Builder — AI cv schrijven, ATS cv sjablonen, onbeperkt downloaden. Geen verborgen kosten.',
+    keywords: 'canva alternatief, canva cv maken, gratis cv sjabloon, cv maken gratis, cv builder nederland, alternatief voor canva cv',
+  },
+  schemas: {
+    breadcrumbName: 'Canva Alternatief',
+    articleHeadline: 'Canva Alternatief 2026: Gratis CV Maken met AI Zonder Verborgen Kosten',
+    articleDescription: 'Vergelijk Canva vs Best AI Resume Builder. Maak een professioneel cv met AI, ATS-optimalisatie en onbeperkt downloaden — volledig gratis.',
+  },
+  hero: {
+    badge: 'Canva Alternatief',
+    title: 'Maak Je CV.',
+    titleHighlight: 'Download Gratis.',
+    subtitle: 'Canva heeft mooie ontwerpen, maar cv\'s gemaakt in Canva zijn vaak niet ATS-vriendelijk. Wij bieden AI-schrijven, ATS cv sjablonen en onbeperkte exports voor <strong>€0</strong>.',
+    ctaPrimary: 'Maak Mijn CV Gratis',
+    ctaSecondary: 'Bekijk de Vergelijking',
+  },
+  problem: {
+    title: 'Het Canva CV-probleem',
+    description: 'Canva is geweldig voor grafisch ontwerp, maar cv\'s gemaakt in Canva bevatten vaak afbeeldingen, kolommen en creatieve opmaak die ATS-systemen van Nederlandse werkgevers slecht kunnen verwerken. Bovendien mist Canva AI-schrijfhulp specifiek voor cv\'s.',
+    stats: [
+      { value: 'Niet-ATS', label: 'Canva cv\'s falen vaak bij ATS-screening' },
+      { value: 'Geen AI', label: 'Geen cv-specifieke AI-schrijfhulp' },
+      { value: '€0', label: 'Best AI Resume Builder — ATS-vriendelijk en gratis' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: 'Functie-voor-functie vergelijking.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prijs', competitor: '⚠️ Gratis basis; Canva Pro voor premium sjablonen', ours: '✅ 100% gratis voor altijd' },
+      { feature: 'Gratis Downloaden', competitor: '⚠️ Beperkt in gratis versie', ours: '✅ Onbeperkt gratis PDF exporteren' },
+      { feature: 'AI Schrijven', competitor: '⚠️ Algemene AI-functies, niet cv-specifiek', ours: '✅ AI genereert volledig op maat gemaakte cv-inhoud' },
+      { feature: 'ATS-optimalisatie', competitor: '❌ Niet ATS-geoptimaliseerd', ours: '✅ Realtime ATS-score + zoekwoorden' },
+      { feature: 'Sjabloonontwwerp', competitor: '✅ Visueel aantrekkelijke ontwerpen', ours: '✅ 20+ ATS-geteste cv sjablonen' },
+      { feature: 'CV-specifieke functies', competitor: '❌ Algemene ontwerptool', ours: '✅ Gebouwd specifiek voor cv\'s' },
+      { feature: 'Motivatiebrief', competitor: '⚠️ Algemene brief-sjablonen', ours: '✅ AI-aangedreven sollicitatiebrief (gratis)' },
+      { feature: 'Inhoudssuggesties', competitor: '❌ Geen cv-inhoudssuggesties', ours: '✅ AI afgestemd op jouw werkervaring' },
+      { feature: 'Annuleren', competitor: '⚠️ Canva Pro abonnement beheer', ours: '✅ Niets te annuleren' },
+      { feature: 'Gebruiksvriendelijkheid', competitor: '✅ Gemakkelijk te gebruiken', ours: '✅ Intuïtief voor iedereen' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Redenen om over te stappen van Canva voor cv\'s',
+    subtitle: 'ATS-geoptimaliseerd. AI-aangedreven. Gratis.',
+    reasons: [
+      { title: 'ATS-vriendelijk vs Visueel Mooi', description: 'Canva maakt visueel aantrekkelijke cv\'s, maar ATS-systemen die Nederlandse werkgevers gebruiken kunnen grafisch-intensieve cv\'s slecht lezen. Onze cv sjablonen zijn geoptimaliseerd om door ATS-filters heen te komen en recruiters te bereiken.' },
+      { title: 'Gebouwd voor CV\'s, Niet voor Grafisch Ontwerp', description: 'Canva is een algemene ontwerptool. Onze cv builder is specifiek gebouwd voor het maken van professionele cv\'s — met AI-schrijfhulp, sectie-begeleiding en ATS-optimalisatie ingebakken in elke stap.' },
+      { title: 'AI Schrijft Je CV-inhoud', description: 'Canva biedt geen inhoudshulp voor cv\'s. Onze AI genereert professionele bullet points, een overtuigende samenvatting en ATS-zoekwoorden op basis van jouw werkervaring en de vacature waarop je solliciteert.' },
+    ],
+  },
+  recommendation: {
+    title: 'Eerlijke Aanbeveling',
+    useCompetitor: {
+      title: 'Canva is geschikt als je...',
+      items: [
+        'Een creatieve sector hebt waar visuele cv\'s de norm zijn',
+        'Al vertrouwd bent met Canva voor andere ontwerpen',
+        'Een cv maakt voor een functie waarbij ATS niet relevant is',
+        'Volledige controle wilt over het visuele ontwerp',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes is beter als je...',
+      items: [
+        'Een ATS-vriendelijk cv nodig hebt voor de Nederlandse arbeidsmarkt',
+        'AI schrijfhulp wilt voor professionele cv-inhoud',
+        'Gratis wilt downloaden zonder abonnementskosten',
+        'Snel een professioneel cv wilt maken met inhoudsbegeleiding',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Bekijk 300+ Gratis CV Voorbeelden',
+    description: 'Professionele cv voorbeelden voor elke sector en carriereniveau.',
+    ctaBrowse: 'Bekijk CV Voorbeelden',
+    ctaTemplates: 'Bekijk Alle Sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      { question: 'Is een Canva cv ATS-vriendelijk?', answer: 'Niet altijd. Canva cv\'s bevatten vaak afbeeldingen, kolommen en creatieve opmaak die ATS-systemen van Nederlandse werkgevers slecht kunnen verwerken. Best AI Resume Builder maakt cv\'s die specifiek zijn geoptimaliseerd voor ATS-compatibiliteit.' },
+      { question: 'Kan ik een cv maken met Canva gratis?', answer: 'Ja, Canva heeft gratis cv-sjablonen, maar de beste sjablonen zijn voor Canva Pro abonnees. Bovendien zijn Canva cv\'s niet ATS-geoptimaliseerd. Best AI Resume Builder is 100% gratis met ATS-vriendelijke sjablonen.' },
+      { question: 'Wat is het beste gratis alternatief voor Canva voor cv\'s?', answer: 'Best AI Resume Builder is het beste gratis alternatief voor cv\'s. We bieden ATS-vriendelijke cv sjablonen, AI-schrijfhulp, realtime ATS-scores en onbeperkte PDF-exports — volledig gratis.' },
+      { question: 'Heeft Canva AI-functies voor cv\'s?', answer: 'Canva heeft algemene AI-ontwerp functies, maar geen specifieke AI-cv-schrijffuncties. Best AI Resume Builder gebruikt geavanceerde AI om professionele werkervaring, samenvattingen en gepersonaliseerde inhoud te genereren voor jouw cv.' },
+      { question: 'Waarom zijn Canva cv\'s slecht voor ATS?', answer: 'Canva cv\'s gebruiken vaak grafische elementen, meerdere kolommen, tekstvakken en afbeeldingen die ATS-systemen niet goed kunnen lezen. ATS-software scant cv\'s op platte tekst en standaard secties. Best AI Resume Builder maakt clean, ATS-leesbare cv\'s.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Vergelijk Andere CV Bouwers',
+    items: [
+      { href: '/nl/adobe-alternative', title: 'Adobe Express Alternatief', subtitle: 'Ontwerptool vs AI cv maker' },
+      { href: '/nl/resume-io-alternative', title: 'Resume.io Alternatief', subtitle: 'Prijs- en functievergelijking' },
+      { href: '/nl/zety-alternative', title: 'Zety Alternatief', subtitle: 'Prijsvergelijking' },
+      { href: '/nl/rezi-alternative', title: 'Rezi Alternatief', subtitle: 'AI-functies vergelijking' },
+    ],
+    guidesTitle: 'Handige CV Gidsen',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://www.canva.com/', label: 'Canva Officiële Website' },
+      { href: 'https://www.uwv.nl/', label: 'UWV — Uitvoeringsinstituut Werknemersverzekeringen' },
+    ],
+  },
+  bottomCta: {
+    title: 'ATS-vriendelijk. AI-aangedreven. Gratis.',
+    description: 'Maak een cv dat door ATS-systemen en recruiters wordt gelezen — niet geblokkeerd door Canva-grafische opmaak. Volledig gratis, geen abonnement nodig.',
+    cta: 'Maak Mijn CV Gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard. Geen verrassingen.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

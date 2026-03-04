@@ -734,6 +734,126 @@ const tr: PrivacyContent = {
   lastUpdated: 'Son güncelleme: Ocak 2026',
 };
 
-const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
+const id: PrivacyContent = {
+  hero: {
+    badge: 'Kebijakan Privasi',
+    title: 'Privasi Anda adalah',
+    titleHighlight: 'prioritas kami',
+    subtitle: 'Di Best AI Resume, kami percaya data pribadi Anda adalah milik Anda. Platform kami dikembangkan dengan pendekatan yang mengutamakan privasi, sesuai dengan Undang-Undang Perlindungan Data Pribadi (UU PDP) Indonesia.',
+  },
+  highlights: [
+    { title: 'Data Anda Tetap di Perangkat', text: 'Seluruh konten CV Anda — pengalaman kerja, pendidikan, dan keahlian — disimpan secara lokal di browser Anda, bukan di server kami.' },
+    { title: 'Data Minimum di Server', text: 'Di server kami, kami hanya menyimpan alamat email dan kata sandi Anda untuk autentikasi akun. Tidak ada konten CV, tidak ada data pribadi tambahan.' },
+    { title: 'Transparansi Penuh', text: 'Kami percaya pada transparansi penuh. Anda dapat memeriksa data apa yang tersimpan di browser Anda dan menghapusnya kapan saja.' },
+  ],
+  sections: [
+    {
+      heading: 'Data Apa yang Kami Kumpulkan',
+      subsections: [
+        { subheading: 'Data yang Disimpan di Server Kami (Minimum)', items: ['**Alamat email** — Digunakan untuk autentikasi akun dan komunikasi layanan penting', '**Kata sandi (terenkripsi)** — Disimpan dengan hash aman untuk autentikasi'] },
+        { subheading: 'Data yang Disimpan Secara Lokal di Browser Anda', items: ['Informasi pribadi (nama, kontak, alamat)', 'Pengalaman profesional dan riwayat pekerjaan', 'Informasi pendidikan dan sertifikat', 'Keahlian, bahasa, dan prestasi', 'Template CV dan preferensi kustomisasi'] },
+      ],
+    },
+    {
+      heading: 'Mengapa Kami Menggunakan Penyimpanan Browser',
+      intro: 'Kami memilih penyimpanan browser (localStorage) sebagai metode penyimpanan utama karena beberapa alasan penting:',
+      items: ['**Privasi Maksimal** — Informasi profesional sensitif Anda tidak pernah meninggalkan perangkat Anda', '**Tidak Ada Risiko Kebocoran** — Karena kami tidak menyimpan data CV, data tidak bisa terkompromikan akibat kegagalan server', '**Kontrol Penuh** — Anda dapat melihat, mengekspor, atau menghapus data Anda kapan saja melalui pengaturan browser', '**Performa Tinggi** — Penyimpanan lokal memastikan akses instan ke data Anda tanpa latensi server'],
+    },
+    {
+      heading: 'Cara Kami Melindungi Akun Anda',
+      intro: 'Meskipun kami meminimalkan data di server, kami serius dalam mengamankan kredensial Anda:',
+      items: ['Kata sandi dienkripsi dengan algoritma hash sesuai standar industri', 'Semua transmisi data dilindungi dengan enkripsi HTTPS', 'Kata sandi tidak pernah disimpan dalam bentuk teks biasa', 'Audit keamanan dan pemantauan rutin'],
+    },
+    {
+      heading: 'Hak dan Kendali Anda',
+      intro: 'Sesuai UU PDP (Undang-Undang Perlindungan Data Pribadi), Anda memiliki kendali penuh atas data Anda:',
+      items: ['**Akses** — Lihat semua data di browser Anda kapan saja melalui alat pengembang browser', '**Ekspor** — Unduh data CV Anda dalam format PDF atau lainnya', '**Penghapusan** — Hapus penyimpanan browser atau hapus akun Anda kapan saja', '**Portabilitas** — Data Anda adalah milik Anda dan bisa dipindahkan ke mana saja'],
+    },
+    {
+      heading: 'Yang Tidak Kami Lakukan',
+      intro: 'Kami berkomitmen pada praktik pengelolaan data yang etis. Berikut hal yang tidak pernah kami lakukan:',
+      items: ['Menjual informasi pribadi Anda kepada pihak ketiga', 'Menggunakan konten CV Anda untuk tujuan periklanan', 'Berbagi data Anda dengan rekruter tanpa persetujuan eksplisit', 'Melacak aktivitas penelusuran Anda di situs lain', 'Menyimpan konten CV Anda di server kami'],
+    },
+    {
+      heading: 'Cookie dan Analitik',
+      intro: 'Kami hanya menggunakan cookie esensial dan minimal untuk:',
+      items: ['Mempertahankan sesi login Anda tetap aktif', 'Mengingat preferensi bahasa dan tema Anda', 'Analitik penggunaan anonim untuk meningkatkan layanan'],
+    },
+    {
+      heading: 'Hubungi Kami',
+    },
+  ],
+  contactText: 'Ada pertanyaan tentang praktik privasi kami atau untuk menggunakan hak Anda berdasarkan UU PDP? Hubungi kami melalui email:',
+  cta: {
+    title: 'Buat CV Anda dengan',
+    titleHighlight: 'kepercayaan dan privasi',
+    subtitle: 'Data profesional Anda adalah milik Anda. Mulai buat CV profesional Anda hari ini.',
+    primaryBtn: 'Mulai Gratis',
+    secondaryBtn: 'Tentang Kami',
+  },
+  lastUpdated: 'Terakhir diperbarui: Januari 2026',
+};
+
+const nl: PrivacyContent = {
+  hero: {
+    badge: 'Privacybeleid',
+    title: 'Uw privacy is',
+    titleHighlight: 'onze prioriteit',
+    subtitle: 'Bij Best AI Resume geloven wij dat uw persoonlijke gegevens van u zijn. Wij hebben ons platform gebouwd met een privacy-first aanpak die uw informatie onder uw controle houdt, volledig in lijn met de AVG (Algemene Verordening Gegevensbescherming).',
+  },
+  highlights: [
+    { title: 'Uw Gegevens Blijven Lokaal', text: 'Al uw cv-inhoud — werkervaring, opleiding en vaardigheden — wordt lokaal opgeslagen in uw browser, nooit op onze servers.' },
+    { title: 'Minimale Servergegevens', text: 'Op onze servers slaan wij alleen uw e-mailadres en wachtwoord op voor accountauthenticatie. Niets anders. Geen cv-inhoud, geen persoonlijke gegevens.' },
+    { title: 'Volledige Transparantie', text: 'Wij geloven in volledige transparantie. U kunt precies zien welke gegevens in uw browser zijn opgeslagen en ze op elk moment verwijderen.' },
+  ],
+  sections: [
+    {
+      heading: 'Welke Gegevens Wij Verzamelen',
+      subsections: [
+        { subheading: 'Gegevens Opgeslagen op Onze Servers (Minimaal)', items: ['**E-mailadres** — Gebruikt voor accountauthenticatie en belangrijke service-updates', '**Wachtwoord (versleuteld)** — Veilig gehashed opgeslagen voor authenticatie'] },
+        { subheading: 'Gegevens Lokaal Opgeslagen in Uw Browser', items: ['Persoonlijke informatie (naam, contactgegevens, adres)', 'Werkervaring en arbeidsgeschiedenis', 'Opleiding en certificaten', 'Vaardigheden, talen en prestaties', 'Cv-sjablonen en aanpassingsvoorkeuren'] },
+      ],
+    },
+    {
+      heading: 'Waarom Wij Browseropslag Gebruiken',
+      intro: 'Wij hebben gekozen voor browseropslag (localStorage) als onze primaire opslagmethode om belangrijke redenen:',
+      items: ['**Maximale Privacy** — Uw gevoelige carrièreinformatie verlaat nooit uw apparaat', '**Geen Datalekken** — Omdat wij uw cv-gegevens niet opslaan, kunnen ze niet worden gecompromitteerd bij een serverinbreuk', '**Volledige Controle** — U kunt uw gegevens op elk moment bekijken, exporteren of verwijderen via uw browserinstellingen', '**Snelle Prestaties** — Lokale opslag betekent directe toegang tot uw gegevens zonder serververtraging'],
+    },
+    {
+      heading: 'Hoe Wij Uw Account Beschermen',
+      intro: 'Hoewel wij servergegevens minimaliseren, nemen wij de beveiliging van uw accountgegevens serieus:',
+      items: ['Wachtwoorden worden versleuteld met behulp van industriestandaard hash-algoritmen', 'Alle gegevensoverdracht is beveiligd met HTTPS-encryptie', 'Wij slaan wachtwoorden nooit op in platte tekst', 'Regelmatige beveiligingsaudits en monitoring'],
+    },
+    {
+      heading: 'Uw Rechten en Controle',
+      intro: 'Op grond van de AVG heeft u volledige controle over uw gegevens:',
+      items: ['**Inzage** — Bekijk al uw in de browser opgeslagen gegevens op elk moment via de ontwikkelaarstools van uw browser', '**Export** — Download uw cv-gegevens als PDF of in andere formaten', '**Verwijdering** — Wis uw browseropslag of verwijder uw account op elk gewenst moment', '**Overdraagbaarheid** — Uw gegevens zijn van u en u kunt ze overal mee naartoe nemen'],
+    },
+    {
+      heading: 'Wat Wij Niet Doen',
+      intro: 'Wij zijn toegewijd aan ethische gegevenspraktijken. Dit zullen wij nooit doen:',
+      items: ['Uw persoonlijke informatie verkopen aan derden', 'Uw cv-inhoud gebruiken voor reclamedoeleinden', 'Uw informatie delen met recruiters zonder uw uitdrukkelijke toestemming', 'Uw browseactiviteit op andere websites bijhouden', 'Uw cv-inhoud opslaan op onze servers'],
+    },
+    {
+      heading: 'Cookies en Analyse',
+      intro: 'Wij gebruiken minimale, essentiële cookies voor:',
+      items: ['Ingelogd blijven in uw account', 'Onthouden van uw taal- en themavoorkeuren', 'Anonieme gebruiksanalyses om onze service te verbeteren'],
+    },
+    {
+      heading: 'Neem Contact Op',
+    },
+  ],
+  contactText: 'Als u vragen heeft over ons privacybeleid of uw AVG-rechten wilt uitoefenen, neem dan contact met ons op via',
+  cta: {
+    title: 'Bouw uw cv met',
+    titleHighlight: 'vertrouwen en privacy',
+    subtitle: 'Uw carrièregegevens blijven bij u. Begin vandaag met het maken van uw professionele cv.',
+    primaryBtn: 'Gratis Beginnen',
+    secondaryBtn: 'Over Ons',
+  },
+  lastUpdated: 'Laatste update: januari 2026',
+};
+
+const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

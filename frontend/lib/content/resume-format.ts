@@ -1990,7 +1990,365 @@ const tr: ResumeFormatPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ResumeFormatPageContent = {
+  meta: {
+    title: 'Format CV yang Benar 2026: Panduan Lengkap Curriculum Vitae | Best AI Resume',
+    description:
+      'Panduan memilih format cv yang benar. Perbandingan format cv kronologis, fungsional, dan kombinasi. Template cv ats-friendly gratis. 2026.',
+    keywords:
+      'format cv yang benar, format cv, template cv, cara membuat cv, cv kronologis, format cv 2026, cv ats friendly, format curriculum vitae',
+  },
+  schemas: {
+    breadcrumbName: 'Panduan Format CV',
+    howToName: 'Cara memilih format CV yang tepat',
+    howToDescription:
+      'Bandingkan 3 format CV utama (kronologis, fungsional, kombinasi) dan pilih format terbaik sesuai situasi karier Anda.',
+    howToSteps: [
+      'Evaluasi tahap karier Anda (fresh graduate, profesional berpengalaman, eksekutif)',
+      'Bandingkan kelebihan dan kekurangan 3 format CV',
+      'Cek skor kompatibilitas ATS',
+      'Pilih template dan buat CV Anda',
+    ],
+    howToToolName: 'Best AI Resume — Pembuat CV',
+  },
+  hero: {
+    badge: 'Panduan format CV 2026',
+    title: 'Pilih format CV yang tepat',
+    titleHighlight: 'lolos seleksi pertama',
+    subtitle:
+      'Kronologis, fungsional, atau kombinasi — memilih <strong>format cv yang benar</strong> adalah langkah kritis pertama dalam proses lamaran. Dengan pembuat CV bertenaga AI kami, mengubah format hanya butuh satu klik.',
+    ctaCompare: 'Bandingkan format',
+    ctaBuild: 'Buat CV gratis',
+  },
+  comparison: {
+    title: 'Perbandingan 3 format CV',
+    subtitle: 'Fitur, penggunaan ideal, dan kompatibilitas ATS setiap format secara jelas.',
+    tableHeaders: {
+      format: 'Format',
+      bestFor: 'Penggunaan ideal',
+      avoidIf: 'Hindari jika',
+      atsSafety: 'Kompatibilitas ATS',
+    },
+    formats: [
+      {
+        name: 'Kronologis (terbalik)',
+        badge: 'Paling umum',
+        badgeColor: 'green',
+        bestFor: [
+          'Kandidat tanpa kesenjangan karier signifikan',
+          'Profesional yang berkembang di industri yang sama',
+          'Mereka yang pengalaman terbaru langsung relevan dengan posisi',
+        ],
+        avoidIf: 'Jika Anda memiliki kesenjangan karier yang panjang',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'Fungsional (berbasis keahlian)',
+        badge: 'Berbasis keahlian',
+        badgeColor: 'amber',
+        bestFor: [
+          'Yang ingin pindah industri',
+          'Yang memiliki kesenjangan karier',
+          'Fresh graduate atau pekerja lepas',
+        ],
+        avoidIf: 'Jika melamar ke industri konservatif atau perusahaan besar',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'Kombinasi',
+        badge: 'Seimbang',
+        badgeColor: 'blue',
+        bestFor: [
+          'Yang memiliki keahlian kuat dan pengalaman luas',
+          'Posisi kepemimpinan atau senior',
+          'Yang ingin menonjolkan keahlian sekaligus hasil',
+        ],
+        avoidIf: 'Jika pengalaman kerja Anda masih sedikit',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'Format kronologis (terbalik)',
+    description:
+      'Format yang mencantumkan pengalaman kerja dari yang terbaru. Ini adalah format yang paling disukai rekruter Indonesia dan internasional, dengan kompatibilitas ATS maksimal.',
+    whyLoveTitle: 'Mengapa perusahaan menyukai format ini',
+    whyLoveText:
+      'CV kronologis memungkinkan rekruter langsung melihat perkembangan karier. Sistem ATS mengurai format ini dengan akurasi tertinggi — itulah mengapa perusahaan besar, perusahaan multinasional, dan institusi pemerintah di Indonesia lebih menyukai format ini.',
+    structureTitle: 'Struktur bagian',
+    sections: [
+      { label: 'Informasi pribadi dan kontak', detail: 'Nama, email, telepon, kota', isCore: true },
+      { label: 'Ringkasan profesional', detail: '3-4 kalimat yang merangkum pengalaman dan keahlian utama', isCore: true },
+      { label: 'Pengalaman kerja', detail: 'Dari terbaru ke terlama (perusahaan, periode, pencapaian)', isCore: true },
+      { label: 'Pendidikan', detail: 'Gelar terbaru dan paling relevan' },
+      { label: 'Keahlian', detail: 'Keahlian teknis, sertifikasi, dan bahasa' },
+    ],
+    downloadLabel: 'Unduh template',
+    aiLabel: 'Buat dengan AI',
+  },
+  functional: {
+    title: 'Format fungsional (berbasis keahlian)',
+    description: 'Format yang menyusun CV berdasarkan keahlian dan kompetensi, bukan kronologi.',
+    warningTitle: 'Perhatikan kompatibilitas ATS',
+    warningText:
+      'Beberapa sistem ATS kesulitan membaca CV fungsional dengan bagian pengalaman yang diminimalkan.',
+    structureTitle: 'Struktur bagian',
+    sections: [
+      { label: 'Informasi pribadi dan kontak', isCore: true },
+      { label: 'Ringkasan profesional', isCore: true },
+      {
+        label: 'Area kompetensi utama',
+        detail: '3-4 area utama dengan hasil konkret untuk masing-masing',
+        isCore: true,
+      },
+      { label: 'Pengalaman kerja (ringkasan)', detail: 'Hanya perusahaan, jabatan, dan periode' },
+      { label: 'Pendidikan' },
+    ],
+    downloadLabel: 'Unduh template',
+    aiLabel: 'Buat dengan AI',
+  },
+  combination: {
+    title: 'Format kombinasi',
+    description: 'Menggabungkan kekuatan format kronologis dan fungsional.',
+    whoForTitle: 'Kapan memilih format ini',
+    whoForItems: [
+      'Profesional menengah-senior dengan pengalaman luas dan keahlian manajerial',
+      'Yang ingin menonjolkan kedalaman pengalaman sekaligus keragaman keahlian',
+      'Yang melamar posisi di mana hasil teknis maupun operasional sama pentingnya',
+      'Yang memiliki riwayat karier lintas beberapa industri',
+    ],
+    downloadLabel: 'Unduh template',
+    aiLabel: 'Buat dengan AI',
+  },
+  faq: {
+    title: 'Pertanyaan yang sering diajukan',
+    items: [
+      {
+        question: 'Format CV apa yang paling umum di Indonesia?',
+        answer:
+          'Di Indonesia, format kronologis (terbalik) adalah yang paling umum di sektor swasta. Perusahaan besar, perusahaan multinasional, dan perusahaan teknologi mengharapkan format ini. Di sektor pemerintah, formulir lamaran khusus (seperti formulir CPNS) mungkin diperlukan.',
+      },
+      {
+        question: 'Saya sering berganti pekerjaan — format apa yang lebih baik?',
+        answer:
+          'Format kombinasi adalah pilihan terbaik. Anda bisa menonjolkan keahlian sekaligus mempertahankan riwayat pekerjaan kronologis. Dengan cara ini Anda menunjukkan kedalaman pengalaman dan fleksibilitas sekaligus.',
+      },
+      {
+        question: 'Format apa yang cocok untuk fresh graduate?',
+        answer:
+          'Format kronologis ideal untuk fresh graduate. Tempatkan bagian pendidikan sebelum pengalaman kerja untuk menonjolkan prestasi akademik, magang, dan proyek Anda.',
+      },
+      {
+        question: 'Apa itu CV ATS friendly?',
+        answer:
+          'ATS (Applicant Tracking System) adalah perangkat lunak yang digunakan perusahaan untuk menyaring CV. CV yang ATS friendly memiliki format sederhana, judul yang jelas, dan kata kunci yang relevan — tanpa tabel atau grafik. Format kronologis bekerja paling baik dengan sistem ini.',
+      },
+      {
+        question: 'Apakah Europass berlaku di Indonesia?',
+        answer:
+          'Europass adalah format standar untuk lamaran ke institusi Uni Eropa dan jarang terlihat di pasar kerja Indonesia. Jika melamar ke negara UE, Europass bisa dipertimbangkan; namun untuk lamaran di sektor swasta Indonesia, format kronologis jauh lebih efektif.',
+      },
+    ],
+  },
+  externalResources: {
+    title: 'Sumber daya eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glints.com/id', label: 'Glints Indonesia — Platform lowongan kerja terkemuka' },
+    ],
+  },
+  stickyCta: { text: 'Sudah menemukan format CV yang tepat?', ctaLabel: 'Buat CV sekarang' },
+  bottomCta: {
+    title: 'Tinggalkan masalah format CV',
+    description:
+      'Pembuat CV bertenaga AI kami secara otomatis mengoptimalkan format, font, dan margin. Pilih dari 20+ template yang kompatibel ATS.',
+    ctaLabel: 'Buat CV gratis',
+  },
+};
+
+const nl: ResumeFormatPageContent = {
+  meta: {
+    title: 'CV Lay-out 2026: Welk CV Format Kiezen? | Best AI Resume',
+    description:
+      'Ontdek welk cv format het beste bij jou past. Vergelijk chronologisch, functioneel en combinatie cv lay-out. Gratis ATS-vriendelijke cv sjablonen. 2026.',
+    keywords:
+      'cv lay out, cv format, cv sjabloon, cv opmaken, chronologisch cv, cv lay-out 2026, ats vriendelijk cv, cv formaat',
+  },
+  schemas: {
+    breadcrumbName: 'CV Format Gids',
+    howToName: 'Hoe kies je het juiste cv format',
+    howToDescription:
+      'Vergelijk 3 cv-formats (chronologisch, functioneel, combinatie) en kies het beste format voor jouw loopbaansituatie.',
+    howToSteps: [
+      'Beoordeel je loopbaanfase (starter, doorgewinterde professional, directeur)',
+      'Vergelijk de voor- en nadelen van 3 cv-formats',
+      'Controleer de ATS-compatibiliteitsscore',
+      'Kies een sjabloon en maak je cv',
+    ],
+    howToToolName: 'Best AI Resume — CV Maker',
+  },
+  hero: {
+    badge: 'CV format gids 2026',
+    title: 'Kies het juiste cv format',
+    titleHighlight: 'en kom door de eerste selectie',
+    subtitle:
+      'Chronologisch, functioneel of combinatie — het juiste <strong>cv lay-out</strong> kiezen is de eerste kritieke stap in je sollicitatieproces. Met onze AI-gedreven cv maker verander je van format met één klik.',
+    ctaCompare: 'Vergelijk formats',
+    ctaBuild: 'Maak cv gratis',
+  },
+  comparison: {
+    title: 'Vergelijking van 3 cv-formats',
+    subtitle: 'Functies, ideaal gebruik en ATS-compatibiliteit van elk format helder op een rij.',
+    tableHeaders: {
+      format: 'Format',
+      bestFor: 'Ideaal voor',
+      avoidIf: 'Vermijd als',
+      atsSafety: 'ATS-veiligheid',
+    },
+    formats: [
+      {
+        name: 'Chronologisch (omgekeerd)',
+        badge: 'Meest gebruikt',
+        badgeColor: 'green',
+        bestFor: [
+          'Kandidaten zonder significante carrièrehiaten',
+          'Professionals die doorgroeien in dezelfde branche',
+          'Wie met zijn meest recente ervaring direct aansluit op de functie',
+        ],
+        avoidIf: 'Als je lange periodes van werkloosheid hebt',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'Functioneel (vaardigheidsgericht)',
+        badge: 'Vaardigheidsgericht',
+        badgeColor: 'amber',
+        bestFor: [
+          'Wie van branche wil wisselen',
+          'Wie carrièrehiaten heeft',
+          'Starters of freelancers',
+        ],
+        avoidIf: 'Als je solliciteert bij conservatieve sectoren of grote corporates',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'Combinatie',
+        badge: 'Gebalanceerd',
+        badgeColor: 'blue',
+        bestFor: [
+          'Wie sterke vaardigheden én brede ervaring heeft',
+          'Leidinggevende of seniorfuncties',
+          'Wie zowel vaardigheden als resultaten wil benadrukken',
+        ],
+        avoidIf: 'Als je nog weinig werkervaring hebt',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'Chronologisch cv-format (omgekeerd)',
+    description:
+      'Dit format toont werkervaring van meest recent naar oudst. Het is het meest geprefereerde format bij Nederlandse en internationale recruiters, met maximale ATS-compatibiliteit.',
+    whyLoveTitle: 'Waarom werkgevers dit format prefereren',
+    whyLoveText:
+      'Een chronologisch cv laat recruiters direct je loopbaangroei zien. ATS-systemen verwerken dit format met de hoogste nauwkeurigheid — daarom geven grote Nederlandse bedrijven, multinationals en overheidsinstellingen de voorkeur aan dit format.',
+    structureTitle: 'Structuur van de secties',
+    sections: [
+      { label: 'Persoonlijke gegevens en contactinfo', detail: 'Naam, e-mail, telefoon, woonplaats', isCore: true },
+      { label: 'Professionele samenvatting', detail: '3-4 zinnen die je ervaring en kernvaardigheden samenvatten', isCore: true },
+      { label: 'Werkervaring', detail: 'Van meest recent naar oudst (bedrijf, periode, prestaties)', isCore: true },
+      { label: 'Opleiding', detail: 'Meest recente en relevante diploma\'s' },
+      { label: 'Vaardigheden', detail: 'Technische vaardigheden, certificeringen en talen' },
+    ],
+    downloadLabel: 'Sjabloon downloaden',
+    aiLabel: 'Maken met AI',
+  },
+  functional: {
+    title: 'Functioneel cv-format (vaardigheidsgericht)',
+    description: 'Dit format structureert je cv op basis van vaardigheden en competenties in plaats van chronologie.',
+    warningTitle: 'Let op ATS-compatibiliteit',
+    warningText:
+      'Sommige ATS-systemen hebben moeite met functionele cv\'s waarbij de werkervaring tot een minimum is beperkt.',
+    structureTitle: 'Structuur van de secties',
+    sections: [
+      { label: 'Persoonlijke gegevens en contactinfo', isCore: true },
+      { label: 'Professionele samenvatting', isCore: true },
+      {
+        label: 'Kerncompetentiegebieden',
+        detail: '3-4 hoofdgebieden met concrete resultaten per gebied',
+        isCore: true,
+      },
+      { label: 'Werkervaring (samenvatting)', detail: 'Alleen bedrijf, functietitel en periode' },
+      { label: 'Opleiding' },
+    ],
+    downloadLabel: 'Sjabloon downloaden',
+    aiLabel: 'Maken met AI',
+  },
+  combination: {
+    title: 'Combinatie cv-format',
+    description: 'Combineert de sterke punten van het chronologische en functionele format.',
+    whoForTitle: 'Wanneer kies je voor dit format',
+    whoForItems: [
+      'Middenmanagement en seniorfuncties met brede ervaring en managementvaardigheden',
+      'Wie diepgaande ervaring én een gevarieerde vaardighedenset wil tonen',
+      'Wie solliciteert voor functies waarbij zowel technische als operationele resultaten belangrijk zijn',
+      'Wie een loopbaan heeft opgebouwd in verschillende branches',
+    ],
+    downloadLabel: 'Sjabloon downloaden',
+    aiLabel: 'Maken met AI',
+  },
+  faq: {
+    title: 'Veelgestelde vragen',
+    items: [
+      {
+        question: 'Welk cv-format is het meest gangbaar in Nederland?',
+        answer:
+          'In Nederland is het omgekeerd chronologische format het meest gangbaar in de private sector. Grote bedrijven, multinationals en techbedrijven verwachten dit format. Bij de overheid kunnen specifieke sollicitatieformulieren vereist zijn.',
+      },
+      {
+        question: 'Ik heb vaak van baan gewisseld — welk format past het beste?',
+        answer:
+          'Het combinatieformat is dan de beste keuze. Je kunt vaardigheden benadrukken terwijl je toch een chronologische werkhistorie bijhoudt. Zo toon je tegelijk diepgang en veelzijdigheid.',
+      },
+      {
+        question: 'Welk format is geschikt voor een starter?',
+        answer:
+          'Het chronologische format is ideaal voor starters. Plaats de opleiding vóór de werkervaring om je academische prestaties, stages en projecten te benadrukken.',
+      },
+      {
+        question: 'Wat is een ATS-vriendelijk cv?',
+        answer:
+          'ATS (Applicant Tracking System) is software die bedrijven gebruiken om cv\'s te filteren. Een ATS-vriendelijk cv heeft een eenvoudige opmaak, duidelijke koppen en relevante zoekwoorden — zonder tabellen of grafieken. Het chronologische format werkt het beste met deze systemen.',
+      },
+      {
+        question: 'Is een Europass cv nuttig in Nederland?',
+        answer:
+          'Europass is een standaardformat voor sollicitaties bij EU-instellingen en wordt zelden gebruikt op de Nederlandse arbeidsmarkt. Solliciteer je bij een EU-instantie, dan kan Europass overwogen worden; voor de Nederlandse private sector is het chronologische format echter veel effectiever.',
+      },
+    ],
+  },
+  externalResources: {
+    title: 'Externe bronnen',
+    items: [
+      { href: 'https://www.werk.nl/', label: 'Werk.nl — Officieel UWV werkportaal' },
+      { href: 'https://www.linkedin.com/jobs/', label: 'LinkedIn Jobs — Grootste vacatureplatform in Nederland' },
+    ],
+  },
+  stickyCta: { text: 'Het juiste cv-format gevonden?', ctaLabel: 'Maak cv nu' },
+  bottomCta: {
+    title: 'Geen gedoe meer over je cv-format',
+    description:
+      'Onze AI-gedreven cv maker optimaliseert automatisch format, lettertype en marges. Kies uit 20+ ATS-compatibele sjablonen.',
+    ctaLabel: 'Maak cv gratis',
+  },
+};
+
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

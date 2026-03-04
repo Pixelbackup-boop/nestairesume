@@ -1438,7 +1438,233 @@ const tr: ResumeAIPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr };
+const id: ResumeAIPageContent = {
+  meta: {
+    title: 'CV dengan AI | Pembuat CV Kecerdasan Buatan Gratis 2026',
+    description: 'Buat CV dengan AI dalam hitungan menit. Penulisan AI otomatis, optimasi ATS, 20+ template — semuanya gratis.',
+    keywords: 'cv dengan ai, buat cv dengan kecerdasan buatan, cv ai gratis, pembuat cv ai, cv otomatis ai, generator cv kecerdasan buatan',
+  },
+  schemas: {
+    breadcrumbName: 'CV dengan AI',
+    articleHeadline: 'CV dengan AI: Pembuat CV Kecerdasan Buatan Gratis 2026',
+    articleDescription: 'Temukan bagaimana AI menghasilkan dan mengoptimalkan konten CV. Gunakan pembuat CV AI gratis kami untuk mendapatkan lebih banyak interview.',
+    softwareAppName: 'Pembuat CV AI',
+  },
+  hero: {
+    badge: 'Pembuat CV dengan Kecerdasan Buatan',
+    title: 'AI membuatkan',
+    titleHighlight: 'CV sempurna Anda',
+    subtitle: '<strong>Pembuat CV AI kami</strong> menulis konten profesional, mengoptimalkan untuk ATS, dan membantu Anda membuat CV yang menonjol — sepenuhnya gratis. Menurut <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn</a>, rekruter rata-rata menghabiskan 7 detik untuk setiap CV. Dengan AI, setiap detik penting.',
+    ctaPrimary: 'Coba CV AI gratis',
+    ctaSecondary: 'Cara kerjanya',
+    trustText: 'Tanpa pendaftaran · 100% gratis · Konten dibuat AI',
+  },
+  whatIs: {
+    title: 'Apa itu CV dengan AI?',
+    description: '<strong>CV dengan AI</strong> mengubah cara Anda membuat CV secara mendasar. Daripada bergulat dengan halaman kosong, AI menganalisis pengalaman Anda, memahami posisi yang diinginkan, dan menghasilkan konten profesional yang dioptimalkan untuk industri Anda. Seperti yang disoroti oleh <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">SHRM</a>, AI dengan cepat mengubah proses rekrutmen dan CV yang dibuat AI diterima secara luas oleh perusahaan.',
+    stats: [
+      { value: '10x', label: 'Lebih cepat dari penulisan manual' },
+      { value: '85%', label: 'Peningkatan tingkat lolos ATS' },
+      { value: '3M+', label: 'CV yang dibuat dengan AI' },
+    ],
+  },
+  features: {
+    title: 'Bagaimana AI membantu membuat CV Anda',
+    subtitle: 'AI tidak hanya memformat — AI benar-benar membantu menulis konten yang lebih baik.',
+    items: [
+      { title: 'Penulisan konten AI', description: 'AI menghasilkan pengalaman profesional, ringkasan, dan deskripsi keahlian berdasarkan pengalaman dan posisi yang Anda inginkan.' },
+      { title: 'Optimasi kata kunci cerdas', description: 'AI menganalisis lowongan kerja dan menyarankan kata kunci spesifik industri yang dicari perusahaan.' },
+      { title: 'Analisis skor ATS', description: 'Penilaian real-time menunjukkan bagaimana CV Anda akan dievaluasi oleh sistem ATS sebelum Anda melamar.' },
+      { title: 'Kuantifikasi hasil', description: 'AI mengubah deskripsi umum menjadi pencapaian terukur dan konkret yang menarik perhatian rekruter.' },
+      { title: 'Template spesifik industri', description: 'AI menyarankan tata letak dan bagian yang paling sesuai untuk industri dan level pengalaman Anda.' },
+      { title: 'Pemeriksaan tata bahasa dan nada', description: 'AI secara otomatis memeriksa tata bahasa dan ejaan untuk memastikan hasil yang profesional dan sempurna.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'Lihat bagaimana AI mengubah CV Anda',
+    subtitle: 'Contoh nyata peningkatan yang dibuat oleh kecerdasan buatan.',
+    beforeLabel: 'Sebelum',
+    afterLabel: 'Setelah AI',
+    items: [
+      { before: 'Mengelola tim dan proyek', after: 'Mengkoordinasikan tim lintas fungsi 8 orang; menyelesaikan 12 proyek tepat waktu dengan kepuasan klien 98%' },
+      { before: 'Meningkatkan penjualan', after: 'Meningkatkan pendapatan tahunan 34% (Rp 35M) dengan strategi pembelian berbasis data' },
+      { before: 'Memberikan layanan pelanggan yang baik', after: 'Skor kepuasan 4,9/5; mengelola 150+ permintaan harian dengan tingkat resolusi kontak pertama 95%' },
+    ],
+    cta: 'Buat CV profesional',
+  },
+  comparison: {
+    title: 'CV dengan AI vs. CV yang ditulis manual',
+    subtitle: 'Mengapa pencari kerja memilih CV AI.',
+    oursName: 'Dengan AI',
+    othersName: 'Ditulis manual',
+    rows: [
+      { feature: 'Waktu pembuatan', ours: '10-15 menit', others: '2-4 jam' },
+      { feature: 'Penulisan profesional', ours: 'AI menyarankan', others: 'Perlu riset sendiri' },
+      { feature: 'Optimasi ATS', ours: 'Otomatis', others: 'Manual dan rentan error' },
+      { feature: 'Kata kunci industri', ours: 'Disarankan AI', others: 'Riset sendiri' },
+      { feature: 'Tata bahasa/ejaan', ours: 'Pemeriksaan otomatis', others: 'Mudah terlewat' },
+      { feature: 'Kuantifikasi hasil', ours: 'AI membantu', others: 'Sering terlupakan' },
+      { feature: 'Format/desain', ours: '20+ template', others: 'Buat dari nol' },
+    ],
+  },
+  useCases: {
+    title: 'CV AI untuk siapa?',
+    subtitle: 'Pembuat CV AI cocok untuk semua pencari kerja.',
+    items: [
+      { title: 'Pindah karier', description: 'AI membantu menonjolkan keahlian yang bisa ditransfer di berbagai industri' },
+      { title: 'Fresh graduate', description: 'Ubah magang dan proyek akademik menjadi pengalaman profesional yang meyakinkan' },
+      { title: 'Profesional berpengalaman', description: 'Rangkum 20 tahun pengalaman menjadi CV 2 halaman yang efektif' },
+      { title: 'Aktif mencari kerja', description: 'Buat CV yang disesuaikan dengan cepat untuk setiap lamaran' },
+    ],
+  },
+  faq: {
+    title: 'Pertanyaan yang sering diajukan',
+    items: [
+      { question: 'Apa itu CV dengan AI?', answer: 'CV dengan AI adalah CV yang dibuat dengan bantuan kecerdasan buatan. Alat kami menghasilkan pengalaman profesional, mengoptimalkan untuk ATS, menyarankan kata kunci industri, dan memformat semuanya secara otomatis — CV sempurna dalam hitungan menit, bukan jam.' },
+      { question: 'Lebih baik buat CV dengan AI atau tulis manual?', answer: 'AI membantu menulis konten yang lebih baik dengan lebih cepat. AI menganalisis ribuan CV sukses dan menyarankan frasa profesional, hasil terukur, dan kata kunci yang sesuai pasar kerja Indonesia. Anda tetap memiliki kontrol penuh atas konten akhir — AI hanya membuat prosesnya lebih efektif.' },
+      { question: 'Apakah CV yang dibuat AI bisa lolos filter ATS?', answer: 'Ya! Pembuat CV AI kami dirancang khusus untuk kompatibilitas ATS. AI memformat CV dengan teks bersih yang mudah dibaca, menyarankan kata kunci yang cocok dengan posisi, dan memberikan penilaian ATS real-time untuk mengoptimalkan sebelum mengirim.' },
+      { question: 'Apakah alat CV AI ini gratis?', answer: 'Ya, pembuat CV AI 100% gratis. Buat CV tak terbatas, gunakan semua template, unduh sebagai PDF — semuanya gratis. Tidak perlu kartu kredit atau langganan.' },
+      { question: 'Bagaimana AI menghasilkan konten?', answer: 'AI menganalisis posisi, industri, dan level pengalaman Anda untuk menghasilkan saran yang dipersonalisasi. AI menggunakan pola dari jutaan CV sukses untuk membuat ringkasan profesional, pengalaman berorientasi hasil, dan deskripsi keahlian yang menarik perhatian rekruter.' },
+      { question: 'Apakah CV akan terlihat seperti dibuat AI?', answer: 'Tidak. Alat kami menghasilkan konten yang alami dan profesional seperti ditulis oleh konsultan karier. Anda bisa mengedit setiap saran untuk menambahkan sentuhan personal, dan hasil akhir sepenuhnya milik Anda.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Alat CV AI lainnya',
+    items: [
+      { href: '/id/resume-maker', title: 'Pembuat CV', subtitle: 'Pembuat CV AI gratis' },
+      { href: '/id/tools/ats-checker', title: 'Cek ATS', subtitle: 'Analisis ATS dengan AI' },
+      { href: '/id/free-resume-builder', title: 'CV Gratis', subtitle: 'Pembuat 100% gratis' },
+    ],
+    guidesTitle: 'Panduan CV AI',
+    guides: [
+      { href: '/id/career-tips/ai-resume-tools', label: 'Tools AI untuk CV (2026)' },
+      { href: '/id/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: AI mana untuk CV?' },
+      { href: '/id/career-tips/how-to-write-ats-friendly-resume', label: 'Cara membuat CV ATS friendly' },
+      { href: '/id/resume-examples', label: '300+ contoh CV' },
+    ],
+  },
+  bottomCta: {
+    title: 'Siap membuat CV dengan AI?',
+    description: 'Bergabunglah dengan jutaan orang yang mendapatkan lebih banyak interview — dengan <a href="/id/" class="text-purple-600 hover:underline">pembuat CV kecerdasan buatan</a>.',
+    cta: 'Mulai gratis dengan AI',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit.',
+  },
+};
+
+const nl: ResumeAIPageContent = {
+  meta: {
+    title: 'CV Maken met AI | Gratis AI CV Schrijven 2026',
+    description: 'Maak je cv met AI in enkele minuten. Gratis AI cv tool die professionele content schrijft, optimaliseert voor ATS en je helpt meer interviews te krijgen.',
+    keywords: 'cv maken met ai, ai cv schrijven, ai cv maker, cv met kunstmatige intelligentie, ai cv gratis, slimme cv maker, ai cv builder, cv ai',
+  },
+  schemas: {
+    breadcrumbName: 'CV met AI',
+    articleHeadline: 'CV Maken met AI: Gratis AI CV Maker 2026',
+    articleDescription: 'Maak je cv met AI. Onze gratis AI cv tool schrijft professionele content, optimaliseert voor ATS en maakt cv\'s die interviews opleveren.',
+    softwareAppName: 'AI CV Maker',
+  },
+  hero: {
+    badge: 'Aangedreven door geavanceerde AI',
+    title: 'Maak je cv',
+    titleHighlight: 'met AI in seconden',
+    subtitle: 'Onze <strong>AI cv maker</strong> schrijft professionele content, optimaliseert voor ATS-systemen en helpt je cv\'s te maken die interviews opleveren \u2014 allemaal gratis. Volgens <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn onderzoek</a> besteden recruiters gemiddeld slechts 7 seconden aan elk cv. Laat AI elke seconde tellen.',
+    ctaPrimary: 'Probeer AI cv maken gratis',
+    ctaSecondary: 'Bekijk hoe het werkt',
+    trustText: 'Geen account nodig \u00b7 100% gratis \u00b7 AI-gegenereerde content',
+  },
+  whatIs: {
+    title: 'Wat is cv maken met AI?',
+    description: '<strong>CV maken met AI</strong> verandert fundamenteel hoe je een cv opstelt. In plaats van naar een leeg scherm te staren, analyseert onze AI je ervaring, begrijpt je doelfunctie en genereert professionele content op maat van jouw branche. Zoals benadrukt door de <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">Society for Human Resource Management (SHRM)</a>, transformeert AI snel de werving — en cv\'s gemaakt met AI worden breed geaccepteerd door werkgevers.',
+    stats: [
+      { value: '10x', label: 'Sneller dan handmatig schrijven' },
+      { value: '85%', label: 'Hogere kans op ATS-doorgang' },
+      { value: '3M+', label: "CV's gemaakt met AI" },
+    ],
+  },
+  features: {
+    title: 'Hoe AI je cv verbetert',
+    subtitle: 'AI doet meer dan alleen opmaken — het helpt je écht betere content te schrijven.',
+    items: [
+      { title: 'AI content schrijven', description: 'AI genereert professionele werkervaring, samenvattingen en vaardigheidsbeschrijvingen op basis van jouw ervaring en gewenste functie.' },
+      { title: 'Slimme zoekwoordoptimalisatie', description: 'AI analyseert vacatures en stelt branchespecifieke zoekwoorden voor die werkgevers zoeken.' },
+      { title: 'ATS-score analyse', description: 'Real-time scoring laat zien hoe je cv wordt beoordeeld door ATS-systemen voordat je solliciteert.' },
+      { title: 'Resultaten kwantificeren', description: 'AI zet vage beschrijvingen om in meetbare, concrete prestaties die de aandacht van recruiters trekken.' },
+      { title: 'Branchespecifieke sjablonen', description: 'AI stelt de lay-out en secties voor die het beste passen bij jouw branche en ervaringsniveau.' },
+      { title: 'Grammatica- en tooncontrole', description: 'AI controleert automatisch grammatica en spelling voor een foutloze, professionele presentatie.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'Zie hoe AI je cv transformeert',
+    subtitle: 'Echte voorbeelden van verbeteringen gemaakt door kunstmatige intelligentie.',
+    beforeLabel: 'Voor',
+    afterLabel: 'Na AI',
+    items: [
+      { before: 'Team en projecten beheerd', after: 'Leidde cross-functioneel team van 8 personen; leverde 12 projecten op tijd op met 98% klanttevredenheid' },
+      { before: 'Omzet verhoogd', after: 'Jaarlijkse omzet met 34% (€280K) verhoogd via data-gedreven inkoopstrategie' },
+      { before: 'Goede klantenservice geleverd', after: 'Score 4,9/5 tevredenheid; verwerkte 150+ dagelijkse aanvragen met 95% first-contact-oplossingspercentage' },
+    ],
+    cta: 'Maak professioneel cv',
+  },
+  comparison: {
+    title: 'CV met AI vs. handmatig geschreven cv',
+    subtitle: 'Waarom werkzoekenden kiezen voor AI cv maken.',
+    oursName: 'Met AI',
+    othersName: 'Handmatig',
+    rows: [
+      { feature: 'Aanmaaktijd', ours: '10-15 minuten', others: '2-4 uur' },
+      { feature: 'Professioneel schrijven', ours: 'AI stelt voor', others: 'Eigen research nodig' },
+      { feature: 'ATS-optimalisatie', ours: 'Automatisch', others: 'Handmatig, foutgevoelig' },
+      { feature: 'Branchezoekwoorden', ours: 'AI-suggesties', others: 'Zelf opzoeken' },
+      { feature: 'Grammatica/spelling', ours: 'Automatische controle', others: 'Makkelijk over het hoofd' },
+      { feature: 'Resultaten kwantificeren', ours: 'AI helpt', others: 'Vaak vergeten' },
+      { feature: 'Opmaak/ontwerp', ours: '20+ sjablonen', others: 'Vanaf nul opbouwen' },
+    ],
+  },
+  useCases: {
+    title: 'Voor wie is AI cv maken?',
+    subtitle: 'Onze AI cv maker is geschikt voor alle werkzoekenden.',
+    items: [
+      { title: 'Van baan wisselen', description: 'AI helpt overdraagbare vaardigheden te benadrukken voor een nieuwe branche' },
+      { title: 'Starter op de arbeidsmarkt', description: 'Zet stages en studieprojecten om naar overtuigende werkervaring' },
+      { title: 'Ervaren professional', description: 'Vat 20 jaar ervaring samen in een effectief cv van 2 pagina\'s' },
+      { title: 'Actief solliciterend', description: 'Maak snel op maat gemaakte cv\'s voor elke sollicitatie' },
+    ],
+  },
+  faq: {
+    title: 'Veelgestelde vragen',
+    items: [
+      { question: 'Wat is cv maken met AI?', answer: 'CV maken met AI is een cv opstellen met hulp van kunstmatige intelligentie. Onze tool genereert professionele werkervaring, optimaliseert voor ATS, stelt branchezoekwoorden voor en formatteert alles automatisch — een perfect cv in minuten, niet uren.' },
+      { question: 'Is een AI cv beter dan een handmatig geschreven cv?', answer: 'AI helpt je sneller betere content te schrijven. Het analyseert duizenden succesvolle cv\'s en stelt professionele formuleringen, meetbare resultaten en zoekwoorden voor die aansluiten op de arbeidsmarkt. Jij behoudt volledige controle over de uiteindelijke content — AI maakt het proces effectiever.' },
+      { question: 'Kan een AI cv door ATS-filters heen komen?', answer: 'Ja! Onze AI cv maker is speciaal ontworpen voor ATS-compatibiliteit. AI formatteert het cv met schone tekst die makkelijk te lezen is, stelt zoekwoorden voor die passen bij de functie en geeft real-time ATS-score om te optimaliseren voor verzending.' },
+      { question: 'Is deze AI cv tool gratis?', answer: 'Ja, de AI cv maker is 100% gratis. Maak onbeperkt cv\'s, gebruik alle sjablonen, download als pdf — allemaal gratis. Geen creditcard of abonnement nodig.' },
+      { question: 'Hoe genereert AI de content?', answer: 'AI analyseert je functie, branche en ervaringsniveau om gepersonaliseerde suggesties te genereren. Het gebruikt patronen van miljoenen succesvolle cv\'s om professionele samenvattingen, resultaatgerichte werkervaring en vaardigheidsbeschrijvingen te schrijven die recruiters aanspreken.' },
+      { question: 'Ziet mijn cv eruit alsof het door AI is gemaakt?', answer: 'Nee. Onze tool genereert natuurlijke, professionele content die klinkt als geschreven door een carrièrecoach. Je kunt elke suggestie bewerken om je eigen stempel te zetten, en het eindresultaat is volledig van jou.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Andere AI cv-tools',
+    items: [
+      { href: '/nl/resume-maker', title: 'CV Maker', subtitle: 'Gratis AI cv maker' },
+      { href: '/nl/tools/ats-checker', title: 'ATS Checker', subtitle: 'AI ATS-analyse' },
+      { href: '/nl/free-resume-builder', title: 'Gratis CV', subtitle: '100% gratis cv maker' },
+    ],
+    guidesTitle: 'AI cv-gidsen',
+    guides: [
+      { href: '/nl/career-tips/ai-resume-tools', label: 'AI tools voor je cv (2026)' },
+      { href: '/nl/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: welke AI voor je cv?' },
+      { href: '/nl/career-tips/how-to-write-ats-friendly-resume', label: 'Hoe maak je een ATS-vriendelijk cv' },
+      { href: '/nl/resume-examples', label: '300+ cv-voorbeelden' },
+    ],
+  },
+  bottomCta: {
+    title: 'Klaar om je cv te maken met AI?',
+    description: 'Sluit je aan bij miljoenen werkzoekenden die meer interviews krijgen — met onze <a href="/nl/" class="text-purple-600 hover:underline">AI cv maker</a>.',
+    cta: 'Begin gratis met AI',
+    subtext: 'Voor altijd gratis. Geen creditcard.',
+  },
+};
+
+const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
 
 export function getContent(locale: string): ResumeAIPageContent {
   return selectContent(contentMap, locale);

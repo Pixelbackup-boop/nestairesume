@@ -1429,5 +1429,359 @@ const tr: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Europass 2026: Pembuat CV AI Gratis | Best AI Resume',
+    description: 'Cari alternatif Europass gratis? Bandingkan Europass vs Best AI Resume Builder — penulisan AI, template ATS, unduhan tak terbatas. Tanpa biaya tersembunyi.',
+    keywords: 'alternatif europass, europass vs best ai resume, pembuat cv gratis alternatif europass, cv builder gratis indonesia',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Europass',
+    articleHeadline: 'Alternatif Europass 2026: Pembuat CV AI Gratis Tanpa Biaya Tersembunyi',
+    articleDescription: 'Bandingkan Europass vs Best AI Resume Builder. Dapatkan penulisan AI, optimasi ATS, dan unduhan tak terbatas sepenuhnya gratis.',
+  },
+  hero: {
+    badge: 'Alternatif Europass',
+    title: 'Buat CV Anda.',
+    titleHighlight: 'Unduh Gratis.',
+    subtitle: 'Europass memungkinkan Anda membuat CV — lalu memungut biaya untuk mengunduhnya. Dapatkan penulisan AI, template ATS, dan ekspor tak terbatas seharga <strong>Rp 0</strong>.',
+    ctaPrimary: 'Buat CV Saya Gratis',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah dengan Europass',
+    description: 'Europass memiliki template profesional dan saran konten yang berguna. Masalahnya ada di model harganya: Anda baru mengetahui biaya unduhan setelah menyelesaikan seluruh CV. Banyak pengguna melaporkan biaya tak terduga di situs ulasan.',
+    stats: [
+      { value: '$2.70', label: 'Masa percobaan (perpanjang otomatis ke $23.70/bln)' },
+      { value: '$284', label: 'Biaya tahunan jika lupa membatalkan' },
+      { value: 'Rp 0', label: 'Best AI Resume Builder — gratis selamanya' },
+    ],
+  },
+  comparison: {
+    title: 'Perbandingan Europass vs Best AI Resume Builder',
+    subtitle: 'Perbandingan fitur secara berdampingan.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Berbayar untuk mengunduh', ours: '✅ 100% gratis selamanya' },
+      { feature: 'Unduhan Gratis', competitor: '❌ Perlu bayar untuk PDF', ours: '✅ Unduhan PDF gratis tak terbatas' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Saran terbatas', ours: '✅ Konten yang dibuat AI sepenuhnya' },
+      { feature: 'Optimasi ATS', competitor: '✅ Pemeriksaan dasar', ours: '✅ Skor ATS real-time + kata kunci' },
+      { feature: 'Kualitas Template', competitor: '✅ Desain profesional', ours: '✅ 20+ template yang diuji ATS' },
+      { feature: 'Jumlah CV', competitor: '⚠️ Terbatas di paket gratis', ours: '✅ CV tak terbatas, gratis' },
+      { feature: 'Pembuat Surat Lamaran', competitor: '✅ Tersedia (paket berbayar)', ours: '✅ Bertenaga AI (gratis)' },
+      { feature: 'Saran Konten', competitor: '✅ Frasa yang ditulis sebelumnya', ours: '✅ Adaptasi AI berdasarkan pengalaman Anda' },
+      { feature: 'Pembatalan', competitor: '❌ Harus dibatalkan sebelum masa percobaan', ours: '✅ Tidak ada yang perlu dibatalkan' },
+      { feature: 'Ulasan Pengguna', competitor: '⚠️ Campuran — keluhan penagihan umum', ours: '✅ Tidak mungkin ada masalah penagihan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Alasan Beralih dari Europass',
+    subtitle: 'Benar-benar gratis. AI lebih baik. Tanpa jebakan.',
+    reasons: [
+      { title: 'Unduhan Benar-benar Gratis', description: 'Europass meminta bayaran setelah Anda selesai membuat CV. Di sini, Anda bisa mengunduh apapun yang Anda buat secara instan dan gratis — tidak ada percobaan, kartu kredit, atau perpanjangan otomatis.' },
+      { title: 'AI Nyata (Bukan Frasa yang Ditulis Sebelumnya)', description: 'Saran Europass didasarkan pada pustaka frasa yang telah ditulis sebelumnya. AI kami menghasilkan konten yang benar-benar disesuaikan untuk setiap bagian CV.' },
+      { title: 'Optimasi ATS Lebih Baik', description: 'Dibandingkan fitur ATS dasar Europass, kami menawarkan penilaian ATS real-time, saran kata kunci spesifik industri, dan template yang diuji untuk sistem yang umum digunakan di Indonesia.' },
+    ],
+  },
+  recommendation: {
+    title: 'Rekomendasi Jujur',
+    useCompetitor: {
+      title: 'Gunakan Europass jika...',
+      items: [
+        'Anda bersedia membayar untuk fitur tertentu yang dimiliki Europass',
+        'Anda lebih suka antarmuka spesifik Europass',
+        'Anda membutuhkan fitur tertentu yang hanya ada di Europass',
+        'Anda menginginkan dukungan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Gunakan Best AI Resumes jika...',
+      items: [
+        'Anda ingin membuat dan mengunduh CV secara gratis',
+        'Anda membutuhkan AI canggih untuk membantu menulis konten',
+        'Anda ingin penilaian ATS real-time saat membuat CV',
+        'Anda tidak ingin berurusan dengan langganan atau perpanjangan otomatis',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Jelajahi 300+ Contoh CV Gratis',
+    description: 'Contoh CV profesional untuk setiap industri dan level karier.',
+    ctaBrowse: 'Lihat Contoh CV',
+    ctaTemplates: 'Lihat Semua Template',
+  },
+  faq: {
+    title: 'Pertanyaan yang Sering Diajukan',
+    items: [
+      { question: 'Apakah Europass gratis?', answer: 'Europass mengizinkan pembuatan CV gratis tetapi mengenakan biaya untuk mengunduh. Best AI Resume Builder 100% gratis — buat dan unduh CV tak terbatas tanpa kartu kredit.' },
+      { question: 'Mengapa Europass mengenakan biaya untuk mengunduh?', answer: 'Model bisnis Europass adalah "freemium" — proses pembuatan gratis untuk menarik pengguna, tetapi monetisasi terjadi saat mengunduh. Best AI Resume Builder transparan: semuanya gratis, tanpa kejutan.' },
+      { question: 'Apa alternatif gratis terbaik untuk Europass?', answer: 'Best AI Resume Builder adalah alternatif gratis terbaik. Kami menawarkan semua yang ada di balik paywall Europass — template profesional, ekspor PDF, surat lamaran — ditambah penulisan AI dan optimasi ATS.' },
+      { question: 'Apakah Europass memiliki penulisan AI?', answer: 'Europass memiliki beberapa saran konten, tetapi bukan penulisan AI yang sebenarnya. Best AI Resume Builder menggunakan AI canggih untuk menghasilkan pengalaman profesional, ringkasan, dan kata kunci yang dipersonalisasi.' },
+      { question: 'Bagaimana cara membatalkan Europass?', answer: 'Untuk membatalkan Europass, akses pengaturan akun sebelum masa percobaan berakhir. Best AI Resume Builder tidak memerlukan langganan — tidak ada yang perlu dibatalkan. Cukup gunakan platform secara gratis.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat CV Lainnya',
+    items: [
+      { href: '/id/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs modern' },
+      { href: '/id/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga' },
+      { href: '/id/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat desain vs AI' },
+      { href: '/id/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan fitur AI' },
+    ],
+    guidesTitle: 'Panduan CV yang Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Daya Eksternal',
+    items: [
+      { href: 'https://www.kemnaker.go.id/', label: 'Kemnaker — Kementerian Ketenagakerjaan Republik Indonesia' },
+      { href: 'https://www.glassdoor.co.id/', label: 'Glassdoor Indonesia — Gaji dan Peluang Karier' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat CV yang Benar-benar Gratis.',
+    description: 'Tanpa jebakan harga, tanpa perpanjangan otomatis. Hanya pembuat CV bertenaga AI — 100% gratis selamanya.',
+    cta: 'Buat CV Saya Gratis',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa kejutan.',
+  },
+};
+
+const pl: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatywa Europass 2026: Darmowy Kreator CV AI | Best AI Resume',
+    description: 'Szukasz alternatywy dla Europass? Porównaj Europass vs Best AI Resume — kreator CV z AI, szablony CV ATS, nieograniczone pobieranie. Darmowy kreator CV na polski rynek pracy.',
+    keywords: 'alternatywa europass, europass cv, kreator cv za darmo, szablon cv, europass polska, cv ai, darmowe cv',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatywa Europass',
+    articleHeadline: 'Alternatywa Europass 2026: Darmowy Kreator CV z AI na Polski Rynek Pracy',
+    articleDescription: 'Porównaj Europass vs Best AI Resume Builder. Twórz nowoczesne CV z pomocą AI, optymalizacją ATS i nieograniczonym pobieraniem — całkowicie za darmo.',
+  },
+  hero: {
+    badge: 'Alternatywa Europass',
+    title: 'Twój Kreator CV.',
+    titleHighlight: 'Nowocześniejszy niż Europass.',
+    subtitle: 'CV Europass jest darmowe, ale przestarzałe pod względem formatowania — nie zoptymalizowane pod systemy ATS ani współczesnych rekruterów. Oferujemy pisanie z pomocą AI, szablony CV przyjazne ATS i nieograniczone eksporty za <strong>0 zł</strong>.',
+    ctaPrimary: 'Utwórz Moje CV Za Darmo',
+    ctaSecondary: 'Zobacz Porównanie',
+  },
+  problem: {
+    title: 'Ograniczenia Europass',
+    description: 'Europass jest popularny w UE i przydatny do aplikacji akademickich lub zagranicznych. Jednak na polskim rynku pracy CV Europass ma przestarzały format, który systemy ATS obsługują nieoptymalnie. Polscy rekruterzy zazwyczaj preferują nowocześniejsze, bardziej zwięzłe CV.',
+    stats: [
+      { value: 'Darmowy', label: 'Europass — ale przestarzały format' },
+      { value: 'Ograniczony', label: 'Wybór szablonów i nowoczesny design' },
+      { value: '0 zł', label: 'Best AI Resume Builder — nowoczesny, darmowy, przyjazny ATS' },
+    ],
+  },
+  comparison: {
+    title: 'Europass vs Best AI Resume Builder',
+    subtitle: 'Porównanie funkcja po funkcji.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Cena', competitor: '✅ Darmowy', ours: '✅ 100% darmowy na zawsze' },
+      { feature: 'Darmowe Pobieranie', competitor: '✅ Darmowy PDF', ours: '✅ Nieograniczone darmowe eksporty PDF' },
+      { feature: 'Pisanie z AI', competitor: '❌ Brak funkcji AI', ours: '✅ AI tworzy spersonalizowaną treść CV' },
+      { feature: 'Optymalizacja ATS', competitor: '❌ Brak optymalizacji ATS', ours: '✅ Wynik ATS w czasie rzeczywistym + słowa kluczowe' },
+      { feature: 'Wygląd Szablonu', competitor: '❌ Przestarzały format UE', ours: '✅ 20+ nowoczesnych szablonów przyjaznych ATS' },
+      { feature: 'Polski Rynek', competitor: '⚠️ Bardziej dla UE/akademickich', ours: '✅ Zoptymalizowany pod polskie standardy CV' },
+      { feature: 'Kreator Listu Motywacyjnego', competitor: '✅ Dostępny', ours: '✅ Wspomagany AI (darmowy)' },
+      { feature: 'Sugestie Treści', competitor: '❌ Brak sugestii', ours: '✅ AI dostosowane do Twojego doświadczenia' },
+      { feature: 'Personalizacja', competitor: '⚠️ Ograniczone opcje formatowania', ours: '✅ W pełni konfigurowalny wygląd' },
+      { feature: 'Łatwość Użycia', competitor: '⚠️ Uciążliwy dla codziennych aplikacji', ours: '✅ Intuicyjny i szybki' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Powody, by Przejść z Europass',
+    subtitle: 'Nowocześniej. Inteligentniej. Lepiej na polski rynek.',
+    reasons: [
+      { title: 'Format Przyjazny ATS', description: 'Format Europass nie jest zoptymalizowany pod nowoczesne systemy ATS, z których korzystają polscy pracodawcy. Nasze szablony są testowane pod kątem zgodności z popularnymi platformami ATS na polskim rynku pracy.' },
+      { title: 'AI Pisze Treść CV', description: 'Europass nie oferuje pomocy w pisaniu treści CV. Nasza AI generuje profesjonalne opisy stanowisk, przekonujące podsumowanie i słowa kluczowe ATS na podstawie Twojego doświadczenia i celu zawodowego.' },
+      { title: 'Nowoczesny Design dla Polskich Rekruterów', description: 'Polscy rekruterzy oczekują nowoczesnych, zwięzłych CV. Nasze 20+ szablonów wygląda profesjonalnie i odpowiada standardom polskiego rynku pracy — znacznie lepiej niż sztywny format Europass.' },
+    ],
+  },
+  recommendation: {
+    title: 'Uczciwa Rekomendacja',
+    useCompetitor: {
+      title: 'Europass jest odpowiedni, jeśli...',
+      items: [
+        'Aplikujesz na stanowiska akademickie lub naukowe w UE',
+        'Pracodawca wyraźnie wymaga formatu Europass',
+        'Aplikujesz do instytucji rządowych UE lub organizacji europejskich',
+        'Potrzebujesz ustandaryzowanego formatu CV dla krajów UE',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes jest lepszy, jeśli...',
+      items: [
+        'Szukasz pracy na polskim rynku pracy',
+        'Chcesz nowoczesne CV zoptymalizowane pod ATS',
+        'Potrzebujesz AI do tworzenia profesjonalnej treści',
+        'Chcesz kilka wersji CV do różnych aplikacji',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Przeglądaj 300+ Darmowych Wzorów CV',
+    description: 'Profesjonalne wzory CV dla każdej branży i poziomu kariery.',
+    ctaBrowse: 'Przeglądaj Wzory CV',
+    ctaTemplates: 'Przeglądaj Wszystkie Szablony',
+  },
+  faq: {
+    title: 'Najczęściej Zadawane Pytania',
+    items: [
+      { question: 'Czy Europass jest odpowiedni na polski rynek pracy?', answer: 'Europass jest darmowy i przydatny do aplikacji w UE, ale jego format jest przestarzały na polskim rynku pracy. Polscy rekruterzy zazwyczaj oczekują nowocześniejszego, zwięzłego CV. Best AI Resume Builder oferuje nowoczesne szablony przyjazne ATS, które lepiej odpowiadają oczekiwaniom polskich pracodawców.' },
+      { question: 'Jaka jest różnica między Europass a zwykłym CV?', answer: 'Europass stosuje ustandaryzowany format UE ze stałymi sekcjami dotyczącymi kompetencji językowych i kwalifikacji. Zwykłe CV na polskim rynku jest bardziej zwięzłe, skoncentrowane na osiągnięciach i dostosowane do konkretnego stanowiska. Best AI Resume Builder pomaga stworzyć CV zgodne z polskimi standardami.' },
+      { question: 'Jaka jest najlepsza darmowa alternatywa dla Europass?', answer: 'Best AI Resume Builder to najlepsza darmowa alternatywa dla polskich kandydatów. Oferujemy nowoczesne szablony CV przyjazne ATS, pomoc w pisaniu z AI, wyniki ATS w czasie rzeczywistym i nieograniczone eksporty PDF — całkowicie za darmo.' },
+      { question: 'Czy mogę używać CV Europass w Polsce?', answer: 'Możesz używać CV Europass, ale dla większości polskich pracodawców lepiej sprawdzi się nowoczesny format CV. Polscy rekruterzy i systemy ATS lepiej obsługują zwięzłe, zorientowane na osiągnięcia CV niż rozbudowany format Europass.' },
+      { question: 'Czy Best AI Resume Builder ma szablony zgodne z UE?', answer: 'Tak, Best AI Resume Builder oferuje profesjonalne szablony odpowiednie zarówno do polskich, jak i szerszych europejskich aplikacji. Szablony są przyjazne ATS i można je dostosować do wymagań różnych krajów.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Porównaj Inne Kreatory CV',
+    items: [
+      { href: '/pl/livecareer-alternative', title: 'Alternatywa LiveCareer', subtitle: 'Tradycyjny vs nowoczesny' },
+      { href: '/pl/resume-io-alternative', title: 'Alternatywa Resume.io', subtitle: 'Porównanie cen i funkcji' },
+      { href: '/pl/canva-alternative', title: 'Alternatywa Canva', subtitle: 'Narzędzie do projektowania vs kreator CV AI' },
+      { href: '/pl/zety-alternative', title: 'Alternatywa Zety', subtitle: 'Porównanie cen' },
+    ],
+    guidesTitle: 'Przydatne Poradniki CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Zewnętrzne Zasoby',
+    items: [
+      { href: 'https://europass.europa.eu/pl', label: 'Europass — Oficjalne narzędzie CV UE' },
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+    ],
+  },
+  bottomCta: {
+    title: 'Nowocześniej niż Europass. Nadal Za Darmo.',
+    description: 'Stwórz nowoczesne, przyjazne ATS CV z pomocą AI — znacznie lepiej dostosowane do polskiego rynku pracy niż Europass, i w pełni za darmo.',
+    cta: 'Utwórz Moje CV Za Darmo',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej. Bez niespodzianek.',
+  },
+};
+
+const nl: ComparisonPageContent = {
+  meta: {
+    title: 'Europass Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
+    description: 'Op zoek naar een Europass alternatief? Vergelijk Europass vs Best AI Resume Builder — AI cv schrijven, moderne ATS cv sjablonen, onbeperkt downloaden. Gratis voor Nederlandse arbeidsmarkt.',
+    keywords: 'europass alternatief, europass cv maken, gratis cv sjabloon, cv maken gratis, cv builder nederland, europass vervangen, europees cv alternatief',
+  },
+  schemas: {
+    breadcrumbName: 'Europass Alternatief',
+    articleHeadline: 'Europass Alternatief 2026: Gratis CV Maken met AI voor de Nederlandse Arbeidsmarkt',
+    articleDescription: 'Vergelijk Europass vs Best AI Resume Builder. Maak een modern professioneel cv met AI, ATS-optimalisatie en onbeperkt downloaden — volledig gratis.',
+  },
+  hero: {
+    badge: 'Europass Alternatief',
+    title: 'Maak Je CV.',
+    titleHighlight: 'Moderner dan Europass.',
+    subtitle: 'Europass cv\'s zijn gratis maar verouderd qua opmaak — niet geoptimaliseerd voor ATS-systemen of moderne recruiters. Wij bieden AI-schrijven, ATS-vriendelijke cv sjablonen en onbeperkte exports voor <strong>€0</strong>.',
+    ctaPrimary: 'Maak Mijn CV Gratis',
+    ctaSecondary: 'Bekijk de Vergelijking',
+  },
+  problem: {
+    title: 'De Beperkingen van Europass',
+    description: 'Europass is populair in de EU en zeker nuttig voor academische of internationale sollicitaties. Maar voor de Nederlandse arbeidsmarkt hebben Europass cv\'s een verouderd formaat dat ATS-systemen niet optimaal verwerken. Nederlandse recruiters geven doorgaans de voorkeur aan modernere, beknoptere cv\'s.',
+    stats: [
+      { value: 'Gratis', label: 'Europass — maar verouderd formaat' },
+      { value: 'Beperkt', label: 'Sjabloonkeuze en moderne opmaak' },
+      { value: '€0', label: 'Best AI Resume Builder — modern, gratis, ATS-vriendelijk' },
+    ],
+  },
+  comparison: {
+    title: 'Europass vs Best AI Resume Builder',
+    subtitle: 'Functie-voor-functie vergelijking.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Prijs', competitor: '✅ Gratis', ours: '✅ 100% gratis voor altijd' },
+      { feature: 'Gratis Downloaden', competitor: '✅ Gratis PDF-download', ours: '✅ Onbeperkt gratis PDF exporteren' },
+      { feature: 'AI Schrijven', competitor: '❌ Geen AI-schrijffuncties', ours: '✅ AI genereert volledig op maat gemaakte inhoud' },
+      { feature: 'ATS-optimalisatie', competitor: '❌ Niet ATS-geoptimaliseerd', ours: '✅ Realtime ATS-score + zoekwoorden' },
+      { feature: 'Sjabloonontwwerp', competitor: '❌ Verouderd EU-formaat', ours: '✅ 20+ moderne ATS-vriendelijke sjablonen' },
+      { feature: 'Nederlandse Markt', competitor: '⚠️ Meer geschikt voor EU/academisch', ours: '✅ Geoptimaliseerd voor Nederlandse arbeidsmarkt' },
+      { feature: 'Motivatiebriefbouwer', competitor: '✅ Beschikbaar', ours: '✅ AI-aangedreven (gratis)' },
+      { feature: 'Inhoudssuggesties', competitor: '❌ Geen suggesties', ours: '✅ AI afgestemd op jouw werkervaring' },
+      { feature: 'Aanpasbaarheid', competitor: '⚠️ Beperkte opmaakopties', ours: '✅ Volledig aanpasbaar ontwerp' },
+      { feature: 'Gebruiksvriendelijkheid', competitor: '⚠️ Omslachtig voor reguliere sollicitaties', ours: '✅ Intuïtief en snel' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Redenen om over te stappen van Europass',
+    subtitle: 'Moderner. Slimmer. Beter voor de Nederlandse markt.',
+    reasons: [
+      { title: 'ATS-vriendelijk Formaat', description: 'Het Europass-formaat is niet geoptimaliseerd voor moderne ATS-systemen die Nederlandse werkgevers gebruiken. Onze sjablonen zijn specifiek getest op compatibiliteit met populaire ATS-platforms op de Nederlandse arbeidsmarkt.' },
+      { title: 'AI Schrijft Je Inhoud', description: 'Europass biedt geen hulp bij het schrijven van je cv-inhoud. Onze AI genereert professionele bullet points, een overtuigende samenvatting en ATS-zoekwoorden op basis van jouw werkervaring en doelfunctie.' },
+      { title: 'Modern Design voor Nederlandse Recruiters', description: 'Nederlandse recruiters zijn gewend aan moderne, beknopte cv\'s. De 20+ sjablonen in onze cv builder zien er professioneel uit en sluiten aan bij de verwachtingen op de Nederlandse arbeidsmarkt.' },
+    ],
+  },
+  recommendation: {
+    title: 'Eerlijke Aanbeveling',
+    useCompetitor: {
+      title: 'Europass is geschikt als je...',
+      items: [
+        'Solliciteert voor academische of wetenschappelijke functies in de EU',
+        'Specifiek gevraagd wordt om een Europass cv in te dienen',
+        'Solliciteert bij internationale of Europese overheidsinstanties',
+        'Een gestandaardiseerd EU-cv-formaat nodig hebt',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes is beter als je...',
+      items: [
+        'Solliciteert op de Nederlandse arbeidsmarkt',
+        'Een modern, ATS-vriendelijk cv wilt',
+        'AI nodig hebt om professionele inhoud te schrijven',
+        'Meerdere cv-versies wilt voor verschillende sollicitaties',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Bekijk 300+ Gratis CV Voorbeelden',
+    description: 'Professionele cv voorbeelden voor elke sector en carriereniveau.',
+    ctaBrowse: 'Bekijk CV Voorbeelden',
+    ctaTemplates: 'Bekijk Alle Sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde Vragen',
+    items: [
+      { question: 'Is Europass geschikt voor de Nederlandse arbeidsmarkt?', answer: 'Europass is gratis en nuttig voor EU-sollicitaties, maar het formaat is verouderd voor de Nederlandse arbeidsmarkt. Nederlandse recruiters verwachten doorgaans een moderner, beknopter cv-formaat. Best AI Resume Builder biedt moderne, ATS-vriendelijke sjablonen die beter aansluiten bij de verwachtingen van Nederlandse werkgevers.' },
+      { question: 'Wat is het verschil tussen Europass en een gewoon cv?', answer: 'Europass volgt een gestandaardiseerd EU-formaat met vaste secties zoals taalvaardigheidsniveaus en kwalificaties. Een regulier cv op de Nederlandse markt is compacter, meer gefocust op prestaties en afgestemd op de specifieke functie. Best AI Resume Builder helpt je een cv te maken dat aansluit bij Nederlandse normen.' },
+      { question: 'Wat is het beste gratis alternatief voor Europass?', answer: 'Best AI Resume Builder is het beste gratis alternatief voor Nederlandse sollicitanten. We bieden moderne ATS-vriendelijke cv sjablonen, AI-schrijfhulp, realtime ATS-scores en onbeperkte PDF-exports — volledig gratis.' },
+      { question: 'Kan ik een Europass cv gebruiken in Nederland?', answer: 'Je kunt een Europass cv gebruiken, maar voor de meeste Nederlandse banen werkt een modern cv-formaat beter. Nederlandse recruiters en ATS-systemen zijn beter afgestemd op compacte, prestatiegerichte cv\'s dan op het uitgebreide Europass-format.' },
+      { question: 'Heeft Best AI Resume Builder EU-compatibele cv-sjablonen?', answer: 'Ja, Best AI Resume Builder heeft meerdere professionele sjablonen die geschikt zijn voor zowel Nederlandse als bredere EU-sollicitaties. De sjablonen zijn ATS-vriendelijk en kunnen worden aangepast aan de vereisten van verschillende landen.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Vergelijk Andere CV Bouwers',
+    items: [
+      { href: '/nl/livecareer-alternative', title: 'LiveCareer Alternatief', subtitle: 'Traditioneel vs modern' },
+      { href: '/nl/resume-io-alternative', title: 'Resume.io Alternatief', subtitle: 'Prijs- en functievergelijking' },
+      { href: '/nl/canva-alternative', title: 'Canva Alternatief', subtitle: 'Ontwerptool vs AI cv maker' },
+      { href: '/nl/zety-alternative', title: 'Zety Alternatief', subtitle: 'Prijsvergelijking' },
+    ],
+    guidesTitle: 'Handige CV Gidsen',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Externe Bronnen',
+    items: [
+      { href: 'https://europa.eu/europass/nl/', label: 'Europass — Officiële EU CV-tool' },
+      { href: 'https://www.uwv.nl/', label: 'UWV — Uitvoeringsinstituut Werknemersverzekeringen' },
+    ],
+  },
+  bottomCta: {
+    title: 'Moderner dan Europass. Nog Steeds Gratis.',
+    description: 'Maak een modern, ATS-vriendelijk cv met AI — veel beter geschikt voor de Nederlandse arbeidsmarkt dan Europass, en volledig gratis.',
+    cta: 'Maak Mijn CV Gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard. Geen verrassingen.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

@@ -32,9 +32,9 @@
 | Vietnamese | vi | ✅ | ✅ 554 | ✅ 566 | ✅ 72 | ✅ 10 | ✅ | **Complete** |
 | Thai | th | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Malay | ms | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
-| Indonesian | id | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
+| Indonesian | id | ✅ | ✅ 569 | ✅ 581 | ✅ 33 | ✅ 10 | ✅ | **Complete** |
 | Polish | pl | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
-| Dutch | nl | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
+| Dutch | nl | ✅ | ✅ 569 | ✅ 581 | ✅ 72 | ✅ 10 | ✅ | **Complete** |
 | Turkish | tr | ✅ | ✅ 554 | ✅ 566 | ✅ 74 | ✅ 10 | ✅ | **Complete** |
 
 **Update this table after completing each locale.**

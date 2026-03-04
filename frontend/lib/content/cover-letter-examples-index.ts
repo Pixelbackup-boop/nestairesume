@@ -598,5 +598,54 @@ const ko: CoverLetterExamplesIndexContent = {
   },
 };
 
-const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const nl: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: 'Motivatiebrief Voorbeelden per Functie (2026) | Best AI Resume',
+    description: 'Bekijk 100+ gratis motivatiebrief voorbeelden georganiseerd per branche en functie. Professionele motivatiebrief sjablonen met schrijftips. Vind je rol en maak je motivatiebrief.',
+    keywords: 'motivatiebrief voorbeelden, motivatiebrief sjabloon, professionele motivatiebrief, sollicitatiebrief, motivatiebrief voorbeeld, motivatiebrief format',
+  },
+  hero: {
+    badge: 'Motivatiebrief Voorbeelden 2026',
+    title: 'Motivatiebrief Voorbeelden',
+    titleHighlight: 'per Functie',
+    subtitle: 'Bekijk {count}+ professionele motivatiebrief voorbeelden georganiseerd per branche. Vind je rol, bestudeer het format en maak de jouwe met onze AI builder.',
+    ctaBrowse: 'Bekijk Voorbeelden',
+    ctaCreate: 'Maak Motivatiebrief met AI',
+  },
+  stats: {
+    examples: 'Motivatiebrief Voorbeelden',
+    industries: 'Branches Gedekt',
+    free: 'Gratis te Gebruiken',
+  },
+  tips: {
+    title: 'Wat Maakt een Goede Motivatiebrief?',
+    items: [
+      { title: 'Personalisatie', description: 'Spreek de hiring manager bij naam aan en pas elke sollicitatie aan. 77% van recruiters heeft de voorkeur voor gepersonaliseerde motivatiebrieven.' },
+      { title: 'Concrete Prestaties', description: 'Voeg 1-2 gekwantificeerde prestaties toe die je waarde aantonen. Cijfers zijn gedenkwaardiger dan vage claims.' },
+      { title: 'Beknopte Lengte', description: 'Houd het bij 250-400 woorden. Hiring managers besteden minder dan 30 seconden aan het beoordelen van motivatiebrieven — elk woord telt.' },
+    ],
+  },
+  grid: {
+    title: 'Blader per Branche',
+    examplesLabel: 'voorbeelden',
+    coverLetterSuffix: 'Motivatiebrief',
+    comingSoon: 'Motivatiebrief voorbeelden binnenkort beschikbaar!',
+    comingSoonCta: 'Maak Motivatiebrief met AI',
+  },
+  bottomCta: {
+    title: 'Je functie niet gevonden?',
+    description: 'Onze AI kan in seconden een aangepaste motivatiebrief schrijven voor ELKE functie.',
+    ctaText: 'Genereer Aangepaste Motivatiebrief',
+  },
+  relatedResources: {
+    title: 'Gerelateerde Bronnen',
+    items: [
+      { title: 'CV-voorbeelden', description: '300+ beroepsspecifieke cv-voorbeelden' },
+      { title: 'Motivatiebrief Gids', description: 'Stap-voor-stap schrijftutorial' },
+      { title: 'CV-sjablonen', description: 'Professionele sjablonen voor elke baan' },
+    ],
+  },
+};
+
+const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
 export const getContent = (locale: string): CoverLetterExamplesIndexContent => selectContent(content, locale);

@@ -292,5 +292,28 @@ const ko: CareerTipArticleContent = {
   tagsLabel: '태그:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const nl: CareerTipArticleContent = {
+  breadcrumb: { home: 'Home', careerTips: 'Loopbaantips' },
+  notFound: 'Artikel Niet Gevonden',
+  share: {
+    title: 'Was dit nuttig?',
+    subtitle: 'Deel het met anderen die er baat bij kunnen hebben',
+  },
+  cta: {
+    title: 'Klaar om je cv te maken?',
+    subtitle: 'Pas deze tips toe met onze AI-aangedreven cv maker. Maak in minuten een professioneel cv.',
+    button: 'Maak Nu Je CV',
+  },
+  sidebar: {
+    tocTitle: 'Inhoudsopgave',
+    relatedTitle: 'Gerelateerde Artikelen',
+    ctaTitle: 'Maak Je CV',
+    ctaSubtitle: 'Maak in minuten een professioneel cv met AI.',
+    ctaButton: 'Aan de Slag',
+  },
+  moreCareerTips: 'Meer Loopbaantips',
+  tagsLabel: 'Tags:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

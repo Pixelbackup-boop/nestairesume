@@ -1333,7 +1333,227 @@ const tr: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr };
+const id: LandingPageContent = {
+  meta: {
+    title: 'Pembuat CV Gratis | Buat CV Online ATS-Friendly 2026',
+    description: 'Buat CV gratis secara online. Tanpa kartu kredit, tanpa biaya tersembunyi. Penulisan AI, 20+ template ATS, dan unduh PDF langsung.',
+    keywords: 'pembuat cv gratis, buat cv online gratis, cv gratis, template cv gratis, pembuat cv online, buat cv gratis',
+  },
+  schemas: {
+    breadcrumbName: 'Pembuat CV Gratis',
+    articleHeadline: 'Pembuat CV Gratis: Buat CV Online dengan AI 2026',
+    articleDescription: 'Buat CV gratis secara online. Tanpa kartu kredit, tanpa biaya tersembunyi. Penulisan AI, template ATS, dan unduh PDF langsung.',
+    softwareAppName: 'Pembuat CV Gratis dengan AI',
+  },
+  hero: {
+    badge: '100% Gratis — Tanpa Kartu Kredit',
+    title: 'Buat CV Anda',
+    titleHighlight: 'sepenuhnya gratis',
+    subtitle: '<strong>Pembuat CV gratis kami</strong> menawarkan segalanya: penulisan AI, template profesional, optimasi ATS, dan unduh PDF langsung. Menurut <a href="https://www.kemnaker.go.id/" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">Kemnaker</a>, pasar kerja Indonesia semakin kompetitif — CV profesional seharusnya tidak perlu biaya. Tanpa biaya tersembunyi. Tanpa masa percobaan.',
+    ctaPrimary: 'Buat CV saya gratis',
+    ctaSecondary: 'Lihat apa yang termasuk',
+    trustBadges: ['Tanpa pendaftaran', 'Tanpa kartu kredit', 'Unduh PDF gratis', 'Tanpa watermark'],
+  },
+  features: {
+    title: 'Semua yang Anda butuhkan — Gratis',
+    subtitle: 'Tidak seperti pembuat CV lain yang mengenakan biaya untuk fitur dasar, di sini semua fitur termasuk dalam paket gratis. <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">98% perusahaan besar</a> menggunakan ATS — Anda membutuhkan akses ke alat profesional.',
+    items: [
+      { feature: 'Template profesional', description: '20+ desain tersedia' },
+      { feature: 'Penulisan konten AI', description: 'Pengalaman dan profil profesional' },
+      { feature: 'Optimasi ATS', description: 'Penilaian real-time' },
+      { feature: 'Unduh PDF', description: 'Ekspor tak terbatas' },
+      { feature: 'Tanpa watermark', description: 'Hasil bersih dan profesional' },
+      { feature: 'CV ganda', description: 'Buat sebanyak yang Anda inginkan' },
+      { feature: 'Kata kunci industri', description: 'Disarankan oleh AI' },
+      { feature: 'Ramah mobile', description: 'Buat dari perangkat apapun' },
+    ],
+    cta: 'Buat CV profesional',
+  },
+  comparison: {
+    title: 'Gratis kami vs. "gratis" yang lain',
+    subtitle: 'Banyak pembuat CV mengklaim gratis tapi memungut biaya untuk unduhan. Kami tidak.',
+    oursName: 'Best AI Resumes (gratis)',
+    othersName: 'Pembuat CV "gratis" lainnya',
+    rows: [
+      { feature: 'Unduh PDF', ours: 'Gratis dan tak terbatas', others: 'Biasanya berbayar' },
+      { feature: 'Semua template', ours: '20+ semuanya gratis', others: '1-3 gratis, sisanya berbayar' },
+      { feature: 'Penulisan AI', ours: 'Termasuk gratis', others: 'Fitur premium' },
+      { feature: 'Penilaian ATS', ours: 'Real-time gratis', others: 'Premium atau tidak ada' },
+      { feature: 'Watermark', ours: 'Tidak ada', others: 'Ada di versi gratis' },
+      { feature: 'Akun wajib', ours: 'Opsional', others: 'Biasanya wajib' },
+      { feature: 'Masa percobaan', ours: 'Tidak ada — gratis selamanya', others: 'Percobaan 7-14 hari' },
+    ],
+  },
+  howItWorks: {
+    title: 'Buat CV gratis dalam 3 langkah',
+    subtitle: 'Tidak ada kejutan. Tidak ada hambatan berbayar. Hanya CV profesional.',
+    steps: [
+      { step: 1, title: 'Pilih template', description: 'Pilih dari 20+ template profesional yang telah diuji ATS — semuanya gratis.' },
+      { step: 2, title: 'Masukkan informasi Anda', description: 'Isi data Anda dan biarkan AI membantu menulis konten yang efektif.' },
+      { step: 3, title: 'Unduh gratis', description: 'Ekspor CV Anda sebagai PDF — tanpa pembayaran, tanpa watermark.' },
+    ],
+    cta: 'Buat CV profesional',
+  },
+  trust: {
+    title: 'Dipercaya pencari kerja di seluruh dunia',
+    stats: [
+      { value: '2M+', label: 'CV yang dibuat gratis' },
+      { value: '4.8', label: 'Rating rata-rata pengguna' },
+      { value: '150+', label: 'Negara' },
+      { value: 'Rp 0', label: 'Biaya unduhan' },
+    ],
+  },
+  templates: {
+    title: '20+ template CV profesional gratis',
+    subtitle: 'Semua template gratis. Semua telah diuji untuk ATS. Temukan gaya yang sempurna untuk lamaran Anda.',
+    styles: ['Modern', 'Klasik', 'Eksekutif', 'Kreatif', 'Minimalis', 'Profesional', 'Teknis', 'Akademik'],
+    cta: 'Lihat semua template gratis',
+  },
+  faq: {
+    title: 'Pertanyaan yang sering diajukan',
+    items: [
+      { question: 'Apakah pembuat CV ini benar-benar 100% gratis?', answer: 'Ya! Pembuat CV gratis kami menyertakan segalanya: 20+ template profesional, penulisan AI, optimasi ATS, dan unduhan PDF tak terbatas. Tanpa kartu kredit, tanpa biaya tersembunyi, tanpa masa percobaan.' },
+      { question: 'Apa yang gratis dan apa yang berbayar?', answer: 'Semua fitur dasar gratis: semua template, penulisan AI, penilaian ATS, dan unduh PDF. Paket premium opsional menambahkan fitur lanjutan seperti pembuat surat lamaran, namun sebagian besar pengguna tidak membutuhkannya.' },
+      { question: 'Mengapa pembuat CV ini gratis?', answer: 'Kami percaya setiap orang, apapun anggarannya, berhak mendapatkan akses ke alat CV profesional. Versi gratis didukung oleh peningkatan premium opsional dan kemitraan. Anda bisa membuat CV profesional lengkap tanpa membayar apapun.' },
+      { question: 'Bisakah saya mengunduh CV saya sebagai PDF gratis?', answer: 'Tentu saja. Unduh CV Anda sebagai PDF yang bersih dan kompatibel ATS kapan saja — sepenuhnya gratis. Tanpa watermark, tanpa logo, tanpa syarat.' },
+      { question: 'Apakah saya perlu membuat akun?', answer: 'Tidak! Anda bisa langsung mulai membuat CV tanpa mendaftar. Pekerjaan Anda disimpan secara lokal di browser. Buat akun hanya jika Anda ingin menyimpan beberapa CV atau mengakses dari perangkat berbeda.' },
+      { question: 'Apakah template gratis kompatibel ATS?', answer: 'Ya, semua template di pembuat CV gratis kami telah diuji dengan sistem ATS terkemuka termasuk Workday, Taleo, Greenhouse, dan Lever. Penilaian ATS real-time membantu Anda mengoptimalkan CV sebelum melamar.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Alat CV gratis lainnya',
+    items: [
+      { href: '/id/resume-maker', title: 'Pembuat CV', subtitle: 'Buat gratis dengan AI' },
+      { href: '/id/resume-ai', title: 'CV dengan AI', subtitle: 'Penulisan bertenaga AI' },
+      { href: '/id/tools/ats-checker', title: 'Cek ATS', subtitle: 'Penilaian ATS gratis' },
+    ],
+    guidesTitle: 'Panduan CV gratis',
+    guides: [
+      { href: '/id/blog/how-to-write-a-resume', label: 'Cara membuat CV (panduan gratis)' },
+      { href: '/id/resume-format', label: 'Panduan format CV 2026' },
+      { href: '/id/resume-examples', label: '300+ contoh CV gratis' },
+      { href: '/id/templates', label: 'Template CV gratis' },
+    ],
+  },
+  bottomCta: {
+    title: 'Siap membuat CV gratis Anda?',
+    description: 'Lebih dari 2 juta pencari kerja telah membuat CV profesional mereka dengan pembuat CV gratis kami.',
+    cta: 'Buat CV gratis saya',
+    subtext: 'Gratis selamanya. Tanpa kartu kredit. Tanpa biaya tersembunyi.',
+  },
+};
+
+const nl: LandingPageContent = {
+  meta: {
+    title: 'Gratis CV Sjabloon | Gratis CV Maken Online 2026',
+    description: 'Maak gratis je professionele cv online. Geen creditcard, geen verborgen kosten. AI schrijfhulp, 20+ ATS-sjablonen en direct pdf downloaden.',
+    keywords: 'gratis cv sjabloon, gratis cv maken, cv gratis, gratis cv builder, cv maken zonder kosten, gratis cv downloaden, cv sjabloon gratis, cv online gratis',
+  },
+  schemas: {
+    breadcrumbName: 'Gratis CV Maker',
+    articleHeadline: 'Gratis CV Maker: 100% Gratis CV Maken met AI 2026',
+    articleDescription: 'Maak gratis je professionele cv online. Geen creditcard, geen verborgen kosten. AI schrijfhulp, ATS-sjablonen en direct pdf downloaden.',
+    softwareAppName: 'Gratis AI CV Maker',
+  },
+  hero: {
+    badge: '100% Gratis — Geen Creditcard Nodig',
+    title: 'Maak je cv',
+    titleHighlight: 'volledig gratis',
+    subtitle: 'Onze <strong>gratis cv maker</strong> geeft je alles: AI schrijfassistentie, professionele sjablonen, ATS-optimalisatie en directe pdf-download. Het <a href="https://www.bls.gov/news.release/jolts.nr0.htm" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">Bureau of Labor Statistics</a> meldt miljoenen vacatures — een professioneel cv maken mag je niets kosten. Geen verborgen kosten. Geen proefperiode.',
+    ctaPrimary: 'Maak mijn cv gratis',
+    ctaSecondary: 'Bekijk wat inbegrepen is',
+    trustBadges: ['Geen account nodig', 'Geen creditcard', 'Gratis pdf downloaden', 'Geen watermerken'],
+  },
+  features: {
+    title: 'Alles wat je nodig hebt — Gratis',
+    subtitle: 'In tegenstelling tot andere cv makers die basisfuncties achter een betaalmuur plaatsen, is bij ons alles gratis. <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">98% van de grote bedrijven</a> gebruikt ATS-software — je hebt professionele tools nodig, geen betaalmuren.',
+    items: [
+      { feature: 'Professionele sjablonen', description: '20+ ontwerpen' },
+      { feature: 'AI content schrijven', description: 'Bullet points & samenvattingen' },
+      { feature: 'ATS-optimalisatie', description: 'Real-time score' },
+      { feature: 'PDF downloaden', description: 'Onbeperkt exporteren' },
+      { feature: 'Geen watermerken', description: 'Verzorgde, professionele output' },
+      { feature: 'Meerdere cv\'s', description: 'Maak er zoveel als je wilt' },
+      { feature: 'Branchezoekwoorden', description: 'AI-suggesties' },
+      { feature: 'Mobiel vriendelijk', description: 'Maak op elk apparaat' },
+    ],
+    cta: 'Maak professioneel cv',
+  },
+  comparison: {
+    title: 'Ons gratis vs. hun "gratis"',
+    subtitle: 'Veel cv makers adverteren als gratis maar rekenen voor downloads. Wij niet.',
+    oursName: 'Best AI Resumes (gratis)',
+    othersName: 'Andere "gratis" makers',
+    rows: [
+      { feature: 'PDF downloaden', ours: 'Gratis, onbeperkt', others: 'Vaak achter betaalmuur' },
+      { feature: 'Alle sjablonen', ours: 'Alle 20+ gratis', others: '1-3 gratis, rest betaald' },
+      { feature: 'AI schrijven', ours: 'Gratis inbegrepen', others: 'Premiumfunctie' },
+      { feature: 'ATS-score', ours: 'Gratis real-time', others: 'Premium of geen' },
+      { feature: 'Watermerken', ours: 'Nooit', others: 'In gratis versie' },
+      { feature: 'Account verplicht', ours: 'Optioneel', others: 'Meestal verplicht' },
+      { feature: 'Proefperiode verloopt', ours: 'Geen — voor altijd gratis', others: '7-14 dagen proef' },
+    ],
+  },
+  howItWorks: {
+    title: 'Maak je cv in 3 gratis stappen',
+    subtitle: 'Geen verrassingen. Geen betaalmuren. Gewoon een professioneel cv.',
+    steps: [
+      { step: 1, title: 'Kies een sjabloon', description: 'Kies uit 20+ professionele, ATS-vriendelijke sjablonen — allemaal gratis.' },
+      { step: 2, title: 'Voeg je gegevens in', description: 'Vul je gegevens in en laat de AI helpen overtuigende content te schrijven.' },
+      { step: 3, title: 'Gratis downloaden', description: 'Exporteer je cv direct als pdf — geen betaling, geen watermerken.' },
+    ],
+    cta: 'Maak professioneel cv',
+  },
+  trust: {
+    title: 'Vertrouwd door werkzoekenden wereldwijd',
+    stats: [
+      { value: '2M+', label: "Gratis CV's gemaakt" },
+      { value: '4.8', label: 'Gemiddelde gebruikersscore' },
+      { value: '150+', label: 'Landen' },
+      { value: '€0', label: 'Kosten om te downloaden' },
+    ],
+  },
+  templates: {
+    title: '20+ gratis professionele cv-sjablonen',
+    subtitle: 'Elk sjabloon is gratis. Elk sjabloon is ATS-getest. Vind jouw perfecte stijl.',
+    styles: ['Modern', 'Klassiek', 'Directeur', 'Creatief', 'Minimaal', 'Professioneel', 'Technisch', 'Academisch'],
+    cta: 'Bekijk alle gratis sjablonen',
+  },
+  faq: {
+    title: 'Veelgestelde vragen',
+    items: [
+      { question: 'Is deze cv maker echt 100% gratis?', answer: 'Ja! Onze gratis cv maker biedt alles wat je nodig hebt: alle 20+ professionele sjablonen, AI-gedreven content schrijven, ATS-optimalisatie en onbeperkt pdf-downloads. Geen creditcard, geen verborgen kosten, geen proefperiode.' },
+      { question: 'Wat is gratis en wat is betaald?', answer: 'Alles wat je nodig hebt is gratis: alle sjablonen, AI schrijfhulp, ATS-score en pdf-downloads. Onze optionele premiumversie voegt geavanceerde functies toe zoals het schrijven van een motivatiebrief, maar de meeste gebruikers hebben die niet nodig.' },
+      { question: 'Waarom is deze cv maker gratis?', answer: 'Wij geloven dat iedereen, ongeacht budget, toegang verdient tot professionele cv-tools. Onze gratis versie wordt ondersteund door optionele premium-upgrades en samenwerkingen. Je krijgt een volledig professioneel cv zonder iets te betalen.' },
+      { question: 'Kan ik mijn cv gratis als pdf downloaden?', answer: 'Absoluut. Download je cv als verzorgde, ATS-vriendelijke pdf zo vaak je wilt — volledig gratis. Geen watermerken, geen branding, geen beperkingen.' },
+      { question: 'Moet ik een account aanmaken?', answer: 'Nee! Begin meteen met het maken van je cv zonder je aan te melden. Je werk wordt lokaal in je browser opgeslagen. Maak alleen een account aan als je meerdere cv\'s wilt opslaan of ze wilt openen vanaf andere apparaten.' },
+      { question: 'Zijn de gratis sjablonen ATS-compatibel?', answer: 'Ja, elk sjabloon in onze gratis cv maker is getest op de grote ATS-systemen inclusief Workday, Taleo, Greenhouse en Lever. Onze real-time ATS-score helpt je te optimaliseren voor je solliciteert.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Meer gratis cv-tools',
+    items: [
+      { href: '/nl/resume-maker', title: 'CV Maker', subtitle: 'Gratis AI-gedreven' },
+      { href: '/nl/resume-ai', title: 'CV met AI', subtitle: 'AI schrijfassistent' },
+      { href: '/nl/tools/ats-checker', title: 'ATS Checker', subtitle: 'Gratis ATS-score' },
+    ],
+    guidesTitle: 'Gratis cv-gidsen',
+    guides: [
+      { href: '/nl/blog/how-to-write-a-resume', label: 'Hoe schrijf je een cv (gratis gids)' },
+      { href: '/nl/resume-format', label: 'CV-format gids 2026' },
+      { href: '/nl/resume-examples', label: '300+ gratis cv-voorbeelden' },
+      { href: '/nl/templates', label: 'Gratis cv-sjablonen' },
+    ],
+  },
+  bottomCta: {
+    title: 'Klaar om je gratis cv te maken?',
+    description: 'Meer dan 2 miljoen werkzoekenden hebben hun professionele cv gemaakt met onze gratis cv maker.',
+    cta: 'Maak mijn cv gratis',
+    subtext: 'Voor altijd gratis. Geen creditcard. Geen verborgen kosten.',
+  },
+};
+
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);
