@@ -235,9 +235,13 @@
       "type": "resume-example",
       "category": "Administrative",
       "jobTitle": "Thai Administrative Staff",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -1718,9 +1722,13 @@
       "type": "resume-example",
       "category": "Trades",
       "jobTitle": "Thai Electrician",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -2466,9 +2474,13 @@
       "type": "resume-example",
       "category": "Trades",
       "jobTitle": "Factory Production Worker",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -3764,9 +3776,13 @@
       "type": "resume-example",
       "category": "Healthcare",
       "jobTitle": "Licensed Pharmacist",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -5018,9 +5034,13 @@
       "type": "resume-example",
       "category": "Education",
       "jobTitle": "Early Childhood Educator",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -6316,9 +6336,13 @@
       "type": "resume-example",
       "category": "Finance",
       "jobTitle": "Chief Accountant",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -6328,9 +6352,13 @@
       "type": "resume-example",
       "category": "Education",
       "jobTitle": "Thai Teacher",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -6386,9 +6414,13 @@
       "type": "resume-example",
       "category": "Construction",
       "jobTitle": "Civil Construction Engineer",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -6398,9 +6430,13 @@
       "type": "resume-example",
       "category": "Healthcare",
       "jobTitle": "Medical Lab Technician",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -7858,9 +7894,13 @@
       "type": "resume-example",
       "category": "Finance",
       "jobTitle": "Thai Accountant",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -7870,9 +7910,13 @@
       "type": "resume-example",
       "category": "Marketing",
       "jobTitle": "Thai Marketing Professional",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -7882,9 +7926,13 @@
       "type": "resume-example",
       "category": "Creative",
       "jobTitle": "Thai Graphic Designer",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -7962,9 +8010,13 @@
       "type": "resume-example",
       "category": "Marketing",
       "jobTitle": "Content Marketing Specialist",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -7974,9 +8026,13 @@
       "type": "resume-example",
       "category": "Government",
       "jobTitle": "Public Administration Officer",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -7986,9 +8042,13 @@
       "type": "resume-example",
       "category": "Sales",
       "jobTitle": "Real Estate Sales Agent",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -7998,9 +8058,13 @@
       "type": "resume-example",
       "category": "Hospitality",
       "jobTitle": "Hotel Front Desk Agent",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8010,9 +8074,13 @@
       "type": "resume-example",
       "category": "Finance",
       "jobTitle": "Banking Officer",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8022,9 +8090,13 @@
       "type": "resume-example",
       "category": "Manufacturing",
       "jobTitle": "QC QA Specialist",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8034,9 +8106,13 @@
       "type": "resume-example",
       "category": "Sales",
       "jobTitle": "Telesales Agent",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8046,9 +8122,13 @@
       "type": "resume-example",
       "category": "Logistics",
       "jobTitle": "Export Import Specialist",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8679,9 +8759,13 @@
       "type": "resume-example",
       "category": "HR",
       "jobTitle": "Thai HR Staff",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8691,9 +8775,13 @@
       "type": "resume-example",
       "category": "Sales",
       "jobTitle": "Thai Sales Representative",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8703,9 +8791,13 @@
       "type": "resume-example",
       "category": "Logistics",
       "jobTitle": "Thai Logistics Staff",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8715,9 +8807,13 @@
       "type": "resume-example",
       "category": "Finance",
       "jobTitle": "Thai Bank Employee",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8727,9 +8823,13 @@
       "type": "resume-example",
       "category": "Hospitality",
       "jobTitle": "Thai Receptionist",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8831,9 +8931,13 @@
       "type": "resume-example",
       "category": "Healthcare",
       "jobTitle": "Thai Registered Nurse",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -8889,9 +8993,13 @@
       "type": "resume-example",
       "category": "Management",
       "jobTitle": "Thai Manager",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -12371,9 +12479,13 @@
       "type": "resume-example",
       "category": "HR",
       "jobTitle": "HR Department Head",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -12981,9 +13093,13 @@
       "type": "resume-example",
       "category": "Technology",
       "jobTitle": "Thai Software Engineer",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -12993,9 +13109,13 @@
       "type": "resume-example",
       "category": "Engineering",
       "jobTitle": "Thai Civil Engineer",
-      "internalLinkCount": 0,
+      "internalLinkCount": 5,
       "externalLinkCount": 0,
-      "internalByType": {},
+      "internalByType": {
+        "resume-example": 3,
+        "blog": 1,
+        "builder": 1
+      },
       "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
@@ -26783,14 +26903,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 9,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 4,
         "blog": 3,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.aicpa-cima.com",
+        "www.imanet.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -26800,14 +26924,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 9,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 3,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.shrm.org",
+        "www.iaap-hq.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -26903,13 +27031,14 @@
       "type": "blog",
       "category": "Templates",
       "jobTitle": "",
-      "internalLinkCount": 11,
+      "internalLinkCount": 16,
       "externalLinkCount": 0,
       "internalByType": {
-        "builder": 3,
-        "blog": 6,
+        "builder": 4,
+        "blog": 8,
         "other": 1,
-        "templates": 1
+        "templates": 1,
+        "resume-example": 2
       },
       "externalDomains": [],
       "linksToCareerTips": false,
@@ -26920,12 +27049,18 @@
       "type": "blog",
       "category": "Interview Prep",
       "jobTitle": "",
-      "internalLinkCount": 5,
-      "externalLinkCount": 0,
+      "internalLinkCount": 10,
+      "externalLinkCount": 3,
       "internalByType": {
-        "blog": 5
+        "blog": 7,
+        "resume-example": 2,
+        "builder": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "hbr.org",
+        "www.psychologytoday.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27185,14 +27320,17 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 2,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.careeronestop.org",
+        "www.shrm.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27201,14 +27339,19 @@
       "type": "blog",
       "category": "Cover Letter",
       "jobTitle": "",
-      "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "internalLinkCount": 12,
+      "externalLinkCount": 3,
       "internalByType": {
-        "builder": 1,
-        "blog": 5,
-        "tool": 1
+        "builder": 2,
+        "blog": 7,
+        "tool": 1,
+        "resume-example": 2
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "business.linkedin.com",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27218,13 +27361,17 @@
       "category": "Cover Letter",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 5
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.shrm.org",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27251,13 +27398,17 @@
       "category": "Cover Letter",
       "jobTitle": "",
       "internalLinkCount": 8,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 2,
         "blog": 5
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.naceweb.org",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27283,14 +27434,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 9,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 3,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.shrm.org",
+        "www.csiacertification.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27300,14 +27455,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 9,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 3,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "economicgraph.linkedin.com",
+        "www.informs.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27352,14 +27511,18 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.careeronestop.org",
+        "www.shrm.org",
+        "www.jobscan.co"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27369,14 +27532,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 10,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 4,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.aiga.org",
+        "www.behance.net"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27386,14 +27553,18 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "economicgraph.linkedin.com",
+        "www.weforum.org",
+        "www.shrm.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27424,14 +27595,18 @@
       "category": "Job Search",
       "jobTitle": "",
       "internalLinkCount": 9,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "tool": 2,
         "builder": 1,
         "other": 1,
         "blog": 5
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "economicgraph.linkedin.com",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27462,12 +27637,18 @@
       "type": "blog",
       "category": "Job Search",
       "jobTitle": "",
-      "internalLinkCount": 5,
-      "externalLinkCount": 0,
+      "internalLinkCount": 10,
+      "externalLinkCount": 3,
       "internalByType": {
-        "blog": 5
+        "blog": 7,
+        "resume-example": 2,
+        "builder": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "business.linkedin.com",
+        "www.hiringlab.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27476,13 +27657,16 @@
       "type": "blog",
       "category": "Job Search",
       "jobTitle": "",
-      "internalLinkCount": 5,
-      "externalLinkCount": 0,
+      "internalLinkCount": 10,
+      "externalLinkCount": 2,
       "internalByType": {
-        "blog": 4,
-        "builder": 1
+        "blog": 6,
+        "builder": 2,
+        "resume-example": 2
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27492,14 +27676,17 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 2,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.linkedin.com",
+        "www.shrm.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27509,14 +27696,18 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "learning.linkedin.com",
+        "www.shrm.org",
+        "www.pearsonvue.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27592,14 +27783,18 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "americorps.gov",
+        "blog.linkedin.com",
+        "www.pointsoflight.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27609,13 +27804,17 @@
       "category": "AI Tools",
       "jobTitle": "",
       "internalLinkCount": 6,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.pewresearch.org",
+        "www.shrm.org",
+        "economicgraph.linkedin.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27755,13 +27954,17 @@
       "category": "Students",
       "jobTitle": "",
       "internalLinkCount": 10,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "templates": 2,
         "builder": 3,
         "blog": 5
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.naceweb.org",
+        "www.careeronestop.org",
+        "economicgraph.linkedin.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27792,13 +27995,17 @@
       "category": "Profession",
       "jobTitle": "",
       "internalLinkCount": 6,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "templates": 1,
         "blog": 4
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.cyberstates.org",
+        "economicgraph.linkedin.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27849,13 +28056,17 @@
       "type": "blog",
       "category": "Job Search",
       "jobTitle": "",
-      "internalLinkCount": 5,
-      "externalLinkCount": 0,
+      "internalLinkCount": 10,
+      "externalLinkCount": 2,
       "internalByType": {
-        "blog": 4,
-        "builder": 1
+        "blog": 6,
+        "builder": 2,
+        "resume-example": 2
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "www.bls.gov"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27910,12 +28121,16 @@
       "category": "AI Tools",
       "jobTitle": "",
       "internalLinkCount": 6,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 2,
         "blog": 4
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "economicgraph.linkedin.com",
+        "www.shrm.org",
+        "www.jobscan.co"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27946,14 +28161,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 10,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 4,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.ama.org",
+        "economicgraph.linkedin.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -27983,12 +28202,13 @@
       "type": "blog",
       "category": "Templates",
       "jobTitle": "",
-      "internalLinkCount": 12,
+      "internalLinkCount": 17,
       "externalLinkCount": 0,
       "internalByType": {
-        "blog": 9,
-        "builder": 2,
-        "templates": 1
+        "blog": 11,
+        "builder": 3,
+        "templates": 1,
+        "resume-example": 2
       },
       "externalDomains": [],
       "linksToCareerTips": false,
@@ -28017,12 +28237,17 @@
       "type": "blog",
       "category": "Interview Prep",
       "jobTitle": "",
-      "internalLinkCount": 5,
-      "externalLinkCount": 0,
+      "internalLinkCount": 10,
+      "externalLinkCount": 2,
       "internalByType": {
-        "blog": 5
+        "blog": 7,
+        "resume-example": 2,
+        "builder": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "www.hiringlab.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -28032,13 +28257,17 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 6,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.aiga.org",
+        "www.linkedin.com",
+        "www.nationalportfolioday.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28068,14 +28297,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 9,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 3,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.pmi.org",
+        "www.glassdoor.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28084,14 +28317,18 @@
       "type": "blog",
       "category": "Letters",
       "jobTitle": "",
-      "internalLinkCount": 10,
-      "externalLinkCount": 0,
+      "internalLinkCount": 15,
+      "externalLinkCount": 2,
       "internalByType": {
-        "builder": 2,
-        "blog": 7,
-        "templates": 1
+        "builder": 3,
+        "blog": 9,
+        "templates": 1,
+        "resume-example": 2
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -28101,13 +28338,16 @@
       "category": "Letters",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 2,
       "internalByType": {
         "builder": 1,
         "templates": 1,
         "blog": 5
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "www.bls.gov"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -28218,14 +28458,17 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 2,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.jobscan.co",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28302,14 +28545,17 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 2,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28381,12 +28627,13 @@
       "type": "blog",
       "category": "Templates",
       "jobTitle": "",
-      "internalLinkCount": 13,
+      "internalLinkCount": 18,
       "externalLinkCount": 0,
       "internalByType": {
-        "blog": 9,
-        "builder": 3,
-        "templates": 1
+        "blog": 11,
+        "builder": 4,
+        "templates": 1,
+        "resume-example": 2
       },
       "externalDomains": [],
       "linksToCareerTips": false,
@@ -28414,12 +28661,16 @@
       "category": "AI Tools",
       "jobTitle": "",
       "internalLinkCount": 8,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "tool": 3,
         "blog": 5
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.jobscan.co",
+        "www.shrm.org",
+        "www.gartner.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28429,14 +28680,17 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 2,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "business.linkedin.com",
+        "www.shrm.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28489,13 +28743,17 @@
       "category": "Career Guides",
       "jobTitle": "",
       "internalLinkCount": 8,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "templates": 2,
         "blog": 5
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.naceweb.org",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -28552,14 +28810,18 @@
       "category": "Industry Guides",
       "jobTitle": "",
       "internalLinkCount": 9,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 3,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.bls.gov",
+        "www.salesforce.com",
+        "economicgraph.linkedin.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28590,12 +28852,13 @@
       "type": "blog",
       "category": "Templates",
       "jobTitle": "",
-      "internalLinkCount": 13,
+      "internalLinkCount": 18,
       "externalLinkCount": 0,
       "internalByType": {
-        "builder": 3,
-        "blog": 9,
-        "templates": 1
+        "builder": 4,
+        "blog": 11,
+        "templates": 1,
+        "resume-example": 2
       },
       "externalDomains": [],
       "linksToCareerTips": false,
@@ -28606,12 +28869,17 @@
       "type": "blog",
       "category": "Interview Prep",
       "jobTitle": "",
-      "internalLinkCount": 5,
-      "externalLinkCount": 0,
+      "internalLinkCount": 10,
+      "externalLinkCount": 2,
       "internalByType": {
-        "blog": 5
+        "blog": 7,
+        "resume-example": 2,
+        "builder": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "hbr.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -28643,14 +28911,18 @@
       "category": "Interview Prep",
       "jobTitle": "",
       "internalLinkCount": 8,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "resume-example": 2,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.hackerrank.com",
+        "www.shrm.org",
+        "survey.stackoverflow.co"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28681,10 +28953,12 @@
       "type": "blog",
       "category": "Job Search",
       "jobTitle": "",
-      "internalLinkCount": 5,
+      "internalLinkCount": 10,
       "externalLinkCount": 1,
       "internalByType": {
-        "blog": 5
+        "blog": 7,
+        "resume-example": 2,
+        "builder": 1
       },
       "externalDomains": [
         "www.topinterview.com"
@@ -28719,14 +28993,18 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.weforum.org",
+        "business.linkedin.com",
+        "www.careeronestop.org"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28736,14 +29014,18 @@
       "category": "Resume Tips",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "other": 1,
         "blog": 4,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "www.jobscan.co",
+        "ocs.fas.harvard.edu"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -28753,13 +29035,17 @@
       "category": "AI Tools",
       "jobTitle": "",
       "internalLinkCount": 7,
-      "externalLinkCount": 0,
+      "externalLinkCount": 3,
       "internalByType": {
         "builder": 1,
         "blog": 5,
         "tool": 1
       },
-      "externalDomains": [],
+      "externalDomains": [
+        "www.shrm.org",
+        "www.linkedin.com",
+        "www.indeed.com"
+      ],
       "linksToCareerTips": false,
       "linksToTools": true
     },
@@ -29221,12 +29507,12 @@
   },
   "summary": {
     "totalPages": 1316,
-    "totalInternalLinks": 12720,
-    "totalExternalLinks": 4392,
+    "totalInternalLinks": 12935,
+    "totalExternalLinks": 4501,
     "byType": {
       "resume-example": {
         "count": 584,
-        "totalInternal": 6605,
+        "totalInternal": 6755,
         "totalExternal": 1662,
         "linksToCareerTips": 554,
         "linksToTools": 554
@@ -29240,8 +29526,8 @@
       },
       "blog": {
         "count": 106,
-        "totalInternal": 964,
-        "totalExternal": 103,
+        "totalInternal": 1029,
+        "totalExternal": 212,
         "linksToCareerTips": 52,
         "linksToTools": 81
       },
@@ -29274,10 +29560,10 @@
         "linksToTools": 0
       }
     },
-    "zeroExternalCount": 127,
-    "insufficientInternalCount": 78,
+    "zeroExternalCount": 87,
+    "insufficientInternalCount": 48,
     "noCareerTipLinksCount": 134,
     "noToolsLinksCount": 108,
-    "orphanedPagesCount": 156
+    "orphanedPagesCount": 151
   }
 }
