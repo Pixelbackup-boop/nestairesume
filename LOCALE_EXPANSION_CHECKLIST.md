@@ -32,8 +32,8 @@
 | Vietnamese | vi | ✅ | ✅ 554 | ✅ 566 | ✅ 72 | ✅ 10 | ✅ | **Complete** |
 | Thai | th | ✅ | ✅ 554 | ✅ 566 | ✅ 73 | ✅ 10 | ✅ | **Complete** |
 | Malay | ms | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
-| Indonesian | id | ✅ | ✅ 569 | ✅ 581 | ✅ 33 | ✅ 10 | ✅ | **Complete** |
-| Polish | pl | ✅ | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ | **UI Only** |
+| Indonesian | id | ✅ | ✅ 569 | ✅ 581 | ✅ 71 | ✅ 10 | ✅ | **Complete** |
+| Polish | pl | ✅ | ✅ 569 | ✅ 581 | ✅ 72 | ✅ 10 | ✅ | **Complete** |
 | Dutch | nl | ✅ | ✅ 569 | ✅ 581 | ✅ 72 | ✅ 10 | ✅ | **Complete** |
 | Turkish | tr | ✅ | ✅ 554 | ✅ 566 | ✅ 74 | ✅ 10 | ✅ | **Complete** |
 
@@ -609,4 +609,4 @@ When multiple pages target overlapping job titles (e.g., "CNA" vs "Certified Nur
 
 ---
 
-*Last updated: 2026-03-03*
+*Last updated: 2026-03-04*

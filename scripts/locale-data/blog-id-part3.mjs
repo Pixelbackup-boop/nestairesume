@@ -427,4 +427,316 @@ Contoh:
 
 Lihat [panduan wawancara kami](/id/blog/panduan-persiapan-wawancara) untuk tips lebih lanjut tentang menjawab pertanyaan sulit.`
   },
+
+  // ── Topic 5: Contoh Surat Lamaran Fresh Graduate ─────────────────────────────
+  {
+    slug: 'contoh-surat-lamaran-fresh-graduate',
+    title: 'Contoh Surat Lamaran Kerja Fresh Graduate: Template & Tips 2026',
+    description: 'Contoh surat lamaran kerja untuk fresh graduate 2026 yang profesional dan meyakinkan. Template surat lamaran tanpa pengalaman kerja yang menonjolkan potensi dan kemampuan akademis Anda.',
+    category: 'Surat Lamaran',
+    tags: [
+      'contoh surat lamaran fresh graduate',
+      'surat lamaran fresh graduate',
+      'surat lamaran kerja fresh graduate',
+      'contoh surat lamaran tanpa pengalaman',
+      'template surat lamaran fresh graduate',
+      'surat lamaran kerja baru lulus',
+      'contoh cover letter fresh graduate',
+      'surat lamaran untuk lulusan baru',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Contoh Surat Lamaran Kerja Fresh Graduate Profesional 2026',
+    featured: false,
+    faq: [
+      { question: 'Apa yang harus ditulis di surat lamaran jika tidak ada pengalaman kerja?', answer: 'Fresh graduate tanpa pengalaman kerja bisa menonjolkan: pencapaian akademis (IPK tinggi, beasiswa, penghargaan), proyek skripsi atau tugas akhir yang relevan, pengalaman magang dan kerja paruh waktu, aktif di organisasi kampus, dan keterampilan yang dipelajari secara mandiri. Fokus pada potensi dan kesediaan belajar.' },
+      { question: 'Berapa panjang surat lamaran yang ideal untuk fresh graduate?', answer: 'Satu halaman (3-4 paragraf). Rekruter tidak punya waktu membaca surat lamaran panjang, terutama dari fresh graduate. Setiap paragraf harus punya tujuan: paragraf pembuka (mengapa melamar), paragraf tengah (apa yang Anda tawarkan), paragraf penutup (ajakan bertemu).' },
+      { question: 'Apakah harus menyebutkan IPK di surat lamaran?', answer: 'Tidak wajib di surat lamaran — IPK sudah ada di CV. Tapi jika IPK Anda 3.5 ke atas atau Anda mendapat predikat cumlaude, menyebutkan di surat lamaran bisa memperkuat kandidatur Anda.' },
+    ],
+    body: `## Contoh Surat Lamaran Fresh Graduate 2026: Panduan Lengkap
+
+Menulis surat lamaran sebagai fresh graduate bisa terasa sulit — bagaimana meyakinkan rekruter ketika pengalaman kerja Anda masih minim? Jawabannya: fokus pada potensi, bukan kekurangan.
+
+### Struktur Surat Lamaran Fresh Graduate yang Efektif
+
+**Paragraf 1 — Pembuka yang Menarik**
+Sebutkan posisi yang dilamar, dari mana Anda mengetahuinya, dan satu kalimat yang menangkap nilai utama Anda sebagai kandidat.
+
+> "Melalui surat ini, saya Budi Santoso, S.Kom, lulusan Teknik Informatika Universitas Indonesia (IPK 3.72), mengajukan lamaran untuk posisi Junior Software Engineer yang diiklankan di LinkedIn."
+
+**Paragraf 2 — Nilai yang Anda Tawarkan**
+Sambungkan pengalaman akademis dan non-akademis dengan kebutuhan perusahaan.
+
+> "Selama kuliah, saya mengerjakan proyek capstone berupa aplikasi mobile untuk UMKM yang berhasil digunakan oleh 200+ pengguna nyata. Proyek ini menggunakan React Native dan Node.js — stack yang saya lihat menjadi fondasi sistem Anda. Pengalaman magang 3 bulan di PT Startup Kreatif juga mengajarkan saya cara bekerja dalam lingkungan agile dengan sprint 2 mingguan."
+
+**Paragraf 3 — Motivasi yang Tulus**
+Tunjukkan bahwa Anda melakukan riset tentang perusahaan dan posisinya.
+
+> "Saya tertarik khususnya dengan fokus Gojek pada inovasi berbasis data. Visi perusahaan untuk menghubungkan ekosistem UMKM digital sejalan dengan nilai yang saya pegang."
+
+**Paragraf 4 — Penutup dengan Ajakan**
+Minta kesempatan wawancara dengan percaya diri.
+
+> "Saya sangat antusias mendiskusikan bagaimana kontribusi saya bisa mendukung tim engineering Gojek. Saya bisa dihubungi di [nomor] atau [email]. Terima kasih atas waktu Anda."
+
+### Kesalahan yang Harus Dihindari
+
+❌ "Saya adalah orang yang pekerja keras dan bertanggung jawab" — klise, semua orang bilang ini
+❌ "Meskipun saya belum berpengalaman..." — jangan mulai dengan permintaan maaf
+❌ "Saya sangat butuh pekerjaan ini untuk..." — fokus pada apa yang Anda tawarkan, bukan apa yang Anda butuhkan
+
+Lihat [template surat lamaran lengkap](/id/cover-letter-examples) dan sesuaikan dengan profil Anda.`
+  },
+
+  // ── Topic 6: Surat Lamaran Magang ────────────────────────────────────────────
+  {
+    slug: 'surat-lamaran-magang',
+    title: 'Surat Lamaran Magang: Contoh & Template untuk Mahasiswa 2026',
+    description: 'Contoh dan template surat lamaran magang untuk mahasiswa 2026. Panduan menulis surat lamaran internship yang meyakinkan meski belum ada pengalaman kerja sebelumnya.',
+    category: 'Surat Lamaran',
+    tags: [
+      'surat lamaran magang',
+      'contoh surat lamaran magang',
+      'template surat lamaran internship',
+      'surat lamaran magang mahasiswa',
+      'contoh surat lamaran internship',
+      'cara melamar magang',
+      'surat lamaran praktek kerja lapangan',
+      'surat lamaran pkl',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Contoh Surat Lamaran Magang untuk Mahasiswa 2026',
+    featured: false,
+    faq: [
+      { question: 'Apa bedanya surat lamaran magang dengan surat lamaran kerja?', answer: 'Surat lamaran magang lebih menekankan potensi, kemauan belajar, dan relevansi mata kuliah — karena rekruter sadar mahasiswa magang belum berpengalaman. Sertakan juga info akademis seperti semester, jurusan, dan IPK. Surat lamaran kerja lebih fokus pada pengalaman dan hasil yang sudah dicapai.' },
+      { question: 'Apakah magang di startup sama berharganya dengan magang di perusahaan besar?', answer: 'Keduanya berharga, tergantung konteks. Magang di startup bisa memberikan pengalaman yang lebih beragam dan kesempatan ownership yang lebih besar. Magang di perusahaan besar memberikan prestige merek dan struktur yang lebih jelas. Rekruter menghargai keduanya — yang penting adalah dampak dan tanggung jawab yang Anda emban.' },
+    ],
+    body: `## Surat Lamaran Magang: Panduan untuk Mahasiswa Indonesia 2026
+
+Magang adalah gerbang penting menuju karier profesional. Surat lamaran magang yang kuat bisa membuka pintu ke perusahaan impian Anda — bahkan saat CV Anda masih kosong.
+
+### Apa yang Dinilai Rekruter dalam Lamaran Magang?
+
+Untuk posisi magang, rekruter memahami bahwa Anda belum berpengalaman. Mereka mencari:
+- **Antusiasme dan motivasi** yang genuine terhadap bidang/perusahaan
+- **Kemampuan belajar** yang terbukti dari nilai akademis atau proyek
+- **Kesesuaian budaya** — apakah kepribadian Anda cocok dengan tim
+- **Potensi kontribusi** — apa yang bisa Anda berikan dalam periode magang
+
+### Template Surat Lamaran Magang
+
+\`\`\`
+[Nama Anda]
+[Email] | [No. HP] | [LinkedIn]
+[Tanggal]
+
+Yth. Tim Rekrutmen
+[Nama Perusahaan]
+
+Hal: Lamaran Posisi Magang [Nama Divisi/Bidang]
+
+Dengan hormat,
+
+Saya [Nama], mahasiswa semester [X] program studi [Jurusan] di [Universitas], IPK [X.XX]. Saya menulis surat ini untuk mengajukan diri sebagai kandidat magang di [Nama Perusahaan] untuk periode [bulan/tahun].
+
+Mata kuliah [nama kuliah relevan] dan [nama kuliah lain] memberi saya dasar yang kuat dalam [keterampilan relevan]. Saya juga telah menyelesaikan [proyek/kompetisi/sertifikasi] yang relevan dengan bidang Anda.
+
+Saya sangat tertarik dengan [aspek spesifik perusahaan/produk] dan yakin bahwa magang di [nama perusahaan] akan memberikan pengalaman praktis yang melengkapi pendidikan saya.
+
+Saya siap berkontribusi dengan [keterampilan spesifik] dan belajar langsung dari tim [nama divisi]. Saya dapat memulai pada [tanggal] dan bersedia magang selama [durasi].
+
+Terlampir CV dan transkrip nilai. Saya dapat dihubungi di [no. HP] untuk informasi lebih lanjut.
+
+Terima kasih atas kesempatan ini.
+
+Hormat saya,
+[Nama Anda]
+\`\`\`
+
+Platform terbaik mencari magang di Indonesia: **Kalibrr**, **Glints**, **LinkedIn**, **Jobstreet**, dan **Prakerja** (untuk magang bersertifikat). Lihat [contoh CV magang mahasiswa](/id/blog/cv-magang-mahasiswa) untuk melengkapi surat lamaran Anda.`
+  },
+
+  // ── Topic 7: Surat Pengunduran Diri ─────────────────────────────────────────
+  {
+    slug: 'surat-pengunduran-diri',
+    title: 'Surat Pengunduran Diri: Contoh & Template Profesional 2026',
+    description: 'Contoh surat pengunduran diri yang profesional dan sopan untuk 2026. Template surat resign yang menjaga hubungan baik dengan perusahaan dan memastikan proses transisi yang mulus.',
+    category: 'Surat Lamaran',
+    tags: [
+      'surat pengunduran diri',
+      'contoh surat resign',
+      'template surat pengunduran diri',
+      'cara resign yang baik',
+      'surat berhenti kerja',
+      'contoh surat resign profesional',
+      'surat pengunduran diri karyawan',
+      'cara menulis surat resign',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Contoh Surat Pengunduran Diri Profesional 2026',
+    featured: false,
+    faq: [
+      { question: 'Berapa lama pemberitahuan sebelum resign yang harus diberikan?', answer: 'Di Indonesia, standar umum adalah 1 bulan (30 hari) pemberitahuan, sesuai dengan ketentuan dalam kontrak kerja. Beberapa perusahaan meminta 2 minggu, beberapa lainnya 2 bulan untuk posisi senior. Periksa kontrak kerja Anda untuk mengetahui ketentuan yang berlaku.' },
+      { question: 'Haruskah saya menjelaskan alasan resign di surat?', answer: 'Tidak wajib, dan biasanya lebih aman untuk tidak terlalu detail. Gunakan alasan netral seperti "ingin mengembangkan diri di kesempatan lain" atau "ingin fokus pada tujuan karier baru". Simpan alasan sesungguhnya untuk exit interview jika diminta.' },
+      { question: 'Bolehkah resign via chat WhatsApp atau email saja?', answer: 'Secara etika profesional, surat pengunduran diri resmi sebaiknya diserahkan secara formal — baik fisik maupun email resmi. WhatsApp bisa digunakan untuk memberitahu atasan terlebih dahulu secara informal, tapi tetap diikuti dengan surat formal.' },
+    ],
+    body: `## Cara Menulis Surat Pengunduran Diri yang Profesional
+
+Cara Anda meninggalkan sebuah perusahaan sama pentingnya dengan cara Anda bergabung. Surat pengunduran diri yang profesional menjaga reputasi Anda dan memastikan referensi yang baik di masa depan.
+
+### Prinsip Utama Surat Pengunduran Diri
+
+1. **Tetap positif** — tidak perlu mengungkap ketidakpuasan
+2. **Berterima kasih** — atas kesempatan dan pengalaman
+3. **Tawarkan transisi yang mulus** — minta membantu handover
+4. **Jelas dan singkat** — satu halaman sudah cukup
+
+### Template Surat Pengunduran Diri
+
+\`\`\`
+[Kota], [Tanggal]
+
+Yth.
+[Nama Atasan Langsung]
+[Jabatan]
+[Nama Perusahaan]
+
+Dengan hormat,
+
+Melalui surat ini, saya [Nama Lengkap], [Jabatan], bermaksud menyampaikan pengunduran diri dari [Nama Perusahaan] terhitung efektif [tanggal — 30 hari dari sekarang].
+
+Selama [X tahun] bekerja di [Nama Perusahaan], saya banyak mendapatkan pengalaman berharga dan kesempatan untuk berkembang. Saya sangat berterima kasih atas kepercayaan dan bimbingan yang diberikan oleh Bapak/Ibu selama ini.
+
+Saya berkomitmen untuk memastikan transisi yang mulus dan siap membantu dalam proses serah terima tugas selama periode pemberitahuan ini.
+
+Sekali lagi, terima kasih atas semua kesempatan yang telah diberikan. Saya berharap dapat menjalin hubungan profesional yang baik di masa mendatang.
+
+Hormat saya,
+
+[Tanda Tangan]
+[Nama Lengkap]
+[Email] | [No. HP]
+\`\`\`
+
+Setelah resign, langkah selanjutnya adalah memperbarui CV Anda. Lihat [panduan memperbarui CV](/id/blog/cara-membuat-cv) dan gunakan [builder CV gratis](/id/builder) untuk menciptakan CV terbaru yang siap untuk peluang berikutnya.`
+  },
+
+  // ── Topic 8: Follow Up Lamaran ───────────────────────────────────────────────
+  {
+    slug: 'follow-up-lamaran-kerja',
+    title: 'Cara Follow Up Lamaran Kerja: Skrip Email & WhatsApp 2026',
+    description: 'Panduan cara follow up lamaran kerja dengan profesional menggunakan email atau WhatsApp. Skrip siap pakai untuk menanyakan status lamaran tanpa terkesan mendesak, untuk pasar kerja Indonesia 2026.',
+    category: 'Tips Melamar',
+    tags: [
+      'follow up lamaran kerja',
+      'cara follow up lamaran',
+      'skrip follow up lamaran',
+      'email follow up lamaran',
+      'tanya status lamaran',
+      'cara menanyakan lamaran kerja',
+      'follow up via whatsapp',
+      'tips melamar kerja',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Cara Follow Up Lamaran Kerja via Email dan WhatsApp',
+    featured: false,
+    faq: [
+      { question: 'Kapan waktu yang tepat untuk follow up lamaran?', answer: 'Tunggu 5-7 hari kerja setelah mengirim lamaran sebelum follow up. Jika perusahaan menyebutkan deadline atau batas waktu keputusan dalam job posting, tunggu 2-3 hari setelah tanggal tersebut sebelum follow up.' },
+      { question: 'Berapa kali boleh follow up lamaran?', answer: 'Maksimal 2 kali — pertama sekitar 1 minggu setelah mengirim lamaran, kedua sekitar 2 minggu kemudian jika belum ada respons. Lebih dari itu bisa terkesan mendesak dan meninggalkan kesan negatif.' },
+      { question: 'Lebih baik follow up via email atau WhatsApp?', answer: 'Email lebih profesional dan direkomendasikan untuk melamar ke perusahaan formal atau multinasional. WhatsApp bisa digunakan jika nomor kontak disediakan dalam job posting, atau jika Anda sudah berinteraksi sebelumnya. Di startup Indonesia, WhatsApp sering lebih responsif.' },
+    ],
+    body: `## Cara Follow Up Lamaran Kerja dengan Profesional
+
+Banyak pelamar kerja tidak mendapat kabar bukan karena tidak layak — tapi karena CV mereka tenggelam di antara ratusan lamaran. Follow up yang tepat bisa membuat Anda menonjol dan menunjukkan inisiatif.
+
+### Skrip Follow Up Email
+
+**Subject:** Follow Up — Lamaran [Posisi] — [Nama Anda]
+
+> Yth. [Nama HR/Rekruter atau Tim Rekrutmen],
+>
+> Saya [Nama], yang telah mengirimkan lamaran untuk posisi [Nama Posisi] pada [tanggal]. Saya ingin menanyakan apakah ada perkembangan dalam proses seleksi.
+>
+> Saya masih sangat tertarik dengan posisi ini dan yakin kemampuan saya di [keterampilan relevan] akan memberikan nilai tambah bagi tim Anda.
+>
+> Terima kasih atas waktunya. Saya menantikan kesempatan untuk berdiskusi lebih lanjut.
+>
+> Hormat saya,
+> [Nama]
+> [Email] | [No. HP]
+
+### Skrip Follow Up WhatsApp
+
+> "Halo [Nama HR], perkenalkan saya [Nama] yang mengirimkan lamaran untuk posisi [Posisi] pada [tanggal]. Saya ingin menanyakan apakah proses seleksi sudah berjalan dan apakah ada update yang bisa saya ketahui. Terima kasih banyak."
+
+### Tips Follow Up yang Efektif
+
+1. **Personalisasi** — sebutkan nama posisi dan tanggal lamaran spesifik
+2. **Singkat** — 3-4 kalimat cukup
+3. **Profesional tapi ramah** — bukan kaku atau terlalu formal
+4. **Reiterate nilai Anda** — satu kalimat tentang kenapa Anda fit dengan posisi
+5. **Jangan mendesak atau menyalahkan** — "Saya heran kenapa belum ada respons" adalah contoh yang salah
+
+Sembari menunggu, manfaatkan waktu untuk memperbarui CV Anda di [builder CV kami](/id/builder) atau apply ke posisi lain di [Kalibrr](https://www.kalibrr.com/), [Glints](https://glints.com/), dan [JobStreet Indonesia](https://www.jobstreet.co.id/).`
+  },
+
+  // ── Topic 9: Subjek Email Lamaran ────────────────────────────────────────────
+  {
+    slug: 'cara-menulis-subjek-email-lamaran',
+    title: 'Cara Menulis Subjek Email Lamaran Kerja yang Tepat 2026',
+    description: 'Panduan menulis subjek email lamaran kerja yang profesional dan menarik perhatian rekruter. Contoh format subjek email lamaran yang benar untuk perusahaan Indonesia dan multinasional 2026.',
+    category: 'Tips Melamar',
+    tags: [
+      'subjek email lamaran',
+      'subject email lamaran kerja',
+      'cara menulis subjek email',
+      'format email lamaran kerja',
+      'subject lamaran kerja yang benar',
+      'penulisan email lamaran',
+      'tips email lamaran',
+      'contoh subjek email melamar kerja',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Cara Menulis Subjek Email Lamaran Kerja yang Tepat',
+    featured: false,
+    faq: [
+      { question: 'Format subjek email lamaran yang paling umum?', answer: 'Format yang paling umum dan diterima: "Lamaran — [Nama Posisi] — [Nama Anda]" atau "Application — [Job Title] — [Your Name]". Beberapa perusahaan mencantumkan format spesifik di job posting — ikuti instruksi tersebut jika ada.' },
+      { question: 'Bolehkah subjek email dalam bahasa Inggris untuk perusahaan Indonesia?', answer: 'Boleh, terutama untuk perusahaan multinasional atau startup yang budaya kerjanya menggunakan bahasa Inggris. Untuk instansi pemerintah atau BUMN, gunakan bahasa Indonesia.' },
+    ],
+    body: `## Cara Menulis Subjek Email Lamaran yang Membuat Rekruter Membuka Email Anda
+
+Rekruter menerima puluhan hingga ratusan email per hari. Subjek email yang salah bisa membuat lamaran Anda diabaikan — atau lebih buruk, ditandai sebagai spam.
+
+### Format Subjek Email Lamaran yang Benar
+
+**Format dasar (paling aman):**
+> Lamaran — [Nama Posisi] — [Nama Lengkap Anda]
+
+**Dengan kode referensi (jika ada di job posting):**
+> Lamaran — [Nama Posisi] — [Kode Referensi] — [Nama Anda]
+
+**Untuk perusahaan yang menggunakan bahasa Inggris:**
+> Application — [Job Title] — [Your Full Name]
+
+### Contoh Subjek Email yang Benar
+
+✅ "Lamaran — Data Analyst — Budi Santoso"
+✅ "Application — Frontend Developer — Sari Dewi"
+✅ "Lamaran Posisi Marketing Executive — Ref: MKT-2026 — Ahmad Fauzi"
+
+### Contoh Subjek Email yang Salah
+
+❌ "Lamaran Kerja" — terlalu generik, tidak ada info posisi atau nama
+❌ "Halo, saya mau melamar" — tidak profesional
+❌ "URGENT: Please consider my application" — terkesan putus asa
+❌ "Lamaran untuk semua posisi yang tersedia" — menunjukkan tidak ada target spesifik
+
+### Tips Tambahan untuk Email Lamaran
+
+1. **Periksa instruksi job posting** — banyak perusahaan mencantumkan format subjek yang harus diikuti
+2. **Pastikan tidak ada typo** di nama atau posisi — rekruter memperhatikan ini
+3. **Lampirkan CV sebagai PDF** dengan nama file: "CV_NamaAnda_NamaPosisi.pdf"
+4. **Isi badan email** dengan surat lamaran singkat (3-4 paragraf)
+
+Sebelum mengirim email lamaran, pastikan CV Anda sudah optimal dengan menggunakan [builder CV kami](/id/builder) yang menghasilkan CV ATS-friendly dalam format PDF yang siap kirim.`
+  },
 ];

@@ -1598,6 +1598,124 @@ const id: ComparisonPageContent = {
   },
 };
 
+const pl: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatywa Overleaf 2026: Darmowy Kreator CV AI | Best AI Resume',
+    description: 'Szukasz alternatywy dla Overleaf do tworzenia CV? Porównaj Overleaf vs Best AI Resume — kreator CV z AI, szablony ATS, nieograniczone pobieranie. Bez LaTeX, bez ukrytych kosztów.',
+    keywords: 'alternatywa overleaf, overleaf cv, kreator cv za darmo, szablon cv, cv ai polska, darmowy kreator cv, overleaf latex cv alternatywa',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatywa Overleaf',
+    articleHeadline: 'Alternatywa Overleaf 2026: Darmowy Kreator CV z AI Bez LaTeX',
+    articleDescription: 'Porównaj Overleaf vs Best AI Resume Builder. Twórz profesjonalne CV z pomocą AI, optymalizacją ATS i nieograniczonym pobieraniem — bez LaTeX, całkowicie za darmo.',
+  },
+  hero: {
+    badge: 'Alternatywa Overleaf',
+    title: 'Twórz CV.',
+    titleHighlight: 'Bez LaTeX.',
+    subtitle: 'Overleaf wymaga znajomości LaTeX do tworzenia CV — wysoka bariera dla większości ludzi. Oferujemy pisanie z pomocą AI, szablony CV ATS i nieograniczone eksporty za <strong>0 zł</strong>, bez żadnego kodu.',
+    ctaPrimary: 'Utwórz Moje CV Za Darmo',
+    ctaSecondary: 'Zobacz Porównanie',
+  },
+  problem: {
+    title: 'Problem z CV w Overleaf',
+    description: 'Overleaf doskonale nadaje się do dokumentów akademickich i prac naukowych, ale do tworzenia CV wymaga znajomości LaTeX, której większość ludzi nie posiada. Tworzenie CV w Overleaf zajmuje znacznie więcej czasu niż potrzeba, a szablony nie są zoptymalizowane pod polski rynek pracy ani nowoczesne systemy ATS.',
+    stats: [
+      { value: 'LaTeX', label: 'Język programowania wymagany do personalizacji' },
+      { value: 'Akademicki', label: 'Format mniej odpowiedni dla polskiego rynku pracy' },
+      { value: '0 zł', label: 'Best AI Resume Builder — bez kodu, za darmo' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'Porównanie funkcja po funkcji.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Cena', competitor: '⚠️ Darmowy podstawowy; płatny premium', ours: '✅ 100% darmowy na zawsze' },
+      { feature: 'Darmowe Pobieranie', competitor: '✅ Pobieranie PDF dostępne', ours: '✅ Nieograniczone darmowe eksporty PDF' },
+      { feature: 'Pisanie z AI', competitor: '❌ Brak funkcji AI', ours: '✅ AI tworzy spersonalizowaną treść CV' },
+      { feature: 'Optymalizacja ATS', competitor: '⚠️ Zależna od wybranego szablonu', ours: '✅ Wynik ATS w czasie rzeczywistym + słowa kluczowe' },
+      { feature: 'Łatwość Użycia', competitor: '❌ Wymagana znajomość LaTeX', ours: '✅ Brak wymaganej wiedzy technicznej' },
+      { feature: 'Funkcje Specyficzne dla CV', competitor: '❌ Ogólne narzędzie do dokumentów', ours: '✅ Zbudowane specjalnie dla CV' },
+      { feature: 'List Motywacyjny', competitor: '⚠️ Ręczna edycja w LaTeX', ours: '✅ Wspomagany AI list motywacyjny (darmowy)' },
+      { feature: 'Sugestie Treści', competitor: '❌ Brak sugestii dla CV', ours: '✅ AI dostosowane do Twojego doświadczenia' },
+      { feature: 'Szybkość', competitor: '❌ Czasochłonne bez doświadczenia w LaTeX', ours: '✅ Minuty do pełnego CV' },
+      { feature: 'Personalizacja', competitor: '✅ W pełni konfigurowalny (ze znajomością LaTeX)', ours: '✅ Konfigurowalny przez intuicyjny interfejs' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Powody, by Przestać Używać Overleaf do CV',
+    subtitle: 'Bez LaTeX. Prawdziwa AI. Za darmo.',
+    reasons: [
+      { title: 'Brak Wymaganej Znajomości LaTeX', description: 'Overleaf wymaga LaTeX do personalizacji — języka programowania, którego większość ludzi nie zna. Nasz kreator CV używa intuicyjnego interfejsu, dzięki któremu każdy może stworzyć profesjonalne CV w kilka minut bez wiedzy technicznej.' },
+      { title: 'AI Pisze Treść CV', description: 'Overleaf nie oferuje pomocy w pisaniu treści CV — musisz napisać wszystko sam. Nasza AI generuje profesjonalne opisy stanowisk, przekonujące podsumowanie i słowa kluczowe ATS na podstawie Twojego doświadczenia.' },
+      { title: 'Zoptymalizowany pod Polski Rynek Pracy', description: 'Szablony Overleaf są przeznaczone głównie do prac akademickich. Nasze szablony CV są dostosowane do oczekiwań polskich rekruterów i zoptymalizowane pod systemy ATS używane na polskim rynku pracy.' },
+    ],
+  },
+  recommendation: {
+    title: 'Uczciwa Rekomendacja',
+    useCompetitor: {
+      title: 'Overleaf jest odpowiedni, jeśli...',
+      items: [
+        'Znasz LaTeX i preferujesz tworzenie CV w oparciu o kod',
+        'Tworzysz akademickie CV na stanowiska na uczelniach',
+        'Chcesz perfekcyjnej kontroli typograficznej, którą daje tylko LaTeX',
+        'Już używasz LaTeX do innych dokumentów',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes jest lepszy, jeśli...',
+      items: [
+        'Nie znasz LaTeX i nie chcesz się go uczyć',
+        'Chcesz szybko stworzyć profesjonalne CV na polski rynek pracy',
+        'Potrzebujesz pomocy AI w pisaniu profesjonalnej treści CV',
+        'Potrzebujesz nowoczesnego, przyjaznego ATS CV',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Przeglądaj 300+ Darmowych Wzorów CV',
+    description: 'Profesjonalne wzory CV dla każdej branży i poziomu kariery.',
+    ctaBrowse: 'Przeglądaj Wzory CV',
+    ctaTemplates: 'Przeglądaj Wszystkie Szablony',
+  },
+  faq: {
+    title: 'Najczęściej Zadawane Pytania',
+    items: [
+      { question: 'Czy mogę stworzyć CV w Overleaf bez znajomości LaTeX?', answer: 'Możesz używać istniejących szablonów LaTeX, ale do personalizacji potrzebna jest znajomość LaTeX. Best AI Resume Builder nie wymaga żadnej wiedzy technicznej — twórz profesjonalne CV w minutach przez intuicyjny interfejs.' },
+      { question: 'Czy Overleaf jest darmowy do tworzenia CV?', answer: 'Overleaf ma wersję darmową, ale niektóre funkcje wymagają płatnej subskrypcji. Best AI Resume Builder jest w 100% darmowy — twórz i pobieraj nieograniczone CV bez subskrypcji ani karty kredytowej.' },
+      { question: 'Jaka jest najlepsza darmowa alternatywa dla Overleaf do CV?', answer: 'Best AI Resume Builder to najlepsza darmowa alternatywa do tworzenia CV. Oferujemy szablony ATS, pomoc w pisaniu z AI, wyniki ATS w czasie rzeczywistym i nieograniczone eksporty PDF — całkowicie za darmo, bez LaTeX.' },
+      { question: 'Czy CV z Overleaf są przyjazne ATS?', answer: 'Zależy od wybranego szablonu. Niektóre szablony LaTeX są przyjazne ATS, inne nie. Best AI Resume Builder gwarantuje przyjazne ATS CV z wynikami w czasie rzeczywistym i sugestiami optymalizacji.' },
+      { question: 'Jak szybko stworzyć profesjonalne CV bez LaTeX?', answer: 'Best AI Resume Builder to najszybszy sposób. Stwórz profesjonalne, przyjazne ATS CV z pomocą AI w minutach — bez kodu, bez dostosowywania szablonów, po prostu wypełnij i pobierz.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Porównaj Inne Kreatory CV',
+    items: [
+      { href: '/pl/livecareer-alternative', title: 'Alternatywa LiveCareer', subtitle: 'Tradycyjny vs nowoczesny' },
+      { href: '/pl/resume-io-alternative', title: 'Alternatywa Resume.io', subtitle: 'Porównanie cen i funkcji' },
+      { href: '/pl/canva-alternative', title: 'Alternatywa Canva', subtitle: 'Narzędzie do projektowania vs kreator CV AI' },
+      { href: '/pl/rezi-alternative', title: 'Alternatywa Rezi', subtitle: 'Porównanie funkcji AI' },
+    ],
+    guidesTitle: 'Przydatne Poradniki CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Zewnętrzne Zasoby',
+    items: [
+      { href: 'https://www.overleaf.com/', label: 'Overleaf — Oficjalna Strona' },
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+    ],
+  },
+  bottomCta: {
+    title: 'Bez LaTeX. Bez Kłopotów. Po Prostu Za Darmo.',
+    description: 'Stwórz profesjonalne, przyjazne ATS CV z pomocą AI — bez znajomości LaTeX ani umiejętności technicznych. W pełni za darmo na zawsze.',
+    cta: 'Utwórz Moje CV Za Darmo',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej. Bez niespodzianek.',
+  },
+};
+
 const nl: ComparisonPageContent = {
   meta: {
     title: 'Overleaf Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
@@ -1716,5 +1834,5 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

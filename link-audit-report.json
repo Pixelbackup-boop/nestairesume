@@ -230,6 +230,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/admin-thai": {
+      "file": "frontend/content/resume-examples/admin-thai.mdx",
+      "type": "resume-example",
+      "category": "Administrative",
+      "jobTitle": "Thai Administrative Staff",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/administrative-assistant": {
       "file": "frontend/content/resume-examples/administrative-assistant.mdx",
       "type": "resume-example",
@@ -1701,6 +1713,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/chang-faifaa": {
+      "file": "frontend/content/resume-examples/chang-faifaa.mdx",
+      "type": "resume-example",
+      "category": "Trades",
+      "jobTitle": "Thai Electrician",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/change-management": {
       "file": "frontend/content/resume-examples/change-management.mdx",
       "type": "resume-example",
@@ -2436,6 +2460,18 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "resume-example/cong-nhan-nha-may": {
+      "file": "frontend/content/resume-examples/cong-nhan-nha-may.mdx",
+      "type": "resume-example",
+      "category": "Trades",
+      "jobTitle": "Factory Production Worker",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "resume-example/construction-manager": {
       "file": "frontend/content/resume-examples/construction-manager.mdx",
@@ -3723,6 +3759,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/duoc-si": {
+      "file": "frontend/content/resume-examples/duoc-si.mdx",
+      "type": "resume-example",
+      "category": "Healthcare",
+      "jobTitle": "Licensed Pharmacist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/editor": {
       "file": "frontend/content/resume-examples/editor.mdx",
       "type": "resume-example",
@@ -4964,6 +5012,18 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "resume-example/giao-vien-mam-non": {
+      "file": "frontend/content/resume-examples/giao-vien-mam-non.mdx",
+      "type": "resume-example",
+      "category": "Education",
+      "jobTitle": "Early Childhood Educator",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "resume-example/glazier": {
       "file": "frontend/content/resume-examples/glazier.mdx",
@@ -6251,6 +6311,30 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/ke-toan-truong": {
+      "file": "frontend/content/resume-examples/ke-toan-truong.mdx",
+      "type": "resume-example",
+      "category": "Finance",
+      "jobTitle": "Chief Accountant",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/khruu": {
+      "file": "frontend/content/resume-examples/khruu.mdx",
+      "type": "resume-example",
+      "category": "Education",
+      "jobTitle": "Thai Teacher",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/kitchen-helper": {
       "file": "frontend/content/resume-examples/kitchen-helper.mdx",
       "type": "resume-example",
@@ -6296,6 +6380,30 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "resume-example/ky-su-xay-dung": {
+      "file": "frontend/content/resume-examples/ky-su-xay-dung.mdx",
+      "type": "resume-example",
+      "category": "Construction",
+      "jobTitle": "Civil Construction Engineer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/ky-thuat-vien-xet-nghiem": {
+      "file": "frontend/content/resume-examples/ky-thuat-vien-xet-nghiem.mdx",
+      "type": "resume-example",
+      "category": "Healthcare",
+      "jobTitle": "Medical Lab Technician",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "resume-example/lab-assistant": {
       "file": "frontend/content/resume-examples/lab-assistant.mdx",
@@ -7745,6 +7853,42 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/nak-ban-chee": {
+      "file": "frontend/content/resume-examples/nak-ban-chee.mdx",
+      "type": "resume-example",
+      "category": "Finance",
+      "jobTitle": "Thai Accountant",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nak-kaantalaat": {
+      "file": "frontend/content/resume-examples/nak-kaantalaat.mdx",
+      "type": "resume-example",
+      "category": "Marketing",
+      "jobTitle": "Thai Marketing Professional",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nak-ork-baep": {
+      "file": "frontend/content/resume-examples/nak-ork-baep.mdx",
+      "type": "resume-example",
+      "category": "Creative",
+      "jobTitle": "Thai Graphic Designer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/nanny": {
       "file": "frontend/content/resume-examples/nanny.mdx",
       "type": "resume-example",
@@ -7812,6 +7956,102 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "resume-example/nhan-vien-content-marketing": {
+      "file": "frontend/content/resume-examples/nhan-vien-content-marketing.mdx",
+      "type": "resume-example",
+      "category": "Marketing",
+      "jobTitle": "Content Marketing Specialist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nhan-vien-hanh-chinh-cong": {
+      "file": "frontend/content/resume-examples/nhan-vien-hanh-chinh-cong.mdx",
+      "type": "resume-example",
+      "category": "Government",
+      "jobTitle": "Public Administration Officer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nhan-vien-kinh-doanh-bat-dong-san": {
+      "file": "frontend/content/resume-examples/nhan-vien-kinh-doanh-bat-dong-san.mdx",
+      "type": "resume-example",
+      "category": "Sales",
+      "jobTitle": "Real Estate Sales Agent",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nhan-vien-le-tan": {
+      "file": "frontend/content/resume-examples/nhan-vien-le-tan.mdx",
+      "type": "resume-example",
+      "category": "Hospitality",
+      "jobTitle": "Hotel Front Desk Agent",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nhan-vien-ngan-hang": {
+      "file": "frontend/content/resume-examples/nhan-vien-ngan-hang.mdx",
+      "type": "resume-example",
+      "category": "Finance",
+      "jobTitle": "Banking Officer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nhan-vien-qc-qa": {
+      "file": "frontend/content/resume-examples/nhan-vien-qc-qa.mdx",
+      "type": "resume-example",
+      "category": "Manufacturing",
+      "jobTitle": "QC QA Specialist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nhan-vien-telesales": {
+      "file": "frontend/content/resume-examples/nhan-vien-telesales.mdx",
+      "type": "resume-example",
+      "category": "Sales",
+      "jobTitle": "Telesales Agent",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/nhan-vien-xuat-nhap-khau": {
+      "file": "frontend/content/resume-examples/nhan-vien-xuat-nhap-khau.mdx",
+      "type": "resume-example",
+      "category": "Logistics",
+      "jobTitle": "Export Import Specialist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "resume-example/night-auditor": {
       "file": "frontend/content/resume-examples/night-auditor.mdx",
@@ -8434,6 +8674,66 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/phanakngaan-bukhkhon": {
+      "file": "frontend/content/resume-examples/phanakngaan-bukhkhon.mdx",
+      "type": "resume-example",
+      "category": "HR",
+      "jobTitle": "Thai HR Staff",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/phanakngaan-khaai": {
+      "file": "frontend/content/resume-examples/phanakngaan-khaai.mdx",
+      "type": "resume-example",
+      "category": "Sales",
+      "jobTitle": "Thai Sales Representative",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/phanakngaan-khonsong": {
+      "file": "frontend/content/resume-examples/phanakngaan-khonsong.mdx",
+      "type": "resume-example",
+      "category": "Logistics",
+      "jobTitle": "Thai Logistics Staff",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/phanakngaan-thonaakaan": {
+      "file": "frontend/content/resume-examples/phanakngaan-thonaakaan.mdx",
+      "type": "resume-example",
+      "category": "Finance",
+      "jobTitle": "Thai Bank Employee",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/phanakngaan-tontrap": {
+      "file": "frontend/content/resume-examples/phanakngaan-tontrap.mdx",
+      "type": "resume-example",
+      "category": "Hospitality",
+      "jobTitle": "Thai Receptionist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/pharmacist": {
       "file": "frontend/content/resume-examples/pharmacist.mdx",
       "type": "resume-example",
@@ -8526,6 +8826,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/phayaabaan": {
+      "file": "frontend/content/resume-examples/phayaabaan.mdx",
+      "type": "resume-example",
+      "category": "Healthcare",
+      "jobTitle": "Thai Registered Nurse",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/phlebotomist": {
       "file": "frontend/content/resume-examples/phlebotomist.mdx",
       "type": "resume-example",
@@ -8571,6 +8883,18 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "resume-example/phuu-jatkaan": {
+      "file": "frontend/content/resume-examples/phuu-jatkaan.mdx",
+      "type": "resume-example",
+      "category": "Management",
+      "jobTitle": "Thai Manager",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "resume-example/physical-therapist": {
       "file": "frontend/content/resume-examples/physical-therapist.mdx",
@@ -12042,6 +12366,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/truong-phong-nhan-su": {
+      "file": "frontend/content/resume-examples/truong-phong-nhan-su.mdx",
+      "type": "resume-example",
+      "category": "HR",
+      "jobTitle": "HR Department Head",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/tsa-agent": {
       "file": "frontend/content/resume-examples/tsa-agent.mdx",
       "type": "resume-example",
@@ -12640,6 +12976,30 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "resume-example/wisawakorn-software": {
+      "file": "frontend/content/resume-examples/wisawakorn-software.mdx",
+      "type": "resume-example",
+      "category": "Technology",
+      "jobTitle": "Thai Software Engineer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "resume-example/wisawakorn-yothaa": {
+      "file": "frontend/content/resume-examples/wisawakorn-yothaa.mdx",
+      "type": "resume-example",
+      "category": "Engineering",
+      "jobTitle": "Thai Civil Engineer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "resume-example/x-ray-technician": {
       "file": "frontend/content/resume-examples/x-ray-technician.mdx",
       "type": "resume-example",
@@ -12968,6 +13328,18 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "cover-letter/admin-thai": {
+      "file": "frontend/content/cover-letter-examples/admin-thai.mdx",
+      "type": "cover-letter",
+      "category": "Administrative",
+      "jobTitle": "Thai Administrative Staff",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "cover-letter/administrative-assistant": {
       "file": "frontend/content/cover-letter-examples/administrative-assistant.mdx",
@@ -14489,6 +14861,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/chang-faifaa": {
+      "file": "frontend/content/cover-letter-examples/chang-faifaa.mdx",
+      "type": "cover-letter",
+      "category": "Trades",
+      "jobTitle": "Thai Electrician",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/change-management": {
       "file": "frontend/content/cover-letter-examples/change-management.mdx",
       "type": "cover-letter",
@@ -15242,6 +15626,18 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "cover-letter/cong-nhan-nha-may": {
+      "file": "frontend/content/cover-letter-examples/cong-nhan-nha-may.mdx",
+      "type": "cover-letter",
+      "category": "Trades",
+      "jobTitle": "Factory Production Worker",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "cover-letter/construction-manager": {
       "file": "frontend/content/cover-letter-examples/construction-manager.mdx",
@@ -16611,6 +17007,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/duoc-si": {
+      "file": "frontend/content/cover-letter-examples/duoc-si.mdx",
+      "type": "cover-letter",
+      "category": "Healthcare",
+      "jobTitle": "Licensed Pharmacist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/editor": {
       "file": "frontend/content/cover-letter-examples/editor.mdx",
       "type": "cover-letter",
@@ -17929,6 +18337,18 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "cover-letter/giao-vien-mam-non": {
+      "file": "frontend/content/cover-letter-examples/giao-vien-mam-non.mdx",
+      "type": "cover-letter",
+      "category": "Education",
+      "jobTitle": "Early Childhood Educator",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "cover-letter/glazier": {
       "file": "frontend/content/cover-letter-examples/glazier.mdx",
@@ -19302,6 +19722,30 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/ke-toan-truong": {
+      "file": "frontend/content/cover-letter-examples/ke-toan-truong.mdx",
+      "type": "cover-letter",
+      "category": "Finance",
+      "jobTitle": "Chief Accountant",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/khruu": {
+      "file": "frontend/content/cover-letter-examples/khruu.mdx",
+      "type": "cover-letter",
+      "category": "Education",
+      "jobTitle": "Thai Teacher",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/kitchen-helper": {
       "file": "frontend/content/cover-letter-examples/kitchen-helper.mdx",
       "type": "cover-letter",
@@ -19349,6 +19793,30 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "cover-letter/ky-su-xay-dung": {
+      "file": "frontend/content/cover-letter-examples/ky-su-xay-dung.mdx",
+      "type": "cover-letter",
+      "category": "Construction",
+      "jobTitle": "Civil Construction Engineer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/ky-thuat-vien-xet-nghiem": {
+      "file": "frontend/content/cover-letter-examples/ky-thuat-vien-xet-nghiem.mdx",
+      "type": "cover-letter",
+      "category": "Healthcare",
+      "jobTitle": "Medical Lab Technician",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "cover-letter/lab-assistant": {
       "file": "frontend/content/cover-letter-examples/lab-assistant.mdx",
@@ -20858,6 +21326,42 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/nak-ban-chee": {
+      "file": "frontend/content/cover-letter-examples/nak-ban-chee.mdx",
+      "type": "cover-letter",
+      "category": "Finance",
+      "jobTitle": "Thai Accountant",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nak-kaantalaat": {
+      "file": "frontend/content/cover-letter-examples/nak-kaantalaat.mdx",
+      "type": "cover-letter",
+      "category": "Marketing",
+      "jobTitle": "Thai Marketing Professional",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nak-ork-baep": {
+      "file": "frontend/content/cover-letter-examples/nak-ork-baep.mdx",
+      "type": "cover-letter",
+      "category": "Creative",
+      "jobTitle": "Thai Graphic Designer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/nanny": {
       "file": "frontend/content/cover-letter-examples/nanny.mdx",
       "type": "cover-letter",
@@ -20927,6 +21431,102 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "cover-letter/nhan-vien-content-marketing": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-content-marketing.mdx",
+      "type": "cover-letter",
+      "category": "Marketing",
+      "jobTitle": "Content Marketing Specialist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nhan-vien-hanh-chinh-cong": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-hanh-chinh-cong.mdx",
+      "type": "cover-letter",
+      "category": "Government",
+      "jobTitle": "Public Administration Officer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nhan-vien-kinh-doanh-bat-dong-san": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-kinh-doanh-bat-dong-san.mdx",
+      "type": "cover-letter",
+      "category": "Sales",
+      "jobTitle": "Real Estate Sales Agent",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nhan-vien-le-tan": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-le-tan.mdx",
+      "type": "cover-letter",
+      "category": "Hospitality",
+      "jobTitle": "Hotel Front Desk Agent",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nhan-vien-ngan-hang": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-ngan-hang.mdx",
+      "type": "cover-letter",
+      "category": "Finance",
+      "jobTitle": "Banking Officer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nhan-vien-qc-qa": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-qc-qa.mdx",
+      "type": "cover-letter",
+      "category": "Manufacturing",
+      "jobTitle": "QC QA Specialist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nhan-vien-telesales": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-telesales.mdx",
+      "type": "cover-letter",
+      "category": "Sales",
+      "jobTitle": "Telesales Agent",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/nhan-vien-xuat-nhap-khau": {
+      "file": "frontend/content/cover-letter-examples/nhan-vien-xuat-nhap-khau.mdx",
+      "type": "cover-letter",
+      "category": "Logistics",
+      "jobTitle": "Export Import Specialist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "cover-letter/night-auditor": {
       "file": "frontend/content/cover-letter-examples/night-auditor.mdx",
@@ -21564,6 +22164,66 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/phanakngaan-bukhkhon": {
+      "file": "frontend/content/cover-letter-examples/phanakngaan-bukhkhon.mdx",
+      "type": "cover-letter",
+      "category": "HR",
+      "jobTitle": "Thai HR Staff",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/phanakngaan-khaai": {
+      "file": "frontend/content/cover-letter-examples/phanakngaan-khaai.mdx",
+      "type": "cover-letter",
+      "category": "Sales",
+      "jobTitle": "Thai Sales Representative",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/phanakngaan-khonsong": {
+      "file": "frontend/content/cover-letter-examples/phanakngaan-khonsong.mdx",
+      "type": "cover-letter",
+      "category": "Logistics",
+      "jobTitle": "Thai Logistics Staff",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/phanakngaan-thonaakaan": {
+      "file": "frontend/content/cover-letter-examples/phanakngaan-thonaakaan.mdx",
+      "type": "cover-letter",
+      "category": "Finance",
+      "jobTitle": "Thai Bank Employee",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/phanakngaan-tontrap": {
+      "file": "frontend/content/cover-letter-examples/phanakngaan-tontrap.mdx",
+      "type": "cover-letter",
+      "category": "Hospitality",
+      "jobTitle": "Thai Receptionist",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/pharmacist": {
       "file": "frontend/content/cover-letter-examples/pharmacist.mdx",
       "type": "cover-letter",
@@ -21660,6 +22320,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/phayaabaan": {
+      "file": "frontend/content/cover-letter-examples/phayaabaan.mdx",
+      "type": "cover-letter",
+      "category": "Healthcare",
+      "jobTitle": "Thai Registered Nurse",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/phlebotomist": {
       "file": "frontend/content/cover-letter-examples/phlebotomist.mdx",
       "type": "cover-letter",
@@ -21706,6 +22378,18 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "cover-letter/phuu-jatkaan": {
+      "file": "frontend/content/cover-letter-examples/phuu-jatkaan.mdx",
+      "type": "cover-letter",
+      "category": "Management",
+      "jobTitle": "Thai Manager",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "cover-letter/physical-therapist": {
       "file": "frontend/content/cover-letter-examples/physical-therapist.mdx",
@@ -25357,6 +26041,18 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/truong-phong-nhan-su": {
+      "file": "frontend/content/cover-letter-examples/truong-phong-nhan-su.mdx",
+      "type": "cover-letter",
+      "category": "HR",
+      "jobTitle": "HR Department Head",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/tsa-agent": {
       "file": "frontend/content/cover-letter-examples/tsa-agent.mdx",
       "type": "cover-letter",
@@ -25964,6 +26660,30 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "cover-letter/wisawakorn-software": {
+      "file": "frontend/content/cover-letter-examples/wisawakorn-software.mdx",
+      "type": "cover-letter",
+      "category": "Technology",
+      "jobTitle": "Thai Software Engineer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "cover-letter/wisawakorn-yothaa": {
+      "file": "frontend/content/cover-letter-examples/wisawakorn-yothaa.mdx",
+      "type": "cover-letter",
+      "category": "Engineering",
+      "jobTitle": "Thai Civil Engineer",
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "cover-letter/x-ray-technician": {
       "file": "frontend/content/cover-letter-examples/x-ray-technician.mdx",
       "type": "cover-letter",
@@ -26057,6 +26777,40 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/accounting-resume-guide": {
+      "file": "frontend/content/blog/accounting-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 4,
+        "blog": 3,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/administrative-assistant-resume-guide": {
+      "file": "frontend/content/blog/administrative-assistant-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 3,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
     "blog/ai-ml-resume-guide": {
       "file": "frontend/content/blog/ai-ml-resume-guide.mdx",
       "type": "blog",
@@ -26144,6 +26898,37 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/ats-resume-template": {
+      "file": "frontend/content/blog/ats-resume-template.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 11,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 3,
+        "blog": 6,
+        "other": 1,
+        "templates": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/behavioral-interview-questions": {
+      "file": "frontend/content/blog/behavioral-interview-questions.mdx",
+      "type": "blog",
+      "category": "Interview Prep",
+      "jobTitle": "",
+      "internalLinkCount": 5,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "blog/best-ai-resume-maker-tools": {
       "file": "frontend/content/blog/best-ai-resume-maker-tools.mdx",
       "type": "blog",
@@ -26172,6 +26957,29 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "blog/best-free-resume-builders": {
+      "file": "frontend/content/blog/best-free-resume-builders.mdx",
+      "type": "blog",
+      "category": "Tools",
+      "jobTitle": "",
+      "internalLinkCount": 10,
+      "externalLinkCount": 6,
+      "internalByType": {
+        "blog": 5,
+        "builder": 3,
+        "templates": 2
+      },
+      "externalDomains": [
+        "www.canva.com",
+        "docs.google.com",
+        "www.indeed.com",
+        "www.resume.com",
+        "zety.com",
+        "novoresume.com"
+      ],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "blog/best-resume-builder-apps": {
       "file": "frontend/content/blog/best-resume-builder-apps.mdx",
@@ -26267,6 +27075,22 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/blank-resume-template-fill-in": {
+      "file": "frontend/content/blog/blank-resume-template-fill-in.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 10,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 4,
+        "blog": 5,
+        "templates": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "blog/canva-ai-resume-builder-guide": {
       "file": "frontend/content/blog/canva-ai-resume-builder-guide.mdx",
       "type": "blog",
@@ -26355,6 +27179,224 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/combination-resume-format": {
+      "file": "frontend/content/blog/combination-resume-format.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/cover-letter-examples-by-industry": {
+      "file": "frontend/content/blog/cover-letter-examples-by-industry.mdx",
+      "type": "blog",
+      "category": "Cover Letter",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "blog": 5,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/cover-letter-for-career-change": {
+      "file": "frontend/content/blog/cover-letter-for-career-change.mdx",
+      "type": "blog",
+      "category": "Cover Letter",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/cover-letter-templates-download": {
+      "file": "frontend/content/blog/cover-letter-templates-download.mdx",
+      "type": "blog",
+      "category": "Letters",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "templates": 2,
+        "builder": 2,
+        "tool": 1,
+        "blog": 4
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/cover-letter-with-no-experience": {
+      "file": "frontend/content/blog/cover-letter-with-no-experience.mdx",
+      "type": "blog",
+      "category": "Cover Letter",
+      "jobTitle": "",
+      "internalLinkCount": 8,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 2,
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/creative-resume-template": {
+      "file": "frontend/content/blog/creative-resume-template.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "templates": 3,
+        "builder": 2,
+        "blog": 4
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/customer-service-resume-guide": {
+      "file": "frontend/content/blog/customer-service-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 3,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/data-analyst-resume-guide": {
+      "file": "frontend/content/blog/data-analyst-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 3,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/europass-cv-format-guide": {
+      "file": "frontend/content/blog/europass-cv-format-guide.mdx",
+      "type": "blog",
+      "category": "International",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 1,
+      "internalByType": {
+        "templates": 3,
+        "builder": 2,
+        "blog": 4
+      },
+      "externalDomains": [
+        "europa.eu"
+      ],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/free-resume-templates-download": {
+      "file": "frontend/content/blog/free-resume-templates-download.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 11,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "templates": 2,
+        "builder": 4,
+        "tool": 1,
+        "blog": 4
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/functional-resume-format": {
+      "file": "frontend/content/blog/functional-resume-format.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/graphic-designer-resume-guide": {
+      "file": "frontend/content/blog/graphic-designer-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 10,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 4,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/hard-skills-vs-soft-skills": {
+      "file": "frontend/content/blog/hard-skills-vs-soft-skills.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
     "blog/high-paying-skills": {
       "file": "frontend/content/blog/high-paying-skills.mdx",
       "type": "blog",
@@ -26374,6 +27416,23 @@
         "www.weforum.org"
       ],
       "linksToCareerTips": true,
+      "linksToTools": true
+    },
+    "blog/how-to-apply-for-jobs-online": {
+      "file": "frontend/content/blog/how-to-apply-for-jobs-online.mdx",
+      "type": "blog",
+      "category": "Job Search",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "tool": 2,
+        "builder": 1,
+        "other": 1,
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
       "linksToTools": true
     },
     "blog/how-to-email-resume": {
@@ -26396,6 +27455,69 @@
         "www.indeed.com"
       ],
       "linksToCareerTips": true,
+      "linksToTools": true
+    },
+    "blog/how-to-follow-up-after-interview": {
+      "file": "frontend/content/blog/how-to-follow-up-after-interview.mdx",
+      "type": "blog",
+      "category": "Job Search",
+      "jobTitle": "",
+      "internalLinkCount": 5,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/how-to-get-references": {
+      "file": "frontend/content/blog/how-to-get-references.mdx",
+      "type": "blog",
+      "category": "Job Search",
+      "jobTitle": "",
+      "internalLinkCount": 5,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 4,
+        "builder": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/how-to-list-awards-on-resume": {
+      "file": "frontend/content/blog/how-to-list-awards-on-resume.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/how-to-list-certifications-on-resume": {
+      "file": "frontend/content/blog/how-to-list-certifications-on-resume.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
       "linksToTools": true
     },
     "blog/how-to-list-projects-on-resume": {
@@ -26462,6 +27584,39 @@
         "www.jobscan.co"
       ],
       "linksToCareerTips": true,
+      "linksToTools": true
+    },
+    "blog/how-to-list-volunteer-work-on-resume": {
+      "file": "frontend/content/blog/how-to-list-volunteer-work-on-resume.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/how-to-use-chatgpt-for-resume": {
+      "file": "frontend/content/blog/how-to-use-chatgpt-for-resume.mdx",
+      "type": "blog",
+      "category": "AI Tools",
+      "jobTitle": "",
+      "internalLinkCount": 6,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
       "linksToTools": true
     },
     "blog/how-to-write-a-resume": {
@@ -26594,6 +27749,22 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/internship-resume-cover-letter": {
+      "file": "frontend/content/blog/internship-resume-cover-letter.mdx",
+      "type": "blog",
+      "category": "Students",
+      "jobTitle": "",
+      "internalLinkCount": 10,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "templates": 2,
+        "builder": 3,
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "blog/interview-preparation-guide": {
       "file": "frontend/content/blog/interview-preparation-guide.mdx",
       "type": "blog",
@@ -26614,6 +27785,22 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "blog/it-resume-guide": {
+      "file": "frontend/content/blog/it-resume-guide.mdx",
+      "type": "blog",
+      "category": "Profession",
+      "jobTitle": "",
+      "internalLinkCount": 6,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "templates": 1,
+        "blog": 4
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "blog/japanese-resume-maker": {
       "file": "frontend/content/blog/japanese-resume-maker.mdx",
@@ -26656,6 +27843,21 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "blog/job-offer-acceptance-letter": {
+      "file": "frontend/content/blog/job-offer-acceptance-letter.mdx",
+      "type": "blog",
+      "category": "Job Search",
+      "jobTitle": "",
+      "internalLinkCount": 5,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 4,
+        "builder": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "blog/job-search-strategy": {
       "file": "frontend/content/blog/job-search-strategy.mdx",
@@ -26702,6 +27904,21 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/linkedin-vs-resume": {
+      "file": "frontend/content/blog/linkedin-vs-resume.mdx",
+      "type": "blog",
+      "category": "AI Tools",
+      "jobTitle": "",
+      "internalLinkCount": 6,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 2,
+        "blog": 4
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "blog/management-experience-examples": {
       "file": "frontend/content/blog/management-experience-examples.mdx",
       "type": "blog",
@@ -26721,6 +27938,23 @@
         "hbr.org"
       ],
       "linksToCareerTips": true,
+      "linksToTools": true
+    },
+    "blog/marketing-resume-guide": {
+      "file": "frontend/content/blog/marketing-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 10,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 4,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
       "linksToTools": true
     },
     "blog/mock-interview-practice": {
@@ -26744,6 +27978,70 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/modern-resume-template": {
+      "file": "frontend/content/blog/modern-resume-template.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 12,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 9,
+        "builder": 2,
+        "templates": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/nursing-resume-guide": {
+      "file": "frontend/content/blog/nursing-resume-guide.mdx",
+      "type": "blog",
+      "category": "Profession",
+      "jobTitle": "",
+      "internalLinkCount": 6,
+      "externalLinkCount": 1,
+      "internalByType": {
+        "builder": 1,
+        "templates": 1,
+        "blog": 4
+      },
+      "externalDomains": [
+        "www.bls.gov"
+      ],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/phone-interview-tips": {
+      "file": "frontend/content/blog/phone-interview-tips.mdx",
+      "type": "blog",
+      "category": "Interview Prep",
+      "jobTitle": "",
+      "internalLinkCount": 5,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/portfolio-for-resume": {
+      "file": "frontend/content/blog/portfolio-for-resume.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 6,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
     "blog/professional-experience-examples": {
       "file": "frontend/content/blog/professional-experience-examples.mdx",
       "type": "blog",
@@ -26763,6 +28061,55 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "blog/project-manager-resume-guide": {
+      "file": "frontend/content/blog/project-manager-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 3,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/recommendation-letter-template": {
+      "file": "frontend/content/blog/recommendation-letter-template.mdx",
+      "type": "blog",
+      "category": "Letters",
+      "jobTitle": "",
+      "internalLinkCount": 10,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 2,
+        "blog": 7,
+        "templates": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/resignation-letter-template": {
+      "file": "frontend/content/blog/resignation-letter-template.mdx",
+      "type": "blog",
+      "category": "Letters",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "templates": 1,
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "blog/resume-action-verbs": {
       "file": "frontend/content/blog/resume-action-verbs.mdx",
@@ -26806,6 +28153,23 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/resume-design-ideas": {
+      "file": "frontend/content/blog/resume-design-ideas.mdx",
+      "type": "blog",
+      "category": "Design",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "tool": 1,
+        "templates": 1,
+        "builder": 1,
+        "blog": 4
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
     "blog/resume-for-career-change": {
       "file": "frontend/content/blog/resume-for-career-change.mdx",
       "type": "blog",
@@ -26846,6 +28210,23 @@
         "www.linkedin.com"
       ],
       "linksToCareerTips": true,
+      "linksToTools": true
+    },
+    "blog/resume-header-examples": {
+      "file": "frontend/content/blog/resume-header-examples.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
       "linksToTools": true
     },
     "blog/resume-keywords-by-industry": {
@@ -26915,6 +28296,23 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/resume-objective-examples": {
+      "file": "frontend/content/blog/resume-objective-examples.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
     "blog/resume-objective-vs-summary": {
       "file": "frontend/content/blog/resume-objective-vs-summary.mdx",
       "type": "blog",
@@ -26978,6 +28376,70 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/resume-pdf-download": {
+      "file": "frontend/content/blog/resume-pdf-download.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 13,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 9,
+        "builder": 3,
+        "templates": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/resume-powerpoint-template": {
+      "file": "frontend/content/blog/resume-powerpoint-template.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 4,
+        "templates": 1,
+        "blog": 4
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/resume-scanner-how-it-works": {
+      "file": "frontend/content/blog/resume-scanner-how-it-works.mdx",
+      "type": "blog",
+      "category": "AI Tools",
+      "jobTitle": "",
+      "internalLinkCount": 8,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "tool": 3,
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/resume-summary-examples": {
+      "file": "frontend/content/blog/resume-summary-examples.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
     "blog/resume-vs-cv-difference": {
       "file": "frontend/content/blog/resume-vs-cv-difference.mdx",
       "type": "blog",
@@ -27020,6 +28482,22 @@
       ],
       "linksToCareerTips": true,
       "linksToTools": true
+    },
+    "blog/resume-with-no-experience": {
+      "file": "frontend/content/blog/resume-with-no-experience.mdx",
+      "type": "blog",
+      "category": "Career Guides",
+      "jobTitle": "",
+      "internalLinkCount": 8,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "templates": 2,
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "blog/salary-negotiation-tips": {
       "file": "frontend/content/blog/salary-negotiation-tips.mdx",
@@ -27068,6 +28546,23 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/sales-resume-guide": {
+      "file": "frontend/content/blog/sales-resume-guide.mdx",
+      "type": "blog",
+      "category": "Industry Guides",
+      "jobTitle": "",
+      "internalLinkCount": 9,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 3,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
     "blog/simple-resume-format-freshers": {
       "file": "frontend/content/blog/simple-resume-format-freshers.mdx",
       "type": "blog",
@@ -27090,6 +28585,36 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/simple-resume-template": {
+      "file": "frontend/content/blog/simple-resume-template.mdx",
+      "type": "blog",
+      "category": "Templates",
+      "jobTitle": "",
+      "internalLinkCount": 13,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 3,
+        "blog": 9,
+        "templates": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
+    "blog/situational-interview-questions": {
+      "file": "frontend/content/blog/situational-interview-questions.mdx",
+      "type": "blog",
+      "category": "Interview Prep",
+      "jobTitle": "",
+      "internalLinkCount": 5,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "blog": 5
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "blog/star-method-interview-questions": {
       "file": "frontend/content/blog/star-method-interview-questions.mdx",
       "type": "blog",
@@ -27110,6 +28635,23 @@
         "www.ddiworld.com"
       ],
       "linksToCareerTips": true,
+      "linksToTools": true
+    },
+    "blog/technical-interview-preparation": {
+      "file": "frontend/content/blog/technical-interview-preparation.mdx",
+      "type": "blog",
+      "category": "Interview Prep",
+      "jobTitle": "",
+      "internalLinkCount": 8,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "resume-example": 2,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
       "linksToTools": true
     },
     "blog/tell-me-about-yourself-answer": {
@@ -27134,6 +28676,22 @@
       "linksToCareerTips": true,
       "linksToTools": true
     },
+    "blog/thank-you-letter-after-interview": {
+      "file": "frontend/content/blog/thank-you-letter-after-interview.mdx",
+      "type": "blog",
+      "category": "Job Search",
+      "jobTitle": "",
+      "internalLinkCount": 5,
+      "externalLinkCount": 1,
+      "internalByType": {
+        "blog": 5
+      },
+      "externalDomains": [
+        "www.topinterview.com"
+      ],
+      "linksToCareerTips": false,
+      "linksToTools": false
+    },
     "blog/top-resume-mistakes-to-avoid": {
       "file": "frontend/content/blog/top-resume-mistakes-to-avoid.mdx",
       "type": "blog",
@@ -27153,6 +28711,56 @@
         "www.shrm.org"
       ],
       "linksToCareerTips": true,
+      "linksToTools": true
+    },
+    "blog/transferable-skills-guide": {
+      "file": "frontend/content/blog/transferable-skills-guide.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/two-page-resume-guide": {
+      "file": "frontend/content/blog/two-page-resume-guide.mdx",
+      "type": "blog",
+      "category": "Resume Tips",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "other": 1,
+        "blog": 4,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": true
+    },
+    "blog/video-resume-guide": {
+      "file": "frontend/content/blog/video-resume-guide.mdx",
+      "type": "blog",
+      "category": "AI Tools",
+      "jobTitle": "",
+      "internalLinkCount": 7,
+      "externalLinkCount": 0,
+      "internalByType": {
+        "builder": 1,
+        "blog": 5,
+        "tool": 1
+      },
+      "externalDomains": [],
+      "linksToCareerTips": false,
       "linksToTools": true
     },
     "blog/weakness-interview-question": {
@@ -27397,175 +29005,100 @@
     "alternative/adobe-alternative": {
       "file": "frontend/app/[locale]/adobe-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 14,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 7,
-        "resume-example": 3,
-        "templates": 1,
-        "blog": 3
-      },
-      "externalDomains": [
-        "www.adobe.com",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/canva-alternative": {
       "file": "frontend/app/[locale]/canva-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 11,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 7,
-        "templates": 1,
-        "blog": 3
-      },
-      "externalDomains": [
-        "www.canva.com",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/europass-alternative": {
       "file": "frontend/app/[locale]/europass-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 10,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 6,
-        "resume-example": 3,
-        "templates": 1
-      },
-      "externalDomains": [
-        "europa.eu",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/livecareer-alternative": {
       "file": "frontend/app/[locale]/livecareer-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 14,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 7,
-        "resume-example": 3,
-        "templates": 1,
-        "blog": 3
-      },
-      "externalDomains": [
-        "www.livecareer.com",
-        "www.shrm.org"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/nova-alternative": {
       "file": "frontend/app/[locale]/nova-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 10,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 6,
-        "resume-example": 3,
-        "templates": 1
-      },
-      "externalDomains": [
-        "novoresume.com",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/overleaf-alternative": {
       "file": "frontend/app/[locale]/overleaf-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 13,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 7,
-        "resume-example": 3,
-        "templates": 1,
-        "blog": 2
-      },
-      "externalDomains": [
-        "www.overleaf.com",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/resume-io-alternative": {
       "file": "frontend/app/[locale]/resume-io-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 12,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 7,
-        "resume-example": 3,
-        "blog": 2
-      },
-      "externalDomains": [
-        "resume.io",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/rezi-alternative": {
       "file": "frontend/app/[locale]/rezi-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 12,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 6,
-        "resume-example": 3,
-        "templates": 1,
-        "blog": 2
-      },
-      "externalDomains": [
-        "www.rezi.ai",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/zety-alternative": {
       "file": "frontend/app/[locale]/zety-alternative/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 14,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 6,
-        "resume-example": 3,
-        "templates": 1,
-        "blog": 4
-      },
-      "externalDomains": [
-        "zety.com",
-        "www.shrm.org"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "alternative/compare-chatgpt-vs-ai-resume-builder": {
       "file": "frontend/app/[locale]/compare/chatgpt-vs-ai-resume-builder/page.tsx",
       "type": "alternative",
-      "internalLinkCount": 12,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 7,
-        "templates": 1,
-        "blog": 4
-      },
-      "externalDomains": [
-        "openai.com",
-        "www.bls.gov"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27591,12 +29124,9 @@
       "file": "frontend/app/[locale]/tools/cover-letter/page.tsx",
       "type": "tool",
       "internalLinkCount": 0,
-      "externalLinkCount": 2,
+      "externalLinkCount": 0,
       "internalByType": {},
-      "externalDomains": [
-        "www.bls.gov",
-        "www.shrm.org"
-      ],
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
@@ -27629,129 +29159,91 @@
     "guide/resume-format": {
       "file": "frontend/app/[locale]/resume-format/page.tsx",
       "type": "guide",
-      "internalLinkCount": 4,
-      "externalLinkCount": 2,
+      "internalLinkCount": 3,
+      "externalLinkCount": 0,
       "internalByType": {
-        "other": 1,
         "templates": 3
       },
-      "externalDomains": [
-        "www.bls.gov",
-        "www.shrm.org"
-      ],
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "guide/biodata-format": {
       "file": "frontend/app/[locale]/biodata-format/page.tsx",
       "type": "guide",
-      "internalLinkCount": 4,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 3,
-        "templates": 1
-      },
-      "externalDomains": [
-        "www.bls.gov",
-        "www.glassdoor.com"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     },
     "guide/resume-ai": {
       "file": "frontend/app/[locale]/resume-ai/page.tsx",
       "type": "guide",
-      "internalLinkCount": 9,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 5,
-        "tool": 1,
-        "career-tip": 1,
-        "blog": 2
-      },
-      "externalDomains": [
-        "www.linkedin.com",
-        "www.shrm.org"
-      ],
-      "linksToCareerTips": true,
-      "linksToTools": true
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
+      "linksToCareerTips": false,
+      "linksToTools": false
     },
     "guide/free-resume-builder": {
       "file": "frontend/app/[locale]/free-resume-builder/page.tsx",
       "type": "guide",
-      "internalLinkCount": 9,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 6,
-        "templates": 1,
-        "tool": 1,
-        "blog": 1
-      },
-      "externalDomains": [
-        "www.bls.gov",
-        "www.jobscan.co"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
-      "linksToTools": true
+      "linksToTools": false
     },
     "guide/resume-maker": {
       "file": "frontend/app/[locale]/resume-maker/page.tsx",
       "type": "guide",
-      "internalLinkCount": 11,
-      "externalLinkCount": 1,
-      "internalByType": {
-        "other": 6,
-        "templates": 1,
-        "tool": 1,
-        "blog": 3
-      },
-      "externalDomains": [
-        "www.jobscan.co"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
-      "linksToTools": true
+      "linksToTools": false
     },
     "guide/features": {
       "file": "frontend/app/[locale]/features/page.tsx",
       "type": "guide",
-      "internalLinkCount": 1,
-      "externalLinkCount": 2,
-      "internalByType": {
-        "other": 1
-      },
-      "externalDomains": [
-        "www.bls.gov",
-        "www.shrm.org"
-      ],
+      "internalLinkCount": 0,
+      "externalLinkCount": 0,
+      "internalByType": {},
+      "externalDomains": [],
       "linksToCareerTips": false,
       "linksToTools": false
     }
   },
   "summary": {
-    "totalPages": 1202,
-    "totalInternalLinks": 12449,
-    "totalExternalLinks": 4416,
+    "totalPages": 1316,
+    "totalInternalLinks": 12720,
+    "totalExternalLinks": 4392,
     "byType": {
       "resume-example": {
-        "count": 554,
+        "count": 584,
         "totalInternal": 6605,
         "totalExternal": 1662,
         "linksToCareerTips": 554,
         "linksToTools": 554
       },
       "cover-letter": {
-        "count": 566,
+        "count": 596,
         "totalInternal": 5054,
         "totalExternal": 2589,
         "linksToCareerTips": 566,
         "linksToTools": 566
       },
       "blog": {
-        "count": 52,
-        "totalInternal": 536,
-        "totalExternal": 94,
+        "count": 106,
+        "totalInternal": 964,
+        "totalExternal": 103,
         "linksToCareerTips": 52,
-        "linksToTools": 52
+        "linksToTools": 81
       },
       "career-tip": {
         "count": 10,
@@ -27762,30 +29254,30 @@
       },
       "alternative": {
         "count": 10,
-        "totalInternal": 122,
-        "totalExternal": 20,
+        "totalInternal": 0,
+        "totalExternal": 0,
         "linksToCareerTips": 0,
         "linksToTools": 0
       },
       "tool": {
         "count": 4,
         "totalInternal": 5,
-        "totalExternal": 8,
+        "totalExternal": 6,
         "linksToCareerTips": 0,
         "linksToTools": 0
       },
       "guide": {
         "count": 6,
-        "totalInternal": 38,
-        "totalExternal": 11,
-        "linksToCareerTips": 1,
-        "linksToTools": 3
+        "totalInternal": 3,
+        "totalExternal": 0,
+        "linksToCareerTips": 0,
+        "linksToTools": 0
       }
     },
-    "zeroExternalCount": 0,
-    "insufficientInternalCount": 4,
-    "noCareerTipLinksCount": 19,
-    "noToolsLinksCount": 20,
-    "orphanedPagesCount": 77
+    "zeroExternalCount": 127,
+    "insufficientInternalCount": 78,
+    "noCareerTipLinksCount": 134,
+    "noToolsLinksCount": 108,
+    "orphanedPagesCount": 156
   }
 }

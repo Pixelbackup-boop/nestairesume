@@ -1598,6 +1598,124 @@ const id: ComparisonPageContent = {
   },
 };
 
+const pl: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatywa Rezi 2026: Darmowy Kreator CV AI | Best AI Resume',
+    description: 'Szukasz darmowej alternatywy dla Rezi? Porównaj Rezi vs Best AI Resume — kreator CV z AI, szablony ATS, nieograniczone pobieranie. Pełne funkcje AI za darmo.',
+    keywords: 'alternatywa rezi, rezi cv, kreator cv za darmo, szablon cv ats, cv ai polska, darmowy kreator cv ats, rezi alternatywa',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatywa Rezi',
+    articleHeadline: 'Alternatywa Rezi 2026: Darmowy Kreator CV z AI i Optymalizacją ATS',
+    articleDescription: 'Porównaj Rezi vs Best AI Resume Builder. Twórz profesjonalne CV z pomocą AI, optymalizacją ATS i nieograniczonym pobieraniem — całkowicie za darmo.',
+  },
+  hero: {
+    badge: 'Alternatywa Rezi',
+    title: 'Twórz CV.',
+    titleHighlight: 'Pobieraj Za Darmo.',
+    subtitle: 'Rezi ma silne funkcje ATS, ale pobiera do $29/miesiąc za pełny dostęp. Oferujemy pisanie z pomocą AI, szablony CV ATS i nieograniczone eksporty za <strong>0 zł</strong>.',
+    ctaPrimary: 'Utwórz Moje CV Za Darmo',
+    ctaSecondary: 'Zobacz Porównanie',
+  },
+  problem: {
+    title: 'Problem z Cenami Rezi',
+    description: 'Rezi skupia się na optymalizacji ATS — to ich mocna strona. Ale za pełne funkcje AI i nieograniczone pobieranie trzeba płacić. Plan darmowy ma poważne ograniczenia funkcjonalne. Na polskim rynku pracy w pełni darmowy kreator CV przyjazny ATS to lepszy wybór.',
+    stats: [
+      { value: '$29', label: 'Miesięcznie za pełny dostęp do Rezi' },
+      { value: 'Ograniczony', label: 'Plan darmowy oferuje ograniczone funkcje AI' },
+      { value: '0 zł', label: 'Best AI Resume Builder — w pełni darmowy, w tym AI' },
+    ],
+  },
+  comparison: {
+    title: 'Rezi vs Best AI Resume Builder',
+    subtitle: 'Porównanie funkcja po funkcji.',
+    competitorName: 'Rezi',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Cena', competitor: '❌ Do $29/mies. za pełny dostęp', ours: '✅ 100% darmowy na zawsze' },
+      { feature: 'Darmowe Pobieranie', competitor: '⚠️ Ograniczone w planie darmowym', ours: '✅ Nieograniczone darmowe eksporty PDF' },
+      { feature: 'Pisanie z AI', competitor: '✅ Funkcje AI (płatny plan)', ours: '✅ AI tworzy spersonalizowaną treść CV' },
+      { feature: 'Optymalizacja ATS', competitor: '✅ Silna analiza ATS', ours: '✅ Wynik ATS w czasie rzeczywistym + słowa kluczowe' },
+      { feature: 'Jakość Szablonów', competitor: '⚠️ Ograniczona liczba szablonów', ours: '✅ 20+ testowanych szablonów ATS' },
+      { feature: 'Liczba CV', competitor: '⚠️ Ograniczona na planie darmowym', ours: '✅ Nieograniczone CV, za darmo' },
+      { feature: 'List Motywacyjny', competitor: '✅ Dostępny (płatny plan)', ours: '✅ Wspomagany AI list motywacyjny (darmowy)' },
+      { feature: 'Sugestie Treści', competitor: '✅ Sugestie AI (płatne)', ours: '✅ AI dostosowane do Twojego doświadczenia' },
+      { feature: 'Anulowanie', competitor: '⚠️ Wymagane zarządzanie subskrypcją', ours: '✅ Nic do anulowania' },
+      { feature: 'Opinie Użytkowników', competitor: '✅ Pozytywne o funkcjach ATS', ours: '✅ Brak problemów z fakturowaniem' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Powody, by Przejść z Rezi',
+    subtitle: 'Ta sama moc ATS. W pełni za darmo.',
+    reasons: [
+      { title: 'W Pełni Darmowa Optymalizacja ATS', description: 'Rezi pobiera opłaty za najlepsze funkcje ATS. Best AI Resume Builder oferuje wyniki ATS w czasie rzeczywistym, sugestie słów kluczowych i szablony przyjazne ATS — wszystko za darmo, bez płatnego planu.' },
+      { title: 'Pisanie z AI w zestawie', description: 'W Rezi funkcje pisania z AI są za paywallem. Nasza AI generuje profesjonalne opisy stanowisk, podsumowania i dopasowaną treść dla każdego użytkownika — za darmo.' },
+      { title: 'Więcej Szablonów na Polski Rynek', description: 'Rezi ma ograniczoną liczbę szablonów. Oferujemy 20+ szablonów przyjaznych ATS dostosowanych do oczekiwań polskich rekruterów i pracodawców.' },
+    ],
+  },
+  recommendation: {
+    title: 'Uczciwa Rekomendacja',
+    useCompetitor: {
+      title: 'Rezi jest odpowiedni, jeśli...',
+      items: [
+        'Jesteś gotowy płacić za zaawansowane funkcje analizy ATS',
+        'Intensywnie skupiasz się na optymalizacji ATS ponad wszystko',
+        'Preferujesz specyficzny interfejs Rezi',
+        'Chcesz płatną obsługę klienta',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes jest lepszy, jeśli...',
+      items: [
+        'Chcesz tej samej jakości ATS bez płacenia',
+        'Potrzebujesz pomocy AI w pisaniu w planie darmowym',
+        'Chcesz więcej szablonów na polski rynek',
+        'Nie chcesz subskrypcji ani problemów z fakturowaniem',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Przeglądaj 300+ Darmowych Wzorów CV',
+    description: 'Profesjonalne wzory CV dla każdej branży i poziomu kariery.',
+    ctaBrowse: 'Przeglądaj Wzory CV',
+    ctaTemplates: 'Przeglądaj Wszystkie Szablony',
+  },
+  faq: {
+    title: 'Najczęściej Zadawane Pytania',
+    items: [
+      { question: 'Czy Rezi jest darmowy?', answer: 'Rezi ma plan darmowy, ale najlepsze funkcje — w tym pełne pisanie AI i nieograniczone pobieranie — wymagają płatnej subskrypcji do $29/mies. Best AI Resume Builder jest w 100% darmowy z pełnymi funkcjami AI.' },
+      { question: 'Co wyróżnia Rezi spośród innych kreatorów CV?', answer: 'Rezi skupia się silnie na optymalizacji ATS i funkcjach dopasowania do ofert pracy. Best AI Resume Builder oferuje porównywalną optymalizację ATS plus pomoc AI w pisaniu — wszystko za darmo.' },
+      { question: 'Jaka jest najlepsza darmowa alternatywa dla Rezi?', answer: 'Best AI Resume Builder to najlepsza darmowa alternatywa. Oferujemy szablony ATS, pisanie z AI, wyniki ATS w czasie rzeczywistym i nieograniczone eksporty PDF — w pełni za darmo.' },
+      { question: 'Czy Rezi ma lepszą AI niż inne kreatory CV?', answer: 'Rezi ma dobre funkcje AI w planie płatnym. Best AI Resume Builder oferuje porównywalne funkcje pisania AI i optymalizacji ATS w pełni za darmo dla wszystkich użytkowników.' },
+      { question: 'Jak anulować Rezi?', answer: 'Aby anulować Rezi, przejdź do ustawień konta. Best AI Resume Builder nie wymaga subskrypcji — nie ma nic do anulowania. Po prostu korzystaj z platformy za darmo.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Porównaj Inne Kreatory CV',
+    items: [
+      { href: '/pl/livecareer-alternative', title: 'Alternatywa LiveCareer', subtitle: 'Tradycyjny vs nowoczesny' },
+      { href: '/pl/resume-io-alternative', title: 'Alternatywa Resume.io', subtitle: 'Porównanie cen i funkcji' },
+      { href: '/pl/canva-alternative', title: 'Alternatywa Canva', subtitle: 'Narzędzie do projektowania vs kreator CV AI' },
+      { href: '/pl/zety-alternative', title: 'Alternatywa Zety', subtitle: 'Porównanie cen' },
+    ],
+    guidesTitle: 'Przydatne Poradniki CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Zewnętrzne Zasoby',
+    items: [
+      { href: 'https://www.rezi.ai/', label: 'Rezi — Oficjalna Strona' },
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+    ],
+  },
+  bottomCta: {
+    title: 'Moc ATS. Bez Kosztów Subskrypcji.',
+    description: 'Stwórz CV zoptymalizowane pod ATS z pomocą AI — całkowicie za darmo, bez subskrypcji Rezi ani ukrytych kosztów.',
+    cta: 'Utwórz Moje CV Za Darmo',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej. Bez niespodzianek.',
+  },
+};
+
 const nl: ComparisonPageContent = {
   meta: {
     title: 'Rezi Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
@@ -1716,5 +1834,5 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

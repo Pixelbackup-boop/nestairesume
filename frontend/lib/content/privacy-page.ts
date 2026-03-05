@@ -794,6 +794,66 @@ const id: PrivacyContent = {
   lastUpdated: 'Terakhir diperbarui: Januari 2026',
 };
 
+const pl: PrivacyContent = {
+  hero: {
+    badge: 'Polityka Prywatności',
+    title: 'Twoja prywatność jest',
+    titleHighlight: 'naszym priorytetem',
+    subtitle: 'W Best AI Resume wierzymy, że Twoje dane osobowe należą do Ciebie. Zbudowaliśmy naszą platformę z podejściem privacy-first, które utrzymuje Twoje informacje pod Twoją kontrolą — w pełnej zgodności z RODO (Rozporządzenie o Ochronie Danych Osobowych).',
+  },
+  highlights: [
+    { title: 'Twoje Dane Pozostają Lokalne', text: 'Cała zawartość Twojego CV — doświadczenie zawodowe, wykształcenie i umiejętności — jest przechowywana lokalnie w Twojej przeglądarce, nigdy na naszych serwerach.' },
+    { title: 'Minimalne Dane na Serwerze', text: 'Na naszych serwerach przechowujemy wyłącznie Twój adres e-mail i hasło do uwierzytelnienia konta. Nic więcej. Żadnych treści CV, żadnych danych osobowych.' },
+    { title: 'Pełna Przejrzystość', text: 'Wierzymy w pełną transparentność. Możesz dokładnie zobaczyć, jakie dane są przechowywane w Twojej przeglądarce i usunąć je w dowolnym momencie.' },
+  ],
+  sections: [
+    {
+      heading: 'Jakie Dane Zbieramy',
+      subsections: [
+        { subheading: 'Dane Przechowywane na Naszych Serwerach (Minimalne)', items: ['**Adres e-mail** — Używany do uwierzytelnienia konta i ważnych aktualizacji usługi', '**Hasło (zaszyfrowane)** — Bezpiecznie zahashowane do uwierzytelnienia'] },
+        { subheading: 'Dane Przechowywane Lokalnie w Twojej Przeglądarce', items: ['Dane osobowe (imię, dane kontaktowe, adres)', 'Doświadczenie zawodowe i historia pracy', 'Wykształcenie i certyfikaty', 'Umiejętności, języki i osiągnięcia', 'Szablony CV i preferencje personalizacji'] },
+      ],
+    },
+    {
+      heading: 'Dlaczego Używamy Pamięci Przeglądarki',
+      intro: 'Wybraliśmy pamięć przeglądarki (localStorage) jako naszą podstawową metodę przechowywania z ważnych powodów:',
+      items: ['**Maksymalna Prywatność** — Twoje wrażliwe dane kariery nigdy nie opuszczają Twojego urządzenia', '**Brak Wycieków Danych** — Ponieważ nie przechowujemy Twoich danych CV, nie mogą zostać narażone w przypadku naruszenia serwera', '**Pełna Kontrola** — Możesz przeglądać, eksportować lub usuwać swoje dane w dowolnym momencie przez ustawienia przeglądarki', '**Szybkie Działanie** — Lokalne przechowywanie oznacza natychmiastowy dostęp do danych bez opóźnień serwera'],
+    },
+    {
+      heading: 'Jak Chronimy Twoje Konto',
+      intro: 'Choć minimalizujemy dane serwerowe, traktujemy bezpieczeństwo danych konta poważnie:',
+      items: ['Hasła są szyfrowane przy użyciu standardowych algorytmów haszowania', 'Cały transfer danych jest zabezpieczony szyfrowaniem HTTPS', 'Nigdy nie przechowujemy haseł w postaci jawnej', 'Regularne audyty bezpieczeństwa i monitorowanie'],
+    },
+    {
+      heading: 'Twoje Prawa i Kontrola',
+      intro: 'Na mocy RODO masz pełną kontrolę nad swoimi danymi:',
+      items: ['**Dostęp** — Przeglądaj wszystkie dane przechowywane w przeglądarce w dowolnym momencie przez narzędzia deweloperskie', '**Eksport** — Pobierz dane CV jako PDF lub w innych formatach', '**Usunięcie** — Wyczyść pamięć przeglądarki lub usuń konto w dowolnym momencie', '**Przenoszalność** — Twoje dane należą do Ciebie i możesz je zabrać ze sobą wszędzie'],
+    },
+    {
+      heading: 'Czego Nie Robimy',
+      intro: 'Jesteśmy zaangażowani w etyczne praktyki danych. Nigdy nie będziemy:',
+      items: ['Sprzedawać Twoich danych osobowych stronom trzecim', 'Używać zawartości Twojego CV do celów reklamowych', 'Udostępniać Twoich informacji rekruterom bez Twojej wyraźnej zgody', 'Śledzić Twojej aktywności przeglądania na innych stronach', 'Przechowywać zawartości Twojego CV na naszych serwerach'],
+    },
+    {
+      heading: 'Pliki Cookie i Analityka',
+      intro: 'Używamy minimalnych, niezbędnych plików cookie do:',
+      items: ['Utrzymania zalogowania w Twoim koncie', 'Zapamiętywania Twoich preferencji języka i motywu', 'Anonimowej analityki użytkowania w celu ulepszenia naszej usługi'],
+    },
+    {
+      heading: 'Skontaktuj Się z Nami',
+    },
+  ],
+  contactText: 'Jeśli masz pytania dotyczące naszej polityki prywatności lub chcesz skorzystać ze swoich praw RODO, skontaktuj się z nami pod adresem',
+  cta: {
+    title: 'Twórz CV z',
+    titleHighlight: 'zaufaniem i prywatnością',
+    subtitle: 'Twoje dane kariery pozostają przy Tobie. Zacznij tworzyć profesjonalne CV już dziś.',
+    primaryBtn: 'Zacznij za darmo',
+    secondaryBtn: 'O nas',
+  },
+  lastUpdated: 'Ostatnia aktualizacja: styczeń 2026',
+};
+
 const nl: PrivacyContent = {
   hero: {
     badge: 'Privacybeleid',
@@ -854,6 +914,6 @@ const nl: PrivacyContent = {
   lastUpdated: 'Laatste update: januari 2026',
 };
 
-const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
+const contentMap: Record<string, PrivacyContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

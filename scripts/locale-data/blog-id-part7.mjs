@@ -601,4 +601,592 @@ junior developer.
 - [Panduan LinkedIn untuk Tech](/id/blog/optimasi-profil-linkedin) — Optimalkan profil untuk tech recruiters
 `,
   },
+  {
+    slug: 'cv-pindah-karier',
+    title: 'CV Pindah Karier: Cara Highlight Transferable Skills',
+    description: 'Panduan membuat CV pindah karier yang meyakinkan. Cara menonjolkan transferable skills dan menjawab pertanyaan tentang perubahan karier.',
+    category: 'Jenis CV Khusus',
+    tags: ['cv pindah karier', 'career change cv', 'transferable skills', 'ganti bidang kerja', 'cv karier baru'],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'CV Pindah Karier Indonesia',
+    featured: false,
+    faq: [
+      { question: 'Bagaimana cara menjelaskan alasan pindah karier di CV?', answer: 'Fokus pada apa yang Anda bawa ke bidang baru, bukan mengapa Anda meninggalkan yang lama. Gunakan professional summary untuk framing positif.' },
+      { question: 'Apakah saya perlu menyembunyikan pengalaman yang tidak relevan?', answer: 'Tidak perlu disembunyikan, tapi rangkum lebih singkat. Fokuskan bullet points pada transferable skills seperti manajemen, komunikasi, atau analisis data.' },
+      { question: 'Format CV apa yang terbaik untuk career changer?', answer: 'Format hybrid (kombinasi functional dan chronological) paling cocok — menonjolkan skills relevan di atas, tetap menampilkan kronologi karier.' },
+    ],
+    body: `## CV Pindah Karier: Ubah Pengalaman Lama Menjadi Nilai Baru
+
+Pindah karier bukan hambatan — ini adalah aset jika dikomunikasikan dengan tepat. Perusahaan menghargai perspektif lintas industri, terutama untuk peran yang membutuhkan problem-solving, leadership, atau customer insight.
+
+## Identifikasi Transferable Skills Anda
+
+Sebelum menulis CV, petakan pengalaman Anda ke kebutuhan industri baru:
+
+**Dari Industri Apapun ke Tech:**
+- Project management → Product management
+- Customer service → UX research
+- Finance/accounting → Data analyst, Fintech
+- Marketing → Growth marketing, Digital marketing
+
+**Dari Industri Apapun ke Manajemen:**
+- Supervisi tim → Team lead
+- Budget management → Financial planning
+- Vendor relations → Procurement
+
+## Struktur CV yang Direkomendasikan untuk Career Changer
+
+### 1. Professional Summary (Paling Penting)
+Gunakan 3-4 kalimat untuk:
+- Sebutkan bidang baru yang dituju
+- Highlight relevansi dari pengalaman sebelumnya
+- Tunjukkan motivasi dan komitmen untuk transisi
+
+**Contoh:**
+\`\`\`
+Marketing manager dengan 6 tahun pengalaman di FMCG beralih ke product management.
+Terbiasa menganalisis customer behavior, mengelola cross-functional teams, dan
+meluncurkan produk baru ke pasar. Telah menyelesaikan Google Product Management
+Certificate dan membangun 2 produk digital sebagai side project.
+\`\`\`
+
+### 2. Skills Section (Pindahkan ke Atas)
+Buat dua kolom skills:
+- **Transferable Skills**: Project management, stakeholder communication, data analysis
+- **Skills Baru**: Tools, framework, atau pengetahuan yang Anda pelajari untuk bidang baru
+
+### 3. Pengalaman Kerja (Reframe Bullet Points)
+Untuk setiap posisi lama, tulis ulang pencapaian menggunakan bahasa industri baru:
+
+❌ "Mengelola kampanye iklan Facebook untuk brand awareness"
+✅ "Menganalisis user behavior data dari 500K+ impressions untuk mengoptimalkan targeting, meningkatkan CTR 34%"
+
+### 4. Proyek Relevan
+Tambahkan section "Projects" jika belum ada portofolio formal:
+- Side projects yang relevan dengan bidang baru
+- Volunteer work yang menunjukkan skill baru
+- Freelance atau kontrak kecil di bidang baru
+
+## Pendidikan dan Sertifikasi
+
+Investasi dalam pendidikan formal atau sertifikasi memberikan kredibilitas:
+- **Bootcamp**: Dicoding, Hacktiv8, RevoU untuk tech
+- **Sertifikasi Google**: Project Management, Data Analytics, Digital Marketing
+- **Coursera/edX**: Harvard Business Analytics, IBM Data Science
+- **Professional courses**: Udemy, LinkedIn Learning untuk skill spesifik
+
+Tempatkan sertifikasi relevan di bagian atas resume, bahkan sebelum pengalaman kerja.
+
+## Kesalahan Umum Career Changer
+
+1. **Terlalu apologetic** — jangan minta maaf atas perubahan karier
+2. **Menyalin job description verbatim** — tunjukkan pemahaman, bukan hafalan
+3. **Lupa highlight soft skills** — leadership, communication, adaptability sangat berharga
+4. **CV terlalu panjang** — ringkas karier lama menjadi 3-4 bullet points per posisi
+5. **Tidak ada evidence dari bidang baru** — pastikan ada sesuatu yang menunjukkan komitmen
+
+## Tips Cover Letter untuk Career Changer
+
+Cover letter sangat penting untuk career changer karena memberi Anda ruang menjelaskan narasi karier:
+- Jelaskan mengapa Anda tertarik dengan industri baru (bukan hanya "mencari tantangan baru")
+- Hubungkan pengalaman spesifik dengan kebutuhan peran yang dilamar
+- Tunjukkan research yang Anda lakukan tentang industri dan perusahaan
+
+**Sumber Daya:**
+- [Pembuat CV Online dengan AI](/id/builder) — Buat CV career change yang kuat dalam 30 menit
+- [Template CV Profesional](/id/templates) — Template dengan format hybrid untuk career changer
+- [Contoh CV Berbagai Bidang](/id/blog/contoh-cv-berbagai-bidang) — Inspirasi dari lintas industri
+`,
+  },
+  {
+    slug: 'cv-eksekutif-senior',
+    title: 'CV Eksekutif Senior: Template dan Contoh untuk C-Level',
+    description: 'Panduan CV eksekutif senior untuk posisi C-level, direktur, dan VP. Format, konten, dan strategi untuk kandidat berpengalaman 15+ tahun.',
+    category: 'Jenis CV Khusus',
+    tags: ['cv eksekutif', 'cv senior', 'cv direktur', 'cv c-level', 'cv manajer senior'],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'CV Eksekutif Senior Indonesia',
+    featured: false,
+    faq: [
+      { question: 'Berapa halaman yang ideal untuk CV eksekutif?', answer: 'Dua halaman adalah standar untuk eksekutif senior. Tiga halaman bisa diterima untuk kandidat dengan 20+ tahun pengalaman, board memberships, atau publikasi akademik.' },
+      { question: 'Apakah eksekutif perlu LinkedIn?', answer: 'Wajib. Rekruter C-level selalu memeriksa LinkedIn sebelum proses lebih jauh. Pastikan URL LinkedIn ada di CV dan profil diperbarui.' },
+      { question: 'Apa yang harus diprioritaskan di CV eksekutif?', answer: 'Dampak bisnis terukur: revenue growth, cost savings, market share, team size yang dipimpin, dan transformasi organisasi yang dipimpin.' },
+    ],
+    body: `## CV Eksekutif Senior: Komunikan Visi dan Dampak Bisnis
+
+Untuk posisi C-level, VP, atau direktur, CV Anda bukan sekadar daftar pengalaman — ini adalah dokumen kepemimpinan yang harus mengkomunikasikan visi strategis dan rekam jejak dampak bisnis.
+
+## Yang Membedakan CV Eksekutif dari CV Biasa
+
+CV eksekutif berfokus pada **impact at scale**:
+- Bukan "mengelola tim 5 orang" → tapi "memimpin transformasi organisasi 200+ karyawan"
+- Bukan "meningkatkan penjualan" → tapi "mendorong pertumbuhan revenue 3x dalam 4 tahun, dari Rp80M ke Rp240M"
+- Bukan "mengimplementasikan sistem baru" → tapi "memimpin digital transformation yang memangkas biaya operasional 28%"
+
+## Struktur CV Eksekutif Senior
+
+### Executive Summary (Bukan "Professional Summary" Biasa)
+Paragraf 4-6 kalimat yang merangkum:
+- Scope kepemimpinan (industri, company stage, team size)
+- 2-3 pencapaian transformatif terbesar dengan angka
+- Keunikan atau keahlian yang membedakan Anda
+- Nilai proposisi untuk peran berikutnya
+
+**Contoh CEO/COO:**
+\`\`\`
+Eksekutif transformasional dengan 18 tahun di industri retail dan e-commerce,
+spesialisasi turnaround dan hypergrowth. Sebagai COO Tokobesar.id, memimpin
+ekspansi dari 3 kota ke 47 kota dalam 3 tahun dengan GMV tumbuh Rp2,1T.
+Dikenal membangun tim high-performance dan mengintegrasikan teknologi ke
+dalam operasional tradisional. Saat ini mencari peran CEO/COO di perusahaan
+consumer goods atau marketplace dengan ambisi menjadi pemimpin pasar ASEAN.
+\`\`\`
+
+### Core Competencies
+Daftar 9-12 kompetensi kunci dalam format grid:
+- Strategic Planning | P&L Management | M&A Integration
+- Digital Transformation | Change Management | Board Relations
+- Market Expansion | Talent Development | Investor Relations
+
+### Professional Experience
+Untuk setiap posisi (mulai dari yang terbaru):
+1. **Company context** — revenue, industri, company stage saat bergabung
+2. **Scope peran** — langsung reports, total headcount, budget P&L
+3. **3-5 bullet points pencapaian** dengan angka spesifik
+4. **Context transformasi** — kondisi sebelum dan sesudah kepemimpinan Anda
+
+**Format bullet point eksekutif:**
+- Pimpin restrukturisasi 3 divisi yang menghasilkan efisiensi biaya Rp45M/tahun
+- Negosiasi strategic partnership dengan 2 perusahaan Fortune 500, membuka market baru Rp180M
+- Bangun leadership pipeline: 6 dari 8 direct reports dipromosikan ke posisi VP dalam 3 tahun
+
+### Board Memberships & Advisory Roles
+Jika relevan, tambahkan section terpisah:
+- Nama organisasi, peran, periode
+- Kontribusi spesifik jika ada
+
+### Education
+Cukup nama universitas, gelar, tahun. Tidak perlu GPA untuk eksekutif senior.
+
+### Publications, Speaking, Awards
+Kuatkan thought leadership:
+- Artikel di media bisnis terkemuka
+- Keynote di konferensi industri
+- Penghargaan industri
+
+## Kesalahan Fatal di CV Eksekutif
+
+1. **Terlalu banyak detail operasional** — eksekutif perlu menunjukkan strategic thinking, bukan task list
+2. **Tidak ada angka** — setiap pencapaian harus ada metrik
+3. **CV template biasa** — design professional tapi bersih; hindari template yang terlalu colorful
+4. **Gagal menunjukkan progression** — pastikan jelas bahwa Anda terus meningkat scope dan impact
+5. **Tidak update LinkedIn** — rekruter eksekutif 90% dimulai dari LinkedIn
+
+## Platform Rekrutmen Eksekutif di Indonesia
+
+- **LinkedIn** — wajib untuk level VP ke atas, banyak executive recruiter aktif di sini
+- **Korn Ferry, Spencer Stuart, Egon Zehnder** — headhunter global yang aktif di Indonesia
+- **Heidrick & Struggles** — fokus C-suite dan board positions
+- **Michael Page, Robert Walters** — level director hingga VP
+- **Kalibrr & Glints** — untuk perusahaan tech dan startup
+
+**Sumber Daya:**
+- [Pembuat CV Online dengan AI](/id/builder) — Format CV eksekutif yang profesional
+- [Template CV Senior](/id/templates) — Template clean dan professional untuk eksekutif
+`,
+  },
+  {
+    slug: 'cv-freelancer-indonesia',
+    title: 'CV Freelancer Indonesia: Cara Presentasikan Proyek dan Klien',
+    description: 'Panduan membuat CV freelancer yang profesional untuk pasar Indonesia. Cara menampilkan proyek, klien, dan pendapatan freelance dengan meyakinkan.',
+    category: 'Jenis CV Khusus',
+    tags: ['cv freelancer', 'cv pekerja lepas', 'portfolio freelancer', 'cv remote work', 'cv tanpa pengalaman kerja formal'],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'CV Freelancer Indonesia',
+    featured: false,
+    faq: [
+      { question: 'Bagaimana cara menulis pengalaman freelance di CV?', answer: 'Buat entry seperti posisi kerja reguler: "Freelance [Bidang] | Self-employed | 2020–sekarang" dengan bullet points pencapaian proyek terbaik.' },
+      { question: 'Apakah klien perlu disebutkan di CV?', answer: 'Sebutkan klien besar atau terkenal jika tidak ada NDA. Untuk klien kecil atau confidential, cukup sebutkan industri: "Klien e-commerce mid-size" atau "3 startup fintech".' },
+      { question: 'Haruskah saya menyertakan pendapatan freelance?', answer: 'Tidak perlu menyebutkan angka gaji, tapi bisa cantumkan skala: "mengelola proyek bernilai Rp50-200 juta" sebagai bukti kepercayaan klien.' },
+    ],
+    body: `## CV Freelancer: Ubah Karier Mandiri Menjadi Portofolio Profesional
+
+Bekerja freelance tidak berarti CV Anda kurang kuat — justru bisa lebih impressive jika disajikan dengan strategi yang tepat. Kuncinya adalah memframing pengalaman freelance sebagai bukti entrepreneurship, versatility, dan kemampuan deliver hasil nyata untuk klien nyata.
+
+## Tantangan CV Freelancer dan Solusinya
+
+**Masalah 1:** "Tidak ada nama perusahaan besar di CV"
+**Solusi:** Fokus pada nama klien (jika bisa disebutkan) atau industri klien, plus nilai proyek
+
+**Masalah 2:** "Pengalaman terlihat tidak terstruktur"
+**Solusi:** Buat entry tunggal "Freelance [Spesialisasi]" dengan durasi penuh, lalu bullet points proyek highlights
+
+**Masalah 3:** "Tidak ada jabatan formal"
+**Solusi:** Buat title yang akurat: "Freelance UX Designer", "Independent Marketing Consultant", "Software Developer (Kontrak)"
+
+## Format CV Freelancer yang Direkomendasikan
+
+### Option A: Single Freelance Entry (untuk freelancer full-time)
+\`\`\`
+Freelance Web Developer | Self-employed | Jan 2021 – Sekarang
+- Mengembangkan 23 website untuk klien di industri F&B, retail, dan pendidikan
+- Klien utama: [Brand Lokal], [E-commerce], [Startup Fintech]
+- Proyek terbesar: Platform e-learning 10.000+ user (React + Node.js, Rp85 juta)
+- Rating rata-rata 4.9/5 dari 47 review di Sribu dan Upwork
+\`\`\`
+
+### Option B: Proyek Terpisah (untuk proyek signifikan)
+Pisahkan proyek besar yang layak ditonjolkan:
+\`\`\`
+Lead Developer — Platform Reservasi Restoran [Nama Klien]
+Maret 2023 – Agustus 2023 | Nilai proyek: Rp120 juta
+- Membangun sistem reservasi real-time untuk chain restoran 15 cabang
+- Integrasi payment gateway Midtrans, reduce no-show 40%
+\`\`\`
+
+## Apa yang Perlu Disertakan
+
+### Skills Section (Sangat Penting untuk Freelancer)
+Pisahkan menjadi:
+- **Technical Skills**: Tools dan teknologi spesifik
+- **Business Skills**: Project management, client communication, invoicing
+- **Soft Skills**: Self-motivated, deadline-driven, remote collaboration
+
+### Platform Freelance
+Cantumkan platform dan metrics:
+- Upwork: Top Rated Plus, $45,000+ earned, 98% Job Success
+- Sribu: Level 5 seller, 120+ proyek selesai
+- Fiverr: Pro Verified, 4.9/5 rating
+
+### Portfolio Link
+Wajib ada:
+- Website portfolio pribadi (paling professional)
+- Behance/Dribbble untuk desainer
+- GitHub untuk developer
+- LinkedIn profile yang up-to-date
+
+## Tips Platform Freelance di Indonesia
+
+**Lokal:**
+- **Sribu** — grafis desain, branding, konten
+- **Projects.co.id** — web development, IT
+- **Fastwork** — marketing, kreatif, tech
+
+**Global:**
+- **Upwork** — semua kategori, premium clients
+- **Fiverr** — package-based services
+- **Toptal** — top 3% freelancers, premium rates
+
+## Ketika Melamar ke Posisi Full-time
+
+Jika Anda ingin kembali ke employment penuh waktu, frame freelance Anda sebagai:
+- Bukti self-motivation dan entrepreneurship
+- Diversitas proyek = adaptability
+- Client management = stakeholder management
+- Delivery pada deadline dengan resource terbatas
+
+**Sumber Daya:**
+- [Pembuat CV Online](/id/builder) — Format CV freelancer yang profesional
+- [Contoh CV Berbagai Bidang](/id/blog/contoh-cv-berbagai-bidang) — Lihat CV dari berbagai profesi
+`,
+  },
+  {
+    slug: 'cv-akuntan-keuangan',
+    title: 'CV Akuntan dan Keuangan: Contoh dan Template 2026',
+    description: 'Panduan membuat CV akuntan, finance staff, dan profesional keuangan. Contoh CV lengkap dengan skills, sertifikasi, dan format yang tepat.',
+    category: 'Jenis CV Khusus',
+    tags: ['cv akuntan', 'cv finance', 'cv keuangan', 'cv accounting', 'cv staff keuangan'],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'CV Akuntan Keuangan Indonesia',
+    featured: false,
+    faq: [
+      { question: 'Sertifikasi apa yang paling berharga untuk akuntansi di Indonesia?', answer: 'CPA (Certified Public Accountant), CA (Chartered Accountant), CMA (Certified Management Accountant), dan Brevet Pajak A/B untuk perpajakan. Untuk audit, tambahkan CIA (Certified Internal Auditor).' },
+      { question: 'Apakah perlu mencantumkan software akuntansi di CV?', answer: 'Wajib. Rekruter selalu mencari: SAP, Oracle Financials, MYOB, Accurate, QuickBooks, dan Microsoft Excel (dengan level skill: basic/intermediate/advanced).' },
+      { question: 'Berapa IPK minimum untuk kerja di Big 4?', answer: 'Big 4 (Deloitte, PwC, EY, KPMG) biasanya mensyaratkan IPK minimal 3.0/4.0, dengan preferensi 3.3+. Namun pengalaman magang dan sertifikasi relevan bisa mengkompensasi IPK yang lebih rendah.' },
+    ],
+    body: `## CV Akuntan dan Keuangan: Tunjukkan Presisi dan Integritas
+
+Profesional keuangan dipercaya mengelola aset paling kritis perusahaan. CV Anda harus mencerminkan presisi, integritas, dan kemampuan analitis yang menjadi fondasi profesi ini.
+
+## Komponen Kunci CV Akuntansi dan Keuangan
+
+### Skills Teknis yang Harus Ada
+**Software Wajib:**
+- Microsoft Excel (pivot tables, VLOOKUP, financial modeling)
+- SAP atau Oracle (untuk perusahaan besar)
+- MYOB atau Accurate (umum di UKM Indonesia)
+- QuickBooks atau Xero (untuk perusahaan internasional atau startup)
+
+**Pengetahuan Teknis:**
+- PSAK (Pernyataan Standar Akuntansi Keuangan) — versi Indonesia IFRS
+- Perpajakan Indonesia: PPh 21, 23, 25, 26, PPN
+- Audit internal dan eksternal
+- Financial reporting dan konsolidasi
+- Budgeting dan forecasting
+
+### Sertifikasi Bernilai Tinggi
+| Sertifikasi | Issued by | Nilai di Pasar |
+|-------------|-----------|----------------|
+| CPA Indonesia | IAI | Sangat Tinggi — wajib untuk auditor publik |
+| CA (Chartered Accountant) | IAI | Tinggi — diakui internasional |
+| CMA | IMA | Tinggi — management accounting |
+| CIA | IIA | Tinggi — audit internal |
+| Brevet Pajak A+B | IKPI | Tinggi untuk posisi pajak |
+| CFP | FPSB Indonesia | Untuk wealth management |
+
+## Contoh CV Berdasarkan Level
+
+### Entry Level (Fresh Graduate Akuntansi)
+**Professional Summary:**
+\`\`\`
+Fresh graduate Akuntansi Universitas Gadjah Mada dengan IPK 3.52 dan
+pengalaman magang 4 bulan di KAP Big 4. Menguasai SAP R/3, Microsoft
+Excel advanced, dan PSAK. Lulus Level 1 CPA Indonesia. Siap berkontribusi
+dalam tim audit atau finance yang dinamis.
+\`\`\`
+
+**Highlight pencapaian magang:**
+- Assist audit 3 klien menengah dengan total aset Rp200M
+- Rekonsiliasi bank bulanan untuk 12 akun, zero error rate selama 4 bulan
+- Menyusun kertas kerja audit sesuai standar ISA
+
+### Mid-Level (3-6 Tahun)
+**Professional Summary:**
+\`\`\`
+Finance Analyst dengan 5 tahun pengalaman di manufacturing dan retail.
+Spesialisasi dalam financial modeling, budgeting, dan business partnering
+untuk decision-making manajemen. Berhasil mengidentifikasi cost-saving
+opportunity Rp3,2M/kuartal melalui analisis varians. CA Indonesia certified.
+\`\`\`
+
+### Senior Level (7+ Tahun)
+**Professional Summary:**
+\`\`\`
+Finance Manager dengan 10 tahun di industri FMCG dan perbankan.
+Memimpin tim 8 orang dalam financial reporting, internal audit, dan
+tax compliance. Berhasil mempercepat closing bulanan dari 15 hari ke
+5 hari kerja melalui otomasi SAP. Berpengalaman mendampingi due diligence
+untuk 2 akuisisi perusahaan senilai total Rp450M.
+\`\`\`
+
+## Pencapaian yang Harus Di-highlight
+
+Gunakan angka yang konkret:
+- "Mengurangi closing period dari 15 hari ke 5 hari kerja"
+- "Zero audit finding selama 3 tahun berturut-turut"
+- "Mengidentifikasi tax exposure Rp800 juta yang sebelumnya tidak terdeteksi"
+- "Meningkatkan akurasi forecast dari 78% ke 94%"
+- "Mengelola cash flow Rp50M per bulan dengan DSO improvement 12 hari"
+
+## Jalur Karier Akuntansi di Indonesia
+
+\`\`\`
+Fresh Graduate → Staff Akuntansi/Audit → Senior Staff (3-5 th)
+→ Supervisor/Asisten Manajer (5-8 th) → Finance Manager (8-12 th)
+→ Finance Director/CFO (12+ th)
+\`\`\`
+
+**Sumber Daya:**
+- [Pembuat CV Online dengan AI](/id/builder) — Buat CV akuntansi yang presisi
+- [Template CV Profesional](/id/templates) — Template clean untuk finance professional
+`,
+  },
+  {
+    slug: 'cv-desainer-grafis',
+    title: 'CV Desainer Grafis: Cara Menampilkan Portfolio dan Skills',
+    description: 'Panduan CV desainer grafis yang menonjolkan portfolio, software skills, dan pengalaman kreatif. Termasuk tips presentasi visual dan link portfolio.',
+    category: 'Jenis CV Khusus',
+    tags: ['cv desainer grafis', 'cv graphic designer', 'portfolio desain', 'cv kreatif', 'cv desain visual'],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'CV Desainer Grafis Indonesia',
+    featured: false,
+    faq: [
+      { question: 'Apakah CV desainer grafis harus terlihat sangat kreatif?', answer: 'Tidak harus. CV yang bersih dan terstruktur dengan baik sering lebih dihargai daripada CV yang terlalu "ramai". Portfolio adalah tempat Anda menunjukkan kreativitas, bukan CV.' },
+      { question: 'Apa yang harus ada di portfolio desainer grafis?', answer: 'Pilih 8-12 proyek terbaik yang bervariasi (branding, print, digital, UI). Sertakan brief proyek, proses, dan hasil akhir. Behance adalah platform paling umum di Indonesia.' },
+      { question: 'Software apa yang wajib dikuasai desainer grafis?', answer: 'Adobe Creative Suite (Illustrator, Photoshop, InDesign) adalah standar industri. Tambahkan Figma untuk UI/UX, Canva untuk social media, dan After Effects untuk motion.' },
+    ],
+    body: `## CV Desainer Grafis: Dokumen yang Mencerminkan Kemampuan Visual Anda
+
+CV desainer grafis memiliki standar ganda: konten harus kuat secara profesional, dan presentasi visual harus mencerminkan kemampuan desain Anda. Namun ingat — rekruter tetap menggunakan ATS, jadi keseimbangan antara estetika dan fungsionalitas adalah kunci.
+
+## Software Skills yang Harus Dicantumkan
+
+### Adobe Creative Suite (Prioritas Utama)
+- **Adobe Illustrator** — vector graphics, logo, illustration
+- **Adobe Photoshop** — photo editing, digital art, compositing
+- **Adobe InDesign** — layout, editorial, packaging
+- **Adobe After Effects** — motion graphics, animation
+- **Adobe Premiere Pro** — video editing
+
+### Tools Modern (Semakin Dibutuhkan)
+- **Figma** — UI/UX design, prototyping, collaboration
+- **Canva Pro** — social media, presentations, templates
+- **Sketch** — interface design (common in tech companies)
+- **Procreate** — digital illustration (iPad)
+
+### Kategorikan Skill Level Anda
+Jangan hanya list software — tunjukkan level:
+- **Expert**: Illustrator, Photoshop, Figma
+- **Proficient**: InDesign, After Effects, Canva
+- **Familiar**: Premiere Pro, Sketch
+
+## Struktur CV Desainer Grafis
+
+### Portfolio Link (Paling Penting — Letakkan di Header)
+\`\`\`
+Reza Pratama | Graphic Designer
+reza@email.com | 081-xxx-xxxx
+Portfolio: behance.net/rezapratama | LinkedIn: linkedin.com/in/rezapratama
+\`\`\`
+
+### Professional Summary
+\`\`\`
+Graphic Designer dengan 4 tahun pengalaman spesialisasi branding dan
+packaging untuk FMCG dan F&B. Menguasai Adobe Creative Suite dan Figma.
+Telah mengerjakan 50+ proyek untuk brand lokal dan internasional, termasuk
+rebranding PT Makanan Sehat yang meningkatkan brand recall 28% berdasarkan
+consumer survey pasca-launch.
+\`\`\`
+
+### Pengalaman Kerja
+Bullet points untuk desainer harus mencerminkan:
+- **Jenis proyek**: branding, packaging, digital, print, UI
+- **Dampak bisnis**: engagement, sales, award, brand metrics
+- **Scope**: jumlah proyek, ukuran tim, budget produksi
+
+**Contoh bullet points kuat:**
+- Desain ulang identitas visual 3 sub-brand PT XYZ, konsisten dengan rebranding induk perusahaan
+- Produksi 200+ aset digital per bulan untuk campaign social media, mempertahankan konsistensi brand guideline
+- Menang Bronze di Citra Pariwara 2024 untuk kategori Packaging Design
+
+### Projects (Opsional tapi Sangat Berguna)
+Untuk freelancer atau yang ingin menonjolkan proyek spesifik:
+\`\`\`
+Brand Identity — Kopi Rempah Nusantara (2023)
+- Logo, color palette, typography, brand guidelines 40+ halaman
+- Packaging untuk 5 varian produk
+- Digital assets: social media template, web banner
+- Hasil: sold out pertama dalam 2 minggu setelah relaunch
+\`\`\`
+
+## Cara Membuat CV yang Estetis Tapi Tetap ATS-Friendly
+
+1. **Gunakan font standar** (Helvetica, Arial, Garamond) — hindari font dekoratif
+2. **Hindari tabel dan kolom** untuk konten utama — ATS sering gagal membaca
+3. **Background putih atau off-white** — warna terlalu gelap mengurangi readability
+4. **Satu elemen visual** sudah cukup: color accent, header design, atau icon set
+5. **Submit dalam PDF** — tampilan konsisten di semua device
+
+## Platform Desainer Grafis di Indonesia
+
+- **Sribu** — marketplace desain terbesar, banyak klien lokal
+- **99designs** — platform global, rate lebih tinggi
+- **Behance** — portfolio showcase, digunakan rekruter
+- **Dribbble** — shots dan portfolio untuk UI/UX dan illustration
+- **Instagram** — penting untuk personal branding visual
+
+**Sumber Daya:**
+- [Pembuat CV Online](/id/builder) — Buat CV dengan layout yang bersih dan ATS-friendly
+- [Template CV Kreatif](/id/blog/template-cv-kreatif) — Template CV untuk profesi kreatif
+`,
+  },
+  {
+    slug: 'cv-marketing-digital',
+    title: 'CV Marketing Digital: Skills, Metrics, dan Tools yang Harus Ada',
+    description: 'Panduan lengkap CV digital marketing. Skills, KPI, dan tools yang harus dicantumkan untuk posisi social media, SEO, SEM, dan content marketing.',
+    category: 'Jenis CV Khusus',
+    tags: ['cv marketing digital', 'cv digital marketing', 'cv social media', 'cv seo', 'cv content marketing'],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'CV Marketing Digital Indonesia',
+    featured: false,
+    faq: [
+      { question: 'KPI marketing apa yang paling dihargai di CV?', answer: 'ROAS (Return on Ad Spend), CPL (Cost per Lead), CPA (Cost per Acquisition), konversi rate, dan pertumbuhan followers organik. Selalu sertakan angka baseline dan peningkatan.' },
+      { question: 'Sertifikasi marketing digital apa yang paling bernilai?', answer: 'Google Ads Certification, Meta Blueprint, HubSpot Content Marketing, Google Analytics 4, dan SEMrush SEO Certification adalah yang paling diakui rekruter.' },
+      { question: 'Apakah followers media sosial pribadi perlu dicantumkan?', answer: 'Hanya jika relevan dan substantial (10K+) dan di platform yang relevan dengan pekerjaan. Untuk posisi social media, ini bisa menjadi social proof yang kuat.' },
+    ],
+    body: `## CV Marketing Digital: Data Speaks Louder than Jargon
+
+Di industri marketing digital, rekruter ingin melihat satu hal: hasil yang terukur. CV yang penuh buzzword tanpa angka tidak akan bertahan di screening pertama. CV yang baik menunjukkan Anda adalah seorang digital marketer yang *data-driven*.
+
+## Skills yang Wajib Ada di CV Digital Marketing
+
+### Berdasarkan Spesialisasi
+
+**Social Media Marketing:**
+- Platform: Instagram, TikTok, LinkedIn, YouTube, Facebook
+- Tools: Meta Business Suite, Later, Buffer, Hootsuite, Sprout Social
+- Skills: Content calendar, community management, paid social
+- Metrics: Engagement rate, reach, follower growth, CTR
+
+**SEO (Search Engine Optimization):**
+- Tools: Google Search Console, SEMrush, Ahrefs, Moz, Screaming Frog
+- Skills: Keyword research, on-page SEO, technical SEO, link building
+- Metrics: Organic traffic growth, keyword ranking, Domain Authority
+
+**SEM/Google Ads:**
+- Tools: Google Ads, Google Analytics 4, Looker Studio
+- Skills: Campaign setup, ad copywriting, bidding strategy, remarketing
+- Metrics: ROAS, CPA, CTR, Quality Score
+
+**Content Marketing:**
+- Tools: WordPress/CMS, Grammarly, Canva, ChatGPT
+- Skills: Blog writing, copywriting, editorial calendar, SEO writing
+- Metrics: Traffic, time on page, conversion from content
+
+**Email Marketing:**
+- Tools: Mailchimp, Klaviyo, HubSpot, ActiveCampaign
+- Skills: Segmentation, A/B testing, automation flows, deliverability
+- Metrics: Open rate, CTR, conversion rate, list growth
+
+## Format CV Digital Marketing
+
+### Professional Summary dengan Angka
+\`\`\`
+Digital Marketing Specialist dengan 4 tahun pengalaman di e-commerce dan
+SaaS. Spesialisasi Google Ads dan SEO: mengelola budget iklan Rp500 juta/bulan
+dengan rata-rata ROAS 4.2x. Membawa organic traffic dari 10K ke 85K per bulan
+dalam 18 bulan melalui strategi content + technical SEO. Google Ads dan
+Analytics 4 certified.
+\`\`\`
+
+### Pengalaman dengan Metrik Spesifik
+**Contoh bullet points kuat:**
+- Kelola kampanye Google Ads Rp300 juta/bulan dengan ROAS 4.8x (baseline: 2.1x)
+- Tumbuhkan followers TikTok organik dari 5K ke 120K dalam 6 bulan melalui konten viral strategy
+- Optimasi landing page yang meningkatkan konversi dari 1.8% ke 4.3% (A/B test: 50K+ visitors)
+- Bangun backlink profile 200+ high-authority links, meningkatkan Domain Authority dari 18 ke 42
+
+### Tools Section
+List tools dengan level proficiency:
+\`\`\`
+Analytics & Ads: Google Analytics 4 (Expert), Google Ads (Advanced), Meta Ads Manager (Advanced)
+SEO: SEMrush (Advanced), Ahrefs (Intermediate), Google Search Console (Expert)
+Social Media: Hootsuite (Advanced), Later (Expert), TikTok Creator Studio (Intermediate)
+Email: Mailchimp (Expert), Klaviyo (Intermediate)
+Design: Canva (Advanced), Adobe Express (Intermediate)
+\`\`\`
+
+## Sertifikasi Digital Marketing yang Diakui
+
+| Sertifikasi | Platform | Biaya | Durasi Berlaku |
+|-------------|----------|-------|----------------|
+| Google Ads | Google Skillshop | Gratis | 1 tahun |
+| Google Analytics 4 | Google Skillshop | Gratis | 1 tahun |
+| Meta Blueprint | Meta | Gratis | 1 tahun |
+| HubSpot Content Marketing | HubSpot Academy | Gratis | 2 tahun |
+| SEMrush SEO | SEMrush Academy | Gratis | Seumur hidup |
+
+## Tren Digital Marketing di Indonesia 2026
+
+- **TikTok Commerce** — TikTok Shop adalah channel yang tumbuh paling cepat
+- **AI Content** — ChatGPT, Jasper, Copy.ai untuk content production
+- **Short-form Video** — Reels, TikTok, YouTube Shorts mendominasi engagement
+- **Influencer Marketing** — micro-influencer (10K-100K) lebih cost-effective
+- **WhatsApp Marketing** — WhatsApp Business API untuk retention dan customer service
+
+**Sumber Daya:**
+- [Pembuat CV Online](/id/builder) — Buat CV digital marketing yang data-driven
+- [Template CV Modern](/id/blog/template-cv-modern-2026) — Template profesional untuk marketer
+`,
+  },
 ];

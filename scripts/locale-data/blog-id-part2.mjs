@@ -630,4 +630,262 @@ Setelah selesai mengedit:
 
 Untuk hasil terbaik dengan panduan konten yang lebih lengkap, coba [builder CV kami](/id/builder) yang sudah dioptimalkan untuk ATS dan pasar kerja Indonesia.`
   },
+
+  // ── Topic 6: Template CV Modern 2026 ────────────────────────────────────────
+  {
+    slug: 'template-cv-modern-2026',
+    title: 'Template CV Modern 2026: 20+ Desain Profesional ATS-Friendly',
+    description: 'Koleksi template CV modern 2026 yang profesional dan ATS-friendly. Desain kontemporer dengan tampilan bersih untuk melamar kerja di startup, tech company, dan perusahaan multinasional di Indonesia.',
+    category: 'Template CV',
+    tags: [
+      'template cv modern',
+      'cv modern',
+      'template cv 2026',
+      'desain cv modern',
+      'cv modern profesional',
+      'template cv minimalis',
+      'cv modern gratis',
+      'template cv terbaru',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Template CV Modern 2026 Profesional dan ATS-Friendly',
+    featured: false,
+    faq: [
+      { question: 'Apa yang membuat template CV disebut "modern"?', answer: 'Template CV modern menggunakan desain yang bersih dan minimalis dengan tipografi yang jelas, penggunaan ruang putih yang baik, aksen warna yang elegan (biasanya satu warna aksen), dan tata letak yang memudahkan pembacaan. Modern bukan berarti penuh ornamen — justru sebaliknya, semakin bersih semakin modern.' },
+      { question: 'Apakah template CV modern ATS-friendly?', answer: 'Tergantung desainnya. Template CV modern yang baik menggunakan format satu atau dua kolom ringan yang masih bisa dibaca ATS. Hindari template modern yang menggunakan terlalu banyak grafik, ikon, atau tabel kompleks. Template dari Best AI Resume Builder dirancang modern sekaligus ATS-compatible.' },
+      { question: 'Template CV modern cocok untuk industri apa?', answer: 'Template CV modern sangat cocok untuk tech startup, digital agency, perusahaan konsultasi, e-commerce, fintech, dan industri kreatif. Untuk industri konservatif seperti perbankan tradisional, hukum, atau BUMN, pertimbangkan template yang lebih formal dan simpel.' },
+    ],
+    body: `## Template CV Modern 2026: Panduan Memilih Desain yang Tepat
+
+Di era digital ini, CV yang terlihat ketinggalan zaman bisa memberi kesan negatif pada rekruter — bahkan sebelum mereka membaca kontennya. Template CV modern memberikan kesan profesional dan up-to-date yang penting terutama saat melamar di perusahaan teknologi dan startup.
+
+### Ciri-Ciri Template CV Modern yang Baik
+
+**1. Tipografi yang bersih**
+Font sans-serif seperti Calibri, Helvetica, atau Lato memberikan tampilan modern yang juga mudah dibaca. Hindari font dekoratif yang sulit dibaca.
+
+**2. Penggunaan ruang putih**
+Template modern tidak takut "kosong" — ruang putih yang cukup membuat CV mudah dipindai dan terlihat premium.
+
+**3. Satu warna aksen**
+Satu warna aksen yang konsisten (biru tua, hijau teal, abu abu gelap) sudah cukup untuk terlihat modern. Lebih dari dua warna justru terlihat amatir.
+
+**4. Header yang kuat**
+Nama yang menonjol, kontak yang jelas, dan link LinkedIn/portofolio yang mudah diklik.
+
+### Template CV Modern Berdasarkan Industri
+
+**Untuk Tech & Startup:**
+Pilih template dengan header yang bold, bagian keterampilan teknis yang prominent, dan ruang untuk link GitHub atau portofolio.
+
+**Untuk Konsultan & Profesional:**
+Template dengan dua kolom ringan — kolom kiri untuk keterampilan dan info singkat, kolom kanan untuk pengalaman kerja yang detail.
+
+**Untuk Kreatif (Desainer, Konten):**
+Boleh lebih berani secara visual, tapi pastikan tetap ada versi ATS-friendly untuk dikirim melalui sistem online.
+
+### Di Mana Download Template CV Modern Gratis?
+
+Pilih [template CV modern](/id/templates) dari koleksi kami yang mencakup 20+ desain untuk berbagai industri dan level karier. Semua template dioptimalkan untuk ATS dan bisa diedit langsung di browser tanpa install apapun.`
+  },
+
+  // ── Topic 7: Template CV Kreatif ────────────────────────────────────────────
+  {
+    slug: 'template-cv-kreatif',
+    title: 'Template CV Kreatif: Desain Unik untuk Bidang Kreatif 2026',
+    description: 'Template CV kreatif untuk desainer, fotografer, content creator, dan profesional bidang kreatif. Desain unik yang menampilkan kepribadian dan portofolio Anda dalam lamaran kerja 2026.',
+    category: 'Template CV',
+    tags: [
+      'template cv kreatif',
+      'cv kreatif',
+      'desain cv unik',
+      'cv desainer grafis',
+      'cv untuk bidang kreatif',
+      'cv visual',
+      'template cv seni',
+      'contoh cv kreatif',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Template CV Kreatif untuk Desainer dan Profesional Bidang Kreatif',
+    featured: false,
+    faq: [
+      { question: 'Apakah CV kreatif cocok untuk semua bidang?', answer: 'Tidak. CV kreatif paling efektif untuk bidang desain grafis, UX/UI, fotografi, videografi, content creation, advertising, fashion, dan seni. Untuk bidang keuangan, hukum, BUMN, atau teknik, CV kreatif justru bisa merugikan karena terlihat tidak profesional atau tidak serius.' },
+      { question: 'Bagaimana jika perusahaan menggunakan ATS tapi saya ingin CV kreatif?', answer: 'Buat dua versi: CV kreatif untuk dikirim langsung ke HRD atau sebagai portofolio PDF, dan CV ATS-friendly untuk diupload di website karir atau job portal seperti LinkedIn dan Glints.' },
+      { question: 'Apa yang harus ada di CV kreatif?', answer: 'Selain informasi standar (pengalaman, pendidikan, keterampilan), CV kreatif idealnya mencantumkan link portofolio online (Behance, Dribbble, website pribadi), deskripsi proyek terpilih, dan testimonial atau klien notable jika ada.' },
+    ],
+    body: `## Template CV Kreatif: Panduan untuk Profesional Bidang Kreatif
+
+CV adalah karya pertama yang Anda tunjukkan kepada calon klien atau perusahaan. Untuk profesional bidang kreatif, CV yang biasa-biasa saja bisa menjadi kontradiksi — jika Anda adalah desainer grafis tetapi CV Anda membosankan, apa yang itu katakan tentang kemampuan desain Anda?
+
+### Kapan Menggunakan Template CV Kreatif?
+
+**Cocok untuk:**
+- Desainer grafis dan visual
+- UX/UI designer
+- Fotografer dan videografer
+- Content creator dan copywriter
+- Direktur kreatif dan art director
+- Animator dan motion designer
+
+**Tidak cocok untuk:**
+- Posisi di perusahaan dengan proses rekrutmen yang sangat formal
+- Lamaran melalui sistem ATS (gunakan versi sederhana)
+- Bidang keuangan, hukum, medis, atau pemerintahan
+
+### Elemen Template CV Kreatif yang Efektif
+
+**1. Layout yang mencerminkan bidang Anda**
+Desainer harus memiliki CV yang terlihat seperti didesain oleh desainer profesional. Ini adalah showcase kemampuan terkuat Anda.
+
+**2. Link portofolio yang menonjol**
+Tempatkan link Behance, Dribbble, atau website portofolio di posisi yang paling mudah dilihat — biasanya di header.
+
+**3. Tampilan proyek pilihan**
+Sebutkan 2-3 proyek terbaik dengan hasil yang konkret: "Mendesain ulang UI aplikasi e-commerce yang meningkatkan conversion rate 18%".
+
+**4. Palet warna yang konsisten**
+Gunakan 2-3 warna yang mencerminkan identitas visual Anda. Ini juga menunjukkan pemahaman tentang branding.
+
+### Tips Teknis
+
+- Export sebagai PDF untuk mempertahankan font dan layout
+- Pastikan ukuran file tidak lebih dari 5MB
+- Sertakan link yang bisa diklik (bukan URL mentah)
+- Test tampilan di layar yang berbeda
+
+Untuk inspirasi, lihat [contoh CV dari berbagai profesi kreatif](/id/resume-examples) atau mulai dari [template desainer grafis kami](/id/templates).`
+  },
+
+  // ── Topic 8: Template CV Sederhana ──────────────────────────────────────────
+  {
+    slug: 'template-cv-sederhana',
+    title: 'Template CV Sederhana: Desain Minimalis yang Tetap Profesional 2026',
+    description: 'Template CV sederhana dan minimalis yang tetap profesional untuk 2026. Cocok untuk semua bidang dan level karier — CV bersih yang mudah dibaca rekruter dan lolos sistem ATS.',
+    category: 'Template CV',
+    tags: [
+      'template cv sederhana',
+      'cv sederhana',
+      'cv minimalis',
+      'template cv simpel',
+      'cv simple profesional',
+      'cv bersih',
+      'template cv polos',
+      'cv sederhana tapi menarik',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Template CV Sederhana Minimalis Profesional 2026',
+    featured: false,
+    faq: [
+      { question: 'Mengapa CV sederhana sering lebih efektif dari CV yang ramai?', answer: 'CV sederhana memudahkan rekruter memindai informasi kunci dalam waktu 6-8 detik pertama. CV yang ramai dengan grafik, warna berlebih, dan desain kompleks justru menyulitkan pembacaan dan bisa terlihat tidak profesional di industri tertentu.' },
+      { question: 'Apakah CV sederhana terlihat membosankan?', answer: 'Tidak jika kontennya kuat. CV sederhana dengan pencapaian yang kuat dan terukur jauh lebih menarik daripada CV ramai tapi berisi deskripsi tugas yang generik. Rekruter mengevaluasi isi, bukan dekorasi.' },
+      { question: 'Template CV sederhana cocok untuk industri apa?', answer: 'Hampir semua industri menerima CV sederhana dengan baik. Sangat ideal untuk: perbankan dan keuangan, hukum dan konsultasi, pemerintahan dan BUMN, teknik dan manufaktur, kesehatan dan farmasi.' },
+    ],
+    body: `## Template CV Sederhana: Mengapa "Kurang Lebih Banyak" Berlaku untuk CV
+
+Di dunia rekrutmen, CV yang sederhana dan bersih sering mengalahkan CV yang penuh desain. Alasannya: rekruter memindai CV dalam hitungan detik, dan kesederhanaan memudahkan mereka menemukan informasi yang mereka cari.
+
+### Keunggulan Template CV Sederhana
+
+**1. Kompatibel dengan semua ATS**
+Format sederhana hampir selalu lolos ATS tanpa masalah. Tidak ada elemen yang membingungkan parser.
+
+**2. Mudah dibaca dalam berbagai kondisi**
+Apakah diprint hitam-putih, ditampilkan di layar kecil, atau dibaca dalam kondisi pencahayaan kurang — CV sederhana tetap jelas.
+
+**3. Terkesan profesional di semua industri**
+CV sederhana tidak pernah terlihat "norak" atau "kurang serius". Ini adalah pilihan aman yang bekerja di hampir setiap konteks.
+
+**4. Fokus pada konten**
+Tanpa distraksi visual, rekruter langsung fokus pada pengalaman dan pencapaian Anda.
+
+### Elemen Wajib Template CV Sederhana yang Baik
+
+**Header:**
+- Nama lengkap (bold, font lebih besar)
+- Nomor HP / WhatsApp
+- Alamat email profesional
+- Link LinkedIn
+- Kota domisili
+
+**Ringkasan Profesional:** 2-4 kalimat yang menangkap nilai utama Anda
+
+**Pengalaman Kerja:** Kronologis terbalik dengan bullet point pencapaian
+
+**Pendidikan:** Institusi, jurusan, tahun lulus
+
+**Keterampilan:** Teknis dan bahasa, relevan dengan posisi
+
+### Tips Membuat CV Sederhana yang Tidak Membosankan
+
+1. **Gunakan bullet point pencapaian dengan angka** — "meningkatkan efisiensi 30%" lebih menarik dari "bertanggung jawab atas efisiensi"
+2. **Pilih font profesional yang berbeda sedikit** — Calibri, Georgia, atau Garamond lebih berkarakter dari Times New Roman
+3. **Satu aksen warna tipis** — garis horizontal atau nama dalam warna gelap sudah cukup untuk memberikan struktur visual
+
+Download [template CV sederhana profesional](/id/templates) dan mulai isi dengan pengalaman terbaik Anda.`
+  },
+
+  // ── Topic 9: Contoh CV Berbagai Bidang ──────────────────────────────────────
+  {
+    slug: 'contoh-cv-berbagai-bidang',
+    title: 'Contoh CV Berbagai Bidang: 300+ Contoh CV Profesional Indonesia 2026',
+    description: 'Kumpulan contoh CV berbagai bidang pekerjaan: teknologi, kesehatan, keuangan, pendidikan, dan lebih banyak lagi. Download contoh CV profesional Indonesia 2026 yang ATS-friendly dan siap diedit.',
+    category: 'Contoh CV',
+    tags: [
+      'contoh cv',
+      'contoh cv profesional',
+      'contoh cv berbagai bidang',
+      'contoh cv indonesia',
+      'contoh curriculum vitae',
+      'cv berdasarkan jabatan',
+      'contoh cv 2026',
+      'contoh cv fresh graduate',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Contoh CV Berbagai Bidang Pekerjaan Profesional Indonesia 2026',
+    featured: true,
+    faq: [
+      { question: 'Di mana bisa melihat contoh CV berbagai bidang?', answer: 'Best AI Resume Builder menyediakan 300+ contoh CV berdasarkan jabatan, mulai dari software engineer, dokter, akuntan, guru, marketing, hingga posisi-posisi spesifik industri. Setiap contoh mencakup ringkasan profesional, pengalaman kerja, dan keterampilan yang relevan.' },
+      { question: 'Apakah boleh menyalin contoh CV yang ada?', answer: 'Boleh menggunakan contoh sebagai inspirasi dan referensi struktur, tapi jangan menyalin kata per kata. Rekruter sering mengenali CV yang terlihat "template" tanpa personalisasi. Gunakan contoh CV untuk memahami format dan bahasa yang tepat, lalu tulis dengan kata-kata sendiri.' },
+      { question: 'Contoh CV mana yang cocok untuk fresh graduate?', answer: 'Fresh graduate sebaiknya melihat contoh CV untuk posisi entry-level di bidang mereka. Perhatikan bagaimana mereka menampilkan pendidikan, proyek akademik, magang, dan organisasi sebagai pengganti pengalaman kerja yang minim.' },
+    ],
+    body: `## Contoh CV Berbagai Bidang: Temukan Referensi untuk Profesi Anda
+
+Melihat contoh CV dari orang lain di bidang yang sama adalah salah satu cara paling efektif untuk memahami apa yang diharapkan rekruter — bahasa yang digunakan, keterampilan yang ditonjolkan, dan cara memformat pengalaman.
+
+### Mengapa Melihat Contoh CV Itu Penting?
+
+Setiap industri dan profesi memiliki standar yang berbeda:
+- **IT dan Software Engineering**: Menekankan bahasa pemrograman, framework, dan proyek GitHub
+- **Keuangan dan Akuntansi**: Fokus pada sertifikasi (CA, CPA, CFA) dan pengalaman audit
+- **Pemasaran**: Menonjolkan kampanye, ROI, dan pengalaman tools digital marketing
+- **Pendidikan**: Menekankan kurikulum, metodologi pengajaran, dan capaian siswa
+- **Kesehatan**: Lisensi profesional di posisi pertama, pengalaman klinis terperinci
+
+### Kategori Contoh CV Terpopuler di Indonesia
+
+**Teknologi:**
+- [Contoh CV Software Engineer](/id/resume-examples/software-engineer)
+- [Contoh CV Data Analyst](/id/resume-examples/data-analyst)
+- [Contoh CV Product Manager](/id/resume-examples/product-manager)
+- [Contoh CV UI/UX Designer](/id/resume-examples/ux-designer)
+
+**Bisnis & Keuangan:**
+- [Contoh CV Akuntan](/id/resume-examples/accountant)
+- [Contoh CV Marketing Manager](/id/resume-examples/marketing-manager)
+- [Contoh CV Business Analyst](/id/resume-examples/business-analyst)
+
+**Layanan & Kesehatan:**
+- [Contoh CV Perawat](/id/resume-examples/nurse)
+- [Contoh CV Guru](/id/resume-examples/teacher)
+- [Contoh CV Customer Service](/id/resume-examples/customer-service)
+
+### Cara Menggunakan Contoh CV dengan Efektif
+
+1. **Pilih contoh yang sesuai level** — fresh graduate vs senior professional memiliki struktur berbeda
+2. **Perhatikan bullet point pencapaian** — bukan deskripsi tugas, tapi hasil terukur
+3. **Adaptasi keterampilan** — gunakan daftar keterampilan sebagai checklist untuk melengkapi milik Anda
+4. **Jangan salin mentah-mentah** — rekruter mengenali CV template yang tidak dipersonalisasi
+
+Lihat koleksi lengkap [300+ contoh CV berdasarkan jabatan](/id/resume-examples) dalam bahasa Indonesia dan Inggris.`
+  },
 ];

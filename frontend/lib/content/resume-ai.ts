@@ -1551,6 +1551,119 @@ const id: ResumeAIPageContent = {
   },
 };
 
+const pl: ResumeAIPageContent = {
+  meta: {
+    title: 'CV AI | Darmowy Kreator CV z AI 2026 | Stwórz CV Online',
+    description: 'Stwórz CV z AI w kilka minut. Darmowe narzędzie AI do CV, które pisze profesjonalne treści, optymalizuje pod ATS i pomaga zdobyć więcej rozmów kwalifikacyjnych.',
+    keywords: 'cv ai, kreator cv z ai, ai do cv, cv sztuczna inteligencja, darmowe cv ai, kreator cv ai, cv online ai, wzór cv ai',
+  },
+  schemas: {
+    breadcrumbName: 'CV z AI',
+    articleHeadline: 'CV AI: Darmowy Kreator CV z AI 2026',
+    articleDescription: 'Stwórz CV z AI. Nasze darmowe narzędzie AI pisze profesjonalne treści, optymalizuje pod ATS i tworzy CV, które zdobywają rozmowy kwalifikacyjne.',
+    softwareAppName: 'Kreator CV z AI',
+  },
+  hero: {
+    badge: 'Napędzany zaawansowaną AI',
+    title: 'Stwórz CV',
+    titleHighlight: 'z AI w kilka sekund',
+    subtitle: 'Nasz <strong>kreator CV z AI</strong> pisze profesjonalne treści, optymalizuje pod systemy ATS i pomaga tworzyć CV, które zdobywają rozmowy kwalifikacyjne — wszystko za darmo. Według badań <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/how-recruiters-use-ai" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">LinkedIn</a> rekruterzy poświęcają średnio zaledwie 7 sekund na każde CV. Niech AI sprawi, żeby każda sekunda się liczyła.',
+    ctaPrimary: 'Wypróbuj kreator CV z AI za darmo',
+    ctaSecondary: 'Zobacz jak działa',
+    trustText: 'Bez rejestracji · 100% bezpłatnie · Treści generowane przez AI',
+  },
+  whatIs: {
+    title: 'Czym jest tworzenie CV z AI?',
+    description: '<strong>Tworzenie CV z AI</strong> fundamentalnie zmienia sposób, w jaki piszesz CV. Zamiast wpatrywać się w pusty ekran, nasza AI analizuje Twoje doświadczenie, rozumie Twoje docelowe stanowisko i generuje profesjonalne treści dostosowane do Twojej branży. Jak podkreśla <a href="https://www.shrm.org/topics-tools/news/talent-acquisition/ai-rapidly-transforming-how-companies-recruit" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">Society for Human Resource Management (SHRM)</a>, AI szybko transformuje rekrutację — a CV tworzone z AI są szeroko akceptowane przez pracodawców.',
+    stats: [
+      { value: '10x', label: 'Szybciej niż pisanie ręczne' },
+      { value: '85%', label: 'Wyższa szansa na przejście ATS' },
+      { value: '3M+', label: 'CV stworzonych z AI' },
+    ],
+  },
+  features: {
+    title: 'Jak AI ulepsza Twoje CV',
+    subtitle: 'AI robi więcej niż tylko formatuje — naprawdę pomaga pisać lepsze treści.',
+    items: [
+      { title: 'Pisanie treści przez AI', description: 'AI generuje profesjonalne opisy doświadczenia, podsumowania i umiejętności na podstawie Twojego doświadczenia i docelowego stanowiska.' },
+      { title: 'Inteligentna optymalizacja słów kluczowych', description: 'AI analizuje oferty pracy i sugeruje słowa kluczowe charakterystyczne dla branży, których szukają pracodawcy.' },
+      { title: 'Analiza wyników ATS', description: 'Ocenianie w czasie rzeczywistym pokazuje, jak Twoje CV jest oceniane przez systemy ATS przed aplikowaniem.' },
+      { title: 'Kwantyfikacja wyników', description: 'AI przekształca niejasne opisy w mierzalne, konkretne osiągnięcia, które przyciągają uwagę rekruterów.' },
+      { title: 'Szablony specyficzne dla branży', description: 'AI sugeruje układ i sekcje najlepiej dopasowane do Twojej branży i poziomu doświadczenia.' },
+      { title: 'Sprawdzanie gramatyki i tonu', description: 'AI automatycznie sprawdza gramatykę i pisownię, zapewniając bezbłędną, profesjonalną prezentację.' },
+    ],
+  },
+  beforeAfter: {
+    title: 'Jak AI transformuje Twoje CV',
+    subtitle: 'Prawdziwe przykłady ulepszeń dokonanych przez sztuczną inteligencję.',
+    beforeLabel: 'Przed',
+    afterLabel: 'Po AI',
+    items: [
+      { before: 'Zarządzałem zespołem i projektami', after: 'Kierowałem cross-funkcyjnym zespołem 8 osób; zrealizowałem 12 projektów na czas z 98% satysfakcją klientów' },
+      { before: 'Zwiększyłem sprzedaż', after: 'Zwiększyłem roczną sprzedaż o 34% (280 000 zł) poprzez strategię zakupów opartą na danych' },
+      { before: 'Zapewniałem dobrą obsługę klienta', after: 'Utrzymywałem ocenę 4,9/5 satysfakcji; obsługiwałem 150+ zapytań dziennie ze wskaźnikiem rozwiązania przy pierwszym kontakcie 95%' },
+    ],
+    cta: 'Stwórz profesjonalne CV',
+  },
+  comparison: {
+    title: 'CV z AI vs. CV pisane ręcznie',
+    subtitle: 'Dlaczego osoby szukające pracy wybierają tworzenie CV z AI.',
+    oursName: 'Z AI',
+    othersName: 'Ręcznie',
+    rows: [
+      { feature: 'Czas tworzenia', ours: '10-15 minut', others: '2-4 godziny' },
+      { feature: 'Profesjonalne pisanie', ours: 'AI sugeruje', others: 'Własne badania' },
+      { feature: 'Optymalizacja ATS', ours: 'Automatyczna', others: 'Ręczna, podatna na błędy' },
+      { feature: 'Słowa kluczowe branży', ours: 'Sugestie AI', others: 'Samodzielne wyszukiwanie' },
+      { feature: 'Gramatyka/pisownia', ours: 'Automatyczna kontrola', others: 'Łatwo pominąć' },
+      { feature: 'Kwantyfikacja wyników', ours: 'AI pomaga', others: 'Często zapomniane' },
+      { feature: 'Format/projekt', ours: '20+ szablonów', others: 'Budowanie od zera' },
+    ],
+  },
+  useCases: {
+    title: 'Dla kogo jest tworzenie CV z AI?',
+    subtitle: 'Nasz kreator CV z AI jest odpowiedni dla wszystkich szukających pracy.',
+    items: [
+      { title: 'Zmiana pracy', description: 'AI pomaga podkreślić umiejętności przenośne do nowej branży' },
+      { title: 'Wejście na rynek pracy', description: 'Przekształć staże i projekty studenckie w przekonujące doświadczenie zawodowe' },
+      { title: 'Doświadczony specjalista', description: 'Podsumuj 20 lat doświadczenia w efektywnym CV na 2 stronach' },
+      { title: 'Aktywne poszukiwanie pracy', description: 'Szybko twórz dopasowane CV dla każdej aplikacji' },
+    ],
+  },
+  faq: {
+    title: 'Często zadawane pytania',
+    items: [
+      { question: 'Czym jest CV AI?', answer: 'CV AI to tworzenie CV przy pomocy sztucznej inteligencji. Nasze narzędzie generuje profesjonalne opisy doświadczenia, optymalizuje pod ATS, sugeruje słowa kluczowe branży i automatycznie formatuje wszystko — doskonałe CV w minutach, nie godzinach.' },
+      { question: 'Czy CV z AI jest lepsze niż pisane ręcznie?', answer: 'AI pomaga szybciej pisać lepsze treści. Analizuje tysiące udanych CV i sugeruje profesjonalne sformułowania, mierzalne wyniki i słowa kluczowe zgodne z rynkiem pracy. Zachowujesz pełną kontrolę nad finalną treścią — AI sprawia, że proces jest skuteczniejszy.' },
+      { question: 'Czy CV z AI przejdzie przez filtry ATS?', answer: 'Tak! Nasz kreator CV z AI jest specjalnie zaprojektowany z myślą o zgodności z ATS. AI formatuje CV z czystym tekstem, łatwym do odczytu przez systemy, sugeruje słowa kluczowe pasujące do stanowiska i daje wynik ATS w czasie rzeczywistym do optymalizacji przed wysłaniem.' },
+      { question: 'Czy to narzędzie AI do CV jest darmowe?', answer: 'Tak, kreator CV z AI jest w 100% darmowy. Twórz nieograniczoną liczbę CV, korzystaj ze wszystkich szablonów, pobieraj jako PDF — wszystko za darmo. Nie potrzebujesz karty kredytowej ani subskrypcji.' },
+      { question: 'Jak AI generuje treści?', answer: 'AI analizuje Twoje stanowisko, branżę i poziom doświadczenia, aby generować spersonalizowane sugestie. Korzysta ze wzorców milionów udanych CV, aby pisać profesjonalne podsumowania, zorientowane na wyniki opisy doświadczenia i opisy umiejętności, które przemawiają do rekruterów.' },
+      { question: 'Czy moje CV będzie wyglądać jak stworzone przez AI?', answer: 'Nie. Nasze narzędzie generuje naturalne, profesjonalne treści brzmiące jak napisane przez coacha kariery. Możesz edytować każdą sugestię, aby dodać własny styl, a końcowy rezultat jest w pełni Twój.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Inne narzędzia CV z AI',
+    items: [
+      { href: '/pl/resume-maker', title: 'Kreator CV', subtitle: 'Darmowy kreator CV z AI' },
+      { href: '/pl/tools/ats-checker', title: 'Sprawdzarka ATS', subtitle: 'Analiza ATS przez AI' },
+      { href: '/pl/free-resume-builder', title: 'Darmowe CV', subtitle: '100% darmowy kreator CV' },
+    ],
+    guidesTitle: 'Poradniki CV z AI',
+    guides: [
+      { href: '/pl/career-tips/ai-resume-tools', label: 'Narzędzia AI do CV (2026)' },
+      { href: '/pl/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: które AI do CV?' },
+      { href: '/pl/career-tips/how-to-write-ats-friendly-resume', label: 'Jak napisać CV przyjazne ATS' },
+      { href: '/pl/resume-examples', label: '300+ przykładów CV' },
+    ],
+  },
+  bottomCta: {
+    title: 'Gotowy, aby stworzyć CV z AI?',
+    description: 'Dołącz do milionów osób szukających pracy, które zdobywają więcej rozmów kwalifikacyjnych — z naszym <a href="/pl/" class="text-purple-600 hover:underline">kreatorem CV z AI</a>.',
+    cta: 'Zacznij za darmo z AI',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej.',
+  },
+};
+
 const nl: ResumeAIPageContent = {
   meta: {
     title: 'CV Maken met AI | Gratis AI CV Schrijven 2026',
@@ -1664,7 +1777,7 @@ const nl: ResumeAIPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
+const contentMap: Record<string, ResumeAIPageContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string): ResumeAIPageContent {
   return selectContent(contentMap, locale);

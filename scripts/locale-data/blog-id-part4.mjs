@@ -971,4 +971,246 @@ Butuh inspirasi lebih untuk jabatan spesifik Anda? Lihat:
 - [Template CV Gratis](/id/templates) — Format siap isi dengan panduan per bagian
 `,
   },
+
+  // ── Topic 6: ChatGPT untuk CV ────────────────────────────────────────────────
+  {
+    slug: 'chatgpt-untuk-cv',
+    title: 'ChatGPT untuk Membuat CV: Tips dan Cara Penggunaan Terbaik 2026',
+    description: 'Panduan menggunakan ChatGPT untuk membuat dan meningkatkan CV 2026. Prompt terbaik untuk ChatGPT, tips memaksimalkan AI dalam penulisan CV, dan cara menggabungkan AI dengan keahlian Anda.',
+    category: 'AI untuk CV',
+    tags: [
+      'chatgpt untuk cv',
+      'cara pakai chatgpt buat cv',
+      'prompt chatgpt cv',
+      'chatgpt membuat cv',
+      'ai untuk cv',
+      'chatgpt cv indonesia',
+      'buat cv pakai ai',
+      'chatgpt resume',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Cara Menggunakan ChatGPT untuk Membuat CV 2026',
+    featured: false,
+    faq: [
+      { question: 'Apakah rekruter bisa mendeteksi CV yang dibuat dengan ChatGPT?', answer: 'Rekruter yang berpengalaman bisa mengenali pola bahasa AI yang terlalu generik dan klise. Kunci menggunakan ChatGPT secara efektif: edit hasil AI dengan pengalaman dan pencapaian nyata Anda, personalisasi bahasa sesuai gaya komunikasi Anda, dan pastikan setiap klaim bisa Anda buktikan saat interview.' },
+      { question: 'Prompt apa yang paling efektif untuk membuat CV dengan ChatGPT?', answer: 'Prompt yang efektif harus spesifik: "Tulis 3 bullet point pencapaian untuk posisi Product Manager di startup e-commerce. Saya mengelola tim 5 orang, meningkatkan conversion rate dari 2.1% ke 3.4%, dan meluncurkan 3 fitur baru dalam 6 bulan." Semakin spesifik data yang Anda berikan, semakin baik hasil yang diberikan AI.' },
+      { question: 'Gratis atau berbayar ChatGPT yang lebih baik untuk CV?', answer: 'ChatGPT versi gratis (GPT-3.5) sudah cukup baik untuk membuat draft CV. GPT-4 (berbayar) memberikan hasil yang lebih nuanced dan konsisten. Alternatif: gunakan platform CV seperti Best AI Resume Builder yang sudah mengintegrasikan AI CV writing tanpa perlu prompt manual.' },
+    ],
+    body: `## Cara Menggunakan ChatGPT untuk Membuat CV yang Lebih Kuat
+
+ChatGPT dan AI generatif telah mengubah cara orang membuat CV. Jika digunakan dengan benar, AI bisa membantu Anda menulis bullet point yang lebih tajam, ringkasan profesional yang lebih compelling, dan CV yang lebih kompetitif.
+
+### Apa yang Bisa (dan Tidak Bisa) Dilakukan ChatGPT untuk CV
+
+**ChatGPT bisa membantu:**
+- Menulis draft bullet point pencapaian dari deskripsi kasar Anda
+- Memperbaiki tata bahasa dan gaya penulisan
+- Menyesuaikan bahasa CV dengan deskripsi pekerjaan
+- Menghasilkan variasi ringkasan profesional
+- Menerjemahkan CV ke bahasa Inggris
+
+**ChatGPT tidak bisa menggantikan:**
+- Data dan pencapaian nyata Anda (angka, persentase, hasil konkret)
+- Pemahaman tentang budaya perusahaan yang Anda lamar
+- Penilaian tentang apa yang paling relevan untuk posisi spesifik
+
+### Prompt Terbaik untuk CV dengan ChatGPT
+
+**Untuk bullet point pencapaian:**
+> "Tulis 3 bullet point pencapaian untuk posisi [jabatan] selama [periode]. Konteks: [deskripsikan apa yang Anda lakukan, tim berapa orang, hasil apa yang dicapai, tools apa yang digunakan]. Format: mulai dengan kata kerja aksi, sertakan angka spesifik."
+
+**Untuk ringkasan profesional:**
+> "Tulis ringkasan profesional 3-4 kalimat untuk CV [jabatan] dengan [X tahun] pengalaman di [industri]. Kekuatan utama: [daftar 3-5 kekuatan]. Target posisi: [nama posisi]. Gaya: langsung, percaya diri, berbasis hasil."
+
+**Untuk menyesuaikan CV dengan job description:**
+> "Ini job description posisi [nama posisi]: [paste JD]. Ini ringkasan pengalaman saya: [paste pengalaman]. Berikan 5 poin tentang bagaimana saya bisa menyesuaikan CV saya agar lebih relevan dengan posisi ini."
+
+### Alternatif: Platform CV dengan AI Terintegrasi
+
+Jika Anda tidak nyaman dengan prompt engineering, gunakan [builder CV kami](/id/builder) yang sudah mengintegrasikan AI untuk membantu menulis setiap bagian CV secara interaktif — tanpa perlu tahu cara membuat prompt yang tepat.`
+  },
+
+  // ── Topic 7: Canva CV Panduan ─────────────────────────────────────────────────
+  {
+    slug: 'cv-dengan-canva-panduan',
+    title: 'Cara Membuat CV di Canva: Panduan Lengkap dan Alternatif Terbaik 2026',
+    description: 'Panduan lengkap membuat CV di Canva 2026: cara penggunaan, kelebihan dan kekurangan, serta kapan sebaiknya menggunakan Canva vs platform CV khusus. Tips CV Canva yang ATS-friendly.',
+    category: 'Template CV',
+    tags: [
+      'cv canva',
+      'cara buat cv di canva',
+      'canva cv template',
+      'cv canva gratis',
+      'template cv canva',
+      'canva untuk cv',
+      'buat cv online canva',
+      'canva cv indonesia',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Cara Membuat CV di Canva Panduan Lengkap 2026',
+    featured: false,
+    faq: [
+      { question: 'Apakah CV Canva lolos ATS?', answer: 'Sebagian besar template Canva TIDAK lolos ATS dengan baik. Canva menggunakan format berbasis gambar dan tata letak kompleks dengan kolom, ikon, dan grafik yang sulit dibaca ATS. Jika Anda melamar ke perusahaan yang kemungkinan menggunakan ATS (perusahaan besar, multinasional), hindari template Canva yang kompleks.' },
+      { question: 'Kapan CV Canva bisa digunakan?', answer: 'CV Canva cocok untuk: mengirim langsung ke HRD via email (bukan melalui portal rekrutmen), bidang kreatif di mana tampilan visual diapresiasi, dan sebagai portofolio visual yang dilampirkan terpisah dari CV ATS-friendly utama.' },
+      { question: 'Apakah ada template Canva yang ATS-friendly?', answer: 'Ada beberapa template Canva yang lebih sederhana dan lebih dekat ke ATS-friendly — biasanya yang berlabel "simple" atau "minimalist". Namun tetap ada risiko karena Canva mengekspor ke PDF berbasis gambar, bukan teks. Untuk keamanan tertinggi, gunakan platform yang memang dirancang untuk CV ATS.' },
+    ],
+    body: `## CV Canva: Panduan Jujur tentang Kelebihan dan Kekurangannya
+
+Canva adalah platform desain yang sangat populer di Indonesia — dan banyak pelamar kerja menggunakannya untuk membuat CV. Tapi apakah ini pilihan terbaik? Jawabannya: tergantung situasi.
+
+### Kelebihan CV Canva
+
+**1. Desain yang menarik secara visual**
+Canva menawarkan ratusan template CV yang terlihat profesional dan modern. Ini adalah kelebihan terbesar bagi orang yang tidak punya background desain.
+
+**2. Mudah digunakan**
+Interface drag-and-drop Canva intuitif bahkan bagi pemula. Tidak perlu pengetahuan desain untuk membuat CV yang terlihat baik.
+
+**3. Gratis (dengan batasan)**
+Versi gratis Canva sudah mencakup banyak template CV yang layak. Versi Pro membuka lebih banyak template dan fitur premium.
+
+### Kekurangan CV Canva yang Harus Anda Tahu
+
+**1. Masalah ATS — ini yang paling kritis**
+Hampir semua template Canva menggunakan layout kompleks (kolom ganda, header grafis, ikon) yang sulit atau tidak bisa dibaca ATS. Jika Anda melamar melalui website perusahaan atau job portal, CV Canva Anda mungkin dinilai sangat rendah oleh ATS — bahkan jika kontennya sangat kuat.
+
+**2. File PDF berbasis gambar**
+Canva mengekspor CV sebagai PDF gambar, bukan teks. Ini berarti teks di CV Anda tidak bisa di-copy atau di-search — masalah serius untuk ATS.
+
+**3. Ukuran file besar**
+PDF Canva sering berukuran 2-10MB, jauh lebih besar dari CV berbasis teks (biasanya di bawah 500KB). Beberapa sistem rekrutmen memiliki batas ukuran file.
+
+### Rekomendasi: Gunakan Dua Versi
+
+1. **CV ATS-friendly** dari platform khusus CV → untuk melamar secara online
+2. **CV visual Canva** → untuk dikirim langsung ke HRD atau sebagai lampiran portofolio
+
+Buat CV ATS-friendly menggunakan [builder CV kami](/id/builder) yang menghasilkan CV yang bisa dibaca ATS sekaligus terlihat profesional.`
+  },
+
+  // ── Topic 8: Alat AI untuk Melamar Kerja ────────────────────────────────────
+  {
+    slug: 'alat-ai-untuk-melamar-kerja',
+    title: 'Alat AI Terbaik untuk Melamar Kerja di Indonesia 2026',
+    description: 'Daftar alat AI terbaik untuk membantu proses melamar kerja di Indonesia 2026: pembuat CV AI, ATS checker, persiapan interview, dan tools pencarian kerja yang memanfaatkan kecerdasan buatan.',
+    category: 'AI untuk CV',
+    tags: [
+      'alat ai melamar kerja',
+      'ai untuk melamar kerja',
+      'tools ai cv',
+      'ai job search',
+      'aplikasi melamar kerja ai',
+      'pembuat cv ai',
+      'ai resume builder indonesia',
+      'tools pencarian kerja ai',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Alat AI Terbaik untuk Melamar Kerja di Indonesia 2026',
+    featured: false,
+    faq: [
+      { question: 'Apakah menggunakan AI untuk CV itu curang?', answer: 'Tidak. Menggunakan AI untuk membantu menulis CV sama seperti menggunakan spell checker atau meminta teman yang berpengalaman untuk mengulas CV Anda. Yang penting adalah konten — pengalaman dan pencapaian — harus tetap milik Anda sendiri. AI hanya membantu presentasinya.' },
+      { question: 'Alat AI mana yang paling berguna untuk pencari kerja Indonesia?', answer: 'Untuk CV: Best AI Resume Builder, Resume.io. Untuk ATS checking: Jobscan, ATS checker dari Best AI Resume Builder. Untuk persiapan interview: Interview Warmup (Google), Yoodli. Untuk job matching: LinkedIn, Glints, Kalibrr (semua sudah mengintegrasikan AI untuk rekomendasi pekerjaan).' },
+    ],
+    body: `## Alat AI Terbaik untuk Melamar Kerja di Indonesia 2026
+
+Kecerdasan buatan telah mengubah cara orang mencari dan melamar pekerjaan. Berikut adalah ekosistem alat AI yang dapat membantu setiap tahap proses lamaran Anda.
+
+### 1. Pembuat CV Berbasis AI
+
+**Best AI Resume Builder** — Platform gratis yang menggunakan AI untuk membantu menulis setiap bagian CV: ringkasan profesional, bullet point pencapaian, dan deskripsi keterampilan. Tersedia template ATS-friendly yang dioptimalkan untuk pasar kerja Indonesia.
+
+### 2. ATS Checker AI
+
+Sebelum mengirim lamaran, uji CV Anda dengan [ATS checker](/id/tools/ats-checker) yang menganalisis:
+- Kompatibilitas format dengan sistem ATS
+- Kepadatan dan relevansi kata kunci
+- Skor kesesuaian dengan deskripsi pekerjaan
+- Rekomendasi perbaikan spesifik
+
+### 3. AI untuk Persiapan Interview
+
+**Google Interview Warmup** — Latih jawaban wawancara dengan pertanyaan berbasis AI dan dapatkan feedback otomatis tentang kata-kata yang digunakan.
+
+**ChatGPT** — Minta ChatGPT berpura-pura menjadi pewawancara untuk posisi yang Anda lamar. Minta pertanyaan berbasis job description dan latih jawaban STAR (Situation, Task, Action, Result).
+
+### 4. AI Job Matching
+
+Platform rekrutmen terbesar di Indonesia kini menggunakan AI untuk mencocokkan kandidat dengan pekerjaan:
+- **LinkedIn** — AI recommendations berdasarkan profil dan aktivitas
+- **Glints** — smart job matching untuk startup Asia Tenggara
+- **Kalibrr** — skill-based matching yang akurat untuk pasar Indonesia
+
+### 5. AI untuk Cover Letter
+
+Gunakan AI untuk menulis draft surat lamaran yang dipersonalisasi per lowongan. Berikan: nama perusahaan, posisi, 3 alasan Anda cocok, dan gaya penulisan yang Anda inginkan.
+
+Mulai perjalanan melamar kerja dengan CV yang kuat menggunakan [builder CV AI gratis kami](/id/builder).`
+  },
+
+  // ── Topic 9: CV di Word Online ───────────────────────────────────────────────
+  {
+    slug: 'cara-buat-cv-di-word-online',
+    title: 'Cara Membuat CV di Word Online Gratis: Panduan Langkah demi Langkah',
+    description: 'Panduan cara membuat CV profesional di Microsoft Word Online secara gratis. Tips menggunakan template Word untuk CV ATS-friendly, cara menyimpan dan mengunduh CV dalam format PDF.',
+    category: 'Panduan CV',
+    tags: [
+      'cv di word online',
+      'membuat cv di word',
+      'cara buat cv word',
+      'template cv word online',
+      'cv microsoft word gratis',
+      'cara membuat cv di word',
+      'word online cv',
+      'buat cv word gratis',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Cara Membuat CV di Microsoft Word Online Gratis',
+    featured: false,
+    faq: [
+      { question: 'Apakah Microsoft Word Online gratis?', answer: 'Ya, Microsoft Word Online tersedia gratis melalui Office.com atau OneDrive menggunakan akun Microsoft (termasuk akun Outlook gratis). Fiturnya lebih terbatas dari Word desktop tapi lebih dari cukup untuk membuat CV.' },
+      { question: 'Apakah CV yang dibuat di Word Online ATS-friendly?', answer: 'Tergantung template yang dipilih. Template Word bawaan umumnya lebih ATS-compatible dibanding Canva, tapi hindari yang menggunakan kolom ganda, tabel kompleks, atau text box. Pilih template sederhana satu kolom untuk keamanan ATS tertinggi.' },
+      { question: 'Bagaimana cara mengunduh CV dari Word Online?', answer: 'File > Download As > Download as PDF (.pdf) untuk format yang lebih direkomendasikan. Atau Download as Word (.docx) jika rekruter meminta format Word.' },
+    ],
+    body: `## Cara Membuat CV di Microsoft Word Online: Gratis dan Mudah
+
+Microsoft Word Online (Office.com) adalah alternatif gratis yang handal untuk membuat CV profesional tanpa perlu install software apapun. Anda hanya butuh akun Microsoft dan koneksi internet.
+
+### Langkah 1: Akses Word Online
+
+1. Buka [office.com](https://www.office.com/)
+2. Login dengan akun Microsoft (atau buat akun gratis baru)
+3. Klik ikon Word
+
+### Langkah 2: Pilih Template CV
+
+1. Klik **New** untuk dokumen baru
+2. Di kolom pencarian, ketik "resume" atau "curriculum vitae"
+3. Pilih template yang **sederhana dan satu kolom** — ini paling ATS-friendly
+4. Klik template untuk menggunakannya
+
+**Tips memilih template yang tepat:**
+- Pilih yang berlabel "Simple", "Basic", atau "Classic"
+- Hindari yang menggunakan kolom ganda atau banyak elemen grafis
+- Pastikan ada ruang yang cukup untuk konten Anda
+
+### Langkah 3: Edit Konten CV
+
+Ganti teks placeholder dengan informasi Anda:
+- Nama dan kontak di header
+- Ringkasan profesional (2-4 kalimat)
+- Pengalaman kerja (dari terbaru ke terlama)
+- Pendidikan
+- Keterampilan
+
+### Langkah 4: Simpan dan Unduh
+
+**Sebagai PDF (direkomendasikan):**
+File > Download As > Download as PDF
+
+**Namakan file:** CV_NamaAnda_NamaPosisi.pdf
+
+### Alternatif yang Lebih Cepat
+
+Jika Anda ingin panduan konten yang lebih interaktif, pertimbangkan menggunakan [builder CV kami](/id/builder) yang sudah menyediakan template ATS-friendly dengan panduan AI per bagian — tanpa perlu format manual di Word.`
+  },
 ];

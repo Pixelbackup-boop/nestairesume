@@ -681,4 +681,314 @@ Hormat saya,
 - [Pembuat CV Online Gratis](/id/builder) — Buat CV yang mengesankan
 `,
   },
+
+  // ── Topic 5: Strategi Pencarian Kerja ───────────────────────────────────────
+  {
+    slug: 'strategi-pencarian-kerja',
+    title: 'Strategi Pencarian Kerja di Indonesia 2026: Panduan Lengkap',
+    description: 'Panduan strategi pencarian kerja yang efektif di Indonesia 2026. Tips menggunakan job portal, networking, LinkedIn, dan memanfaatkan koneksi untuk menemukan pekerjaan lebih cepat.',
+    category: 'Tips Melamar',
+    tags: [
+      'strategi pencarian kerja',
+      'cara cari kerja',
+      'tips melamar kerja',
+      'mencari kerja indonesia',
+      'cara dapat kerja cepat',
+      'tips job hunting',
+      'strategi job search',
+      'cara melamar kerja 2026',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Strategi Pencarian Kerja di Indonesia 2026',
+    featured: false,
+    faq: [
+      { question: 'Job portal mana yang paling efektif di Indonesia?', answer: 'Berdasarkan volume lowongan dan kualitas perusahaan: LinkedIn (terbaik untuk posisi profesional dan multinasional), Glints (startup Asia Tenggara), Kalibrr (startup dan tech Indonesia), JobStreet (volume terbesar, semua level), dan Karir.com (perusahaan lokal). Daftarkan profil di setidaknya 3-4 platform untuk memaksimalkan eksposur.' },
+      { question: 'Berapa persen pekerjaan diisi melalui networking vs job portal?', answer: 'Studi global menunjukkan 70-80% posisi terisi melalui jaringan (networking), bukan iklan publik. Di Indonesia, angka ini mungkin lebih rendah untuk posisi entry-level, tapi networking tetap krusial untuk posisi menengah ke atas. Ini mengapa LinkedIn dan komunitas profesional sangat penting.' },
+    ],
+    body: `## Strategi Pencarian Kerja yang Efektif di Indonesia 2026
+
+Mencari pekerjaan di era digital membutuhkan pendekatan yang strategis dan multi-channel. Hanya mengandalkan satu job portal tidak cukup di pasar kerja yang kompetitif.
+
+### Framework 3-Track Pencarian Kerja
+
+**Track 1: Active Job Portals (40% waktu)**
+Daftar dan optimalkan profil di:
+- **LinkedIn** — terbaik untuk koneksi profesional dan perusahaan multinasional
+- **Glints** — startup dan perusahaan tech Asia Tenggara
+- **Kalibrr** — tech startup Indonesia dengan skill-based matching
+- **JobStreet** — volume terbesar, semua level dan industri
+
+Set job alert untuk posisi target Anda agar mendapat notifikasi real-time.
+
+**Track 2: Networking (40% waktu)**
+Networking adalah track paling efektif tapi paling sering diabaikan:
+- Hubungi alumni universitas yang bekerja di perusahaan target
+- Aktif di komunitas profesional (Discord, Telegram, LinkedIn groups)
+- Hadiri event industri: meetup, konferensi, webinar
+- Minta informational interview — "Saya ingin belajar tentang karier Anda di [perusahaan], boleh saya tanya 15-20 menit?"
+
+**Track 3: Direct Application (20% waktu)**
+Lamar langsung ke perusahaan impian melalui:
+- Website karir resmi perusahaan
+- Email langsung ke HR atau hiring manager (jika info tersedia)
+- Program graduate atau trainee khusus (banyak BUMN dan perusahaan besar punya program ini)
+
+### Tips Mengoptimalkan Pencarian
+
+1. **Tetapkan 5 perusahaan impian** dan pelajari mereka secara mendalam
+2. **Lamar 5-10 posisi per minggu** — konsistensi lebih penting dari kuantitas sesekali
+3. **Lacak semua lamaran** dalam spreadsheet (perusahaan, posisi, tanggal, status)
+4. **Ikuti perusahaan di LinkedIn** — agar tahu saat ada lowongan baru sebelum diiklankan luas
+
+Pastikan CV Anda siap sebelum mulai melamar. Buat CV yang optimal dengan [builder CV gratis kami](/id/builder).`
+  },
+
+  // ── Topic 6: Tips Interview Video ────────────────────────────────────────────
+  {
+    slug: 'tips-interview-video-online',
+    title: 'Tips Interview Video Online: Panduan Sukses Wawancara Zoom & Teams 2026',
+    description: 'Tips dan panduan menghadapi interview video online via Zoom, Teams, dan Google Meet 2026. Persiapan teknis, penampilan, bahasa tubuh, dan cara menjawab pertanyaan di wawancara video.',
+    category: 'Tips Karier',
+    tags: [
+      'tips interview video',
+      'interview online',
+      'wawancara via zoom',
+      'tips wawancara video',
+      'interview video call',
+      'persiapan interview online',
+      'cara interview zoom',
+      'wawancara online tips',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Tips Interview Video Online Zoom dan Teams 2026',
+    featured: false,
+    faq: [
+      { question: 'Apa persiapan teknis paling penting untuk interview video?', answer: 'Prioritas teknis: koneksi internet stabil (test sebelumnya), kamera yang jelas (minimal HD), mikrofon yang jernih (tidak harus mahal — earphone smartphone sering sudah cukup), dan background yang rapi. Test semua perangkat 30 menit sebelum interview.' },
+      { question: 'Haruskah pakai virtual background di interview video?', answer: 'Lebih baik hindari kecuali background asli Anda sangat tidak profesional. Virtual background sering terlihat artifisial, bisa bergerak, dan dapat mengganggu konsentrasi pewawancara. Jika harus pakai, pilih yang solid dan netral.' },
+    ],
+    body: `## Tips Interview Video Online: Panduan Lengkap 2026
+
+Interview video sudah menjadi standar dalam proses rekrutmen di Indonesia, terutama untuk tahap awal seleksi dan posisi remote. Menguasai interview video adalah keterampilan karier yang penting.
+
+### Persiapan 24 Jam Sebelum Interview
+
+**Teknis:**
+- Test koneksi internet (minimal 5Mbps upload)
+- Install dan test aplikasi (Zoom, Teams, Google Meet) — update ke versi terbaru
+- Test kamera dan mikrofon
+- Cari tahu apakah ada link meeting atau nomor yang perlu dihubungi
+
+**Visual:**
+- Siapkan area yang rapi dan tidak berantakan di belakang Anda
+- Atur pencahayaan — cahaya dari depan (lampu atau jendela di depan Anda), bukan dari belakang
+- Posisikan kamera setinggi mata — bukan dari bawah
+- Berpakaian profesional dari atas ke bawah (siapa tahu Anda harus berdiri)
+
+### Selama Interview Video
+
+**Kontak mata:**
+Lihat ke kamera (bukan ke layar) saat berbicara — ini menciptakan kesan kontak mata. Bagi waktu antara melihat kamera saat berbicara dan layar saat mendengarkan.
+
+**Bahasa tubuh:**
+Duduk tegak, condong sedikit ke depan menunjukkan keterlibatan. Senyum dan anggukan kepala secara alami.
+
+**Mendengarkan:**
+Karena ada delay audio, beri jeda sedikit sebelum menjawab — ini menghindari memotong pembicaraan.
+
+**Masalah teknis:**
+Jika ada gangguan teknis, minta maaf dengan tenang dan profesional: "Mohon maaf, koneksi saya terganggu sebentar. Bisa Anda ulangi pertanyaannya?"
+
+### Pertanyaan yang Perlu Disiapkan
+
+Siapkan 3-5 pertanyaan untuk pewawancara — ini menunjukkan antusiasme dan persiapan. Contoh: "Bagaimana budaya kerja tim saat remote?" atau "Apa tantangan terbesar dalam 6 bulan pertama di posisi ini?"
+
+Pastikan CV Anda sudah solid sebelum interview. Lihat [contoh CV profesional](/id/resume-examples) untuk memastikan Anda bisa menjawab pertanyaan tentang setiap item di CV Anda.`
+  },
+
+  // ── Topic 7: Kerja di Perusahaan Asing ──────────────────────────────────────
+  {
+    slug: 'cara-kerja-di-perusahaan-asing',
+    title: 'Cara Kerja di Perusahaan Asing dari Indonesia: Panduan 2026',
+    description: 'Panduan lengkap cara mendapatkan pekerjaan di perusahaan asing dari Indonesia 2026: persiapan CV, tips melamar, platform job internasional, dan posisi remote global untuk profesional Indonesia.',
+    category: 'Tips Karier',
+    tags: [
+      'kerja di perusahaan asing',
+      'melamar perusahaan internasional',
+      'remote kerja luar negeri',
+      'cv untuk perusahaan asing',
+      'cara kerja di perusahaan multinasional',
+      'pekerjaan internasional indonesia',
+      'remote job luar negeri',
+      'kerja remote global',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Cara Mendapatkan Kerja di Perusahaan Asing dari Indonesia 2026',
+    featured: false,
+    faq: [
+      { question: 'Apakah CV Indonesia sama dengan CV internasional?', answer: 'Ada beberapa perbedaan penting. CV internasional (terutama untuk perusahaan Barat) biasanya tidak mencantumkan foto, tanggal lahir, status pernikahan, atau agama. CV untuk posisi Asia atau regional lebih fleksibel. Yang paling penting: tulis dalam bahasa Inggris yang kuat, fokus pada pencapaian terukur, dan sesuaikan dengan standar industri global.' },
+      { question: 'Apa platform terbaik untuk mencari pekerjaan remote dari luar negeri?', answer: 'Platform populer: LinkedIn (terluas), Toptal (untuk profesional teknologi top), Remote.co, We Work Remotely, Upwork dan Fiverr (freelance), dan GitHub Jobs (tech). Untuk company tertentu, cek langsung career page mereka.' },
+    ],
+    body: `## Cara Mendapatkan Pekerjaan di Perusahaan Asing dari Indonesia
+
+Peluang kerja di perusahaan asing — baik langsung maupun remote — semakin terbuka bagi profesional Indonesia. Berikut strategi yang terbukti berhasil.
+
+### Jalur 1: Perusahaan Multinasional di Indonesia
+
+Cara termudah "kerja di perusahaan asing" adalah bergabung dengan cabang perusahaan internasional di Indonesia. Manfaat: tidak perlu pindah negara, gaji biasanya lebih tinggi dari perusahaan lokal.
+
+Platform untuk mencari: LinkedIn, website karir perusahaan multinasional (Google, Meta, Unilever, P&G, dll.)
+
+### Jalur 2: Remote Job Global
+
+Posisi remote dari perusahaan luar negeri menawarkan gaji dolar atau euro dengan biaya hidup Indonesia. Bidang yang paling banyak membuka remote global: Software Engineering, Product Management, Digital Marketing, Data Science, UX Design, dan Content Writing.
+
+**Platform terbaik:**
+- **LinkedIn** dengan filter "Remote"
+- **Remote.co** dan **We Work Remotely**
+- **Upwork** dan **Toptal** (freelance ke full-time)
+- **AngelList/Wellfound** (startup global)
+
+### Mempersiapkan CV untuk Perusahaan Asing
+
+**1. Tulis dalam Bahasa Inggris**
+Gunakan bahasa Inggris formal dan natural. Minta native speaker atau gunakan AI untuk memeriksa.
+
+**2. Format Internasional**
+- Hapus foto (opsional untuk Asia, wajib untuk Barat)
+- Hapus informasi personal yang tidak relevan (usia, agama, status)
+- Format tanggal: MM/YYYY atau Month YYYY
+
+**3. Menonjolkan Keunggulan sebagai Profesional Indonesia**
+- Pengalaman di pasar Asia Tenggara adalah aset berharga
+- Kemampuan bekerja lintas budaya
+- Familiarity dengan ekosistem startup Asia
+
+Buat CV berbahasa Inggris yang kuat menggunakan [builder CV kami](/id/builder) yang sudah dioptimalkan untuk standar internasional.`
+  },
+
+  // ── Topic 8: Gaji Rata-Rata Indonesia 2026 ──────────────────────────────────
+  {
+    slug: 'gaji-rata-rata-indonesia-2026',
+    title: 'Gaji Rata-Rata di Indonesia 2026: Berdasarkan Jabatan dan Industri',
+    description: 'Data gaji rata-rata di Indonesia 2026 berdasarkan jabatan, industri, dan kota. Panduan negosiasi gaji dan cara riset gaji pasar sebelum interview untuk profesional Indonesia.',
+    category: 'Tips Karier',
+    tags: [
+      'gaji rata-rata indonesia',
+      'gaji 2026 indonesia',
+      'gaji berdasarkan jabatan',
+      'kisaran gaji indonesia',
+      'standar gaji indonesia',
+      'gaji fresh graduate indonesia',
+      'gaji teknisi indonesia',
+      'info gaji indonesia',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Gaji Rata-Rata di Indonesia 2026 Berdasarkan Jabatan',
+    featured: false,
+    faq: [
+      { question: 'Di mana bisa cari data gaji yang akurat untuk Indonesia?', answer: 'Sumber data gaji Indonesia yang reliabel: Glassdoor Indonesia, LinkedIn Salary Insights, Jobstreet Salary Report, dan survei gaji dari konsultan HR seperti Willis Towers Watson dan Mercer. Untuk tech sector, komunitas seperti TechInAsia dan berbagai grup LinkedIn Indonesia sering berbagi benchmark gaji.' },
+      { question: 'Berapa gaji fresh graduate yang wajar di Jakarta?', answer: 'Ini sangat bervariasi per industri dan perusahaan. Startup tech biasanya Rp 5-10 juta untuk software engineer fresh graduate. Konsultan besar (McKinsey, BCG, Deloitte) bisa Rp 12-20 juta. BUMN sekitar Rp 5-8 juta. Bank Rp 7-12 juta. Perusahaan manufaktur Rp 4-7 juta.' },
+    ],
+    body: `## Gaji Rata-Rata di Indonesia 2026: Panduan Riset Kompensasi
+
+Mengetahui standar gaji pasar adalah kunci negosiasi kompensasi yang efektif. Tanpa data yang akurat, Anda berisiko menerima penawaran di bawah nilai pasar atau meminta angka yang tidak realistis.
+
+### Kisaran Gaji Berdasarkan Bidang (Jakarta, 2026)
+
+**Teknologi:**
+- Junior Software Engineer: Rp 7-12 juta/bulan
+- Mid-level Software Engineer: Rp 15-25 juta/bulan
+- Senior Software Engineer: Rp 25-45 juta/bulan
+- Product Manager: Rp 15-35 juta/bulan
+- Data Scientist: Rp 15-30 juta/bulan
+
+**Bisnis & Keuangan:**
+- Akuntan Junior: Rp 5-8 juta/bulan
+- Finance Manager: Rp 15-30 juta/bulan
+- Business Analyst: Rp 8-18 juta/bulan
+
+**Pemasaran:**
+- Digital Marketing Specialist: Rp 6-12 juta/bulan
+- Marketing Manager: Rp 15-30 juta/bulan
+
+**Perbedaan Kota:**
+Jakarta umumnya 20-40% lebih tinggi dari kota-kota besar lain. Bandung, Surabaya, Bali sekitar 15-25% di bawah Jakarta.
+
+### Cara Riset Gaji Sebelum Interview
+
+1. **Glassdoor Indonesia** — salah satu database gaji terlengkap dengan review perusahaan
+2. **LinkedIn Salary** — benchmark berdasarkan profil yang serupa
+3. **JobStreet Salary Report** — laporan tahunan yang detail
+4. **Komunitas profesional** — grup LinkedIn, Discord, atau Telegram bidang Anda
+
+### Tips Negosiasi Gaji
+
+Saat ditanya ekspektasi gaji:
+- Selalu berikan rentang (bukan angka tunggal): "Saya berharap di kisaran X-Y juta berdasarkan riset pasar dan pengalaman saya"
+- Rentang bawah harus angka yang benar-benar Anda terima
+- Sertakan context: "Ini sesuai dengan benchmark untuk [posisi] dengan [X tahun] pengalaman di Jakarta"
+
+Lihat [tips negosiasi gaji](/id/blog/cara-negosiasi-gaji-indonesia) untuk panduan lebih lengkap tentang cara menegosiasikan kompensasi terbaik.`
+  },
+
+  // ── Topic 9: Platform Kerja Terbaik Indonesia ───────────────────────────────
+  {
+    slug: 'platform-kerja-terbaik-indonesia',
+    title: 'Platform Kerja Terbaik di Indonesia 2026: Perbandingan Lengkap',
+    description: 'Perbandingan platform kerja terbaik di Indonesia 2026: Kalibrr, Glints, LinkedIn, JobStreet, Karir.com. Panduan memilih platform yang tepat untuk industri dan level karier Anda.',
+    category: 'Tips Melamar',
+    tags: [
+      'platform kerja indonesia',
+      'job portal indonesia',
+      'situs lowongan kerja',
+      'kalibrr glints jobstreet',
+      'lowongan kerja online indonesia',
+      'website cari kerja',
+      'aplikasi melamar kerja',
+      'job board indonesia terbaik',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Perbandingan Platform Kerja Terbaik di Indonesia 2026',
+    featured: true,
+    faq: [
+      { question: 'Mana yang lebih baik: Kalibrr, Glints, atau LinkedIn?', answer: 'Tergantung tujuan. LinkedIn terbaik untuk koneksi profesional dan perusahaan multinasional. Glints cocok untuk startup Asia Tenggara dan posisi tech. Kalibrr menggunakan skill-based matching yang akurat untuk tech startup Indonesia. Idealnya: daftar di ketiganya dan optimalkan profil di masing-masing.' },
+      { question: 'Apakah Prakerja bisa membantu pencarian kerja?', answer: 'Prakerja memberikan subsidi untuk kursus pelatihan yang meningkatkan keterampilan dan daya saing. Kartu Prakerja sendiri bukan platform lowongan, tapi keterampilan dari pelatihan Prakerja bisa memperkuat CV dan profil profesional Anda.' },
+    ],
+    body: `## Perbandingan Platform Kerja Terbaik di Indonesia 2026
+
+Dengan banyaknya job portal yang tersedia, penting untuk memilih platform yang paling efektif untuk profil dan tujuan karier Anda.
+
+### Perbandingan Platform Utama
+
+| Platform | Keunggulan | Terbaik untuk |
+|----------|-----------|---------------|
+| **LinkedIn** | Networking terluas, perusahaan multinasional | Profesional menengah-senior, tech, konsultasi |
+| **Glints** | Startup Asia Tenggara, remote-friendly | Tech, digital marketing, startup fresh grad |
+| **Kalibrr** | Skill-based matching, UI modern | Tech startup Indonesia, fresh graduate tech |
+| **JobStreet** | Volume terbesar, semua level | Semua bidang, terutama perusahaan besar dan BUMN |
+| **Karir.com** | Perusahaan lokal dan BUMN | Profesional yang prefer perusahaan Indonesia |
+| **Indeed** | Agregator lowongan global | Semua bidang, termasuk perusahaan asing di Indonesia |
+
+### Tips Optimasi Per Platform
+
+**LinkedIn:**
+- Profil lengkap dengan foto profesional, headline yang kuat, dan ringkasan yang menarik
+- Aktif beri komentar dan share konten industri — ini meningkatkan visibilitas profil
+- Minta rekomendasi dari atasan dan kolega terdahulu
+
+**Glints:**
+- Lengkapi semua bagian profil termasuk portofolio dan sertifikasi
+- Aktifkan notifikasi untuk job alert sesuai skill Anda
+- Ikuti perusahaan yang Anda minati
+
+**Kalibrr:**
+- Tambahkan skill assessment untuk meningkatkan match score
+- Update "Status pencarian kerja" agar recruiter tahu Anda aktif mencari
+
+### Strategi Multi-Platform
+
+Jangan hanya mengandalkan satu platform. Set job alert di 3-4 platform yang paling relevan dengan bidang Anda, dan check setiap hari di jam yang sama untuk menjaga konsistensi.
+
+Sebelum mendaftar di platform manapun, pastikan CV Anda sudah optimal. Buat CV profesional yang siap di semua platform menggunakan [builder CV gratis kami](/id/builder).`
+  },
 ];

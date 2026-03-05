@@ -168,6 +168,18 @@ const id: TemplatesCategoryContent = {
   breadcrumbTemplates: 'Template',
 };
 
+const pl: TemplatesCategoryContent = {
+  fallbackTitle: 'Szablony CV | Best AI Resume',
+  collectionSuffix: 'Kolekcja',
+  availableTemplates: 'Dostępne Szablony',
+  editInAI: 'Edytuj z AI',
+  tiredTitle: 'Zmęczony formatowaniem pliku?',
+  tiredSubtitle: 'Pobieranie szablonów to dobry start, ale ich wypełnianie jest uciążliwe. Nasz Kreator CV z AI robi formatowanie za Ciebie natychmiast.',
+  buildWithAI: 'Stwórz z AI',
+  breadcrumbHome: 'Strona główna',
+  breadcrumbTemplates: 'Szablony',
+};
+
 const nl: TemplatesCategoryContent = {
   fallbackTitle: 'CV-sjablonen | Best AI Resume',
   collectionSuffix: 'Collectie',
@@ -180,6 +192,6 @@ const nl: TemplatesCategoryContent = {
   breadcrumbTemplates: 'Sjablonen',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

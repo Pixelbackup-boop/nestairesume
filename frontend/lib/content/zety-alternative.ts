@@ -1646,6 +1646,124 @@ const id: ComparisonPageContent = {
   },
 };
 
+const pl: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatywa Zety 2026: Darmowy Kreator CV AI | Best AI Resume',
+    description: 'Szukasz darmowej alternatywy dla Zety? Porównaj Zety vs Best AI Resume — kreator CV z AI, szablony ATS, nieograniczone pobieranie. Bez ukrytych kosztów i pułapek cenowych.',
+    keywords: 'alternatywa zety, zety cv, kreator cv za darmo, szablon cv, cv ai polska, darmowy kreator cv, zety alternatywa polska',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatywa Zety',
+    articleHeadline: 'Alternatywa Zety 2026: Darmowy Kreator CV z AI Bez Ukrytych Kosztów',
+    articleDescription: 'Porównaj Zety vs Best AI Resume Builder. Twórz profesjonalne CV z pomocą AI, optymalizacją ATS i nieograniczonym pobieraniem — całkowicie za darmo.',
+  },
+  hero: {
+    badge: 'Alternatywa Zety',
+    title: 'Twórz CV.',
+    titleHighlight: 'Pobieraj Za Darmo.',
+    subtitle: 'Zety pozwala tworzyć CV — ale potem żąda <strong>$23,70/miesiąc</strong> za pobranie. Oferujemy pisanie z pomocą AI, szablony CV ATS i nieograniczone eksporty za <strong>0 zł</strong>.',
+    ctaPrimary: 'Utwórz Moje CV Za Darmo',
+    ctaSecondary: 'Zobacz Porównanie',
+  },
+  problem: {
+    title: 'Pułapka Cenowa Zety',
+    description: 'Zety ma profesjonalne szablony i przydatne sugestie treści. Problem tkwi w modelu cenowym: budujesz pełne CV, a dopiero potem odkrywasz, że musisz zapłacić za pobranie. <strong>Okres próbny 14 dni kosztuje $2,70</strong>, po czym automatycznie odnawia się za <strong>$23,70/miesiąc</strong>. Tysiące użytkowników zgłasza nieoczekiwane opłaty po zapomnieniu o anulowaniu.',
+    stats: [
+      { value: '$2,70', label: '14-dniowy okres próbny (automatyczne odnowienie za $23,70/mies.)' },
+      { value: '$284', label: 'roczny koszt, jeśli zapomnisz anulować' },
+      { value: '0 zł', label: 'Best AI Resume Builder — darmowy na zawsze' },
+    ],
+  },
+  comparison: {
+    title: 'Zety vs Best AI Resume Builder',
+    subtitle: 'Porównanie funkcja po funkcji.',
+    competitorName: 'Zety',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Cena', competitor: '❌ $2,70 próbny → $23,70/mies. automatyczne odnowienie', ours: '✅ 100% darmowy na zawsze' },
+      { feature: 'Darmowe Pobieranie', competitor: '❌ Płatność wymagana do pobrania PDF', ours: '✅ Nieograniczone darmowe eksporty PDF' },
+      { feature: 'Pisanie z AI', competitor: '⚠️ Gotowe sugestie (bez prawdziwej AI)', ours: '✅ AI tworzy spersonalizowaną treść CV' },
+      { feature: 'Optymalizacja ATS', competitor: '✅ Sprawdzanie CV w zestawie', ours: '✅ Wynik ATS w czasie rzeczywistym + słowa kluczowe' },
+      { feature: 'Jakość Szablonów', competitor: '✅ Profesjonalne, nowoczesne projekty', ours: '✅ 20+ testowanych szablonów ATS' },
+      { feature: 'Liczba CV', competitor: '⚠️ Nieograniczone (ale za paywallem)', ours: '✅ Nieograniczone CV, za darmo' },
+      { feature: 'Kreator Listu Motywacyjnego', competitor: '✅ W zestawie (płatna subskrypcja)', ours: '✅ Wspomagany AI (darmowy)' },
+      { feature: 'Sugestie Treści', competitor: '✅ Gotowe zdania według tytułu stanowiska', ours: '✅ AI dostosowane do Twojego doświadczenia' },
+      { feature: 'Anulowanie', competitor: '❌ Trzeba anulować przed końcem okresu próbnego', ours: '✅ Nic do anulowania' },
+      { feature: 'Opinie (Trustpilot)', competitor: '⚠️ Mieszane — skargi na fakturowanie', ours: '✅ Brak problemów z fakturowaniem' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Powody, by Przejść z Zety',
+    subtitle: 'Naprawdę za darmo. Lepsza AI. Bez pułapek.',
+    reasons: [
+      { title: 'Naprawdę Darmowe Pobieranie', description: 'Zety pobiera opłatę po stworzeniu CV. U nas pobierasz wszystko bezpłatnie — bez okresu próbnego, bez karty kredytowej, bez automatycznego odnowienia.' },
+      { title: 'Prawdziwa AI (Nie Gotowe Zdania)', description: 'Sugestie Zety opierają się na bibliotekach gotowych zdań. Nasza AI generuje naprawdę spersonalizowaną treść dla każdej sekcji CV, dostosowaną do polskiego rynku pracy.' },
+      { title: 'Lepsza Optymalizacja ATS', description: 'Oferujemy wyniki ATS w czasie rzeczywistym, sugestie słów kluczowych dla branży i szablony testowane pod systemy używane na polskim rynku pracy.' },
+    ],
+  },
+  recommendation: {
+    title: 'Uczciwa Rekomendacja',
+    useCompetitor: {
+      title: 'Zety jest odpowiednie, jeśli...',
+      items: [
+        'Jesteś gotowy płacić $23,70/mies. za narzędzie do tworzenia CV',
+        'Preferujesz gotowe sugestie treści zamiast generowania AI',
+        'Chcesz rozpoznawalnej marki w swoim kreatorze CV',
+        'Zawsze anulujesz próbne subskrypcje na czas',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes jest lepszy, jeśli...',
+      items: [
+        'Chcesz pobrać CV bez płacenia',
+        'Preferujesz AI tworzącą spersonalizowaną treść na podstawie Twojego doświadczenia',
+        'Potrzebujesz kilku wersji CV do różnych aplikacji',
+        'Chcesz wyników ATS w czasie rzeczywistym z sugestiami słów kluczowych',
+        'Nie chcesz kłopotów z okresami próbnymi, anulowaniami ani nieoczekiwanymi kosztami',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Przeglądaj 300+ Darmowych Wzorów CV',
+    description: 'Przeglądaj profesjonalne wzory CV dla każdej pracy i branży.',
+    ctaBrowse: 'Przeglądaj Wzory CV',
+    ctaTemplates: 'Przeglądaj Wszystkie Szablony',
+  },
+  faq: {
+    title: 'Najczęściej Zadawane Pytania',
+    items: [
+      { question: 'Czy Zety jest darmowe?', answer: 'Zety pozwala tworzyć CV za darmo, ale pobranie wymaga płatnej subskrypcji — $2,70 za 14-dniowy okres próbny, który automatycznie odnawia się za $23,70/miesiąc. Wielu użytkowników zgłasza nieoczekiwane opłaty po zakończeniu próby. Best AI Resume Builder jest w 100% darmowy bez pułapek cenowych.' },
+      { question: 'Czy Zety to legalny kreator CV?', answer: 'Tak, Zety to legalna firma z profesjonalnymi szablonami. Jednak model cenowy frustruje wielu użytkowników — budujesz pełne CV, zanim dowiesz się, że musisz zapłacić za pobranie. Best AI Resume Builder pozwala tworzyć, pobierać i eksportować za darmo od samego początku.' },
+      { question: 'Jaka jest najlepsza darmowa alternatywa dla Zety?', answer: 'Best AI Resume Builder to najlepsza darmowa alternatywa. Oferuje pisanie z AI, 20+ testowanych szablonów ATS, wyniki ATS w czasie rzeczywistym i nieograniczone eksporty PDF — całkowicie za darmo. Bez okresu próbnego, bez karty kredytowej.' },
+      { question: 'Czy Zety ma funkcje AI?', answer: 'Zety oferuje gotowe sugestie treści i sprawdzanie CV, ale brakuje prawdziwej AI opartej na dużych modelach językowych. Best AI Resume Builder używa zaawansowanej AI do generowania spersonalizowanych opisów stanowisk, podsumowań i dopasowanej treści.' },
+      { question: 'Czy mogę anulować Zety po pobraniu CV?', answer: 'Tak, ale musisz anulować przed końcem 14-dniowego okresu próbnego, żeby uniknąć opłaty $23,70/mies. Wielu użytkowników zgłasza trudności z anulowaniem lub nieoczekiwane opłaty. W Best AI Resume Builder nie ma nic do anulowania — za darmo na zawsze.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Porównaj Inne Kreatory CV',
+    items: [
+      { href: '/pl/canva-alternative', title: 'Alternatywa Canva', subtitle: 'Narzędzie do projektowania vs kreator CV AI' },
+      { href: '/pl/rezi-alternative', title: 'Alternatywa Rezi', subtitle: 'Porównanie funkcji AI' },
+      { href: '/pl/resume-io-alternative', title: 'Alternatywa Resume.io', subtitle: 'Porównanie cen i funkcji' },
+    ],
+    guidesTitle: 'Przydatne Poradniki CV',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Zewnętrzne Zasoby',
+    items: [
+      { href: 'https://zety.com/', label: 'Zety — Oficjalna Strona' },
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy portal pracy w Polsce' },
+    ],
+  },
+  bottomCta: {
+    title: 'Bez Okresu Próbnego. Bez Pułapek. Po Prostu Za Darmo.',
+    description: 'Twórz, pobieraj i udostępniaj CV bez podawania karty kredytowej. Pisanie z AI, szablony CV ATS, nieograniczone eksporty — wszystko za darmo.',
+    cta: 'Utwórz Moje CV Za Darmo',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej.',
+  },
+};
+
 const nl: ComparisonPageContent = {
   meta: {
     title: 'Zety Alternatief 2026: Gratis CV Maken met AI | Best AI Resume',
@@ -1764,5 +1882,5 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

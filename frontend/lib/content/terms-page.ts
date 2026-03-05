@@ -956,6 +956,78 @@ const id: TermsContent = {
   lastUpdated: 'Terakhir diperbarui: Januari 2026',
 };
 
+const pl: TermsContent = {
+  hero: {
+    badge: 'Regulamin',
+    title: 'Proste, przejrzyste',
+    titleHighlight: 'warunki użytkowania',
+    subtitle: 'Wierzymy w transparentność i prostotę. Nasze warunki są napisane zrozumiałym językiem, abyś dokładnie wiedział, czego możesz oczekiwać korzystając z Best AI Resume.',
+  },
+  highlights: [
+    { title: 'Brak Ukrytych Opłat', text: 'Co widzisz, to płacisz. Nasze ceny są transparentne — bez niespodzianek ani ukrytych kosztów.' },
+    { title: 'Twoje Dane, Twoja Kontrola', text: 'Przechowujemy tylko Twój adres e-mail i nazwę do celów logowania. Zawartość CV pozostaje w Twojej przeglądarce — nigdy na naszych serwerach.' },
+    { title: '7-dniowy Darmowy Okres Próbny', text: 'Wypróbuj wszystkie funkcje premium przez 7 dni za darmo. Żadnych opłat do końca okresu próbnego, anulowanie w dowolnym momencie bez kosztów.' },
+  ],
+  sections: [
+    {
+      heading: 'Przegląd Usługi',
+      intro: 'Best AI Resume to kreator CV online, który umożliwia tworzenie profesjonalnych CV przy użyciu narzędzi opartych na AI. Korzystając z naszej usługi, akceptujesz niniejsze warunki.',
+      items: ['Twórz nieograniczoną liczbę CV przy użyciu naszych narzędzi', 'Dostęp do sugestii treści i ulepszeń opartych na AI', 'Pobieraj CV w formacie PDF', 'Wybieraj spośród profesjonalnie zaprojektowanych szablonów'],
+    },
+    {
+      heading: 'Konto i Transparentność Danych',
+      subsections: [
+        { subheading: 'Co Przechowujemy na Naszych Serwerach', items: ['**Adres e-mail** — Do logowania i ważnych powiadomień', '**Nazwa** — Aby spersonalizować Twoje doświadczenie', '**Hasło (zaszyfrowane)** — Bezpiecznie zahashowane do uwierzytelnienia', '**Status subskrypcji** — Do zarządzania korzyściami z planu'] },
+        { subheading: 'Czego NIE Przechowujemy', items: ['Zawartości Twojego CV (przechowywana lokalnie w przeglądarce)', 'Historii pracy ani danych zatrudnienia', 'Informacji o wykształceniu ani umiejętnościach', 'Adresu ani numeru telefonu'] },
+      ],
+      intro: 'Jesteśmy zaangażowani w minimalne zbieranie danych. Przechowujemy tylko to, co absolutnie niezbędne do działania konta:',
+    },
+    {
+      heading: 'Subskrypcja i Płatności',
+      subsections: [
+        { subheading: 'Subskrypcja Miesięczna', items: ['**Cykl rozliczeniowy** — Opłata jest pobierana miesięcznie w dniu subskrypcji', '**Automatyczne odnawianie** — Subskrypcje odnawiają się automatycznie, jeśli nie zostaną anulowane', '**Transparentność cen** — Cena pokazana przy kasie to cena, którą płacisz (plus ewentualne podatki)'] },
+        { subheading: 'Polityka Anulowania', items: ['Anuluj w dowolnym momencie przez panel konta — bez pytań', 'Dostęp pozostaje aktywny do końca bieżącego okresu rozliczeniowego', 'Brak opłat za anulowanie ani kar', 'Twoje lokalne dane pozostają nienaruszone po anulowaniu'] },
+        { subheading: '7-dniowy Darmowy Okres Próbny', items: ['**Pełny dostęp** — Wypróbuj wszystkie funkcje premium przez 7 dni za darmo', '**Bez opłat w trakcie próby** — Żadnych płatności do końca okresu próbnego', '**Anuluj w dowolnym momencie** — Anuluj przed końcem okresu próbnego i nic nie płacisz', '**E-mail przypominający** — Powiadomimy Cię przed końcem okresu próbnego'] },
+      ],
+    },
+    {
+      heading: 'Bezpłatny Dostęp i Płatne Subskrypcje',
+      intro: 'Przed subskrypcją możesz:',
+      items: ['Przeglądać wszystkie szablony i wyświetlać podglądy', 'Tworzyć i zapisywać CV na koncie', 'Przeglądać przykłady CV i porady kariery'],
+    },
+    {
+      heading: 'Obowiązki Użytkownika',
+      intro: 'Korzystając z naszej usługi, zgadzasz się:',
+      items: ['Podawać dokładne informacje podczas rejestracji konta', 'Zabezpieczać dane logowania do konta', 'Używać usługi wyłącznie do legalnych celów', 'Nie próbować obchodzić ani nadużywać usługi'],
+    },
+    {
+      heading: 'Własność Intelektualna',
+      items: ['**Twoje treści** — Zachowujesz pełne prawo własności do wszystkich treści tworzonych w naszej usłudze', '**Nasze szablony** — Projekty szablonów są licencjonowane do użytku osobistego i zawodowego', '**Treści generowane przez AI** — Tekst wygenerowany przez nasz AI należy do Ciebie do swobodnego użytku'],
+    },
+    {
+      heading: 'Dostępność Usługi',
+      intro: 'Dążymy do wysokiej dostępności usługi, jednak:',
+      items: ['Okazjonalna konserwacja może powodować tymczasowe przerwy', 'Informujemy użytkowników z wyprzedzeniem o planowanych pracach konserwacyjnych', 'Twoje lokalne dane pozostają dostępne nawet gdy nasze serwery są offline'],
+    },
+    {
+      heading: 'Zmiany Warunków',
+      intro: 'Możemy od czasu do czasu aktualizować niniejsze warunki. Powiadomimy Cię o istotnych zmianach przez e-mail lub w naszej usłudze. Dalsze korzystanie z usługi po zmianach oznacza akceptację nowych warunków.',
+    },
+    {
+      heading: 'Skontaktuj Się z Nami',
+    },
+  ],
+  contactText: 'Masz pytania dotyczące niniejszych warunków? Skontaktuj się z nami pod adresem',
+  cta: {
+    title: 'Gotowy, aby stworzyć',
+    titleHighlight: 'profesjonalne CV?',
+    subtitle: 'Proste ceny, przejrzyste warunki i Twoje dane należą do Ciebie.',
+    primaryBtn: 'Zacznij za darmo',
+    secondaryBtn: 'Zobacz plany',
+  },
+  lastUpdated: 'Ostatnia aktualizacja: styczeń 2026',
+};
+
 const nl: TermsContent = {
   hero: {
     badge: 'Algemene Voorwaarden',
@@ -1028,6 +1100,6 @@ const nl: TermsContent = {
   lastUpdated: 'Laatste update: januari 2026',
 };
 
-const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, nl };
+const contentMap: Record<string, TermsContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

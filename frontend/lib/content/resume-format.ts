@@ -2169,6 +2169,185 @@ const id: ResumeFormatPageContent = {
   },
 };
 
+const pl: ResumeFormatPageContent = {
+  meta: {
+    title: 'Format CV 2026: Jaki Układ CV Wybrać? | Best AI Resume',
+    description:
+      'Dowiedz się, jaki format CV najlepiej pasuje do Twojej sytuacji. Porównaj CV chronologiczne, funkcjonalne i kombinowane. Darmowe szablony CV przyjazne ATS. 2026.',
+    keywords:
+      'format cv, układ cv, szablon cv, cv chronologiczne, cv funkcjonalne, format cv 2026, cv ats, wzór cv',
+  },
+  schemas: {
+    breadcrumbName: 'Przewodnik po Formatach CV',
+    howToName: 'Jak wybrać właściwy format CV',
+    howToDescription:
+      'Porównaj 3 formaty CV (chronologiczne, funkcjonalne, kombinowane) i wybierz najlepszy format dla swojej sytuacji zawodowej.',
+    howToSteps: [
+      'Oceń swój etap kariery (początkujący, doświadczony specjalista, menedżer)',
+      'Porównaj wady i zalety 3 formatów CV',
+      'Sprawdź wynik zgodności z ATS',
+      'Wybierz szablon i stwórz CV',
+    ],
+    howToToolName: 'Best AI Resume — Kreator CV',
+  },
+  hero: {
+    badge: 'Przewodnik po formatach CV 2026',
+    title: 'Wybierz właściwy format CV',
+    titleHighlight: 'i przejdź przez pierwszą selekcję',
+    subtitle:
+      'Chronologiczne, funkcjonalne czy kombinowane — wybór odpowiedniego <strong>układu CV</strong> to pierwszy kluczowy krok w procesie rekrutacji. Z naszym kreatorem CV napędzanym AI zmienisz format jednym kliknięciem.',
+    ctaCompare: 'Porównaj formaty',
+    ctaBuild: 'Stwórz CV za darmo',
+  },
+  comparison: {
+    title: 'Porównanie 3 formatów CV',
+    subtitle: 'Funkcje, idealne zastosowanie i zgodność z ATS każdego formatu przedstawione klarownie.',
+    tableHeaders: {
+      format: 'Format',
+      bestFor: 'Idealny dla',
+      avoidIf: 'Unikaj, gdy',
+      atsSafety: 'Bezpieczeństwo ATS',
+    },
+    formats: [
+      {
+        name: 'Chronologiczne (odwrotna kolejność)',
+        badge: 'Najczęściej używane',
+        badgeColor: 'green',
+        bestFor: [
+          'Kandydaci bez znaczących przerw w karierze',
+          'Specjaliści rozwijający się w tej samej branży',
+          'Osoby, których najnowsze doświadczenie bezpośrednio odpowiada stanowisku',
+        ],
+        avoidIf: 'Jeśli masz długie okresy bez zatrudnienia',
+        atsScore: 98,
+        atsColor: 'green',
+      },
+      {
+        name: 'Funkcjonalne (ukierunkowane na umiejętności)',
+        badge: 'Ukierunkowane na umiejętności',
+        badgeColor: 'amber',
+        bestFor: [
+          'Osoby chcące zmienić branżę',
+          'Osoby z przerwami w karierze',
+          'Absolwenci lub freelancerzy',
+        ],
+        avoidIf: 'Gdy aplikujesz do firm konserwatywnych lub dużych korporacji',
+        atsScore: 72,
+        atsColor: 'amber',
+      },
+      {
+        name: 'Kombinowane',
+        badge: 'Zrównoważone',
+        badgeColor: 'blue',
+        bestFor: [
+          'Osoby z silnymi umiejętnościami i szerokim doświadczeniem',
+          'Stanowiska kierownicze lub seniorskie',
+          'Osoby chcące podkreślić zarówno umiejętności, jak i wyniki',
+        ],
+        avoidIf: 'Jeśli masz niewielkie doświadczenie zawodowe',
+        atsScore: 90,
+        atsColor: 'green',
+      },
+    ],
+  },
+  chronological: {
+    title: 'Chronologiczny format CV (odwrotna kolejność)',
+    description:
+      'Ten format pokazuje doświadczenie zawodowe od najnowszego do najstarszego. Jest najchętniej wybieranym formatem przez polskich i międzynarodowych rekruterów, zapewniając maksymalną zgodność z ATS.',
+    whyLoveTitle: 'Dlaczego pracodawcy preferują ten format',
+    whyLoveText:
+      'Chronologiczne CV pozwala rekruterom natychmiast zobaczyć Twój rozwój zawodowy. Systemy ATS przetwarzają ten format z najwyższą dokładnością — dlatego duże polskie firmy, korporacje wielonarodowe i instytucje publiczne preferują właśnie ten format.',
+    structureTitle: 'Struktura sekcji',
+    sections: [
+      { label: 'Dane osobowe i kontaktowe', detail: 'Imię i nazwisko, e-mail, telefon, miejscowość', isCore: true },
+      { label: 'Podsumowanie zawodowe', detail: '3-4 zdania podsumowujące Twoje doświadczenie i kluczowe umiejętności', isCore: true },
+      { label: 'Doświadczenie zawodowe', detail: 'Od najnowszego do najstarszego (firma, okres, osiągnięcia)', isCore: true },
+      { label: 'Wykształcenie', detail: 'Najnowsze i najbardziej relevantne dyplomy' },
+      { label: 'Umiejętności', detail: 'Umiejętności techniczne, certyfikaty i języki' },
+    ],
+    downloadLabel: 'Pobierz szablon',
+    aiLabel: 'Stwórz z AI',
+  },
+  functional: {
+    title: 'Funkcjonalny format CV (ukierunkowany na umiejętności)',
+    description: 'Ten format strukturyzuje CV na podstawie umiejętności i kompetencji zamiast chronologii.',
+    warningTitle: 'Uwaga na zgodność z ATS',
+    warningText:
+      'Niektóre systemy ATS mają problem z funkcjonalnymi CV, w których doświadczenie zawodowe jest zminimalizowane.',
+    structureTitle: 'Struktura sekcji',
+    sections: [
+      { label: 'Dane osobowe i kontaktowe', isCore: true },
+      { label: 'Podsumowanie zawodowe', isCore: true },
+      {
+        label: 'Kluczowe obszary kompetencji',
+        detail: '3-4 główne obszary z konkretnymi wynikami dla każdego',
+        isCore: true,
+      },
+      { label: 'Doświadczenie zawodowe (skrócone)', detail: 'Tylko firma, stanowisko i okres' },
+      { label: 'Wykształcenie' },
+    ],
+    downloadLabel: 'Pobierz szablon',
+    aiLabel: 'Stwórz z AI',
+  },
+  combination: {
+    title: 'Kombinowany format CV',
+    description: 'Łączy mocne strony formatu chronologicznego i funkcjonalnego.',
+    whoForTitle: 'Kiedy wybrać ten format',
+    whoForItems: [
+      'Menedżerowie średniego i wyższego szczebla z szerokim doświadczeniem i umiejętnościami zarządzania',
+      'Osoby chcące pokazać głębię doświadczenia i zróżnicowany zestaw umiejętności',
+      'Osoby aplikujące na stanowiska, gdzie ważne są zarówno wyniki techniczne, jak i operacyjne',
+      'Osoby z karierą zbudowaną w różnych branżach',
+    ],
+    downloadLabel: 'Pobierz szablon',
+    aiLabel: 'Stwórz z AI',
+  },
+  faq: {
+    title: 'Często zadawane pytania',
+    items: [
+      {
+        question: 'Jaki format CV jest najpopularniejszy w Polsce?',
+        answer:
+          'W Polsce odwrotnie chronologiczny format jest najpopularniejszy w sektorze prywatnym. Duże firmy, korporacje wielonarodowe i firmy technologiczne oczekują tego formatu. W instytucjach publicznych mogą być wymagane specyficzne formularze aplikacyjne.',
+      },
+      {
+        question: 'Często zmieniałem pracę — jaki format będzie najlepszy?',
+        answer:
+          'Kombinowany format będzie wtedy najlepszym wyborem. Możesz podkreślić umiejętności, jednocześnie zachowując chronologiczną historię pracy. W ten sposób pokażesz zarówno głębię, jak i wszechstronność.',
+      },
+      {
+        question: 'Jaki format jest odpowiedni dla absolwenta?',
+        answer:
+          'Chronologiczny format jest idealny dla absolwentów. Umieść wykształcenie przed doświadczeniem zawodowym, aby podkreślić osiągnięcia akademickie, staże i projekty.',
+      },
+      {
+        question: 'Czym jest CV przyjazne ATS?',
+        answer:
+          'ATS (Applicant Tracking System) to oprogramowanie używane przez firmy do filtrowania CV. CV przyjazne ATS ma prostą strukturę, czytelne nagłówki i odpowiednie słowa kluczowe — bez tabel ani wykresów. Format chronologiczny działa najlepiej z tymi systemami.',
+      },
+      {
+        question: 'Czy Europass CV jest przydatne w Polsce?',
+        answer:
+          'Europass jest standardowym formatem przy aplikowaniu do instytucji UE i jest rzadko stosowany na polskim rynku pracy. Jeśli aplikujesz do instytucji unijnej, Europass może być rozważany; jednak na polskim rynku prywatnym format chronologiczny jest znacznie skuteczniejszy.',
+      },
+    ],
+  },
+  externalResources: {
+    title: 'Zewnętrzne zasoby',
+    items: [
+      { href: 'https://www.pracuj.pl/', label: 'Pracuj.pl — Największy polski portal pracy' },
+      { href: 'https://www.linkedin.com/jobs/', label: 'LinkedIn Jobs — Największa platforma ofert pracy' },
+    ],
+  },
+  stickyCta: { text: 'Znalazłeś właściwy format CV?', ctaLabel: 'Stwórz CV teraz' },
+  bottomCta: {
+    title: 'Koniec z problemami z formatem CV',
+    description:
+      'Nasz kreator CV napędzany AI automatycznie optymalizuje format, czcionki i marginesy. Wybieraj spośród 20+ szablonów zgodnych z ATS.',
+    ctaLabel: 'Stwórz CV za darmo',
+  },
+};
+
 const nl: ResumeFormatPageContent = {
   meta: {
     title: 'CV Lay-out 2026: Welk CV Format Kiezen? | Best AI Resume',
@@ -2348,7 +2527,7 @@ const nl: ResumeFormatPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

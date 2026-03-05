@@ -1413,6 +1413,114 @@ const id: LandingPageContent = {
   },
 };
 
+const pl: LandingPageContent = {
+  meta: {
+    title: 'Kreator CV | Darmowy Kreator CV z AI 2026 | CV Online',
+    description: 'Stwórz profesjonalne CV w minutach z naszym darmowym kreatorem CV z AI. Szablony ATS, pomoc w pisaniu z AI i natychmiastowe pobieranie PDF.',
+    keywords: 'kreator cv, kreator cv online, darmowy kreator cv, kreator cv z ai, kreator cv ai, cv online, stworz cv, profesjonalne cv',
+  },
+  schemas: {
+    breadcrumbName: 'Kreator CV',
+    articleHeadline: 'Darmowy Kreator CV: Twórz CV z AI Online 2026',
+    articleDescription: 'Stwórz profesjonalne CV w minutach z naszym darmowym kreatorem CV z AI. Szablony ATS, pomoc w pisaniu z AI i natychmiastowe pobieranie PDF.',
+    softwareAppName: 'Best AI Kreator CV',
+  },
+  hero: {
+    badge: 'Darmowy Kreator CV z AI',
+    title: 'Stwórz profesjonalne CV',
+    titleHighlight: 'gotowe w kilka minut',
+    subtitle: 'Nasz darmowy <strong>kreator CV</strong> używa AI do pisania przekonującej treści, optymalizowania CV pod systemy ATS i zapewniania Ci więcej zaproszeń na rozmowy. <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% dużych pracodawców</a> używa oprogramowania ATS — zoptymalizowane CV jest niezbędne. Nie jest wymagana znajomość designu.',
+    ctaPrimary: 'Stwórz moje CV za darmo',
+    ctaSecondary: 'Przeglądaj szablony',
+    trustBadges: ['Bez rejestracji', 'Bez karty kredytowej', 'Darmowe pobieranie PDF'],
+  },
+  features: {
+    title: 'Dlaczego wybrać nasz darmowy kreator CV?',
+    subtitle: 'Coś więcej niż tylko szablon — nasz kreator CV z AI pomaga pisać lepszą treść i przechodzić przez selekcję ATS.',
+    items: [
+      { feature: 'Pomoc AI w pisaniu', description: 'Nasza AI pisze profesjonalne opisy stanowisk, podsumowania i opisy umiejętności dostosowane do Twojej branży i poziomu doświadczenia.' },
+      { feature: 'Szablony zoptymalizowane pod ATS', description: 'Każdy szablon jest testowany pod główne systemy ATS takie jak Workday, Taleo i Greenhouse. Twoje CV przejdzie przez filtry selekcji.' },
+      { feature: 'Natychmiastowe pobieranie PDF', description: 'Pobierz gotowe CV jako czysty PDF jednym kliknięciem. Bez znaków wodnych, bez paywallu — w pełni za darmo.' },
+      { feature: 'Gotowe w kilka minut', description: 'Koniec z lękiem przed pustą stroną. Nasz prowadzony proces i sugestie AI pomagają stworzyć pełne CV w mniej niż 10 minut.' },
+      { feature: 'Wynik ATS w czasie rzeczywistym', description: 'Sprawdzaj jak Twoje CV oceniają systemy ATS podczas pisania. Optymalizuj przed aplikowaniem.' },
+      { feature: '20+ profesjonalnych szablonów', description: 'Wybierz spośród profesjonalnie zaprojektowanych szablonów dla każdej branży i poziomu kariery. Wszystkie za darmo, wszystkie przyjazne ATS.' },
+    ],
+    cta: 'Zacznij tworzyć CV',
+  },
+  comparison: {
+    title: 'Nasz kreator CV vs. konkurencja',
+    subtitle: 'Sprawdź dlaczego kandydaci wybierają nasz darmowy kreator CV z AI.',
+    oursName: 'Best AI Resumes',
+    othersName: 'Inne kreatory CV',
+    rows: [
+      { feature: 'Pomoc AI w pisaniu', ours: 'Pełna AI', others: 'Ograniczona lub brak' },
+      { feature: 'Optymalizacja ATS', ours: 'Wynik w czasie rzeczywistym', others: 'Ograniczona kontrola' },
+      { feature: 'Wszystkie szablony za darmo', ours: '20+ szablonów', others: 'Większość płatna' },
+      { feature: 'Darmowe pobieranie PDF', ours: 'Zawsze za darmo', others: 'Często za paywallem' },
+      { feature: 'Bez wymaganego konta', ours: 'Zacznij od razu', others: 'Zazwyczaj wymagane' },
+      { feature: 'Słowa kluczowe branżowe', ours: 'Sugestie AI', others: 'Ręcznie' },
+      { feature: 'Wiele wersji', ours: 'Nieograniczone', others: 'Często ograniczone' },
+    ],
+  },
+  howItWorks: {
+    title: 'Jak działa nasz kreator CV',
+    subtitle: 'Stwórz CV wygrywające aplikacje w trzech prostych krokach. AI wykonuje ciężką pracę.',
+    steps: [
+      { step: 1, title: 'Wybierz szablon', description: 'Wybierz spośród 20+ przyjaznych ATS profesjonalnych szablonów zaprojektowanych dla Twojej branży.' },
+      { step: 2, title: 'Dodaj swoje dane', description: 'Wpisz doświadczenie i pozwól AI sugerować ulepszenia, słowa kluczowe i profesjonalne sformułowania.' },
+      { step: 3, title: 'Pobierz i aplikuj', description: 'Eksportuj czysty PDF i zacznij aplikować od razu.' },
+    ],
+    cta: 'Stwórz profesjonalne CV',
+  },
+  trust: {
+    title: '',
+    stats: [
+      { value: '2M+', label: 'Stworzonych CV' },
+      { value: '4.8', label: 'Ocena użytkowników' },
+      { value: '20+', label: 'Darmowych szablonów' },
+      { value: '10 min', label: 'Śr. czas tworzenia' },
+    ],
+  },
+  templates: {
+    title: 'Profesjonalne szablony dla każdej kariery',
+    subtitle: 'Od kreatywnych designerów po dyrektorów — znajdź idealny szablon CV dla swojej branży.',
+    styles: ['Inżynier Oprogramowania', 'Menedżer Marketingu', 'Pielęgniarka', 'Menedżer Sprzedaży', 'Analityk Danych', 'Nauczyciel', 'Kierownik Projektu', 'Designer'],
+    cta: 'Przeglądaj wszystkie szablony',
+  },
+  faq: {
+    title: 'Najczęściej zadawane pytania',
+    items: [
+      { question: 'Czy ten kreator CV jest naprawdę darmowy?', answer: 'Tak! Nasz kreator CV z AI jest w 100% darmowy. Twórz nieograniczone CV, używaj wszystkich 20+ profesjonalnych szablonów i pobieraj CV jako PDF — bez karty kredytowej ani subskrypcji.' },
+      { question: 'Co sprawia, że to najlepszy kreator CV?', answer: 'W odróżnieniu od zwykłych kreatorów CV, nasze narzędzie używa AI do pisania profesjonalnych opisów stanowisk, optymalizowania treści pod systemy ATS i sugerowania słów kluczowych branżowych. Otrzymujesz CV, które dobrze wygląda i przechodzi automatyczną selekcję.' },
+      { question: 'Czy mogę pobrać CV jako PDF za darmo?', answer: 'Oczywiście. Każde stworzone CV można pobrać jako czysty, przyjazny ATS PDF bez opłat. Bez znaków wodnych, bez paywallu.' },
+      { question: 'Jak długo trwa tworzenie CV?', answer: 'Większość użytkowników tworzy profesjonalne CV w mniej niż 10 minut. Nasza AI wypełnia wstępnie sugestie treści, więc spędzasz mniej czasu na patrzeniu w pustą stronę, a więcej na aplikowaniu.' },
+      { question: 'Czy moje CV jest kompatybilne z ATS?', answer: 'Tak. Każdy szablon w naszym kreatorze CV jest testowany pod główne systemy ATS (Workday, Taleo, Greenhouse, Lever). Nasz wynik ATS w czasie rzeczywistym pomaga zoptymalizować CV przed wysłaniem.' },
+      { question: 'Czy mogę tworzyć wiele CV na różne oferty pracy?', answer: 'Tak! Twórz tyle dostosowanych CV ile potrzebujesz. Wielu kandydatów personalizuje CV do każdej aplikacji — nasz kreator CV sprawia, że jest to szybkie i łatwe.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Powiązane narzędzia CV',
+    items: [
+      { href: '/pl/resume-ai', title: 'CV z AI', subtitle: 'Kreator CV wspomagany AI' },
+      { href: '/pl/tools/ats-checker', title: 'Sprawdź ATS', subtitle: 'Testuj wynik ATS' },
+      { href: '/pl/free-resume-builder', title: 'Darmowy Kreator CV', subtitle: '100% darmowe tworzenie CV' },
+    ],
+    guidesTitle: 'Przydatne poradniki',
+    guides: [
+      { href: '/pl/blog/jak-napisac-cv', label: 'Jak napisać CV (poradnik 2026)' },
+      { href: '/pl/career-tips/how-to-write-ats-friendly-resume', label: 'Jak stworzyć CV przyjazne ATS' },
+      { href: '/pl/resume-format', label: 'Przewodnik po formacie CV' },
+      { href: '/pl/blog/top-resume-mistakes-to-avoid', label: 'Najczęstsze błędy w CV' },
+    ],
+  },
+  bottomCta: {
+    title: 'Gotowy stworzyć CV?',
+    description: 'Ponad 2 miliony kandydatów stworzyło profesjonalne CV z naszym darmowym kreatorem CV z AI.',
+    cta: 'Stwórz moje CV za darmo',
+    subtext: 'Za darmo na zawsze. Bez karty kredytowej.',
+  },
+};
+
 const nl: LandingPageContent = {
   meta: {
     title: 'CV Maker | Gratis AI CV Maker 2026 | CV Maken Online',
@@ -1521,7 +1629,7 @@ const nl: LandingPageContent = {
   },
 };
 
-const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, nl };
+const contentMap: Record<string, LandingPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
 
 export function getContent(locale: string): LandingPageContent {
   return selectContent(contentMap, locale);

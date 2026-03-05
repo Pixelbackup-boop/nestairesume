@@ -825,4 +825,225 @@ Tujuan karier adalah pernyataan yang menjelaskan:
 
 Lihat [ratusan contoh ringkasan profesional](/id/resume-examples) dari berbagai profesi untuk mendapatkan inspirasi yang relevan dengan bidang Anda.`
   },
+
+  // ── Topic 7: Panjang CV Ideal ───────────────────────────────────────────────
+  {
+    slug: 'panjang-cv-ideal',
+    title: 'Panjang CV yang Ideal: 1 atau 2 Halaman? Panduan 2026',
+    description: 'Berapa panjang CV yang ideal? Panduan 2026 untuk menentukan 1 atau 2 halaman CV berdasarkan pengalaman kerja, industri, dan posisi yang dilamar di Indonesia.',
+    category: 'Panduan CV',
+    tags: [
+      'panjang cv',
+      'cv berapa halaman',
+      'cv 1 halaman',
+      'cv 2 halaman',
+      'panjang cv ideal',
+      'ukuran cv yang baik',
+      'cv fresh graduate berapa halaman',
+      'panjang curriculum vitae',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Panjang CV Ideal 1 atau 2 Halaman 2026',
+    featured: false,
+    faq: [
+      { question: 'CV harus berapa halaman?', answer: 'Secara umum: 1 halaman untuk fresh graduate atau pengalaman di bawah 5 tahun; 2 halaman untuk profesional dengan 5-15 tahun pengalaman; maksimal 3 halaman untuk eksekutif senior atau akademisi. Aturan paling penting: setiap kalimat harus relevan dengan posisi yang dilamar.' },
+      { question: 'Apakah CV 2 halaman itu terlalu panjang?', answer: 'Tidak, jika pengalaman Anda memang membutuhkan 2 halaman. CV 2 halaman wajar untuk profesional berpengalaman. Yang penting: halaman kedua harus berisi informasi yang relevan, bukan sekadar "pengisi". Rekruter tidak keberatan dengan CV 2 halaman yang padat dan relevan.' },
+      { question: 'Bagaimana mempersingkat CV yang terlalu panjang?', answer: 'Hapus pengalaman kerja yang lebih dari 10-15 tahun ke belakang (kecuali sangat relevan), ringkas pekerjaan lama menjadi 1-2 bullet point, hapus referensi (cukup tuliskan "tersedia atas permintaan"), kurangi keterampilan yang sudah umum (seperti Microsoft Office untuk posisi non-admin), dan pastikan font minimal 10pt agar tetap mudah dibaca.' },
+      { question: 'Apakah ada perbedaan panjang CV untuk industri tertentu?', answer: 'Ya. CV untuk posisi akademis (dosen, peneliti) bisa 3-5+ halaman karena mencakup publikasi, penelitian, dan pengajaran. CV untuk posisi kreatif bisa lebih pendek karena portofolio berbicara lebih banyak. CV untuk posisi teknis (IT, engineering) biasanya 1-2 halaman, menunjukkan proyek dan keterampilan teknis.' },
+    ],
+    body: `## Panjang CV yang Ideal di Indonesia 2026
+
+Salah satu pertanyaan paling sering ditanyakan pelamar kerja Indonesia adalah: "CV saya harus berapa halaman?" Jawabannya tergantung pada tahap karier, industri, dan posisi yang dilamar.
+
+### Panduan Panjang CV Berdasarkan Pengalaman
+
+**Fresh Graduate (0-2 tahun pengalaman): 1 halaman**
+
+Untuk fresh graduate, CV 1 halaman adalah standar. Rekruter tahu Anda belum banyak pengalaman — tidak perlu "mengisi" CV dengan hal yang tidak relevan.
+
+Yang harus ada di CV 1 halaman fresh graduate:
+- Ringkasan profesional (2-3 kalimat)
+- Pendidikan (detail, karena ini aset utama)
+- Pengalaman magang atau kerja paruh waktu
+- Proyek akademik yang relevan
+- Keterampilan teknis dan bahasa
+- Organisasi atau kepanitiaan
+
+**Profesional Menengah (3-10 tahun pengalaman): 1-2 halaman**
+
+Di kisaran ini, 2 halaman bisa dibenarkan jika pengalaman Anda memang kaya dan relevan. Aturan praktis: jika Anda harus memeras konten untuk muat di 1 halaman hingga sulit dibaca, gunakan 2 halaman.
+
+**Profesional Senior (10+ tahun pengalaman): 2 halaman**
+
+Dengan 10+ tahun pengalaman, CV 2 halaman adalah normal. Fokus pada 10-15 tahun pengalaman terakhir — pengalaman yang lebih lama bisa diringkas atau dihilangkan.
+
+**Eksekutif dan Direktur: 2-3 halaman**
+
+Posisi eksekutif membutuhkan ruang untuk menampilkan kepemimpinan, pencapaian strategis, dan dewan atau komite yang Anda masuki.
+
+### Aturan Emas Panjang CV
+
+1. **Setiap kalimat harus bekerja** — jika tidak menambah nilai, hapus
+2. **Lebih baik padat di 1 halaman daripada penuh di 2 halaman dengan konten lemah**
+3. **Gunakan font 10-11pt dan margin 1.5-2cm** — ini memberikan ruang yang cukup
+4. **Jangan paksakan 1 halaman** — jika konten penting tidak muat, tambah halaman
+
+### Kesalahan Panjang CV yang Umum
+
+❌ **Terlalu pendek** — CV setengah halaman terlihat tidak siap dan tidak profesional
+❌ **Terlalu panjang** — CV 4+ halaman untuk posisi entry-level menunjukkan kurangnya kemampuan menyunting
+❌ **Mengecilkan font** — font di bawah 10pt sulit dibaca dan terlihat putus asa
+❌ **Mempertebal pengalaman tidak relevan** — deskripsi kerja panjang untuk pekerjaan yang tidak relevan membuang ruang berharga
+
+Buat CV dengan panjang yang tepat menggunakan [builder CV kami](/id/builder) yang secara otomatis memandu format dan panjang yang optimal untuk level karier Anda.`
+  },
+
+  // ── Topic 8: Format Kronologis CV ───────────────────────────────────────────
+  {
+    slug: 'format-kronologis-cv',
+    title: 'Format Kronologis CV: Panduan & Contoh Terbaik 2026',
+    description: 'Panduan lengkap format kronologis CV 2026. Pelajari cara membuat CV dengan urutan kronologis terbalik, kapan menggunakannya, dan contoh format yang disukai rekruter Indonesia.',
+    category: 'Format CV',
+    tags: [
+      'format kronologis cv',
+      'cv kronologis',
+      'format cv kronologis',
+      'urutan cv yang benar',
+      'cv kronologis terbalik',
+      'format cv terbaik',
+      'susunan cv',
+      'format cv profesional',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Format Kronologis CV Terbalik 2026',
+    featured: false,
+    faq: [
+      { question: 'Apa itu format CV kronologis?', answer: 'Format CV kronologis (atau kronologis terbalik) adalah format paling umum yang menampilkan pengalaman kerja dari yang terbaru ke yang terlama. Ini adalah format yang paling disukai rekruter karena mudah mengikuti perkembangan karier seseorang.' },
+      { question: 'Kapan sebaiknya tidak menggunakan format kronologis?', answer: 'Pertimbangkan format lain jika Anda memiliki gap karier yang panjang (lebih dari 1 tahun), baru pindah industri secara signifikan, atau pengalaman terbaru Anda kurang relevan dengan posisi yang dilamar. Dalam kasus ini, format fungsional atau kombinasi mungkin lebih efektif.' },
+      { question: 'Berapa lama pengalaman kerja yang harus dicantumkan?', answer: 'Untuk sebagian besar profesional, cantumkan 10-15 tahun pengalaman terakhir. Pengalaman yang lebih lama bisa diringkas dalam satu baris atau dihilangkan kecuali sangat relevan. Fresh graduate bisa mencantumkan semua pengalaman termasuk magang dan pekerjaan paruh waktu.' },
+    ],
+    body: `## Format Kronologis CV: Standar Industri yang Disukai Rekruter
+
+Format CV kronologis (reverse chronological) adalah format paling populer dan paling diterima secara universal — di Indonesia maupun secara global. Rekruter menyukainya karena mudah dibaca, dan sistem ATS (Applicant Tracking System) memrosesnya dengan akurasi tertinggi.
+
+### Apa itu Format CV Kronologis?
+
+Format kronologis menampilkan pengalaman kerja dari yang **paling baru ke yang paling lama** — itulah mengapa disebut juga "kronologis terbalik". Ini berbeda dengan format kronologis murni yang biasanya digunakan untuk dokumen akademis.
+
+**Contoh urutan bagian dalam CV kronologis:**
+
+1. Header (nama, kontak, LinkedIn)
+2. Ringkasan Profesional
+3. Pengalaman Kerja *(dari terbaru ke terlama)*
+4. Pendidikan
+5. Keterampilan
+6. Sertifikasi (jika ada)
+
+### Mengapa Format Ini Paling Populer?
+
+**Untuk rekruter:** Mereka langsung melihat pekerjaan terbaru Anda — yang paling relevan dengan posisi yang dibuka.
+
+**Untuk sistem ATS:** Format linier satu kolom yang umum pada CV kronologis kompatibel dengan hampir semua sistem ATS di Indonesia maupun global.
+
+**Untuk Anda:** Menampilkan perkembangan karier Anda secara visual — dari awal hingga pencapaian terkini.
+
+### Siapa yang Cocok Menggunakan Format Ini?
+
+✅ Profesional dengan karier yang konsisten di satu industri
+✅ Kandidat yang pengalaman terbarunya sangat relevan dengan posisi yang dilamar
+✅ Fresh graduate dengan pengalaman magang dan proyek yang relevan
+✅ Siapapun yang melamar ke perusahaan besar atau multinasional
+
+### Cara Menulis Bagian Pengalaman Kerja
+
+Setiap entri pengalaman kerja harus berisi:
+- **Nama perusahaan** dan lokasi
+- **Jabatan** (job title)
+- **Periode kerja** (bulan dan tahun)
+- **2-5 bullet point** pencapaian (bukan sekadar deskripsi tugas)
+
+**Contoh:**
+
+**PT Tokopedia** | Jakarta | Jan 2022 – Sekarang
+*Senior Product Manager*
+- Memimpin pengembangan fitur pembayaran yang meningkatkan conversion rate sebesar 23%
+- Mengelola roadmap produk untuk 3 juta pengguna aktif bulanan
+- Berkolaborasi dengan 8 tim lintas-fungsi untuk peluncuran produk tepat waktu
+
+Lihat lebih banyak [contoh CV profesional](/id/resume-examples) untuk inspirasi menulis bagian pengalaman kerja yang kuat.`
+  },
+
+  // ── Topic 9: CV ATS Lolos Screening ────────────────────────────────────────
+  {
+    slug: 'cv-ats-cara-lolos-screening',
+    title: 'CV ATS: Cara Lolos Screening Otomatis dan Dapat Panggilan Interview',
+    description: 'Panduan cara membuat CV yang lolos screening ATS (Applicant Tracking System) di Indonesia. Tips mengoptimalkan CV untuk sistem ATS agar sampai ke tangan rekruter dan mendapat panggilan interview.',
+    category: 'CV ATS',
+    tags: [
+      'cv ats',
+      'lolos ats',
+      'ats screening',
+      'cara lolos ats',
+      'cv ats friendly',
+      'optimasi cv ats',
+      'cara kerja ats',
+      'cv untuk sistem ats',
+    ],
+    image: '/blog/id-placeholder.svg',
+    imageAlt: 'Cara Membuat CV ATS yang Lolos Screening Otomatis',
+    featured: true,
+    faq: [
+      { question: 'Apa itu ATS dan bagaimana cara kerjanya?', answer: 'ATS (Applicant Tracking System) adalah software yang digunakan perusahaan untuk menyaring CV secara otomatis sebelum sampai ke rekruter. ATS membaca CV Anda, mencari kata kunci yang sesuai dengan deskripsi pekerjaan, dan memberi skor relevansi. CV dengan skor rendah otomatis disaring — tidak pernah dilihat manusia.' },
+      { question: 'Perusahaan Indonesia mana yang menggunakan ATS?', answer: 'Hampir semua perusahaan multinasional, startup besar (Gojek, Tokopedia, Shopee, Traveloka), BUMN besar, perusahaan konsultasi (McKinsey, BCG, Deloitte), dan bank-bank besar menggunakan ATS. Jika Anda melamar melalui website karir resmi perusahaan atau platform seperti LinkedIn, kemungkinan besar ada ATS.' },
+      { question: 'Bagaimana cara tahu apakah CV saya lolos ATS?', answer: 'Gunakan ATS checker online — termasuk yang tersedia gratis di Best AI Resume Builder. Tools ini menganalisis CV Anda terhadap deskripsi pekerjaan dan memberi skor kompatibilitas ATS. Skor di atas 75% umumnya dianggap baik.' },
+      { question: 'Apakah CV kreatif dari Canva bisa lolos ATS?', answer: 'Umumnya tidak. CV dengan tabel, kolom ganda, header/footer dengan informasi penting, ikon, dan grafik sering gagal dibaca ATS dengan benar. Untuk posisi di perusahaan yang menggunakan ATS, gunakan template sederhana dengan format satu kolom.' },
+    ],
+    body: `## CV ATS: Panduan Lolos Screening Otomatis di Indonesia
+
+Bayangkan menghabiskan waktu berjam-jam menyempurnakan CV Anda, hanya untuk tidak pernah dilihat manusia. Inilah realita yang dihadapi banyak pelamar kerja — CV mereka disaring oleh ATS sebelum sampai ke rekruter.
+
+### Bagaimana ATS Membaca CV Anda?
+
+1. **Parsing** — ATS mengekstrak teks dari CV Anda dan memisahkannya ke dalam kategori (nama, kontak, pengalaman, pendidikan, keterampilan)
+2. **Keyword matching** — ATS mencari kata kunci dari deskripsi pekerjaan di CV Anda
+3. **Scoring** — CV diberi skor berdasarkan relevansi
+4. **Filtering** — Hanya CV dengan skor tertinggi yang diteruskan ke rekruter
+
+### 7 Cara Mengoptimalkan CV untuk ATS
+
+**1. Gunakan kata kunci dari deskripsi pekerjaan**
+
+Baca job description dengan seksama dan masukkan kata kunci penting secara alami ke CV Anda. Jika JD menyebut "analisis data" dan "Python", pastikan kata-kata tersebut ada di CV.
+
+**2. Format sederhana, satu kolom**
+
+Hindari: tabel, kolom ganda, text box, header/footer, ikon, grafik, gambar.
+Gunakan: format satu kolom, heading standar (Pengalaman Kerja, Pendidikan, Keterampilan).
+
+**3. Gunakan heading yang standar**
+
+ATS mengenali heading standar seperti "Pengalaman Kerja", "Pendidikan", "Keterampilan". Heading kreatif seperti "Perjalanan Karier Saya" bisa membingungkan ATS.
+
+**4. Simpan dalam format PDF atau DOCX**
+
+PDF adalah pilihan aman untuk sebagian besar ATS modern. Beberapa ATS lama lebih menyukai DOCX — periksa instruksi lamaran.
+
+**5. Gunakan nama jabatan yang umum**
+
+Jika jabatan resmi Anda adalah "Ninja Marketing", tulis "Digital Marketing Specialist" di CV — itulah yang dicari ATS.
+
+**6. Cantumkan kata kunci dalam berbagai variasi**
+
+Jika posisi menyebut "manajemen proyek", cantumkan juga "project management" (dalam bahasa Inggris) karena banyak sistem ATS di perusahaan multinasional menggunakan kata kunci Inggris.
+
+**7. Hindari informasi penting di header/footer**
+
+Banyak ATS melewati header dan footer. Cantumkan nama dan kontak di badan utama CV.
+
+### Uji CV Anda dengan ATS Checker
+
+Sebelum melamar, uji CV Anda dengan [ATS checker gratis](/id/tools/ats-checker) untuk melihat skor kompatibilitas dan mendapatkan rekomendasi perbaikan spesifik.
+
+Untuk membuat CV yang sudah dioptimalkan untuk ATS sejak awal, gunakan [builder CV kami](/id/builder) yang dirancang khusus untuk memenuhi standar ATS Indonesia dan internasional.`
+  },
 ];
