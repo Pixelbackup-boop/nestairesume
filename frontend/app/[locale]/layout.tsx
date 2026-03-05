@@ -275,7 +275,7 @@ export default async function LocaleLayout({
               <WebVitals />
               <TawkTo />
               <Script
-                src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+                src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
                 strategy="lazyOnload"
               />
               <main id="main-content">

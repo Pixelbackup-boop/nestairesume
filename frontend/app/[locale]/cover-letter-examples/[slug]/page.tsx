@@ -95,6 +95,9 @@ function renderContent(content: string): string {
   // Convert lists
   html = html.replace(/^- (.+)$/gm, '<li class="ml-4 mb-2">$1</li>');
   html = html.replace(/^\d+\. (.+)$/gm, '<li class="ml-4 mb-2 list-decimal">$1</li>');
+  // Wrap consecutive list items in proper container elements
+  html = html.replace(/(<li class="ml-4 mb-2">[\s\S]*?<\/li>\n?)+/g, '<ul class="list-disc mb-4 space-y-1 ml-2">$&</ul>');
+  html = html.replace(/(<li class="ml-4 mb-2 list-decimal">[\s\S]*?<\/li>\n?)+/g, '<ol class="list-decimal mb-4 space-y-1 ml-4">$&</ol>');
 
   // Convert paragraphs
   const lines = html.split('\n');
