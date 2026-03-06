@@ -15,11 +15,8 @@ function localizedUrls(baseUrl: string, path: string, options: { lastModified: D
   }));
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
-  const now = new Date();
-
-  // Static pages (localized)
+// Sitemap 0: Static pages, authors, template categories, all category pages
+function getStaticAndMiscPages(baseUrl: string, now: Date): MetadataRoute.Sitemap {
   const staticRoutes = [
     { path: '', priority: 1 },
     { path: '/features', priority: 0.8 },
@@ -63,12 +60,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     localizedUrls(baseUrl, route.path, { lastModified: now, changeFrequency: 'weekly', priority: route.priority })
   );
 
-  // Author pages (localized)
   const authorPages = Object.values(AUTHORS).flatMap(author =>
     localizedUrls(baseUrl, `/about/${author.slug}`, { lastModified: now, changeFrequency: 'monthly', priority: 0.6 })
   );
 
-  // Blog posts (localized)
+  const templateCategorySlugs = getAllCategorySlugs();
+  const templateCategoryPages = templateCategorySlugs.flatMap(slug =>
+    localizedUrls(baseUrl, `/templates/${slug}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.7 })
+  );
+
+  return [...staticPages, ...authorPages, ...templateCategoryPages];
+}
+
+// Sitemap 1: Resume examples (all locales)
+async function getResumeExamplePages(baseUrl: string): Promise<MetadataRoute.Sitemap> {
+  const resumeExamples = await getAllResumeExamples();
+  return resumeExamples.flatMap(example =>
+    localizedUrls(baseUrl, `/resume-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
+  );
+}
+
+// Sitemap 2: Cover letter examples (all locales)
+async function getCoverLetterPages(baseUrl: string): Promise<MetadataRoute.Sitemap> {
+  const coverLetterExamples = await getAllCoverLetterExamples();
+  return coverLetterExamples.flatMap(example =>
+    localizedUrls(baseUrl, `/cover-letter-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
+  );
+}
+
+// Sitemap 3: Blog posts + locale-only blog + career posts + blog/career categories
+async function getBlogAndCareerPages(baseUrl: string, now: Date): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts();
   const blogPages = posts
     .filter(post => !post.postType || post.postType === 'blog' || post.postType === 'both')
@@ -76,55 +97,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       localizedUrls(baseUrl, `/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 })
     );
 
-  // Career posts (localized)
   const careerPosts = await getAllCareerPosts();
   const careerPages = careerPosts.flatMap(post =>
     localizedUrls(baseUrl, `/career/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 })
   );
 
-  // Career tips (localized)
-  const careerTips = await getAllCareerTips();
-  const careerTipsPages = careerTips.flatMap(tip =>
-    localizedUrls(baseUrl, `/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 })
-  );
-
-  // Blog category pages (localized)
   const categories = await getAllCategories();
   const categoryPages = categories.flatMap(category =>
     localizedUrls(baseUrl, `/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
   );
 
-  // Career category pages (localized)
   const careerCategories = await getAllCareerCategories();
   const careerCategoryPages = careerCategories.flatMap(category =>
     localizedUrls(baseUrl, `/career/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
   );
 
-  // Career tips category pages (localized)
-  const careerTipsCategories = await getAllCareerTipsCategories();
-  const careerTipsCategoryPages = careerTipsCategories.flatMap(category =>
-    localizedUrls(baseUrl, `/career-tips/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
-  );
-
-  // Resume examples (localized)
-  const resumeExamples = await getAllResumeExamples();
-  const resumeExamplesPages = resumeExamples.flatMap(example =>
-    localizedUrls(baseUrl, `/resume-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
-  );
-
-  // Cover letter examples (localized)
-  const coverLetterExamples = await getAllCoverLetterExamples();
-  const coverLetterPages = coverLetterExamples.flatMap(example =>
-    localizedUrls(baseUrl, `/cover-letter-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
-  );
-
-  // Template category pages (localized)
-  const templateCategorySlugs = getAllCategorySlugs();
-  const templateCategoryPages = templateCategorySlugs.flatMap(slug =>
-    localizedUrls(baseUrl, `/templates/${slug}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.7 })
-  );
-
-  // Locale-only blog posts (e.g., Spanish posts with unique slugs not in English)
   const localeOnlyBlogPages: MetadataRoute.Sitemap = [];
   for (const locale of locales) {
     if (locale === 'en') continue;
@@ -139,7 +126,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Locale-only career-tips (e.g., German career-tips with unique slugs)
+  return [...blogPages, ...localeOnlyBlogPages, ...careerPages, ...categoryPages, ...careerCategoryPages];
+}
+
+// Sitemap 4: Career tips + locale-only career tips + career-tips categories
+async function getCareerTipsPages(baseUrl: string, now: Date): Promise<MetadataRoute.Sitemap> {
+  const careerTips = await getAllCareerTips();
+  const careerTipsPages = careerTips.flatMap(tip =>
+    localizedUrls(baseUrl, `/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 })
+  );
+
+  const careerTipsCategories = await getAllCareerTipsCategories();
+  const careerTipsCategoryPages = careerTipsCategories.flatMap(category =>
+    localizedUrls(baseUrl, `/career-tips/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
+  );
+
   const localeOnlyCareerTipsPages: MetadataRoute.Sitemap = [];
   for (const locale of locales) {
     if (locale === 'en') continue;
@@ -154,19 +155,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  return [
-    ...staticPages,
-    ...authorPages,
-    ...blogPages,
-    ...localeOnlyBlogPages,
-    ...careerPages,
-    ...careerTipsPages,
-    ...localeOnlyCareerTipsPages,
-    ...categoryPages,
-    ...careerCategoryPages,
-    ...careerTipsCategoryPages,
-    ...resumeExamplesPages,
-    ...coverLetterPages,
-    ...templateCategoryPages,
-  ];
+  return [...careerTipsPages, ...localeOnlyCareerTipsPages, ...careerTipsCategoryPages];
+}
+
+export async function generateSitemaps() {
+  return [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+}
+
+export default async function sitemap({ id }: { id: Promise<string> }): Promise<MetadataRoute.Sitemap> {
+  const resolvedId = Number(await id);
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
+  const now = new Date();
+
+  switch (resolvedId) {
+    case 0: return getStaticAndMiscPages(baseUrl, now);
+    case 1: return await getResumeExamplePages(baseUrl);
+    case 2: return await getCoverLetterPages(baseUrl);
+    case 3: return await getBlogAndCareerPages(baseUrl, now);
+    case 4: return await getCareerTipsPages(baseUrl, now);
+    default: return [];
+  }
 }
