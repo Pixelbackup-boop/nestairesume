@@ -17,6 +17,7 @@ import {
     Wand2,
     Layout,
 } from 'lucide-react';
+import { useLocale } from 'next-intl';
 import { useResumeStore } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
 import { docxTemplates, DocxTemplate } from '@/lib/templates/docxTemplates';
@@ -185,6 +186,7 @@ function DocxTemplatePreview({ template }: { template: DocxTemplate }) {
 
 export default function WordOnboardingPage() {
     const router = useRouter();
+    const locale = useLocale();
     const { setResumeData } = useResumeStore();
     const [step, setStep] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
@@ -225,6 +227,7 @@ export default function WordOnboardingPage() {
                 fullName: formData.fullName.trim(),
                 jobTitle: formData.jobTitle.trim(),
                 experienceLevel: formData.experienceLevel,
+                locale,
             };
             const resumeData = await generateAIResumeAsync(input);
             setResumeData(resumeData);

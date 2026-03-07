@@ -271,6 +271,25 @@ const de: LocaleBundle = {
     masterDegree: { tech: 'Master of Science in Informatik', business: 'Master of Business Administration', school: 'Graduate School of Business' },
     phoneFormat: '+49 170 0000000',
     titlePrefixes: { senior: 'Senior', lead: 'Leiter', director: 'Direktor' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        healthcare: ['Patientenversorgung', 'EMR-Systeme', 'HIPAA-Konformität', 'Klinische Bewertung', 'Pflegeplanung', 'Medizinische Terminologie', 'Patientenaufklärung', 'Teamarbeit', 'Dokumentation', 'Kritisches Denken'],
+        finance: ['Finanzanalyse', 'Excel', 'QuickBooks', 'SAP', 'Budgetierung', 'Prognosen', 'GAAP', 'Wirtschaftsprüfung', 'Risikomanagement', 'Finanzmodellierung'],
+        education: ['Lehrplanentwicklung', 'Klassenführung', 'Schülerbewertung', 'Differenzierter Unterricht', 'Bildungstechnologie', 'Unterrichtsplanung', 'Kommunikation', 'Mentoring', 'Sonderpädagogik', 'Elternarbeit'],
+        sales: ['CRM-Software', 'Lead-Generierung', 'Verhandlung', 'Kaltakquise', 'Pipeline-Management', 'Salesforce', 'Account-Management', 'Präsentationsfähigkeiten', 'Geschäftsabschluss', 'Kundenbeziehungen'],
+        hospitality: ['Kundenservice', 'POS-Systeme', 'Lebensmittelsicherheit', 'Bargeldhandhabung', 'Menükenntnisse', 'Teamarbeit', 'Multitasking', 'Kommunikation', 'Zeitmanagement', 'Konfliktlösung'],
+        general: ['Projektmanagement', 'Kommunikation', 'Problemlösung', 'Teamführung', 'Microsoft Office', 'Zeitmanagement', 'Kritisches Denken', 'Anpassungsfähigkeit', 'Zusammenarbeit', 'Organisation'],
+    },
+    languages: [
+        { name: 'Deutsch', proficiency: 'native', level: 100 },
+        { name: 'Englisch', proficiency: 'fluent', level: 80 },
+        { name: 'Französisch', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotografie', 'Reisen', 'Lesen', 'Kochen', 'Wandern', 'Musik'],
+    strengths: ['Führungskompetenz', 'Kommunikation', 'Problemlösung', 'Teamarbeit'],
+    proficiencyLabels: { native: 'Muttersprache', fluent: 'Fließend', intermediate: 'Mittelstufe' },
 };
 
 export default de;

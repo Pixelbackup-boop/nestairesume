@@ -271,6 +271,25 @@ const en: LocaleBundle = {
     masterDegree: { tech: 'Master of Science in Computer Science', business: 'Master of Business Administration', school: 'Graduate School of Business' },
     phoneFormat: '+1 (555) 000-0000',
     titlePrefixes: { senior: 'Senior', lead: 'Lead', director: 'Director of' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['Financial Analysis', 'Excel', 'QuickBooks', 'SAP', 'Budgeting', 'Forecasting', 'GAAP', 'Auditing', 'Risk Management', 'Financial Modeling'],
+        healthcare: ['Patient Care', 'EMR Systems', 'HIPAA Compliance', 'Clinical Assessment', 'Care Planning', 'Medical Terminology', 'Patient Education', 'Team Collaboration', 'Documentation', 'Critical Thinking'],
+        education: ['Curriculum Development', 'Classroom Management', 'Student Assessment', 'Differentiated Instruction', 'Educational Technology', 'Lesson Planning', 'Communication', 'Mentoring', 'Special Education', 'Parent Relations'],
+        sales: ['CRM Software', 'Lead Generation', 'Negotiation', 'Cold Calling', 'Pipeline Management', 'Salesforce', 'Account Management', 'Presentation Skills', 'Closing Deals', 'Client Relations'],
+        hospitality: ['Customer Service', 'POS Systems', 'Food Safety', 'Cash Handling', 'Menu Knowledge', 'Team Collaboration', 'Multitasking', 'Communication', 'Time Management', 'Conflict Resolution'],
+        general: ['Project Management', 'Communication', 'Problem Solving', 'Team Leadership', 'Microsoft Office', 'Time Management', 'Critical Thinking', 'Adaptability', 'Collaboration', 'Organization'],
+    },
+    languages: [
+        { name: 'English', proficiency: 'native', level: 100 },
+        { name: 'Spanish', proficiency: 'fluent', level: 80 },
+        { name: 'French', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Photography', 'Travel', 'Reading', 'Cooking', 'Hiking', 'Music'],
+    strengths: ['Leadership', 'Communication', 'Problem Solving', 'Teamwork'],
+    proficiencyLabels: { native: 'Native', fluent: 'Fluent', intermediate: 'Intermediate' },
 };
 
 export default en;

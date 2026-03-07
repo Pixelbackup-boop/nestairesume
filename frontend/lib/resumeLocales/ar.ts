@@ -271,6 +271,25 @@ const ar: LocaleBundle = {
     masterDegree: { tech: 'ماجستير علوم الحاسب', business: 'ماجستير إدارة الأعمال', school: 'كلية الدراسات العليا للأعمال' },
     phoneFormat: '+971 50 000 0000',
     titlePrefixes: { senior: 'كبير', lead: 'رئيس', director: 'مدير' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['التحليل المالي', 'Excel', 'QuickBooks', 'SAP', 'إعداد الميزانيات', 'التنبؤ المالي', 'GAAP', 'التدقيق', 'إدارة المخاطر', 'النمذجة المالية'],
+        healthcare: ['رعاية المرضى', 'أنظمة السجلات الطبية', 'الامتثال لـ HIPAA', 'التقييم السريري', 'تخطيط الرعاية', 'المصطلحات الطبية', 'تثقيف المرضى', 'العمل الجماعي', 'التوثيق', 'التفكير النقدي'],
+        education: ['تطوير المناهج', 'إدارة الصف', 'تقييم الطلاب', 'التعليم المتمايز', 'تكنولوجيا التعليم', 'تخطيط الدروس', 'التواصل', 'الإرشاد', 'التعليم الخاص', 'العلاقات مع أولياء الأمور'],
+        sales: ['برنامج CRM', 'توليد العملاء المحتملين', 'التفاوض', 'الاتصال البارد', 'إدارة خط المبيعات', 'Salesforce', 'إدارة الحسابات', 'مهارات العرض', 'إغلاق الصفقات', 'علاقات العملاء'],
+        hospitality: ['خدمة العملاء', 'أنظمة نقاط البيع', 'سلامة الغذاء', 'إدارة النقد', 'معرفة القائمة', 'العمل الجماعي', 'تعدد المهام', 'التواصل', 'إدارة الوقت', 'حل النزاعات'],
+        general: ['إدارة المشاريع', 'التواصل', 'حل المشكلات', 'قيادة الفريق', 'Microsoft Office', 'إدارة الوقت', 'التفكير النقدي', 'القدرة على التكيف', 'التعاون', 'التنظيم'],
+    },
+    languages: [
+        { name: 'العربية', proficiency: 'native', level: 100 },
+        { name: 'الإنجليزية', proficiency: 'fluent', level: 80 },
+        { name: 'الفرنسية', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['التصوير', 'السفر', 'القراءة', 'الطبخ', 'المشي', 'الموسيقى'],
+    strengths: ['القيادة', 'التواصل', 'حل المشكلات', 'العمل الجماعي'],
+    proficiencyLabels: { native: 'لغة أم', fluent: 'طلاقة', intermediate: 'متوسط' },
 };
 
 export default ar;

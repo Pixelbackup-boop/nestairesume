@@ -271,6 +271,25 @@ const vi: LocaleBundle = {
     masterDegree: { tech: 'Thạc sĩ Khoa học Máy tính', business: 'Thạc sĩ Quản trị Kinh doanh (MBA)', school: 'Trường Kinh doanh Sau đại học' },
     phoneFormat: '+84 90 000 0000',
     titlePrefixes: { senior: 'Chuyên viên cao cấp', lead: 'Trưởng nhóm', director: 'Giám đốc' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['Phân tích Tài chính', 'Excel', 'QuickBooks', 'SAP', 'Lập Ngân sách', 'Dự báo', 'GAAP', 'Kiểm toán', 'Quản lý Rủi ro', 'Mô hình Tài chính'],
+        healthcare: ['Chăm sóc Bệnh nhân', 'Hệ thống EMR', 'Tuân thủ HIPAA', 'Đánh giá Lâm sàng', 'Lập kế hoạch Chăm sóc', 'Thuật ngữ Y khoa', 'Giáo dục Bệnh nhân', 'Làm việc Nhóm', 'Lập Hồ sơ', 'Tư duy Phản biện'],
+        education: ['Phát triển Chương trình', 'Quản lý Lớp học', 'Đánh giá Học sinh', 'Giảng dạy Phân hóa', 'Công nghệ Giáo dục', 'Lập Kế hoạch Bài giảng', 'Giao tiếp', 'Cố vấn', 'Giáo dục Đặc biệt', 'Quan hệ Phụ huynh'],
+        sales: ['Phần mềm CRM', 'Tạo Khách hàng Tiềm năng', 'Đàm phán', 'Gọi điện Tiếp thị', 'Quản lý Pipeline', 'Salesforce', 'Quản lý Tài khoản', 'Kỹ năng Thuyết trình', 'Chốt Giao dịch', 'Quan hệ Khách hàng'],
+        hospitality: ['Dịch vụ Khách hàng', 'Hệ thống POS', 'An toàn Thực phẩm', 'Quản lý Tiền mặt', 'Kiến thức Thực đơn', 'Làm việc Nhóm', 'Đa nhiệm', 'Giao tiếp', 'Quản lý Thời gian', 'Giải quyết Xung đột'],
+        general: ['Quản lý Dự án', 'Giao tiếp', 'Giải quyết Vấn đề', 'Lãnh đạo Nhóm', 'Microsoft Office', 'Quản lý Thời gian', 'Tư duy Phản biện', 'Khả năng Thích ứng', 'Hợp tác', 'Tổ chức'],
+    },
+    languages: [
+        { name: 'Tiếng Việt', proficiency: 'native', level: 100 },
+        { name: 'Tiếng Anh', proficiency: 'fluent', level: 80 },
+        { name: 'Tiếng Trung', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Nhiếp ảnh', 'Du lịch', 'Đọc sách', 'Nấu ăn', 'Leo núi', 'Âm nhạc'],
+    strengths: ['Lãnh đạo', 'Giao tiếp', 'Giải quyết Vấn đề', 'Làm việc Nhóm'],
+    proficiencyLabels: { native: 'Bản ngữ', fluent: 'Thành thạo', intermediate: 'Trung cấp' },
 };
 
 export default vi;

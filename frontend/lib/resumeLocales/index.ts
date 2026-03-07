@@ -3,8 +3,8 @@
  * for use by aiResumeGenerator.ts
  */
 
-import type { LocaleData, SummaryTemplates, JobDescriptions, TitlePrefixes, MasterDegree } from './types';
-export type { LocaleData, SummaryTemplates, JobDescriptions, TitlePrefixes, MasterDegree, JobCategory, ExperienceLevel, LocaleBundle } from './types';
+import type { LocaleData, SummaryTemplates, JobDescriptions, TitlePrefixes, MasterDegree, ProficiencyLabels, LocaleLanguage } from './types';
+export type { LocaleData, SummaryTemplates, JobDescriptions, TitlePrefixes, MasterDegree, ProficiencyLabels, LocaleLanguage, JobCategory, ExperienceLevel, LocaleBundle } from './types';
 
 import en from './en';
 import es from './es';
@@ -49,4 +49,24 @@ export const phoneFormatsMap: Record<string, string> = Object.fromEntries(
 
 export const titlePrefixesMap: Record<string, TitlePrefixes> = Object.fromEntries(
     Object.entries(allLocales).map(([key, bundle]) => [key, bundle.titlePrefixes])
+);
+
+export const skillNamesMap: Record<string, Record<string, string[]>> = Object.fromEntries(
+    Object.entries(allLocales).map(([key, bundle]) => [key, bundle.skillNames])
+);
+
+export const languagesMap: Record<string, LocaleLanguage[]> = Object.fromEntries(
+    Object.entries(allLocales).map(([key, bundle]) => [key, bundle.languages])
+);
+
+export const interestsMap: Record<string, string[]> = Object.fromEntries(
+    Object.entries(allLocales).map(([key, bundle]) => [key, bundle.interests])
+);
+
+export const strengthsMap: Record<string, string[]> = Object.fromEntries(
+    Object.entries(allLocales).map(([key, bundle]) => [key, bundle.strengths])
+);
+
+export const proficiencyLabelsMap: Record<string, ProficiencyLabels> = Object.fromEntries(
+    Object.entries(allLocales).map(([key, bundle]) => [key, bundle.proficiencyLabels])
 );

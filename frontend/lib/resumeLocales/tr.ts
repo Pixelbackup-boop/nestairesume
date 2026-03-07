@@ -271,6 +271,25 @@ const tr: LocaleBundle = {
     masterDegree: { tech: 'Bilgisayar Bilimleri Yüksek Lisans', business: 'İşletme Yüksek Lisansı (MBA)', school: 'İşletme Enstitüsü' },
     phoneFormat: '+90 500 000 0000',
     titlePrefixes: { senior: 'Kıdemli', lead: 'Takım Lideri', director: 'Direktör' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['Finansal Analiz', 'Excel', 'QuickBooks', 'SAP', 'Bütçeleme', 'Tahminleme', 'GAAP', 'Denetim', 'Risk Yönetimi', 'Finansal Modelleme'],
+        healthcare: ['Hasta Bakımı', 'EMR Sistemleri', 'HIPAA Uyumu', 'Klinik Değerlendirme', 'Bakım Planlaması', 'Tıbbi Terminoloji', 'Hasta Eğitimi', 'Ekip Çalışması', 'Dokümantasyon', 'Eleştirel Düşünme'],
+        education: ['Müfredat Geliştirme', 'Sınıf Yönetimi', 'Öğrenci Değerlendirme', 'Farklılaştırılmış Öğretim', 'Eğitim Teknolojisi', 'Ders Planlama', 'İletişim', 'Mentorluk', 'Özel Eğitim', 'Veli İlişkileri'],
+        sales: ['CRM Yazılımı', 'Potansiyel Müşteri Oluşturma', 'Müzakere', 'Soğuk Arama', 'Satış Hattı Yönetimi', 'Salesforce', 'Hesap Yönetimi', 'Sunum Becerileri', 'Satış Kapama', 'Müşteri İlişkileri'],
+        hospitality: ['Müşteri Hizmetleri', 'POS Sistemleri', 'Gıda Güvenliği', 'Nakit Yönetimi', 'Menü Bilgisi', 'Ekip Çalışması', 'Çoklu Görev', 'İletişim', 'Zaman Yönetimi', 'Çatışma Çözümü'],
+        general: ['Proje Yönetimi', 'İletişim', 'Problem Çözme', 'Takım Liderliği', 'Microsoft Office', 'Zaman Yönetimi', 'Eleştirel Düşünme', 'Uyum Yeteneği', 'İş Birliği', 'Organizasyon'],
+    },
+    languages: [
+        { name: 'Türkçe', proficiency: 'native', level: 100 },
+        { name: 'İngilizce', proficiency: 'fluent', level: 80 },
+        { name: 'Almanca', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotoğrafçılık', 'Seyahat', 'Okuma', 'Yemek Yapma', 'Doğa Yürüyüşü', 'Müzik'],
+    strengths: ['Liderlik', 'İletişim', 'Problem Çözme', 'Takım Çalışması'],
+    proficiencyLabels: { native: 'Ana Dil', fluent: 'Akıcı', intermediate: 'Orta Seviye' },
 };
 
 export default tr;

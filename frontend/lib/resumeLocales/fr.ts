@@ -271,6 +271,25 @@ const fr: LocaleBundle = {
     masterDegree: { tech: 'Master en Informatique', business: 'Master en Administration des Affaires', school: 'École de Commerce' },
     phoneFormat: '+33 6 00 00 00 00',
     titlePrefixes: { senior: 'Senior', lead: 'Responsable', director: 'Directeur' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        healthcare: ['Soins aux Patients', 'Systèmes DME', 'Conformité HIPAA', 'Évaluation Clinique', 'Planification des Soins', 'Terminologie Médicale', 'Éducation du Patient', 'Travail d\'Équipe', 'Documentation', 'Esprit Critique'],
+        finance: ['Analyse Financière', 'Excel', 'QuickBooks', 'SAP', 'Budgétisation', 'Prévisions', 'GAAP', 'Audit', 'Gestion des Risques', 'Modélisation Financière'],
+        education: ['Développement de Programmes', 'Gestion de Classe', 'Évaluation des Élèves', 'Pédagogie Différenciée', 'Technologie Éducative', 'Préparation de Cours', 'Communication', 'Mentorat', 'Éducation Spécialisée', 'Relations Parents'],
+        sales: ['Logiciel CRM', 'Génération de Leads', 'Négociation', 'Prospection Téléphonique', 'Gestion de Pipeline', 'Salesforce', 'Gestion de Comptes', 'Compétences de Présentation', 'Conclusion de Ventes', 'Relations Clients'],
+        hospitality: ['Service Client', 'Systèmes POS', 'Sécurité Alimentaire', 'Gestion de Caisse', 'Connaissance du Menu', 'Travail d\'Équipe', 'Polyvalence', 'Communication', 'Gestion du Temps', 'Résolution de Conflits'],
+        general: ['Gestion de Projet', 'Communication', 'Résolution de Problèmes', 'Leadership d\'Équipe', 'Microsoft Office', 'Gestion du Temps', 'Esprit Critique', 'Adaptabilité', 'Collaboration', 'Organisation'],
+    },
+    languages: [
+        { name: 'Français', proficiency: 'native', level: 100 },
+        { name: 'Anglais', proficiency: 'fluent', level: 80 },
+        { name: 'Espagnol', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Photographie', 'Voyages', 'Lecture', 'Cuisine', 'Randonnée', 'Musique'],
+    strengths: ['Leadership', 'Communication', 'Résolution de Problèmes', 'Travail d\'Équipe'],
+    proficiencyLabels: { native: 'Langue maternelle', fluent: 'Courant', intermediate: 'Intermédiaire' },
 };
 
 export default fr;

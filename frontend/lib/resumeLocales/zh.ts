@@ -271,6 +271,25 @@ const zh: LocaleBundle = {
     masterDegree: { tech: '计算机科学硕士', business: '工商管理硕士（MBA）', school: '商学院研究生院' },
     phoneFormat: '+86 138 0000 0000',
     titlePrefixes: { senior: '高级', lead: '主管', director: '总监' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['财务分析', 'Excel', 'QuickBooks', 'SAP', '预算管理', '预测分析', 'GAAP', '审计', '风险管理', '财务建模'],
+        healthcare: ['患者护理', 'EMR系统', 'HIPAA合规', '临床评估', '护理计划', '医学术语', '患者教育', '团队协作', '文档管理', '批判性思维'],
+        education: ['课程开发', '课堂管理', '学生评估', '差异化教学', '教育技术', '教案设计', '沟通能力', '指导辅导', '特殊教育', '家校关系'],
+        sales: ['CRM软件', '潜在客户开发', '谈判能力', '电话营销', '销售管道管理', 'Salesforce', '客户管理', '演示技巧', '成交能力', '客户关系'],
+        hospitality: ['客户服务', 'POS系统', '食品安全', '现金管理', '菜单知识', '团队协作', '多任务处理', '沟通能力', '时间管理', '冲突解决'],
+        general: ['项目管理', '沟通能力', '问题解决', '团队领导', 'Microsoft Office', '时间管理', '批判性思维', '适应能力', '协作能力', '组织能力'],
+    },
+    languages: [
+        { name: '中文', proficiency: 'native', level: 100 },
+        { name: '英语', proficiency: 'fluent', level: 80 },
+        { name: '日语', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['摄影', '旅行', '阅读', '烹饪', '徒步', '音乐'],
+    strengths: ['领导力', '沟通能力', '解决问题', '团队合作'],
+    proficiencyLabels: { native: '母语', fluent: '流利', intermediate: '中级' },
 };
 
 export default zh;

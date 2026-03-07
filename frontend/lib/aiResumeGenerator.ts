@@ -6,7 +6,7 @@
  * Can be extended to use real AI APIs (OpenAI, Claude) in the future.
  */
 
-import { ResumeData, Experience, Education, Skill, IdDocumentType } from '../store/useResumeStore';
+import { ResumeData, Experience, Education, Skill, Language, Interest, Strength, IdDocumentType } from '../store/useResumeStore';
 import {
     localeDataMap,
     summaryTemplatesMap,
@@ -14,6 +14,11 @@ import {
     masterDegreesMap,
     phoneFormatsMap,
     titlePrefixesMap,
+    skillNamesMap,
+    languagesMap,
+    interestsMap,
+    strengthsMap,
+    proficiencyLabelsMap,
 } from './resumeLocales';
 import type { JobCategory, LocaleData } from './resumeLocales';
 
@@ -63,7 +68,7 @@ const experienceYears: Record<OnboardingInput['experienceLevel'], number> = {
     executive: 15,
 };
 
-// Job-specific skill sets (kept in English — industry standard)
+// Fallback English skill sets (used when locale data missing)
 const skillsByCategory: Record<JobCategory, string[]> = {
     tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
     design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
@@ -199,14 +204,52 @@ function generateEducation(input: OnboardingInput, category: JobCategory): Educa
     return education;
 }
 
-// Generate skills
-function generateSkills(category: JobCategory): Skill[] {
-    const categorySkills = skillsByCategory[category];
+// Generate skills (locale-aware)
+function generateSkills(category: JobCategory, locale?: string): Skill[] {
+    const loc = locale || 'en';
+    const localeSkills = skillNamesMap[loc]?.[category];
+    const categorySkills = localeSkills || skillsByCategory[category];
 
     return categorySkills.slice(0, 8).map((name, index) => ({
         id: `skill-${index + 1}`,
         name,
         level: Math.max(3, 5 - Math.floor(index / 3)),
+    }));
+}
+
+// Generate languages (locale-aware)
+function generateLanguages(locale?: string): Language[] {
+    const loc = locale || 'en';
+    const localeLanguages = languagesMap[loc] || languagesMap.en;
+
+    return localeLanguages.map((lang, index) => ({
+        id: `lang-${index + 1}`,
+        name: lang.name,
+        proficiency: lang.proficiency,
+        level: lang.level,
+    }));
+}
+
+// Generate interests (locale-aware)
+function generateInterests(locale?: string): Interest[] {
+    const loc = locale || 'en';
+    const localeInterests = interestsMap[loc] || interestsMap.en;
+
+    return localeInterests.map((name, index) => ({
+        id: `int-${index + 1}`,
+        name,
+    }));
+}
+
+// Generate strengths (locale-aware)
+function generateStrengths(locale?: string): Strength[] {
+    const loc = locale || 'en';
+    const localeStrengths = strengthsMap[loc] || strengthsMap.en;
+
+    return localeStrengths.map((name, index) => ({
+        id: `str-${index + 1}`,
+        name,
+        level: 90 - index * 5,
     }));
 }
 
@@ -240,7 +283,10 @@ export function generateAIResume(input: OnboardingInput): Partial<ResumeData> {
         },
         experience: generateExperience(input, category),
         education: generateEducation(input, category),
-        skills: generateSkills(category),
+        skills: generateSkills(category, locale),
+        languages: generateLanguages(locale),
+        interests: generateInterests(locale),
+        strengths: generateStrengths(locale),
     };
 }
 

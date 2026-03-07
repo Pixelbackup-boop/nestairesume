@@ -271,6 +271,25 @@ const es: LocaleBundle = {
     masterDegree: { tech: 'Maestría en Ciencias de la Computación', business: 'Maestría en Administración de Empresas', school: 'Escuela de Posgrado de Negocios' },
     phoneFormat: '+34 600 000 000',
     titlePrefixes: { senior: 'Senior', lead: 'Líder de', director: 'Director de' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        healthcare: ['Atención al Paciente', 'Sistemas EMR', 'Cumplimiento HIPAA', 'Evaluación Clínica', 'Planificación de Cuidados', 'Terminología Médica', 'Educación del Paciente', 'Trabajo en Equipo', 'Documentación', 'Pensamiento Crítico'],
+        finance: ['Análisis Financiero', 'Excel', 'QuickBooks', 'SAP', 'Presupuestos', 'Pronósticos', 'GAAP', 'Auditoría', 'Gestión de Riesgos', 'Modelado Financiero'],
+        education: ['Desarrollo Curricular', 'Gestión del Aula', 'Evaluación Estudiantil', 'Instrucción Diferenciada', 'Tecnología Educativa', 'Planificación de Clases', 'Comunicación', 'Mentoría', 'Educación Especial', 'Relaciones con Padres'],
+        sales: ['Software CRM', 'Generación de Leads', 'Negociación', 'Llamadas en Frío', 'Gestión de Pipeline', 'Salesforce', 'Gestión de Cuentas', 'Habilidades de Presentación', 'Cierre de Ventas', 'Relaciones con Clientes'],
+        hospitality: ['Atención al Cliente', 'Sistemas POS', 'Seguridad Alimentaria', 'Manejo de Efectivo', 'Conocimiento del Menú', 'Trabajo en Equipo', 'Multitarea', 'Comunicación', 'Gestión del Tiempo', 'Resolución de Conflictos'],
+        general: ['Gestión de Proyectos', 'Comunicación', 'Resolución de Problemas', 'Liderazgo de Equipo', 'Microsoft Office', 'Gestión del Tiempo', 'Pensamiento Crítico', 'Adaptabilidad', 'Colaboración', 'Organización'],
+    },
+    languages: [
+        { name: 'Español', proficiency: 'native', level: 100 },
+        { name: 'Inglés', proficiency: 'fluent', level: 80 },
+        { name: 'Francés', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotografía', 'Viajes', 'Lectura', 'Cocina', 'Senderismo', 'Música'],
+    strengths: ['Liderazgo', 'Comunicación', 'Resolución de Problemas', 'Trabajo en Equipo'],
+    proficiencyLabels: { native: 'Nativo', fluent: 'Fluido', intermediate: 'Intermedio' },
 };
 
 export default es;

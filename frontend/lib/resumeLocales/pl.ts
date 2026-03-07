@@ -271,6 +271,25 @@ const pl: LocaleBundle = {
     masterDegree: { tech: 'Magister Informatyki', business: 'Magister Zarządzania (MBA)', school: 'Szkoła Biznesu' },
     phoneFormat: '+48 500 000 000',
     titlePrefixes: { senior: 'Starszy', lead: 'Kierownik', director: 'Dyrektor' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['Analiza Finansowa', 'Excel', 'QuickBooks', 'SAP', 'Budżetowanie', 'Prognozowanie', 'GAAP', 'Audyt', 'Zarządzanie Ryzykiem', 'Modelowanie Finansowe'],
+        healthcare: ['Opieka nad Pacjentem', 'Systemy EMR', 'Zgodność z HIPAA', 'Ocena Kliniczna', 'Planowanie Opieki', 'Terminologia Medyczna', 'Edukacja Pacjenta', 'Praca Zespołowa', 'Dokumentacja', 'Myślenie Krytyczne'],
+        education: ['Rozwój Programów Nauczania', 'Zarządzanie Klasą', 'Ocena Uczniów', 'Nauczanie Zróżnicowane', 'Technologia Edukacyjna', 'Planowanie Lekcji', 'Komunikacja', 'Mentoring', 'Edukacja Specjalna', 'Relacje z Rodzicami'],
+        sales: ['Oprogramowanie CRM', 'Generowanie Leadów', 'Negocjacje', 'Zimne Telefony', 'Zarządzanie Pipeline', 'Salesforce', 'Zarządzanie Kontami', 'Umiejętności Prezentacyjne', 'Zamykanie Sprzedaży', 'Relacje z Klientami'],
+        hospitality: ['Obsługa Klienta', 'Systemy POS', 'Bezpieczeństwo Żywności', 'Obsługa Gotówki', 'Znajomość Menu', 'Praca Zespołowa', 'Wielozadaniowość', 'Komunikacja', 'Zarządzanie Czasem', 'Rozwiązywanie Konfliktów'],
+        general: ['Zarządzanie Projektami', 'Komunikacja', 'Rozwiązywanie Problemów', 'Przywództwo Zespołowe', 'Microsoft Office', 'Zarządzanie Czasem', 'Myślenie Krytyczne', 'Zdolność Adaptacji', 'Współpraca', 'Organizacja'],
+    },
+    languages: [
+        { name: 'Polski', proficiency: 'native', level: 100 },
+        { name: 'Angielski', proficiency: 'fluent', level: 80 },
+        { name: 'Niemiecki', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotografia', 'Podróże', 'Czytanie', 'Gotowanie', 'Wędrówki', 'Muzyka'],
+    strengths: ['Przywództwo', 'Komunikacja', 'Rozwiązywanie Problemów', 'Praca Zespołowa'],
+    proficiencyLabels: { native: 'Ojczysty', fluent: 'Biegły', intermediate: 'Średniozaawansowany' },
 };
 
 export default pl;

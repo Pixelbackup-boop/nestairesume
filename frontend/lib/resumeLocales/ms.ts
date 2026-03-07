@@ -271,6 +271,25 @@ const ms: LocaleBundle = {
     masterDegree: { tech: 'Ijazah Sarjana Sains Komputer', business: 'Ijazah Sarjana Pentadbiran Perniagaan (MBA)', school: 'Sekolah Perniagaan Siswazah' },
     phoneFormat: '+60 12-000 0000',
     titlePrefixes: { senior: 'Kanan', lead: 'Ketua', director: 'Pengarah' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['Analisis Kewangan', 'Excel', 'QuickBooks', 'SAP', 'Belanjawan', 'Ramalan', 'GAAP', 'Audit', 'Pengurusan Risiko', 'Pemodelan Kewangan'],
+        healthcare: ['Penjagaan Pesakit', 'Sistem EMR', 'Pematuhan HIPAA', 'Penilaian Klinikal', 'Perancangan Penjagaan', 'Terminologi Perubatan', 'Pendidikan Pesakit', 'Kerja Berpasukan', 'Dokumentasi', 'Pemikiran Kritis'],
+        education: ['Pembangunan Kurikulum', 'Pengurusan Bilik Darjah', 'Penilaian Pelajar', 'Pengajaran Berbeza', 'Teknologi Pendidikan', 'Perancangan Pelajaran', 'Komunikasi', 'Bimbingan', 'Pendidikan Khas', 'Hubungan Ibu Bapa'],
+        sales: ['Perisian CRM', 'Penjanaan Prospek', 'Perundingan', 'Panggilan Sejuk', 'Pengurusan Saluran Jualan', 'Salesforce', 'Pengurusan Akaun', 'Kemahiran Pembentangan', 'Penutupan Jualan', 'Hubungan Pelanggan'],
+        hospitality: ['Perkhidmatan Pelanggan', 'Sistem POS', 'Keselamatan Makanan', 'Pengendalian Tunai', 'Pengetahuan Menu', 'Kerja Berpasukan', 'Pelbagai Tugas', 'Komunikasi', 'Pengurusan Masa', 'Penyelesaian Konflik'],
+        general: ['Pengurusan Projek', 'Komunikasi', 'Penyelesaian Masalah', 'Kepimpinan Pasukan', 'Microsoft Office', 'Pengurusan Masa', 'Pemikiran Kritis', 'Kebolehsuaian', 'Kerjasama', 'Organisasi'],
+    },
+    languages: [
+        { name: 'Bahasa Melayu', proficiency: 'native', level: 100 },
+        { name: 'Bahasa Inggeris', proficiency: 'fluent', level: 80 },
+        { name: 'Bahasa Indonesia', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotografi', 'Pelancongan', 'Membaca', 'Memasak', 'Mendaki', 'Muzik'],
+    strengths: ['Kepimpinan', 'Komunikasi', 'Penyelesaian Masalah', 'Kerja Berpasukan'],
+    proficiencyLabels: { native: 'Bahasa Ibunda', fluent: 'Fasih', intermediate: 'Pertengahan' },
 };
 
 export default ms;

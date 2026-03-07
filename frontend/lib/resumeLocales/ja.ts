@@ -271,6 +271,25 @@ const ja: LocaleBundle = {
     masterDegree: { tech: 'コンピュータサイエンス修士', business: '経営学修士（MBA）', school: 'ビジネス大学院' },
     phoneFormat: '+81 90-0000-0000',
     titlePrefixes: { senior: 'シニア', lead: 'リード', director: 'ディレクター' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['財務分析', 'Excel', 'QuickBooks', 'SAP', '予算管理', '予測分析', 'GAAP', '監査', 'リスク管理', '財務モデリング'],
+        healthcare: ['患者ケア', 'EMRシステム', 'HIPAA準拠', '臨床評価', 'ケアプランニング', '医学用語', '患者教育', 'チーム連携', '文書管理', 'クリティカルシンキング'],
+        education: ['カリキュラム開発', '学級経営', '生徒評価', '個別指導', '教育テクノロジー', '授業計画', 'コミュニケーション', 'メンタリング', '特別支援教育', '保護者対応'],
+        sales: ['CRMソフトウェア', 'リード獲得', '交渉力', 'コールドコール', 'パイプライン管理', 'Salesforce', 'アカウント管理', 'プレゼンテーション', 'クロージング', '顧客関係管理'],
+        hospitality: ['カスタマーサービス', 'POSシステム', '食品衛生', '現金取扱', 'メニュー知識', 'チーム連携', 'マルチタスク', 'コミュニケーション', 'タイムマネジメント', '紛争解決'],
+        general: ['プロジェクト管理', 'コミュニケーション', '問題解決', 'チームリーダーシップ', 'Microsoft Office', 'タイムマネジメント', 'クリティカルシンキング', '適応力', '協調性', '組織力'],
+    },
+    languages: [
+        { name: '日本語', proficiency: 'native', level: 100 },
+        { name: '英語', proficiency: 'fluent', level: 80 },
+        { name: '中国語', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['写真撮影', '旅行', '読書', '料理', 'ハイキング', '音楽'],
+    strengths: ['リーダーシップ', 'コミュニケーション', '問題解決力', 'チームワーク'],
+    proficiencyLabels: { native: 'ネイティブ', fluent: '流暢', intermediate: '中級' },
 };
 
 export default ja;

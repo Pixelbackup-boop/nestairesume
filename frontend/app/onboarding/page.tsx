@@ -17,6 +17,7 @@ import {
     Wand2,
     Layout,
 } from 'lucide-react';
+import { useLocale } from 'next-intl';
 import { useResumeStore } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
 import { builderTemplates, BuilderTemplate, samplePreviewData, getLayoutPresetId } from '@/lib/templates/builder';
@@ -222,6 +223,7 @@ function TemplatePreview({ template }: { template: BuilderTemplate }) {
 
 export default function OnboardingPage() {
     const router = useRouter();
+    const locale = useLocale();
     const { setResumeData, setTemplate } = useResumeStore();
     const [step, setStep] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
@@ -272,6 +274,7 @@ export default function OnboardingPage() {
                 fullName: formData.fullName.trim(),
                 jobTitle: formData.jobTitle.trim(),
                 experienceLevel: formData.experienceLevel,
+                locale,
             };
 
             const resumeData = await generateAIResumeAsync(input);

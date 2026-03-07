@@ -32,6 +32,18 @@ export type MasterDegree = {
     school: string;
 };
 
+export type ProficiencyLabels = {
+    native: string;
+    fluent: string;
+    intermediate: string;
+};
+
+export type LocaleLanguage = {
+    name: string;
+    proficiency: 'native' | 'fluent' | 'intermediate';
+    level: number;
+};
+
 export interface LocaleBundle {
     localeData: LocaleData;
     summaryTemplates: SummaryTemplates;
@@ -39,4 +51,9 @@ export interface LocaleBundle {
     masterDegree: MasterDegree;
     phoneFormat: string;
     titlePrefixes: TitlePrefixes;
+    skillNames: Record<JobCategory, string[]>;
+    languages: LocaleLanguage[];
+    interests: string[];
+    strengths: string[];
+    proficiencyLabels: ProficiencyLabels;
 }

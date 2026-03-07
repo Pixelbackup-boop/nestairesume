@@ -271,6 +271,25 @@ const id: LocaleBundle = {
     masterDegree: { tech: 'Magister Ilmu Komputer', business: 'Magister Manajemen (MBA)', school: 'Sekolah Bisnis Pascasarjana' },
     phoneFormat: '+62 812 0000 0000',
     titlePrefixes: { senior: 'Senior', lead: 'Kepala', director: 'Direktur' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['Analisis Keuangan', 'Excel', 'QuickBooks', 'SAP', 'Penganggaran', 'Peramalan', 'GAAP', 'Audit', 'Manajemen Risiko', 'Pemodelan Keuangan'],
+        healthcare: ['Perawatan Pasien', 'Sistem EMR', 'Kepatuhan HIPAA', 'Penilaian Klinis', 'Perencanaan Perawatan', 'Terminologi Medis', 'Edukasi Pasien', 'Kerja Tim', 'Dokumentasi', 'Berpikir Kritis'],
+        education: ['Pengembangan Kurikulum', 'Manajemen Kelas', 'Penilaian Siswa', 'Pembelajaran Diferensiasi', 'Teknologi Pendidikan', 'Perencanaan Pelajaran', 'Komunikasi', 'Mentoring', 'Pendidikan Khusus', 'Hubungan Orang Tua'],
+        sales: ['Perangkat Lunak CRM', 'Generasi Prospek', 'Negosiasi', 'Panggilan Dingin', 'Manajemen Pipeline', 'Salesforce', 'Manajemen Akun', 'Keterampilan Presentasi', 'Penutupan Penjualan', 'Hubungan Klien'],
+        hospitality: ['Pelayanan Pelanggan', 'Sistem POS', 'Keamanan Pangan', 'Penanganan Uang Tunai', 'Pengetahuan Menu', 'Kerja Tim', 'Multitasking', 'Komunikasi', 'Manajemen Waktu', 'Penyelesaian Konflik'],
+        general: ['Manajemen Proyek', 'Komunikasi', 'Pemecahan Masalah', 'Kepemimpinan Tim', 'Microsoft Office', 'Manajemen Waktu', 'Berpikir Kritis', 'Kemampuan Adaptasi', 'Kolaborasi', 'Organisasi'],
+    },
+    languages: [
+        { name: 'Bahasa Indonesia', proficiency: 'native', level: 100 },
+        { name: 'Bahasa Inggris', proficiency: 'fluent', level: 80 },
+        { name: 'Bahasa Melayu', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotografi', 'Traveling', 'Membaca', 'Memasak', 'Mendaki', 'Musik'],
+    strengths: ['Kepemimpinan', 'Komunikasi', 'Pemecahan Masalah', 'Kerja Tim'],
+    proficiencyLabels: { native: 'Bahasa Ibu', fluent: 'Lancar', intermediate: 'Menengah' },
 };
 
 export default id;

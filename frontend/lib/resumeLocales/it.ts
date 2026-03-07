@@ -271,6 +271,25 @@ const it: LocaleBundle = {
     masterDegree: { tech: 'Laurea Magistrale in Informatica', business: 'Master in Business Administration', school: 'Scuola di Business' },
     phoneFormat: '+39 320 000 0000',
     titlePrefixes: { senior: 'Senior', lead: 'Responsabile', director: 'Direttore' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        healthcare: ['Assistenza al Paziente', 'Sistemi EMR', 'Conformità HIPAA', 'Valutazione Clinica', 'Pianificazione Assistenziale', 'Terminologia Medica', 'Educazione del Paziente', 'Lavoro di Squadra', 'Documentazione', 'Pensiero Critico'],
+        finance: ['Analisi Finanziaria', 'Excel', 'QuickBooks', 'SAP', 'Budgeting', 'Previsioni', 'GAAP', 'Revisione Contabile', 'Gestione del Rischio', 'Modellazione Finanziaria'],
+        education: ['Sviluppo Curricolare', 'Gestione della Classe', 'Valutazione degli Studenti', 'Didattica Differenziata', 'Tecnologia Educativa', 'Pianificazione delle Lezioni', 'Comunicazione', 'Mentoring', 'Educazione Speciale', 'Relazioni con i Genitori'],
+        sales: ['Software CRM', 'Generazione Lead', 'Negoziazione', 'Chiamate a Freddo', 'Gestione Pipeline', 'Salesforce', 'Gestione Account', 'Capacità di Presentazione', 'Chiusura Vendite', 'Relazioni con i Clienti'],
+        hospitality: ['Servizio Clienti', 'Sistemi POS', 'Sicurezza Alimentare', 'Gestione Contanti', 'Conoscenza del Menù', 'Lavoro di Squadra', 'Multitasking', 'Comunicazione', 'Gestione del Tempo', 'Risoluzione dei Conflitti'],
+        general: ['Gestione Progetti', 'Comunicazione', 'Problem Solving', 'Leadership di Squadra', 'Microsoft Office', 'Gestione del Tempo', 'Pensiero Critico', 'Adattabilità', 'Collaborazione', 'Organizzazione'],
+    },
+    languages: [
+        { name: 'Italiano', proficiency: 'native', level: 100 },
+        { name: 'Inglese', proficiency: 'fluent', level: 80 },
+        { name: 'Francese', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotografia', 'Viaggi', 'Lettura', 'Cucina', 'Escursionismo', 'Musica'],
+    strengths: ['Leadership', 'Comunicazione', 'Problem Solving', 'Lavoro di Squadra'],
+    proficiencyLabels: { native: 'Madrelingua', fluent: 'Fluente', intermediate: 'Intermedio' },
 };
 
 export default it;

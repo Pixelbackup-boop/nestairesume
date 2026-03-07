@@ -271,6 +271,25 @@ const nl: LocaleBundle = {
     masterDegree: { tech: 'Master Informatica', business: 'Master Bedrijfskunde (MBA)', school: 'Business School' },
     phoneFormat: '+31 6 00000000',
     titlePrefixes: { senior: 'Senior', lead: 'Teamleider', director: 'Directeur' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['Financiële Analyse', 'Excel', 'QuickBooks', 'SAP', 'Budgettering', 'Forecasting', 'GAAP', 'Auditing', 'Risicobeheer', 'Financiële Modellering'],
+        healthcare: ['Patiëntenzorg', 'EMR-systemen', 'HIPAA-naleving', 'Klinische Beoordeling', 'Zorgplanning', 'Medische Terminologie', 'Patiënteducatie', 'Teamwerk', 'Documentatie', 'Kritisch Denken'],
+        education: ['Curriculumontwikkeling', 'Klassenmanagement', 'Leerlingbeoordeling', 'Gedifferentieerd Onderwijs', 'Onderwijstechnologie', 'Lesplanning', 'Communicatie', 'Mentoring', 'Speciaal Onderwijs', 'Ouderrelaties'],
+        sales: ['CRM-software', 'Leadgeneratie', 'Onderhandeling', 'Koude Acquisitie', 'Pipelinebeheer', 'Salesforce', 'Accountbeheer', 'Presentatievaardigheden', 'Deals Sluiten', 'Klantrelaties'],
+        hospitality: ['Klantenservice', 'POS-systemen', 'Voedselveiligheid', 'Kasbeheer', 'Menukennis', 'Teamwerk', 'Multitasking', 'Communicatie', 'Tijdmanagement', 'Conflictoplossing'],
+        general: ['Projectmanagement', 'Communicatie', 'Probleemoplossing', 'Teamleiderschap', 'Microsoft Office', 'Tijdmanagement', 'Kritisch Denken', 'Aanpassingsvermogen', 'Samenwerking', 'Organisatie'],
+    },
+    languages: [
+        { name: 'Nederlands', proficiency: 'native', level: 100 },
+        { name: 'Engels', proficiency: 'fluent', level: 80 },
+        { name: 'Duits', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['Fotografie', 'Reizen', 'Lezen', 'Koken', 'Wandelen', 'Muziek'],
+    strengths: ['Leiderschap', 'Communicatie', 'Probleemoplossing', 'Teamwerk'],
+    proficiencyLabels: { native: 'Moedertaal', fluent: 'Vloeiend', intermediate: 'Gemiddeld' },
 };
 
 export default nl;

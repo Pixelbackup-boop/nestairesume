@@ -271,6 +271,25 @@ const ko: LocaleBundle = {
     masterDegree: { tech: '컴퓨터공학 석사', business: '경영학 석사 (MBA)', school: '경영대학원' },
     phoneFormat: '+82 10-0000-0000',
     titlePrefixes: { senior: '시니어', lead: '리드', director: '디렉터' },
+    skillNames: {
+        tech: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'SQL', 'Git', 'AWS', 'Docker', 'REST APIs'],
+        design: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems', 'Typography'],
+        marketing: ['SEO', 'Google Analytics', 'Content Strategy', 'Social Media', 'Email Marketing', 'PPC', 'CRM', 'Copywriting', 'A/B Testing', 'HubSpot'],
+        finance: ['재무 분석', 'Excel', 'QuickBooks', 'SAP', '예산 관리', '예측 분석', 'GAAP', '감사', '리스크 관리', '재무 모델링'],
+        healthcare: ['환자 간호', 'EMR 시스템', 'HIPAA 준수', '임상 평가', '간호 계획', '의학 용어', '환자 교육', '팀 협업', '문서 관리', '비판적 사고'],
+        education: ['교육과정 개발', '학급 경영', '학생 평가', '맞춤형 교육', '교육 기술', '수업 계획', '의사소통', '멘토링', '특수 교육', '학부모 관계'],
+        sales: ['CRM 소프트웨어', '리드 생성', '협상', '콜드 콜', '파이프라인 관리', 'Salesforce', '계정 관리', '프레젠테이션', '거래 성사', '고객 관계'],
+        hospitality: ['고객 서비스', 'POS 시스템', '식품 안전', '현금 취급', '메뉴 지식', '팀 협업', '멀티태스킹', '의사소통', '시간 관리', '갈등 해결'],
+        general: ['프로젝트 관리', '의사소통', '문제 해결', '팀 리더십', 'Microsoft Office', '시간 관리', '비판적 사고', '적응력', '협업', '조직력'],
+    },
+    languages: [
+        { name: '한국어', proficiency: 'native', level: 100 },
+        { name: '영어', proficiency: 'fluent', level: 80 },
+        { name: '일본어', proficiency: 'intermediate', level: 55 },
+    ],
+    interests: ['사진촬영', '여행', '독서', '요리', '등산', '음악'],
+    strengths: ['리더십', '의사소통', '문제 해결력', '팀워크'],
+    proficiencyLabels: { native: '원어민', fluent: '유창', intermediate: '중급' },
 };
 
 export default ko;
