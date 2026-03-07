@@ -216,13 +216,13 @@ export const renderHeaderRibbonYellow = (
                                         </p>
                                         <h4 style="font-weight: 700; font-size: ${fs.entryTitle}; color: #1f2937; margin-bottom: 1px;">
                                             ${escapeHtml(edu.degree)}
-                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 500;">${t.labels.gpa || 'GPA'}: ${escapeHtml(edu.gpa)}</span>` : ''}
                                         </h4>
                                         <p style="font-size: ${fs.body}; color: ${accentColor}; font-weight: 600;">
                                             ${escapeHtml(edu.school)}
                                         </p>
                                         ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
-                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+                                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">${t.labels.activities || 'Activities'}: ${escapeHtml(edu.clubs)}</p>` : ''}
                                         ${edu.description ? `
                                             <p style="font-size: ${fs.small}; color: #6b7280; margin-top: 2px;">
                                                 ${formatDescription(edu.description)}

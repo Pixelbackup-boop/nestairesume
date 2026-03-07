@@ -3,7 +3,6 @@
     "title": "Ücretsiz AI Özgeçmiş Oluşturucu | Dakikalar İçinde ATS Özgeçmiş Oluşturun | Best AI Resume",
     "description": "Ücretsiz AI özgeçmiş oluşturucumuzla dakikalar içinde profesyonel, ATS uyumlu özgeçmişler oluşturun. 50.000'den fazla profesyonel tarafından tercih ediliyor. Başlamak için kayıt gerekmez."
   },
-
   "Common": {
     "loading": "Yükleniyor...",
     "error": "Bir hata oluştu",
@@ -36,7 +35,6 @@
       "continueEditing": "Düzenlemeye Devam Et"
     }
   },
-
   "Navigation": {
     "features": "Özellikler",
     "templates": "Şablonlar",
@@ -126,7 +124,6 @@
     "whyWereBetter": "Neden 1 Numaralı Ücretsiz Oluşturucuyuz",
     "whyWereBetterDesc": "AI destekli, ATS uyumlu, tamamen ücretsiz"
   },
-
   "Home": {
     "hero": {
       "badge": "AI Destekli Özgeçmiş Oluşturma",
@@ -240,17 +237,22 @@
     },
     "companies": {
       "title": "Kullanıcılarımız şu şirketlere işe alındı",
-      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Features": {
     "meta": {
       "title": "AI Özgeçmiş Oluşturucu Özellikleri - Akıllı Yazım, ATS Optimizasyonu ve Daha Fazlası",
       "description": "Güçlü özellikleri keşfedin: AI destekli yazım, gerçek zamanlı ATS puanlama, 50+ şablon, anında PDF dışa aktarma. Mülakat kazandıran profesyonel özgeçmişler oluşturun."
     }
   },
-
   "Templates": {
     "meta": {
       "title": "50+ Profesyonel Özgeçmiş Şablonu - Ücretsiz ve ATS Uyumlu",
@@ -296,7 +298,6 @@
       }
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "İletişim",
@@ -333,31 +334,28 @@
       "nationality": "Uyruk",
       "id": "Kimlik Numarası",
       "passport": "Pasaport",
-      "drivingLicense": "Ehliyet"
+      "drivingLicense": "Ehliyet",
+      "activities": "Aktiviteler"
     }
   },
-
   "About": {
     "meta": {
       "title": "Best AI Resume Hakkında - İş Arama Sürecini Dönüştürme Misyonumuz",
       "description": "Best AI Resume hakkında bilgi edinin - binlerce kişinin hayalindeki işe kavuşmasına yardımcı olan AI destekli platform. Misyonumuz, değerlerimiz ve kariyer başarınıza olan bağlılığımız."
     }
   },
-
   "Privacy": {
     "meta": {
       "title": "Gizlilik Politikası - Best AI Resume",
       "description": "Best AI Resume'nin verilerinizi nasıl koruduğunu öğrenin. Gizlilik politikamız kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar."
     }
   },
-
   "Terms": {
     "meta": {
       "title": "Hizmet Şartları - Best AI Resume",
       "description": "Best AI Resume hizmet şartlarını okuyun. AI özgeçmiş oluşturucu platformumuzu kullanırken haklarınızı ve sorumluluklarınızı anlayın."
     }
   },
-
   "Onboarding": {
     "meta": {
       "title": "Özgeçmişinizi Oluşturun - AI Özgeçmiş Oluşturucu",
@@ -495,7 +493,6 @@
       "linkedinStep4": "İndirilen PDF'yi aşağıya yükleyin"
     }
   },
-
   "Pricing": {
     "meta": {
       "title": "Fiyatlandırma Planları - Aylık $3'dan Başlayan AI Özgeçmiş Oluşturucu",
@@ -656,7 +653,6 @@
       "cta": "Şimdi Abone Ol"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Kariyeriniz için ipuçları, rehberler ve bilgiler",
@@ -669,7 +665,6 @@
     "shareOn": "Paylaş",
     "noResults": "Makale bulunamadı"
   },
-
   "Footer": {
     "tagline": "Dünya genelinde profesyonellerin güvendiği AI destekli özgeçmiş oluşturucu.",
     "product": "Ürün",
@@ -724,7 +719,6 @@
     "interviewPreparation": "Mülakat Hazırlığı",
     "salaryNegotiation": "Maaş Pazarlığı"
   },
-
   "Auth": {
     "meta": {
       "loginTitle": "Giriş Yap - Best AI Resume",
@@ -764,17 +758,14 @@
     "wrongEmail": "Yanlış e-posta mı?",
     "changeEmail": "E-postayı değiştir"
   },
-
   "Errors": {
     "notFound": "Sayfa bulunamadı",
     "serverError": "Bir şeyler yanlış gitti",
     "unauthorized": "Devam etmek için lütfen giriş yapın"
   },
-
   "LanguageSwitcher": {
     "label": "Dil seçin"
   },
-
   "Dashboard": {
     "meta": {
       "title": "Kontrol Paneli - Özgeçmişlerim",
@@ -848,7 +839,6 @@
     },
     "loading": "Yükleniyor..."
   },
-
   "Profile": {
     "meta": {
       "title": "Profil Ayarları - Best AI Resume",
@@ -894,7 +884,6 @@
     "passwordTooShort": "Şifre en az 8 karakter olmalıdır",
     "noChanges": "Kaydedilecek değişiklik yok"
   },
-
   "Checkout": {
     "meta": {
       "title": "Ödeme - Aboneliğinizi Tamamlayın",
@@ -938,29 +927,53 @@
         "name": "Starter",
         "price": "$3/ay",
         "description": "İş arayanlar için ideal",
-        "features": ["Aylık 30 CV oluşturma", "Aylık 3 AI oluşturma", "Aylık 3 PDF indirme", "Tüm freemium şablonlar", "Reklamsız"]
+        "features": [
+          "Aylık 30 CV oluşturma",
+          "Aylık 3 AI oluşturma",
+          "Aylık 3 PDF indirme",
+          "Tüm freemium şablonlar",
+          "Reklamsız"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/ay",
         "description": "Aktif iş arayanlar için",
-        "features": ["Aylık 150 CV oluşturma", "Aylık 10 AI oluşturma", "Aylık 10 PDF indirme", "ATS optimizasyonu", "Ön yazı oluşturucu"]
+        "features": [
+          "Aylık 150 CV oluşturma",
+          "Aylık 10 AI oluşturma",
+          "Aylık 10 PDF indirme",
+          "ATS optimizasyonu",
+          "Ön yazı oluşturucu"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/ay",
         "description": "Profesyoneller için en iyi seçim",
-        "features": ["Aylık 300 CV oluşturma", "Aylık 30 AI oluşturma", "Aylık 25 PDF indirme", "Tüm premium şablonlar", "Öncelikli destek"]
+        "features": [
+          "Aylık 300 CV oluşturma",
+          "Aylık 30 AI oluşturma",
+          "Aylık 25 PDF indirme",
+          "Tüm premium şablonlar",
+          "Öncelikli destek"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/ay",
         "description": "Uzman kullanıcılar ve ajanslar için",
-        "features": ["Sınırsız CV oluşturma", "Aylık 100 AI oluşturma", "Sınırsız PDF indirme", "Tüm premium şablonlar", "Öncelikli destek", "Erken erişim özellikleri"]
+        "features": [
+          "Sınırsız CV oluşturma",
+          "Aylık 100 AI oluşturma",
+          "Sınırsız PDF indirme",
+          "Tüm premium şablonlar",
+          "Öncelikli destek",
+          "Erken erişim özellikleri"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "Ödeme Başarılı!",
     "welcome": "{plan}'a Hoş Geldiniz!",
@@ -975,23 +988,47 @@
     "plans": {
       "starter": {
         "name": "Starter",
-        "benefits": ["Aylık 30 CV oluşturma", "Aylık 3 AI oluşturma", "Aylık 3 PDF indirme", "Tüm freemium şablonlar", "Reklamsız"]
+        "benefits": [
+          "Aylık 30 CV oluşturma",
+          "Aylık 3 AI oluşturma",
+          "Aylık 3 PDF indirme",
+          "Tüm freemium şablonlar",
+          "Reklamsız"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["Aylık 150 CV oluşturma", "Aylık 10 AI oluşturma", "Aylık 10 PDF indirme", "ATS optimizasyonu", "Ön yazı oluşturucu"]
+        "benefits": [
+          "Aylık 150 CV oluşturma",
+          "Aylık 10 AI oluşturma",
+          "Aylık 10 PDF indirme",
+          "ATS optimizasyonu",
+          "Ön yazı oluşturucu"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["Aylık 300 CV oluşturma", "Aylık 30 AI oluşturma", "Aylık 25 PDF indirme", "Tüm premium şablonlar", "Öncelikli destek"]
+        "benefits": [
+          "Aylık 300 CV oluşturma",
+          "Aylık 30 AI oluşturma",
+          "Aylık 25 PDF indirme",
+          "Tüm premium şablonlar",
+          "Öncelikli destek"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["Sınırsız CV oluşturma", "Aylık 100 AI oluşturma", "Sınırsız PDF indirme", "Tüm premium şablonlar", "Öncelikli destek", "Yeni özelliklere erken erişim"]
+        "benefits": [
+          "Sınırsız CV oluşturma",
+          "Aylık 100 AI oluşturma",
+          "Sınırsız PDF indirme",
+          "Tüm premium şablonlar",
+          "Öncelikli destek",
+          "Yeni özelliklere erken erişim"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "Kanvas Özgeçmiş Editörü - Özgeçmişinizi Görsel Olarak Tasarlayın | Best AI Resume",
@@ -1059,7 +1096,6 @@
       "restored": "Kanvas projeniz geri yüklendi! İndirmek için Dışa Aktar'a tıklayın."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Kanvas Özgeçmiş Şablonları - Özgeçmişinizi Görsel Olarak Tasarlayın | Best AI Resume",
@@ -1088,7 +1124,6 @@
     "formBuilderBanner": "Form tabanlı şablonlar mı arıyorsunuz?",
     "viewFormTemplates": "Form Oluşturucu Şablonlarını Görüntüle"
   },
-
   "Builder": {
     "meta": {
       "title": "Özgeçmiş Oluşturucu - Profesyonel CV'nizi Çevrimiçi Oluşturun",
@@ -1254,19 +1289,16 @@
       "thankYouDesc": "Geri bildiriminiz gönderildi. Şablonlarımızı geliştirmek için tüm raporları inceliyoruz."
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Google Docs İçin İndir",
     "loading": "Google Docs oluşturucu yükleniyor..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "MS Word İndir",
     "loading": "Word oluşturucu yükleniyor..."
   },
-
   "CoverLetter": {
     "meta": {
       "title": "Ücretsiz AI Ön Yazı Oluşturucu - Profesyonel Ön Yazılar Oluşturun",
@@ -1340,7 +1372,6 @@
       "shrmHrResources": "SHRM: İK ve Kariyer Kaynakları"
     }
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "Ücretsiz AI İstifa Mektubu Oluşturucu - Profesyonel İstifa Mektupları",
@@ -1456,7 +1487,6 @@
       "blsCareerData": "Bureau of Labor Statistics: Kariyer Verileri"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Ücretsiz AI Deneme Mülakatı Pratiği | Best AI Resume",
@@ -1473,9 +1503,18 @@
       "jobTitlePlaceholder": "örn. Yazılım Mühendisi, Pazarlama Müdürü...",
       "experienceLevel": "Deneyim Seviyesi",
       "levels": {
-        "entry": { "label": "Giriş Seviyesi", "description": "0–2 yıl deneyim" },
-        "mid": { "label": "Orta Seviye", "description": "3–6 yıl deneyim" },
-        "senior": { "label": "Kıdemli Seviye", "description": "7+ yıl deneyim" }
+        "entry": {
+          "label": "Giriş Seviyesi",
+          "description": "0–2 yıl deneyim"
+        },
+        "mid": {
+          "label": "Orta Seviye",
+          "description": "3–6 yıl deneyim"
+        },
+        "senior": {
+          "label": "Kıdemli Seviye",
+          "description": "7+ yıl deneyim"
+        }
       },
       "questionCount": "Soru Sayısı: {count}",
       "quick": "Hızlı (3)",
@@ -1533,7 +1572,6 @@
       "shrmInterviewPractices": "SHRM: Mülakat En İyi Uygulamaları"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Kariyer İpuçları ve Özgeçmiş Tavsiyeleri - Uzman Rehberler | Best AI Resume",
@@ -1583,7 +1621,6 @@
       "sidebarButton": "Başla"
     }
   },
-
   "ResumeExamples": {
     "meta": {
       "title": "İş Unvanına Göre Özgeçmiş Örnekleri | Ücretsiz Şablonlar ve Rehberler 2026",

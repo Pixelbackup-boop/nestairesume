@@ -328,7 +328,8 @@
       "nationality": "Nacionalidad",
       "id": "Número de ID",
       "passport": "Pasaporte",
-      "drivingLicense": "Licencia de Conducir"
+      "drivingLicense": "Licencia de Conducir",
+      "activities": "Actividades"
     }
   },
   "Onboarding": {

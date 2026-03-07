@@ -157,12 +157,12 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
                                 <div>
                                     <div style="font-weight: 700; font-size: 12px; color: #ffffff;">
                                         ${escapeHtml(edu.degree)}
-                                        ${edu.gpa ? `<span style="margin-left: 6px; font-weight: 400; opacity: 0.8;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                                        ${edu.gpa ? `<span style="margin-left: 6px; font-weight: 400; opacity: 0.8;">${t.labels.gpa || 'GPA'}: ${escapeHtml(edu.gpa)}</span>` : ''}
                                     </div>
                                     <div style="font-size: 11px; color: ${accentColor};">${escapeHtml(edu.school)}</div>
                                     <div style="font-size: 10px; opacity: 0.8;">${formatLocalizedDate(edu.startDate, locale)} – ${edu.endDate ? formatLocalizedDate(edu.endDate, locale) : t.labels.present}</div>
                                     ${edu.honors ? `<div style="font-size: 10px; color: #cbd5e1; opacity: 0.8; margin-top: 2px;">${escapeHtml(edu.honors)}</div>` : ''}
-                                    ${edu.clubs ? `<div style="font-size: 9px; color: #94a3b8; opacity: 0.7; margin-top: 1px;">Activities: ${escapeHtml(edu.clubs)}</div>` : ''}
+                                    ${edu.clubs ? `<div style="font-size: 9px; color: #94a3b8; opacity: 0.7; margin-top: 1px;">${t.labels.activities || 'Activities'}: ${escapeHtml(edu.clubs)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </div>

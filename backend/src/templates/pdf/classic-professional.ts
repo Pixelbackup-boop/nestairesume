@@ -136,10 +136,10 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                         </div>
                         <p style="color: ${theme.secondary}; font-size: ${s(12)};">
                             ${escapeHtml(edu.degree)}
-                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8;">${t.labels.gpa || 'GPA'}: ${escapeHtml(edu.gpa)}</span>` : ''}
                         </p>
                         ${edu.honors ? `<p style="color: ${theme.text}; opacity: 0.7; font-size: ${s(11)};">${escapeHtml(edu.honors)}</p>` : ''}
-                        ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: ${s(10)};">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+                        ${edu.clubs ? `<p style="color: ${theme.text}; opacity: 0.6; font-size: ${s(10)};">${t.labels.activities || 'Activities'}: ${escapeHtml(edu.clubs)}</p>` : ''}
                     
                         ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                     </div>

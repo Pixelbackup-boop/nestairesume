@@ -103,7 +103,7 @@ export function renderDocxClassic(
     if (data.languages?.length) {
         html += sectionHeader(t.sections.languages, primary);
         html += `<p style="font-size:10pt;color:#444444;margin:0 0 12px 0;">`;
-        html += data.languages.map(l => `${escapeHtml(l.name)} (${getLanguageProficiencyText(l.proficiency)})`).join(', ');
+        html += data.languages.map(l => `${escapeHtml(l.name)} (${getLanguageProficiencyText(l.proficiency, t.labels)})`).join(', ');
         html += `</p>`;
     }
 

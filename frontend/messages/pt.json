@@ -3,7 +3,6 @@
     "title": "Criador de Currículo com IA Grátis | Crie Currículos ATS em Minutos | Best AI Resume",
     "description": "Crie currículos profissionais otimizados para ATS em minutos com nosso criador de currículos com IA gratuito. Usado por mais de 50.000 profissionais. Não é necessário cadastro para começar."
   },
-
   "Common": {
     "loading": "Carregando...",
     "error": "Ocorreu um erro",
@@ -36,7 +35,6 @@
       "continueEditing": "Continuar Editando"
     }
   },
-
   "Navigation": {
     "features": "Recursos",
     "templates": "Modelos",
@@ -126,7 +124,6 @@
     "whyWereBetter": "Por que Somos o Melhor Criador Grátis",
     "whyWereBetterDesc": "Com IA, otimizado para ATS, totalmente gratuito"
   },
-
   "Home": {
     "hero": {
       "badge": "Criação de Currículo com IA",
@@ -240,17 +237,22 @@
     },
     "companies": {
       "title": "Nossos usuários foram contratados por",
-      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Features": {
     "meta": {
       "title": "Recursos do Criador de Currículo com IA - Escrita Inteligente, Otimização ATS e Mais",
       "description": "Descubra recursos poderosos: escrita com IA, pontuação ATS em tempo real, mais de 50 modelos, exportação instantânea em PDF. Crie currículos profissionais que geram entrevistas."
     }
   },
-
   "Templates": {
     "meta": {
       "title": "Mais de 50 Modelos Profissionais de Currículo - Grátis e Compatíveis com ATS",
@@ -296,7 +298,6 @@
       }
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Contato",
@@ -333,31 +334,28 @@
       "nationality": "Nacionalidade",
       "id": "Número de ID",
       "passport": "Passaporte",
-      "drivingLicense": "Carteira de Motorista"
+      "drivingLicense": "Carteira de Motorista",
+      "activities": "Atividades"
     }
   },
-
   "About": {
     "meta": {
       "title": "Sobre Best AI Resume - Nossa Missão de Transformar a Busca por Emprego",
       "description": "Conheça Best AI Resume - a plataforma com IA que ajuda milhares a conquistar o emprego dos sonhos. Nossa missão, valores e compromisso com o sucesso da sua carreira."
     }
   },
-
   "Privacy": {
     "meta": {
       "title": "Política de Privacidade - Best AI Resume",
       "description": "Saiba como Best AI Resume protege seus dados. Nossa política de privacidade explica como coletamos, usamos e protegemos suas informações pessoais."
     }
   },
-
   "Terms": {
     "meta": {
       "title": "Termos de Serviço - Best AI Resume",
       "description": "Leia os termos de serviço de Best AI Resume. Entenda seus direitos e responsabilidades ao usar nossa plataforma de criação de currículos com IA."
     }
   },
-
   "Onboarding": {
     "meta": {
       "title": "Crie Seu Currículo - Gerador de Currículo com IA",
@@ -495,7 +493,6 @@
       "linkedinStep4": "Envie o PDF baixado abaixo"
     }
   },
-
   "Pricing": {
     "meta": {
       "title": "Planos e Preços - Criador de Currículo com IA a Partir de $3/mês",
@@ -656,7 +653,6 @@
       "cta": "Assinar Agora"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Dicas, guias e insights para sua carreira",
@@ -669,7 +665,6 @@
     "shareOn": "Compartilhar no",
     "noResults": "Nenhum artigo encontrado"
   },
-
   "Footer": {
     "tagline": "Criador de currículos com IA usado por profissionais do mundo todo.",
     "product": "Produto",
@@ -724,7 +719,6 @@
     "interviewPreparation": "Preparação para Entrevista",
     "salaryNegotiation": "Negociação Salarial"
   },
-
   "Auth": {
     "meta": {
       "loginTitle": "Entrar - Best AI Resume",
@@ -764,17 +758,14 @@
     "wrongEmail": "E-mail errado?",
     "changeEmail": "Alterar e-mail"
   },
-
   "Errors": {
     "notFound": "Página não encontrada",
     "serverError": "Algo deu errado",
     "unauthorized": "Por favor, faça login para continuar"
   },
-
   "LanguageSwitcher": {
     "label": "Selecionar idioma"
   },
-
   "Dashboard": {
     "meta": {
       "title": "Painel - Meus Currículos",
@@ -848,7 +839,6 @@
     },
     "loading": "Carregando..."
   },
-
   "Profile": {
     "meta": {
       "title": "Configurações do Perfil - Best AI Resume",
@@ -894,7 +884,6 @@
     "passwordTooShort": "A senha deve ter pelo menos 8 caracteres",
     "noChanges": "Nenhuma alteração para salvar"
   },
-
   "Checkout": {
     "meta": {
       "title": "Checkout - Complete Sua Assinatura",
@@ -938,29 +927,53 @@
         "name": "Starter",
         "price": "$3/mês",
         "description": "Perfeito para quem busca emprego",
-        "features": ["30 criações de CV/mês", "3 gerações com IA/mês", "3 downloads de PDF/mês", "Todos os modelos freemium", "Sem anúncios"]
+        "features": [
+          "30 criações de CV/mês",
+          "3 gerações com IA/mês",
+          "3 downloads de PDF/mês",
+          "Todos os modelos freemium",
+          "Sem anúncios"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/mês",
         "description": "Para quem está buscando emprego ativamente",
-        "features": ["150 criações de CV/mês", "10 gerações com IA/mês", "10 downloads de PDF/mês", "Otimização ATS", "Criador de carta de apresentação"]
+        "features": [
+          "150 criações de CV/mês",
+          "10 gerações com IA/mês",
+          "10 downloads de PDF/mês",
+          "Otimização ATS",
+          "Criador de carta de apresentação"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/mês",
         "description": "Ideal para profissionais",
-        "features": ["300 criações de CV/mês", "30 gerações com IA/mês", "25 downloads de PDF/mês", "Todos os modelos premium", "Suporte prioritário"]
+        "features": [
+          "300 criações de CV/mês",
+          "30 gerações com IA/mês",
+          "25 downloads de PDF/mês",
+          "Todos os modelos premium",
+          "Suporte prioritário"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/mês",
         "description": "Para usuários avançados e agências",
-        "features": ["Criações de CV ilimitadas", "100 gerações com IA/mês", "Downloads de PDF ilimitados", "Todos os modelos premium", "Suporte prioritário", "Acesso antecipado a recursos"]
+        "features": [
+          "Criações de CV ilimitadas",
+          "100 gerações com IA/mês",
+          "Downloads de PDF ilimitados",
+          "Todos os modelos premium",
+          "Suporte prioritário",
+          "Acesso antecipado a recursos"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "Pagamento Realizado com Sucesso!",
     "welcome": "Bem-vindo(a) ao {plan}!",
@@ -975,23 +988,47 @@
     "plans": {
       "starter": {
         "name": "Starter",
-        "benefits": ["30 criações de CV por mês", "3 gerações com IA por mês", "3 downloads de PDF por mês", "Todos os modelos freemium", "Sem anúncios"]
+        "benefits": [
+          "30 criações de CV por mês",
+          "3 gerações com IA por mês",
+          "3 downloads de PDF por mês",
+          "Todos os modelos freemium",
+          "Sem anúncios"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["150 criações de CV por mês", "10 gerações com IA por mês", "10 downloads de PDF por mês", "Otimização ATS", "Criador de carta de apresentação"]
+        "benefits": [
+          "150 criações de CV por mês",
+          "10 gerações com IA por mês",
+          "10 downloads de PDF por mês",
+          "Otimização ATS",
+          "Criador de carta de apresentação"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["300 criações de CV por mês", "30 gerações com IA por mês", "25 downloads de PDF por mês", "Todos os modelos premium", "Suporte prioritário"]
+        "benefits": [
+          "300 criações de CV por mês",
+          "30 gerações com IA por mês",
+          "25 downloads de PDF por mês",
+          "Todos os modelos premium",
+          "Suporte prioritário"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["Criações de CV ilimitadas", "100 gerações com IA por mês", "Downloads de PDF ilimitados", "Todos os modelos premium", "Suporte prioritário", "Acesso antecipado a novos recursos"]
+        "benefits": [
+          "Criações de CV ilimitadas",
+          "100 gerações com IA por mês",
+          "Downloads de PDF ilimitados",
+          "Todos os modelos premium",
+          "Suporte prioritário",
+          "Acesso antecipado a novos recursos"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "Editor Canvas de Currículo - Crie Seu Currículo Visualmente | Best AI Resume",
@@ -1059,7 +1096,6 @@
       "restored": "Seu projeto canvas foi restaurado! Clique em Exportar para baixar."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Modelos Canvas de Currículo - Crie Seu Currículo Visualmente | Best AI Resume",
@@ -1088,7 +1124,6 @@
     "formBuilderBanner": "Procurando modelos baseados em formulário?",
     "viewFormTemplates": "Ver Modelos do Editor de Formulário"
   },
-
   "Builder": {
     "meta": {
       "title": "Criador de Currículo - Crie Seu CV Profissional Online",
@@ -1254,19 +1289,16 @@
       "thankYouDesc": "Seu feedback foi enviado. Revisamos todos os relatórios para melhorar nossos modelos."
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Baixar para Google Docs",
     "loading": "Carregando editor Google Docs..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "Baixar MS Word",
     "loading": "Carregando editor Word..."
   },
-
   "CoverLetter": {
     "meta": {
       "title": "Gerador Grátis de Carta de Apresentação com IA - Crie Cartas Profissionais",
@@ -1340,7 +1372,6 @@
       "shrmHrResources": "SHRM: Recursos de RH e Carreira"
     }
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "Gerador Grátis de Carta de Demissão com IA - Cartas de Saída Profissionais",
@@ -1456,7 +1487,6 @@
       "blsCareerData": "Bureau of Labor Statistics: Dados de Carreira"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Simulação de Entrevista com IA Grátis | Best AI Resume",
@@ -1473,9 +1503,18 @@
       "jobTitlePlaceholder": "ex: Engenheiro de Software, Gerente de Marketing...",
       "experienceLevel": "Nível de Experiência",
       "levels": {
-        "entry": { "label": "Nível Júnior", "description": "0-2 anos de experiência" },
-        "mid": { "label": "Nível Pleno", "description": "3-6 anos de experiência" },
-        "senior": { "label": "Nível Sênior", "description": "7+ anos de experiência" }
+        "entry": {
+          "label": "Nível Júnior",
+          "description": "0-2 anos de experiência"
+        },
+        "mid": {
+          "label": "Nível Pleno",
+          "description": "3-6 anos de experiência"
+        },
+        "senior": {
+          "label": "Nível Sênior",
+          "description": "7+ anos de experiência"
+        }
       },
       "questionCount": "Número de Perguntas: {count}",
       "quick": "Rápida (3)",
@@ -1533,7 +1572,6 @@
       "shrmInterviewPractices": "SHRM: Melhores Práticas de Entrevista"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Dicas de Carreira e Conselhos sobre Currículo - Guias Especializados | Best AI Resume",
@@ -1583,7 +1621,6 @@
       "sidebarButton": "Começar"
     }
   },
-
   "ResumeExamples": {
     "meta": {
       "title": "Exemplos de Currículo por Cargo | Modelos e Guias Grátis 2026",

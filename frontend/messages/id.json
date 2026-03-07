@@ -3,7 +3,6 @@
     "title": "Pembuat Resume AI Gratis | Buat Resume ATS dalam Hitungan Menit | Best AI Resume",
     "description": "Buat resume profesional yang dioptimalkan untuk ATS dalam hitungan menit dengan pembuat resume AI gratis kami. Dipercaya oleh 50.000+ profesional. Tidak perlu mendaftar untuk memulai."
   },
-
   "Common": {
     "loading": "Memuat...",
     "error": "Terjadi kesalahan",
@@ -36,7 +35,6 @@
       "continueEditing": "Lanjutkan Mengedit"
     }
   },
-
   "Navigation": {
     "features": "Fitur",
     "templates": "Templat",
@@ -126,7 +124,6 @@
     "whyWereBetter": "Mengapa Kami Pembuat Gratis #1",
     "whyWereBetterDesc": "Berbasis AI, dioptimalkan untuk ATS, sepenuhnya gratis"
   },
-
   "Home": {
     "hero": {
       "badge": "Pembuatan Resume Berbasis AI",
@@ -240,17 +237,22 @@
     },
     "companies": {
       "title": "Pengguna kami diterima bekerja di",
-      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Features": {
     "meta": {
       "title": "Fitur Pembuat Resume AI - Penulisan Cerdas, Optimasi ATS & Lainnya",
       "description": "Temukan fitur canggih: penulisan berbasis AI, penilaian ATS real-time, 50+ templat, ekspor PDF instan. Buat resume profesional yang menghasilkan wawancara."
     }
   },
-
   "Templates": {
     "meta": {
       "title": "50+ Templat Resume Profesional - Gratis & Ramah ATS",
@@ -296,7 +298,6 @@
       }
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Kontak",
@@ -333,31 +334,28 @@
       "nationality": "Kewarganegaraan",
       "id": "Nomor KTP",
       "passport": "Paspor",
-      "drivingLicense": "SIM"
+      "drivingLicense": "SIM",
+      "activities": "Kegiatan"
     }
   },
-
   "About": {
     "meta": {
       "title": "Tentang Best AI Resume - Misi Kami Mengubah Pencarian Kerja",
       "description": "Pelajari tentang Best AI Resume - platform berbasis AI yang membantu ribuan orang mendapatkan pekerjaan impian mereka. Misi, nilai, dan komitmen kami untuk kesuksesan karier Anda."
     }
   },
-
   "Privacy": {
     "meta": {
       "title": "Kebijakan Privasi - Best AI Resume",
       "description": "Pelajari bagaimana Best AI Resume melindungi data Anda. Kebijakan privasi kami menjelaskan cara kami mengumpulkan, menggunakan, dan menjaga informasi pribadi Anda."
     }
   },
-
   "Terms": {
     "meta": {
       "title": "Ketentuan Layanan - Best AI Resume",
       "description": "Baca ketentuan layanan untuk Best AI Resume. Pahami hak dan tanggung jawab Anda saat menggunakan platform pembuat resume AI kami."
     }
   },
-
   "Onboarding": {
     "meta": {
       "title": "Buat Resume Anda - Generator Resume AI",
@@ -495,7 +493,6 @@
       "linkedinStep4": "Unggah PDF yang diunduh di bawah"
     }
   },
-
   "Pricing": {
     "meta": {
       "title": "Paket Harga - Pembuat Resume AI Mulai dari $3/bulan",
@@ -656,7 +653,6 @@
       "cta": "Berlangganan Sekarang"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Tips, panduan, dan wawasan untuk karier Anda",
@@ -669,7 +665,6 @@
     "shareOn": "Bagikan di",
     "noResults": "Artikel tidak ditemukan"
   },
-
   "Footer": {
     "tagline": "Pembuat resume berbasis AI yang dipercaya oleh profesional di seluruh dunia.",
     "product": "Produk",
@@ -724,7 +719,6 @@
     "interviewPreparation": "Persiapan Wawancara",
     "salaryNegotiation": "Negosiasi Gaji"
   },
-
   "Auth": {
     "meta": {
       "loginTitle": "Masuk - Best AI Resume",
@@ -764,17 +758,14 @@
     "wrongEmail": "Email salah?",
     "changeEmail": "Ubah email"
   },
-
   "Errors": {
     "notFound": "Halaman tidak ditemukan",
     "serverError": "Terjadi kesalahan",
     "unauthorized": "Silakan masuk untuk melanjutkan"
   },
-
   "LanguageSwitcher": {
     "label": "Pilih bahasa"
   },
-
   "Dashboard": {
     "meta": {
       "title": "Dasbor - Resume Saya",
@@ -848,7 +839,6 @@
     },
     "loading": "Memuat..."
   },
-
   "Profile": {
     "meta": {
       "title": "Pengaturan Profil - Best AI Resume",
@@ -894,7 +884,6 @@
     "passwordTooShort": "Kata sandi minimal 8 karakter",
     "noChanges": "Tidak ada perubahan untuk disimpan"
   },
-
   "Checkout": {
     "meta": {
       "title": "Checkout - Selesaikan Langganan Anda",
@@ -938,29 +927,53 @@
         "name": "Starter",
         "price": "$3/bulan",
         "description": "Sempurna untuk pencari kerja",
-        "features": ["30 pembuatan CV/bulan", "3 pembuatan AI/bulan", "3 unduhan PDF/bulan", "Semua templat freemium", "Tanpa iklan"]
+        "features": [
+          "30 pembuatan CV/bulan",
+          "3 pembuatan AI/bulan",
+          "3 unduhan PDF/bulan",
+          "Semua templat freemium",
+          "Tanpa iklan"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/bulan",
         "description": "Untuk pencari kerja aktif",
-        "features": ["150 pembuatan CV/bulan", "10 pembuatan AI/bulan", "10 unduhan PDF/bulan", "Optimasi ATS", "Pembuat surat lamaran"]
+        "features": [
+          "150 pembuatan CV/bulan",
+          "10 pembuatan AI/bulan",
+          "10 unduhan PDF/bulan",
+          "Optimasi ATS",
+          "Pembuat surat lamaran"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/bulan",
         "description": "Terbaik untuk profesional",
-        "features": ["300 pembuatan CV/bulan", "30 pembuatan AI/bulan", "25 unduhan PDF/bulan", "Semua templat premium", "Dukungan prioritas"]
+        "features": [
+          "300 pembuatan CV/bulan",
+          "30 pembuatan AI/bulan",
+          "25 unduhan PDF/bulan",
+          "Semua templat premium",
+          "Dukungan prioritas"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/bulan",
         "description": "Untuk pengguna intensif & agensi",
-        "features": ["Pembuatan CV tanpa batas", "100 pembuatan AI/bulan", "Unduhan PDF tanpa batas", "Semua templat premium", "Dukungan prioritas", "Akses awal fitur"]
+        "features": [
+          "Pembuatan CV tanpa batas",
+          "100 pembuatan AI/bulan",
+          "Unduhan PDF tanpa batas",
+          "Semua templat premium",
+          "Dukungan prioritas",
+          "Akses awal fitur"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "Pembayaran Berhasil!",
     "welcome": "Selamat datang di {plan}!",
@@ -975,23 +988,47 @@
     "plans": {
       "starter": {
         "name": "Starter",
-        "benefits": ["30 pembuatan CV per bulan", "3 pembuatan AI per bulan", "3 unduhan PDF per bulan", "Semua templat freemium", "Tanpa iklan"]
+        "benefits": [
+          "30 pembuatan CV per bulan",
+          "3 pembuatan AI per bulan",
+          "3 unduhan PDF per bulan",
+          "Semua templat freemium",
+          "Tanpa iklan"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["150 pembuatan CV per bulan", "10 pembuatan AI per bulan", "10 unduhan PDF per bulan", "Optimasi ATS", "Pembuat surat lamaran"]
+        "benefits": [
+          "150 pembuatan CV per bulan",
+          "10 pembuatan AI per bulan",
+          "10 unduhan PDF per bulan",
+          "Optimasi ATS",
+          "Pembuat surat lamaran"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["300 pembuatan CV per bulan", "30 pembuatan AI per bulan", "25 unduhan PDF per bulan", "Semua templat premium", "Dukungan prioritas"]
+        "benefits": [
+          "300 pembuatan CV per bulan",
+          "30 pembuatan AI per bulan",
+          "25 unduhan PDF per bulan",
+          "Semua templat premium",
+          "Dukungan prioritas"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["Pembuatan CV tanpa batas", "100 pembuatan AI per bulan", "Unduhan PDF tanpa batas", "Semua templat premium", "Dukungan prioritas", "Akses awal ke fitur baru"]
+        "benefits": [
+          "Pembuatan CV tanpa batas",
+          "100 pembuatan AI per bulan",
+          "Unduhan PDF tanpa batas",
+          "Semua templat premium",
+          "Dukungan prioritas",
+          "Akses awal ke fitur baru"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "Editor Kanvas Resume - Desain Resume Anda Secara Visual | Best AI Resume",
@@ -1059,7 +1096,6 @@
       "restored": "Proyek kanvas Anda telah dipulihkan! Klik Ekspor untuk mengunduh."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Templat Resume Kanvas - Desain Resume Anda Secara Visual | Best AI Resume",
@@ -1088,7 +1124,6 @@
     "formBuilderBanner": "Mencari templat berbasis formulir?",
     "viewFormTemplates": "Lihat Templat Pembuat Formulir"
   },
-
   "Builder": {
     "meta": {
       "title": "Pembuat Resume - Buat CV Profesional Anda Secara Online",
@@ -1254,19 +1289,16 @@
       "thankYouDesc": "Umpan balik Anda telah dikirim. Kami meninjau semua laporan untuk meningkatkan templat kami."
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Unduh untuk Google Docs",
     "loading": "Memuat pembuat Google Docs..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "Unduh MS Word",
     "loading": "Memuat pembuat Word..."
   },
-
   "CoverLetter": {
     "meta": {
       "title": "Pembuat Surat Lamaran AI Gratis - Buat Surat Lamaran Profesional",
@@ -1340,7 +1372,6 @@
       "shrmHrResources": "SHRM: Sumber Daya HR & Karier"
     }
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "Pembuat Surat Pengunduran Diri AI Gratis - Surat Keluar Profesional",
@@ -1456,7 +1487,6 @@
       "blsCareerData": "Bureau of Labor Statistics: Data Karier"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Latihan Simulasi Wawancara AI Gratis | Best AI Resume",
@@ -1473,9 +1503,18 @@
       "jobTitlePlaceholder": "mis. Software Engineer, Marketing Manager...",
       "experienceLevel": "Tingkat Pengalaman",
       "levels": {
-        "entry": { "label": "Tingkat Pemula", "description": "0–2 tahun pengalaman" },
-        "mid": { "label": "Tingkat Menengah", "description": "3–6 tahun pengalaman" },
-        "senior": { "label": "Tingkat Senior", "description": "7+ tahun pengalaman" }
+        "entry": {
+          "label": "Tingkat Pemula",
+          "description": "0–2 tahun pengalaman"
+        },
+        "mid": {
+          "label": "Tingkat Menengah",
+          "description": "3–6 tahun pengalaman"
+        },
+        "senior": {
+          "label": "Tingkat Senior",
+          "description": "7+ tahun pengalaman"
+        }
       },
       "questionCount": "Jumlah Pertanyaan: {count}",
       "quick": "Cepat (3)",
@@ -1533,7 +1572,6 @@
       "shrmInterviewPractices": "SHRM: Praktik Terbaik Wawancara"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Tips Karier & Saran Resume - Panduan Ahli | Best AI Resume",
@@ -1583,7 +1621,6 @@
       "sidebarButton": "Mulai Sekarang"
     }
   },
-
   "ResumeExamples": {
     "meta": {
       "title": "Contoh Resume Berdasarkan Jabatan | Templat & Panduan Gratis 2026",

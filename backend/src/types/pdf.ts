@@ -181,6 +181,8 @@ export interface PdfTranslations {
         advanced?: string;
         intermediate?: string;
         basic?: string;
+        gpa?: string;
+        activities?: string;
     };
 }
 

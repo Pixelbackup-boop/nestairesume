@@ -89,13 +89,18 @@ export function renderSkillsList(skills: PdfResumeData['skills'], mode: 'inline'
 /**
  * Render language proficiency as text
  */
-export function getLanguageProficiencyText(proficiency: string): string {
+export function getLanguageProficiencyText(proficiency: string, labels?: { native?: string; fluent?: string; advanced?: string; intermediate?: string; basic?: string }): string {
+    if (labels) {
+        const translatedMap: Record<string, string | undefined> = {
+            native: labels.native, fluent: labels.fluent, advanced: labels.advanced,
+            intermediate: labels.intermediate, basic: labels.basic,
+        };
+        const translated = translatedMap[proficiency?.toLowerCase()];
+        if (translated) return translated;
+    }
     const map: Record<string, string> = {
-        native: 'Native',
-        fluent: 'Fluent',
-        advanced: 'Advanced',
-        intermediate: 'Intermediate',
-        basic: 'Basic',
+        native: 'Native', fluent: 'Fluent', advanced: 'Advanced',
+        intermediate: 'Intermediate', basic: 'Basic',
     };
     return map[proficiency?.toLowerCase()] || proficiency || '';
 }

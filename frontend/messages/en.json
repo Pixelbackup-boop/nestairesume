@@ -3,7 +3,6 @@
     "title": "Free AI Resume Builder | Create ATS Resume in Minutes | Best AI Resume",
     "description": "Build professional, ATS-optimized resumes in minutes with our free AI resume builder. Trusted by 50,000+ professionals. No signup required to start."
   },
-
   "Common": {
     "loading": "Loading...",
     "error": "An error occurred",
@@ -36,7 +35,6 @@
       "continueEditing": "Continue Editing"
     }
   },
-
   "Navigation": {
     "features": "Features",
     "templates": "Templates",
@@ -127,7 +125,6 @@
     "whyWereBetter": "Why We're the #1 Free Builder",
     "whyWereBetterDesc": "AI-powered, ATS-optimized, completely free"
   },
-
   "Home": {
     "hero": {
       "badge": "AI-Powered Resume Building",
@@ -241,17 +238,22 @@
     },
     "companies": {
       "title": "Our users got hired at",
-      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Features": {
     "meta": {
       "title": "AI Resume Builder Features - Smart Writing, ATS Optimization & More",
       "description": "Discover powerful features: AI-powered writing, real-time ATS scoring, 50+ templates, instant PDF export. Build professional resumes that get interviews."
     }
   },
-
   "Templates": {
     "meta": {
       "title": "50+ Professional Resume Templates - Free & ATS-Friendly",
@@ -297,7 +299,6 @@
       }
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Contact",
@@ -334,31 +335,28 @@
       "nationality": "Nationality",
       "id": "ID Number",
       "passport": "Passport",
-      "drivingLicense": "Driving License"
+      "drivingLicense": "Driving License",
+      "activities": "Activities"
     }
   },
-
   "About": {
     "meta": {
       "title": "About Best AI Resume - Our Mission to Transform Job Search",
       "description": "Learn about Best AI Resume - the AI-powered platform helping thousands land their dream jobs. Our mission, values, and commitment to your career success."
     }
   },
-
   "Privacy": {
     "meta": {
       "title": "Privacy Policy - Best AI Resume",
       "description": "Learn how Best AI Resume protects your data. Our privacy policy explains how we collect, use, and safeguard your personal information."
     }
   },
-
   "Terms": {
     "meta": {
       "title": "Terms of Service - Best AI Resume",
       "description": "Read the terms of service for Best AI Resume. Understand your rights and responsibilities when using our AI resume builder platform."
     }
   },
-
   "Onboarding": {
     "meta": {
       "title": "Create Your Resume - AI Resume Generator",
@@ -496,7 +494,6 @@
       "linkedinStep4": "Upload the downloaded PDF below"
     }
   },
-
   "Pricing": {
     "meta": {
       "title": "Pricing Plans - AI Resume Builder Starting at $3/month",
@@ -657,7 +654,6 @@
       "cta": "Subscribe Now"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Tips, guides, and insights for your career",
@@ -670,7 +666,6 @@
     "shareOn": "Share on",
     "noResults": "No articles found"
   },
-
   "Footer": {
     "tagline": "AI-powered resume builder trusted by professionals worldwide.",
     "product": "Product",
@@ -725,7 +720,6 @@
     "interviewPreparation": "Interview Preparation",
     "salaryNegotiation": "Salary Negotiation"
   },
-
   "Auth": {
     "meta": {
       "loginTitle": "Log In - Best AI Resume",
@@ -770,17 +764,14 @@
     "privacyPolicy": "Privacy Policy",
     "bySigningUp": "By signing up, you agree to our"
   },
-
   "Errors": {
     "notFound": "Page not found",
     "serverError": "Something went wrong",
     "unauthorized": "Please log in to continue"
   },
-
   "LanguageSwitcher": {
     "label": "Select language"
   },
-
   "Dashboard": {
     "meta": {
       "title": "Dashboard - My Resumes",
@@ -854,7 +845,6 @@
     },
     "loading": "Loading..."
   },
-
   "Profile": {
     "meta": {
       "title": "Profile Settings - Best AI Resume",
@@ -900,7 +890,6 @@
     "passwordTooShort": "Password must be at least 8 characters",
     "noChanges": "No changes to save"
   },
-
   "Checkout": {
     "meta": {
       "title": "Checkout - Complete Your Subscription",
@@ -944,29 +933,53 @@
         "name": "Starter",
         "price": "$3/month",
         "description": "Perfect for job seekers",
-        "features": ["30 CV creations/month", "3 AI generations/month", "3 PDF downloads/month", "All freemium templates", "No ads"]
+        "features": [
+          "30 CV creations/month",
+          "3 AI generations/month",
+          "3 PDF downloads/month",
+          "All freemium templates",
+          "No ads"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/month",
         "description": "For active job hunters",
-        "features": ["150 CV creations/month", "10 AI generations/month", "10 PDF downloads/month", "ATS optimization", "Cover letter builder"]
+        "features": [
+          "150 CV creations/month",
+          "10 AI generations/month",
+          "10 PDF downloads/month",
+          "ATS optimization",
+          "Cover letter builder"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/month",
         "description": "Best for professionals",
-        "features": ["300 CV creations/month", "30 AI generations/month", "25 PDF downloads/month", "All premium templates", "Priority support"]
+        "features": [
+          "300 CV creations/month",
+          "30 AI generations/month",
+          "25 PDF downloads/month",
+          "All premium templates",
+          "Priority support"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/month",
         "description": "For power users & agencies",
-        "features": ["Unlimited CV creations", "100 AI generations/month", "Unlimited PDF downloads", "All premium templates", "Priority support", "Early access features"]
+        "features": [
+          "Unlimited CV creations",
+          "100 AI generations/month",
+          "Unlimited PDF downloads",
+          "All premium templates",
+          "Priority support",
+          "Early access features"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "Payment Successful!",
     "welcome": "Welcome to {plan}!",
@@ -981,23 +994,47 @@
     "plans": {
       "starter": {
         "name": "Starter",
-        "benefits": ["30 CV creations per month", "3 AI generations per month", "3 PDF downloads per month", "All freemium templates", "No ads"]
+        "benefits": [
+          "30 CV creations per month",
+          "3 AI generations per month",
+          "3 PDF downloads per month",
+          "All freemium templates",
+          "No ads"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["150 CV creations per month", "10 AI generations per month", "10 PDF downloads per month", "ATS optimization", "Cover letter builder"]
+        "benefits": [
+          "150 CV creations per month",
+          "10 AI generations per month",
+          "10 PDF downloads per month",
+          "ATS optimization",
+          "Cover letter builder"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["300 CV creations per month", "30 AI generations per month", "25 PDF downloads per month", "All premium templates", "Priority support"]
+        "benefits": [
+          "300 CV creations per month",
+          "30 AI generations per month",
+          "25 PDF downloads per month",
+          "All premium templates",
+          "Priority support"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["Unlimited CV creations", "100 AI generations per month", "Unlimited PDF downloads", "All premium templates", "Priority support", "Early access to new features"]
+        "benefits": [
+          "Unlimited CV creations",
+          "100 AI generations per month",
+          "Unlimited PDF downloads",
+          "All premium templates",
+          "Priority support",
+          "Early access to new features"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "Canvas Resume Editor - Design Your Resume Visually | Best AI Resume",
@@ -1065,7 +1102,6 @@
       "restored": "Your canvas project was restored! Click Export to download."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Canvas Resume Templates - Design Your Resume Visually | Best AI Resume",
@@ -1094,7 +1130,6 @@
     "formBuilderBanner": "Looking for form-based templates?",
     "viewFormTemplates": "View Form Builder Templates"
   },
-
   "Builder": {
     "meta": {
       "title": "Resume Builder - Create Your Professional CV Online",
@@ -1260,19 +1295,16 @@
       "thankYouDesc": "Your feedback has been submitted. We review all reports to improve our templates."
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Download for Google Docs",
     "loading": "Loading Google Docs builder..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "Download MS Word",
     "loading": "Loading Word builder..."
   },
-
   "CoverLetter": {
     "meta": {
       "title": "Free AI Cover Letter Generator - Create Professional Cover Letters",
@@ -1346,7 +1378,6 @@
       "shrmHrResources": "SHRM: HR & Career Resources"
     }
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "Free AI Resignation Letter Generator - Professional Exit Letters",
@@ -1462,7 +1493,6 @@
       "blsCareerData": "Bureau of Labor Statistics: Career Data"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Free AI Mock Interview Practice | Best AI Resume",
@@ -1479,9 +1509,18 @@
       "jobTitlePlaceholder": "e.g. Software Engineer, Marketing Manager...",
       "experienceLevel": "Experience Level",
       "levels": {
-        "entry": { "label": "Entry Level", "description": "0–2 years experience" },
-        "mid": { "label": "Mid Level", "description": "3–6 years experience" },
-        "senior": { "label": "Senior Level", "description": "7+ years experience" }
+        "entry": {
+          "label": "Entry Level",
+          "description": "0–2 years experience"
+        },
+        "mid": {
+          "label": "Mid Level",
+          "description": "3–6 years experience"
+        },
+        "senior": {
+          "label": "Senior Level",
+          "description": "7+ years experience"
+        }
       },
       "questionCount": "Number of Questions: {count}",
       "quick": "Quick (3)",
@@ -1539,7 +1578,6 @@
       "shrmInterviewPractices": "SHRM: Interview Best Practices"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Career Tips & Resume Advice - Expert Guides | Best AI Resume",
@@ -1589,7 +1627,6 @@
       "sidebarButton": "Get Started"
     }
   },
-
   "ResumeExamples": {
     "meta": {
       "title": "Resume Examples by Job Title | Free Templates & Guides 2026",

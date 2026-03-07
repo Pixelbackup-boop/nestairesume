@@ -192,7 +192,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(4) }}>
                                             <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937' }}>
                                                 {edu.degree}
-                                                {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                                {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                             </h4>
                                             <span style={{ fontSize: fs.small, color: '#6b7280', fontWeight: 500 }}>
                                                 {edu.startDate} – {edu.endDate || t.labels.present}
@@ -205,7 +205,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                             <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
                                         )}
                                         {edu.clubs && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                         )}
                                         {edu.description && (
                                             <p style={{ fontSize: fs.small, lineHeight: 1.5, color: '#4b5563', marginTop: `${sp(4)}px` }}>{edu.description}</p>
@@ -253,7 +253,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                     <div key={edu.id} className="resume-entry" data-paginate="item">
                                         <h4 style={{ fontWeight: 800, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(4) }}>
                                             {edu.degree}
-                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                         </h4>
                                         <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 700, marginBottom: sp(2) }}>
                                             {edu.school}
@@ -265,7 +265,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                             <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
                                         )}
                                         {edu.clubs && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                         )}
                                         {edu.description && (
                                             <p style={{ fontSize: fs.small, lineHeight: 1.5, color: '#4b5563', marginTop: `${sp(4)}px` }}>{edu.description}</p>

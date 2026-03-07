@@ -119,7 +119,7 @@ export function renderDocxMinimal(
             html += `<td${hasSkills ? ' width="40%"' : ''} style="vertical-align:top;">`;
             html += sectionHeader(t.sections.languages, primary);
             html += `<p style="font-size:10pt;color:#444444;">`;
-            html += data.languages.map(l => `${escapeHtml(l.name)} (${getLanguageProficiencyText(l.proficiency)})`).join('<br />');
+            html += data.languages.map(l => `${escapeHtml(l.name)} (${getLanguageProficiencyText(l.proficiency, t.labels)})`).join('<br />');
             html += `</p>`;
             html += `</td>`;
         }

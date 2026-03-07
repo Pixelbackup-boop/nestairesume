@@ -139,7 +139,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                                 <ResumeEntry key={edu.id}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#000' }}>
                                         {edu.degree}
-                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                     </h4>
                                     <div style={{ fontSize: fs.body, color: '#4b5563' }}>{edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}</div>
                                     <div style={{ fontSize: fs.small, color: '#6b7280' }}>{edu.startDate} – {edu.endDate || t.labels.present}</div>
@@ -147,7 +147,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                                         <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
                                     )}
                                     {edu.clubs && (
-                                        <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                     )}
                                     {edu.description && (
                                         <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>

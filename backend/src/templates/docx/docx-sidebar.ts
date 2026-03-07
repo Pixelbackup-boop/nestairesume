@@ -58,7 +58,7 @@ export function renderDocxSidebar(
     if (data.languages?.length) {
         sidebar += sidebarSectionHeader(t.sections.languages, sidebarText);
         for (const lang of data.languages) {
-            sidebar += `<p style="margin:0 0 3px 0;font-size:9pt;color:${sidebarText};">${escapeHtml(lang.name)} — ${getLanguageProficiencyText(lang.proficiency)}</p>`;
+            sidebar += `<p style="margin:0 0 3px 0;font-size:9pt;color:${sidebarText};">${escapeHtml(lang.name)} — ${getLanguageProficiencyText(lang.proficiency, t.labels)}</p>`;
         }
         sidebar += `<br />`;
     }

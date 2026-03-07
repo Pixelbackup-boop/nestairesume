@@ -137,13 +137,13 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                     <div data-paginate="item">
                         <h4 style="font-size: ${fs.entryTitle}; font-weight: 800; color: #18181b; text-transform: uppercase;">
                             ${escapeHtml(edu.degree)}
-                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 600; text-transform: none;">GPA: ${escapeHtml(edu.gpa)}</span>` : ''}
+                            ${edu.gpa ? `<span style="margin-left: 8px; opacity: 0.8; font-weight: 600; text-transform: none;">${t.labels.gpa || 'GPA'}: ${escapeHtml(edu.gpa)}</span>` : ''}
                         </h4>
                         <div style="font-size: ${fs.small}; color: #52525b; font-weight: 600;">
                             ${escapeHtml(edu.school)}${(edu.city || edu.country) ? `, ${escapeHtml([edu.city, edu.country].filter(Boolean).join(', '))}` : ''} | ${formatLocalizedDate(edu.startDate, locale)} - ${edu.current ? t.labels.present : formatLocalizedDate(edu.endDate, locale)}
                         </div>
                         ${edu.honors ? `<p style="font-size: ${s(11)}; color: #4b5563; opacity: 0.8; margin: 0;">${escapeHtml(edu.honors)}</p>` : ''}
-                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">Activities: ${escapeHtml(edu.clubs)}</p>` : ''}
+                        ${edu.clubs ? `<p style="font-size: ${s(10)}; color: #6b7280; opacity: 0.7; margin: 0;">${t.labels.activities || 'Activities'}: ${escapeHtml(edu.clubs)}</p>` : ''}
 
                         ${edu.description ? `<p style="font-size: ${s(12)}; line-height: 1.6; color: #4b5563; margin-top: 4px;">${formatDescription(edu.description)}</p>` : ''}
                     </div>

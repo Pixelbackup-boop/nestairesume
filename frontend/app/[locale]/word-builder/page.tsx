@@ -73,6 +73,8 @@ function WordBuilderContent() {
             advanced: t('labels.advanced'),
             intermediate: t('labels.intermediate'),
             basic: t('labels.basic'),
+            gpa: t('labels.gpa'),
+            activities: t('labels.activities'),
         },
     }), [t]);
 

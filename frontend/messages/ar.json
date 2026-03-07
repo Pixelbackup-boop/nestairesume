@@ -328,7 +328,8 @@
       "nationality": "الجنسية",
       "id": "رقم الهوية",
       "passport": "جواز السفر",
-      "drivingLicense": "رخصة القيادة"
+      "drivingLicense": "رخصة القيادة",
+      "activities": "الأنشطة"
     }
   },
   "Onboarding": {

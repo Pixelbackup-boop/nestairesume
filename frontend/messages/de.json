@@ -328,7 +328,8 @@
       "nationality": "Staatsangehörigkeit",
       "id": "Ausweisnummer",
       "passport": "Reisepass",
-      "drivingLicense": "Führerschein"
+      "drivingLicense": "Führerschein",
+      "activities": "Aktivitäten"
     }
   },
   "Onboarding": {
@@ -459,8 +460,8 @@
       "linkedinSubtitle": "Laden Sie Ihr LinkedIn-Profil als PDF herunter und importieren Sie es hier",
       "linkedinHowTo": "So exportieren Sie Ihr LinkedIn-Profil:",
       "linkedinStep1": "Gehen Sie zu Ihrem LinkedIn-Profil",
-      "linkedinStep2": "Klicken Sie auf die Schaltfläche \u201ERessourcen\u201C auf Ihrem Profil",
-      "linkedinStep3": "Wählen Sie \u201EAls PDF speichern\u201C",
+      "linkedinStep2": "Klicken Sie auf die Schaltfläche „Ressourcen“ auf Ihrem Profil",
+      "linkedinStep3": "Wählen Sie „Als PDF speichern“",
       "linkedinStep4": "Laden Sie die heruntergeladene PDF-Datei unten hoch"
     },
     "meta": {

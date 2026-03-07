@@ -319,7 +319,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                 <div key={edu.id} data-paginate="item" className="resume-entry">
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a' }}>
                                         {edu.degree}
-                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                     </h4>
                                     <p style={{ fontSize: fs.body, color: '#475569', fontWeight: 500 }}>
                                         {edu.school}{(edu.city || edu.country) && `, ${[edu.city, edu.country].filter(Boolean).join(', ')}`}
@@ -331,7 +331,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                         <p style={{ fontSize: fs.small, color: '#475569', opacity: 0.8 }}>{edu.honors}</p>
                                     )}
                                     {edu.clubs && (
-                                        <p style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        <p style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                     )}
                                     {edu.description && (
                                         <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>

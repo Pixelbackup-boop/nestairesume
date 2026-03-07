@@ -256,7 +256,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                                 </h4>
                                                 <div style={{ fontSize: fs.small, color: '#4b5563' }}>
                                                     <span style={{ fontWeight: 600, color: primaryColor }}>{edu.degree}</span>
-                                                    {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8 }}>GPA: {edu.gpa}</span>}
+                                                    {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8 }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                                     <span style={{ color: '#9ca3af' }}> • {edu.startDate} – {edu.endDate || t.labels.present}</span>
                                                 </div>
                                             </div>
@@ -265,7 +265,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                             <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8, paddingLeft: sp(20) }}>{edu.honors}</p>
                                         )}
                                         {edu.clubs && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7, paddingLeft: sp(20) }}>Activities: {edu.clubs}</p>
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7, paddingLeft: sp(20) }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                         )}
                                         {edu.description && (
                                             <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px', paddingLeft: sp(20) }}>{edu.description}</p>

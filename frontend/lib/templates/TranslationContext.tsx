@@ -36,6 +36,8 @@ export interface TemplateTranslations {
         advanced?: string;
         intermediate?: string;
         basic?: string;
+        gpa?: string;
+        activities?: string;
     };
     /** RTL direction support */
     isRtl?: boolean;
@@ -74,6 +76,8 @@ export const defaultTranslations: TemplateTranslations = {
         advanced: 'Advanced',
         intermediate: 'Intermediate',
         basic: 'Basic',
+        gpa: 'GPA',
+        activities: 'Activities',
     },
     isRtl: false,
 };

@@ -334,7 +334,8 @@
       "nationality": "国籍",
       "id": "身份证号",
       "passport": "护照",
-      "drivingLicense": "驾驶执照"
+      "drivingLicense": "驾驶执照",
+      "activities": "课外活动"
     }
   },
   "About": {

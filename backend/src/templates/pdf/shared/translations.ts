@@ -39,6 +39,8 @@ export const defaultTranslations: PdfTranslations = {
         advanced: 'Advanced',
         intermediate: 'Intermediate',
         basic: 'Basic',
+        gpa: 'GPA',
+        activities: 'Activities',
     },
 };
 

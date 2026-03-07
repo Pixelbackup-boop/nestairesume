@@ -334,7 +334,8 @@
       "nationality": "Quốc tịch",
       "id": "Số CMND",
       "passport": "Hộ chiếu",
-      "drivingLicense": "Bằng lái xe"
+      "drivingLicense": "Bằng lái xe",
+      "activities": "Hoạt động"
     }
   },
   "About": {

@@ -121,6 +121,8 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
                 advanced: t('labels.advanced'),
                 intermediate: t('labels.intermediate'),
                 basic: t('labels.basic'),
+                gpa: t('labels.gpa'),
+                activities: t('labels.activities'),
             },
             isRtl: isRtl(locale),
         }), [t, locale]);

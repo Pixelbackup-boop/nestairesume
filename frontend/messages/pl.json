@@ -3,7 +3,6 @@
     "title": "Darmowy kreator CV z AI | Stwórz CV ATS w kilka minut | Best AI Resume",
     "description": "Twórz profesjonalne, zoptymalizowane pod ATS CV w kilka minut dzięki naszemu darmowemu kreatorowi CV z AI. Zaufało nam ponad 50 000 profesjonalistów. Rejestracja nie jest wymagana."
   },
-
   "Common": {
     "loading": "Ładowanie...",
     "error": "Wystąpił błąd",
@@ -36,7 +35,6 @@
       "continueEditing": "Kontynuuj edycję"
     }
   },
-
   "Navigation": {
     "features": "Funkcje",
     "templates": "Szablony",
@@ -126,7 +124,6 @@
     "whyWereBetter": "Dlaczego jesteśmy najlepszym darmowym kreatorem",
     "whyWereBetterDesc": "Oparty na AI, zoptymalizowany pod ATS, całkowicie darmowy"
   },
-
   "Home": {
     "hero": {
       "badge": "Tworzenie CV z pomocą AI",
@@ -240,17 +237,22 @@
     },
     "companies": {
       "title": "Nasi użytkownicy zostali zatrudnieni w",
-      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Features": {
     "meta": {
       "title": "Funkcje kreatora CV z AI — inteligentne pisanie, optymalizacja ATS i więcej",
       "description": "Odkryj potężne funkcje: pisanie wspierane przez AI, ocena ATS w czasie rzeczywistym, ponad 50 szablonów, natychmiastowy eksport PDF. Twórz profesjonalne CV, które zdobywają zaproszenia na rozmowy."
     }
   },
-
   "Templates": {
     "meta": {
       "title": "Ponad 50 profesjonalnych szablonów CV — darmowe i przyjazne dla ATS",
@@ -296,7 +298,6 @@
       }
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Kontakt",
@@ -333,31 +334,28 @@
       "nationality": "Obywatelstwo",
       "id": "Numer dowodu",
       "passport": "Paszport",
-      "drivingLicense": "Prawo Jazdy"
+      "drivingLicense": "Prawo Jazdy",
+      "activities": "Działalność"
     }
   },
-
   "About": {
     "meta": {
       "title": "O Best AI Resume — nasza misja transformacji poszukiwania pracy",
       "description": "Dowiedz się więcej o Best AI Resume — platformie opartej na AI, która pomaga tysiącom osób zdobyć wymarzoną pracę. Nasza misja, wartości i zaangażowanie w Twój sukces zawodowy."
     }
   },
-
   "Privacy": {
     "meta": {
       "title": "Polityka prywatności — Best AI Resume",
       "description": "Dowiedz się, jak Best AI Resume chroni Twoje dane. Nasza polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy i zabezpieczamy Twoje dane osobowe."
     }
   },
-
   "Terms": {
     "meta": {
       "title": "Regulamin — Best AI Resume",
       "description": "Przeczytaj regulamin Best AI Resume. Poznaj swoje prawa i obowiązki podczas korzystania z naszego kreatora CV opartego na AI."
     }
   },
-
   "Onboarding": {
     "meta": {
       "title": "Stwórz swoje CV — generator CV z AI",
@@ -495,7 +493,6 @@
       "linkedinStep4": "Prześlij pobrany plik PDF poniżej"
     }
   },
-
   "Pricing": {
     "meta": {
       "title": "Cennik — kreator CV z AI od $3/miesiąc",
@@ -656,7 +653,6 @@
       "cta": "Subskrybuj teraz"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Wskazówki, przewodniki i spostrzeżenia dotyczące Twojej kariery",
@@ -669,7 +665,6 @@
     "shareOn": "Udostępnij na",
     "noResults": "Nie znaleziono artykułów"
   },
-
   "Footer": {
     "tagline": "Kreator CV oparty na AI, zaufany przez profesjonalistów na całym świecie.",
     "product": "Produkt",
@@ -724,7 +719,6 @@
     "interviewPreparation": "Przygotowanie do rozmowy kwalifikacyjnej",
     "salaryNegotiation": "Negocjacje wynagrodzenia"
   },
-
   "Auth": {
     "meta": {
       "loginTitle": "Logowanie — Best AI Resume",
@@ -764,17 +758,14 @@
     "wrongEmail": "Zły e-mail?",
     "changeEmail": "Zmień e-mail"
   },
-
   "Errors": {
     "notFound": "Strona nie znaleziona",
     "serverError": "Coś poszło nie tak",
     "unauthorized": "Zaloguj się, aby kontynuować"
   },
-
   "LanguageSwitcher": {
     "label": "Wybierz język"
   },
-
   "Dashboard": {
     "meta": {
       "title": "Panel główny — Moje CV",
@@ -848,7 +839,6 @@
     },
     "loading": "Ładowanie..."
   },
-
   "Profile": {
     "meta": {
       "title": "Ustawienia profilu — Best AI Resume",
@@ -894,7 +884,6 @@
     "passwordTooShort": "Hasło musi mieć co najmniej 8 znaków",
     "noChanges": "Brak zmian do zapisania"
   },
-
   "Checkout": {
     "meta": {
       "title": "Płatność — dokończ subskrypcję",
@@ -938,29 +927,53 @@
         "name": "Starter",
         "price": "$3/miesiąc",
         "description": "Idealny dla osób szukających pracy",
-        "features": ["30 tworzenia CV/miesiąc", "3 generowania AI/miesiąc", "3 pobrania PDF/miesiąc", "Wszystkie darmowe szablony", "Bez reklam"]
+        "features": [
+          "30 tworzenia CV/miesiąc",
+          "3 generowania AI/miesiąc",
+          "3 pobrania PDF/miesiąc",
+          "Wszystkie darmowe szablony",
+          "Bez reklam"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/miesiąc",
         "description": "Dla aktywnie poszukujących pracy",
-        "features": ["150 tworzenia CV/miesiąc", "10 generowań AI/miesiąc", "10 pobrań PDF/miesiąc", "Optymalizacja ATS", "Kreator listów motywacyjnych"]
+        "features": [
+          "150 tworzenia CV/miesiąc",
+          "10 generowań AI/miesiąc",
+          "10 pobrań PDF/miesiąc",
+          "Optymalizacja ATS",
+          "Kreator listów motywacyjnych"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/miesiąc",
         "description": "Najlepszy dla profesjonalistów",
-        "features": ["300 tworzenia CV/miesiąc", "30 generowań AI/miesiąc", "25 pobrań PDF/miesiąc", "Wszystkie szablony premium", "Priorytetowe wsparcie"]
+        "features": [
+          "300 tworzenia CV/miesiąc",
+          "30 generowań AI/miesiąc",
+          "25 pobrań PDF/miesiąc",
+          "Wszystkie szablony premium",
+          "Priorytetowe wsparcie"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/miesiąc",
         "description": "Dla zaawansowanych użytkowników i agencji",
-        "features": ["Nieograniczone tworzenie CV", "100 generowań AI/miesiąc", "Nieograniczone pobrania PDF", "Wszystkie szablony premium", "Priorytetowe wsparcie", "Wczesny dostęp do funkcji"]
+        "features": [
+          "Nieograniczone tworzenie CV",
+          "100 generowań AI/miesiąc",
+          "Nieograniczone pobrania PDF",
+          "Wszystkie szablony premium",
+          "Priorytetowe wsparcie",
+          "Wczesny dostęp do funkcji"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "Płatność zakończona sukcesem!",
     "welcome": "Witaj w planie {plan}!",
@@ -975,23 +988,47 @@
     "plans": {
       "starter": {
         "name": "Starter",
-        "benefits": ["30 tworzenia CV miesięcznie", "3 generowania AI miesięcznie", "3 pobrania PDF miesięcznie", "Wszystkie darmowe szablony", "Bez reklam"]
+        "benefits": [
+          "30 tworzenia CV miesięcznie",
+          "3 generowania AI miesięcznie",
+          "3 pobrania PDF miesięcznie",
+          "Wszystkie darmowe szablony",
+          "Bez reklam"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["150 tworzenia CV miesięcznie", "10 generowań AI miesięcznie", "10 pobrań PDF miesięcznie", "Optymalizacja ATS", "Kreator listów motywacyjnych"]
+        "benefits": [
+          "150 tworzenia CV miesięcznie",
+          "10 generowań AI miesięcznie",
+          "10 pobrań PDF miesięcznie",
+          "Optymalizacja ATS",
+          "Kreator listów motywacyjnych"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["300 tworzenia CV miesięcznie", "30 generowań AI miesięcznie", "25 pobrań PDF miesięcznie", "Wszystkie szablony premium", "Priorytetowe wsparcie"]
+        "benefits": [
+          "300 tworzenia CV miesięcznie",
+          "30 generowań AI miesięcznie",
+          "25 pobrań PDF miesięcznie",
+          "Wszystkie szablony premium",
+          "Priorytetowe wsparcie"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["Nieograniczone tworzenie CV", "100 generowań AI miesięcznie", "Nieograniczone pobrania PDF", "Wszystkie szablony premium", "Priorytetowe wsparcie", "Wczesny dostęp do nowych funkcji"]
+        "benefits": [
+          "Nieograniczone tworzenie CV",
+          "100 generowań AI miesięcznie",
+          "Nieograniczone pobrania PDF",
+          "Wszystkie szablony premium",
+          "Priorytetowe wsparcie",
+          "Wczesny dostęp do nowych funkcji"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "Edytor kanwy CV — zaprojektuj CV wizualnie | Best AI Resume",
@@ -1059,7 +1096,6 @@
       "restored": "Twój projekt kanwy został przywrócony! Kliknij Eksportuj, aby pobrać."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Szablony kanwy CV — zaprojektuj CV wizualnie | Best AI Resume",
@@ -1088,7 +1124,6 @@
     "formBuilderBanner": "Szukasz szablonów opartych na formularzach?",
     "viewFormTemplates": "Zobacz szablony kreatora formularzy"
   },
-
   "Builder": {
     "meta": {
       "title": "Kreator CV — stwórz profesjonalne CV online",
@@ -1254,19 +1289,16 @@
       "thankYouDesc": "Twoja opinia została przesłana. Przeglądamy wszystkie zgłoszenia, aby ulepszyć nasze szablony."
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Pobierz dla Google Docs",
     "loading": "Ładowanie kreatora Google Docs..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "Pobierz MS Word",
     "loading": "Ładowanie kreatora Word..."
   },
-
   "CoverLetter": {
     "meta": {
       "title": "Darmowy generator listów motywacyjnych AI — twórz profesjonalne listy motywacyjne",
@@ -1340,7 +1372,6 @@
       "shrmHrResources": "SHRM: Zasoby HR i kariery"
     }
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "Darmowy generator listów rezygnacyjnych AI — profesjonalne listy odejścia",
@@ -1456,7 +1487,6 @@
       "blsCareerData": "Bureau of Labor Statistics: Dane o karierze"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Darmowa symulacja rozmowy kwalifikacyjnej z AI | Best AI Resume",
@@ -1473,9 +1503,18 @@
       "jobTitlePlaceholder": "np. Inżynier oprogramowania, Kierownik marketingu...",
       "experienceLevel": "Poziom doświadczenia",
       "levels": {
-        "entry": { "label": "Początkujący", "description": "0–2 lata doświadczenia" },
-        "mid": { "label": "Średniozaawansowany", "description": "3–6 lat doświadczenia" },
-        "senior": { "label": "Senior", "description": "7+ lat doświadczenia" }
+        "entry": {
+          "label": "Początkujący",
+          "description": "0–2 lata doświadczenia"
+        },
+        "mid": {
+          "label": "Średniozaawansowany",
+          "description": "3–6 lat doświadczenia"
+        },
+        "senior": {
+          "label": "Senior",
+          "description": "7+ lat doświadczenia"
+        }
       },
       "questionCount": "Liczba pytań: {count}",
       "quick": "Szybka (3)",
@@ -1533,7 +1572,6 @@
       "shrmInterviewPractices": "SHRM: Najlepsze praktyki rozmów kwalifikacyjnych"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Porady zawodowe i wskazówki dotyczące CV — eksperckie przewodniki | Best AI Resume",
@@ -1583,7 +1621,6 @@
       "sidebarButton": "Rozpocznij"
     }
   },
-
   "ResumeExamples": {
     "meta": {
       "title": "Przykłady CV według stanowiska | Darmowe szablony i przewodniki 2026",

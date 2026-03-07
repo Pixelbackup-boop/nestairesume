@@ -3,7 +3,6 @@
     "title": "Gratis AI CV-maker | Maak een ATS CV in minuten | Best AI Resume",
     "description": "Maak professionele, ATS-geoptimaliseerde CV's in minuten met onze gratis AI CV-maker. Vertrouwd door meer dan 50.000 professionals. Geen registratie nodig om te beginnen."
   },
-
   "Common": {
     "loading": "Laden...",
     "error": "Er is een fout opgetreden",
@@ -36,7 +35,6 @@
       "continueEditing": "Verder bewerken"
     }
   },
-
   "Navigation": {
     "features": "Functies",
     "templates": "Sjablonen",
@@ -126,7 +124,6 @@
     "whyWereBetter": "Waarom wij de #1 gratis CV-maker zijn",
     "whyWereBetterDesc": "AI-gestuurd, ATS-geoptimaliseerd, volledig gratis"
   },
-
   "Home": {
     "hero": {
       "badge": "AI-gestuurde CV-maker",
@@ -240,17 +237,22 @@
     },
     "companies": {
       "title": "Onze gebruikers werden aangenomen bij",
-      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Features": {
     "meta": {
       "title": "AI CV-maker functies - Slim schrijven, ATS-optimalisatie en meer",
       "description": "Ontdek krachtige functies: AI-gestuurd schrijven, realtime ATS-scoring, 50+ sjablonen, directe PDF-export. Maak professionele CV's die sollicitatiegesprekken opleveren."
     }
   },
-
   "Templates": {
     "meta": {
       "title": "50+ professionele CV-sjablonen - Gratis en ATS-vriendelijk",
@@ -296,7 +298,6 @@
       }
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "Contact",
@@ -333,31 +334,28 @@
       "nationality": "Nationaliteit",
       "id": "ID-nummer",
       "passport": "Paspoort",
-      "drivingLicense": "Rijbewijs"
+      "drivingLicense": "Rijbewijs",
+      "activities": "Activiteiten"
     }
   },
-
   "About": {
     "meta": {
       "title": "Over Best AI Resume - Onze missie om de zoektocht naar werk te transformeren",
       "description": "Leer meer over Best AI Resume - het AI-gestuurde platform dat duizenden helpt hun droombaan te vinden. Onze missie, waarden en toewijding aan jouw carrièresucces."
     }
   },
-
   "Privacy": {
     "meta": {
       "title": "Privacybeleid - Best AI Resume",
       "description": "Leer hoe Best AI Resume je gegevens beschermt. Ons privacybeleid legt uit hoe we je persoonlijke informatie verzamelen, gebruiken en beveiligen."
     }
   },
-
   "Terms": {
     "meta": {
       "title": "Servicevoorwaarden - Best AI Resume",
       "description": "Lees de servicevoorwaarden van Best AI Resume. Begrijp je rechten en verantwoordelijkheden bij het gebruik van ons AI CV-maker platform."
     }
   },
-
   "Onboarding": {
     "meta": {
       "title": "Maak je CV - AI CV-generator",
@@ -495,7 +493,6 @@
       "linkedinStep4": "Upload de gedownloade PDF hieronder"
     }
   },
-
   "Pricing": {
     "meta": {
       "title": "Prijsplannen - AI CV-maker vanaf $3/maand",
@@ -656,7 +653,6 @@
       "cta": "Nu abonneren"
     }
   },
-
   "Blog": {
     "title": "Blog",
     "subtitle": "Tips, gidsen en inzichten voor je carrière",
@@ -669,7 +665,6 @@
     "shareOn": "Delen op",
     "noResults": "Geen artikelen gevonden"
   },
-
   "Footer": {
     "tagline": "AI-gestuurde CV-maker vertrouwd door professionals wereldwijd.",
     "product": "Product",
@@ -724,7 +719,6 @@
     "interviewPreparation": "Sollicitatiegespreksvoorbereiding",
     "salaryNegotiation": "Salarisonderhandeling"
   },
-
   "Auth": {
     "meta": {
       "loginTitle": "Inloggen - Best AI Resume",
@@ -764,17 +758,14 @@
     "wrongEmail": "Verkeerd e-mailadres?",
     "changeEmail": "E-mail wijzigen"
   },
-
   "Errors": {
     "notFound": "Pagina niet gevonden",
     "serverError": "Er is iets misgegaan",
     "unauthorized": "Log in om verder te gaan"
   },
-
   "LanguageSwitcher": {
     "label": "Selecteer taal"
   },
-
   "Dashboard": {
     "meta": {
       "title": "Dashboard - Mijn CV's",
@@ -848,7 +839,6 @@
     },
     "loading": "Laden..."
   },
-
   "Profile": {
     "meta": {
       "title": "Profielinstellingen - Best AI Resume",
@@ -894,7 +884,6 @@
     "passwordTooShort": "Wachtwoord moet minimaal 8 tekens bevatten",
     "noChanges": "Geen wijzigingen om op te slaan"
   },
-
   "Checkout": {
     "meta": {
       "title": "Afrekenen - Rond je abonnement af",
@@ -938,29 +927,53 @@
         "name": "Starter",
         "price": "$3/maand",
         "description": "Perfect voor werkzoekenden",
-        "features": ["30 CV-creaties/maand", "3 AI-generaties/maand", "3 PDF-downloads/maand", "Alle freemium-sjablonen", "Geen advertenties"]
+        "features": [
+          "30 CV-creaties/maand",
+          "3 AI-generaties/maand",
+          "3 PDF-downloads/maand",
+          "Alle freemium-sjablonen",
+          "Geen advertenties"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/maand",
         "description": "Voor actieve werkzoekenden",
-        "features": ["150 CV-creaties/maand", "10 AI-generaties/maand", "10 PDF-downloads/maand", "ATS-optimalisatie", "Sollicitatiebrief-maker"]
+        "features": [
+          "150 CV-creaties/maand",
+          "10 AI-generaties/maand",
+          "10 PDF-downloads/maand",
+          "ATS-optimalisatie",
+          "Sollicitatiebrief-maker"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/maand",
         "description": "Het beste voor professionals",
-        "features": ["300 CV-creaties/maand", "30 AI-generaties/maand", "25 PDF-downloads/maand", "Alle premium sjablonen", "Prioriteitsondersteuning"]
+        "features": [
+          "300 CV-creaties/maand",
+          "30 AI-generaties/maand",
+          "25 PDF-downloads/maand",
+          "Alle premium sjablonen",
+          "Prioriteitsondersteuning"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/maand",
         "description": "Voor powergebruikers en bureaus",
-        "features": ["Onbeperkte CV-creaties", "100 AI-generaties/maand", "Onbeperkte PDF-downloads", "Alle premium sjablonen", "Prioriteitsondersteuning", "Vroegtijdige toegang tot functies"]
+        "features": [
+          "Onbeperkte CV-creaties",
+          "100 AI-generaties/maand",
+          "Onbeperkte PDF-downloads",
+          "Alle premium sjablonen",
+          "Prioriteitsondersteuning",
+          "Vroegtijdige toegang tot functies"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "Betaling geslaagd!",
     "welcome": "Welkom bij {plan}!",
@@ -975,23 +988,47 @@
     "plans": {
       "starter": {
         "name": "Starter",
-        "benefits": ["30 CV-creaties per maand", "3 AI-generaties per maand", "3 PDF-downloads per maand", "Alle freemium-sjablonen", "Geen advertenties"]
+        "benefits": [
+          "30 CV-creaties per maand",
+          "3 AI-generaties per maand",
+          "3 PDF-downloads per maand",
+          "Alle freemium-sjablonen",
+          "Geen advertenties"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["150 CV-creaties per maand", "10 AI-generaties per maand", "10 PDF-downloads per maand", "ATS-optimalisatie", "Sollicitatiebrief-maker"]
+        "benefits": [
+          "150 CV-creaties per maand",
+          "10 AI-generaties per maand",
+          "10 PDF-downloads per maand",
+          "ATS-optimalisatie",
+          "Sollicitatiebrief-maker"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["300 CV-creaties per maand", "30 AI-generaties per maand", "25 PDF-downloads per maand", "Alle premium sjablonen", "Prioriteitsondersteuning"]
+        "benefits": [
+          "300 CV-creaties per maand",
+          "30 AI-generaties per maand",
+          "25 PDF-downloads per maand",
+          "Alle premium sjablonen",
+          "Prioriteitsondersteuning"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["Onbeperkte CV-creaties", "100 AI-generaties per maand", "Onbeperkte PDF-downloads", "Alle premium sjablonen", "Prioriteitsondersteuning", "Vroegtijdige toegang tot nieuwe functies"]
+        "benefits": [
+          "Onbeperkte CV-creaties",
+          "100 AI-generaties per maand",
+          "Onbeperkte PDF-downloads",
+          "Alle premium sjablonen",
+          "Prioriteitsondersteuning",
+          "Vroegtijdige toegang tot nieuwe functies"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "Canvas CV-editor - Ontwerp je CV visueel | Best AI Resume",
@@ -1059,7 +1096,6 @@
       "restored": "Je canvas-project is hersteld! Klik op Exporteren om te downloaden."
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "Canvas CV-sjablonen - Ontwerp je CV visueel | Best AI Resume",
@@ -1088,7 +1124,6 @@
     "formBuilderBanner": "Op zoek naar formuliergebaseerde sjablonen?",
     "viewFormTemplates": "Bekijk formulierbuilder-sjablonen"
   },
-
   "Builder": {
     "meta": {
       "title": "CV-maker - Maak je professionele CV online",
@@ -1254,19 +1289,16 @@
       "thankYouDesc": "Je feedback is verzonden. We bekijken alle meldingen om onze sjablonen te verbeteren."
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Downloaden voor Google Docs",
     "loading": "Google Docs-builder laden..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "MS Word downloaden",
     "loading": "Word-builder laden..."
   },
-
   "CoverLetter": {
     "meta": {
       "title": "Gratis AI-sollicitatiebrief generator - Maak professionele sollicitatiebrieven",
@@ -1340,7 +1372,6 @@
       "shrmHrResources": "SHRM: HR- en carrièrebronnen"
     }
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "Gratis AI-ontslagbrief generator - Professionele ontslagbrieven",
@@ -1456,7 +1487,6 @@
       "blsCareerData": "Bureau of Labor Statistics: Carrièregegevens"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "Gratis AI-oefensollicitatie | Best AI Resume",
@@ -1473,9 +1503,18 @@
       "jobTitlePlaceholder": "bijv. Software Engineer, Marketingmanager...",
       "experienceLevel": "Ervaringsniveau",
       "levels": {
-        "entry": { "label": "Startersniveau", "description": "0-2 jaar ervaring" },
-        "mid": { "label": "Middenniveau", "description": "3-6 jaar ervaring" },
-        "senior": { "label": "Seniorniveau", "description": "7+ jaar ervaring" }
+        "entry": {
+          "label": "Startersniveau",
+          "description": "0-2 jaar ervaring"
+        },
+        "mid": {
+          "label": "Middenniveau",
+          "description": "3-6 jaar ervaring"
+        },
+        "senior": {
+          "label": "Seniorniveau",
+          "description": "7+ jaar ervaring"
+        }
       },
       "questionCount": "Aantal vragen: {count}",
       "quick": "Snel (3)",
@@ -1533,7 +1572,6 @@
       "shrmInterviewPractices": "SHRM: Best practices voor sollicitatiegesprekken"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "Carrièretips en CV-advies - Deskundige gidsen | Best AI Resume",
@@ -1583,7 +1621,6 @@
       "sidebarButton": "Aan de slag"
     }
   },
-
   "ResumeExamples": {
     "meta": {
       "title": "CV-voorbeelden per functietitel | Gratis sjablonen en gidsen 2026",

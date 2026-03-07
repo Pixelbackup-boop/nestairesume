@@ -193,7 +193,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp.xs }}>
                                     <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle }}>
                                         {edu.degree}
-                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                        {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                     </h4>
                                     <span style={{ fontSize: fs.small, fontWeight: 600, color: orangeAccent }}>
                                         {edu.startDate} – {edu.endDate || t.labels.present}
@@ -206,7 +206,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                                     <p style={{ fontSize: fs.small, color: '#525252', opacity: 0.8 }}>{edu.honors}</p>
                                 )}
                                 {edu.clubs && (
-                                    <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                    <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                 )}
                                 {edu.description && (
                                     <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>

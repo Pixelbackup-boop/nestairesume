@@ -3,7 +3,6 @@
     "title": "無料AI履歴書作成ツール | ATS対応履歴書を数分で作成 | Best AI Resume",
     "description": "無料のAI履歴書作成ツールで、ATS最適化されたプロフェッショナルな履歴書・職務経歴書を数分で作成。50以上のテンプレートから選べます。登録不要ですぐに開始。"
   },
-
   "Common": {
     "loading": "読み込み中...",
     "error": "エラーが発生しました",
@@ -36,7 +35,6 @@
       "continueEditing": "編集を続ける"
     }
   },
-
   "Navigation": {
     "features": "機能",
     "templates": "テンプレート",
@@ -127,7 +125,6 @@
     "whyWereBetter": "No.1無料ビルダーの理由",
     "whyWereBetterDesc": "AI搭載、ATS最適化、完全無料"
   },
-
   "Home": {
     "hero": {
       "badge": "無料AI履歴書作成ツール",
@@ -241,17 +238,22 @@
     },
     "companies": {
       "title": "利用者の就職先企業",
-      "logos": ["Google", "Amazon", "Microsoft", "Apple", "Meta", "Netflix"]
+      "logos": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple",
+        "Meta",
+        "Netflix"
+      ]
     }
   },
-
   "Features": {
     "meta": {
       "title": "AI履歴書作成ツールの機能 | 無料スマートライティング＆ATS最適化",
       "description": "無料AI履歴書作成ツールの機能：AI搭載ライティング、リアルタイムATSスコアリング、50以上のテンプレート、即座のPDFエクスポート。履歴書・職務経歴書を自動作成。"
     }
   },
-
   "Templates": {
     "meta": {
       "title": "履歴書テンプレート50選 | 無料AI作成ツール＆ATS対応 2026",
@@ -297,7 +299,6 @@
       }
     }
   },
-
   "Resume": {
     "sections": {
       "contact": "連絡先",
@@ -334,31 +335,28 @@
       "nationality": "国籍",
       "id": "身分証番号",
       "passport": "パスポート",
-      "drivingLicense": "運転免許証"
+      "drivingLicense": "運転免許証",
+      "activities": "課外活動"
     }
   },
-
   "About": {
     "meta": {
       "title": "Best AI Resumeについて - 就職活動を変革するミッション",
       "description": "Best AI Resumeについて - 何千人もの人々が理想の仕事に就くことを支援するAI搭載プラットフォーム。私たちのミッション、価値観、キャリア成功へのコミットメントをご紹介します。"
     }
   },
-
   "Privacy": {
     "meta": {
       "title": "プライバシーポリシー - Best AI Resume",
       "description": "Best AI Resumeがお客様のデータをどのように保護しているかをご覧ください。当社のプライバシーポリシーでは、個人情報の収集、使用、保護の方法について説明しています。"
     }
   },
-
   "Terms": {
     "meta": {
       "title": "利用規約 - Best AI Resume",
       "description": "Best AI Resumeの利用規約をお読みください。AI履歴書ビルダープラットフォームをご利用の際の権利と責任についてご理解いただけます。"
     }
   },
-
   "Onboarding": {
     "meta": {
       "title": "AI履歴書作成 | 職務経歴書も自動作成 | Best AI Resume",
@@ -496,7 +494,6 @@
       "linkedinStep4": "ダウンロードしたPDFを下にアップロード"
     }
   },
-
   "Pricing": {
     "meta": {
       "title": "料金プラン | 無料AI履歴書作成ツール | Best AI Resume",
@@ -657,7 +654,6 @@
       "cta": "今すぐ登録"
     }
   },
-
   "Blog": {
     "title": "ブログ",
     "subtitle": "キャリアに役立つヒント、ガイド、インサイト",
@@ -670,7 +666,6 @@
     "shareOn": "共有先",
     "noResults": "記事が見つかりません"
   },
-
   "Footer": {
     "tagline": "世界中のプロフェッショナルに信頼されるAI搭載履歴書ビルダー。",
     "product": "プロダクト",
@@ -725,7 +720,6 @@
     "interviewPreparation": "面接準備",
     "salaryNegotiation": "給与交渉"
   },
-
   "Auth": {
     "meta": {
       "loginTitle": "ログイン - Best AI Resume",
@@ -765,17 +759,14 @@
     "wrongEmail": "メールアドレスが間違っていますか？",
     "changeEmail": "メールアドレスを変更"
   },
-
   "Errors": {
     "notFound": "ページが見つかりません",
     "serverError": "問題が発生しました",
     "unauthorized": "続行するにはログインしてください"
   },
-
   "LanguageSwitcher": {
     "label": "言語を選択"
   },
-
   "Dashboard": {
     "meta": {
       "title": "ダッシュボード - マイ履歴書",
@@ -849,7 +840,6 @@
     },
     "loading": "読み込み中..."
   },
-
   "Profile": {
     "meta": {
       "title": "プロフィール設定 - Best AI Resume",
@@ -895,7 +885,6 @@
     "passwordTooShort": "パスワードは8文字以上にしてください",
     "noChanges": "保存する変更はありません"
   },
-
   "Checkout": {
     "meta": {
       "title": "お支払い - サブスクリプションの完了",
@@ -939,29 +928,53 @@
         "name": "Starter",
         "price": "$3/月",
         "description": "就職活動中の方に最適",
-        "features": ["月30回の履歴書作成", "月3回のAI生成", "月3回のPDFダウンロード", "全フリーミアムテンプレート", "広告なし"]
+        "features": [
+          "月30回の履歴書作成",
+          "月3回のAI生成",
+          "月3回のPDFダウンロード",
+          "全フリーミアムテンプレート",
+          "広告なし"
+        ]
       },
       "gold": {
         "name": "Gold",
         "price": "$6/月",
         "description": "積極的に就職活動中の方に",
-        "features": ["月150回の履歴書作成", "月10回のAI生成", "月10回のPDFダウンロード", "ATS最適化", "カバーレタービルダー"]
+        "features": [
+          "月150回の履歴書作成",
+          "月10回のAI生成",
+          "月10回のPDFダウンロード",
+          "ATS最適化",
+          "カバーレタービルダー"
+        ]
       },
       "diamond": {
         "name": "Diamond",
         "price": "$10/月",
         "description": "プロフェッショナルに最適",
-        "features": ["月300回の履歴書作成", "月30回のAI生成", "月25回のPDFダウンロード", "全プレミアムテンプレート", "優先サポート"]
+        "features": [
+          "月300回の履歴書作成",
+          "月30回のAI生成",
+          "月25回のPDFダウンロード",
+          "全プレミアムテンプレート",
+          "優先サポート"
+        ]
       },
       "platinum": {
         "name": "Platinum",
         "price": "$30/月",
         "description": "ヘビーユーザー＆エージェンシー向け",
-        "features": ["無制限の履歴書作成", "月100回のAI生成", "無制限のPDFダウンロード", "全プレミアムテンプレート", "優先サポート", "新機能への早期アクセス"]
+        "features": [
+          "無制限の履歴書作成",
+          "月100回のAI生成",
+          "無制限のPDFダウンロード",
+          "全プレミアムテンプレート",
+          "優先サポート",
+          "新機能への早期アクセス"
+        ]
       }
     }
   },
-
   "CheckoutSuccess": {
     "title": "お支払いが完了しました！",
     "welcome": "{plan}へようこそ！",
@@ -976,23 +989,47 @@
     "plans": {
       "starter": {
         "name": "Starter",
-        "benefits": ["月30回の履歴書作成", "月3回のAI生成", "月3回のPDFダウンロード", "全フリーミアムテンプレート", "広告なし"]
+        "benefits": [
+          "月30回の履歴書作成",
+          "月3回のAI生成",
+          "月3回のPDFダウンロード",
+          "全フリーミアムテンプレート",
+          "広告なし"
+        ]
       },
       "gold": {
         "name": "Gold",
-        "benefits": ["月150回の履歴書作成", "月10回のAI生成", "月10回のPDFダウンロード", "ATS最適化", "カバーレタービルダー"]
+        "benefits": [
+          "月150回の履歴書作成",
+          "月10回のAI生成",
+          "月10回のPDFダウンロード",
+          "ATS最適化",
+          "カバーレタービルダー"
+        ]
       },
       "diamond": {
         "name": "Diamond",
-        "benefits": ["月300回の履歴書作成", "月30回のAI生成", "月25回のPDFダウンロード", "全プレミアムテンプレート", "優先サポート"]
+        "benefits": [
+          "月300回の履歴書作成",
+          "月30回のAI生成",
+          "月25回のPDFダウンロード",
+          "全プレミアムテンプレート",
+          "優先サポート"
+        ]
       },
       "platinum": {
         "name": "Platinum",
-        "benefits": ["無制限の履歴書作成", "月100回のAI生成", "無制限のPDFダウンロード", "全プレミアムテンプレート", "優先サポート", "新機能への早期アクセス"]
+        "benefits": [
+          "無制限の履歴書作成",
+          "月100回のAI生成",
+          "無制限のPDFダウンロード",
+          "全プレミアムテンプレート",
+          "優先サポート",
+          "新機能への早期アクセス"
+        ]
       }
     }
   },
-
   "CanvasEditor": {
     "meta": {
       "title": "キャンバス履歴書エディター - ビジュアルで履歴書をデザイン | Best AI Resume",
@@ -1060,7 +1097,6 @@
       "restored": "キャンバスプロジェクトが復元されました！エクスポートをクリックしてダウンロードしてください。"
     }
   },
-
   "CanvasTemplates": {
     "meta": {
       "title": "キャンバス履歴書テンプレート - ビジュアルで履歴書をデザイン | Best AI Resume",
@@ -1089,7 +1125,6 @@
     "formBuilderBanner": "フォーム型テンプレートをお探しですか？",
     "viewFormTemplates": "フォームビルダーテンプレートを見る"
   },
-
   "Builder": {
     "meta": {
       "title": "履歴書ビルダー - プロフェッショナルなCVをオンラインで作成",
@@ -1255,19 +1290,16 @@
       "thankYouDesc": "フィードバックが送信されました。テンプレートの改善のため、すべてのレポートを確認しています。"
     }
   },
-
   "GDocsBuilder": {
     "badge": "Google Docs",
     "downloadButton": "Google Docs用にダウンロード",
     "loading": "Google Docsビルダーを読み込み中..."
   },
-
   "WordBuilder": {
     "badge": "DOCX",
     "downloadButton": "MS Wordをダウンロード",
     "loading": "Wordビルダーを読み込み中..."
   },
-
   "CoverLetter": {
     "meta": {
       "title": "無料AIカバーレター作成ツール | 英文カバーレターも対応",
@@ -1341,7 +1373,6 @@
       "shrmHrResources": "SHRM：人事＆キャリアリソース"
     }
   },
-
   "ResignationLetter": {
     "meta": {
       "title": "無料AI退職届ジェネレーター - プロフェッショナルな退職届",
@@ -1457,7 +1488,6 @@
       "blsCareerData": "労働統計局：キャリアデータ"
     }
   },
-
   "MockInterview": {
     "meta": {
       "title": "AI模擬面接練習 | 無料面接対策ツール | Best AI Resume",
@@ -1474,9 +1504,18 @@
       "jobTitlePlaceholder": "例：ソフトウェアエンジニア、マーケティングマネージャー...",
       "experienceLevel": "経験レベル",
       "levels": {
-        "entry": { "label": "エントリーレベル", "description": "経験0〜2年" },
-        "mid": { "label": "ミドルレベル", "description": "経験3〜6年" },
-        "senior": { "label": "シニアレベル", "description": "経験7年以上" }
+        "entry": {
+          "label": "エントリーレベル",
+          "description": "経験0〜2年"
+        },
+        "mid": {
+          "label": "ミドルレベル",
+          "description": "経験3〜6年"
+        },
+        "senior": {
+          "label": "シニアレベル",
+          "description": "経験7年以上"
+        }
       },
       "questionCount": "質問数：{count}",
       "quick": "クイック (3)",
@@ -1534,7 +1573,6 @@
       "shrmInterviewPractices": "SHRM：面接のベストプラクティス"
     }
   },
-
   "CareerTips": {
     "meta": {
       "title": "履歴書の書き方＆キャリアアドバイス | 専門家ガイド 2026",
@@ -1584,7 +1622,6 @@
       "sidebarButton": "始める"
     }
   },
-
   "ResumeExamples": {
     "meta": {
       "title": "履歴書サンプル300選 | 職種別の書き方・見本集 2026",
@@ -1607,7 +1644,6 @@
       "button": "無料で履歴書を作成"
     }
   },
-
   "AtsChecker": {
     "meta": {
       "title": "無料ATS履歴書チェッカー | 履歴書作成ツールでスコア即時判定",
@@ -1746,7 +1782,6 @@
       "blsResumeTips": "BLSキャリア展望：履歴書のヒント"
     }
   },
-
   "Contact": {
     "title": "お問い合わせ",
     "description": "アカウントに関するご質問、履歴書に関するサポート、問題の報告など、お気軽にお問い合わせください。以下のフォームにご記入いただければ、24時間以内にチームからご連絡いたします。",
@@ -1772,7 +1807,6 @@
     "errorGeneric": "問題が発生しました。後ほどもう一度お試しください。",
     "errorRateLimit": "送信回数が多すぎます。しばらくお待ちいただいてからもう一度お試しください。"
   },
-
   "Help": {
     "title": "使い方ガイド",
     "subtitle": "登録から完成した書類のダウンロードまで、プロフェッショナルな履歴書を作成するためのステップバイステップガイドです。",
@@ -1946,7 +1980,6 @@
       "contactButton": "サポートに連絡"
     }
   },
-
   "ATSTemplates": {
     "meta": {
       "title": "無料ATS対応履歴書テンプレート16選 | 履歴書作成ツール 2026",

@@ -173,7 +173,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                 </div>
                                 <p style={{ color: theme.secondary, fontSize: scale < 1 ? '9px' : sp(12) + 'px' }}>
                                     {edu.degree}
-                                    {edu.gpa && <span style={{ marginLeft: sp(8), opacity: 0.8 }}>GPA: {edu.gpa}</span>}
+                                    {edu.gpa && <span style={{ marginLeft: sp(8), opacity: 0.8 }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                 </p>
                                 {edu.honors && (
                                     <p style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '8px' : sp(11) + 'px' }}>
@@ -182,7 +182,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                 )}
                                 {edu.clubs && (
                                     <p style={{ color: theme.text, opacity: 0.6, fontSize: scale < 1 ? '7px' : sp(10) + 'px' }}>
-                                        Activities: {edu.clubs}
+                                        { t.labels.activities || 'Activities' }: {edu.clubs}
                                     </p>
                                 )}
                                 {edu.description && (

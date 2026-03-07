@@ -293,7 +293,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: sp(4) }}>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#0f172a', margin: 0, textTransform: 'uppercase' }}>
                                             {edu.degree}
-                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body, textTransform: 'none' }}>GPA: {edu.gpa}</span>}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body, textTransform: 'none' }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                         </h4>
                                         <span style={{ fontSize: fs.small, color: accentColor, fontWeight: 600 }}>
                                             {edu.startDate} – {edu.endDate || t.labels.present}
@@ -306,7 +306,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                                         <p style={{ fontSize: fs.small, color: '#475569', opacity: 0.8 }}>{edu.honors}</p>
                                     )}
                                     {edu.clubs && (
-                                        <p style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                        <p style={{ fontSize: fs.small, color: '#64748b', opacity: 0.7 }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                     )}
                                     {edu.description && (
                                         <p style={{ fontSize: fs.small || fs.body, lineHeight: 1.5, color: '#4b5563', marginTop: '4px' }}>{edu.description}</p>

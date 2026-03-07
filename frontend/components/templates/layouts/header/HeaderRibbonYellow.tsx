@@ -257,7 +257,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                         </p>
                                         <h4 style={{ fontWeight: 700, fontSize: fs.entryTitle, color: '#1f2937', marginBottom: sp(1) }}>
                                             {edu.degree}
-                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>GPA: {edu.gpa}</span>}
+                                            {edu.gpa && <span style={{ marginLeft: 8, opacity: 0.8, fontWeight: 500, fontSize: fs.body }}>{ t.labels.gpa || 'GPA' }: {edu.gpa}</span>}
                                         </h4>
                                         <p style={{ fontSize: fs.body, color: accentColor, fontWeight: 600 }}>
                                             {edu.school}
@@ -266,7 +266,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                             <p style={{ fontSize: fs.small, color: '#4b5563', opacity: 0.8 }}>{edu.honors}</p>
                                         )}
                                         {edu.clubs && (
-                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>Activities: {edu.clubs}</p>
+                                            <p style={{ fontSize: fs.small, color: '#6b7280', opacity: 0.7 }}>{ t.labels.activities || 'Activities' }: {edu.clubs}</p>
                                         )}
                                         {edu.description && (
                                             <p style={{ fontSize: fs.small, color: '#6b7280', marginTop: sp(2) }}>

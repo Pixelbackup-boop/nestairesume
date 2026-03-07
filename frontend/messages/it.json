@@ -334,7 +334,8 @@
       "nationality": "Nazionalità",
       "id": "Numero ID",
       "passport": "Passaporto",
-      "drivingLicense": "Patente di Guida"
+      "drivingLicense": "Patente di Guida",
+      "activities": "Attività"
     }
   },
   "About": {

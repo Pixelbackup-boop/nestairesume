@@ -334,7 +334,8 @@
       "nationality": "Kewarganegaraan",
       "id": "Nombor Pengenalan",
       "passport": "Pasport",
-      "drivingLicense": "Lesen Memandu"
+      "drivingLicense": "Lesen Memandu",
+      "activities": "Aktiviti"
     }
   },
   "About": {
