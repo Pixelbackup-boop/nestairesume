@@ -172,9 +172,9 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                         <div class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.personalDetails, 'user')}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${s(12)}; color: #4b5563;">
-                                ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600; color: ${theme.heading};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600; color: ${theme.heading};">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
-                                    <div data-paginate="item"><span style="font-weight: 600; color: ${theme.heading};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                    <div data-paginate="item"><span style="font-weight: 600; color: ${theme.heading};">${personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                                 ` : ''}
                             </div>
                         </div>

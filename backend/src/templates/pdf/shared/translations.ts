@@ -31,6 +31,9 @@ export const defaultTranslations: PdfTranslations = {
     labels: {
         present: 'Present',
         nationality: 'Nationality',
+        id: 'ID Number',
+        passport: 'Passport',
+        drivingLicense: 'Driving License',
     },
 };
 

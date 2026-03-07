@@ -153,8 +153,8 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
                 <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.personalDetails}</h3>
                     <div style="font-size: ${s(14)}; color: #374151;">
-                        ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
-                        ${personalInfo.idType && personalInfo.idNumber ? `<div data-paginate="item" style="margin-top: 4px;"><span style="font-weight: 600;">${personalInfo.idType === 'passport' ? 'Passport Number' : personalInfo.idType === 'id' ? 'ID Number' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
+                        ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                        ${personalInfo.idType && personalInfo.idNumber ? `<div data-paginate="item" style="margin-top: 4px;"><span style="font-weight: 600;">${personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : personalInfo.idType === 'id' ? (t.labels.id || 'ID') : (t.labels.drivingLicense || 'Driving License')}:</span> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
                     </div>
                 </section>
             ` : ''}

@@ -209,13 +209,13 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                         <section class="resume-section" style="margin-bottom: 32px;">
                             ${SectionHeader(t.sections.personalDetails, 'fileText')}
                             <div style="display: flex; flex-direction: column; gap: 6px; font-size: ${sizes.body};">
-                                ${personalInfo.nationality ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                ${personalInfo.nationality ? `<div data-paginate="item" style="page-break-inside: avoid;"><span style="font-weight: 600;">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
                                     <div data-paginate="item" style="page-break-inside: avoid;">
                                         <span style="font-weight: 600;">
-                                            ${personalInfo.idType === 'id' ? 'ID' :
-                    personalInfo.idType === 'passport' ? 'Passport' :
-                        personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                            ${personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                    personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                        personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                         </span> ${escapeHtml(personalInfo.idNumber)}
                                     </div>
                                 ` : ''}

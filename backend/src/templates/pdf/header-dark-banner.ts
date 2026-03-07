@@ -262,9 +262,9 @@ export const renderHeaderDarkBanner = (
                                 <section class="resume-section" style="margin-bottom: 20px;">
                                     ${SectionHeader(t.sections.personalDetails)}
                                     <div style="font-size: ${s(12)}; color: #4b5563; display: flex; flex-direction: column; gap: 6px;">
-                                        ${personalInfo.nationality ? `<div data-paginate="item" style="display: flex; align-items: center; gap: 4px;">${bodyIcon('globe', '#4b5563', 12)} <span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                                        ${personalInfo.nationality ? `<div data-paginate="item" style="display: flex; align-items: center; gap: 4px;">${bodyIcon('globe', '#4b5563', 12)} <span style="font-weight: 600;">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                                         ${personalInfo.idType && personalInfo.idNumber ? `
-                                            <div data-paginate="item" style="display: flex; align-items: center; gap: 4px;">${bodyIcon('id-card', '#4b5563', 12)} <span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                            <div data-paginate="item" style="display: flex; align-items: center; gap: 4px;">${bodyIcon('id-card', '#4b5563', 12)} <span style="font-weight: 600;">${personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                                         ` : ''}
                                     </div>
                                 </section>

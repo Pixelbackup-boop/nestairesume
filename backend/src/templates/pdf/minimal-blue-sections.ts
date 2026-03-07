@@ -266,9 +266,9 @@ export const renderMinimalBlueSections = (
                 <section class="resume-section" style="margin-top: 40px;">
                     ${SectionHeader(t.sections.personalDetails)}
                     <div style="padding-left: 8px; font-size: ${s(14)}; color: #374151;">
-                        ${personalInfo.nationality ? `<div><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                        ${personalInfo.nationality ? `<div><span style="font-weight: 600;">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                         ${personalInfo.idType && personalInfo.idNumber ? `
-                            <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                            <div><span style="font-weight: 600;">${personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                         ` : ''}
                     </div>
                 </section>

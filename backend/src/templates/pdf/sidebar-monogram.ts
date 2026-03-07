@@ -131,9 +131,9 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader(t.sections.personalDetails)}
                         <div style="font-size: ${fs.body}; display: flex; flex-direction: column; gap: 8px;">
-                            ${personalInfo.nationality ? `<div><span style="color: ${accentColor}; font-weight: 500;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                            ${personalInfo.nationality ? `<div><span style="color: ${accentColor}; font-weight: 500;">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
-                                <div><span style="color: ${accentColor}; font-weight: 500;">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                <div><span style="color: ${accentColor}; font-weight: 500;">${personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                             ` : ''}
                         </div>
                     </div>

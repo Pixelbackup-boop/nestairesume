@@ -32,6 +32,10 @@ export interface PdfTranslations {
     };
     labels: {
         present: string;
+        nationality?: string;
+        id?: string;
+        passport?: string;
+        drivingLicense?: string;
     };
 }
 

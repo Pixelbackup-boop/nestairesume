@@ -249,12 +249,12 @@ export const renderHeaderDarkBox = (data: PdfResumeData, theme: PdfTheme, transl
                             ${SectionHeader(t.sections.personalDetails, getIconSVG('id-card', accentColor, sNum(16)))}
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body};">
                                 ${personalInfo.nationality ? `
-                                    <div><span style="font-weight: 600; color: #111827;">Nationality:</span> <span style="color: #374151;">${escapeHtml(personalInfo.nationality)}</span></div>
+                                    <div><span style="font-weight: 600; color: #111827;">${t.labels.nationality || 'Nationality'}:</span> <span style="color: #374151;">${escapeHtml(personalInfo.nationality)}</span></div>
                                 ` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
                                     <div>
                                         <span style="font-weight: 600; color: #111827;">
-                                            ${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:
+                                            ${personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:
                                         </span> <span style="color: #374151;">${escapeHtml(personalInfo.idNumber)}</span>
                                     </div>
                                 ` : ''}

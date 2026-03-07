@@ -262,10 +262,10 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
     // Personal Details (Nationality, ID) - matches frontend
     const formatIdType = (idType: string): string => {
         switch (idType) {
-            case 'id': return 'ID';
-            case 'passport': return 'Passport';
-            case 'driving_license': return 'Driving License';
-            default: return 'ID';
+            case 'id': return t.labels.id || 'ID';
+            case 'passport': return t.labels.passport || 'Passport';
+            case 'driving_license': return t.labels.drivingLicense || 'Driving License';
+            default: return t.labels.id || 'ID';
         }
     };
     const hasPersonalDetails = personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber);
@@ -273,7 +273,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
         <div style="margin-bottom: 24px;">
             ${SectionHeader(t.sections.personalDetails)}
             <div style="display: flex; flex-direction: column; gap: 4px; font-size: ${fs.body};">
-                ${personalInfo.nationality ? `<div data-paginate="item"><strong>Nationality:</strong> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                ${personalInfo.nationality ? `<div data-paginate="item"><strong>${t.labels.nationality || 'Nationality'}:</strong> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                 ${personalInfo.idType && personalInfo.idNumber ? `<div data-paginate="item"><strong>${formatIdType(personalInfo.idType)}:</strong> ${escapeHtml(personalInfo.idNumber)}</div>` : ''}
             </div>
         </div>

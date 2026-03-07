@@ -127,9 +127,9 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                     <div style="margin-bottom: 40px;">
                         ${SidebarHeader(t.sections.personalDetails)}
                         <div style="font-size: ${fs.body}; display: flex; flex-direction: column; gap: 8px; color: ${sidebarText};">
-                            ${personalInfo.nationality ? `<div><span style="font-weight: 500; color: ${accentColor};">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                            ${personalInfo.nationality ? `<div><span style="font-weight: 500; color: ${accentColor};">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                             ${personalInfo.idType && personalInfo.idNumber ? `
-                                <div><span style="font-weight: 500; color: ${accentColor};">${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
+                                <div><span style="font-weight: 500; color: ${accentColor};">${personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:</span> ${escapeHtml(personalInfo.idNumber)}</div>
                             ` : ''}
                         </div>
                     </div>

@@ -348,13 +348,13 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                 
                 ${(personalInfo.nationality || (personalInfo.idType && personalInfo.idNumber)) ? SectionRow(t.sections.personalDetails, `
                     <div style="display: flex; flex-direction: column; gap: 6px;">
-                        ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
+                        ${personalInfo.nationality ? `<div data-paginate="item"><span style="font-weight: 600;">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}</div>` : ''}
                         ${(personalInfo.idType && personalInfo.idNumber) ? `
                             <div data-paginate="item">
                                 <span style="font-weight: 600;">
-                                    ${personalInfo.idType === 'id' ? 'ID' :
-                personalInfo.idType === 'passport' ? 'Passport' :
-                    personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                    ${personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                    personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                 </span> ${escapeHtml(personalInfo.idNumber)}
                             </div>
                         ` : ''}

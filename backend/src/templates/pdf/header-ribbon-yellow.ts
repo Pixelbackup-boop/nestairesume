@@ -240,13 +240,13 @@ export const renderHeaderRibbonYellow = (
                             <div style="display: flex; flex-direction: column; gap: 8px; font-size: ${fs.body}; color: #1f2937;">
                                 ${personalInfo.nationality ? `
                                     <div data-paginate="item">
-                                        <span style="font-weight: 700;">Nationality:</span> ${escapeHtml(personalInfo.nationality)}
+                                        <span style="font-weight: 700;">${t.labels.nationality || 'Nationality'}:</span> ${escapeHtml(personalInfo.nationality)}
                                     </div>
                                 ` : ''}
                                 ${personalInfo.idType && personalInfo.idNumber ? `
                                     <div data-paginate="item">
                                         <span style="font-weight: 700;">
-                                            ${personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'Driving License'}:
+                                            ${personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:
                                         </span> ${escapeHtml(personalInfo.idNumber)}
                                     </div>
                                 ` : ''}
