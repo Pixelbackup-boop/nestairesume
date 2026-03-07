@@ -242,11 +242,11 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                             <SectionHeader fs={fs} title={t.sections.personalDetails} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(4), fontSize: fs.body }}>
                                 {personalInfo.nationality && (
-                                    <div data-paginate="item"><strong>Nationality:</strong> {personalInfo.nationality}</div>
+                                    <div data-paginate="item"><strong>{t.labels.nationality || 'Nationality'}:</strong> {personalInfo.nationality}</div>
                                 )}
                                 {personalInfo.idType && personalInfo.idNumber && (
                                     <div data-paginate="item">
-                                        <strong>{personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:</strong> {personalInfo.idNumber}
+                                        <strong>{personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:</strong> {personalInfo.idNumber}
                                     </div>
                                 )}
                             </div>

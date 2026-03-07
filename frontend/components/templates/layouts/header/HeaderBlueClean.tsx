@@ -282,12 +282,12 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                             <SectionHeader title={t.sections.personalDetails} icon={<User size={parseInt(fs.sectionHeading)} color={primaryColor} />} primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8), fontSize: fs.small, color: '#4b5563' }}>
                                 {personalInfo.nationality && (
-                                    <div data-paginate="item"><span style={{ fontWeight: 600, color: headingColor }}>Nationality:</span> {personalInfo.nationality}</div>
+                                    <div data-paginate="item"><span style={{ fontWeight: 600, color: headingColor }}>{t.labels.nationality || 'Nationality'}:</span> {personalInfo.nationality}</div>
                                 )}
                                 {personalInfo.idType && personalInfo.idNumber && (
                                     <div data-paginate="item">
                                         <span style={{ fontWeight: 600, color: headingColor }}>
-                                            {personalInfo.idType === 'id' ? 'ID' : personalInfo.idType === 'passport' ? 'Passport' : 'License'}:
+                                            {personalInfo.idType === 'id' ? (t.labels.id || 'ID') : personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') : (t.labels.drivingLicense || 'Driving License')}:
                                         </span> {personalInfo.idNumber}
                                     </div>
                                 )}

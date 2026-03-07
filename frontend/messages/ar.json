@@ -324,7 +324,11 @@
       "fluent": "طلاقة",
       "advanced": "متقدم",
       "intermediate": "متوسط",
-      "basic": "مبتدئ"
+      "basic": "مبتدئ",
+      "nationality": "الجنسية",
+      "id": "رقم الهوية",
+      "passport": "جواز السفر",
+      "drivingLicense": "رخصة القيادة"
     }
   },
   "Onboarding": {

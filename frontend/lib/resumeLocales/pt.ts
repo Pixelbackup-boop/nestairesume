@@ -4,7 +4,7 @@ const pt: LocaleBundle = {
     localeData: {
         cities: ['São Paulo', 'Rio de Janeiro', 'Brasília', 'Curitiba', 'Belo Horizonte'],
         country: 'Brasil',
-        nationality: 'Brazilian',
+        nationality: 'Brasileira',
         companies: {
             tech: ['TechCorp Soluções', 'InnovaTech Ltda.', 'CloudWorks Brasil', 'DataLabs América', 'AppForge Digital'],
             design: ['Design Hub Agência', 'Estúdio Criativo Pro', 'Pixel Perfeito Design', 'UX Coletivo', 'Artes Visuais Ltda.'],

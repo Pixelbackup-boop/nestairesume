@@ -150,14 +150,14 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                         <SidebarSectionHeader title={t.sections.personalDetails} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} sp={sp} />
                         <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: sp(8), color: sidebarText }}>
                             {personalInfo.nationality && (
-                                <div><span style={{ fontWeight: 600, color: accentColor }}>Nationality:</span> {personalInfo.nationality}</div>
+                                <div><span style={{ fontWeight: 600, color: accentColor }}>{t.labels.nationality || 'Nationality'}:</span> {personalInfo.nationality}</div>
                             )}
                             {personalInfo.idType && personalInfo.idNumber && (
                                 <div>
                                     <span style={{ fontWeight: 600, color: accentColor }}>
-                                        {personalInfo.idType === 'id' ? 'ID' :
-                                            personalInfo.idType === 'passport' ? 'Passport' :
-                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        {personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                                            personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                                                personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                     </span> {personalInfo.idNumber}
                                 </div>
                             )}

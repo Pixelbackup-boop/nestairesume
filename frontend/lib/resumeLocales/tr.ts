@@ -4,7 +4,7 @@ const tr: LocaleBundle = {
     localeData: {
         cities: ['İstanbul', 'Ankara', 'İzmir', 'Bursa', 'Antalya'],
         country: 'Türkiye',
-        nationality: 'Turkish',
+        nationality: 'Türk',
         companies: {
             tech: ['TechCorp Çözümler', 'İnovaTek A.Ş.', 'CloudWorks Türkiye', 'VeriLab', 'AppForge Dijital'],
             design: ['Tasarım Merkezi Ajans', 'Kreatif Stüdyo Pro', 'Piksel Mükemmel Tasarım', 'UX Kolektif', 'Görsel Sanatlar A.Ş.'],

@@ -4,7 +4,7 @@ const id: LocaleBundle = {
     localeData: {
         cities: ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Semarang'],
         country: 'Indonesia',
-        nationality: 'Indonesian',
+        nationality: 'Indonesia',
         companies: {
             tech: ['TechCorp Solusi', 'InnovaTech Indonesia', 'CloudWorks Nusantara', 'DataLabs Indonesia', 'AppForge Digital'],
             design: ['Kreasi Visual Studio', 'DesainHub Indonesia', 'Pixel Sempurna Kreatif', 'Studio UX Nusantara', 'Seni Digital Indonesia'],

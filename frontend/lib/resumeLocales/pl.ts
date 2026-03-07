@@ -4,7 +4,7 @@ const pl: LocaleBundle = {
     localeData: {
         cities: ['Warszawa', 'Kraków', 'Wrocław', 'Gdańsk', 'Poznań'],
         country: 'Polska',
-        nationality: 'Polish',
+        nationality: 'Polskie',
         companies: {
             tech: ['TechCorp Rozwiązania Sp. z o.o.', 'InnovaTech Polska', 'CloudWorks Polska', 'DataLabs Europa', 'AppForge Digital'],
             design: ['Studio Projektowe Kreatyw', 'DesignHub Polska', 'Pixel Art Studio', 'UX Studio Warszawa', 'Grafika Pro Sp. z o.o.'],

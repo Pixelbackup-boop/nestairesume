@@ -4,7 +4,7 @@ const zh: LocaleBundle = {
     localeData: {
         cities: ['北京', '上海', '深圳', '广州', '杭州'],
         country: '中国',
-        nationality: 'Chinese',
+        nationality: '中国',
         companies: {
             tech: ['科技解决方案公司', '创新科技有限公司', '云工作系统', '数据驱动实验室', '应用锻造数码'],
             design: ['设计中心工作室', '创意视觉传媒', '像素完美设计', '用户体验联盟', '视觉艺术有限公司'],

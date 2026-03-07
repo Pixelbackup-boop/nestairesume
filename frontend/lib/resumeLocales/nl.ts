@@ -4,7 +4,7 @@ const nl: LocaleBundle = {
     localeData: {
         cities: ['Amsterdam', 'Rotterdam', 'Den Haag', 'Utrecht', 'Eindhoven'],
         country: 'Nederland',
-        nationality: 'Dutch',
+        nationality: 'Nederlands',
         companies: {
             tech: ['TechCorp Oplossingen B.V.', 'InnovaTech Nederland', 'CloudWorks NL', 'DataLabs Europa', 'AppForge Digital'],
             design: ['DesignHub Bureau', 'CreatieveStudio Pro', 'Pixel Perfect Ontwerp', 'UX Collectief', 'Visuele Kunst B.V.'],

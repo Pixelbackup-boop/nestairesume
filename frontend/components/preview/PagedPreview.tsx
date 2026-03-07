@@ -112,6 +112,10 @@ const PagedPreview = forwardRef<HTMLDivElement, PagedPreviewProps>(
             },
             labels: {
                 present: t('labels.present'),
+                nationality: t('labels.nationality'),
+                id: t('labels.id'),
+                passport: t('labels.passport'),
+                drivingLicense: t('labels.drivingLicense'),
             },
             isRtl: isRtl(locale),
         }), [t, locale]);

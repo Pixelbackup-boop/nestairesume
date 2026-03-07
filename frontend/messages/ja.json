@@ -330,7 +330,11 @@
       "fluent": "流暢",
       "advanced": "上級",
       "intermediate": "中級",
-      "basic": "初級"
+      "basic": "初級",
+      "nationality": "国籍",
+      "id": "身分証番号",
+      "passport": "パスポート",
+      "drivingLicense": "運転免許証"
     }
   },
 

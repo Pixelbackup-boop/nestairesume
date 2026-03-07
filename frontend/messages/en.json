@@ -330,7 +330,11 @@
       "fluent": "Fluent",
       "advanced": "Advanced",
       "intermediate": "Intermediate",
-      "basic": "Basic"
+      "basic": "Basic",
+      "nationality": "Nationality",
+      "id": "ID Number",
+      "passport": "Passport",
+      "drivingLicense": "Driving License"
     }
   },
 

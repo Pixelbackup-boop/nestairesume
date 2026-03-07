@@ -291,14 +291,14 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                     <SectionHeader title={t.sections.personalDetails} bg={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                     <div style={{ paddingLeft: sp(8), display: 'flex', flexDirection: 'column', gap: sp(8), fontSize: fs.body }}>
                         {personalInfo.nationality && (
-                            <div><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
+                            <div><span style={{ fontWeight: 600 }}>{t.labels.nationality || 'Nationality'}:</span> {personalInfo.nationality}</div>
                         )}
                         {personalInfo.idType && personalInfo.idNumber && (
                             <div>
                                 <span style={{ fontWeight: 600 }}>
-                                    {personalInfo.idType === 'id' ? 'ID' :
-                                        personalInfo.idType === 'passport' ? 'Passport' :
-                                            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                    {personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                                        personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                                            personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                 </span> {personalInfo.idNumber}
                             </div>
                         )}

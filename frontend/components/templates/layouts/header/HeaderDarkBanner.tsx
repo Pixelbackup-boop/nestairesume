@@ -276,11 +276,11 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
                                 {t.sections.personalDetails}
                             </SectionHeader>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: `${sp(4)}px`, fontSize: fs.small, color: '#374151' }}>
-                                {personalInfo.nationality && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Globe size={iconMd} /> Nationality: {personalInfo.nationality}</div>}
+                                {personalInfo.nationality && <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><Globe size={iconMd} /> {t.labels.nationality || 'Nationality'}: {personalInfo.nationality}</div>}
                                 {personalInfo.idType && personalInfo.idNumber && (
-                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><IdCard size={iconMd} /> {personalInfo.idType === 'id' ? 'ID' :
-                                        personalInfo.idType === 'passport' ? 'Passport' :
-                                            personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}: {personalInfo.idNumber}</div>
+                                    <div data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: `${sp(4)}px` }}><IdCard size={iconMd} /> {personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                                        personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                                            personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}: {personalInfo.idNumber}</div>
                                 )}
                             </div>
                         </section>

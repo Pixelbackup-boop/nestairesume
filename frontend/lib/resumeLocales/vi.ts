@@ -4,7 +4,7 @@ const vi: LocaleBundle = {
     localeData: {
         cities: ['Hồ Chí Minh', 'Hà Nội', 'Đà Nẵng', 'Hải Phòng', 'Cần Thơ'],
         country: 'Việt Nam',
-        nationality: 'Vietnamese',
+        nationality: 'Việt Nam',
         companies: {
             tech: ['TechCorp Giải Pháp', 'InnovaTech Việt Nam', 'CloudWorks VN', 'DataLabs Á Châu', 'AppForge Digital'],
             design: ['DesignHub Sáng Tạo', 'CreativeStudio Việt Nam', 'Pixel Hoàn Hảo', 'UX Việt Nam', 'Mỹ Thuật Số VN'],

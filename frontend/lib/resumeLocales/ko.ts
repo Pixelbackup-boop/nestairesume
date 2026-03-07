@@ -4,7 +4,7 @@ const ko: LocaleBundle = {
     localeData: {
         cities: ['Seoul', 'Busan', 'Incheon', 'Daegu', 'Daejeon'],
         country: '대한민국',
-        nationality: 'Korean',
+        nationality: '한국인',
         companies: {
             tech: ['테크코프 솔루션즈', '이노베이트테크', '클라우드웍스 코리아', '데이터랩스', '앱포지 디지털'],
             design: ['디자인허브 에이전시', '크리에이티브 스튜디오', '픽셀퍼펙트 디자인', 'UX 콜렉티브 코리아', '비주얼아츠'],

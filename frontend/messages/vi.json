@@ -330,7 +330,11 @@
       "fluent": "Thành thạo",
       "advanced": "Nâng cao",
       "intermediate": "Trung cấp",
-      "basic": "Cơ bản"
+      "basic": "Cơ bản",
+      "nationality": "Quốc tịch",
+      "id": "Số CMND",
+      "passport": "Hộ chiếu",
+      "drivingLicense": "Bằng lái xe"
     }
   },
   "About": {

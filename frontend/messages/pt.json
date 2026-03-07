@@ -329,7 +329,11 @@
       "fluent": "Fluente",
       "advanced": "Avançado",
       "intermediate": "Intermediário",
-      "basic": "Básico"
+      "basic": "Básico",
+      "nationality": "Nacionalidade",
+      "id": "Número de ID",
+      "passport": "Passaporte",
+      "drivingLicense": "Carteira de Motorista"
     }
   },
 

@@ -324,7 +324,11 @@
       "fluent": "Courant",
       "advanced": "Avancé",
       "intermediate": "Intermédiaire",
-      "basic": "Basique"
+      "basic": "Basique",
+      "nationality": "Nationalité",
+      "id": "Numéro d'identité",
+      "passport": "Passeport",
+      "drivingLicense": "Permis de Conduire"
     }
   },
   "Onboarding": {

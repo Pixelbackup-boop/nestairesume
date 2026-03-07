@@ -329,7 +329,11 @@
       "fluent": "Biegły",
       "advanced": "Zaawansowany",
       "intermediate": "Średniozaawansowany",
-      "basic": "Podstawowy"
+      "basic": "Podstawowy",
+      "nationality": "Obywatelstwo",
+      "id": "Numer dowodu",
+      "passport": "Paszport",
+      "drivingLicense": "Prawo Jazdy"
     }
   },
 

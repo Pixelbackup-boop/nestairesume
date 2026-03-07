@@ -4,7 +4,7 @@ const de: LocaleBundle = {
     localeData: {
         cities: ['Berlin', 'München', 'Hamburg', 'Frankfurt', 'Köln'],
         country: 'Deutschland',
-        nationality: 'German',
+        nationality: 'Deutsch',
         companies: {
             tech: ['TechCorp Solutions GmbH', 'InnovaTech AG', 'CloudWorks Deutschland', 'DataLabs Europa', 'AppForge Digital'],
             design: ['DesignHub Agentur', 'Kreativstudio Pro', 'Pixel Perfect Design', 'UX Kollektiv', 'Visuelle Kunst GmbH'],

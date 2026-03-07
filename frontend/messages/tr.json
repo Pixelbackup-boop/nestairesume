@@ -329,7 +329,11 @@
       "fluent": "Akıcı",
       "advanced": "İleri Düzey",
       "intermediate": "Orta Düzey",
-      "basic": "Temel Düzey"
+      "basic": "Temel Düzey",
+      "nationality": "Uyruk",
+      "id": "Kimlik Numarası",
+      "passport": "Pasaport",
+      "drivingLicense": "Ehliyet"
     }
   },
 

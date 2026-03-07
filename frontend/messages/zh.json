@@ -330,7 +330,11 @@
       "fluent": "流利",
       "advanced": "高级",
       "intermediate": "中级",
-      "basic": "基础"
+      "basic": "基础",
+      "nationality": "国籍",
+      "id": "身份证号",
+      "passport": "护照",
+      "drivingLicense": "驾驶执照"
     }
   },
   "About": {

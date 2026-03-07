@@ -329,7 +329,11 @@
       "fluent": "Vloeiend",
       "advanced": "Gevorderd",
       "intermediate": "Gemiddeld",
-      "basic": "Basis"
+      "basic": "Basis",
+      "nationality": "Nationaliteit",
+      "id": "ID-nummer",
+      "passport": "Paspoort",
+      "drivingLicense": "Rijbewijs"
     }
   },
 

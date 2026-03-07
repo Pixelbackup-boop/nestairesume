@@ -324,7 +324,11 @@
       "fluent": "Fließend",
       "advanced": "Fortgeschritten",
       "intermediate": "Mittelstufe",
-      "basic": "Grundkenntnisse"
+      "basic": "Grundkenntnisse",
+      "nationality": "Staatsangehörigkeit",
+      "id": "Ausweisnummer",
+      "passport": "Reisepass",
+      "drivingLicense": "Führerschein"
     }
   },
   "Onboarding": {

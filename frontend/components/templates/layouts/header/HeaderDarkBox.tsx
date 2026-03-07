@@ -224,14 +224,14 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                             </SectionHeader>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8), fontSize: fs.body }}>
                                 {personalInfo.nationality && (
-                                    <div><span style={{ fontWeight: 600, color: '#111827' }}>Nationality:</span> <span style={{ color: '#374151' }}>{personalInfo.nationality}</span></div>
+                                    <div><span style={{ fontWeight: 600, color: '#111827' }}>{t.labels.nationality || 'Nationality'}:</span> <span style={{ color: '#374151' }}>{personalInfo.nationality}</span></div>
                                 )}
                                 {personalInfo.idType && personalInfo.idNumber && (
                                     <div>
                                         <span style={{ fontWeight: 600, color: '#111827' }}>
-                                            {personalInfo.idType === 'id' ? 'ID' :
-                                                personalInfo.idType === 'passport' ? 'Passport' :
-                                                    personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                            {personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                                                personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                                                    personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                         </span> <span style={{ color: '#374151' }}>{personalInfo.idNumber}</span>
                                     </div>
                                 )}

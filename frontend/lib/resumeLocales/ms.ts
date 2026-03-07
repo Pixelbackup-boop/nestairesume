@@ -4,7 +4,7 @@ const ms: LocaleBundle = {
     localeData: {
         cities: ['Kuala Lumpur', 'Johor Bahru', 'George Town', 'Kota Kinabalu', 'Kuching'],
         country: 'Malaysia',
-        nationality: 'Malaysian',
+        nationality: 'Warganegara Malaysia',
         companies: {
             tech: ['TechCorp Solutions Sdn Bhd', 'InnovaTech Malaysia', 'CloudWorks Asia', 'DataLabs Sdn Bhd', 'AppForge Digital'],
             design: ['Kreatif Studio Sdn Bhd', 'DesainHub Malaysia', 'Piksel Sempurna Agency', 'UX Kolektif Asia', 'Visual Seni Sdn Bhd'],

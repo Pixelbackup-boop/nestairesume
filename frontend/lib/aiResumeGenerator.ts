@@ -253,6 +253,20 @@ function generateStrengths(locale?: string): Strength[] {
     }));
 }
 
+// Check if name contains only Latin characters (plus common accents)
+function isLatinName(name: string): boolean {
+    return /^[\u0000-\u024F\u1E00-\u1EFF\s\-'.]+$/.test(name);
+}
+
+// Generate URL-safe slug from name
+function generateUrlSlug(fullName: string): string {
+    if (isLatinName(fullName)) {
+        return fullName.toLowerCase().replace(/\s+/g, '');
+    }
+    // For non-Latin names, use a generic placeholder
+    return 'yourname';
+}
+
 /**
  * Main AI Resume Generator function
  * Takes onboarding input and generates complete resume data
@@ -264,16 +278,20 @@ export function generateAIResume(input: OnboardingInput): Partial<ResumeData> {
 
     const location = `${locData.cities[0]}, ${locData.country}`;
     const phone = phoneFormatsMap[locale] || phoneFormatsMap.en;
+    const slug = generateUrlSlug(input.fullName);
+    const emailSlug = isLatinName(input.fullName)
+        ? input.fullName.toLowerCase().replace(/\s+/g, '.')
+        : 'yourname';
 
     return {
         personalInfo: {
             fullName: input.fullName,
             jobTitle: input.jobTitle,
-            email: `${input.fullName.toLowerCase().replace(/\s+/g, '.')}@email.com`,
+            email: `${emailSlug}@email.com`,
             phone: phone,
             location: location,
-            website: `www.${input.fullName.toLowerCase().replace(/\s+/g, '')}.com`,
-            linkedin: `linkedin.com/in/${input.fullName.toLowerCase().replace(/\s+/g, '')}`,
+            website: `www.${slug}.com`,
+            linkedin: `linkedin.com/in/${slug}`,
             summary: generateSummary(input, category),
             profileImage: '',
             imageShape: 'circle',

@@ -322,14 +322,14 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
                     <SectionRow label={t.sections.personalDetails} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: sp(6), fontSize: fs.body }}>
                             {personalInfo.nationality && (
-                                <div data-paginate="item"><span style={{ fontWeight: 600 }}>Nationality:</span> {personalInfo.nationality}</div>
+                                <div data-paginate="item"><span style={{ fontWeight: 600 }}>{t.labels.nationality || 'Nationality'}:</span> {personalInfo.nationality}</div>
                             )}
                             {personalInfo.idType && personalInfo.idNumber && (
                                 <div data-paginate="item">
                                     <span style={{ fontWeight: 600 }}>
-                                        {personalInfo.idType === 'id' ? 'ID' :
-                                            personalInfo.idType === 'passport' ? 'Passport' :
-                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        {personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                                            personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                                                personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                     </span> {personalInfo.idNumber}
                                 </div>
                             )}

@@ -329,7 +329,11 @@
       "fluent": "Fasih",
       "advanced": "Mahir",
       "intermediate": "Menengah",
-      "basic": "Dasar"
+      "basic": "Dasar",
+      "nationality": "Kewarganegaraan",
+      "id": "Nomor KTP",
+      "passport": "Paspor",
+      "drivingLicense": "SIM"
     }
   },
 

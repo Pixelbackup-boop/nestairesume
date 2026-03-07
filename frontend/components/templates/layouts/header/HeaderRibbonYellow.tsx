@@ -288,15 +288,15 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8) + 'px', fontSize: fs.body, color: '#1f2937' }}>
                                 {personalInfo.nationality && (
                                     <div>
-                                        <span style={{ fontWeight: 700 }}>Nationality:</span> {personalInfo.nationality}
+                                        <span style={{ fontWeight: 700 }}>{t.labels.nationality || 'Nationality'}:</span> {personalInfo.nationality}
                                     </div>
                                 )}
                                 {personalInfo.idType && personalInfo.idNumber && (
                                     <div>
                                         <span style={{ fontWeight: 700 }}>
-                                            {personalInfo.idType === 'id' ? 'ID' :
-                                                personalInfo.idType === 'passport' ? 'Passport' :
-                                                    personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                            {personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                                                personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                                                    personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                         </span> {personalInfo.idNumber}
                                     </div>
                                 )}

@@ -4,7 +4,7 @@ const es: LocaleBundle = {
     localeData: {
         cities: ['Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Bilbao'],
         country: 'España',
-        nationality: 'Spanish',
+        nationality: 'Española',
         companies: {
             tech: ['Soluciones TechCorp', 'InnovaTech S.L.', 'CloudWorks España', 'DataLabs Ibérica', 'AppForge Digital'],
             design: ['Agencia DesignHub', 'Estudio Creativo Pro', 'Diseño Pixel Perfect', 'Colectivo UX', 'Artes Visuales S.L.'],

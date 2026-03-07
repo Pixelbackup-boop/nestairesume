@@ -330,7 +330,11 @@
       "fluent": "Fasih",
       "advanced": "Lanjutan",
       "intermediate": "Pertengahan",
-      "basic": "Asas"
+      "basic": "Asas",
+      "nationality": "Kewarganegaraan",
+      "id": "Nombor Pengenalan",
+      "passport": "Pasport",
+      "drivingLicense": "Lesen Memandu"
     }
   },
   "About": {

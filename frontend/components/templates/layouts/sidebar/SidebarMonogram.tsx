@@ -131,14 +131,14 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                         <SidebarHeader title={t.sections.personalDetails} color={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
                         <div style={{ fontSize: fs.body, display: 'flex', flexDirection: 'column', gap: sp(6) }}>
                             {personalInfo.nationality && (
-                                <div><span style={{ color: accentColor, fontWeight: 500 }}>Nationality:</span> {personalInfo.nationality}</div>
+                                <div><span style={{ color: accentColor, fontWeight: 500 }}>{t.labels.nationality || 'Nationality'}:</span> {personalInfo.nationality}</div>
                             )}
                             {personalInfo.idType && personalInfo.idNumber && (
                                 <div>
                                     <span style={{ color: accentColor, fontWeight: 500 }}>
-                                        {personalInfo.idType === 'id' ? 'ID' :
-                                            personalInfo.idType === 'passport' ? 'Passport' :
-                                                personalInfo.idType === 'driving_license' ? 'Driving License' : 'ID'}:
+                                        {personalInfo.idType === 'id' ? (t.labels.id || 'ID') :
+                                            personalInfo.idType === 'passport' ? (t.labels.passport || 'Passport') :
+                                                personalInfo.idType === 'driving_license' ? (t.labels.drivingLicense || 'Driving License') : (t.labels.id || 'ID')}:
                                     </span> {personalInfo.idNumber}
                                 </div>
                             )}

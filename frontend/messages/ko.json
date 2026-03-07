@@ -329,7 +329,11 @@
       "fluent": "유창",
       "advanced": "고급",
       "intermediate": "중급",
-      "basic": "초급"
+      "basic": "초급",
+      "nationality": "국적",
+      "id": "신분증 번호",
+      "passport": "여권",
+      "drivingLicense": "운전면허증"
     }
   },
 
