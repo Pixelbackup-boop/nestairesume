@@ -18,7 +18,8 @@ import {
     getContrastText,
     getFontScale,
     getIconSVG,
-    IconName
+    IconName,
+    translateProficiency,
 } from './shared/helpers';
 
 export const renderHeaderDarkBanner = (

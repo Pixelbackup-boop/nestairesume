@@ -3,6 +3,7 @@
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import ProgressBar from '../../shared/ProgressBar';
+import { translateProficiency } from '../../shared/styleHelpers';
 
 import { useTemplateSetup } from '@/hooks';
 
@@ -170,7 +171,7 @@ function MinimalTimeline({ data, scale = 1 }: TemplateProps) {
                 <section className="resume-section" style={{ marginLeft: sp(20), marginTop: sp(20) }}>
                     <h3 style={{ fontSize: fs.sectionHeading, fontWeight: 700, marginBottom: sp(16), textTransform: 'uppercase', color: dotColor }}>{t.sections.languages}</h3>
                     <p style={{ lineHeight: 1.8, fontSize: fs.body }}>
-                        {languages.map(l => `${l.name} (${l.proficiency ? l.proficiency.charAt(0).toUpperCase() + l.proficiency.slice(1) : ''})`).join('  •  ')}
+                        {languages.map(l => `${l.name} (${translateProficiency(l.proficiency, t.labels)})`).join('  •  ')}
                     </p>
                 </section>
             )}

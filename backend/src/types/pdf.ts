@@ -176,6 +176,11 @@ export interface PdfTranslations {
         id?: string;
         passport?: string;
         drivingLicense?: string;
+        native?: string;
+        fluent?: string;
+        advanced?: string;
+        intermediate?: string;
+        basic?: string;
     };
 }
 

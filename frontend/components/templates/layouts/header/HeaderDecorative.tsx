@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 import { parseDualColor, getContrastText } from '@/lib/templates/builder/colorUtils';
 import {
@@ -282,7 +282,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                                 {data.languages.map((lang) => (
                                     <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
                                         <span style={{ fontWeight: 500 }}>{lang.name}</span>
-                                        <span style={{ fontSize: fs.small, color: '#6b7280', textTransform: 'capitalize' }}>{lang.proficiency}</span>
+                                        <span style={{ fontSize: fs.small, color: '#6b7280', textTransform: 'capitalize' }}>{translateProficiency(lang.proficiency, t.labels)}</span>
                                     </div>
                                 ))}
                             </div>

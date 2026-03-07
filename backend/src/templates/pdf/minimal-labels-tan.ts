@@ -10,6 +10,7 @@ import {
     escapeHtml,
     formatDescription,
     getFontScale,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -161,7 +162,7 @@ export const renderMinimalLabelsTan = (data: PdfResumeData, theme: PdfTheme, tra
                 <!-- Languages -->
                 ${languages && languages.length > 0 ? Row(t.sections.languages, `
                     <p style="margin: 0; line-height: 1.8; font-size: ${s(14)};">
-                        ${languages.map(l => `${escapeHtml(l.name)} (${escapeHtml(l.proficiency)})`).join(', ')}
+                        ${languages.map(l => `${escapeHtml(l.name)} (${escapeHtml(translateProficiency(l.proficiency, t.labels))})`).join(', ')}
                     </p>
                 `) : ''}
 

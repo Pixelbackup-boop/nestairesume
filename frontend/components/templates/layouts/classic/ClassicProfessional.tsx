@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getBackgroundStyle, getFontFamily, fontSizes, getImageBorderRadius, formatIdType, getScaledFontSizes } from '../../shared/styleHelpers';
+import { getBackgroundStyle, getFontFamily, fontSizes, getImageBorderRadius, formatIdType, translateProficiency, getScaledFontSizes } from '../../shared/styleHelpers';
 import SectionHeader from '../../shared/SectionHeader';
 import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
@@ -251,7 +251,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                                 </span>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: sp(8) + 'px' }}>
                                     <span style={{ color: theme.text, opacity: 0.7, fontSize: scale < 1 ? '7px' : sp(10) + 'px', textTransform: 'capitalize' }}>
-                                        {lang.proficiency}
+                                        {translateProficiency(lang.proficiency, t.labels)}
                                     </span>
                                     <div
                                         style={{
@@ -398,7 +398,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                         )}
                         {personalInfo.idType && personalInfo.idNumber && (
                             <div data-paginate="item">
-                                <strong>{formatIdType(personalInfo.idType)}:</strong> {personalInfo.idNumber}
+                                <strong>{formatIdType(personalInfo.idType, t.labels)}:</strong> {personalInfo.idNumber}
                             </div>
                         )}
                     </div>

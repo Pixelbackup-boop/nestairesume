@@ -12,7 +12,8 @@ import {
     getIconSVG,
     IconName,
     getLanguageLevel,
-    getFontScale
+    getFontScale,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -218,7 +219,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
                                     <div data-paginate="item">
                                         <div style="display: flex; justify-content: space-between; font-size: ${s(12)}; font-weight: 600; margin-bottom: 4px;">
                                             <span>${escapeHtml(lang.name)}</span>
-                                            <span style="color: ${theme.primary};">${escapeHtml(lang.proficiency)}</span>
+                                            <span style="color: ${theme.primary};">${escapeHtml(translateProficiency(lang.proficiency, t.labels))}</span>
                                         </div>
                                         <div style="height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden;">
                                             <div style="width: ${getLanguageLevel(lang)}%; height: 100%; background: ${theme.primary};"></div>

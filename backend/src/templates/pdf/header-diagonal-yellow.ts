@@ -19,7 +19,8 @@ import {
     escapeHtml,
     formatDescription,
     getFontScale,
-    getIconSVG
+    getIconSVG,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -237,7 +238,7 @@ export const renderHeaderDiagonalYellow = (data: PdfResumeData, theme: PdfTheme,
                 ${languages.map(lang => `
                     <div data-paginate="item" style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: ${fs.body}; font-weight: 600; border-bottom: 1px solid #e4e4e7; padding-bottom: 2px;">
                         <span>${escapeHtml(lang.name)}</span>
-                        <span style="color: #52525b;">${escapeHtml(lang.proficiency || '')}</span>
+                        <span style="color: #52525b;">${escapeHtml(translateProficiency(lang.proficiency || '', t.labels))}</span>
                     </div>
                 `).join('')}
             </div>

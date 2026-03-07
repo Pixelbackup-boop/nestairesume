@@ -14,7 +14,8 @@ import {
     formatDescription,
     parseDualColor,
     getFontScale,
-    getIconSVG
+    getIconSVG,
+    translateProficiency,
 } from './shared/helpers';
 import { formatLocalizedDate } from './shared/dateUtils';
 // Note: getBackgroundCSS removed - header-dark-box always uses white body background

@@ -10,6 +10,7 @@ import {
     escapeHtml,
     formatDescription,
     getFontScale,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -143,7 +144,7 @@ export const renderMinimalTimeline = (data: PdfResumeData, theme: PdfTheme, tran
                 <section class="resume-section" style="margin-left: 20px; margin-bottom: 32px;">
                     <h3 style="font-family: ${headingFont}; font-size: ${s(16)}; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; color: ${dotColor};">${t.sections.languages}</h3>
                     <p style="line-height: 1.8; font-size: ${s(14)};">
-                        ${languages.map(l => `${escapeHtml(l.name)} (${escapeHtml(l.proficiency)})`).join('  •  ')}
+                        ${languages.map(l => `${escapeHtml(l.name)} (${escapeHtml(translateProficiency(l.proficiency, t.labels))})`).join('  •  ')}
                     </p>
                 </section>
             ` : ''}

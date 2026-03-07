@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
@@ -189,7 +189,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: sp(8), paddingLeft: sp(8) }}>
                                 {languages.map((lang) => (
                                     <div key={lang.id} style={{ fontSize: fs.body, color: '#374151' }} data-paginate="item">
-                                        <span style={{ fontWeight: 600 }}>{lang.name}</span> <span style={{ color: '#6b7280', fontSize: fs.small, textTransform: 'capitalize' }}>({lang.proficiency})</span>
+                                        <span style={{ fontWeight: 600 }}>{lang.name}</span> <span style={{ color: '#6b7280', fontSize: fs.small, textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                     </div>
                                 ))}
                             </div>

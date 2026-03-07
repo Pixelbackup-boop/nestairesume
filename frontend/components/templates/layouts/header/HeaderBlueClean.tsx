@@ -3,7 +3,7 @@
 import React, { memo } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Globe, Briefcase, GraduationCap, Code, Heart, Award, Users, User, FileText, Twitter, Github, Dribbble, Palette, Camera } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, getScaledFontSizes, ScaledFontSizes, fontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, getScaledFontSizes, ScaledFontSizes, fontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 import { parseDualColor } from '@/lib/templates/builder/colorUtils';
@@ -334,7 +334,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                     <div key={lang.id} data-paginate="item">
                                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.small, fontWeight: 600, marginBottom: sp(4) }}>
                                             <span>{lang.name}</span>
-                                            <span style={{ color: primaryColor, textTransform: 'capitalize' }}>{lang.proficiency}</span>
+                                            <span style={{ color: primaryColor, textTransform: 'capitalize' }}>{translateProficiency(lang.proficiency, t.labels)}</span>
                                         </div>
                                         <ProgressBar value={getLanguageLevel(lang)} color={primaryColor} height={scale < 1 ? 4 : sp(6)} scale={scale} />
                                     </div>

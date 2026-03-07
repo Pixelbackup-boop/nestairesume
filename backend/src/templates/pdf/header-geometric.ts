@@ -12,7 +12,8 @@ import {
     formatDescription,
     getLanguageLevel,
     getFontScale,
-    getIconSVG
+    getIconSVG,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -285,7 +286,7 @@ export const renderHeaderGeometric = (data: PdfResumeData, theme: PdfTheme, tran
                         ${languages.map(lang => `
                             <div data-paginate="item" style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;">
                                 <span style="font-weight: 600; color: #1f2937;">${escapeHtml(lang.name)}</span>
-                                <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
+                                <span style="color: #6b7280;">${escapeHtml(translateProficiency(lang.proficiency, t.labels))}</span>
                             </div>
                         `).join('')}
                      </div>

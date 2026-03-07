@@ -9,7 +9,8 @@ import {
     escapeHtml,
     formatDescription,
     getIconSVG,
-    IconName
+    IconName,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -191,7 +192,7 @@ export const renderTestLeftSidebar = (data: PdfResumeData, theme: PdfTheme, tran
                         ${SidebarHeader(t.sections.languages)}
                         <div style="font-size: 11px; display: flex; flex-wrap: wrap; gap: 6px;">
                             ${languages.map(lang => `
-                                <span>${escapeHtml(lang.name)} <span style="color: ${accentColor};">(${escapeHtml(lang.proficiency)})</span></span>
+                                <span>${escapeHtml(lang.name)} <span style="color: ${accentColor};">(${escapeHtml(translateProficiency(lang.proficiency, t.labels))})</span></span>
                             `).join(' • ')}
                         </div>
                     </div>

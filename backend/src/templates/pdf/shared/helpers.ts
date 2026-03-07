@@ -392,3 +392,21 @@ export const getLanguageLevel = (lang: { level?: number; proficiency?: string })
     const proficiency = (lang.proficiency || '').toLowerCase();
     return proficiencyMap[proficiency] || 50; // Default to 50 if unknown
 };
+
+/**
+ * Translate language proficiency key to localized label.
+ */
+export const translateProficiency = (proficiency: string, labels?: { native?: string; fluent?: string; advanced?: string; intermediate?: string; basic?: string }): string => {
+    if (!labels) {
+        // Capitalize fallback
+        return proficiency ? proficiency.charAt(0).toUpperCase() + proficiency.slice(1) : '';
+    }
+    const map: Record<string, string | undefined> = {
+        native: labels.native,
+        fluent: labels.fluent,
+        advanced: labels.advanced,
+        intermediate: labels.intermediate,
+        basic: labels.basic,
+    };
+    return map[proficiency?.toLowerCase()] || (proficiency ? proficiency.charAt(0).toUpperCase() + proficiency.slice(1) : '');
+};

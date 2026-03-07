@@ -13,7 +13,8 @@ import {
     getIconSVG,
     IconName,
     getFontScale,
-    parseDualColor
+    parseDualColor,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -147,7 +148,7 @@ export const renderSidebarMonogram = (data: PdfResumeData, theme: PdfTheme, tran
                             ${languages.map(lang => `
                                 <div data-paginate="item" style="display: flex; justify-content: space-between; align-items: center;">
                                     <span>${escapeHtml(lang.name)}</span>
-                                    ${lang.proficiency ? `<span style="color: ${accentColor}; font-weight: 500;">${escapeHtml(lang.proficiency)}</span>` : ''}
+                                    ${lang.proficiency ? `<span style="color: ${accentColor}; font-weight: 500;">${escapeHtml(translateProficiency(lang.proficiency, t.labels))}</span>` : ''}
                                 </div>
                             `).join('')}
                         </div>

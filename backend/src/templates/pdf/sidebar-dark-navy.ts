@@ -12,7 +12,8 @@ import {
     formatDescription,
     getIconSVG,
     getFontScale,
-    IconName
+    IconName,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -320,7 +321,7 @@ export const renderSidebarDarkNavy = (data: PdfResumeData, theme: PdfTheme, tran
                             ${languages.map(lang => `
                                 <span data-paginate="item" style="font-size: ${fs.body}; color: #475569; display: flex; align-items: center; gap: 8px;">
                                     <span style="font-weight: 500; color: ${sidebarBg};">${escapeHtml(lang.name)}</span>
-                                    <span style="color: ${accentColor};">(${escapeHtml(lang.proficiency)})</span>
+                                    <span style="color: ${accentColor};">(${escapeHtml(translateProficiency(lang.proficiency, t.labels))})</span>
                                 </span>
                             `).join('')}
                         </div>

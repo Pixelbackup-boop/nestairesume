@@ -3,7 +3,7 @@
 import { memo } from 'react';
 import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { ScaledFontSizes } from '../../shared/styleHelpers';
+import { ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateSetup } from '@/hooks';
 
@@ -156,7 +156,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
                                     <span>{lang.name}</span>
                                     {lang.proficiency && (
                                         <span style={{ fontSize: fs.small, color: accentColor, fontWeight: 500, textTransform: 'capitalize' }}>
-                                            {lang.proficiency}
+                                            {translateProficiency(lang.proficiency, t.labels)}
                                         </span>
                                     )}
                                 </div>

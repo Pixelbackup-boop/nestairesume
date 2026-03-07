@@ -11,6 +11,7 @@ import {
     escapeHtml,
     formatDescription,
     getFontScale,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -180,7 +181,7 @@ export const renderMinimalBlueSections = (
                                 ${languages.map(lang => `
                                     <div data-paginate="item" style="font-size: ${s(14)}; color: #374151;">
                                         <span style="font-weight: 600;">${escapeHtml(lang.name)}</span> 
-                                        <span style="color: #6b7280; font-size: ${s(12)};">(${escapeHtml(lang.proficiency)})</span>
+                                        <span style="color: #6b7280; font-size: ${s(12)};">(${escapeHtml(translateProficiency(lang.proficiency, t.labels))})</span>
                                     </div>
                                 `).join('')}
                             </div>

@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
@@ -189,7 +189,7 @@ function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
                         </div>
                         <div style={{ flex: 1 }}>
                             <p style={{ margin: 0, lineHeight: 1.8, fontSize: fs.body }}>
-                                {languages.map(l => `${l.name} (${l.proficiency ? l.proficiency.charAt(0).toUpperCase() + l.proficiency.slice(1) : ''})`).join(', ')}
+                                {languages.map(l => `${l.name} (${translateProficiency(l.proficiency, t.labels)})`).join(', ')}
                             </p>
                         </div>
                     </div>

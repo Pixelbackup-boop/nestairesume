@@ -4,7 +4,8 @@ import {
     escapeHtml,
     formatDescription,
     getFontScale,
-    getIconSVG
+    getIconSVG,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -206,7 +207,7 @@ export const renderHeaderIconSections = (
                     ${languages.map(lang => `
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px;" data-paginate="item">
                             <span style="font-weight: 600;">${escapeHtml(lang.name)}</span>
-                            <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
+                            <span style="color: #6b7280;">${escapeHtml(translateProficiency(lang.proficiency, t.labels))}</span>
                         </div>
                     `).join('')}
                 </div>

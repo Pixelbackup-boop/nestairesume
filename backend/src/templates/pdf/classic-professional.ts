@@ -14,6 +14,7 @@ import {
     formatDescription,
     getLanguageLevel,
     getFontScale,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -180,7 +181,7 @@ export const renderClassicProfessional = (data: PdfResumeData, theme: PdfTheme, 
                         <span style="color: ${theme.text}; font-size: ${s(12)};">${escapeHtml(lang.name)}</span>
                             <div class="flex items-center gap-2">
                                 <span style="color: ${theme.text}; opacity: 0.7; font-size: ${s(10)}; text-transform: capitalize;">
-                                    ${escapeHtml(lang.proficiency)}
+                                    ${escapeHtml(translateProficiency(lang.proficiency, t.labels))}
                                 </span>
                                 <div style="width: 80px; height: 6px; background-color: ${effectivePrimary}30; border-radius: 3px; overflow: hidden;">
                                     <div style="width: ${getLanguageLevel(lang)}%; height: 100%; background-color: ${effectivePrimary};"></div>

@@ -14,7 +14,8 @@ import {
     parseDualColor,
     getContrastText,
     hexToRgba,
-    getFontScale
+    getFontScale,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -282,7 +283,7 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                             ${languages.map(lang => `
                                 <div data-paginate="item" style="font-size: ${s(13)};">
                                     <span style="font-weight: 600; color: #0f172a;">${escapeHtml(lang.name)}</span>
-                                    <span style="color: #64748b; margin-left: 6px;">(${escapeHtml(lang.proficiency)})</span>
+                                    <span style="color: #64748b; margin-left: 6px;">(${escapeHtml(translateProficiency(lang.proficiency, t.labels))})</span>
                                 </div>
                             `).join('')}
                         </div>

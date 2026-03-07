@@ -3,7 +3,7 @@
 import { memo } from 'react';
 import { Star } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
@@ -321,7 +321,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                                 {languages.map((lang) => (
                                     <li key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: sp(4), fontSize: fs.body, fontWeight: 600, borderBottom: `${sp(1)}px solid #e4e4e7`, paddingBottom: sp(2) }}>
                                         <span>{lang.name}</span>
-                                        <span style={{ color: '#52525b', textTransform: 'capitalize' }}>{lang.proficiency}</span>
+                                        <span style={{ color: '#52525b', textTransform: 'capitalize' }}>{translateProficiency(lang.proficiency, t.labels)}</span>
                                     </li>
                                 ))}
                             </ul>

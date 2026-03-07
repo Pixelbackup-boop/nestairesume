@@ -3,7 +3,7 @@
 import { memo } from 'react';
 import { Sparkles } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { parseDualColor, getContrastText, hexToRgba } from '@/lib/templates/builder/colorUtils';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
@@ -350,7 +350,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                             {languages.map((lang) => (
                                 <div key={lang.id} style={{ fontSize: fs.body }} data-paginate="item" className="resume-entry">
                                     <span style={{ fontWeight: 600, color: '#0f172a' }}>{lang.name}</span>
-                                    <span style={{ color: '#64748b', marginLeft: sp(6), textTransform: 'capitalize' }}>({lang.proficiency})</span>
+                                    <span style={{ color: '#64748b', marginLeft: sp(6), textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                 </div>
                             ))}
                         </div>

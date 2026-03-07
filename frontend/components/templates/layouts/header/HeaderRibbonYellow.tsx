@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPersonRunning, faPersonSwimming, faPersonHiking, faPersonPraying, faPersonSkiing } from '@fortawesome/free-solid-svg-icons';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { ScaledFontSizes } from '../../shared/styleHelpers';
+import { ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateSetup } from '@/hooks';
 
@@ -426,7 +426,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                                 {data.languages.map((lang) => (
                                     <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', fontSize: fs.body }}>
                                         <span style={{ fontWeight: 600, color: '#1f2937' }}>{lang.name}</span>
-                                        <span style={{ color: '#6b7280', textTransform: 'capitalize' }}>{lang.proficiency}</span>
+                                        <span style={{ color: '#6b7280', textTransform: 'capitalize' }}>{translateProficiency(lang.proficiency, t.labels)}</span>
                                     </div>
                                 ))}
                             </div>

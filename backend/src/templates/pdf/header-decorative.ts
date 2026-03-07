@@ -13,7 +13,8 @@ import {
     formatDescription,
     getFontScale,
     parseDualColor,
-    getContrastText
+    getContrastText,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -245,7 +246,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                                 ${languages.map(lang => `
                                     <div data-paginate="item" style="display: flex; justify-content: space-between; font-size: ${sizes.body}; page-break-inside: avoid;">
                                         <span style="font-weight: 500;">${escapeHtml(lang.name)}</span>
-                                        <span style="font-size: ${sizes.small}; color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
+                                        <span style="font-size: ${sizes.small}; color: #6b7280;">${escapeHtml(translateProficiency(lang.proficiency, t.labels))}</span>
                                     </div>
                                 `).join('')}
                             </div>

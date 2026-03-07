@@ -3,7 +3,7 @@
 import { memo } from 'react';
 import { Mail, Phone, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
@@ -264,7 +264,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                         {data.languages.map((lang) => (
                             <div key={lang.id} data-paginate="item" style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f3f4f6', paddingBottom: 4 * scale }}>
                                 <span style={{ fontWeight: 600 }}>{lang.name}</span>
-                                <span style={{ color: '#6b7280', textTransform: 'capitalize' }}>{lang.proficiency}</span>
+                                <span style={{ color: '#6b7280', textTransform: 'capitalize' }}>{translateProficiency(lang.proficiency, t.labels)}</span>
                             </div>
                         ))}
                     </div>

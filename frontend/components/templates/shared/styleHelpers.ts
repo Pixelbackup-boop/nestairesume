@@ -109,15 +109,30 @@ export const getImageBorderRadius = (shape?: 'circle' | 'rounded' | 'square'): s
 };
 
 /**
- * Format ID type for display.
+ * Format ID type for display with optional translation labels.
  */
-export const formatIdType = (idType?: string): string => {
+export const formatIdType = (idType?: string, labels?: { id?: string; passport?: string; drivingLicense?: string }): string => {
     switch (idType) {
-        case 'id': return 'ID';
-        case 'passport': return 'Passport';
-        case 'driving_license': return 'Driving License';
+        case 'id': return labels?.id || 'ID';
+        case 'passport': return labels?.passport || 'Passport';
+        case 'driving_license': return labels?.drivingLicense || 'Driving License';
         default: return '';
     }
+};
+
+/**
+ * Translate language proficiency key to localized label.
+ */
+export const translateProficiency = (proficiency: string, labels?: { native?: string; fluent?: string; advanced?: string; intermediate?: string; basic?: string }): string => {
+    if (!labels) return proficiency;
+    const map: Record<string, string | undefined> = {
+        native: labels.native,
+        fluent: labels.fluent,
+        advanced: labels.advanced,
+        intermediate: labels.intermediate,
+        basic: labels.basic,
+    };
+    return map[proficiency?.toLowerCase()] || proficiency;
 };
 
 /**

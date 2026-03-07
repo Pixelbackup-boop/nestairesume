@@ -13,7 +13,8 @@ import {
     formatDescription,
     getFontScale,
     getIconSVG,
-    IconName
+    IconName,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -345,7 +346,7 @@ export const renderHeaderRibbonYellow = (
                                 ${languages.map(lang => `
                                     <div data-paginate="item" style="display: flex; justify-content: space-between; font-size: ${fs.body};">
                                         <span style="font-weight: 600; color: #1f2937;">${escapeHtml(lang.name)}</span>
-                                        <span style="color: #6b7280;">${escapeHtml(lang.proficiency)}</span>
+                                        <span style="color: #6b7280;">${escapeHtml(translateProficiency(lang.proficiency, t.labels))}</span>
                                     </div>
                                 `).join('')}
                             </div>

@@ -3,7 +3,7 @@
 import { memo } from 'react';
 import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
@@ -340,7 +340,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px ${sp(24)}px` }}>
                             {languages.map((lang) => (
                                 <div key={lang.id} style={{ fontSize: fs.body, fontWeight: 700, color: '#374151' }} data-paginate="item">
-                                    {lang.name} <span style={{ fontWeight: 400, opacity: 0.8, textTransform: 'capitalize' }}>({lang.proficiency})</span>
+                                    {lang.name} <span style={{ fontWeight: 400, opacity: 0.8, textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                 </div>
                             ))}
                         </div>

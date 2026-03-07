@@ -31,6 +31,11 @@ export interface TemplateTranslations {
         id?: string;
         passport?: string;
         drivingLicense?: string;
+        native?: string;
+        fluent?: string;
+        advanced?: string;
+        intermediate?: string;
+        basic?: string;
     };
     /** RTL direction support */
     isRtl?: boolean;
@@ -64,6 +69,11 @@ export const defaultTranslations: TemplateTranslations = {
         id: 'ID Number',
         passport: 'Passport',
         drivingLicense: 'Driving License',
+        native: 'Native',
+        fluent: 'Fluent',
+        advanced: 'Advanced',
+        intermediate: 'Intermediate',
+        basic: 'Basic',
     },
     isRtl: false,
 };

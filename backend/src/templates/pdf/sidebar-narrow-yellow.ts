@@ -12,7 +12,8 @@ import {
     getIconSVG,
     IconName,
     getFontScale,
-    getContrastText
+    getContrastText,
+    translateProficiency,
 } from './shared/helpers';
 import { getTranslations } from './shared/translations';
 import { formatLocalizedDate } from './shared/dateUtils';
@@ -301,7 +302,7 @@ export const renderSidebarNarrowYellow = (data: PdfResumeData, theme: PdfTheme, 
                         <div style="display: flex; flex-wrap: wrap; gap: 12px 24px;">
                             ${languages.map(lang => `
                                 <div data-paginate="item" style="font-size: ${fs.body}; font-weight: 700; color: #374151;">
-                                    ${escapeHtml(lang.name)} <span style="font-weight: 400; opacity: 0.8;">(${escapeHtml(lang.proficiency)})</span>
+                                    ${escapeHtml(lang.name)} <span style="font-weight: 400; opacity: 0.8;">(${escapeHtml(translateProficiency(lang.proficiency, t.labels))})</span>
                                 </div>
                             `).join('')}
                         </div>

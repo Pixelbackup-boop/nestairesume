@@ -3,7 +3,7 @@
 import { memo, ReactNode } from 'react';
 import { User, Briefcase, GraduationCap, Languages, Users, Code, Star, Award, Link, ClipboardList, Twitter, Github, Dribbble, Palette, Camera } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { ScaledFontSizes } from '../../shared/styleHelpers';
+import { ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateSetup } from '@/hooks';

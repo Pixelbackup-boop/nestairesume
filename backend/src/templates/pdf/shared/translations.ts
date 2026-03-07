@@ -34,6 +34,11 @@ export const defaultTranslations: PdfTranslations = {
         id: 'ID Number',
         passport: 'Passport',
         drivingLicense: 'Driving License',
+        native: 'Native',
+        fluent: 'Fluent',
+        advanced: 'Advanced',
+        intermediate: 'Intermediate',
+        basic: 'Basic',
     },
 };
 

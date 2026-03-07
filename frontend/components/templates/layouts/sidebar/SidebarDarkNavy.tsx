@@ -3,7 +3,7 @@
 import { memo } from 'react';
 import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 
@@ -361,7 +361,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                             {languages.map((lang) => (
                                 <div key={lang.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
                                     <span style={{ fontWeight: 500, color: '#0f172a' }}>{lang.name}</span>
-                                    <span style={{ fontSize: fs.small, color: accentColor, textTransform: 'capitalize' }}>({lang.proficiency})</span>
+                                    <span style={{ fontSize: fs.small, color: accentColor, textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                 </div>
                             ))}
                         </div>
