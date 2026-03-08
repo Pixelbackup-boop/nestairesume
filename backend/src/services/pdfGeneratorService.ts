@@ -151,15 +151,14 @@ export async function generatePdfFromHtml(
             var MARGIN_BOTTOM = 40; // Bottom margin on all pages
             var PAGE_GAP = 0;       // No visual gap in PDF generation (continuous)
             
-            var strategy = '${marginStrategy}';
-            var isStandard = strategy === 'standard';
-            
-            // Define printable areas
+            // Define printable areas — ALWAYS reserve margins for content pagination
+            // regardless of marginStrategy. The @page CSS margin controls background
+            // bleed; this controls where TEXT content should stop to avoid page-edge cutoff.
             // Page 1: 0 to (1123 - 40) = 1083px
             // Page 2+: Starts at 1123. Printable area is (1123 - 40 - 40) = 1043px
-            
-            var firstPageMaxHeight = isStandard ? A4_HEIGHT - MARGIN_BOTTOM : A4_HEIGHT;
-            var subsequentPageMaxHeight = isStandard ? A4_HEIGHT - MARGIN_TOP - MARGIN_BOTTOM : A4_HEIGHT;
+
+            var firstPageMaxHeight = A4_HEIGHT - MARGIN_BOTTOM;
+            var subsequentPageMaxHeight = A4_HEIGHT - MARGIN_TOP - MARGIN_BOTTOM;
 
             // Helper: Get the bottom Y coordinate of the page content area for a given Y position
             var getPageContentBottom = function(y) {
