@@ -972,6 +972,25 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
   font-family: var(--font-thai), 'Noto Sans Thai', 'Tahoma', sans-serif;
 }
 
+/* Non-Latin Typography Normalization for Resume Preview
+   CJK/Thai fonts have ~25% taller default line-height than Latin fonts,
+   causing pagination drift and bad page breaks. Normalize to match Latin rendering. */
+.font-japanese .resume-page,
+.font-korean .resume-page,
+.font-chinese .resume-page,
+.font-thai .resume-page {
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Arabic: normalize taller ascenders/descenders */
+.font-arabic .resume-page {
+  line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 /* Flip directional icons for RTL (arrows, chevrons) */
 [dir="rtl"] .rtl-flip {
   transform: scaleX(-1);

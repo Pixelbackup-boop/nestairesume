@@ -18,6 +18,9 @@ interface WrapperOptions {
 // RTL locales list
 const RTL_LOCALES = ['ar', 'he', 'fa', 'ur'];
 
+// CJK/Thai locales (keys from CJK_FONT_MAP)
+const CJK_LOCALES = ['ja', 'ko', 'zh', 'th'];
+
 // Non-Latin locale font config (loaded via Google Fonts link, not base64 — CJK fonts are too large)
 const CJK_FONT_MAP: Record<string, { family: string; googleParam: string }> = {
     ja: { family: 'Noto Sans JP', googleParam: 'Noto+Sans+JP:wght@400;500;600;700' },
@@ -75,6 +78,33 @@ const getLocaleFontFamily = (locale: string): string => {
     const config = CJK_FONT_MAP[locale];
     if (config) return `'${config.family}', 'Inter', sans-serif`;
     return "'Inter', sans-serif";
+};
+
+/**
+ * Get non-Latin typography normalization CSS for CJK/Thai and Arabic locales.
+ * Normalizes line-height and word-break to match Latin font rendering metrics,
+ * ensuring consistent pagination and page break behavior across all locales.
+ */
+const getNonLatinTypographyCss = (locale: string): string => {
+    const isCjk = CJK_LOCALES.includes(locale);
+    const isArabic = RTL_LOCALES.includes(locale);
+
+    if (!isCjk && !isArabic) return '';
+
+    // CJK fonts default to ~1.5 line-height; Arabic ~1.4. Normalize closer to Latin (~1.2)
+    const lineHeight = isCjk ? '1.4' : '1.35';
+
+    return `
+        /* Non-Latin Typography Normalization */
+        body {
+            line-height: ${lineHeight};
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        p, li, span, div, td, th {
+            line-height: inherit;
+        }
+    `;
 };
 
 export const wrapHtml = (content: string, options: WrapperOptions): string => {
@@ -176,6 +206,8 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
         /* RTL border adjustments */
         [dir="rtl"] .border-l-2 { border-left: none; border-right-width: 2px; border-right-style: solid; }
         [dir="rtl"] .border-r-2 { border-right: none; border-left-width: 2px; border-left-style: solid; }
+
+        ${getNonLatinTypographyCss(locale)}
 
         /* Resume container */
         .resume-page {
