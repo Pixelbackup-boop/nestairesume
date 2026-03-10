@@ -407,15 +407,10 @@ export async function renderResumePdf(
         'header-dark',
     ];
 
+    // Only truly full-bleed templates (edge-to-edge colored backgrounds on page 1)
     const headerTemplates = [
-        'header-dark-banner',
         'header-blue-clean',
-        'header-dark-box',
-        'header-decorative',
         'header-diagonal-yellow',
-        'header-geometric',
-        'header-icon-sections',
-        'header-ribbon-yellow'
     ];
 
     let marginStrategy: 'sidebar' | 'full-bleed' | 'standard' = 'standard';
