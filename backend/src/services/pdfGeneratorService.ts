@@ -409,7 +409,6 @@ export async function renderResumePdf(
 
     // Only truly full-bleed templates (edge-to-edge colored backgrounds on page 1)
     const headerTemplates = [
-        'header-blue-clean',
         'header-diagonal-yellow',
     ];
 

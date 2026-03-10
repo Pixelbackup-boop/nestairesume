@@ -79,7 +79,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
         <div style="width: 100%; min-height: 100%; font-family: ${bodyFont}; color: ${textColor}; background-color: #ffffff;">
             
             <!-- Header -->
-            <div style="background: linear-gradient(135deg, ${theme.primary}, ${theme.secondary}); color: white; padding: 32px 48px 40px 48px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;">
+            <div style="background: linear-gradient(135deg, ${theme.primary}, ${theme.secondary}); color: white; padding: 48px 48px 64px 48px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;">
                 <div style="display: flex; gap: 40px; align-items: center;">
                     ${profileImage}
                     <div style="flex: 1;">
@@ -103,7 +103,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
             </div>
 
             <!-- Content Two Columns -->
-            <div style="display: flex; gap: 48px; padding: 0 48px 24px; margin-top: -32px; position: relative; z-index: 2;">
+            <div style="display: flex; gap: 48px; padding: 0 48px 40px; margin-top: -20px;">
                 
                 <!-- Main Column (Left) -->
                 <div style="flex: 1; min-width: 0;">
