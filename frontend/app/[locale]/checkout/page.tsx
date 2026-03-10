@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/store/useAuthStore";
 import api from "@/lib/api";
 import Header from "@/components/Header";
@@ -16,7 +16,6 @@ function CheckoutContent() {
   const searchParams = useSearchParams();
   const { isAuthenticated, user } = useAuthStore();
   const t = useTranslations("Checkout");
-  const locale = useLocale();
 
   const PLAN_DETAILS: Record<PlanType, {
     name: string;

@@ -43,7 +43,7 @@ function BuilderContent() {
     const [showDownloadModal, setShowDownloadModal] = useState(false);
     const [showWelcomeModal, setShowWelcomeModal] = useState(false);
     const router = useRouter();
-    const { isAuthenticated, refreshUser } = useAuthStore();
+    const { refreshUser } = useAuthStore();
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     const { resumeData, selectedTemplate, selectedTemplateId, selectedTheme, setTemplate, setTemplateId, setTheme, setCustomThemeColor, setResumeData } = useResumeStore();
     const componentRef = useRef<HTMLDivElement>(null);

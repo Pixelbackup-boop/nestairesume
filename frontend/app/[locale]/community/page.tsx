@@ -41,7 +41,7 @@ export default function CommunityPage() {
   const router = useRouter();
   const locale = useLocale();
   const c = getContent(locale);
-  const { isAuthenticated, user } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
 
   // Tab state
   const [activeTab, setActiveTab] = useState<TabType>('browse');
@@ -389,6 +389,7 @@ export default function CommunityPage() {
                     {/* Thumbnail */}
                     <div className="w-20 h-28 bg-gray-100 rounded-lg overflow-hidden shrink-0">
                       {template.thumbnail ? (
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={template.thumbnail}
                           alt={template.name}

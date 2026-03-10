@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { ArrowLeft, Sparkles, Loader2, Share2 } from 'lucide-react';
+import { ArrowLeft, Sparkles, Share2 } from 'lucide-react';
 import type Konva from 'konva';
 import { useCanvasStore, TextElement } from '@/store/useCanvasStore';
 import { useAuthStore } from '@/store/useAuthStore';
@@ -63,7 +63,7 @@ export default function CanvasEditorPage() {
     } | null>(null);
     const [showPostModal, setShowPostModal] = useState(false);
     const [postThumbnail, setPostThumbnail] = useState<string | null>(null);
-    const [loadingTemplate, setLoadingTemplate] = useState(false);
+    const [, setLoadingTemplate] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [pendingExportFormat, setPendingExportFormat] = useState<'pdf' | 'png' | 'jpeg' | null>(null);
     const [restoredNotice, setRestoredNotice] = useState(false);
@@ -144,6 +144,7 @@ export default function CanvasEditorPage() {
         };
 
         loadTemplate();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchParams, loadCommunityTemplate]);
 
     // Handle text editing
@@ -248,6 +249,7 @@ export default function CanvasEditorPage() {
             link.href = dataUrl;
             link.click();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [canvasWidth, canvasHeight, deselectAll, isAuthenticated, elements, backgroundColor, backgroundGradient]);
 
     // Handle posting to community
@@ -279,6 +281,7 @@ export default function CanvasEditorPage() {
 
         setPostThumbnail(thumbnail);
         setShowPostModal(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [canvasWidth, canvasHeight, deselectAll]);
 
     // Get serialized design data for posting

@@ -121,6 +121,7 @@ export default function CommunityDetailPage() {
           <div className="md:col-span-2">
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm aspect-[210/297]">
               {template.thumbnail ? (
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={template.thumbnail}
                   alt={template.name}
