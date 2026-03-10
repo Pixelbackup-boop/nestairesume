@@ -174,7 +174,7 @@ export default function BuilderTemplatesGrid({
                         </TemplatesAnimations.NoResults>
                     ) : (
                         <TemplatesAnimations.TemplatesGrid className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                            {filteredTemplates.map((template, index) => (
+                            {filteredTemplates.map((template) => (
                                 <TemplatesAnimations.TemplateCard
                                     key={template.id}
                                     isHovered={hoveredTemplate === template.id}

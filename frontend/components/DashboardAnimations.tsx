@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, useEffect, useState } from 'react';
-import { motion, useReducedMotion, Variants, useSpring, useInView } from 'framer-motion';
+import { motion, useReducedMotion, Variants, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 interface AnimationProps {

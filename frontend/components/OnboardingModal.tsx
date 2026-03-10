@@ -44,7 +44,7 @@ const aiProcessingMessages = [
     'Almost there...',
 ];
 
-export default function OnboardingModal({ isOpen, onClose, templateId, templateName }: OnboardingModalProps) {
+export default function OnboardingModal({ isOpen, onClose, templateId }: OnboardingModalProps) {
     const router = useRouter();
     const locale = useLocale();
     const t = useTranslations('Common');

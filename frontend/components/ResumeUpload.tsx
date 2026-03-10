@@ -4,7 +4,6 @@ import React, { useState, useRef, useCallback } from 'react';
 import {
   Upload,
   FileText,
-  X,
   AlertCircle,
   CheckCircle,
   Loader2,
@@ -12,7 +11,6 @@ import {
 import {
   parseResumeFile,
   validateFile,
-  getFileTypeLabel,
   formatFileSize,
   ParseResult,
   ALLOWED_EXTENSIONS,
