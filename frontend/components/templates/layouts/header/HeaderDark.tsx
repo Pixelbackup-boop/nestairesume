@@ -208,19 +208,6 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                     </div>
                 )}
 
-                {/* Interests (Dark Sidebar) */}
-                {data.interests && data.interests.length > 0 && (
-                    <div style={{ width: '100%', marginBottom: sp(40) }}>
-                        <SidebarSectionHeader title={t.sections.interests} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} sp={sp} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) }}>
-                            {data.interests.map((int) => (
-                                <span key={int.id} data-paginate="item" style={{ fontSize: fs.body, display: 'flex', alignItems: 'center', gap: sp(6), color: sidebarText }}>
-                                    <Sparkles size={iconSm} color={accentColor} /> {int.name}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                )}
 
             </aside>
 
@@ -352,6 +339,20 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                                     <span style={{ fontWeight: 600, color: '#0f172a' }}>{lang.name}</span>
                                     <span style={{ color: '#64748b', marginLeft: sp(6), textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                 </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Interests */}
+                {data.interests && data.interests.length > 0 && (
+                    <section className="resume-section" style={{ marginBottom: sp(20) }}>
+                        <SectionHeaderMain title={t.sections.interests} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px` }}>
+                            {data.interests.map((int) => (
+                                <span key={int.id} style={{ fontSize: fs.body, display: 'flex', alignItems: 'center', gap: sp(6), color: textDark }}>
+                                    <Sparkles size={iconSm} color={accentColor} /> {int.name}
+                                </span>
                             ))}
                         </div>
                     </section>

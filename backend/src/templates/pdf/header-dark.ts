@@ -178,19 +178,6 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                     </div>
                 ` : ''}
 
-                <!-- Interests -->
-                ${interests && interests.length > 0 ? `
-                    <div style="width: 100%; margin-bottom: 40px;">
-                        ${SidebarSectionHeader(t.sections.interests)}
-                        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                            ${interests.map(int => `
-                                <span data-paginate="item" style="font-size: ${s(12)}; display: flex; align-items: center; gap: 6px; color: ${sidebarText};">
-                                    <span style="color: ${accentColor};">✦</span> ${escapeHtml(int.name)}
-                                </span>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
 
             </aside>
 
@@ -285,6 +272,20 @@ export const renderHeaderDark = (data: PdfResumeData, theme: PdfTheme, translati
                                     <span style="font-weight: 600; color: #0f172a;">${escapeHtml(lang.name)}</span>
                                     <span style="color: #64748b; margin-left: 6px;">(${escapeHtml(translateProficiency(lang.proficiency, t.labels))})</span>
                                 </div>
+                            `).join('')}
+                        </div>
+                    </section>
+                ` : ''}
+
+                <!-- Interests -->
+                ${interests && interests.length > 0 ? `
+                    <section class="resume-section" style="margin-bottom: 40px;">
+                        ${MainSectionHeader(t.sections.interests)}
+                        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                            ${interests.map(int => `
+                                <span style="font-size: ${s(13)}; display: flex; align-items: center; gap: 6px; color: ${textDark};">
+                                    <span style="color: ${accentColor};">✦</span> ${escapeHtml(int.name)}
+                                </span>
                             `).join('')}
                         </div>
                     </section>
