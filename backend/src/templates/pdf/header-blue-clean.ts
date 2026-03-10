@@ -103,7 +103,7 @@ export const renderHeaderBlueClean = (data: PdfResumeData, theme: PdfTheme, tran
             </div>
 
             <!-- Content Two Columns -->
-            <div style="display: flex; gap: 48px; padding: 0 48px 24px; margin-top: -32px;">
+            <div style="display: flex; gap: 48px; padding: 0 48px 24px; margin-top: -32px; position: relative; z-index: 2;">
                 
                 <!-- Main Column (Left) -->
                 <div style="flex: 1; min-width: 0;">
