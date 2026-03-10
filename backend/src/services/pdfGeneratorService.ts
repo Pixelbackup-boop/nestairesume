@@ -151,40 +151,47 @@ export async function generatePdfFromHtml(
             var MARGIN_BOTTOM = 40; // Bottom margin on all pages
             var PAGE_GAP = 0;       // No visual gap in PDF generation (continuous)
             
-            // Define printable areas — ALWAYS reserve margins for content pagination
-            // regardless of marginStrategy. The @page CSS margin controls background
-            // bleed; this controls where TEXT content should stop to avoid page-edge cutoff.
-            // Page 1: 0 to (1123 - 40) = 1083px
-            // Page 2+: Starts at 1123. Printable area is (1123 - 40 - 40) = 1043px
+            // Margin strategy determines @page CSS margins
+            var strategy = '${marginStrategy}';
+            var hasPageCssMargins = (strategy === 'standard');
 
+            // Content boundaries for DETECTION (always reserve 40px margins)
+            // Page 1: content should stop at 1083px (1123 - 40)
+            // Page 2+: content area is 1043px (1123 - 40 top - 40 bottom)
             var firstPageMaxHeight = A4_HEIGHT - MARGIN_BOTTOM;
             var subsequentPageMaxHeight = A4_HEIGHT - MARGIN_TOP - MARGIN_BOTTOM;
 
-            // Helper: Get the bottom Y coordinate of the page content area for a given Y position
+            // Physical page boundaries for PUSH TARGETS (where Puppeteer actually breaks pages)
+            // For standard: @page margin shrinks content area → physical = content boundary
+            // For full-bleed/sidebar: @page margin is 0 → physical = full A4 height
+            var firstPagePhysical = hasPageCssMargins ? firstPageMaxHeight : A4_HEIGHT;
+            var subsequentPagePhysical = hasPageCssMargins ? subsequentPageMaxHeight : A4_HEIGHT;
+
+            // Helper: Get the bottom Y coordinate of the content area for a given Y position
             var getPageContentBottom = function(y) {
-                if (y < firstPageMaxHeight) {
-                    return firstPageMaxHeight;
+                if (y < firstPagePhysical) {
+                    return firstPageMaxHeight; // Content stops at 1083 regardless of strategy
                 }
-                
+
                 // For subsequent pages
-                var yMinusFirst = y - firstPageMaxHeight;
-                // Which subsequent page is this? (0-indexed relative to page 2)
-                var subPageIdx = Math.floor(yMinusFirst / subsequentPageMaxHeight);
-                
-                // Return the accumulated height at the bottom of this page's content area
-                return firstPageMaxHeight + (subPageIdx + 1) * subsequentPageMaxHeight;
+                var yMinusFirst = y - firstPagePhysical;
+                var subPageIdx = Math.floor(yMinusFirst / subsequentPagePhysical);
+                var pageStart = firstPagePhysical + subPageIdx * subsequentPagePhysical;
+
+                // Content stops MARGIN_BOTTOM before the next physical page break
+                return pageStart + subsequentPagePhysical - MARGIN_BOTTOM;
             };
 
-            // Helper: Get the start Y coordinate of the NEXT page's content area
+            // Helper: Get the PHYSICAL start of the NEXT page (where Puppeteer breaks)
             var getNextPageStart = function(y) {
-                 if (y < firstPageMaxHeight) {
-                    return firstPageMaxHeight; // Start of Page 2 content (which is implicitly at Y=1083 in continuous flow, but visually pushed by Margin Top)
+                if (y < firstPagePhysical) {
+                    return firstPagePhysical; // Physical page 2 starts at 1123 (full-bleed) or 1083 (standard)
                 }
-                
-                var yMinusFirst = y - firstPageMaxHeight;
-                var subPageIdx = Math.floor(yMinusFirst / subsequentPageMaxHeight);
-                
-                return firstPageMaxHeight + (subPageIdx + 1) * subsequentPageMaxHeight;
+
+                var yMinusFirst = y - firstPagePhysical;
+                var subPageIdx = Math.floor(yMinusFirst / subsequentPagePhysical);
+
+                return firstPagePhysical + (subPageIdx + 1) * subsequentPagePhysical;
             };
 
             var container = document.querySelector('.resume-page') || document.body;
@@ -272,14 +279,13 @@ export async function generatePdfFromHtml(
 
                 if (shouldPush) {
                     var nextStart = getNextPageStart(adjustedTop);
-                    
-                    // Logic: Frontend pushes to (nextPageStart + PAGE_MARGIN_TOP).
-                    // In Backend, CSS @page handles the physical margin.
-                    // However, we need to ensure we push ENOUGH to get into the next page's flow.
-                    // If we push exactly to nextStart, the browser's paginator should wrap it to the next page.
-                    // We add a small buffer (1px) to ensure it definitely crosses the boundary.
-                    
-                    var targetY = nextStart + 1; 
+
+                    // Push past the physical page boundary + add content top margin.
+                    // For standard: @page CSS adds top margin on page 2+, just push past boundary.
+                    // For full-bleed/sidebar: @page margin is 0, so we must add MARGIN_TOP manually
+                    // to create visual spacing at the top of the next page.
+                    var contentTopOffset = hasPageCssMargins ? 0 : MARGIN_TOP;
+                    var targetY = nextStart + 1 + contentTopOffset;
                     var pushDistance = targetY - rawTop - cumulativeOffset;
 
                     if (pushDistance > 0) {
@@ -295,6 +301,52 @@ export async function generatePdfFromHtml(
                 // Apply updates
                 for (var j = 0; j < updates.length; j++) {
                     updates[j].element.style.marginTop = updates[j].pushPx + 'px';
+                }
+
+                // Phase 3: PAGE 2+ TOP MARGIN ENFORCEMENT (matches frontend PagedPreview.tsx)
+                // For full-bleed/sidebar templates, @page margin is 0 so there's no automatic
+                // top margin on page 2+. Find the first element at the top of each page and
+                // push it down by MARGIN_TOP to create visual spacing.
+                if (!hasPageCssMargins) {
+                    var totalHeight = container.scrollHeight || container.offsetHeight;
+                    var totalPages = Math.ceil(totalHeight / A4_HEIGHT);
+
+                    for (var pageIdx = 1; pageIdx < totalPages; pageIdx++) {
+                        var pageTopPx = pageIdx * A4_HEIGHT;
+
+                        // Find elements near the top of this page
+                        var allEls = container.querySelectorAll('*');
+                        var bestEl = null;
+                        var bestTop = Infinity;
+
+                        for (var k = 0; k < allEls.length; k++) {
+                            var el = allEls[k];
+                            // Skip non-visible or already-pushed elements
+                            if (el.offsetParent === null && el !== container) continue;
+                            if (el.style.marginTop && parseFloat(el.style.marginTop) > 0) continue;
+
+                            var elRect = el.getBoundingClientRect();
+                            var elTop = elRect.top;
+                            var dist = elTop - pageTopPx;
+
+                            // Element starts within 30px of page top (and not before)
+                            if (dist >= -5 && dist < 30 && elTop < bestTop) {
+                                bestTop = elTop;
+                                bestEl = el;
+                            }
+                        }
+
+                        // Push the topmost element down by MARGIN_TOP
+                        if (bestEl) {
+                            var distFromTop = bestTop - pageTopPx;
+                            if (distFromTop < MARGIN_TOP) {
+                                var push = MARGIN_TOP - distFromTop;
+                                if (push > 1) {
+                                    bestEl.style.marginTop = Math.ceil(push) + 'px';
+                                }
+                            }
+                        }
+                    }
                 }
             } catch (e) {
                 console.error('Pagination Script Error:', e);
