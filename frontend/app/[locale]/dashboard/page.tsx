@@ -21,11 +21,8 @@ import {
     ArrowRight,
     Zap,
     BarChart3,
-    Calendar,
-    Layout,
     Crown,
     CreditCard,
-    Settings
 } from 'lucide-react';
 import { useUsageStore } from '@/store/useUsageStore';
 

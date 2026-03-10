@@ -389,7 +389,7 @@ export default function CommunityPage() {
                     {/* Thumbnail */}
                     <div className="w-20 h-28 bg-gray-100 rounded-lg overflow-hidden shrink-0">
                       {template.thumbnail ? (
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={template.thumbnail}
                           alt={template.name}

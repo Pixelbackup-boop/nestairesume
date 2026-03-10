@@ -39,7 +39,7 @@ function GdocsBuilderContent() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [gdocsTemplateId, setGdocsTemplateId] = useState('gdocs-clean');
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-    const { resumeData, selectedTemplate, selectedTheme, setTemplate, setResumeData } = useResumeStore();
+    const { resumeData, selectedTheme, setTemplate } = useResumeStore();
     const componentRef = useRef<HTMLDivElement>(null);
 
     const pdfTranslations: PdfTranslations = useMemo(() => ({

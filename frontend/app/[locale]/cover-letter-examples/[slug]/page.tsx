@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -282,7 +283,7 @@ export default async function CoverLetterExamplePage({
 
           <div className="flex items-center gap-4 text-sm text-gray-500 flex-wrap">
             <Link href={`/about/${author.slug}`} className="flex items-center gap-2 hover:text-teal-primary transition">
-              <img
+              <Image
                 src={author.image}
                 alt={author.name}
                 className="w-8 h-8 rounded-full object-cover"

@@ -27,6 +27,7 @@ export default function ContactPage() {
   useEffect(() => {
     if (user?.name && !name) setName(user.name);
     if (user?.email && !email) setEmail(user.email);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const handleSubmit = async (e: React.FormEvent) => {

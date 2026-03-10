@@ -209,6 +209,7 @@ export default function GdocsOnboardingPage() {
             );
         }, 800);
         return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isGenerating]);
 
     const handleMethodSelect = (method: CreationMethod) => {

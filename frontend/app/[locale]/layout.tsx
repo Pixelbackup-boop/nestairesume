@@ -212,7 +212,6 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
-  const rtl = isRtl(locale as Locale);
   const dir = getDirection(locale as Locale);
 
   // Fetch admin-configured settings from DB, fall back to env vars
