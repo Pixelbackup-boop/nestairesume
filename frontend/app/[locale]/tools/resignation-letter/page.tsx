@@ -181,10 +181,10 @@ ${formData.fullName}`;
               <Sparkles size={16} />
               {t('hero.badge')}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {t('hero.title')} <span className="gradient-text">{t('hero.titleHighlight')}</span>
             </h1>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className="text-gray-600 text-lg mb-8">
               {t('hero.subtitle')}
             </p>
           </div>
@@ -194,7 +194,7 @@ ${formData.fullName}`;
       {/* Notice Banner */}
       <section className="py-4 bg-amber-500/10 border-y border-amber-500/20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center gap-3 text-amber-400">
+          <div className="flex items-center gap-3 text-amber-700">
             <AlertCircle size={20} />
             <p className="text-sm">
               <strong>{t('noticeLabel')}:</strong> {t('notice')}
@@ -214,8 +214,8 @@ ${formData.fullName}`;
                   <FileText size={20} className="text-accent-teal" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-white">{t('form.yourDetails')}</h2>
-                  <p className="text-sm text-gray-400">{t('form.fillInfo')}</p>
+                  <h2 className="text-xl font-semibold text-gray-900">{t('form.yourDetails')}</h2>
+                  <p className="text-sm text-gray-600">{t('form.fillInfo')}</p>
                 </div>
               </div>
 
@@ -223,7 +223,7 @@ ${formData.fullName}`;
                 {/* Personal Info */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       <User size={14} className="inline mr-2" />
                       {t('form.yourName')} *
                     </label>
@@ -233,11 +233,11 @@ ${formData.fullName}`;
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder={t('form.yourNamePlaceholder')}
-                      className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       <Briefcase size={14} className="inline mr-2" />
                       {t('form.currentPosition')} *
                     </label>
@@ -247,7 +247,7 @@ ${formData.fullName}`;
                       value={formData.currentPosition}
                       onChange={handleInputChange}
                       placeholder={t('form.currentPositionPlaceholder')}
-                      className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
                     />
                   </div>
                 </div>
@@ -255,7 +255,7 @@ ${formData.fullName}`;
                 {/* Company Info */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       <Building2 size={14} className="inline mr-2" />
                       {t('form.companyName')} *
                     </label>
@@ -265,11 +265,11 @@ ${formData.fullName}`;
                       value={formData.companyName}
                       onChange={handleInputChange}
                       placeholder={t('form.companyPlaceholder')}
-                      className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       <User size={14} className="inline mr-2" />
                       {t('form.managerName')}
                     </label>
@@ -279,13 +279,13 @@ ${formData.fullName}`;
                       value={formData.managerName}
                       onChange={handleInputChange}
                       placeholder={t('form.managerPlaceholder')}
-                      className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     <Calendar size={14} className="inline mr-2" />
                     {t('form.lastWorkingDay')}
                   </label>
@@ -295,19 +295,19 @@ ${formData.fullName}`;
                     value={formData.lastWorkingDay}
                     onChange={handleInputChange}
                     min={today}
-                    className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     {t('form.reasonForLeaving')}
                   </label>
                   <select
                     name="reasonForLeaving"
                     value={formData.reasonForLeaving}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition"
                   >
                     {REASONS.map(reason => (
                       <option key={reason.value} value={reason.value} className="bg-bg-primary">
@@ -318,7 +318,7 @@ ${formData.fullName}`;
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     <Heart size={14} className="inline mr-2" />
                     {t('form.positiveExperiences')}
                   </label>
@@ -328,13 +328,13 @@ ${formData.fullName}`;
                     onChange={handleInputChange}
                     placeholder={t('form.positiveExperiencesPlaceholder')}
                     rows={3}
-                    className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition resize-none"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-teal focus:ring-1 focus:ring-accent-teal outline-none transition resize-none"
                   />
                 </div>
 
                 {/* Tone Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
                     {t('form.tone')}
                   </label>
                   <div className="grid grid-cols-2 gap-3" role="radiogroup" aria-label={t('form.tone')}>
@@ -348,12 +348,12 @@ ${formData.fullName}`;
                         className={`px-4 py-3 rounded-lg border text-left transition ${
                           formData.tone === tone.value
                             ? 'border-accent-teal bg-accent-teal/10'
-                            : 'border-border-subtle hover:border-gray-500'
+                            : 'border-gray-200 hover:border-gray-400'
                         }`}
                       >
                         <div className="flex items-center gap-2 mb-1">
                           <span>{tone.icon}</span>
-                          <span className={`font-medium ${formData.tone === tone.value ? 'text-accent-teal' : 'text-white'}`}>
+                          <span className={`font-medium ${formData.tone === tone.value ? 'text-accent-teal' : 'text-gray-800'}`}>
                             {tone.label}
                           </span>
                         </div>
@@ -372,7 +372,7 @@ ${formData.fullName}`;
                     onChange={handleInputChange}
                     className="w-5 h-5 rounded border-border-subtle bg-bg-primary text-accent-teal focus:ring-accent-teal"
                   />
-                  <span className="text-gray-300">{t('form.offerHelp')}</span>
+                  <span className="text-gray-700">{t('form.offerHelp')}</span>
                 </label>
 
                 {/* Generate Button */}
@@ -404,22 +404,22 @@ ${formData.fullName}`;
                     <FileText size={20} className="text-accent-green" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold text-white">{t('preview.title')}</h2>
-                    <p className="text-sm text-gray-400">{t('preview.subtitle')}</p>
+                    <h2 className="text-xl font-semibold text-gray-900">{t('preview.title')}</h2>
+                    <p className="text-sm text-gray-600">{t('preview.subtitle')}</p>
                   </div>
                 </div>
                 {generatedLetter && (
                   <div className="flex items-center gap-2">
                     <button
                       onClick={copyToClipboard}
-                      className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition"
+                      className="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-600 transition"
                     >
                       {copied ? <CheckCircle size={16} className="text-accent-green" /> : <Copy size={16} />}
                       {copied ? t('preview.copied') : t('preview.copy')}
                     </button>
                     <button
                       onClick={downloadAsTxt}
-                      className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition"
+                      className="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-600 transition"
                     >
                       <Download size={16} />
                       {t('preview.download')}
@@ -430,15 +430,15 @@ ${formData.fullName}`;
 
               <div className="bg-bg-primary border border-border-subtle rounded-xl p-6 min-h-[400px]">
                 {generatedLetter ? (
-                  <pre className="whitespace-pre-wrap font-sans text-gray-300 leading-relaxed text-sm">
+                  <pre className="whitespace-pre-wrap font-sans text-gray-700 leading-relaxed text-sm">
                     {generatedLetter}
                   </pre>
                 ) : (
                   <div className="flex flex-col items-center justify-center h-full text-center py-12">
-                    <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                      <FileText size={28} className="text-gray-600" />
+                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                      <FileText size={28} className="text-gray-400" />
                     </div>
-                    <h3 className="text-gray-400 font-medium mb-2">{t('preview.noLetter')}</h3>
+                    <h3 className="text-gray-600 font-medium mb-2">{t('preview.noLetter')}</h3>
                     <p className="text-gray-500 text-sm">{t('preview.fillAndGenerate')}</p>
                   </div>
                 )}
@@ -451,7 +451,7 @@ ${formData.fullName}`;
       {/* Tips Section */}
       <section className="py-16 bg-bg-card/30">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white text-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
             {t('tips.title')} <span className="gradient-text">{t('tips.titleHighlight')}</span>
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
@@ -459,29 +459,29 @@ ${formData.fullName}`;
               <div className="w-10 h-10 bg-accent-green/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl">📅</span>
               </div>
-              <h3 className="font-semibold text-white mb-2">{t('tips.giveNotice')}</h3>
-              <p className="text-gray-400 text-sm">{t('tips.giveNoticeDesc')}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('tips.giveNotice')}</h3>
+              <p className="text-gray-600 text-sm">{t('tips.giveNoticeDesc')}</p>
             </div>
             <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
               <div className="w-10 h-10 bg-accent-purple/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl">🤝</span>
               </div>
-              <h3 className="font-semibold text-white mb-2">{t('tips.stayProfessional')}</h3>
-              <p className="text-gray-400 text-sm">{t('tips.stayProfessionalDesc')}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('tips.stayProfessional')}</h3>
+              <p className="text-gray-600 text-sm">{t('tips.stayProfessionalDesc')}</p>
             </div>
             <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
               <div className="w-10 h-10 bg-accent-blue/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl">📝</span>
               </div>
-              <h3 className="font-semibold text-white mb-2">{t('tips.documentIt')}</h3>
-              <p className="text-gray-400 text-sm">{t('tips.documentItDesc')}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('tips.documentIt')}</h3>
+              <p className="text-gray-600 text-sm">{t('tips.documentItDesc')}</p>
             </div>
             <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
               <div className="w-10 h-10 bg-accent-teal/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl">🌟</span>
               </div>
-              <h3 className="font-semibold text-white mb-2">{t('tips.leaveWell')}</h3>
-              <p className="text-gray-400 text-sm">{t('tips.leaveWellDesc')}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('tips.leaveWell')}</h3>
+              <p className="text-gray-600 text-sm">{t('tips.leaveWellDesc')}</p>
             </div>
           </div>
         </div>
@@ -490,10 +490,10 @@ ${formData.fullName}`;
       {/* CTA Section */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
             {t('cta.title')}
           </h2>
-          <p className="text-gray-400 mb-8">
+          <p className="text-gray-600 mb-8">
             {t('cta.subtitle')}
           </p>
           <Link

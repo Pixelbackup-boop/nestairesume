@@ -51,22 +51,22 @@ export default function CoverLetterPreview({ generatedLetter, companyName }: Cov
               <FileText size={20} className="text-accent-green" />
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-white">{t('preview.title')}</h2>
-              <p className="text-sm text-gray-400">{t('preview.subtitle')}</p>
+              <h2 className="text-xl font-semibold text-gray-900">{t('preview.title')}</h2>
+              <p className="text-sm text-gray-600">{t('preview.subtitle')}</p>
             </div>
           </div>
           {generatedLetter && (
             <div className="flex items-center gap-2">
               <button
                 onClick={copyToClipboard}
-                className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition"
+                className="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-600 transition"
               >
                 {copied ? <CheckCircle size={16} className="text-accent-green" /> : <Copy size={16} />}
                 {copied ? t('preview.copied') : t('preview.copy')}
               </button>
               <button
                 onClick={downloadAsTxt}
-                className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-gray-300 transition"
+                className="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-600 transition"
               >
                 <Download size={16} />
                 {t('preview.download')}
@@ -77,15 +77,15 @@ export default function CoverLetterPreview({ generatedLetter, companyName }: Cov
 
         <div className="bg-bg-primary border border-border-subtle rounded-xl p-6 min-h-[400px]">
           {generatedLetter ? (
-            <pre className="whitespace-pre-wrap font-sans text-gray-300 leading-relaxed text-sm">
+            <pre className="whitespace-pre-wrap font-sans text-gray-700 leading-relaxed text-sm">
               {generatedLetter}
             </pre>
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center py-12">
-              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                <FileText size={28} className="text-gray-600" />
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                <FileText size={28} className="text-gray-400" />
               </div>
-              <h3 className="text-gray-400 font-medium mb-2">{t('preview.noLetter')}</h3>
+              <h3 className="text-gray-600 font-medium mb-2">{t('preview.noLetter')}</h3>
               <p className="text-gray-500 text-sm">{t('preview.fillAndGenerate')}</p>
             </div>
           )}
@@ -95,7 +95,7 @@ export default function CoverLetterPreview({ generatedLetter, companyName }: Cov
       {/* Tips Section */}
       <section className="py-16 bg-bg-card/30">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white text-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
             {t('tips.title')} <span className="gradient-text">{t('tips.titleHighlight')}</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -103,22 +103,22 @@ export default function CoverLetterPreview({ generatedLetter, companyName }: Cov
               <div className="w-10 h-10 bg-accent-green/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl">🎯</span>
               </div>
-              <h3 className="font-semibold text-white mb-2">{t('tips.beSpecific')}</h3>
-              <p className="text-gray-400 text-sm">{t('tips.beSpecificDesc')}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('tips.beSpecific')}</h3>
+              <p className="text-gray-600 text-sm">{t('tips.beSpecificDesc')}</p>
             </div>
             <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
               <div className="w-10 h-10 bg-accent-purple/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl">📊</span>
               </div>
-              <h3 className="font-semibold text-white mb-2">{t('tips.showResults')}</h3>
-              <p className="text-gray-400 text-sm">{t('tips.showResultsDesc')}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('tips.showResults')}</h3>
+              <p className="text-gray-600 text-sm">{t('tips.showResultsDesc')}</p>
             </div>
             <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
               <div className="w-10 h-10 bg-accent-blue/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl">✨</span>
               </div>
-              <h3 className="font-semibold text-white mb-2">{t('tips.keepConcise')}</h3>
-              <p className="text-gray-400 text-sm">{t('tips.keepConciseDesc')}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('tips.keepConcise')}</h3>
+              <p className="text-gray-600 text-sm">{t('tips.keepConciseDesc')}</p>
             </div>
           </div>
         </div>
@@ -127,10 +127,10 @@ export default function CoverLetterPreview({ generatedLetter, companyName }: Cov
       {/* CTA Section */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
             {t('cta.title')}
           </h2>
-          <p className="text-gray-400 mb-8">
+          <p className="text-gray-600 mb-8">
             {t('cta.subtitle')}
           </p>
           <Link

@@ -66,8 +66,8 @@ export default function CoverLetterForm({
           <FileText size={20} className="text-accent-purple" />
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-white">{t('form.yourDetails')}</h2>
-          <p className="text-sm text-gray-400">{t('form.fillInfo')}</p>
+          <h2 className="text-xl font-semibold text-gray-900">{t('form.yourDetails')}</h2>
+          <p className="text-sm text-gray-600">{t('form.fillInfo')}</p>
         </div>
       </div>
 
@@ -75,7 +75,7 @@ export default function CoverLetterForm({
         {/* Personal Info */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               <User size={14} className="inline mr-2" />
               {t('form.fullName')} *
             </label>
@@ -85,11 +85,11 @@ export default function CoverLetterForm({
               value={formData.fullName}
               onChange={onInputChange}
               placeholder={t('form.fullNamePlaceholder')}
-              className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
+              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               <Mail size={14} className="inline mr-2" />
               {t('form.email')}
             </label>
@@ -99,7 +99,7 @@ export default function CoverLetterForm({
               value={formData.email}
               onChange={onInputChange}
               placeholder={t('form.emailPlaceholder')}
-              className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
+              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
             />
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function CoverLetterForm({
         {/* Job Info */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               <Briefcase size={14} className="inline mr-2" />
               {t('form.jobTitle')} *
             </label>
@@ -117,11 +117,11 @@ export default function CoverLetterForm({
               value={formData.jobTitle}
               onChange={onInputChange}
               placeholder={t('form.jobTitlePlaceholder')}
-              className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
+              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               <Building2 size={14} className="inline mr-2" />
               {t('form.companyName')} *
             </label>
@@ -131,13 +131,13 @@ export default function CoverLetterForm({
               value={formData.companyName}
               onChange={onInputChange}
               placeholder={t('form.companyPlaceholder')}
-              className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
+              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             <User size={14} className="inline mr-2" />
             {t('form.hiringManager')}
           </label>
@@ -147,12 +147,12 @@ export default function CoverLetterForm({
             value={formData.hiringManagerName}
             onChange={onInputChange}
             placeholder={t('form.hiringManagerPlaceholder')}
-            className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
+            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             <Target size={14} className="inline mr-2" />
             {t('form.keySkills')}
           </label>
@@ -162,12 +162,12 @@ export default function CoverLetterForm({
             value={formData.skills}
             onChange={onInputChange}
             placeholder={t('form.skillsPlaceholder')}
-            className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
+            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             <Lightbulb size={14} className="inline mr-2" />
             {t('form.experience')}
           </label>
@@ -177,13 +177,13 @@ export default function CoverLetterForm({
             onChange={onInputChange}
             placeholder={t('form.experiencePlaceholder')}
             rows={3}
-            className="w-full px-4 py-3 bg-bg-primary border border-border-subtle rounded-lg text-white placeholder-gray-500 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition resize-none"
+            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-accent-purple focus:ring-1 focus:ring-accent-purple outline-none transition resize-none"
           />
         </div>
 
         {/* Tone Selection */}
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-3">
+          <label className="block text-sm font-medium text-gray-700 mb-3">
             {t('form.tone')}
           </label>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3" role="radiogroup" aria-label={t('form.tone')}>
@@ -197,7 +197,7 @@ export default function CoverLetterForm({
                 className={`px-4 py-3 rounded-lg border text-sm font-medium transition ${
                   formData.tone === tone.value
                     ? 'border-accent-purple bg-accent-purple/10 text-accent-purple'
-                    : 'border-border-subtle text-gray-400 hover:border-gray-500'
+                    : 'border-gray-200 text-gray-600 hover:border-gray-400'
                 }`}
               >
                 <span className="mr-2">{tone.icon}</span>
