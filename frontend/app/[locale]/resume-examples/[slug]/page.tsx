@@ -1,7 +1,7 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InArticleVideoAd from "@/components/ads/InArticleVideoAd";
@@ -146,8 +146,6 @@ export default async function ResumeExamplePage({
   const author = getAuthor(example.author);
   const relatedExamples = await getRelatedResumeExamples(slug, 3);
   const headings = extractHeadings(example.content);
-  const t = await getTranslations({ locale, namespace: "ResumeExamples" });
-
   const localizedHref = (path: string) => `/${locale}${path}`;
 
   // JSON-LD structured data - hardcoded objects from constants, safe for rendering
@@ -303,7 +301,7 @@ export default async function ResumeExamplePage({
 
           <div className="flex items-center gap-4 text-sm text-dark-teal/60 flex-wrap">
             <Link href={`/about/${author.slug}`} className="flex items-center gap-2 hover:text-teal-primary transition">
-              <img
+              <Image
                 src={author.image}
                 alt={author.name}
                 className="w-8 h-8 rounded-full object-cover"

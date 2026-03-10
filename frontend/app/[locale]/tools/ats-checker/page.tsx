@@ -136,6 +136,7 @@ export default function ATSCheckerPage() {
         setFile(f);
         setError('');
         setState('idle');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleDrop = useCallback((e: React.DragEvent) => {

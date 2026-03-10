@@ -4,7 +4,7 @@ import { useState } from 'react';
 import RewardedVideoAd from '@/components/ads/RewardedVideoAd';
 
 export default function TestAdsTools() {
-  const [questionsCompleted, setQuestionsCompleted] = useState(3);
+  const [questionsCompleted] = useState(3);
   const [totalQuestions, setTotalQuestions] = useState(3);
   const [showRewardWall, setShowRewardWall] = useState(true);
   const [unlockedQuestions, setUnlockedQuestions] = useState(0);

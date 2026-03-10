@@ -39,7 +39,7 @@ function WordBuilderContent() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [docxTemplateId, setDocxTemplateId] = useState('docx-classic');
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-    const { resumeData, selectedTemplate, selectedTheme, setTemplate, setResumeData } = useResumeStore();
+    const { resumeData, selectedTheme, setTemplate } = useResumeStore();
     const componentRef = useRef<HTMLDivElement>(null);
 
     // Build translations object for DOCX generation

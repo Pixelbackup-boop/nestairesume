@@ -78,9 +78,10 @@ export default function CoverLetterGeneratorPage() {
       });
 
       setGeneratedLetter(response.data.cover_letter);
-    } catch (err: any) {
-      const errorCode = err?.response?.data?.code;
-      const errorMessage = err?.response?.data?.error || err?.message || 'Failed to generate cover letter';
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { code?: string; error?: string } }; message?: string };
+      const errorCode = apiErr?.response?.data?.code;
+      const errorMessage = apiErr?.response?.data?.error || apiErr?.message || 'Failed to generate cover letter';
 
       if (errorCode === 'COVER_LETTER_LIMIT_REACHED') {
         setError(t('errors.limitReached'));
