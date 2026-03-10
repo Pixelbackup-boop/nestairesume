@@ -11,21 +11,18 @@ import PagedPreview from '../../components/preview/PagedPreview';
 import AuthModal from '../../components/auth/AuthModal';
 import DownloadModal from '../../components/download/DownloadModal';
 import { useResumeStore } from '../../store/useResumeStore';
-import { templates } from '../../lib/themes';
 import {
-    getLayoutPresetId,
     getTemplateById,
     getTemplateTheme,
     sampleResumeData,
-    colorPresets
 } from '@/lib/templates/builder';
 import Link from 'next/link';
 import { downloadPdf } from '@/lib/pdfService';
 import {
-    Download, ChevronDown, Layout, Palette, Sparkles,
+    Download, Sparkles,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
-    FileText, X, ChevronRight
+    FileText, ChevronRight
 } from 'lucide-react';
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';

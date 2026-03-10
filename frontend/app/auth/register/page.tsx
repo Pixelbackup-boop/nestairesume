@@ -18,7 +18,7 @@ export default function RegisterPage() {
         try {
             await register(email, password, name);
             router.push('/');
-        } catch (err) {
+        } catch {
             // Error handled in store
         }
     };

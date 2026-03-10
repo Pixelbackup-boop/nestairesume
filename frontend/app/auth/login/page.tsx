@@ -17,7 +17,7 @@ export default function LoginPage() {
         try {
             await login(email, password);
             router.push('/');
-        } catch (err) {
+        } catch {
             // Error handled in store
         }
     };
@@ -71,7 +71,7 @@ export default function LoginPage() {
                 </form>
 
                 <p className="text-center mt-6 text-text-secondary text-sm">
-                    Don't have an account?{' '}
+                    Don&apos;t have an account?{' '}
                     <Link href="/auth/register" className="text-accent-green hover:underline">
                         Create one
                     </Link>
