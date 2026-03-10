@@ -62,8 +62,8 @@ export default function PaymentsPage() {
       setData(paymentsRes.data as PaymentsResponse);
       setStats(statsRes.data as PaymentStats);
       setError(null);
-    } catch (err: any) {
-      setError(err.response?.data?.detail || "Failed to load payments");
+    } catch (err) {
+      setError((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to load payments");
     } finally {
       setLoading(false);
     }
@@ -71,6 +71,7 @@ export default function PaymentsPage() {
 
   useEffect(() => {
     fetchPayments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const formatCurrency = (cents: number) => {

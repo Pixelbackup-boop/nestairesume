@@ -66,6 +66,7 @@ export default function BlogPage() {
 
   useEffect(() => {
     fetchPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -81,8 +82,8 @@ export default function BlogPage() {
         publishedAt: !currentStatus ? new Date().toISOString() : null,
       });
       fetchPosts();
-    } catch (err: any) {
-      alert(err.response?.data?.detail || "Failed to update post");
+    } catch (err) {
+      alert((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to update post");
     }
     setActionMenu(null);
   };
@@ -93,8 +94,8 @@ export default function BlogPage() {
         featured: !currentStatus,
       });
       fetchPosts();
-    } catch (err: any) {
-      alert(err.response?.data?.detail || "Failed to update post");
+    } catch (err) {
+      alert((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to update post");
     }
     setActionMenu(null);
   };
@@ -106,8 +107,8 @@ export default function BlogPage() {
     try {
       await api.delete(`/admin/blog/${postId}`);
       fetchPosts();
-    } catch (err: any) {
-      alert(err.response?.data?.detail || "Failed to delete post");
+    } catch (err) {
+      alert((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to delete post");
     }
     setActionMenu(null);
   };

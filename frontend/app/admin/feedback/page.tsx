@@ -81,6 +81,7 @@ export default function AdminFeedbackPage() {
 
   useEffect(() => {
     fetchFeedback();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, statusFilter]);
 
   const handleStatusUpdate = async (id: string, newStatus: string) => {

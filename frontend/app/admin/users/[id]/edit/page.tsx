@@ -40,8 +40,8 @@ export default function UserEditPage() {
           subscriptionTier: user.subscriptionTier,
           isSuspended: user.isSuspended,
         });
-      } catch (err: any) {
-        setError(err.response?.data?.detail || "Failed to load user");
+      } catch (err) {
+        setError((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to load user");
       } finally {
         setLoading(false);
       }

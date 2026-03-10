@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Users, FileText, CreditCard, TrendingUp, Clock, AlertCircle } from "lucide-react";
+import { Users, FileText, TrendingUp, Clock, AlertCircle } from "lucide-react";
 import StatsCard from "@/components/admin/StatsCard";
 import api from "@/lib/api";
 import Link from "next/link";
@@ -41,8 +41,8 @@ export default function AdminDashboard() {
       try {
         const response = await api.get("/admin/dashboard");
         setStats(response.data as DashboardStats);
-      } catch (err: any) {
-        setError(err.response?.data?.detail || "Failed to load dashboard");
+      } catch (err) {
+        setError((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to load dashboard");
       } finally {
         setLoading(false);
       }
