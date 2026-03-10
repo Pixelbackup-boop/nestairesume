@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { useResumeStore, ResumeData } from '@/store/useResumeStore';
 import { generateAIResumeAsync, OnboardingInput } from '@/lib/aiResumeGenerator';
-import { builderTemplates, getLayoutPresetId, getTemplateById, getTemplateTheme } from '@/lib/templates/builder';
+import { builderTemplates, getTemplateById, getTemplateTheme } from '@/lib/templates/builder';
 import BuilderTemplatePreview from '@/components/templates/previews/BuilderTemplatePreview';
 import ResumeUpload from '@/components/ResumeUpload';
 import { ParseResult } from '@/lib/resumeImportService';
@@ -99,6 +99,7 @@ export default function OnboardingPage() {
         }, 800);
 
         return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isGenerating]);
 
     const handleMethodSelect = (method: CreationMethod) => {

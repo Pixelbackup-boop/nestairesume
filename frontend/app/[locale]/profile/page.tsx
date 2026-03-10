@@ -8,7 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import api from '@/lib/api';
 import { getAvatarId, getAvatarSrc } from '@/lib/avatar';
-import { User, Mail, Lock, Check, AlertCircle, Eye, EyeOff, Edit3, X, ArrowRight } from 'lucide-react';
+import { User, Mail, Lock, Check, AlertCircle, Eye, EyeOff, Edit3, ArrowRight } from 'lucide-react';
 
 type EmailChangeStep = 'display' | 'input' | 'verify';
 
@@ -96,10 +96,11 @@ export default function ProfilePage() {
 
       await updateProfile(updates);
       setMessage({ type: 'success', text: t('profileUpdated') || 'Profile updated successfully' });
-    } catch (err: any) {
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
       setMessage({
         type: 'error',
-        text: err.response?.data?.detail || t('updateFailed') || 'Update failed'
+        text: apiErr.response?.data?.detail || t('updateFailed') || 'Update failed'
       });
     } finally {
       setSavingProfile(false);
@@ -121,10 +122,11 @@ export default function ProfilePage() {
       setMessage({ type: 'success', text: t('codeSent') || 'Verification code sent to your new email' });
       // Focus first code input
       setTimeout(() => codeInputRefs.current[0]?.focus(), 100);
-    } catch (err: any) {
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
       setMessage({
         type: 'error',
-        text: err.response?.data?.detail || t('emailChangeFailed') || 'Failed to send verification code'
+        text: apiErr.response?.data?.detail || t('emailChangeFailed') || 'Failed to send verification code'
       });
     } finally {
       setSendingCode(false);
@@ -148,10 +150,11 @@ export default function ProfilePage() {
       setNewEmail('');
       setVerificationCode(['', '', '', '', '', '']);
       setMessage({ type: 'success', text: t('emailChanged') || 'Email changed successfully' });
-    } catch (err: any) {
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
       setMessage({
         type: 'error',
-        text: err.response?.data?.detail || t('verificationFailed') || 'Verification failed'
+        text: apiErr.response?.data?.detail || t('verificationFailed') || 'Verification failed'
       });
     } finally {
       setVerifyingCode(false);
@@ -218,10 +221,11 @@ export default function ProfilePage() {
       setCurrentPassword('');
       setNewPassword('');
       setConfirmPassword('');
-    } catch (err: any) {
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
       setMessage({
         type: 'error',
-        text: err.response?.data?.detail || t('passwordChangeFailed') || 'Password change failed'
+        text: apiErr.response?.data?.detail || t('passwordChangeFailed') || 'Password change failed'
       });
     } finally {
       setSavingPassword(false);
@@ -266,6 +270,7 @@ export default function ProfilePage() {
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={getAvatarSrc(id)}
                     alt={`Avatar ${id}`}

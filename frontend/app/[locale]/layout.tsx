@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Poppins, Noto_Sans_Arabic, Noto_Sans_JP, Noto_Sans_KR, Noto_Sans_SC, Noto_Sans_Thai } from 'next/font/google';
-import { locales, Locale, isRtl, getDirection, getOgLocale } from '@/i18n.config';
+import { locales, Locale, getDirection, getOgLocale } from '@/i18n.config';
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import TawkTo from '@/components/TawkTo';
