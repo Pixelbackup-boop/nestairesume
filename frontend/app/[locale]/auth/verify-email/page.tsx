@@ -130,11 +130,11 @@ export default function VerifyEmailPage() {
     };
 
     // Auto-verify when all digits entered
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         if (code.every(digit => digit !== '') && code.join('').length === 6) {
             handleVerify();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [code]);
 
     if (!email) {

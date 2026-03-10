@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useMemo, useEffect, Suspense } from 'react';
-import NextImage from 'next/image';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import PersonalForm from '@/components/editor/PersonalForm';
@@ -13,20 +12,16 @@ import PagedPreview from '@/components/preview/PagedPreview';
 import DownloadModal from '@/components/download/DownloadModal';
 import { useResumeStore } from '@/store/useResumeStore';
 import { useAuthStore } from '@/store/useAuthStore';
-import { templates } from '@/lib/themes';
 import {
-    getLayoutPresetId,
     getTemplateById,
     getTemplateTheme,
     builderTemplates,
     sampleResumeData,
-    colorPresets
 } from '@/lib/templates/builder';
-import Link from 'next/link';
 import FontLoader from '@/components/FontLoader';
 import { downloadPdf, PdfTranslations } from '@/lib/pdfService';
 import {
-    Download, ChevronDown, Layout, Palette, Sparkles,
+    Download, Sparkles,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
     FileText, X, ChevronRight, Menu, CheckCircle, Crown
