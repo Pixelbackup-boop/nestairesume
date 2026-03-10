@@ -32,7 +32,7 @@ function GdocsBuilderContent() {
     const [showDownloadModal, setShowDownloadModal] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [gdocsTemplateId, setGdocsTemplateId] = useState('gdocs-clean');
-    const { resumeData, selectedTemplate, selectedTheme, setTemplate, setResumeData } = useResumeStore();
+    const { resumeData, selectedTheme, setTemplate } = useResumeStore();
     const componentRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

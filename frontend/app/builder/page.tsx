@@ -22,7 +22,7 @@ import {
     Download, Sparkles,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
     Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
-    FileText, ChevronRight
+    FileText
 } from 'lucide-react';
 
 type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
@@ -30,8 +30,6 @@ type TabId = 'personal' | 'experience' | 'education' | 'skills' | 'design';
 function BuilderContent() {
     const searchParams = useSearchParams();
     const [activeTab, setActiveTab] = useState<TabId>('personal');
-    const [showTemplateDropdown, setShowTemplateDropdown] = useState(false);
-    const [showColorDropdown, setShowColorDropdown] = useState(false);
     const [previewScale, setPreviewScale] = useState(0.75);
     const [showPreview, setShowPreview] = useState(true);
     const [showAuthModal, setShowAuthModal] = useState(false);

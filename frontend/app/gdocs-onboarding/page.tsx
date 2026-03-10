@@ -317,7 +317,7 @@ export default function GdocsOnboardingPage() {
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">Create with AI</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Tell us your profession and we'll generate a Google Docs resume in seconds
+                                    Tell us your profession and we&apos;ll generate a Google Docs resume in seconds
                                 </p>
                             </button>
 
@@ -330,7 +330,7 @@ export default function GdocsOnboardingPage() {
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">Upload Resume</h3>
                                 <p className="text-gray-500 text-sm">
-                                    Upload your existing resume and we'll enhance it
+                                    Upload your existing resume and we&apos;ll enhance it
                                 </p>
                                 <span className="text-xs text-gray-400 mt-2 block">Coming soon</span>
                             </button>
@@ -402,7 +402,7 @@ export default function GdocsOnboardingPage() {
                             <div>
                                 <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                     <Briefcase size={16} />
-                                    Job Title You're Applying For
+                                    Job Title You&apos;re Applying For
                                 </label>
                                 <input
                                     type="text"
