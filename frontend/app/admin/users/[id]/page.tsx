@@ -85,8 +85,8 @@ export default function UserDetailPage() {
       try {
         const response = await api.get(`/admin/users/${params.id}`);
         setUser(response.data as UserDetail);
-      } catch (err: any) {
-        setError(err.response?.data?.detail || "Failed to load user");
+      } catch (err) {
+        setError((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to load user");
       } finally {
         setLoading(false);
       }
@@ -102,8 +102,8 @@ export default function UserDetailPage() {
         isSuspended: !user.isSuspended,
       });
       setUser({ ...user, isSuspended: !user.isSuspended });
-    } catch (err: any) {
-      alert(err.response?.data?.detail || "Failed to update user");
+    } catch (err) {
+      alert((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to update user");
     }
   };
 
@@ -115,8 +115,8 @@ export default function UserDetailPage() {
     try {
       await api.delete(`/admin/users/${user.id}`);
       router.push("/admin/users");
-    } catch (err: any) {
-      alert(err.response?.data?.detail || "Failed to delete user");
+    } catch (err) {
+      alert((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to delete user");
     }
   };
 

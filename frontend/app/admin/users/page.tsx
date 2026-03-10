@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, Filter, MoreVertical, Eye, Edit, Trash2, Ban, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, MoreVertical, Eye, Edit, Trash2, Ban, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import api from "@/lib/api";
 import Link from "next/link";
 
@@ -41,8 +41,8 @@ export default function UsersPage() {
       });
       setData(response.data as UsersResponse);
       setError(null);
-    } catch (err: any) {
-      setError(err.response?.data?.detail || "Failed to load users");
+    } catch (err) {
+      setError((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to load users");
     } finally {
       setLoading(false);
     }
@@ -50,6 +50,7 @@ export default function UsersPage() {
 
   useEffect(() => {
     fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -64,8 +65,8 @@ export default function UsersPage() {
         isSuspended: !currentStatus,
       });
       fetchUsers();
-    } catch (err: any) {
-      alert(err.response?.data?.detail || "Failed to update user");
+    } catch (err) {
+      alert((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to update user");
     }
     setActionMenu(null);
   };
@@ -77,8 +78,8 @@ export default function UsersPage() {
     try {
       await api.delete(`/admin/users/${userId}`);
       fetchUsers();
-    } catch (err: any) {
-      alert(err.response?.data?.detail || "Failed to delete user");
+    } catch (err) {
+      alert((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to delete user");
     }
     setActionMenu(null);
   };

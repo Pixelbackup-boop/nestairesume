@@ -58,8 +58,8 @@ export default function UserEditPage() {
     try {
       await api.put(`/admin/users/${params.id}`, formData);
       router.push(`/admin/users/${params.id}`);
-    } catch (err: any) {
-      setError(err.response?.data?.detail || "Failed to update user");
+    } catch (err) {
+      setError((err as { response?: { data?: { detail?: string } } }).response?.data?.detail || "Failed to update user");
       setSaving(false);
     }
   };

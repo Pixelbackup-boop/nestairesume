@@ -79,7 +79,7 @@ export default function CoverLetterGeneratorPage() {
 
       setGeneratedLetter(response.data.cover_letter);
     } catch (err) {
-      const apiErr = err as { response?: { data?: { code?: string; error?: string } }; message?: string };
+      const apiErr = err as { response?: { status?: number; data?: { code?: string; error?: string } }; message?: string };
       const errorCode = apiErr?.response?.data?.code;
       const errorMessage = apiErr?.response?.data?.error || apiErr?.message || 'Failed to generate cover letter';
 
@@ -89,7 +89,7 @@ export default function CoverLetterGeneratorPage() {
       } else if (errorCode === 'SUBSCRIPTION_REQUIRED') {
         setError(t('errors.subscriptionRequired'));
         setErrorType('subscription');
-      } else if (err?.response?.status === 401) {
+      } else if (apiErr?.response?.status === 401) {
         setError(t('errors.signInRequired'));
         setErrorType('auth');
       } else {
@@ -113,10 +113,10 @@ export default function CoverLetterGeneratorPage() {
               <Sparkles size={16} />
               {t('hero.badge')}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {t('hero.title')} <span className="gradient-text">{t('hero.titleHighlight')}</span>
             </h1>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className="text-gray-600 text-lg mb-8">
               {t('hero.subtitle')}
             </p>
           </div>
