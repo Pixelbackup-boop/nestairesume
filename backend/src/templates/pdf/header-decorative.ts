@@ -127,7 +127,7 @@ export const renderHeaderDecorative = (data: PdfResumeData, theme: PdfTheme, tra
                         ${escapeHtml(personalInfo.jobTitle || 'Job Title')}
                     </p>
 
-                    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; color: ${headerText}cc; font-size: ${sizes.small};">
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; padding-left: ${photoSize + 16}px; color: ${headerText}cc; font-size: ${sizes.small};">
                         ${personalInfo.email ? `<span>${escapeHtml(personalInfo.email)}</span>` : ''}
                         ${personalInfo.phone ? `<span>${escapeHtml(personalInfo.phone)}</span>` : ''}
                         ${personalInfo.location ? `<span>${escapeHtml(personalInfo.location)}</span>` : ''}

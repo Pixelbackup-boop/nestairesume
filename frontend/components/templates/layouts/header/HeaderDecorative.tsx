@@ -106,6 +106,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                         gap: sp(16),
                         flexWrap: 'wrap',
                         justifyContent: 'flex-end',
+                        paddingLeft: photoSize + sp(16),
                         color: `${headerText}cc`,
                         fontSize: fs.small
                     }}>
