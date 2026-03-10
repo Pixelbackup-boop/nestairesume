@@ -405,7 +405,6 @@ export async function renderResumePdf(
         'sidebar-narrow-yellow',
         'sidebar-monogram',
         'header-dark',
-        'classic-professional'
     ];
 
     const headerTemplates = [
