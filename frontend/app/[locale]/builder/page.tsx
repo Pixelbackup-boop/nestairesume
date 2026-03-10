@@ -21,10 +21,10 @@ import {
 import FontLoader from '@/components/FontLoader';
 import { downloadPdf, PdfTranslations } from '@/lib/pdfService';
 import {
-    Download, Sparkles,
+    Download,
     User, Briefcase, GraduationCap, Wrench, PaintBucket,
-    Check, Home, Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
-    FileText, X, ChevronRight, Menu, CheckCircle, Crown
+    Eye, EyeOff, ZoomIn, ZoomOut, RotateCcw,
+    FileText, Menu,
 } from 'lucide-react';
 import WelcomeModal from './WelcomeModal';
 import MobileSidebar from './MobileSidebar';
@@ -38,8 +38,6 @@ function BuilderContent() {
     const tBuilder = useTranslations('Builder');
     const locale = useLocale();
     const [activeTab, setActiveTab] = useState<TabId>('personal');
-    const [showTemplateDropdown, setShowTemplateDropdown] = useState(false);
-    const [showColorDropdown, setShowColorDropdown] = useState(false);
     const [previewScale, setPreviewScale] = useState(0.75);
     const [showPreview, setShowPreview] = useState(true);
     const [showDownloadModal, setShowDownloadModal] = useState(false);
