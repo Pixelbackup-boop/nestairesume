@@ -61,7 +61,7 @@ export default function RegisterPage() {
             // Redirect to verify email page, forwarding redirect param
             const verifyUrl = localizedHref('/auth/verify-email') + `?email=${encodeURIComponent(email)}` + (redirectTo ? `&redirect=${encodeURIComponent(redirectTo)}` : '');
             router.push(verifyUrl);
-        } catch (err) {
+        } catch {
             // Error handled in store
         }
     };

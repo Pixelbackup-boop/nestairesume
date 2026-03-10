@@ -52,7 +52,7 @@ export default function LoginPage() {
         try {
             await login(email, password);
             router.push(redirectTo || localizedHref('/'));
-        } catch (err) {
+        } catch {
             // Error handled in store
         }
     };

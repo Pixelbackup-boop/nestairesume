@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
@@ -126,7 +127,7 @@ export default async function AuthorProfilePage({
 
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-36 h-36 rounded-full overflow-hidden border-4 border-teal-primary/20 flex-shrink-0 shadow-lg">
-              <img
+              <Image
                 src={author.image}
                 alt={`${author.name} - ${author.jobTitle}`}
                 className="w-full h-full object-cover"

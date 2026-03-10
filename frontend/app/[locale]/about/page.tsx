@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -127,7 +128,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   <div className="relative w-16 h-16 flex-shrink-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent-blue to-accent-purple rounded-full blur-sm opacity-30 group-hover:opacity-50 transition"></div>
                     <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/20 bg-gray-800">
-                      <img
+                      <Image
                         src={a.image}
                         alt={`${a.name} - ${a.jobTitle}`}
                         className="w-full h-full object-cover"

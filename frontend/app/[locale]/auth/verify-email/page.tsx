@@ -101,8 +101,9 @@ export default function VerifyEmailPage() {
                 ? redirectTo + (redirectTo.includes('?') ? '&' : '?') + 'registered=true'
                 : localizedHref('/?registered=true');
             router.push(postVerifyUrl);
-        } catch (err: any) {
-            setError(err.response?.data?.detail || t('verificationFailed'));
+        } catch (err) {
+            const apiErr = err as { response?: { data?: { detail?: string } } };
+            setError(apiErr.response?.data?.detail || t('verificationFailed'));
         } finally {
             setIsVerifying(false);
         }
@@ -120,14 +121,16 @@ export default function VerifyEmailPage() {
             setResendCooldown(60); // 60 second cooldown
             setCode(['', '', '', '', '', '']);
             inputRefs.current[0]?.focus();
-        } catch (err: any) {
-            setError(err.response?.data?.detail || t('resendFailed'));
+        } catch (err) {
+            const apiErr = err as { response?: { data?: { detail?: string } } };
+            setError(apiErr.response?.data?.detail || t('resendFailed'));
         } finally {
             setIsResending(false);
         }
     };
 
     // Auto-verify when all digits entered
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         if (code.every(digit => digit !== '') && code.join('').length === 6) {
             handleVerify();

@@ -1,10 +1,5 @@
 import type { Metadata } from 'next';
 
-const siteConfig = {
-  name: 'Best AI Resume',
-  url: 'https://bestairesumes.com',
-};
-
 export const metadata: Metadata = {
   robots: {
     index: false,

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -79,7 +80,7 @@ export default async function AuthorsPage({ params }: { params: Promise<{ locale
               >
                 {/* Avatar */}
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:shadow-lg transition">
-                  <img
+                  <Image
                     src={author.image}
                     alt={author.name}
                     className="w-full h-full object-cover"
