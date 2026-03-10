@@ -101,8 +101,9 @@ export default function NewBlogPost() {
 
       await api.post("/admin/blog", postData);
       router.push("/admin/blog");
-    } catch (err: any) {
-      setError(err.response?.data?.detail || "Failed to create post");
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
+      setError(apiErr.response?.data?.detail || "Failed to create post");
       setSaving(false);
     }
   };

@@ -5,7 +5,6 @@ import {
   Clock,
   CheckCircle,
   XCircle,
-  Eye,
   Trash2,
   Send,
   ArrowLeft,
@@ -55,6 +54,7 @@ export default function PostQueuePage() {
 
   useEffect(() => {
     fetchPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   const handleApprove = async (id: string) => {

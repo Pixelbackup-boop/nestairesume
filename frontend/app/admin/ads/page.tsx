@@ -75,7 +75,7 @@ export default function AdminAdsPage() {
     try {
       const response = await api.get("/admin/ads/settings");
       setSettings({ ...defaultSettings, ...(response.data as typeof defaultSettings) });
-    } catch (err) {
+    } catch {
       // If no settings exist yet, use defaults
       console.log("No existing ad settings, using defaults");
     } finally {
@@ -89,10 +89,11 @@ export default function AdminAdsPage() {
     try {
       await api.post("/admin/ads/settings", settings);
       setMessage({ type: "success", text: "Ad settings saved successfully!" });
-    } catch (err: any) {
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
       setMessage({
         type: "error",
-        text: err.response?.data?.detail || "Failed to save settings",
+        text: apiErr.response?.data?.detail || "Failed to save settings",
       });
     } finally {
       setSaving(false);

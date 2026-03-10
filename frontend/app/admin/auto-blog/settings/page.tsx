@@ -26,7 +26,7 @@ interface AutoBlogSettings {
 }
 
 export default function AutoBlogSettingsPage() {
-  const [settings, setSettings] = useState<AutoBlogSettings | null>(null);
+  const [, setSettings] = useState<AutoBlogSettings | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);

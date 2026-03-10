@@ -86,8 +86,9 @@ export default function EditBlogPost() {
           published: post.published,
           postType: post.postType || "blog",
         });
-      } catch (err: any) {
-        setError(err.response?.data?.detail || "Failed to load post");
+      } catch (err) {
+        const apiErr = err as { response?: { data?: { detail?: string } } };
+        setError(apiErr.response?.data?.detail || "Failed to load post");
       } finally {
         setLoading(false);
       }
@@ -122,8 +123,9 @@ export default function EditBlogPost() {
 
       await api.put(`/admin/blog/${params.id}`, postData);
       router.push("/admin/blog");
-    } catch (err: any) {
-      setError(err.response?.data?.detail || "Failed to update post");
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
+      setError(apiErr.response?.data?.detail || "Failed to update post");
       setSaving(false);
     }
   };

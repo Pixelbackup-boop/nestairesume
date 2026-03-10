@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { Loader2, Menu } from "lucide-react";
@@ -11,7 +11,6 @@ export default function AdminLayoutClient({
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const { refreshUser } = useAuthStore();
   const isLoginPage = pathname === "/admin/login";

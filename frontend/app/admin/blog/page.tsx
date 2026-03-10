@@ -56,8 +56,9 @@ export default function BlogPage() {
       });
       setData(response.data as BlogResponse);
       setError(null);
-    } catch (err: any) {
-      setError(err.response?.data?.detail || "Failed to load posts");
+    } catch (err) {
+      const apiErr = err as { response?: { data?: { detail?: string } } };
+      setError(apiErr.response?.data?.detail || "Failed to load posts");
     } finally {
       setLoading(false);
     }
