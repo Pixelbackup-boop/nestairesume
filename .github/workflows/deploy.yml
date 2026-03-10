@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [main]
 
+# Cancel any in-progress run for the same branch when a new push arrives.
+# This prevents multiple Docker builds stacking up when commits are pushed quickly.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GCP_REGION: us-central1
@@ -79,13 +85,20 @@ jobs:
       - name: Configure Docker for Artifact Registry
         run: gcloud auth configure-docker ${{ env.ARTIFACT_REGISTRY }}
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build and Push Docker image
         env:
           IMAGE: ${{ env.ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/resume-builder/backend:${{ github.sha }}
           IMAGE_LATEST: ${{ env.ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/resume-builder/backend:latest
         run: |
           cd backend
-          docker build -t "$IMAGE" -t "$IMAGE_LATEST" .
+          # Pull latest for layer cache (|| true so first run doesn't fail)
+          docker pull "$IMAGE_LATEST" || true
+          docker build \
+            --cache-from "$IMAGE_LATEST" \
+            -t "$IMAGE" -t "$IMAGE_LATEST" .
           docker push "$IMAGE"
           docker push "$IMAGE_LATEST"
 
@@ -170,13 +183,19 @@ jobs:
       - name: Configure Docker for Artifact Registry
         run: gcloud auth configure-docker ${{ env.ARTIFACT_REGISTRY }}
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build and Push Docker image
         env:
           IMAGE: ${{ env.ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/resume-builder/frontend:${{ github.sha }}
           IMAGE_LATEST: ${{ env.ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/resume-builder/frontend:latest
         run: |
           cd frontend
+          # Pull latest for layer cache — dramatically reduces next build time on repeat deploys
+          docker pull "$IMAGE_LATEST" || true
           docker build \
+            --cache-from "$IMAGE_LATEST" \
             --build-arg NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} \
             --build-arg NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }} \
             --build-arg NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.GA_MEASUREMENT_ID }} \
