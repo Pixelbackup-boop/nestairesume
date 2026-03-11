@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable react-hooks/static-components */
 
 import React, { useState } from 'react';
 import {
@@ -9,16 +10,13 @@ import {
     EyeOff,
     Trash2,
     Copy,
-    ChevronUp,
     ChevronDown,
     ChevronsUp,
     ChevronsDown,
     RotateCcw,
     Type,
     Square,
-    Circle,
     Image as ImageIcon,
-    Palette,
     AlignLeft,
     AlignCenter,
     AlignRight,
@@ -36,8 +34,6 @@ export default function PropertiesPanel() {
         duplicateElement,
         bringToFront,
         sendToBack,
-        moveUp,
-        moveDown,
         deselectAll,
         saveToHistory,
     } = useCanvasStore();

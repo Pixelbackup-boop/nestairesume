@@ -165,6 +165,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
             transformerRef.current.nodes(nodes);
             transformerRef.current.getLayer()?.batchDraw();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedElementIds, elements]);
 
     // Handle stage click
@@ -245,6 +246,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
             addElement(newShape);
             return;
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTool, addElement, backgroundColor, canvasWidth, canvasHeight, containerSize, deselectAll, zoom, activeShapeType]);
 
     // Handle element selection
@@ -273,6 +275,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
             x: textPosition.x,
             y: textPosition.y,
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [onTextEdit]);
 
     // Handle double-click on shape with image → enter reposition mode
@@ -390,7 +393,6 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
 
     // Render individual element
     const renderElement = (element: AnyCanvasElement) => {
-        const isSelected = selectedElementIds.includes(element.id);
         const commonProps = {
             id: element.id,
             x: element.x,
@@ -499,6 +501,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                     );
                 }
                 return (
+                    // eslint-disable-next-line jsx-a11y/alt-text
                     <Image
                         key={element.id}
                         {...commonProps}
@@ -587,6 +590,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                         ctx.arc(element.width / 2, element.height / 2, radius, 0, Math.PI * 2, false);
                                     }}
                                 >
+                                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
                                     <Image {...shapeImgProps} />
                                     {element.stroke !== 'transparent' && element.strokeWidth > 0 && (
                                         <Circle
@@ -653,6 +657,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                         ctx.closePath();
                                     }}
                                 >
+                                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
                                     <Image {...shapeImgProps} />
                                     {element.stroke !== 'transparent' && element.strokeWidth > 0 && (
                                         <Star
@@ -724,6 +729,7 @@ export default function CanvasWorkspace({ onTextEdit, stageRef: externalStageRef
                                         }
                                     }}
                                 >
+                                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
                                     <Image {...shapeImgProps} />
                                     {element.stroke !== 'transparent' && element.strokeWidth > 0 && (
                                         <Rect

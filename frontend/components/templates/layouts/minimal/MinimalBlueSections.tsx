@@ -18,7 +18,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  *   Specs say: "Section headers have blue background strip".
  * - Typography: Clean Sans.
  */
-function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
+function MinimalBlueSections({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, strengths, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Roboto');
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
@@ -33,7 +33,7 @@ function MinimalBlueSections({ data, theme, scale = 1 }: TemplateProps) {
     // Colors
     const mainText = '#1f2937';
     const accentColor = customThemeColor || '#3b82f6'; // Blue 500
-    const sectionBg = '#eff6ff'; // Very light blue for full band if needed, or just header bg. Let's do header bg.
+
 
     return (
         <div

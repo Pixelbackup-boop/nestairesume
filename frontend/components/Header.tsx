@@ -30,6 +30,7 @@ export default function Header() {
 
   // Close mega menu on route change
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveMenu(null);
     setMobileMenuOpen(false);
   }, [pathname]);

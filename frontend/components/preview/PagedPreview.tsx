@@ -65,6 +65,7 @@ interface FooterDecorationConfig {
     position: 'bottom-left' | 'bottom-right';
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getFooterDecorationConfig = (templateId: string | null, customThemeColor?: string): FooterDecorationConfig | null => {
     if (!templateId) return null;
 

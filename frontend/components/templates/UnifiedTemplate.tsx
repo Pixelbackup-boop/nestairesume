@@ -3,7 +3,7 @@
 import React, { Suspense } from 'react';
 import { ResumeData } from '@/store/useResumeStore';
 import { ThemeColor } from '@/lib/themes';
-import { getTemplateById, getTemplateIdFromLayout, templateRegistry } from './layouts';
+import { getTemplateById, getTemplateIdFromLayout } from './layouts';
 import { TranslationProvider, TemplateTranslations } from '@/lib/templates/TranslationContext';
 
 // Re-export types for convenience

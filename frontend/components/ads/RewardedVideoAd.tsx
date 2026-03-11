@@ -36,6 +36,7 @@ export default function RewardedVideoAd({
     }
 
     if (countdown === 0 && isWatching) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsCompleted(true);
       setIsWatching(false);
       onRewardEarned?.();

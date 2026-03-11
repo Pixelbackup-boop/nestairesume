@@ -21,8 +21,8 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * Matches reference: frontend/Resume-template/unique-layouts/27-icon-section-headers.webp 
  * (Note: Reference name implies icons, but description highlights the Boxes & Cyan)
  */
-function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, languages, strengths, awards, certifications, customFields, customThemeColor, fonts } = data;
+function HeaderIconSections({ data, scale = 1 }: TemplateProps) {
+    const { personalInfo, experience, education, skills, strengths, awards, certifications, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -85,6 +85,7 @@ function HeaderIconSections({ data, theme, scale = 1 }: TemplateProps) {
                             padding: sp.xs,
                             overflow: 'hidden'
                         }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={personalInfo.profileImage}
                                 alt={personalInfo.fullName}

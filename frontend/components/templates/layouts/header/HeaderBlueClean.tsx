@@ -35,7 +35,6 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
     const sp = (px: number) => Math.round(px * sizeMult);
 
     // Icon size helpers
-    const iconSm = scale < 1 ? 8 : sp(10);
     const iconMd = scale < 1 ? 10 : sp(12);
 
     // Helper to get language level percentage
@@ -90,6 +89,7 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                                 flexShrink: 0,
                             }}
                         >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={personalInfo.profileImage}
                                 alt={personalInfo.fullName}

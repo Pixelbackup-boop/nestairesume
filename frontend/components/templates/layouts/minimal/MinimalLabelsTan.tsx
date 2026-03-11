@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
+import { getFontFamily, fontSizes, getScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
 import ProgressBar from '../../shared/ProgressBar';
 import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
@@ -16,7 +16,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  * - Background: Light Tan/Off-white (#fefce8 or #fffbeb).
  * - Style: Very simple, similar to ClassicLabelsLeft but warmer minimal feel.
  */
-function MinimalLabelsTan({ data, theme, scale = 1 }: TemplateProps) {
+function MinimalLabelsTan({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Lato');
     const bodyFont = getFontFamily(fonts?.body || 'Lato');

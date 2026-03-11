@@ -3,7 +3,7 @@
 import React, { memo } from 'react';
 import {
     User, Briefcase, GraduationCap, Award, Settings, Star, Languages, Zap, Link,
-    ClipboardList, FileText, Music, Camera, BookOpen, Plane, CookingPot,
+    FileText, Music, Camera, BookOpen, Plane, CookingPot,
     Gamepad2, Film, Palette, Bike, Sprout, Coffee, Wine
 } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,7 +29,7 @@ import { useTemplateSetup } from '@/hooks';
 function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, awards, interests, certifications, customFields, customThemeColor, fonts } = data;
 
-    const { headingFont, bodyFont, sizeConfig, fs, t, colors } = useTemplateSetup({
+    const { headingFont, bodyFont, sizeConfig, fs, t } = useTemplateSetup({
         customThemeColor,
         fonts,
         scale,
@@ -41,7 +41,6 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
     const sizeMult = parseInt(sizeConfig.base) / 14;
     const sp = (px: number) => Math.round(px * sizeMult);
 
-    const iconSm = scale < 1 ? 8 : sp(10);
     const iconMd = scale < 1 ? 10 : sp(14);
 
     // Single color preset — use customThemeColor directly (parseDualColor puts single colors in secondary, not primary)
@@ -78,6 +77,7 @@ function HeaderRibbonYellow({ data, scale = 1 }: TemplateProps) {
                 >
                     {/* Photo with dark border only - no yellow circle */}
                     {personalInfo.profileImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}

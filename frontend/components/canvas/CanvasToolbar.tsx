@@ -71,7 +71,7 @@ export default function CanvasToolbar({ onExport }: CanvasToolbarProps) {
         setBackgroundGradient,
     } = useCanvasStore();
 
-    const [showSaveMenu, setShowSaveMenu] = React.useState(false);
+    const [, setShowSaveMenu] = React.useState(false);
     const [hasSavedProject, setHasSavedProject] = React.useState(false);
     const [showAIPopup, setShowAIPopup] = React.useState(false);
 

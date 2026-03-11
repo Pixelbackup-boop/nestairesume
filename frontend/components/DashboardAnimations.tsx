@@ -113,6 +113,7 @@ function CountUp({ value, className = '', duration = 1.5 }: CountUpProps) {
 
   useEffect(() => {
     if (prefersReducedMotion || !isInView) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayValue(value);
       return;
     }

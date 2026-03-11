@@ -31,7 +31,6 @@ import {
     Music,
     Book,
     FileText,
-    Folder,
     Settings,
     Zap,
     TrendingUp,
@@ -45,25 +44,15 @@ import {
     Cpu,
     Wifi,
     Shield,
-    Lock,
-    Key,
     Search,
-    Filter,
     Layers,
     Grid,
     Layout,
     Box,
-    Package,
-    Truck,
     Home,
     Building,
-    Flag,
     MessageCircle,
-    MessageSquare,
     Send,
-    Inbox,
-    Download,
-    Upload,
     Share2,
     Link,
     ExternalLink,
@@ -71,7 +60,6 @@ import {
     ArrowUp,
     ChevronRight,
     Play,
-    Pause,
     Circle,
     Square,
     Triangle,
@@ -84,7 +72,7 @@ import {
     LucideIcon,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useCanvasStore, ShapeElement } from '@/store/useCanvasStore';
+import { useCanvasStore } from '@/store/useCanvasStore';
 
 interface IconItem {
     name: string;
@@ -198,6 +186,7 @@ interface IconsLibraryProps {
     onClose?: () => void;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function IconsLibrary({ onClose }: IconsLibraryProps) {
     const t = useTranslations('Common');
     const [selectedCategory, setSelectedCategory] = useState<string>('all');

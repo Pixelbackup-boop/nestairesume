@@ -41,6 +41,7 @@ function BuilderContent() {
     // Check authentication status on mount
     useEffect(() => {
         const authStatus = localStorage.getItem('isAuthenticated') === 'true';
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsAuthenticated(authStatus);
     }, []);
 

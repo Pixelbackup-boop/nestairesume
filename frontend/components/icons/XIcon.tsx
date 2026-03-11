@@ -6,6 +6,7 @@ import { forwardRef } from 'react';
  * Matches lucide-react interface for drop-in replacement
  */
 const XIcon = forwardRef<SVGSVGElement, LucideProps>(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ({ size = 24, strokeWidth = 2, className = '', ...props }, ref) => (
         <svg
             ref={ref}

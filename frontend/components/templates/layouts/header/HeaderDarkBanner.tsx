@@ -3,11 +3,8 @@
 import React, { memo } from 'react';
 import {
     Phone, Mail, MapPin, Globe, Linkedin, Calendar, Monitor, Twitter,
-    Dribbble, Palette, Camera, IdCard, Github, Music, Bike,
-    Plane, BookOpen, CookingPot, Gamepad2, Film, Star, Moon
+    Dribbble, Palette, Camera, IdCard, Github,
 } from 'lucide-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPersonRunning, faPersonSwimming, faPersonHiking, faFutbol, faTableTennisPaddleBall, faPersonPraying } from '@fortawesome/free-solid-svg-icons';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
 import { getFontFamily, fontSizes, getScaledFontSizes, ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
@@ -29,7 +26,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  *
  * Matches reference: frontend/Resume-template/unique-layouts/10-dark-banner.webp
  */
-function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
+function HeaderDarkBanner({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
@@ -128,6 +125,7 @@ function HeaderDarkBanner({ data, theme, scale = 1 }: TemplateProps) {
 
                 {/* Right: Profile Photo */}
                 {personalInfo.profileImage && (
+                    // eslint-disable-next-line @next/next/no-img-element
                     <img
                         src={personalInfo.profileImage}
                         alt={personalInfo.fullName}
@@ -498,30 +496,6 @@ function SectionHeader({ fs, headingFont, accentColor, sp, children }: SectionHe
             {children}
         </h3>
     );
-}
-
-// Interest Icon Helper — returns Lucide or Font Awesome icon based on interest name
-function getInterestIcon(name: string, size: number): React.ReactNode {
-    const nameLower = name.toLowerCase();
-    const faSize = size < 20 ? size * 0.6 : size * 0.7;
-
-    if (nameLower.includes('music') || nameLower.includes('rock')) return <Music size={size} />;
-    if (nameLower.includes('football') || nameLower.includes('soccer')) return <FontAwesomeIcon icon={faFutbol} style={{ width: faSize, height: faSize }} />;
-    if (nameLower.includes('photo')) return <Camera size={size} />;
-    if (nameLower.includes('hiking') || nameLower.includes('hike')) return <FontAwesomeIcon icon={faPersonHiking} style={{ width: faSize, height: faSize }} />;
-    if (nameLower.includes('biking') || nameLower.includes('bike') || nameLower.includes('cycling')) return <Bike size={size} />;
-    if (nameLower.includes('tennis')) return <FontAwesomeIcon icon={faTableTennisPaddleBall} style={{ width: faSize, height: faSize }} />;
-    if (nameLower.includes('travel')) return <Plane size={size} />;
-    if (nameLower.includes('reading') || nameLower.includes('book')) return <BookOpen size={size} />;
-    if (nameLower.includes('cooking') || nameLower.includes('food')) return <CookingPot size={size} />;
-    if (nameLower.includes('gaming') || nameLower.includes('game')) return <Gamepad2 size={size} />;
-    if (nameLower.includes('film') || nameLower.includes('movie')) return <Film size={size} />;
-    if (nameLower.includes('art') || nameLower.includes('paint')) return <Palette size={size} />;
-    if (nameLower.includes('yoga') || nameLower.includes('meditation')) return <FontAwesomeIcon icon={faPersonPraying} style={{ width: faSize, height: faSize }} />;
-    if (nameLower.includes('swim')) return <FontAwesomeIcon icon={faPersonSwimming} style={{ width: faSize, height: faSize }} />;
-    if (nameLower.includes('run')) return <FontAwesomeIcon icon={faPersonRunning} style={{ width: faSize, height: faSize }} />;
-    if (nameLower.includes('sleep') || nameLower.includes('rest') || nameLower.includes('nap')) return <Moon size={size} />;
-    return <Star size={size} />;
 }
 
 // Wrap with memo to prevent unnecessary re-renders

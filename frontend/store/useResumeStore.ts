@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { LayoutConfig, layoutPresets } from '../lib/themes';
-import { colorPresets } from '@/lib/templates/builder';
 
 export interface Experience {
     id: string;
@@ -205,7 +204,7 @@ interface ResumeState {
 
 export const useResumeStore = create<ResumeState>()(
     persist(
-        (set, get) => ({
+        (set) => ({
     resumeData: {
         personalInfo: {
             fullName: '',

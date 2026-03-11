@@ -38,7 +38,7 @@ export default function EducationForm() {
         setExpandedId(expandedId === id ? null : id);
     };
 
-    const handleChange = (id: string, field: keyof Education, value: any) => {
+    const handleChange = (id: string, field: keyof Education, value: string | boolean) => {
         updateEducation(id, { [field]: value });
     };
 

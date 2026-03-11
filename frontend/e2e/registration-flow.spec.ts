@@ -176,6 +176,7 @@ test.describe('Login Flow', () => {
     const forgotLink = page.getByRole('link', { name: /forgot|reset/i });
     const forgotText = page.getByText(/forgot.*password/i);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const hasForgot = await forgotLink.isVisible().catch(() => false) ||
                      await forgotText.isVisible().catch(() => false);
 
@@ -234,7 +235,8 @@ test.describe('Complete User Journey', () => {
     const ctaButton = page.getByRole('link', { name: /get started/i }).first();
 
     if (await ctaButton.isVisible()) {
-      // Get initial URL
+      // Get initial URL (recorded for debugging if needed)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const initialUrl = page.url();
       await ctaButton.click();
 
@@ -256,7 +258,7 @@ test.describe('Complete User Journey', () => {
     try {
       await page.goto('/en/builder', { timeout: 30000 });
       await page.waitForLoadState('domcontentloaded');
-    } catch (e) {
+    } catch {
       // Navigation issue - verify URL
       const url = page.url();
       expect(url.includes('builder') || url.includes('login') || url.includes('auth')).toBe(true);
@@ -275,7 +277,7 @@ test.describe('Complete User Journey', () => {
     try {
       await page.goto('/en/templates', { timeout: 15000 });
       await page.goto('/en/builder', { timeout: 15000 });
-    } catch (e) {
+    } catch {
       // Navigation issues - verify we're on some valid page
       const url = page.url();
       expect(url.includes('/en')).toBe(true);

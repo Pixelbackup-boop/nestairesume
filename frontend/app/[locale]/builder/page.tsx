@@ -92,6 +92,7 @@ function BuilderContent() {
     // Show welcome modal for newly registered users
     useEffect(() => {
         if (searchParams.get('registered') === 'true') {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setShowWelcomeModal(true);
             // Clear the query param to prevent re-showing on refresh
             const url = new URL(window.location.href);
@@ -104,6 +105,7 @@ function BuilderContent() {
     const [hydrated, setHydrated] = useState(false);
     useEffect(() => {
         const unsub = useResumeStore.persist.onFinishHydration(() => setHydrated(true));
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         if (useResumeStore.persist.hasHydrated()) setHydrated(true);
         return () => unsub?.();
     }, []);

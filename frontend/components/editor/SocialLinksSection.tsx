@@ -31,7 +31,7 @@ export default function SocialLinksSection() {
             <p className="text-xs text-gray-500">Add your social media profiles to your resume.</p>
 
             <div className="space-y-3">
-                {socialLinks.map(({ key, label, icon: Icon, placeholder }) => (
+                {socialLinks.map(({ key, icon: Icon, placeholder }) => (
                     <div key={key} className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-bg-card border border-border-subtle rounded-lg flex items-center justify-center text-gray-400">
                             <Icon size={16} />

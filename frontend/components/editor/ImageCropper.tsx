@@ -123,6 +123,7 @@ export default function ImageCropper({ imageSrc, onCropComplete, onCancel }: Ima
                             circularCrop={true}
                             className="max-h-[400px]"
                         >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 ref={imgRef}
                                 src={imageSrc}

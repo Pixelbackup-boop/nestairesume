@@ -80,12 +80,14 @@ function WordBuilderContent() {
 
     useEffect(() => {
         const authStatus = localStorage.getItem('isAuthenticated') === 'true';
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsAuthenticated(authStatus);
     }, []);
 
     useEffect(() => {
         const templateId = searchParams.get('template');
         if (templateId) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setDocxTemplateId(templateId);
             const docxTpl = getDocxTemplateById(templateId);
             if (docxTpl) {

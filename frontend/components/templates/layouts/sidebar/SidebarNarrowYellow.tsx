@@ -73,6 +73,7 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Photo */}
                 <div style={{ marginBottom: scale < 1 ? 32 : sp(56) }}>
                     {personalInfo.profileImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}

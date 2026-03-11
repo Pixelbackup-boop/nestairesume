@@ -20,6 +20,7 @@ interface AuthState {
     register: (email: string, password: string, fullName: string) => Promise<void>;
     logout: () => void;
     refreshUser: () => Promise<void>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setFromNextAuth: (session: any) => void;
     updateProfile: (data: { name?: string; email?: string; avatarId?: number }) => Promise<void>;
 }
@@ -41,6 +42,8 @@ export const useAuthStore = create<AuthState>((set) => ({
 
             const { access_token } = response.data as { access_token: string };
             localStorage.setItem('token', access_token);
+            // Presence-only cookie so Next.js middleware can gate protected routes server-side
+            document.cookie = 'auth_token=1; path=/; SameSite=Strict; Max-Age=2592000';
 
             // 2. Fetch user profile to get role and other details
             const userResponse = await api.get('/auth/me');
@@ -60,6 +63,7 @@ export const useAuthStore = create<AuthState>((set) => ({
                 isLoading: false
             });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             set({
                 error: error.response?.data?.detail || 'Login failed',
@@ -78,6 +82,7 @@ export const useAuthStore = create<AuthState>((set) => ({
                 name: fullName
             });
             set({ isLoading: false });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             set({
                 error: error.response?.data?.detail || 'Registration failed',
@@ -89,6 +94,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
     logout: () => {
         localStorage.removeItem('token');
+        document.cookie = 'auth_token=; path=/; Max-Age=0';
         set({ user: null, isAuthenticated: false });
     },
 
@@ -112,9 +118,10 @@ export const useAuthStore = create<AuthState>((set) => ({
                     subscriptionStatus: userData.subscriptionStatus,
                 },
             });
-        } catch (error) {
-            // Token might be invalid, logout
+        } catch {
+            // Token might be invalid, clear everything
             localStorage.removeItem('token');
+            document.cookie = 'auth_token=; path=/; Max-Age=0';
             set({ user: null, isAuthenticated: false });
         }
     },
@@ -148,6 +155,7 @@ export const useAuthStore = create<AuthState>((set) => ({
                     image: updated.image,
                 } : null,
             }));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             throw error;
         }

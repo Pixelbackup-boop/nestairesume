@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { getBackgroundStyle, getFontFamily, fontSizes, getImageBorderRadius, formatIdType, translateProficiency, getScaledFontSizes } from '../../shared/styleHelpers';
+import { getBackgroundStyle, getFontFamily, fontSizes, getImageBorderRadius, formatIdType, translateProficiency } from '../../shared/styleHelpers';
 import SectionHeader from '../../shared/SectionHeader';
 import ResumeEntry from '../../shared/ResumeEntry';
 import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
@@ -17,8 +17,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
     const headingFont = getFontFamily(fonts?.heading || 'Inter');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
-    const fs = getScaledFontSizes(sizeConfig, scale);
-    const sizeMult = parseInt(sizeConfig.base) / 14;
+const sizeMult = parseInt(sizeConfig.base) / 14;
     const sp = (px: number) => Math.round(px * sizeMult);
     const t = useTemplateTranslations();
 
@@ -44,6 +43,7 @@ function ClassicProfessional({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Profile Image */}
                 {personalInfo.profileImage && (
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: sp(12) }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}

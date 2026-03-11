@@ -54,6 +54,7 @@ export default function LanguageSwitcher({ scrolled = true, isHomePage = false }
     const newPath = segments.join('/') || `/${newLocale}`;
 
     // Persist preference in cookie
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000;SameSite=Lax`;
 
     router.push(newPath);

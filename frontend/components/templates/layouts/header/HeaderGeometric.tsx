@@ -21,8 +21,8 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  *
  * Matches reference: frontend/Resume-template/unique-layouts/09-geometric-header.webp
  */
-function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
-    const { personalInfo, experience, education, skills, strengths, interests, certifications, awards, customFields, customThemeColor, fonts } = data;
+function HeaderGeometric({ data, scale = 1 }: TemplateProps) {
+    const { personalInfo, experience, education, skills, strengths, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather'); // Serif default
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
     const sizeConfig = fontSizes[fonts?.size || 'medium'];
@@ -41,7 +41,6 @@ function HeaderGeometric({ data, theme, scale = 1 }: TemplateProps) {
 
     // Dimensions
     const patternHeight = scale < 1 ? 60 : sp(120);
-    const headerHeight = scale < 1 ? 60 : sp(100);
 
     return (
         <div

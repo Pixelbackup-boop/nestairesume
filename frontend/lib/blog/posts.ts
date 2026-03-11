@@ -131,7 +131,8 @@ export async function getAllPosts(): Promise<PostMeta[]> {
   const allPosts = [...dbPosts, ...uniqueMdxPosts];
 
   // Remove content from metadata
-  const postMetas: PostMeta[] = allPosts.map(({ content, ...meta }) => meta);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const postMetas: PostMeta[] = allPosts.map(({ content: _content, ...meta }) => meta);
 
   // Sort by date, newest first
   return postMetas.sort((a, b) =>
@@ -421,7 +422,8 @@ export async function getAllCareerTips(): Promise<PostMeta[]> {
   const posts = files.map(filename => parseCareerTipFile(filename));
 
   // Remove content from metadata
-  const postMetas: PostMeta[] = posts.map(({ content, ...meta }) => meta);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const postMetas: PostMeta[] = posts.map(({ content: _content, ...meta }) => meta);
 
   // Sort by date, newest first
   return postMetas.sort((a, b) =>

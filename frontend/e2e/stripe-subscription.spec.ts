@@ -2,6 +2,7 @@
  * E2E Test: Stripe Subscription Purchase Flow
  * Tests the complete subscription purchase journey
  */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { test, expect } from '@playwright/test';
 

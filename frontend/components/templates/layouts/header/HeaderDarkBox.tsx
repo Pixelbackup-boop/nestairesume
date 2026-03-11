@@ -3,7 +3,7 @@
 import { memo, ReactNode } from 'react';
 import { User, Briefcase, GraduationCap, Languages, Users, Code, Star, Award, Link, ClipboardList, Twitter, Github, Dribbble, Palette, Camera } from 'lucide-react';
 import { TemplateProps, TemplateMeta } from '../../shared/types';
-import { ScaledFontSizes, translateProficiency } from '../../shared/styleHelpers';
+import { ScaledFontSizes } from '../../shared/styleHelpers';
 import CircularProgress from '../../shared/CircularProgress';
 import ProgressBar from '../../shared/ProgressBar';
 import { useTemplateSetup } from '@/hooks';
@@ -37,7 +37,6 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
     const sp = (px: number) => Math.round(px * sizeMult);
 
     // Dual-color: primary = box BORDER, secondary = accent highlights
-    const boxBorderColor = colors.primary;
     const accentColor = colors.secondary;
 
     return (
@@ -341,7 +340,7 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                                     <div key={str.id} data-paginate="item">
                                         <ProgressBar
                                             label={str.name}
-                                            value={(str as any).level ?? 80}
+                                            value={(str as { level?: number }).level ?? 80}
                                             color={accentColor}
                                             height={scale < 1 ? 6 : sp(10)}
                                             scale={1}
@@ -519,6 +518,7 @@ function ProfileAvatar({ profileImage, fullName, size, accentColor, headingFont,
                     flexShrink: 0,
                 }}
             >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src={profileImage}
                     alt={fullName}

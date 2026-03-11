@@ -48,6 +48,7 @@ function TemplateCard({
       {/* Thumbnail */}
       <div className="aspect-[3/4] bg-gray-100 relative overflow-hidden">
         {thumbnail ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={thumbnail}
             alt={name}

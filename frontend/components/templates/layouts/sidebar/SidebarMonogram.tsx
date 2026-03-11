@@ -79,6 +79,7 @@ function SidebarMonogram({ data, scale = 1 }: TemplateProps) {
             >
                 {/* Profile Image or Monogram */}
                 {personalInfo.profileImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
                     <img
                         src={personalInfo.profileImage}
                         alt={personalInfo.fullName || 'Profile'}

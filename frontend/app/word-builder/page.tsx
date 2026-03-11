@@ -37,6 +37,7 @@ function WordBuilderContent() {
 
     useEffect(() => {
         const authStatus = localStorage.getItem('isAuthenticated') === 'true';
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsAuthenticated(authStatus);
     }, []);
 
@@ -44,6 +45,7 @@ function WordBuilderContent() {
     useEffect(() => {
         const templateId = searchParams.get('template');
         if (templateId) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setDocxTemplateId(templateId);
             // Map DOCX template layout to a preview layout
             const docxTpl = getDocxTemplateById(templateId);

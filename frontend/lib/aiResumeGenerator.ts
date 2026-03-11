@@ -18,7 +18,6 @@ import {
     languagesMap,
     interestsMap,
     strengthsMap,
-    proficiencyLabelsMap,
 } from './resumeLocales';
 import type { JobCategory, LocaleData } from './resumeLocales';
 

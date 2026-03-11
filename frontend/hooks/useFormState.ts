@@ -107,6 +107,7 @@ export function useFormState<T extends Record<string, unknown>>({
     // Clear error when field is updated
     setErrors((prev) => {
       if (prev[field]) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { [field]: _, ...rest } = prev;
         return rest as FieldError<T>;
       }

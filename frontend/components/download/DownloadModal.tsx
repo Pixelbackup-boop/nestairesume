@@ -246,7 +246,7 @@ export default function DownloadModal({
                                 <div>
                                     <p className="text-sm font-medium text-red-900">Download limit reached</p>
                                     <p className="text-sm text-red-700 mt-1">
-                                        You've used all {downloadCheck.limit} downloads this month. Upgrade your plan for more downloads.
+                                        You&apos;ve used all {downloadCheck.limit} downloads this month. Upgrade your plan for more downloads.
                                     </p>
                                 </div>
                             </div>

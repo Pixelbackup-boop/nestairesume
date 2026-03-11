@@ -2,6 +2,7 @@
  * E2E Test: AI Generation with Limit Enforcement
  * Tests AI-powered features and subscription limit enforcement
  */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { test, expect } from '@playwright/test';
 

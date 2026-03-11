@@ -160,9 +160,12 @@ export const authOptions: NextAuthOptions = {
           }
 
           const data = await response.json();
-          // Attach backend user ID and JWT to user object
+          // Attach backend user ID and JWT to user object — NextAuth user type extension requires any
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (user as any).backendId = data.user.id;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (user as any).accessToken = data.access_token;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (user as any).role = data.user.role;
 
           return true;
@@ -175,11 +178,14 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
 
-    async jwt({ token, user, account }) {
+    async jwt({ token, user }) {
       // Initial sign in
       if (user) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         token.id = (user as any).backendId || user.id;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         token.role = (user as any).role || "user";
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         token.accessToken = (user as any).accessToken || "";
         return token;
       }
@@ -215,8 +221,11 @@ export const authOptions: NextAuthOptions = {
 
     async session({ session, token }) {
       if (session.user) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (session.user as any).id = token.id;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (session.user as any).role = token.role;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (session as any).accessToken = token.accessToken;
       }
       return session;

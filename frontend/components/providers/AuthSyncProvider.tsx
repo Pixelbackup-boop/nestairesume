@@ -16,6 +16,7 @@ export function AuthSyncProvider({ children }: Props) {
     if (status === "authenticated" && session) {
       // Sync backend JWT to localStorage so api.ts can use it for Authorization header
       // This also picks up refreshed tokens from the NextAuth jwt callback
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const accessToken = (session as any).accessToken;
       if (accessToken) {
         const current = localStorage.getItem("token");

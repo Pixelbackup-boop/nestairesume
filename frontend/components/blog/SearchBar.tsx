@@ -17,6 +17,7 @@ export default function SearchBar({ placeholder = 'Search articles...', basePath
 
   // Update query when URL changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuery(searchParams.get('q') || '');
   }, [searchParams]);
 

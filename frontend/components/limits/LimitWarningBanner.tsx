@@ -28,7 +28,6 @@ const TYPE_LABELS: Record<LimitType, string> = {
 export default function LimitWarningBanner({
   limitType,
   remaining,
-  limit,
   variant = 'inline',
   onDismiss,
   className = '',

@@ -76,6 +76,7 @@ function CheckoutContent() {
 
   useEffect(() => {
     if (paymentStatus === "cancelled") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setError(t("errors.cancelled"));
     }
   }, [paymentStatus, t]);

@@ -15,7 +15,7 @@ import {
     Trash2,
     Minus,
 } from 'lucide-react';
-import { useCanvasStore, AnyCanvasElement, ShapeElement } from '@/store/useCanvasStore';
+import { useCanvasStore, AnyCanvasElement, ShapeElement, TextElement, ImageElement } from '@/store/useCanvasStore';
 
 export default function LayerPanel() {
     const {
@@ -58,10 +58,10 @@ export default function LayerPanel() {
     const getElementName = (element: AnyCanvasElement) => {
         switch (element.type) {
             case 'text':
-                const text = (element as any).text || 'Text';
+                const text = (element as TextElement).text || 'Text';
                 return text.length > 15 ? text.slice(0, 15) + '...' : text;
             case 'image':
-                return (element as any).src ? 'Image' : 'Image Placeholder';
+                return (element as ImageElement).src ? 'Image' : 'Image Placeholder';
             case 'shape':
                 const shape = element as ShapeElement;
                 return shape.shapeType.charAt(0).toUpperCase() + shape.shapeType.slice(1);

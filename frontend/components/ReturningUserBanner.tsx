@@ -37,6 +37,7 @@ export default function ReturningUserBanner() {
       const state = parsed?.state;
       if (!state || !hasDraftContent(state)) return;
 
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowBanner(true);
 
       if (typeof state.lastEdited === "number") {

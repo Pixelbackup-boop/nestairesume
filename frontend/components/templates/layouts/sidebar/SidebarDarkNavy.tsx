@@ -75,6 +75,7 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Photo */}
                 <div style={{ marginBottom: scale < 1 ? 24 : sp(32) }}>
                     {personalInfo.profileImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}

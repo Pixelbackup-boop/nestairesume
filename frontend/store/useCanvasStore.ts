@@ -327,7 +327,8 @@ export const useCanvasStore = create<CanvasState & CanvasActions>((set, get) => 
         get().saveToHistory();
     },
 
-    loadCommunityTemplate: (designData, name) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    loadCommunityTemplate: (designData, _name) => {
         try {
             const parsed = JSON.parse(designData);
             // Handle both array format and object with elements property

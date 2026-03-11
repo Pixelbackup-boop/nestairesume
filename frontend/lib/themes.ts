@@ -1,4 +1,4 @@
-import type { BackgroundSettings, FontSettings } from "../store/useResumeStore";
+import type { BackgroundSettings } from "../store/useResumeStore";
 
 export type ThemeColor = {
     name: string;
@@ -94,8 +94,8 @@ const generateLayouts = (): LayoutConfig[] => {
     const alignments = ['left', 'center', 'right'] as const;
 
     // 1. Classic Variations (10) - Professional
-    spacings.forEach((spacing, i) => {
-        alignments.forEach((align, j) => {
+    spacings.forEach((spacing) => {
+        alignments.forEach((align) => {
             layouts.push({
                 id: `classic-${spacing}-${align}`,
                 baseLayout: 'classic',

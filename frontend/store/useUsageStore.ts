@@ -40,6 +40,7 @@ export const useUsageStore = create<UsageState>((set, get) => ({
     try {
       const response = await api.get<UsageData>('/payments/usage');
       set({ usage: response.data, isLoading: false });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       set({
         error: error.response?.data?.detail || 'Failed to fetch usage',

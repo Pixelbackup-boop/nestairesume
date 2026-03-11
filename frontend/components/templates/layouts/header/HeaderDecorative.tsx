@@ -7,7 +7,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
 import { parseDualColor, getContrastText } from '@/lib/templates/builder/colorUtils';
 import {
     User, Briefcase, GraduationCap, Wrench, MessageCircle, Zap, Star, Trophy,
-    Link, ClipboardList, FileText, Pin, LucideIcon
+    Link, FileText, Pin, LucideIcon
 } from 'lucide-react';
 
 /**
@@ -23,7 +23,7 @@ import {
  *
  * Matches reference: frontend/Resume-template/unique-layouts/16-decorative-pattern.webp
  */
-function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
+function HeaderDecorative({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, awards, interests, certifications, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Merriweather');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
@@ -132,6 +132,7 @@ function HeaderDecorative({ data, theme, scale = 1 }: TemplateProps) {
                     zIndex: 20
                 }}>
                     {personalInfo.profileImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}

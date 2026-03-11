@@ -39,7 +39,7 @@ const SvgIcon = ({ name, color = '#ffffff', size = 14 }: { name: string; color?:
  * Matches reference: frontend/Resume-template/organized/02-header/header-dark.jpg
  * (Note: The file name says "header-dark" but the spec describes a dark sidebar layout similar to the image analysis).
  */
-function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
+function HeaderDark({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Montserrat'); // defaults to Montserrat/Inter
     const bodyFont = getFontFamily(fonts?.body || 'Open Sans');
@@ -55,7 +55,6 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
     // Icon size helpers
     const iconSm = scale < 1 ? 8 : sp(10);
-    const iconMd = scale < 1 ? 10 : sp(12);
 
     // Parse dual color: primary = sidebar bg, secondary = accent
     const { primary: sidebarBg, secondary: accentColor } = parseDualColor(
@@ -65,7 +64,6 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
 
     // Auto-calculate text colors based on backgrounds
     const sidebarText = getContrastText(sidebarBg);
-    const accentText = getContrastText(accentColor);
     const mainBg = '#ffffff';
     const textDark = '#334155'; // Slate 700
 
@@ -101,6 +99,7 @@ function HeaderDark({ data, theme, scale = 1 }: TemplateProps) {
                 {/* Photo */}
                 <div style={{ marginBottom: scale < 1 ? 32 : sp(50) }}>
                     {personalInfo.profileImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}

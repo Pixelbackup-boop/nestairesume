@@ -79,12 +79,14 @@ function GdocsBuilderContent() {
 
     useEffect(() => {
         const authStatus = localStorage.getItem('isAuthenticated') === 'true';
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsAuthenticated(authStatus);
     }, []);
 
     useEffect(() => {
         const templateId = searchParams.get('template');
         if (templateId) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setGdocsTemplateId(templateId);
             const gdocsTpl = getGdocsTemplateById(templateId);
             if (gdocsTpl) {

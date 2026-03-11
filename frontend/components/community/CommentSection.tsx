@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import api from '@/lib/api';
 import { useAuthStore } from '@/store/useAuthStore';
-import { getContent, type CommunityDetailContent } from '@/lib/content/community-detail-page';
+import { getContent } from '@/lib/content/community-detail-page';
 
 interface CommentUser {
   id: string;

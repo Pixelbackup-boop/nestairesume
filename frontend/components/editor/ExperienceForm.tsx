@@ -34,7 +34,7 @@ export default function ExperienceForm() {
         setExpandedId(expandedId === id ? null : id);
     };
 
-    const handleChange = (id: string, field: keyof Experience, value: any) => {
+    const handleChange = (id: string, field: keyof Experience, value: string | boolean) => {
         updateExperience(id, { [field]: value });
     };
 

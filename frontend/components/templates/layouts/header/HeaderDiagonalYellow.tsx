@@ -20,7 +20,7 @@ import { useTemplateTranslations } from '@/lib/templates/TranslationContext';
  *
  * Matches reference: frontend/Resume-template/unique-layouts/06-diagonal-header.webp
  */
-function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
+function HeaderDiagonalYellow({ data, scale = 1 }: TemplateProps) {
     const { personalInfo, experience, education, skills, languages, strengths, interests, certifications, awards, customFields, customThemeColor, fonts } = data;
     const headingFont = getFontFamily(fonts?.heading || 'Titan One');
     const bodyFont = getFontFamily(fonts?.body || 'Inter');
@@ -156,6 +156,7 @@ function HeaderDiagonalYellow({ data, theme, scale = 1 }: TemplateProps) {
                             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                         }}
                     >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={personalInfo.profileImage}
                             alt={personalInfo.fullName}

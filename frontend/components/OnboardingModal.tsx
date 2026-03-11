@@ -73,6 +73,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId }: Onboard
     // Reset form when modal opens
     useEffect(() => {
         if (isOpen) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setFormData({
                 fullName: '',
                 jobTitle: '',
@@ -208,7 +209,7 @@ export default function OnboardingModal({ isOpen, onClose, templateId }: Onboard
                                 <OnboardingAnimations.FormField>
                                     <label className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-2">
                                         <Briefcase size={14} />
-                                        Job Title You're Applying For
+                                        Job Title You&apos;re Applying For
                                     </label>
                                     <input
                                         type="text"
