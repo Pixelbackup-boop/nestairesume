@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import { motion, useReducedMotion, Variants, AnimatePresence } from 'framer-motion';
 
 interface AnimationProps {
@@ -111,7 +111,7 @@ interface TemplateCardProps extends AnimationProps {
   isHovered?: boolean;
 }
 
-function TemplateCard({ children, className = '', isHovered = false }: TemplateCardProps) {
+function TemplateCard({ children, className = '' }: TemplateCardProps) {
   const prefersReducedMotion = useReducedMotion();
 
   if (prefersReducedMotion) {

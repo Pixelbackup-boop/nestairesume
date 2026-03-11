@@ -134,7 +134,7 @@ interface ProgressDotProps {
   className?: string;
 }
 
-function ProgressDot({ isActive, isCompleted: _isCompleted, className = '' }: ProgressDotProps) {
+function ProgressDot({ isActive, className = '' }: ProgressDotProps) {
   const prefersReducedMotion = useReducedMotion();
 
   if (prefersReducedMotion) {

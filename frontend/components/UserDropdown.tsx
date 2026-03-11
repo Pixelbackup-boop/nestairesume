@@ -67,6 +67,7 @@ export default function UserDropdown({ scrolled = true, isHomePage = false }: Us
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={avatarSrc}
           alt="Avatar"

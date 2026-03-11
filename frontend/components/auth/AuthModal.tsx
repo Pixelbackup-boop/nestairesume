@@ -68,7 +68,7 @@ export default function AuthModal({
             localStorage.setItem('userName', formData.name || formData.email.split('@')[0]);
 
             onSuccess();
-        } catch (err) {
+        } catch {
             setError('Authentication failed. Please try again.');
         } finally {
             setIsLoading(false);
@@ -88,7 +88,7 @@ export default function AuthModal({
             localStorage.setItem('userName', 'User');
 
             onSuccess();
-        } catch (err) {
+        } catch {
             setError(`${provider} authentication failed.`);
         } finally {
             setIsLoading(false);

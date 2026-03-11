@@ -10,7 +10,6 @@ import {
     Type,
     Shapes,
     ChevronRight,
-    X,
     Check,
     Layers,
     Smile,

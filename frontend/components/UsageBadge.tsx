@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useUsageStore, formatUsage, formatRemaining } from '@/store/useUsageStore';
+import { useUsageStore, formatUsage } from '@/store/useUsageStore';
 
 interface UsageBadgeProps {
   type: 'cv' | 'ai' | 'download' | 'coverLetter';

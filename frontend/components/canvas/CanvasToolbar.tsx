@@ -16,7 +16,6 @@ import {
     Download,
     Trash2,
     Copy,
-    Layers,
     ChevronUp,
     ChevronDown,
     Save,
