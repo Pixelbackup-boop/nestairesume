@@ -2,11 +2,14 @@
 title: 'Cách Tạo CV Bằng Overleaf (LaTeX): Hướng Dẫn Chi Tiết'
 slug: tao-cv-bang-overleaf-latex
 description: >-
-  Hướng dẫn tạo CV bằng Overleaf và LaTeX từng bước. Mẫu LaTeX CV chuyên nghiệp cho ngành học thuật, kỹ thuật, và CNTT tại Việt Nam.
+  Hướng dẫn tạo CV bằng Overleaf và LaTeX từng bước. Mẫu LaTeX CV chuyên nghiệp
+  cho ngành học thuật, kỹ thuật, và CNTT tại Việt Nam.
 date: '2026-03-03'
 author: Nguyễn Minh Tuấn
 authorBio: >-
-  Chuyên gia tư vấn nghề nghiệp và viết CV với hơn 10 năm kinh nghiệm trong lĩnh vực tuyển dụng tại Việt Nam. Đã hỗ trợ hàng nghìn ứng viên xây dựng hồ sơ xin việc chuyên nghiệp.
+  Chuyên gia tư vấn nghề nghiệp và viết CV với hơn 10 năm kinh nghiệm trong lĩnh
+  vực tuyển dụng tại Việt Nam. Đã hỗ trợ hàng nghìn ứng viên xây dựng hồ sơ xin
+  việc chuyên nghiệp.
 category: Công Cụ CV
 tags:
   - cv overleaf
@@ -21,34 +24,46 @@ image: /blog/vi-placeholder.svg
 imageAlt: Cách tạo CV bằng Overleaf LaTeX hướng dẫn chi tiết
 featured: false
 faq:
-  - question: 'Overleaf là gì?'
+  - question: Overleaf là gì?
     answer: >-
-      Overleaf là nền tảng online miễn phí để viết tài liệu LaTeX, bao gồm CV. LaTeX cho chất lượng typography vượt trội so với Word hay Google Docs. Đặc biệt phổ biến trong ngành học thuật, kỹ thuật, và CNTT.
-  - question: 'Cần biết LaTeX để dùng Overleaf?'
+      Overleaf là nền tảng online miễn phí để viết tài liệu LaTeX, bao gồm CV.
+      LaTeX cho chất lượng typography vượt trội so với Word hay Google Docs. Đặc
+      biệt phổ biến trong ngành học thuật, kỹ thuật, và CNTT.
+  - question: Cần biết LaTeX để dùng Overleaf?
     answer: >-
-      Không nhất thiết. Overleaf có templates sẵn, chỉ cần thay text. Tuy nhiên, biết LaTeX cơ bản giúp tùy chỉnh tốt hơn. Cú pháp cơ bản: \section{}, \textbf{}, \begin{itemize} — học trong 30 phút.
-  - question: 'LaTeX có hỗ trợ tiếng Việt không?'
+      Không nhất thiết. Overleaf có templates sẵn, chỉ cần thay text. Tuy nhiên,
+      biết LaTeX cơ bản giúp tùy chỉnh tốt hơn. Cú pháp cơ bản: \section{},
+      \textbf{}, \begin{itemize} — học trong 30 phút.
+  - question: LaTeX có hỗ trợ tiếng Việt không?
     answer: >-
-      Có. Dùng package fontspec với LuaLaTeX hoặc XeLaTeX, kết hợp font hỗ trợ Unicode (Roboto, EB Garamond). Thêm dòng: \usepackage{fontspec} và chọn compiler LuaLaTeX trên Overleaf.
-  - question: 'CV LaTeX có tương thích ATS không?'
+      Có. Dùng package fontspec với LuaLaTeX hoặc XeLaTeX, kết hợp font hỗ trợ
+      Unicode (Roboto, EB Garamond). Thêm dòng: \usepackage{fontspec} và chọn
+      compiler LuaLaTeX trên Overleaf.
+  - question: CV LaTeX có tương thích ATS không?
     answer: >-
-      Rất tốt. CV LaTeX xuất PDF text-based, ATS đọc được hoàn hảo. LaTeX không dùng đồ họa phức tạp như Canva nên ATS parse chính xác hơn. Đây là ưu điểm lớn của LaTeX.
-  - question: 'Mẫu LaTeX CV nào phổ biến?'
+      Rất tốt. CV LaTeX xuất PDF text-based, ATS đọc được hoàn hảo. LaTeX không
+      dùng đồ họa phức tạp như Canva nên ATS parse chính xác hơn. Đây là ưu điểm
+      lớn của LaTeX.
+  - question: Mẫu LaTeX CV nào phổ biến?
     answer: >-
-      Top templates: (1) Awesome-CV — hiện đại, nhiều màu, (2) ModernCV — classic, chuyên nghiệp, (3) AltaCV — 2 cột, compact, (4) Deedy-Resume — minimalist, 1 trang. Tìm trên Overleaf Gallery hoặc GitHub.
+      Top templates: (1) Awesome-CV — hiện đại, nhiều màu, (2) ModernCV —
+      classic, chuyên nghiệp, (3) AltaCV — 2 cột, compact, (4) Deedy-Resume —
+      minimalist, 1 trang. Tìm trên Overleaf Gallery hoặc GitHub.
 ---
 
 ## Cách Tạo CV Bằng Overleaf (LaTeX)
 
 Overleaf cho phép tạo CV chất lượng typography cao nhất, phổ biến trong ngành học thuật và kỹ thuật.
 
-### Khi Nào Dùng LaTeX CV
+Hướng dẫn cv overleaf này cung cấp các mẹo thực tế và ví dụ cụ thể giúp bạn nổi bật.
+
+## Khi Nào Dùng LaTeX CV
 
 **Phù hợp:** Ngành học thuật (giảng viên, nghiên cứu sinh), CNTT/kỹ thuật, toán/khoa học, xin PhD/postdoc.
 
 **Không cần thiết:** Ngành kinh doanh, marketing, y tế — dùng [Resume Builder](/vi/resume-builder) tiện hơn.
 
-### Bắt Đầu Với Overleaf
+## Bắt Đầu Với Overleaf
 
 **Bước 1:** Đăng ký tại overleaf.com (miễn phí)
 **Bước 2:** New Project → Templates → Search "Resume" hoặc "CV"
@@ -57,14 +72,14 @@ Overleaf cho phép tạo CV chất lượng typography cao nhất, phổ biến 
 **Bước 5:** Bấm "Recompile" để xem preview
 **Bước 6:** Download PDF
 
-### Hỗ Trợ Tiếng Việt
+## Hỗ Trợ Tiếng Việt
 
 Thêm vào đầu file .tex:
 - Chọn compiler: Menu → Compiler → LuaLaTeX
 - Thêm: \usepackage{fontspec}
 - Font hỗ trợ tiếng Việt: Roboto, EB Garamond, Noto Sans
 
-### Top Mẫu LaTeX CV
+## Top Mẫu LaTeX CV
 
 | Template | Phong cách | Phù hợp |
 |----------|-----------|---------|
@@ -74,8 +89,62 @@ Thêm vào đầu file .tex:
 | Deedy-Resume | Minimalist, 1 trang | Junior, đơn giản |
 | Academic CV | Dài, chi tiết | Học thuật, PhD |
 
-### LaTeX vs Công Cụ Khác
+## LaTeX vs Công Cụ Khác
 
 LaTeX: typography tốt nhất, ATS friendly, miễn phí, cần học cú pháp.
 [Resume Builder](/vi/resume-builder): dễ dùng nhất, ATS friendly, gợi ý AI, không cần kỹ năng kỹ thuật.
 Canva: đẹp nhất, KHÔNG ATS friendly, phù hợp nộp trực tiếp.
+
+
+## Những Lỗi Thường Gặp Cần Tránh
+
+Khi tạo cv overleaf, một số sai lầm phổ biến có thể làm giảm cơ hội của bạn. Thứ nhất, tránh những mô tả chung chung có thể áp dụng cho bất kỳ ứng viên nào. Hãy định lượng thành tích với số liệu cụ thể — "tăng doanh số 23%" thuyết phục hơn nhiều so với "góp phần tăng trưởng doanh số".
+
+Thứ hai, đừng cố gắng đưa vào tất cả các vị trí bạn từng đảm nhiệm. Tập trung vào 10-15 năm kinh nghiệm liên quan nhất. Thứ ba, chú ý đến tính nhất quán trong định dạng. Font chữ khác nhau, khoảng cách không đều và định dạng ngày tháng không thống nhất cho thấy sự thiếu chú ý đến chi tiết.
+
+Một sai lầm phổ biến khác là không tùy chỉnh cv overleaf cho từng đơn ứng tuyển. Nhà tuyển dụng nhận ra ngay tài liệu chung chung. Điều chỉnh tóm tắt chuyên môn, phần kỹ năng và thành tích phù hợp với yêu cầu cụ thể của tin tuyển dụng. Sử dụng từ khóa từ tin tuyển dụng một cách tự nhiên. Cuối cùng, luôn kiểm tra chính tả. Lỗi chính tả và ngữ pháp vẫn là cách nhanh nhất để bị loại.
+
+Trong thị trường việc làm Việt Nam, ảnh chuyên nghiệp, thông tin cá nhân đầy đủ (bao gồm ngày sinh, quê quán) và bằng cấp liên quan vẫn là yêu cầu tiêu chuẩn.
+
+## Lời Khuyên Chuyên Gia cho 2026
+
+Thị trường việc làm năm 2026 đòi hỏi cách tiếp cận hiện đại với cv overleaf. Đây là các chiến lược đã được chứng minh từ các chuyên gia nhân sự:
+
+- **Bắt đầu bằng các tuyên bố tác động.** Mở đầu mỗi gạch đầu dòng bằng động từ hành động mạnh mẽ theo sau là kết quả đo lường được.
+- **Tối ưu cho cả ATS và con người.** Sử dụng tiêu đề phần chuẩn (Kinh nghiệm, Học vấn, Kỹ năng) và tích hợp từ khóa một cách tự nhiên.
+- **Bao gồm phần kỹ năng với mức độ thành thạo.** Các vị trí kỹ thuật đặc biệt có lợi từ ma trận năng lực chi tiết.
+- **Cân nhắc thêm phần Dự án.** Đối với người chuyển nghề hoặc sinh viên mới ra trường, phần dự án có thể chứng minh kỹ năng thực tế.
+- **Giới hạn 1-2 trang.** Trừ khi bạn có hơn 20 năm kinh nghiệm quản lý cấp cao, sự ngắn gọn thể hiện sự tôn trọng thời gian của người đọc.
+
+Hãy nhớ: cv overleaf của bạn là tài liệu marketing cá nhân, không phải tự truyện. Mỗi dòng cần chứng minh giá trị bằng cách thể hiện những gì bạn có thể đóng góp cho nhà tuyển dụng tiềm năng.
+
+## Danh Sách Kiểm Tra Từng Bước
+
+Theo dõi danh sách kiểm tra này để đảm bảo hồ sơ ứng tuyển của bạn hoàn thiện và cạnh tranh:
+
+1. **Nghiên cứu công ty** — hiểu sứ mệnh, sản phẩm và các phát triển gần đây trước khi tùy chỉnh hồ sơ
+2. **Khớp từ khóa** — xác định 8-10 từ khóa quan trọng từ mô tả công việc và đưa vào một cách tự nhiên
+3. **Lượng hóa thành tích** — thay thế mô tả mơ hồ bằng số liệu, tỷ lệ phần trăm cụ thể
+4. **Chọn định dạng phù hợp** — theo thời gian cho sự nghiệp ổn định, theo chức năng cho người chuyển nghề
+5. **Viết tóm tắt hấp dẫn** — phần giới thiệu chuyên môn nên là elevator pitch 3-4 câu thu hút người đọc
+6. **Kiểm tra kỹ lưỡng** — đọc tài liệu từ cuối lên đầu theo từng câu để phát hiện lỗi
+7. **Xin ý kiến người khác** — nhờ đồng nghiệp hoặc mentor đáng tin cậy xem lại bản cuối
+8. **Lưu đúng định dạng** — PDF giữ nguyên định dạng trên mọi thiết bị; DOCX chỉ khi được yêu cầu
+9. **Theo dõi chiến lược** — gửi email theo dõi ngắn gọn sau 5-7 ngày làm việc kể từ khi nộp đơn
+10. **Theo dõi đơn ứng tuyển** — duy trì bảng tính với tên công ty, ngày tháng, liên hệ và trạng thái
+
+Cách tiếp cận có hệ thống này đảm bảo không bỏ sót điều gì trong quá trình tìm việc.
+
+## Xu Hướng Thị Trường Việc Làm 2026
+
+Bức tranh tuyển dụng tiếp tục thay đổi nhanh chóng. Hiểu những xu hướng này mang lại cho bạn lợi thế cạnh tranh đáng kể:
+
+**Sàng lọc bằng AI đã trở thành tiêu chuẩn.** Hơn 75% nhà tuyển dụng lớn sử dụng công cụ sàng lọc hỗ trợ AI. Hồ sơ của bạn phải được tối ưu cho cả đánh giá thuật toán và con người.
+
+**Tuyển dụng dựa trên kỹ năng đang phát triển.** Ngày càng nhiều công ty bỏ yêu cầu bằng cấp và tập trung vào năng lực đã được chứng minh. Nếu bạn có chứng chỉ liên quan hoặc dự án portfolio, hãy nêu bật chúng.
+
+**Làm việc từ xa đã thay đổi kỳ vọng.** Nhà tuyển dụng ngày càng đánh giá cao khả năng tự quản lý, kỹ năng giao tiếp không đồng bộ và kinh nghiệm với các công cụ cộng tác.
+
+**Thương hiệu cá nhân quan trọng hơn.** Sự hiện diện trực tuyến — hồ sơ LinkedIn, trang web cá nhân, blog chuyên môn — thường được xem xét cùng với đơn ứng tuyển chính thức.
+
+**Ứng tuyển bằng video đang nổi lên.** Một số công ty chấp nhận hoặc yêu cầu video giới thiệu ngắn. Hãy luyện tập nói về trình độ của bạn một cách ngắn gọn trước camera.
