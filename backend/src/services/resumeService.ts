@@ -1,5 +1,8 @@
 import prisma from "../config/database";
+import { Prisma } from "@prisma/client";
 import { ResumeData, TemplateInfo, LAYOUTS, THEMES } from "../types";
+
+type JsonResume = Prisma.ResumeGetPayload<object>;
 
 // Generate all template combinations
 export const getTemplates = (): TemplateInfo[] => {
@@ -23,47 +26,7 @@ export const getTemplates = (): TemplateInfo[] => {
   return templates;
 };
 
-const parseJsonField = <T>(field: string | null): T | undefined => {
-  if (!field) return undefined;
-  try {
-    return JSON.parse(field) as T;
-  } catch {
-    return undefined;
-  }
-};
-
-const stringifyJsonField = <T>(data: T | undefined): string | undefined => {
-  if (!data) return undefined;
-  return JSON.stringify(data);
-};
-
-export const transformDbToResume = (dbResume: {
-  id: string;
-  userId: string;
-  title: string;
-  targetRole: string | null;
-  targetCompany: string | null;
-  fullName: string;
-  email: string | null;
-  phone: string | null;
-  location: string | null;
-  linkedinUrl: string | null;
-  portfolioUrl: string | null;
-  summary: string | null;
-  experiences: string | null;
-  education: string | null;
-  skills: string | null;
-  certifications: string | null;
-  projects: string | null;
-  languages: string | null;
-  templateLayout: string;
-  templateTheme: string;
-  customThemeColor: string | null;
-  atsScore: number | null;
-  isMaster: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}): ResumeData & { createdAt: Date; updatedAt: Date } => {
+export const transformDbToResume = (dbResume: JsonResume): ResumeData & { createdAt: Date; updatedAt: Date } => {
   return {
     id: dbResume.id,
     userId: dbResume.userId,
@@ -77,12 +40,12 @@ export const transformDbToResume = (dbResume: {
     linkedinUrl: dbResume.linkedinUrl || undefined,
     portfolioUrl: dbResume.portfolioUrl || undefined,
     summary: dbResume.summary || undefined,
-    experiences: parseJsonField(dbResume.experiences),
-    education: parseJsonField(dbResume.education),
-    skills: parseJsonField(dbResume.skills),
-    certifications: parseJsonField(dbResume.certifications),
-    projects: parseJsonField(dbResume.projects),
-    languages: parseJsonField(dbResume.languages),
+    experiences: (dbResume.experiences ?? undefined) as ResumeData['experiences'],
+    education: (dbResume.education ?? undefined) as ResumeData['education'],
+    skills: (dbResume.skills ?? undefined) as ResumeData['skills'],
+    certifications: (dbResume.certifications ?? undefined) as ResumeData['certifications'],
+    projects: (dbResume.projects ?? undefined) as ResumeData['projects'],
+    languages: (dbResume.languages ?? undefined) as ResumeData['languages'],
     templateLayout: dbResume.templateLayout,
     templateTheme: dbResume.templateTheme,
     customThemeColor: dbResume.customThemeColor || undefined,
@@ -93,8 +56,9 @@ export const transformDbToResume = (dbResume: {
   };
 };
 
-export const createResume = async (userId: string, data: ResumeData) => {
-  const resume = await prisma.resume.create({
+export const createResume = async (userId: string, data: ResumeData, tx?: Prisma.TransactionClient) => {
+  const db = tx ?? prisma;
+  const resume = await db.resume.create({
     data: {
       userId,
       title: data.title,
@@ -107,12 +71,12 @@ export const createResume = async (userId: string, data: ResumeData) => {
       linkedinUrl: data.linkedinUrl,
       portfolioUrl: data.portfolioUrl,
       summary: data.summary,
-      experiences: stringifyJsonField(data.experiences),
-      education: stringifyJsonField(data.education),
-      skills: stringifyJsonField(data.skills),
-      certifications: stringifyJsonField(data.certifications),
-      projects: stringifyJsonField(data.projects),
-      languages: stringifyJsonField(data.languages),
+      experiences: (data.experiences ?? undefined) as Prisma.InputJsonValue | undefined,
+      education: (data.education ?? undefined) as Prisma.InputJsonValue | undefined,
+      skills: (data.skills ?? undefined) as Prisma.InputJsonValue | undefined,
+      certifications: (data.certifications ?? undefined) as Prisma.InputJsonValue | undefined,
+      projects: (data.projects ?? undefined) as Prisma.InputJsonValue | undefined,
+      languages: (data.languages ?? undefined) as Prisma.InputJsonValue | undefined,
       templateLayout: data.templateLayout || "CLASSIC",
       templateTheme: data.templateTheme || "NAVY",
       customThemeColor: data.customThemeColor,
@@ -165,12 +129,12 @@ export const updateResume = async (resumeId: string, userId: string, data: Parti
       ...(data.linkedinUrl !== undefined && { linkedinUrl: data.linkedinUrl }),
       ...(data.portfolioUrl !== undefined && { portfolioUrl: data.portfolioUrl }),
       ...(data.summary !== undefined && { summary: data.summary }),
-      ...(data.experiences !== undefined && { experiences: stringifyJsonField(data.experiences) }),
-      ...(data.education !== undefined && { education: stringifyJsonField(data.education) }),
-      ...(data.skills !== undefined && { skills: stringifyJsonField(data.skills) }),
-      ...(data.certifications !== undefined && { certifications: stringifyJsonField(data.certifications) }),
-      ...(data.projects !== undefined && { projects: stringifyJsonField(data.projects) }),
-      ...(data.languages !== undefined && { languages: stringifyJsonField(data.languages) }),
+      ...(data.experiences !== undefined && { experiences: data.experiences as unknown as Prisma.InputJsonValue }),
+      ...(data.education !== undefined && { education: data.education as unknown as Prisma.InputJsonValue }),
+      ...(data.skills !== undefined && { skills: data.skills as unknown as Prisma.InputJsonValue }),
+      ...(data.certifications !== undefined && { certifications: data.certifications as unknown as Prisma.InputJsonValue }),
+      ...(data.projects !== undefined && { projects: data.projects as unknown as Prisma.InputJsonValue }),
+      ...(data.languages !== undefined && { languages: data.languages as unknown as Prisma.InputJsonValue }),
       ...(data.templateLayout !== undefined && { templateLayout: data.templateLayout }),
       ...(data.templateTheme !== undefined && { templateTheme: data.templateTheme }),
       ...(data.customThemeColor !== undefined && { customThemeColor: data.customThemeColor }),

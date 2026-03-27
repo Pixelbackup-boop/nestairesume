@@ -110,12 +110,12 @@ model Resume {
   linkedinUrl      String?
   portfolioUrl     String?
   summary          String?  @db.Text
-  experiences      String?  @db.Text // JSON array stored as text
-  education        String?  @db.Text // JSON array stored as text
-  skills           String?  @db.Text // JSON array stored as text
-  certifications   String?  @db.Text // JSON array stored as text
-  projects         String?  @db.Text // JSON array stored as text
-  languages        String?  @db.Text // JSON array stored as text
+  experiences      Json?                // JSON array (native jsonb in PostgreSQL)
+  education        Json?                // JSON array (native jsonb in PostgreSQL)
+  skills           Json?                // JSON array (native jsonb in PostgreSQL)
+  certifications   Json?                // JSON array (native jsonb in PostgreSQL)
+  projects         Json?                // JSON array (native jsonb in PostgreSQL)
+  languages        Json?                // JSON array (native jsonb in PostgreSQL)
   templateLayout   String   @default("CLASSIC")
   templateTheme    String   @default("NAVY")
   customThemeColor String?

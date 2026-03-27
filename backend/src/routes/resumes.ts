@@ -1,7 +1,8 @@
 import { Router, Response } from "express";
 import { authenticateToken, AuthRequest } from "../middleware/auth";
 import { asyncHandler, requireAuth, errorResponse } from "../middleware/asyncHandler";
-import { checkCvLimit, incrementCvCount } from "../middleware/subscriptionLimits";
+import { checkCvLimit } from "../middleware/subscriptionLimits";
+import prisma from "../config/database";
 import {
   getTemplates,
   createResume,
@@ -27,10 +28,15 @@ router.post("/", authenticateToken, requireAuth, checkCvLimit, asyncHandler<Auth
     return;
   }
 
-  const resume = await createResume(req.user!.id, req.body);
-
-  // Increment CV count after successful creation
-  await incrementCvCount(req.user!.id);
+  // Wrap in transaction so count increment rolls back if resume create fails
+  const resume = await prisma.$transaction(async (tx) => {
+    const created = await createResume(req.user!.id, req.body, tx);
+    await tx.user.update({
+      where: { id: req.user!.id },
+      data: { cvCreatedCount: { increment: 1 } },
+    });
+    return created;
+  });
 
   res.status(201).json(resume);
 }));
