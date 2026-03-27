@@ -34,12 +34,21 @@ jest.mock('../../services/resumeService', () => ({
 const mockPrisma = prisma as jest.Mocked<typeof prisma>;
 const mockResumeService = jest.requireMock('../../services/resumeService');
 
+// Mock $transaction to execute the callback with a fake tx client
+const mockTxClient = {
+  user: { update: jest.fn() },
+};
+(mockPrisma.$transaction as jest.Mock) = jest.fn(async (cb: (tx: typeof mockTxClient) => Promise<unknown>) => cb(mockTxClient));
+
 describe('Resumes API Integration Tests', () => {
   let testUser: ReturnType<typeof createStarterUser>;
   let authToken: string;
 
   beforeEach(() => {
     jest.clearAllMocks();
+    // Re-assign after clearAllMocks since it resets the mock
+    (mockPrisma.$transaction as jest.Mock) = jest.fn(async (cb: (tx: typeof mockTxClient) => Promise<unknown>) => cb(mockTxClient));
+    mockTxClient.user.update.mockResolvedValue({});
     testUser = createStarterUser();
     authToken = generateTestToken(testUser);
   });
@@ -159,7 +168,7 @@ describe('Resumes API Integration Tests', () => {
           fullName: 'Test User',
         });
 
-      expect(mockPrisma.user.update).toHaveBeenCalledWith(
+      expect(mockTxClient.user.update).toHaveBeenCalledWith(
         expect.objectContaining({
           data: expect.objectContaining({
             cvCreatedCount: expect.any(Object),

@@ -6,6 +6,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Resume Builder Complete Flow', () => {
+  // Builder page has heavy hydration (Zustand + lazy templates) — CI runners need more time
+  test.describe.configure({ timeout: 60000 });
+
   test.beforeEach(async ({ page }) => {
     await page.context().clearCookies();
   });
