@@ -183,8 +183,6 @@ setupSentryErrorHandler(app);
 // Process-level error handlers
 process.on('unhandledRejection', (reason) => {
   logger.error({ err: reason }, 'Unhandled promise rejection');
-  // Exit so Cloud Run restarts the container instead of leaving a zombie
-  process.exit(1);
 });
 
 process.on('uncaughtException', (err) => {
