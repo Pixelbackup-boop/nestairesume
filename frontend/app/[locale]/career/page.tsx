@@ -12,9 +12,23 @@ import { getCareerListingContent } from '@/lib/content/career-pages';
 import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+
+interface CareerPageProps {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ page?: string }>;
+}
+
+export async function generateMetadata({ params, searchParams }: CareerPageProps): Promise<Metadata> {
   const { locale } = await params;
+  const sp = await searchParams;
+  const currentPage = Number(sp.page) || 1;
   const c = getCareerListingContent(locale);
+
+  const allPosts = await getAllCareerPosts();
+  const totalPages = Math.ceil(allPosts.length / 9);
+  const pageParam = currentPage > 1 ? `?page=${currentPage}` : '';
+  const prevParam = currentPage > 2 ? `?page=${currentPage - 1}` : '';
+
   return {
     title: c.meta.title,
     description: c.meta.description,
@@ -24,15 +38,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: 'website',
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}/career`,
-      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/career`])),
+      canonical: `${siteUrl}/${locale}/career${pageParam}`,
+      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/career${pageParam}`])),
+    },
+    other: {
+      ...(currentPage > 1 && { 'link-prev': `${siteUrl}/${locale}/career${prevParam}` }),
+      ...(currentPage < totalPages && { 'link-next': `${siteUrl}/${locale}/career?page=${currentPage + 1}` }),
     },
   };
-}
-
-interface CareerPageProps {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{ page?: string }>;
 }
 
 export default async function CareerPage({ params, searchParams }: CareerPageProps) {

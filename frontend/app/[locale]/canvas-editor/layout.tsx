@@ -1,11 +1,5 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { getOgLocale } from '@/i18n.config';
-
-const siteConfig = {
-  name: 'Best AI Resume',
-  url: 'https://bestairesumes.com',
-};
 
 export async function generateMetadata({
   params,
@@ -21,29 +15,9 @@ export async function generateMetadata({
   return {
     title,
     description,
-    keywords: [
-      'canvas resume editor',
-      'visual resume builder',
-      'drag and drop resume',
-      'custom resume design',
-      'creative resume maker',
-      'resume design tool',
-    ],
-    openGraph: {
-      type: 'website',
-      locale: getOgLocale(locale),
-      url: `${siteConfig.url}/${locale}/canvas-editor`,
-      siteName: siteConfig.name,
-      title,
-      description,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
-    alternates: {
-      canonical: `${siteConfig.url}/${locale}/canvas-editor`,
+    robots: {
+      index: false,
+      follow: false,
     },
   };
 }

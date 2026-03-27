@@ -169,7 +169,7 @@ export default async function CoverLetterExamplePage({
       "@type": "Person",
       name: author.name,
       jobTitle: author.jobTitle,
-      url: `${siteUrl}/about/${author.slug}`,
+      url: `${siteUrl}/${locale}/about/${author.slug}`,
       image: `${siteUrl}${author.image}`,
       knowsAbout: author.expertise,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
@@ -185,8 +185,8 @@ export default async function CoverLetterExamplePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Cover Letter Examples", item: `${siteUrl}/cover-letter-examples` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 2, name: "Cover Letter Examples", item: `${siteUrl}/${locale}/cover-letter-examples` },
       { "@type": "ListItem", position: 3, name: `${example.jobTitle} Cover Letter` },
     ],
   };

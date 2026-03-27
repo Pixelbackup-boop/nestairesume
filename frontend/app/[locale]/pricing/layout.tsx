@@ -64,20 +64,27 @@ const alternateLanguages: Record<string, string> = {
 }
 
 // Breadcrumb schema — hardcoded constants only, no user input
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-    { '@type': 'ListItem', position: 2, name: 'Pricing', item: `${siteConfig.url}/pricing` },
-  ],
-};
+function getBreadcrumbSchema(locale: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteConfig.url}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'Pricing', item: `${siteConfig.url}/${locale}/pricing` },
+    ],
+  };
+}
 
-export default function PricingLayout({
+export default async function PricingLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  const breadcrumbSchema = getBreadcrumbSchema(locale);
+  // SAFE: breadcrumbSchema is built from hardcoded constants and locale param only
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />

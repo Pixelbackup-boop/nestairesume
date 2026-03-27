@@ -17,5 +17,7 @@ Disallow: /*/checkout/
 Disallow: /*/profile/
 Disallow: /*/canvas-editor/
 Disallow: /*/test-ads/
+Disallow: /_next/
+Disallow: /favicon.ico
 
 Sitemap: https://bestairesumes.com/sitemap.xml

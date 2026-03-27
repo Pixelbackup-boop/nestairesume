@@ -66,16 +66,18 @@ const alternateLanguages: Record<string, string> = {
   };
 }
 
-// Breadcrumb schema — hardcoded constants only, no user input
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-    { '@type': 'ListItem', position: 2, name: 'Tools', item: `${siteConfig.url}/tools` },
-    { '@type': 'ListItem', position: 3, name: 'Cover Letter Generator', item: `${siteConfig.url}/tools/cover-letter` },
-  ],
-};
+// Breadcrumb schema factory — locale-aware, hardcoded constants only
+function getBreadcrumbSchema(locale: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteConfig.url}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'Tools', item: `${siteConfig.url}/${locale}/tools` },
+      { '@type': 'ListItem', position: 3, name: 'Cover Letter Generator', item: `${siteConfig.url}/${locale}/tools/cover-letter` },
+    ],
+  };
+}
 
 const softwareAppSchema = {
   '@context': 'https://schema.org',
@@ -90,11 +92,15 @@ const softwareAppSchema = {
   },
 };
 
-export default function CoverLetterLayout({
+export default async function CoverLetterLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  const breadcrumbSchema = getBreadcrumbSchema(locale);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />

@@ -109,7 +109,7 @@ export default async function ResumeFormatPage({ params }: { params: Promise<{ l
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };

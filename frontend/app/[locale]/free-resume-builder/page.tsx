@@ -33,7 +33,7 @@ export default async function FreeResumeBuilderPage({ params }: { params: Promis
     const breadcrumbSchema = {
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -53,9 +53,9 @@ export default async function FreeResumeBuilderPage({ params }: { params: Promis
         '@context': 'https://schema.org', '@type': 'Article',
         headline: c.schemas.articleHeadline, description: c.schemas.articleDescription,
         datePublished: '2026-01-28', dateModified: '2026-01-28',
-        author: { '@type': 'Person', name: 'Emily Watson', url: `${siteUrl}/about/emily-watson`, jobTitle: 'Career Development Specialist' },
+        author: { '@type': 'Person', name: 'Emily Watson', url: `${siteUrl}/${locale}/about/emily-watson`, jobTitle: 'Career Development Specialist' },
         publisher: { '@type': 'Organization', name: 'Best AI Resume', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/free-resume-builder` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/free-resume-builder` },
     };
 
     // SAFE: These render hardcoded content strings from our own content files — no user input involved

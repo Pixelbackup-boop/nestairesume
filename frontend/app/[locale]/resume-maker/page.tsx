@@ -33,7 +33,7 @@ export default async function ResumeMakerPage({ params }: { params: Promise<{ lo
     const breadcrumbSchema = {
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -53,9 +53,9 @@ export default async function ResumeMakerPage({ params }: { params: Promise<{ lo
         '@context': 'https://schema.org', '@type': 'Article',
         headline: c.schemas.articleHeadline, description: c.schemas.articleDescription,
         datePublished: '2026-01-28', dateModified: '2026-01-28',
-        author: { '@type': 'Person', name: 'Sarah Chen', url: `${siteUrl}/about/sarah-chen`, jobTitle: 'Career Coach & Resume Expert' },
+        author: { '@type': 'Person', name: 'Sarah Chen', url: `${siteUrl}/${locale}/about/sarah-chen`, jobTitle: 'Career Coach & Resume Expert' },
         publisher: { '@type': 'Organization', name: 'Best AI Resume', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/resume-maker` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/resume-maker` },
     };
 
     // SAFE: These render hardcoded content strings from our own content files — no user input involved

@@ -172,7 +172,7 @@ export default async function ResumeExamplePage({
       "@type": "Person",
       name: author.name,
       jobTitle: author.jobTitle,
-      url: `${siteUrl}/about/${author.slug}`,
+      url: `${siteUrl}/${locale}/about/${author.slug}`,
       image: `${siteUrl}${author.image}`,
       knowsAbout: author.expertise,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
@@ -214,8 +214,8 @@ export default async function ResumeExamplePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Resume Examples", item: `${siteUrl}/resume-examples` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 2, name: "Resume Examples", item: `${siteUrl}/${locale}/resume-examples` },
       { "@type": "ListItem", position: 3, name: `${example.jobTitle} Resume` },
     ],
   };

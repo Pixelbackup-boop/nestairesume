@@ -21,7 +21,31 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
+  // www → non-www redirect (prevent domain authority split)
+  if (request.headers.get('host')?.startsWith('www.')) {
+    const url = request.nextUrl.clone();
+    url.host = url.host.replace('www.', '');
+    return NextResponse.redirect(url, 301);
+  }
+
   const { pathname } = request.nextUrl;
+
+  // Server-side route protection for authenticated-only pages
+  // Checks for our custom auth cookie (email/password login) or NextAuth session cookie (OAuth login)
+  const protectedMatch = pathname.match(/^\/([a-z]{2})\/(dashboard|builder|profile)(\/|$)/);
+  if (protectedMatch) {
+    const locale = protectedMatch[1];
+    const isAuthenticated =
+      request.cookies.has('auth_token') ||
+      request.cookies.has('next-auth.session-token') ||
+      request.cookies.has('__Secure-next-auth.session-token');
+
+    if (!isAuthenticated) {
+      const loginUrl = new URL(`/${locale}/auth/login`, request.url);
+      loginUrl.searchParams.set('redirect', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+  }
 
   // Bypass maintenance for admin, api, internals, static files, maintenance page
   const isExcluded =

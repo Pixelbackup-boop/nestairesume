@@ -65,23 +65,30 @@ const alternateLanguages: Record<string, string> = {
   };
 }
 
-// Breadcrumb schema — hardcoded constants only, no user input
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-    { '@type': 'ListItem', position: 2, name: 'Templates', item: `${siteConfig.url}/templates` },
-  ],
-};
+// Breadcrumb schema — hardcoded constants and locale param only, no user input
+function getBreadcrumbSchema(locale: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteConfig.url}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'Templates', item: `${siteConfig.url}/${locale}/templates` },
+    ],
+  };
+}
 
-export default function TemplatesLayout({
+export default async function TemplatesLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  const breadcrumbSchema = getBreadcrumbSchema(locale);
   return (
     <>
+      {/* SAFE: schema built from hardcoded constants and locale param only */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {children}
     </>

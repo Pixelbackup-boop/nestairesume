@@ -49,7 +49,7 @@ export default async function CanvaAlternativePage({ params }: { params: Promise
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -74,7 +74,7 @@ export default async function CanvaAlternativePage({ params }: { params: Promise
         author: {
             '@type': 'Person',
             name: 'Alex Brown',
-            url: `${siteUrl}/about/alex-brown`,
+            url: `${siteUrl}/${locale}/about/alex-brown`,
             jobTitle: 'Senior HR & Resume Strategist',
         },
         publisher: {
@@ -83,7 +83,7 @@ export default async function CanvaAlternativePage({ params }: { params: Promise
             url: siteUrl,
             logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
         },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/canva-alternative` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/canva-alternative` },
     };
 
     return (

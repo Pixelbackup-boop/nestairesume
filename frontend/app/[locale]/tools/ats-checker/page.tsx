@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Upload, FileText, CheckCircle, AlertTriangle, XCircle, Loader2, RefreshCw, ArrowRight } from 'lucide-react';
@@ -112,6 +112,7 @@ function ScoreCircle({ score, t }: { score: number; t: (key: string) => string }
 
 export default function ATSCheckerPage() {
     const t = useTranslations('AtsChecker');
+    const locale = useLocale();
     const [state, setState] = useState<PageState>('idle');
     const [file, setFile] = useState<File | null>(null);
     const [result, setResult] = useState<AtsResult | null>(null);
@@ -207,8 +208,8 @@ export default function ATSCheckerPage() {
         {
             '@context': 'https://schema.org', '@type': 'BreadcrumbList',
             itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-                { '@type': 'ListItem', position: 2, name: 'Tools', item: `${siteUrl}/tools` },
+                { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+                { '@type': 'ListItem', position: 2, name: 'Tools', item: `${siteUrl}/${locale}/tools` },
                 { '@type': 'ListItem', position: 3, name: 'ATS Resume Checker' },
             ],
         },
@@ -439,7 +440,7 @@ export default function ATSCheckerPage() {
                                     {t('results.checkAnother')}
                                 </button>
                                 <Link
-                                    href="/builder"
+                                    href={`/${locale}/builder`}
                                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30"
                                 >
                                     {t('results.buildAtsResume')}
@@ -556,15 +557,15 @@ export default function ATSCheckerPage() {
                 <div className="max-w-4xl mx-auto px-6">
                     <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">{t('resources.title')}</h2>
                     <div className="grid md:grid-cols-3 gap-6">
-                        <Link href="/blog/how-to-write-ats-friendly-resume" className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
+                        <Link href={`/${locale}/blog/how-to-write-ats-friendly-resume`} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
                             <h3 className="font-bold text-gray-900 mb-2">{t('resources.guide.title')}</h3>
                             <p className="text-gray-600 text-sm">{t('resources.guide.description')}</p>
                         </Link>
-                        <Link href="/templates" className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
+                        <Link href={`/${locale}/templates`} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
                             <h3 className="font-bold text-gray-900 mb-2">{t('resources.templates.title')}</h3>
                             <p className="text-gray-600 text-sm">{t('resources.templates.description')}</p>
                         </Link>
-                        <Link href="/resume-examples" className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
+                        <Link href={`/${locale}/resume-examples`} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
                             <h3 className="font-bold text-gray-900 mb-2">{t('resources.examples.title')}</h3>
                             <p className="text-gray-600 text-sm">{t('resources.examples.description')}</p>
                         </Link>

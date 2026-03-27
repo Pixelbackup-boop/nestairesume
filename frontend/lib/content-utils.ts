@@ -16,5 +16,7 @@ export function resolveContentPath(contentDir: string, slug: string, locale: str
     const localePath = path.join(contentDir, locale, `${slug}.mdx`);
     if (fs.existsSync(localePath)) return localePath;
   }
-  return path.join(contentDir, `${slug}.mdx`);
+  const rootPath = path.join(contentDir, `${slug}.mdx`);
+  if (!fs.existsSync(rootPath)) return '';
+  return rootPath;
 }

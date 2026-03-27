@@ -96,7 +96,7 @@ export default async function ATSFriendlyTemplatesPage({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: t('breadcrumb.current') },
         ],
     };

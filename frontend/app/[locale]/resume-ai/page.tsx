@@ -97,7 +97,7 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -132,7 +132,7 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
         author: {
             '@type': 'Person',
             name: 'Michael Torres',
-            url: `${siteUrl}/about/michael-torres`,
+            url: `${siteUrl}/${locale}/about/michael-torres`,
             jobTitle: 'AI Technology & Career Expert',
         },
         publisher: {

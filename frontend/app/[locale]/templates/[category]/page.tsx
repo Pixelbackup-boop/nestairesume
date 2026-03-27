@@ -76,7 +76,7 @@ export default async function TemplateCategoryPage({ params }: Props) {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: c.breadcrumbTemplates, item: `${siteUrl}/${locale}/templates` },
             { '@type': 'ListItem', position: 3, name: catData.title, item: `${siteUrl}/${locale}/templates/${category}` },
         ],

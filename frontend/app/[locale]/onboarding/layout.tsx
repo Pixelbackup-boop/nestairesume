@@ -21,41 +21,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    keywords: [
-      'create resume',
-      'AI resume generator',
-      'build resume online',
-      'quick resume maker',
-      'professional CV creator',
-    ],
-    openGraph: {
-      type: 'website',
-      locale: getOgLocale(locale),
-      url: `${siteConfig.url}/${locale}/onboarding`,
-      siteName: siteConfig.name,
-      title,
-      description,
-      images: [
-        {
-          url: '/og-onboarding.png',
-          width: 1200,
-          height: 630,
-          alt: 'Create Your Resume with AI',
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
-    alternates: {
-      canonical: `${siteConfig.url}/${locale}/onboarding`,
-      languages: Object.fromEntries([
-        ['x-default', `${siteConfig.url}/en/onboarding`],
-        ...locales.map(l => [l, `${siteConfig.url}/${l}/onboarding`]),
-      ]),
-    },
+    robots: { index: false, follow: false },
   };
 }
 

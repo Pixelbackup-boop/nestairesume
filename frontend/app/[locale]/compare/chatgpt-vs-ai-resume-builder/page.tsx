@@ -52,8 +52,8 @@ export default async function ChatGPTComparisonPage({ params }: { params: Promis
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-            { '@type': 'ListItem', position: 2, name: 'Compare', item: `${siteUrl}/compare` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+            { '@type': 'ListItem', position: 2, name: 'Compare', item: `${siteUrl}/${locale}/compare` },
             { '@type': 'ListItem', position: 3, name: c.schemas.breadcrumbName },
         ],
     };
@@ -78,7 +78,7 @@ export default async function ChatGPTComparisonPage({ params }: { params: Promis
         author: {
             '@type': 'Person',
             name: 'Alex Brown',
-            url: `${siteUrl}/about/alex-brown`,
+            url: `${siteUrl}/${locale}/about/alex-brown`,
             jobTitle: 'Senior HR & Resume Strategist',
         },
         publisher: {

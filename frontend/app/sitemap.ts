@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerCategories, getAllCareerTips, getAllCareerTipsCategories, getLocaleOnlyPostSlugs, getLocaleOnlyCareerTipSlugs } from '@/lib/blog/posts';
+import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerTips, getLocaleOnlyPostSlugs, getLocaleOnlyCareerTipSlugs } from '@/lib/blog/posts';
 import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
@@ -30,7 +30,6 @@ function getStaticAndMiscPages(baseUrl: string, now: Date): MetadataRoute.Sitema
     { path: '/resume-examples', priority: 0.9 },
     { path: '/cover-letter-examples', priority: 0.9 },
     { path: '/resume-format', priority: 0.8 },
-    { path: '/builder', priority: 0.8 },
     { path: '/tools/cover-letter', priority: 0.7 },
     { path: '/tools/resignation-letter', priority: 0.7 },
     { path: '/tools/ats-checker', priority: 0.7 },
@@ -107,11 +106,6 @@ async function getBlogAndCareerPages(baseUrl: string, now: Date): Promise<Metada
     localizedUrls(baseUrl, `/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
   );
 
-  const careerCategories = await getAllCareerCategories();
-  const careerCategoryPages = careerCategories.flatMap(category =>
-    localizedUrls(baseUrl, `/career/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
-  );
-
   const localeOnlyBlogPages: MetadataRoute.Sitemap = [];
   for (const locale of locales) {
     if (locale === 'en') continue;
@@ -126,7 +120,7 @@ async function getBlogAndCareerPages(baseUrl: string, now: Date): Promise<Metada
     }
   }
 
-  return [...blogPages, ...localeOnlyBlogPages, ...careerPages, ...categoryPages, ...careerCategoryPages];
+  return [...blogPages, ...localeOnlyBlogPages, ...careerPages, ...categoryPages];
 }
 
 // Sitemap 4: Career tips + locale-only career tips + career-tips categories
@@ -134,11 +128,6 @@ async function getCareerTipsPages(baseUrl: string, now: Date): Promise<MetadataR
   const careerTips = await getAllCareerTips();
   const careerTipsPages = careerTips.flatMap(tip =>
     localizedUrls(baseUrl, `/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 })
-  );
-
-  const careerTipsCategories = await getAllCareerTipsCategories();
-  const careerTipsCategoryPages = careerTipsCategories.flatMap(category =>
-    localizedUrls(baseUrl, `/career-tips/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
   );
 
   const localeOnlyCareerTipsPages: MetadataRoute.Sitemap = [];
@@ -155,7 +144,7 @@ async function getCareerTipsPages(baseUrl: string, now: Date): Promise<MetadataR
     }
   }
 
-  return [...careerTipsPages, ...localeOnlyCareerTipsPages, ...careerTipsCategoryPages];
+  return [...careerTipsPages, ...localeOnlyCareerTipsPages];
 }
 
 export async function generateSitemaps() {

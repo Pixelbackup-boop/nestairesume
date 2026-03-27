@@ -107,7 +107,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const relatedPosts = await getRelatedPosts(post.slug, 3);
 
   // Build URL for sharing
-  const postUrl = `${siteUrl}/blog/${post.slug}`;
+  const postUrl = `${siteUrl}/${locale}/blog/${post.slug}`;
 
   // Resolve author for E-E-A-T Person schema
   const author = getAuthor(post.author);
@@ -125,7 +125,7 @@ export default async function PostPage({ params }: PostPageProps) {
       '@type': 'Person',
       name: author.name,
       jobTitle: author.jobTitle,
-      url: `${siteUrl}/about/${author.slug}`,
+      url: `${siteUrl}/${locale}/about/${author.slug}`,
       image: `${siteUrl}${author.image}`,
       knowsAbout: author.expertise,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
@@ -156,8 +156,8 @@ export default async function PostPage({ params }: PostPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/${locale}/blog` },
       { '@type': 'ListItem', position: 3, name: post.title },
     ],
   };

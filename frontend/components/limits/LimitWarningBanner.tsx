@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { AlertTriangle, X, ArrowRight } from 'lucide-react';
 import { LimitType } from '@/hooks/useLimitCheck';
@@ -33,6 +33,7 @@ export default function LimitWarningBanner({
   className = '',
 }: LimitWarningBannerProps) {
   const t = useTranslations('Common');
+  const locale = useLocale();
   const [isDismissed, setIsDismissed] = useState(false);
 
   if (isDismissed) return null;
@@ -87,7 +88,7 @@ export default function LimitWarningBanner({
           </span>
         </div>
         <Link
-          href="/pricing"
+          href={`/${locale}/pricing`}
           className={`text-sm font-semibold ${colors.link} flex items-center gap-1 whitespace-nowrap`}
         >
           Upgrade
@@ -109,7 +110,7 @@ export default function LimitWarningBanner({
             {getMessage()}
           </p>
           <Link
-            href="/pricing"
+            href={`/${locale}/pricing`}
             className={`text-xs font-semibold ${colors.link}`}
           >
             Upgrade for more →
@@ -153,7 +154,7 @@ export default function LimitWarningBanner({
           {getMessage()} this month
         </span>
         <Link
-          href="/pricing"
+          href={`/${locale}/pricing`}
           className={`text-sm font-semibold ${colors.link} flex items-center gap-1`}
         >
           Upgrade Now

@@ -33,7 +33,7 @@ export default async function LiveCareerAlternativePage({ params }: { params: Pr
     const breadcrumbSchema = {
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -45,9 +45,9 @@ export default async function LiveCareerAlternativePage({ params }: { params: Pr
         '@context': 'https://schema.org', '@type': 'Article',
         headline: c.schemas.articleHeadline, description: c.schemas.articleDescription,
         datePublished: '2026-01-26', dateModified: '2026-01-26',
-        author: { '@type': 'Person', name: 'Alex Brown', url: `${siteUrl}/about/alex-brown`, jobTitle: 'Senior HR & Resume Strategist' },
+        author: { '@type': 'Person', name: 'Alex Brown', url: `${siteUrl}/${locale}/about/alex-brown`, jobTitle: 'Senior HR & Resume Strategist' },
         publisher: { '@type': 'Organization', name: 'Best AI Resume', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/livecareer-alternative` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/livecareer-alternative` },
     };
 
     // SAFE: These render hardcoded content strings from our own content files — no user input involved

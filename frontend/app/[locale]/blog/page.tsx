@@ -16,9 +16,17 @@ interface BlogPageProps {
   searchParams: Promise<{ page?: string }>;
 }
 
-export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: BlogPageProps): Promise<Metadata> {
   const { locale } = await params;
+  const sp = await searchParams;
+  const currentPage = Number(sp.page) || 1;
   const c = getContent(locale).listing;
+
+  const allPosts = await getAllPosts();
+  const totalPages = Math.ceil(allPosts.length / 9);
+  const pageParam = currentPage > 1 ? `?page=${currentPage}` : '';
+  const prevParam = currentPage > 2 ? `?page=${currentPage - 1}` : '';
+
   return {
     title: c.meta.title,
     description: c.meta.description,
@@ -28,10 +36,14 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
       type: 'website',
     },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/blog`,
+      canonical: `${BASE_URL}/${locale}/blog${pageParam}`,
       languages: Object.fromEntries(
-        locales.map(l => [l, `${BASE_URL}/${l}/blog`])
+        locales.map(l => [l, `${BASE_URL}/${l}/blog${pageParam}`])
       ),
+    },
+    other: {
+      ...(currentPage > 1 && { 'link-prev': `${BASE_URL}/${locale}/blog${prevParam}` }),
+      ...(currentPage < totalPages && { 'link-next': `${BASE_URL}/${locale}/blog?page=${currentPage + 1}` }),
     },
   };
 }
