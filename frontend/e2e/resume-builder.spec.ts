@@ -5,10 +5,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test.describe('Resume Builder Complete Flow', () => {
-  // Builder page has heavy hydration (Zustand + lazy templates) — CI runners need more time
-  test.describe.configure({ timeout: 60000 });
-
+test.describe('Resume Builder Complete Flow @requires-backend', () => {
   test.beforeEach(async ({ page }) => {
     await page.context().clearCookies();
   });
@@ -120,7 +117,7 @@ test.describe('Resume Builder Complete Flow', () => {
   });
 });
 
-test.describe('Resume Builder Responsive Design', () => {
+test.describe('Resume Builder Responsive Design @requires-backend', () => {
   test('should work on mobile viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/en/builder');
