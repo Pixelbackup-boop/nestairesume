@@ -237,6 +237,26 @@ export const authOptions: NextAuthOptions = {
     error: "/auth/error",
   },
 
+  // Cookie domain covers both bestairesumes.com and www.bestairesumes.com
+  // Without this, OAuth state cookies set on www. are invisible when the callback
+  // arrives on the root domain (or vice versa), causing "State cookie was missing"
+  cookies: process.env.NODE_ENV === "production"
+    ? {
+        sessionToken: {
+          name: "next-auth.session-token",
+          options: { httpOnly: true, sameSite: "lax", path: "/", secure: true, domain: ".bestairesumes.com" },
+        },
+        callbackUrl: {
+          name: "next-auth.callback-url",
+          options: { sameSite: "lax", path: "/", secure: true, domain: ".bestairesumes.com" },
+        },
+        csrfToken: {
+          name: "next-auth.csrf-token",
+          options: { httpOnly: true, sameSite: "lax", path: "/", secure: true, domain: ".bestairesumes.com" },
+        },
+      }
+    : undefined,
+
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days

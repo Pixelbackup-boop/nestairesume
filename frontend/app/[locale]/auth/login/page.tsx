@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useAuthStore } from '@/store/useAuthStore';
 import { Loader2 } from 'lucide-react';
 import Header from '@/components/Header';
@@ -37,21 +37,33 @@ export default function LoginPage() {
     const locale = useLocale();
     const t = useTranslations('Auth');
     const searchParams = useSearchParams();
-    const { login, isLoading, error } = useAuthStore();
+    const { login, isLoading, error, isAuthenticated } = useAuthStore();
+    const { status: sessionStatus } = useSession();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     // Read redirect param (validated to prevent open redirect)
     const redirectParam = searchParams.get('redirect');
+    const callbackParam = searchParams.get('callbackUrl');
     const redirectTo = redirectParam?.startsWith('/') ? redirectParam : null;
+    // NextAuth passes callbackUrl on OAuth return — extract path from full URL
+    const callbackPath = callbackParam ? new URL(callbackParam, window.location.origin).pathname : null;
+    const finalRedirect = redirectTo || callbackPath;
 
     const localizedHref = (path: string) => `/${locale}${path}`;
+
+    // Auto-redirect if already authenticated (covers OAuth returning to login page)
+    useEffect(() => {
+        if (isAuthenticated || sessionStatus === 'authenticated') {
+            router.push(finalRedirect || localizedHref('/'));
+        }
+    }, [isAuthenticated, sessionStatus, finalRedirect, router, locale]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             await login(email, password);
-            router.push(redirectTo || localizedHref('/'));
+            router.push(finalRedirect || localizedHref('/'));
         } catch {
             // Error handled in store
         }
@@ -76,21 +88,21 @@ export default function LoginPage() {
                     {/* OAuth Buttons */}
                     <div className="space-y-3 mb-6">
                         <button
-                            onClick={() => signIn('google', { callbackUrl: redirectTo || localizedHref('/') })}
+                            onClick={() => signIn('google', { callbackUrl: finalRedirect || localizedHref('/') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GoogleIcon />
                             {t('continueWithGoogle') || 'Continue with Google'}
                         </button>
                         <button
-                            onClick={() => signIn('github', { callbackUrl: redirectTo || localizedHref('/') })}
+                            onClick={() => signIn('github', { callbackUrl: finalRedirect || localizedHref('/') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#24292F] text-white font-medium py-3 rounded-lg hover:bg-[#32383F] transition"
                         >
                             <GitHubIcon />
                             {t('continueWithGitHub') || 'Continue with GitHub'}
                         </button>
                         <button
-                            onClick={() => signIn('linkedin', { callbackUrl: redirectTo || localizedHref('/') })}
+                            onClick={() => signIn('linkedin', { callbackUrl: finalRedirect || localizedHref('/') })}
                             className="w-full flex items-center justify-center gap-3 bg-[#0A66C2] text-white font-medium py-3 rounded-lg hover:bg-[#004182] transition"
                         >
                             <LinkedInIcon />
