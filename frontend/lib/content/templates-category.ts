@@ -192,6 +192,30 @@ const nl: TemplatesCategoryContent = {
   breadcrumbTemplates: 'Sjablonen',
 };
 
-const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, pl, nl };
+const zh: TemplatesCategoryContent = {
+  fallbackTitle: '简历模板 | Best AI Resume',
+  collectionSuffix: '系列',
+  availableTemplates: '可用模板',
+  editInAI: '用AI编辑',
+  tiredTitle: '厌倦了排版文件？',
+  tiredSubtitle: '下载模板很方便，但填写内容很费时。我们的AI简历生成器可以立即为你自动排版。',
+  buildWithAI: '用AI创建',
+  breadcrumbHome: '首页',
+  breadcrumbTemplates: '模板',
+};
+
+const ms: TemplatesCategoryContent = {
+  fallbackTitle: 'Templat Resume | Best AI Resume',
+  collectionSuffix: 'Koleksi',
+  availableTemplates: 'Templat Tersedia',
+  editInAI: 'Edit dengan AI',
+  tiredTitle: 'Penat memformat fail?',
+  tiredSubtitle: 'Muat turun templat memang mudah, tetapi mengisinya sangat menyusahkan. Pembuat Resume AI kami memformatkan untuk anda secara automatik.',
+  buildWithAI: 'Bina dengan AI',
+  breadcrumbHome: 'Laman Utama',
+  breadcrumbTemplates: 'Templat',
+};
+
+const contentMap: Record<string, TemplatesCategoryContent> = { en, es, fr, de, ar, ja, it, vi, ko, th, pt, tr, id, pl, nl, zh, ms };
 
 export function getContent(locale: string) { return selectContent(contentMap, locale); }

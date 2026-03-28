@@ -1834,5 +1834,241 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: {
+    title: 'Overleaf替代方案 2026：免费AI简历生成器 | Best AI Resume',
+    description: '寻找免费的Overleaf替代方案来制作简历？比较Overleaf vs Best AI Resume Builder——AI写作、ATS模板、无限下载。无需LaTeX。',
+    keywords: 'overleaf替代, overleaf简历, 免费简历模板, 免费创建简历, latex简历替代, ai简历生成器',
+  },
+  schemas: {
+    breadcrumbName: 'Overleaf替代方案',
+    articleHeadline: 'Overleaf替代方案 2026：免费AI简历生成器，无需LaTeX',
+    articleDescription: '比较Overleaf与Best AI Resume Builder。使用AI创建专业简历，ATS优化，无限下载——无需LaTeX，完全免费。',
+  },
+  hero: {
+    badge: 'Overleaf替代方案',
+    title: '创建你的简历。',
+    titleHighlight: '无需LaTeX。',
+    subtitle: 'Overleaf需要LaTeX知识来制作简历——对大多数人来说门槛太高。我们提供AI写作、ATS模板和无限导出，费用为<strong>¥0</strong>，无需编程。',
+    ctaPrimary: '免费创建我的简历',
+    ctaSecondary: '查看对比',
+  },
+  problem: {
+    title: 'Overleaf简历的问题',
+    description: 'Overleaf非常适合学术论文，但制作简历需要大多数人不具备的LaTeX知识。用Overleaf制作简历比必要的时间多得多，而且模板未针对现代ATS系统优化。',
+    stats: [
+      { value: 'LaTeX', label: '自定义需要编程语言' },
+      { value: '学术', label: '格式不太适合普通职场' },
+      { value: '¥0', label: 'Best AI Resume Builder——无需编程，免费' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: '逐项功能对比。',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '价格', competitor: '⚠️ 免费基础版；高级功能收费', ours: '✅ 100%永久免费' },
+      { feature: '免费下载', competitor: '✅ 可下载PDF', ours: '✅ 无限免费PDF导出' },
+      { feature: 'AI写作', competitor: '❌ 无AI写作功能', ours: '✅ AI生成完全定制内容' },
+      { feature: 'ATS优化', competitor: '⚠️ 取决于选择的模板', ours: '✅ 实时ATS评分+关键词' },
+      { feature: '易用性', competitor: '❌ 需要LaTeX知识', ours: '✅ 无需技术知识' },
+      { feature: '简历专用功能', competitor: '❌ 通用文档工具', ours: '✅ 专为简历构建' },
+      { feature: '求职信', competitor: '⚠️ 需在LaTeX中手动调整', ours: '✅ AI驱动的求职信（免费）' },
+      { feature: '内容建议', competitor: '❌ 无简历内容建议', ours: '✅ AI根据你的经验定制' },
+      { feature: '速度', competitor: '❌ 无LaTeX经验很耗时', ours: '✅ 几分钟完成完整简历' },
+      { feature: '可自定义', competitor: '✅ 完全可定制（需LaTeX知识）', ours: '✅ 通过直观界面自定义' },
+    ],
+  },
+  whySwitch: {
+    title: '从Overleaf转换制作简历的3个理由',
+    subtitle: '无需LaTeX。真正的AI。免费。',
+    reasons: [
+      { title: '无需LaTeX知识', description: 'Overleaf需要LaTeX知识来自定义——大多数人不了解的编程语言。我们的简历生成器使用直观界面，任何人都能在几分钟内创建专业简历，无需技术知识。' },
+      { title: 'AI撰写简历内容', description: 'Overleaf不提供简历内容帮助——你必须自己写一切。我们的AI基于你的工作经验生成专业的要点、摘要和ATS关键词。' },
+      { title: '针对职场优化', description: 'Overleaf模板主要面向学术工作。我们的简历模板针对招聘人员的期望和职场常用的ATS系统进行了优化。' },
+    ],
+  },
+  recommendation: {
+    title: '诚实建议',
+    useCompetitor: {
+      title: 'Overleaf适合以下情况...',
+      items: [
+        '你具备LaTeX知识且偏好基于代码的简历制作',
+        '你在制作学术职位的CV',
+        '你想要只有LaTeX才能提供的完美排版控制',
+        '你已经在使用LaTeX环境处理其他文档',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes更好如果你...',
+      items: [
+        '不具备或不想学习LaTeX知识',
+        '想快速创建专业简历',
+        '想要AI写作帮助制作专业简历内容',
+        '需要现代的、ATS友好的简历',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '查看300+免费简历示例',
+    description: '各行各业、各级别的专业简历示例。',
+    ctaBrowse: '浏览简历示例',
+    ctaTemplates: '查看所有模板',
+  },
+  faq: {
+    title: '常见问题',
+    items: [
+      { question: '不懂LaTeX能在Overleaf中制作简历吗？', answer: '你可以使用现有的LaTeX模板，但自定义需要LaTeX知识。Best AI Resume Builder不需要技术知识——通过直观界面几分钟即可创建专业简历。' },
+      { question: 'Overleaf制作简历免费吗？', answer: 'Overleaf有免费版本，但某些功能需要付费订阅。Best AI Resume Builder是100%免费的——无需订阅或信用卡即可创建和下载无限简历。' },
+      { question: 'Overleaf最好的免费替代方案是什么？', answer: 'Best AI Resume Builder是制作简历的最佳免费替代方案。我们提供ATS友好的模板、AI写作、实时ATS评分和无限PDF导出——完全免费，无需LaTeX。' },
+      { question: 'Overleaf简历ATS友好吗？', answer: '取决于所选模板。一些LaTeX模板ATS友好，其他的不是。Best AI Resume Builder保证ATS友好的简历，提供实时评分和优化建议。' },
+      { question: '如何不用LaTeX快速创建专业简历？', answer: 'Best AI Resume Builder是最快的方式。几分钟内即可创建专业的、ATS友好的简历，带有AI写作辅助——无需编程，无需模板调整，只需填写和下载。' },
+    ],
+  },
+  crossLinks: {
+    title: '比较其他简历生成器',
+    items: [
+      { href: '/zh/livecareer-alternative', title: 'LiveCareer替代方案', subtitle: '传统vs现代' },
+      { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '价格和功能比较' },
+      { href: '/zh/canva-alternative', title: 'Canva替代方案', subtitle: '设计工具vs AI简历' },
+      { href: '/zh/rezi-alternative', title: 'Rezi替代方案', subtitle: 'AI功能比较' },
+    ],
+    guidesTitle: '实用简历指南',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部资源',
+    items: [
+      { href: 'https://www.overleaf.com/', label: 'Overleaf官方网站' },
+      { href: 'https://www.zhaopin.com/', label: '智联招聘——中国领先招聘平台' },
+    ],
+  },
+  bottomCta: {
+    title: '无需LaTeX。无麻烦。就是免费。',
+    description: '使用AI创建专业的、ATS友好的简历——无需LaTeX知识或技术技能。永久免费。',
+    cta: '免费创建我的简历',
+    subtext: '永久免费。无需信用卡。无意外。',
+  },
+};
+
+const ms: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Overleaf 2026: Pembuat Resume AI Percuma | Best AI Resume',
+    description: 'Mencari alternatif Overleaf percuma untuk buat resume? Bandingkan Overleaf vs Best AI Resume Builder — penulisan AI, templat ATS, muat turun tanpa had. Tanpa LaTeX.',
+    keywords: 'overleaf alternatif, overleaf resume, templat resume percuma, buat resume percuma, alternatif latex resume, pembuat resume ai',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Overleaf',
+    articleHeadline: 'Alternatif Overleaf 2026: Pembuat Resume AI Percuma Tanpa LaTeX',
+    articleDescription: 'Bandingkan Overleaf vs Best AI Resume Builder. Cipta resume profesional dengan AI, pengoptimuman ATS dan muat turun tanpa had — tanpa perlu LaTeX, percuma sepenuhnya.',
+  },
+  hero: {
+    badge: 'Alternatif Overleaf',
+    title: 'Cipta Resume Anda.',
+    titleHighlight: 'Tanpa LaTeX.',
+    subtitle: 'Overleaf memerlukan pengetahuan LaTeX untuk membuat resume — halangan yang tinggi bagi kebanyakan orang. Kami menawarkan penulisan AI, templat ATS dan eksport tanpa had untuk <strong>RM0</strong>, tanpa perlu pengaturcaraan.',
+    ctaPrimary: 'Cipta Resume Percuma',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah Resume Overleaf',
+    description: 'Overleaf sangat baik untuk dokumen akademik, tetapi membuat resume memerlukan pengetahuan LaTeX yang kebanyakan orang tidak miliki. Membuat resume dalam Overleaf mengambil masa lebih lama dari perlu, dan templat tidak dioptimumkan untuk sistem ATS moden.',
+    stats: [
+      { value: 'LaTeX', label: 'Bahasa pengaturcaraan diperlukan untuk penyesuaian' },
+      { value: 'Akademik', label: 'Format kurang sesuai untuk pasaran kerja' },
+      { value: 'RM0', label: 'Best AI Resume Builder — tanpa kod, tetap percuma' },
+    ],
+  },
+  comparison: {
+    title: 'Overleaf vs Best AI Resume Builder',
+    subtitle: 'Perbandingan ciri demi ciri.',
+    competitorName: 'Overleaf',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '⚠️ Percuma asas; bayar untuk ciri premium', ours: '✅ 100% percuma selama-lamanya' },
+      { feature: 'Muat turun percuma', competitor: '✅ Muat turun PDF tersedia', ours: '✅ Eksport PDF percuma tanpa had' },
+      { feature: 'Penulisan AI', competitor: '❌ Tiada ciri penulisan AI', ours: '✅ AI menjana kandungan tersuai sepenuhnya' },
+      { feature: 'Pengoptimuman ATS', competitor: '⚠️ Bergantung pada templat dipilih', ours: '✅ Skor ATS masa nyata + kata kunci' },
+      { feature: 'Kemudahan penggunaan', competitor: '❌ Perlu pengetahuan LaTeX', ours: '✅ Tiada pengetahuan teknikal diperlukan' },
+      { feature: 'Ciri khusus resume', competitor: '❌ Alat dokumen umum', ours: '✅ Dibina khusus untuk resume' },
+      { feature: 'Surat iringan', competitor: '⚠️ Sesuaikan manual dalam LaTeX', ours: '✅ Dikuasakan AI (percuma)' },
+      { feature: 'Cadangan kandungan', competitor: '❌ Tiada cadangan kandungan resume', ours: '✅ AI disesuaikan dengan pengalaman kerja anda' },
+      { feature: 'Kelajuan', competitor: '❌ Memakan masa tanpa pengalaman LaTeX', ours: '✅ Beberapa minit untuk resume lengkap' },
+      { feature: 'Penyesuaian', competitor: '✅ Sepenuhnya boleh disesuai (dengan LaTeX)', ours: '✅ Boleh disesuai melalui antara muka intuitif' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Sebab untuk Beralih dari Overleaf untuk Resume',
+    subtitle: 'Tanpa LaTeX. AI sebenar. Percuma.',
+    reasons: [
+      { title: 'Tanpa Perlu LaTeX', description: 'Overleaf memerlukan LaTeX — bahasa pengaturcaraan yang kebanyakan orang tidak tahu. Pembuat resume kami menggunakan antara muka intuitif supaya sesiapa sahaja boleh membuat resume profesional dalam beberapa minit tanpa pengetahuan teknikal.' },
+      { title: 'AI Menulis Kandungan Resume Anda', description: 'Overleaf tidak menawarkan bantuan kandungan resume — anda perlu menulis semuanya sendiri. AI kami menjana poin profesional, ringkasan dan kata kunci ATS berdasarkan pengalaman kerja anda.' },
+      { title: 'Dioptimumkan untuk Pasaran Kerja', description: 'Templat Overleaf tertumpu pada kerja akademik. Templat resume kami diselaraskan dengan jangkaan perekrut dan dioptimumkan untuk sistem ATS yang digunakan dalam pasaran kerja.' },
+    ],
+  },
+  recommendation: {
+    title: 'Cadangan Jujur',
+    useCompetitor: {
+      title: 'Overleaf sesuai jika anda...',
+      items: [
+        'Mempunyai pengetahuan LaTeX dan lebih suka membuat resume berasaskan kod',
+        'Membuat CV akademik untuk jawatan universiti',
+        'Mahu kawalan tipografi sempurna yang hanya LaTeX tawarkan',
+        'Sudah menggunakan persekitaran LaTeX untuk dokumen lain',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes lebih baik jika anda...',
+      items: [
+        'Tidak mempunyai pengetahuan LaTeX atau tidak mahu belajar',
+        'Mahu membuat resume profesional dengan cepat',
+        'Mahu bantuan penulisan AI untuk kandungan resume profesional',
+        'Perlu resume moden yang mesra ATS',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Lihat 300+ Contoh Resume Percuma',
+    description: 'Contoh resume profesional untuk setiap industri dan peringkat kerjaya.',
+    ctaBrowse: 'Lihat Contoh Resume',
+    ctaTemplates: 'Lihat Semua Templat',
+  },
+  faq: {
+    title: 'Soalan Lazim',
+    items: [
+      { question: 'Boleh buat resume di Overleaf tanpa tahu LaTeX?', answer: 'Anda boleh guna templat LaTeX sedia ada, tetapi penyesuaian memerlukan pengetahuan LaTeX. Best AI Resume Builder tidak perlu pengetahuan teknikal — buat resume profesional dalam beberapa minit melalui antara muka intuitif.' },
+      { question: 'Adakah Overleaf percuma untuk resume?', answer: 'Overleaf mempunyai versi percuma, tetapi beberapa ciri memerlukan langganan berbayar. Best AI Resume Builder adalah 100% percuma — cipta dan muat turun resume tanpa had tanpa langganan atau kad kredit.' },
+      { question: 'Apakah alternatif percuma terbaik untuk Overleaf bagi resume?', answer: 'Best AI Resume Builder adalah alternatif percuma terbaik untuk resume. Kami menawarkan templat mesra ATS, penulisan AI, skor ATS masa nyata dan eksport PDF tanpa had — percuma sepenuhnya, tanpa LaTeX.' },
+      { question: 'Adakah resume Overleaf mesra ATS?', answer: 'Bergantung pada templat yang dipilih. Sesetengah templat LaTeX mesra ATS, yang lain tidak. Best AI Resume Builder menjamin resume mesra ATS dengan skor masa nyata dan cadangan pengoptimuman.' },
+      { question: 'Bagaimana buat resume profesional dengan cepat tanpa LaTeX?', answer: 'Best AI Resume Builder adalah cara terpantas. Buat resume profesional mesra ATS dengan bantuan penulisan AI dalam beberapa minit — tanpa kod, tanpa penyesuaian templat, hanya isi dan muat turun.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat Resume Lain',
+    items: [
+      { href: '/ms/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs moden' },
+      { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga & ciri' },
+      { href: '/ms/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat reka bentuk vs pembuat resume AI' },
+      { href: '/ms/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan ciri AI' },
+    ],
+    guidesTitle: 'Panduan Resume Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Luaran',
+    items: [
+      { href: 'https://www.overleaf.com/', label: 'Laman Web Rasmi Overleaf' },
+      { href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia — Portal Pekerjaan' },
+    ],
+  },
+  bottomCta: {
+    title: 'Tanpa LaTeX. Tanpa Kerumitan. Hanya Percuma.',
+    description: 'Cipta resume profesional mesra ATS dengan AI — tanpa pengetahuan LaTeX atau kemahiran teknikal. Percuma selama-lamanya.',
+    cta: 'Cipta Resume Percuma',
+    subtext: 'Percuma selama-lamanya. Tiada kad kredit. Tiada kejutan.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

@@ -2909,7 +2909,313 @@ const nl: ChatGPTComparisonContent = {
   }
 };
 
-const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th, pt, vi, ko, tr, nl };
+const zh: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs AI简历生成器：哪个能做出更好的简历？(2026) | Best AI Resume",
+    description: "应该用ChatGPT还是专业AI简历生成器来写简历？比较排版、ATS兼容性和输出质量。看看哪个工具能帮你获得更多面试机会。",
+    keywords: "chatgpt简历, chatgpt写简历, ai简历生成器, chatgpt vs 简历生成器, 用chatgpt写简历, ai简历, 简历模板",
+    ogTitle: "ChatGPT vs AI简历生成器：哪个能做出更好的简历？(2026)",
+    ogDescription: "将ChatGPT与专业AI简历生成器进行比较。逐项功能对比，客观分析优缺点。",
+    twitterTitle: "ChatGPT vs AI简历生成器：哪个能做出更好的简历？",
+    twitterDescription: "比较ChatGPT与专业AI简历生成器，看看哪个能帮你制作出更有效的简历。"
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs AI简历生成器",
+    articleHeadline: "ChatGPT vs AI简历生成器：2026年哪个更好？",
+    articleDescription: "比较ChatGPT与专业AI简历生成器。逐项功能分析，客观评价优缺点。"
+  },
+  hero: {
+    badge: "对比分析",
+    title: "ChatGPT vs AI简历生成器：",
+    titleHighlight: "哪个能帮你找到工作？",
+    subtitle: "ChatGPT生成文本。简历生成器创建<strong>可直接投递的文档</strong>。了解为什么这个区别对你的求职至关重要。",
+    ctaPrimary: "免费创建我的简���",
+    ctaSecondary: "查看对比"
+  },
+  problem: {
+    title: "问题：ChatGPT写文本，不制作简历",
+    description: "ChatGPT是一个通用AI，生成文本。它可以写要点、摘要和求职信——但<strong>无法排版文档、保证ATS兼容性或导出PDF</strong>。你只能得到需要自己格式化、排版和优化的纯文本。",
+    stats: [
+      { value: "0", label: "个模板——ChatGPT只输出纯文本" },
+      { value: "0%", label: "ATS能力——无关键词分析或格式检查" },
+      { value: "3+", label: "个额外工具——模板、排版工具、PDF转换器" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "为求职者提供的公平功能对比。",
+    colFeature: "功能",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      { feature: "AI写作", chatgpt: "强大的通用文本生成", best: "简历专用AI，含行业关键词", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "专业模板", chatgpt: "无模板——仅纯文本", best: "20+ ATS测试模板", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "ATS优化", chatgpt: "无ATS功能", best: "实时ATS评分和关键词匹配", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "PDF导出", chatgpt: "无文档导出", best: "一键干净PDF导出", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "排版设计", chatgpt: "仅纯文本输出", best: "内置专业排版", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "职位匹配", chatgpt: "手动——需将职位描述粘贴到提示中", best: "自动关键词提取和匹配", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "分节构建", chatgpt: "你在提示中定义结构", best: "逐节引导式工作流程", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "一致性", chatgpt: "结果取决于提示质量", best: "每次都产出一致且经过测试的结果", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "内容个性化", chatgpt: "需要详细的提示", best: "使用你输入的经验", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "价格", chatgpt: "免费(GPT-3.5)或$20/月(GPT-4)", best: "提供免费计划", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "学习曲线", chatgpt: "需要提示工程技巧", best: "填写即完成", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "多份简历", chatgpt: "每次需重新开始", best: "保存和编辑多个版本", chatgptIcon: "partial", bestIcon: "yes" }
+    ]
+  },
+  strengths: {
+    title: "ChatGPT在简历方面的优势",
+    subtitle: "坦率地说，ChatGPT有其真正的优势。以下是它对简历写作确实有帮助的地方：",
+    items: [
+      { title: "头脑风暴要点", description: "ChatGPT擅长从职位描述中生成多个版本的成就导向要点。非常适合打破写作障碍。" },
+      { title: "改写薄弱内容", description: "粘贴职责导向的要点，让ChatGPT将其改写为成就。非常适合将职责描述转化为带有实际数据的行动词。" },
+      { title: "查找行业关键词", description: "向ChatGPT询问特定职位的关键技能和关键词。可获得用于ATS匹配的良好列表。" },
+      { title: "起草求职信", description: "ChatGPT可以写出不错的求职信初稿。你需要编辑，但这是一个好的起点。" }
+    ]
+  },
+  shortcomings: {
+    title: "ChatGPT的不足",
+    items: [
+      { title: "无排版或模板", description: "ChatGPT仅提供纯文本。你需要单独的工具将其格式化为专业文档。费时且容易出错。" },
+      { title: "无ATS支持", description: "ChatGPT不知道ATS寻找哪些关键词、期望什么章节标题或能读取什么格式。它在不理解自动筛选系统的情况下生成文本。" },
+      { title: "无你的数据则输出通用内容", description: "没有包含你具体数据和成就的详细提示，ChatGPT会生成通用内容。" },
+      { title: "质量不稳定", description: "ChatGPT输出的质量完全取决于提示。微小的措辞变化会产生截然不同的结果。专用简历生成器提供一致的结果。" },
+      { title: "无法导出PDF", description: "你不能将ChatGPT对话直接发送给雇主。你需要复制文本、粘贴到模板中、修正格式并导出为PDF——这个过程需要30多分钟。" }
+    ]
+  },
+  bestApproach: {
+    title: "最佳方法：两者结合使用",
+    description: "以下是2026年使用AI制作简历的最佳工作流程：",
+    steps: [
+      { title: "使用ChatGPT进行头脑风暴", description: "让ChatGPT生成要点创意、改写薄弱内容并识别你目标职位的行业关键词。" },
+      { title: "在专用工具中构建简历", description: "使用Best AI Resume Builder将内容格式化为专业的ATS优化模板，具有正确的结构和关键词匹配。" },
+      { title: "用你的真实数据个性化", description: "用你的真实数据、成就和公司名称替换通用AI文本。没有AI知道你的具体成就——你需要自己输入。" },
+      { title: "导出并投递", description: "下载ATS优化的PDF并投递。无需复制粘贴，无需修正格式，无需额外工具。" }
+    ]
+  },
+  whoShouldUse: {
+    title: "诚实建议：谁该用什么？",
+    useChatGPT: {
+      title: "在以下情况使用ChatGPT...",
+      items: [
+        "你已经有一个排版好的简历模板",
+        "你只需要帮助构思要点",
+        "你擅长自己排版文档",
+        "你想研究关键词和行业趋势"
+      ]
+    },
+    useBestAI: {
+      title: "在以下情况使用Best AI Resumes...",
+      items: [
+        "你想在一个工具中完成整份简历",
+        "你需要ATS排版和关键词评分",
+        "你不想自己管理模板和排版",
+        "你想保存和编辑多个版本的简历",
+        "你想一键导���PDF"
+      ]
+    },
+    bottomLine: "结论：ChatGPT是很好的写作辅助工具，但不是简历生成器。要制作通过ATS、完整排版的简历，你需要专用工具。"
+  },
+  resumeExamples: {
+    title: "查看AI制作的简历",
+    description: "浏览300+个真实简历示例，涵盖各行各业——全部使用ATS优化的AI制作，远超ChatGPT单独能做到的。",
+    ctaBrowse: "浏览简历示例",
+    ctaTemplates: "查看所有模板"
+  },
+  faq: {
+    title: "常见问题",
+    items: [
+      { question: "ChatGPT能写好简历吗？", answer: "ChatGPT可以生成简历文本，但无法排版简历、检查ATS兼容性或创建可下载的PDF。你仍然需要单独的工具进行文档排版和设计。专业AI简历生成器在一步中完成写作和排版。" },
+      { question: "用AI写简历可以吗？", answer: "可以。2026年使用AI写简历已被广泛接受。雇主关心简历内容的质量，而非制作方式。关键是用你的真实成就、数据和经验来个性化AI生成的内容。" },
+      { question: "ChatGPT写简历有什么缺点？", answer: "ChatGPT输出无格式的纯文本，不支持ATS，无法将你的简历与职位描述进行匹配，生成的内容缺少你的具体数据，且需要你自己将所有内容复制到模板中。" },
+      { question: "ATS系统会拒绝ChatGPT写的简历吗？", answer: "ATS系统不检测也不关心AI生成的内容。但如果你将ChatGPT文本粘贴到格式不当的模板中，ATS可能无法正确读取。专业简历工具保证内容和格式都符合ATS标准。" },
+      { question: "Best AI Resume Builder比ChatGPT更适合制作简历吗？", answer: "就简历制作这一特定任务而言：是的。Best AI Resume Builder在一个工具中集成了AI写作、专业排版、ATS优化、关键词匹配和PDF导出。ChatGPT是通用AI——它写文本但无法排版、评估或导出简历��" }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "比较其他简历生成器",
+    links: [
+      { title: "Canva替代方案", subtitle: "设计工具vs简历生成器" },
+      { title: "Overleaf替代方案", subtitle: "LaTeX vs AI生成器" },
+      { title: "Resume.io替代方案", subtitle: "价格和功能比较" },
+      { title: "Rezi替代方案", subtitle: "AI工具比较" }
+    ],
+    guidesTitle: "实用简历指南",
+    guides: [
+      { label: "什么是ATS？完整指南" },
+      { label: "如何写简历（分步指南）" },
+      { label: "ChatGPT vs Claude写简历" },
+      { label: "如何写专业摘要" }
+    ]
+  },
+  externalResources: {
+    title: "外部资源",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "OpenAI ChatGPT" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: 简历技巧" }
+    ]
+  },
+  bottomCta: {
+    title: "准备超越ChatGPT？",
+    description: "使用我们的AI简历生成器创建完整的ATS优化简历——写作、排版和PDF导出一站完成。",
+    ctaText: "免费创建我的简历 — 无需注册",
+    subtext: "永久免费。无需信用卡。"
+  }
+};
+
+const ms: ChatGPTComparisonContent = {
+  meta: {
+    title: "ChatGPT vs Pembuat Resume AI: Mana Lebih Baik? (2026) | Best AI Resume",
+    description: "Patut guna ChatGPT atau pembuat resume AI khusus untuk menulis resume? Bandingkan format, keserasian ATS dan kualiti output. Lihat alat mana yang membawa lebih banyak temu duga.",
+    keywords: "chatgpt resume, chatgpt buat resume, pembuat resume ai, chatgpt vs pembuat resume, tulis resume dengan chatgpt, resume ai, templat resume",
+    ogTitle: "ChatGPT vs Pembuat Resume AI: Mana Lebih Baik? (2026)",
+    ogDescription: "Bandingkan ChatGPT dengan pembuat resume AI khusus. Perbandingan ciri demi ciri dengan kebaikan dan keburukan yang jujur.",
+    twitterTitle: "ChatGPT vs Pembuat Resume AI: Mana Lebih Baik?",
+    twitterDescription: "Bandingkan ChatGPT dengan pembuat resume AI khusus untuk resume yang mendapat temu duga."
+  },
+  schemas: {
+    breadcrumbName: "ChatGPT vs Pembuat Resume AI",
+    articleHeadline: "ChatGPT vs Pembuat Resume AI: Mana Lebih Baik pada 2026?",
+    articleDescription: "Bandingkan ChatGPT dengan pembuat resume AI khusus. Analisis ciri demi ciri dengan kebaikan dan keburukan yang jujur."
+  },
+  hero: {
+    badge: "Perbandingan",
+    title: "ChatGPT vs Pembuat Resume AI:",
+    titleHighlight: "Mana yang membantu anda dapat kerja?",
+    subtitle: "ChatGPT menulis teks. Pembuat resume mencipta <strong>dokumen sedia untuk memohon kerja</strong>. Ketahui mengapa perbezaan ini penting untuk pencarian kerja anda.",
+    ctaPrimary: "Cipta Resume Saya Percuma",
+    ctaSecondary: "Lihat Perbandingan"
+  },
+  problem: {
+    title: "Masalah: ChatGPT Menulis Teks, Bukan Resume",
+    description: "ChatGPT adalah AI umum yang menghasilkan teks. Ia boleh menulis poin, ringkasan dan surat iringan — tetapi <strong>tidak boleh memformat dokumen, menjamin keserasian ATS atau mengeksport PDF</strong>. Anda hanya mendapat teks mentah yang perlu diformat, disusun dan dioptimumkan sendiri.",
+    stats: [
+      { value: "0", label: "Templat — ChatGPT hanya memberikan teks biasa" },
+      { value: "0%", label: "Keupayaan ATS — tiada analisis kata kunci atau semakan format" },
+      { value: "3+", label: "Alat tambahan diperlukan — templat, pemformat, penukar PDF" }
+    ]
+  },
+  comparison: {
+    title: "ChatGPT vs Best AI Resume Builder",
+    subtitle: "Perbandingan ciri yang adil untuk pencari kerja.",
+    colFeature: "Ciri",
+    colChatgpt: "ChatGPT",
+    colBestAi: "Best AI Resumes",
+    rows: [
+      { feature: "Penulisan AI", chatgpt: "Penghasilan teks umum yang kuat", best: "AI khusus resume dengan kata kunci industri", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "Templat profesional", chatgpt: "Tiada templat — hanya teks", best: "20+ templat diuji ATS", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Pengoptimuman ATS", chatgpt: "Tiada keupayaan ATS", best: "Skor ATS masa nyata dan padanan kata kunci", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Eksport PDF", chatgpt: "Tiada eksport dokumen", best: "Eksport PDF bersih satu klik", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Format & reka bentuk", chatgpt: "Hanya output teks biasa", best: "Format profesional terbina dalam", chatgptIcon: "no", bestIcon: "yes" },
+      { feature: "Padanan jawatan", chatgpt: "Manual — tampal jawatan dalam prompt", best: "Pengekstrakan dan padanan kata kunci automatik", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Pembinaan seksyen", chatgpt: "Anda tentukan struktur dalam prompt", best: "Aliran kerja berpandu seksyen demi seksyen", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Konsistensi", chatgpt: "Hasil berbeza berdasarkan kualiti prompt", best: "Hasil konsisten dan diuji setiap kali", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Pemperibadian kandungan", chatgpt: "Memerlukan prompt terperinci", best: "Menggunakan pengalaman yang anda masukkan", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Harga", chatgpt: "Percuma (GPT-3.5) atau $20/bulan (GPT-4)", best: "Pelan percuma tersedia", chatgptIcon: "yes", bestIcon: "yes" },
+      { feature: "Keluk pembelajaran", chatgpt: "Perlu kemahiran prompt engineering", best: "Isi sahaja — siap", chatgptIcon: "partial", bestIcon: "yes" },
+      { feature: "Pelbagai resume", chatgpt: "Mula dari awal setiap kali", best: "Simpan dan edit pelbagai versi", chatgptIcon: "partial", bestIcon: "yes" }
+    ]
+  },
+  strengths: {
+    title: "Kelebihan ChatGPT untuk Resume",
+    subtitle: "Secara jujur, ChatGPT mempunyai kekuatan sebenar. Ini yang benar-benar membantu penulisan resume:",
+    items: [
+      { title: "Sumbang saran poin", description: "ChatGPT cemerlang dalam menghasilkan pelbagai versi poin berorientasikan pencapaian daripada deskripsi kerja. Bagus untuk mengatasi kebuntuan menulis." },
+      { title: "Menulis semula kandungan lemah", description: "Tampal poin berorientasikan tanggungjawab dan minta ChatGPT menulis semula sebagai pencapaian. Bagus untuk menukar perkataan tanggungjawab kepada kata kerja tindakan dengan angka sebenar." },
+      { title: "Mencari kata kunci industri", description: "Tanya ChatGPT untuk mengenal pasti kemahiran dan kata kunci penting bagi jawatan tertentu. Senarai yang baik untuk padanan ATS." },
+      { title: "Merangka surat iringan", description: "ChatGPT boleh menulis draf pertama surat iringan yang munasabah. Anda perlu mengeditnya, tetapi ia permulaan yang baik." }
+    ]
+  },
+  shortcomings: {
+    title: "Kekurangan ChatGPT",
+    items: [
+      { title: "Tiada format atau templat", description: "ChatGPT hanya memberikan teks biasa. Anda perlu alat berasingan untuk memformatnya menjadi dokumen profesional. Memakan masa dan mudah tersalah." },
+      { title: "Tiada sokongan ATS", description: "ChatGPT tidak tahu kata kunci yang dicari ATS, tajuk seksyen yang dijangka atau format yang boleh dibaca mesin. Ia menghasilkan teks tanpa memahami sistem saringan automatik." },
+      { title: "Output generik tanpa data anda", description: "Tanpa prompt terperinci dengan angka dan pencapaian spesifik anda, ChatGPT menghasilkan kandungan generik." },
+      { title: "Kualiti tidak konsisten", description: "Kualiti output ChatGPT bergantung sepenuhnya pada prompt. Perubahan perkataan kecil menghasilkan keputusan yang sangat berbeza. Pembuat resume khusus memberikan hasil yang konsisten." },
+      { title: "Tidak boleh eksport PDF", description: "Anda tidak boleh menghantar perbualan ChatGPT kepada majikan. Anda perlu menyalin teks, menampalnya dalam templat, membetulkan format dan mengeksport sebagai PDF — proses yang mengambil lebih 30 minit." }
+    ]
+  },
+  bestApproach: {
+    title: "Pendekatan Terbaik: Gunakan Kedua-duanya",
+    description: "Ini aliran kerja terbaik untuk membuat resume dengan AI pada 2026:",
+    steps: [
+      { title: "Guna ChatGPT untuk sumbang saran", description: "Minta ChatGPT menjana idea poin, menulis semula kandungan lemah dan mengenal pasti kata kunci industri untuk jawatan sasaran anda." },
+      { title: "Bina resume dalam alat khusus", description: "Guna Best AI Resume Builder untuk memformat kandungan dalam templat profesional yang dioptimumkan ATS dengan struktur dan padanan kata kunci yang betul." },
+      { title: "Peribadikan dengan data sebenar anda", description: "Gantikan teks AI generik dengan angka, pencapaian dan nama syarikat sebenar anda. Tiada AI yang tahu pencapaian spesifik anda — anda perlu memasukkannya sendiri." },
+      { title: "Eksport dan mohon kerja", description: "Muat turun PDF yang dioptimumkan ATS dan mula memohon. Tiada salin-tampal, tiada pembetulan format, tiada alat tambahan." }
+    ]
+  },
+  whoShouldUse: {
+    title: "Cadangan Jujur: Siapa Patut Guna Apa?",
+    useChatGPT: {
+      title: "Guna ChatGPT jika...",
+      items: [
+        "Anda sudah mempunyai templat resume yang diformat dengan baik",
+        "Anda hanya perlu bantuan menjana poin",
+        "Anda selesa memformat dokumen sendiri",
+        "Anda ingin menyelidik kata kunci dan trend industri"
+      ]
+    },
+    useBestAI: {
+      title: "Guna Best AI Resumes jika...",
+      items: [
+        "Anda mahu resume lengkap dalam satu alat",
+        "Anda perlu format ATS dan skor kata kunci",
+        "Anda tidak mahu mengurus templat dan format sendiri",
+        "Anda mahu menyimpan dan mengedit pelbagai versi resume",
+        "Anda mahu eksport PDF satu klik"
+      ]
+    },
+    bottomLine: "Kesimpulan: ChatGPT adalah pembantu penulisan yang baik, tetapi bukan pembuat resume. Untuk resume berformat lengkap yang melepasi ATS, anda perlu alat khusus."
+  },
+  resumeExamples: {
+    title: "Lihat Resume Dibuat dengan AI",
+    description: "Terokai 300+ contoh resume sebenar untuk semua profesion — semuanya dibuat dengan AI yang dioptimumkan ATS yang jauh lebih berkemampuan daripada ChatGPT sahaja.",
+    ctaBrowse: "Terokai Contoh Resume",
+    ctaTemplates: "Lihat Semua Templat"
+  },
+  faq: {
+    title: "Soalan Lazim",
+    items: [
+      { question: "Adakah ChatGPT menulis resume yang baik?", answer: "ChatGPT boleh menghasilkan teks untuk resume, tetapi tidak boleh memformat resume, menyemak keserasian ATS atau mencipta PDF yang boleh dimuat turun. Anda masih perlu alat berasingan untuk format dan reka bentuk dokumen. Pembuat resume AI khusus mengendalikan penulisan dan pemformatan dalam satu langkah." },
+      { question: "Bolehkah guna AI untuk resume?", answer: "Ya. Penggunaan AI untuk resume diterima secara meluas pada 2026. Majikan mengambil berat tentang kualiti kandungan resume, bukan cara ia dibuat. Yang penting ialah memperibadikan kandungan AI dengan pencapaian, angka dan pengalaman sebenar anda." },
+      { question: "Apa kelemahan ChatGPT untuk resume?", answer: "ChatGPT memberikan teks biasa tanpa format, tidak menyokong ATS, tidak boleh menilai resume anda terhadap deskripsi jawatan, menghasilkan kandungan generik tanpa angka spesifik anda, dan memerlukan anda menyalin semuanya ke dalam templat sendiri." },
+      { question: "Adakah sistem ATS menolak resume yang ditulis ChatGPT?", answer: "Sistem ATS tidak mengesan atau mengambil berat tentang kandungan yang ditulis AI. Tetapi jika anda menampal teks ChatGPT dalam templat yang diformat dengan buruk, ATS mungkin tidak boleh membacanya. Alat resume khusus menjamin keserasian ATS untuk kandungan dan format." },
+      { question: "Adakah Best AI Resume Builder lebih baik daripada ChatGPT untuk membuat resume?", answer: "Untuk tugas khusus membuat resume: ya. Best AI Resume Builder menggabungkan penulisan AI, format profesional, pengoptimuman ATS, padanan kata kunci dan eksport PDF dalam satu alat. ChatGPT adalah AI umum — ia menulis teks tetapi tidak boleh memformat, menilai atau mengeksport resume." }
+    ]
+  },
+  crossLinks: {
+    compareTitle: "比较其他简历生成器",
+    links: [
+      { title: "Canva替代方案", subtitle: "设计工具vs简历生成器" },
+      { title: "Overleaf替代方案", subtitle: "LaTeX vs AI生成器" },
+      { title: "Resume.io替代方案", subtitle: "价格和功能比较" },
+      { title: "Rezi替代方案", subtitle: "AI工具比较" }
+    ],
+    guidesTitle: "实用简历指南",
+    guides: [
+      { label: "什么是ATS？完整指南" },
+      { label: "如何写简历（分步指南）" },
+      { label: "ChatGPT vs Claude写简历" },
+      { label: "如何写专业摘要" }
+    ]
+  },
+  externalResources: {
+    title: "外部资源",
+    items: [
+      { href: "https://openai.com/chatgpt", label: "OpenAI ChatGPT" },
+      { href: "https://www.bls.gov/careeroutlook/2024/article/resume-tips.htm", label: "BLS Career Outlook: 简历技巧" }
+    ]
+  },
+  bottomCta: {
+    title: "准备超越ChatGPT？",
+    description: "使用我们的AI简历生成器创建完整的ATS优化简历——写作、排版和PDF导出一站完成。",
+    ctaText: "免费创建我的简历 — 无需注册",
+    subtext: "永久免费。无需信用卡。"
+  }
+};
+
+const content: Record<string, ChatGPTComparisonContent> = { en, es, fr, de, ar, ja, it, th, pt, vi, ko, tr, nl, zh, ms };
 
 export const getContent = (locale: string): ChatGPTComparisonContent =>
   selectContent(content, locale);

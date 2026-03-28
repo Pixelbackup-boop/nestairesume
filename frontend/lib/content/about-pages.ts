@@ -1487,7 +1487,199 @@ const nl: AboutPagesContent = {
   },
 };
 
-const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: '关于我们',
+      title: '构建职业成功的',
+      titleHighlight: '未来',
+      subtitle: 'Best AI Resume 致力于帮助全球求职者创建专业的、ATS优化的简历，为他们打开通向理想职业的大门。',
+    },
+    story: {
+      badge: '我们的故事',
+      heading: '我们为什么创建 Best AI Resume',
+      p1: '我们注意到，许多有才华的专业人士仅仅因为简历无法通过自动筛选系统而被忽视。传统的简历制作过程耗时、令人沮丧，而且往往无法展示候选人的真正潜力。',
+      p2: '因此我们创建了 Best AI Resume——一个将人工智能的力量与专业设计相结合的平台。我们的目标很简单：帮助每位求职者向潜在雇主展示最好的自己。',
+      p3: '迄今为止，我们已经帮助超过50,000名专业人士通过创建既出色又能通过ATS筛选的简历找到了理想的工作。',
+    },
+    stats: [
+      { value: '50K+', label: '已创建简历' },
+      { value: '98%', label: 'ATS通过率' },
+      { value: '20+', label: '模板' },
+      { value: '4.9', label: '用户评分' },
+    ],
+    values: {
+      badge: '我们的价值观',
+      heading: '驱动我们前进的力量',
+      cards: [
+        { title: '隐私至上', text: '你的数据属于你。我们将简历数据存储在你的浏览器本地，而不是我们的服务器上。只有你的账户凭据安全地保存在我们这边。' },
+        { title: '创新', text: '我们利用尖端AI技术帮助你撰写引人注目的内容，突出你的成就，让招聘人员关注你。' },
+        { title: '无障碍使用', text: '专业的简历工具不应该被昂贵的付费墙所阻挡。我们提供强大的功能，人人都能使用和负担。' },
+      ],
+    },
+    experts: {
+      badge: '值得信赖的专业知识',
+      heading: '认识我们的职业专家',
+      subtitle: '我们的职业教练、招聘人员和行业专家团队为他们撰写的简历指南带来深厚的专业知识。',
+    },
+    editorial: {
+      heading: '我们的编辑标准',
+      items: [
+        { title: '数据驱动的建议', text: '我们分享的每一条建议都经过真实ATS系统的测试和行业专业人士的验证。' },
+        { title: '以人为本的方法', text: '我们相信AI应该赋能而非替代。我们优先考虑真正能打动人类招聘人员的策略。' },
+      ],
+    },
+    commitment: {
+      heading: '我们对你的承诺',
+      p1: '在 Best AI Resume，我们相信每个人的职业旅程都是独特的。因此我们构建了一个尊重你隐私的平台，同时为你提供强大的工具以取得成功。你的简历数据保存在你的设备上，让你完全控制自己的信息。',
+      p2: '我们不断改进AI算法、添加新模板，并根据用户反馈增强功能。你的成功就是我们的成功，我们致力于在每一步都为你提供帮助。',
+    },
+    cta: {
+      title: '准备加入',
+      titleHighlight: '50,000+ 个成功故事？',
+      subtitle: '立即开始创建你的专业简历，迈出通向理想职业的第一步。',
+      button: '免费开始',
+    },
+  },
+  authors: {
+    meta: {
+      title: '我们的专家作者 | Best AI Resume',
+      description: '认识我们简历指南背后的职业专家、招聘人员和教练。我们的作者带来真实的招聘经验，帮助你找到理想的工作。',
+      ogDescription: '认识我们简历指南背后的职业专家、招聘人员和教练。',
+    },
+    breadcrumb: { home: '首页', about: '关于我们', authors: '作者' },
+    hero: {
+      title: '认识我们的专家作者',
+      subtitle: '我们的职业教练、招聘人员和行业专家团队基于真实的招聘经验撰写实用的简历指南。',
+    },
+    viewProfile: '查看资料',
+    cta: {
+      title: '在专家指导下创建简历',
+      subtitle: '我们的AI生成器应用了专家推荐的策略。几分钟内即可制作专业简历。',
+      button: '创建我的简历 — 免费',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: '首页', about: '关于我们' },
+    atOrg: '{organization} {jobTitle}',
+    authorOfGuides: ' 已撰写 {count}+ 篇职业指南和文章。',
+    connectLinkedIn: '在LinkedIn上连接',
+    viewAllGuides: '查看所有指南',
+    areasOfExpertise: '专业领域',
+    resumeGuidesBy: '{name} 的简历指南',
+    guidesCount: '{count} 篇指南',
+    coverLetterExamplesBy: '{name} 的求职信范例',
+    examplesCount: '{count} 个范例',
+    blogPostsBy: '{name} 的博客文章',
+    postsCount: '{count} 篇文章',
+    viewAllResumes: '查看全部 {count} 篇简历指南',
+    viewAllCoverLetters: '查看全部 {count} 个求职信范例',
+    viewAllBlogPosts: '查看全部 {count} 篇博客文章',
+    cta: {
+      title: '在专家指导下创建简历',
+      subtitle: '采用 {name} 推荐的策略。我们的AI生成器自动应用专家级简历写作技巧。',
+      button: '创建我的简历 — 免费',
+    },
+  },
+};
+
+const ms: AboutPagesContent = {
+  about: {
+    hero: {
+      badge: 'Tentang Kami',
+      title: 'Membina masa depan',
+      titleHighlight: 'kejayaan kerjaya',
+      subtitle: 'Best AI Resume bermatlamat membantu pencari kerja di seluruh dunia mencipta resume profesional yang dioptimumkan ATS untuk membuka pintu ke kerjaya impian mereka.',
+    },
+    story: {
+      badge: 'Kisah Kami',
+      heading: 'Mengapa kami membina Best AI Resume',
+      p1: 'Kami perasan ramai profesional berbakat diabaikan hanya kerana resume mereka tidak melepasi sistem saringan automatik. Proses pembuatan resume tradisional memakan masa, mengecewakan dan sering menghasilkan dokumen yang gagal mempamerkan potensi sebenar calon.',
+      p2: 'Itulah sebabnya kami mencipta Best AI Resume — platform yang menggabungkan kuasa kecerdasan buatan dengan reka bentuk profesional. Matlamat kami mudah: membantu setiap pencari kerja mempersembahkan diri mereka yang terbaik kepada majikan.',
+      p3: 'Sehingga kini, kami telah membantu lebih 50,000 profesional mendapat pekerjaan impian mereka dengan mencipta resume yang menonjol dan melepasi saringan ATS.',
+    },
+    stats: [
+      { value: '50K+', label: 'Resume Dicipta' },
+      { value: '98%', label: 'Kadar Lulus ATS' },
+      { value: '20+', label: 'Templat' },
+      { value: '4.9', label: 'Penilaian Pengguna' },
+    ],
+    values: {
+      badge: 'Nilai Kami',
+      heading: 'Apa yang mendorong kami',
+      cards: [
+        { title: 'Privasi Utama', text: 'Data anda milik anda. Kami menyimpan data resume anda secara setempat dalam pelayar anda, bukan di pelayan kami. Hanya kelayakan akaun anda disimpan dengan selamat di pihak kami.' },
+        { title: 'Inovasi', text: 'Kami menggunakan teknologi AI terkini untuk membantu anda menulis kandungan yang menarik yang menonjolkan pencapaian anda dan menarik perhatian perekrut.' },
+        { title: 'Kebolehcapaian', text: 'Alat resume profesional tidak sepatutnya tersembunyi di sebalik tembok berbayar yang mahal. Kami menawarkan ciri-ciri berkuasa yang semua orang boleh akses dan mampu.' },
+      ],
+    },
+    experts: {
+      badge: 'Kepakaran Dipercayai',
+      heading: 'Kenali Pakar Kerjaya Kami',
+      subtitle: 'Pasukan jurulatih kerjaya, perekrut dan pakar industri kami membawa kepakaran mendalam ke panduan resume yang mereka tulis.',
+    },
+    editorial: {
+      heading: 'Standard Editorial Kami',
+      items: [
+        { title: 'Nasihat Berasaskan Data', text: 'Setiap tip yang kami kongsi diuji pada sistem ATS sebenar dan disahkan oleh profesional industri.' },
+        { title: 'Pendekatan Mengutamakan Manusia', text: 'Kami percaya AI harus memperkasa, bukan menggantikan. Kami mengutamakan strategi yang menarik perhatian perekrut manusia.' },
+      ],
+    },
+    commitment: {
+      heading: 'Komitmen Kami Kepada Anda',
+      p1: 'Di Best AI Resume, kami percaya perjalanan kerjaya anda adalah peribadi. Itulah sebabnya kami membina platform yang menghormati privasi anda sambil memberikan alat yang berkuasa untuk berjaya. Data resume anda kekal di peranti anda, memberikan anda kawalan sepenuhnya.',
+      p2: 'Kami sentiasa menambah baik algoritma AI, menambah templat baharu dan meningkatkan ciri berdasarkan maklum balas pengguna. Kejayaan anda adalah kejayaan kami.',
+    },
+    cta: {
+      title: 'Bersedia untuk menyertai',
+      titleHighlight: '50,000+ kisah kejayaan?',
+      subtitle: 'Mula membina resume profesional anda hari ini dan ambil langkah pertama ke arah kerjaya impian anda.',
+      button: 'Mula Percuma',
+    },
+  },
+  authors: {
+    meta: {
+      title: 'Penulis Pakar Kami | Best AI Resume',
+      description: 'Kenali pakar kerjaya, perekrut dan jurulatih di sebalik panduan resume kami. Penulis kami membawa pengalaman pengambilan sebenar untuk membantu anda mendapat pekerjaan impian.',
+      ogDescription: 'Kenali pakar kerjaya, perekrut dan jurulatih di sebalik panduan resume kami.',
+    },
+    breadcrumb: { home: 'Laman Utama', about: 'Tentang Kami', authors: 'Penulis' },
+    hero: {
+      title: 'Kenali Penulis Pakar Kami',
+      subtitle: 'Pasukan jurulatih kerjaya, perekrut dan profesional industri kami menulis panduan resume praktikal berdasarkan pengalaman pengambilan sebenar.',
+    },
+    viewProfile: 'Lihat Profil',
+    cta: {
+      title: 'Cipta Resume Anda dengan Bimbingan Pakar',
+      subtitle: 'Pembina AI kami menggunakan strategi yang disyorkan oleh pakar kami. Cipta resume profesional dalam beberapa minit.',
+      button: 'Cipta Resume Saya — Percuma',
+    },
+  },
+  authorProfile: {
+    breadcrumb: { home: 'Laman Utama', about: 'Tentang Kami' },
+    atOrg: '{jobTitle} di {organization}',
+    authorOfGuides: ' Penulis {count}+ panduan kerjaya dan artikel.',
+    connectLinkedIn: 'Hubungi di LinkedIn',
+    viewAllGuides: 'Lihat Semua Panduan',
+    areasOfExpertise: 'Bidang Kepakaran',
+    resumeGuidesBy: 'Panduan Resume oleh {name}',
+    guidesCount: '{count} panduan',
+    coverLetterExamplesBy: 'Contoh Surat Iringan oleh {name}',
+    examplesCount: '{count} contoh',
+    blogPostsBy: 'Artikel Blog oleh {name}',
+    postsCount: '{count} artikel',
+    viewAllResumes: 'Lihat semua {count} panduan resume',
+    viewAllCoverLetters: 'Lihat semua {count} contoh surat iringan',
+    viewAllBlogPosts: 'Lihat semua {count} artikel blog',
+    cta: {
+      title: 'Cipta Resume Anda dengan Bimbingan Pakar',
+      subtitle: 'Gunakan strategi yang disyorkan oleh {name}. Pembina AI kami mengaplikasikan teknik penulisan resume pakar secara automatik.',
+      button: 'Cipta Resume Saya — Percuma',
+    },
+  },
+};
+
+const contentMap: Record<string, AboutPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 
 export function getAboutContent(locale: string) { return selectContent(contentMap, locale).about; }
 export function getAuthorsContent(locale: string) { return selectContent(contentMap, locale).authors; }

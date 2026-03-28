@@ -1882,5 +1882,85 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: { title: 'Zety替代方案 2026：免费AI简历生成器 | Best AI Resume', description: '寻找免费的Zety替代方案？比较Zety vs Best AI Resume Builder——AI写作、ATS模板、无限下载。无隐藏费用。', keywords: 'zety替代, zety简历, 免费简历模板, ai简历生成器, 免费简历, zety替代方案' },
+  schemas: { breadcrumbName: 'Zety替代方案', articleHeadline: 'Zety替代方案 2026：免费AI简历生成器，无隐藏费用', articleDescription: '比较Zety与Best AI Resume Builder。使用AI创建专业简历，ATS优化，无限下载——完全免费。' },
+  hero: { badge: 'Zety替代方案', title: '创建你的简历。', titleHighlight: '免费下载。', subtitle: 'Zety让你创建简历——但下载需要<strong>$23.70/月</strong>。我们提供AI写作、ATS模板和无限导出，费用为<strong>¥0</strong>。', ctaPrimary: '免费创建我的简历', ctaSecondary: '查看对比' },
+  problem: { title: 'Zety的价格陷阱', description: 'Zety有专业模板和实用的内容建议。问题在于定价：你完成整份简历后才发现需要付费下载。<strong>14天试用期$2.70</strong>，之后自动续费至<strong>$23.70/月</strong>。大量用户报告忘记取消后遭遇意外收费。', stats: [{ value: '$2.70', label: '14天试用（自动续费至$23.70/月）' }, { value: '$284', label: '忘记取消后的年度费用' }, { value: '¥0', label: 'Best AI Resume Builder——永久免费' }] },
+  comparison: { title: 'Zety vs Best AI Resume Builder', subtitle: '逐项功能对比。', competitorName: 'Zety', oursName: 'Best AI Resumes', rows: [
+    { feature: '价格', competitor: '❌ $2.70试用→$23.70/月自动续费', ours: '✅ 100%永久免费' },
+    { feature: '免费下载', competitor: '❌ PDF下载需付费', ours: '✅ 无限免费PDF导出' },
+    { feature: 'AI写作', competitor: '⚠️ 预写建议（非真正AI）', ours: '✅ AI生成个性化内容' },
+    { feature: 'ATS优化', competitor: '✅ 包含简历检查器', ours: '✅ 实时ATS评分+关键词' },
+    { feature: '模板质量', competitor: '✅ 专业现代设计', ours: '✅ 20+ ATS测试模板' },
+    { feature: '简历数量', competitor: '⚠️ 无限（但在付费墙后）', ours: '✅ 无限免费创建' },
+    { feature: '求职信', competitor: '✅ 包含（付费）', ours: '✅ AI驱动（免费）' },
+    { feature: '内容建议', competitor: '✅ 按职位预写短语', ours: '✅ AI根据你的经验定制' },
+    { feature: '取消', competitor: '❌ 必须在试用期结束前取消', ours: '✅ 无需取消' },
+    { feature: '用户评价', competitor: '⚠️ 混合——计费投诉频繁', ours: '✅ 不可能有计费问题' },
+  ] },
+  whySwitch: { title: '从Zety转换的3个理由', subtitle: '真正免费。更好的AI。没有陷阱。', reasons: [
+    { title: '真正免费下载', description: 'Zety在你完成简历后要求付费。在这里，一切免费下载——无试用期、无信用卡、无自动续费。' },
+    { title: '真正的AI（非预写短语）', description: 'Zety的建议基于预写短语库。我们的AI为简历每个部分生成真正的定制内容。' },
+    { title: '更好的ATS优化', description: '与Zety的基本ATS功能相比，我们提供实时ATS评分、行业特定关键词建议和经过测试的模板。' },
+  ] },
+  recommendation: { title: '诚实建议', useCompetitor: { title: 'Zety适合以下情况...', items: ['你愿意每月支付$23.70使用简历工具', '你偏好预写内容建议而非AI生成', '你想要知名品牌的简历生成器', '你总是按时取消试用订阅'] }, useUs: { title: 'Best AI Resumes更好如果你...', items: ['想免费下载简历', '偏好AI根据你的经验撰写定制内容', '需要为不同职位创建多个版本', '想要实时ATS评分和关键词建议', '不想处理试用期、取消或意外收费'] } },
+  resumeExamples: { title: '查看300+免费简历示例', description: '各行各业的专业简历示例。', ctaBrowse: '浏览简历示例', ctaTemplates: '查看所有模板' },
+  faq: { title: '常见问题', items: [
+    { question: 'Zety免费吗？', answer: 'Zety让你免费创建简历，但下载需要付费订阅——$2.70的14天试用期自动续费至$23.70/月。许多用户报告试用期后意外收费。Best AI Resume Builder是100%免费的。' },
+    { question: 'Zety是合法的简历生成器吗？', answer: '是的，Zety是合法公司，有专业模板和写作建议。但定价模式让许多用户感到沮丧——你在发现需要付费下载前已完成了整份简历。' },
+    { question: 'Zety最好的免费替代方案是什么？', answer: 'Best AI Resume Builder是最好的免费替代方案。提供AI写作、20+ ATS测试模板、实时ATS评分和无限PDF导出——完全免费。无试用期，无需信用卡。' },
+    { question: 'Zety有AI功能吗？', answer: 'Zety提供预写内容建议和简历检查器，但缺少真正的AI驱动大语言模型。Best AI Resume Builder使用先进AI生成定制的要点、专业摘要和基于你具体经验的内容。' },
+    { question: '下载简历后可以取消Zety吗？', answer: '可以，但必须在14天试用期结束前取消以避免$23.70/月的费用。Best AI Resume Builder没有什么需要取消的——永久免费。' },
+  ] },
+  crossLinks: { title: '比较其他简历生成器', items: [
+    { href: '/zh/canva-alternative', title: 'Canva替代方案', subtitle: '设计工具vs AI简历' },
+    { href: '/zh/rezi-alternative', title: 'Rezi替代方案', subtitle: 'AI功能比较' },
+    { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '价格比较' },
+  ], guidesTitle: '实用简历指南', guides: [] },
+  externalResources: { title: '外部资源', items: [{ href: 'https://zety.com/', label: 'Zety官方网站' }, { href: 'https://www.zhaopin.com/', label: '智联招聘' }] },
+  bottomCta: { title: '无试用期。无陷阱。就是免费。', description: '创建、下载和分享简历，无需输入信用卡。AI写作、ATS模板、无限导出——全部免费。', cta: '免费创建我的简历', subtext: '永久免费。无需信用卡。' },
+};
+
+const ms: ComparisonPageContent = {
+  meta: { title: 'Alternatif Zety 2026: Pembuat Resume AI Percuma | Best AI Resume', description: 'Mencari alternatif Zety percuma? Bandingkan Zety vs Best AI Resume Builder — penulisan AI, templat ATS, muat turun tanpa had. Tiada kos tersembunyi.', keywords: 'zety alternatif, zety pembuat resume, templat resume percuma, buat resume percuma, alternatif untuk zety' },
+  schemas: { breadcrumbName: 'Alternatif Zety', articleHeadline: 'Alternatif Zety 2026: Pembuat Resume AI Percuma Tanpa Kos Tersembunyi', articleDescription: 'Bandingkan Zety vs Best AI Resume Builder. Cipta resume profesional dengan AI, pengoptimuman ATS dan muat turun tanpa had — percuma sepenuhnya.' },
+  hero: { badge: 'Alternatif Zety', title: 'Cipta Resume Anda.', titleHighlight: 'Muat Turun Percuma.', subtitle: 'Zety membenarkan anda membina resume — tetapi mengenakan <strong>$23.70/bulan</strong> untuk memuat turunnya. Kami menawarkan penulisan AI, templat ATS dan eksport tanpa had untuk <strong>RM0</strong>.', ctaPrimary: 'Cipta Resume Percuma', ctaSecondary: 'Lihat Perbandingan' },
+  problem: { title: 'Perangkap Harga Zety', description: 'Zety mempunyai templat profesional dan cadangan kandungan yang berguna. Masalahnya: anda membina resume lengkap sebelum mendapati perlu bayar untuk muat turun. <strong>Percubaan 14 hari berharga $2.70</strong>, kemudian diperbaharui auto ke <strong>$23.70/bulan</strong>. Beribu pengguna melaporkan caj mengejut.', stats: [{ value: '$2.70', label: 'Percubaan 14 hari (pembaharuan auto ke $23.70/bln)' }, { value: '$284', label: 'Kos tahunan jika terlupa membatalkan' }, { value: 'RM0', label: 'Best AI Resume Builder — percuma selama-lamanya' }] },
+  comparison: { title: 'Zety vs Best AI Resume Builder', subtitle: 'Perbandingan ciri demi ciri.', competitorName: 'Zety', oursName: 'Best AI Resumes', rows: [
+    { feature: 'Harga', competitor: '❌ $2.70 percubaan → $23.70/bln auto', ours: '✅ 100% percuma selama-lamanya' },
+    { feature: 'Muat turun percuma', competitor: '❌ Bayaran diperlukan untuk muat turun PDF', ours: '✅ Eksport PDF percuma tanpa had' },
+    { feature: 'Penulisan AI', competitor: '⚠️ Cadangan pra-tulis (bukan AI sebenar)', ours: '✅ AI menjana kandungan terperibadi' },
+    { feature: 'Pengoptimuman ATS', competitor: '✅ Penyemak CV termasuk', ours: '✅ Skor ATS masa nyata + kata kunci' },
+    { feature: 'Kualiti templat', competitor: '✅ Reka bentuk profesional moden', ours: '✅ 20+ templat diuji ATS' },
+    { feature: 'Bilangan resume', competitor: '⚠️ Tanpa had (tetapi di sebalik tembok bayaran)', ours: '✅ Cipta resume tanpa had, percuma' },
+    { feature: 'Pembuat surat iringan', competitor: '✅ Termasuk (langganan berbayar)', ours: '✅ Dikuasakan AI (percuma)' },
+    { feature: 'Cadangan kandungan', competitor: '✅ Ayat pra-tulis mengikut jawatan', ours: '✅ AI disesuaikan dengan pengalaman kerja anda' },
+    { feature: 'Pembatalan', competitor: '❌ Perlu batal sebelum percubaan tamat', ours: '✅ Tiada apa untuk dibatalkan' },
+    { feature: 'Ulasan pengguna', competitor: '⚠️ Bercampur — aduan bil kerap', ours: '✅ Tiada masalah bil mungkin' },
+  ] },
+  whySwitch: { title: '3 Sebab untuk Beralih dari Zety', subtitle: 'Benar-benar percuma. AI lebih baik. Tiada perangkap.', reasons: [
+    { title: 'Muat Turun Benar-benar Percuma', description: 'Zety mengenakan bayaran selepas anda selesai membina resume. Di sini, muat turun semua secara percuma — tiada percubaan, tiada kad kredit, tiada pembaharuan auto.' },
+    { title: 'AI Sebenar (Bukan Ayat Pra-tulis)', description: 'Cadangan Zety berdasarkan perpustakaan ayat pra-tulis. AI kami menjana kandungan tersuai sebenar untuk setiap bahagian resume anda.' },
+    { title: 'Pengoptimuman ATS Lebih Baik', description: 'Berbanding ciri ATS asas Zety, kami menawarkan skor ATS masa nyata, cadangan kata kunci khusus industri dan templat yang diuji.' },
+  ] },
+  recommendation: { title: 'Cadangan Jujur', useCompetitor: { title: 'Zety sesuai jika anda...', items: ['Bersedia membayar $23.70/bulan untuk alat resume', 'Lebih suka cadangan kandungan pra-tulis berbanding penjanaan AI', 'Mahu jenama terkenal untuk pembuat resume', 'Sentiasa membatalkan percubaan tepat pada masanya'] }, useUs: { title: 'Best AI Resumes lebih baik jika anda...', items: ['Mahu memuat turun resume tanpa bayar', 'Lebih suka AI yang menulis kandungan tersuai berdasarkan pengalaman anda', 'Perlu pelbagai versi resume untuk permohonan berbeza', 'Mahu skor ATS masa nyata dengan cadangan kata kunci', 'Tidak mahu berurusan dengan percubaan, pembatalan atau caj mengejut'] } },
+  resumeExamples: { title: 'Lihat 300+ Contoh Resume Percuma', description: 'Contoh resume profesional untuk setiap pekerjaan dan industri.', ctaBrowse: 'Lihat Contoh Resume', ctaTemplates: 'Lihat Semua Templat' },
+  faq: { title: 'Soalan Lazim', items: [
+    { question: 'Adakah Zety percuma?', answer: 'Zety membenarkan anda membina resume secara percuma, tetapi muat turun memerlukan langganan berbayar — $2.70 percubaan 14 hari yang diperbaharui auto ke $23.70/bulan. Best AI Resume Builder 100% percuma.' },
+    { question: 'Adakah Zety pembuat resume yang sah?', answer: 'Ya, Zety adalah syarikat sah dengan templat profesional. Tetapi model harga mengecewakan ramai pengguna — anda membina resume lengkap sebelum tahu perlu bayar untuk muat turun.' },
+    { question: 'Apakah alternatif percuma terbaik untuk Zety?', answer: 'Best AI Resume Builder adalah alternatif percuma terbaik. Ia menawarkan penulisan AI, 20+ templat ATS diuji, skor ATS masa nyata dan eksport PDF tanpa had — percuma sepenuhnya.' },
+    { question: 'Adakah Zety mempunyai ciri AI?', answer: 'Zety menawarkan cadangan kandungan pra-tulis dan penyemak CV, tetapi kekurangan AI sebenar. Best AI Resume Builder menggunakan AI lanjutan untuk menjana poin tersuai, ringkasan profesional dan kandungan berdasarkan pengalaman kerja spesifik anda.' },
+    { question: 'Boleh batal Zety selepas muat turun resume?', answer: 'Ya, tetapi anda perlu batal sebelum percubaan 14 hari tamat untuk elak caj $23.70/bulan. Best AI Resume Builder tiada apa untuk dibatalkan — percuma selama-lamanya.' },
+  ] },
+  crossLinks: { title: 'Bandingkan Pembuat Resume Lain', items: [
+    { href: '/ms/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat reka bentuk vs pembuat resume AI' },
+    { href: '/ms/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan ciri AI' },
+    { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga & ciri' },
+  ], guidesTitle: 'Panduan Resume Berguna', guides: [] },
+  externalResources: { title: 'Sumber Luaran', items: [{ href: 'https://zety.com/', label: 'Laman Web Rasmi Zety' }, { href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia' }] },
+  bottomCta: { title: 'Tiada Percubaan. Tiada Perangkap. Hanya Percuma.', description: 'Cipta, muat turun dan kongsi resume anda tanpa perlu masukkan kad kredit. Penulisan AI, templat ATS, eksport tanpa had — semua percuma.', cta: 'Cipta Resume Percuma', subtext: 'Percuma selama-lamanya. Tiada kad kredit diperlukan.' },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

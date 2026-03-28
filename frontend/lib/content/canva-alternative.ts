@@ -1833,5 +1833,241 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: {
+    title: '2026年最佳Canva简历替代方案：免费ATS友好模板 | Best AI Resume',
+    description: '寻找能通过ATS的Canva简历模板？比较Canva与Best AI Resume Builder——免费、ATS优化模板，AI驱动写作。无需设计技能。',
+    keywords: 'canva简历模板, canva替代方案, canva简历制作, 免费简历模板, ats友好简历, 简历制作工具',
+  },
+  schemas: {
+    breadcrumbName: 'Canva简历替代方案',
+    articleHeadline: '2026年最佳Canva简历替代方案：免费ATS友好模板',
+    articleDescription: '比较Canva与Best AI Resume Builder制作简历。逐项功能对比，诚实的优缺点分析。',
+  },
+  hero: {
+    badge: 'Canva替代��案',
+    title: '别再因Canva的',
+    titleHighlight: 'ATS问题丢失工作机会',
+    subtitle: 'Canva制作精美简历——但<strong>98%的ATS系统无法读取</strong>。切换到专为求职设计的简历制作工具，不仅仅是好看。',
+    ctaPrimary: '免费制作我的简历',
+    ctaSecondary: '查看对比',
+  },
+  problem: {
+    title: '为什么Canva简历被拒绝',
+    description: 'Canva是图形设计工具——不是简历制作工具。当你在Canva中创建简历时，它导出为扁平化图像或复杂PDF，文本嵌入为视觉元素。ATS系统读取文档文本而非图像。结果？<strong>你的简历在ATS中显示为空白</strong>，在任何人看到之前就被自动拒绝。',
+    stats: [
+      { value: '98%', label: '的财富500强公司使用ATS筛选简历' },
+      { value: '75%', label: '的简历在人工审查前被拒绝' },
+      { value: '0%', label: '大多数Canva简历模板的ATS解析率' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: '设计工具 vs 专业简历制作工具。',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '主要用途', competitor: '⚠️ 通用设计平台', ours: '✅ 专为简历打造' },
+      { feature: 'ATS兼容性', competitor: '❌ 大多数模板无法通过ATS', ours: '✅ 所有模板经ATS测��' },
+      { feature: 'AI简历写作', competitor: '❌ 无简历专用AI', ours: '✅ AI撰写定制内容' },
+      { feature: 'ATS评分', competitor: '❌ 无ATS检查', ours: '✅ 实时ATS评分' },
+      { feature: '价格', competitor: '⚠️ 免费有限/Pro $12.99/月', ours: '✅ 100%永久免费' },
+      { feature: '模板', competitor: '✅ 数千种设计', ours: '✅ 20+招聘人员测试的模板' },
+      { feature: '内容指导', competitor: '❌ 无简历写作帮助', ours: '✅ AI要点和摘要' },
+      { feature: '关键词优化', competitor: '❌ 不可用', ours: '✅ AI关键词建议' },
+      { feature: '学习曲线', competitor: '⚠️ 需要设计知识', ours: '✅ 引导式逐步流程' },
+      { feature: 'PDF质量', competitor: '⚠️ 可能嵌入文本为图像', ours: '✅ 可选择文本的PDF' },
+    ],
+  },
+  whySwitch: {
+    title: '从Canva转换的3个理由',
+    subtitle: 'ATS优化。AI驱动。免费。',
+    reasons: [
+      { title: 'ATS兼容性', description: 'Canva简历在ATS系统中经常显示为空白。我们的模板确保内容被正确解析，你的简历能到达招聘人员手��。' },
+      { title: '简历专用AI', description: 'Canva是设计工具，不提供简历写作帮助。我们的AI根据你的经历生成专业的要点、摘要和技能建议。' },
+      { title: '完全免费', description: 'Canva Pro要求每月$12.99获取高级模板。Best AI Resume Builder的所有功能都是100%免费的。' },
+    ],
+  },
+  recommendation: {
+    title: '诚实推荐',
+    useCompetitor: {
+      title: 'Canva适合你，如果你...',
+      items: [
+        '申请不使用ATS的创意职位',
+        '需要高度视觉化的简历/作品集',
+        '有设计技能，想完全控制布局',
+        '需要设计其他材料（不仅仅是简历）',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes更好，如果你...',
+      items: [
+        '申请使用ATS的公司',
+        '想要AI帮助撰写简历内容',
+        '没有设计经验',
+        '想免费下载，无需订阅',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '浏览300+免费简历范例',
+    description: '适合各行业和各职业阶段的专业简历范例。',
+    ctaBrowse: '查看简历范例',
+    ctaTemplates: '查看所有���板',
+  },
+  faq: {
+    title: '常见问题',
+    items: [
+      { question: 'Canva简历能通过ATS吗？', answer: '大多数Canva简历模板无法通过ATS，因为它们使用图形元素、文本框和复杂格式。ATS系统读取纯文本，而非视觉元素。' },
+      { question: 'Canva简历有什么问题？', answer: 'Canva将文本导出为图像，ATS无法读取。你的简历可能看起来很好，但对自动筛选系统来说是空白的。' },
+      { question: '最佳免费Canva简历替代方案是什么？', answer: 'Best AI Resume Builder提供ATS友好模板、AI写作和免费PDF下载——专为简历设计，不是通用设计工具。' },
+      { question: 'Canva Pro值得用来制作简历吗？', answer: 'Canva Pro提供更多设计模板，但不解决ATS兼容性问题。使用专门的简历制作工具是更好的选择。' },
+      { question: '如何将Canva简历转换为ATS友好格式？', answer: '最简单的方法是使用ATS优化的简历制作工具重新制作。Best AI Resume Builder可以在几分钟内帮你创建ATS友好的简历。' },
+    ],
+  },
+  crossLinks: {
+    title: '比较其他简历制作工具',
+    items: [
+      { href: '/zh/adobe-alternative', title: 'Adobe替代方案', subtitle: '设计工具 vs 简历制作' },
+      { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '价格和功能对比' },
+      { href: '/zh/zety-alternative', title: 'Zety���代方案', subtitle: '价格对比' },
+      { href: '/zh/rezi-alternative', title: 'Rezi替代方案', subtitle: 'AI功能对比' },
+    ],
+    guidesTitle: '实用简历指南',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部资源',
+    items: [
+      { href: 'https://www.canva.com/', label: 'Canva官方网站' },
+      { href: 'https://www.bls.gov/ooh/', label: '美国劳工统计局：职业展望' },
+    ],
+  },
+  bottomCta: {
+    title: 'ATS友好。AI驱动。免费。',
+    description: '制作一份能被ATS系统和招聘人员读取的简历——不被Canva图形格式阻挡。完全免费。',
+    cta: '免费制作我的简历',
+    subtext: '永久免费。无需信用卡。无意外费用。',
+  },
+};
+
+const ms: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Canva Terbaik untuk Resume 2026: Templat Mesra ATS Percuma | Best AI Resume',
+    description: 'Mencari templat resume Canva yang melepasi ATS? Bandingkan Canva vs Best AI Resume Builder — templat percuma mesra ATS dengan penulisan berkuasa AI. Tanpa kemahiran reka bentuk.',
+    keywords: 'templat resume canva, alternatif canva resume, pembina resume canva, templat resume percuma, resume mesra ats, pembina resume',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Canva untuk Resume',
+    articleHeadline: 'Alternatif Canva Terbaik untuk Resume 2026: Templat Mesra ATS Percuma',
+    articleDescription: 'Bandingkan Canva vs Best AI Resume Builder. Perbandingan ciri demi ciri dengan kebaikan dan keburukan yang jujur.',
+  },
+  hero: {
+    badge: 'Alternatif Canva',
+    title: 'Berhenti Kehilangan Kerja Kerana',
+    titleHighlight: 'Masalah ATS Canva',
+    subtitle: 'Canva mencipta resume yang cantik — tetapi <strong>98% sistem ATS tidak boleh membacanya</strong>. Beralih ke pembina resume yang direka untuk mendapat kerja, bukan sekadar cantik.',
+    ctaPrimary: 'Bina Resume Saya Percuma',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Mengapa Resume Canva Ditolak',
+    description: 'Canva adalah alat reka bentuk grafik — bukan pembina resume. Apabila anda mencipta resume di Canva, ia dieksport sebagai imej atau PDF kompleks di mana teks tertanam sebagai elemen visual. Sistem ATS membaca teks dokumen, bukan imej. Hasilnya? <strong>Resume anda kelihatan kosong kepada ATS</strong>, dan anda ditolak secara automatik.',
+    stats: [
+      { value: '98%', label: 'syarikat Fortune 500 menggunakan ATS untuk menyaring resume' },
+      { value: '75%', label: 'resume ditolak sebelum semakan manusia' },
+      { value: '0%', label: 'kadar penghuraian ATS untuk kebanyakan templat resume Canva' },
+    ],
+  },
+  comparison: {
+    title: 'Canva vs Best AI Resume Builder',
+    subtitle: 'Alat reka bentuk vs pembina resume khusus.',
+    competitorName: 'Canva',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Tujuan Utama', competitor: '⚠️ Platform reka bentuk am', ours: '✅ Dibina khusus untuk resume' },
+      { feature: 'Keserasian ATS', competitor: '❌ Kebanyakan templat gagal ATS', ours: '✅ Semua templat diuji ATS' },
+      { feature: 'Penulisan AI Resume', competitor: '❌ Tiada AI khusus resume', ours: '✅ AI menulis kandungan tersuai' },
+      { feature: 'Skor ATS', competitor: '❌ Tiada semakan ATS', ours: '✅ Skor ATS masa nyata' },
+      { feature: 'Harga', competitor: '⚠️ Percuma terhad / Pro $12.99/bulan', ours: '✅ 100% percuma selama-lamanya' },
+      { feature: 'Templat', competitor: '✅ Ribuan reka bentuk', ours: '✅ 20+ templat diuji perekrut' },
+      { feature: 'Panduan Kandungan', competitor: '❌ Tiada bantuan penulisan resume', ours: '✅ Poin AI dan ringkasan' },
+      { feature: 'Pengoptimuman Kata Kunci', competitor: '❌ Tidak tersedia', ours: '✅ Cadangan kata kunci AI' },
+      { feature: 'Keluk Pembelajaran', competitor: '⚠️ Memerlukan pengetahuan reka bentuk', ours: '✅ Aliran berpandu langkah demi langkah' },
+      { feature: 'Kualiti PDF', competitor: '⚠️ Mungkin membenamkan teks sebagai imej', ours: '✅ PDF dengan teks boleh dipilih' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Sebab untuk Beralih dari Canva',
+    subtitle: 'Dioptimumkan ATS. Berkuasa AI. Percuma.',
+    reasons: [
+      { title: 'Keserasian ATS', description: 'Resume Canva sering kelihatan kosong dalam sistem ATS. Templat kami memastikan kandungan dihuraikan dengan betul supaya resume anda sampai ke perekrut.' },
+      { title: 'AI Khusus Resume', description: 'Canva ialah alat reka bentuk, tidak menyediakan bantuan penulisan resume. AI kami menjana poin profesional, ringkasan dan cadangan kemahiran berdasarkan pengalaman anda.' },
+      { title: 'Percuma Sepenuhnya', description: 'Canva Pro memerlukan $12.99/bulan untuk templat premium. Semua ciri Best AI Resume Builder adalah 100% percuma.' },
+    ],
+  },
+  recommendation: {
+    title: 'Cadangan Jujur',
+    useCompetitor: {
+      title: 'Canva sesuai jika anda...',
+      items: [
+        'Memohon jawatan kreatif yang tidak menggunakan ATS',
+        'Memerlukan resume/portfolio yang sangat visual',
+        'Mempunyai kemahiran reka bentuk dan ingin kawalan penuh susun atur',
+        'Perlu mereka bentuk bahan lain (bukan hanya resume)',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes lebih baik jika anda...',
+      items: [
+        'Memohon ke syarikat yang menggunakan ATS',
+        'Mahukan bantuan AI menulis kandungan resume',
+        'Tiada pengalaman reka bentuk',
+        'Mahu muat turun percuma tanpa langganan',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Layari 300+ Contoh Resume Percuma',
+    description: 'Contoh resume profesional untuk setiap industri dan peringkat kerjaya.',
+    ctaBrowse: 'Lihat Contoh Resume',
+    ctaTemplates: 'Lihat Semua Templat',
+  },
+  faq: {
+    title: 'Soalan Lazim',
+    items: [
+      { question: 'Adakah resume Canva melepasi ATS?', answer: 'Kebanyakan templat resume Canva tidak melepasi ATS kerana ia menggunakan elemen grafik, kotak teks dan format kompleks. Sistem ATS membaca teks biasa, bukan elemen visual.' },
+      { question: 'Apa masalah resume Canva?', answer: 'Canva mengeksport teks sebagai imej yang tidak boleh dibaca ATS. Resume anda mungkin kelihatan bagus tetapi kosong kepada sistem saringan automatik.' },
+      { question: 'Apakah alternatif Canva percuma terbaik untuk resume?', answer: 'Best AI Resume Builder menawarkan templat mesra ATS, penulisan AI dan muat turun PDF percuma — dibina khusus untuk resume.' },
+      { question: 'Adakah Canva Pro berbaloi untuk resume?', answer: 'Canva Pro menawarkan lebih banyak templat reka bentuk tetapi tidak menyelesaikan masalah keserasian ATS. Menggunakan pembina resume khusus adalah pilihan yang lebih baik.' },
+      { question: 'Bagaimana menukar resume Canva kepada format mesra ATS?', answer: 'Cara termudah ialah membina semula dengan pembina resume yang dioptimumkan ATS. Best AI Resume Builder boleh membantu anda mencipta resume mesra ATS dalam beberapa minit.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembina Resume Lain',
+    items: [
+      { href: '/ms/adobe-alternative', title: 'Alternatif Adobe', subtitle: 'Alat reka bentuk vs pembina resume' },
+      { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga dan ciri' },
+      { href: '/ms/zety-alternative', title: 'Alternatif Zety', subtitle: 'Perbandingan harga' },
+      { href: '/ms/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan ciri AI' },
+    ],
+    guidesTitle: 'Panduan Resume Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部资源 / Sumber Luaran',
+    items: [
+      { href: 'https://www.canva.com/', label: 'Canva Official Website' },
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics' },
+    ],
+  },
+  bottomCta: {
+    title: 'Mesra ATS. Berkuasa AI. Percuma.',
+    description: 'Bina resume yang boleh dibaca oleh sistem ATS dan perekrut — tidak disekat oleh format grafik Canva. Percuma sepenuhnya.',
+    cta: 'Bina Resume Saya Percuma',
+    subtext: 'Percuma selama-lamanya. Tanpa kad kredit. Tanpa kejutan.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

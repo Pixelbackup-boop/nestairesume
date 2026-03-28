@@ -350,6 +350,56 @@ const CONFIGS = {
       `curriculum vitae ${jobLower}`,
     ],
   },
+
+  zh: {
+    descriptionKeyword: '简历',
+    descriptionShortenings: [
+      [' 专业格式、模板和撰写指南 2026', ''],
+      [' 2026', ''],
+    ],
+    bodyIdempotencyCheck: '个人简历',
+    bodySentence1: (jobTitle) =>
+      ` 这份文档——也称为个人简历或CV——是您在${jobTitle}领域获得面试机会的最重要工具。`,
+    bodySentence2:
+      `无论称为简历、个人简历还是CV，针对ATS系统的优化都遵循相同的基本原则。 `,
+    blogLinks: [
+      '- [简历怎么写：2026完整指南](/zh/blog/jianli-zenme-xie-guide) — 手把手教你撰写通过ATS系统的专业简历',
+      '- [免费简历模板下载2026](/zh/blog/jianli-moban-xiazai) — 精选Word和PDF格式的免费简历模板',
+    ],
+    blogIdempotencyCheck: '/zh/blog/jianli-zenme-xie-guide',
+    ctaPattern: /\n准备好制作[^\n]+\n/,
+    newTagFn: (jobLower) => [
+      `${jobLower} 简历`,
+      `${jobLower} 简历模板`,
+      `${jobLower} 简历范文`,
+      `${jobLower} 求职简历`,
+    ],
+  },
+
+  ms: {
+    descriptionKeyword: 'resume',
+    descriptionShortenings: [
+      [' dengan format profesional dan panduan ATS 2026', ''],
+      [' 2026', ''],
+    ],
+    bodyIdempotencyCheck: 'curriculum vitae',
+    bodySentence1: (jobTitle) =>
+      ` Dokumen ini — juga dikenali sebagai resume atau curriculum vitae (CV) — adalah alat utama anda untuk mendapatkan jemputan temuduga dalam bidang ${jobTitle}.`,
+    bodySentence2:
+      `Sama ada dipanggil resume, CV, atau curriculum vitae — pengoptimuman untuk sistem ATS mengikut prinsip asas yang sama. `,
+    blogLinks: [
+      '- [Cara Buat Resume: Panduan Lengkap 2026](/ms/blog/cara-buat-resume-panduan) — Panduan langkah demi langkah untuk membuat resume profesional yang lulus ATS',
+      '- [Template Resume Percuma 2026](/ms/blog/template-resume-percuma-muat-turun) — Muat turun template resume percuma dalam format Word dan PDF',
+    ],
+    blogIdempotencyCheck: '/ms/blog/cara-buat-resume-panduan',
+    ctaPattern: /\nBersedia untuk membuat resume[^\n]+\n/,
+    newTagFn: (jobLower) => [
+      `resume ${jobLower}`,
+      `contoh resume ${jobLower}`,
+      `template resume ${jobLower}`,
+      `cv ${jobLower}`,
+    ],
+  },
 };
 
 // ============================================================

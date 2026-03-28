@@ -240,5 +240,41 @@ const nl: ResumeExamplesIndexContent = {
   },
 };
 
-const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
+const zh: ResumeExamplesIndexContent = {
+  meta: {
+    title: '按职位浏览300+简历范例 (2026) | Best AI Resume',
+    description: '浏览300多个按行业和职位分类的免费简历范例。专业简历模板，附ATS优化技巧。找到你的职位，立即制作简历。',
+  },
+  hero: {
+    badge: '简历范例 2026',
+    title: '简历范例',
+    titleHighlight: '按职位分类',
+    subtitle: '浏览{count}+按行业分类的专业简历范例。找到你的职位，研究简历格式，使用AI工具快速创建你的简历。',
+  },
+  bottomCta: {
+    title: '没有找到你的职位？',
+    description: '我们的AI可以在几秒钟内为任何职位生成定制简历。',
+    ctaText: '生成定制简历',
+  },
+};
+
+const ms: ResumeExamplesIndexContent = {
+  meta: {
+    title: 'Lebih 300 Contoh Resume Mengikut Jawatan (2026) | Best AI Resume',
+    description: 'Layari lebih 300 contoh resume percuma yang disusun mengikut industri dan jawatan. Templat resume profesional dengan tip mesra ATS. Cari jawatan anda dan bina resume.',
+  },
+  hero: {
+    badge: 'Contoh Resume 2026',
+    title: 'Contoh Resume',
+    titleHighlight: 'Mengikut Jawatan',
+    subtitle: 'Layari {count}+ contoh resume profesional mengikut industri. Cari jawatan anda, pelajari format dan bina resume anda dengan pembina AI kami.',
+  },
+  bottomCta: {
+    title: 'Tidak jumpa jawatan anda?',
+    description: 'AI kami boleh menulis resume tersuai untuk MANA-MANA jawatan dalam beberapa saat.',
+    ctaText: 'Jana Resume Tersuai',
+  },
+};
+
+const content: Record<string, ResumeExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl, zh, ms };
 export const getContent = (locale: string): ResumeExamplesIndexContent => selectContent(content, locale);

@@ -599,5 +599,95 @@ const nl: FeaturesPageContent = {
   },
 };
 
-const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
+const zh: FeaturesPageContent = {
+  meta: {
+    title: 'AI简历制作工具功能 — 模板、ATS检查等 | Best AI Resume',
+    description: '探索Best AI Resume的所有功能：AI驱动写作、20+高级模板、实时ATS优化、PDF导出和智能建议，助你获得理想工作。',
+    keywords: '简历制作功能, AI简历写作, ATS简历检查, 简历模板, PDF简历导出, 简历制作工具',
+  },
+  hero: {
+    badge: '功能',
+    title: '获得理想工作',
+    titleHighlight: '所需的一切',
+    subtitle: '强大的AI工具结合精美设计，助你脱颖而出。',
+  },
+  features: [
+    { title: 'AI驱动写作', description: '让我们的AI为你撰写引人注目的要点和专业摘要，突出你的成就。将基本的工作描述转化为有影响力的陈述。' },
+    { title: '20+高级模板', description: '从专业设计的模板中选择，既能脱颖而出又兼容ATS系统。每个模板都由设计专家精心制作。' },
+    { title: 'ATS优化', description: '实时ATS评分确保你的简历每次都能通过自动筛选系统。获得即时反馈以提高你的分数。' },
+    { title: '实时预览', description: '输入时即时查看更改。你看到的就是招聘人员看到的。不再猜测你的简历看起来如何。' },
+    { title: 'PDF导出', description: '下载像素级完美的PDF，随时可发送。针对数字浏览和打印进行了优化。' },
+    { title: '智能建议', description: '根据目标职位获取技能、关键词和内容的智能推荐。AI分析数千份成功的简历。' },
+  ],
+  steps: {
+    badge: '使用方法',
+    title: '三步制作',
+    titleHighlight: '完美简历',
+    items: [
+      { title: '填写信息', description: '输入你的工作经验、教育背景和技能。我们的AI在每一步都会帮助你。' },
+      { title: '选择模板', description: '从20+专业设计的模板中选择。自定义时实时预览效果。' },
+      { title: '下载PDF', description: '将完成的简历导出为像素级完美的PDF，准备好给招聘人员留下深刻印象。' },
+    ],
+  },
+  cta: {
+    title: '准备好制作你的',
+    titleHighlight: '成功简历了吗？',
+    description: '加入50,000+已通过Best AI Resume获得理想工作的专业人士。',
+    ctaText: '免费开始',
+  },
+  externalResources: {
+    title: '外部资源',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: '劳工统计局：职业数据' },
+      { href: 'https://www.shrm.org/', label: 'SHRM：人力资源与职业资源' },
+    ],
+  },
+};
+
+const ms: FeaturesPageContent = {
+  meta: {
+    title: 'Ciri Pembina Resume AI — Templat, Semakan ATS & Lagi | Best AI Resume',
+    description: 'Terokai semua ciri Best AI Resume: penulisan berkuasa AI, 20+ templat premium, pengoptimuman ATS masa nyata, eksport PDF dan cadangan pintar untuk mendapat kerja impian.',
+    keywords: 'ciri pembina resume, penulis resume AI, semakan resume ATS, templat resume, eksport PDF resume, alat pembina resume',
+  },
+  hero: {
+    badge: 'Ciri-ciri',
+    title: 'Semua yang anda perlukan untuk',
+    titleHighlight: 'mendapat kerja impian',
+    subtitle: 'Alat AI yang berkuasa digabungkan dengan reka bentuk cantik untuk membantu anda menonjol daripada orang ramai.',
+  },
+  features: [
+    { title: 'Penulisan Berkuasa AI', description: 'Biarkan AI kami mencipta poin penting yang menarik dan ringkasan profesional yang menyerlahkan pencapaian anda. Tukar deskripsi kerja asas menjadi pernyataan berimpak.' },
+    { title: '20+ Templat Premium', description: 'Pilih daripada templat yang direka secara profesional yang menonjol sambil mengekalkan keserasian ATS. Setiap templat dicipta oleh pakar reka bentuk.' },
+    { title: 'Pengoptimuman ATS', description: 'Pemarkahan ATS masa nyata memastikan resume anda melepasi sistem saringan automatik setiap kali. Dapatkan maklum balas segera tentang cara meningkatkan skor anda.' },
+    { title: 'Pratonton Masa Nyata', description: 'Lihat perubahan serta-merta semasa anda menaip. Apa yang anda lihat adalah tepat apa yang perekrut akan lihat.' },
+    { title: 'Eksport PDF', description: 'Muat turun PDF sempurna piksel sedia untuk dihantar. Dioptimumkan untuk paparan digital dan cetakan.' },
+    { title: 'Cadangan Pintar', description: 'Dapatkan syor pintar untuk kemahiran, kata kunci dan kandungan berdasarkan peranan sasaran anda. AI menganalisis ribuan resume yang berjaya.' },
+  ],
+  steps: {
+    badge: 'Cara Ia Berfungsi',
+    title: 'Tiga langkah ke',
+    titleHighlight: 'resume sempurna anda',
+    items: [
+      { title: 'Isi Butiran Anda', description: 'Masukkan pengalaman, pendidikan dan kemahiran anda. AI kami membantu anda setiap langkah.' },
+      { title: 'Pilih Templat', description: 'Pilih daripada 20+ templat yang direka secara profesional. Pratonton masa nyata semasa anda menyesuaikan.' },
+      { title: 'Muat Turun PDF', description: 'Eksport resume yang digilap anda sebagai PDF sempurna piksel, sedia untuk menarik perhatian perekrut.' },
+    ],
+  },
+  cta: {
+    title: 'Sedia untuk membina',
+    titleHighlight: 'resume pemenang anda?',
+    description: 'Sertai 50,000+ profesional yang telah mendapat kerja impian mereka dengan Best AI Resume.',
+    ctaText: 'Mula Percuma',
+  },
+  externalResources: {
+    title: 'Sumber Luaran',
+    items: [
+      { href: 'https://www.bls.gov/ooh/', label: 'Bureau of Labor Statistics: Data Kerjaya' },
+      { href: 'https://www.shrm.org/', label: 'SHRM: Sumber HR & Kerjaya' },
+    ],
+  },
+};
+
+const content: Record<string, FeaturesPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl, zh, ms };
 export const getContent = (locale: string): FeaturesPageContent => selectContent(content, locale);

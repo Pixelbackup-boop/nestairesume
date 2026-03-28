@@ -1771,5 +1771,241 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: {
+    title: 'NovaResume替代方案 2026：免费AI简历生成器 | Best AI Resume',
+    description: '寻找免费的NovaResume替代方案？比较Nova vs Best AI Resume Builder——AI写作、ATS模板、无限下载。永久免费。',
+    keywords: 'nova简历, novaresume替代, nova简历生成器, 免费简历生成器, ai简历生成器, nova替代方案',
+  },
+  schemas: {
+    breadcrumbName: 'NovaResume替代方案',
+    articleHeadline: 'NovaResume替代方案 2026：免费AI简历生成器',
+    articleDescription: '比较NovaResume与Best AI Resume Builder。获得AI写作、ATS优化和无限PDF导出——完全免费。',
+  },
+  hero: {
+    badge: 'NovaResume替代方案',
+    title: '更好的模板。AI写作。',
+    titleHighlight: '真正免费。',
+    subtitle: 'NovaResume收取<strong>$19.99/月</strong>的高级模板和PDF导出费用。在这里获得AI写作、ATS评分和所有模板，费用为<strong>¥0</strong>。',
+    ctaPrimary: '免费创建简历',
+    ctaSecondary: '查看对比',
+  },
+  problem: {
+    title: 'NovaResume的定价问题',
+    description: 'NovaResume拥有专业模板和实用的内容建议。问题在于定价模式：你完成整份简历后才发现需要付费才能下载。许多评论网站上的用户报告忘记取消后遭遇意外收费。',
+    stats: [
+      { value: '$2.70', label: '14天试用（自动续费至$23.70/月）' },
+      { value: '$284', label: '忘记取消后的年度费用' },
+      { value: '¥0', label: 'Best AI Resume Builder——永久免费' },
+    ],
+  },
+  comparison: {
+    title: 'NovaResume vs Best AI Resume Builder',
+    subtitle: '逐项功能对比。',
+    competitorName: 'NovaResume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '价格', competitor: '❌ 下载需付费', ours: '✅ 100%永久免费' },
+      { feature: '免费下载', competitor: '❌ PDF需付费', ours: '✅ 无限免费PDF导出' },
+      { feature: 'AI写作', competitor: '⚠️ 有限建议', ours: '✅ AI生成完全定制内容' },
+      { feature: 'ATS优化', competitor: '✅ 基本检查', ours: '✅ 实时ATS评分+关键词' },
+      { feature: '模板质量', competitor: '✅ 专业设计', ours: '✅ 20+ ATS测试简历模板' },
+      { feature: '简历数量', competitor: '⚠️ 免费计划有限', ours: '✅ 无限免费创建' },
+      { feature: '求职信', competitor: '✅ 可用（付费）', ours: '✅ AI驱动（免费）' },
+      { feature: '内容建议', competitor: '✅ 预写短语', ours: '✅ AI根据你的经验定制' },
+      { feature: '取消', competitor: '❌ 必须在试用期结束前取消', ours: '✅ 无需取消' },
+      { feature: '用户评价', competitor: '⚠️ 混合——存在计费投诉', ours: '✅ 不可能有计费问题' },
+    ],
+  },
+  whySwitch: {
+    title: '从NovaResume转换的3个理由',
+    subtitle: '真正免费。更好的AI。没有陷阱。',
+    reasons: [
+      { title: '真正免费下载', description: 'NovaResume在你完成简历后才要求付费。在这里，你创建的所有内容都可以直接免费下载——无试用期、无信用卡、无自动续费。' },
+      { title: '真正的AI（非预写短语）', description: 'NovaResume的建议基于预写短语库。我们的AI为简历的每个部分生成真正的定制内容。' },
+      { title: '更好的ATS优化', description: '与NovaResume的基本ATS功能相比，我们提供实时ATS评分、行业特定关键词建议和经过测试的模板。' },
+    ],
+  },
+  recommendation: {
+    title: '诚实建议',
+    useCompetitor: {
+      title: 'NovaResume适合以下情况...',
+      items: [
+        '你愿意为NovaResume的某些功能付费',
+        '你喜欢NovaResume的特定界面',
+        '你需要只有NovaResume才有的某些功能',
+        '你想要付费客户支持',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes更好如果你...',
+      items: [
+        '想免费创建和下载简历',
+        '需要高级AI来撰写内容',
+        '想在制作简历时获得实时ATS评分',
+        '不想处理订阅或自动续费',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '查看300+免费简历示例',
+    description: '各行各业、各级别的专业简历示例。',
+    ctaBrowse: '浏览简历示例',
+    ctaTemplates: '查看所有模板',
+  },
+  faq: {
+    title: '常见问题',
+    items: [
+      { question: 'NovaResume免费吗？', answer: 'NovaResume让你免费创建简历，但下载需要收费。Best AI Resume Builder是100%免费的——无需信用卡即可创建和下载无限简历。' },
+      { question: '为什么NovaResume下载要收费？', answer: 'NovaResume的商业模式是"免费增值"——创建过程免费以吸引用户，在下载时变现。Best AI Resume Builder是透明的：一切免费，无意外。' },
+      { question: 'NovaResume最好的免费替代方案是什么？', answer: 'Best AI Resume Builder是最好的免费替代方案。我们提供NovaResume付费墙后的所有功能——专业模板、PDF导出、求职信——加上AI写作和ATS优化。' },
+      { question: 'NovaResume有AI功能吗？', answer: 'NovaResume有一些内容建议，但没有真正的AI写作功能。Best AI Resume Builder使用先进AI生成专业的工作经验、摘要和个性化关键词。' },
+      { question: '如何取消NovaResume？', answer: '要取消NovaResume，请在试用期结束前到账户设置取消。Best AI Resume Builder不需要订阅——无需取消任何东西。直接免费使用平台。' },
+    ],
+  },
+  crossLinks: {
+    title: '比较其他简历生成器',
+    items: [
+      { href: '/zh/livecareer-alternative', title: 'LiveCareer替代方案', subtitle: '传统vs现代' },
+      { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '价格和功能比较' },
+      { href: '/zh/canva-alternative', title: 'Canva替代方案', subtitle: '设计工具vs AI简历' },
+      { href: '/zh/rezi-alternative', title: 'Rezi替代方案', subtitle: 'AI功能比较' },
+    ],
+    guidesTitle: '实用简历指南',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部资源',
+    items: [
+      { href: 'https://www.zhaopin.com/', label: '智联招聘——中国领先的招聘平台' },
+      { href: 'https://www.glassdoor.com/', label: 'Glassdoor——薪资和职位' },
+    ],
+  },
+  bottomCta: {
+    title: '真正免费的简历生成器。',
+    description: '无价格陷阱，无自动续费。AI驱动的简历生成器——100%永久免费。',
+    cta: '免费创建我的简历',
+    subtext: '永久免费。无需信用卡。无意外。',
+  },
+};
+
+const ms: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif NovaResume 2026: Pembuat Resume AI Percuma | Best AI Resume',
+    description: 'Mencari alternatif NovaResume percuma? Bandingkan Nova vs Best AI Resume Builder — penulisan AI, templat ATS, muat turun tanpa had. Percuma selama-lamanya.',
+    keywords: 'nova alternatif, nova pembuat resume, templat resume percuma, buat resume percuma, pembina resume ai, alternatif untuk nova',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif NovaResume',
+    articleHeadline: 'Alternatif NovaResume 2026: Pembuat Resume AI Percuma Tanpa Kos Tersembunyi',
+    articleDescription: 'Bandingkan NovaResume vs Best AI Resume Builder. Cipta resume profesional dengan AI, pengoptimuman ATS dan muat turun tanpa had — percuma sepenuhnya.',
+  },
+  hero: {
+    badge: 'Alternatif NovaResume',
+    title: 'Cipta Resume Anda.',
+    titleHighlight: 'Muat Turun Percuma.',
+    subtitle: 'NovaResume membenarkan anda membina resume — tetapi mengenakan bayaran untuk memuat turunnya. Kami menawarkan penulisan AI, templat ATS dan eksport tanpa had untuk <strong>RM0</strong>.',
+    ctaPrimary: 'Cipta Resume Percuma',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah Harga NovaResume',
+    description: 'NovaResume mempunyai templat profesional dan cadangan kandungan yang berguna. Masalahnya ialah model harga: anda membina resume lengkap sebelum mendapati perlu membayar untuk memuat turunnya. Ramai pengguna di laman ulasan melaporkan caj mengejut selepas terlupa membatalkan.',
+    stats: [
+      { value: '$2.70', label: 'Percubaan 14 hari (pembaharuan auto ke $23.70/bln)' },
+      { value: '$284', label: 'Kos tahunan jika terlupa membatalkan' },
+      { value: 'RM0', label: 'Best AI Resume Builder — percuma selama-lamanya' },
+    ],
+  },
+  comparison: {
+    title: 'NovaResume vs Best AI Resume Builder',
+    subtitle: 'Perbandingan ciri demi ciri.',
+    competitorName: 'NovaResume',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ Bayaran diperlukan untuk muat turun', ours: '✅ 100% percuma selama-lamanya' },
+      { feature: 'Muat turun percuma', competitor: '❌ Bayaran diperlukan untuk PDF', ours: '✅ Eksport PDF percuma tanpa had' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Cadangan terhad', ours: '✅ AI menjana kandungan tersuai sepenuhnya' },
+      { feature: 'Pengoptimuman ATS', competitor: '✅ Semakan asas', ours: '✅ Skor ATS masa nyata + kata kunci' },
+      { feature: 'Kualiti templat', competitor: '✅ Reka bentuk profesional', ours: '✅ 20+ templat resume diuji ATS' },
+      { feature: 'Bilangan resume', competitor: '⚠️ Terhad pada pelan percuma', ours: '✅ Cipta resume tanpa had, percuma' },
+      { feature: 'Pembuat surat iringan', competitor: '✅ Tersedia (berbayar)', ours: '✅ Dikuasakan AI (percuma)' },
+      { feature: 'Cadangan kandungan', competitor: '✅ Ayat pra-tulis', ours: '✅ AI disesuaikan dengan pengalaman kerja anda' },
+      { feature: 'Pembatalan', competitor: '❌ Perlu batal sebelum percubaan tamat', ours: '✅ Tiada apa untuk dibatalkan' },
+      { feature: 'Ulasan pengguna', competitor: '⚠️ Bercampur — aduan bil berlaku', ours: '✅ Tiada masalah bil mungkin' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Sebab untuk Beralih dari NovaResume',
+    subtitle: 'Benar-benar percuma. AI lebih baik. Tiada perangkap.',
+    reasons: [
+      { title: 'Muat Turun Benar-benar Percuma', description: 'NovaResume mengenakan bayaran selepas anda selesai membina resume. Di sini, muat turun semua yang anda buat secara percuma — tiada percubaan, tiada kad kredit, tiada pembaharuan automatik.' },
+      { title: 'AI Sebenar (Bukan Ayat Pra-tulis)', description: 'Cadangan NovaResume berdasarkan perpustakaan ayat pra-tulis. AI kami menjana kandungan tersuai sebenar untuk setiap bahagian resume anda.' },
+      { title: 'Pengoptimuman ATS Lebih Baik', description: 'Berbanding ciri ATS asas NovaResume, kami menawarkan skor ATS masa nyata, cadangan kata kunci khusus industri dan templat yang diuji untuk pasaran kerja.' },
+    ],
+  },
+  recommendation: {
+    title: 'Cadangan Jujur',
+    useCompetitor: {
+      title: 'NovaResume sesuai jika anda...',
+      items: [
+        'Bersedia membayar untuk ciri tertentu NovaResume',
+        'Lebih suka antara muka khusus NovaResume',
+        'Memerlukan ciri yang hanya tersedia di NovaResume',
+        'Mahu sokongan pelanggan berbayar',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes lebih baik jika anda...',
+      items: [
+        'Mahu mencipta dan memuat turun resume percuma',
+        'Perlu AI lanjutan untuk menulis kandungan',
+        'Mahu skor ATS masa nyata semasa membina resume',
+        'Tidak mahu berurusan dengan langganan atau pembaharuan auto',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Lihat 300+ Contoh Resume Percuma',
+    description: 'Contoh resume profesional untuk setiap industri dan peringkat kerjaya.',
+    ctaBrowse: 'Lihat Contoh Resume',
+    ctaTemplates: 'Lihat Semua Templat',
+  },
+  faq: {
+    title: 'Soalan Lazim',
+    items: [
+      { question: 'Adakah NovaResume percuma?', answer: 'NovaResume membenarkan anda membuat resume secara percuma tetapi mengenakan bayaran untuk muat turun. Best AI Resume Builder adalah 100% percuma — cipta dan muat turun resume tanpa had tanpa kad kredit.' },
+      { question: 'Mengapa NovaResume mengenakan bayaran untuk muat turun?', answer: 'Model perniagaan NovaResume adalah "freemium" — proses pembuatan percuma untuk menarik pengguna, manakala monetisasi berlaku semasa muat turun. Best AI Resume Builder adalah telus: semuanya percuma, tiada kejutan.' },
+      { question: 'Apakah alternatif percuma terbaik untuk NovaResume?', answer: 'Best AI Resume Builder adalah alternatif percuma terbaik. Kami menawarkan semua yang ada di sebalik tembok bayaran NovaResume — templat profesional, eksport PDF, surat iringan — ditambah penulisan AI dan pengoptimuman ATS.' },
+      { question: 'Adakah NovaResume mempunyai ciri AI?', answer: 'NovaResume mempunyai beberapa cadangan kandungan tetapi bukan ciri penulisan AI sebenar. Best AI Resume Builder menggunakan AI lanjutan untuk menjana pengalaman kerja profesional, ringkasan dan kata kunci tersuai.' },
+      { question: 'Bagaimana untuk membatalkan NovaResume?', answer: 'Untuk membatalkan NovaResume, pergi ke tetapan akaun sebelum percubaan tamat. Best AI Resume Builder tidak memerlukan langganan — tiada apa untuk dibatalkan.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembuat Resume Lain',
+    items: [
+      { href: '/ms/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs moden' },
+      { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga & ciri' },
+      { href: '/ms/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat reka bentuk vs pembuat resume AI' },
+      { href: '/ms/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan ciri AI' },
+    ],
+    guidesTitle: 'Panduan Resume Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Luaran',
+    items: [
+      { href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia — Portal Pekerjaan' },
+      { href: 'https://www.glassdoor.com/', label: 'Glassdoor — Gaji dan Pekerjaan' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembuat Resume Benar-benar Percuma.',
+    description: 'Tiada perangkap harga, tiada pembaharuan auto. Pembuat resume dikuasakan AI — 100% percuma selama-lamanya.',
+    cta: 'Cipta Resume Percuma',
+    subtext: 'Percuma selama-lamanya. Tiada kad kredit. Tiada kejutan.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

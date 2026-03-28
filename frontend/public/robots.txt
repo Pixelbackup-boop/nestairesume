@@ -17,6 +17,10 @@ Disallow: /*/checkout/
 Disallow: /*/profile/
 Disallow: /*/canvas-editor/
 Disallow: /*/test-ads/
+Disallow: /word-onboarding/
+Disallow: /*/word-onboarding/
+Disallow: /gdocs-onboarding/
+Disallow: /*/gdocs-onboarding/
 Disallow: /_next/
 Disallow: /favicon.ico
 

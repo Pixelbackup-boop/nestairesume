@@ -1,11 +1,5 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { locales, getOgLocale } from '@/i18n.config';
-
-const siteConfig = {
-  name: 'Best AI Resume',
-  url: 'https://bestairesumes.com',
-};
 
 export async function generateMetadata({
   params,

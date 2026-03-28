@@ -1826,5 +1826,241 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: {
+    title: '2026年最佳Adobe简历替代方案：免费ATS优化模板 | Best AI Resume',
+    description: '寻找免费的Adobe简历替代方案？比较Adobe Express与Best AI Resume Builder——ATS优化模板、AI写作、无限导出。无需订阅。',
+    keywords: 'adobe简历替代, adobe简历模板, adobe express简历, 免费简历制作, ats简历制作工具, ai简历工具',
+  },
+  schemas: {
+    breadcrumbName: 'Adobe Express替代方案',
+    articleHeadline: '2026年最佳Adobe简历替代方案：免费AI简历制作工具',
+    articleDescription: '比较Adobe Express与Best AI Resume Builder。获取AI写作、ATS优化和无限下载——完全免费。',
+  },
+  hero: {
+    badge: 'Adobe Express替代方案',
+    title: '制作你的简历。',
+    titleHighlight: '免费下载。',
+    subtitle: 'Adobe Express创建精美设计——但大多数Adobe简历模板<strong>无法通过ATS筛选</strong>。获取既专业<strong>又</strong>能通过ATS系统的简历。免费。',
+    ctaPrimary: '免费制作我的简历',
+    ctaSecondary: '查看对比',
+  },
+  problem: {
+    title: 'Adobe Express简历问题：精美但ATS不可见',
+    description: 'Adobe Express提供精美的视觉模板，但它是一款通用设计工具——不是简历制作工具。用Adobe Express制作的简历通常不兼容ATS，缺乏内容指导，且最佳功能需要付费订阅。',
+    stats: [
+      { value: '付费', label: 'Adobe Creative Cloud需要订阅才能使用全部功能' },
+      { value: '非ATS', label: '图形化简历被ATS系统解析困难' },
+      { value: '¥0', label: 'Best AI Resume Builder——ATS友好且免费' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe Express vs Best AI Resume Builder',
+    subtitle: '功能逐项对比。',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '价格', competitor: '⚠️ 免费版有限制；付费订阅解锁更多', ours: '✅ 100%永久免费' },
+      { feature: '免费下载', competitor: '⚠️ 免费版有限制', ours: '✅ 无限免费PDF导出' },
+      { feature: 'AI写作', competitor: '⚠️ 有限的AI功能', ours: '✅ AI生成完全定制的内容' },
+      { feature: 'ATS优化', competitor: '❌ 未ATS优化', ours: '✅ 实时ATS评分+关键词' },
+      { feature: '模板设计', competitor: '✅ 视觉上吸引人的设计', ours: '✅ 20+经ATS测试的简历模板' },
+      { feature: '简历专用功能', competitor: '❌ 通用设计工具', ours: '✅ 专为简历打造' },
+      { feature: '求职信', competitor: '⚠️ 通用信函模板', ours: '✅ AI驱动的求职信（免费）' },
+      { feature: '内容建议', competitor: '❌ 无简历内容建议', ours: '✅ AI根据你的经历定制' },
+      { feature: '取消订阅', competitor: '⚠️ 需管理Adobe订阅', ours: '✅ 无需取消任何订阅' },
+      { feature: '易用性', competitor: '⚠️ 非设计人员需要学习', ours: '✅ 人人直觉操作' },
+    ],
+  },
+  whySwitch: {
+    title: '从Adobe Express转换的3个理由',
+    subtitle: 'ATS优化。AI驱动。免费。',
+    reasons: [
+      { title: 'ATS友好 vs 视觉精美', description: 'Adobe Express制作视觉吸引力的简历，但ATS系统难以解析图形密集的简历。我们的简历模板经过优化，能顺利通过ATS筛选。' },
+      { title: '专为简历打造，非设计工具', description: 'Adobe Express是通用设计工具。我们的简历制作工具专为创建专业简历而构建——内置AI写作辅助、章节指导和ATS优化。' },
+      { title: '完全免费，无需Adobe订阅', description: 'Adobe Express的最佳功能需要付费Creative Cloud订阅。Best AI Resume Builder 100%免费——无订阅，无隐藏费用。' },
+    ],
+  },
+  recommendation: {
+    title: '诚实推荐',
+    useCompetitor: {
+      title: 'Adobe Express适合你，如果你...',
+      items: [
+        '已有Adobe Creative Cloud订阅',
+        '在创意行业，视觉简历是常态',
+        '是设计师，想完全控制布局',
+        '制作的简历不需要通过ATS系统',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes更好，如果你...',
+      items: [
+        '需要ATS友好的简历',
+        '想要AI写作辅助创建专业内容',
+        '想免费下载，无需订阅',
+        '想快速创建专业简历，无需设计软件',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '浏览300+免费简历范例',
+    description: '适合各行业和各职业阶段的专业简历范例。',
+    ctaBrowse: '查看简历范例',
+    ctaTemplates: '查看所有模板',
+  },
+  faq: {
+    title: '常见问题',
+    items: [
+      { question: '能用Adobe Express制作简历吗？', answer: '可以，Adobe Express有简历模板，但作为通用设计工具，它缺少ATS优化和AI写作辅助等简历专用功能。' },
+      { question: 'Adobe Express简历能通过ATS吗？', answer: '不一定。Adobe Express简历通常图形密集，包含图片、文本框和复杂格式，ATS系统难以解析。Best AI Resume Builder专门为ATS兼容性优化简历。' },
+      { question: 'Adobe Express简历的最佳免费替代方案是什么？', answer: 'Best AI Resume Builder是最佳免费替代方案。提供ATS友好的简历模板、AI写作辅助、实时ATS评分和无限PDF导出——完全免费。' },
+      { question: 'Adobe Express有AI简历功能吗？', answer: 'Adobe Express有一些设计AI功能，但缺乏专门的AI简历写作功能。Best AI Resume Builder使用先进AI生成专业工作经历、摘要和定制内容。' },
+      { question: '如何不用Adobe免费制作专业简历？', answer: 'Best AI Resume Builder是解决方案。使用AI写作辅助创建专业、ATS友好的简历，免费下载——无需Adobe订阅、信用卡或麻烦。' },
+    ],
+  },
+  crossLinks: {
+    title: '比较其他简历制作工具',
+    items: [
+      { href: '/zh/canva-alternative', title: 'Canva替代方案', subtitle: '设计工具 vs AI简历制作' },
+      { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '价格和功能对比' },
+      { href: '/zh/zety-alternative', title: 'Zety替代方案', subtitle: '价格对比' },
+      { href: '/zh/rezi-alternative', title: 'Rezi替代方案', subtitle: 'AI功能对比' },
+    ],
+    guidesTitle: '实用简历指南',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部资源',
+    items: [
+      { href: 'https://www.adobe.com/express/', label: 'Adobe Express官方网站' },
+      { href: 'https://www.bls.gov/ooh/', label: '美国劳工统计局：职业展望' },
+    ],
+  },
+  bottomCta: {
+    title: 'ATS友好。AI驱动。免费。',
+    description: '制作一份能被ATS系统和招聘人员读取的简历——不被图形格式阻挡。完全免费，无需Adobe订阅。',
+    cta: '免费制作我的简历',
+    subtext: '永久免费。无需信用卡。无意外费用。',
+  },
+};
+
+const ms: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Adobe Resume Builder 2026: Templat ATS Percuma | Best AI Resume',
+    description: 'Mencari alternatif pembina resume Adobe percuma? Bandingkan Adobe Express vs Best AI Resume Builder — templat ATS, penulisan AI, eksport tanpa had. Tanpa langganan.',
+    keywords: 'alternatif adobe resume, templat resume adobe, adobe express resume, pembina resume percuma, pembina resume ats, alat resume ai',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Adobe Express',
+    articleHeadline: 'Alternatif Adobe Resume Builder 2026: Pembina Resume AI Percuma dengan ATS',
+    articleDescription: 'Bandingkan Adobe Express vs Best AI Resume Builder. Dapatkan penulisan AI, pengoptimuman ATS dan muat turun tanpa had — percuma sepenuhnya.',
+  },
+  hero: {
+    badge: 'Alternatif Adobe Express',
+    title: 'Bina Resume Anda.',
+    titleHighlight: 'Muat Turun Percuma.',
+    subtitle: 'Adobe Express mencipta reka bentuk yang cantik — tetapi kebanyakan templat resume Adobe <strong>gagal saringan ATS</strong>. Dapatkan resume yang kelihatan profesional <strong>dan</strong> melepasi sistem ATS. Percuma.',
+    ctaPrimary: 'Bina Resume Saya Percuma',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Masalah Resume Adobe Express: Cantik Tetapi Tidak Dapat Dilihat ATS',
+    description: 'Adobe Express menawarkan templat visual yang cantik, tetapi ia adalah alat reka bentuk am — bukan pembina resume. Resume yang dibuat dengan Adobe Express sering tidak mesra ATS, kekurangan panduan kandungan dan memerlukan langganan berbayar untuk ciri terbaik.',
+    stats: [
+      { value: 'Berbayar', label: 'Adobe Creative Cloud diperlukan untuk ciri penuh' },
+      { value: 'Bukan ATS', label: 'Resume grafik sukar diproses oleh ATS' },
+      { value: 'RM0', label: 'Best AI Resume Builder — mesra ATS dan percuma' },
+    ],
+  },
+  comparison: {
+    title: 'Adobe Express vs Best AI Resume Builder',
+    subtitle: 'Perbandingan ciri demi ciri.',
+    competitorName: 'Adobe Express',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '⚠️ Percuma terhad; langganan berbayar untuk lebih', ours: '✅ 100% percuma selama-lamanya' },
+      { feature: 'Muat Turun Percuma', competitor: '⚠️ Terhad dalam versi percuma', ours: '✅ Eksport PDF percuma tanpa had' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Ciri AI terhad', ours: '✅ AI menjana kandungan tersuai sepenuhnya' },
+      { feature: 'Pengoptimuman ATS', competitor: '❌ Tidak dioptimumkan untuk ATS', ours: '✅ Skor ATS masa nyata + kata kunci' },
+      { feature: 'Reka Bentuk Templat', competitor: '✅ Reka bentuk visual menarik', ours: '✅ 20+ templat resume diuji ATS' },
+      { feature: 'Ciri Khusus Resume', competitor: '❌ Alat reka bentuk am', ours: '✅ Dibina khusus untuk resume' },
+      { feature: 'Surat Iringan', competitor: '⚠️ Templat surat am', ours: '✅ Surat iringan berkuasa AI (percuma)' },
+      { feature: 'Cadangan Kandungan', competitor: '❌ Tiada cadangan kandungan resume', ours: '✅ AI disesuaikan dengan pengalaman anda' },
+      { feature: 'Pembatalan', competitor: '⚠️ Perlu urus langganan Adobe', ours: '✅ Tiada apa untuk dibatalkan' },
+      { feature: 'Kemudahan Penggunaan', competitor: '⚠️ Keluk pembelajaran untuk bukan pereka', ours: '✅ Intuitif untuk semua orang' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Sebab untuk Beralih dari Adobe Express',
+    subtitle: 'Dioptimumkan ATS. Berkuasa AI. Percuma.',
+    reasons: [
+      { title: 'Mesra ATS vs Cantik Visual', description: 'Adobe Express mencipta resume yang menarik secara visual, tetapi sistem ATS sukar membaca resume yang padat grafik. Templat resume kami dioptimumkan untuk melepasi penapis ATS.' },
+      { title: 'Dibina untuk Resume, Bukan Reka Bentuk', description: 'Adobe Express adalah alat reka bentuk am. Pembina resume kami dibina khusus untuk mencipta resume profesional — dengan bantuan penulisan AI, panduan bahagian dan pengoptimuman ATS terbina dalam.' },
+      { title: 'Percuma Sepenuhnya Tanpa Langganan Adobe', description: 'Ciri terbaik Adobe Express memerlukan langganan Creative Cloud berbayar. Best AI Resume Builder 100% percuma — tanpa langganan, tanpa kos tersembunyi.' },
+    ],
+  },
+  recommendation: {
+    title: 'Cadangan Jujur',
+    useCompetitor: {
+      title: 'Adobe Express sesuai jika anda...',
+      items: [
+        'Sudah mempunyai langganan Adobe Creative Cloud',
+        'Bekerja dalam industri kreatif di mana resume visual adalah norma',
+        'Seorang pereka yang ingin mengawal sepenuhnya susun atur',
+        'Membina resume untuk jawatan yang ATS tidak relevan',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes lebih baik jika anda...',
+      items: [
+        'Memerlukan resume mesra ATS untuk pasaran kerja Malaysia',
+        'Mahukan bantuan penulisan AI untuk kandungan profesional',
+        'Mahu memuat turun percuma tanpa langganan',
+        'Mahu mencipta resume profesional dengan cepat tanpa perisian reka bentuk',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Layari 300+ Contoh Resume Percuma',
+    description: 'Contoh resume profesional untuk setiap industri dan peringkat kerjaya.',
+    ctaBrowse: 'Lihat Contoh Resume',
+    ctaTemplates: 'Lihat Semua Templat',
+  },
+  faq: {
+    title: 'Soalan Lazim',
+    items: [
+      { question: 'Bolehkah saya buat resume dengan Adobe Express?', answer: 'Ya, Adobe Express ada templat resume, tetapi sebagai alat reka bentuk am, ia kekurangan ciri khusus resume seperti pengoptimuman ATS dan bantuan penulisan AI.' },
+      { question: 'Adakah resume Adobe Express mesra ATS?', answer: 'Tidak selalu. Resume Adobe Express sering padat grafik dengan imej, kotak teks dan format kompleks yang sukar dibaca oleh sistem ATS.' },
+      { question: 'Apakah alternatif percuma terbaik untuk Adobe Express bagi resume?', answer: 'Best AI Resume Builder adalah alternatif percuma terbaik. Kami menawarkan templat resume mesra ATS, bantuan penulisan AI, skor ATS masa nyata dan eksport PDF tanpa had — percuma sepenuhnya.' },
+      { question: 'Adakah Adobe Express mempunyai ciri AI resume?', answer: 'Adobe Express mempunyai beberapa ciri AI reka bentuk, tetapi kekurangan ciri penulisan AI resume khusus. Best AI Resume Builder menggunakan AI canggih untuk menjana pengalaman kerja profesional dan kandungan tersuai.' },
+      { question: 'Bagaimana buat resume profesional percuma tanpa Adobe?', answer: 'Best AI Resume Builder adalah penyelesaiannya. Bina resume profesional mesra ATS dengan bantuan penulisan AI dan muat turun percuma — tanpa langganan Adobe, kad kredit atau kerumitan.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembina Resume Lain',
+    items: [
+      { href: '/ms/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat reka bentuk vs pembina resume AI' },
+      { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga dan ciri' },
+      { href: '/ms/zety-alternative', title: 'Alternatif Zety', subtitle: 'Perbandingan harga' },
+      { href: '/ms/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan ciri AI' },
+    ],
+    guidesTitle: 'Panduan Resume Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Luaran',
+    items: [
+      { href: 'https://www.adobe.com/express/', label: 'Laman Web Rasmi Adobe Express' },
+      { href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia — Portal Pekerjaan' },
+    ],
+  },
+  bottomCta: {
+    title: 'Mesra ATS. Berkuasa AI. Percuma.',
+    description: 'Bina resume yang boleh dibaca oleh sistem ATS dan perekrut — tidak disekat oleh format grafik. Percuma sepenuhnya, tanpa langganan Adobe.',
+    cta: 'Bina Resume Saya Percuma',
+    subtext: 'Percuma selama-lamanya. Tanpa kad kredit. Tanpa kejutan.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

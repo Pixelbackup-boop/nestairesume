@@ -350,5 +350,55 @@ const nl: CoverLetterArticleContent = {
   updated: 'Bijgewerkt',
 };
 
-const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
+const zh: CoverLetterArticleContent = {
+  breadcrumb: { home: '首页', coverLetterExamples: '求职信范例' },
+  notFound: '未找到',
+  coverLetterSuffix: '求职信范例',
+  keySkillsTitle: '需要突出的关键技能',
+  relatedTopics: '相关主题',
+  faqTitle: '常见问题',
+  relatedResourcesTitle: '相关资源',
+  resumeExampleSubtext: '查看对应的简历格式',
+  coverLetterGenerator: 'AI求职信生成器',
+  coverLetterGeneratorSubtext: '几秒钟即可创建你的求职信',
+  sidebar: {
+    ctaTitle: '创建你的求职信',
+    ctaSubtitle: '使用我们的AI在几秒钟内为{jobTitle}职位生成个性化求职信。',
+    ctaButton: '生成求职信',
+    tocTitle: '目录',
+  },
+  relatedCoverLetters: '相关求职信',
+  bottomCta: {
+    subtitle: '加入数千名通过Best AI Resume获得理想工作的专业人士。',
+    button: '免费生成求职信',
+  },
+  updated: '更新于',
+};
+
+const ms: CoverLetterArticleContent = {
+  breadcrumb: { home: 'Laman Utama', coverLetterExamples: 'Contoh Surat Iringan' },
+  notFound: 'Tidak Ditemui',
+  coverLetterSuffix: 'Contoh Surat Iringan',
+  keySkillsTitle: 'Kemahiran Utama untuk Ditonjolkan',
+  relatedTopics: 'Topik Berkaitan',
+  faqTitle: 'Soalan Lazim',
+  relatedResourcesTitle: 'Sumber Berkaitan',
+  resumeExampleSubtext: 'Lihat format resume yang sepadan',
+  coverLetterGenerator: 'Penjana Surat Iringan AI',
+  coverLetterGeneratorSubtext: 'Cipta surat iringan anda dalam beberapa saat',
+  sidebar: {
+    ctaTitle: 'Cipta Surat Iringan Anda',
+    ctaSubtitle: 'Gunakan AI kami untuk menjana surat iringan peribadi untuk jawatan {jobTitle} dalam beberapa saat.',
+    ctaButton: 'Jana Surat Iringan',
+    tocTitle: 'Jadual Kandungan',
+  },
+  relatedCoverLetters: 'Surat Iringan Berkaitan',
+  bottomCta: {
+    subtitle: 'Sertai ribuan profesional yang mendapat kerja impian mereka dengan Best AI Resume.',
+    button: 'Jana Surat Iringan — Percuma',
+  },
+  updated: 'Dikemaskini',
+};
+
+const content: Record<string, CoverLetterArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl, zh, ms };
 export const getContent = (locale: string): CoverLetterArticleContent => selectContent(content, locale);

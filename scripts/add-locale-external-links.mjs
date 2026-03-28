@@ -60,6 +60,14 @@ const LOCALE_SOURCES = {
     line: '- [Kemenaker (Kementerian Ketenagakerjaan RI)](https://www.kemnaker.go.id) — Data resmi ketenagakerjaan dan upah Indonesia',
     detect: 'kemnaker.go.id',
   },
+  zh: {
+    line: '- [人力资源和社会保障部](https://www.mohrss.gov.cn) — 中国官方就业与薪资统计数据',
+    detect: 'mohrss.gov.cn',
+  },
+  ms: {
+    line: '- [Jabatan Perangkaan Malaysia (DOSM)](https://www.dosm.gov.my) — Data rasmi pekerjaan dan gaji Malaysia',
+    detect: 'dosm.gov.my',
+  },
 };
 
 // PayScale line pattern — end of the existing 3-bullet source block

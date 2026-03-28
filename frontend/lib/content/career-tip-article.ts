@@ -315,5 +315,51 @@ const nl: CareerTipArticleContent = {
   tagsLabel: 'Tags:',
 };
 
-const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
+const zh: CareerTipArticleContent = {
+  breadcrumb: { home: '首页', careerTips: '职业建议' },
+  notFound: '文章未找到',
+  share: {
+    title: '觉得有帮助吗？',
+    subtitle: '分享给其他可能受益的人',
+  },
+  cta: {
+    title: '准备好制作简历了吗？',
+    subtitle: '使用我们的AI简历制作工具将这些建议付诸实践。几分钟内即可创建专业简历。',
+    button: '立即制作简历',
+  },
+  sidebar: {
+    tocTitle: '目录',
+    relatedTitle: '相关文章',
+    ctaTitle: '制作你的简历',
+    ctaSubtitle: '使用AI几分钟内创建专业简历。',
+    ctaButton: '开始',
+  },
+  moreCareerTips: '更多职业建议',
+  tagsLabel: '标签：',
+};
+
+const ms: CareerTipArticleContent = {
+  breadcrumb: { home: 'Laman Utama', careerTips: 'Tip Kerjaya' },
+  notFound: 'Artikel Tidak Ditemui',
+  share: {
+    title: 'Adakah ini membantu?',
+    subtitle: 'Kongsikan dengan orang lain yang mungkin mendapat manfaat',
+  },
+  cta: {
+    title: 'Sedia untuk membina resume anda?',
+    subtitle: 'Gunakan tip ini dengan pembina resume AI kami. Cipta resume profesional dalam beberapa minit.',
+    button: 'Bina Resume Anda Sekarang',
+  },
+  sidebar: {
+    tocTitle: 'Jadual Kandungan',
+    relatedTitle: 'Artikel Berkaitan',
+    ctaTitle: 'Bina Resume Anda',
+    ctaSubtitle: 'Cipta resume profesional dengan AI dalam beberapa minit.',
+    ctaButton: 'Mula',
+  },
+  moreCareerTips: 'Lagi Tip Kerjaya',
+  tagsLabel: 'Tag:',
+};
+
+const content: Record<string, CareerTipArticleContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl, zh, ms };
 export const getContent = (locale: string): CareerTipArticleContent => selectContent(content, locale);

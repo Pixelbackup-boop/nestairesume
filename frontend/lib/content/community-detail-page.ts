@@ -352,7 +352,51 @@ const nl: CommunityDetailContent = {
   edited: '(bewerkt)',
 };
 
-const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: CommunityDetailContent = {
+  backToGallery: '\u2190 返回图库',
+  useTemplate: '使用此模板',
+  downloads: '次下载',
+  download: '次下载',
+  by: '作者：',
+  commentsTitle: '评论',
+  commentPlaceholder: '分享你对这个模板的看法...',
+  postComment: '发表评论',
+  signInToComment: '登录后即可评论',
+  signIn: '登录',
+  noComments: '暂无评论。成为第一个分享看法的人！',
+  deleteComment: '删除',
+  deleteConfirm: '确定要删除这条评论吗？',
+  editComment: '编辑',
+  saveEdit: '保存',
+  cancelEdit: '取消',
+  loadMore: '加载更多评论',
+  charLimit: '{count}/2000',
+  edited: '(已编辑)',
+};
+
+const ms: CommunityDetailContent = {
+  backToGallery: '\u2190 Kembali ke Galeri',
+  useTemplate: 'Guna Templat Ini',
+  downloads: 'muat turun',
+  download: 'muat turun',
+  by: 'Oleh',
+  commentsTitle: 'Komen',
+  commentPlaceholder: 'Kongsi pendapat anda tentang templat ini...',
+  postComment: 'Hantar Komen',
+  signInToComment: 'Log masuk untuk memberi komen',
+  signIn: 'Log Masuk',
+  noComments: 'Belum ada komen. Jadilah yang pertama berkongsi pendapat!',
+  deleteComment: 'Padam',
+  deleteConfirm: 'Adakah anda pasti mahu memadamkan komen ini?',
+  editComment: 'Edit',
+  saveEdit: 'Simpan',
+  cancelEdit: 'Batal',
+  loadMore: 'Muat lagi komen',
+  charLimit: '{count}/2000',
+  edited: '(disunting)',
+};
+
+const contentMap: Record<string, CommunityDetailContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 
 export function getContent(locale: string): CommunityDetailContent {
   return selectContent(contentMap, locale);

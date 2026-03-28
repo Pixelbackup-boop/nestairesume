@@ -335,7 +335,49 @@ const nl: CareerPagesContent = {
   },
 };
 
-const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: '职业资源与就业机会 | Best AI Resume',
+      description: '发现职业资源、就业机会、行业动态和职业发展建议，助力你的职业生涯。',
+      ogTitle: '职业资源与就业机会 | Best AI Resume',
+      ogDescription: '发现职业资源、就业机会和职业发展建议。',
+    },
+    badge: '职业中心',
+    title: '职业资源与',
+    titleHighlight: '就业机会',
+    subtitle: '浏览就业机会、职业洞察和专业发展资源，帮助你在职业生涯中更进一步。',
+    featured: '精选机会',
+    noPostsTitle: '暂无文章',
+    noPostsSub: '请稍后回来查看职业资源和就业机会！',
+  },
+  article: {
+    notFound: '未找到文章',
+  },
+};
+
+const ms: CareerPagesContent = {
+  listing: {
+    meta: {
+      title: 'Sumber Kerjaya & Peluang Pekerjaan | Best AI Resume',
+      description: 'Terokai sumber kerjaya, peluang pekerjaan, pandangan industri dan tip pembangunan profesional untuk memajukan kerjaya anda.',
+      ogTitle: 'Sumber Kerjaya & Peluang Pekerjaan | Best AI Resume',
+      ogDescription: 'Terokai sumber kerjaya, peluang pekerjaan dan tip pembangunan profesional.',
+    },
+    badge: 'Pusat Kerjaya',
+    title: 'Sumber Kerjaya &',
+    titleHighlight: 'Peluang Pekerjaan',
+    subtitle: 'Terokai peluang pekerjaan, pandangan kerjaya dan sumber pembangunan profesional untuk membantu anda maju dalam kerjaya.',
+    featured: 'Peluang Pilihan',
+    noPostsTitle: 'Belum ada artikel',
+    noPostsSub: 'Kembali semula untuk sumber kerjaya dan peluang pekerjaan!',
+  },
+  article: {
+    notFound: 'Artikel Tidak Dijumpai',
+  },
+};
+
+const contentMap: Record<string, CareerPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 
 export function getCareerListingContent(locale: string) { return selectContent(contentMap, locale).listing; }
 export function getCareerArticleContent(locale: string) { return selectContent(contentMap, locale).article; }

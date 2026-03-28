@@ -1783,5 +1783,241 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: {
+    title: '2026年最佳Europass简历替代方案：现代AI简历制作工具 | Best AI Resume',
+    description: '寻找Europass简历替代方案？比较Europass与Best AI Resume Builder——20+现代模板、AI写作、ATS优化。免费用于全球求职。',
+    keywords: 'europass替代方案, europass简历模板, europass cv, 免费简历制作, ai简历制作, 简历模板',
+  },
+  schemas: {
+    breadcrumbName: 'Europass简历替代方案',
+    articleHeadline: '2026年最佳Europass简历替代方案：现代AI简历制作工具',
+    articleDescription: '比较Europass与Best AI Resume Builder。获取20+专业模板和AI写作，取代单一的EU格式。',
+  },
+  hero: {
+    badge: 'Europass替代方案',
+    title: '超越单一模板简历。',
+    titleHighlight: '现代。AI驱动。免费。',
+    subtitle: 'Europass只提供一种为EU申请设计的固定模板。获取<strong>20+现代模板</strong>、AI写作和ATS优化，适用于<strong>全球</strong>就业市场——免费。',
+    ctaPrimary: '免费制作我的简历',
+    ctaSecondary: '查看对比',
+  },
+  problem: {
+    title: 'Europass：适合EU，其他地方受限',
+    description: 'Europass简历是EU标准化跨境求职的工具。它是免费且政府支持的——但只提供<strong>一种模板格式</strong>、<strong>无AI写作帮助</strong>，且结构僵化，与现代简历设计相比显得过时。对于非EU工作，Europass反而可能影响你的申���。',
+    stats: [
+      { value: '1', label: 'Europass上可用的模板数量' },
+      { value: '0', label: 'Europass的AI功能数量' },
+      { value: '20+', label: 'Best AI Resume Builder中的模板（免费）' },
+    ],
+  },
+  comparison: {
+    title: 'Europass vs Best AI Resume Builder',
+    subtitle: 'EU标准格式 vs 现代AI简历制作工具。',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '模板选择', competitor: '❌ 仅1种模板', ours: '✅ 20+专业模板' },
+      { feature: 'AI写作', competitor: '❌ 无AI功能', ours: '✅ AI撰写定制内容' },
+      { feature: 'ATS优化', competitor: '⚠️ 基本兼容', ours: '✅ 实时ATS评分+关键词' },
+      { feature: '设计灵活性', competitor: '❌ 固定布局', ours: '✅ 完全可定制的模板' },
+      { feature: '全球适用性', competitor: '⚠️ 主要适合EU', ours: '✅ 适用于全球就业市场' },
+      { feature: '价格', competitor: '✅ 免费', ours: '✅ 免费' },
+      { feature: '内容指导', competitor: '❌ 无写作帮助', ours: '✅ AI要点和摘要' },
+      { feature: '求职信', competitor: '✅ 基本求职信', ours: '✅ AI驱动的求职信' },
+      { feature: '现代设计', competitor: '❌ 过时外观', ours: '✅ 现代专业设计' },
+      { feature: '导出选项', competitor: '✅ PDF和Word', ours: '✅ 高质量PDF导出' },
+    ],
+  },
+  whySwitch: {
+    title: '从Europass转换的3个理由',
+    subtitle: '现代。AI驱动。全球适用。',
+    reasons: [
+      { title: '更多模板选择', description: 'Europass限制你使用一种标准格式。Best AI Resume Builder提供20+专业设计的模板，让你的简历脱颖而出。' },
+      { title: 'AI写作辅助', description: 'Europass要求你自己编写所有内容。我们的AI根据你的经历和目标职位生成专业的要点和摘要。' },
+      { title: '全球就业市场', description: 'Europass主要针对EU市场。我们的简历制作工具适用于全球就业市场，模板设计符合国际招聘标准。' },
+    ],
+  },
+  recommendation: {
+    title: '诚实推荐',
+    useCompetitor: {
+      title: 'Europass适合你，如果你...',
+      items: [
+        '申请需要Europass格式的EU机构',
+        '需要EU标准化的技能护照',
+        '申请明确要求Europass格式的职位',
+        '需要多语言EU文档',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes更好，如果你...',
+      items: [
+        '想要从20+模板中选择现代设计',
+        '需要AI帮助撰写专业内容',
+        '申请全球（非仅EU）的工作',
+        '想要实时ATS评分和优化',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '浏览300+免费简历范例',
+    description: '适合各行业和各职业阶段的专业简历范例。',
+    ctaBrowse: '查看简历范例',
+    ctaTemplates: '查看所有模板',
+  },
+  faq: {
+    title: '常见问题',
+    items: [
+      { question: 'Europass简历在EU以外好用吗？', answer: 'Europass主要为EU就业市场设计。在EU以外，许多雇主不熟悉Europass格式，可能认为它看起来过时。现代简历制作工具更适合全球求职。' },
+      { question: 'Europass有AI功能吗？', answer: '没有。Europass是基本的表单式工具，不提供AI写作辅助。Best AI Resume Builder使用AI生成专业内容。' },
+      { question: '什么是Europass的最佳替代方案？', answer: 'Best AI Resume Builder提供20+现代模板、AI写作、ATS优化和免费PDF导出——远超Europass的单一模���。' },
+      { question: 'Europass简历能通过ATS吗？', answer: 'Europass格式基本兼容ATS，但其过时的布局可能不如专门ATS优化的模板表现好。' },
+      { question: '可以免费使用Europass替代方案吗？', answer: '是的，Best AI Resume Builder完全免费。你可以获得Europass不提供的20+模板和AI写作功能，无需任何费用。' },
+    ],
+  },
+  crossLinks: {
+    title: '比较其他简历制作工具',
+    items: [
+      { href: '/zh/canva-alternative', title: 'Canva替代方案', subtitle: '设计工具 vs 简历制作' },
+      { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '价格和功��对比' },
+      { href: '/zh/overleaf-alternative', title: 'Overleaf替代方案', subtitle: 'LaTeX vs AI' },
+      { href: '/zh/rezi-alternative', title: 'Rezi替代方案', subtitle: 'AI功能对比' },
+    ],
+    guidesTitle: '实用简历指南',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部资源',
+    items: [
+      { href: 'https://europa.eu/europass/', label: 'Europass官方网站' },
+      { href: 'https://www.bls.gov/ooh/', label: '美国劳工统计局：职业展望' },
+    ],
+  },
+  bottomCta: {
+    title: '现代。AI驱动。免费。',
+    description: '用AI制作一份现代化、ATS友好的简历——远超Europass的单一模板，完���免费。',
+    cta: '免费制作我的简历',
+    subtext: '永久免费。无需信用卡。无意外费���。',
+  },
+};
+
+const ms: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif Europass CV Terbaik 2026: Pembina Resume AI Moden | Best AI Resume',
+    description: 'Mencari alternatif Europass CV? Bandingkan Europass vs Best AI Resume Builder — 20+ templat moden, penulisan AI, pengoptimuman ATS. Percuma untuk permohonan kerja global.',
+    keywords: 'alternatif europass, europass cv, templat europass, pembina resume percuma, pembina resume ai, templat cv',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif Europass CV',
+    articleHeadline: 'Alternatif Europass CV Terbaik 2026: Pembina Resume AI Moden',
+    articleDescription: 'Bandingkan Europass vs Best AI Resume Builder. Dapatkan 20+ templat profesional dengan penulisan AI berbanding satu format EU yang tegar.',
+  },
+  hero: {
+    badge: 'Alternatif Europass',
+    title: 'Melampaui CV Satu Templat.',
+    titleHighlight: 'Moden. Berkuasa AI. Percuma.',
+    subtitle: 'Europass memberikan anda satu templat tegar yang direka untuk permohonan EU. Dapatkan <strong>20+ templat moden</strong>, penulisan berkuasa AI dan pengoptimuman ATS untuk pasaran kerja <strong>seluruh dunia</strong> — percuma.',
+    ctaPrimary: 'Bina Resume Saya Percuma',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'Europass: Baik untuk EU, Terhad di Tempat Lain',
+    description: 'Europass CV adalah inisiatif EU yang menyeragamkan CV untuk mobiliti pekerjaan rentas sempadan Eropah. Ia percuma dan disokong kerajaan — tetapi hanya menyediakan <strong>satu format templat</strong>, <strong>tiada bantuan penulisan AI</strong>, dan struktur tegar yang kelihatan lapuk berbanding reka bentuk resume moden.',
+    stats: [
+      { value: '1', label: 'templat tersedia di Europass' },
+      { value: '0', label: 'ciri AI di Europass' },
+      { value: '20+', label: 'templat di Best AI Resume Builder (percuma)' },
+    ],
+  },
+  comparison: {
+    title: 'Europass vs Best AI Resume Builder',
+    subtitle: 'Format standard EU vs pembina resume AI moden.',
+    competitorName: 'Europass',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Pilihan Templat', competitor: '❌ Hanya 1 templat', ours: '✅ 20+ templat profesional' },
+      { feature: 'Penulisan AI', competitor: '❌ Tiada ciri AI', ours: '✅ AI menulis kandungan tersuai' },
+      { feature: 'Pengoptimuman ATS', competitor: '⚠️ Keserasian asas', ours: '✅ Skor ATS masa nyata + kata kunci' },
+      { feature: 'Fleksibiliti Reka Bentuk', competitor: '❌ Susun atur tetap', ours: '✅ Templat boleh disesuaikan sepenuhnya' },
+      { feature: 'Kebolehgunaan Global', competitor: '⚠️ Terutamanya untuk EU', ours: '✅ Sesuai untuk pasaran kerja seluruh dunia' },
+      { feature: 'Harga', competitor: '✅ Percuma', ours: '✅ Percuma' },
+      { feature: 'Panduan Kandungan', competitor: '❌ Tiada bantuan penulisan', ours: '✅ Poin AI dan ringkasan' },
+      { feature: 'Surat Iringan', competitor: '✅ Surat iringan asas', ours: '✅ Surat iringan berkuasa AI' },
+      { feature: 'Reka Bentuk Moden', competitor: '❌ Penampilan lapuk', ours: '✅ Reka bentuk profesional moden' },
+      { feature: 'Pilihan Eksport', competitor: '✅ PDF dan Word', ours: '✅ Eksport PDF berkualiti tinggi' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Sebab untuk Beralih dari Europass',
+    subtitle: 'Moden. Berkuasa AI. Sesuai Global.',
+    reasons: [
+      { title: 'Lebih Banyak Pilihan Templat', description: 'Europass mengehadkan anda kepada satu format standard. Best AI Resume Builder menawarkan 20+ templat yang direka secara profesional supaya resume anda menonjol.' },
+      { title: 'Bantuan Penulisan AI', description: 'Europass memerlukan anda menulis semua kandungan sendiri. AI kami menjana poin dan ringkasan profesional berdasarkan pengalaman dan jawatan sasaran anda.' },
+      { title: 'Pasaran Kerja Global', description: 'Europass terutamanya untuk pasaran EU. Pembina resume kami sesuai untuk pasaran kerja global termasuk Malaysia, dengan reka bentuk templat yang memenuhi standard pengambilan antarabangsa.' },
+    ],
+  },
+  recommendation: {
+    title: 'Cadangan Jujur',
+    useCompetitor: {
+      title: 'Europass sesuai jika anda...',
+      items: [
+        'Memohon ke institusi EU yang memerlukan format Europass',
+        'Memerlukan pasport kemahiran standard EU',
+        'Memohon jawatan yang secara khusus meminta format Europass',
+        'Memerlukan dokumen EU pelbagai bahasa',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes lebih baik jika anda...',
+      items: [
+        'Mahu reka bentuk moden daripada 20+ templat',
+        'Memerlukan bantuan AI menulis kandungan profesional',
+        'Memohon kerja di seluruh dunia (bukan hanya EU)',
+        'Mahu skor ATS masa nyata dan pengoptimuman',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Layari 300+ Contoh Resume Percuma',
+    description: 'Contoh resume profesional untuk setiap industri dan peringkat kerjaya.',
+    ctaBrowse: 'Lihat Contoh Resume',
+    ctaTemplates: 'Lihat Semua Templat',
+  },
+  faq: {
+    title: 'Soalan Lazim',
+    items: [
+      { question: 'Adakah Europass CV bagus di luar EU?', answer: 'Europass direka terutamanya untuk pasaran kerja EU. Di luar EU, ramai majikan tidak biasa dengan format Europass dan mungkin menganggapnya lapuk.' },
+      { question: 'Adakah Europass mempunyai ciri AI?', answer: 'Tidak. Europass adalah alat berasaskan borang asas yang tidak menyediakan bantuan penulisan AI. Best AI Resume Builder menggunakan AI untuk menjana kandungan profesional.' },
+      { question: 'Apakah alternatif terbaik untuk Europass?', answer: 'Best AI Resume Builder menawarkan 20+ templat moden, penulisan AI, pengoptimuman ATS dan eksport PDF percuma — jauh melebihi templat tunggal Europass.' },
+      { question: 'Adakah Europass CV melepasi ATS?', answer: 'Format Europass pada asasnya serasi ATS, tetapi susun aturnya yang lapuk mungkin tidak berprestasi sebaik templat yang dioptimumkan ATS secara khusus.' },
+      { question: 'Bolehkah saya menggunakan alternatif Europass secara percuma?', answer: 'Ya, Best AI Resume Builder percuma sepenuhnya. Anda mendapat 20+ templat dan ciri penulisan AI yang tidak ditawarkan Europass, tanpa sebarang kos.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembina Resume Lain',
+    items: [
+      { href: '/ms/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat reka bentuk vs pembina resume' },
+      { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga dan ciri' },
+      { href: '/ms/overleaf-alternative', title: 'Alternatif Overleaf', subtitle: 'LaTeX vs AI' },
+      { href: '/ms/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan ciri AI' },
+    ],
+    guidesTitle: 'Panduan Resume Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Luaran',
+    items: [
+      { href: 'https://europa.eu/europass/', label: 'Laman Web Rasmi Europass' },
+      { href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia — Portal Pekerjaan' },
+    ],
+  },
+  bottomCta: {
+    title: 'Moden. Berkuasa AI. Percuma.',
+    description: 'Bina resume moden mesra ATS dengan AI — jauh melampaui templat tunggal Europass, percuma sepenuhnya.',
+    cta: 'Bina Resume Saya Percuma',
+    subtext: 'Percuma selama-lamanya. Tanpa kad kredit. Tanpa kejutan.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

@@ -730,5 +730,111 @@ const nl: BlogPagesContent = {
   },
 };
 
-const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
+const zh: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: '博客 - 简历技巧与职业建议 | Best AI Resume',
+      description: '专家简历写作技巧、职业建议和求职策略，帮助你获得理想工作。免费指南和教程。',
+      ogDescription: '专家简历写作技巧、职业建议和求职策略。',
+    },
+    heroBadge: '我们的博客',
+    heroTitle: '简历技巧与',
+    heroTitleHighlight: '职业建议',
+    heroSubtitle: '专家指南、技巧和策略，帮助你制作出色的简历并推进你的职业发展。',
+    featuredArticles: '精选文章',
+    noArticlesTitle: '暂无文章',
+    noArticlesSubtitle: '请稍后再来查看新内容！',
+  },
+  article: {
+    notFound: '文章未找到',
+    faqTitle: '常见问题',
+    resourcesTitle: '简历工具和资源',
+    resources: [
+      { title: '300+简历范例', subtitle: '按职业分类的写作指南' },
+      { title: '2026简历格式指南', subtitle: '时间顺序、功能型和混合型' },
+      { title: '免费简历模板', subtitle: 'ATS友好的专业设计' },
+      { title: 'AI简历制作工具', subtitle: '几分钟内制作简历' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: '文章 | Best AI Resume 博客',
+    metaDescTemplate: '浏览{category}文章，获取专家建议、技巧和指南。',
+    backToBlog: '返回博客',
+    articlesCount: '此类别有{count}篇文章',
+    articleCount: '此类别有{count}篇文章',
+    noArticlesTitle: '暂无文章',
+    noArticlesSubtitle: '请稍后再来查看此类别的新内容！',
+  },
+  search: {
+    meta: {
+      title: '搜索博客 | Best AI Resume',
+      description: '在我们的博客中搜索简历技巧、职业建议和求职策略。',
+    },
+    backToBlog: '返回博客',
+    title: '搜索结果',
+    resultsCount: '{count}个结果',
+    resultCount: '{count}个结果',
+    startSearchTitle: '开始搜索',
+    startSearchSubtitle: '输入搜索词来查找文章',
+    noResultsTitle: '无结果',
+    noResultsText: '未找到匹配的文章',
+    tryLabel: '试试：',
+    trySuggestions: ['使用不同的关键词', '检查拼写', '改为浏览类别'],
+  },
+};
+
+const ms: BlogPagesContent = {
+  listing: {
+    meta: {
+      title: 'Blog - Tip Resume & Nasihat Kerjaya | Best AI Resume',
+      description: 'Tip penulisan resume pakar, nasihat kerjaya dan strategi mencari kerja untuk membantu anda mendapat kerja impian. Panduan dan tutorial percuma.',
+      ogDescription: 'Tip penulisan resume pakar, nasihat kerjaya dan strategi mencari kerja.',
+    },
+    heroBadge: 'Blog Kami',
+    heroTitle: 'Tip Resume & ',
+    heroTitleHighlight: 'Nasihat Kerjaya',
+    heroSubtitle: 'Panduan pakar, tip dan strategi untuk membina resume yang menonjol dan memajukan kerjaya anda.',
+    featuredArticles: 'Artikel Pilihan',
+    noArticlesTitle: 'Belum ada artikel',
+    noArticlesSubtitle: 'Sila kembali semula untuk kandungan baharu!',
+  },
+  article: {
+    notFound: 'Artikel Tidak Ditemui',
+    faqTitle: 'Soalan Lazim',
+    resourcesTitle: 'Alat & Sumber Resume',
+    resources: [
+      { title: '300+ Contoh Resume', subtitle: 'Panduan penulisan mengikut profesion' },
+      { title: 'Panduan Format Resume 2026', subtitle: 'Kronologi, fungsional & gabungan' },
+      { title: 'Templat Resume Percuma', subtitle: 'Reka bentuk profesional mesra ATS' },
+      { title: 'Pembina Resume AI', subtitle: 'Bina resume anda dalam beberapa minit' },
+    ],
+  },
+  category: {
+    metaTitleSuffix: 'Artikel | Blog Best AI Resume',
+    metaDescTemplate: 'Layari artikel {category} kami untuk nasihat pakar, tip dan panduan.',
+    backToBlog: 'Kembali ke Blog',
+    articlesCount: '{count} artikel dalam kategori ini',
+    articleCount: '{count} artikel dalam kategori ini',
+    noArticlesTitle: 'Belum ada artikel',
+    noArticlesSubtitle: 'Sila kembali untuk kandungan baharu dalam kategori ini!',
+  },
+  search: {
+    meta: {
+      title: 'Carian Blog | Best AI Resume',
+      description: 'Cari tip resume, nasihat kerjaya dan strategi mencari kerja di blog kami.',
+    },
+    backToBlog: 'Kembali ke Blog',
+    title: 'Hasil Carian',
+    resultsCount: '{count} hasil untuk',
+    resultCount: '{count} hasil untuk',
+    startSearchTitle: 'Mula Mencari',
+    startSearchSubtitle: 'Masukkan istilah carian untuk mencari artikel',
+    noResultsTitle: 'Tiada Hasil',
+    noResultsText: 'Kami tidak dapat menemui artikel yang sepadan dengan',
+    tryLabel: 'Cuba:',
+    trySuggestions: ['Gunakan kata kunci lain', 'Semak ejaan', 'Layari kategori sebaliknya'],
+  },
+};
+
+const content: Record<string, BlogPagesContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl, zh, ms };
 export const getContent = (locale: string): BlogPagesContent => selectContent(content, locale);

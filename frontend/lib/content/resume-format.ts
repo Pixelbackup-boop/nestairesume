@@ -2527,7 +2527,79 @@ const nl: ResumeFormatPageContent = {
   },
 };
 
-const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ResumeFormatPageContent = {
+  meta: { title: '简历格式 2026：选择哪种简历格式？| Best AI Resume', description: '了解哪种简历格式最适合你。比较时间倒序、功能型和混合型简历格式。免费ATS友好简历模板。', keywords: '简历格式, 简历排版, 简历模板, 时间倒序简历, 功能型简历, 简历格式2026, ats友好简历' },
+  schemas: { breadcrumbName: '简历格式指南', howToName: '如何选择正确的简历格式', howToDescription: '比较3种简历格式（时间倒序、功能型、混合型），选择最适合你职业情况的格式。', howToSteps: ['评估你的职业阶段（新人、资深、高管）', '比较3种简历格式的优缺点', '检查ATS兼容性评分', '选择模板并创建简历'], howToToolName: 'Best AI Resume — 简历制作器' },
+  hero: { badge: '简历格式指南 2026', title: '选择正确的简历格式', titleHighlight: '通过第一轮筛选', subtitle: '时间倒序、功能型还是混合型——选择正确的<strong>简历格式</strong>是求职过程中关键的第一步。用我们的AI简历制作器，一键切换格式。', ctaCompare: '比较格式', ctaBuild: '免费创建简历' },
+  comparison: { title: '3种简历格式比较', subtitle: '每种格式的功能、最佳用途和ATS兼容性一目了然。', tableHeaders: { format: '格式', bestFor: '最适合', avoidIf: '避免使用条件', atsSafety: 'ATS安全性' }, formats: [
+    { name: '时间倒序', badge: '最常用', badgeColor: 'green', bestFor: ['无明显职业间断的候选人', '在同一行业内晋升的专业人士', '最近经验直接匹配目标职位的人'], avoidIf: '如果你有较长的失业期', atsScore: 98, atsColor: 'green' },
+    { name: '功能型（技能导向）', badge: '技能导向', badgeColor: 'amber', bestFor: ['转行者', '有职业间断的人', '应届毕业生或自由职业者'], avoidIf: '如果你投递传统行业或大公司', atsScore: 72, atsColor: 'amber' },
+    { name: '混合型', badge: '均衡', badgeColor: 'blue', bestFor: ['同时拥有丰富技能和经验的人', '管理层或高级职位', '想同时展示技能和成果的人'], avoidIf: '如果你工作经验较少', atsScore: 90, atsColor: 'green' },
+  ] },
+  chronological: { title: '时间倒序简历格式', description: '这种格式从最近的工作经验开始往前排列。这是招聘人员最偏好的格式，ATS兼容性最高。', whyLoveTitle: '为什么雇主偏好这种格式', whyLoveText: '时间倒序简历让招聘人员直接看到你的职业成长轨迹。ATS系统处理这种格式的准确度最高——大多数公司都偏好这种格式。', structureTitle: '章节结构', sections: [
+    { label: '联系信息', detail: '姓名、邮箱、电话、所在地', isCore: true },
+    { label: '专业摘要', detail: '3-4句总结你的经验和核心技能', isCore: true },
+    { label: '工作经验', detail: '从最近到最早（公司、时间、成就）', isCore: true },
+    { label: '教育背景', detail: '最近和最相关的学历' },
+    { label: '技能', detail: '技术技能、证书和语言能力' },
+  ], downloadLabel: '下载模板', aiLabel: '用AI创建' },
+  functional: { title: '功能型简历格式（技能导向）', description: '这种格式按技能和能力而非时间顺序组织简历。', warningTitle: '注意ATS兼容性', warningText: '某些ATS系统在处理工作经验被最小化的功能型简历时可能遇到困难。', structureTitle: '章节结构', sections: [
+    { label: '联系信息', isCore: true },
+    { label: '专业摘要', isCore: true },
+    { label: '核心能力领域', detail: '3-4个主要领域，每个领域包含具体成果', isCore: true },
+    { label: '工作经验（摘要）', detail: '仅公司名、职位和时间' },
+    { label: '教育背景' },
+  ], downloadLabel: '下载模板', aiLabel: '用AI创建' },
+  combination: { title: '混合型简历格式', description: '结合时间倒序和功能型格式的优点。', whoForTitle: '何时选择这种格式', whoForItems: ['拥有丰富经验和管理技能的中高级职位', '想同时展示深厚经验和多样技能的人', '投递同时需要技术和运营成果的职位', '在多个行业建立了职业生涯的人'], downloadLabel: '下载模板', aiLabel: '用AI创建' },
+  faq: { title: '常见问题', items: [
+    { question: '哪种简历格式最常用？', answer: '时间倒序格式是最常用的格式。大多数公司和科技企业都期望这种格式。' },
+    { question: '经常换工作该用哪种格式？', answer: '混合型格式是最佳选择。你可以强调技能同时保留时间顺序的工作历史。' },
+    { question: '应届毕业生适合哪种格式？', answer: '时间倒序格式适合应届毕业生。将教育背景放在工作经验之前，突出学术成就、实习和项目。' },
+    { question: '什么是ATS友好的简历？', answer: 'ATS（应聘者跟踪系统）是企业用来筛选简历的软件。ATS友好的简历有简洁的排版、清晰的标题和相关关键词——无表格或图形。时间倒序格式与这些系统配合最好。' },
+    { question: '在中国求职该用什么简历格式？', answer: '在中国求职市场，时间倒序格式是最常用的。互联网/科技企业偏好简洁的1页简历，外企可能需要英文简历。国企和事业单位可能有特定的申请表格式。' },
+  ] },
+  externalResources: { title: '外部资源', items: [{ href: 'https://www.zhaopin.com/', label: '智联招聘——中国领先的招聘平台' }, { href: 'https://www.linkedin.com/jobs/', label: 'LinkedIn Jobs——最大的职业社交平台' }] },
+  stickyCta: { text: '找到合适的简历格式了？', ctaLabel: '立即创建简历' },
+  bottomCta: { title: '不再纠结简历格式', description: '我们的AI简历制作器自动优化格式、字体和边距。从20+ ATS兼容模板中选择。', ctaLabel: '免费创建简历' },
+};
+
+const ms: ResumeFormatPageContent = {
+  meta: { title: 'Format Resume 2026: Format Resume Mana untuk Dipilih? | Best AI Resume', description: 'Ketahui format resume mana yang paling sesuai untuk anda. Bandingkan kronologi terbalik, fungsional dan gabungan. Templat resume mesra ATS percuma.', keywords: 'format resume, susun atur resume, templat resume, resume kronologi, format resume 2026, resume mesra ats' },
+  schemas: { breadcrumbName: 'Panduan Format Resume', howToName: 'Cara memilih format resume yang betul', howToDescription: 'Bandingkan 3 format resume (kronologi terbalik, fungsional, gabungan) dan pilih format terbaik untuk situasi kerjaya anda.', howToSteps: ['Nilai peringkat kerjaya anda (pemula, berpengalaman, eksekutif)', 'Bandingkan kebaikan dan keburukan 3 format resume', 'Semak skor keserasian ATS', 'Pilih templat dan cipta resume anda'], howToToolName: 'Best AI Resume — Pembuat Resume' },
+  hero: { badge: 'Panduan format resume 2026', title: 'Pilih format resume yang betul', titleHighlight: 'dan lepasi saringan pertama', subtitle: 'Kronologi terbalik, fungsional atau gabungan — memilih <strong>format resume</strong> yang betul adalah langkah kritikal pertama dalam proses permohonan kerja anda. Dengan pembuat resume AI kami, tukar format dengan satu klik.', ctaCompare: 'Bandingkan format', ctaBuild: 'Buat resume percuma' },
+  comparison: { title: 'Perbandingan 3 format resume', subtitle: 'Ciri, penggunaan ideal dan keserasian ATS setiap format secara jelas.', tableHeaders: { format: 'Format', bestFor: 'Terbaik untuk', avoidIf: 'Elakkan jika', atsSafety: 'Keselamatan ATS' }, formats: [
+    { name: 'Kronologi Terbalik', badge: 'Paling biasa', badgeColor: 'green', bestFor: ['Calon tanpa jurang kerjaya yang ketara', 'Profesional yang berkembang dalam industri yang sama', 'Mereka yang pengalaman terbaru berkaitan langsung dengan jawatan sasaran'], avoidIf: 'Jika anda mempunyai tempoh pengangguran yang panjang', atsScore: 98, atsColor: 'green' },
+    { name: 'Fungsional (berasaskan kemahiran)', badge: 'Berasaskan kemahiran', badgeColor: 'amber', bestFor: ['Mereka yang bertukar industri', 'Mereka yang mempunyai jurang kerjaya', 'Graduan baru atau pekerja bebas'], avoidIf: 'Jika anda memohon ke sektor konservatif atau korporat besar', atsScore: 72, atsColor: 'amber' },
+    { name: 'Gabungan', badge: 'Seimbang', badgeColor: 'blue', bestFor: ['Mereka yang mempunyai kemahiran kuat dan pengalaman luas', 'Jawatan kepimpinan atau kanan', 'Mereka yang mahu menonjolkan kemahiran dan pencapaian'], avoidIf: 'Jika anda mempunyai sedikit pengalaman kerja', atsScore: 90, atsColor: 'green' },
+  ] },
+  chronological: { title: 'Format resume kronologi terbalik', description: 'Format ini memaparkan pengalaman kerja dari terbaru ke terlama. Ia adalah format yang paling disukai oleh perekrut, dengan keserasian ATS tertinggi.', whyLoveTitle: 'Mengapa majikan memilih format ini', whyLoveText: 'Resume kronologi membolehkan perekrut melihat pertumbuhan kerjaya anda secara langsung. Sistem ATS memproses format ini dengan ketepatan tertinggi — kebanyakan syarikat memilih format ini.', structureTitle: 'Struktur seksyen', sections: [
+    { label: 'Maklumat peribadi & hubungi', detail: 'Nama, e-mel, telefon, lokasi', isCore: true },
+    { label: 'Ringkasan profesional', detail: '3-4 ayat meringkaskan pengalaman dan kemahiran teras anda', isCore: true },
+    { label: 'Pengalaman kerja', detail: 'Dari terbaru ke terlama (syarikat, tempoh, pencapaian)', isCore: true },
+    { label: 'Pendidikan', detail: 'Kelayakan terbaru dan paling relevan' },
+    { label: 'Kemahiran', detail: 'Kemahiran teknikal, sijil dan bahasa' },
+  ], downloadLabel: 'Muat turun templat', aiLabel: 'Cipta dengan AI' },
+  functional: { title: 'Format resume fungsional (berasaskan kemahiran)', description: 'Format ini menyusun resume anda berdasarkan kemahiran dan kecekapan berbanding kronologi.', warningTitle: 'Perhatian keserasian ATS', warningText: 'Sesetengah sistem ATS menghadapi kesukaran dengan resume fungsional di mana pengalaman kerja diminimumkan.', structureTitle: 'Struktur seksyen', sections: [
+    { label: 'Maklumat peribadi & hubungi', isCore: true },
+    { label: 'Ringkasan profesional', isCore: true },
+    { label: 'Bidang kecekapan teras', detail: '3-4 bidang utama dengan pencapaian konkrit setiap bidang', isCore: true },
+    { label: 'Pengalaman kerja (ringkasan)', detail: 'Hanya syarikat, jawatan dan tempoh' },
+    { label: 'Pendidikan' },
+  ], downloadLabel: 'Muat turun templat', aiLabel: 'Cipta dengan AI' },
+  combination: { title: 'Format resume gabungan', description: 'Menggabungkan kekuatan format kronologi terbalik dan fungsional.', whoForTitle: 'Bila memilih format ini', whoForItems: ['Jawatan pengurusan pertengahan dan kanan dengan pengalaman luas dan kemahiran pengurusan', 'Mereka yang mahu menunjukkan pengalaman mendalam dan set kemahiran yang pelbagai', 'Mereka yang memohon jawatan yang memerlukan pencapaian teknikal dan operasi', 'Mereka yang membina kerjaya dalam pelbagai industri'], downloadLabel: 'Muat turun templat', aiLabel: 'Cipta dengan AI' },
+  faq: { title: 'Soalan lazim', items: [
+    { question: 'Format resume mana paling biasa di Malaysia?', answer: 'Di Malaysia, format kronologi terbalik adalah yang paling biasa. Syarikat swasta, multinasional dan syarikat teknologi mengharapkan format ini.' },
+    { question: 'Saya kerap bertukar kerja — format mana paling sesuai?', answer: 'Format gabungan adalah pilihan terbaik. Anda boleh menonjolkan kemahiran sambil mengekalkan sejarah kerja kronologi.' },
+    { question: 'Format mana sesuai untuk graduan baru?', answer: 'Format kronologi terbalik ideal untuk graduan baru. Letakkan pendidikan sebelum pengalaman kerja untuk menonjolkan pencapaian akademik, latihan amali dan projek.' },
+    { question: 'Apa itu resume mesra ATS?', answer: 'ATS (Applicant Tracking System) adalah perisian yang digunakan syarikat untuk menapis resume. Resume mesra ATS mempunyai format mudah, tajuk jelas dan kata kunci relevan — tanpa jadual atau grafik. Format kronologi terbalik berfungsi paling baik.' },
+    { question: 'Adakah format Europass berguna di Malaysia?', answer: 'Europass jarang digunakan di Malaysia. Ia adalah format standard untuk permohonan ke institusi EU. Untuk pasaran kerja Malaysia, format kronologi terbalik jauh lebih berkesan.' },
+  ] },
+  externalResources: { title: 'Sumber luaran', items: [{ href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia — Portal pekerjaan terbesar' }, { href: 'https://www.linkedin.com/jobs/', label: 'LinkedIn Jobs — Platform kerjaya profesional' }] },
+  stickyCta: { text: 'Sudah jumpa format resume yang sesuai?', ctaLabel: 'Buat resume sekarang' },
+  bottomCta: { title: 'Tiada lagi kerumitan format resume', description: 'Pembuat resume AI kami mengoptimumkan format, fon dan margin secara automatik. Pilih daripada 20+ templat serasi ATS.', ctaLabel: 'Buat resume percuma' },
+};
+
+const contentMap: Record<string, ResumeFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 
 export function getContent(locale: string): ResumeFormatPageContent {
   return selectContent(contentMap, locale);

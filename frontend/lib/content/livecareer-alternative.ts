@@ -1831,5 +1831,241 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: {
+    title: '2026年最佳LiveCareer替代方案：免费AI简历制作工具 | Best AI Resume',
+    description: '寻找免费的LiveCareer替代方案？比较LiveCareer与Best AI Resume Builder——现代AI写作、ATS模板、无限下载。无需订阅。',
+    keywords: 'livecareer替代方案, livecareer简历, 免费简历制作, ai简历制作工具, 简历模板, ats简历',
+  },
+  schemas: {
+    breadcrumbName: 'LiveCareer替代方案',
+    articleHeadline: '2026年最佳LiveCareer替代方案：免费AI简历制作工具',
+    articleDescription: '比较LiveCareer与Best AI Resume Builder。获取现代AI写作和ATS优化——完全免费，无需订阅。',
+  },
+  hero: {
+    badge: 'LiveCareer替代方案',
+    title: '现代AI简历制作工具。',
+    titleHighlight: '永久免费。',
+    subtitle: 'LiveCareer自2005年以来一直存在——但工具没有跟上时代。获取<strong>AI驱动写作</strong>、现代模板和ATS评分，只需<strong>$0</strong>，而非$19.95/月。',
+    ctaPrimary: '免费制作我的简历',
+    ctaSecondary: '查看对比',
+  },
+  problem: {
+    title: 'LiveCareer曾经很好——在2015年',
+    description: 'LiveCareer是在线简历制作的先驱。但当行业转向AI写作和实时ATS优化时，LiveCareer仍然依赖<strong>预写短语库</strong>和过时的界面。他们的订阅费用为<strong>$19.95/月</strong>，但现代免费工具已经超越了这些功能。',
+    stats: [
+      { value: '$5.95', label: '14天试用（然后$19.95/月）' },
+      { value: '2005', label: 'LiveCareer成立年份' },
+      { value: '$0', label: 'Best AI Resume Builder——永久免费' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: '传统简历制作工具 vs 现代AI方案。',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: '价格', competitor: '❌ $19.95/月（14天试用$5.95）', ours: '✅ 100%永久免费' },
+      { feature: 'AI写作', competitor: '⚠️ 预写短语库', ours: '✅ 真正的AI定制写作' },
+      { feature: 'ATS优化', competitor: '⚠️ 基本检查', ours: '✅ 实时ATS评分+关键词' },
+      { feature: '模板设计', competitor: '⚠️ 过时设计', ours: '✅ 20+现代专业模板' },
+      { feature: '免费下载', competitor: '❌ 需要订阅', ours: '✅ 无限免费PDF下载' },
+      { feature: '内容质量', competitor: '⚠️ 通用预写内容', ours: '✅ AI生成个性化内容' },
+      { feature: '用户界面', competitor: '⚠️ 过时界面', ours: '✅ 现代直观设计' },
+      { feature: '求职信', competitor: '✅ 可用（付费）', ours: '✅ AI驱动（免费）' },
+      { feature: '取消订阅', competitor: '❌ 需要取消避免扣费', ours: '✅ 无需取消任何订阅' },
+      { feature: '客户投诉', competitor: '⚠️ 计费投诉常见', ours: '✅ 无计费问题' },
+    ],
+  },
+  whySwitch: {
+    title: '从LiveCareer转换的3个理由',
+    subtitle: '更现代。更智能的AI。免费。',
+    reasons: [
+      { title: '真正的AI vs 预写短语', description: 'LiveCareer使用预写短语库。我们的AI真正理解你的经历，为每个简历章节生成独特的定制内容。' },
+      { title: '现代设计和界面', description: 'LiveCareer的界面和模板都停留在2015年。我们提供20+现代设计模板和直观的用户体验。' },
+      { title: '完全免费，无订阅陷阱', description: 'LiveCareer的$5.95试用会自动续费为$19.95/月。Best AI Resume Builder 100%免费——无试用，无信用卡，无意外费用。' },
+    ],
+  },
+  recommendation: {
+    title: '诚实推荐',
+    useCompetitor: {
+      title: 'LiveCareer适合你，如果你...',
+      items: [
+        '偏好已建立的传统品牌',
+        '愿意为其特定功能付费',
+        '喜欢预写短语而非AI生成内容',
+        '需要LiveCareer的特定职业资源',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes更好，如果你...',
+      items: [
+        '想免费创建和下载简历',
+        '需要真正的AI写作（不是预写短语）',
+        '想要实时ATS评分和优化',
+        '不想处理订阅和自动续费',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: '浏览300+免费简历范例',
+    description: '适合各行业和各职业阶段的专业简历范例。',
+    ctaBrowse: '查看简历范例',
+    ctaTemplates: '查看所有模板',
+  },
+  faq: {
+    title: '常见问题',
+    items: [
+      { question: 'LiveCareer真的免费吗？', answer: 'LiveCareer提供免费试用，但需要信用卡且会自动续费为$19.95/月。Best AI Resume Builder是真正100%免费的。' },
+      { question: 'LiveCareer和AI简历制作工具有什么区别？', answer: 'LiveCareer使用预写短语库，而现代AI简历制作工具使用人工智能生成真正个性化的内容。' },
+      { question: '最佳免费LiveCareer替代方案是什么？', answer: 'Best AI Resume Builder提供LiveCareer的所有功能——AI写作、ATS优化、专业模板——完全免费，无需订阅。' },
+      { question: '如何取消LiveCareer订阅？', answer: '你需要在试用期结束前取消LiveCareer。Best AI Resume Builder不需要订阅——没有什么需要取消的。' },
+      { question: 'LiveCareer的模板ATS友好吗？', answer: 'LiveCareer的一些模板是ATS友好的，但许多设计已过时。Best AI Resume Builder的所有模板都经过ATS测试和优化。' },
+    ],
+  },
+  crossLinks: {
+    title: '比较其他简历制作工具',
+    items: [
+      { href: '/zh/zety-alternative', title: 'Zety替代方案', subtitle: '价格对比' },
+      { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '功能对比' },
+      { href: '/zh/canva-alternative', title: 'Canva替代方案', subtitle: '设计工具 vs AI' },
+      { href: '/zh/rezi-alternative', title: 'Rezi替代方案', subtitle: 'AI功能对比' },
+    ],
+    guidesTitle: '实用简历指南',
+    guides: [],
+  },
+  externalResources: {
+    title: '外部资源',
+    items: [
+      { href: 'https://www.livecareer.com/', label: 'LiveCareer官方网站' },
+      { href: 'https://www.bls.gov/ooh/', label: '美国劳工统计局：职业展望' },
+    ],
+  },
+  bottomCta: {
+    title: '现代AI简历制作工具。永久免费。',
+    description: '无订阅陷阱，无自动续费。只有AI驱动的简历制作工具——100%永久免费。',
+    cta: '免费制作我的简历',
+    subtext: '永久免费。无需信用卡。无意外费用。',
+  },
+};
+
+const ms: ComparisonPageContent = {
+  meta: {
+    title: 'Alternatif LiveCareer Terbaik 2026: Pembina Resume AI Percuma | Best AI Resume',
+    description: 'Mencari alternatif LiveCareer percuma? Bandingkan LiveCareer vs Best AI Resume Builder — penulisan AI moden, templat ATS, muat turun tanpa had. Tanpa langganan.',
+    keywords: 'alternatif livecareer, pembina resume livecareer, alternatif percuma livecareer, pembina resume percuma, pembina resume ai',
+  },
+  schemas: {
+    breadcrumbName: 'Alternatif LiveCareer',
+    articleHeadline: 'Alternatif LiveCareer Terbaik 2026: Pembina Resume AI Percuma',
+    articleDescription: 'Bandingkan LiveCareer vs Best AI Resume Builder. Dapatkan penulisan AI moden dan pengoptimuman ATS — percuma sepenuhnya, tanpa langganan.',
+  },
+  hero: {
+    badge: 'Alternatif LiveCareer',
+    title: 'Pembina Resume AI Moden.',
+    titleHighlight: 'Percuma Selama-lamanya.',
+    subtitle: 'LiveCareer wujud sejak 2005 — tetapi alatnya tidak mengikuti perkembangan. Dapatkan <strong>penulisan berkuasa AI</strong>, templat moden dan pemarkahan ATS dengan harga <strong>RM0</strong> berbanding $19.95/bulan.',
+    ctaPrimary: 'Bina Resume Saya Percuma',
+    ctaSecondary: 'Lihat Perbandingan',
+  },
+  problem: {
+    title: 'LiveCareer Bagus — pada 2015',
+    description: 'LiveCareer merintis pembinaan resume dalam talian. Tetapi semasa industri beralih ke penulisan berkuasa AI dan pengoptimuman ATS masa nyata, LiveCareer masih bergantung pada <strong>perpustakaan frasa siap tulis</strong> dan antara muka yang lapuk. Langganan mereka berharga <strong>$19.95/bulan</strong> untuk ciri yang telah diatasi oleh alat percuma moden.',
+    stats: [
+      { value: '$5.95', label: 'Percubaan 14 hari (kemudian $19.95/bulan)' },
+      { value: '2005', label: 'tahun LiveCareer ditubuhkan' },
+      { value: 'RM0', label: 'Best AI Resume Builder — percuma selama-lamanya' },
+    ],
+  },
+  comparison: {
+    title: 'LiveCareer vs Best AI Resume Builder',
+    subtitle: 'Pembina resume tradisional vs penyelesaian AI moden.',
+    competitorName: 'LiveCareer',
+    oursName: 'Best AI Resumes',
+    rows: [
+      { feature: 'Harga', competitor: '❌ $19.95/bulan (percubaan $5.95)', ours: '✅ 100% percuma selama-lamanya' },
+      { feature: 'Penulisan AI', competitor: '⚠️ Perpustakaan frasa siap tulis', ours: '✅ Penulisan tersuai AI sebenar' },
+      { feature: 'Pengoptimuman ATS', competitor: '⚠️ Semakan asas', ours: '✅ Skor ATS masa nyata + kata kunci' },
+      { feature: 'Reka Bentuk Templat', competitor: '⚠️ Reka bentuk lapuk', ours: '✅ 20+ templat profesional moden' },
+      { feature: 'Muat Turun Percuma', competitor: '❌ Memerlukan langganan', ours: '✅ Muat turun PDF percuma tanpa had' },
+      { feature: 'Kualiti Kandungan', competitor: '⚠️ Kandungan siap tulis am', ours: '✅ AI menjana kandungan peribadi' },
+      { feature: 'Antara Muka', competitor: '⚠️ Antara muka lapuk', ours: '✅ Reka bentuk moden intuitif' },
+      { feature: 'Surat Iringan', competitor: '✅ Tersedia (berbayar)', ours: '✅ Berkuasa AI (percuma)' },
+      { feature: 'Pembatalan', competitor: '❌ Perlu batal untuk elak caj', ours: '✅ Tiada apa untuk dibatalkan' },
+      { feature: 'Aduan Pelanggan', competitor: '⚠️ Aduan bil biasa', ours: '✅ Tiada isu pengebilan' },
+    ],
+  },
+  whySwitch: {
+    title: '3 Sebab untuk Beralih dari LiveCareer',
+    subtitle: 'Lebih moden. AI lebih pintar. Percuma.',
+    reasons: [
+      { title: 'AI Sebenar vs Frasa Siap Tulis', description: 'LiveCareer menggunakan perpustakaan frasa siap tulis. AI kami benar-benar memahami pengalaman anda dan menjana kandungan tersuai unik untuk setiap bahagian resume.' },
+      { title: 'Reka Bentuk dan Antara Muka Moden', description: 'Antara muka dan templat LiveCareer kekal di tahun 2015. Kami menawarkan 20+ templat reka bentuk moden dan pengalaman pengguna yang intuitif.' },
+      { title: 'Percuma Sepenuhnya, Tanpa Perangkap Langganan', description: 'Percubaan $5.95 LiveCareer diperbaharui automatik kepada $19.95/bulan. Best AI Resume Builder 100% percuma — tanpa percubaan, kad kredit atau caj mengejut.' },
+    ],
+  },
+  recommendation: {
+    title: 'Cadangan Jujur',
+    useCompetitor: {
+      title: 'LiveCareer sesuai jika anda...',
+      items: [
+        'Lebih suka jenama tradisional yang telah lama bertapak',
+        'Sanggup membayar untuk ciri khusus mereka',
+        'Lebih suka frasa siap tulis berbanding kandungan AI',
+        'Memerlukan sumber kerjaya khusus LiveCareer',
+      ],
+    },
+    useUs: {
+      title: 'Best AI Resumes lebih baik jika anda...',
+      items: [
+        'Mahu mencipta dan memuat turun resume secara percuma',
+        'Memerlukan penulisan AI sebenar (bukan frasa siap tulis)',
+        'Mahu skor ATS masa nyata dan pengoptimuman',
+        'Tidak mahu berurusan dengan langganan dan pembaharuan automatik',
+      ],
+    },
+  },
+  resumeExamples: {
+    title: 'Layari 300+ Contoh Resume Percuma',
+    description: 'Contoh resume profesional untuk setiap industri dan peringkat kerjaya.',
+    ctaBrowse: 'Lihat Contoh Resume',
+    ctaTemplates: 'Lihat Semua Templat',
+  },
+  faq: {
+    title: 'Soalan Lazim',
+    items: [
+      { question: 'Adakah LiveCareer benar-benar percuma?', answer: 'LiveCareer menawarkan percubaan percuma tetapi memerlukan kad kredit dan diperbaharui automatik kepada $19.95/bulan. Best AI Resume Builder benar-benar 100% percuma.' },
+      { question: 'Apa bezanya LiveCareer dan pembina resume AI?', answer: 'LiveCareer menggunakan perpustakaan frasa siap tulis, manakala pembina resume AI moden menggunakan kecerdasan buatan untuk menjana kandungan yang benar-benar diperibadikan.' },
+      { question: 'Apakah alternatif percuma terbaik untuk LiveCareer?', answer: 'Best AI Resume Builder menawarkan semua ciri LiveCareer — penulisan AI, pengoptimuman ATS, templat profesional — percuma sepenuhnya tanpa langganan.' },
+      { question: 'Bagaimana membatalkan langganan LiveCareer?', answer: 'Anda perlu membatalkan LiveCareer sebelum tempoh percubaan tamat. Best AI Resume Builder tidak memerlukan langganan — tiada apa yang perlu dibatalkan.' },
+      { question: 'Adakah templat LiveCareer mesra ATS?', answer: 'Beberapa templat LiveCareer mesra ATS, tetapi banyak reka bentuk telah lapuk. Semua templat Best AI Resume Builder diuji dan dioptimumkan ATS.' },
+    ],
+  },
+  crossLinks: {
+    title: 'Bandingkan Pembina Resume Lain',
+    items: [
+      { href: '/ms/zety-alternative', title: 'Alternatif Zety', subtitle: 'Perbandingan harga' },
+      { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan ciri' },
+      { href: '/ms/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat reka bentuk vs AI' },
+      { href: '/ms/rezi-alternative', title: 'Alternatif Rezi', subtitle: 'Perbandingan ciri AI' },
+    ],
+    guidesTitle: 'Panduan Resume Berguna',
+    guides: [],
+  },
+  externalResources: {
+    title: 'Sumber Luaran',
+    items: [
+      { href: 'https://www.livecareer.com/', label: 'Laman Web Rasmi LiveCareer' },
+      { href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia — Portal Pekerjaan' },
+    ],
+  },
+  bottomCta: {
+    title: 'Pembina Resume AI Moden. Percuma Selama-lamanya.',
+    description: 'Tiada perangkap harga, tiada pembaharuan automatik. Hanya pembina resume berkuasa AI — 100% percuma selama-lamanya.',
+    cta: 'Bina Resume Saya Percuma',
+    subtext: 'Percuma selama-lamanya. Tanpa kad kredit. Tanpa kejutan.',
+  },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

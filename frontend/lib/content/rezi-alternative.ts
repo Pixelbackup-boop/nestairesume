@@ -1834,5 +1834,87 @@ const nl: ComparisonPageContent = {
   },
 };
 
-const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: ComparisonPageContent = {
+  meta: { title: 'Rezi替代方案 2026：免费AI简历生成器 | Best AI Resume', description: '寻找免费的Rezi替代方案？比较Rezi vs Best AI Resume Builder——AI写作、ATS模板、无限下载。无隐藏费用。', keywords: 'rezi替代, rezi简历, 免费简历模板, ai简历生成器, ats简历免费, rezi替代方案' },
+  schemas: { breadcrumbName: 'Rezi替代方案', articleHeadline: 'Rezi替代方案 2026：免费AI简历生成器，无隐藏费用', articleDescription: '比较Rezi与Best AI Resume Builder。使用AI创建专业简历，ATS优化，无限下载——完全免费。' },
+  hero: { badge: 'Rezi替代方案', title: '创建你的简历。', titleHighlight: '免费下载。', subtitle: 'Rezi有强大的ATS功能，但完全访问需收费$29/月。我们提供AI写作、ATS模板和无限导出，费用为<strong>¥0</strong>。', ctaPrimary: '免费创建我的简历', ctaSecondary: '查看对比' },
+  problem: { title: 'Rezi的定价问题', description: 'Rezi专注于ATS优化——这是它的优势。但完整的AI写作功能和无限下载需要付费。免费计划功能有限。一个完全免费的ATS友好简历生成器是更好的选择。', stats: [{ value: '$29', label: '每月完整Rezi访问费用' }, { value: '有限', label: '免费计划AI功能有限' }, { value: '¥0', label: 'Best AI Resume Builder——完全免费，含AI' }] },
+  comparison: { title: 'Rezi vs Best AI Resume Builder', subtitle: '逐项功能对比。', competitorName: 'Rezi', oursName: 'Best AI Resumes', rows: [
+    { feature: '价格', competitor: '❌ 完整访问$29/月', ours: '✅ 100%永久免费' },
+    { feature: '免费下载', competitor: '⚠️ 免费计划有限', ours: '✅ 无限免费PDF导出' },
+    { feature: 'AI写作', competitor: '✅ AI写作（付费计划）', ours: '✅ AI生成完全定制内容' },
+    { feature: 'ATS优化', competitor: '✅ 强大的ATS分析', ours: '✅ 实时ATS评分+关键词' },
+    { feature: '模板质量', competitor: '⚠️ 模板数量有限', ours: '✅ 20+ ATS测试模板' },
+    { feature: '简历数量', competitor: '⚠️ 免费计划有限', ours: '✅ 无限免费创建' },
+    { feature: '求职信', competitor: '✅ 可用（付费计划）', ours: '✅ AI驱动（免费）' },
+    { feature: '内容建议', competitor: '✅ AI建议（付费）', ours: '✅ AI根据你的经验定制' },
+    { feature: '取消', competitor: '⚠️ 需要管理订阅', ours: '✅ 无需取消' },
+    { feature: '用户评价', competitor: '✅ ATS功能好评', ours: '✅ 不可能有计费问题' },
+  ] },
+  whySwitch: { title: '从Rezi转换的3个理由', subtitle: '同等ATS能力。完全免费。', reasons: [
+    { title: '完全免费的ATS优化', description: 'Rezi对最佳ATS功能收费。Best AI Resume Builder免费提供实时ATS评分、关键词建议和ATS友好模板——全部免费。' },
+    { title: 'AI写作包含在内', description: 'Rezi的AI写作功能在付费墙后面。我们的AI为每位用户免费生成专业的要点、摘要和定制内容。' },
+    { title: '更多模板选择', description: 'Rezi模板数量有限。我们提供20+个ATS友好的简历模板。' },
+  ] },
+  recommendation: { title: '诚实建议', useCompetitor: { title: 'Rezi适合以下情况...', items: ['你愿意为高级ATS分析功能付费', '你极度关注ATS优化', '你喜欢Rezi的特定界面', '你想要付费客户支持'] }, useUs: { title: 'Best AI Resumes更好如果你...', items: ['想要同等ATS质量而不付费', '想要免费计划中包含AI写作', '想要更多模板选择', '不想要订阅或计费问题'] } },
+  resumeExamples: { title: '查看300+免费简历示例', description: '各行各业的专业简历示例。', ctaBrowse: '浏览简历示例', ctaTemplates: '查看所有模板' },
+  faq: { title: '常见问题', items: [
+    { question: 'Rezi免费吗？', answer: 'Rezi有免费计划，但最佳功能——包括完整AI写作和无限下载——需要付费订阅（$29/月）。Best AI Resume Builder是100%免费的。' },
+    { question: 'Rezi与其他简历生成器有何不同？', answer: 'Rezi专注于ATS优化和职位定位功能。Best AI Resume Builder提供类似的ATS优化加上AI写作——全部免费。' },
+    { question: 'Rezi最好的免费替代方案是什么？', answer: 'Best AI Resume Builder是最好的免费替代方案。我们提供ATS友好模板、AI写作、实时ATS评分和无限PDF导出——完全免费。' },
+    { question: 'Rezi的AI比其他简历生成器好吗？', answer: 'Rezi在付费计划中有良好的AI功能。Best AI Resume Builder为所有用户免费提供类似的AI写作和ATS优化功能。' },
+    { question: '如何取消Rezi？', answer: '要取消Rezi，到账户设置操作。Best AI Resume Builder不需要订阅——无需取消。' },
+  ] },
+  crossLinks: { title: '比较其他简历生成器', items: [
+    { href: '/zh/livecareer-alternative', title: 'LiveCareer替代方案', subtitle: '传统vs现代' },
+    { href: '/zh/resume-io-alternative', title: 'Resume.io替代方案', subtitle: '价格比较' },
+    { href: '/zh/canva-alternative', title: 'Canva替代方案', subtitle: '设计工具vs AI简历' },
+    { href: '/zh/zety-alternative', title: 'Zety替代方案', subtitle: '价格比较' },
+  ], guidesTitle: '实用简历指南', guides: [] },
+  externalResources: { title: '外部资源', items: [{ href: 'https://www.rezi.ai/', label: 'Rezi官方网站' }, { href: 'https://www.zhaopin.com/', label: '智联招聘' }] },
+  bottomCta: { title: 'ATS能力。无订阅费。', description: '使用AI写作创建ATS优化简历——完全免费，无需Rezi订阅或隐藏费用。', cta: '免费创建我的简历', subtext: '永久免费。无需信用卡。无意外。' },
+};
+
+const ms: ComparisonPageContent = {
+  meta: { title: 'Alternatif Rezi 2026: Pembuat Resume AI Percuma | Best AI Resume', description: 'Mencari alternatif Rezi percuma? Bandingkan Rezi vs Best AI Resume Builder — penulisan AI, templat ATS, muat turun tanpa had. Tiada kos tersembunyi.', keywords: 'rezi alternatif, rezi pembuat resume, templat resume percuma, buat resume percuma, ats resume percuma, alternatif untuk rezi' },
+  schemas: { breadcrumbName: 'Alternatif Rezi', articleHeadline: 'Alternatif Rezi 2026: Pembuat Resume AI Percuma Tanpa Kos Tersembunyi', articleDescription: 'Bandingkan Rezi vs Best AI Resume Builder. Cipta resume profesional dengan AI, pengoptimuman ATS dan muat turun tanpa had — percuma sepenuhnya.' },
+  hero: { badge: 'Alternatif Rezi', title: 'Cipta Resume Anda.', titleHighlight: 'Muat Turun Percuma.', subtitle: 'Rezi mempunyai ciri ATS yang kuat, tetapi akses penuh berharga sehingga $29/bulan. Kami menawarkan penulisan AI, templat ATS dan eksport tanpa had untuk <strong>RM0</strong>.', ctaPrimary: 'Cipta Resume Percuma', ctaSecondary: 'Lihat Perbandingan' },
+  problem: { title: 'Masalah Harga Rezi', description: 'Rezi fokus pada pengoptimuman ATS — itu kekuatannya. Tetapi ciri penulisan AI penuh dan muat turun tanpa had memerlukan bayaran. Pelan percuma sangat terhad. Pembuat resume mesra ATS percuma sepenuhnya adalah pilihan yang lebih baik.', stats: [{ value: '$29', label: 'Sebulan untuk akses penuh Rezi' }, { value: 'Terhad', label: 'Pelan percuma menawarkan ciri AI terhad' }, { value: 'RM0', label: 'Best AI Resume Builder — percuma sepenuhnya, termasuk AI' }] },
+  comparison: { title: 'Rezi vs Best AI Resume Builder', subtitle: 'Perbandingan ciri demi ciri.', competitorName: 'Rezi', oursName: 'Best AI Resumes', rows: [
+    { feature: 'Harga', competitor: '❌ Sehingga $29/bulan untuk akses penuh', ours: '✅ 100% percuma selama-lamanya' },
+    { feature: 'Muat turun percuma', competitor: '⚠️ Terhad pada pelan percuma', ours: '✅ Eksport PDF percuma tanpa had' },
+    { feature: 'Penulisan AI', competitor: '✅ Ciri penulisan AI (pelan berbayar)', ours: '✅ AI menjana kandungan tersuai sepenuhnya' },
+    { feature: 'Pengoptimuman ATS', competitor: '✅ Analisis ATS yang kuat', ours: '✅ Skor ATS masa nyata + kata kunci' },
+    { feature: 'Kualiti templat', competitor: '⚠️ Bilangan templat terhad', ours: '✅ 20+ templat diuji ATS' },
+    { feature: 'Bilangan resume', competitor: '⚠️ Terhad pada pelan percuma', ours: '✅ Cipta resume tanpa had, percuma' },
+    { feature: 'Surat iringan', competitor: '✅ Tersedia (pelan berbayar)', ours: '✅ Dikuasakan AI (percuma)' },
+    { feature: 'Cadangan kandungan', competitor: '✅ Cadangan AI (berbayar)', ours: '✅ AI disesuaikan dengan pengalaman kerja anda' },
+    { feature: 'Pembatalan', competitor: '⚠️ Pengurusan langganan diperlukan', ours: '✅ Tiada apa untuk dibatalkan' },
+    { feature: 'Ulasan pengguna', competitor: '✅ Positif untuk ciri ATS', ours: '✅ Tiada masalah bil mungkin' },
+  ] },
+  whySwitch: { title: '3 Sebab untuk Beralih dari Rezi', subtitle: 'Kuasa ATS yang sama. Percuma sepenuhnya.', reasons: [
+    { title: 'Pengoptimuman ATS Percuma Sepenuhnya', description: 'Rezi mengenakan bayaran untuk ciri ATS terbaiknya. Best AI Resume Builder menawarkan skor ATS masa nyata, cadangan kata kunci dan templat mesra ATS — semuanya percuma.' },
+    { title: 'Penulisan AI Termasuk', description: 'Ciri penulisan AI Rezi di sebalik tembok bayaran. AI kami menjana poin profesional, ringkasan dan kandungan tersuai untuk setiap pengguna — percuma.' },
+    { title: 'Lebih Banyak Pilihan Templat', description: 'Rezi mempunyai bilangan templat terhad. Kami menawarkan 20+ templat resume mesra ATS.' },
+  ] },
+  recommendation: { title: 'Cadangan Jujur', useCompetitor: { title: 'Rezi sesuai jika anda...', items: ['Bersedia membayar untuk ciri analisis ATS lanjutan', 'Sangat fokus pada pengoptimuman ATS', 'Lebih suka antara muka khusus Rezi', 'Mahu sokongan pelanggan berbayar'] }, useUs: { title: 'Best AI Resumes lebih baik jika anda...', items: ['Mahu kualiti ATS yang sama tanpa bayar', 'Mahu penulisan AI termasuk dalam pelan percuma', 'Mahu lebih banyak pilihan templat', 'Tidak mahu langganan atau masalah bil'] } },
+  resumeExamples: { title: 'Lihat 300+ Contoh Resume Percuma', description: 'Contoh resume profesional untuk setiap industri.', ctaBrowse: 'Lihat Contoh Resume', ctaTemplates: 'Lihat Semua Templat' },
+  faq: { title: 'Soalan Lazim', items: [
+    { question: 'Adakah Rezi percuma?', answer: 'Rezi mempunyai pelan percuma tetapi ciri terbaik memerlukan langganan berbayar ($29/bulan). Best AI Resume Builder 100% percuma.' },
+    { question: 'Apa yang membezakan Rezi daripada pembuat resume lain?', answer: 'Rezi fokus pada pengoptimuman ATS dan ciri penyasaran kerja. Best AI Resume Builder menawarkan pengoptimuman ATS yang serupa ditambah penulisan AI — semuanya percuma.' },
+    { question: 'Apakah alternatif percuma terbaik untuk Rezi?', answer: 'Best AI Resume Builder adalah alternatif percuma terbaik. Kami menawarkan templat mesra ATS, penulisan AI, skor ATS masa nyata dan eksport PDF tanpa had — percuma sepenuhnya.' },
+    { question: 'Adakah AI Rezi lebih baik daripada pembuat resume lain?', answer: 'Rezi mempunyai ciri AI yang baik dalam pelan berbayarnya. Best AI Resume Builder menawarkan ciri penulisan AI dan pengoptimuman ATS yang serupa secara percuma.' },
+    { question: 'Bagaimana untuk membatalkan Rezi?', answer: 'Untuk membatalkan Rezi, pergi ke tetapan akaun. Best AI Resume Builder tidak memerlukan langganan — tiada apa untuk dibatalkan.' },
+  ] },
+  crossLinks: { title: 'Bandingkan Pembuat Resume Lain', items: [
+    { href: '/ms/livecareer-alternative', title: 'Alternatif LiveCareer', subtitle: 'Tradisional vs moden' },
+    { href: '/ms/resume-io-alternative', title: 'Alternatif Resume.io', subtitle: 'Perbandingan harga & ciri' },
+    { href: '/ms/canva-alternative', title: 'Alternatif Canva', subtitle: 'Alat reka bentuk vs pembuat resume AI' },
+    { href: '/ms/zety-alternative', title: 'Alternatif Zety', subtitle: 'Perbandingan harga' },
+  ], guidesTitle: 'Panduan Resume Berguna', guides: [] },
+  externalResources: { title: 'Sumber Luaran', items: [{ href: 'https://www.rezi.ai/', label: 'Laman Web Rasmi Rezi' }, { href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia' }] },
+  bottomCta: { title: 'Kuasa ATS. Tiada Yuran Langganan.', description: 'Cipta resume dioptimumkan ATS dengan bantuan penulisan AI — percuma sepenuhnya, tanpa langganan Rezi atau kos tersembunyi.', cta: 'Cipta Resume Percuma', subtext: 'Percuma selama-lamanya. Tiada kad kredit. Tiada kejutan.' },
+};
+
+const contentMap: Record<string, ComparisonPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 export const getContent = (locale: string) => selectContent(contentMap, locale);

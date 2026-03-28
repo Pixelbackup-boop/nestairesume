@@ -4513,7 +4513,123 @@ const nl: BiodataFormatPageContent = {
   },
 };
 
-const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl };
+const zh: BiodataFormatPageContent = {
+  meta: { title: '个人简历格式 2026：免费模板、示例和写作指南 | Best AI Resume', description: '了解什么是个人简历(Biodata)及何时使用。比较Biodata与简历(CV)，下载免费Biodata模板（PDF和Word），查看亚洲和中东市场的示例。', keywords: '个人简历格式, biodata, 求职简历, biodata vs cv, 婚姻简历, biodata模板, 简单biodata格式' },
+  schemas: { breadcrumbName: 'Biodata格式指南', articleHeadline: 'Biodata格式指南 2026：模板、示例和写作指南', articleDescription: '求职用Biodata格式完整指南。了解Biodata和CV的区别，下载免费模板并查看示例。' },
+  hero: { badge: '2026完整指南', title: 'Biodata格式指南', titleHighlight: '（免费模板）', subtitle: '<strong>Biodata格式</strong>是印度、巴基斯坦、孟加拉国和中东地区求职的标准文档。了解何时使用Biodata而非CV，下载符合地区要求的免费模板。', ctaTemplates: '下载模板', ctaBuild: '用AI制作Biodata' },
+  whatIs: { title: '什么是Biodata？', paragraphs: ['<strong>Biodata</strong>（biographical data的缩写）是一份提供个人和职业背景全面概述的文档。与主要关注工作经验和技能的简历不同，Biodata还包含<strong>个人信息</strong>，如出生日期、婚姻状况、国籍、宗教信仰，有时还包括家庭信息。', 'Biodata格式在<strong>南亚国家</strong>（印度、巴基斯坦、孟加拉国、斯里兰卡）、<strong>中东</strong>（阿联酋、沙特、卡塔尔）和部分<strong>东南亚</strong>（菲律宾、马来西亚）地区广泛使用。这些地区的政府机关、公共部门企业和传统组织通常要求使用Biodata而非西式CV。'], insightTitle: '重要提示：', insightText: '如果你申请印度、巴基斯坦或海湾国家的工作，了解Biodata格式至关重要。许多雇主会拒绝不符合预期格式的申请。' },
+  vsComparison: { title: 'Biodata vs 简历 vs 学术CV：有什么区别？', subtitle: '了解何时使用哪种文档对求职成功至关重要。', headers: { aspect: '方面', biodata: 'Biodata', resume: '简历', cv: '学术CV' }, rows: [
+    { aspect: '长度', biodata: '1-2页', resume: '1-2页', cv: '2+页' },
+    { aspect: '个人信息', biodata: '详细（出生日期、婚姻状况、宗教、家庭）', resume: '最少（姓名、联系方式）', cv: '最少（姓名、联系方式）', biodataHighlight: 'green' },
+    { aspect: '重点', biodata: '个人+职业历史', resume: '技能+成就', cv: '学术+研究' },
+    { aspect: '常用地区', biodata: '印度、巴基斯坦、马来西亚、孟加拉国、中东', resume: '美国、加拿大、澳大利亚、欧洲', cv: '欧洲、英国、学术环境' },
+    { aspect: '适用场景', biodata: '政府工作、传统企业、国企', resume: '私企、创业公司、科技', cv: '学术职位、研究、医学' },
+    { aspect: '定制化', biodata: '同一份Biodata用于多个申请', resume: '每个职位定制', cv: '随成就更新' },
+  ] },
+  structure: { title: '标准Biodata格式结构', description: '虽然没有单一的"官方"Biodata格式，但大多数雇主期望以下章节按此顺序排列：', sections: [
+    { number: 1, label: '个人信息', detail: '姓名、照片、出生日期、性别、婚姻状况、国籍', colorGroup: 'orange' },
+    { number: 2, label: '联系方式', detail: '地址（永久和临时）、电话、电子邮件', colorGroup: 'default' },
+    { number: 3, label: '求职目标', detail: '2-3句描述你的职业目标', colorGroup: 'default' },
+    { number: 4, label: '教育背景', detail: '学位、院校、年份、成绩', colorGroup: 'blue' },
+    { number: 5, label: '工作经验', detail: '公司、职位、时间、职责', colorGroup: 'blue' },
+    { number: 6, label: '技能', detail: '技术技能、语言能力、软件操作', colorGroup: 'default' },
+    { number: 7, label: '附加信息', detail: '爱好、兴趣、成就、推荐人', colorGroup: 'default' },
+    { number: 8, label: '声明', detail: '"本人谨此声明以上信息真实完整..."', colorGroup: 'dark' },
+  ], proTipTitle: '专业提示：', proTipText: '根据你申请的国家或机构调整章节。某些地区要求宗教信息或血型，而其他地区只需标准专业信息。' },
+  personalInfo: { title: '个人信息部分', description: '个人信息是Biodata最关键的部分——各地区的期望不同。', alwaysInclude: { title: '始终包含', items: ['全名', '出生日期（或年龄）', '性别', '国籍', '联系方式（电话、邮箱）', '地址（永久和/或临时）'] }, optional: { title: '按地区可选', items: ['婚姻状况', '宗教信仰', '护照信息（海外申请）', '身高体重（某些亚洲申请）', '父亲姓名/父母信息', '证件照'] }, noteTitle: '中国市场注意：', noteText: '在中国求职市场，标准简历格式更为常见。但如果你申请印度、马来西亚或中东企业的职位，了解Biodata格式是必要的。中国的《个人信息保护法》对个人信息收集有严格规定。' },
+  types: { title: 'Biodata类型', jobBiodata: { title: '求职Biodata', description: '包含个人信息以及职业背景和职业目标。', focusTitle: '主要焦点', focusItems: ['求职目标', '教育背景', '工作经验', '技能和证书', '推荐人'], commonTitle: '常见地区', commonItems: ['印度政府机构', '巴基斯坦公共部门', '传统东南亚企业', '中东雇主'] }, marriageBiodata: { title: '婚姻Biodata', description: '用于南亚婚姻传统，包含家庭信息和个人特征。', sectionsTitle: '典型章节', sectionsItems: ['个人信息（身高、体重、肤色）', '宗教/种族/种姓', '家庭背景', '教育和职业', '外貌特征', '配偶偏好'], designTitle: '设计建议', designItems: ['添加专业照片', '包含经家庭批准的信息', '优先考虑简洁和可信度', '反映宗教和文化价值观'] } },
+  regions: { title: '各地区Biodata格式', description: '每个国家有不同的期望。以下是各地区雇主寻找的信息：', items: [
+    { country: '印度', flag: '\ud83c\uddee\ud83c\uddf3', text: 'Biodata是政府机构（UPSC、SSC）和国有银行的标准。跨国私企偏好CV。父亲姓名、种姓（用于配额制度）和推荐信通常是必需的。' },
+    { country: '巴基斯坦', flag: '\ud83c\uddf5\ud83c\uddf0', text: '类似印度——CNIC号码（国民身份证）和父亲姓名是基本信息。政府和半政府职位要求完整Biodata。' },
+    { country: '阿联酋和海湾', flag: '\ud83c\udde6\ud83c\uddea', text: '需要带照片的Biodata，包括国籍、签证状态和期望入职日期。可能要求宗教信息。国际申请者需提供护照信息。' },
+    { country: '马来西亚和印尼', flag: '\ud83c\uddf2\ud83c\uddfe', text: 'Biodata或daftar riwayat hidup是政府机构的标准。现代私企和跨国公司偏好标准CV。通常要求照片和国籍。' },
+  ] },
+  templates: { title: '免费Biodata模板', subtitle: '下载专业设计的Word/PDF Biodata模板。轻松用你的信息自定义。', cards: [
+    { title: '求职Biodata模板', description: '专业模板，包含求职标准章节。', ctaLabel: '用AI创建', color: 'blue' },
+    { title: '简单Biodata模板', description: '适合应届毕业生或经验较少候选人的简洁设计。', ctaLabel: '开始创建', color: 'orange' },
+  ] },
+  tips: { title: '制作有效Biodata的技巧', items: [
+    { title: '使用专业照片', description: '使用纯色背景、穿正式服装的证件照。不要使用自拍或休闲照片。' },
+    { title: '保持简洁', description: '不要超过1-2页。招聘人员不想阅读过长的文档。' },
+    { title: '格式一致', description: '使用相同的字体和字号。确保标题突出，布局清晰。' },
+    { title: '添加声明', description: '添加："本人谨此声明以上信息真实完整。"' },
+    { title: '教育背景从新到旧', description: '将最近的学历放在最上面。如果成绩好，标注GPA。' },
+    { title: '检查拼写错误', description: '拼写和书写错误会给人留下不好的第一印象。发送前仔细检查。' },
+    { title: '只包含相关信息', description: '避免包含与职位无关的个人信息。' },
+    { title: '签名并标注日期', description: '在文档底部添加你的签名、当前日期和所在地。' },
+  ] },
+  faq: { title: '常见问题', items: [
+    { question: 'Biodata和简历有什么区别？', answer: '简历关注经验、技能和成就，每个职位都进行定制。Biodata还包含额外的个人信息，如出生日期、婚姻状况、宗教和家庭信息。在印度和许多亚洲国家，Biodata是政府和传统企业求职的标准文档。' },
+    { question: 'Biodata真的用于求职吗？', answer: '是的。Biodata在印度、马来西亚、巴基斯坦、孟加拉国和中东非常常见。这些地区的政府机构和传统企业可能特别要求Biodata而非CV。' },
+    { question: 'Biodata应包含哪些个人信息？', answer: '求职Biodata通常包含全名、出生日期、性别、国籍、婚姻状况、联系方式和地址。某些亚洲雇主还可能要求宗教、血型和照片。' },
+    { question: 'Biodata多少页合适？', answer: '1-2页最理想。求职Biodata通常1页，婚姻Biodata因家庭信息可能2页。确保简洁但完整。' },
+    { question: '可以用简历生成器制作Biodata吗？', answer: '可以。我们的AI简历生成器也可以用来制作Biodata。选择标准模板，根据Biodata要求调整个人信息部分，按照地区期望安排章节。' },
+    { question: '在中国求职需要Biodata吗？', answer: '不需要。在中国，标准简历（而非Biodata）是求职标准文档。但如果你申请亚洲或中东企业的职位，或在Biodata是惯例的国家求职，了解这种格式会有帮助。' },
+  ] },
+  crossLinks: { title: '相关资源', items: [{ href: '/zh/resume-format', title: '简历格式指南', subtitle: '时间倒序/功能型/混合型' }, { href: '/zh/templates', title: '简历模板', subtitle: '20+专业模板' }, { href: '/zh/resume-examples', title: '简历示例', subtitle: '300+各职业示例' }] },
+  externalResources: { title: '外部资源', items: [{ href: 'https://www.zhaopin.com/', label: '智联招聘——中国求职者的招聘平台' }, { href: 'https://www.51job.com/', label: '前程无忧——职业和招聘信息' }] },
+  bottomCta: { title: '几分钟创建Biodata或简历', description: '我们的AI简历生成器帮你创建结构正确的专业文档。从多种模板中选择，导出为PDF或Word。', ctaLabel: '免费创建Biodata' },
+};
+
+const ms: BiodataFormatPageContent = {
+  meta: { title: 'Format Biodata 2026: Templat Percuma, Contoh & Panduan Menulis | Best AI Resume', description: 'Ketahui apa itu biodata dan bila menggunakannya. Bandingkan biodata vs CV, muat turun templat biodata percuma (PDF & Word) dan lihat contoh untuk pasaran Asia dan Timur Tengah.', keywords: 'format biodata, biodata, biodata untuk kerja, biodata vs cv, biodata perkahwinan, templat biodata, format biodata mudah, contoh biodata' },
+  schemas: { breadcrumbName: 'Panduan Format Biodata', articleHeadline: 'Panduan Format Biodata 2026: Templat, Contoh & Arahan Menulis', articleDescription: 'Panduan lengkap format biodata untuk permohonan kerja. Ketahui perbezaan biodata dan CV, muat turun templat percuma dan lihat contoh.' },
+  hero: { badge: 'Panduan Lengkap 2026', title: 'Panduan Format Biodata', titleHighlight: '(Templat Percuma)', subtitle: '<strong>Format biodata</strong> adalah dokumen standard untuk permohonan kerja di India, Pakistan, Bangladesh, Malaysia dan Timur Tengah. Ketahui bila menggunakan biodata berbanding CV, dan muat turun templat percuma yang memenuhi jangkaan serantau.', ctaTemplates: 'Muat Turun Templat', ctaBuild: 'Buat Biodata dengan AI' },
+  whatIs: { title: 'Apa Itu Biodata?', paragraphs: ['<strong>Biodata</strong> (singkatan bagi <em>data biografi</em>) adalah dokumen yang memberikan gambaran menyeluruh tentang latar belakang peribadi dan profesional anda. Tidak seperti CV yang memberi tumpuan kepada pengalaman kerja dan kemahiran, biodata turut merangkumi <strong>maklumat peribadi</strong> seperti tarikh lahir, status perkahwinan, kewarganegaraan, agama dan kadangkala maklumat keluarga.', 'Format biodata digunakan secara meluas di <strong>negara Asia Selatan</strong> (India, Pakistan, Bangladesh, Sri Lanka), <strong>Timur Tengah</strong> (UAE, Arab Saudi, Qatar) dan sebahagian <strong>Asia Tenggara</strong> (Filipina, Malaysia). Agensi kerajaan, syarikat sektor awam dan organisasi tradisional di rantau ini sering meminta biodata berbanding CV barat.'], insightTitle: 'Penting:', insightText: 'Jika anda memohon kerja di India, Pakistan, negara Teluk atau Malaysia untuk jawatan kerajaan, memahami format biodata adalah penting. Ramai majikan menolak permohonan yang tidak mengikut format yang dijangka.' },
+  vsComparison: { title: 'Biodata vs Resume vs CV Akademik: Apa Bezanya?', subtitle: 'Memahami bila menggunakan dokumen mana penting untuk kejayaan pencarian kerja anda.', headers: { aspect: 'Aspek', biodata: 'Biodata', resume: 'Resume', cv: 'CV Akademik' }, rows: [
+    { aspect: 'Panjang', biodata: '1-2 halaman', resume: '1-2 halaman', cv: '2+ halaman' },
+    { aspect: 'Maklumat peribadi', biodata: 'Terperinci (tarikh lahir, status, agama, keluarga)', resume: 'Minimum (nama, hubungi)', cv: 'Minimum (nama, hubungi)', biodataHighlight: 'green' },
+    { aspect: 'Tumpuan', biodata: 'Peribadi + sejarah kerjaya', resume: 'Kemahiran + pencapaian', cv: 'Akademik + penyelidikan' },
+    { aspect: 'Rantau biasa', biodata: 'India, Pakistan, Malaysia, Bangladesh, Timur Tengah', resume: 'AS, Kanada, Australia, Eropah', cv: 'Eropah, UK, persekitaran akademik' },
+    { aspect: 'Penggunaan ideal', biodata: 'Kerja kerajaan, syarikat tradisional, GLC', resume: 'Syarikat swasta, startup, teknologi', cv: 'Jawatan akademik, penyelidikan, perubatan' },
+    { aspect: 'Penyesuaian', biodata: 'Biodata sama untuk pelbagai permohonan', resume: 'Disesuai setiap jawatan', cv: 'Dikemaskini apabila pencapaian bertambah' },
+  ] },
+  structure: { title: 'Struktur Format Biodata Standard', description: 'Walaupun tiada format biodata "rasmi" tunggal, kebanyakan majikan menjangkakan seksyen ini dalam susunan berikut:', sections: [
+    { number: 1, label: 'Maklumat Peribadi', detail: 'Nama, Foto, Tarikh Lahir, Jantina, Status Perkahwinan, Kewarganegaraan', colorGroup: 'orange' },
+    { number: 2, label: 'Maklumat Hubungi', detail: 'Alamat (Tetap dan Sementara), Telefon, E-mel', colorGroup: 'default' },
+    { number: 3, label: 'Objektif Kerjaya', detail: '2-3 ayat menjelaskan matlamat kerjaya anda', colorGroup: 'default' },
+    { number: 4, label: 'Sejarah Pendidikan', detail: 'Kelayakan, Institusi, Tahun, Keputusan', colorGroup: 'blue' },
+    { number: 5, label: 'Pengalaman Kerja', detail: 'Syarikat, Jawatan, Tempoh, Tanggungjawab', colorGroup: 'blue' },
+    { number: 6, label: 'Kemahiran dan Kecekapan', detail: 'Kemahiran teknikal, penguasaan bahasa, kemahiran perisian', colorGroup: 'default' },
+    { number: 7, label: 'Maklumat Tambahan', detail: 'Hobi, Minat, Pencapaian, Rujukan', colorGroup: 'default' },
+    { number: 8, label: 'Pengakuan', detail: '"Saya dengan ini mengaku bahawa maklumat di atas adalah benar dan lengkap..."', colorGroup: 'dark' },
+  ], proTipTitle: 'Tip Profesional:', proTipText: 'Sesuaikan seksyen mengikut negara atau institusi yang anda mohon. Sesetengah rantau meminta maklumat agama atau kumpulan darah, manakala yang lain hanya memerlukan maklumat profesional standard.' },
+  personalInfo: { title: 'Seksyen Maklumat Peribadi', description: 'Maklumat peribadi adalah bahagian paling kritikal biodata — jangkaan berbeza mengikut rantau.', alwaysInclude: { title: 'Sentiasa Sertakan', items: ['Nama penuh', 'Tarikh lahir (atau umur)', 'Jantina', 'Kewarganegaraan', 'Maklumat hubungi (telefon, e-mel)', 'Alamat (tetap dan/atau sementara)'] }, optional: { title: 'Pilihan Mengikut Rantau', items: ['Status perkahwinan', 'Agama', 'Maklumat pasport (untuk permohonan luar negara)', 'Tinggi dan berat (sesetengah permohonan Asia)', 'Nama bapa / maklumat ibu bapa', 'Gambar pasport'] }, noteTitle: 'Nota untuk Pasaran Malaysia:', noteText: 'Di Malaysia, biodata masih digunakan untuk jawatan kerajaan dan GLC. Sektor swasta moden dan multinasional biasanya memerlukan resume standard. Untuk jawatan kerajaan, pastikan anda menyertakan nombor IC, agama dan bangsa seperti yang diperlukan. Undang-undang perlindungan data PDPA juga terpakai.' },
+  types: { title: 'Jenis Biodata', jobBiodata: { title: 'Biodata untuk Permohonan Kerja', description: 'Mengandungi maklumat peribadi bersama latar belakang profesional dan matlamat kerjaya.', focusTitle: 'Tumpuan Utama', focusItems: ['Objektif kerjaya', 'Sejarah pendidikan', 'Pengalaman kerja', 'Kemahiran dan sijil', 'Rujukan'], commonTitle: 'Rantau Biasa', commonItems: ['Perkhidmatan kerajaan India', 'Sektor awam Pakistan', 'Syarikat tradisional Asia Tenggara', 'Majikan Timur Tengah'] }, marriageBiodata: { title: 'Biodata Perkahwinan', description: 'Digunakan dalam tradisi perkahwinan Asia Selatan, merangkumi maklumat keluarga dan ciri peribadi.', sectionsTitle: 'Seksyen Tipikal', sectionsItems: ['Maklumat peribadi (tinggi, berat, warna kulit)', 'Agama / etnik / kasta', 'Latar belakang keluarga', 'Pendidikan dan kerjaya', 'Ciri fizikal', 'Keutamaan pasangan'], designTitle: 'Tip Reka Bentuk', designItems: ['Tambah foto profesional', 'Sertakan maklumat yang diluluskan keluarga', 'Utamakan kesederhanaan dan kredibiliti', 'Cerminkan nilai agama dan budaya'] } },
+  regions: { title: 'Format Biodata Mengikut Rantau', description: 'Setiap negara mempunyai jangkaan berbeza. Ini maklumat yang dicari majikan mengikut rantau:', items: [
+    { country: 'India', flag: '\ud83c\uddee\ud83c\uddf3', text: 'Biodata adalah standard untuk perkhidmatan kerajaan (UPSC, SSC) dan perbankan negeri. Multinasional swasta lebih suka CV. Nama bapa, kasta (untuk sistem kuota) dan surat rujukan biasanya diperlukan.' },
+    { country: 'Pakistan', flag: '\ud83c\uddf5\ud83c\uddf0', text: 'Serupa India — nombor CNIC (kad pengenalan) dan nama bapa adalah maklumat asas. Jawatan kerajaan dan separa kerajaan memerlukan biodata lengkap.' },
+    { country: 'UAE dan Teluk', flag: '\ud83c\udde6\ud83c\uddea', text: 'Biodata dengan foto, termasuk kewarganegaraan, status visa dan tarikh mula yang dikehendaki dijangkakan. Maklumat agama mungkin diminta. Pemohon antarabangsa perlu menyertakan maklumat pasport.' },
+    { country: 'Malaysia dan Indonesia', flag: '\ud83c\uddf2\ud83c\uddfe', text: 'Biodata atau daftar riwayat hidup adalah standard untuk agensi kerajaan Malaysia. Syarikat swasta moden dan multinasional lebih suka CV standard. Foto dan kewarganegaraan sering diminta.' },
+  ] },
+  templates: { title: 'Templat Biodata Percuma', subtitle: 'Muat turun templat biodata Word/PDF yang direka secara profesional. Mudah disesuaikan dengan maklumat anda sendiri.', cards: [
+    { title: 'Templat Biodata Permohonan Kerja', description: 'Templat profesional dengan seksyen standard untuk permohonan kerja.', ctaLabel: 'Cipta dengan AI', color: 'blue' },
+    { title: 'Templat Biodata Ringkas', description: 'Reka bentuk bersih dan ringkas untuk graduan baru atau calon kurang pengalaman.', ctaLabel: 'Mula Cipta', color: 'orange' },
+  ] },
+  tips: { title: 'Tip Membuat Biodata yang Berkesan', items: [
+    { title: 'Gunakan Foto Profesional', description: 'Gunakan foto pasport dengan latar belakang polos dan pakaian formal. Jangan gunakan selfie atau foto tidak rasmi.' },
+    { title: 'Pastikan Ringkas', description: 'Jangan melebihi 1-2 halaman. Perekrut tidak mahu membaca dokumen terlalu panjang.' },
+    { title: 'Format Konsisten', description: 'Gunakan fon dan saiz yang sama. Pastikan tajuk menonjol dan susun atur kemas.' },
+    { title: 'Tambah Pengakuan', description: 'Tambah ayat: "Saya dengan ini mengaku bahawa maklumat di atas adalah benar dan lengkap."' },
+    { title: 'Susun Pendidikan dari Terbaru ke Terlama', description: 'Letakkan kelayakan terbaru di atas. Nyatakan purata gred jika baik.' },
+    { title: 'Semak Kesilapan Ejaan', description: 'Kesilapan ejaan dan penulisan memberi kesan pertama yang buruk. Semak dengan teliti sebelum menghantar.' },
+    { title: 'Sertakan Hanya Maklumat Relevan', description: 'Elakkan memasukkan maklumat peribadi yang tidak berkaitan dengan jawatan.' },
+    { title: 'Tandatangan dan Tarikhkan Dokumen', description: 'Tambah tandatangan, tarikh semasa dan tempat tinggal anda di bahagian bawah.' },
+  ] },
+  faq: { title: 'Soalan Lazim', items: [
+    { question: 'Apa beza biodata dan resume?', answer: 'Resume memberi tumpuan kepada pengalaman, kemahiran dan pencapaian, dan disesuai setiap permohonan. Biodata merangkumi maklumat peribadi tambahan seperti tarikh lahir, status perkahwinan, agama dan maklumat keluarga. Di India, Malaysia dan banyak negara Asia, biodata adalah dokumen standard untuk permohonan di agensi kerajaan dan syarikat tradisional.' },
+    { question: 'Adakah biodata benar-benar digunakan untuk permohonan kerja?', answer: 'Ya. Biodata sangat biasa di India, Malaysia, Pakistan, Bangladesh dan Timur Tengah. Agensi kerajaan dan syarikat tradisional di rantau ini mungkin meminta biodata secara khusus.' },
+    { question: 'Maklumat peribadi apa yang perlu ada dalam biodata?', answer: 'Biodata untuk permohonan kerja biasanya merangkumi nama penuh, tarikh lahir, jantina, kewarganegaraan, status perkahwinan, maklumat hubungi dan alamat. Sesetengah majikan Asia juga meminta agama, kumpulan darah dan foto.' },
+    { question: 'Berapa halaman biodata yang ideal?', answer: '1-2 halaman adalah ideal. Biodata permohonan kerja biasanya 1 halaman, manakala biodata perkahwinan boleh 2 halaman kerana maklumat keluarga. Pastikan ringkas tetapi lengkap.' },
+    { question: 'Boleh pembuat CV digunakan untuk membuat biodata?', answer: 'Ya. Pembuat resume AI kami juga boleh digunakan untuk membuat biodata. Pilih templat standard dan sesuaikan seksyen maklumat peribadi mengikut keperluan biodata. Susun seksyen berdasarkan jangkaan serantau.' },
+    { question: 'Adakah biodata diperlukan untuk permohonan kerja di Malaysia?', answer: 'Untuk jawatan kerajaan dan GLC di Malaysia, biodata atau borang permohonan khusus mungkin diperlukan. Sektor swasta moden dan multinasional biasanya menerima resume standard. Semak keperluan khusus majikan sebelum memohon.' },
+  ] },
+  crossLinks: { title: 'Sumber Berkaitan', items: [{ href: '/ms/resume-format', title: 'Panduan Format Resume', subtitle: 'Kronologi / Fungsional / Gabungan' }, { href: '/ms/templates', title: 'Templat Resume', subtitle: '20+ templat profesional' }, { href: '/ms/resume-examples', title: 'Contoh Resume', subtitle: '300+ contoh mengikut profesion' }] },
+  externalResources: { title: 'Sumber Luaran', items: [{ href: 'https://www.jobstreet.com.my/', label: 'JobStreet Malaysia — Portal pekerjaan terbesar di Malaysia' }, { href: 'https://www.spa.gov.my/', label: 'Suruhanjaya Perkhidmatan Awam — Jawatan kerajaan Malaysia' }] },
+  bottomCta: { title: 'Cipta Biodata atau Resume dalam Beberapa Minit', description: 'Pembuat resume AI kami membantu anda mencipta dokumen profesional dengan struktur yang betul. Pilih daripada pelbagai templat dan eksport ke PDF atau Word.', ctaLabel: 'Cipta Biodata Percuma' },
+};
+
+const contentMap: Record<string, BiodataFormatPageContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, id, pl, nl, zh, ms };
 
 export function getContent(locale: string): BiodataFormatPageContent {
   return selectContent(contentMap, locale);

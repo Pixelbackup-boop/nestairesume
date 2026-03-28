@@ -647,5 +647,103 @@ const nl: CoverLetterExamplesIndexContent = {
   },
 };
 
-const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl };
+const zh: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: '按职位浏览求职信范例 (2026) | Best AI Resume',
+    description: '浏览100多个按行业和职位分类的免费求职信范例。专业求职信模板附写作技巧。找到你的职位并创建求职信。',
+    keywords: '求职信范例, 求职信模板, 专业求职信, 求职信样本, 求职信格式, 求职信写作',
+  },
+  hero: {
+    badge: '求职信范例 2026',
+    title: '求职信范例',
+    titleHighlight: '按职位分类',
+    subtitle: '浏览{count}+按行业分类的专业求职信范例。找到你的职位，研究格式，使用AI工具创建你的求职信。',
+    ctaBrowse: '浏览范例',
+    ctaCreate: '用AI创建求职信',
+  },
+  stats: {
+    examples: '求职信范例',
+    industries: '覆盖行业',
+    free: '免费使用和下载',
+  },
+  tips: {
+    title: '什么是好的求职信？',
+    items: [
+      { title: '个性化', description: '称呼招聘经理的名字，为每个职位定制内容。77%的招聘人员更偏好个性化的求职信。' },
+      { title: '具体成就', description: '包含1-2个量化的成就来展示你的价值。数字比模糊的描述更令人印象深刻。' },
+      { title: '简洁的长度', description: '控制在250-400字。招聘经理审查求职信不到30秒——每个字都很重要。' },
+    ],
+  },
+  grid: {
+    title: '按行业浏览',
+    examplesLabel: '个范例',
+    coverLetterSuffix: '求职信',
+    comingSoon: '求职信范例即将推出！',
+    comingSoonCta: '用AI创建求职信',
+  },
+  bottomCta: {
+    title: '没有找到你的职位？',
+    description: '我们的AI可以在几秒钟内为任何职位编写定制求职信。',
+    ctaText: '生成定制求职信',
+  },
+  relatedResources: {
+    title: '相关资源',
+    items: [
+      { title: '简历范例', description: '300+按职业分类的简历范例' },
+      { title: '求职信指南', description: '分步写作教程' },
+      { title: '简历模板', description: '适合所有职位的专业模板' },
+    ],
+  },
+};
+
+const ms: CoverLetterExamplesIndexContent = {
+  meta: {
+    title: 'Contoh Surat Iringan Mengikut Jawatan (2026) | Best AI Resume',
+    description: 'Layari 100+ contoh surat iringan percuma yang disusun mengikut industri dan jawatan. Templat surat iringan profesional dengan tip penulisan. Cari jawatan anda dan cipta surat iringan.',
+    keywords: 'contoh surat iringan, templat surat iringan, surat iringan profesional, surat iringan kerja, sampel surat iringan, format surat iringan',
+  },
+  hero: {
+    badge: 'Contoh Surat Iringan 2026',
+    title: 'Contoh Surat Iringan',
+    titleHighlight: 'Mengikut Jawatan',
+    subtitle: 'Layari {count}+ contoh surat iringan profesional mengikut industri. Cari jawatan anda, pelajari format dan cipta surat iringan dengan pembina AI kami.',
+    ctaBrowse: 'Layari Contoh',
+    ctaCreate: 'Cipta Surat Iringan dengan AI',
+  },
+  stats: {
+    examples: 'Contoh Surat Iringan',
+    industries: 'Industri Diliputi',
+    free: 'Percuma untuk Digunakan',
+  },
+  tips: {
+    title: 'Apa yang Menjadikan Surat Iringan Hebat?',
+    items: [
+      { title: 'Peribadikan', description: 'Alamatkan pengurus pengambilan pekerja dengan nama dan sesuaikan untuk setiap jawatan. 77% perekrut lebih suka surat iringan yang diperibadikan.' },
+      { title: 'Pencapaian Khusus', description: 'Sertakan 1-2 pencapaian yang boleh diukur untuk menunjukkan nilai anda. Angka lebih mudah diingat daripada dakwaan kabur.' },
+      { title: 'Panjang Ringkas', description: 'Hadkan kepada 250-400 patah perkataan. Pengurus pengambilan menghabiskan kurang dari 30 saat — setiap perkataan penting.' },
+    ],
+  },
+  grid: {
+    title: 'Layari Mengikut Industri',
+    examplesLabel: 'contoh',
+    coverLetterSuffix: 'Surat Iringan',
+    comingSoon: 'Contoh surat iringan akan datang!',
+    comingSoonCta: 'Cipta Surat Iringan dengan AI',
+  },
+  bottomCta: {
+    title: 'Tidak jumpa jawatan anda?',
+    description: 'AI kami boleh menulis surat iringan tersuai untuk MANA-MANA jawatan dalam beberapa saat.',
+    ctaText: 'Jana Surat Iringan Tersuai',
+  },
+  relatedResources: {
+    title: 'Sumber Berkaitan',
+    items: [
+      { title: 'Contoh Resume', description: '300+ contoh resume mengikut profesion' },
+      { title: 'Panduan Surat Iringan', description: 'Tutorial penulisan langkah demi langkah' },
+      { title: 'Templat Resume', description: 'Templat profesional untuk setiap jawatan' },
+    ],
+  },
+};
+
+const content: Record<string, CoverLetterExamplesIndexContent> = { en, es, fr, de, ar, ja, it, ko, vi, th, pt, tr, nl, zh, ms };
 export const getContent = (locale: string): CoverLetterExamplesIndexContent => selectContent(content, locale);

@@ -52,6 +52,7 @@ function getStaticAndMiscPages(baseUrl: string, now: Date): MetadataRoute.Sitema
     { path: '/biodata-format', priority: 0.7 },
     { path: '/terms', priority: 0.3 },
     { path: '/community', priority: 0.5 },
+    { path: '/help', priority: 0.5 },
     { path: '/about/authors', priority: 0.5 },
   ];
 
@@ -124,7 +125,7 @@ async function getBlogAndCareerPages(baseUrl: string, now: Date): Promise<Metada
 }
 
 // Sitemap 4: Career tips + locale-only career tips + career-tips categories
-async function getCareerTipsPages(baseUrl: string, now: Date): Promise<MetadataRoute.Sitemap> {
+async function getCareerTipsPages(baseUrl: string, _now: Date): Promise<MetadataRoute.Sitemap> {
   const careerTips = await getAllCareerTips();
   const careerTipsPages = careerTips.flatMap(tip =>
     localizedUrls(baseUrl, `/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 })
