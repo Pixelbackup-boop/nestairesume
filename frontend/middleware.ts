@@ -30,6 +30,11 @@ export default function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
+  // Skip middleware for sitemap routes — let Next.js handle directly
+  if (pathname === '/sitemap.xml' || pathname.startsWith('/sitemap/')) {
+    return NextResponse.next();
+  }
+
   // Server-side route protection for authenticated-only pages
   // Checks for our custom auth cookie (email/password login) or NextAuth session cookie (OAuth login)
   const protectedMatch = pathname.match(/^\/([a-z]{2})\/(dashboard|builder|profile)(\/|$)/);
