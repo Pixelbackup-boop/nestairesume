@@ -107,7 +107,7 @@ export const config = {
   // - Next.js internals (/_next/*)
   // - Static files (files with extensions like .png, .js, etc.)
   matcher: [
-    '/((?!api|admin|_next|_vercel|.*\\..*).*)',
+    '/((?!api|admin|_next|_vercel|sitemap|.*\\..*).*)',
     '/',
   ],
 };
