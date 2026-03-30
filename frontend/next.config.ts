@@ -42,6 +42,16 @@ const nextConfig: NextConfig = {
   // Standalone output for Docker/Cloud Run deployment
   output: 'standalone',
 
+  // Rewrite /sitemap.xml to API route (bypasses next-intl middleware)
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+    ];
+  },
+
   // Redirects for removed pages
   async redirects() {
     return [
