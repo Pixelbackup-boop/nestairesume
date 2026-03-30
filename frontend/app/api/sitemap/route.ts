@@ -1,4 +1,4 @@
-import type { MetadataRoute } from 'next';
+import { NextResponse } from 'next/server';
 import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerTips, getLocaleOnlyPostSlugs, getLocaleOnlyCareerTipSlugs } from '@/lib/blog/posts';
 import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
@@ -8,7 +8,14 @@ import { locales } from '@/i18n.config';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
 
-function localizedUrls(path: string, options: { lastModified: Date; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }): MetadataRoute.Sitemap {
+interface SitemapEntry {
+  url: string;
+  lastModified: Date;
+  changeFrequency: string;
+  priority: number;
+}
+
+function localizedUrls(path: string, options: { lastModified: Date; changeFrequency: string; priority: number }): SitemapEntry[] {
   return locales.map(locale => ({
     url: `${baseUrl}/${locale}${getLocalizedPath(path, locale)}`,
     lastModified: options.lastModified,
@@ -17,8 +24,17 @@ function localizedUrls(path: string, options: { lastModified: Date; changeFreque
   }));
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+function toXml(entries: SitemapEntry[]): string {
+  const urls = entries.map(entry =>
+    `<url><loc>${entry.url}</loc><lastmod>${entry.lastModified.toISOString()}</lastmod><changefreq>${entry.changeFrequency}</changefreq><priority>${entry.priority}</priority></url>`
+  ).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
+}
+
+export async function GET() {
   const now = new Date();
+  const entries: SitemapEntry[] = [];
 
   // ── Static pages ──────────────────────────────────────────────────────
   const staticRoutes = [
@@ -60,54 +76,55 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/about/authors', priority: 0.5 },
   ];
 
-  const staticPages = staticRoutes.flatMap(route =>
-    localizedUrls(route.path, { lastModified: now, changeFrequency: 'weekly', priority: route.priority })
-  );
+  for (const route of staticRoutes) {
+    entries.push(...localizedUrls(route.path, { lastModified: now, changeFrequency: 'weekly', priority: route.priority }));
+  }
 
-  const authorPages = Object.values(AUTHORS).flatMap(author =>
-    localizedUrls(`/about/${author.slug}`, { lastModified: now, changeFrequency: 'monthly', priority: 0.6 })
-  );
+  // Authors
+  for (const author of Object.values(AUTHORS)) {
+    entries.push(...localizedUrls(`/about/${author.slug}`, { lastModified: now, changeFrequency: 'monthly', priority: 0.6 }));
+  }
 
-  const templateCategoryPages = getAllCategorySlugs().flatMap(slug =>
-    localizedUrls(`/templates/${slug}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.7 })
-  );
+  // Template categories
+  for (const slug of getAllCategorySlugs()) {
+    entries.push(...localizedUrls(`/templates/${slug}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.7 }));
+  }
 
   // ── Resume examples ───────────────────────────────────────────────────
   const resumeExamples = await getAllResumeExamples();
-  const resumePages = resumeExamples.flatMap(example =>
-    localizedUrls(`/resume-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
-  );
+  for (const example of resumeExamples) {
+    entries.push(...localizedUrls(`/resume-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 }));
+  }
 
   // ── Cover letter examples ─────────────────────────────────────────────
   const coverLetterExamples = await getAllCoverLetterExamples();
-  const coverLetterPages = coverLetterExamples.flatMap(example =>
-    localizedUrls(`/cover-letter-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 })
-  );
+  for (const example of coverLetterExamples) {
+    entries.push(...localizedUrls(`/cover-letter-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 }));
+  }
 
   // ── Blog posts ────────────────────────────────────────────────────────
   const posts = await getAllPosts();
-  const blogPages = posts
-    .filter(post => !post.postType || post.postType === 'blog' || post.postType === 'both')
-    .flatMap(post =>
-      localizedUrls(`/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 })
-    );
+  for (const post of posts.filter(p => !p.postType || p.postType === 'blog' || p.postType === 'both')) {
+    entries.push(...localizedUrls(`/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 }));
+  }
 
+  // Career posts
   const careerPosts = await getAllCareerPosts();
-  const careerPages = careerPosts.flatMap(post =>
-    localizedUrls(`/career/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 })
-  );
+  for (const post of careerPosts) {
+    entries.push(...localizedUrls(`/career/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 }));
+  }
 
+  // Blog categories
   const categories = await getAllCategories();
-  const categoryPages = categories.flatMap(category =>
-    localizedUrls(`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 })
-  );
+  for (const category of categories) {
+    entries.push(...localizedUrls(`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 }));
+  }
 
   // ── Locale-only blog posts ────────────────────────────────────────────
-  const localeOnlyBlogPages: MetadataRoute.Sitemap = [];
   for (const locale of locales) {
     if (locale === 'en') continue;
     for (const post of getLocaleOnlyPostSlugs(locale)) {
-      localeOnlyBlogPages.push({
+      entries.push({
         url: `${baseUrl}/${locale}${getLocalizedPath(`/blog/${post.slug}`, locale)}`,
         lastModified: new Date(post.date),
         changeFrequency: 'monthly',
@@ -118,16 +135,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ── Career tips ───────────────────────────────────────────────────────
   const careerTips = await getAllCareerTips();
-  const careerTipsPages = careerTips.flatMap(tip =>
-    localizedUrls(`/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 })
-  );
+  for (const tip of careerTips) {
+    entries.push(...localizedUrls(`/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 }));
+  }
 
   // ── Locale-only career tips ───────────────────────────────────────────
-  const localeOnlyCareerTipsPages: MetadataRoute.Sitemap = [];
   for (const locale of locales) {
     if (locale === 'en') continue;
     for (const tip of getLocaleOnlyCareerTipSlugs(locale)) {
-      localeOnlyCareerTipsPages.push({
+      entries.push({
         url: `${baseUrl}/${locale}${getLocalizedPath(`/career-tips/${tip.slug}`, locale)}`,
         lastModified: new Date(tip.date),
         changeFrequency: 'monthly',
@@ -136,17 +152,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  return [
-    ...staticPages,
-    ...authorPages,
-    ...templateCategoryPages,
-    ...resumePages,
-    ...coverLetterPages,
-    ...blogPages,
-    ...localeOnlyBlogPages,
-    ...careerPages,
-    ...categoryPages,
-    ...careerTipsPages,
-    ...localeOnlyCareerTipsPages,
-  ];
+  const xml = toXml(entries);
+
+  return new NextResponse(xml, {
+    headers: {
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+    },
+  });
 }
