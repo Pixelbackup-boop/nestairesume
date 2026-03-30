@@ -1,4 +1,9 @@
 import { NextResponse } from 'next/server';
+
+// Force dynamic rendering — filesystem access fails during static prerender
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Cache for 1 hour after first request
+
 import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerTips, getLocaleOnlyPostSlugs, getLocaleOnlyCareerTipSlugs } from '@/lib/blog/posts';
 import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
