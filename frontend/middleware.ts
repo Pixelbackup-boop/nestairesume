@@ -110,9 +110,9 @@ export const config = {
   // - API routes (/api/*)
   // - Admin routes (/admin/*)
   // - Next.js internals (/_next/*)
-  // - Static files (files with extensions like .png, .js, etc.)
+  // - Sitemaps (/sitemap.xml, /sitemap/*)
+  // - Static files (files with extensions like .png, .js, .xml, etc.)
   matcher: [
-    '/((?!api|admin|_next|_vercel|sitemap|.*\\..*).*)',
-    '/',
+    '/((?!api|admin|_next|_vercel|sitemap)(?!.*\\..*).*)',
   ],
 };
