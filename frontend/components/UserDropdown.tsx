@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+import { signOut as nextAuthSignOut } from 'next-auth/react';
 import { useAuthStore } from '@/store/useAuthStore';
 import { User, LayoutDashboard, LogOut, ChevronDown, Shield } from 'lucide-react';
 import { getAvatarId, getAvatarSrc } from '@/lib/avatar';
@@ -43,8 +44,10 @@ export default function UserDropdown({ scrolled = true, isHomePage = false }: Us
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     logout();
+    // Clear NextAuth OAuth session cookie as well
+    await nextAuthSignOut({ redirect: false });
     router.push(`/${locale}`);
     setIsOpen(false);
   };

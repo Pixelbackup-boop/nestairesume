@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { signOut as nextAuthSignOut } from 'next-auth/react';
 import { useAuthStore } from "@/store/useAuthStore";
 import { LogOut, LayoutDashboard, Shield, ChevronDown, FileText, FileSignature, BookOpen, Newspaper, ArrowRight, Layers, User, ScanSearch, Mic } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -35,8 +36,9 @@ export default function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     logout();
+    await nextAuthSignOut({ redirect: false });
     router.push(`/${locale}`);
   };
 
