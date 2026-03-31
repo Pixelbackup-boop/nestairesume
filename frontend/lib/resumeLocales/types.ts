@@ -16,7 +16,7 @@ export type LocaleData = {
     yearsText: (years: number) => string;
 };
 
-export type SummaryTemplates = Record<JobCategory, Record<ExperienceLevel, string>>;
+export type SummaryTemplates = Record<JobCategory, Record<ExperienceLevel, string | string[]>>;
 
 export type JobDescriptions = Record<JobCategory, string[][]>;
 

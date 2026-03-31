@@ -97,7 +97,11 @@ export default function PersonalForm() {
 
     // Small delay for visual feedback
     setTimeout(() => {
-      const summary = generateSummaryOnly(personalInfo.jobTitle, 'mid', locale);
+      let summary = generateSummaryOnly(personalInfo.jobTitle, 'mid', locale);
+      // Retry once if we got the same summary to avoid feeling stuck
+      if (summary === personalInfo.summary) {
+        summary = generateSummaryOnly(personalInfo.jobTitle, 'mid', locale);
+      }
       updatePersonalInfo({ summary });
       setIsGenerating(false);
     }, 500);
