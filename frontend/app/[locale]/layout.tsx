@@ -239,6 +239,7 @@ export default async function LocaleLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://embed.tawk.to" />
         <link rel="dns-prefetch" href="https://widget.trustpilot.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
 
         {/* Organization Schema - Content is hardcoded, not user input */}
         <script
@@ -275,6 +276,12 @@ export default async function LocaleLayout({
               <TawkTo />
               <Script
                 src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+                strategy="lazyOnload"
+              />
+              <Script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+                crossOrigin="anonymous"
                 strategy="lazyOnload"
               />
               <main id="main-content">

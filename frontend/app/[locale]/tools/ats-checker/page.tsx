@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import LeaderboardAd from '@/components/ads/LeaderboardAd';
+import BetweenSectionAd from '@/components/ads/BetweenSectionAd';
+import MultiplexAd from '@/components/ads/MultiplexAd';
 import { Upload, FileText, CheckCircle, AlertTriangle, XCircle, Loader2, RefreshCw, ArrowRight } from 'lucide-react';
 
 const API_BASE = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4444') + '/api/v1';
@@ -452,6 +455,9 @@ export default function ATSCheckerPage() {
                 </div>
             </section>
 
+            {/* Leaderboard Ad */}
+            <LeaderboardAd className="max-w-4xl mx-auto px-6 py-8" />
+
             {/* ── SEO Content (kept from original) ── */}
 
             {/* What ATS Checks For */}
@@ -483,6 +489,9 @@ export default function ATSCheckerPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Between Section Ad */}
+            <BetweenSectionAd />
 
             {/* ATS Optimization Checklist */}
             <section className="py-16 bg-white">
@@ -589,6 +598,9 @@ export default function ATSCheckerPage() {
                 </div>
             </section>
 
+
+            {/* Multiplex Ad */}
+            <MultiplexAd className="max-w-4xl mx-auto px-6 py-8" />
 
             {/* Final CTA */}
             <section className="py-24 bg-gradient-to-r from-blue-600 to-indigo-600 text-center px-6">

@@ -1,10 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { getAdSettings, AdSettings, estimatedCpm as cpmEstimates } from '@/lib/adConfig';
-import { useAuthStore } from '@/store/useAuthStore';
-
-const PAID_TIERS = ['starter', 'gold', 'diamond', 'platinum'];
+import { useState } from 'react';
+import { useAdUnit } from '@/hooks/useAdUnit';
 
 interface InArticleVideoAdProps {
   slotType?: 'blogInArticle' | 'resumeInArticle' | 'careerInArticle';
@@ -17,64 +14,29 @@ export default function InArticleVideoAd({
   className = '',
   showPositionIndicator = false,
 }: InArticleVideoAdProps) {
-  const { user } = useAuthStore();
+  const { shouldHide, isPlaceholder, slotId, publisherId, estimatedCpm, adRef } = useAdUnit(slotType);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [settings, setSettings] = useState<AdSettings | null>(null);
-  const [loading, setLoading] = useState(true);
-  const adRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    getAdSettings()
-      .then(setSettings)
-      .finally(() => setLoading(false));
-  }, []);
+  if (shouldHide) return null;
 
-  // Initialize AdSense ad when in real ad mode
-  useEffect(() => {
-    if (settings && !settings.usePlaceholders && settings.adsEnabled && adRef.current) {
-      try {
-        // Push ad to AdSense
-        const adsbygoogle = (window as unknown as { adsbygoogle?: unknown[] }).adsbygoogle || [];
-        adsbygoogle.push({});
-      } catch (error) {
-        console.error('AdSense error:', error);
-      }
-    }
-  }, [settings]);
-
-  // Don't render anything if loading or ads disabled
-  if (loading) return null;
-  if (!settings?.adsEnabled) return null;
-
-  // Skip ads for paid subscribers
-  if (user?.subscriptionTier && PAID_TIERS.includes(user.subscriptionTier)) return null;
-
-  const estimatedCpm = cpmEstimates[slotType] || '$10-15';
   const adNetwork = 'Google Ad Manager';
 
   // Placeholder mode - show visual placeholder
-  if (settings.usePlaceholders) {
+  if (isPlaceholder) {
     return (
       <div className={`my-8 ${className}`}>
-        {/* Ad Container */}
         <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-xl border border-gray-700">
-          {/* AD Label */}
           <div className="absolute top-2 left-2 z-10 bg-yellow-500 text-black text-xs font-bold px-2 py-0.5 rounded">
             AD
           </div>
-
-          {/* CPM Info Badge */}
           <div className="absolute top-2 right-2 z-10 bg-green-600 text-white text-xs font-medium px-2 py-0.5 rounded">
             Est. CPM: {estimatedCpm}
           </div>
 
-          {/* Video Player Area (16:9 aspect ratio) */}
           <div className="relative aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-            {/* Placeholder Video Content */}
             {!isPlaying ? (
               <div className="text-center">
-                {/* Play Button */}
                 <button
                   onClick={() => setIsPlaying(true)}
                   className="w-20 h-20 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200 motion-safe:hover:scale-110 mb-4"
@@ -88,7 +50,6 @@ export default function InArticleVideoAd({
               </div>
             ) : (
               <div className="w-full h-full relative">
-                {/* Simulated Video Playing */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-pulse">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center text-white">
@@ -98,18 +59,13 @@ export default function InArticleVideoAd({
                     </div>
                   </div>
                 </div>
-
-                {/* Video Controls */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                   <div className="flex items-center justify-between">
-                    {/* Progress Bar */}
                     <div className="flex-1 mr-4">
                       <div className="h-1 bg-white/30 rounded-full overflow-hidden">
                         <div className="h-full bg-white w-1/3 rounded-full animate-[progress_30s_linear]"></div>
                       </div>
                     </div>
-
-                    {/* Mute Button */}
                     <button
                       onClick={() => setIsMuted(!isMuted)}
                       className="text-white hover:text-yellow-400 transition-colors"
@@ -131,7 +87,6 @@ export default function InArticleVideoAd({
             )}
           </div>
 
-          {/* Ad Info Footer */}
           <div className="bg-gray-800 px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +102,6 @@ export default function InArticleVideoAd({
           </div>
         </div>
 
-        {/* Position Indicator (for demo) */}
         {showPositionIndicator && (
           <div className="mt-3 flex items-center justify-center gap-2 text-sm">
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-medium">
@@ -166,18 +120,11 @@ export default function InArticleVideoAd({
     );
   }
 
-  // Real ad mode - render actual AdSense ad
-  const slotId = settings.slots[slotType];
-  const publisherId = settings.publisherId;
-
-  if (!publisherId || !slotId) {
-    // No ad config, don't render
-    return null;
-  }
+  // Real ad mode
+  if (!publisherId || !slotId) return null;
 
   return (
     <div ref={adRef} className={`my-8 ${className}`}>
-      {/* Real Google AdSense Ad Unit */}
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}

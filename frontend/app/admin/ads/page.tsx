@@ -14,6 +14,10 @@ import {
   Info,
   RefreshCw,
   ExternalLink,
+  Monitor,
+  LayoutDashboard,
+  Grid3x3,
+  Columns,
 } from "lucide-react";
 import api from "@/lib/api";
 
@@ -31,6 +35,10 @@ interface AdSettings {
     resumeInArticle: string;
     careerInArticle: string;
     toolsRewarded: string;
+    sidebarDisplay: string;
+    leaderboard: string;
+    multiplex: string;
+    toolsBetweenSection: string;
   };
 
   // Revenue Tracking
@@ -51,6 +59,10 @@ const defaultSettings: AdSettings = {
     resumeInArticle: "",
     careerInArticle: "",
     toolsRewarded: "",
+    sidebarDisplay: "",
+    leaderboard: "",
+    multiplex: "",
+    toolsBetweenSection: "",
   },
   estimatedMonthlyViews: {
     blog: 50000,
@@ -114,12 +126,13 @@ export default function AdminAdsPage() {
     }));
   };
 
-  // Calculate estimated revenue
+  // Calculate estimated revenue (accounts for multiple ad units per page)
+  // Each page now has: in-article + leaderboard + sidebar + multiplex
   const cpmRates = {
-    blog: 12,
-    resume: 12,
-    career: 12,
-    tools: 25,
+    blog: 12 + 6 + 10 + 4,       // in-article + leaderboard + sidebar + multiplex
+    resume: 12 + 6 + 10 + 4,     // same layout
+    career: 12 + 6 + 10 + 4,     // same layout
+    tools: 25 + 8 + 4,           // rewarded + between-section + multiplex
   };
 
   const calculateRevenue = () => {
@@ -399,6 +412,70 @@ export default function AdminAdsPage() {
               className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none text-sm"
             />
             <p className="text-xs text-gray-500 mt-1">4 pages - CPM: $20-40</p>
+          </div>
+
+          {/* Sidebar Display Slot */}
+          <div className="bg-gray-100 rounded-lg p-4">
+            <label className="block text-sm font-medium text-gray-900 mb-2 flex items-center gap-2">
+              <Monitor size={16} className="text-orange-400" />
+              Sidebar (Display 300x600)
+            </label>
+            <input
+              type="text"
+              value={settings.slots.sidebarDisplay}
+              onChange={(e) => updateSlot("sidebarDisplay", e.target.value)}
+              placeholder="1234567894"
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">All content pages - CPM: $8-12</p>
+          </div>
+
+          {/* Leaderboard Slot */}
+          <div className="bg-gray-100 rounded-lg p-4">
+            <label className="block text-sm font-medium text-gray-900 mb-2 flex items-center gap-2">
+              <LayoutDashboard size={16} className="text-red-400" />
+              Leaderboard (728x90)
+            </label>
+            <input
+              type="text"
+              value={settings.slots.leaderboard}
+              onChange={(e) => updateSlot("leaderboard", e.target.value)}
+              placeholder="1234567895"
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">All content pages - CPM: $5-8</p>
+          </div>
+
+          {/* Multiplex Slot */}
+          <div className="bg-gray-100 rounded-lg p-4">
+            <label className="block text-sm font-medium text-gray-900 mb-2 flex items-center gap-2">
+              <Grid3x3 size={16} className="text-indigo-400" />
+              Multiplex (Related Content)
+            </label>
+            <input
+              type="text"
+              value={settings.slots.multiplex}
+              onChange={(e) => updateSlot("multiplex", e.target.value)}
+              placeholder="1234567896"
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">All content pages - CPM: $3-6</p>
+          </div>
+
+          {/* Tools Between Section Slot */}
+          <div className="bg-gray-100 rounded-lg p-4">
+            <label className="block text-sm font-medium text-gray-900 mb-2 flex items-center gap-2">
+              <Columns size={16} className="text-cyan-400" />
+              Tools (Between Sections)
+            </label>
+            <input
+              type="text"
+              value={settings.slots.toolsBetweenSection}
+              onChange={(e) => updateSlot("toolsBetweenSection", e.target.value)}
+              placeholder="1234567897"
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">Tool pages only - CPM: $6-10</p>
           </div>
         </div>
       </div>

@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import LeaderboardAd from '@/components/ads/LeaderboardAd';
+import MultiplexAd from '@/components/ads/MultiplexAd';
 import { useAuthStore } from '@/store/useAuthStore';
 import api from '@/lib/api';
 import { Sparkles } from 'lucide-react';
@@ -144,6 +146,12 @@ export default function CoverLetterGeneratorPage() {
           </div>
         </div>
       </section>
+
+      {/* Leaderboard Ad */}
+      <LeaderboardAd className="max-w-4xl mx-auto px-6 py-8" />
+
+      {/* Multiplex Ad */}
+      <MultiplexAd className="max-w-4xl mx-auto px-6 py-8" />
 
       <Footer />
     </>

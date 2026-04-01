@@ -17,6 +17,10 @@ export interface AdSettings {
     resumeInArticle: string;
     careerInArticle: string;
     toolsRewarded: string;
+    sidebarDisplay: string;
+    leaderboard: string;
+    multiplex: string;
+    toolsBetweenSection: string;
   };
 }
 
@@ -54,6 +58,10 @@ export async function getAdSettings(): Promise<AdSettings> {
         resumeInArticle: "",
         careerInArticle: "",
         toolsRewarded: "",
+        sidebarDisplay: "",
+        leaderboard: "",
+        multiplex: "",
+        toolsBetweenSection: "",
       },
     };
   }
@@ -95,16 +103,20 @@ export async function getPublisherId(): Promise<string> {
  * Get a specific ad slot ID
  */
 export async function getAdSlot(
-  slotType: "blogInArticle" | "resumeInArticle" | "careerInArticle" | "toolsRewarded"
+  slotType: keyof AdSettings["slots"]
 ): Promise<string> {
   const settings = await getAdSettings();
   return settings.slots[slotType] || "";
 }
 
 // CPM estimates for revenue display
-export const estimatedCpm = {
+export const estimatedCpm: Record<string, string> = {
   blogInArticle: "$10-15",
   resumeInArticle: "$12",
   careerInArticle: "$10-15",
   toolsRewarded: "$20-40",
+  sidebarDisplay: "$8-12",
+  leaderboard: "$5-8",
+  multiplex: "$3-6",
+  toolsBetweenSection: "$6-10",
 };

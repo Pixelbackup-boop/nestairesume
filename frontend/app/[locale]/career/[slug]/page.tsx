@@ -11,6 +11,9 @@ import ShareButtons from '@/components/blog/ShareButtons';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
+import LeaderboardAd from '@/components/ads/LeaderboardAd';
+import SidebarAd from '@/components/ads/SidebarAd';
+import MultiplexAd from '@/components/ads/MultiplexAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getCareerArticleContent } from '@/lib/content/career-pages';
 import { locales } from '@/i18n.config';
@@ -160,6 +163,9 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
       {/* JSON-LD Structured Data */}
       <JsonLd data={jsonLd} />
 
+      {/* Leaderboard Ad */}
+      <LeaderboardAd className="max-w-6xl mx-auto px-6 pt-28" />
+
       <article className="max-w-6xl mx-auto px-6 py-12 pt-32">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
@@ -188,11 +194,15 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
 
             {/* Related Posts */}
             <RelatedPosts posts={relatedPosts} basePath={`/${locale}/career`} />
+
+            {/* Multiplex Ad */}
+            <MultiplexAd className="mt-12 pt-8 border-t border-gray-200" />
           </div>
 
           {/* Sidebar with TOC */}
           <aside className="lg:col-span-1 hidden lg:block">
             <TableOfContents headings={headings} />
+            <SidebarAd className="mt-6" />
           </aside>
         </div>
       </article>

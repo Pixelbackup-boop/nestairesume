@@ -5,6 +5,9 @@ import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import LeaderboardAd from '@/components/ads/LeaderboardAd';
+import BetweenSectionAd from '@/components/ads/BetweenSectionAd';
+import MultiplexAd from '@/components/ads/MultiplexAd';
 import {
   Sparkles,
   FileText,
@@ -448,6 +451,9 @@ ${formData.fullName}`;
         </div>
       </section>
 
+      {/* Leaderboard Ad */}
+      <LeaderboardAd className="max-w-4xl mx-auto px-6 py-8" />
+
       {/* Tips Section */}
       <section className="py-16 bg-bg-card/30">
         <div className="max-w-6xl mx-auto px-6">
@@ -487,6 +493,9 @@ ${formData.fullName}`;
         </div>
       </section>
 
+      {/* Between Section Ad */}
+      <BetweenSectionAd />
+
       {/* CTA Section */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -522,6 +531,8 @@ ${formData.fullName}`;
                 </div>
             </section>
 
+      {/* Multiplex Ad */}
+      <MultiplexAd className="max-w-4xl mx-auto px-6 py-8" />
 
       <Footer />
     </>

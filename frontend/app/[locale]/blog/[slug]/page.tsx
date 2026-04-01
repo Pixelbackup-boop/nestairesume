@@ -9,6 +9,9 @@ import TableOfContents from '@/components/blog/TableOfContents';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import ShareButtons from '@/components/blog/ShareButtons';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
+import LeaderboardAd from '@/components/ads/LeaderboardAd';
+import SidebarAd from '@/components/ads/SidebarAd';
+import MultiplexAd from '@/components/ads/MultiplexAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import { getContent } from '@/lib/content/blog-pages';
@@ -185,6 +188,9 @@ export default async function PostPage({ params }: PostPageProps) {
         />
       )}
 
+      {/* Leaderboard Ad */}
+      <LeaderboardAd className="max-w-6xl mx-auto px-6 pt-8" />
+
       <article className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
@@ -232,6 +238,9 @@ export default async function PostPage({ params }: PostPageProps) {
             {/* Related Posts */}
             <RelatedPosts posts={relatedPosts} />
 
+            {/* Multiplex Ad */}
+            <MultiplexAd className="mt-12 pt-8 border-t border-gray-200" />
+
             {/* Cross-Content Internal Links */}
             <section className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -265,6 +274,7 @@ export default async function PostPage({ params }: PostPageProps) {
           {/* Sidebar with TOC */}
           <aside className="lg:col-span-1 hidden lg:block">
             <TableOfContents headings={headings} />
+            <SidebarAd className="mt-6" />
           </aside>
         </div>
       </article>

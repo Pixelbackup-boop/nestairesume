@@ -25,6 +25,10 @@ export interface AdSettings {
     resumeInArticle: string;
     careerInArticle: string;
     toolsRewarded: string;
+    sidebarDisplay: string;
+    leaderboard: string;
+    multiplex: string;
+    toolsBetweenSection: string;
   };
 
   // Revenue Tracking
@@ -48,6 +52,10 @@ const defaultSettings: AdSettings = {
     resumeInArticle: "",
     careerInArticle: "",
     toolsRewarded: "",
+    sidebarDisplay: "",
+    leaderboard: "",
+    multiplex: "",
+    toolsBetweenSection: "",
   },
   estimatedMonthlyViews: {
     blog: 50000,

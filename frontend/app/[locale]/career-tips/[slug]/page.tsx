@@ -6,6 +6,9 @@ import { getCareerTipBySlug, getRelatedCareerTips, getAllCareerTipsSlugs } from 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
+import LeaderboardAd from '@/components/ads/LeaderboardAd';
+import SidebarAd from '@/components/ads/SidebarAd';
+import MultiplexAd from '@/components/ads/MultiplexAd';
 import { splitHtmlAtMiddle } from '@/lib/splitContent';
 import { Clock, Calendar, User, ChevronRight, ArrowRight } from 'lucide-react';
 import { getLocalizedUrl } from '@/lib/localized-paths';
@@ -177,6 +180,9 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
           </nav>
         </div>
 
+        {/* Leaderboard Ad */}
+        <LeaderboardAd className="max-w-6xl mx-auto px-6 mb-8" />
+
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Main Content */}
@@ -294,6 +300,9 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
                   </div>
                 )}
 
+                {/* Sidebar Ad */}
+                <SidebarAd />
+
                 {/* Related Articles */}
                 {relatedPosts.length > 0 && (
                   <div className="bg-white rounded-2xl border border-gray-100 p-6">
@@ -378,6 +387,8 @@ export default async function CareerTipArticlePage({ params }: PageProps) {
             </div>
           </section>
         )}
+        {/* Multiplex Ad */}
+        <MultiplexAd className="max-w-6xl mx-auto px-6 py-8" />
       </main>
 
       <Footer />

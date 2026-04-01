@@ -6,7 +6,11 @@
     "blogInArticle": "",
     "resumeInArticle": "",
     "careerInArticle": "",
-    "toolsRewarded": ""
+    "toolsRewarded": "",
+    "sidebarDisplay": "",
+    "leaderboard": "",
+    "multiplex": "",
+    "toolsBetweenSection": ""
   },
   "estimatedMonthlyViews": {
     "blog": 50000,

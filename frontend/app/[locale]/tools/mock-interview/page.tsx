@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import RewardedVideoAd from '@/components/ads/RewardedVideoAd';
+import LeaderboardAd from '@/components/ads/LeaderboardAd';
+import MultiplexAd from '@/components/ads/MultiplexAd';
 import {
   Sparkles,
   Play,
@@ -608,6 +610,10 @@ export default function MockInterviewPage() {
           )}
         </div>
       </main>
+
+            {/* Leaderboard Ad */}
+            <LeaderboardAd className="max-w-4xl mx-auto px-6 py-8" />
+
             {/* External Resources */}
             <section className="py-8 bg-gray-50 border-t border-gray-100">
                 <div className="max-w-4xl mx-auto px-6">
@@ -625,6 +631,8 @@ export default function MockInterviewPage() {
                 </div>
             </section>
 
+            {/* Multiplex Ad */}
+            <MultiplexAd className="max-w-4xl mx-auto px-6 py-8" />
 
       <Footer />
     </div>

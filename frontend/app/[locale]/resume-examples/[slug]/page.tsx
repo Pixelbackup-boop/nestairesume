@@ -5,6 +5,9 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InArticleVideoAd from "@/components/ads/InArticleVideoAd";
+import LeaderboardAd from "@/components/ads/LeaderboardAd";
+import SidebarAd from "@/components/ads/SidebarAd";
+import MultiplexAd from "@/components/ads/MultiplexAd";
 import { splitHtmlAtMiddle } from "@/lib/splitContent";
 import {
   getResumeExampleBySlug,
@@ -334,6 +337,9 @@ export default async function ResumeExamplePage({
         </div>
       </section>
 
+      {/* Leaderboard Ad */}
+      <LeaderboardAd className="py-4 bg-white max-w-6xl mx-auto px-6" />
+
       {/* Main Content */}
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -550,6 +556,9 @@ export default async function ResumeExamplePage({
                   </Link>
                 </div>
 
+                {/* Sidebar Ad */}
+                <SidebarAd />
+
                 {/* Table of Contents */}
                 {headings.length > 0 && (
                   <div className="bg-light-teal rounded-xl p-6">
@@ -596,6 +605,9 @@ export default async function ResumeExamplePage({
           </div>
         </section>
       )}
+
+      {/* Multiplex Ad */}
+      <MultiplexAd className="max-w-6xl mx-auto px-6 py-8" />
 
       {/* Bottom CTA */}
       <section className="py-16 bg-teal-gradient">
