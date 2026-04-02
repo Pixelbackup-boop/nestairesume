@@ -280,9 +280,9 @@ export default async function LocaleLayout({
               />
               <Script
                 async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8805972435327777"
                 crossOrigin="anonymous"
-                strategy="lazyOnload"
+                strategy="afterInteractive"
               />
               <main id="main-content">
                 {children}
