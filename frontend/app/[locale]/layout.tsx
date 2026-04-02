@@ -241,6 +241,13 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://widget.trustpilot.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
 
+        {/* Google AdSense verification — must be in <head> for crawler */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8805972435327777"
+          crossOrigin="anonymous"
+        />
+
         {/* Organization Schema - Content is hardcoded, not user input */}
         <script
           type="application/ld+json"
@@ -277,12 +284,6 @@ export default async function LocaleLayout({
               <Script
                 src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
                 strategy="lazyOnload"
-              />
-              <Script
-                async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8805972435327777"
-                crossOrigin="anonymous"
-                strategy="afterInteractive"
               />
               <main id="main-content">
                 {children}
