@@ -22,9 +22,10 @@ const intlMiddleware = createMiddleware({
 
 export default function middleware(request: NextRequest) {
   // www → non-www redirect (prevent domain authority split)
-  if (request.headers.get('host')?.startsWith('www.')) {
-    const url = request.nextUrl.clone();
-    url.host = url.host.replace('www.', '');
+  const host = request.headers.get('host');
+  if (host?.startsWith('www.')) {
+    const nonWwwHost = host.replace('www.', '');
+    const url = new URL(`https://${nonWwwHost}${request.nextUrl.pathname}${request.nextUrl.search}`);
     return NextResponse.redirect(url, 301);
   }
 
