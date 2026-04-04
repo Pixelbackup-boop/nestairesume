@@ -192,4 +192,5 @@ export interface PdfGenerateRequest {
     theme: PdfTheme;
     translations?: PdfTranslations;
     locale?: string;
+    watermark?: boolean;
 }

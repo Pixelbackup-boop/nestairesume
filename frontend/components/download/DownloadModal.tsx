@@ -73,7 +73,11 @@ export default function DownloadModal({
     const getUserState = () => {
         if (!isAuthenticated) return 'not_logged_in';
         if (usageLoading) return 'loading';
-        if (!hasValidSubscription) return 'no_subscription';
+        if (!hasValidSubscription) {
+            // Free users: check if they still have free watermarked downloads
+            if (!downloadCheck.canUse) return 'free_limit_reached';
+            return 'free_watermark';
+        }
         if (!downloadCheck.canUse) return 'limit_reached';
         return 'can_download';
     };
@@ -210,15 +214,49 @@ export default function DownloadModal({
                         </div>
                     )}
 
-                    {/* No Subscription */}
-                    {userState === 'no_subscription' && (
+                    {/* Free User — Watermarked Download Available */}
+                    {userState === 'free_watermark' && (
                         <div className="space-y-4">
                             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
-                                <Crown className="text-amber-600 mt-0.5 shrink-0" size={20} />
+                                <AlertCircle className="text-amber-600 mt-0.5 shrink-0" size={20} />
                                 <div>
-                                    <p className="text-sm font-medium text-amber-900">Choose a Plan to Download</p>
+                                    <p className="text-sm font-medium text-amber-900">Your PDF will include a watermark</p>
                                     <p className="text-sm text-amber-700 mt-1">
-                                        Your resume is ready! Pick a plan to download it as a high-quality PDF.
+                                        You can download and preview your resume, but it will have a &quot;bestairesumes.com&quot; watermark. Upgrade to download without watermark.
+                                    </p>
+                                </div>
+                            </div>
+                            {usage && downloadCheck.limit !== -1 && (
+                                <p className="text-xs text-gray-500 text-center">
+                                    {downloadCheck.remaining} free {downloadCheck.remaining === 1 ? 'download' : 'downloads'} remaining
+                                </p>
+                            )}
+                            <button
+                                onClick={handleDownload}
+                                className="w-full py-3 bg-gray-800 text-white rounded-lg font-semibold hover:bg-gray-700 transition flex items-center justify-center gap-2"
+                            >
+                                <Download size={18} />
+                                Download with Watermark
+                            </button>
+                            <button
+                                onClick={handleUpgrade}
+                                className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
+                            >
+                                <Crown size={18} />
+                                Upgrade to Download without Watermark
+                            </button>
+                        </div>
+                    )}
+
+                    {/* Free User — Limit Reached */}
+                    {userState === 'free_limit_reached' && (
+                        <div className="space-y-4">
+                            <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
+                                <AlertCircle className="text-red-600 mt-0.5 shrink-0" size={20} />
+                                <div>
+                                    <p className="text-sm font-medium text-red-900">You&apos;ve used your free downloads</p>
+                                    <p className="text-sm text-red-700 mt-1">
+                                        Upgrade to download without watermark and get unlimited access to all templates and AI tools.
                                     </p>
                                 </div>
                             </div>
@@ -227,13 +265,7 @@ export default function DownloadModal({
                                 className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 rounded-lg font-semibold hover:from-yellow-400 hover:to-orange-400 transition flex items-center justify-center gap-2"
                             >
                                 <Crown size={18} />
-                                View Plans
-                            </button>
-                            <button
-                                onClick={onClose}
-                                className="w-full text-sm text-gray-500 hover:text-gray-700 transition text-center"
-                            >
-                                Maybe later
+                                Upgrade to Download without Watermark
                             </button>
                         </div>
                     )}

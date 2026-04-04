@@ -154,23 +154,24 @@ export const checkDownloadLimit = async (
       return res.status(403).json({ error: "Account suspended" });
     }
 
-    const plan = PLANS[user.subscriptionTier as PlanType];
-    if (!plan) {
-      return res.status(403).json({
-        error: "No active subscription",
-        code: "SUBSCRIPTION_REQUIRED"
-      });
-    }
+    // Use the user's plan, or fall back to 'free' for users without a subscription
+    const tier = (user.subscriptionTier as PlanType) || 'free';
+    const plan = PLANS[tier] || PLANS.free;
+
+    const isPaid = tier !== 'free' && user.subscriptionTier !== null;
 
     // -1 means unlimited
     if (plan.downloadLimit !== -1 && user.downloadCount >= plan.downloadLimit) {
       return res.status(429).json({
-        error: "Download limit reached",
+        error: isPaid ? "Download limit reached" : "Free download limit reached. Upgrade to download without watermark.",
         code: "DOWNLOAD_LIMIT_REACHED",
         limit: plan.downloadLimit,
         used: user.downloadCount,
       });
     }
+
+    // Attach watermark flag for free/no-subscription users
+    (req as AuthenticatedRequest & { watermark?: boolean }).watermark = !isPaid;
 
     next();
   } catch (error) {
@@ -281,10 +282,10 @@ export const getUsageStatus = async (userId: string) => {
 
   if (!user) return null;
 
-  const plan = PLANS[user.subscriptionTier as PlanType];
+  const plan = PLANS[(user.subscriptionTier as PlanType) || 'free'] || PLANS.free;
 
   return {
-    tier: user.subscriptionTier,
+    tier: user.subscriptionTier || 'free',
     usage: {
       cv: { used: user.cvCreatedCount, limit: plan?.cvLimit ?? 0 },
       ai: { used: user.aiUsedCount, limit: plan?.aiLimit ?? 0 },

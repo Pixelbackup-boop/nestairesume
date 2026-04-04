@@ -9,7 +9,7 @@ const stripe = config.stripeSecretKey
   ? new Stripe(config.stripeSecretKey, { maxNetworkRetries: 2 })
   : null;
 
-export type PlanType = "starter" | "gold" | "diamond" | "platinum";
+export type PlanType = "free" | "starter" | "gold" | "diamond" | "platinum";
 
 interface PlanConfig {
   name: string;
@@ -22,6 +22,15 @@ interface PlanConfig {
 }
 
 export const PLANS: Record<PlanType, PlanConfig> = {
+  free: {
+    name: "Free",
+    priceId: "",
+    type: "subscription",
+    cvLimit: 3,
+    aiLimit: 5,
+    downloadLimit: 2,
+    coverLetterLimit: 1,
+  },
   starter: {
     name: "Starter",
     priceId: config.stripePrices.starter,

@@ -13,6 +13,7 @@ interface WrapperOptions {
     // 'full-bleed': 0px (headers/banners handling own padding)
     // 'standard': 40px (default safe margin)
     marginStrategy?: 'sidebar' | 'full-bleed' | 'standard';
+    watermark?: boolean;
 }
 
 // RTL locales list
@@ -108,7 +109,7 @@ const getNonLatinTypographyCss = (locale: string): string => {
 };
 
 export const wrapHtml = (content: string, options: WrapperOptions): string => {
-    const { headingFont, bodyFont, locale = 'en', marginStrategy = 'standard' } = options;
+    const { headingFont, bodyFont, locale = 'en', marginStrategy = 'standard', watermark = false } = options;
     const fontStyles = generateFontStyles(headingFont, bodyFont, locale);
     const cjkFontLink = getCjkFontLink(locale);
     const dir = getDirection(locale);
@@ -312,9 +313,36 @@ export const wrapHtml = (content: string, options: WrapperOptions): string => {
             position: relative;
             z-index: 1;
         }
+
+        /* Watermark overlay for free users — repeats on every printed page via position:fixed */
+        .watermark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 210mm;
+            height: 297mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .watermark-text {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: rgba(150, 150, 150, 0.18);
+            transform: rotate(-35deg);
+            white-space: nowrap;
+            letter-spacing: 4px;
+            user-select: none;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
     </style>
 </head>
 <body>
+    ${watermark ? '<div class="watermark-overlay"><span class="watermark-text">www.bestairesumes.com</span></div>' : ''}
     <div class="resume-page">
         ${content}
     </div>

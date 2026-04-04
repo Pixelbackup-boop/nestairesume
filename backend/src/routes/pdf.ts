@@ -28,7 +28,9 @@ const router = Router();
 router.post('/generate', pdfLimiter, pdfHourlyLimiter, authenticateToken, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
     try {
         const request = req.body as PdfGenerateRequest;
-        logger.info({ templateId: request.templateId, locale: request.locale || 'en' }, 'PDF generate request');
+        // Watermark flag is set by checkDownloadLimit middleware for free users
+        request.watermark = (req as typeof req & { watermark?: boolean }).watermark || false;
+        logger.info({ templateId: request.templateId, locale: request.locale || 'en', watermark: request.watermark }, 'PDF generate request');
 
         // Validate required fields
         if (!request.data) {

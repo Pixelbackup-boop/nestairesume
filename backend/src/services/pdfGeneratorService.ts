@@ -388,7 +388,8 @@ export async function renderResumePdf(
     templateId: string,
     theme: PdfTheme,
     translations?: PdfTranslations,
-    locale: string = 'en'
+    locale: string = 'en',
+    watermark: boolean = false
 ): Promise<Buffer> {
     // Get the appropriate template renderer
     const renderTemplate = getTemplateRenderer(templateId);
@@ -425,7 +426,8 @@ export async function renderResumePdf(
         headingFont: data.fonts?.heading || 'Inter',
         bodyFont: data.fonts?.body || 'Inter',
         locale,
-        marginStrategy
+        marginStrategy,
+        watermark
     });
 
     // Generate PDF with smart pagination
@@ -436,8 +438,8 @@ export async function renderResumePdf(
  * Process a PDF generation request
  */
 export async function processPdfRequest(request: PdfGenerateRequest): Promise<Buffer> {
-    const { data, templateId, theme, translations, locale } = request;
-    return renderResumePdf(data, templateId, theme, translations, locale || 'en');
+    const { data, templateId, theme, translations, locale, watermark } = request;
+    return renderResumePdf(data, templateId, theme, translations, locale || 'en', watermark || false);
 }
 
 // Cleanup on process exit
