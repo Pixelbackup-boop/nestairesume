@@ -1,5 +1,3 @@
-// pdf-parse v2 uses class-based API
-import { PDFParse } from "pdf-parse";
 import mammoth from "mammoth";
 import OpenAI from "openai";
 import { config } from "../config/env";
@@ -96,6 +94,7 @@ const generateId = (): string => {
 
 // Extract text from PDF buffer using pdf-parse v2 API
 export const extractTextFromPdf = async (buffer: Buffer): Promise<string> => {
+  const { PDFParse } = await import("pdf-parse");
   const parser = new PDFParse({ data: buffer });
   const result = await parser.getText();
   return result.text;
@@ -495,6 +494,7 @@ export const parseResume = async (
     let pageCount: number | undefined;
 
     if (mimeType === "application/pdf") {
+      const { PDFParse } = await import("pdf-parse");
       const parser = new PDFParse({ data: buffer });
       const result = await parser.getText();
       extractedText = result.text;

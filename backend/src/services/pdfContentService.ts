@@ -1,5 +1,3 @@
- 
-const pdf = require("pdf-parse");
 import prisma from "../config/database";
 
 interface ExtractedPDF {
@@ -13,6 +11,7 @@ interface ExtractedPDF {
 
 // Extract text content from PDF buffer
 export const extractPdfContent = async (buffer: Buffer): Promise<ExtractedPDF> => {
+  const pdf = require("pdf-parse");
   const data = await pdf(buffer);
 
   return {

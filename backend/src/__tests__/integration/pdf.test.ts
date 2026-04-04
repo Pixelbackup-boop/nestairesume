@@ -50,6 +50,7 @@ jest.mock('../../middleware/rateLimiter', () => {
     generalLimiter: jest.fn(passThrough),
     pdfLimiter: jest.fn(passThrough),
     pdfHourlyLimiter: jest.fn(passThrough),
+    pdfFreeIpLimiter: jest.fn(passThrough),
     authLimiter: jest.fn(passThrough),
     webhookLimiter: jest.fn(passThrough),
     uploadLimiter: jest.fn(passThrough),
