@@ -155,6 +155,33 @@ export const pdfHourlyLimiter = rateLimit({
 });
 
 /**
+ * PDF daily rate limiter for free users (per IP)
+ * Prevents abuse via multiple free accounts on the same IP.
+ * Paid users skip this limiter entirely.
+ * Must be placed AFTER checkDownloadLimit in the middleware chain
+ * (which sets req.watermark to indicate free vs paid).
+ */
+export const pdfFreeIpLimiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000, // 24 hours
+  max: 3, // 3 PDF downloads per IP per day for free users
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: getClientId,
+  validate: false,
+  handler: (_req: Request, res: Response) => {
+    res.status(429).json({
+      error: 'Daily free download limit reached',
+      message: 'Too many free downloads from this network today. Upgrade to download without limits.',
+      code: 'FREE_IP_LIMIT_REACHED',
+    });
+  },
+  skip: (req: Request) => {
+    // Skip this limiter for paid users — watermark=false means paid
+    return (req as Request & { watermark?: boolean }).watermark === false;
+  },
+});
+
+/**
  * Authentication rate limiter (brute force protection)
  * OAuth needs higher limits due to callback redirects during testing
  */

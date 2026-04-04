@@ -7,7 +7,7 @@ import { Router, Request, Response } from 'express';
 import logger from '../lib/logger';
 import { authenticateToken, AuthRequest } from '../middleware/auth';
 import { checkDownloadLimit, incrementDownloadCount } from '../middleware/subscriptionLimits';
-import { pdfLimiter, pdfHourlyLimiter } from '../middleware/rateLimiter';
+import { pdfLimiter, pdfHourlyLimiter, pdfFreeIpLimiter } from '../middleware/rateLimiter';
 import { processPdfRequest } from '../services/pdfGeneratorService';
 import { PdfGenerateRequest } from '../types/pdf';
 
@@ -25,7 +25,7 @@ const router = Router();
  *
  * Response: PDF file (application/pdf)
  */
-router.post('/generate', pdfLimiter, pdfHourlyLimiter, authenticateToken, checkDownloadLimit, async (req: AuthRequest, res: Response): Promise<void> => {
+router.post('/generate', pdfLimiter, pdfHourlyLimiter, authenticateToken, checkDownloadLimit, pdfFreeIpLimiter, async (req: AuthRequest, res: Response): Promise<void> => {
     try {
         const request = req.body as PdfGenerateRequest;
         // Watermark flag is set by checkDownloadLimit middleware for free users
