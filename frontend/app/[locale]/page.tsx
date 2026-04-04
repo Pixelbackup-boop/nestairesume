@@ -89,6 +89,10 @@ export default async function Home() {
                   <span className="text-xl sm:text-2xl lg:text-4xl text-white/80 font-medium">{t("hero.subtitle")}</span>
                 </h1>
 
+                <p className="text-white font-semibold text-lg md:text-xl mb-6 max-w-md border-l-4 border-white/60 pl-4">
+                  {t("hero.scarcityLine")}
+                </p>
+
                 <p className="text-white/80 text-lg mb-8 max-w-md leading-relaxed">
                   {t("hero.description")}
                 </p>
