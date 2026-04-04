@@ -57,6 +57,12 @@ jest.mock('../../middleware/rateLimiter', () => {
   };
 });
 
+jest.mock('../../middleware/subscriptionLimits', () => ({
+  checkDownloadLimit: jest.fn((_req: unknown, _res: unknown, next: () => void) => next()),
+  incrementDownloadCount: jest.fn((_req: unknown, _res: unknown, next: () => void) => next()),
+  checkCvLimit: jest.fn((_req: unknown, _res: unknown, next: () => void) => next()),
+}));
+
 const mockPrisma = prisma as jest.Mocked<typeof prisma>;
 
 describe('Security Tests', () => {
