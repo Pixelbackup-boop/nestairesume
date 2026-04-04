@@ -161,7 +161,7 @@ export const pdfHourlyLimiter = rateLimit({
  * Must be placed AFTER checkDownloadLimit in the middleware chain
  * (which sets req.watermark to indicate free vs paid).
  */
-export const pdfFreeIpLimiter = rateLimit({
+const _pdfFreeIpRateLimit = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, // 24 hours
   max: 3, // 3 PDF downloads per IP per day for free users
   standardHeaders: true,
@@ -175,11 +175,13 @@ export const pdfFreeIpLimiter = rateLimit({
       code: 'FREE_IP_LIMIT_REACHED',
     });
   },
-  skip: (req: Request) => {
-    // Skip this limiter for paid users — watermark=false means paid
-    return (req as Request & { watermark?: boolean }).watermark === false;
-  },
 });
+
+export const pdfFreeIpLimiter = (req: Request, res: Response, next: NextFunction) => {
+  // Skip for paid users — watermark=false means paid
+  if ((req as Request & { watermark?: boolean }).watermark === false) return next();
+  return _pdfFreeIpRateLimit(req, res, next);
+};
 
 /**
  * Authentication rate limiter (brute force protection)

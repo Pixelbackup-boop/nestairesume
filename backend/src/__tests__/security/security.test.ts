@@ -287,6 +287,10 @@ describe('Security Tests', () => {
         fullName: 'Test User',
       });
 
+      // Route uses prisma.$transaction — mock it to call the callback with prisma
+      (mockPrisma as unknown as Record<string, unknown>).$transaction = jest.fn(async (fn: (tx: typeof mockPrisma) => Promise<unknown>) => fn(mockPrisma));
+      (mockPrisma.user.update as jest.Mock).mockResolvedValue(testUser);
+
       const response = await request(app)
         .post('/api/v1/resumes')
         .set('Authorization', `Bearer ${token}`)
