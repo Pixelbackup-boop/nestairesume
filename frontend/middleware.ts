@@ -38,7 +38,7 @@ export default function middleware(request: NextRequest) {
 
   // Server-side route protection for authenticated-only pages
   // Checks for our custom auth cookie (email/password login) or NextAuth session cookie (OAuth login)
-  const protectedMatch = pathname.match(/^\/([a-z]{2})\/(dashboard|builder|profile)(\/|$)/);
+  const protectedMatch = pathname.match(/^\/([a-z]{2})\/(dashboard|profile)(\/|$)/);
   if (protectedMatch) {
     const locale = protectedMatch[1];
     const isAuthenticated =
