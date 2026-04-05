@@ -4,6 +4,8 @@
  */
 
 import puppeteer, { Browser, Page } from 'puppeteer';
+import { PDFDocument, PDFName, PDFRawStream, PDFArray, PDFRef } from 'pdf-lib';
+import { decodePDFRawStream } from 'pdf-lib/cjs/core/streams/decode';
 import logger from '../lib/logger';
 import { captureError, trackPdfGeneration } from '../lib/sentry';
 import { PdfResumeData, PdfTheme, PdfGenerateRequest, PdfTranslations } from '../types/pdf';
@@ -105,6 +107,77 @@ export async function closeBrowser(): Promise<void> {
 }
 
 /**
+ * Remove trailing blank pages from a PDF buffer.
+ * A page is considered blank if its content stream has no visible drawing
+ * operators (no text, images, or filled/stroked paths).
+ */
+async function removeTrailingBlankPages(pdfBuffer: Buffer): Promise<Buffer> {
+    try {
+        const pdfDoc = await PDFDocument.load(pdfBuffer);
+        const pages = pdfDoc.getPages();
+
+        if (pages.length <= 1) return pdfBuffer;
+
+        const context = pdfDoc.context;
+
+        let removed = 0;
+        for (let i = pages.length - 1; i >= 1; i--) {
+            const page = pages[i];
+            const contentsEntry = page.node.get(PDFName.of('Contents'));
+
+            if (!contentsEntry) {
+                pdfDoc.removePage(i);
+                removed++;
+                continue;
+            }
+
+            // Collect content stream refs (could be single ref or array of refs)
+            const streamRefs: PDFRef[] = [];
+            if (contentsEntry instanceof PDFRef) {
+                streamRefs.push(contentsEntry);
+            } else if (contentsEntry instanceof PDFArray) {
+                for (let k = 0; k < contentsEntry.size(); k++) {
+                    const entry = contentsEntry.get(k);
+                    if (entry instanceof PDFRef) streamRefs.push(entry);
+                }
+            }
+
+            // Decode each stream and check for visible drawing operators
+            let decoded = '';
+            for (const ref of streamRefs) {
+                const obj = context.lookup(ref);
+                if (obj instanceof PDFRawStream) {
+                    const bytes = decodePDFRawStream(obj).decode();
+                    decoded += new TextDecoder('latin1').decode(bytes);
+                }
+            }
+
+            // Check for text (Tj/TJ) or images/XObjects (Do) — the only meaningful content.
+            // Background fills (re f) are just page backgrounds, not real content.
+            const hasVisibleContent = /\b(Tj|TJ|Do)\b/.test(decoded);
+
+            if (!hasVisibleContent) {
+                pdfDoc.removePage(i);
+                removed++;
+                continue;
+            }
+
+            // Stop at the first non-blank page from the end
+            break;
+        }
+
+        if (removed === 0) return pdfBuffer;
+
+        logger.info({ removedPages: removed }, 'Removed trailing blank pages from PDF');
+        const trimmedBytes = await pdfDoc.save();
+        return Buffer.from(trimmedBytes);
+    } catch (err) {
+        logger.warn({ err }, 'Failed to check for blank pages, returning original PDF');
+        return pdfBuffer;
+    }
+}
+
+/**
  * Generate PDF from HTML string
  * Includes a JS-based pagination pass (ported from frontend PagedPreview.tsx)
  * that measures elements and adds margin-top to prevent content splitting at page boundaries.
@@ -128,12 +201,23 @@ export async function generatePdfFromHtml(
         });
 
         await page.setContent(html, {
-            waitUntil: 'networkidle2',
+            waitUntil: 'domcontentloaded',
             timeout: 15000,
         });
 
-        // Wait for base64 @font-face fonts to decode
-        await page.evaluate('document.fonts.ready');
+        // Wait for all fonts (base64 + Google Fonts CDN for CJK/Thai) to load.
+        // Uses document.fonts.ready which resolves when all @font-face fonts are loaded.
+        // Wrapped in Promise.race with a 10s timeout to prevent hangs if CDN is unreachable.
+        await page.evaluate(`Promise.race([
+            Promise.all([
+                new Promise(function(resolve) {
+                    if (document.readyState === 'complete') return resolve();
+                    window.addEventListener('load', function() { resolve(); }, { once: true });
+                }),
+                document.fonts.ready
+            ]),
+            new Promise(function(resolve) { setTimeout(resolve, 10000); })
+        ])`);
 
         // Smart pagination — ported from frontend PagedPreview.tsx
         // Measures element positions and adds margin-top to push elements past page boundaries.
@@ -360,7 +444,7 @@ export async function generatePdfFromHtml(
             preferCSSPageSize: true,
         });
 
-        const result = Buffer.from(pdfBuffer);
+        const result = await removeTrailingBlankPages(Buffer.from(pdfBuffer));
         const durationMs = Date.now() - startTime;
         trackPdfGeneration(marginStrategy, durationMs, true, result.length);
         return result;
