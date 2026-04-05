@@ -53,7 +53,7 @@ const cardStyle: React.CSSProperties = {
 
 function VisaIcon() {
   return (
-    <span style={{ ...cardStyle, backgroundColor: '#1A1F71', borderColor: '#1A1F71', position: 'relative', overflow: 'hidden' }} aria-label="Visa">
+    <span style={{ ...cardStyle, backgroundColor: '#1A1F71', borderColor: '#1A1F71', position: 'relative', overflow: 'hidden' }} role="img" aria-label="Visa">
       {/* Gold accent stripe */}
       <span style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 4, background: 'linear-gradient(to right, #F7B600, #F79E1B)' }} />
       <span style={{ fontSize: 11, fontWeight: 800, fontStyle: 'italic', letterSpacing: -0.5, color: '#fff', position: 'relative', zIndex: 1, marginTop: -2 }}>VISA</span>
@@ -63,7 +63,7 @@ function VisaIcon() {
 
 function MastercardIcon() {
   return (
-    <span style={cardStyle} aria-label="Mastercard">
+    <span style={cardStyle} role="img" aria-label="Mastercard">
       <svg width="26" height="16" viewBox="0 0 32 20" fill="none">
         <circle cx="12" cy="10" r="6" fill="#EB001B" />
         <circle cx="20" cy="10" r="6" fill="#F79E1B" />
@@ -75,7 +75,7 @@ function MastercardIcon() {
 
 function AmexIcon() {
   return (
-    <span style={{ ...cardStyle, backgroundColor: '#006FCF', borderColor: '#006FCF' }} aria-label="American Express">
+    <span style={{ ...cardStyle, backgroundColor: '#006FCF', borderColor: '#006FCF' }} role="img" aria-label="American Express">
       <span style={{ fontSize: 8, fontWeight: 800, color: '#fff', letterSpacing: 0.5 }}>AMEX</span>
     </span>
   );
@@ -83,7 +83,7 @@ function AmexIcon() {
 
 function ApplePayIcon() {
   return (
-    <span style={cardStyle} aria-label="Apple Pay">
+    <span style={cardStyle} role="img" aria-label="Apple Pay">
       <span style={{ fontSize: 10, fontWeight: 600, color: '#000' }}>&#63743; Pay</span>
     </span>
   );
@@ -91,7 +91,7 @@ function ApplePayIcon() {
 
 function GooglePayIcon() {
   return (
-    <span style={cardStyle} aria-label="Google Pay">
+    <span style={cardStyle} role="img" aria-label="Google Pay">
       <svg width="30" height="14" viewBox="0 0 30 14" fill="none">
         <path d="M14.26 7.1v2.7h-.86V3.2h2.28c.55 0 1.01.18 1.39.55.39.36.58.8.58 1.32 0 .53-.19.97-.58 1.33-.37.36-.84.54-1.39.54h-1.42v.16zm0-3.1v2.14h1.44c.33 0 .6-.11.82-.33.23-.22.34-.49.34-.8 0-.3-.11-.56-.34-.78a1.09 1.09 0 0 0-.82-.33h-1.44v.1z" fill="#5F6368" />
         <path d="M20.2 5.38c.63 0 1.13.17 1.49.51.36.34.54.8.54 1.39v2.82h-.82v-.64h-.04c-.35.52-.82.78-1.4.78-.5 0-.91-.15-1.25-.44-.33-.3-.5-.67-.5-1.12 0-.47.18-.85.55-1.13.37-.28.86-.42 1.47-.42.52 0 .95.1 1.28.28v-.2c0-.33-.13-.61-.38-.84a1.24 1.24 0 0 0-.87-.34c-.5 0-.9.21-1.18.64l-.76-.48c.42-.63 1.04-.95 1.87-.95v-.06zm-1.1 3.44c0 .25.1.45.32.61.21.16.45.24.72.24.39 0 .73-.14 1.02-.43.29-.29.43-.62.43-.99-.27-.21-.64-.31-1.13-.31-.36 0-.65.09-.89.26-.24.17-.36.38-.36.62h-.11z" fill="#5F6368" />
