@@ -52,7 +52,7 @@ router.post("/create-portal", authenticateToken, async (req: AuthRequest, res: R
       return;
     }
 
-    const { returnUrl } = req.body as { returnUrl?: string };
+    const returnUrl = (req.body as { returnUrl?: string })?.returnUrl;
     const url = await createPortalSession(req.user.id, returnUrl);
     res.json({ url });
   } catch (error: unknown) {

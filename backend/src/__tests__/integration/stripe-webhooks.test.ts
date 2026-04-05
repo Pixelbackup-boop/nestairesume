@@ -36,7 +36,23 @@ jest.mock('../../services/stripeService', () => ({
   getSubscriptionStatus: jest.fn(),
   constructWebhookEvent: jest.fn(),
   handleWebhookEvent: jest.fn(),
+  getSubscriptionDetails: jest.fn(),
+  getUserInvoices: jest.fn(),
+  cancelSubscription: jest.fn(),
+  reactivateSubscription: jest.fn(),
+  changeSubscriptionPlan: jest.fn(),
+  getProrationPreview: jest.fn(),
+  getPublicPlanLimits: jest.fn(),
   PLANS: {
+    free: {
+      name: 'Free',
+      priceId: '',
+      type: 'subscription',
+      cvLimit: 3,
+      aiLimit: 5,
+      downloadLimit: 2,
+      coverLetterLimit: 1,
+    },
     starter: {
       name: 'Starter',
       priceId: 'price_starter_test',

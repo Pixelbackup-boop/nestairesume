@@ -22,7 +22,15 @@ jest.mock('../../services/stripeService', () => ({
   createCheckoutSession: jest.fn(),
   createPortalSession: jest.fn(),
   getSubscriptionStatus: jest.fn(),
+  getSubscriptionDetails: jest.fn(),
+  getUserInvoices: jest.fn(),
+  cancelSubscription: jest.fn(),
+  reactivateSubscription: jest.fn(),
+  changeSubscriptionPlan: jest.fn(),
+  getProrationPreview: jest.fn(),
+  getPublicPlanLimits: jest.fn(),
   PLANS: {
+    free: { name: 'Free', cvLimit: 3, aiLimit: 5, downloadLimit: 2, coverLetterLimit: 1 },
     starter: { name: 'Starter', cvLimit: 30, aiLimit: 50, downloadLimit: 3 },
     gold: { name: 'Gold', cvLimit: 150, aiLimit: 100, downloadLimit: 10 },
     diamond: { name: 'Diamond', cvLimit: 300, aiLimit: 200, downloadLimit: 25 },
@@ -142,7 +150,7 @@ describe('Payments API Integration Tests', () => {
 
       expect(response.status).toBe(HTTP_STATUS.OK);
       expect(response.body.url).toBe(portalUrl);
-      expect(mockStripeService.createPortalSession).toHaveBeenCalledWith(testUser.id);
+      expect(mockStripeService.createPortalSession).toHaveBeenCalledWith(testUser.id, undefined);
     });
 
     it('should return 401 without authentication', async () => {
