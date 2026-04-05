@@ -410,20 +410,13 @@ export default function DashboardPage() {
                                         </Link>
                                     )}
                                     {user.subscriptionTier && user.subscriptionTier !== 'free' && user.subscriptionTier !== 'expired' && (
-                                        <button
-                                            onClick={async () => {
-                                                try {
-                                                    const response = await api.post('/payments/create-portal');
-                                                    window.location.href = (response.data as { url: string }).url;
-                                                } catch (err) {
-                                                    console.error('Failed to open portal:', err);
-                                                }
-                                            }}
+                                        <Link
+                                            href={`/${locale}/billing`}
                                             className="flex items-center gap-2 border border-border-subtle text-text-secondary px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition"
                                         >
                                             <CreditCard size={16} />
                                             {t('subscription.manage')}
-                                        </button>
+                                        </Link>
                                     )}
                                 </div>
                             </div>

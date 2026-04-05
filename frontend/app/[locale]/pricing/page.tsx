@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { PricingAnimations } from "@/components/PricingAnimations";
 import { useAuthStore } from "@/store/useAuthStore";
 import api from "@/lib/api";
+import { StripeTrustBadgeFull, StripeTrustBadgeCompact } from "@/components/StripeTrustBadge";
 
 type PlanType = "starter" | "gold" | "diamond" | "platinum";
 
@@ -372,10 +373,14 @@ export default function PricingPage() {
                     "Get Started"
                   )}
                 </button>
+                <StripeTrustBadgeCompact className="mt-2" />
               </PricingAnimations.PricingCard>
               );
             })}
           </PricingAnimations.PricingGrid>
+
+          {/* Stripe Trust Badges */}
+          <StripeTrustBadgeFull />
         </div>
       </section>
 

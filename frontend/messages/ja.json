@@ -123,7 +123,8 @@
     "vsDoda": "vs doda",
     "chatgptComparison": "ChatGPT vs AIビルダー",
     "whyWereBetter": "No.1無料ビルダーの理由",
-    "whyWereBetterDesc": "AI搭載、ATS最適化、完全無料"
+    "whyWereBetterDesc": "AI搭載、ATS最適化、完全無料",
+    "billing": "Billing"
   },
   "Home": {
     "hero": {
@@ -2127,5 +2128,94 @@
         }
       }
     }
+  },
+  "Billing": {
+    "meta": {
+      "title": "Billing & Subscription",
+      "description": "Manage your subscription, view billing history, and download receipts."
+    },
+    "title": "Billing & Subscription",
+    "currentPlan": {
+      "title": "Current Plan",
+      "plan": "{plan} Plan",
+      "nextBilling": "Next billing date",
+      "cancelScheduled": "Your subscription will cancel on {date}",
+      "cancelScheduledDesc": "You'll keep access to all features until then.",
+      "noPlan": "No Active Plan",
+      "noPlanDesc": "Subscribe to unlock premium features and start building professional resumes.",
+      "subscribeCta": "View Plans",
+      "changePlan": "Change Plan",
+      "cancelSubscription": "Cancel Subscription",
+      "reactivate": "Reactivate Subscription",
+      "active": "Active",
+      "pastDue": "Past Due",
+      "canceled": "Canceled",
+      "trialing": "Trial"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "cardEnding": "{brand} ending in {last4}",
+      "expires": "Expires {month}/{year}",
+      "update": "Update Payment Method",
+      "noMethod": "No payment method on file"
+    },
+    "usage": {
+      "title": "Usage This Period",
+      "cvCreations": "CV Creations",
+      "aiGenerations": "AI Generations",
+      "downloads": "Downloads",
+      "coverLetters": "Cover Letters",
+      "unlimited": "Unlimited",
+      "used": "{used} / {limit}"
+    },
+    "history": {
+      "title": "Billing History",
+      "date": "Date",
+      "description": "Description",
+      "amount": "Amount",
+      "status": "Status",
+      "download": "Download",
+      "downloadPdf": "PDF",
+      "noHistory": "No billing history yet",
+      "paid": "Paid",
+      "open": "Open",
+      "draft": "Draft",
+      "void": "Void",
+      "uncollectible": "Failed"
+    },
+    "cancel": {
+      "title": "Cancel Subscription",
+      "warning": "Are you sure you want to cancel?",
+      "keepAccess": "You'll keep access to all {plan} features until {date}",
+      "loseAccess": "After cancellation, you'll lose access to premium features",
+      "resubscribe": "You can resubscribe anytime to restore your plan",
+      "cancelAtEnd": "Cancel at End of Billing Period",
+      "cancelImmediately": "Cancel Immediately",
+      "immediateWarning": "This will immediately revoke access to all premium features.",
+      "confirmTitle": "Confirm Cancellation",
+      "confirmText": "Type CANCEL to confirm",
+      "confirmPlaceholder": "Type CANCEL",
+      "confirmButton": "Confirm Cancellation",
+      "success": "Your subscription has been canceled",
+      "reactivateSuccess": "Your subscription has been reactivated"
+    },
+    "changePlan": {
+      "title": "Change Plan",
+      "current": "Current",
+      "proration": "You'll be charged {amount} today",
+      "credit": "You'll receive a {amount} credit",
+      "confirm": "Confirm Plan Change",
+      "success": "Your plan has been changed to {plan}",
+      "loading": "Calculating..."
+    },
+    "loading": "Loading billing information...",
+    "error": "Failed to load billing information. Please try again."
+  },
+  "TrustBadge": {
+    "poweredBy": "Payments by",
+    "secureCheckout": "Secure checkout via",
+    "pciCompliant": "PCI DSS compliant",
+    "encrypted": "256-bit SSL encrypted",
+    "noCardStored": "We never store your card details"
   }
 }

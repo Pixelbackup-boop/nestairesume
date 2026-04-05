@@ -174,6 +174,16 @@ export const createCheckoutSchema = z.object({
   }),
 });
 
+export const cancelSubscriptionSchema = z.object({
+  immediately: z.boolean().optional().default(false),
+});
+
+export const changePlanSchema = z.object({
+  plan: z.enum(planTypes, {
+    errorMap: () => ({ message: 'Invalid plan. Must be: starter, gold, diamond, or platinum' }),
+  }),
+});
+
 // ==================== Contact Form Schema ====================
 
 export const contactFormSchema = z.object({
@@ -213,3 +223,5 @@ export type UpdateProfileInput = z.infer<typeof updateProfileSchema>;
 export type RequestEmailChangeInput = z.infer<typeof requestEmailChangeSchema>;
 export type VerifyEmailChangeInput = z.infer<typeof verifyEmailChangeSchema>;
 export type ContactFormInput = z.infer<typeof contactFormSchema>;
+export type CancelSubscriptionInput = z.infer<typeof cancelSubscriptionSchema>;
+export type ChangePlanInput = z.infer<typeof changePlanSchema>;

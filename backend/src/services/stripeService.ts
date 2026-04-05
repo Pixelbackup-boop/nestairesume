@@ -154,7 +154,7 @@ export const createCheckoutSession = async (
 };
 
 // Create customer portal session
-export const createPortalSession = async (userId: string): Promise<string> => {
+export const createPortalSession = async (userId: string, returnUrl?: string): Promise<string> => {
   if (!stripe) throw new Error("Stripe is not configured");
 
   const user = await prisma.user.findUnique({ where: { id: userId } });
@@ -165,10 +165,190 @@ export const createPortalSession = async (userId: string): Promise<string> => {
 
   const session = await stripe.billingPortal.sessions.create({
     customer: user.stripeCustomerId,
-    return_url: `${config.frontendUrl}/dashboard`,
+    return_url: returnUrl || `${config.frontendUrl}/dashboard`,
   });
 
   return session.url;
+};
+
+// Get detailed subscription info for billing page
+export const getSubscriptionDetails = async (userId: string) => {
+  if (!stripe) throw new Error("Stripe is not configured");
+
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user?.subscriptionId || !user?.stripeCustomerId) {
+    return null;
+  }
+
+  const subscription = await stripe.subscriptions.retrieve(user.subscriptionId, {
+    expand: ['default_payment_method', 'latest_invoice'],
+  });
+
+  const paymentMethod = subscription.default_payment_method as Stripe.PaymentMethod | null;
+  const firstItem = subscription.items.data[0];
+  const priceId = firstItem?.price?.id;
+
+  // Find plan name from priceId
+  let planName = user.subscriptionTier || 'unknown';
+  for (const [key, planConfig] of Object.entries(PLANS)) {
+    if (planConfig.priceId === priceId) {
+      planName = key;
+      break;
+    }
+  }
+
+  // In Stripe v20, current_period_end is on the subscription item, not subscription
+  const periodEnd = firstItem?.current_period_end ?? 0;
+
+  return {
+    plan: planName,
+    planDisplayName: PLANS[planName as PlanType]?.name || planName,
+    status: subscription.status,
+    currentPeriodEnd: periodEnd,
+    cancelAtPeriodEnd: subscription.cancel_at_period_end,
+    cancelAt: subscription.cancel_at,
+    paymentMethod: paymentMethod?.card ? {
+      brand: paymentMethod.card.brand,
+      last4: paymentMethod.card.last4,
+      expMonth: paymentMethod.card.exp_month,
+      expYear: paymentMethod.card.exp_year,
+    } : null,
+  };
+};
+
+// Get user's invoices from Stripe
+export const getUserInvoices = async (userId: string, limit = 24) => {
+  if (!stripe) throw new Error("Stripe is not configured");
+
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user?.stripeCustomerId) {
+    return [];
+  }
+
+  const invoices = await stripe.invoices.list({
+    customer: user.stripeCustomerId,
+    limit,
+  });
+
+  return invoices.data.map(invoice => ({
+    id: invoice.id,
+    number: invoice.number,
+    date: invoice.created,
+    amount: invoice.amount_paid,
+    currency: invoice.currency,
+    status: invoice.status,
+    pdfUrl: invoice.invoice_pdf,
+    hostedUrl: invoice.hosted_invoice_url,
+    description: invoice.lines.data[0]?.description || 'Subscription',
+  }));
+};
+
+// Cancel subscription (at period end or immediately)
+export const cancelSubscription = async (userId: string, immediately = false) => {
+  if (!stripe) throw new Error("Stripe is not configured");
+
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user?.subscriptionId) {
+    throw new Error("No active subscription found");
+  }
+
+  if (immediately) {
+    await stripe.subscriptions.cancel(user.subscriptionId);
+    return { effectiveDate: Math.floor(Date.now() / 1000) };
+  }
+
+  const subscription = await stripe.subscriptions.update(user.subscriptionId, {
+    cancel_at_period_end: true,
+  });
+
+  const periodEnd = subscription.items.data[0]?.current_period_end ?? Math.floor(Date.now() / 1000);
+  return { effectiveDate: periodEnd };
+};
+
+// Reactivate a subscription scheduled for cancellation
+export const reactivateSubscription = async (userId: string) => {
+  if (!stripe) throw new Error("Stripe is not configured");
+
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user?.subscriptionId) {
+    throw new Error("No active subscription found");
+  }
+
+  const subscription = await stripe.subscriptions.update(user.subscriptionId, {
+    cancel_at_period_end: false,
+  });
+
+  return { status: subscription.status };
+};
+
+// Change subscription plan with proration
+export const changeSubscriptionPlan = async (userId: string, newPlan: PlanType) => {
+  if (!stripe) throw new Error("Stripe is not configured");
+
+  const planConfig = PLANS[newPlan];
+  if (!planConfig?.priceId) {
+    throw new Error(`Invalid plan: ${newPlan}`);
+  }
+
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user?.subscriptionId) {
+    throw new Error("No active subscription found");
+  }
+
+  const subscription = await stripe.subscriptions.retrieve(user.subscriptionId);
+  const itemId = subscription.items.data[0]?.id;
+  if (!itemId) {
+    throw new Error("No subscription item found");
+  }
+
+  const updated = await stripe.subscriptions.update(user.subscriptionId, {
+    items: [{ id: itemId, price: planConfig.priceId }],
+    proration_behavior: 'create_prorations',
+  });
+
+  // Update local tier
+  await prisma.user.update({
+    where: { id: userId },
+    data: { subscriptionTier: newPlan },
+  });
+
+  return { plan: newPlan, status: updated.status };
+};
+
+// Preview proration for plan change
+export const getProrationPreview = async (userId: string, newPlan: PlanType) => {
+  if (!stripe) throw new Error("Stripe is not configured");
+
+  const planConfig = PLANS[newPlan];
+  if (!planConfig?.priceId) {
+    throw new Error(`Invalid plan: ${newPlan}`);
+  }
+
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user?.subscriptionId || !user?.stripeCustomerId) {
+    throw new Error("No active subscription found");
+  }
+
+  const subscription = await stripe.subscriptions.retrieve(user.subscriptionId);
+  const itemId = subscription.items.data[0]?.id;
+  if (!itemId) {
+    throw new Error("No subscription item found");
+  }
+
+  const preview = await stripe.invoices.createPreview({
+    customer: user.stripeCustomerId,
+    subscription: user.subscriptionId,
+    subscription_details: {
+      items: [{ id: itemId, price: planConfig.priceId }],
+      proration_behavior: 'create_prorations',
+    },
+  });
+
+  return {
+    amount: preview.amount_due,
+    currency: preview.currency,
+    isCredit: preview.amount_due < 0,
+  };
 };
 
 // Handle webhook events

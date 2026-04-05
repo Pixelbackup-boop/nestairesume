@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { signOut as nextAuthSignOut } from 'next-auth/react';
 import { useAuthStore } from '@/store/useAuthStore';
-import { User, LayoutDashboard, LogOut, ChevronDown, Shield } from 'lucide-react';
+import { User, LayoutDashboard, CreditCard, LogOut, ChevronDown, Shield } from 'lucide-react';
 import { getAvatarId, getAvatarSrc } from '@/lib/avatar';
 
 interface UserDropdownProps {
@@ -115,6 +115,15 @@ export default function UserDropdown({ scrolled = true, isHomePage = false }: Us
             >
               <LayoutDashboard size={16} />
               {t('dashboard')}
+            </Link>
+            <Link
+              href={`/${locale}/billing`}
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 text-sm text-dark-teal/70 hover:bg-gray-50 hover:text-dark-teal transition"
+              role="menuitem"
+            >
+              <CreditCard size={16} />
+              {t('billing')}
             </Link>
             {user.role === 'admin' && (
               <Link

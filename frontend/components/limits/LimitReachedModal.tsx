@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { LimitType, UPGRADE_PATH } from '@/hooks/useLimitCheck';
 import { useDialogA11y } from '@/hooks/useDialogA11y';
+import { StripeTrustBadgeCompact } from '@/components/StripeTrustBadge';
 
 interface LimitReachedModalProps {
   isOpen: boolean;
@@ -171,6 +172,7 @@ export default function LimitReachedModal({
             <p className="text-xs text-gray-500 text-center mt-2">
               {nextPlanInfo.highlight}
             </p>
+            <StripeTrustBadgeCompact className="mt-2" />
           </div>
         )}
 

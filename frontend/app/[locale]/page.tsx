@@ -16,6 +16,7 @@ import {
   Testimonial,
 } from "@/components/HomeAnimations";
 import HomeTemplateShowcase from "@/components/HomeTemplateShowcase";
+import { StripeTrustBadgeFull, StripeTrustBadgeCompact, StripeTrustBadgeLight } from "@/components/StripeTrustBadge";
 
 export default async function Home() {
   const t = await getTranslations("Home");
@@ -500,6 +501,7 @@ export default async function Home() {
               <Link href={localizedHref("/checkout?plan=starter")} className="block w-full text-center py-2.5 rounded-lg border border-gray-300 hover:bg-gray-50 transition font-medium text-sm text-dark-teal">
                 {tPricing("starter.cta")}
               </Link>
+              <StripeTrustBadgeCompact className="mt-2" />
             </div>
 
             {/* Gold Plan */}
@@ -533,6 +535,7 @@ export default async function Home() {
               <Link href={localizedHref("/checkout?plan=gold")} className="block w-full text-center py-2.5 rounded-lg border border-gray-300 hover:bg-gray-50 transition font-medium text-sm text-dark-teal">
                 {tPricing("gold.cta")}
               </Link>
+              <StripeTrustBadgeCompact className="mt-2" />
             </div>
 
             {/* Diamond Plan - Highlighted */}
@@ -571,6 +574,7 @@ export default async function Home() {
               <Link href={localizedHref("/checkout?plan=diamond")} className="block w-full text-center py-2.5 rounded-lg bg-white text-teal-text font-semibold text-sm hover:bg-gray-50 transition">
                 {tPricing("diamond.cta")}
               </Link>
+              <StripeTrustBadgeLight className="mt-2" />
             </div>
 
             {/* Platinum Plan */}
@@ -609,8 +613,12 @@ export default async function Home() {
               <Link href={localizedHref("/checkout?plan=platinum")} className="block w-full text-center py-2.5 rounded-lg bg-amber-500 text-white font-semibold text-sm hover:bg-amber-600 transition">
                 {tPricing("platinum.cta")}
               </Link>
+              <StripeTrustBadgeCompact className="mt-2" />
             </div>
           </div>
+
+          {/* Stripe Trust Badges */}
+          <StripeTrustBadgeFull />
 
           <p className="text-center text-dark-teal/80 text-sm mt-8">
             <Link href={localizedHref("/pricing")} className="text-teal-text underline underline-offset-2">{tPricing("viewComparison")}</Link> • {tPricing("securePayments")}
