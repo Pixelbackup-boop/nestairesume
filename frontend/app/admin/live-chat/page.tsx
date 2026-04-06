@@ -23,7 +23,7 @@ interface TawkSettings {
 const defaultSettings: TawkSettings = {
   enabled: false,
   propertyId: "",
-  widgetId: "",
+  widgetId: "default",
 };
 
 export default function AdminLiveChatPage() {
@@ -32,6 +32,7 @@ export default function AdminLiveChatPage() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [showPropertyId, setShowPropertyId] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   useEffect(() => {
     fetchSettings();
@@ -51,9 +52,20 @@ export default function AdminLiveChatPage() {
   const handleSave = async () => {
     setSaving(true);
     setMessage(null);
+
+    // Auto-enable if Property ID is set, auto-disable if cleared
+    const settingsToSave = {
+      ...settings,
+      widgetId: settings.widgetId.trim() || "default",
+      enabled: settings.propertyId.trim() !== "",
+    };
+
     try {
-      await api.post("/admin/tawk/settings", settings);
-      setMessage({ type: "success", text: "Live chat settings saved! Changes take effect on next page load." });
+      await api.post("/admin/tawk/settings", settingsToSave);
+      setSettings(settingsToSave);
+      setMessage({ type: "success", text: settingsToSave.enabled
+        ? "Live chat is now active! Widget will appear on your site within a few seconds."
+        : "Live chat disabled. Widget removed from your site." });
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };
       setMessage({
@@ -65,7 +77,7 @@ export default function AdminLiveChatPage() {
     }
   };
 
-  const canEnable = settings.propertyId.trim() !== "" && settings.widgetId.trim() !== "";
+  const isActive = settings.enabled && settings.propertyId.trim() !== "";
 
   if (loading) {
     return (
@@ -115,59 +127,23 @@ export default function AdminLiveChatPage() {
 
       {/* Status Card */}
       <div className={`border rounded-xl p-6 ${
-        settings.enabled && canEnable
+        isActive
           ? "bg-green-50 border-green-200"
           : "bg-gray-50 border-gray-200"
       }`}>
         <div className="flex items-center gap-3">
           <div className={`w-3 h-3 rounded-full ${
-            settings.enabled && canEnable ? "bg-green-500 animate-pulse" : "bg-gray-300"
+            isActive ? "bg-green-500 animate-pulse" : "bg-gray-300"
           }`} />
           <span className="text-lg font-semibold text-gray-900">
-            {settings.enabled && canEnable ? "Live Chat Active" : "Live Chat Inactive"}
+            {isActive ? "Live Chat Active" : "Live Chat Inactive"}
           </span>
         </div>
         <p className="text-gray-500 text-sm mt-2">
-          {settings.enabled && canEnable
+          {isActive
             ? "The chat widget is visible to all visitors on your site."
-            : "Enable the toggle below and add your tawk.to IDs to activate live chat."}
+            : "Add your tawk.to Property ID below and save to activate live chat."}
         </p>
-      </div>
-
-      {/* Enable Toggle */}
-      <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-6">
-        <div className="flex items-center justify-between p-4 bg-gray-100 rounded-lg">
-          <div className="flex items-center gap-3">
-            {settings.enabled ? (
-              <Eye className="text-green-400" size={20} />
-            ) : (
-              <EyeOff className="text-gray-400" size={20} />
-            )}
-            <div>
-              <p className="text-gray-900 font-medium">Enable Live Chat</p>
-              <p className="text-gray-500 text-sm">Show tawk.to chat widget on all public pages</p>
-            </div>
-          </div>
-          <button
-            onClick={() => setSettings((prev) => ({ ...prev, enabled: !prev.enabled }))}
-            className={`relative w-14 h-7 rounded-full transition-colors border-none outline-none focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2 cursor-pointer ${
-              settings.enabled ? "bg-green-500" : "bg-gray-300"
-            }`}
-          >
-            <span
-              className={`absolute left-[4px] top-[4px] w-5 h-5 bg-white rounded-full shadow-sm transition-transform duration-200 ${
-                settings.enabled ? "translate-x-[28px]" : "translate-x-0"
-              }`}
-            />
-          </button>
-        </div>
-
-        {settings.enabled && !canEnable && (
-          <div className="mt-4 flex items-center gap-2 text-amber-600 text-sm bg-amber-50 border border-amber-200 rounded-lg p-3">
-            <AlertCircle size={16} />
-            Add your Property ID and Widget ID below to activate the chat widget.
-          </div>
-        )}
       </div>
 
       {/* tawk.to Configuration */}
@@ -190,7 +166,7 @@ export default function AdminLiveChatPage() {
                 onChange={(e) =>
                   setSettings((prev) => ({ ...prev, propertyId: e.target.value.trim() }))
                 }
-                placeholder="xxxxxxxxxxxxxxxxxxxxxxxx"
+                placeholder="Paste your tawk.to Property ID here"
                 className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none pr-12"
               />
               <button
@@ -202,27 +178,39 @@ export default function AdminLiveChatPage() {
               </button>
             </div>
             <p className="text-xs text-gray-500 mt-1">
-              Found in your tawk.to dashboard under Administration &rarr; Chat Widget
+              Found in your tawk.to dashboard under Administration &rarr; Chat Widget. Paste the ID and click Save — live chat will activate automatically.
             </p>
           </div>
 
-          {/* Widget ID */}
+          {/* Advanced: Widget ID */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Widget ID
-            </label>
-            <input
-              type="text"
-              value={settings.widgetId}
-              onChange={(e) =>
-                setSettings((prev) => ({ ...prev, widgetId: e.target.value.trim() }))
-              }
-              placeholder="default"
-              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none"
-            />
-            <p className="text-xs text-gray-500 mt-1">
-              Usually &quot;default&quot; unless you have multiple widgets. Check your Direct Chat Link URL format: tawk.to/chat/&#123;propertyId&#125;/&#123;widgetId&#125;
-            </p>
+            <button
+              type="button"
+              onClick={() => setShowAdvanced(!showAdvanced)}
+              className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+            >
+              <span className={`transition-transform ${showAdvanced ? "rotate-90" : ""}`}>▶</span>
+              Advanced Settings
+            </button>
+            {showAdvanced && (
+              <div className="mt-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Widget ID
+                </label>
+                <input
+                  type="text"
+                  value={settings.widgetId}
+                  onChange={(e) =>
+                    setSettings((prev) => ({ ...prev, widgetId: e.target.value.trim() }))
+                  }
+                  placeholder="default"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-accent-purple focus:outline-none"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Usually &quot;default&quot; unless you have multiple widgets. Check your Direct Chat Link URL format: tawk.to/chat/&#123;propertyId&#125;/&#123;widgetId&#125;
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -253,8 +241,7 @@ export default function AdminLiveChatPage() {
           <li>
             Copy the Property ID and Widget ID from the URL: <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">tawk.to/chat/&#123;propertyId&#125;/&#123;widgetId&#125;</code>
           </li>
-          <li>Paste both IDs above and click Save Settings</li>
-          <li>Enable the toggle to show the chat widget on your site</li>
+          <li>Paste the Property ID above and click Save Settings — live chat activates automatically</li>
           <li>
             Enable the <strong>Pre-Chat Form</strong> in tawk.to dashboard so guests must enter their email before chatting
           </li>
