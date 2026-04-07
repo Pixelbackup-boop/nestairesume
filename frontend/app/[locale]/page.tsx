@@ -481,6 +481,10 @@ export default async function Home() {
                 <span className="text-dark-teal/80 text-sm">{tPricing("starter.period")}</span>
               </div>
               <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-dark-teal font-medium">
+                  <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  {tPricing("starter.features.downloads")}
+                </li>
                 <li className="flex items-center gap-2 text-dark-teal/80">
                   <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   {tPricing("starter.features.cvCreations")}
@@ -515,6 +519,10 @@ export default async function Home() {
                 <span className="text-dark-teal/80 text-sm">{tPricing("gold.period")}</span>
               </div>
               <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-dark-teal font-medium">
+                  <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  {tPricing("gold.features.downloads")}
+                </li>
                 <li className="flex items-center gap-2 text-dark-teal/80">
                   <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   {tPricing("gold.features.cvCreations")}
@@ -522,10 +530,6 @@ export default async function Home() {
                 <li className="flex items-center gap-2 text-dark-teal/80">
                   <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   {tPricing("gold.features.aiGenerations")}
-                </li>
-                <li className="flex items-center gap-2 text-dark-teal/80">
-                  <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  {tPricing("gold.features.templates")}
                 </li>
                 <li className="flex items-center gap-2 text-dark-teal/80">
                   <svg className="w-4 h-4 text-teal-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -554,6 +558,10 @@ export default async function Home() {
                 <span className="text-white/70 text-sm">{tPricing("diamond.period")}</span>
               </div>
               <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-white font-medium">
+                  <svg className="w-4 h-4 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  {tPricing("diamond.features.downloads")}
+                </li>
                 <li className="flex items-center gap-2 text-white/90">
                   <svg className="w-4 h-4 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   {tPricing("diamond.features.cvCreations")}
@@ -565,10 +573,6 @@ export default async function Home() {
                 <li className="flex items-center gap-2 text-white/90">
                   <svg className="w-4 h-4 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   {tPricing("diamond.features.coverLetter")}
-                </li>
-                <li className="flex items-center gap-2 text-white/90">
-                  <svg className="w-4 h-4 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  {tPricing("diamond.features.support")}
                 </li>
               </ul>
               <Link href={localizedHref("/checkout?plan=diamond")} className="block w-full text-center py-2.5 rounded-lg bg-white text-teal-text font-semibold text-sm hover:bg-gray-50 transition">
@@ -593,6 +597,10 @@ export default async function Home() {
                 <span className="text-dark-teal/80 text-sm">{tPricing("platinum.period")}</span>
               </div>
               <ul className="space-y-2.5 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-dark-teal font-medium">
+                  <svg className="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  {tPricing("platinum.features.downloads")}
+                </li>
                 <li className="flex items-center gap-2 text-dark-teal/80">
                   <svg className="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   {tPricing("platinum.features.cvCreations")}
@@ -604,10 +612,6 @@ export default async function Home() {
                 <li className="flex items-center gap-2 text-dark-teal/80">
                   <svg className="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   {tPricing("platinum.features.earlyAccess")}
-                </li>
-                <li className="flex items-center gap-2 text-dark-teal/80">
-                  <svg className="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  {tPricing("platinum.features.support")}
                 </li>
               </ul>
               <Link href={localizedHref("/checkout?plan=platinum")} className="block w-full text-center py-2.5 rounded-lg bg-amber-500 text-white font-semibold text-sm hover:bg-amber-600 transition">
