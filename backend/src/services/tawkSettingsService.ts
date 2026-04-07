@@ -17,10 +17,11 @@ export interface TawkSettings {
   updatedAt?: string;
 }
 
+// Fall back to env vars so settings survive container redeploys
 const defaultSettings: TawkSettings = {
-  enabled: false,
-  propertyId: "",
-  widgetId: "",
+  enabled: !!process.env.TAWK_PROPERTY_ID,
+  propertyId: process.env.TAWK_PROPERTY_ID || "",
+  widgetId: process.env.TAWK_WIDGET_ID || "default",
 };
 
 export async function getTawkSettings(): Promise<TawkSettings> {

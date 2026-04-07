@@ -133,6 +133,8 @@ jobs:
             --set-env-vars="DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }}" \
             --set-env-vars="BREVO_API_KEY=${{ secrets.BREVO_API_KEY }}" \
             --set-env-vars="SENTRY_DSN=${{ secrets.SENTRY_DSN }}" \
+            --set-env-vars="TAWK_PROPERTY_ID=${{ secrets.TAWK_PROPERTY_ID }}" \
+            --set-env-vars="TAWK_WIDGET_ID=${{ secrets.TAWK_WIDGET_ID }}" \
             --set-env-vars="EMAIL_FROM_ADDRESS=noreply@bestairesumes.com" \
             --set-env-vars="^||^CORS_ORIGINS=${{ secrets.CORS_ORIGINS }}" \
             --add-cloudsql-instances="${{ secrets.GCP_PROJECT_ID }}:${{ env.GCP_REGION }}:resume-db"
