@@ -12,6 +12,8 @@ import {
 const SALT_ROUNDS = 10;
 const VERIFICATION_CODE_EXPIRY_MINUTES = 10;
 
+type GeoInfo = { country: string; countryCode: string } | null;
+
 export const hashPassword = async (password: string): Promise<string> => {
   return bcrypt.hash(password, SALT_ROUNDS);
 };
@@ -70,7 +72,7 @@ export const registerUser = async (email: string, password: string, name: string
   };
 };
 
-export const loginUser = async (email: string, password: string) => {
+export const loginUser = async (email: string, password: string, geo?: GeoInfo) => {
   const user = await prisma.user.findUnique({ where: { email } });
 
   if (!user) {
@@ -90,6 +92,14 @@ export const loginUser = async (email: string, password: string) => {
   const isValid = await verifyPassword(password, user.hashedPassword);
   if (!isValid) {
     throw new Error("Invalid email or password");
+  }
+
+  // Update country on login (keeps it current)
+  if (geo) {
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { country: geo.country, countryCode: geo.countryCode },
+    });
   }
 
   const accessToken = createAccessToken(user.id, user.email, user.role);
@@ -128,10 +138,11 @@ interface OAuthData {
   image?: string;
   accessToken?: string;
   refreshToken?: string;
+  geo?: GeoInfo;
 }
 
 export const handleOAuthSignIn = async (data: OAuthData) => {
-  const { provider, providerAccountId, email, name, image } = data;
+  const { provider, providerAccountId, email, name, image, geo } = data;
 
   // Find existing user by email or provider account
   let user = await prisma.user.findFirst({
@@ -183,11 +194,14 @@ export const handleOAuthSignIn = async (data: OAuthData) => {
       });
     }
 
-    // Mark email as verified for OAuth users
-    if (!user.emailVerified) {
+    // Mark email as verified for OAuth users + update country
+    if (!user.emailVerified || geo) {
       await prisma.user.update({
         where: { id: user.id },
-        data: { emailVerified: new Date() },
+        data: {
+          ...(!user.emailVerified && { emailVerified: new Date() }),
+          ...(geo && { country: geo.country, countryCode: geo.countryCode }),
+        },
       });
     }
   } else {
@@ -199,6 +213,7 @@ export const handleOAuthSignIn = async (data: OAuthData) => {
         image,
         emailVerified: new Date(), // OAuth emails are pre-verified
         hashedPassword: "", // No password for OAuth users
+        ...(geo && { country: geo.country, countryCode: geo.countryCode }),
         accounts: {
           create: {
             type: "oauth",
@@ -238,7 +253,8 @@ export const handleOAuthSignIn = async (data: OAuthData) => {
 export const registerUserWithVerification = async (
   email: string,
   password: string,
-  name: string
+  name: string,
+  geo?: GeoInfo
 ) => {
   // Check if user exists and is already verified
   const existingUser = await prisma.user.findUnique({ where: { email } });
@@ -264,6 +280,7 @@ export const registerUserWithVerification = async (
         name,
         verificationCode,
         verificationCodeExpires,
+        ...(geo && { country: geo.country, countryCode: geo.countryCode }),
       },
     });
   } else {
@@ -275,6 +292,7 @@ export const registerUserWithVerification = async (
         name,
         verificationCode,
         verificationCodeExpires,
+        ...(geo && { country: geo.country, countryCode: geo.countryCode }),
       },
     });
   }

@@ -18,6 +18,7 @@ import {
   refreshAccessToken,
 } from "../services/authService";
 import { authenticateToken, AuthRequest } from "../middleware/auth";
+import { getCountryFromRequest } from "../lib/geoLocation";
 import {
   validateBody,
   registerSchema,
@@ -42,7 +43,8 @@ const router = Router();
 router.post("/register", validateBody(registerSchema), async (req: Request, res: Response) => {
   try {
     const { email, password, name } = req.body;
-    const result = await registerUserWithVerification(email, password, name);
+    const geo = getCountryFromRequest(req);
+    const result = await registerUserWithVerification(email, password, name, geo);
     res.status(201).json(result);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Registration failed";
@@ -88,8 +90,9 @@ router.post("/token", validateBody(loginSchema), async (req: Request, res: Respo
     // Support both form-urlencoded (OAuth2) and JSON
     const email = req.body.username || req.body.email;
     const password = req.body.password;
+    const geo = getCountryFromRequest(req);
 
-    const token = await loginUser(email, password);
+    const token = await loginUser(email, password, geo);
     res.json(token);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Login failed";
@@ -104,6 +107,8 @@ router.post("/oauth", validateBody(oauthSchema), async (req: Request, res: Respo
   try {
     const { provider, providerAccountId, email, name, image, accessToken, refreshToken } = req.body;
 
+    const geo = getCountryFromRequest(req);
+
     const result = await handleOAuthSignIn({
       provider,
       providerAccountId,
@@ -112,6 +117,7 @@ router.post("/oauth", validateBody(oauthSchema), async (req: Request, res: Respo
       image,
       accessToken,
       refreshToken,
+      geo,
     });
 
     res.json(result);

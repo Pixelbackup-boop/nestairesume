@@ -1,9 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, MoreVertical, Eye, Edit, Trash2, Ban, AlertCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, MoreVertical, Eye, Edit, Trash2, Ban, AlertCircle, ChevronLeft, ChevronRight, Globe, Loader2 } from "lucide-react";
 import api from "@/lib/api";
 import Link from "next/link";
+
+interface CountryRow {
+  countryCode: string;
+  country: string;
+  count: number;
+}
 
 interface User {
   id: string;
@@ -13,6 +19,8 @@ interface User {
   subscriptionTier: string;
   subscriptionStatus: string | null;
   isSuspended: boolean;
+  country: string | null;
+  countryCode: string | null;
   createdAt: string;
   resumeCount: number;
 }
@@ -32,6 +40,15 @@ export default function UsersPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [actionMenu, setActionMenu] = useState<string | null>(null);
+  const [countryData, setCountryData] = useState<CountryRow[]>([]);
+  const [countryLoading, setCountryLoading] = useState(true);
+
+  useEffect(() => {
+    api.get("/admin/analytics/countries")
+      .then((res) => setCountryData((res.data as { usersByCountry: CountryRow[] }).usersByCountry))
+      .catch(() => {})
+      .finally(() => setCountryLoading(false));
+  }, []);
 
   const fetchUsers = async () => {
     setLoading(true);
@@ -92,6 +109,14 @@ export default function UsersPage() {
     });
   };
 
+  const getFlagEmoji = (code: string) => {
+    const codePoints = code
+      .toUpperCase()
+      .split("")
+      .map((c) => 0x1f1e6 + c.charCodeAt(0) - 65);
+    return String.fromCodePoint(...codePoints);
+  };
+
   const getTierBadge = (tier: string) => {
     const styles: Record<string, string> = {
       diamond: "bg-accent-pink/20 text-accent-pink",
@@ -126,6 +151,41 @@ export default function UsersPage() {
         </div>
       </div>
 
+      {/* Users by Country */}
+      <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+        <h2 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <Globe size={18} />
+          Users by Country
+        </h2>
+        {countryLoading ? (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="w-5 h-5 animate-spin text-accent-purple" />
+          </div>
+        ) : countryData.length === 0 ? (
+          <p className="text-gray-400 text-sm text-center py-4">No country data yet</p>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {countryData.slice(0, 12).map((row) => (
+              <div
+                key={row.countryCode}
+                className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-lg"
+              >
+                <span className="text-lg leading-none">{getFlagEmoji(row.countryCode)}</span>
+                <div className="min-w-0">
+                  <p className="text-sm font-medium text-gray-900">{row.count}</p>
+                  <p className="text-xs text-gray-500 truncate" title={row.country}>{row.countryCode}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        {countryData.length > 12 && (
+          <p className="text-xs text-gray-400 mt-3 text-center">
+            +{countryData.length - 12} more countries
+          </p>
+        )}
+      </div>
+
       {/* Search & Filters */}
       <div className="flex items-center gap-4">
         <form onSubmit={handleSearch} className="flex-1 max-w-md">
@@ -152,6 +212,7 @@ export default function UsersPage() {
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Role</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Plan</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Resumes</th>
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Country</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Status</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Joined</th>
                 <th className="text-right px-6 py-4 text-sm font-medium text-gray-500">Actions</th>
@@ -174,6 +235,9 @@ export default function UsersPage() {
                       <div className="h-4 bg-gray-100 rounded w-8" />
                     </td>
                     <td className="px-6 py-4">
+                      <div className="h-4 bg-gray-100 rounded w-10" />
+                    </td>
+                    <td className="px-6 py-4">
                       <div className="h-4 bg-gray-100 rounded w-16" />
                     </td>
                     <td className="px-6 py-4">
@@ -186,7 +250,7 @@ export default function UsersPage() {
                 ))
               ) : data?.users.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-gray-500">
+                  <td colSpan={8} className="px-6 py-12 text-center text-gray-500">
                     No users found
                   </td>
                 </tr>
@@ -217,6 +281,15 @@ export default function UsersPage() {
                     </td>
                     <td className="px-6 py-4 text-gray-700">
                       {user.resumeCount}
+                    </td>
+                    <td className="px-6 py-4 text-gray-700 text-sm">
+                      {user.countryCode ? (
+                        <span title={user.country || user.countryCode}>
+                          {user.countryCode}
+                        </span>
+                      ) : (
+                        <span className="text-gray-400">—</span>
+                      )}
                     </td>
                     <td className="px-6 py-4">
                       <span

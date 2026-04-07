@@ -24,6 +24,8 @@ export const getDashboardStats = async () => {
         name: true,
         createdAt: true,
         subscriptionTier: true,
+        country: true,
+        countryCode: true,
       },
       orderBy: { createdAt: "desc" },
       take: 5,
@@ -77,6 +79,8 @@ export const getAllUsers = async (skip = 0, limit = 20, search?: string) => {
         subscriptionTier: true,
         subscriptionStatus: true,
         isSuspended: true,
+        country: true,
+        countryCode: true,
         createdAt: true,
         updatedAt: true,
         _count: {
@@ -451,6 +455,61 @@ export const getPaymentAnalytics = async () => {
   return { dailyRevenue, monthlyRevenue, revenueByPlan, growth, topCustomers };
 };
 
+// Country analytics
+export const getCountryAnalytics = async () => {
+  // All users grouped by country
+  const usersByCountry = await prisma.user.groupBy({
+    by: ['countryCode', 'country'],
+    _count: { id: true },
+    where: { countryCode: { not: null } },
+    orderBy: { _count: { id: 'desc' } },
+  });
+
+  // Paid users: users who have at least one succeeded payment, grouped by country
+  const paidUsers = await prisma.user.findMany({
+    where: {
+      countryCode: { not: null },
+      payments: { some: { status: 'succeeded' } },
+    },
+    select: {
+      countryCode: true,
+      country: true,
+      payments: {
+        where: { status: 'succeeded' },
+        select: { amount: true },
+      },
+    },
+  });
+
+  // Aggregate paid users by country
+  const paidByCountryMap = new Map<string, { country: string; users: number; revenue: number }>();
+  for (const user of paidUsers) {
+    const code = user.countryCode!;
+    const entry = paidByCountryMap.get(code) || { country: user.country || code, users: 0, revenue: 0 };
+    entry.users += 1;
+    entry.revenue += user.payments.reduce((sum, p) => sum + p.amount, 0);
+    paidByCountryMap.set(code, entry);
+  }
+
+  const revenueByCountry = Array.from(paidByCountryMap.entries())
+    .map(([countryCode, data]) => ({
+      countryCode,
+      country: data.country,
+      paidUsers: data.users,
+      revenue: data.revenue,
+    }))
+    .sort((a, b) => b.revenue - a.revenue);
+
+  return {
+    usersByCountry: usersByCountry.map(row => ({
+      countryCode: row.countryCode!,
+      country: row.country || row.countryCode!,
+      count: row._count.id,
+    })),
+    revenueByCountry,
+  };
+};
+
 export const getAllPayments = async (page = 1, limit = 20) => {
   const skip = (page - 1) * limit;
 
@@ -458,7 +517,7 @@ export const getAllPayments = async (page = 1, limit = 20) => {
     prisma.payment.findMany({
       include: {
         user: {
-          select: { id: true, email: true, name: true },
+          select: { id: true, email: true, name: true, country: true, countryCode: true },
         },
       },
       orderBy: { createdAt: "desc" },

@@ -10,6 +10,8 @@ import {
   AlertCircle,
   ChevronLeft,
   ChevronRight,
+  Globe,
+  Loader2,
 } from "lucide-react";
 import api from "@/lib/api";
 import StatsCard from "@/components/admin/StatsCard";
@@ -27,6 +29,8 @@ interface Payment {
     id: string;
     email: string;
     name: string;
+    country: string | null;
+    countryCode: string | null;
   };
 }
 
@@ -36,6 +40,13 @@ interface PaymentsResponse {
   page: number;
   limit: number;
   totalPages: number;
+}
+
+interface CountryRevenue {
+  countryCode: string;
+  country: string;
+  paidUsers: number;
+  revenue: number;
 }
 
 interface PaymentStats {
@@ -51,6 +62,8 @@ export default function PaymentsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
+  const [countryRevenue, setCountryRevenue] = useState<CountryRevenue[]>([]);
+  const [countryLoading, setCountryLoading] = useState(true);
 
   const fetchPayments = async () => {
     setLoading(true);
@@ -73,6 +86,13 @@ export default function PaymentsPage() {
     fetchPayments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+
+  useEffect(() => {
+    api.get("/admin/analytics/countries")
+      .then((res) => setCountryRevenue((res.data as { revenueByCountry: CountryRevenue[] }).revenueByCountry))
+      .catch(() => {})
+      .finally(() => setCountryLoading(false));
+  }, []);
 
   const formatCurrency = (cents: number) => {
     return new Intl.NumberFormat("en-US", {
@@ -98,6 +118,14 @@ export default function PaymentsPage() {
       failed: "bg-red-100 text-red-500",
     };
     return styles[status] || styles.pending;
+  };
+
+  const getFlagEmoji = (code: string) => {
+    const codePoints = code
+      .toUpperCase()
+      .split("")
+      .map((c) => 0x1f1e6 + c.charCodeAt(0) - 65);
+    return String.fromCodePoint(...codePoints);
   };
 
   const getPlanBadge = (plan: string | null) => {
@@ -171,6 +199,48 @@ export default function PaymentsPage() {
       {/* Analytics Charts */}
       <PaymentAnalytics />
 
+      {/* Revenue by Country */}
+      <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+        <h2 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <Globe size={18} />
+          Revenue by Country
+        </h2>
+        {countryLoading ? (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="w-5 h-5 animate-spin text-accent-purple" />
+          </div>
+        ) : countryRevenue.length === 0 ? (
+          <p className="text-gray-400 text-sm text-center py-4">No country data yet</p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Country</th>
+                  <th className="text-right px-4 py-3 text-sm font-medium text-gray-500">Paid Users</th>
+                  <th className="text-right px-4 py-3 text-sm font-medium text-gray-500">Revenue</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {countryRevenue.map((row) => (
+                  <tr key={row.countryCode} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3">
+                      <span className="flex items-center gap-2">
+                        <span className="text-lg leading-none">{getFlagEmoji(row.countryCode)}</span>
+                        <span className="text-sm text-gray-900">{row.country}</span>
+                        <span className="text-xs text-gray-400">{row.countryCode}</span>
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-right text-sm text-gray-700">{row.paidUsers}</td>
+                    <td className="px-4 py-3 text-right text-sm font-medium text-gray-900">{formatCurrency(row.revenue)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
       {/* Payments Table */}
       <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
         <div className="p-6 border-b border-gray-200">
@@ -183,6 +253,7 @@ export default function PaymentsPage() {
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Transaction</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Customer</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Plan</th>
+                <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Country</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Amount</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Status</th>
                 <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Date</th>
@@ -202,6 +273,9 @@ export default function PaymentsPage() {
                       <div className="h-4 bg-gray-100 rounded w-16" />
                     </td>
                     <td className="px-6 py-4">
+                      <div className="h-4 bg-gray-100 rounded w-10" />
+                    </td>
+                    <td className="px-6 py-4">
                       <div className="h-4 bg-gray-100 rounded w-16" />
                     </td>
                     <td className="px-6 py-4">
@@ -214,7 +288,7 @@ export default function PaymentsPage() {
                 ))
               ) : data?.payments.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
+                  <td colSpan={7} className="px-6 py-12 text-center text-gray-500">
                     No payments yet
                   </td>
                 </tr>
@@ -241,6 +315,15 @@ export default function PaymentsPage() {
                       <span className={`px-2 py-1 rounded text-xs font-medium capitalize ${getPlanBadge(payment.plan)}`}>
                         {payment.plan || "N/A"}
                       </span>
+                    </td>
+                    <td className="px-6 py-4 text-gray-700 text-sm">
+                      {payment.user.countryCode ? (
+                        <span title={payment.user.country || payment.user.countryCode}>
+                          {payment.user.countryCode}
+                        </span>
+                      ) : (
+                        <span className="text-gray-400">—</span>
+                      )}
                     </td>
                     <td className="px-6 py-4">
                       <p className="text-gray-900 font-medium">

@@ -182,6 +182,17 @@ router.delete("/blog/:id", async (req: AuthRequest, res: Response) => {
   }
 });
 
+// Country analytics
+router.get("/analytics/countries", async (_req: AuthRequest, res: Response) => {
+  try {
+    const analytics = await adminService.getCountryAnalytics();
+    res.json(analytics);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to get country analytics";
+    res.status(500).json({ detail: message });
+  }
+});
+
 // Payment management
 router.get("/payments/stats", async (_req: AuthRequest, res: Response) => {
   try {

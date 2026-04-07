@@ -40,6 +40,8 @@ model User {
   downloadCount           Int       @default(0) // Downloads this billing period
   coverLetterCount        Int       @default(0) // Cover letters this billing period
   lastAiResetDate         DateTime? // When daily/monthly counters were last reset
+  country                 String?   // Country name from IP geolocation
+  countryCode             String?   // ISO 3166-1 alpha-2 country code (e.g., "US", "BD")
   createdAt               DateTime  @default(now())
   updatedAt               DateTime  @updatedAt
   // Relations
