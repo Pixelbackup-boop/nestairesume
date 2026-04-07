@@ -11,8 +11,8 @@ const SHOWCASE_IDS = [
     'sidebar-dark-navy',
     'header-dark',
     'header-decorative',
-    'minimal-timeline',
-    'classic-pro',
+    'sidebar-narrow-yellow',
+    'header-blue-clean',
 ];
 
 export default function HomeTemplateShowcase() {
