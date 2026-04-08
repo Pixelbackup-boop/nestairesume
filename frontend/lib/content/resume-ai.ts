@@ -72,14 +72,14 @@ export interface ResumeAIPageContent {
 
 const en: ResumeAIPageContent = {
   meta: {
-    title: 'Resume AI | Free AI Resume Builder & Generator 2026',
-    description: 'Build your resume with AI in seconds. Free Resume AI tool that writes professional content, optimizes for ATS, and helps you land interviews.',
+    title: 'Resume AI | Best AI Resume Builder & Generator 2026',
+    description: 'Build your resume with AI in seconds. The best Resume AI tool that writes professional content, optimizes for ATS, and helps you land interviews.',
     keywords: 'resume ai, ai resume builder, ai resume generator, resume artificial intelligence, ai powered resume, smart resume builder, ai resume writer, resume ai free',
   },
   schemas: {
     breadcrumbName: 'Resume AI',
-    articleHeadline: 'Resume AI: Free AI Resume Builder & Generator 2026',
-    articleDescription: 'Build your resume with AI. Our free Resume AI tool writes professional content, optimizes for ATS, and creates job-winning resumes in minutes.',
+    articleHeadline: 'Resume AI: Best AI Resume Builder & Generator 2026',
+    articleDescription: 'Build your resume with AI. The best Resume AI tool writes professional content, optimizes for ATS, and creates job-winning resumes in minutes.',
     softwareAppName: 'Resume AI Builder',
   },
   hero: {

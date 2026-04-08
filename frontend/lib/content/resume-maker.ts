@@ -14,7 +14,7 @@ const en: LandingPageContent = {
     softwareAppName: 'Best AI Resume Maker',
   },
   hero: {
-    badge: 'Free AI Resume Maker',
+    badge: 'Best AI Resume Maker',
     title: 'Create Your Professional',
     titleHighlight: 'Resume in Minutes',
     subtitle: 'Our free <strong>resume maker</strong> uses AI to help you write compelling content, optimize for ATS systems, and land more interviews. With <a href="https://www.jobscan.co/blog/fortune-500-use-applicant-tracking-systems/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">98% of Fortune 500 companies</a> using ATS software, having an optimized resume is essential. No design skills needed.',
