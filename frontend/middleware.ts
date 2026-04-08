@@ -103,7 +103,21 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  return intlMiddleware(request);
+  // Run intl middleware and capture the response
+  const response = intlMiddleware(request);
+
+  // Set geo_country cookie from Cloudflare's CF-IPCountry header
+  // This makes the user's country available to client-side code for registration/login
+  const cfCountry = request.headers.get('cf-ipcountry');
+  if (cfCountry && cfCountry !== 'XX' && cfCountry !== 'T1') {
+    response.cookies.set('geo_country', cfCountry.toUpperCase(), {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 30, // 30 days
+      sameSite: 'lax',
+    });
+  }
+
+  return response;
 }
 
 export const config = {

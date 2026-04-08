@@ -54,6 +54,7 @@ export const registerSchema = z.object({
     .min(1, 'Name is required')
     .max(100, 'Name too long')
     .trim(),
+  countryCode: z.string().max(2).optional(),
 });
 
 export const loginSchema = z.object({
@@ -61,6 +62,7 @@ export const loginSchema = z.object({
   username: z.string().email('Invalid email format').optional(),
   email: z.string().email('Invalid email format').optional(),
   password: z.string({ required_error: 'Password is required' }).min(1, 'Password is required'),
+  countryCode: z.string().max(2).optional(),
 }).refine((data) => data.username || data.email, {
   message: 'Email is required',
   path: ['email'],
@@ -162,6 +164,7 @@ export const oauthSchema = z.object({
   image: z.string().url().optional().nullable(),
   accessToken: z.string().optional(),
   refreshToken: z.string().optional(),
+  countryCode: z.string().max(2).optional(),
 });
 
 // ==================== Payment Schemas ====================

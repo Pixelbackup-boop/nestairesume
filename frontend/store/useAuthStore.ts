@@ -1,6 +1,12 @@
 import { create } from 'zustand';
 import api from '../lib/api';
 
+function getGeoCookie(): string | undefined {
+    if (typeof document === 'undefined') return undefined;
+    const match = document.cookie.match(/(?:^|;\s*)geo_country=([^;]*)/);
+    return match?.[1] || undefined;
+}
+
 interface User {
     id: string;
     email: string;
@@ -35,8 +41,10 @@ export const useAuthStore = create<AuthState>((set) => ({
         set({ isLoading: true, error: null });
         try {
             // 1. Get Token - send as URL-encoded string
+            const geo = getGeoCookie();
+            const body = `username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}${geo ? `&countryCode=${encodeURIComponent(geo)}` : ''}`;
             const response = await api.post('/auth/token',
-                `username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`,
+                body,
                 { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
             );
 
@@ -79,7 +87,8 @@ export const useAuthStore = create<AuthState>((set) => ({
             await api.post('/auth/register', {
                 email,
                 password,
-                name: fullName
+                name: fullName,
+                countryCode: getGeoCookie(),
             });
             set({ isLoading: false });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

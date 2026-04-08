@@ -42,8 +42,8 @@ const router = Router();
 // POST /api/v1/auth/register - Register with email verification
 router.post("/register", validateBody(registerSchema), async (req: Request, res: Response) => {
   try {
-    const { email, password, name } = req.body;
-    const geo = getCountryFromRequest(req);
+    const { email, password, name, countryCode } = req.body;
+    const geo = getCountryFromRequest(req, countryCode);
     const result = await registerUserWithVerification(email, password, name, geo);
     res.status(201).json(result);
   } catch (error) {
@@ -90,7 +90,7 @@ router.post("/token", validateBody(loginSchema), async (req: Request, res: Respo
     // Support both form-urlencoded (OAuth2) and JSON
     const email = req.body.username || req.body.email;
     const password = req.body.password;
-    const geo = getCountryFromRequest(req);
+    const geo = getCountryFromRequest(req, req.body.countryCode);
 
     const token = await loginUser(email, password, geo);
     res.json(token);
@@ -105,9 +105,9 @@ router.post("/token", validateBody(loginSchema), async (req: Request, res: Respo
 // POST /api/v1/auth/oauth - Handle OAuth sign-in from NextAuth
 router.post("/oauth", validateBody(oauthSchema), async (req: Request, res: Response) => {
   try {
-    const { provider, providerAccountId, email, name, image, accessToken, refreshToken } = req.body;
+    const { provider, providerAccountId, email, name, image, accessToken, refreshToken, countryCode } = req.body;
 
-    const geo = getCountryFromRequest(req);
+    const geo = getCountryFromRequest(req, countryCode);
 
     const result = await handleOAuthSignIn({
       provider,

@@ -23,13 +23,23 @@ function getCountryName(code: string): string {
 /**
  * Extract country info from the request.
  * Uses Cloudflare's CF-IPCountry header (available on all Cloudflare plans).
+ * Falls back to countryCode passed in the request body (set by frontend via CF header → cookie).
  */
-export function getCountryFromRequest(req: Request): { country: string; countryCode: string } | null {
+export function getCountryFromRequest(req: Request, bodyCountryCode?: string): { country: string; countryCode: string } | null {
   // Cloudflare adds this header automatically
   const cfCountry = req.headers['cf-ipcountry'] as string | undefined;
 
   if (cfCountry && cfCountry !== 'XX' && cfCountry !== 'T1') {
     const code = cfCountry.toUpperCase();
+    return {
+      countryCode: code,
+      country: getCountryName(code),
+    };
+  }
+
+  // Fallback: countryCode passed from the frontend (read from CF header on the Next.js side)
+  if (bodyCountryCode && bodyCountryCode.length === 2) {
+    const code = bodyCountryCode.toUpperCase();
     return {
       countryCode: code,
       country: getCountryName(code),

@@ -5,6 +5,7 @@ import LinkedInProvider from "next-auth/providers/linkedin";
 import AzureADProvider from "next-auth/providers/azure-ad";
 import AppleProvider from "next-auth/providers/apple";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { headers } from "next/headers";
 
 const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:4444";
 
@@ -137,9 +138,18 @@ export const authOptions: NextAuthOptions = {
       // OAuth sign-in: sync with backend
       if (account && user.email) {
         try {
-          console.log("🔐 [NextAuth] OAuth signIn callback:", account.provider, user.email);
-          console.log("🔐 [NextAuth] providerAccountId:", account.providerAccountId);
-          console.log("🔐 [NextAuth] Calling backend:", BACKEND_URL);
+          // Read Cloudflare country header (available because Next.js is behind CF proxy)
+          let countryCode: string | undefined;
+          try {
+            const reqHeaders = await headers();
+            const cfCountry = reqHeaders.get("cf-ipcountry");
+            if (cfCountry && cfCountry !== "XX" && cfCountry !== "T1") {
+              countryCode = cfCountry.toUpperCase();
+            }
+          } catch {
+            // headers() may not be available in all contexts
+          }
+
           const response = await fetch(`${BACKEND_URL}/api/v1/auth/oauth`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -151,6 +161,7 @@ export const authOptions: NextAuthOptions = {
               image: user.image,
               accessToken: account.access_token,
               refreshToken: account.refresh_token,
+              countryCode,
             }),
           });
 
