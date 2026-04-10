@@ -3,6 +3,7 @@ import { AuthRequest, authenticateToken, requireAdmin } from "../middleware/auth
 import * as adminService from "../services/adminService";
 import * as adSettingsService from "../services/adSettingsService";
 import * as tawkSettingsService from "../services/tawkSettingsService";
+import * as trustpilotSettingsService from "../services/trustpilotSettingsService";
 import { getUsageStatus } from "../middleware/subscriptionLimits";
 import { PLANS, PlanType } from "../services/stripeService";
 import prisma from "../config/database";
@@ -308,6 +309,27 @@ router.post("/tawk/settings", async (req: AuthRequest, res: Response) => {
     res.json(settings);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to save tawk settings";
+    res.status(500).json({ detail: message });
+  }
+});
+
+// Trustpilot widget settings
+router.get("/trustpilot/settings", async (_req: AuthRequest, res: Response) => {
+  try {
+    const settings = await trustpilotSettingsService.getTrustpilotSettings();
+    res.json(settings);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to get trustpilot settings";
+    res.status(500).json({ detail: message });
+  }
+});
+
+router.post("/trustpilot/settings", async (req: AuthRequest, res: Response) => {
+  try {
+    const settings = await trustpilotSettingsService.saveTrustpilotSettings(req.body);
+    res.json(settings);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to save trustpilot settings";
     res.status(500).json({ detail: message });
   }
 });
