@@ -53,19 +53,19 @@ export default function AdminLiveChatPage() {
     setSaving(true);
     setMessage(null);
 
-    // Auto-enable if Property ID is set, auto-disable if cleared
+    // Save credentials only — enabled flag is controlled by the toggle
     const settingsToSave = {
       ...settings,
       widgetId: settings.widgetId.trim() || "default",
-      enabled: settings.propertyId.trim() !== "",
     };
 
     try {
       await api.post("/admin/tawk/settings", settingsToSave);
       setSettings(settingsToSave);
-      setMessage({ type: "success", text: settingsToSave.enabled
-        ? "Live chat is now active! Widget will appear on your site within a few seconds."
-        : "Live chat disabled. Widget removed from your site." });
+      setMessage({
+        type: "success",
+        text: "Credentials saved. Use the toggle above to show or hide the chat widget.",
+      });
     } catch (err: unknown) {
       const error = err as { response?: { data?: { detail?: string } } };
       setMessage({
@@ -77,7 +77,37 @@ export default function AdminLiveChatPage() {
     }
   };
 
+  const handleToggle = async () => {
+    if (!settings.propertyId.trim()) {
+      setMessage({ type: "error", text: "Add a Property ID first, then enable live chat." });
+      return;
+    }
+
+    const next = !settings.enabled;
+    setSettings((prev) => ({ ...prev, enabled: next }));
+    setMessage(null);
+
+    try {
+      await api.post("/admin/tawk/settings", { enabled: next });
+      setMessage({
+        type: "success",
+        text: next
+          ? "Live chat enabled. Widget will appear on your site within a few minutes (cached)."
+          : "Live chat disabled. Widget will be removed from your site within a few minutes (cached).",
+      });
+    } catch (err: unknown) {
+      // Revert optimistic update on failure
+      setSettings((prev) => ({ ...prev, enabled: !next }));
+      const error = err as { response?: { data?: { detail?: string } } };
+      setMessage({
+        type: "error",
+        text: error.response?.data?.detail || "Failed to update live chat status",
+      });
+    }
+  };
+
   const isActive = settings.enabled && settings.propertyId.trim() !== "";
+  const canToggle = settings.propertyId.trim() !== "";
 
   if (loading) {
     return (
@@ -131,19 +161,44 @@ export default function AdminLiveChatPage() {
           ? "bg-green-50 border-green-200"
           : "bg-gray-50 border-gray-200"
       }`}>
-        <div className="flex items-center gap-3">
-          <div className={`w-3 h-3 rounded-full ${
-            isActive ? "bg-green-500 animate-pulse" : "bg-gray-300"
-          }`} />
-          <span className="text-lg font-semibold text-gray-900">
-            {isActive ? "Live Chat Active" : "Live Chat Inactive"}
-          </span>
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-3">
+              <div className={`w-3 h-3 rounded-full ${
+                isActive ? "bg-green-500 animate-pulse" : "bg-gray-300"
+              }`} />
+              <span className="text-lg font-semibold text-gray-900">
+                {isActive ? "Live Chat Active" : "Live Chat Inactive"}
+              </span>
+            </div>
+            <p className="text-gray-500 text-sm mt-2">
+              {isActive
+                ? "The chat widget is visible to all visitors on your site."
+                : canToggle
+                  ? "Credentials are saved. Flip the toggle to show the chat widget."
+                  : "Add your tawk.to Property ID below and save to activate live chat."}
+            </p>
+          </div>
+
+          {/* Toggle Switch */}
+          <button
+            type="button"
+            role="switch"
+            aria-checked={settings.enabled}
+            aria-label="Show chat widget on website"
+            onClick={handleToggle}
+            disabled={!canToggle}
+            className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-accent-purple focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+              settings.enabled ? "bg-green-500" : "bg-gray-300"
+            }`}
+          >
+            <span
+              className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+                settings.enabled ? "translate-x-6" : "translate-x-1"
+              }`}
+            />
+          </button>
         </div>
-        <p className="text-gray-500 text-sm mt-2">
-          {isActive
-            ? "The chat widget is visible to all visitors on your site."
-            : "Add your tawk.to Property ID below and save to activate live chat."}
-        </p>
       </div>
 
       {/* tawk.to Configuration */}
