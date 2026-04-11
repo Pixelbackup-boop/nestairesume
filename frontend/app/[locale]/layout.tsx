@@ -234,6 +234,7 @@ export default async function LocaleLayout({
         {yandexVerification && (
           <meta name="yandex-verification" content={yandexVerification} />
         )}
+        <meta name="p:domain_verify" content="ce878063a9827734d7f65855aa88496e" />
 
         {/* Preconnect to third-party origins for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
