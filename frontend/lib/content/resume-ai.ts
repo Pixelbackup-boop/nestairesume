@@ -1306,15 +1306,15 @@ const pt: ResumeAIPageContent = {
     title: 'Outras ferramentas de curriculo com IA',
     items: [
       { href: '/pt/resume-maker', title: 'Criador de Curriculo', subtitle: 'Criador de curriculo gratuito com IA' },
-      { href: '/pt/tools/ats-checker', title: 'Verificador ATS', subtitle: 'Analise ATS com IA' },
+      { href: '/pt/ferramentas/ats-checker', title: 'Verificador ATS', subtitle: 'Analise ATS com IA' },
       { href: '/pt/free-resume-builder', title: 'Curriculo gratis', subtitle: 'Criador 100% gratuito' },
     ],
     guidesTitle: 'Guias sobre curriculo com IA',
     guides: [
-      { href: '/pt/career-tips/ai-resume-tools', label: 'Ferramentas de IA para curriculo (2026)' },
+      { href: '/pt/dicas-de-carreira/ai-resume-tools', label: 'Ferramentas de IA para curriculo (2026)' },
       { href: '/pt/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude: qual IA para o curriculo?' },
       { href: '/pt/blog/how-to-write-ats-friendly-resume', label: 'Como fazer um curriculo ATS' },
-      { href: '/pt/resume-examples', label: '300+ exemplos de curriculo' },
+      { href: '/pt/exemplos-de-curriculo', label: '300+ exemplos de curriculo' },
     ],
   },
   bottomCta: {

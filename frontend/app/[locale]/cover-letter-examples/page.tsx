@@ -7,7 +7,7 @@ import { getContent } from '@/lib/content/cover-letter-examples-index';
 import { getLocalizedPath } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
-const BASE_URL = 'https://www.bestairesume.com';
+const BASE_URL = 'https://bestairesumes.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;

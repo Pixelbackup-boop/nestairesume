@@ -1178,7 +1178,7 @@ const pt: LandingPageContent = {
     title: 'Ferramentas relacionadas para curriculo',
     items: [
       { href: '/pt/resume-ai', title: 'Curriculo com IA', subtitle: 'Criador de curriculo com inteligencia artificial' },
-      { href: '/pt/tools/ats-checker', title: 'Verificador ATS', subtitle: 'Teste sua pontuacao ATS' },
+      { href: '/pt/ferramentas/ats-checker', title: 'Verificador ATS', subtitle: 'Teste sua pontuacao ATS' },
       { href: '/pt/free-resume-builder', title: 'Curriculo gratis', subtitle: 'Criador de curriculo 100% gratis' },
     ],
     guidesTitle: 'Guias uteis',

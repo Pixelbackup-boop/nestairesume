@@ -3173,7 +3173,7 @@ const pt: BiodataFormatPageContent = {
     items: [
       { href: '/pt/resume-format', title: 'Guia de Formato de Curriculo', subtitle: 'Formato cronologico, funcional e combinado' },
       { href: '/pt/templates', title: 'Modelos de Curriculo', subtitle: 'Mais de 20 modelos profissionais' },
-      { href: '/pt/resume-examples', title: 'Exemplos de Curriculo', subtitle: 'Mais de 300 exemplos por profissao' },
+      { href: '/pt/exemplos-de-curriculo', title: 'Exemplos de Curriculo', subtitle: 'Mais de 300 exemplos por profissao' },
     ],
   },
   externalResources: {

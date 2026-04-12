@@ -1337,7 +1337,7 @@ const pt: ComparisonPageContent = {
     guides: [
       { href: '/pt/blog/how-to-write-ats-friendly-resume', label: 'Como Escrever um Curriculo Compativel com ATS' },
       { href: '/pt/resume-format', label: 'Guia de Formato de Curriculo 2026' },
-      { href: '/pt/resume-examples/software-engineer', label: 'Exemplo de Curriculo Engenheiro de Software' },
+      { href: '/pt/exemplos-de-curriculo/software-engineer', label: 'Exemplo de Curriculo Engenheiro de Software' },
       { href: '/pt/blog/best-resume-fonts-2026', label: 'Melhores Fontes para Curriculo 2026' },
     ],
   },

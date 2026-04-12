@@ -1205,13 +1205,13 @@ const pt: LandingPageContent = {
     items: [
       { href: '/pt/resume-maker', title: 'Criador de Curriculo', subtitle: 'Com IA gratuita' },
       { href: '/pt/resume-ai', title: 'Curriculo com IA', subtitle: 'Escrita assistida por IA' },
-      { href: '/pt/tools/ats-checker', title: 'Verificador ATS', subtitle: 'Pontuacao ATS gratis' },
+      { href: '/pt/ferramentas/ats-checker', title: 'Verificador ATS', subtitle: 'Pontuacao ATS gratis' },
     ],
     guidesTitle: 'Guias gratuitos para curriculo',
     guides: [
       { href: '/pt/blog/how-to-write-a-resume', label: 'Como fazer um curriculo (guia gratis)' },
       { href: '/pt/resume-format', label: 'Guia de formato de curriculo 2026' },
-      { href: '/pt/resume-examples', label: '300+ exemplos de curriculo gratis' },
+      { href: '/pt/exemplos-de-curriculo', label: '300+ exemplos de curriculo gratis' },
       { href: '/pt/templates', label: 'Modelos de curriculo gratis' },
     ],
   },

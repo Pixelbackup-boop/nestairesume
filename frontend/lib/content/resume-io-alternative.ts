@@ -1347,7 +1347,7 @@ const pt: ComparisonPageContent = {
       { href: '/pt/blog/how-to-write-ats-friendly-resume', label: 'Como Escrever um Curriculo Compativel com ATS' },
       { href: '/pt/resume-format', label: 'Guia de Formato de Curriculo 2026' },
       { href: '/pt/blog/top-resume-mistakes-to-avoid', label: 'Erros Comuns no Curriculo a Evitar' },
-      { href: '/pt/resume-examples', label: 'Mais de 300 Exemplos de Curriculo por Profissao' },
+      { href: '/pt/exemplos-de-curriculo', label: 'Mais de 300 Exemplos de Curriculo por Profissao' },
     ],
   },
   externalResources: {

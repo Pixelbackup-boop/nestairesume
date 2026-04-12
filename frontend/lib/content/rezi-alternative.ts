@@ -1338,7 +1338,7 @@ const pt: ComparisonPageContent = {
     guides: [
       { href: '/pt/blog/how-to-write-ats-friendly-resume', label: 'Como Escrever um Curriculo Compativel com ATS' },
       { href: '/pt/resume-format', label: 'Guia de Formato de Curriculo 2026' },
-      { href: '/pt/resume-examples/data-analyst', label: 'Exemplo de Curriculo Analista de Dados' },
+      { href: '/pt/exemplos-de-curriculo/data-analyst', label: 'Exemplo de Curriculo Analista de Dados' },
       { href: '/pt/blog/chatgpt-vs-claude-for-resumes', label: 'ChatGPT vs Claude para Curriculo' },
     ],
   },
