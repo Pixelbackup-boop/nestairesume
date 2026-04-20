@@ -38,8 +38,8 @@ export async function generateMetadata({ params, searchParams }: CareerPageProps
       type: 'website',
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}/career${pageParam}`,
-      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/career${pageParam}`])),
+      canonical: `${siteUrl}/${locale}/career`,
+      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/career`])),
     },
     other: {
       ...(currentPage > 1 && { 'link-prev': `${siteUrl}/${locale}/career${prevParam}` }),

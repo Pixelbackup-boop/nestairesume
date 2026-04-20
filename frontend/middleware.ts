@@ -65,6 +65,16 @@ export default function middleware(request: NextRequest) {
     return NextResponse.rewrite(new URL('/maintenance', request.url));
   }
 
+  // Fix double-locale prefix (e.g., /id/id/tools/ats-checker → /id/tools/ats-checker)
+  const doubleLocaleMatch = pathname.match(/^\/([a-z]{2})\/\1\/(.*)/);
+  if (doubleLocaleMatch) {
+    const locale = doubleLocaleMatch[1];
+    const rest = doubleLocaleMatch[2];
+    const fixedUrl = request.nextUrl.clone();
+    fixedUrl.pathname = `/${locale}/${rest}`;
+    return NextResponse.redirect(fixedUrl, 301);
+  }
+
   // Localized route segment handling (e.g., /es/ejemplos-de-curriculum/slug)
   const localeMatch = pathname.match(/^\/([a-z]{2})\/(.*)/);
   if (localeMatch) {

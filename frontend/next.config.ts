@@ -52,12 +52,39 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Redirects for removed pages
+  // Redirects for removed/renamed pages
   async redirects() {
     return [
       {
         source: '/:locale/templates/ats-friendly',
         destination: '/:locale/templates',
+        permanent: true,
+      },
+      // Old tool URLs → new tool paths
+      {
+        source: '/cover-letter-builder',
+        destination: '/en/tools/cover-letter',
+        permanent: true,
+      },
+      {
+        source: '/:locale/cover-letter-builder',
+        destination: '/:locale/tools/cover-letter',
+        permanent: true,
+      },
+      {
+        source: '/ats-resume-checker',
+        destination: '/en/tools/ats-checker',
+        permanent: true,
+      },
+      {
+        source: '/:locale/ats-resume-checker',
+        destination: '/:locale/tools/ats-checker',
+        permanent: true,
+      },
+      // Old /career/ category URLs → career-tips
+      {
+        source: '/:locale/career/category/:category',
+        destination: '/:locale/career-tips/category/:category',
         permanent: true,
       },
     ];

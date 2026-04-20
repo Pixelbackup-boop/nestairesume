@@ -36,9 +36,9 @@ export async function generateMetadata({ params, searchParams }: BlogPageProps):
       type: 'website',
     },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/blog${pageParam}`,
+      canonical: `${BASE_URL}/${locale}/blog`,
       languages: Object.fromEntries(
-        locales.map(l => [l, `${BASE_URL}/${l}/blog${pageParam}`])
+        locales.map(l => [l, `${BASE_URL}/${l}/blog`])
       ),
     },
     other: {
