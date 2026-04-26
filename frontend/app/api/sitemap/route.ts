@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // Cache for 1 hour after first request
 
-import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerTips, getLocaleOnlyPostSlugs, getLocaleOnlyCareerTipSlugs } from '@/lib/blog/posts';
+import { getAllPosts, getAllCategories, getAllCareerPosts, getAllCareerTips, getAllCareerTipsCategories, getLocaleOnlyPostSlugs, getLocaleOnlyCareerTipSlugs } from '@/lib/blog/posts';
 import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
@@ -55,6 +55,7 @@ export async function GET() {
     { path: '/resume-examples', priority: 0.9 },
     { path: '/cover-letter-examples', priority: 0.9 },
     { path: '/resume-format', priority: 0.8 },
+    { path: '/tools', priority: 0.8 },
     { path: '/tools/cover-letter', priority: 0.7 },
     { path: '/tools/resignation-letter', priority: 0.7 },
     { path: '/tools/ats-checker', priority: 0.7 },
@@ -123,6 +124,12 @@ export async function GET() {
   const categories = await getAllCategories();
   for (const category of categories) {
     entries.push(...localizedUrls(`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 }));
+  }
+
+  // Career-tips categories
+  const careerTipsCategories = await getAllCareerTipsCategories();
+  for (const category of careerTipsCategories) {
+    entries.push(...localizedUrls(`/career-tips/category/${category.toLowerCase().replace(/\s+/g, '-')}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.6 }));
   }
 
   // ── Locale-only blog posts ────────────────────────────────────────────
