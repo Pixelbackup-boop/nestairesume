@@ -17,6 +17,7 @@ import {
 } from "@/lib/cover-letter-examples/posts";
 import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
 import { getContent } from "@/lib/content/cover-letter-article";
+import LanguageAlternates from "@/components/LanguageAlternates";
 import { locales } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
@@ -500,6 +501,11 @@ export default async function CoverLetterExamplePage({
           </div>
         </section>
       )}
+
+      {/* Language Alternates — internal-link signals to other locale variants */}
+      <div className="max-w-6xl mx-auto px-6">
+        <LanguageAlternates currentLocale={locale} path={`/cover-letter-examples/${slug}`} />
+      </div>
 
       {/* Multiplex Ad */}
       <MultiplexAd className="max-w-6xl mx-auto px-6 py-8" />

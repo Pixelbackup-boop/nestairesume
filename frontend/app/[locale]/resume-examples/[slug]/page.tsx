@@ -17,6 +17,7 @@ import {
 } from "@/lib/resume-examples/posts";
 import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
 import { getContent } from "@/lib/content/resume-article";
+import LanguageAlternates from "@/components/LanguageAlternates";
 import { locales } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
@@ -607,6 +608,11 @@ export default async function ResumeExamplePage({
           </div>
         </section>
       )}
+
+      {/* Language Alternates — internal-link signals to other locale variants */}
+      <div className="max-w-6xl mx-auto px-6">
+        <LanguageAlternates currentLocale={locale} path={`/resume-examples/${slug}`} />
+      </div>
 
       {/* Multiplex Ad */}
       <MultiplexAd className="max-w-6xl mx-auto px-6 py-8" />
