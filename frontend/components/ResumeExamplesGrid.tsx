@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import { getLocalizedPath } from '@/lib/localized-paths';
 
 interface ExampleItem {
   slug: string;
@@ -25,6 +26,7 @@ interface Props {
 
 export default function ResumeExamplesGrid({ examples, categories }: Props) {
   const t = useTranslations('Common');
+  const locale = useLocale();
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -109,7 +111,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
           {filtered.map(example => (
             <Link
               key={example.slug}
-              href={`/resume-examples/${example.slug}`}
+              href={`/${locale}${getLocalizedPath(`/resume-examples/${example.slug}`, locale)}`}
               className="group block bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition hover:border-blue-300"
             >
               <div className="flex items-start justify-between mb-3">

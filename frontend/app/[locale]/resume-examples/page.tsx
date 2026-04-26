@@ -57,7 +57,7 @@ export default async function ResumeExamplesIndex({ params }: { params: Promise<
         '@type': 'ListItem',
         position: i + 1,
         name: e.jobTitle,
-        url: `${BASE_URL}/${locale}/resume-examples/${e.slug}`,
+        url: `${BASE_URL}/${locale}${getLocalizedPath(`/resume-examples/${e.slug}`, locale)}`,
       })),
     },
   });

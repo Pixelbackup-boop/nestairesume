@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { locales } from '@/i18n.config';
+import { getLocalizedPath } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -16,7 +17,7 @@ const alternateLanguages: Record<string, string> = {
     'x-default': `${siteUrl}/en/resume-examples`,
   };
   locales.forEach((loc) => {
-    alternateLanguages[loc] = `${siteUrl}/${loc}/resume-examples`;
+    alternateLanguages[loc] = `${siteUrl}/${loc}${getLocalizedPath('/resume-examples', loc)}`;
   });
 
   return {
@@ -25,7 +26,7 @@ const alternateLanguages: Record<string, string> = {
     openGraph: {
       title: t('meta.title'),
       description: t('meta.description'),
-      url: `${siteUrl}/${locale}/resume-examples`,
+      url: `${siteUrl}/${locale}${getLocalizedPath('/resume-examples', locale)}`,
       siteName: 'Best AI Resume',
       type: 'website',
     },
@@ -35,7 +36,7 @@ const alternateLanguages: Record<string, string> = {
       description: t('meta.description'),
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}/resume-examples`,
+      canonical: `${siteUrl}/${locale}${getLocalizedPath('/resume-examples', locale)}`,
       languages: alternateLanguages,
     },
   };

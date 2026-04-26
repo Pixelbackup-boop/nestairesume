@@ -15,7 +15,7 @@ import {
   getRelatedCoverLetterExamples,
   getAuthor,
 } from "@/lib/cover-letter-examples/posts";
-import { getLocalizedUrl } from "@/lib/localized-paths";
+import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
 import { getContent } from "@/lib/content/cover-letter-article";
 import { locales } from "@/i18n.config";
 
@@ -152,7 +152,7 @@ export default async function CoverLetterExamplePage({
   const relatedExamples = await getRelatedCoverLetterExamples(slug, 3);
   const headings = extractHeadings(example.content);
 
-  const localizedHref = (path: string) => `/${locale}${path}`;
+  const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
 
   // JSON-LD structured data - hardcoded objects from constants, safe for rendering
   const articleJsonLd = {
@@ -162,7 +162,7 @@ export default async function CoverLetterExamplePage({
     description: example.description,
     datePublished: example.date,
     dateModified: example.date,
-    url: `${siteUrl}/${locale}/cover-letter-examples/${slug}`,
+    url: getLocalizedUrl(siteUrl, `/cover-letter-examples/${slug}`, locale),
     publisher: {
       "@type": "Organization",
       name: "Best AI Resume",
@@ -189,7 +189,7 @@ export default async function CoverLetterExamplePage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/${locale}` },
-      { "@type": "ListItem", position: 2, name: "Cover Letter Examples", item: `${siteUrl}/${locale}/cover-letter-examples` },
+      { "@type": "ListItem", position: 2, name: "Cover Letter Examples", item: getLocalizedUrl(siteUrl, '/cover-letter-examples', locale) },
       { "@type": "ListItem", position: 3, name: `${example.jobTitle} Cover Letter` },
     ],
   };

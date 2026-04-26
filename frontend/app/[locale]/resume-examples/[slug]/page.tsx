@@ -15,7 +15,7 @@ import {
   getRelatedResumeExamples,
   getAuthor,
 } from "@/lib/resume-examples/posts";
-import { getLocalizedUrl } from "@/lib/localized-paths";
+import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
 import { locales } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
@@ -149,7 +149,7 @@ export default async function ResumeExamplePage({
   const author = getAuthor(example.author);
   const relatedExamples = await getRelatedResumeExamples(slug, 3);
   const headings = extractHeadings(example.content);
-  const localizedHref = (path: string) => `/${locale}${path}`;
+  const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
 
   // JSON-LD structured data - hardcoded objects from constants, safe for rendering
   // Article schema for E-E-A-T author signals
@@ -161,7 +161,7 @@ export default async function ResumeExamplePage({
     image: example.image ? `${siteUrl}${example.image}` : undefined,
     datePublished: example.date,
     dateModified: example.date,
-    url: `${siteUrl}/${locale}/resume-examples/${slug}`,
+    url: getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, locale),
     publisher: {
       "@type": "Organization",
       name: "Best AI Resume",
@@ -187,7 +187,7 @@ export default async function ResumeExamplePage({
     }],
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${siteUrl}/${locale}/resume-examples/${slug}`,
+      "@id": getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, locale),
     },
   };
 
@@ -218,7 +218,7 @@ export default async function ResumeExamplePage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/${locale}` },
-      { "@type": "ListItem", position: 2, name: "Resume Examples", item: `${siteUrl}/${locale}/resume-examples` },
+      { "@type": "ListItem", position: 2, name: "Resume Examples", item: getLocalizedUrl(siteUrl, '/resume-examples', locale) },
       { "@type": "ListItem", position: 3, name: `${example.jobTitle} Resume` },
     ],
   };

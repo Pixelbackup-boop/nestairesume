@@ -63,7 +63,7 @@ export default async function CoverLetterExamplesIndex({ params }: { params: Pro
         '@type': 'ListItem',
         position: i + 1,
         name: e.jobTitle,
-        url: `${BASE_URL}/${locale}/cover-letter-examples/${e.slug}`,
+        url: `${BASE_URL}/${locale}${getLocalizedPath(`/cover-letter-examples/${e.slug}`, locale)}`,
       })),
     },
   });
