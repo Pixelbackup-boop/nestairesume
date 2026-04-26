@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { getAllCoverLetterExamples, getAllDisplayCategories } from '@/lib/cover-letter-examples/posts';
 import { getContent } from '@/lib/content/cover-letter-examples-index';
 import { getLocalizedPath } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableExampleLocale } from '@/i18n.config';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         locales.map(l => [l, `${BASE_URL}/${l}${getLocalizedPath('/cover-letter-examples', l)}`])
       ),
     },
+    ...(isIndexableExampleLocale(locale) ? {} : { robots: { index: false, follow: true } }),
   };
 }
 

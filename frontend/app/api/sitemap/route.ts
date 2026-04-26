@@ -9,7 +9,7 @@ import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
 import { getLocalizedPath } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { locales, INDEXABLE_EXAMPLE_LOCALES } from '@/i18n.config';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
 
@@ -22,6 +22,19 @@ interface SitemapEntry {
 
 function localizedUrls(path: string, options: { lastModified: Date; changeFrequency: string; priority: number }): SitemapEntry[] {
   return locales.map(locale => ({
+    url: `${baseUrl}/${locale}${getLocalizedPath(path, locale)}`,
+    lastModified: options.lastModified,
+    changeFrequency: options.changeFrequency,
+    priority: options.priority,
+  }));
+}
+
+// Same as localizedUrls but only emits entries for locales where example
+// content is allowed to be indexed. Pages outside this list emit `noindex`
+// in their metadata, so including them in the sitemap would send Google
+// contradictory signals and waste crawl budget.
+function indexableExampleLocaleUrls(path: string, options: { lastModified: Date; changeFrequency: string; priority: number }): SitemapEntry[] {
+  return INDEXABLE_EXAMPLE_LOCALES.map(locale => ({
     url: `${baseUrl}/${locale}${getLocalizedPath(path, locale)}`,
     lastModified: options.lastModified,
     changeFrequency: options.changeFrequency,
@@ -52,8 +65,8 @@ export async function GET() {
     { path: '/blog', priority: 0.8 },
     { path: '/career', priority: 0.7 },
     { path: '/career-tips', priority: 0.7 },
-    { path: '/resume-examples', priority: 0.9 },
-    { path: '/cover-letter-examples', priority: 0.9 },
+    // /resume-examples and /cover-letter-examples are added separately
+    // below — they only emit URLs for INDEXABLE_EXAMPLE_LOCALES.
     { path: '/resume-format', priority: 0.8 },
     { path: '/tools', priority: 0.8 },
     { path: '/tools/cover-letter', priority: 0.7 },
@@ -96,16 +109,20 @@ export async function GET() {
     entries.push(...localizedUrls(`/templates/${slug}`, { lastModified: now, changeFrequency: 'weekly', priority: 0.7 }));
   }
 
-  // ── Resume examples ───────────────────────────────────────────────────
+  // ── Resume / cover-letter index pages (only for indexable locales) ────
+  entries.push(...indexableExampleLocaleUrls('/resume-examples', { lastModified: now, changeFrequency: 'weekly', priority: 0.9 }));
+  entries.push(...indexableExampleLocaleUrls('/cover-letter-examples', { lastModified: now, changeFrequency: 'weekly', priority: 0.9 }));
+
+  // ── Resume examples (only for indexable locales) ──────────────────────
   const resumeExamples = await getAllResumeExamples();
   for (const example of resumeExamples) {
-    entries.push(...localizedUrls(`/resume-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 }));
+    entries.push(...indexableExampleLocaleUrls(`/resume-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 }));
   }
 
-  // ── Cover letter examples ─────────────────────────────────────────────
+  // ── Cover letter examples (only for indexable locales) ────────────────
   const coverLetterExamples = await getAllCoverLetterExamples();
   for (const example of coverLetterExamples) {
-    entries.push(...localizedUrls(`/cover-letter-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 }));
+    entries.push(...indexableExampleLocaleUrls(`/cover-letter-examples/${example.slug}`, { lastModified: new Date(example.date), changeFrequency: 'monthly', priority: 0.8 }));
   }
 
   // ── Blog posts ────────────────────────────────────────────────────────

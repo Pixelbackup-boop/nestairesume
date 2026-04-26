@@ -18,7 +18,7 @@ import {
 import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
 import { getContent } from "@/lib/content/resume-article";
 import LanguageAlternates from "@/components/LanguageAlternates";
-import { locales } from "@/i18n.config";
+import { locales, isIndexableExampleLocale } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
 
@@ -79,6 +79,7 @@ export async function generateMetadata({
       canonical: url,
       languages,
     },
+    ...(isIndexableExampleLocale(locale) ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
