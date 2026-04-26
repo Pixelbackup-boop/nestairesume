@@ -16,6 +16,7 @@ import {
   getAuthor,
 } from "@/lib/resume-examples/posts";
 import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
+import { getContent } from "@/lib/content/resume-article";
 import { locales } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
@@ -150,6 +151,7 @@ export default async function ResumeExamplePage({
   const relatedExamples = await getRelatedResumeExamples(slug, 3);
   const headings = extractHeadings(example.content);
   const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+  const c = getContent(locale);
 
   // JSON-LD structured data - hardcoded objects from constants, safe for rendering
   // Article schema for E-E-A-T author signals
@@ -217,8 +219,8 @@ export default async function ResumeExamplePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/${locale}` },
-      { "@type": "ListItem", position: 2, name: "Resume Examples", item: getLocalizedUrl(siteUrl, '/resume-examples', locale) },
+      { "@type": "ListItem", position: 1, name: c.breadcrumb.home, item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 2, name: c.breadcrumb.resumeExamples, item: getLocalizedUrl(siteUrl, '/resume-examples', locale) },
       { "@type": "ListItem", position: 3, name: `${example.jobTitle} Resume` },
     ],
   };
@@ -279,11 +281,11 @@ export default async function ResumeExamplePage({
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-2 text-sm text-dark-teal/60">
             <Link href={localizedHref("/")} className="hover:text-teal-primary">
-              Home
+              {c.breadcrumb.home}
             </Link>
             <span>/</span>
             <Link href={localizedHref("/resume-examples")} className="hover:text-teal-primary">
-              Resume Examples
+              {c.breadcrumb.resumeExamples}
             </Link>
             <span>/</span>
             <span className="text-dark-teal">{example.jobTitle}</span>
@@ -298,7 +300,7 @@ export default async function ResumeExamplePage({
             {example.category}
           </span>
           <h1 className="text-4xl font-bold text-dark-teal mb-4">
-            {example.jobTitle} Resume
+            {example.jobTitle} {c.resumeSuffix}
           </h1>
           <p className="text-lg text-dark-teal/70 mb-6">{example.description}</p>
 
@@ -332,7 +334,7 @@ export default async function ResumeExamplePage({
             <span>•</span>
             <span>{example.readingTime}</span>
             <span>•</span>
-            <span>Posted {new Date(example.date).toLocaleDateString()}</span>
+            <span>{c.posted} {new Date(example.date).toLocaleDateString(locale === 'es' ? 'es-ES' : locale === 'fr' ? 'fr-FR' : locale === 'de' ? 'de-DE' : locale === 'pt' ? 'pt-BR' : locale === 'ar' ? 'ar-SA' : 'en-US')}</span>
           </div>
         </div>
       </section>
@@ -350,7 +352,7 @@ export default async function ResumeExamplePage({
               {example.keySkills.length > 0 && (
                 <div className="bg-light-teal rounded-xl p-6 mb-8">
                   <h2 className="text-xl font-semibold text-dark-teal mb-4">
-                    Key Skills for {example.jobTitle}
+                    {c.keySkillsTitle.replace('{jobTitle}', example.jobTitle)}
                   </h2>
                   <div className="flex flex-wrap gap-2">
                     {example.keySkills.map((skill) => (
@@ -386,7 +388,7 @@ export default async function ResumeExamplePage({
               {example.tags.length > 0 && (
                 <div className="mt-8 pt-8 border-t border-gray-200">
                   <h3 className="text-sm font-semibold text-dark-teal/60 mb-3">
-                    Related Topics
+                    {c.relatedTopics}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {example.tags.map((tag) => (
@@ -405,7 +407,7 @@ export default async function ResumeExamplePage({
               {example.faq && example.faq.length > 0 && (
                 <div className="mt-10 pt-8 border-t border-gray-200">
                   <h2 className="text-2xl font-bold text-dark-teal mb-6">
-                    Frequently Asked Questions
+                    {c.faqTitle}
                   </h2>
                   <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
                     {example.faq.map((item: { question: string; answer: string }, index: number) => (
@@ -444,7 +446,7 @@ export default async function ResumeExamplePage({
               {/* Internal Links — Resume Resources */}
               <div className="mt-10 pt-8 border-t border-gray-200">
                 <h3 className="text-lg font-semibold text-dark-teal mb-4">
-                  Resume Resources
+                  {c.resourcesTitle}
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-3">
                   <Link
@@ -455,8 +457,8 @@ export default async function ResumeExamplePage({
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">How to Write an ATS-Friendly Resume</p>
-                      <p className="text-xs text-dark-teal/50 mt-0.5">Beat applicant tracking systems</p>
+                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">{c.resources.atsResume.title}</p>
+                      <p className="text-xs text-dark-teal/50 mt-0.5">{c.resources.atsResume.subtitle}</p>
                     </div>
                   </Link>
                   <Link
@@ -467,8 +469,8 @@ export default async function ResumeExamplePage({
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">Top Resume Mistakes to Avoid</p>
-                      <p className="text-xs text-dark-teal/50 mt-0.5">Common errors that cost you interviews</p>
+                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">{c.resources.mistakes.title}</p>
+                      <p className="text-xs text-dark-teal/50 mt-0.5">{c.resources.mistakes.subtitle}</p>
                     </div>
                   </Link>
                   <Link
@@ -479,8 +481,8 @@ export default async function ResumeExamplePage({
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">Resume Format Guide 2026</p>
-                      <p className="text-xs text-dark-teal/50 mt-0.5">Chronological, functional & combination</p>
+                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">{c.resources.format.title}</p>
+                      <p className="text-xs text-dark-teal/50 mt-0.5">{c.resources.format.subtitle}</p>
                     </div>
                   </Link>
                   <Link
@@ -491,26 +493,26 @@ export default async function ResumeExamplePage({
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">Interview Preparation Guide</p>
-                      <p className="text-xs text-dark-teal/50 mt-0.5">Ace your next job interview</p>
+                      <p className="text-sm font-medium text-dark-teal group-hover:text-teal-primary transition">{c.resources.interview.title}</p>
+                      <p className="text-xs text-dark-teal/50 mt-0.5">{c.resources.interview.subtitle}</p>
                     </div>
                   </Link>
                 </div>
                 <div className="mt-4 p-4 bg-gradient-to-r from-teal-primary/5 to-teal-primary/10 rounded-lg">
                   <p className="text-sm text-dark-teal/80">
-                    Ready to create your {example.jobTitle} resume? Use our{" "}
+                    {c.resourcesCta.intro.replace('{jobTitle}', example.jobTitle)}{" "}
                     <Link href={localizedHref("/")} className="text-teal-primary font-semibold hover:underline">
-                      AI Resume Builder
+                      {c.resourcesCta.resumeBuilder}
                     </Link>{" "}
-                    to generate an ATS-optimized resume in minutes. Browse{" "}
+                    {c.resourcesCta.middle}{" "}
                     <Link href={localizedHref("/templates")} className="text-teal-primary font-semibold hover:underline">
-                      free resume templates
+                      {c.resourcesCta.templates}
                     </Link>{" "}
-                    or explore more{" "}
+                    {c.resourcesCta.end}{" "}
                     <Link href={localizedHref("/resume-examples")} className="text-teal-primary font-semibold hover:underline">
-                      resume examples
+                      {c.resourcesCta.examples}
                     </Link>
-                    .
+                    {c.resourcesCta.period}
                   </p>
                 </div>
               </div>
@@ -522,12 +524,12 @@ export default async function ResumeExamplePage({
               <div className="sticky top-24 z-10 space-y-6">
                 {/* Quick Stats */}
                 <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="font-semibold text-dark-teal mb-4">Quick Stats</h3>
+                  <h3 className="font-semibold text-dark-teal mb-4">{c.sidebar.quickStats}</h3>
                   {example.avgSalary && (
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-2xl">💰</span>
                       <div>
-                        <p className="text-sm text-dark-teal/60">Avg. Salary</p>
+                        <p className="text-sm text-dark-teal/60">{c.sidebar.avgSalary}</p>
                         <p className="font-semibold text-dark-teal">{example.avgSalary}</p>
                       </div>
                     </div>
@@ -536,7 +538,7 @@ export default async function ResumeExamplePage({
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-2xl">📈</span>
                       <div>
-                        <p className="text-sm text-dark-teal/60">Job Growth</p>
+                        <p className="text-sm text-dark-teal/60">{c.sidebar.jobGrowth}</p>
                         <p className="font-semibold text-dark-teal">{example.jobGrowth}</p>
                       </div>
                     </div>
@@ -544,7 +546,7 @@ export default async function ResumeExamplePage({
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-2xl">🏢</span>
                     <div>
-                      <p className="text-sm text-dark-teal/60">Industry</p>
+                      <p className="text-sm text-dark-teal/60">{c.sidebar.industry}</p>
                       <p className="font-semibold text-dark-teal">{example.category}</p>
                     </div>
                   </div>
@@ -552,7 +554,7 @@ export default async function ResumeExamplePage({
                     href={localizedHref("/onboarding")}
                     className="block w-full text-center bg-teal-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-secondary transition"
                   >
-                    Build My {example.jobTitle} Resume
+                    {c.sidebar.buildCta.replace('{jobTitle}', example.jobTitle)}
                   </Link>
                 </div>
 
@@ -562,7 +564,7 @@ export default async function ResumeExamplePage({
                 {/* Table of Contents */}
                 {headings.length > 0 && (
                   <div className="bg-light-teal rounded-xl p-6">
-                    <h3 className="font-semibold text-dark-teal mb-4">Table of Contents</h3>
+                    <h3 className="font-semibold text-dark-teal mb-4">{c.sidebar.tocTitle}</h3>
                     <nav className="space-y-2">
                       {headings.map((heading, index) => (
                         <a
@@ -589,7 +591,7 @@ export default async function ResumeExamplePage({
       {relatedExamples.length > 0 && (
         <section className="py-12 bg-light-teal">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl font-bold text-dark-teal mb-6">Related Jobs</h2>
+            <h2 className="text-2xl font-bold text-dark-teal mb-6">{c.relatedJobs}</h2>
             <div className="grid sm:grid-cols-3 gap-4">
               {relatedExamples.map((related) => (
                 <Link
@@ -613,16 +615,16 @@ export default async function ResumeExamplePage({
       <section className="py-16 bg-teal-gradient">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Build Your {example.jobTitle} Resume Now
+            {c.bottomCta.title.replace('{jobTitle}', example.jobTitle)}
           </h2>
           <p className="text-white/80 mb-8">
-            Join thousands of professionals who landed their dream jobs with Best AI Resume.
+            {c.bottomCta.subtitle}
           </p>
           <Link
             href={localizedHref("/onboarding")}
             className="inline-flex items-center gap-2 bg-accent-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition shadow-lg"
           >
-            Create My Resume — Free
+            {c.bottomCta.button}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
