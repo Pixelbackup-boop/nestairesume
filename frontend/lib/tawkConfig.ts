@@ -9,7 +9,7 @@ export interface TawkSettings {
 // Cache to avoid repeated API calls
 let cachedSettings: TawkSettings | null = null;
 let lastFetchTime = 0;
-const CACHE_TTL = 60000; // 1 minute
+const CACHE_TTL = 15000; // 15s — short enough that admin toggle reflects quickly
 
 export async function getTawkSettings(): Promise<TawkSettings> {
   const now = Date.now();

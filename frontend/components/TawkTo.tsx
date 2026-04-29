@@ -10,6 +10,8 @@ declare global {
       visitor?: { name: string; email: string };
       setAttributes?: (attrs: Record<string, string>, callback?: (error: unknown) => void) => void;
       onLoad?: () => void;
+      hideWidget?: () => void;
+      showWidget?: () => void;
     };
   }
 }
@@ -70,5 +72,17 @@ export default function TawkTo() {
     }
   }, [user, isAuthenticated, scriptLoaded]);
 
+  // Sync widget visibility with the admin toggle for users currently on the page.
+  useEffect(() => {
+    if (!scriptLoaded || !window.Tawk_API) return;
+    handleWidgetVisibility(settings?.enabled ?? false);
+  }, [settings?.enabled, scriptLoaded]);
+
   return null;
+}
+
+function handleWidgetVisibility(enabled: boolean): void {
+  if (!window.Tawk_API) return;
+  if (enabled) window.Tawk_API.showWidget?.();
+  else window.Tawk_API.hideWidget?.();
 }

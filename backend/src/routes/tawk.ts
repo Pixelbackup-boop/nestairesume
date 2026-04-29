@@ -11,7 +11,7 @@ router.get("/settings", async (_req: Request, res: Response) => {
   try {
     const settings = await tawkSettingsService.getTawkSettings();
 
-    res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=600");
+    res.set("Cache-Control", "no-store");
     res.json({
       enabled: settings.enabled,
       propertyId: settings.propertyId,
