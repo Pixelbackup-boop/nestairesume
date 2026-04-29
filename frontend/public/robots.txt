@@ -25,3 +25,4 @@ Disallow: /_next/
 Disallow: /favicon.ico
 
 Sitemap: https://bestairesumes.com/sitemap.xml
+Sitemap: https://bestairesumes.com/sitemap-blog.xml
