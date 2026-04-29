@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import { getPostBySlug, getAllPostSlugs, getRelatedPosts } from '@/lib/blog/posts';
+import { getPostBySlug, getAllPostSlugs, getRelatedPosts, getPostAvailableLocales } from '@/lib/blog/posts';
 import { getAuthor } from '@/lib/resume-examples/posts';
 import { compileMDXContent, extractHeadings } from '@/lib/blog/mdx';
 import BlogHeader from '@/components/blog/BlogHeader';
@@ -13,7 +13,6 @@ import LeaderboardAd from '@/components/ads/LeaderboardAd';
 import SidebarAd from '@/components/ads/SidebarAd';
 import MultiplexAd from '@/components/ads/MultiplexAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
-import { getLocalizedUrl } from '@/lib/localized-paths';
 import { getContent } from '@/lib/content/blog-pages';
 import { locales } from '@/i18n.config';
 
@@ -40,12 +39,22 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     };
   }
 
-  const url = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, locale);
+  // Only emit canonical/hreflang for locales that actually have a dedicated
+  // MDX file (or DB post for English). When a locale falls back to English,
+  // we declare /en/ as the canonical so Google doesn't pick a different one
+  // and flag every fallback URL as a duplicate.
+  const availableLocales = await getPostAvailableLocales(post.slug, locales);
+  const defaultLocale = availableLocales.includes('en') ? 'en' : (availableLocales[0] ?? 'en');
+  const isLocaleNative = availableLocales.includes(locale);
+  const url = isLocaleNative
+    ? `${siteUrl}/${locale}/blog/${post.slug}`
+    : `${siteUrl}/${defaultLocale}/blog/${post.slug}`;
+
   const languages: Record<string, string> = {
-    'x-default': `${siteUrl}/en/blog/${post.slug}`,
+    'x-default': `${siteUrl}/${defaultLocale}/blog/${post.slug}`,
   };
-  locales.forEach((loc) => {
-    languages[loc] = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, loc);
+  availableLocales.forEach((loc) => {
+    languages[loc] = `${siteUrl}/${loc}/blog/${post.slug}`;
   });
 
   return {

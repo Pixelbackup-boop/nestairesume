@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 import { Post, PostMeta, PostFrontmatter, PostType } from './types';
-import { resolveContentPath } from '../content-utils';
+import { resolveContentPath, getContentLocales, hasLocaleContent } from '../content-utils';
 
 const POSTS_PATH = path.join(process.cwd(), 'content/blog');
 const CAREER_TIPS_PATH = path.join(process.cwd(), 'content/career-tips');
@@ -283,6 +283,29 @@ export function getLocaleOnlyCareerTipSlugs(locale: string): PostMeta[] {
     });
   }
   return localeOnlyTips;
+}
+
+// Locales where a blog/career post has its own content (no English fallback).
+// Used by canonical/hreflang to avoid declaring duplicate-content locale URLs.
+// English coverage comes from a root MDX file OR a database post.
+export async function getPostAvailableLocales(
+  slug: string,
+  allLocales: readonly string[],
+): Promise<string[]> {
+  const fileLocales = getContentLocales(POSTS_PATH, slug, allLocales);
+  if (!fileLocales.includes('en')) {
+    const dbPost = await fetchDbPostBySlug(slug);
+    if (dbPost) return ['en', ...fileLocales];
+  }
+  return fileLocales;
+}
+
+// Locales where a career-tip slug has its own MDX. No DB source for tips.
+export function getCareerTipAvailableLocales(
+  slug: string,
+  allLocales: readonly string[],
+): string[] {
+  return getContentLocales(CAREER_TIPS_PATH, slug, allLocales);
 }
 
 // Search posts by query (title, description, tags)

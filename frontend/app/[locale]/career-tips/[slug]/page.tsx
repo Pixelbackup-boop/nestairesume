@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getCareerTipBySlug, getRelatedCareerTips, getAllCareerTipsSlugs } from '@/lib/blog/posts';
+import { getCareerTipBySlug, getRelatedCareerTips, getAllCareerTipsSlugs, getCareerTipAvailableLocales } from '@/lib/blog/posts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InArticleVideoAd from '@/components/ads/InArticleVideoAd';
@@ -72,16 +72,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: post.image ? [post.image] : [],
     },
     alternates: (() => {
+      // Only emit canonical/hreflang for locales with their own MDX file —
+      // fallback locales serve English content and would otherwise be
+      // flagged as duplicates by Google.
+      const availableLocales = getCareerTipAvailableLocales(slug, locales);
+      const defaultLocale = availableLocales.includes('en') ? 'en' : (availableLocales[0] ?? 'en');
+      const isLocaleNative = availableLocales.includes(locale);
+      const canonical = isLocaleNative
+        ? getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale)
+        : getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale);
       const languages: Record<string, string> = {
-        'x-default': `${siteConfig.url}/en/career-tips/${slug}`,
+        'x-default': getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale),
       };
-      locales.forEach((loc) => {
+      availableLocales.forEach((loc) => {
         languages[loc] = getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, loc);
       });
-      return {
-        canonical: getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale),
-        languages,
-      };
+      return { canonical, languages };
     })(),
   };
 }

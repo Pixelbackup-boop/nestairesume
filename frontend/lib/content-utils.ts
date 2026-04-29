@@ -20,3 +20,30 @@ export function resolveContentPath(contentDir: string, slug: string, locale: str
   if (!fs.existsSync(rootPath)) return '';
   return rootPath;
 }
+
+/**
+ * Returns true only when this slug has a *dedicated* MDX file for the
+ * requested locale. Used to decide which locales should appear in
+ * canonical/hreflang metadata — locales that just fall back to English
+ * are NOT counted.
+ *
+ * For 'en', "dedicated" means the root file exists.
+ */
+export function hasLocaleContent(contentDir: string, slug: string, locale: string): boolean {
+  const filePath = locale === 'en'
+    ? path.join(contentDir, `${slug}.mdx`)
+    : path.join(contentDir, locale, `${slug}.mdx`);
+  return fs.existsSync(filePath);
+}
+
+/**
+ * For a given slug, returns the subset of `allLocales` that have their own
+ * MDX file (no English fallback). Order is preserved.
+ */
+export function getContentLocales(
+  contentDir: string,
+  slug: string,
+  allLocales: readonly string[],
+): string[] {
+  return allLocales.filter((loc) => hasLocaleContent(contentDir, slug, loc));
+}

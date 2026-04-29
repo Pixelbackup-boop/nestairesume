@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import { getPostBySlug, getAllCareerPostSlugs, getRelatedPosts } from '@/lib/blog/posts';
+import { getPostBySlug, getAllCareerPostSlugs, getRelatedPosts, getPostAvailableLocales } from '@/lib/blog/posts';
 import { compileMDXContent, extractHeadings } from '@/lib/blog/mdx';
 import { getAuthor } from '@/lib/resume-examples/posts';
 import BlogHeader from '@/components/blog/BlogHeader';
@@ -39,10 +39,21 @@ export async function generateMetadata({ params }: CareerPostPageProps): Promise
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
-const alternateLanguages: Record<string, string> = {
-    'x-default': `${siteUrl}/en/career/${post.slug}`,
+
+  // Career posts share content/blog with blog posts, so locale availability
+  // is the same. Only emit canonical/hreflang for locales with their own MDX
+  // (or English DB coverage); fallback locales point at /en/ as canonical.
+  const availableLocales = await getPostAvailableLocales(post.slug, locales);
+  const defaultLocale = availableLocales.includes('en') ? 'en' : (availableLocales[0] ?? 'en');
+  const isLocaleNative = availableLocales.includes(locale);
+  const canonicalUrl = isLocaleNative
+    ? `${siteUrl}/${locale}/career/${post.slug}`
+    : `${siteUrl}/${defaultLocale}/career/${post.slug}`;
+
+  const alternateLanguages: Record<string, string> = {
+    'x-default': `${siteUrl}/${defaultLocale}/career/${post.slug}`,
   };
-  locales.forEach((loc) => {
+  availableLocales.forEach((loc) => {
     alternateLanguages[loc] = `${siteUrl}/${loc}/career/${post.slug}`;
   });
 
@@ -66,7 +77,7 @@ const alternateLanguages: Record<string, string> = {
       images: post.image ? [post.image] : [],
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}/career/${post.slug}`,
+      canonical: canonicalUrl,
       languages: alternateLanguages,
     },
   };
