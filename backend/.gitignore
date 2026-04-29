@@ -4,3 +4,6 @@ dist
 .env
 
 /src/generated/prisma
+
+# Runtime state written by the running backend (admin toggles, etc.)
+data/
