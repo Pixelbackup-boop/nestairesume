@@ -26,7 +26,14 @@ export default function HomeTemplateShowcase() {
 
                 return (
                     <Link key={id} href={`/${locale}/templates`} className="group cursor-pointer">
-                        <div className="rounded-xl overflow-hidden border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow">
+                        {/* Resume previews are decorative on the homepage — the real
+                             navigation signal is the template name <h3> below.
+                             aria-hidden keeps the preview's internal h1/h3 hierarchy
+                             out of the page's heading outline. */}
+                        <div
+                            aria-hidden="true"
+                            className="rounded-xl overflow-hidden border border-gray-200 mb-3 shadow-md group-hover:shadow-xl transition-shadow"
+                        >
                             <Suspense fallback={<div className="w-full bg-gray-100" style={{ aspectRatio: '794 / 1123' }} />}>
                                 <BuilderTemplatePreview template={template} />
                             </Suspense>

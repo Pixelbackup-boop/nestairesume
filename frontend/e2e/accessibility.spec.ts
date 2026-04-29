@@ -31,11 +31,20 @@ test.describe('Accessibility', () => {
     await page.goto('/en');
     await page.waitForLoadState('domcontentloaded');
 
-    // Scope to main content only — footer/nav have independent heading hierarchies
-    const headingLevels = await page.$$eval(
-      'main h1, main h2, main h3, main h4, main h5, main h6',
-      (headings) => headings.map((h) => parseInt(h.tagName[1]))
-    );
+    // Scope to main content only — footer/nav have independent heading hierarchies.
+    // Skip headings inside aria-hidden subtrees: those elements are decorative
+    // (e.g. resume template previews on the homepage) and intentionally excluded
+    // from the page's heading outline.
+    const allMainHeadings = await page.locator('main :is(h1, h2, h3, h4, h5, h6)').all();
+    const headingLevels: number[] = [];
+    for (const h of allMainHeadings) {
+      const isDecorative = await h.evaluate(
+        (el) => el.closest('[aria-hidden="true"]') !== null,
+      );
+      if (isDecorative) continue;
+      const tag = await h.evaluate((el) => el.tagName);
+      headingLevels.push(parseInt(tag[1]));
+    }
 
     // Verify no skipped levels (e.g., h1 -> h3 without h2)
     for (let i = 1; i < headingLevels.length; i++) {
