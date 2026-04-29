@@ -62,7 +62,7 @@ export async function GET() {
     { path: '/pricing', priority: 0.8 },
     { path: '/about', priority: 0.7 },
     { path: '/privacy', priority: 0.3 },
-    { path: '/blog', priority: 0.8 },
+    { path: '/blog', priority: 0.9 },
     { path: '/career', priority: 0.7 },
     { path: '/career-tips', priority: 0.7 },
     // /resume-examples and /cover-letter-examples are added separately
@@ -126,9 +126,12 @@ export async function GET() {
   }
 
   // ── Blog posts ────────────────────────────────────────────────────────
+  // Priority 0.9 + weekly changeFrequency: blogs earn ~all organic clicks
+  // (per GSC), so we tell Google these are our highest-value content pages
+  // and worth re-crawling more often than monthly.
   const posts = await getAllPosts();
   for (const post of posts.filter(p => !p.postType || p.postType === 'blog' || p.postType === 'both')) {
-    entries.push(...localizedUrls(`/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 }));
+    entries.push(...localizedUrls(`/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'weekly', priority: 0.9 }));
   }
 
   // Career posts
@@ -150,14 +153,16 @@ export async function GET() {
   }
 
   // ── Locale-only blog posts ────────────────────────────────────────────
+  // Match the blog post priority/frequency above — these are real content,
+  // not duplicates, and we want Google to crawl them with the same urgency.
   for (const locale of locales) {
     if (locale === 'en') continue;
     for (const post of getLocaleOnlyPostSlugs(locale)) {
       entries.push({
         url: `${baseUrl}/${locale}${getLocalizedPath(`/blog/${post.slug}`, locale)}`,
         lastModified: new Date(post.date),
-        changeFrequency: 'monthly',
-        priority: 0.7,
+        changeFrequency: 'weekly',
+        priority: 0.9,
       });
     }
   }
