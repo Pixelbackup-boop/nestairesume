@@ -13,6 +13,7 @@ import {
   BASE_URL,
   SitemapEntry,
   localizedUrls,
+  indexableContentLocaleUrls,
   toXml,
   xmlResponse,
 } from '@/lib/sitemap/utils';
@@ -27,11 +28,14 @@ export async function GET() {
   // /blog index (highest priority — entry point to all blog content)
   entries.push(...localizedUrls('/blog', { lastModified: now, changeFrequency: 'daily', priority: 0.9 }));
 
-  // Blog posts (the high-value content earning organic clicks)
+  // Blog posts (the high-value content earning organic clicks).
+  // Only emit URLs for locales with a dedicated MDX file — fallback
+  // locales canonical to /en/ and listing them creates a contradictory
+  // signal that pushes URLs into "Crawled - currently not indexed."
   const posts = await getAllPosts();
   for (const post of posts.filter((p) => !p.postType || p.postType === 'blog' || p.postType === 'both')) {
     entries.push(
-      ...localizedUrls(`/blog/${post.slug}`, {
+      ...indexableContentLocaleUrls('blog', post.slug, `/blog/${post.slug}`, {
         lastModified: new Date(post.date),
         changeFrequency: 'weekly',
         priority: 0.9,

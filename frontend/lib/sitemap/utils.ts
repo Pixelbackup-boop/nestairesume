@@ -1,8 +1,21 @@
+import path from 'path';
 import { NextResponse } from 'next/server';
 import { getLocalizedPath } from '@/lib/localized-paths';
+import { hasLocaleContent } from '@/lib/content-utils';
 import { locales, INDEXABLE_EXAMPLE_LOCALES } from '@/i18n.config';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
+
+// Locales for which a slug has its own MDX file get a sitemap URL.
+// Others fall back to English at runtime — including those falsely tells
+// Google the locale URL is unique, while the page's canonical points back
+// to /en/. That contradiction is why ~thousands of URLs sit in
+// "Crawled - currently not indexed."
+const CONTENT_DIRS = {
+  blog: path.join(process.cwd(), 'content/blog'),
+  careerTips: path.join(process.cwd(), 'content/career-tips'),
+} as const;
+export type ContentType = keyof typeof CONTENT_DIRS;
 
 export interface SitemapEntry {
   url: string;
@@ -36,6 +49,28 @@ export function indexableExampleLocaleUrls(path: string, options: UrlOptions): S
     changeFrequency: options.changeFrequency,
     priority: options.priority,
   }));
+}
+
+// Emits one URL per locale that has its own MDX file for `slug`. English is
+// always emitted (root file is the source of truth). Locales without a
+// dedicated translation are skipped — they fall back to English with a
+// canonical pointing to /en/, so listing them in the sitemap is a
+// self-contradicting signal Google ignores.
+export function indexableContentLocaleUrls(
+  contentType: ContentType,
+  slug: string,
+  routePath: string,
+  options: UrlOptions,
+): SitemapEntry[] {
+  const dir = CONTENT_DIRS[contentType];
+  return locales
+    .filter((locale) => hasLocaleContent(dir, slug, locale))
+    .map((locale) => ({
+      url: `${BASE_URL}/${locale}${getLocalizedPath(routePath, locale)}`,
+      lastModified: options.lastModified,
+      changeFrequency: options.changeFrequency,
+      priority: options.priority,
+    }));
 }
 
 export function toXml(entries: SitemapEntry[]): string {

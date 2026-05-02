@@ -76,6 +76,12 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       description: post.description,
       images: post.image ? [post.image] : [],
     },
+    // When the locale lacks a dedicated MDX file we render English content at
+    // a locale URL. Without `noindex` Google crawls these as indexable
+    // duplicates and parks them in "Crawled - currently not indexed" — the
+    // canonical points to /en/ but the page itself says index,follow.
+    // Explicit noindex resolves the contradiction and lets Google drop them.
+    robots: isLocaleNative ? undefined : { index: false, follow: true },
     alternates: {
       canonical: url,
       languages,

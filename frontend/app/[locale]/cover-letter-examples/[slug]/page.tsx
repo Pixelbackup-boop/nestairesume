@@ -53,6 +53,14 @@ export async function generateMetadata({
     languages[loc] = getLocalizedUrl(siteUrl, `/cover-letter-examples/${slug}`, loc);
   });
 
+  // Stub detection: cover letters under 350 words are bridge/placeholder
+  // pages (English stubs for Thai/Vietnamese job-title slugs). Without
+  // noindex they get parked in "Crawled - currently not indexed."
+  // 350 vs the resume threshold of 500 because cover letters are shorter.
+  const wordCount = example.content.trim().split(/\s+/).filter(Boolean).length;
+  const isStub = wordCount < 350;
+  const shouldNoindex = !isIndexableExampleLocale(locale) || isStub;
+
   return {
     title,
     description,
@@ -79,7 +87,7 @@ export async function generateMetadata({
       canonical: url,
       languages,
     },
-    ...(isIndexableExampleLocale(locale) ? {} : { robots: { index: false, follow: true } }),
+    ...(shouldNoindex ? { robots: { index: false, follow: true } } : {}),
   };
 }
 

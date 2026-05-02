@@ -13,6 +13,7 @@ import {
   SitemapEntry,
   localizedUrls,
   indexableExampleLocaleUrls,
+  indexableContentLocaleUrls,
   toXml,
   xmlResponse,
 } from '@/lib/sitemap/utils';
@@ -96,15 +97,18 @@ export async function GET() {
   // Priority 0.9 + weekly changeFrequency: blogs earn ~all organic clicks
   // (per GSC), so we tell Google these are our highest-value content pages
   // and worth re-crawling more often than monthly.
+  // Only emit URLs for locales that actually have a dedicated MDX file —
+  // fallback locales canonical back to /en/, so including them is a
+  // contradiction Google parks in "Crawled - currently not indexed."
   const posts = await getAllPosts();
   for (const post of posts.filter(p => !p.postType || p.postType === 'blog' || p.postType === 'both')) {
-    entries.push(...localizedUrls(`/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'weekly', priority: 0.9 }));
+    entries.push(...indexableContentLocaleUrls('blog', post.slug, `/blog/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'weekly', priority: 0.9 }));
   }
 
-  // Career posts
+  // Career posts (share content/blog/ with blog posts, distinguished by postType)
   const careerPosts = await getAllCareerPosts();
   for (const post of careerPosts) {
-    entries.push(...localizedUrls(`/career/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 }));
+    entries.push(...indexableContentLocaleUrls('blog', post.slug, `/career/${post.slug}`, { lastModified: new Date(post.date), changeFrequency: 'monthly', priority: 0.7 }));
   }
 
   // Blog categories
@@ -135,9 +139,10 @@ export async function GET() {
   }
 
   // ── Career tips ───────────────────────────────────────────────────────
+  // Same fallback-locale rule as blog posts above.
   const careerTips = await getAllCareerTips();
   for (const tip of careerTips) {
-    entries.push(...localizedUrls(`/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 }));
+    entries.push(...indexableContentLocaleUrls('careerTips', tip.slug, `/career-tips/${tip.slug}`, { lastModified: new Date(tip.date), changeFrequency: 'monthly', priority: 0.7 }));
   }
 
   // ── Locale-only career tips ───────────────────────────────────────────

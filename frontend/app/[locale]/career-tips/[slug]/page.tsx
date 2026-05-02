@@ -42,6 +42,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  // Only emit canonical/hreflang for locales with their own MDX file —
+  // fallback locales serve English content and would otherwise be
+  // flagged as duplicates by Google.
+  const availableLocales = getCareerTipAvailableLocales(slug, locales);
+  const defaultLocale = availableLocales.includes('en') ? 'en' : (availableLocales[0] ?? 'en');
+  const isLocaleNative = availableLocales.includes(locale);
+  const canonical = isLocaleNative
+    ? getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale)
+    : getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale);
+  const languages: Record<string, string> = {
+    'x-default': getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale),
+  };
+  availableLocales.forEach((loc) => {
+    languages[loc] = getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, loc);
+  });
+
   return {
     title: `${post.title} - Career Tips | Best AI Resume`,
     description: post.description,
@@ -71,24 +87,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.description,
       images: post.image ? [post.image] : [],
     },
-    alternates: (() => {
-      // Only emit canonical/hreflang for locales with their own MDX file —
-      // fallback locales serve English content and would otherwise be
-      // flagged as duplicates by Google.
-      const availableLocales = getCareerTipAvailableLocales(slug, locales);
-      const defaultLocale = availableLocales.includes('en') ? 'en' : (availableLocales[0] ?? 'en');
-      const isLocaleNative = availableLocales.includes(locale);
-      const canonical = isLocaleNative
-        ? getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale)
-        : getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale);
-      const languages: Record<string, string> = {
-        'x-default': getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale),
-      };
-      availableLocales.forEach((loc) => {
-        languages[loc] = getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, loc);
-      });
-      return { canonical, languages };
-    })(),
+    // Fallback locale pages render English content; without noindex they sit
+    // in "Crawled - currently not indexed" because the canonical points to
+    // /en/ but the page itself stays index,follow.
+    robots: isLocaleNative ? undefined : { index: false, follow: true },
+    alternates: { canonical, languages },
   };
 }
 

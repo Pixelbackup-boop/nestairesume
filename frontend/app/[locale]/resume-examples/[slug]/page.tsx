@@ -53,6 +53,14 @@ export async function generateMetadata({
     languages[loc] = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, loc);
   });
 
+  // Stub detection: pages under 500 words are bridge/placeholder content
+  // (e.g., English stubs for Thai/Vietnamese-titled job slugs that link out
+  // to the real /th/ or /vi/ rich content). Without noindex, they sit thin
+  // under the domain and get parked in "Crawled - currently not indexed."
+  const wordCount = example.content.trim().split(/\s+/).filter(Boolean).length;
+  const isStub = wordCount < 500;
+  const shouldNoindex = !isIndexableExampleLocale(locale) || isStub;
+
   return {
     title,
     description,
@@ -79,7 +87,7 @@ export async function generateMetadata({
       canonical: url,
       languages,
     },
-    ...(isIndexableExampleLocale(locale) ? {} : { robots: { index: false, follow: true } }),
+    ...(shouldNoindex ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
