@@ -59,7 +59,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 
   return {
-    title: `${post.title} - Career Tips | Best AI Resume`,
+    // `absolute` bypasses the layout's `%s | Best AI Resume` template
+    // which would otherwise duplicate the brand suffix.
+    title: { absolute: `${post.title} - Career Tips | Best AI Resume` },
     description: post.description,
     keywords: post.tags,
     openGraph: {

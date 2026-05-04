@@ -58,7 +58,10 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   });
 
   return {
-    title: `${post.title} | Best AI Resume Blog`,
+    // Use `absolute` to bypass the layout's `%s | Best AI Resume` template —
+    // otherwise titles render as `${post.title} | Best AI Resume Blog | Best
+    // AI Resume`, which Google truncates and looks like a duplication bug.
+    title: { absolute: `${post.title} | Best AI Resume` },
     description: post.description,
     authors: [{ name: post.author }],
     openGraph: {
