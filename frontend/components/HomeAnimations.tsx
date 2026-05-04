@@ -1,7 +1,8 @@
-'use client';
-
+// All hero/section animation wrappers below are now plain divs (no JS).
+// Removing 'use client' and Framer Motion imports allows this file to be
+// rendered as a Server Component, eliminating the JS bundle cost for the
+// homepage hero entirely.
 import { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 
 interface AnimationProps {
   children: ReactNode;
@@ -9,72 +10,31 @@ interface AnimationProps {
   delay?: number;
 }
 
-// Shared easing - cubic bezier for smooth feel
-const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
-
 // ============================================
-// HERO SECTION ANIMATIONS (uses `animate`, safe with SSR)
+// HERO SECTION ANIMATIONS — plain divs (no entry animation)
 // ============================================
+// Previously used Framer Motion `initial={ opacity: 0 }` entry animations.
+// Problem: server renders the H1/CTA at opacity: 0, so the LCP element
+// stays invisible until React hydrates and Framer Motion runs the
+// fade-in. On mobile with 4x CPU throttle, hydration takes 5+ seconds —
+// pushing mobile LCP to 9s+. PSI flagged this as the actual bottleneck
+// after image bytes were optimized but mobile LCP didn't drop.
+// Trade: lose 0.6s decorative fade-in, gain ~3-5s LCP improvement.
 
 function Hero({ children, className = '' }: AnimationProps) {
   return <div className={className}>{children}</div>;
 }
 
 function HeroTitle({ children, className = '' }: AnimationProps) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: easeOut }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 function HeroSubtitle({ children, className = '' }: AnimationProps) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.15, ease: easeOut }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 function HeroCTA({ children, className = '' }: AnimationProps) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 15, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.3, ease: easeOut }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 // ============================================
