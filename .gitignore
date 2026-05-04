@@ -22,3 +22,12 @@ frontend/Img/
 
 # SEO research
 seo/
+seo-inventory-*.csv
+seo-audit-*.md.local
+
+# Google Cloud / OAuth credential files (must NEVER be committed)
+client_secret_*.json
+*.iam.gserviceaccount.com.json
+oauth_client.json
+service_account.json
+*-seo-*.json
