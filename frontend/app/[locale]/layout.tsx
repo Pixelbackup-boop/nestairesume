@@ -16,7 +16,10 @@ import '../globals.css';
 const poppins = Poppins({
   variable: '--font-poppins-var',
   subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500', '600', '700', '800'],
+  // 800 (extrabold) dropped: only 16 uses sitewide — browser falls back
+  // to 700 (bold) with imperceptible visual difference. Removing it cuts
+  // 2 woff2 preload files (one per subset) from every page load.
+  weight: ['400', '500', '600', '700'],
 });
 
 const notoArabic = Noto_Sans_Arabic({
@@ -242,12 +245,12 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://widget.trustpilot.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
 
-        {/* Google AdSense verification — must be in <head> for crawler */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8805972435327777"
-          crossOrigin="anonymous"
-        />
+        {/* AdSense moved out of <head> to a deferred <Script> below.
+            PSI flagged it as 137KB unused JS + 113ms main-thread cost,
+            blocking mobile LCP. The AdSense crawler renders pages
+            (it's a real browser), so deferred loading still allows
+            verification — what matters is the script tag exists in the
+            rendered DOM, not when it executes. */}
 
         {/* Organization Schema - Content is hardcoded, not user input */}
         <script
@@ -282,6 +285,13 @@ export default async function LocaleLayout({
               </Suspense>
               <WebVitals />
               <TawkTo />
+              {/* AdSense deferred to lazyOnload (was in <head> — see note above) */}
+              <Script
+                id="adsense-script"
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8805972435327777"
+                strategy="lazyOnload"
+                crossOrigin="anonymous"
+              />
               <Script
                 src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
                 strategy="lazyOnload"
