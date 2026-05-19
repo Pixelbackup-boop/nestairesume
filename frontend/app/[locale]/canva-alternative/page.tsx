@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/canva-alternative';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -12,10 +12,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const { locale } = await params;
     const c = getContent(locale);
 const alternateLanguages: Record<string, string> = {
-        'x-default': `${siteUrl}/en/canva-alternative`,
+        'x-default': getLocalizedUrl(siteUrl, '/canva-alternative', 'en'),
     };
     locales.forEach((loc) => {
-        alternateLanguages[loc] = `${siteUrl}/${loc}/canva-alternative`;
+        alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/canva-alternative', loc);
     });
 
     return {
@@ -26,7 +26,7 @@ const alternateLanguages: Record<string, string> = {
             title: c.meta.title,
             description: c.meta.description,
             type: 'article',
-            url: `${siteUrl}/${locale}/canva-alternative`,
+            url: getLocalizedUrl(siteUrl, '/canva-alternative', locale),
         },
         twitter: {
             card: 'summary_large_image',
@@ -34,7 +34,7 @@ const alternateLanguages: Record<string, string> = {
             description: c.meta.description,
         },
         alternates: {
-            canonical: `${siteUrl}/${locale}/canva-alternative`,
+            canonical: getLocalizedUrl(siteUrl, '/canva-alternative', locale),
             languages: alternateLanguages,
         },
     };
@@ -49,7 +49,7 @@ export default async function CanvaAlternativePage({ params }: { params: Promise
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -74,7 +74,7 @@ export default async function CanvaAlternativePage({ params }: { params: Promise
         author: {
             '@type': 'Person',
             name: 'Alex Brown',
-            url: `${siteUrl}/${locale}/about/alex-brown`,
+            url: getLocalizedUrl(siteUrl, '/about/alex-brown', locale),
             jobTitle: 'Senior HR & Resume Strategist',
         },
         publisher: {
@@ -83,7 +83,7 @@ export default async function CanvaAlternativePage({ params }: { params: Promise
             url: siteUrl,
             logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
         },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/canva-alternative` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': getLocalizedUrl(siteUrl, '/canva-alternative', locale) },
     };
 
     return (

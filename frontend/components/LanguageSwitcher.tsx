@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { Globe, ChevronDown, Check } from 'lucide-react';
-import { locales, localeNames, localeCodes, Locale } from '@/i18n.config';
+import { locales, localeNames, localeCodes, defaultLocale, Locale } from '@/i18n.config';
 
 interface LanguageSwitcherProps {
   scrolled?: boolean;
@@ -42,16 +42,14 @@ export default function LanguageSwitcher({ scrolled = true, isHomePage = false }
   }, []);
 
   const switchLocale = (newLocale: Locale) => {
-    // Replace current locale in pathname with new locale
-    // pathname is like /en/pricing or /es/templates
+    // With `localePrefix: 'as-needed'`, English (default) lives at the root
+    // (no `/en` prefix) while other locales are prefixed (e.g., `/es/pricing`).
+    // Switching needs to add, swap, or strip the locale segment accordingly.
     const segments = pathname.split('/');
-    if (segments[1] && locales.includes(segments[1] as Locale)) {
-      segments[1] = newLocale;
-    } else {
-      // No locale in path (shouldn't happen with middleware), prepend it
-      segments.splice(1, 0, newLocale);
-    }
-    const newPath = segments.join('/') || `/${newLocale}`;
+    const hasLocalePrefix = segments[1] && locales.includes(segments[1] as Locale);
+    const restPath = hasLocalePrefix ? segments.slice(2).join('/') : segments.slice(1).join('/');
+    const tail = restPath ? `/${restPath}` : '';
+    const newPath = newLocale === defaultLocale ? (tail || '/') : `/${newLocale}${tail}`;
 
     // Persist preference in cookie
     // eslint-disable-next-line react-hooks/immutability

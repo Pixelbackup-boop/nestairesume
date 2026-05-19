@@ -24,5 +24,4 @@ Disallow: /*/gdocs-onboarding/
 Disallow: /_next/
 Disallow: /favicon.ico
 
-Sitemap: https://bestairesumes.com/sitemap.xml
-Sitemap: https://bestairesumes.com/sitemap-blog.xml
+Sitemap: https://bestairesumes.com/sitemap-index.xml

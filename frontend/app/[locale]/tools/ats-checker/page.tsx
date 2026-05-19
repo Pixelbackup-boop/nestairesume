@@ -9,6 +9,7 @@ import LeaderboardAd from '@/components/ads/LeaderboardAd';
 import BetweenSectionAd from '@/components/ads/BetweenSectionAd';
 import MultiplexAd from '@/components/ads/MultiplexAd';
 import { Upload, FileText, CheckCircle, AlertTriangle, XCircle, Loader2, RefreshCw, ArrowRight } from 'lucide-react';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const API_BASE = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4444') + '/api/v1';
 const siteUrl = 'https://bestairesumes.com';
@@ -211,8 +212,8 @@ export default function ATSCheckerPage() {
         {
             '@context': 'https://schema.org', '@type': 'BreadcrumbList',
             itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
-                { '@type': 'ListItem', position: 2, name: 'Tools', item: `${siteUrl}/${locale}/tools` },
+                { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
+                { '@type': 'ListItem', position: 2, name: 'Tools', item: getLocalizedUrl(siteUrl, '/tools', locale) },
                 { '@type': 'ListItem', position: 3, name: 'ATS Resume Checker' },
             ],
         },

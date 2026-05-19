@@ -15,7 +15,7 @@ import {
   getRelatedResumeExamples,
   getAuthor,
 } from "@/lib/resume-examples/posts";
-import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
+import { getLocalizedUrl, getLocalizedPath } from '@/lib/localized-paths';
 import { getContent } from "@/lib/content/resume-article";
 import LanguageAlternates from "@/components/LanguageAlternates";
 import { locales, isIndexableExampleLocale } from "@/i18n.config";
@@ -47,7 +47,7 @@ export async function generateMetadata({
   const description = example.description;
   const url = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, locale);
   const languages: Record<string, string> = {
-    'x-default': `${siteUrl}/en/resume-examples/${slug}`,
+    'x-default': getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, 'en'),
   };
   locales.forEach((loc) => {
     languages[loc] = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, loc);
@@ -187,7 +187,7 @@ export default async function ResumeExamplePage({
       "@type": "Person",
       name: author.name,
       jobTitle: author.jobTitle,
-      url: `${siteUrl}/${locale}/about/${author.slug}`,
+      url: getLocalizedUrl(siteUrl, `/about/${author.slug}`, locale),
       image: `${siteUrl}${author.image}`,
       knowsAbout: author.expertise,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
@@ -229,7 +229,7 @@ export default async function ResumeExamplePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: c.breadcrumb.home, item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 1, name: c.breadcrumb.home, item: getLocalizedUrl(siteUrl, '', locale) },
       { "@type": "ListItem", position: 2, name: c.breadcrumb.resumeExamples, item: getLocalizedUrl(siteUrl, '/resume-examples', locale) },
       { "@type": "ListItem", position: 3, name: `${example.jobTitle} Resume` },
     ],

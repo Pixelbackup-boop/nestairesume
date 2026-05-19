@@ -8,6 +8,7 @@ import Pagination from '@/components/blog/Pagination';
 import { BookOpen, Sparkles } from 'lucide-react';
 import { getContent } from '@/lib/content/blog-pages';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -36,14 +37,14 @@ export async function generateMetadata({ params, searchParams }: BlogPageProps):
       type: 'website',
     },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/blog`,
+      canonical: getLocalizedUrl(BASE_URL, '/blog', locale),
       languages: Object.fromEntries(
-        locales.map(l => [l, `${BASE_URL}/${l}/blog`])
+        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/blog', l)])
       ),
     },
     other: {
-      ...(currentPage > 1 && { 'link-prev': `${BASE_URL}/${locale}/blog${prevParam}` }),
-      ...(currentPage < totalPages && { 'link-next': `${BASE_URL}/${locale}/blog?page=${currentPage + 1}` }),
+      ...(currentPage > 1 && { 'link-prev': getLocalizedUrl(BASE_URL, `/blog${prevParam}`, locale) }),
+      ...(currentPage < totalPages && { 'link-next': getLocalizedUrl(BASE_URL, `/blog?page=${currentPage + 1}`, locale) }),
     },
   };
 }
@@ -64,7 +65,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
     '@type': 'CollectionPage',
     name: c.meta.title,
     description: c.meta.description,
-    url: `${BASE_URL}/${locale}/blog`,
+    url: getLocalizedUrl(BASE_URL, '/blog', locale),
     hasPart: {
       '@type': 'ItemList',
       numberOfItems: allPosts.length,
@@ -72,7 +73,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
         '@type': 'ListItem',
         position: i + 1,
         name: p.title,
-        url: `${BASE_URL}/${locale}/blog/${p.slug}`,
+        url: getLocalizedUrl(BASE_URL, `/blog/${p.slug}`, locale),
       })),
     },
   });

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/chatgpt-comparison';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             title: c.meta.ogTitle,
             description: c.meta.ogDescription,
             type: 'article',
-            url: `${siteUrl}/${locale}/compare/chatgpt-vs-ai-resume-builder`,
+            url: getLocalizedUrl(siteUrl, '/compare/chatgpt-vs-ai-resume-builder', locale),
         },
         twitter: {
             card: 'summary_large_image',
@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             description: c.meta.twitterDescription,
         },
         alternates: {
-            canonical: `${siteUrl}/${locale}/compare/chatgpt-vs-ai-resume-builder`,
+            canonical: getLocalizedUrl(siteUrl, '/compare/chatgpt-vs-ai-resume-builder', locale),
             languages: Object.fromEntries(
-                locales.map(l => [l, `${siteUrl}/${l}/compare/chatgpt-vs-ai-resume-builder`])
+                locales.map(l => [l, getLocalizedUrl(siteUrl, '/compare/chatgpt-vs-ai-resume-builder', l)])
             ),
         },
     };
@@ -52,8 +52,8 @@ export default async function ChatGPTComparisonPage({ params }: { params: Promis
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
-            { '@type': 'ListItem', position: 2, name: 'Compare', item: `${siteUrl}/${locale}/compare` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
+            { '@type': 'ListItem', position: 2, name: 'Compare', item: getLocalizedUrl(siteUrl, '/compare', locale) },
             { '@type': 'ListItem', position: 3, name: c.schemas.breadcrumbName },
         ],
     };
@@ -78,7 +78,7 @@ export default async function ChatGPTComparisonPage({ params }: { params: Promis
         author: {
             '@type': 'Person',
             name: 'Alex Brown',
-            url: `${siteUrl}/${locale}/about/alex-brown`,
+            url: getLocalizedUrl(siteUrl, '/about/alex-brown', locale),
             jobTitle: 'Senior HR & Resume Strategist',
         },
         publisher: {
@@ -87,7 +87,7 @@ export default async function ChatGPTComparisonPage({ params }: { params: Promis
             url: siteUrl,
             logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
         },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/compare/chatgpt-vs-ai-resume-builder` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': getLocalizedUrl(siteUrl, '/compare/chatgpt-vs-ai-resume-builder', locale) },
     };
 
     return (

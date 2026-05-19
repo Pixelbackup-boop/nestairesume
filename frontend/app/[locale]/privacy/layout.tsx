@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { getOgLocale } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteConfig = {
   name: 'Best AI Resume',
@@ -24,7 +25,7 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       locale: getOgLocale(locale),
-      url: `${siteConfig.url}/${locale}/privacy`,
+      url: getLocalizedUrl(siteConfig.url, '/privacy', locale),
       siteName: siteConfig.name,
       title,
       description,
@@ -35,7 +36,7 @@ export async function generateMetadata({
       description,
     },
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/privacy`,
+      canonical: getLocalizedUrl(siteConfig.url, '/privacy', locale),
     },
     robots: {
       index: true,

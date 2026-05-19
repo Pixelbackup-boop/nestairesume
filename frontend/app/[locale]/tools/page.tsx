@@ -5,6 +5,7 @@ import { locales } from '@/i18n.config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { FileSearch, FileText, Mic, FileSignature } from 'lucide-react';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -24,24 +25,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = 'Free AI-powered tools to boost your job search: ATS resume checker, cover letter generator, mock interview practice, and resignation letter builder.';
 
   const alternateLanguages: Record<string, string> = {
-    'x-default': `${siteUrl}/en/tools`,
+    'x-default': getLocalizedUrl(siteUrl, '/tools', 'en'),
   };
   locales.forEach((loc) => {
-    alternateLanguages[loc] = `${siteUrl}/${loc}/tools`;
+    alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/tools', loc);
   });
 
   return {
     title,
     description,
     alternates: {
-      canonical: `${siteUrl}/${locale}/tools`,
+      canonical: getLocalizedUrl(siteUrl, '/tools', locale),
       languages: alternateLanguages,
     },
     openGraph: {
       title,
       description,
       type: 'website',
-      url: `${siteUrl}/${locale}/tools`,
+      url: getLocalizedUrl(siteUrl, '/tools', locale),
     },
   };
 }

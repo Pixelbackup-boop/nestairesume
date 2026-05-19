@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import { getContent } from '@/lib/content/blog-pages';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -41,9 +42,9 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       description: c.metaDescTemplate.replace('{category}', categoryName.toLowerCase()),
     },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/blog/category/${category}`,
+      canonical: getLocalizedUrl(BASE_URL, `/blog/category/${category}`, locale),
       languages: Object.fromEntries(
-        locales.map(l => [l, `${BASE_URL}/${l}/blog/category/${category}`])
+        locales.map(l => [l, getLocalizedUrl(BASE_URL, `/blog/category/${category}`, l)])
       ),
     },
   };

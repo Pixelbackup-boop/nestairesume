@@ -1,6 +1,6 @@
 import path from 'path';
 import { NextResponse } from 'next/server';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 import { hasLocaleContent } from '@/lib/content-utils';
 import { locales, INDEXABLE_EXAMPLE_LOCALES } from '@/i18n.config';
 
@@ -32,7 +32,7 @@ interface UrlOptions {
 
 export function localizedUrls(path: string, options: UrlOptions): SitemapEntry[] {
   return locales.map((locale) => ({
-    url: `${BASE_URL}/${locale}${getLocalizedPath(path, locale)}`,
+    url: getLocalizedUrl(BASE_URL, path, locale),
     lastModified: options.lastModified,
     changeFrequency: options.changeFrequency,
     priority: options.priority,
@@ -44,7 +44,7 @@ export function localizedUrls(path: string, options: UrlOptions): SitemapEntry[]
 // so including them in the sitemap would send Google contradictory signals.
 export function indexableExampleLocaleUrls(path: string, options: UrlOptions): SitemapEntry[] {
   return INDEXABLE_EXAMPLE_LOCALES.map((locale) => ({
-    url: `${BASE_URL}/${locale}${getLocalizedPath(path, locale)}`,
+    url: getLocalizedUrl(BASE_URL, path, locale),
     lastModified: options.lastModified,
     changeFrequency: options.changeFrequency,
     priority: options.priority,
@@ -54,7 +54,7 @@ export function indexableExampleLocaleUrls(path: string, options: UrlOptions): S
 // Emits one URL per locale that has its own MDX file for `slug`. English is
 // always emitted (root file is the source of truth). Locales without a
 // dedicated translation are skipped — they fall back to English with a
-// canonical pointing to /en/, so listing them in the sitemap is a
+// canonical pointing to the English URL, so listing them in the sitemap is a
 // self-contradicting signal Google ignores.
 export function indexableContentLocaleUrls(
   contentType: ContentType,
@@ -66,7 +66,7 @@ export function indexableContentLocaleUrls(
   return locales
     .filter((locale) => hasLocaleContent(dir, slug, locale))
     .map((locale) => ({
-      url: `${BASE_URL}/${locale}${getLocalizedPath(routePath, locale)}`,
+      url: getLocalizedUrl(BASE_URL, routePath, locale),
       lastModified: options.lastModified,
       changeFrequency: options.changeFrequency,
       priority: options.priority,

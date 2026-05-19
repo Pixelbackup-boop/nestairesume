@@ -7,7 +7,7 @@ import AxeBuilder from '@axe-core/playwright';
 
 test.describe('Accessibility', () => {
   test('homepage has no critical or serious axe violations', async ({ page }) => {
-    await page.goto('/en');
+    await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
     const results = await new AxeBuilder({ page })
@@ -28,7 +28,7 @@ test.describe('Accessibility', () => {
   });
 
   test('homepage heading hierarchy has no skipped levels', async ({ page }) => {
-    await page.goto('/en');
+    await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
     // Scope to main content only — footer/nav have independent heading hierarchies.
@@ -57,7 +57,7 @@ test.describe('Accessibility', () => {
   });
 
   test('homepage images have alt text', async ({ page }) => {
-    await page.goto('/en');
+    await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
     const imagesWithoutAlt = await page.$$eval('img', (images) =>
@@ -73,7 +73,7 @@ test.describe('Accessibility', () => {
   });
 
   test('builder page has no critical axe violations', async ({ page }) => {
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
 
     const results = await new AxeBuilder({ page })
@@ -92,7 +92,7 @@ test.describe('Accessibility', () => {
   });
 
   test('homepage interactive elements are keyboard-accessible', async ({ page }) => {
-    await page.goto('/en');
+    await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
     // Check that focusable elements exist
@@ -112,7 +112,7 @@ test.describe('Accessibility', () => {
   });
 
   test('homepage links are distinguishable from surrounding text', async ({ page }) => {
-    await page.goto('/en');
+    await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
     // Check inline links within content paragraphs (not nav/footer list links)

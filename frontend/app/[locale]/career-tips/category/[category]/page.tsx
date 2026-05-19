@@ -8,6 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Folder, ArrowLeft } from 'lucide-react';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -37,9 +38,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: {
-      canonical: `${siteUrl}/${locale}/career-tips/category/${category}`,
+      canonical: getLocalizedUrl(siteUrl, `/career-tips/category/${category}`, locale),
       languages: Object.fromEntries(
-        locales.map(l => [l, `${siteUrl}/${l}/career-tips/category/${category}`])
+        locales.map(l => [l, getLocalizedUrl(siteUrl, `/career-tips/category/${category}`, l)])
       ),
     },
   };

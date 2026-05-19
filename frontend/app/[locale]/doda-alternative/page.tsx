@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/doda-alternative';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -11,16 +11,16 @@ const siteUrl = 'https://bestairesumes.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const c = getContent(locale);
-const alternateLanguages: Record<string, string> = { 'x-default': `${siteUrl}/en/doda-alternative` };
-    locales.forEach((loc) => { alternateLanguages[loc] = `${siteUrl}/${loc}/doda-alternative`; });
+const alternateLanguages: Record<string, string> = { 'x-default': getLocalizedUrl(siteUrl, '/doda-alternative', 'en') };
+    locales.forEach((loc) => { alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/doda-alternative', loc); });
 
     return {
         title: c.meta.title,
         description: c.meta.description,
         keywords: c.meta.keywords,
-        openGraph: { title: c.meta.title, description: c.meta.description, type: 'article', url: `${siteUrl}/${locale}/doda-alternative` },
+        openGraph: { title: c.meta.title, description: c.meta.description, type: 'article', url: getLocalizedUrl(siteUrl, '/doda-alternative', locale) },
         twitter: { card: 'summary_large_image', title: c.meta.title, description: c.meta.description },
-        alternates: { canonical: `${siteUrl}/${locale}/doda-alternative`, languages: alternateLanguages },
+        alternates: { canonical: getLocalizedUrl(siteUrl, '/doda-alternative', locale), languages: alternateLanguages },
     };
 }
 
@@ -37,7 +37,7 @@ export default async function DodaAlternativePage({ params }: { params: Promise<
     const breadcrumbSchema = {
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -49,9 +49,9 @@ export default async function DodaAlternativePage({ params }: { params: Promise<
         '@context': 'https://schema.org', '@type': 'Article',
         headline: c.schemas.articleHeadline, description: c.schemas.articleDescription,
         datePublished: '2026-02-26', dateModified: '2026-02-26',
-        author: { '@type': 'Person', name: 'Alex Brown', url: `${siteUrl}/${locale}/about/alex-brown`, jobTitle: 'Senior HR & Resume Strategist' },
+        author: { '@type': 'Person', name: 'Alex Brown', url: getLocalizedUrl(siteUrl, '/about/alex-brown', locale), jobTitle: 'Senior HR & Resume Strategist' },
         publisher: { '@type': 'Organization', name: 'Best AI Resume', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/doda-alternative` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': getLocalizedUrl(siteUrl, '/doda-alternative', locale) },
     };
 
     // SAFE: These render hardcoded content strings from our own content files — no user input involved

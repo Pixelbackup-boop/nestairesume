@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getContent } from '@/lib/content/terms-page';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -13,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: `${c.hero.badge} | Best AI Resume`,
     description: c.hero.subtitle,
     alternates: {
-      canonical: `${siteUrl}/${locale}/terms`,
-      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/terms`])),
+      canonical: getLocalizedUrl(siteUrl, '/terms', locale),
+      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(siteUrl, '/terms', l)])),
     },
   };
 }

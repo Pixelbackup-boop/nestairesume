@@ -1,3 +1,5 @@
+import { defaultLocale } from '@/i18n.config';
+
 // Centralized route segment translations for localized URLs.
 // Used by middleware (rewrite/redirect), sitemap, and metadata generation.
 
@@ -45,14 +47,30 @@ export function getLocalizedPath(path: string, locale: string): string {
 }
 
 /**
- * Build a full localized URL: baseUrl + /locale + localizedPath
+ * Build a full localized URL.
+ *
+ * Default locale (English) URLs OMIT the locale prefix: `https://example.com/path`.
+ * Non-default locales use the locale prefix: `https://example.com/{locale}/path`.
+ * Required for `localePrefix: 'as-needed'` in next-intl.
+ *
  * e.g. getLocalizedUrl('https://example.com', '/resume-examples/slug', 'es')
  *   → 'https://example.com/es/ejemplos-de-curriculum/slug'
+ * getLocalizedUrl('https://example.com', '/pricing', 'en')
+ *   → 'https://example.com/pricing'
  */
 export function getLocalizedUrl(baseUrl: string, path: string, locale: string): string {
   const localizedPath = getLocalizedPath(path, locale);
+  if (locale === defaultLocale) {
+    return `${baseUrl}${localizedPath}`;
+  }
   return `${baseUrl}/${locale}${localizedPath}`;
 }
+
+/**
+ * Thin alias for `getLocalizedUrl`, used at canonical/hreflang call sites
+ * to make intent obvious in metadata code.
+ */
+export const getCanonicalUrl = getLocalizedUrl;
 
 /**
  * Reverse-translate: localized segment → English segment.

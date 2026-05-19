@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { AUTHORS } from "@/lib/resume-examples/posts";
 import { getAboutContent } from '@/lib/content/about-pages';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -16,8 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: `${c.hero.badge} | Best AI Resume`,
     description: c.hero.subtitle,
     alternates: {
-      canonical: `${BASE_URL}/${locale}/about`,
-      languages: Object.fromEntries(locales.map(l => [l, `${BASE_URL}/${l}/about`])),
+      canonical: getLocalizedUrl(BASE_URL, '/about', locale),
+      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(BASE_URL, '/about', l)])),
     },
   };
 }

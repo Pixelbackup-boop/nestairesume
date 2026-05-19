@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Authentication Pages', () => {
   test.describe('Login Page', () => {
     test('should display login form', async ({ page }) => {
-      await page.goto('/en/auth/login');
+      await page.goto('/auth/login');
 
       // Check for email input
       const emailInput = page.locator('input[type="email"]');
@@ -19,7 +19,7 @@ test.describe('Authentication Pages', () => {
     });
 
     test('should show validation error for empty form', async ({ page }) => {
-      await page.goto('/en/auth/login');
+      await page.goto('/auth/login');
 
       // Click submit without filling form
       const submitButton = page.getByRole('button', { name: /sign in/i });
@@ -32,7 +32,7 @@ test.describe('Authentication Pages', () => {
     });
 
     test('should show error for invalid credentials', async ({ page }) => {
-      await page.goto('/en/auth/login');
+      await page.goto('/auth/login');
 
       // Fill invalid credentials
       await page.fill('input[type="email"]', 'invalid@test.com');
@@ -50,7 +50,7 @@ test.describe('Authentication Pages', () => {
     });
 
     test('should have link to register page', async ({ page }) => {
-      await page.goto('/en/auth/login');
+      await page.goto('/auth/login');
 
       // Link text is "Sign up" (from t('signUp'))
       const registerLink = page.getByRole('link', { name: /sign up/i });
@@ -60,7 +60,7 @@ test.describe('Authentication Pages', () => {
 
   test.describe('Register Page', () => {
     test('should display registration form', async ({ page }) => {
-      await page.goto('/en/auth/register');
+      await page.goto('/auth/register');
 
       // Check for name input (first text input)
       const nameInput = page.locator('input[type="text"]').first();
@@ -76,7 +76,7 @@ test.describe('Authentication Pages', () => {
     });
 
     test('should validate email format', async ({ page }) => {
-      await page.goto('/en/auth/register');
+      await page.goto('/auth/register');
 
       const emailInput = page.locator('input[type="email"]');
       await emailInput.fill('notanemail');
@@ -88,7 +88,7 @@ test.describe('Authentication Pages', () => {
     });
 
     test('should have link to login page', async ({ page }) => {
-      await page.goto('/en/auth/register');
+      await page.goto('/auth/register');
 
       // Link text is "Sign in" (from t('signIn'))
       const loginLink = page.getByRole('link', { name: /sign in/i });
@@ -99,7 +99,7 @@ test.describe('Authentication Pages', () => {
 
 test.describe('Protected Routes', () => {
   test('should load builder page (auth or builder content)', async ({ page }) => {
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
 
     // Builder should show form inputs (public access) or auth page

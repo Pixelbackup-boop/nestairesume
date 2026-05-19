@@ -14,7 +14,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
   // ==================== Pricing Page ====================
   test.describe('Pricing Page', () => {
     test('should display all subscription tiers', async ({ page }) => {
-      await page.goto('/en/pricing');
+      await page.goto('/pricing');
 
       // Check for all 4 plans
       await expect(page.getByText(/starter/i).first()).toBeVisible();
@@ -24,7 +24,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
     });
 
     test('should show plan features and pricing', async ({ page }) => {
-      await page.goto('/en/pricing');
+      await page.goto('/pricing');
       await page.waitForLoadState('domcontentloaded');
 
       // Check for pricing elements - prices are shown as $3, $6, etc.
@@ -33,7 +33,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
     });
 
     test('should have subscription buttons for each plan', async ({ page }) => {
-      await page.goto('/en/pricing');
+      await page.goto('/pricing');
       await page.waitForLoadState('domcontentloaded');
 
       // Pricing page uses Link elements for CTAs - look for plan links
@@ -42,7 +42,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
     });
 
     test('should toggle between monthly and annual pricing', async ({ page }) => {
-      await page.goto('/en/pricing');
+      await page.goto('/pricing');
       await page.waitForLoadState('domcontentloaded');
 
       // Look for billing toggle with specific aria-label
@@ -59,7 +59,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
   // ==================== Checkout Flow ====================
   test.describe('Checkout Flow', () => {
     test('should redirect to login when clicking subscribe without auth', async ({ page }) => {
-      await page.goto('/en/pricing');
+      await page.goto('/pricing');
 
       // Click on a subscription button
       const subscribeButton = page.getByRole('button', { name: /subscribe|get started|choose/i }).first();
@@ -76,7 +76,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
       // This test would require a logged-in user
       // Navigate with error handling for potential page issues
       try {
-        await page.goto('/en/checkout?plan=gold', { timeout: 45000, waitUntil: 'domcontentloaded' });
+        await page.goto('/checkout?plan=gold', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
         // Page may have navigation issues — verify URL was at least requested
         expect(page.url()).toContain('checkout');
@@ -100,7 +100,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
 
     test('should display plan details on checkout page', async ({ page }) => {
       try {
-        await page.goto('/en/checkout?plan=gold', { timeout: 45000, waitUntil: 'domcontentloaded' });
+        await page.goto('/checkout?plan=gold', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
         // Page may have navigation issues — verify URL was at least requested
         expect(page.url()).toContain('checkout');
@@ -124,7 +124,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
   test.describe('Stripe Integration', () => {
     test('checkout page should have Stripe elements or redirect', async ({ page }) => {
       try {
-        await page.goto('/en/checkout?plan=starter', { timeout: 45000, waitUntil: 'domcontentloaded' });
+        await page.goto('/checkout?plan=starter', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
         // Page may have navigation issues — verify URL was at least requested
         expect(page.url()).toContain('checkout');
@@ -150,7 +150,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
 
       for (const plan of plans) {
         try {
-          await page.goto(`/en/checkout?plan=${plan}`, { timeout: 45000, waitUntil: 'domcontentloaded' });
+          await page.goto(`/checkout?plan=${plan}`, { timeout: 45000, waitUntil: 'domcontentloaded' });
         } catch (e) {
           // Navigation issue - continue to next plan
           continue;
@@ -168,7 +168,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
   // ==================== Success/Cancel Pages ====================
   test.describe('Post-Checkout Pages', () => {
     test('should have success page', async ({ page }) => {
-      await page.goto('/en/checkout/success');
+      await page.goto('/checkout/success');
       await page.waitForLoadState('domcontentloaded');
 
       // Success page shows "Payment Successful!" and "Create Your Resume" button
@@ -181,7 +181,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
     });
 
     test('success page should show subscription details or redirect to builder', async ({ page }) => {
-      await page.goto('/en/checkout/success?session_id=test');
+      await page.goto('/checkout/success?session_id=test');
       await page.waitForLoadState('domcontentloaded');
 
       // Either shows details or redirects
@@ -197,7 +197,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
   test.describe('Subscription Management', () => {
     test('should have account settings page', async ({ page }) => {
       // Navigate to pricing page as fallback (account settings may not exist)
-      await page.goto('/en/pricing');
+      await page.goto('/pricing');
       await page.waitForLoadState('domcontentloaded');
 
       // Should show pricing page content
@@ -208,7 +208,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
 
     test('pricing page should show current plan for logged in users', async ({ page }) => {
       // This would require auth setup
-      await page.goto('/en/pricing');
+      await page.goto('/pricing');
       await page.waitForLoadState('domcontentloaded');
 
       // For non-authenticated users, plan CTAs should be visible as links
@@ -221,7 +221,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
   test.describe('Error Handling', () => {
     test('should handle invalid plan gracefully', async ({ page }) => {
       try {
-        await page.goto('/en/checkout?plan=invalid-plan', { timeout: 45000, waitUntil: 'domcontentloaded' });
+        await page.goto('/checkout?plan=invalid-plan', { timeout: 45000, waitUntil: 'domcontentloaded' });
       } catch (e) {
         // Navigation issue — verify page didn't crash (body loaded)
         await expect(page.locator('body')).toBeVisible();
@@ -241,7 +241,7 @@ test.describe('Subscription Purchase Flow @requires-backend', () => {
     });
 
     test('should handle missing session_id on success page', async ({ page }) => {
-      await page.goto('/en/checkout/success');
+      await page.goto('/checkout/success');
       await page.waitForLoadState('domcontentloaded');
 
       // Should not show error state or should redirect gracefully

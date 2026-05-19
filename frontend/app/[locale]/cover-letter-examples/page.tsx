@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getAllCoverLetterExamples, getAllDisplayCategories } from '@/lib/cover-letter-examples/posts';
 import { getContent } from '@/lib/content/cover-letter-examples-index';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales, isIndexableExampleLocale } from '@/i18n.config';
 
 const BASE_URL = 'https://bestairesumes.com';
@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: c.meta.description,
     keywords: c.meta.keywords,
     alternates: {
-      canonical: `${BASE_URL}/${locale}${getLocalizedPath('/cover-letter-examples', locale)}`,
+      canonical: getLocalizedUrl(BASE_URL, '/cover-letter-examples', locale),
       languages: Object.fromEntries(
-        locales.map(l => [l, `${BASE_URL}/${l}${getLocalizedPath('/cover-letter-examples', l)}`])
+        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/cover-letter-examples', l)])
       ),
     },
     ...(isIndexableExampleLocale(locale) ? {} : { robots: { index: false, follow: true } }),
@@ -56,7 +56,7 @@ export default async function CoverLetterExamplesIndex({ params }: { params: Pro
     '@type': 'CollectionPage',
     name: c.meta.title,
     description: c.meta.description,
-    url: `${BASE_URL}/${locale}${getLocalizedPath('/cover-letter-examples', locale)}`,
+    url: getLocalizedUrl(BASE_URL, '/cover-letter-examples', locale),
     hasPart: {
       '@type': 'ItemList',
       numberOfItems: allExamples.length,
@@ -64,7 +64,7 @@ export default async function CoverLetterExamplesIndex({ params }: { params: Pro
         '@type': 'ListItem',
         position: i + 1,
         name: e.jobTitle,
-        url: `${BASE_URL}/${locale}${getLocalizedPath(`/cover-letter-examples/${e.slug}`, locale)}`,
+        url: getLocalizedUrl(BASE_URL, `/cover-letter-examples/${e.slug}`, locale),
       })),
     },
   });

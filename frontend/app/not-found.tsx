@@ -56,7 +56,7 @@ export default function NotFound() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <Link
-                href="/en"
+                href="/"
                 style={{
                   display: 'block',
                   padding: '14px 24px',
@@ -72,7 +72,7 @@ export default function NotFound() {
                 Back to Home
               </Link>
               <Link
-                href="/en/resume-examples"
+                href="/resume-examples"
                 style={{
                   display: 'block',
                   padding: '14px 24px',
@@ -87,7 +87,7 @@ export default function NotFound() {
                 Browse Resume Examples
               </Link>
               <Link
-                href="/en/templates"
+                href="/templates"
                 style={{
                   display: 'block',
                   padding: '14px 24px',

@@ -15,6 +15,7 @@ import MultiplexAd from '@/components/ads/MultiplexAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getContent } from '@/lib/content/blog-pages';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -47,14 +48,14 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   const defaultLocale = availableLocales.includes('en') ? 'en' : (availableLocales[0] ?? 'en');
   const isLocaleNative = availableLocales.includes(locale);
   const url = isLocaleNative
-    ? `${siteUrl}/${locale}/blog/${post.slug}`
-    : `${siteUrl}/${defaultLocale}/blog/${post.slug}`;
+    ? getLocalizedUrl(siteUrl, `/blog/${post.slug}`, locale)
+    : getLocalizedUrl(siteUrl, `/blog/${post.slug}`, 'en');
 
   const languages: Record<string, string> = {
-    'x-default': `${siteUrl}/${defaultLocale}/blog/${post.slug}`,
+    'x-default': getLocalizedUrl(siteUrl, `/blog/${post.slug}`, 'en'),
   };
   availableLocales.forEach((loc) => {
-    languages[loc] = `${siteUrl}/${loc}/blog/${post.slug}`;
+    languages[loc] = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, loc);
   });
 
   return {
@@ -128,7 +129,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const relatedPosts = await getRelatedPosts(post.slug, 3);
 
   // Build URL for sharing
-  const postUrl = `${siteUrl}/${locale}/blog/${post.slug}`;
+  const postUrl = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, locale);
 
   // Resolve author for E-E-A-T Person schema
   const author = getAuthor(post.author);
@@ -146,7 +147,7 @@ export default async function PostPage({ params }: PostPageProps) {
       '@type': 'Person',
       name: author.name,
       jobTitle: author.jobTitle,
-      url: `${siteUrl}/${locale}/about/${author.slug}`,
+      url: getLocalizedUrl(siteUrl, `/about/${author.slug}`, locale),
       image: `${siteUrl}${author.image}`,
       knowsAbout: author.expertise,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
@@ -177,8 +178,8 @@ export default async function PostPage({ params }: PostPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/${locale}/blog` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: getLocalizedUrl(siteUrl, '/blog', locale) },
       { '@type': 'ListItem', position: 3, name: post.title },
     ],
   };

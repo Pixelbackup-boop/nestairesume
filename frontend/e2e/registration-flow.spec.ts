@@ -16,7 +16,7 @@ test.describe('User Registration Flow @requires-backend', () => {
   });
 
   test('should display registration page correctly', async ({ page }) => {
-    await page.goto('/en/auth/register');
+    await page.goto('/auth/register');
 
     // Check page elements - actual UI uses "Create Account" heading
     await expect(page.getByRole('heading', { name: /create account/i })).toBeVisible();
@@ -29,7 +29,7 @@ test.describe('User Registration Flow @requires-backend', () => {
   });
 
   test('should show validation errors for empty form', async ({ page }) => {
-    await page.goto('/en/auth/register');
+    await page.goto('/auth/register');
 
     // Submit empty form - button says "Create account"
     await page.getByRole('button', { name: /create account/i }).click();
@@ -42,7 +42,7 @@ test.describe('User Registration Flow @requires-backend', () => {
   });
 
   test('should show error for invalid email format', async ({ page }) => {
-    await page.goto('/en/auth/register');
+    await page.goto('/auth/register');
 
     await page.locator('input[type="text"]').first().fill(testName);
     await page.locator('input[type="email"]').fill('invalid-email');
@@ -57,7 +57,7 @@ test.describe('User Registration Flow @requires-backend', () => {
   });
 
   test('should show error for weak password', async ({ page }) => {
-    await page.goto('/en/auth/register');
+    await page.goto('/auth/register');
 
     await page.locator('input[type="text"]').first().fill(testName);
     await page.locator('input[type="email"]').fill(testEmail);
@@ -74,7 +74,7 @@ test.describe('User Registration Flow @requires-backend', () => {
   });
 
   test('should navigate to login page via link', async ({ page }) => {
-    await page.goto('/en/auth/register');
+    await page.goto('/auth/register');
 
     // Link text is "Sign in" (from t('signIn'))
     await page.getByRole('link', { name: /sign in/i }).click();
@@ -83,7 +83,7 @@ test.describe('User Registration Flow @requires-backend', () => {
   });
 
   test('should show Google OAuth option', async ({ page }) => {
-    await page.goto('/en/auth/register');
+    await page.goto('/auth/register');
 
     // Check for Google sign-in button
     const googleButton = page.getByRole('button', { name: /google/i });
@@ -94,7 +94,7 @@ test.describe('User Registration Flow @requires-backend', () => {
 test.describe('Email Verification Flow', () => {
   test('should display verification page after registration', async ({ page }) => {
     // This test simulates the verification page
-    await page.goto('/en/auth/verify-email?email=test@example.com');
+    await page.goto('/auth/verify-email?email=test@example.com');
     await page.waitForLoadState('domcontentloaded');
 
     // Check for verification content - verify the page loads
@@ -105,7 +105,7 @@ test.describe('Email Verification Flow', () => {
   });
 
   test('should show error for invalid verification code', async ({ page }) => {
-    await page.goto('/en/auth/verify-email?email=test@example.com');
+    await page.goto('/auth/verify-email?email=test@example.com');
     await page.waitForLoadState('domcontentloaded');
 
     // Enter invalid code if input exists
@@ -125,7 +125,7 @@ test.describe('Email Verification Flow', () => {
   });
 
   test('should have resend code option', async ({ page }) => {
-    await page.goto('/en/auth/verify-email?email=test@example.com');
+    await page.goto('/auth/verify-email?email=test@example.com');
 
     // Check for resend option
     const resendButton = page.getByRole('button', { name: /resend|send again|new code/i });
@@ -142,7 +142,7 @@ test.describe('Email Verification Flow', () => {
 
 test.describe('Login Flow', () => {
   test('should display login page correctly', async ({ page }) => {
-    await page.goto('/en/auth/login');
+    await page.goto('/auth/login');
 
     // Heading says "Welcome Back"
     await expect(page.getByRole('heading', { name: /welcome back/i })).toBeVisible();
@@ -151,7 +151,7 @@ test.describe('Login Flow', () => {
   });
 
   test('should show error for invalid credentials', async ({ page }) => {
-    await page.goto('/en/auth/login');
+    await page.goto('/auth/login');
 
     await page.locator('input[type="email"]').fill('nonexistent@example.com');
     await page.locator('input[type="password"]').fill('wrongpassword');
@@ -170,7 +170,7 @@ test.describe('Login Flow', () => {
   });
 
   test('should have forgot password link', async ({ page }) => {
-    await page.goto('/en/auth/login');
+    await page.goto('/auth/login');
 
     // Look for forgot password link or text
     const forgotLink = page.getByRole('link', { name: /forgot|reset/i });
@@ -187,14 +187,14 @@ test.describe('Login Flow', () => {
 
 test.describe('First Resume Creation', () => {
   test('should display builder page', async ({ page }) => {
-    await page.goto('/en/builder');
+    await page.goto('/builder');
 
     // Builder should be accessible
     await expect(page).toHaveURL(/.*builder/);
   });
 
   test('should show onboarding modal for new users', async ({ page }) => {
-    await page.goto('/en/onboarding');
+    await page.goto('/onboarding');
     await page.waitForLoadState('domcontentloaded');
 
     // Check for onboarding content - page has form or template content
@@ -205,14 +205,14 @@ test.describe('First Resume Creation', () => {
   });
 
   test('should display template selection', async ({ page }) => {
-    await page.goto('/en/templates');
+    await page.goto('/templates');
 
     // Should show available templates
     await expect(page.getByText(/template/i).first()).toBeVisible();
   });
 
   test('should have form fields in builder', async ({ page }) => {
-    await page.goto('/en/builder');
+    await page.goto('/builder');
 
     // Wait for Suspense + useEffect chains to settle — use visible input (not hidden file input)
     await page.locator('input:visible').first().waitFor({ timeout: 15000 });
@@ -228,7 +228,7 @@ test.describe('First Resume Creation', () => {
 test.describe('Complete User Journey', () => {
   test('homepage to builder navigation', async ({ page }) => {
     // Start at homepage
-    await page.goto('/en');
+    await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
     // Look for CTA button - actual text is "Get Started Free"
@@ -248,15 +248,15 @@ test.describe('Complete User Journey', () => {
       const hasError = await page.getByText(/error|404|not found/i).first().isVisible().catch(() => false);
       expect(hasError).toBe(false);
     } else {
-      // CTA not visible, just verify homepage loaded
-      await expect(page).toHaveURL(/\/en/);
+      // CTA not visible, just verify homepage loaded (English at root)
+      await expect(page).toHaveURL(/\/$/);
     }
   });
 
   test('should preserve user state across navigation', async ({ page }) => {
     // This tests that the app maintains state
     try {
-      await page.goto('/en/builder', { timeout: 30000 });
+      await page.goto('/builder', { timeout: 30000 });
       await page.waitForLoadState('domcontentloaded');
     } catch {
       // Navigation issue - verify URL
@@ -275,12 +275,12 @@ test.describe('Complete User Journey', () => {
 
     // Navigate away and back
     try {
-      await page.goto('/en/templates', { timeout: 15000 });
-      await page.goto('/en/builder', { timeout: 15000 });
+      await page.goto('/templates', { timeout: 15000 });
+      await page.goto('/builder', { timeout: 15000 });
     } catch {
       // Navigation issues - verify we're on some valid page
       const url = page.url();
-      expect(url.includes('/en')).toBe(true);
+      expect(url.includes('/')).toBe(true);
       return;
     }
 
@@ -293,7 +293,7 @@ test.describe('Complete User Journey', () => {
 test.describe('Responsive Design', () => {
   test('registration page on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 }); // iPhone SE
-    await page.goto('/en/auth/register');
+    await page.goto('/auth/register');
 
     // Form should be visible and usable
     await expect(page.locator('input[type="email"]')).toBeVisible();
@@ -302,7 +302,7 @@ test.describe('Responsive Design', () => {
 
   test('builder page on tablet', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 }); // iPad
-    await page.goto('/en/builder');
+    await page.goto('/builder');
 
     await expect(page).toHaveURL(/.*builder/);
   });

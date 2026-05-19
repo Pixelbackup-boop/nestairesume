@@ -10,6 +10,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getCareerListingContent } from '@/lib/content/career-pages';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -38,12 +39,12 @@ export async function generateMetadata({ params, searchParams }: CareerPageProps
       type: 'website',
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}/career`,
-      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/career`])),
+      canonical: getLocalizedUrl(siteUrl, '/career', locale),
+      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(siteUrl, '/career', l)])),
     },
     other: {
-      ...(currentPage > 1 && { 'link-prev': `${siteUrl}/${locale}/career${prevParam}` }),
-      ...(currentPage < totalPages && { 'link-next': `${siteUrl}/${locale}/career?page=${currentPage + 1}` }),
+      ...(currentPage > 1 && { 'link-prev': getLocalizedUrl(siteUrl, `/career${prevParam}`, locale) }),
+      ...(currentPage < totalPages && { 'link-next': getLocalizedUrl(siteUrl, `/career?page=${currentPage + 1}`, locale) }),
     },
   };
 }

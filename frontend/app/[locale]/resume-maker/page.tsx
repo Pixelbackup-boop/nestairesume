@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/resume-maker';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -11,16 +11,16 @@ const siteUrl = 'https://bestairesumes.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const c = getContent(locale);
-const alternateLanguages: Record<string, string> = { 'x-default': `${siteUrl}/en/resume-maker` };
-    locales.forEach((loc) => { alternateLanguages[loc] = `${siteUrl}/${loc}/resume-maker`; });
+const alternateLanguages: Record<string, string> = { 'x-default': getLocalizedUrl(siteUrl, '/resume-maker', 'en') };
+    locales.forEach((loc) => { alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/resume-maker', loc); });
 
     return {
         title: c.meta.title,
         description: c.meta.description,
         keywords: c.meta.keywords,
-        openGraph: { title: c.meta.title, description: c.meta.description, type: 'article', url: `${siteUrl}/${locale}/resume-maker` },
+        openGraph: { title: c.meta.title, description: c.meta.description, type: 'article', url: getLocalizedUrl(siteUrl, '/resume-maker', locale) },
         twitter: { card: 'summary_large_image', title: c.meta.title, description: c.meta.description },
-        alternates: { canonical: `${siteUrl}/${locale}/resume-maker`, languages: alternateLanguages },
+        alternates: { canonical: getLocalizedUrl(siteUrl, '/resume-maker', locale), languages: alternateLanguages },
     };
 }
 
@@ -33,7 +33,7 @@ export default async function ResumeMakerPage({ params }: { params: Promise<{ lo
     const breadcrumbSchema = {
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -53,9 +53,9 @@ export default async function ResumeMakerPage({ params }: { params: Promise<{ lo
         '@context': 'https://schema.org', '@type': 'Article',
         headline: c.schemas.articleHeadline, description: c.schemas.articleDescription,
         datePublished: '2026-01-28', dateModified: '2026-01-28',
-        author: { '@type': 'Person', name: 'Sarah Chen', url: `${siteUrl}/${locale}/about/sarah-chen`, jobTitle: 'Career Coach & Resume Expert' },
+        author: { '@type': 'Person', name: 'Sarah Chen', url: getLocalizedUrl(siteUrl, '/about/sarah-chen', locale), jobTitle: 'Career Coach & Resume Expert' },
         publisher: { '@type': 'Organization', name: 'Best AI Resume', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/resume-maker` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': getLocalizedUrl(siteUrl, '/resume-maker', locale) },
     };
 
     // SAFE: These render hardcoded content strings from our own content files — no user input involved

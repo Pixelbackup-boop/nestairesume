@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/resume-format';
 import type { FormatComparisonItem } from '@/lib/content/resume-format';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -37,10 +37,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const c = getContent(locale);
 
 const alternateLanguages: Record<string, string> = {
-        'x-default': `${siteUrl}/en/resume-format`,
+        'x-default': getLocalizedUrl(siteUrl, '/resume-format', 'en'),
     };
     locales.forEach((loc) => {
-        alternateLanguages[loc] = `${siteUrl}/${loc}/resume-format`;
+        alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/resume-format', loc);
     });
 
     return {
@@ -51,7 +51,7 @@ const alternateLanguages: Record<string, string> = {
             title: c.meta.title,
             description: c.meta.description,
             type: 'article',
-            url: `${siteUrl}/${locale}/resume-format`,
+            url: getLocalizedUrl(siteUrl, '/resume-format', locale),
         },
         twitter: {
             card: 'summary_large_image',
@@ -59,7 +59,7 @@ const alternateLanguages: Record<string, string> = {
             description: c.meta.description,
         },
         alternates: {
-            canonical: `${siteUrl}/${locale}/resume-format`,
+            canonical: getLocalizedUrl(siteUrl, '/resume-format', locale),
             languages: alternateLanguages,
         },
     };
@@ -109,7 +109,7 @@ export default async function ResumeFormatPage({ params }: { params: Promise<{ l
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };

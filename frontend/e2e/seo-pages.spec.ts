@@ -8,7 +8,7 @@ import { test, expect } from '@playwright/test';
 test.describe('SEO Content Pages', () => {
   test.describe('Blog', () => {
     test('should load blog listing page', async ({ page }) => {
-      await page.goto('/en/blog');
+      await page.goto('/blog');
       await page.waitForLoadState('domcontentloaded');
 
       await expect(page.locator('h1')).toBeVisible();
@@ -19,11 +19,11 @@ test.describe('SEO Content Pages', () => {
     });
 
     test('should navigate to individual blog post', async ({ page }) => {
-      await page.goto('/en/blog');
+      await page.goto('/blog');
       await page.waitForLoadState('domcontentloaded');
 
       // Match blog post links with a slug (exclude the listing page link /en/blog/ itself)
-      const blogLink = page.locator('a[href*="/en/blog/"]').filter({ hasNotText: /^$/ }).first();
+      const blogLink = page.locator('a[href*="/blog/"]').filter({ hasNotText: /^$/ }).first();
       await blogLink.waitFor({ state: 'visible', timeout: 20000 });
 
       const href = await blogLink.getAttribute('href');
@@ -40,7 +40,7 @@ test.describe('SEO Content Pages', () => {
     });
 
     test('should have proper meta tags on blog page', async ({ page }) => {
-      await page.goto('/en/blog');
+      await page.goto('/blog');
 
       const metaDescription = page.locator('meta[name="description"]');
       const content = await metaDescription.getAttribute('content');
@@ -51,7 +51,7 @@ test.describe('SEO Content Pages', () => {
 
   test.describe('Resume Examples', () => {
     test('should load resume examples listing', async ({ page }) => {
-      await page.goto('/en/resume-examples');
+      await page.goto('/resume-examples');
       await page.waitForLoadState('domcontentloaded');
 
       await expect(page.locator('h1')).toBeVisible();
@@ -62,7 +62,7 @@ test.describe('SEO Content Pages', () => {
     });
 
     test('should navigate to specific resume example', async ({ page }) => {
-      await page.goto('/en/resume-examples/software-engineer');
+      await page.goto('/resume-examples/software-engineer');
 
       // Wait for MDX content to fully render (multiple h2/h3 sections)
       await page.locator('h2, h3').nth(2).waitFor({ state: 'visible', timeout: 15000 });
@@ -75,7 +75,7 @@ test.describe('SEO Content Pages', () => {
     });
 
     test('should have content sections on resume example page', async ({ page }) => {
-      await page.goto('/en/resume-examples/software-engineer');
+      await page.goto('/resume-examples/software-engineer');
       await page.waitForLoadState('domcontentloaded');
 
       await expect(page.locator('main, article, [class*="content"]').first()).toBeVisible();
@@ -84,7 +84,7 @@ test.describe('SEO Content Pages', () => {
 
   test.describe('Career Tips', () => {
     test('should load career tips page', async ({ page }) => {
-      await page.goto('/en/career-tips');
+      await page.goto('/career-tips');
       await page.waitForLoadState('domcontentloaded');
 
       await expect(page.locator('main, article, [class*="content"]').first()).toBeVisible();
@@ -100,7 +100,7 @@ test.describe('SEO Content Pages', () => {
 
     for (const alt of alternatives) {
       test(`should load ${alt} page with heading`, async ({ page }) => {
-        await page.goto(`/en/${alt}`);
+        await page.goto(`/${alt}`);
         await page.waitForLoadState('domcontentloaded');
 
         await expect(page.locator('h1')).toBeVisible();
@@ -110,7 +110,7 @@ test.describe('SEO Content Pages', () => {
 
   test.describe('About/Authors', () => {
     test('should load authors listing page', async ({ page }) => {
-      await page.goto('/en/about/authors');
+      await page.goto('/about/authors');
       await page.waitForLoadState('domcontentloaded');
 
       await expect(page.locator('main, [class*="content"]').first()).toBeVisible();
@@ -120,7 +120,7 @@ test.describe('SEO Content Pages', () => {
 
 test.describe('SEO Technical Checks', () => {
   test('should have proper canonical URL', async ({ page }) => {
-    await page.goto('/en/blog');
+    await page.goto('/blog');
 
     const canonical = page.locator('link[rel="canonical"]');
     const href = await canonical.getAttribute('href');
@@ -129,14 +129,14 @@ test.describe('SEO Technical Checks', () => {
   });
 
   test('should have Open Graph tags', async ({ page }) => {
-    await page.goto('/en/blog');
+    await page.goto('/blog');
 
     expect(await page.locator('meta[property="og:title"]').getAttribute('content')).toBeTruthy();
     expect(await page.locator('meta[property="og:description"]').getAttribute('content')).toBeTruthy();
   });
 
   test('should have proper heading hierarchy', async ({ page }) => {
-    await page.goto('/en/resume-examples/software-engineer');
+    await page.goto('/resume-examples/software-engineer');
     await page.waitForLoadState('domcontentloaded');
 
     const h1Count = await page.locator('h1').count();
@@ -148,7 +148,7 @@ test.describe('SEO Technical Checks', () => {
 
   test('should be mobile responsive', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/en/resume-examples');
+    await page.goto('/resume-examples');
     await page.waitForLoadState('domcontentloaded');
 
     const bodyWidth = await page.locator('body').evaluate((el) => el.scrollWidth);
@@ -158,7 +158,7 @@ test.describe('SEO Technical Checks', () => {
 
 test.describe('Error Handling', () => {
   test('should show 404 page for non-existent routes', async ({ page }) => {
-    await page.goto('/en/this-page-does-not-exist-12345');
+    await page.goto('/this-page-does-not-exist-12345');
     await page.waitForLoadState('domcontentloaded');
 
     const notFoundText = page.getByText(/404|not found|page doesn't exist/i).first();
@@ -166,7 +166,7 @@ test.describe('Error Handling', () => {
   });
 
   test('should handle missing resume example gracefully', async ({ page }) => {
-    const response = await page.goto('/en/resume-examples/fake-job-that-doesnt-exist-xyz');
+    const response = await page.goto('/resume-examples/fake-job-that-doesnt-exist-xyz');
 
     // Should return 404 status or redirect
     expect(response?.status()).toBeGreaterThanOrEqual(200);

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
 import { getTranslations } from 'next-intl/server';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 import {
     CheckCircle,
     ShieldCheck,
@@ -26,10 +27,10 @@ export async function generateMetadata({
     const t = await getTranslations({ locale, namespace: 'ATSTemplates' });
 
     const alternateLanguages: Record<string, string> = {
-        'x-default': `${siteUrl}/en/ats-friendly-templates`,
+        'x-default': getLocalizedUrl(siteUrl, '/ats-friendly-templates', 'en'),
     };
     locales.forEach((loc) => {
-        alternateLanguages[loc] = `${siteUrl}/${loc}/ats-friendly-templates`;
+        alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/ats-friendly-templates', loc);
     });
 
     return {
@@ -49,7 +50,7 @@ export async function generateMetadata({
             title: t('meta.title'),
             description: t('meta.description'),
             type: 'website',
-            url: `${siteUrl}/${locale}/ats-friendly-templates`,
+            url: getLocalizedUrl(siteUrl, '/ats-friendly-templates', locale),
         },
         twitter: {
             card: 'summary_large_image',
@@ -57,7 +58,7 @@ export async function generateMetadata({
             description: t('meta.description'),
         },
         alternates: {
-            canonical: `${siteUrl}/${locale}/ats-friendly-templates`,
+            canonical: getLocalizedUrl(siteUrl, '/ats-friendly-templates', locale),
             languages: alternateLanguages,
         },
     };
@@ -96,7 +97,7 @@ export default async function ATSFriendlyTemplatesPage({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `${siteUrl}/${locale}` },
+            { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: getLocalizedUrl(siteUrl, '', locale) },
             { '@type': 'ListItem', position: 2, name: t('breadcrumb.current') },
         ],
     };
@@ -106,7 +107,7 @@ export default async function ATSFriendlyTemplatesPage({
         '@type': 'CollectionPage',
         name: t('hero.title'),
         description: t('meta.description'),
-        url: `${siteUrl}/${locale}/ats-friendly-templates`,
+        url: getLocalizedUrl(siteUrl, '/ats-friendly-templates', locale),
         isPartOf: { '@type': 'WebSite', name: 'Best AI Resume', url: siteUrl },
         about: {
             '@type': 'Thing',

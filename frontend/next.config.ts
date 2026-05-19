@@ -42,23 +42,53 @@ const nextConfig: NextConfig = {
   // Standalone output for Docker/Cloud Run deployment
   output: 'standalone',
 
-  // Rewrite /sitemap*.xml to API routes (bypasses next-intl middleware)
+  // Rewrite /sitemap*.xml to API routes (bypasses next-intl middleware).
+  // Order matters: more specific patterns first so /sitemap-blog.xml and
+  // /sitemap-index.xml don't get captured by the per-locale `:locale` pattern.
   async rewrites() {
     return [
       {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
+        source: '/sitemap-index.xml',
+        destination: '/api/sitemap-index',
       },
       {
         source: '/sitemap-blog.xml',
         destination: '/api/sitemap-blog',
       },
+      {
+        source: '/sitemap-:locale.xml',
+        destination: '/api/sitemap/:locale',
+      },
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
     ];
   },
 
-  // Redirects for removed/renamed pages
+  // Redirects for removed/renamed pages.
+  //
+  // SEO migration: as of the `localePrefix: 'as-needed'` switch, English URLs
+  // live at the root (no `/en` prefix). We 301-redirect prior `/en/*` URLs to
+  // their non-prefixed equivalents so existing backlinks/bookmarks preserve
+  // SEO equity. Order matters: list these BEFORE the generic `:locale` rules
+  // so `/en/x` is caught and rewritten rather than falling through to the
+  // non-default locale matchers.
   async redirects() {
     return [
+      // SEO migration — strip /en prefix from default-locale URLs
+      {
+        source: '/en',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+
+      // Existing redirects
       {
         source: '/:locale/templates/ats-friendly',
         destination: '/:locale/templates',
@@ -67,7 +97,7 @@ const nextConfig: NextConfig = {
       // Old tool URLs → new tool paths
       {
         source: '/cover-letter-builder',
-        destination: '/en/tools/cover-letter',
+        destination: '/tools/cover-letter',
         permanent: true,
       },
       {
@@ -77,7 +107,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/ats-resume-checker',
-        destination: '/en/tools/ats-checker',
+        destination: '/tools/ats-checker',
         permanent: true,
       },
       {

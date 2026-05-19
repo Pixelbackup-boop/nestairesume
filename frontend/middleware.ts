@@ -13,8 +13,10 @@ const intlMiddleware = createMiddleware({
   // Default locale when none is detected
   defaultLocale,
 
-  // Always show locale prefix in URL (e.g., /en/pricing, /es/pricing)
-  localePrefix: 'always',
+  // Show locale prefix only for non-default locales (e.g., /pricing, /es/pricing).
+  // English (default) URLs live at the root; /en/* is 301-redirected to /* by
+  // next.config.ts to preserve SEO equity from prior URLs.
+  localePrefix: 'as-needed',
 
   // Detect locale from Accept-Language header
   localeDetection: true,
@@ -36,18 +38,27 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Server-side route protection for authenticated-only pages
-  // Checks for our custom auth cookie (email/password login) or NextAuth session cookie (OAuth login)
-  const protectedMatch = pathname.match(/^\/([a-z]{2})\/(dashboard|profile)(\/|$)/);
-  if (protectedMatch) {
-    const locale = protectedMatch[1];
+  // Server-side route protection for authenticated-only pages.
+  // Matches both `/{locale}/dashboard` (non-default locales) and `/dashboard`
+  // (English at root, since localePrefix is `as-needed`).
+  const protectedPrefixedMatch = pathname.match(/^\/([a-z]{2})\/(dashboard|profile)(\/|$)/);
+  const protectedRootMatch = pathname.match(/^\/(dashboard|profile)(\/|$)/);
+  const protectedLocale = protectedPrefixedMatch
+    ? protectedPrefixedMatch[1]
+    : protectedRootMatch
+      ? defaultLocale
+      : null;
+  if (protectedLocale) {
     const isAuthenticated =
       request.cookies.has('auth_token') ||
       request.cookies.has('next-auth.session-token') ||
       request.cookies.has('__Secure-next-auth.session-token');
 
     if (!isAuthenticated) {
-      const loginUrl = new URL(`/${locale}/auth/login`, request.url);
+      const loginPath = protectedLocale === defaultLocale
+        ? '/auth/login'
+        : `/${protectedLocale}/auth/login`;
+      const loginUrl = new URL(loginPath, request.url);
       loginUrl.searchParams.set('redirect', pathname);
       return NextResponse.redirect(loginUrl);
     }

@@ -14,7 +14,7 @@ test.describe('AI Generation Features @requires-backend', () => {
   // ==================== AI Button Presence ====================
   test.describe('AI Feature Availability', () => {
     test('should show AI generation button in builder', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Look for AI-related buttons or features
@@ -31,7 +31,7 @@ test.describe('AI Generation Features @requires-backend', () => {
     });
 
     test('should show AI option for professional summary', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Navigate to summary section if needed
@@ -53,7 +53,7 @@ test.describe('AI Generation Features @requires-backend', () => {
     });
 
     test('should show AI option for experience descriptions', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Navigate to experience section if needed
@@ -70,7 +70,7 @@ test.describe('AI Generation Features @requires-backend', () => {
   // ==================== AI Generation Flow ====================
   test.describe('AI Generation Process', () => {
     test('should show loading state during AI generation', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Find AI generate button - may not be visible if not in right section
@@ -88,7 +88,7 @@ test.describe('AI Generation Features @requires-backend', () => {
     });
 
     test('should display generated content in appropriate field', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // This tests that the content areas exist and are editable
@@ -102,7 +102,7 @@ test.describe('AI Generation Features @requires-backend', () => {
   // ==================== Limit Enforcement ====================
   test.describe('Usage Limit Enforcement', () => {
     test('should show usage indicator or limit info', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Look for usage indicators
@@ -119,19 +119,19 @@ test.describe('AI Generation Features @requires-backend', () => {
     test('should show upgrade prompt when limits are reached', async ({ page }) => {
       // This test simulates what happens when limits are hit
       // In practice, this would require setting up a user at their limit
-      await page.goto('/en/builder');
+      await page.goto('/builder');
 
       // The upgrade modal or prompt should be accessible
       const pricingLink = page.getByRole('link', { name: /pricing|upgrade|plans/i });
       const hasUpgradePath = await pricingLink.isVisible().catch(() => false);
 
       // There should always be a way to upgrade
-      const hasPricingPage = await page.goto('/en/pricing').then(() => true).catch(() => false);
+      const hasPricingPage = await page.goto('/pricing').then(() => true).catch(() => false);
       expect(hasPricingPage).toBe(true);
     });
 
     test('should differentiate between free and paid AI features', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Look for premium/pro indicators
@@ -150,7 +150,7 @@ test.describe('AI Generation Features @requires-backend', () => {
   // ==================== AI Quality & Options ====================
   test.describe('AI Generation Options', () => {
     test('should allow selecting different AI tones/styles', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Look for tone/style selector
@@ -166,7 +166,7 @@ test.describe('AI Generation Features @requires-backend', () => {
     });
 
     test('should support regeneration of AI content', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Look for regenerate/retry button
@@ -181,7 +181,7 @@ test.describe('AI Generation Features @requires-backend', () => {
   // ==================== Error Handling ====================
   test.describe('AI Error Handling', () => {
     test('should handle AI service errors gracefully', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // The page should not show unhandled errors
@@ -193,7 +193,7 @@ test.describe('AI Generation Features @requires-backend', () => {
     });
 
     test('should show helpful message when AI is unavailable', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Verify the builder is functional even without AI
@@ -213,7 +213,7 @@ test.describe('AI Generation Features @requires-backend', () => {
 
     for (const section of sections) {
       test(`should have form fields for ${section.name} section`, async ({ page }) => {
-        await page.goto('/en/builder');
+        await page.goto('/builder');
         await page.waitForLoadState('domcontentloaded');
 
         // Try to find the section
@@ -237,7 +237,7 @@ test.describe('AI Generation Features @requires-backend', () => {
 
 test.describe('AI Feature Access Control', () => {
   test('anonymous users should see upgrade prompts for AI', async ({ page }) => {
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
 
     // Anonymous users might see limited AI or upgrade prompts
@@ -252,7 +252,7 @@ test.describe('AI Feature Access Control', () => {
   });
 
   test('should track AI usage in session', async ({ page }) => {
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
 
     // Check if there's any usage tracking visible

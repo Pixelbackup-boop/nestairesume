@@ -15,7 +15,7 @@ import {
   getRelatedCoverLetterExamples,
   getAuthor,
 } from "@/lib/cover-letter-examples/posts";
-import { getLocalizedUrl, getLocalizedPath } from "@/lib/localized-paths";
+import { getLocalizedUrl, getLocalizedPath } from '@/lib/localized-paths';
 import { getContent } from "@/lib/content/cover-letter-article";
 import LanguageAlternates from "@/components/LanguageAlternates";
 import { locales, isIndexableExampleLocale } from "@/i18n.config";
@@ -47,7 +47,7 @@ export async function generateMetadata({
   const description = example.description;
   const url = getLocalizedUrl(siteUrl, `/cover-letter-examples/${slug}`, locale);
   const languages: Record<string, string> = {
-    'x-default': `${siteUrl}/en/cover-letter-examples/${slug}`,
+    'x-default': getLocalizedUrl(siteUrl, `/cover-letter-examples/${slug}`, 'en'),
   };
   locales.forEach((loc) => {
     languages[loc] = getLocalizedUrl(siteUrl, `/cover-letter-examples/${slug}`, loc);
@@ -182,7 +182,7 @@ export default async function CoverLetterExamplePage({
       "@type": "Person",
       name: author.name,
       jobTitle: author.jobTitle,
-      url: `${siteUrl}/${locale}/about/${author.slug}`,
+      url: getLocalizedUrl(siteUrl, `/about/${author.slug}`, locale),
       image: `${siteUrl}${author.image}`,
       knowsAbout: author.expertise,
       ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
@@ -198,7 +198,7 @@ export default async function CoverLetterExamplePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: getLocalizedUrl(siteUrl, '', locale) },
       { "@type": "ListItem", position: 2, name: "Cover Letter Examples", item: getLocalizedUrl(siteUrl, '/cover-letter-examples', locale) },
       { "@type": "ListItem", position: 3, name: `${example.jobTitle} Cover Letter` },
     ],

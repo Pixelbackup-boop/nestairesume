@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/resume-ai';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -13,10 +13,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const c = getContent(locale);
 
 const alternateLanguages: Record<string, string> = {
-        'x-default': `${siteUrl}/en/resume-ai`,
+        'x-default': getLocalizedUrl(siteUrl, '/resume-ai', 'en'),
     };
     locales.forEach((loc) => {
-        alternateLanguages[loc] = `${siteUrl}/${loc}/resume-ai`;
+        alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/resume-ai', loc);
     });
 
     return {
@@ -27,7 +27,7 @@ const alternateLanguages: Record<string, string> = {
             title: c.meta.title,
             description: c.meta.description,
             type: 'article',
-            url: `${siteUrl}/${locale}/resume-ai`,
+            url: getLocalizedUrl(siteUrl, '/resume-ai', locale),
         },
         twitter: {
             card: 'summary_large_image',
@@ -35,7 +35,7 @@ const alternateLanguages: Record<string, string> = {
             description: c.meta.description,
         },
         alternates: {
-            canonical: `${siteUrl}/${locale}/resume-ai`,
+            canonical: getLocalizedUrl(siteUrl, '/resume-ai', locale),
             languages: alternateLanguages,
         },
     };
@@ -97,7 +97,7 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/${locale}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteUrl, '', locale) },
             { '@type': 'ListItem', position: 2, name: c.schemas.breadcrumbName },
         ],
     };
@@ -132,7 +132,7 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
         author: {
             '@type': 'Person',
             name: 'Michael Torres',
-            url: `${siteUrl}/${locale}/about/michael-torres`,
+            url: getLocalizedUrl(siteUrl, '/about/michael-torres', locale),
             jobTitle: 'AI Technology & Career Expert',
         },
         publisher: {
@@ -141,7 +141,7 @@ export default async function ResumeAIPage({ params }: { params: Promise<{ local
             url: siteUrl,
             logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
         },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${locale}/resume-ai` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': getLocalizedUrl(siteUrl, '/resume-ai', locale) },
     };
 
     // SAFE: hardcoded content strings from the content file, no user input

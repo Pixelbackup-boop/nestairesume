@@ -7,7 +7,7 @@ import { Page, expect } from '@playwright/test';
 
 /** Navigate to builder and wait for form inputs to load */
 export async function navigateToBuilder(page: Page) {
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
     // Builder should have at least one input field
     await expect(page.locator('input').first()).toBeVisible();

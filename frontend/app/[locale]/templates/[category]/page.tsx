@@ -10,6 +10,7 @@ import { gdocsTemplates } from '@/lib/templates/gdocsTemplates';
 import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
 import { getContent } from '@/lib/content/templates-category';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 // Categories that use builder templates (vs docx/gdocs)
 const BUILDER_TEMPLATE_CATEGORIES = ['creative', 'modern', 'simple'];
@@ -38,10 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: catData.seoTitle,
         description: catData.seoDescription,
         alternates: {
-            canonical: `${siteUrl}/${locale}/templates/${category}`,
+            canonical: getLocalizedUrl(siteUrl, `/templates/${category}`, locale),
             languages: Object.fromEntries([
-                ['x-default', `${siteUrl}/en/templates/${category}`],
-                ...locales.map(l => [l, `${siteUrl}/${l}/templates/${category}`]),
+                ['x-default', getLocalizedUrl(siteUrl, `/templates/${category}`, 'en')],
+                ...locales.map(l => [l, getLocalizedUrl(siteUrl, `/templates/${category}`, l)]),
             ]),
         },
     };
@@ -76,9 +77,9 @@ export default async function TemplateCategoryPage({ params }: Props) {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: `${siteUrl}/${locale}` },
-            { '@type': 'ListItem', position: 2, name: c.breadcrumbTemplates, item: `${siteUrl}/${locale}/templates` },
-            { '@type': 'ListItem', position: 3, name: catData.title, item: `${siteUrl}/${locale}/templates/${category}` },
+            { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: getLocalizedUrl(siteUrl, '', locale) },
+            { '@type': 'ListItem', position: 2, name: c.breadcrumbTemplates, item: getLocalizedUrl(siteUrl, '/templates', locale) },
+            { '@type': 'ListItem', position: 3, name: catData.title, item: getLocalizedUrl(siteUrl, `/templates/${category}`, locale) },
         ],
     };
 
@@ -91,7 +92,7 @@ export default async function TemplateCategoryPage({ params }: Props) {
         '@type': 'CollectionPage',
         name: catData.title,
         description: catData.seoDescription,
-        url: `${siteUrl}/${locale}/templates/${category}`,
+        url: getLocalizedUrl(siteUrl, `/templates/${category}`, locale),
         isPartOf: { '@type': 'WebSite', name: 'Best AI Resume', url: siteUrl },
         about: {
             '@type': 'Thing',

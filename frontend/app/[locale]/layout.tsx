@@ -3,6 +3,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Poppins, Noto_Sans_Arabic, Noto_Sans_JP, Noto_Sans_KR, Noto_Sans_SC, Noto_Sans_Thai } from 'next/font/google';
 import { locales, Locale, getDirection, getOgLocale } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import TawkTo from '@/components/TawkTo';
@@ -159,10 +160,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'Meta' });
 
   const alternateLanguages: Record<string, string> = {
-    'x-default': `${siteConfig.url}/en`,
+    'x-default': getLocalizedUrl(siteConfig.url, '', 'en'),
   };
   locales.forEach((loc) => {
-    alternateLanguages[loc] = `${siteConfig.url}/${loc}`;
+    alternateLanguages[loc] = getLocalizedUrl(siteConfig.url, '', loc);
   });
 
   return {
@@ -174,7 +175,7 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       locale: getOgLocale(locale),
-      url: `${siteConfig.url}/${locale}`,
+      url: getLocalizedUrl(siteConfig.url, '', locale),
       siteName: siteConfig.name,
       title: t('title'),
       description: t('description'),
@@ -194,7 +195,7 @@ export async function generateMetadata({
       images: [siteConfig.ogImage],
     },
     alternates: {
-      canonical: `${siteConfig.url}/${locale}`,
+      canonical: getLocalizedUrl(siteConfig.url, '', locale),
       languages: alternateLanguages,
     },
   };

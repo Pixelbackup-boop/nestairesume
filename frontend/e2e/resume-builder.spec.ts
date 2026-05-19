@@ -13,13 +13,13 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
   // ==================== Builder Page Load ====================
   test.describe('Builder Page', () => {
     test('should load builder page successfully', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
       await expect(page).toHaveURL(/.*builder/);
     });
 
     test('should display form inputs', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
 
       // Wait for Suspense + useEffect chains to settle — use visible text input (not hidden file input)
       await page.locator('input:visible').first().waitFor({ timeout: 15000 });
@@ -33,7 +33,7 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
   // ==================== Personal Information ====================
   test.describe('Personal Information Form', () => {
     test('should have text input fields', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
 
       // Wait for PersonalForm to hydrate from Zustand store
       await page.locator('input:visible').first().waitFor({ timeout: 15000 });
@@ -43,7 +43,7 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
     });
 
     test('should allow filling personal information', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       const firstInput = page.locator('input[type="text"]').first();
@@ -56,7 +56,7 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
   // ==================== Template Selection ====================
   test.describe('Template Selection', () => {
     test('should show template-related text on templates page', async ({ page }) => {
-      await page.goto('/en/templates');
+      await page.goto('/templates');
       await page.waitForLoadState('domcontentloaded');
 
       await expect(page.getByText(/template/i).first()).toBeVisible();
@@ -66,7 +66,7 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
   // ==================== Download Flow ====================
   test.describe('PDF Download', () => {
     test('should have download button on builder', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       const downloadButton = page.getByRole('button', { name: /download|export|save|pdf/i }).first();
@@ -74,7 +74,7 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
     });
 
     test('download button should be enabled for filled resume', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       const nameInput = page.locator('input[type="text"]').first();
@@ -90,7 +90,7 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
   // ==================== Resume Persistence ====================
   test.describe('Resume Persistence', () => {
     test('should preserve data after page reload', async ({ page }) => {
-      await page.goto('/en/builder');
+      await page.goto('/builder');
       await page.waitForLoadState('domcontentloaded');
 
       // Wait for form to fully hydrate before filling
@@ -120,7 +120,7 @@ test.describe('Resume Builder Complete Flow @requires-backend', () => {
 test.describe('Resume Builder Responsive Design @requires-backend', () => {
   test('should work on mobile viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
 
     const inputs = await page.locator('input').all();
@@ -129,7 +129,7 @@ test.describe('Resume Builder Responsive Design @requires-backend', () => {
 
   test('should work on tablet viewport', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
 
     const inputs = await page.locator('input').all();
@@ -138,7 +138,7 @@ test.describe('Resume Builder Responsive Design @requires-backend', () => {
 
   test('should work on desktop viewport', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
-    await page.goto('/en/builder');
+    await page.goto('/builder');
     await page.waitForLoadState('domcontentloaded');
 
     const inputs = await page.locator('input').all();

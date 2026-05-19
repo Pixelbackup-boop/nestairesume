@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { AUTHORS } from "@/lib/resume-examples/posts";
 import { getAuthorsContent } from '@/lib/content/about-pages';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = "https://bestairesumes.com";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: c.meta.title,
       description: c.meta.ogDescription,
       type: "website",
-      url: `${siteUrl}/${locale}/about/authors`,
+      url: getLocalizedUrl(siteUrl, '/about/authors', locale),
     },
     twitter: {
       card: 'summary_large_image',
@@ -27,8 +28,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: c.meta.ogDescription,
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}/about/authors`,
-      languages: Object.fromEntries(locales.map(l => [l, `${siteUrl}/${l}/about/authors`])),
+      canonical: getLocalizedUrl(siteUrl, '/about/authors', locale),
+      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(siteUrl, '/about/authors', l)])),
     },
   };
 }

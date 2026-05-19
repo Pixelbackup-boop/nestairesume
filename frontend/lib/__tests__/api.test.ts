@@ -119,7 +119,7 @@ describe('api client', () => {
     it('removes token on 401 response', async () => {
       // Set initial location to admin path for redirect test
       Object.defineProperty(window, 'location', {
-        value: { pathname: '/en/dashboard', href: '' },
+        value: { pathname: '/dashboard', href: '' },
         writable: true,
       });
 

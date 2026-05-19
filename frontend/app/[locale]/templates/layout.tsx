@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { locales, getOgLocale } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteConfig = {
   name: 'Best AI Resume',
@@ -19,10 +20,10 @@ export async function generateMetadata({
   const description = t('description');
 
 const alternateLanguages: Record<string, string> = {
-    'x-default': `${siteConfig.url}/en/templates`,
+    'x-default': getLocalizedUrl(siteConfig.url, '/templates', 'en'),
   };
   locales.forEach((loc) => {
-    alternateLanguages[loc] = `${siteConfig.url}/${loc}/templates`;
+    alternateLanguages[loc] = getLocalizedUrl(siteConfig.url, '/templates', loc);
   });
 
   return {
@@ -40,7 +41,7 @@ const alternateLanguages: Record<string, string> = {
     openGraph: {
       type: 'website',
       locale: getOgLocale(locale),
-      url: `${siteConfig.url}/${locale}/templates`,
+      url: getLocalizedUrl(siteConfig.url, '/templates', locale),
       siteName: siteConfig.name,
       title,
       description,
@@ -59,7 +60,7 @@ const alternateLanguages: Record<string, string> = {
       description,
     },
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/templates`,
+      canonical: getLocalizedUrl(siteConfig.url, '/templates', locale),
       languages: alternateLanguages,
     },
   };
@@ -71,8 +72,8 @@ function getBreadcrumbSchema(locale: string) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteConfig.url}/${locale}` },
-      { '@type': 'ListItem', position: 2, name: 'Templates', item: `${siteConfig.url}/${locale}/templates` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: getLocalizedUrl(siteConfig.url, '', locale) },
+      { '@type': 'ListItem', position: 2, name: 'Templates', item: getLocalizedUrl(siteConfig.url, '/templates', locale) },
     ],
   };
 }

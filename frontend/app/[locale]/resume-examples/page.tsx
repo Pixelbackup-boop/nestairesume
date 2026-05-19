@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import ResumeExamplesGrid from '@/components/ResumeExamplesGrid';
 import { getAllResumeExamples, getAllDisplayCategories } from '@/lib/resume-examples/posts';
 import { getContent } from '@/lib/content/resume-examples-index';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales, isIndexableExampleLocale } from '@/i18n.config';
 
 const BASE_URL = 'https://bestairesumes.com';
@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: c.meta.title,
     description: c.meta.description,
     alternates: {
-      canonical: `${BASE_URL}/${locale}${getLocalizedPath('/resume-examples', locale)}`,
+      canonical: getLocalizedUrl(BASE_URL, '/resume-examples', locale),
       languages: Object.fromEntries(
-        locales.map(l => [l, `${BASE_URL}/${l}${getLocalizedPath('/resume-examples', l)}`])
+        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/resume-examples', l)])
       ),
     },
     ...(isIndexableExampleLocale(locale) ? {} : { robots: { index: false, follow: true } }),
@@ -50,7 +50,7 @@ export default async function ResumeExamplesIndex({ params }: { params: Promise<
     '@type': 'CollectionPage',
     name: c.meta.title,
     description: c.meta.description,
-    url: `${BASE_URL}/${locale}${getLocalizedPath('/resume-examples', locale)}`,
+    url: getLocalizedUrl(BASE_URL, '/resume-examples', locale),
     hasPart: {
       '@type': 'ItemList',
       numberOfItems: allExamples.length,
@@ -58,7 +58,7 @@ export default async function ResumeExamplesIndex({ params }: { params: Promise<
         '@type': 'ListItem',
         position: i + 1,
         name: e.jobTitle,
-        url: `${BASE_URL}/${locale}${getLocalizedPath(`/resume-examples/${e.slug}`, locale)}`,
+        url: getLocalizedUrl(BASE_URL, `/resume-examples/${e.slug}`, locale),
       })),
     },
   });

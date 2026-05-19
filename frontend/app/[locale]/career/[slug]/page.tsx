@@ -17,6 +17,7 @@ import MultiplexAd from '@/components/ads/MultiplexAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getCareerArticleContent } from '@/lib/content/career-pages';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 interface CareerPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -47,14 +48,14 @@ export async function generateMetadata({ params }: CareerPostPageProps): Promise
   const defaultLocale = availableLocales.includes('en') ? 'en' : (availableLocales[0] ?? 'en');
   const isLocaleNative = availableLocales.includes(locale);
   const canonicalUrl = isLocaleNative
-    ? `${siteUrl}/${locale}/career/${post.slug}`
-    : `${siteUrl}/${defaultLocale}/career/${post.slug}`;
+    ? getLocalizedUrl(siteUrl, `/career/${post.slug}`, locale)
+    : getLocalizedUrl(siteUrl, `/career/${post.slug}`, 'en');
 
   const alternateLanguages: Record<string, string> = {
-    'x-default': `${siteUrl}/${defaultLocale}/career/${post.slug}`,
+    'x-default': getLocalizedUrl(siteUrl, `/career/${post.slug}`, 'en'),
   };
   availableLocales.forEach((loc) => {
-    alternateLanguages[loc] = `${siteUrl}/${loc}/career/${post.slug}`;
+    alternateLanguages[loc] = getLocalizedUrl(siteUrl, `/career/${post.slug}`, loc);
   });
 
   return {
@@ -129,7 +130,7 @@ export default async function CareerPostPage({ params }: CareerPostPageProps) {
 
   // Build URL for sharing
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
-  const postUrl = `${siteUrl}/${locale}/career/${post.slug}`;
+  const postUrl = getLocalizedUrl(siteUrl, `/career/${post.slug}`, locale);
 
   // JSON-LD structured data for SEO
   const jsonLd = {

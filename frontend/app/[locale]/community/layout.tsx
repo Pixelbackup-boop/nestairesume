@@ -1,16 +1,17 @@
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import { locales } from '@/i18n.config';
+import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
 const alternateLanguages: Record<string, string> = {
-        'x-default': `${siteUrl}/en/community`,
+        'x-default': getLocalizedUrl(siteUrl, '/community', 'en'),
     };
     locales.forEach((loc) => {
-        alternateLanguages[loc] = `${siteUrl}/${loc}/community`;
+        alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/community', loc);
     });
 
     return {
@@ -20,7 +21,7 @@ const alternateLanguages: Record<string, string> = {
             title: 'Community Templates | Best AI Resume',
             description: 'Browse and download community-created resume templates. Share your own professional designs with job seekers worldwide.',
             type: 'website',
-            url: `${siteUrl}/${locale}/community`,
+            url: getLocalizedUrl(siteUrl, '/community', locale),
         },
         twitter: {
             card: 'summary_large_image',
@@ -28,7 +29,7 @@ const alternateLanguages: Record<string, string> = {
             description: 'Browse and download community-created resume templates.',
         },
         alternates: {
-            canonical: `${siteUrl}/${locale}/community`,
+            canonical: getLocalizedUrl(siteUrl, '/community', locale),
             languages: alternateLanguages,
         },
     };

@@ -13,7 +13,7 @@ import {
   FeaturesCTA,
 } from "@/components/FeaturesAnimations";
 import { getContent } from '@/lib/content/features';
-import { getLocalizedPath } from '@/lib/localized-paths';
+import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
 import { locales } from '@/i18n.config';
 
 const BASE_URL = 'https://bestairesumes.com';
@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: c.meta.description,
     keywords: c.meta.keywords,
     alternates: {
-      canonical: `${BASE_URL}/${locale}/features`,
+      canonical: getLocalizedUrl(BASE_URL, '/features', locale),
       languages: Object.fromEntries(
-        locales.map(l => [l, `${BASE_URL}/${l}/features`])
+        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/features', l)])
       ),
     },
   };
