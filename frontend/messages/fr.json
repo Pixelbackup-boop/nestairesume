@@ -734,7 +734,24 @@
       "registerTitle": "Créer un Compte - Best AI Resume",
       "registerDescription": "Créez votre compte gratuit pour sauvegarder vos CV et accéder aux fonctionnalités IA."
     },
-    "fullName": "Nom Complet"
+    "fullName": "Nom Complet",
+    "resetTitle": "Réinitialisez votre mot de passe",
+    "resetRequestSubtitle": "Saisissez votre e-mail et nous vous enverrons un code à 6 chiffres.",
+    "resetCodeSubtitle": "Saisissez le code reçu par e-mail et choisissez un nouveau mot de passe.",
+    "resetCodeSentInfo": "Si un compte existe pour {email}, un code à 6 chiffres est en route. Vérifiez votre boîte de réception (et les spams).",
+    "resetCodeLabel": "Code à 6 chiffres",
+    "newPassword": "Nouveau mot de passe",
+    "confirmNewPassword": "Confirmer le nouveau mot de passe",
+    "sendResetCode": "Envoyer le code",
+    "resetPasswordAction": "Réinitialiser le mot de passe",
+    "useDifferentEmail": "Utiliser une autre adresse e-mail",
+    "rememberedIt": "Vous vous en souvenez ?",
+    "backToSignIn": "Retour à la connexion",
+    "passwordsDoNotMatch": "Les mots de passe ne correspondent pas.",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères.",
+    "couldNotSendCode": "Impossible d'envoyer le code. Veuillez réessayer.",
+    "resetFailed": "Échec de la réinitialisation. Vérifiez le code et réessayez.",
+    "resetSuccessBanner": "Mot de passe réinitialisé. Connectez-vous avec votre nouveau mot de passe."
   },
   "Errors": {
     "notFound": "Page non trouvée",

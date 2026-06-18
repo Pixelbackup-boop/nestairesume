@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Loader2, Mail, Lock, KeyRound, ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -14,6 +14,7 @@ type Step = 'request' | 'reset';
 export default function ForgotPasswordPage() {
     const router = useRouter();
     const locale = useLocale();
+    const t = useTranslations('Auth');
     const localizedHref = (path: string) => `/${locale}${path}`;
 
     const [step, setStep] = useState<Step>('request');
@@ -34,11 +35,11 @@ export default function ForgotPasswordPage() {
         setIsLoading(true);
         try {
             await api.post('/auth/forgot-password', { email });
-            setInfo(`If an account exists for ${email}, a 6-digit reset code is on its way. Check your inbox (and spam).`);
+            setInfo(t('resetCodeSentInfo', { email }));
             setStep('reset');
         } catch {
             // Network/server error — backend itself never reveals account existence.
-            setError('Could not send the reset code. Please try again.');
+            setError(t('couldNotSendCode'));
         } finally {
             setIsLoading(false);
         }
@@ -49,10 +50,11 @@ export default function ForgotPasswordPage() {
         e.preventDefault();
         setError(null);
 
-        // Validate the new password before hitting the API.
-        const validationError = validateNewPassword(newPassword, confirmPassword);
-        if (validationError) {
-            setError(validationError);
+        // Validate the new password before hitting the API. The validator returns
+        // a translation key (or null) so the message localizes with the page.
+        const errorKey = validateNewPassword(newPassword, confirmPassword);
+        if (errorKey) {
+            setError(t(errorKey));
             return;
         }
 
@@ -66,7 +68,7 @@ export default function ForgotPasswordPage() {
             router.push(localizedHref('/auth/login') + '?reset=success');
         } catch (err) {
             const apiErr = err as { response?: { data?: { detail?: string } } };
-            setError(apiErr.response?.data?.detail || 'Password reset failed. Check the code and try again.');
+            setError(apiErr.response?.data?.detail || t('resetFailed'));
         } finally {
             setIsLoading(false);
         }
@@ -86,11 +88,9 @@ export default function ForgotPasswordPage() {
 
                     {/* Title */}
                     <div className="text-center mb-8">
-                        <h1 className="text-2xl font-bold text-gray-900 mb-2">Reset your password</h1>
+                        <h1 className="text-2xl font-bold text-gray-900 mb-2">{t('resetTitle')}</h1>
                         <p className="text-gray-600 text-sm">
-                            {step === 'request'
-                                ? "Enter your email and we'll send you a 6-digit reset code."
-                                : 'Enter the code from your email and choose a new password.'}
+                            {step === 'request' ? t('resetRequestSubtitle') : t('resetCodeSubtitle')}
                         </p>
                     </div>
 
@@ -111,7 +111,7 @@ export default function ForgotPasswordPage() {
                     {step === 'request' ? (
                         <form onSubmit={handleRequestCode} className="space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">{t('email')}</label>
                                 <div className="relative">
                                     <Mail size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
@@ -130,13 +130,13 @@ export default function ForgotPasswordPage() {
                                 disabled={isLoading}
                                 className="w-full bg-accent-green text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
-                                {isLoading ? <Loader2 className="animate-spin w-5 h-5" /> : 'Send reset code'}
+                                {isLoading ? <Loader2 className="animate-spin w-5 h-5" /> : t('sendResetCode')}
                             </button>
                         </form>
                     ) : (
                         <form onSubmit={handleResetPassword} className="space-y-5">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">6-digit code</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">{t('resetCodeLabel')}</label>
                                 <div className="relative">
                                     <KeyRound size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
@@ -153,7 +153,7 @@ export default function ForgotPasswordPage() {
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">New password</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">{t('newPassword')}</label>
                                 <div className="relative">
                                     <Lock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
@@ -168,7 +168,7 @@ export default function ForgotPasswordPage() {
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Confirm new password</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">{t('confirmNewPassword')}</label>
                                 <div className="relative">
                                     <Lock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                                     <input
@@ -187,23 +187,23 @@ export default function ForgotPasswordPage() {
                                 disabled={isLoading}
                                 className="w-full bg-accent-green text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
-                                {isLoading ? <Loader2 className="animate-spin w-5 h-5" /> : 'Reset password'}
+                                {isLoading ? <Loader2 className="animate-spin w-5 h-5" /> : t('resetPasswordAction')}
                             </button>
 
                             <button
                                 type="button"
                                 onClick={() => { setStep('request'); setError(null); }}
-                                className="w-full text-gray-400 hover:text-white text-sm flex items-center justify-center gap-1.5 transition"
+                                className="w-full text-gray-500 hover:text-gray-900 text-sm flex items-center justify-center gap-1.5 transition"
                             >
-                                <ArrowLeft size={14} /> Use a different email
+                                <ArrowLeft size={14} /> {t('useDifferentEmail')}
                             </button>
                         </form>
                     )}
 
                     <p className="text-center mt-6 text-gray-600 text-sm">
-                        Remembered it?{' '}
+                        {t('rememberedIt')}{' '}
                         <Link href={localizedHref('/auth/login')} className="text-accent-green hover:underline">
-                            Back to sign in
+                            {t('backToSignIn')}
                         </Link>
                     </p>
                 </div>
@@ -221,21 +221,28 @@ export default function ForgotPasswordPage() {
 // resetPassword). Everything stronger than that is a UX-vs-friction trade-off
 // that lives here, client-side, so users get instant feedback before submitting.
 //
-// Return an error message string to block submission, or null to allow it.
+// Returns a translation KEY (looked up against the Auth namespace) to block
+// submission, or null to allow it. Returning a key — not a finished string —
+// keeps this function pure and lets the message localize across all 17 locales.
 //
 // Decide:
 //   - Minimum length? (backend rejects < 8, so anything lower is pointless)
 //   - Require confirm-password to match? (recommended — catches typos)
 //   - Any complexity rules (uppercase / number / symbol)? Optional; stricter
 //     rules frustrate users and the data on whether they improve security is mixed.
+//     If you add one, add a matching Auth key (e.g. 'passwordNeedsNumber') to all
+//     17 messages/*.json files so the new error localizes too.
 //
 // TODO(you): implement the policy you want. A reasonable starting point:
-function validateNewPassword(password: string, confirmPassword: string): string | null {
+function validateNewPassword(
+    password: string,
+    confirmPassword: string,
+): 'passwordTooShort' | 'passwordsDoNotMatch' | null {
     if (password.length < 8) {
-        return 'Password must be at least 8 characters.';
+        return 'passwordTooShort';
     }
     if (password !== confirmPassword) {
-        return 'Passwords do not match.';
+        return 'passwordsDoNotMatch';
     }
     return null;
 }

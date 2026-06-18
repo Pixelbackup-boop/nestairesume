@@ -76,13 +76,13 @@ export default function LoginPage() {
             <div className="min-h-screen bg-bg-primary flex items-center justify-center p-4 pt-24">
                 <div className="bg-bg-card border border-border-subtle rounded-xl p-8 w-full max-w-md shadow-2xl">
                     <div className="text-center mb-8">
-                        <h1 className="text-3xl font-bold text-white mb-2">{t('welcomeBack')}</h1>
-                        <p className="text-gray-400">{t('welcomeBackSubtitle')}</p>
+                        <h1 className="text-3xl font-bold text-gray-900 mb-2">{t('welcomeBack')}</h1>
+                        <p className="text-gray-600">{t('welcomeBackSubtitle')}</p>
                     </div>
 
                     {justReset && (
                         <div className="bg-accent-green/10 border border-accent-green/40 text-accent-green px-4 py-3 rounded-lg mb-6 text-sm">
-                            Password reset successful. Sign in with your new password.
+                            {t('resetSuccessBanner')}
                         </div>
                     )}
 
@@ -123,13 +123,13 @@ export default function LoginPage() {
                             <div className="w-full border-t border-border-subtle"></div>
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-4 bg-bg-card text-gray-400">{t('orContinueWith') || 'or continue with email'}</span>
+                            <span className="px-4 bg-bg-card text-gray-500">{t('orContinueWith') || 'or continue with email'}</span>
                         </div>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">{t('email')}</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('email')}</label>
                             <input
                                 type="email"
                                 required
@@ -142,7 +142,7 @@ export default function LoginPage() {
 
                         <div>
                             <div className="flex items-center justify-between mb-2">
-                                <label className="block text-sm font-medium text-gray-300">{t('password')}</label>
+                                <label className="block text-sm font-medium text-gray-700">{t('password')}</label>
                                 <Link href={localizedHref('/auth/forgot-password')} className="text-sm text-accent-green hover:underline">
                                     {t('forgotPassword') || 'Forgot password?'}
                                 </Link>
@@ -166,7 +166,7 @@ export default function LoginPage() {
                         </button>
                     </form>
 
-                    <p className="text-center mt-6 text-gray-400 text-sm">
+                    <p className="text-center mt-6 text-gray-600 text-sm">
                         {t('noAccount')}{' '}
                         <Link href={localizedHref('/auth/register') + (redirectTo ? `?redirect=${encodeURIComponent(redirectTo)}` : '')} className="text-accent-green hover:underline">
                             {t('signUp')}

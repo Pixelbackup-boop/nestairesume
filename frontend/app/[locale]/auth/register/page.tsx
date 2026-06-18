@@ -72,8 +72,8 @@ export default function RegisterPage() {
             <div className="min-h-screen bg-bg-primary flex items-center justify-center p-4 pt-24">
                 <div className="bg-bg-card border border-border-subtle rounded-xl p-8 w-full max-w-md shadow-2xl">
                     <div className="text-center mb-8">
-                        <h1 className="text-3xl font-bold text-white mb-2">{t('createAccount')}</h1>
-                        <p className="text-gray-400">{t('createAccountSubtitle')}</p>
+                        <h1 className="text-3xl font-bold text-gray-900 mb-2">{t('createAccount')}</h1>
+                        <p className="text-gray-600">{t('createAccountSubtitle')}</p>
                     </div>
 
                     {error && (
@@ -83,7 +83,7 @@ export default function RegisterPage() {
                     )}
 
                     {/* Terms notice for OAuth */}
-                    <p className="text-xs text-gray-400 text-center mb-4">
+                    <p className="text-xs text-gray-600 text-center mb-4">
                         {t('bySigningUp')}{' '}
                         <Link href={localizedHref('/terms')} className="text-accent-green hover:underline" target="_blank">{t('termsOfService')}</Link>
                         {' '}{t('and')}{' '}
@@ -121,13 +121,13 @@ export default function RegisterPage() {
                             <div className="w-full border-t border-border-subtle"></div>
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-4 bg-bg-card text-gray-400">{t('orContinueWith') || 'or register with email'}</span>
+                            <span className="px-4 bg-bg-card text-gray-500">{t('orContinueWith') || 'or register with email'}</span>
                         </div>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">{t('fullName')}</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('fullName')}</label>
                             <input
                                 type="text"
                                 required
@@ -139,7 +139,7 @@ export default function RegisterPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">{t('email')}</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('email')}</label>
                             <input
                                 type="email"
                                 required
@@ -151,7 +151,7 @@ export default function RegisterPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">{t('password')}</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('password')}</label>
                             <input
                                 type="password"
                                 required
@@ -170,7 +170,7 @@ export default function RegisterPage() {
                                 onChange={(e) => setAgreedToTerms(e.target.checked)}
                                 className="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent-green focus:ring-accent-green shrink-0"
                             />
-                            <span className="text-sm text-gray-300">
+                            <span className="text-sm text-gray-700">
                                 {t('agreeToTermsPrefix')}{' '}
                                 <Link href={localizedHref('/terms')} className="text-accent-green hover:underline" target="_blank">{t('termsOfService')}</Link>
                                 {' '}{t('and')}{' '}
@@ -187,7 +187,7 @@ export default function RegisterPage() {
                         </button>
                     </form>
 
-                    <p className="text-center mt-6 text-gray-400 text-sm">
+                    <p className="text-center mt-6 text-gray-600 text-sm">
                         {t('hasAccount')}{' '}
                         <Link href={localizedHref('/auth/login') + (redirectTo ? `?redirect=${encodeURIComponent(redirectTo)}` : '')} className="text-accent-green hover:underline">
                             {t('signIn')}
