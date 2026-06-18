@@ -150,6 +150,17 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+// Locales whose translations are AI-generated and still need human review
+// (per project memory). We emit `noindex` for these to stop Google wasting
+// crawl budget on thin/duplicate content while we improve them. Removing
+// them from the index also lifts the site-wide quality signal that was
+// suppressing indexation on the strong locales.
+//
+// Indexed (human-reviewed quality): en, es, fr, de, ar.
+const NOINDEX_LOCALES = new Set<string>([
+  'ja', 'ko', 'it', 'pt', 'tr', 'vi', 'th', 'zh', 'ms', 'id', 'pl', 'nl',
+]);
+
 // Generate locale-aware metadata
 export async function generateMetadata({
   params,
@@ -159,12 +170,20 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Meta' });
 
+  // Only the indexed locales appear in the hreflang map. Including noindexed
+  // locales as alternates contradicts the robots tag and confuses Google.
   const alternateLanguages: Record<string, string> = {
     'x-default': getLocalizedUrl(siteConfig.url, '', 'en'),
   };
   locales.forEach((loc) => {
-    alternateLanguages[loc] = getLocalizedUrl(siteConfig.url, '', loc);
+    if (!NOINDEX_LOCALES.has(loc)) {
+      alternateLanguages[loc] = getLocalizedUrl(siteConfig.url, '', loc);
+    }
   });
+
+  const robots = NOINDEX_LOCALES.has(locale)
+    ? { index: false, follow: true }
+    : undefined;
 
   return {
     title: {
@@ -172,6 +191,7 @@ export async function generateMetadata({
       template: `%s | ${siteConfig.name}`,
     },
     description: t('description'),
+    ...(robots ? { robots } : {}),
     openGraph: {
       type: 'website',
       locale: getOgLocale(locale),
