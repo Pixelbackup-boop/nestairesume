@@ -45,6 +45,7 @@ export default function LoginPage() {
     // Read redirect param (validated to prevent open redirect)
     const redirectParam = searchParams.get('redirect');
     const callbackParam = searchParams.get('callbackUrl');
+    const justReset = searchParams.get('reset') === 'success';
     const redirectTo = redirectParam?.startsWith('/') ? redirectParam : null;
     // NextAuth passes callbackUrl on OAuth return — extract path from full URL
     const callbackPath = callbackParam ? new URL(callbackParam, window.location.origin).pathname : null;
@@ -78,6 +79,12 @@ export default function LoginPage() {
                         <h1 className="text-3xl font-bold text-white mb-2">{t('welcomeBack')}</h1>
                         <p className="text-gray-400">{t('welcomeBackSubtitle')}</p>
                     </div>
+
+                    {justReset && (
+                        <div className="bg-accent-green/10 border border-accent-green/40 text-accent-green px-4 py-3 rounded-lg mb-6 text-sm">
+                            Password reset successful. Sign in with your new password.
+                        </div>
+                    )}
 
                     {error && (
                         <div className="bg-red-500/10 border border-red-500/50 text-red-500 px-4 py-3 rounded-lg mb-6 text-sm">
@@ -134,7 +141,12 @@ export default function LoginPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">{t('password')}</label>
+                            <div className="flex items-center justify-between mb-2">
+                                <label className="block text-sm font-medium text-gray-300">{t('password')}</label>
+                                <Link href={localizedHref('/auth/forgot-password')} className="text-sm text-accent-green hover:underline">
+                                    {t('forgotPassword') || 'Forgot password?'}
+                                </Link>
+                            </div>
                             <input
                                 type="password"
                                 required
