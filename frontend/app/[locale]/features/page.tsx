@@ -14,7 +14,7 @@ import {
 } from "@/components/FeaturesAnimations";
 import { getContent } from '@/lib/content/features';
 import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -27,9 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: c.meta.keywords,
     alternates: {
       canonical: getLocalizedUrl(BASE_URL, '/features', locale),
-      languages: Object.fromEntries(
-        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/features', l)])
-      ),
+      languages: hreflangAlternates(BASE_URL, '/features'),
     },
   };
 }

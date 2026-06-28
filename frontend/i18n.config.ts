@@ -71,15 +71,30 @@ export const ogLocaleMap: Record<Locale, string> = {
 export const getOgLocale = (locale: string): string =>
   ogLocaleMap[locale as Locale] || `${locale}_${locale.toUpperCase()}`;
 
-// Locales where resume-examples + cover-letter-examples are allowed to be
-// indexed by search engines. Other locales serve the content but emit
-// `noindex` so Google focuses crawl budget on locales with proven traffic.
-// Decision: Apr 2026 — based on 90 days of GSC click data showing zero
-// click-throughs from non-listed locales for example slug pages.
-export const INDEXABLE_EXAMPLE_LOCALES: ReadonlyArray<Locale> = ['en', 'es', 'pt', 'fr', 'de', 'it'];
+// ── Single source of truth for search-engine indexability ──────────────────
+// INDEXABLE_LOCALES lists the locales whose pages may be indexed by Google.
+// The remaining locales are AI-translated and still need human review, so they
+// emit `noindex` to avoid diluting the site-wide quality signal and wasting
+// crawl budget. Robots meta, hreflang alternates, AND sitemaps are all derived
+// from this one array — change it here and every signal stays in sync.
+// (Replaces the old split-brain where INDEXABLE_EXAMPLE_LOCALES included pt/it
+// and excluded ar, contradicting the layout-level noindex set.)
+export const INDEXABLE_LOCALES: ReadonlyArray<Locale> = ['en', 'es', 'fr', 'de', 'ar'];
+
+export const isIndexableLocale = (locale: string): boolean =>
+  INDEXABLE_LOCALES.includes(locale as Locale);
+
+// Derived complement: the locales that emit `noindex`.
+export const NOINDEX_LOCALES: ReadonlyArray<Locale> = locales.filter(
+  (l) => !INDEXABLE_LOCALES.includes(l)
+);
+
+// Resume-examples + cover-letter-examples follow the SAME allowlist, so an
+// example page never emits `index` while its locale layout emits `noindex`.
+export const INDEXABLE_EXAMPLE_LOCALES: ReadonlyArray<Locale> = INDEXABLE_LOCALES;
 
 export const isIndexableExampleLocale = (locale: string): boolean =>
-  INDEXABLE_EXAMPLE_LOCALES.includes(locale as Locale);
+  INDEXABLE_LOCALES.includes(locale as Locale);
 
 // RTL languages
 export const rtlLocales: Locale[] = ['ar'];

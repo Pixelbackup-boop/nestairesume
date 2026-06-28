@@ -6,7 +6,8 @@ import ResumeExamplesGrid from '@/components/ResumeExamplesGrid';
 import { getAllResumeExamples, getAllDisplayCategories } from '@/lib/resume-examples/posts';
 import { getContent } from '@/lib/content/resume-examples-index';
 import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
-import { locales, isIndexableExampleLocale } from '@/i18n.config';
+import { hreflangAlternates } from '@/lib/hreflang';
+import { isIndexableExampleLocale } from '@/i18n.config';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -18,9 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: c.meta.description,
     alternates: {
       canonical: getLocalizedUrl(BASE_URL, '/resume-examples', locale),
-      languages: Object.fromEntries(
-        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/resume-examples', l)])
-      ),
+      languages: hreflangAlternates(BASE_URL, '/resume-examples'),
     },
     ...(isIndexableExampleLocale(locale) ? {} : { robots: { index: false, follow: true } }),
   };

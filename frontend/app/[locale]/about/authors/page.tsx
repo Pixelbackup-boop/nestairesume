@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AUTHORS } from "@/lib/resume-examples/posts";
 import { getAuthorsContent } from '@/lib/content/about-pages';
-import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const siteUrl = "https://bestairesumes.com";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     alternates: {
       canonical: getLocalizedUrl(siteUrl, '/about/authors', locale),
-      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(siteUrl, '/about/authors', l)])),
+      languages: hreflangAlternates(siteUrl, '/about/authors'),
     },
   };
 }

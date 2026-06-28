@@ -24,8 +24,11 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     // Vendor/downloaded files:
-    "app/canvas-editor/CanvasTemplate/**",
     "playwright-report/**",
+    // Stray local junk (untracked + gitignored): a 7.7GB copy of Xcode.app
+    // dropped into the repo. Not project code — exclude so local `npm run lint`
+    // matches CI (which never lints untracked files).
+    "From canvas/**",
   ]),
 ]);
 

@@ -152,6 +152,29 @@ const nextConfig: NextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
+      // Edge-cache CONTENT HTML so Googlebot fetches are cheap → higher crawl
+      // rate. These pages render identical HTML for everyone (auth state is
+      // client-hydrated in <Header/>), so shared-cache is safe. `s-maxage` is
+      // CDN-only (browsers revalidate). ONLY content path prefixes are listed
+      // here — personalized routes (auth, dashboard, builder, checkout,
+      // account, onboarding, admin, api) are intentionally excluded so they are
+      // never cached. Requires a matching Cloudflare Cache Rule to take effect.
+      // English (root) content paths:
+      {
+        source: '/:type(resume-examples|cover-letter-examples|career-tips|career|blog)/:rest*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=86400' },
+        ],
+      },
+      // Locale-prefixed content paths (English segments for most locales +
+      // localized segments for es/pt). Locale param is constrained to real
+      // locales so no personalized first-segment route can match.
+      {
+        source: '/:locale(es|fr|de|ar|ja|ko|it|pt|tr|vi|th|zh|ms|id|pl|nl)/:type(resume-examples|cover-letter-examples|career-tips|career|blog|ejemplos-de-curriculum|ejemplos-de-carta-de-presentacion|consejos-profesionales|exemplos-de-curriculo|exemplos-de-carta-de-apresentacao|dicas-de-carreira)/:rest*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=86400' },
+        ],
+      },
     ];
   },
 

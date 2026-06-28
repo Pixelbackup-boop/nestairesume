@@ -7,8 +7,8 @@ import CategoryFilter from '@/components/blog/CategoryFilter';
 import Pagination from '@/components/blog/Pagination';
 import { BookOpen, Sparkles } from 'lucide-react';
 import { getContent } from '@/lib/content/blog-pages';
-import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -38,9 +38,7 @@ export async function generateMetadata({ params, searchParams }: BlogPageProps):
     },
     alternates: {
       canonical: getLocalizedUrl(BASE_URL, '/blog', locale),
-      languages: Object.fromEntries(
-        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/blog', l)])
-      ),
+      languages: hreflangAlternates(BASE_URL, '/blog'),
     },
     other: {
       ...(currentPage > 1 && { 'link-prev': getLocalizedUrl(BASE_URL, `/blog${prevParam}`, locale) }),

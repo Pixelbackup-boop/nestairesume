@@ -163,14 +163,14 @@ Quantify your impact whenever possible:
 
 ## Backend Developer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+Backend hiring managers read your resume as a system-design artifact: they want throughput, latency, reliability, and the scale you operated at — not a feature list. Format every bullet to prove you can run services in production, not just write endpoints.
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Anchor bullets with traffic and reliability numbers** — Requests per second, p99 latency, uptime/SLA, error budget, and transactions handled are the metrics backend leads grade you on. "Designed a payments service handling 50K txns/hour at 99.99% uptime, p99 under 120ms" carries more weight than any list of frameworks
+- **Group skills by tier** — "Languages (Go, Java, Python, Node.js)", "Datastores (PostgreSQL, Redis, MongoDB, Kafka)", and "Infra (AWS, Kubernetes, Terraform, CI/CD)". Recruiters match the JD's primary language first, so lead with whichever the posting names
+- **Show your database work concretely** — Indexing strategy, query optimization with before/after timings, schema/data-modeling decisions, and partitioning or sharding. Backend performance usually bottlenecks at the data layer, and naming this depth separates you from CRUD-only candidates
+- **Demonstrate distributed-systems judgment** — One or two bullets on caching invalidation, idempotency, rate limiting, circuit breakers, or eventual consistency signals you have run real services, not toy apps
+- **Reference observability and incidents** — Tracing, metrics, structured logging, and a line about an on-call incident you diagnosed tell hiring managers you can keep production healthy
+- **Keep ATS-clean and concise** — Spell out "API", "REST", "GraphQL", and "microservices" as plain text; one page under 5 years, two pages max, with system-design depth on the most recent roles
 
 ## Common Mistakes to Avoid
 

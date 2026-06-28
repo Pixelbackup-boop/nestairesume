@@ -7,8 +7,8 @@ import SearchBar from '@/components/blog/SearchBar';
 import CategoryFilter from '@/components/blog/CategoryFilter';
 import { Search, ArrowLeft } from 'lucide-react';
 import { getContent } from '@/lib/content/blog-pages';
-import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -25,9 +25,7 @@ export async function generateMetadata({ params }: SearchPageProps): Promise<Met
     description: c.meta.description,
     alternates: {
       canonical: getLocalizedUrl(BASE_URL, '/blog/search', locale),
-      languages: Object.fromEntries(
-        locales.map(l => [l, getLocalizedUrl(BASE_URL, '/blog/search', l)])
-      ),
+      languages: hreflangAlternates(BASE_URL, '/blog/search'),
     },
   };
 }

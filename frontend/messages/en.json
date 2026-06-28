@@ -779,6 +779,11 @@
     "backToSignIn": "Back to sign in",
     "passwordsDoNotMatch": "Passwords do not match.",
     "passwordTooShort": "Password must be at least 8 characters.",
+    "passwordRequirements": "Use 8+ characters with uppercase, lowercase, and a number.",
+    "pwReqLength": "At least 8 characters",
+    "pwReqUpper": "One uppercase letter",
+    "pwReqLower": "One lowercase letter",
+    "pwReqNumber": "One number",
     "couldNotSendCode": "Could not send the reset code. Please try again.",
     "resetFailed": "Password reset failed. Check the code and try again.",
     "resetSuccessBanner": "Password reset successful. Sign in with your new password."

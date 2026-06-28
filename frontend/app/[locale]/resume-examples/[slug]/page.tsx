@@ -46,11 +46,16 @@ export async function generateMetadata({
   const title = `${example.jobTitle} Resume: Examples & Writing Guide 2026`;
   const description = example.description;
   const url = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, locale);
+  // Only emit hreflang alternates for indexable locales. Listing a noindexed
+  // locale as an alternate contradicts its robots tag, and Google drops the
+  // whole hreflang cluster when it points to noindexed URLs.
   const languages: Record<string, string> = {
     'x-default': getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, 'en'),
   };
   locales.forEach((loc) => {
-    languages[loc] = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, loc);
+    if (isIndexableExampleLocale(loc)) {
+      languages[loc] = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, loc);
+    }
   });
 
   // Stub detection: pages under 500 words are bridge/placeholder content

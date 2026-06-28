@@ -43,6 +43,16 @@ export default function RegisterPage() {
     const [password, setPassword] = useState('');
     const [agreedToTerms, setAgreedToTerms] = useState(false);
 
+    // Mirror the backend password policy (registerSchema in validation.ts) so
+    // users see the rules up front instead of hitting a generic 400 on submit.
+    const pwChecks = {
+        length: password.length >= 8,
+        upper: /[A-Z]/.test(password),
+        lower: /[a-z]/.test(password),
+        number: /\d/.test(password),
+    };
+    const passwordValid = Object.values(pwChecks).every(Boolean);
+
     const localizedHref = (path: string) => `/${locale}${path}`;
 
     // Read redirect param (validated to prevent open redirect)
@@ -155,11 +165,38 @@ export default function RegisterPage() {
                             <input
                                 type="password"
                                 required
+                                minLength={8}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                aria-describedby="password-requirements"
                                 className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent transition"
                                 placeholder="••••••••"
                             />
+                            {password.length === 0 ? (
+                                <p id="password-requirements" className="mt-1.5 text-xs text-gray-500">
+                                    {t('passwordRequirements')}
+                                </p>
+                            ) : (
+                                <ul id="password-requirements" className="mt-2 space-y-1">
+                                    {[
+                                        { ok: pwChecks.length, label: t('pwReqLength') },
+                                        { ok: pwChecks.upper, label: t('pwReqUpper') },
+                                        { ok: pwChecks.lower, label: t('pwReqLower') },
+                                        { ok: pwChecks.number, label: t('pwReqNumber') },
+                                    ].map((c, i) => (
+                                        <li
+                                            key={i}
+                                            className={`flex items-center gap-2 text-xs ${c.ok ? 'text-accent-green' : 'text-gray-500'}`}
+                                        >
+                                            <span
+                                                aria-hidden="true"
+                                                className={`inline-block w-1.5 h-1.5 rounded-full ${c.ok ? 'bg-accent-green' : 'bg-gray-400'}`}
+                                            />
+                                            {c.label}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
 
                         {/* Terms & Privacy Checkbox */}
@@ -180,7 +217,7 @@ export default function RegisterPage() {
 
                         <button
                             type="submit"
-                            disabled={isLoading || !agreedToTerms}
+                            disabled={isLoading || !agreedToTerms || !passwordValid}
                             className="w-full bg-accent-green text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-teal transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                         >
                             {isLoading ? <Loader2 className="animate-spin" /> : t('register')}

@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { getLocalizedPath } from '@/lib/localized-paths';
+import { isIndexableExampleLocale } from '@/i18n.config';
 
 interface ExampleItem {
   slug: string;
@@ -28,6 +29,11 @@ export default function CoverLetterExamplesGrid({ examples, categories }: Props)
   const locale = useLocale();
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // nofollow hub links on noindexed locales so Googlebot doesn't waste crawl
+  // budget on noindex example leaves (already absent from sitemaps + hreflang).
+  // Cards stay clickable for real users on those locales. See ResumeExamplesGrid.
+  const linkRel = isIndexableExampleLocale(locale) ? undefined : 'nofollow';
 
   const filtered = useMemo(() => {
     let result = examples;
@@ -111,6 +117,7 @@ export default function CoverLetterExamplesGrid({ examples, categories }: Props)
             <Link
               key={example.slug}
               href={`/${locale}${getLocalizedPath(`/cover-letter-examples/${example.slug}`, locale)}`}
+              rel={linkRel}
               className="group block bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition hover:border-blue-300"
             >
               <div className="mb-3">

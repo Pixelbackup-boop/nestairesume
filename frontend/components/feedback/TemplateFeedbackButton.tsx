@@ -2,27 +2,32 @@
 
 import { useState } from 'react';
 import { MessageSquare } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAuthStore } from '@/store/useAuthStore';
 import { useSelectedTemplateId } from '@/store/useResumeStore';
-import AuthModal from '@/components/auth/AuthModal';
 import TemplateFeedbackModal from './TemplateFeedbackModal';
 
 export default function TemplateFeedbackButton() {
     const t = useTranslations('Builder');
+    const locale = useLocale();
+    const router = useRouter();
+    const pathname = usePathname();
     const { isAuthenticated } = useAuthStore();
     const selectedTemplateId = useSelectedTemplateId();
-    const [showAuthModal, setShowAuthModal] = useState(false);
     const [showFeedbackModal, setShowFeedbackModal] = useState(false);
 
     const templateId = selectedTemplateId || 'classic-professional';
 
     const handleClick = () => {
         if (!isAuthenticated) {
-            setShowAuthModal(true);
-        } else {
-            setShowFeedbackModal(true);
+            // Send logged-out users through the REAL login flow. The old
+            // AuthModal faked auth via localStorage and never set useAuthStore,
+            // so feedback submission silently failed afterward.
+            router.push(`/${locale}/auth/login?redirect=${encodeURIComponent(pathname)}`);
+            return;
         }
+        setShowFeedbackModal(true);
     };
 
     return (
@@ -35,16 +40,6 @@ export default function TemplateFeedbackButton() {
                 <MessageSquare size={16} />
                 <span className="text-xs">{t('feedback.reportIssue')}</span>
             </button>
-
-            <AuthModal
-                isOpen={showAuthModal}
-                onClose={() => setShowAuthModal(false)}
-                onSuccess={() => {
-                    setShowAuthModal(false);
-                    setShowFeedbackModal(true);
-                }}
-                initialMode="login"
-            />
 
             {showFeedbackModal && (
                 <TemplateFeedbackModal

@@ -13,7 +13,7 @@ import { splitHtmlAtMiddle } from '@/lib/splitContent';
 import { Clock, Calendar, User, ChevronRight, ArrowRight } from 'lucide-react';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import { getTranslations } from 'next-intl/server';
-import { locales, getOgLocale } from '@/i18n.config';
+import { locales, getOgLocale, isIndexableLocale } from '@/i18n.config';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -51,11 +51,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonical = isLocaleNative
     ? getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, locale)
     : getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale);
+  // Emit hreflang only for locales that both have this tip translated AND are
+  // indexable — listing a noindexed locale as an alternate contradicts its
+  // robots tag and voids the hreflang cluster.
   const languages: Record<string, string> = {
     'x-default': getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, defaultLocale),
   };
   availableLocales.forEach((loc) => {
-    languages[loc] = getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, loc);
+    if (isIndexableLocale(loc)) {
+      languages[loc] = getLocalizedUrl(siteConfig.url, `/career-tips/${slug}`, loc);
+    }
   });
 
   return {

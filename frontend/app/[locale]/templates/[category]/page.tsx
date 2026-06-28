@@ -11,6 +11,7 @@ import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
 import { getContent } from '@/lib/content/templates-category';
 import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 // Categories that use builder templates (vs docx/gdocs)
 const BUILDER_TEMPLATE_CATEGORIES = ['creative', 'modern', 'simple'];
@@ -40,10 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: catData.seoDescription,
         alternates: {
             canonical: getLocalizedUrl(siteUrl, `/templates/${category}`, locale),
-            languages: Object.fromEntries([
-                ['x-default', getLocalizedUrl(siteUrl, `/templates/${category}`, 'en')],
-                ...locales.map(l => [l, getLocalizedUrl(siteUrl, `/templates/${category}`, l)]),
-            ]),
+            languages: hreflangAlternates(siteUrl, `/templates/${category}`),
         },
     };
 }
