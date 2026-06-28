@@ -8,7 +8,7 @@ import {
   getLocaleOnlyPostSlugs,
 } from '@/lib/blog/posts';
 import { getLocalizedPath } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableLocale } from '@/i18n.config';
 import {
   BASE_URL,
   SitemapEntry,
@@ -55,9 +55,12 @@ export async function GET() {
     );
   }
 
-  // Locale-only blog posts (e.g., Polish-only content)
+  // Locale-only blog posts (e.g., Polish-only content) — INDEXABLE locales only.
+  // Noindexed locales' locale-only posts must not be submitted (they emit
+  // noindex; listing them contradicts the tag and wastes crawl budget).
   for (const locale of locales) {
     if (locale === 'en') continue;
+    if (!isIndexableLocale(locale)) continue;
     for (const post of getLocaleOnlyPostSlugs(locale)) {
       entries.push({
         url: `${BASE_URL}/${locale}${getLocalizedPath(`/blog/${post.slug}`, locale)}`,
