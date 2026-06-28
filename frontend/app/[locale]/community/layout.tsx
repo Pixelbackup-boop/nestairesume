@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Header from '@/components/Header';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableLocale } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -11,6 +11,7 @@ const alternateLanguages: Record<string, string> = {
         'x-default': getLocalizedUrl(siteUrl, '/community', 'en'),
     };
     locales.forEach((loc) => {
+      if (!isIndexableLocale(loc)) return; // only indexable locales in hreflang
         alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/community', loc);
     });
 

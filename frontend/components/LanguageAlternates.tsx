@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Globe } from 'lucide-react';
-import { locales, localeNames, type Locale } from '@/i18n.config';
+import { INDEXABLE_LOCALES, localeNames, type Locale } from '@/i18n.config';
 import { getLocalizedPath } from '@/lib/localized-paths';
 
 interface Props {
@@ -32,7 +32,11 @@ const defaultTitles: Record<string, string> = {
 };
 
 export default function LanguageAlternates({ currentLocale, path, title }: Props) {
-  const others = locales.filter((l) => l !== currentLocale) as Locale[];
+  // Only link to INDEXABLE locales. Emitting crawlable <a hreflang> tags to the
+  // 12 noindexed locales voids the hreflang cluster (Google drops the whole
+  // cluster when an alternate points at a noindexed URL) and surfaces those
+  // copies as "Alternate page with proper canonical tag".
+  const others = INDEXABLE_LOCALES.filter((l) => l !== currentLocale) as Locale[];
   const heading = title ?? defaultTitles[currentLocale] ?? defaultTitles.en;
 
   return (

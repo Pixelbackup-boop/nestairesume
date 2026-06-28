@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function ResumeMakerPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const c = getContent(locale);
-    const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+    const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
 
     const breadcrumbSchema = {
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',

@@ -39,7 +39,7 @@ export default function CoverLetterPreview({ generatedLetter, companyName }: Cov
     URL.revokeObjectURL(url);
   };
 
-  const localizedHref = (path: string) => `/${locale}${path}`;
+  const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
   return (
     <>

@@ -53,7 +53,7 @@ export default function RegisterPage() {
     };
     const passwordValid = Object.values(pwChecks).every(Boolean);
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
     // Read redirect param (validated to prevent open redirect)
     const redirectParam = searchParams.get('redirect');

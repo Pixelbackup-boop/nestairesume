@@ -54,6 +54,40 @@
 | 2026-06-24 | 50 submitted / 0 indexed (dl 06-18) | dl 06-21 | — |
 | 2026-06-28 | 50 submitted / 0 indexed | dl 06-21 | After redeploy: index will list 5 locales only (was 17) |
 
+## Monthly trend (90d split, pulled 2026-06-29) — the collapse, in three windows
+| Window | Impressions | Clicks | Avg pos | Phase |
+|--------|-------------|--------|---------|-------|
+| 2026-03-29 → 04-27 | 8,837 | 9 | 37.1 | pre-collapse residual (93% of 90d total) |
+| 2026-04-28 → 05-27 | 113 | 2 | 20.2 | flatlined |
+| 2026-05-28 → 06-26 | 32 | 1 | 3.4 | flatlined (high pos = tiny residual) |
+| **90d TOTAL** | **9,481** | **12** | **35.4** | — |
+
+## Page-type breakdown (90d, impression-weighted, pulled 2026-06-29)
+| Section | Impr | % | Clicks | Pages | wAvgPos |
+|---------|------|---|--------|-------|---------|
+| blog | 4,653 | 47.1% | 3 | 456 | 28.0 |
+| resume-examples | 3,165 | 32.1% | 2 | 865 | 47.1 |
+| cover-letter-examples | 1,349 | 13.7% | 1 | 407 | 32.9 |
+| career-tips | 135 | 1.4% | 2 | 35 | 11.6 |
+- Blog ranks ~20 positions better than resume-examples AND owns the only real winner: `/blog/europass-cv-format-guide` pos 2.6–4.5 (en/es/ar).
+- Top resume-example impressions are mostly `/zh/` pages (now noindexed) at pos 85–95 → inflate the count without value.
+- **Quick wins: ZERO** (no query pos 4–20 with ≥30 impr). De-indexed-site signature.
+
+## Indexation sample (URL Inspection, pulled 2026-06-29)
+| URL | Coverage | Last crawl |
+|-----|----------|-----------|
+| /resume-examples/software-engineer | Crawled - not indexed | 2026-06-28 |
+| /resume-examples/accountant | Crawled - not indexed | 2026-06-28 |
+| /resume-examples/teacher | Crawled - not indexed | 2026-06-28 |
+| /resume-examples/project-manager | Crawled - not indexed | 2026-06-28 |
+| /resume-examples (list) | Crawled - not indexed | 2026-06-06 |
+| /blog/europass-cv-format-guide | Crawled - not indexed | 2026-04-21 |
+| /blog/what-is-ats-guide | Crawled - not indexed | 2026-06-13 |
+| /blog | Crawled - not indexed | 2026-06-28 |
+| /resume-examples/registered-nurse | Excluded by 'noindex' (canonical is /nurse) | 2026-03-16 |
+| /resume-examples/data-analyst | Page with redirect | 2026-03-17 |
+- **Whole site currently sits at "Crawled - not indexed"** — blog AND resume-examples. 4 flagships recrawled Jun 28 (Request Indexing working) → awaiting index decision on new content.
+
 ## Device / geo snapshot (90d, pulled 2026-06-28)
 - **Device:** Desktop 8,785 impr (CTR 0.07%) / Mobile 1,285 (CTR 0.47%, ~7x better) / Tablet 8. Desktop-skew = research/template query mix.
 - **Top countries:** USA 2,549 · Italy 1,551 *(noindexed now)* · Germany 1,430 · France 663 · Spain 334 · Switzerland 264.

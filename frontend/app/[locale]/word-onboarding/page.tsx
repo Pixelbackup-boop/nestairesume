@@ -200,7 +200,7 @@ export default function WordOnboardingPage() {
         selectedTemplate: 'docx-classic',
     });
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
     const totalSteps = 4;
 
     useEffect(() => {

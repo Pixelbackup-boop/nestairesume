@@ -70,7 +70,7 @@ export default function OnboardingPage() {
         selectedTemplate: 'classic-pro', // Default template
     });
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
     const aiProcessingMessages = [
         t('main.processingAnalyzing'),

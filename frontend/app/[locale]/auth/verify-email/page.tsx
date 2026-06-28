@@ -27,7 +27,7 @@ export default function VerifyEmailPage() {
 
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
     // Cooldown timer
     useEffect(() => {

@@ -42,7 +42,7 @@ export default function Header() {
     router.push(`/${locale}`);
   };
 
-  const localizedHref = useCallback((path: string) => `/${locale}${path}`, [locale]);
+  const localizedHref = useCallback((path: string) => locale === 'en' ? path : `/${locale}${path}`, [locale]);
 
   const toggleMenu = useCallback((menu: string) => {
     setActiveMenu(prev => prev === menu ? null : menu);

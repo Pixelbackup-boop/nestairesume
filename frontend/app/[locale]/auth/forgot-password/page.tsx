@@ -15,7 +15,7 @@ export default function ForgotPasswordPage() {
     const router = useRouter();
     const locale = useLocale();
     const t = useTranslations('Auth');
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
     const [step, setStep] = useState<Step>('request');
     const [email, setEmail] = useState('');

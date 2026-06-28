@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { locales, getOgLocale } from '@/i18n.config';
+import { locales, getOgLocale, isIndexableLocale } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteConfig = {
@@ -23,6 +23,7 @@ const alternateLanguages: Record<string, string> = {
     'x-default': getLocalizedUrl(siteConfig.url, '/tools/ats-checker', 'en'),
   };
   locales.forEach((loc) => {
+      if (!isIndexableLocale(loc)) return; // only indexable locales in hreflang
     alternateLanguages[loc] = getLocalizedUrl(siteConfig.url, '/tools/ats-checker', loc);
   });
 

@@ -165,7 +165,7 @@ export default async function ResumeExamplePage({
   const author = getAuthor(example.author);
   const relatedExamples = await getRelatedResumeExamples(slug, 3);
   const headings = extractHeadings(example.content);
-  const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+  const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
   const c = getContent(locale);
 
   // JSON-LD structured data - hardcoded objects from constants, safe for rendering

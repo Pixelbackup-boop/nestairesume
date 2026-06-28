@@ -18,7 +18,7 @@ import { getAllResumeExamples, AUTHORS } from '@/lib/resume-examples/posts';
 import { getAllCoverLetterExamples } from '@/lib/cover-letter-examples/posts';
 import { getAllCategorySlugs } from '@/lib/templates/categories';
 import { getLocalizedUrl } from '@/lib/localized-paths';
-import { locales, defaultLocale, Locale } from '@/i18n.config';
+import { locales, defaultLocale, isIndexableLocale, Locale } from '@/i18n.config';
 import {
   BASE_URL,
   SitemapEntry,
@@ -116,6 +116,7 @@ export async function buildAllSitemapEntries(): Promise<SitemapEntry[]> {
 
   for (const locale of locales) {
     if (locale === defaultLocale) continue;
+    if (!isIndexableLocale(locale)) continue; // skip noindexed locales' locale-only posts
     for (const post of getLocaleOnlyPostSlugs(locale)) {
       entries.push({
         url: getLocalizedUrl(BASE_URL, `/blog/${post.slug}`, locale),
@@ -133,6 +134,7 @@ export async function buildAllSitemapEntries(): Promise<SitemapEntry[]> {
 
   for (const locale of locales) {
     if (locale === defaultLocale) continue;
+    if (!isIndexableLocale(locale)) continue; // skip noindexed locales' locale-only career tips
     for (const tip of getLocaleOnlyCareerTipSlugs(locale)) {
       entries.push({
         url: getLocalizedUrl(BASE_URL, `/career-tips/${tip.slug}`, locale),

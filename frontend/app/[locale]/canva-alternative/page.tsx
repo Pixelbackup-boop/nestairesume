@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/canva-alternative';
 import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableLocale } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -15,6 +15,7 @@ const alternateLanguages: Record<string, string> = {
         'x-default': getLocalizedUrl(siteUrl, '/canva-alternative', 'en'),
     };
     locales.forEach((loc) => {
+      if (!isIndexableLocale(loc)) return; // only indexable locales in hreflang
         alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/canva-alternative', loc);
     });
 
@@ -43,7 +44,7 @@ const alternateLanguages: Record<string, string> = {
 export default async function CanvaAlternativePage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const c = getContent(locale);
-    const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+    const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
 
     const breadcrumbSchema = {
         '@context': 'https://schema.org',
