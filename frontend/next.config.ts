@@ -88,6 +88,14 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // Renamed author personas (removed impersonated real public figures) —
+      // 301 old profile URLs to the new personas so any indexed value transfers
+      // and the old slugs don't soft-404.
+      { source: '/about/ken-coleman', destination: '/about/marcus-bennett', permanent: true },
+      { source: '/:locale/about/ken-coleman', destination: '/:locale/about/marcus-bennett', permanent: true },
+      { source: '/about/anna-papalia', destination: '/about/maya-sullivan', permanent: true },
+      { source: '/:locale/about/anna-papalia', destination: '/:locale/about/maya-sullivan', permanent: true },
+
       // Existing redirects
       {
         source: '/:locale/templates/ats-friendly',

@@ -104,6 +104,16 @@
 
 ---
 
+## 🚀 Deploy status (2026-06-28)
+- All session work committed (`310d987f`, 1,347 files, no junk) on branch `seo/recovery-and-registration-fix`, pushed → **PR #1** (github.com/Pixelbackup-boop/nestairesume/pull/1). Locally verified: tsc clean, lint 0 errors, all 533 MDX recompiled (fixed 3 `<2%`/`<797>` MDX-breakers in welder/duoc-si/lab-technician), 0 dedup clusters.
+- **🔴 BLOCKED on GitHub billing:** CI "Run Tests" failed in 3s — *"recent account payments have failed or your spending limit needs to be increased."* GitHub Actions won't run (test OR deploy) until the user fixes **GitHub → Settings → Billing & plans**. Not a code issue. Deploy mechanism = push/merge to `main` → Actions → Cloud Run. Last successful deploy was 2026-06-18; no pushes since (so live site = 06-18 build; all session work is undeployed).
+- After billing fixed: re-run CI (`gh run rerun <id>`) or merge PR #1 → deploys. THEN add the Cloudflare Cache Rule (P1-4) + GSC Request Indexing.
+- **DEPLOYED 2026-06-28:** billing fixed → PR #1 merged → run 28328299006 SUCCESS (Tests ✓, Deploy Backend ✓, Deploy Frontend ✓). All work LIVE.
+- **Post-deploy verification (live curl):** ✅ deleted top-level routes serve 200 via [locale] (/builder, /word-builder, /auth/register, /canvas-editor); ✅ /it /pt return noindex, / /ar indexable; ✅ /ar/resume-examples/accountant indexable (was noindexed); ✅ register password policy live; ✅ content routes have Cache-Control + NO Set-Cookie; ✅ HTML hreflang = 6 (en,es,fr,de,ar,x-default); ✅ resume pages show Marcus Bennett (not Ken Coleman); ✅ de-templatized content live.
+- **2 follow-up issues found + fixed in code (PR #2):**
+  1. **hreflang HTTP `Link:` header still emitted all 18 locales** (next-intl's `alternateLinks` defaults true, separate from page metadata) — conflicted with the filtered HTML hreflang. Fix: `alternateLinks: false` in middleware.ts.
+  2. **Old author URLs soft-404'd** (/about/ken-coleman, /about/anna-papalia returned 200 + not-found body). Fix: 301 redirects → /about/marcus-bennett, /about/maya-sullivan in next.config.ts.
+
 ## 🔁 Open loops (scheduled checks — what we're waiting on)
 
 | Check by | What to verify | What it tests | Status |
