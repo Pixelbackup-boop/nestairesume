@@ -30,6 +30,14 @@ const intlMiddleware = createMiddleware({
   // locale is fully URL-driven, no server code reads NEXT_LOCALE, and the
   // LanguageSwitcher sets it itself client-side via document.cookie.
   localeCookie: false,
+
+  // Disabled so next-intl does NOT emit a `Link:` response header with hreflang
+  // alternates for ALL 18 configured locales. Our page metadata already emits
+  // HTML `<link rel="alternate" hreflang>` filtered to the 5 indexable locales;
+  // the next-intl Link header (every locale, incl. noindexed ones) conflicted
+  // with the HTML and pointed Google at noindexed-locale URLs. HTML hreflang is
+  // now the single source of truth.
+  alternateLinks: false,
 });
 
 export default function middleware(request: NextRequest) {
