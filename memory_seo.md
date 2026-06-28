@@ -28,6 +28,14 @@
 
 ## 🗓️ Timeline (newest first)
 
+### 2026-06-29 (cont.) — DEPLOYED PR #4 + content cluster, VERIFIED LIVE
+- `[WE]` **PR #4 squash-merged → main `fcf3b679`; deploy run 28337233310 = success.** Shipped: 6 indexation bug fixes + canonical consolidation + 726 `/en/` content-link strip (167 files) + europass/3-hub equity wiring + 3 new cluster guides.
+- `[WE]` **3 new long-tail guides LIVE** (200): `/blog/german-cv-lebenslauf-format` (kw german cv format), `/blog/uk-cv-format-guide` (uk cv format), `/blog/tech-resume-guide` (tech resume HUB → 6 dev-role example pages). Modeled on the europass winner; each crawl-paths into resume-examples. Authors Alex Morgan / Sarah Chen (real author images). Auto-registered via filesystem getAllPosts.
+- `[GOOGLE→verify]` **Live verification passed:** legacy /sitemap.xml = 0 noindex-locale URLs ✓; certified-nursing-assistant canonical→/resume-examples/cna ✓; /word-builder = noindex,nofollow ✓; /career/category/* → 308 → /career-tips/category/* ✓; resume-examples/accountant hreflang now 6 `<link>` + 4 `<a>` filtered to indexable (was 17) ✓; europass post resume-example links live ✓.
+- `[MISTAKE→fixed]` **Verification caught a real gap:** `/sitemap-blog.xml` still emitted **864 noindex-locale URLs** (cf-cache-status DYNAMIC = fresh, not cache). Root cause: `app/api/sitemap-blog/route.ts` has its OWN locale-only-posts loop (lines 59-69) that my `build.ts` fix didn't cover — only gated `localizedUrls`+`indexableContentLocaleUrls`, not this route's raw `for (const locale of locales)`. **Fixed:** added `if (!isIndexableLocale(locale)) continue;` (PR #5). sitemap-index + per-locale routes confirmed clean.
+- `[NOTE]` Non-blocking lint warning introduced: `useEffect missing dependency: localizedHref` in auth pages (the inline localizedHref guard). CI passed; cosmetic cleanup later.
+- `[NOTE]` Grep gotcha: Next renders hreflang as `hrefLang` (camelCase) in HTML — lowercase greps return 0 falsely. Browsers/Google treat them identically.
+
 ### 2026-06-29 (cont.) — INDEXATION BUG FIXES (branch seo/indexation-fixes, 56 files)
 Multi-agent workflow diagnosed all 11 GSC "not indexed" reasons → 6 real bugs that today's earlier deploy missed. Fixed:
 - `[WE]` **P0 hreflang body leak**: `components/LanguageAlternates.tsx` "Read in your language" UI emitted crawlable `<a hreflang>` to all 17 locales on every resume/cover example page → filtered to INDEXABLE_LOCALES. (Today's earlier hreflang fix only covered `<head>` metadata, not this body component.)
