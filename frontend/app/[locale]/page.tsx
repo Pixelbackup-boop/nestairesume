@@ -24,7 +24,7 @@ export default async function Home() {
   const tPricing = await getTranslations("Pricing");
   const locale = await getLocale();
 
-  const localizedHref = (path: string) => `/${locale}${path}`;
+  const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
   return (
     <>

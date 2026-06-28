@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/resume-format';
 import type { FormatComparisonItem } from '@/lib/content/resume-format';
 import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableLocale } from '@/i18n.config';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -40,6 +40,7 @@ const alternateLanguages: Record<string, string> = {
         'x-default': getLocalizedUrl(siteUrl, '/resume-format', 'en'),
     };
     locales.forEach((loc) => {
+      if (!isIndexableLocale(loc)) return; // only indexable locales in hreflang
         alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/resume-format', loc);
     });
 
@@ -98,7 +99,7 @@ function FormatCard({ f }: { f: FormatComparisonItem }) {
 export default async function ResumeFormatPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const c = getContent(locale);
-    const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+    const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
 
     // SAFE: hardcoded content strings from the content file, no user input
     const chronoDescHtml = { __html: c.chronological.description };

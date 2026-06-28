@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableLocale } from '@/i18n.config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { FileSearch, FileText, Mic, FileSignature } from 'lucide-react';
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     'x-default': getLocalizedUrl(siteUrl, '/tools', 'en'),
   };
   locales.forEach((loc) => {
+      if (!isIndexableLocale(loc)) return; // only indexable locales in hreflang
     alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/tools', loc);
   });
 

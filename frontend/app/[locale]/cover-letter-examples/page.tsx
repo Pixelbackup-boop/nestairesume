@@ -36,7 +36,7 @@ const relatedResourceHrefs = ['/resume-examples', '/blog/how-to-write-cover-lett
 export default async function CoverLetterExamplesIndex({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const c = getContent(locale);
-  const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+  const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
 
   const [allExamples, categories] = await Promise.all([
     getAllCoverLetterExamples(),

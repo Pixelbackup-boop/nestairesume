@@ -39,7 +39,7 @@ export default function CanvasTemplatesPage() {
     const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
     const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
     const filteredTemplates = useMemo(() => {
         return canvasTemplates.filter((template) => {

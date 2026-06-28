@@ -51,7 +51,7 @@ export default function LoginPage() {
     const callbackPath = callbackParam ? new URL(callbackParam, window.location.origin).pathname : null;
     const finalRedirect = redirectTo || callbackPath;
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
     // Auto-redirect if already authenticated (covers OAuth returning to login page)
     useEffect(() => {

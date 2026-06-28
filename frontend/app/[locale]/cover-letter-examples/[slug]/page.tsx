@@ -167,7 +167,7 @@ export default async function CoverLetterExamplePage({
   const relatedExamples = await getRelatedCoverLetterExamples(slug, 3);
   const headings = extractHeadings(example.content);
 
-  const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+  const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
 
   // JSON-LD structured data - hardcoded objects from constants, safe for rendering
   const articleJsonLd = {

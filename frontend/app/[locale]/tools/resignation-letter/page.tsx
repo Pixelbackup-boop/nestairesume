@@ -167,7 +167,7 @@ ${formData.fullName}`;
     URL.revokeObjectURL(url);
   };
 
-  const localizedHref = (path: string) => `/${locale}${path}`;
+  const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
   // Calculate minimum date (today)
   const today = new Date().toISOString().split('T')[0];

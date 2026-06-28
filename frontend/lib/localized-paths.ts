@@ -73,6 +73,19 @@ export function getLocalizedUrl(baseUrl: string, path: string, locale: string): 
 export const getCanonicalUrl = getLocalizedUrl;
 
 /**
+ * Build a localized RELATIVE href for internal <Link> navigation.
+ *
+ * Mirrors `getLocalizedUrl` without the base URL. CRITICAL for SEO: the default
+ * locale (English) OMITS the `/en` prefix → `/path`, because `/en/path`
+ * 308-redirects to `/path` and every redirected internal link wastes crawl
+ * budget and dilutes internal PageRank to canonical URLs.
+ */
+export function localizedHref(path: string, locale: string): string {
+  const localizedPath = getLocalizedPath(path, locale);
+  return locale === defaultLocale ? localizedPath : `/${locale}${localizedPath}`;
+}
+
+/**
  * Reverse-translate: localized segment → English segment.
  * Returns null if the segment has no translation for this locale.
  */

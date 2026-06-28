@@ -43,7 +43,7 @@ export default function PricingPage() {
   const formatLimit = (limit: number | undefined) =>
     limit === -1 ? t("page.unlimited") : String(limit ?? '—');
 
-  const localizedHref = (path: string) => `/${locale}${path}`;
+  const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
   // Handle direct checkout to Stripe
   const handleCheckout = async (plan: PlanType) => {

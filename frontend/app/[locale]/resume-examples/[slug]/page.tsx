@@ -22,6 +22,20 @@ import { locales, isIndexableExampleLocale } from "@/i18n.config";
 
 const siteUrl = "https://bestairesumes.com";
 
+// Canonical consolidation for true-synonym slug groups. "CNA" IS "certified
+// nursing assistant"; "pharmacy-tech" IS "pharmacy-technician" — Google treats
+// each group as ONE page and parks the duplicates as "Crawled - not indexed".
+// Pointing each variant's canonical + hreflang at a single primary consolidates
+// ranking signal so the primary indexes cleanly and ranks for all variant
+// queries. Primary = highest-search-volume term in the group. (Pages stay live
+// to catch direct/long-tail traffic; only the index signal is consolidated.)
+const CANONICAL_SLUG_MAP: Record<string, string> = {
+  'certified-nursing-assistant': 'cna',
+  'nursing-assistant': 'cna',
+  'pharmacy-tech': 'pharmacy-technician',
+  'desktop-support-engineer': 'desktop-support',
+};
+
 // Generate static params for all examples and locales
 export async function generateStaticParams() {
   const slugs = await getAllResumeExampleSlugs();
@@ -45,16 +59,20 @@ export async function generateMetadata({
 
   const title = `${example.jobTitle} Resume: Examples & Writing Guide 2026`;
   const description = example.description;
-  const url = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, locale);
+  // Consolidate canonical + hreflang to the primary slug for synonym groups
+  // (e.g. certified-nursing-assistant → cna). For all other slugs this is a
+  // no-op (canonicalSlug === slug, self-canonical).
+  const canonicalSlug = CANONICAL_SLUG_MAP[slug] ?? slug;
+  const url = getLocalizedUrl(siteUrl, `/resume-examples/${canonicalSlug}`, locale);
   // Only emit hreflang alternates for indexable locales. Listing a noindexed
   // locale as an alternate contradicts its robots tag, and Google drops the
   // whole hreflang cluster when it points to noindexed URLs.
   const languages: Record<string, string> = {
-    'x-default': getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, 'en'),
+    'x-default': getLocalizedUrl(siteUrl, `/resume-examples/${canonicalSlug}`, 'en'),
   };
   locales.forEach((loc) => {
     if (isIndexableExampleLocale(loc)) {
-      languages[loc] = getLocalizedUrl(siteUrl, `/resume-examples/${slug}`, loc);
+      languages[loc] = getLocalizedUrl(siteUrl, `/resume-examples/${canonicalSlug}`, loc);
     }
   });
 
@@ -165,7 +183,7 @@ export default async function ResumeExamplePage({
   const author = getAuthor(example.author);
   const relatedExamples = await getRelatedResumeExamples(slug, 3);
   const headings = extractHeadings(example.content);
-  const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+  const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
   const c = getContent(locale);
 
   // JSON-LD structured data - hardcoded objects from constants, safe for rendering

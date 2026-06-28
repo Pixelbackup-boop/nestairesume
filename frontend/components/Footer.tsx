@@ -66,7 +66,7 @@ export default function Footer() {
     }
   }, [trustpilotSettings]);
 
-  const localizedHref = (path: string) => `/${locale}${path}`;
+  const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
   const footerSections: FooterSection[] = [
     {

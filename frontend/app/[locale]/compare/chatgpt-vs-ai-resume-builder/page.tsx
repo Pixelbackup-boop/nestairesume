@@ -44,7 +44,7 @@ const guideLinkHrefs = ['/blog/what-is-ats-guide', '/blog/how-to-write-a-resume'
 export default async function ChatGPTComparisonPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const c = getContent(locale);
-    const localizedHref = (path: string) => `/${locale}${getLocalizedPath(path, locale)}`;
+    const localizedHref = (path: string) => locale === 'en' ? getLocalizedPath(path, locale) : `/${locale}${getLocalizedPath(path, locale)}`;
 
     const breadcrumbSchema = {
         '@context': 'https://schema.org',

@@ -129,6 +129,14 @@ const nextConfig: NextConfig = {
         destination: '/:locale/career-tips/category/:category',
         permanent: true,
       },
+      // Root-form (default-locale) variant — the rule above only matches the
+      // locale-prefixed form, so /career/category/* was 404ing (162 "Not found"
+      // in GSC, fed by a stale cached sitemap). This redirects the English root.
+      {
+        source: '/career/category/:category',
+        destination: '/career-tips/category/:category',
+        permanent: true,
+      },
     ];
   },
 

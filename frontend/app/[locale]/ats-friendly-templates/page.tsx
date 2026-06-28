@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BuilderTemplatesGrid from '@/components/BuilderTemplatesGrid';
 import { getTranslations } from 'next-intl/server';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableLocale } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import {
     CheckCircle,
@@ -30,6 +30,7 @@ export async function generateMetadata({
         'x-default': getLocalizedUrl(siteUrl, '/ats-friendly-templates', 'en'),
     };
     locales.forEach((loc) => {
+      if (!isIndexableLocale(loc)) return; // only indexable locales in hreflang
         alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/ats-friendly-templates', loc);
     });
 

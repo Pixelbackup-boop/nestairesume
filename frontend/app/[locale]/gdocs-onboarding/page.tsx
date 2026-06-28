@@ -198,7 +198,7 @@ export default function GdocsOnboardingPage() {
         selectedTemplate: 'gdocs-clean',
     });
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
     const totalSteps = 4;
 
     useEffect(() => {

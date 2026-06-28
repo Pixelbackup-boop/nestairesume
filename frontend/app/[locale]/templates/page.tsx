@@ -79,7 +79,7 @@ export default function TemplatesPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedTemplateForModal, setSelectedTemplateForModal] = useState<{ id: string; name: string } | null>(null);
 
-    const localizedHref = (path: string) => `/${locale}${path}`;
+    const localizedHref = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
 
     // Filter templates based on search, category, and featured list
     const filteredBuilderTemplates = useMemo(() => {

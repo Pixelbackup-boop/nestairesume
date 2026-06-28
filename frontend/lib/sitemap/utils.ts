@@ -2,7 +2,7 @@ import path from 'path';
 import { NextResponse } from 'next/server';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import { hasLocaleContent } from '@/lib/content-utils';
-import { locales, INDEXABLE_EXAMPLE_LOCALES } from '@/i18n.config';
+import { locales, INDEXABLE_LOCALES, INDEXABLE_EXAMPLE_LOCALES, isIndexableLocale } from '@/i18n.config';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bestairesumes.com';
 
@@ -31,7 +31,10 @@ interface UrlOptions {
 }
 
 export function localizedUrls(path: string, options: UrlOptions): SitemapEntry[] {
-  return locales.map((locale) => ({
+  // Only emit INDEXABLE locales. The 12 noindexed locales' static-route pages
+  // emit `noindex`, so listing them here told Google to crawl pages that will
+  // never index — wasting crawl budget and contradicting the noindex signal.
+  return INDEXABLE_LOCALES.map((locale) => ({
     url: getLocalizedUrl(BASE_URL, path, locale),
     lastModified: options.lastModified,
     changeFrequency: options.changeFrequency,
@@ -64,7 +67,7 @@ export function indexableContentLocaleUrls(
 ): SitemapEntry[] {
   const dir = CONTENT_DIRS[contentType];
   return locales
-    .filter((locale) => hasLocaleContent(dir, slug, locale))
+    .filter((locale) => isIndexableLocale(locale) && hasLocaleContent(dir, slug, locale))
     .map((locale) => ({
       url: getLocalizedUrl(BASE_URL, routePath, locale),
       lastModified: options.lastModified,

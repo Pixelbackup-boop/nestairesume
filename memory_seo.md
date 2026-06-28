@@ -21,12 +21,43 @@
 - **Flagship EN pages** (software-engineer, nurse, teacher): recrawled 2026-06-25/26 but **still "Crawled – not indexed"** → quality/authority signal, not crawl-lag.
 - **Traffic:** 28d ≈ 31 impressions / 1 click (collapsed from ~600/day in late March). Realistic recovery ceiling ≈ 5,000 impr/90d (NOT the old 30K — that included now-noindexed locales).
 - **Indexable locales:** en, es, fr, de, ar (the other 12 are `noindex` — AI-translated, pending human review).
-- **⚠️ Deploy drift:** the LIVE site does not match HEAD (`/pt/`, `/it/` indexed live despite source noindex). **Nothing in HEAD takes effect until redeployed.**
-- **Code changes done in HEAD but NOT yet deployed:** see 2026-06-28 `[WE]` entry below.
+- **✅ DEPLOYED & LIVE (2026-06-28/29):** all P0+P1 work shipped to production via 2 deploys (PR #1, PR #3). Live-verified. Indexing signals sent.
+- **Indexable locales:** en, es, fr, de, ar (the other 12 are `noindex` — AI-translated, pending human review).
 
 ---
 
 ## 🗓️ Timeline (newest first)
+
+### 2026-06-29 (cont.) — INDEXATION BUG FIXES (branch seo/indexation-fixes, 56 files)
+Multi-agent workflow diagnosed all 11 GSC "not indexed" reasons → 6 real bugs that today's earlier deploy missed. Fixed:
+- `[WE]` **P0 hreflang body leak**: `components/LanguageAlternates.tsx` "Read in your language" UI emitted crawlable `<a hreflang>` to all 17 locales on every resume/cover example page → filtered to INDEXABLE_LOCALES. (Today's earlier hreflang fix only covered `<head>` metadata, not this body component.)
+- `[WE]` **P0 word-builder/gdocs-builder noindex**: `/word-builder` + `/gdocs-builder` `[locale]` routes survived today's root-only deletion, served HTTP 200 with NO noindex, inherited homepage canonical (→ "Duplicate, Google chose different canonical"). Added `robots:{index:false}` layouts.
+- `[WE]` **P1 sitemap gating**: `lib/sitemap/utils.ts` (`localizedUrls`→INDEXABLE_LOCALES, `indexableContentLocaleUrls`+isIndexableLocale) + `build.ts` (locale-only-post loops). Stops submitting ~1,100+ noindex-locale URLs (esp. sitemap-blog.xml). **Also fixes the legacy `/sitemap.xml`** (shares buildAllSitemapEntries). i18n.config comment CLAIMED sitemaps derived from INDEXABLE_LOCALES but the wiring was missing.
+- `[WE]` **P1 internal links /en prefix**: `localizedHref` was defined inline in 36 files unconditionally prepending `/${locale}`, so every English internal link emitted `/en/...` → 308 redirect (wasting crawl budget + diluting internal PageRank). Added default-locale guard to all 36 + a shared `localizedHref()` helper in localized-paths.ts.
+- `[WE]` **P1 category/tool hreflang**: 15 layout/page files still iterated all 17 locales for `<head>` hreflang (templates, pricing, resume-examples, tools/*, community, etc.) → added isIndexableLocale guard.
+- `[WE]` **P1 404 redirect**: added root-form `/career/category/* → /career-tips/category/*` 301 (existing rule only matched `/:locale/` form; root 404'd, fed by stale sitemap cache).
+- `[VERIFIED]` tsc --noEmit = 0 errors; eslint = 0 errors on changed files.
+- `[DEFERRED — user decisions]` (1) near-dup canonical consolidation (cna/cna-variants) CONFLICTS with CLAUDE.md differentiation policy — flagged not applied; (2) www→non-www redirect chains (9 "Redirect error") — fix at Cloudflare edge, NOT code (redirect loop caused the original collapse — don't touch redirect ordering); (3) es/fr/de/ar are AI-translated near-dupes (~5,200 indexable) — strategy call whether to temporarily noindex to concentrate crawl budget.
+
+### 2026-06-29 (cont.) — DIAGNOSTIC: whole site is "Crawled - not indexed", not just resume-examples
+- `[GOOGLE]` **URL Inspection on a sample (6 resume-examples + 3 blog + 2 list pages): EVERY page = "Crawled - currently not indexed."** Blog AND resume-examples alike. Even the best historical performer `/blog/europass-cv-format-guide` (earned pos 4.5, 239 impr) is currently NOT indexed. The site is effectively de-indexed; what shows in GSC is residual pre-collapse decay + noindexed-locale pages.
+- `[GOOGLE]` **Google recrawled software-engineer, accountant, teacher, project-manager on 2026-06-28** (yesterday) — Request Indexing + sitemap resubmit working. Now "crawled, awaiting index decision" on the NEW de-templatized content = the 2–4wk evaluation window is live.
+- `[GOOGLE]` **90d trend confirms collapse, not a blog-vs-resume story:** 8,837 impr (Mar29–Apr27) → 113 (Apr28–May27) → 32 (May28–Jun26). 98.5% of 90d impressions are pre-collapse residual. Last 2 months flatlined.
+- `[GOOGLE]` **Page-type split (90d, impression-weighted):** blog 4,653 impr / wPos 28 · resume-examples 3,165 impr / wPos 47 · cover-letters 1,349 / wPos 33. Blog ranks ~20 positions better AND owns the only real winner (europass guide pos 2–4 across en/es/ar). Top resume-example impressions are mostly `/zh/` (now noindexed) at pos 85–95.
+- `[GOOGLE]` **ZERO quick wins** (no query at pos 4–20 with ≥30 impr). Signature of a de-indexed site: everything is either tiny-at-pos-2-5 or buried-at-pos-80-99, nothing mid-range to nudge.
+- `[FINDING]` Resume-examples have a structural disadvantage beyond indexation: target queries ("software engineer resume example", "account executive resume") are brutal commercial SERPs (Zety/Indeed/ResumeGenius). Blog long-tail (europass, "how to list remote work") ranks far easier → blog will recover first.
+- `[FINDING]` Edge cases in sample: `/resume-examples/registered-nurse` = "Excluded by noindex" (canonical is /nurse), `/resume-examples/data-analyst` = "Page with redirect" — not the main story, but worth a later audit.
+- `[NEXT]` Lean into blog as near-term engine (recovers fastest, proven winner); add europass-style informational posts internally linked INTO buried resume-example pages (crawl path + authority). Prioritize Request Indexing on blog winners too, not just resume-examples. Scripts: `gsc_pagetype.py`, `gsc_index_sample.py`, `gsc_90d.py`.
+
+### 2026-06-29 — DEPLOYED, VERIFIED LIVE, INDEXING SENT
+- `[WE]` **GitHub Actions billing** was blocking CI (3s reject) — user fixed it → CI ran. **PR #1 merged → deploy SUCCESS** (run 28328299006). All P0+P1 work LIVE.
+- `[WE]` **Live post-deploy verification:** ✅ deleted top-level routes serve 200 via [locale]; ✅ it/pt noindex, /+/ar indexable, /ar examples indexable; ✅ register password policy live; ✅ content routes = Cache-Control + no Set-Cookie; ✅ HTML hreflang=6; ✅ Marcus Bennett (not Ken Coleman); ✅ de-templatized content live. Found 2 follow-ups (PR #3): next-intl `alternateLinks` emitted an 18-locale `Link:` header (conflict w/ HTML); old author URLs soft-404'd.
+- `[WE]` **PR #3 merged → deploy SUCCESS** (run 28332648051): `alternateLinks:false` + 301 author redirects. Verified: homepage Link-header hreflang=0; `/about/ken-coleman`→308→`/about/marcus-bennett`. (Note: cached content pages may show stale 18-Link-header for ≤1h until Cloudflare TTL/purge — self-heals.)
+- `[WE]` **Cloudflare Cache Rule created + verified** (see Cloudflare section above): content pages MISS→HIT, personalized DYNAMIC. Edge caching LIVE.
+- `[WE]` **Indexing signals fired:** Indexing API pushed **172 keeper URLs** (50 GSC-proven + core/hubs + keeper locales + ~120 high-demand de-templatized examples). Re-submitted `sitemap-index.xml` + `sitemap-priority.xml` via GSC API. `scripts/seo/indexing_batch.py` for future runs.
+- `[GOOGLE]` Pending — watch for the "Crawled - not indexed" pages flipping to Indexed over the next 2–6 weeks as Google recrawls the de-templated, clean-signal site.
+- `[MISTAKE]` **(Ops gotcha, new):** now that content pages are edge-cached (1h TTL), every future content deploy serves STALE for ≤1h until Cloudflare cache expires/purges. Future: add a Cloudflare cache-purge step to the deploy pipeline, OR purge manually after deploying content.
+- `[WE]` **Manual GSC Request Indexing** (the stronger lever, UI-only — USER's job): Day-1 list = /, /resume-examples, /cover-letter-examples, /blog, top resume examples, /pricing, /templates, /es, /de. ~12/day.
 
 ### 2026-06-28
 - `[WE]` **Full multi-agent SEO audit** run. Corrected the root cause (see MISTAKE below). Wrote `SEO_AUDIT_2026-06-28.md`.
