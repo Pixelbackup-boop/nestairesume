@@ -152,14 +152,14 @@ Quantify your impact whenever possible:
 
 ## Embedded Systems Engineer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+Embedded hiring managers read the hardware-software boundary first—they want to know which silicon you've touched, not just which languages you write. Format your resume so the chip families, RTOS, and bus protocols surface in the top third:
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Lead with a silicon-aware skills block** — Split it into MCU/SoC families (STM32, NXP i.MX, ESP32, TI MSP430), RTOS/OS (FreeRTOS, Zephyr, embedded Linux), languages (C, C++, Rust, assembly), and bus protocols (I2C, SPI, UART, CAN, USB). Reviewers grep for the exact part numbers in their stack
+- **Quantify in embedded units, not web metrics** — Cite flash/RAM footprint reductions (KB), power draw (µA sleep, mA active), boot time (ms), and ISR latency (µs). "Cut firmware footprint from 480KB to 290KB to fit a cheaper MCU" reads as domain fluency
+- **Name the debug bench** — List oscilloscope, logic analyzer, JTAG/SWD probe, and J-Link/Trace32 work explicitly; hardware bring-up and bare-metal debugging are what separate you from app developers
+- **Flag safety and standards work** — If you've shipped against MISRA C, ISO 26262, IEC 62304, or DO-178C, put it near each relevant role; automotive and medical reviewers screen for it first
+- **Show the product shipped to hardware** — Reference units in the field, production volume, or the device the firmware runs on—personal PCB/dev-board projects with photos or a repo prove genuine bench experience
+- **One page early-career, two max** — Keep a tight Projects section for board bring-ups; a clean reverse-chronological layout parses cleanly through engineering ATS
 
 ## Common Mistakes to Avoid
 

@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AUTHORS } from "@/lib/resume-examples/posts";
 import { getAboutContent } from '@/lib/content/about-pages';
-import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: c.hero.subtitle,
     alternates: {
       canonical: getLocalizedUrl(BASE_URL, '/about', locale),
-      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(BASE_URL, '/about', l)])),
+      languages: hreflangAlternates(BASE_URL, '/about'),
     },
   };
 }

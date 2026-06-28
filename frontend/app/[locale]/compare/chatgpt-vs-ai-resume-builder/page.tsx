@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/chatgpt-comparison';
 import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const siteUrl = 'https://bestairesumes.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -27,9 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         },
         alternates: {
             canonical: getLocalizedUrl(siteUrl, '/compare/chatgpt-vs-ai-resume-builder', locale),
-            languages: Object.fromEntries(
-                locales.map(l => [l, getLocalizedUrl(siteUrl, '/compare/chatgpt-vs-ai-resume-builder', l)])
-            ),
+            languages: hreflangAlternates(siteUrl, '/compare/chatgpt-vs-ai-resume-builder'),
         },
     };
 }

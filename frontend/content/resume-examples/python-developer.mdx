@@ -153,14 +153,14 @@ Quantify your impact whenever possible:
 
 ## Python Developer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+"Python developer" covers web backends, data engineering, automation, and ML, so hiring managers first scan to figure out which kind you are. Format your resume to declare your specialty up front and then prove idiomatic, production-grade Python — clever scripts and Java-flavored code both get filtered out fast.
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Disambiguate your Python flavor in the summary line** — Lead with whether you're a Django/FastAPI web developer, a Pandas/Airflow data engineer, or an automation/scripting specialist. A generic "Python developer" forces the reviewer to guess, and guessing usually ends in a rejection.
+- **Name the web framework and async story** — List Django, FastAPI, or Flask explicitly, and signal whether you write async (asyncio, FastAPI, async ORM). Modern backend JDs screen for async experience, and "Flask only" reads as dated for high-throughput roles.
+- **Show engineering hygiene, not just libraries** — A bare "Pandas, NumPy, Requests" list tells reviewers nothing. Surface type hints (mypy/Pyright), pytest with coverage numbers, Poetry/uv dependency management, and a packaging discipline that signals you ship maintainable code.
+- **Quantify in Python-native units** — "Cut a nightly ETL from 4 hours to 15 minutes with asyncio and batched DB writes" or "reduced memory footprint 60% by switching to generators" demonstrates mastery far better than "improved performance."
+- **Link a GitHub with real packages, not tutorials** — Reviewers open your profile to read code style. A published PyPI package, a project with CI and tests, or merged open-source PRs beats a wall of forked repos. Put the URL in the header.
+- **One page until you have 5+ years or major systems** — Depth on a few production services and pipelines outperforms a catalog of every library you've imported.
 
 ## Common Mistakes to Avoid
 

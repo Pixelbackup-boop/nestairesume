@@ -153,14 +153,14 @@ Quantify your impact whenever possible:
 
 ## AI Engineer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+ML hiring managers and ML platform recruiters scan an AI engineer resume for one signal above all: have you shipped models to production, or only trained them in a notebook? Format every section to answer that question fast.
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Split your skills block by ML lifecycle stage, not one flat list** — Group as "Frameworks (PyTorch, TensorFlow, Hugging Face)", "MLOps & Serving (MLflow, Kubeflow, Triton, SageMaker)", and "Data (Spark, feature stores, vector DBs)". A flat dump of 30 libraries reads as keyword-stuffing; staged groups read as someone who owns the pipeline end-to-end
+- **Lead each bullet with the deployment metric, not the model** — Recruiters reward "inference latency", "throughput (QPS)", "training cost per run", and "model accuracy lift tied to a business KPI". "Cut p95 inference latency from 380ms to 90ms via quantization and dynamic batching" outranks "built a transformer model" every time
+- **State model scale and data volume explicitly** — Parameter counts, training-set size (rows/tokens), GPU hours, and traffic served (requests/day) tell the reader whether you operated at toy or production scale. Vague "large dataset" wastes the line
+- **Put a "Selected Projects" section with live links above older jobs** — Link a deployed demo, a Hugging Face Space, a paper, or a GitHub repo with a real README and eval results. For AI roles this is stronger evidence than any bullet, and ATS-safe if the URL is plain text
+- **Name the responsible-AI work** — A short line on bias evaluation, model cards, eval harnesses, or drift monitoring signals maturity that pure-accuracy resumes lack
+- **One page under 6 years; two pages for staff/research roles** — Reserve the second page for published work or large-scale system design, never for listing every algorithm you have read about
 
 ## Common Mistakes to Avoid
 

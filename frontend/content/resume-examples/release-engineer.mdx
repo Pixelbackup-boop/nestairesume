@@ -155,14 +155,14 @@ Quantify your impact whenever possible:
 
 ## Release Engineer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+Release engineering is judged on reliability and velocity of shipping software, so hiring managers scan your resume for pipeline ownership, deployment safety, and the metrics that prove you ship often without breaking production. Format it around the delivery lifecycle, not generic coding skills.
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Organize skills around the CI/CD toolchain** — Group your stack by pipeline stage: build (Bazel, Gradle, Maven), CI (Jenkins, GitHub Actions, GitLab CI, CircleCI), artifact/release management (Artifactory, Nexus, semantic versioning), and deploy (Argo CD, Spinnaker, Helm, Terraform). Reviewers match these tool names directly to the role.
+- **Quantify delivery in DORA metrics** — This is the field's native vocabulary. Show deployment frequency, lead time for changes, change failure rate, and mean time to recovery — e.g., "raised deploy frequency from weekly to 30+ per day while cutting change failure rate to under 3%."
+- **Showcase release-safety mechanisms** — Call out the techniques that prevent bad releases: blue-green and canary deployments, feature flags, automated rollback, and progressive delivery. Hiring managers want someone who makes shipping boring and safe.
+- **Demonstrate scale and blast radius** — Mention number of services, teams, or environments you release for, release cadence, and how you coordinate multi-service or monorepo deployments. This contextualizes the reliability you're responsible for.
+- **Lead with reliability outcomes** — Surface uptime/SLO improvements, reduction in failed deployments, and on-call/incident metrics near the top, since release engineers are ultimately measured on production stability.
+- **One page until you've owned major release platforms** — Depth on the pipelines and rollouts you've owned beats a broad list of every tool you've configured.
 
 ## Common Mistakes to Avoid
 

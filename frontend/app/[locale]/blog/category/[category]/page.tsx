@@ -11,6 +11,7 @@ import { Suspense } from 'react';
 import { getContent } from '@/lib/content/blog-pages';
 import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const BASE_URL = 'https://bestairesumes.com';
 
@@ -43,9 +44,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     },
     alternates: {
       canonical: getLocalizedUrl(BASE_URL, `/blog/category/${category}`, locale),
-      languages: Object.fromEntries(
-        locales.map(l => [l, getLocalizedUrl(BASE_URL, `/blog/category/${category}`, l)])
-      ),
+      languages: hreflangAlternates(BASE_URL, `/blog/category/${category}`),
     },
   };
 }

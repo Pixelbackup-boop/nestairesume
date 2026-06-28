@@ -14,7 +14,7 @@ import SidebarAd from '@/components/ads/SidebarAd';
 import MultiplexAd from '@/components/ads/MultiplexAd';
 import { splitMarkdownAtMiddle } from '@/lib/splitContent';
 import { getContent } from '@/lib/content/blog-pages';
-import { locales } from '@/i18n.config';
+import { locales, isIndexableLocale } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 
 const siteUrl = 'https://bestairesumes.com';
@@ -51,11 +51,16 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     ? getLocalizedUrl(siteUrl, `/blog/${post.slug}`, locale)
     : getLocalizedUrl(siteUrl, `/blog/${post.slug}`, 'en');
 
+  // Emit hreflang only for locales that both have this post translated AND are
+  // indexable — listing a noindexed locale as an alternate contradicts its
+  // robots tag and voids the hreflang cluster.
   const languages: Record<string, string> = {
     'x-default': getLocalizedUrl(siteUrl, `/blog/${post.slug}`, 'en'),
   };
   availableLocales.forEach((loc) => {
-    languages[loc] = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, loc);
+    if (isIndexableLocale(loc)) {
+      languages[loc] = getLocalizedUrl(siteUrl, `/blog/${post.slug}`, loc);
+    }
   });
 
   return {

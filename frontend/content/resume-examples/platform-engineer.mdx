@@ -155,14 +155,14 @@ Quantify your impact whenever possible:
 
 ## Platform Engineer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+Platform engineering is judged by a different yardstick than ops or backend roles: your "customers" are other engineers, so the resume has to prove developer-experience impact, not just uptime. Reviewers (often a platform lead or a Staff+ engineer) scan for two signals — the scale of the org you built for, and whether you measure success in developer outcomes. Format the page to make both unmissable:
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Frame every project as "platform for N engineers/M teams"** — The blast radius is the headline. "Built an internal developer platform serving 60 squads / 400 engineers" instantly communicates seniority better than any tool list. Put team/org scale in the first line of each role.
+- **Lead skills with the cloud-native core, grouped by intent** — Orchestration (Kubernetes, Helm, service mesh), IaC/GitOps (Terraform, Pulumi, Argo CD, Flux), CI/CD & self-service (developer portals, Backstage, golden paths), and Languages (Go, Python). Reviewers screen hard for Kubernetes and Terraform depth specifically.
+- **Quantify in DORA and developer-time terms** — Lead time for changes, deployment frequency, change failure rate, MTTR, onboarding time, and time-to-first-deploy are the metrics that prove platform value. Example: "Cut commit-to-prod from 2 hours to 10 minutes and new-service bootstrap from 3 days to 15 minutes across 50 teams."
+- **Show the self-service / paved-road story** — Name the golden paths, templates, and portals you shipped and their adoption rate. "Platform adopted by 85% of teams within two quarters" demonstrates you build things engineers actually choose to use, not mandates they route around.
+- **Surface relevant certs and OSS contributions** — CKA, CKAD, CKS, and HashiCorp (Terraform Associate) certs validate the core stack; a link to Kubernetes/Terraform operator or controller code you've published is stronger still, since platform work is judged on what you've built.
+- **Two pages is acceptable here** — Platform roles are senior-skewed and span many systems; a dense two-page reverse-chronological resume reads as appropriate seniority rather than padding, as long as every bullet carries a metric.
 
 ## Common Mistakes to Avoid
 

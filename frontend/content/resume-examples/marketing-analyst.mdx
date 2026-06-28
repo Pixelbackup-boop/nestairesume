@@ -6,7 +6,7 @@ description: >-
   templates. Showcase your data-driven marketing insights and campaign analytics
   expertise.
 date: '2026-01-25'
-author: Ken Coleman
+author: Marcus Bennett
 category: Marketing
 tags:
   - marketing analyst resume
@@ -84,9 +84,9 @@ faq:
       application by matching the terminology in the job posting.
 authorBio: >-
   Bestselling author and career expert with 20+ years in talent development and
-  executive coaching. Host of The Ken Coleman Show, helping professionals find
+  executive coaching. Dedicated to helping professionals find
   meaningful work.
-authorImage: /images/authors/ken-coleman.webp
+authorImage: /images/authors/marcus-bennett.webp
 ---
 ## What Makes a Great Marketing Analyst Resume?
 
@@ -162,27 +162,27 @@ Every marketing analyst can pull reports and build dashboards. The ones I hire c
 
 ## Common Marketing Analyst Interview Questions
 
-Preparing for interviews is an important part of the job search process. Here are questions frequently asked in Marketing Analyst interviews, along with guidance on how to answer them:
+Marketing analyst interviews mix a SQL/Excel skills screen with case-style questions that probe how you reason about attribution, statistical confidence, and turning numbers into recommendations. Expect a take-home dataset or whiteboard exercise. Here are five questions you should be ready for:
 
-### "Describe a marketing campaign you planned and executed. What were the results?"
+### "Walk me through how you'd build a multi-touch attribution model, and where last-click attribution falls short."
 
-Cover the strategy (target audience, messaging, channels), execution, measurement, and results. Include what you would do differently. This tests both planning and analytical ability.
+Interviewers want to hear you contrast first-touch, last-touch, linear, time-decay, and data-driven (algorithmic) attribution, and explain that last-click over-credits bottom-funnel channels like branded search while starving awareness channels. A strong answer names the data you'd join (GA4 events, ad-platform spend, CRM conversions), how you'd handle the iOS/cookie-loss gaps, and how the model output would change budget allocation.
 
-### "How do you measure the success of your marketing efforts?"
+### "A campaign's conversion rate jumped 15% week-over-week. How do you tell if that's real or noise?"
 
-Discuss KPIs relevant to your specialty, attribution challenges, and how you connect marketing metrics to business outcomes. Show sophistication beyond vanity metrics.
+This tests statistical literacy. Cover sample size and significance testing (z-test for proportions or a chi-square), confidence intervals, and checking for confounders — a holiday, a pricing change, a tracking bug, or seasonality. Mention you'd segment by channel and device before declaring a win, and that you'd never report a lift without the underlying volume.
 
-### "How do you approach creating content or campaigns for an audience you are not personally part of?"
+### "Write a SQL query to find the top 5 channels by ROAS last quarter."
 
-Discuss research methods: customer interviews, persona development, data analysis, and testing assumptions. Show empathy and curiosity about understanding different perspectives.
+Be ready to think aloud about joins and aggregation: `SUM(revenue)/SUM(spend) AS roas`, a date filter on the quarter, `GROUP BY channel`, `ORDER BY roas DESC LIMIT 5`. Strong candidates flag edge cases — divide-by-zero on zero-spend channels, attribution windows, and whether revenue is gross or net of refunds.
 
-### "Describe a time you had to pivot a marketing strategy based on data or market changes."
+### "How do you design and read out an A/B test so stakeholders trust the result?"
 
-Show agility and data-driven decision-making. Walk through the original plan, what changed, how you recognized the need to pivot, and the outcome of the new approach.
+Discuss defining one primary metric up front, calculating required sample size and test duration before launch (to avoid peeking), randomization integrity, and reporting both relative lift and absolute confidence interval. Explain how you'd communicate "no statistically significant difference" without it sounding like failure.
 
-### "How do you stay creative while working within brand guidelines and marketing objectives?"
+### "Marketing wants a dashboard; sales says the lead numbers are wrong. How do you resolve the data discrepancy?"
 
-Discuss creative briefs, brainstorming processes, A/B testing creative variations, and finding innovation within constraints. Show that structure and creativity are not opposed.
+This is the analyst's daily reality. Walk through tracing the funnel definitions (does each team count an MQL the same way?), reconciling GA4 vs. CRM vs. ad-platform counts, and identifying where deduplication, attribution windows, or UTM tagging diverge. Show you can be the neutral source of truth rather than taking sides.
 
 
 ## Common Mistakes to Avoid

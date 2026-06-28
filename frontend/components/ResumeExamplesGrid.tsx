@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { getLocalizedPath } from '@/lib/localized-paths';
+import { isIndexableExampleLocale } from '@/i18n.config';
 
 interface ExampleItem {
   slug: string;
@@ -29,6 +30,13 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
   const locale = useLocale();
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // On noindexed locales the example leaves are noindex + absent from sitemaps
+  // and hreflang, so the only thing left feeding them to Googlebot is these hub
+  // links. nofollow keeps the cards clickable for real users on those locales
+  // while telling Google not to spend crawl budget discovering ~560 dead URLs
+  // per hub. On indexed locales (en/es/fr/de/ar) links are followed normally.
+  const linkRel = isIndexableExampleLocale(locale) ? undefined : 'nofollow';
 
   const filtered = useMemo(() => {
     let result = examples;
@@ -112,6 +120,7 @@ export default function ResumeExamplesGrid({ examples, categories }: Props) {
             <Link
               key={example.slug}
               href={`/${locale}${getLocalizedPath(`/resume-examples/${example.slug}`, locale)}`}
+              rel={linkRel}
               className="group block bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition hover:border-blue-300"
             >
               <div className="flex items-start justify-between mb-3">

@@ -9,7 +9,6 @@ import EducationForm from '@/components/editor/EducationForm';
 import SkillsForm from '@/components/editor/SkillsForm';
 import DesignTab from '@/components/editor/DesignTab';
 import PagedPreview from '@/components/preview/PagedPreview';
-import AuthModal from '@/components/auth/AuthModal';
 import DownloadModal from '@/components/download/DownloadModal';
 import { useResumeStore } from '@/store/useResumeStore';
 import { downloadGdocs } from '@/lib/gdocsService';
@@ -34,9 +33,7 @@ function GdocsBuilderContent() {
     const [activeTab, setActiveTab] = useState<TabId>('personal');
     const [previewScale, setPreviewScale] = useState(0.75);
     const [showPreview, setShowPreview] = useState(true);
-    const [showAuthModal, setShowAuthModal] = useState(false);
     const [showDownloadModal, setShowDownloadModal] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [gdocsTemplateId, setGdocsTemplateId] = useState('gdocs-clean');
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     const { resumeData, selectedTheme, setTemplate } = useResumeStore();
@@ -78,12 +75,6 @@ function GdocsBuilderContent() {
     }), [t]);
 
     useEffect(() => {
-        const authStatus = localStorage.getItem('isAuthenticated') === 'true';
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setIsAuthenticated(authStatus);
-    }, []);
-
-    useEffect(() => {
         const templateId = searchParams.get('template');
         if (templateId) {
             // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -102,16 +93,9 @@ function GdocsBuilderContent() {
     }, [searchParams, setTemplate]);
 
     const handleDownloadClick = () => {
-        if (!isAuthenticated) {
-            setShowAuthModal(true);
-        } else {
-            setShowDownloadModal(true);
-        }
-    };
-
-    const handleAuthSuccess = () => {
-        setIsAuthenticated(true);
-        setShowAuthModal(false);
+        // DownloadModal handles real authentication (redirects logged-out users
+        // to /auth/register or /auth/login via useAuthStore) plus usage and
+        // subscription gating — same pattern as the main builder.
         setShowDownloadModal(true);
     };
 
@@ -363,12 +347,6 @@ function GdocsBuilderContent() {
                     </>
                 )}
             </button>
-
-            <AuthModal
-                isOpen={showAuthModal}
-                onClose={() => setShowAuthModal(false)}
-                onSuccess={handleAuthSuccess}
-            />
 
             <DownloadModal
                 isOpen={showDownloadModal}

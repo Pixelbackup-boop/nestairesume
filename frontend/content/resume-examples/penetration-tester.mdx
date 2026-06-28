@@ -156,14 +156,14 @@ Quantify your impact whenever possible:
 
 ## Penetration Tester Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+Offensive-security hiring is credential-gated and proof-driven: the reviewer is usually a senior pentester or red-team lead who scans first for certs, then for evidence you've actually found things. Resume formatting here has its own rule that most tech roles don't share — never expose client names, IPs, or unredacted findings. Build the page to show capability without breaching an NDA:
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Surface certifications high and exactly** — Place OSCP, OSWE, OSEP, GPEN, GWAPT, CRTO, or CEH in the header or a top "Certifications" block, with the credential acronym spelled correctly (ATS and reviewers both match on these). For most offensive roles OSCP is the screening floor, so it should be visible without scrolling.
+- **Lead with a "Selected Engagements" section, sanitized** — Describe scope and outcome generically: "Web app pentest for a Fortune 500 fintech (under NDA): chained an IDOR with a JWT-algorithm confusion flaw to achieve full account takeover affecting ~2M users." Industry + impact, never the client.
+- **Quantify with offensive-security metrics** — Critical/high findings per engagement, time-to-initial-foothold, domain-admin achieved, CVSS of top findings, and CVEs published. Example: "Achieved domain admin in 4 hours across a 12,000-host AD environment via Kerberoasting and AD CS misconfiguration."
+- **Show methodology, not just tools** — Anyone can list Burp, Metasploit, Nmap, and Cobalt Strike. Name the frameworks you test against (OWASP WSTG, PTES, MITRE ATT&CK) to prove you work systematically rather than spraying scanners.
+- **Link public proof, carefully** — Bug-bounty hall-of-fame entries, CVE IDs, conference talks, CTF rankings (HTB/THM, OSCP-style boxes), or technical write-ups on your own infrastructure. These are the single strongest differentiator and the safest evidence — they're already public.
+- **Note clearance and report writing** — Flag active security clearances and authorization to test; many roles are gated on these. One line on report quality ("authored 40+ client-facing reports with exec summaries and developer remediation") matters because half the job is communicating findings.
 
 ## Common Mistakes to Avoid
 

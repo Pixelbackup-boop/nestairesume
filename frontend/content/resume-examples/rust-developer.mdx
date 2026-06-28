@@ -154,14 +154,14 @@ Quantify your impact whenever possible:
 
 ## Rust Developer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+Rust roles are systems-level and competitive, and many candidates come from a C++ or Go background, so hiring managers look for proof you actually understand ownership, lifetimes, and zero-cost abstractions — not just that you compiled a project. Format your resume to demonstrate systems thinking and the specific domain where you apply Rust.
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Declare your Rust domain up front** — Rust spans WebAssembly, embedded/no_std, blockchain, high-performance backends (Tokio/Axum), CLI tooling, and game engines. State which one you target so the reviewer doesn't have to guess; a backend team and an embedded team scan for completely different signals.
+- **Name the async runtime and ecosystem crates** — List Tokio or async-std, web frameworks (Axum, Actix, Warp), serialization (serde), and FFI/interop work. The crate ecosystem is how reviewers gauge depth, since the standard library alone rarely covers production needs.
+- **Quantify in the metrics Rust is hired for** — Memory safety and performance are the whole pitch. Show measurable wins: latency and throughput improvements, memory footprint reductions, eliminated data races, or a rewrite from C++/Python that cut CPU cost — e.g., "rewrote a Python service in Rust, cutting p99 latency 8x and memory use 70%."
+- **Prove ownership/lifetime fluency with real work** — Mention `unsafe` you've written and justified, FFI boundaries, custom traits, or zero-copy parsing. These signal you understand the borrow checker rather than fighting it.
+- **Link open-source Rust contributions** — Rust hiring leans heavily on public code: merged PRs to crates, a published crate on crates.io, or a non-trivial project with tests and CI. Put the GitHub/crates.io URL in the header.
+- **One page until you have substantial systems work** — A focused page on a few performance-critical or safety-critical projects beats a broad list of languages you've sampled.
 
 ## Common Mistakes to Avoid
 

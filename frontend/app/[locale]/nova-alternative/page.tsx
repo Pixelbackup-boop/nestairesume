@@ -4,15 +4,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getContent } from '@/lib/content/nova-alternative';
 import { getLocalizedPath, getLocalizedUrl } from '@/lib/localized-paths';
-import { locales } from '@/i18n.config';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const siteUrl = 'https://bestairesumes.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const c = getContent(locale);
-const alternateLanguages: Record<string, string> = { 'x-default': getLocalizedUrl(siteUrl, '/nova-alternative', 'en') };
-    locales.forEach((loc) => { alternateLanguages[loc] = getLocalizedUrl(siteUrl, '/nova-alternative', loc); });
+    const alternateLanguages = hreflangAlternates(siteUrl, '/nova-alternative');
 
     return {
         title: c.meta.title,

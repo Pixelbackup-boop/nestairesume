@@ -18,8 +18,18 @@ const intlMiddleware = createMiddleware({
   // next.config.ts to preserve SEO equity from prior URLs.
   localePrefix: 'as-needed',
 
-  // Detect locale from Accept-Language header
-  localeDetection: true,
+  // Disabled: `/` now serves consistent English instead of varying by the
+  // Accept-Language header. Better for SEO (one canonical version per URL).
+  localeDetection: false,
+
+  // Disabled so next-intl's syncCookie does NOT write a `NEXT_LOCALE` Set-Cookie
+  // on every response. `localeDetection: false` alone does NOT stop this in
+  // next-intl v4 (syncCookie gates only on `localeCookie`) — without this flag,
+  // every non-English locale page (e.g. /es/blog/x) emits Set-Cookie and
+  // Cloudflare refuses to edge-cache it, defeating the crawl-rate goal. Safe:
+  // locale is fully URL-driven, no server code reads NEXT_LOCALE, and the
+  // LanguageSwitcher sets it itself client-side via document.cookie.
+  localeCookie: false,
 });
 
 export default function middleware(request: NextRequest) {
@@ -127,10 +137,20 @@ export default function middleware(request: NextRequest) {
   // Run intl middleware and capture the response
   const response = intlMiddleware(request);
 
-  // Set geo_country cookie from Cloudflare's CF-IPCountry header
-  // This makes the user's country available to client-side code for registration/login
+  // Set geo_country cookie from Cloudflare's CF-IPCountry header — but ONLY on
+  // /auth routes. The sole consumer is the email register/login form
+  // (useAuthStore.getGeoCookie); OAuth reads the cf-ipcountry header directly
+  // (lib/auth.ts) and admin analytics uses stored DB values. Setting this cookie
+  // on content routes would emit Set-Cookie and prevent Cloudflare from
+  // edge-caching them (slowing Googlebot's crawl). Scoping it here keeps content
+  // pages cookie-free and cacheable while registration still gets the country.
+  const isAuthPath = /^\/(?:[a-z]{2}\/)?auth(?:\/|$)/.test(pathname);
   const cfCountry = request.headers.get('cf-ipcountry');
-  if (cfCountry && cfCountry !== 'XX' && cfCountry !== 'T1') {
+  if (
+    isAuthPath &&
+    cfCountry && cfCountry !== 'XX' && cfCountry !== 'T1' &&
+    !request.cookies.has('geo_country')
+  ) {
     response.cookies.set('geo_country', cfCountry.toUpperCase(), {
       path: '/',
       maxAge: 60 * 60 * 24 * 30, // 30 days

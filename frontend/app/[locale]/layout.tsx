@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Poppins, Noto_Sans_Arabic, Noto_Sans_JP, Noto_Sans_KR, Noto_Sans_SC, Noto_Sans_Thai } from 'next/font/google';
-import { locales, Locale, getDirection, getOgLocale } from '@/i18n.config';
+import { locales, Locale, getDirection, getOgLocale, NOINDEX_LOCALES } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
 import WebVitals from '@/components/WebVitals';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -150,16 +150,14 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-// Locales whose translations are AI-generated and still need human review
-// (per project memory). We emit `noindex` for these to stop Google wasting
-// crawl budget on thin/duplicate content while we improve them. Removing
-// them from the index also lifts the site-wide quality signal that was
-// suppressing indexation on the strong locales.
-//
-// Indexed (human-reviewed quality): en, es, fr, de, ar.
-const NOINDEX_LOCALES = new Set<string>([
-  'ja', 'ko', 'it', 'pt', 'tr', 'vi', 'th', 'zh', 'ms', 'id', 'pl', 'nl',
-]);
+// Locales whose translations are AI-generated and still need human review.
+// We emit `noindex` for these to stop Google wasting crawl budget on
+// thin/duplicate content while we improve them. Removing them from the index
+// also lifts the site-wide quality signal that was suppressing indexation on
+// the strong locales. Derived from the single source of truth in i18n.config
+// (INDEXABLE_LOCALES = en, es, fr, de, ar) so robots meta, hreflang, and
+// sitemaps can never disagree about which locales are indexable.
+const NOINDEX_LOCALE_SET = new Set<string>(NOINDEX_LOCALES);
 
 // Generate locale-aware metadata
 export async function generateMetadata({
@@ -176,12 +174,12 @@ export async function generateMetadata({
     'x-default': getLocalizedUrl(siteConfig.url, '', 'en'),
   };
   locales.forEach((loc) => {
-    if (!NOINDEX_LOCALES.has(loc)) {
+    if (!NOINDEX_LOCALE_SET.has(loc)) {
       alternateLanguages[loc] = getLocalizedUrl(siteConfig.url, '', loc);
     }
   });
 
-  const robots = NOINDEX_LOCALES.has(locale)
+  const robots = NOINDEX_LOCALE_SET.has(locale)
     ? { index: false, follow: true }
     : undefined;
 

@@ -9,8 +9,8 @@ import { Briefcase, Sparkles } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getCareerListingContent } from '@/lib/content/career-pages';
-import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -40,7 +40,7 @@ export async function generateMetadata({ params, searchParams }: CareerPageProps
     },
     alternates: {
       canonical: getLocalizedUrl(siteUrl, '/career', locale),
-      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(siteUrl, '/career', l)])),
+      languages: hreflangAlternates(siteUrl, '/career'),
     },
     other: {
       ...(currentPage > 1 && { 'link-prev': getLocalizedUrl(siteUrl, `/career${prevParam}`, locale) }),

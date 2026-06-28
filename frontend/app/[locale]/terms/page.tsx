@@ -3,8 +3,8 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getContent } from '@/lib/content/terms-page';
-import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const siteUrl = 'https://bestairesumes.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: c.hero.subtitle,
     alternates: {
       canonical: getLocalizedUrl(siteUrl, '/terms', locale),
-      languages: Object.fromEntries(locales.map(l => [l, getLocalizedUrl(siteUrl, '/terms', l)])),
+      languages: hreflangAlternates(siteUrl, '/terms'),
     },
   };
 }

@@ -155,14 +155,14 @@ Quantify your impact whenever possible:
 
 ## JavaScript Developer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+JavaScript hiring is framework-noisy, so your format has to prove language depth, not just a buzzword pile. Recruiters and engineers skim a JS resume in roughly six seconds looking for two things: the runtimes/frameworks you actually ship in, and whether you can write JavaScript without a framework holding your hand. Structure the page so both are obvious instantly:
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Lead with a Technical Skills block split by layer** — Group as Languages (JavaScript, TypeScript), Frontend (React, Vue, Next.js), Backend/Runtime (Node.js, Express, NestJS), and Tooling (Vite, Webpack, Jest, ESLint). A flat 40-tag wall reads as resume-keyword spam; layered grouping signals you understand the stack boundaries.
+- **Put TypeScript adoption in a bullet, not just the skills list** — "Migrated 150K-LOC React app from JS to strict-mode TypeScript, cutting runtime type errors 40%" is the single line senior reviewers look for. TypeScript is now table-stakes, so absence of it reads as a gap.
+- **Quantify with frontend-native metrics** — Bundle size in KB, Largest Contentful Paint / Core Web Vitals deltas, Lighthouse scores, API p95 latency, and test coverage percentages all land harder than "improved performance." Example: "Cut initial bundle from 1.2 MB to 380 KB via code-splitting, raising LCP from 4.1s to 1.8s."
+- **A live GitHub or portfolio URL belongs in the header** — JS is a show-your-work field. Link a deployed app or an npm package, not a private repo. Reviewers will open it before they finish reading.
+- **Name your async and testing reality** — Mention the event loop, Promises/async-await, and a real test runner (Jest, Vitest, Playwright) in context, because the interview will probe these and the resume should pre-answer "does this person know JS, or just JSX?"
+- **One page under five years; two only with shipped, named products** — Dense, scannable, reverse-chronological. Skip a "Languages: HTML, CSS" line at this salary band — it dates you.
 
 ## Common Mistakes to Avoid
 

@@ -155,14 +155,14 @@ Quantify your impact whenever possible:
 
 ## Prompt Engineer Resume Format & Template Tips
 
-Technical resumes require precision and clarity. Your format should demonstrate the organized thinking expected in technical roles:
+Prompt engineering is a young discipline with no standardized credential path, so hiring managers scan for evidence that you treat prompts as engineered systems, not clever one-offs. Format your resume to surface the LLM platforms, evaluation rigor, and shipped impact that separate practitioners from ChatGPT power users.
 
-- **Technical skills section near the top** — Recruiters scan for specific technologies first. Group skills logically: languages, frameworks, tools, platforms
-- **Quantify everything** — "Improved performance" is vague. "Reduced API latency from 200ms to 50ms" is specific and credible
-- **Include project context** — Scale matters. Mention user counts, data volumes, transaction rates, or team sizes to contextualize your impact
-- **Link to work** — GitHub profiles, technical blogs, or portfolio links provide evidence of your skills
-- **Keep it current** — Technology moves fast. Outdated skills (without modern alternatives) can date your resume
-- **One page for <5 years, two pages maximum** — Concision demonstrates communication skills
+- **Lead with a "LLM Platforms & Techniques" block, not a generic skills list** — Name the models you've worked against (GPT-4o, Claude, Gemini, Llama, Mistral) and the techniques you apply (chain-of-thought, few-shot, ReAct, self-consistency, structured output). Reviewers filter for the exact model family in the JD.
+- **Quantify with eval metrics, never adjectives** — "Improved responses" is invisible. Show movement on the numbers your field tracks: hallucination rate, task success rate, faithfulness/groundedness scores, token cost per request, p95 latency, and human-eval win rate against a baseline.
+- **Surface RAG and retrieval experience explicitly** — Most production LLM work is retrieval-augmented. Call out vector databases (Pinecone, Weaviate, pgvector), embedding models, chunking strategy, and context-window optimization, since these are the parts that distinguish production engineers.
+- **Link a public prompt portfolio or eval harness** — A GitHub repo with prompt versions, an eval notebook (DeepEval, Promptfoo, LangSmith traces), or a writeup of a red-teaming exercise is the strongest proof point. Put the URL in the header where recruiters and ATS both capture it.
+- **Show the LLMOps stack, not just the prompt** — Mention LangChain/LlamaIndex, prompt versioning, A/B testing infrastructure, guardrails, and monitoring. Hiring managers want someone who can ship and observe prompts in production, not draft them in a playground.
+- **One page until you have multiple shipped LLM features** — This role rewards depth on a few systems you took from prototype to production over a long list of model experiments.
 
 ## Common Mistakes to Avoid
 

@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import { Folder, ArrowLeft } from 'lucide-react';
 import { locales } from '@/i18n.config';
 import { getLocalizedUrl } from '@/lib/localized-paths';
+import { hreflangAlternates } from '@/lib/hreflang';
 
 const siteUrl = 'https://bestairesumes.com';
 
@@ -39,9 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     alternates: {
       canonical: getLocalizedUrl(siteUrl, `/career-tips/category/${category}`, locale),
-      languages: Object.fromEntries(
-        locales.map(l => [l, getLocalizedUrl(siteUrl, `/career-tips/category/${category}`, l)])
-      ),
+      languages: hreflangAlternates(siteUrl, `/career-tips/category/${category}`),
     },
   };
 }
