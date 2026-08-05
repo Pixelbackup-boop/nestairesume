@@ -11,6 +11,17 @@ interface CloudflareEnv {
     DEEPSEEK_API_KEY?: string;
     STRIPE_SECRET_KEY?: string;
     STRIPE_WEBHOOK_SECRET?: string;
+    /** Backend config.frontendUrl equivalent; when unset, payment routes derive it from the request */
+    FRONTEND_URL?: string;
+    // Stripe price IDs (wrangler.jsonc vars)
+    STRIPE_PRICE_STARTER?: string;
+    STRIPE_PRICE_GOLD?: string;
+    STRIPE_PRICE_DIAMOND?: string;
+    STRIPE_PRICE_PLATINUM?: string;
+    STRIPE_PRICE_STARTER_ANNUAL?: string;
+    STRIPE_PRICE_GOLD_ANNUAL?: string;
+    STRIPE_PRICE_DIAMOND_ANNUAL?: string;
+    STRIPE_PRICE_PLATINUM_ANNUAL?: string;
 }
 
 export function getEnv(): CloudflareEnv {
