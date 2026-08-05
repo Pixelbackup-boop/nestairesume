@@ -29,6 +29,26 @@ export async function POST(request: Request): Promise<Response> {
 
   try {
     const db = getDb();
+
+    // Only OAuth-only accounts may SET a password — an account that already
+    // has one must go through change-password (which verifies the current
+    // password). Otherwise a leaked access token alone becomes a full
+    // account takeover. (The Express backend lacked this guard.)
+    const user = await db.user.findUnique({
+      where: { id: tokenUser.id },
+      select: { hashedPassword: true },
+    });
+    if (!user) {
+      return jsonResponse({ detail: 'User not found' }, 400, origin);
+    }
+    if (user.hashedPassword) {
+      return jsonResponse(
+        { detail: 'Account already has a password. Use change-password instead.' },
+        400,
+        origin
+      );
+    }
+
     const hashedPassword = await bcrypt.hash(parsed.data.password, 10);
     await db.user.update({ where: { id: tokenUser.id }, data: { hashedPassword } });
 
