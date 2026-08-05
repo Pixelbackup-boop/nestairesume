@@ -2,19 +2,16 @@
 // Accessed from Workers via @prisma/adapter-d1 with the DB binding
 
 generator client {
-  // New-generation client targeting the workerd runtime: engine-less
-  // (queryCompiler) — the classic client's native engine needs fs access
-  // that Cloudflare Workers doesn't provide.
-  provider        = "prisma-client"
-  output          = "../lib/generated/prisma"
-  runtime         = "workerd"
-  moduleFormat    = "esm"
-  previewFeatures = ["driverAdapters", "queryCompiler"]
+  // Prisma 7 Cloudflare-native client — engine-less, no WASM bundling issues
+  // (the classic client's native engine needs fs access Workers doesn't provide).
+  // Matches the official @opennextjs/cloudflare prisma-7 example.
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+  runtime  = "cloudflare"
 }
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
 }
 
 model User {

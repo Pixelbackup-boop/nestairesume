@@ -7,7 +7,9 @@ export default {
     ...defineCloudflareConfig({
         incrementalCache: r2IncrementalCache,
     }),
-    // Turbopack production builds fail when the Google Fonts CDN is unreachable
-    // (see CLAUDE.md) — keep the webpack build path.
-    buildCommand: "npx next build --webpack",
+    // Turbopack is required: the Prisma cloudflare client imports its WASM
+    // query compiler via the `?module` convention, which webpack can't parse
+    // (matches the official @opennextjs/cloudflare prisma-7 example).
+    // Note: Turbopack builds need the Google Fonts CDN reachable (CLAUDE.md).
+    buildCommand: "npx next build --turbopack",
 };
