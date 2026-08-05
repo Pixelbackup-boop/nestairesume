@@ -2,9 +2,12 @@ import { PrismaClient } from '@/lib/generated/prisma/client';
 import { PrismaD1 } from '@prisma/adapter-d1';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import type { D1Database } from '@cloudflare/workers-types';
+import type { BrowserWorker } from '@cloudflare/puppeteer';
 
 interface CloudflareEnv {
     DB: D1Database;
+    /** Browser Rendering binding for PDF generation (wrangler.jsonc "browser") */
+    BROWSER?: BrowserWorker;
     JWT_SECRET?: string;
     NEXTAUTH_SECRET?: string;
     BREVO_API_KEY?: string;

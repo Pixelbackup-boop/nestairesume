@@ -166,3 +166,56 @@ export async function incrementCoverLetterCount(db: PrismaClient, userId: string
     data: { coverLetterCount: { increment: 1 } },
   });
 }
+
+/** Result of a download limit check: an HTTP error, or clearance with the watermark flag. */
+export type DownloadLimitResult = { error: LimitCheckError } | { error: null; watermark: boolean };
+
+/**
+ * Mirrors backend checkDownloadLimit middleware: suspended users are blocked,
+ * limits enforced per plan (-1 = unlimited), and free/no-subscription users
+ * get a watermarked PDF.
+ */
+export async function checkDownloadLimit(db: PrismaClient, userId: string): Promise<DownloadLimitResult> {
+  try {
+    const user = await db.user.findUnique({
+      where: { id: userId },
+      select: { subscriptionTier: true, downloadCount: true, isSuspended: true },
+    });
+
+    if (!user) return { error: { status: 404, body: { error: 'User not found' } } };
+    if (user.isSuspended) return { error: { status: 403, body: { error: 'Account suspended' } } };
+
+    const tier = (user.subscriptionTier as PlanType) || 'free';
+    const plan = PLAN_LIMITS[tier] || PLAN_LIMITS.free;
+    const isPaid = tier !== 'free' && user.subscriptionTier !== null;
+
+    if (plan.downloadLimit !== -1 && user.downloadCount >= plan.downloadLimit) {
+      return {
+        error: {
+          status: 429,
+          body: {
+            error: isPaid
+              ? 'Download limit reached'
+              : 'Free download limit reached. Upgrade to download without watermark.',
+            code: 'DOWNLOAD_LIMIT_REACHED',
+            limit: plan.downloadLimit,
+            used: user.downloadCount,
+          },
+        },
+      };
+    }
+
+    return { error: null, watermark: !isPaid };
+  } catch (error) {
+    console.error('Download limit check error', error);
+    return { error: INTERNAL_ERROR };
+  }
+}
+
+/** Mirrors backend incrementDownloadCount. */
+export async function incrementDownloadCount(db: PrismaClient, userId: string): Promise<void> {
+  await db.user.update({
+    where: { id: userId },
+    data: { downloadCount: { increment: 1 } },
+  });
+}

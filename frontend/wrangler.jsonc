@@ -15,6 +15,9 @@
             "database_id": "23f2e0e2-de33-4b16-b1a1-738537965cf3"
         }
     ],
+    "browser": {
+        "binding": "BROWSER"
+    },
     "r2_buckets": [
         {
             "binding": "NEXT_INC_CACHE_R2_BUCKET",

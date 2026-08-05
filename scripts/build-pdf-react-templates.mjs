@@ -9,6 +9,7 @@
  *   node scripts/build-pdf-react-templates.mjs
  */
 import path from 'node:path';
+import { copyFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 
@@ -42,4 +43,11 @@ const result = await esbuild.build({
 
 if (result.errors.length === 0) {
     console.log('✅ Built backend/generated/reactTemplates.js');
+    // The Cloudflare Worker PDF routes import the same bundle from the
+    // frontend tree (committed — CI does not run this script).
+    copyFileSync(
+        path.join(root, 'backend/generated/reactTemplates.js'),
+        path.join(frontend, 'lib/pdf-templates/reactTemplates.js')
+    );
+    console.log('✅ Copied to frontend/lib/pdf-templates/reactTemplates.js');
 }
