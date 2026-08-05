@@ -11,6 +11,8 @@ import { PLAN_LIMITS } from '@/lib/server/subscriptionLimits';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
 
+export const dynamic = "force-dynamic";
+
 export function GET(request: Request): Response {
   // TODO: rate limiting — the Express backend applied generalLimiter to /api/v1/payments
   const plans: Record<string, { cvLimit: number; aiLimit: number; downloadLimit: number; coverLetterLimit: number }> = {};

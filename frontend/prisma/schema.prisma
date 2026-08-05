@@ -3,7 +3,9 @@
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
+  // queryCompiler = engine-less client — required on Cloudflare Workers
+  // (the native engine tries fs access that workerd doesn't provide)
+  previewFeatures = ["driverAdapters", "queryCompiler"]
 }
 
 datasource db {

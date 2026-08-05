@@ -8,6 +8,9 @@ import { getTemplates } from '@/lib/server/resumeService';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
 
+// Never prerender API routes at build time — breaks OpenNext serving on the api host
+export const dynamic = 'force-dynamic';
+
 export function GET(request: Request): Response {
   return jsonResponse(getTemplates(), 200, request.headers.get('origin'));
 }
