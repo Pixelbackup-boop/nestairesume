@@ -60,16 +60,13 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   try {
-    // Backend wrapped this in prisma.$transaction so the count increment rolls
-    // back if the create fails. D1 has no transaction support — the adapter
-    // runs these as individual (non-atomic) queries.
-    const resume = await db.$transaction(async (tx) => {
-      const created = await createResume(tx, tokenUser.id, body);
-      await tx.user.update({
-        where: { id: tokenUser.id },
-        data: { cvCreatedCount: { increment: 1 } },
-      });
-      return created;
+    // The Express backend wrapped these in an interactive $transaction, but D1
+    // rejects interactive transactions outright. Run them sequentially: create
+    // first so a failed increment can't leave the user without their resume.
+    const resume = await createResume(db, tokenUser.id, body);
+    await db.user.update({
+      where: { id: tokenUser.id },
+      data: { cvCreatedCount: { increment: 1 } },
     });
 
     return jsonResponse(resume, 201, origin);
