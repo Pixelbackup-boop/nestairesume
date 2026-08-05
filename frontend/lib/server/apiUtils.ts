@@ -219,6 +219,7 @@ interface SendEmailOptions {
   subject: string;
   htmlContent: string;
   textContent?: string;
+  replyTo?: string;
 }
 
 /**
@@ -250,6 +251,7 @@ export async function sendEmail(options: SendEmailOptions): Promise<boolean> {
         subject: options.subject,
         htmlContent: options.htmlContent,
         ...(options.textContent ? { textContent: options.textContent } : {}),
+        ...(options.replyTo ? { replyTo: { email: options.replyTo } } : {}),
       }),
     });
 
@@ -351,4 +353,102 @@ export async function sendVerificationEmail(email: string, name: string, code: s
     htmlContent,
     textContent,
   });
+}
+
+// Shared shell for the code emails (reset + email change) — same layout as
+// the verification email above with different heading/copy.
+function codeEmailContent(name: string, code: string, heading: string, intro: string, ignoreLine: string) {
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f5;">
+      <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td align="center" style="padding: 40px 0;">
+            <table role="presentation" style="width: 100%; max-width: 600px; border-collapse: collapse; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <tr>
+                <td style="padding: 40px 40px 20px; text-align: center; background-color: #00dc82; border-radius: 12px 12px 0 0;">
+                  <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">Best AI Resume</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 40px;">
+                  <h2 style="margin: 0 0 20px; color: #18181b; font-size: 24px; font-weight: 600;">${heading}</h2>
+                  <p style="margin: 0 0 20px; color: #52525b; font-size: 16px; line-height: 1.6;">
+                    Hi ${name},
+                  </p>
+                  <p style="margin: 0 0 30px; color: #52525b; font-size: 16px; line-height: 1.6;">
+                    ${intro}
+                  </p>
+                  <div style="background-color: #f4f4f5; border-radius: 8px; padding: 24px; text-align: center; margin-bottom: 30px;">
+                    <span style="font-size: 36px; font-weight: 700; letter-spacing: 8px; color: #18181b;">${code}</span>
+                  </div>
+                  <p style="margin: 0 0 10px; color: #71717a; font-size: 14px;">
+                    This code will expire in <strong>10 minutes</strong>.
+                  </p>
+                  <p style="margin: 0; color: #71717a; font-size: 14px;">
+                    ${ignoreLine}
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 20px 40px 40px; border-top: 1px solid #e4e4e7;">
+                  <p style="margin: 0; color: #a1a1aa; font-size: 12px; text-align: center;">
+                    © ${new Date().getFullYear()} Best AI Resume. All rights reserved.
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>
+  `;
+
+  const textContent = `
+    ${heading} - Best AI Resume
+
+    Hi ${name},
+
+    ${intro}
+
+    ${code}
+
+    This code will expire in 10 minutes.
+
+    ${ignoreLine}
+
+    © ${new Date().getFullYear()} Best AI Resume. All rights reserved.
+  `;
+
+  return { htmlContent, textContent };
+}
+
+// Mirrors backend sendPasswordResetEmail
+export async function sendPasswordResetEmail(email: string, name: string, code: string): Promise<boolean> {
+  const { htmlContent, textContent } = codeEmailContent(
+    name,
+    code,
+    'Reset your password',
+    'We received a request to reset your password. Use the code below to proceed:',
+    "If you didn't request a password reset, you can safely ignore this email."
+  );
+  return sendEmail({ to: email, toName: name, subject: `${code} is your password reset code`, htmlContent, textContent });
+}
+
+// Mirrors backend sendEmailChangeVerification — sent to the NEW address
+export async function sendEmailChangeVerification(newEmail: string, name: string, code: string): Promise<boolean> {
+  const { htmlContent, textContent } = codeEmailContent(
+    name,
+    code,
+    'Confirm your new email',
+    'You requested to change your email address to this one. Use the verification code below to confirm:',
+    "If you didn't request this change, you can safely ignore this email."
+  );
+  return sendEmail({ to: newEmail, toName: name, subject: `${code} is your email change verification code`, htmlContent, textContent });
 }

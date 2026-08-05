@@ -46,6 +46,7 @@ model User {
   sessions                Session[]
   communityTemplates      CommunityTemplate[]
   templateComments        TemplateComment[]
+  templateFeedback        TemplateFeedback[]
 
   @@index([email])
   @@index([stripeCustomerId])
@@ -223,6 +224,24 @@ model CommunityTemplate {
   @@index([category])
   @@index([isPublic])
   @@index([downloads])
+}
+
+model TemplateFeedback {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  templateId String
+  type       String   @default("feedback")
+  message    String
+  status     String   @default("pending")
+  adminNote  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([templateId])
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
 }
 
 model TemplateComment {
