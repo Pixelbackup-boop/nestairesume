@@ -295,9 +295,9 @@ function HeaderDecorative({ data, scale = 1 }: TemplateProps) {
                     {data.strengths && data.strengths.length > 0 && (
                         <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.strengths} icon={Zap} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(6) }}>
+                            <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(6) }}>
                                 {data.strengths.map((str) => (
-                                    <span key={str.id} data-paginate="item" style={{
+                                    <span key={str.id} style={{
                                         fontSize: fs.small,
                                         fontWeight: 600,
                                         color: accentColor,
@@ -316,9 +316,9 @@ function HeaderDecorative({ data, scale = 1 }: TemplateProps) {
                     {interests && interests.length > 0 && (
                         <div className="resume-section" style={{ marginBottom: sp(20) }}>
                             <SectionHeader title={t.sections.interests} icon={Star} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
+                            <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
                                 {interests.map((int) => (
-                                    <span key={int.id} data-paginate="item" style={{
+                                    <span key={int.id} style={{
                                         fontSize: fs.small,
                                         backgroundColor: '#f3f4f6',
                                         padding: `${sp(4)}px ${sp(8)}px`,

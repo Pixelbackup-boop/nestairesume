@@ -250,9 +250,9 @@ function HeaderGeometric({ data, scale = 1 }: TemplateProps) {
                 {/* Interests */}
                 {data.interests && data.interests.length > 0 && (
                     <SectionRow label={t.sections.interests} fs={fs} headingFont={headingFont} accentColor={accentColor} scale={scale} sp={sp}>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(16) }}>
+                        <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(16) }}>
                             {data.interests.map((int) => (
-                                <span key={int.id} data-paginate="item" style={{ fontSize: fs.body, color: '#374151', display: 'flex', alignItems: 'center', gap: sp(6) }}>
+                                <span key={int.id} style={{ fontSize: fs.body, color: '#374151', display: 'flex', alignItems: 'center', gap: sp(6) }}>
                                     <Diamond size={sp(10)} color={accentColor} fill={accentColor} /> {int.name}
                                 </span>
                             ))}

@@ -273,9 +273,9 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {data.interests && data.interests.length > 0 && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>
                         <MainHeader title={t.sections.interests} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
+                        <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
                             {data.interests.map((int) => (
-                                <div key={int.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
+                                <div key={int.id} style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
                                     <span style={{ color: accentColor, fontSize: sp(8) + 'px' }}>●</span>
                                     <span style={{ fontWeight: 500 }}>{int.name}</span>
                                 </div>
@@ -338,9 +338,9 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {languages && languages.length > 0 && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>
                         <MainHeader title={t.sections.languages} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px ${sp(24)}px` }}>
+                        <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px ${sp(24)}px` }}>
                             {languages.map((lang) => (
-                                <div key={lang.id} style={{ fontSize: fs.body, fontWeight: 700, color: '#374151' }} data-paginate="item">
+                                <div key={lang.id} style={{ fontSize: fs.body, fontWeight: 700, color: '#374151' }}>
                                     {lang.name} <span style={{ fontWeight: 400, opacity: 0.8, textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                 </div>
                             ))}
@@ -373,9 +373,9 @@ function SidebarNarrowYellow({ data, theme, scale = 1 }: TemplateProps) {
                 {data.strengths && data.strengths.length > 0 && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>
                         <MainHeader title={t.sections.strengths} color={'#1f2937'} fs={fs} headingFont={headingFont} accentColor={accentColor} sp={sp} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
+                        <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
                             {data.strengths.map((str) => (
-                                <span key={str.id} data-paginate="item" style={{
+                                <span key={str.id} style={{
                                     backgroundColor: accentColor,
                                     color: '#1f2937',
                                     padding: `${sp(4)}px ${sp(12)}px`,

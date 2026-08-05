@@ -240,9 +240,9 @@ function HeaderIconSections({ data, scale = 1 }: TemplateProps) {
             {/* Strengths Section */}
             {(strengths && strengths.length > 0) && (
                 <BoxSection borderColor={borderColor} title={t.sections.strengths} icon="⭐" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp.sm }}>
+                    <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp.sm }}>
                         {strengths.map((str) => (
-                            <span key={str.id} data-paginate="item" style={{
+                            <span key={str.id} style={{
                                 backgroundColor: '#fff7ed',
                                 color: orangeAccent,
                                 border: `1px solid ${orangeAccent}`,
@@ -275,9 +275,9 @@ function HeaderIconSections({ data, scale = 1 }: TemplateProps) {
             {/* Interests Section */}
             {data.interests && data.interests.length > 0 && (
                 <BoxSection borderColor={borderColor} title={t.sections.interests} icon="🎨" accent={orangeAccent} fs={fs} headingFont={headingFont} sp={sp} scale={scale}>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp.md }}>
+                    <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp.md }}>
                         {data.interests.map((int) => (
-                            <span key={int.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: 6 * scale }}>
+                            <span key={int.id} style={{ display: 'flex', alignItems: 'center', gap: 6 * scale }}>
                                 <span style={{ color: orangeAccent }}>★</span> {int.name}
                             </span>
                         ))}

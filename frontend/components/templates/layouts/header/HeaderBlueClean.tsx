@@ -129,11 +129,10 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                         </p>
 
                         {/* Contact Row */}
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px ${sp(24)}px`, alignItems: 'center' }}>
+                        <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px ${sp(24)}px`, alignItems: 'center' }}>
                             {contactItems.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    data-paginate="item"
                                     style={{
                                         display: 'flex',
                                         alignItems: 'center',
@@ -302,11 +301,10 @@ function HeaderBlueClean({ data, theme, scale = 1 }: TemplateProps) {
                     {skills.length > 0 && (
                         <div className="resume-section" style={{ marginBottom: sp(16) }}>
                             <SectionHeader title={t.sections.skills} icon={<Code size={parseInt(fs.sectionHeading)} color={primaryColor} />} primary={primaryColor} fs={fs} headingFont={headingFont} sp={sp} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
+                            <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
                                 {skills.map((skill) => (
                                     <div
                                         key={skill.id}
-                                        data-paginate="item"
                                         style={{
                                             background: 'white',
                                             border: `1px solid ${primaryColor}30`,
