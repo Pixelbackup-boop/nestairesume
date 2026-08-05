@@ -6,6 +6,7 @@ import type { D1Database } from '@cloudflare/workers-types';
 interface CloudflareEnv {
     DB: D1Database;
     JWT_SECRET?: string;
+    NEXTAUTH_SECRET?: string;
     BREVO_API_KEY?: string;
     DEEPSEEK_API_KEY?: string;
     STRIPE_SECRET_KEY?: string;

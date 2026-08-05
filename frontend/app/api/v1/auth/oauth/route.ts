@@ -3,7 +3,7 @@
  * Ported from backend handleOAuthSignIn() (backend/src/services/authService.ts).
  */
 import { z } from 'zod';
-import { getDb } from '@/lib/server/db';
+import { getDb, getEnv } from '@/lib/server/db';
 import { jsonResponse, validationErrorResponse, signAccessToken } from '@/lib/server/apiUtils';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
@@ -26,6 +26,13 @@ const oauthSchema = z.object({
 export async function POST(request: Request): Promise<Response> {
   // TODO: rate limiting — the Express backend applied authLimiter to all /api/v1/auth routes
   const origin = request.headers.get('origin');
+
+  // This endpoint mints a JWT for whatever email is posted, so it must only be
+  // callable by our own NextAuth signIn callback — never by the public.
+  const internalSecret = getEnv().NEXTAUTH_SECRET || process.env.NEXTAUTH_SECRET;
+  if (!internalSecret || request.headers.get('x-internal-secret') !== internalSecret) {
+    return jsonResponse({ detail: 'Not authenticated' }, 401, origin);
+  }
 
   try {
     const body: unknown = await request.json().catch(() => ({}));

@@ -201,9 +201,16 @@ function getEmailFromAddress(): string {
   return process.env.EMAIL_FROM_ADDRESS || 'noreply@bestairesumes.com';
 }
 
-// Generate 6-digit verification code (same as backend emailService)
+// Generate 6-digit verification code with a CSPRNG (Math.random is predictable).
+// Rejection sampling avoids modulo bias across the 900000-value range.
 export function generateVerificationCode(): string {
-  return Math.floor(100000 + Math.random() * 900000).toString();
+  const range = 900000;
+  const limit = Math.floor(0xffffffff / range) * range;
+  const buf = new Uint32Array(1);
+  do {
+    crypto.getRandomValues(buf);
+  } while (buf[0] >= limit);
+  return (100000 + (buf[0] % range)).toString();
 }
 
 interface SendEmailOptions {
