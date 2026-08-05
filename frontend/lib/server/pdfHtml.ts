@@ -25,6 +25,15 @@ interface WrapperOptions {
 const RTL_LOCALES = ['ar', 'he', 'fa', 'ur'];
 const CJK_LOCALES = ['ja', 'ko', 'zh', 'th'];
 
+// locale is request-controlled and interpolated into the <html lang> attribute
+// and CSS — restrict to a BCP-47-ish shape so it can't break out of the markup.
+const SAFE_LOCALE = /^[a-z]{2,3}(-[a-zA-Z0-9]{2,8})?$/;
+
+/** Returns the locale if it is attribute-safe, otherwise 'en'. */
+export function sanitizeLocale(locale: string | undefined): string {
+  return locale && SAFE_LOCALE.test(locale) ? locale : 'en';
+}
+
 // Mirrors backend fontPresets (shared/helpers.ts) — Google Fonts URL params per font
 const FONT_GOOGLE_PARAMS: Record<string, string> = {
   Inter: 'Inter:wght@400;500;600;700',
@@ -146,7 +155,8 @@ export function getTranslations(translations?: PdfTranslations): PdfTranslations
 // ==================== Document wrapper ====================
 
 export const wrapHtml = (content: string, options: WrapperOptions): string => {
-  const { headingFont, bodyFont, locale = 'en', marginStrategy = 'standard', watermark = false } = options;
+  const { headingFont, bodyFont, marginStrategy = 'standard', watermark = false } = options;
+  const locale = sanitizeLocale(options.locale);
   const fontLinks = getFontLinks(headingFont, bodyFont, locale);
   const dir = isRtl(locale) ? 'rtl' : 'ltr';
 

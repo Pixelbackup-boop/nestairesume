@@ -19,9 +19,33 @@ import {
   hasReactTemplate,
   renderReactTemplate,
 } from '@/lib/pdf-templates/reactTemplates';
-import { wrapHtml, getTranslations, type MarginStrategy, type PdfTranslations } from './pdfHtml';
+import {
+  wrapHtml,
+  getTranslations,
+  sanitizeLocale,
+  type MarginStrategy,
+  type PdfTranslations,
+} from './pdfHtml';
 
 const RTL_LOCALES = ['ar', 'he', 'fa', 'ur'];
+
+// customThemeColor is interpolated into the sidebar backdrop's style attribute
+// by the template bundle — only hex (optionally "primary|secondary") may pass.
+const SAFE_THEME_COLOR = /^#[0-9a-fA-F]{3,8}(\|#[0-9a-fA-F]{3,8})?$/;
+
+// The rendered page runs with network access in Browser Rendering. Resume data
+// is user-controlled, so only the font CDNs (and inline data: assets) may load —
+// everything else is blocked to prevent SSRF/exfiltration from the renderer.
+const ALLOWED_REQUEST_HOSTS = new Set(['fonts.googleapis.com', 'fonts.gstatic.com']);
+
+function isAllowedPageRequest(url: string): boolean {
+  if (url.startsWith('data:') || url === 'about:blank') return true;
+  try {
+    return ALLOWED_REQUEST_HOSTS.has(new URL(url).hostname);
+  } catch {
+    return false;
+  }
+}
 
 // Keep the browser alive briefly between requests so bursts of downloads
 // reuse one session instead of paying ~2s launch latency each time.
@@ -282,6 +306,15 @@ export async function generatePdfFromHtml(
   try {
     await page.setViewport({ width: 794, height: 1123 }); // A4 at 96 DPI
 
+    await page.setRequestInterception(true);
+    page.on('request', (req) => {
+      if (isAllowedPageRequest(req.url())) {
+        void req.continue();
+      } else {
+        void req.abort();
+      }
+    });
+
     await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: 15000 });
 
     // Wait for Google Fonts to finish loading, capped at 10s.
@@ -323,10 +356,15 @@ export async function renderResumePdf(
   request: PdfGenerateRequest
 ): Promise<Uint8Array> {
   const { data, templateId, theme, translations, watermark = false } = request;
-  const locale = request.locale || 'en';
+  const locale = sanitizeLocale(request.locale);
 
   if (!hasReactTemplate(templateId)) {
     throw new Error(`Unknown template id: ${templateId}`);
+  }
+
+  // The template bundle interpolates this into a raw style attribute
+  if (typeof data.customThemeColor === 'string' && !SAFE_THEME_COLOR.test(data.customThemeColor)) {
+    delete data.customThemeColor;
   }
 
   const t = getTranslations(translations);
