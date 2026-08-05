@@ -2,9 +2,13 @@
 // Accessed from Workers via @prisma/adapter-d1 with the DB binding
 
 generator client {
-  provider        = "prisma-client-js"
-  // queryCompiler = engine-less client — required on Cloudflare Workers
-  // (the native engine tries fs access that workerd doesn't provide)
+  // New-generation client targeting the workerd runtime: engine-less
+  // (queryCompiler) — the classic client's native engine needs fs access
+  // that Cloudflare Workers doesn't provide.
+  provider        = "prisma-client"
+  output          = "../lib/generated/prisma"
+  runtime         = "workerd"
+  moduleFormat    = "esm"
   previewFeatures = ["driverAdapters", "queryCompiler"]
 }
 

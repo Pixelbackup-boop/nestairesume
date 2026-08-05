@@ -9,7 +9,7 @@
  * This module stringifies on write and parses on read so the API
  * request/response shapes stay identical to the Express backend.
  */
-import type { Prisma, PrismaClient, Resume as DbResume } from '@prisma/client';
+import type { Prisma, PrismaClient, Resume as DbResume } from '@/lib/generated/prisma/client';
 
 // ==================== Types (from backend/src/types/index.ts) ====================
 

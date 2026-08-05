@@ -5,7 +5,7 @@
  * the hardcoded PLANS object in backend/src/services/stripeService.ts (the
  * backend reads no PlanConfig table — limits are code constants; keep in sync).
  */
-import type { PrismaClient } from '@prisma/client';
+import type { PrismaClient } from '@/lib/generated/prisma/client';
 
 export type PlanType = 'free' | 'starter' | 'gold' | 'diamond' | 'platinum';
 

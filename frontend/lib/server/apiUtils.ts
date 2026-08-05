@@ -9,7 +9,7 @@ import { NextResponse } from 'next/server';
 import { SignJWT, jwtVerify, errors as joseErrors } from 'jose';
 import type { JWTPayload } from 'jose';
 import type { ZodError } from 'zod';
-import type { PrismaClient } from '@prisma/client';
+import type { PrismaClient } from '@/lib/generated/prisma/client';
 import { getEnv } from './db';
 
 // ==================== CORS ====================

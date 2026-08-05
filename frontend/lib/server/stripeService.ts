@@ -14,7 +14,7 @@
  *   serves the app and the API from the same deployment).
  */
 import Stripe from 'stripe';
-import type { PrismaClient } from '@prisma/client';
+import type { PrismaClient } from '@/lib/generated/prisma/client';
 import { getEnv } from './db';
 import type { PlanType } from './subscriptionLimits';
 
