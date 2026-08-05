@@ -27,6 +27,11 @@
         { "pattern": "api.bestairesumes.com", "custom_domain": true }
     ],
     "vars": {
+        // Runtime env wins over values baked from .env files at build time
+        // (populateProcessEnv assigns bindings first, baked values only via ??=).
+        // Keeps local builds honest even though .env.local has localhost URLs.
+        "NEXTAUTH_URL": "https://bestairesumes.com",
+        "FRONTEND_URL": "https://bestairesumes.com",
         "STRIPE_PRICE_STARTER": "price_1U14bMBqH5sEO1kFnH0RgJXK",
         "STRIPE_PRICE_GOLD": "price_1U14bPBqH5sEO1kFCqIDUo21",
         "STRIPE_PRICE_DIAMOND": "price_1U14bSBqH5sEO1kFzN5eFpd2",

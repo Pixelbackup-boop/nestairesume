@@ -155,8 +155,13 @@ export const transformDbToResume = (dbResume: DbResume): ResumeData & { createdA
 
 // ==================== CRUD ====================
 
-export const createResume = async (db: ResumeDbClient, userId: string, data: ResumeData) => {
-  const resume = await db.resume.create({
+/**
+ * Returns the un-awaited create query so the caller can run it inside a
+ * D1 batch `$transaction([...])` (D1 rejects interactive transactions).
+ * Await the result and pass it through transformDbToResume().
+ */
+export const buildCreateResumeQuery = (db: ResumeDbClient, userId: string, data: ResumeData) => {
+  return db.resume.create({
     data: {
       userId,
       title: data.title,
@@ -182,8 +187,6 @@ export const createResume = async (db: ResumeDbClient, userId: string, data: Res
       isMaster: data.isMaster || false,
     },
   });
-
-  return transformDbToResume(resume);
 };
 
 export const getResumes = async (db: PrismaClient, userId: string, skip = 0, limit = 20) => {

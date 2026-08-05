@@ -4,7 +4,12 @@
  */
 import { getDb } from '@/lib/server/db';
 import { jsonResponse, getBearerToken, verifyAccessToken } from '@/lib/server/apiUtils';
-import { createResume, getResumes, type ResumeData } from '@/lib/server/resumeService';
+import {
+  buildCreateResumeQuery,
+  getResumes,
+  transformDbToResume,
+  type ResumeData,
+} from '@/lib/server/resumeService';
 import { checkCvLimit } from '@/lib/server/subscriptionLimits';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
@@ -60,16 +65,18 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   try {
-    // The Express backend wrapped these in an interactive $transaction, but D1
-    // rejects interactive transactions outright. Run them sequentially: create
-    // first so a failed increment can't leave the user without their resume.
-    const resume = await createResume(db, tokenUser.id, body);
-    await db.user.update({
-      where: { id: tokenUser.id },
-      data: { cvCreatedCount: { increment: 1 } },
-    });
+    // D1 rejects interactive transactions but supports atomic batches, so the
+    // create + usage-count increment commit or roll back together — a failed
+    // increment can't leave an uncounted resume (CV limit bypass).
+    const [dbResume] = await db.$transaction([
+      buildCreateResumeQuery(db, tokenUser.id, body),
+      db.user.update({
+        where: { id: tokenUser.id },
+        data: { cvCreatedCount: { increment: 1 } },
+      }),
+    ]);
 
-    return jsonResponse(resume, 201, origin);
+    return jsonResponse(transformDbToResume(dbResume), 201, origin);
   } catch (error) {
     console.error('Create resume error', error);
     return jsonResponse({ detail: 'Internal server error' }, 500, origin);
