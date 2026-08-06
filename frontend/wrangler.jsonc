@@ -2,7 +2,9 @@
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "bestairesume-frontend",
     "main": ".open-next/worker.js",
-    "compatibility_date": "2025-03-25",
+    // ≥2025-08-15 required: enables workerd's node:http(s) client, which
+    // NextAuth's Google provider needs for OIDC discovery at signin time.
+    "compatibility_date": "2026-07-01",
     "compatibility_flags": ["nodejs_compat"],
     "assets": {
         "directory": ".open-next/assets",
