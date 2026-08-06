@@ -358,9 +358,9 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                 {languages && languages.length > 0 && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>
                         <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.languages}</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) }}>
+                        <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) }}>
                             {languages.map((lang) => (
-                                <div key={lang.id} data-paginate="item" style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
+                                <div key={lang.id} style={{ display: 'flex', alignItems: 'center', gap: sp(8), fontSize: fs.body }}>
                                     <span style={{ fontWeight: 500, color: '#0f172a' }}>{lang.name}</span>
                                     <span style={{ fontSize: fs.small, color: accentColor, textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                 </div>
@@ -387,9 +387,10 @@ function SidebarDarkNavy({ data, theme, scale = 1 }: TemplateProps) {
                 {interests && interests.length > 0 && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>
                         <h3 style={{ fontFamily: headingFont, fontSize: fs.sectionHeading, color: '#0f172a', textTransform: 'uppercase', marginBottom: sp(16), fontWeight: 700, borderBottom: `${sp(2)}px solid ${accentColor}`, paddingBottom: sp(4) }}>{t.sections.interests}</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) }}>
+                        {/* data-paginate on the row (not each chip) so a page break moves the whole wrapped row together */}
+                        <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(12) }}>
                             {interests.map((int) => (
-                                <span key={int.id} data-paginate="item" style={{ fontSize: fs.body, color: '#475569', display: 'flex', alignItems: 'center', gap: sp(6) }}>
+                                <span key={int.id} style={{ fontSize: fs.body, color: '#475569', display: 'flex', alignItems: 'center', gap: sp(6) }}>
                                     <span style={{ color: accentColor, fontSize: sp(10) + 'px' }}>●</span>
                                     {int.name}
                                 </span>

@@ -357,9 +357,9 @@ function HeaderDarkBox({ data, scale = 1 }: TemplateProps) {
                             <SectionHeader fs={fs} headingFont={headingFont} accentColor={accentColor} icon={<Star size={parseInt(fs.sectionHeading)} color={accentColor} />} sp={sp}>
                                 {t.sections.interests}
                             </SectionHeader>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(10) }}>
+                            <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(10) }}>
                                 {data.interests.map((int) => (
-                                    <span key={int.id} data-paginate="item" style={{ fontSize: fs.body, fontWeight: 500, color: '#4b5563' }}>
+                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500, color: '#4b5563' }}>
                                         {int.name}
                                     </span>
                                 ))}

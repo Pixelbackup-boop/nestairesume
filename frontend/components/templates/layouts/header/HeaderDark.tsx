@@ -189,9 +189,9 @@ function HeaderDark({ data, scale = 1 }: TemplateProps) {
                 {data.strengths && data.strengths.length > 0 && (
                     <div style={{ width: '100%', marginBottom: sp(40) }}>
                         <SidebarSectionHeader title={t.sections.strengths} accentColor={accentColor} textColor={sidebarText} fs={fs} headingFont={headingFont} sp={sp} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
+                        <div data-paginate="item" className="resume-entry" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(8) }}>
                             {data.strengths.map((str) => (
-                                <span key={str.id} data-paginate="item" className="resume-entry" style={{
+                                <span key={str.id} style={{
                                     backgroundColor: hexToRgba(sidebarText, 0.08),
                                     color: accentColor,
                                     padding: `${sp(4)}px ${sp(12)}px`,
@@ -332,9 +332,9 @@ function HeaderDark({ data, scale = 1 }: TemplateProps) {
                 {languages && languages.length > 0 && (
                     <section className="resume-section" style={{ marginBottom: sp(20) }}>
                         <SectionHeaderMain title={t.sections.languages} color={'#0f172a'} accent={accentColor} fs={fs} headingFont={headingFont} sp={sp} />
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px ${sp(24)}px` }}>
+                        <div data-paginate="item" className="resume-entry" style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(12)}px ${sp(24)}px` }}>
                             {languages.map((lang) => (
-                                <div key={lang.id} style={{ fontSize: fs.body }} data-paginate="item" className="resume-entry">
+                                <div key={lang.id} style={{ fontSize: fs.body }}>
                                     <span style={{ fontWeight: 600, color: '#0f172a' }}>{lang.name}</span>
                                     <span style={{ color: '#64748b', marginLeft: sp(6), textTransform: 'capitalize' }}>({translateProficiency(lang.proficiency, t.labels)})</span>
                                 </div>

@@ -152,7 +152,12 @@ export const authOptions: NextAuthOptions = {
 
           const response = await fetch(`${BACKEND_URL}/api/v1/auth/oauth`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              // Server-to-server guard: the oauth endpoint refuses requests
+              // without this shared secret (prevents public token minting)
+              "x-internal-secret": process.env.NEXTAUTH_SECRET || "",
+            },
             body: JSON.stringify({
               provider: account.provider,
               providerAccountId: account.providerAccountId,

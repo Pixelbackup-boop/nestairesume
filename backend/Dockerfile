@@ -19,6 +19,10 @@ RUN npm ci
 COPY tsconfig.json ./
 COPY src ./src
 
+# React template bundle (built by scripts/build-pdf-react-templates.mjs);
+# its .d.ts is required for the TypeScript build to resolve
+COPY generated ./generated
+
 # Build TypeScript
 RUN npm run build
 
@@ -68,6 +72,9 @@ RUN npx prisma generate
 
 # Copy built application from builder
 COPY --from=builder /app/dist ./dist
+
+# React template bundle — dist/services resolves it at ../../generated
+COPY --from=builder /app/generated ./generated
 
 # Copy email templates and other assets
 COPY src/templates ./dist/templates

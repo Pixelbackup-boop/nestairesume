@@ -1,0 +1,50 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "bestairesume-frontend",
+    "main": ".open-next/worker.js",
+    "compatibility_date": "2025-03-25",
+    "compatibility_flags": ["nodejs_compat"],
+    "assets": {
+        "directory": ".open-next/assets",
+        "binding": "ASSETS"
+    },
+    "d1_databases": [
+        {
+            "binding": "DB",
+            "database_name": "bestairesume-db",
+            "database_id": "23f2e0e2-de33-4b16-b1a1-738537965cf3"
+        }
+    ],
+    "browser": {
+        "binding": "BROWSER"
+    },
+    "r2_buckets": [
+        {
+            "binding": "NEXT_INC_CACHE_R2_BUCKET",
+            "bucket_name": "bestairesume-next-cache"
+        }
+    ],
+    "routes": [
+        { "pattern": "bestairesumes.com", "custom_domain": true },
+        { "pattern": "www.bestairesumes.com", "custom_domain": true },
+        { "pattern": "api.bestairesumes.com", "custom_domain": true }
+    ],
+    "vars": {
+        // Runtime env wins over values baked from .env files at build time
+        // (populateProcessEnv assigns bindings first, baked values only via ??=).
+        // Keeps local builds honest even though .env.local has localhost URLs.
+        "NEXTAUTH_URL": "https://bestairesumes.com",
+        "FRONTEND_URL": "https://bestairesumes.com",
+        "STRIPE_PRICE_STARTER": "price_1U14bMBqH5sEO1kFnH0RgJXK",
+        "STRIPE_PRICE_GOLD": "price_1U14bPBqH5sEO1kFCqIDUo21",
+        "STRIPE_PRICE_DIAMOND": "price_1U14bSBqH5sEO1kFzN5eFpd2",
+        "STRIPE_PRICE_PLATINUM": "price_1U14bVBqH5sEO1kF3OtOssNM",
+        "STRIPE_PRICE_STARTER_ANNUAL": "price_1U14bNBqH5sEO1kFaesxuDmA",
+        "STRIPE_PRICE_GOLD_ANNUAL": "price_1U14bQBqH5sEO1kFNbITzVsM",
+        "STRIPE_PRICE_DIAMOND_ANNUAL": "price_1U14bTBqH5sEO1kFeBfuulZH",
+        "STRIPE_PRICE_PLATINUM_ANNUAL": "price_1U14bWBqH5sEO1kFez2EkiSE"
+    },
+    "observability": {
+        "enabled": true
+    }
+}

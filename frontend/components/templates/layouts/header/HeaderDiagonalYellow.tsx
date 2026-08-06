@@ -283,9 +283,9 @@ function HeaderDiagonalYellow({ data, scale = 1 }: TemplateProps) {
                     {strengths && strengths.length > 0 && (
                         <section className="resume-section" style={{ marginBottom: sp(16) }}>
                             <SectionHeader fs={fs} title={t.sections.strengths} sp={sp} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: sp(6) }}>
+                            <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: sp(6) }}>
                                 {strengths.map((str) => (
-                                    <span key={str.id} data-paginate="item" style={{
+                                    <span key={str.id} style={{
                                         backgroundColor: accentColor,
                                         color: '#18181b',
                                         padding: scale < 1 ? '2px 8px' : `${sp(4)}px ${sp(12)}px`,
@@ -304,9 +304,9 @@ function HeaderDiagonalYellow({ data, scale = 1 }: TemplateProps) {
                     {interests && interests.length > 0 && (
                         <section className="resume-section" style={{ marginBottom: sp(16) }}>
                             <SectionHeader fs={fs} title={t.sections.interests} sp={sp} />
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(8)}px ${sp(16)}px` }}>
+                            <div data-paginate="item" style={{ display: 'flex', flexWrap: 'wrap', gap: `${sp(8)}px ${sp(16)}px` }}>
                                 {interests.map((int) => (
-                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500, display: 'flex', alignItems: 'center', gap: sp(4) }} data-paginate="item">
+                                    <span key={int.id} style={{ fontSize: fs.body, fontWeight: 500, display: 'flex', alignItems: 'center', gap: sp(4) }}>
                                         <Star size={iconSm} color={accentColor} fill={accentColor} /> {int.name}
                                     </span>
                                 ))}

@@ -1,13 +1,17 @@
-// Frontend Prisma Schema — PostgreSQL
-// Points to the same database as the backend for data consistency
+// Frontend Prisma Schema — SQLite (Cloudflare D1)
+// Accessed from Workers via @prisma/adapter-d1 with the DB binding
 
 generator client {
-  provider = "prisma-client-js"
+  // Prisma 7 Cloudflare-native client — engine-less, no WASM bundling issues
+  // (the classic client's native engine needs fs access Workers doesn't provide).
+  // Matches the official @opennextjs/cloudflare prisma-7 example.
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+  runtime  = "cloudflare"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
 }
 
 model User {
@@ -42,6 +46,7 @@ model User {
   sessions                Session[]
   communityTemplates      CommunityTemplate[]
   templateComments        TemplateComment[]
+  templateFeedback        TemplateFeedback[]
 
   @@index([email])
   @@index([stripeCustomerId])
@@ -54,12 +59,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -98,13 +103,13 @@ model Resume {
   location         String?
   linkedinUrl      String?
   portfolioUrl     String?
-  summary          String?  @db.Text
-  experiences      String?  @db.Text
-  education        String?  @db.Text
-  skills           String?  @db.Text
-  certifications   String?  @db.Text
-  projects         String?  @db.Text
-  languages        String?  @db.Text
+  summary          String? 
+  experiences      String? 
+  education        String? 
+  skills           String? 
+  certifications   String? 
+  projects         String? 
+  languages        String? 
   templateLayout   String   @default("CLASSIC")
   templateTheme    String   @default("NAVY")
   customThemeColor String?
@@ -121,12 +126,12 @@ model BlogPost {
   id          String    @id @default(uuid())
   slug        String    @unique
   title       String
-  description String    @db.Text
-  content     String    @db.Text
+  description String   
+  content     String   
   image       String?
   imageAlt    String?
   category    String
-  tags        String    @db.Text
+  tags        String   
   author      String
   featured    Boolean   @default(false)
   published   Boolean   @default(false)
@@ -161,9 +166,9 @@ model ContentSource {
   name           String
   filename       String
   type           String          @default("pdf")
-  content        String          @db.Text
+  content        String         
   pageCount      Int?
-  metadata       String?         @db.Text
+  metadata       String?        
   createdAt      DateTime        @default(now())
   scheduledPosts ScheduledPost[]
 }
@@ -172,10 +177,10 @@ model ScheduledPost {
   id           String         @id @default(uuid())
   title        String
   slug         String
-  description  String         @db.Text
-  content      String         @db.Text
+  description  String        
+  content      String        
   category     String
-  tags         String         @db.Text
+  tags         String        
   scheduledFor DateTime
   status       String         @default("pending")
   sourceId     String?
@@ -205,10 +210,10 @@ model CommunityTemplate {
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   name        String
-  description String?  @db.Text
+  description String? 
   category    String   @default("professional")
-  designData  String   @db.Text
-  thumbnail   String?  @db.Text
+  designData  String  
+  thumbnail   String? 
   downloads   Int      @default(0)
   isPublic    Boolean  @default(true)
   createdAt   DateTime @default(now())
@@ -221,13 +226,31 @@ model CommunityTemplate {
   @@index([downloads])
 }
 
+model TemplateFeedback {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  templateId String
+  type       String   @default("feedback")
+  message    String
+  status     String   @default("pending")
+  adminNote  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([templateId])
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
 model TemplateComment {
   id          String            @id @default(uuid())
   templateId  String
   template    CommunityTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
   userId      String
   user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
-  content     String            @db.Text
+  content     String           
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
 

@@ -6,8 +6,8 @@ import { useResumeStore } from '../../store/useResumeStore';
 import { isRtl, Locale } from '@/i18n.config';
 import { colorPresets, generateTheme, getLayoutType as getBuilderLayoutType } from '@/lib/templates/builder';
 import UnifiedTemplate, { LayoutType } from '../templates/UnifiedTemplate';
-import { parseDualColor } from '@/lib/templates/builder/colorUtils';
 import { TemplateTranslations } from '@/lib/templates/TranslationContext';
+import { getSidebarConfig } from '@/lib/templates/sidebarConfig';
 
 // A4 dimensions
 const A4_HEIGHT_PX = 1123; // Standard A4 height in pixels at 96 DPI
@@ -15,45 +15,6 @@ const A4_WIDTH_PX = 794;   // Standard A4 width in pixels at 96 DPI
 const PAGE_GAP_PX = 40;    // Gap between pages (Collapsed in Print via CSS)
 const PAGE_MARGIN_BOTTOM = 40; // Bottom margin to prevent content from touching page edge
 const PAGE_MARGIN_TOP = 40; // Top margin for page 2+ to prevent content cutoff
-// Sidebar dimensions per template
-interface SidebarConfig {
-    width: number;
-    bgColor: string;
-    accentBorder?: { width: number; color: string; side: 'left' | 'right' };
-}
-
-const getSidebarConfig = (templateId: string | null, customThemeColor?: string): SidebarConfig | null => {
-    if (!templateId) return null;
-
-    // Parse dual color for templates that support it
-    const { primary: sidebarBg, secondary: accentColor } = parseDualColor(
-        customThemeColor,
-        { primary: '#0f172a', secondary: '#facc15' }
-    );
-
-    if (templateId.includes('narrow-yellow')) {
-        return { width: 238, bgColor: '#facc15' }; // 30% of 794 = 238px, yellow
-    }
-    if (templateId.includes('monogram')) {
-        // Monogram has 30% gray sidebar with 8px accent border on right
-        // Uses the theme's accent color (defaults to yellow)
-        return {
-            width: 238,
-            bgColor: '#374151', // Gray 700
-            accentBorder: { width: 8, color: accentColor || '#facc15', side: 'right' }
-        };
-    }
-    if (templateId === 'header-dark') {
-        // Header-dark has 33% sidebar - use dynamic primary color from dual color preset
-        // Note: header-dark-banner and header-dark-box do NOT have sidebars
-        return { width: 262, bgColor: sidebarBg }; // 33% of 794 = 262px
-    }
-    if (templateId.includes('sidebar-dark-navy') || templateId.includes('dark-navy')) {
-        return { width: 278, bgColor: '#1e293b' }; // 35%, dark navy
-    }
-    // Return null for templates without sidebars
-    return null;
-};
 
 // Footer decoration config for templates with decorative elements at page bottom
 interface FooterDecorationConfig {

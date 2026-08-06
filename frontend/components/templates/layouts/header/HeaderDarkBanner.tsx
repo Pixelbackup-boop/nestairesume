@@ -319,6 +319,7 @@ function HeaderDarkBanner({ data, scale = 1 }: TemplateProps) {
                                 {t.sections.languages}
                             </SectionHeader>
                             <div
+                                data-paginate="item"
                                 style={{
                                     display: 'flex',
                                     gap: scale < 1 ? '8px' : `${sp(16)}px`,
@@ -326,7 +327,7 @@ function HeaderDarkBanner({ data, scale = 1 }: TemplateProps) {
                                 }}
                             >
                                 {languages.map((lang) => (
-                                    <div key={lang.id} data-paginate="item">
+                                    <div key={lang.id}>
                                         <CircularProgress
                                             value={lang.level}
                                             size={scale < 1 ? 40 : sp(70)}
