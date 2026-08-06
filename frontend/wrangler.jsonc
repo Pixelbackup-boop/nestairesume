@@ -37,14 +37,16 @@
         // Keeps local builds honest even though .env.local has localhost URLs.
         "NEXTAUTH_URL": "https://bestairesumes.com",
         "FRONTEND_URL": "https://bestairesumes.com",
-        "STRIPE_PRICE_STARTER": "price_1U14bMBqH5sEO1kFnH0RgJXK",
-        "STRIPE_PRICE_GOLD": "price_1U14bPBqH5sEO1kFCqIDUo21",
-        "STRIPE_PRICE_DIAMOND": "price_1U14bSBqH5sEO1kFzN5eFpd2",
-        "STRIPE_PRICE_PLATINUM": "price_1U14bVBqH5sEO1kF3OtOssNM",
-        "STRIPE_PRICE_STARTER_ANNUAL": "price_1U14bNBqH5sEO1kFaesxuDmA",
-        "STRIPE_PRICE_GOLD_ANNUAL": "price_1U14bQBqH5sEO1kFNbITzVsM",
-        "STRIPE_PRICE_DIAMOND_ANNUAL": "price_1U14bTBqH5sEO1kFeBfuulZH",
-        "STRIPE_PRICE_PLATINUM_ANNUAL": "price_1U14bWBqH5sEO1kFez2EkiSE"
+        // LIVE-mode price ids (test-mode catalog remains in the Stripe account
+        // for sandbox testing; swap back only for test-key debugging)
+        "STRIPE_PRICE_STARTER": "price_1U1WGHBqH5sEO1kFQaXLBMcw",
+        "STRIPE_PRICE_GOLD": "price_1U1WGKBqH5sEO1kFA1zjaXS7",
+        "STRIPE_PRICE_DIAMOND": "price_1U1WGNBqH5sEO1kFnQBEn5BC",
+        "STRIPE_PRICE_PLATINUM": "price_1U1WGQBqH5sEO1kFp0XKEE82",
+        "STRIPE_PRICE_STARTER_ANNUAL": "price_1U1WGIBqH5sEO1kFov1egJgy",
+        "STRIPE_PRICE_GOLD_ANNUAL": "price_1U1WGLBqH5sEO1kFPAY0j7F5",
+        "STRIPE_PRICE_DIAMOND_ANNUAL": "price_1U1WGNBqH5sEO1kFXkEUNJyC",
+        "STRIPE_PRICE_PLATINUM_ANNUAL": "price_1U1WGRBqH5sEO1kFYmsaY46b"
     },
     "observability": {
         "enabled": true
