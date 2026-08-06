@@ -5,9 +5,7 @@ import LinkedInProvider from "next-auth/providers/linkedin";
 import AzureADProvider from "next-auth/providers/azure-ad";
 import AppleProvider from "next-auth/providers/apple";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { headers } from "next/headers";
-
-const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:4444";
+import { loginWithPassword, syncOAuthUser, refreshBackendToken } from "@/lib/server/authCore";
 
 // Build providers array dynamically based on available credentials
 const providers: NextAuthOptions["providers"] = [];
@@ -90,37 +88,18 @@ providers.push(
     async authorize(credentials) {
       if (!credentials?.email || !credentials?.password) return null;
 
-      try {
-        // Call existing backend login endpoint
-        const response = await fetch(`${BACKEND_URL}/api/v1/auth/token`, {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: `username=${encodeURIComponent(credentials.email)}&password=${encodeURIComponent(credentials.password)}`,
-        });
+      // Direct D1 call — a worker cannot fetch its own hostname, so the old
+      // HTTP round-trip to /api/v1/auth/token was blocked as a self-request
+      const user = await loginWithPassword(credentials.email, credentials.password);
+      if (!user) return null;
 
-        if (!response.ok) return null;
-
-        const { access_token } = await response.json();
-
-        // Get user profile
-        const userResponse = await fetch(`${BACKEND_URL}/api/v1/auth/me`, {
-          headers: { Authorization: `Bearer ${access_token}` },
-        });
-
-        if (!userResponse.ok) return null;
-
-        const user = await userResponse.json();
-
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          role: user.role,
-          accessToken: access_token,
-        };
-      } catch {
-        return null;
-      }
+      return {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        role: user.role,
+        accessToken: user.accessToken,
+      };
     },
   })
 );
@@ -135,60 +114,33 @@ export const authOptions: NextAuthOptions = {
         return true;
       }
 
-      // OAuth sign-in: sync with backend
+      // OAuth sign-in: sync with D1 directly (a worker cannot fetch its own
+      // hostname, so the old HTTP handoff to /api/v1/auth/oauth was blocked)
       if (account && user.email) {
-        try {
-          // Read Cloudflare country header (available because Next.js is behind CF proxy)
-          let countryCode: string | undefined;
-          try {
-            const reqHeaders = await headers();
-            const cfCountry = reqHeaders.get("cf-ipcountry");
-            if (cfCountry && cfCountry !== "XX" && cfCountry !== "T1") {
-              countryCode = cfCountry.toUpperCase();
-            }
-          } catch {
-            // headers() may not be available in all contexts
-          }
+        const synced = await syncOAuthUser({
+          provider: account.provider,
+          providerAccountId: account.providerAccountId,
+          email: user.email,
+          name: user.name || user.email.split("@")[0],
+          image: user.image,
+          accessToken: account.access_token,
+          refreshToken: account.refresh_token,
+        });
 
-          const response = await fetch(`${BACKEND_URL}/api/v1/auth/oauth`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              // Server-to-server guard: the oauth endpoint refuses requests
-              // without this shared secret (prevents public token minting)
-              "x-internal-secret": process.env.NEXTAUTH_SECRET || "",
-            },
-            body: JSON.stringify({
-              provider: account.provider,
-              providerAccountId: account.providerAccountId,
-              email: user.email,
-              name: user.name || user.email.split("@")[0],
-              image: user.image,
-              accessToken: account.access_token,
-              refreshToken: account.refresh_token,
-              countryCode,
-            }),
-          });
-
-          if (!response.ok) {
-            console.error("OAuth backend sync failed:", await response.text());
-            return false;
-          }
-
-          const data = await response.json();
-          // Attach backend user ID and JWT to user object — NextAuth user type extension requires any
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (user as any).backendId = data.user.id;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (user as any).accessToken = data.access_token;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (user as any).role = data.user.role;
-
-          return true;
-        } catch (error) {
-          console.error("OAuth sign-in error:", error);
+        if (!synced) {
+          console.error("OAuth D1 sync failed for", account.provider);
           return false;
         }
+
+        // Attach backend user ID and JWT to user object — NextAuth user type extension requires any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (user as any).backendId = synced.id;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (user as any).accessToken = synced.accessToken;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (user as any).role = synced.role;
+
+        return true;
       }
 
       return true;
@@ -216,15 +168,9 @@ export const authOptions: NextAuthOptions = {
           const FIVE_MINUTES = 5 * 60 * 1000;
 
           if (Date.now() > expiresAt - FIVE_MINUTES) {
-            const res = await fetch(`${BACKEND_URL}/api/v1/auth/refresh`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ token: token.accessToken }),
-            });
-
-            if (res.ok) {
-              const { access_token } = await res.json();
-              token.accessToken = access_token;
+            const refreshed = await refreshBackendToken(token.accessToken);
+            if (refreshed) {
+              token.accessToken = refreshed;
             }
           }
         } catch {
