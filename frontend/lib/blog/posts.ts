@@ -57,30 +57,19 @@ function parseDbPost(dbPost: DbPost): Post {
   };
 }
 
+// DB-sourced posts (auto-blog) are disabled on the Cloudflare stack: the
+// backend /blog API was never ported. Crucially, the old fetch here carried
+// `next: { revalidate: 60 }`, which turned every static page and sitemap that
+// calls getAllPosts into 60s-ISR — and runtime re-renders on Workers have no
+// fs, so blog listings and sitemaps silently emptied themselves a minute
+// after each deploy. Content must stay build-time only. If auto-blog returns,
+// source it at build or from D1 WITHOUT fetch-level revalidate.
 async function fetchDbPosts(): Promise<Post[]> {
-  try {
-    const response = await fetch(`${API_BASE_URL}/blog?limit=100`, {
-      next: { revalidate: 60 }, // Cache for 60 seconds
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-    return (data.posts || []).map(parseDbPost);
-  } catch {
-    return [];
-  }
+  return [];
 }
 
-async function fetchDbPostBySlug(slug: string): Promise<Post | null> {
-  try {
-    const response = await fetch(`${API_BASE_URL}/blog/${slug}`, {
-      next: { revalidate: 60 },
-    });
-    if (!response.ok) return null;
-    const dbPost = await response.json();
-    return parseDbPost(dbPost);
-  } catch {
-    return null;
-  }
+async function fetchDbPostBySlug(_slug: string): Promise<Post | null> {
+  return null;
 }
 
 // ============================================
