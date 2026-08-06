@@ -34,6 +34,11 @@ jobs:
       - name: Generate Prisma client
         run: npx prisma generate
 
+      # The in-build Next type-check is disabled (its worker segfaults on the
+      # Prisma D1 client types) — this standalone check is the type gate.
+      - name: Typecheck
+        run: npx tsc --noEmit -p tsconfig.json
+
       - name: Build (OpenNext for Cloudflare)
         env:
           NEXT_PUBLIC_API_URL: https://api.bestairesumes.com

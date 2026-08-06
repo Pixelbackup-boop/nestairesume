@@ -39,6 +39,12 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Next's in-build type-check worker segfaults (SIGSEGV) since lib/auth.ts
+  // pulls the Prisma D1 client types into the page graph. Types are still
+  // gated by `npx tsc --noEmit` (run standalone locally and in CI).
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   // Standalone output for Docker/Cloud Run deployment
   output: 'standalone',
 
