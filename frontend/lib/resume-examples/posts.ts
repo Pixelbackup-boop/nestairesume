@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { contentExistsSync, contentReaddirSync, contentReadFileSync } from '@/lib/content-fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
@@ -242,15 +243,15 @@ const CONTENT_DIR = path.join(process.cwd(), 'content/resume-examples');
 // Get all resume examples
 export async function getAllResumeExamples(): Promise<ResumeExampleMeta[]> {
   try {
-    if (!fs.existsSync(CONTENT_DIR)) {
+    if (!contentExistsSync(CONTENT_DIR)) {
       return [];
     }
 
-    const files = fs.readdirSync(CONTENT_DIR).filter(file => file.endsWith('.mdx'));
+    const files = contentReaddirSync(CONTENT_DIR).filter(file => file.endsWith('.mdx'));
 
     const examples = files.map(file => {
       const filePath = path.join(CONTENT_DIR, file);
-      const fileContent = fs.readFileSync(filePath, 'utf-8');
+      const fileContent = contentReadFileSync(filePath, 'utf-8');
       const { data } = matter(fileContent);
       const rawCategory = data.category || 'General';
 
@@ -291,11 +292,11 @@ export async function getResumeExampleBySlug(slug: string, locale: string = 'en'
   try {
     const filePath = resolveContentPath(CONTENT_DIR, slug, locale);
 
-    if (!fs.existsSync(filePath)) {
+    if (!contentExistsSync(filePath)) {
       return null;
     }
 
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const fileContent = contentReadFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
     const stats = readingTime(content);
     const rawCategory = data.category || 'General';
@@ -329,11 +330,11 @@ export async function getResumeExampleBySlug(slug: string, locale: string = 'en'
 // Get all slugs for static generation
 export async function getAllResumeExampleSlugs(): Promise<string[]> {
   try {
-    if (!fs.existsSync(CONTENT_DIR)) {
+    if (!contentExistsSync(CONTENT_DIR)) {
       return [];
     }
 
-    const files = fs.readdirSync(CONTENT_DIR).filter(file => file.endsWith('.mdx'));
+    const files = contentReaddirSync(CONTENT_DIR).filter(file => file.endsWith('.mdx'));
     return files.map(file => file.replace('.mdx', ''));
   } catch (error) {
     console.error('Error getting resume example slugs:', error);

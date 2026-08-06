@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { contentExistsSync, contentReaddirSync, contentReadFileSync } from '@/lib/content-fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
@@ -77,15 +78,15 @@ async function fetchDbPostBySlug(_slug: string): Promise<Post | null> {
 // ============================================
 
 function getPostFiles(): string[] {
-  if (!fs.existsSync(POSTS_PATH)) {
+  if (!contentExistsSync(POSTS_PATH)) {
     return [];
   }
-  return fs.readdirSync(POSTS_PATH).filter(file => file.endsWith('.mdx'));
+  return contentReaddirSync(POSTS_PATH).filter(file => file.endsWith('.mdx'));
 }
 
 function parsePostFile(filename: string): Post {
   const filePath = path.join(POSTS_PATH, filename);
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const fileContent = contentReadFileSync(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
   const frontmatter = data as PostFrontmatter;
 
@@ -137,8 +138,8 @@ export async function getPostBySlug(slug: string, locale: string = 'en'): Promis
 
   // Try locale-specific MDX file first, then fallback to English
   const filePath = resolveContentPath(POSTS_PATH, slug, locale);
-  if (fs.existsSync(filePath)) {
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
+  if (contentExistsSync(filePath)) {
+    const fileContent = contentReadFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
     const frontmatter = data as PostFrontmatter;
     return {
@@ -227,9 +228,9 @@ export async function getAllPostSlugs(): Promise<string[]> {
 export function getLocaleOnlyPostSlugs(locale: string): PostMeta[] {
   if (locale === 'en') return [];
   const localeDir = path.join(POSTS_PATH, locale);
-  if (!fs.existsSync(localeDir)) return [];
+  if (!contentExistsSync(localeDir)) return [];
 
-  const files = fs.readdirSync(localeDir).filter(f => f.endsWith('.mdx'));
+  const files = contentReaddirSync(localeDir).filter(f => f.endsWith('.mdx'));
   const englishSlugs = new Set(getPostFiles().map(f => f.replace(/\.mdx$/, '')));
 
   const localeOnlyPosts: PostMeta[] = [];
@@ -237,7 +238,7 @@ export function getLocaleOnlyPostSlugs(locale: string): PostMeta[] {
     const slug = file.replace(/\.mdx$/, '');
     if (englishSlugs.has(slug)) continue; // shared slug — already in sitemap via localizedUrls
     const filePath = path.join(localeDir, file);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const fileContent = contentReadFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
     const frontmatter = data as PostFrontmatter;
     localeOnlyPosts.push({
@@ -253,9 +254,9 @@ export function getLocaleOnlyPostSlugs(locale: string): PostMeta[] {
 export function getLocaleOnlyCareerTipSlugs(locale: string): PostMeta[] {
   if (locale === 'en') return [];
   const localeDir = path.join(CAREER_TIPS_PATH, locale);
-  if (!fs.existsSync(localeDir)) return [];
+  if (!contentExistsSync(localeDir)) return [];
 
-  const files = fs.readdirSync(localeDir).filter(f => f.endsWith('.mdx'));
+  const files = contentReaddirSync(localeDir).filter(f => f.endsWith('.mdx'));
   const englishSlugs = new Set(getCareerTipsFiles().map(f => f.replace(/\.mdx$/, '')));
 
   const localeOnlyTips: PostMeta[] = [];
@@ -263,7 +264,7 @@ export function getLocaleOnlyCareerTipSlugs(locale: string): PostMeta[] {
     const slug = file.replace(/\.mdx$/, '');
     if (englishSlugs.has(slug)) continue;
     const filePath = path.join(localeDir, file);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const fileContent = contentReadFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
     const frontmatter = data as PostFrontmatter;
     localeOnlyTips.push({
@@ -408,15 +409,15 @@ export async function getAllBlogPosts(): Promise<PostMeta[]> {
 // ============================================
 
 function getCareerTipsFiles(): string[] {
-  if (!fs.existsSync(CAREER_TIPS_PATH)) {
+  if (!contentExistsSync(CAREER_TIPS_PATH)) {
     return [];
   }
-  return fs.readdirSync(CAREER_TIPS_PATH).filter(file => file.endsWith('.mdx'));
+  return contentReaddirSync(CAREER_TIPS_PATH).filter(file => file.endsWith('.mdx'));
 }
 
 function parseCareerTipFile(filename: string): Post {
   const filePath = path.join(CAREER_TIPS_PATH, filename);
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const fileContent = contentReadFileSync(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
   const frontmatter = data as PostFrontmatter;
 
@@ -447,8 +448,8 @@ export async function getAllCareerTips(): Promise<PostMeta[]> {
 export async function getCareerTipBySlug(slug: string, locale: string = 'en'): Promise<Post | null> {
   // Try locale-specific file first
   const filePath = resolveContentPath(CAREER_TIPS_PATH, slug, locale);
-  if (fs.existsSync(filePath)) {
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
+  if (contentExistsSync(filePath)) {
+    const fileContent = contentReadFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
     const frontmatter = data as PostFrontmatter;
     return {

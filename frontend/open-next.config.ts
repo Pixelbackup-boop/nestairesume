@@ -11,5 +11,7 @@ export default {
     // query compiler via the `?module` convention, which webpack can't parse
     // (matches the official @opennextjs/cloudflare prisma-7 example).
     // Note: Turbopack builds need the Google Fonts CDN reachable (CLAUDE.md).
-    buildCommand: "npx next build --turbopack",
+    // The content manifest must be regenerated first — it is the fs fallback
+    // for request-time renders on Workers (lib/content-fs.ts).
+    buildCommand: "node scripts/generate-content-manifest.mjs && npx next build --turbopack",
 };

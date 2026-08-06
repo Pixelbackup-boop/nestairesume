@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { contentExistsSync, contentReaddirSync, contentReadFileSync } from '@/lib/content-fs';
 import path from 'path';
 
 /**
@@ -14,10 +15,10 @@ import path from 'path';
 export function resolveContentPath(contentDir: string, slug: string, locale: string): string {
   if (locale !== 'en') {
     const localePath = path.join(contentDir, locale, `${slug}.mdx`);
-    if (fs.existsSync(localePath)) return localePath;
+    if (contentExistsSync(localePath)) return localePath;
   }
   const rootPath = path.join(contentDir, `${slug}.mdx`);
-  if (!fs.existsSync(rootPath)) return '';
+  if (!contentExistsSync(rootPath)) return '';
   return rootPath;
 }
 
@@ -33,7 +34,7 @@ export function hasLocaleContent(contentDir: string, slug: string, locale: strin
   const filePath = locale === 'en'
     ? path.join(contentDir, `${slug}.mdx`)
     : path.join(contentDir, locale, `${slug}.mdx`);
-  return fs.existsSync(filePath);
+  return contentExistsSync(filePath);
 }
 
 /**
