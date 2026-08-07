@@ -15,24 +15,37 @@
 
 ---
 
-## 📊 Current status (last updated 2026-06-28)
+## 📊 Current status (last updated 2026-06-29)
 - **Root cause of collapse:** late-March 2026 `www` redirect loop (`ERR_TOO_MANY_REDIRECTS`, ~8 days) + simultaneous mass sitemap churn → ranking demotion + de-indexation on a low-authority domain. NOT the May localePrefix migration (that was a fix attempt). *(git-verified)*
-- **Homepage `/`:** ✅ Submitted and indexed (recovered 2026-06-25 via manual Request Indexing).
-- **Flagship EN pages** (software-engineer, nurse, teacher): recrawled 2026-06-25/26 but **still "Crawled – not indexed"** → quality/authority signal, not crawl-lag.
-- **Traffic:** 28d ≈ 31 impressions / 1 click (collapsed from ~600/day in late March). Realistic recovery ceiling ≈ 5,000 impr/90d (NOT the old 30K — that included now-noindexed locales).
-- **Indexable locales:** en, es, fr, de, ar (the other 12 are `noindex` — AI-translated, pending human review).
-- **✅ DEPLOYED & LIVE (2026-06-28/29):** all P0+P1 work shipped to production via 2 deploys (PR #1, PR #3). Live-verified. Indexing signals sent.
-- **Indexable locales:** en, es, fr, de, ar (the other 12 are `noindex` — AI-translated, pending human review).
+- **Indexation (GSC Page Indexing, 2026-06-29):** **17 indexed / 31.6K not indexed** (11 reasons). Of the 31.6K: ~30% intended (noindex consolidation + expected redirects), ~63% "Crawled-not-indexed" (19,916 — quality/authority/recrawl-time), ~6% canonical, ~0.6% real errors. The whole site de-indexed at the ~Apr 29 cliff; recovering slowly.
+- **Homepage `/`:** ✅ verdict PASS, "Submitted and indexed", googleCanonical non-www (recovered 2026-06-25; stable as of 06-29).
+- **Flagship EN pages** (software-engineer, nurse, teacher): recrawled 06-25/26/28 but **still "Crawled – not indexed"** → quality/authority signal, not crawl-lag. Awaiting re-eval of the de-templatized content (2–6 wks).
+- **Traffic:** 28d ≈ 31 impr / 1 click; 7d ≈ 11 impr / 0 clicks / pos 2.5 (flatlined-but-stable; collapsed from ~600/day in late March). Realistic ceiling ≈ 5,000 impr/90d (NOT the old 30K — included now-noindexed locales).
+- **Indexable locales:** en, es, fr, de, ar (the other 12 are `noindex` — AI-translated, pending human review). DECISION 06-29: keep es/fr/de/ar indexable (crawl budget is NOT the bottleneck; pages are crawled-then-declined).
+- **✅ DEPLOYED & LIVE (4 deploys, PR #1/#3/#4/#5):** P0+P1 technical recovery + canonical consolidation + 726 `/en` content-link repairs (167 files) + sitemap gating (both routes; sitemap-blog 1371→507) + content engine (europass/3-hub wiring + **3 new long-tail guides**: german-cv-lebenslauf-format, uk-cv-format-guide, tech-resume-guide). All live-verified. Sitemaps resubmitted.
+- **🚨 www DNS = DO NOT TOUCH** (Hard Rule #7) — Cloud Run mapping, grey-cloud required for Google SSL. User caught a near-repeat of the March mistake on 06-29.
+- **⏳ Next lever (USER):** GSC Request Indexing on the 7 hubs/guides + backlink outreach. Then Google's recrawl clock.
 
 ---
 
 ## 🗓️ Timeline (newest first)
 
+### 2026-08-07 — DNS/redirect audit + fixes (commit 34f6204c, worker version ce2a5ef5)
+- `[WE]` **Full DNS + redirect audit** on user request. DNS clean: apex/www/api all Cloudflare-proxied, NS Cloudflare, no stray subdomains, GSC verification TXTs present, SPF/DMARC OK. www→apex single-hop 301 ✓, trailing-slash 308 ✓, real 404s ✓, sitemap hosts all apex ✓.
+- `[MISTAKE→fixed]` **Plain HTTP served 200 — no https redirect at all** (`http://bestairesumes.com/` = 200). Cloudflare "Always Use HTTPS" was not active despite user believing it on; started working ~10 min after user checked the dashboard. Also added in-code fallback: middleware 301s `protocol===http:`.
+- `[MISTAKE→fixed]` **api.bestairesumes.com mirrored the ENTIRE site** (~22k duplicate pages on second hostname — all 3 custom domains hit the same worker; api kept only for `/api/v1/*` backward compat). Canonicals pointed at apex (mitigating), but during recovery = signal ambiguity. Fix: middleware 301s any page request on `api.` host to apex; matcher excludes `/api/*` so API routes untouched. VERIFIED: api homepage/blog → 301 apex; `/api/v1/payments/plans` on api host still 200.
+- `[WE]` **HSTS added**: `Strict-Transport-Security: max-age=15552000; includeSubDomains` via next.config securityHeaders. Verified live.
+- `[NOTE]` www chain is now http://www → https://www → https://apex (2 hops — fine). Hard Rule #7 (www DNS) not touched — www is now a Cloudflare custom domain on the worker since the CF migration, the old Cloud Run mapping constraint is obsolete.
+
+### 2026-06-29 (cont.) — ⚠️ AVERTED a www-DNS mistake (user caught it) — see Hard Rule #7
+- `[MISTAKE→averted]` Claude recommended fixing the 9 www "Redirect error" chains by proxying `www` through Cloudflare + repointing its CNAME to the apex. **USER stopped it** ("last time we put our own URL not the Google host → homepage de-indexed"). **Research confirmed the user was right:** `www` is a Cloud Run domain mapping (`CNAME→ghs.googlehosted.com`, grey-cloud, Google Trust Services SSL). Proxying/repointing breaks the Google-managed cert (needs DNS-only to provision+renew) → www SSL failure → de-indexation. Almost certainly the original March collapse mechanism. **Decision: leave www DNS untouched; delete the inert Cloudflare redirect rule; accept the 9 chains.** Homepage currently verdict=PASS / "Submitted and indexed" — not worth any risk. Logged as Hard Rule #7.
+
 ### 2026-06-29 (cont.) — DEPLOYED PR #4 + content cluster, VERIFIED LIVE
 - `[WE]` **PR #4 squash-merged → main `fcf3b679`; deploy run 28337233310 = success.** Shipped: 6 indexation bug fixes + canonical consolidation + 726 `/en/` content-link strip (167 files) + europass/3-hub equity wiring + 3 new cluster guides.
 - `[WE]` **3 new long-tail guides LIVE** (200): `/blog/german-cv-lebenslauf-format` (kw german cv format), `/blog/uk-cv-format-guide` (uk cv format), `/blog/tech-resume-guide` (tech resume HUB → 6 dev-role example pages). Modeled on the europass winner; each crawl-paths into resume-examples. Authors Alex Morgan / Sarah Chen (real author images). Auto-registered via filesystem getAllPosts.
 - `[GOOGLE→verify]` **Live verification passed:** legacy /sitemap.xml = 0 noindex-locale URLs ✓; certified-nursing-assistant canonical→/resume-examples/cna ✓; /word-builder = noindex,nofollow ✓; /career/category/* → 308 → /career-tips/category/* ✓; resume-examples/accountant hreflang now 6 `<link>` + 4 `<a>` filtered to indexable (was 17) ✓; europass post resume-example links live ✓.
-- `[MISTAKE→fixed]` **Verification caught a real gap:** `/sitemap-blog.xml` still emitted **864 noindex-locale URLs** (cf-cache-status DYNAMIC = fresh, not cache). Root cause: `app/api/sitemap-blog/route.ts` has its OWN locale-only-posts loop (lines 59-69) that my `build.ts` fix didn't cover — only gated `localizedUrls`+`indexableContentLocaleUrls`, not this route's raw `for (const locale of locales)`. **Fixed:** added `if (!isIndexableLocale(locale)) continue;` (PR #5). sitemap-index + per-locale routes confirmed clean.
+- `[MISTAKE→fixed→LIVE]` **Verification caught a real gap:** `/sitemap-blog.xml` still emitted **864 noindex-locale URLs** (cf-cache-status DYNAMIC = fresh, not cache). Root cause: `app/api/sitemap-blog/route.ts` has its OWN locale-only-posts loop (lines 59-69) that my `build.ts` fix didn't cover — only gated `localizedUrls`+`indexableContentLocaleUrls`, not this route's raw `for (const locale of locales)`. **Fixed → PR #5 → deployed (run 28338164449) → VERIFIED LIVE: sitemap-blog now 0 noindex-locale URLs, total 1371→507.** sitemap-index + per-locale routes confirmed clean. NOTE: PR #5 deploy first FAILED on flaky auth/registration E2E (auth.spec login-form + registration resend-code) — unrelated to the diff (PR #4 touched those pages & passed); `gh run rerun --failed` passed. Flaky E2E suite is a deploy liability worth hardening.
+- `[WE]` **Sitemaps resubmitted via GSC API** (`scripts/seo/gsc_submit_sitemap.py`): sitemap-index.xml + sitemap-blog.xml. sitemap-blog was last DOWNLOADED by Google 2026-06-03 (badly stale, showing old 1622 count) — resubmit prompts re-fetch of the cleaned 507. All sitemaps indexed=0 (reflects the broader 17-indexed collapse, not a sitemap defect). Architecture confirmed complete: robots→sitemap-index→{en,es,fr,de,ar,blog} (5 indexable only) + standalone sitemap-priority (50). New content auto-registers via getAllPosts — no manual sitemap edits needed.
 - `[NOTE]` Non-blocking lint warning introduced: `useEffect missing dependency: localizedHref` in auth pages (the inline localizedHref guard). CI passed; cosmetic cleanup later.
 - `[NOTE]` Grep gotcha: Next renders hreflang as `hrefLang` (camelCase) in HTML — lowercase greps return 0 falsely. Browsers/Google treat them identically.
 
@@ -161,3 +174,52 @@ Multi-agent workflow diagnosed all 11 GSC "not indexed" reasons → 6 real bugs 
 4. **Request Indexing ≠ guaranteed indexing.** It forces a recrawl. Quality-declined pages won't index from it alone.
 5. **Don't treat 30K impressions as the target.** Real ceiling ≈ 5K/90d; most of the old volume was non-English, non-clicking, and/or now-noindexed.
 6. **Verify live state before changing config** — the deployed build can drift from HEAD.
+7. **🚨 NEVER touch the `www` DNS record. NEVER proxy it through Cloudflare.** `www.bestairesumes.com` is a **Cloud Run domain mapping**: `CNAME → ghs.googlehosted.com`, **DNS-only (grey cloud)**, with a **Google-managed SSL cert** (Google Trust Services). This grey-cloud config is REQUIRED — Cloud Run needs DNS-only to provision AND renew the cert. Proxying it (orange) or repointing the CNAME away from `ghs.googlehosted.com` breaks SSL → Googlebot can't load www → de-indexation. **This is the likely mechanism of the original March collapse** ("we put our own URL, not the Google host"). The apex (non-www) IS correctly proxied through Cloudflare; www must stay grey. A Cloudflare www→non-www *redirect rule* is INERT (www bypasses Cloudflare) — don't bother making one. The 9 "Redirect error" www chains are negligible; leave them. *(Verified 2026-06-29: live SSL issuer = Google Trust Services; Google+Cloudflare docs confirm grey-cloud requirement; issuetracker.google.com/issues/157498377 = cert-renewal breaks behind CF proxy.)*
+
+---
+
+## 2026-08-05 — TOTAL OUTAGE DISCOVERED + EMERGENCY MIGRATION TO CLOUDFLARE WORKERS
+
+**What happened:** GCP billing account went inactive → Cloud Run + Cloud SQL SUSPENDED. Site returned **503 on every URL** (apex + www), discovered Aug 5 during unrelated work. Cloud SQL's last successful backup was Jul 8 → outage likely began early-to-mid July. **Up to ~4 weeks of full 503s** — expect severe deindexation across all locales in GSC; this dwarfs every prior indexation issue in this journal.
+
+**What we did (same day):** Migrated frontend to Cloudflare Workers via @opennextjs/cloudflare (Workers Paid $5/mo). All 23,419 pages verified 200 again on apex + www by end of day Aug 5. Backend (auth/AI/PDF/Stripe) being ported to Workers + D1 — those features were down regardless during the port.
+
+**⚠️ SUPERSEDES HARD RULE #7 (www DNS):** Rule 7 ("never touch www CNAME → ghs.googlehosted.com, keep grey-cloud") existed because www was a Cloud Run domain mapping. **Cloud Run is dead.** www.bestairesumes.com is now a **Cloudflare Workers custom domain** (proxied, Cloudflare-managed cert) — this is the new correct state. Also deleted: apex A/AAAA (Google IPs), api CNAME. Kept: all Brevo DKIM/TXT, MX, SPF/DMARC, GSC verification TXTs.
+
+**Scheduled checks:**
+| When | Check | Verdict it gives | Status |
+|---|---|---|---|
+| 2026-08-06 | GSC: Request Indexing on homepage + 4 flagship pages | Kick recrawl after outage (same play as Jun 25 recovery) | ⏳ open |
+| ~2026-08-12 | GSC coverage: does "Server error (5xx)" count start falling? | Whether Google has re-seen the site as healthy | ⏳ open |
+| ~2026-09-01 | Impressions trend vs July collapse | Scale of outage damage + recovery slope | ⏳ open |
+
+## 2026-08-07 — Post-migration SEO damage assessment + sitemap regression fix
+
+**What we found (first GSC look since outage; token re-authed after July expiry):**
+- Homepage: coverageState "Server error (5xx)", last crawl Jul 4 — Google hit the dead GCP site and never returned.
+- /resume-examples, /resume-examples/software-engineer, /blog: "Crawled - currently not indexed", last crawl Jun 28. /templates same (last crawl Mar 15).
+- Sitemaps: last downloaded by Google Jun 28, all with errors:1; blog sitemap 507 submitted / 0 indexed; priority 50 / 0.
+
+**Migration regression found & fixed (cause: us):** the 4 sitemap routes (app/api/sitemap*, force-dynamic since the GCP era) read MDX content via fs at runtime — fs doesn't exist on Cloudflare Workers, and lib/blog/posts.ts silently catches the failures. Live sitemap-blog.xml served 5 URLs instead of ~500; per-locale sitemaps ~50 instead of thousands. Fixed by force-static (build-time generation where fs exists), no revalidate (ISR would re-render fs-less at runtime), generateStaticParams for all 17 locales. Deployed via direct wrangler (build19).
+
+**Next actions:** resubmit all sitemaps via API after deploy; manual GSC "Request Indexing" on homepage + flagship pages (the Jun 25 proven lever); watch coverage over the following days.
+
+**Scheduled check:** ~Aug 10 — re-inspect homepage + flagships; expect crawl activity to resume within 48-72h of sitemap resubmission.
+
+## 2026-08-07 (later) — CRITICAL: ISR self-emptying pages found & fixed
+
+Deeper than the sitemap regression: lib/blog/posts.ts fetchDbPosts() called the
+(dead, never-ported) backend /blog API with next:{revalidate:60}. That single
+fetch made EVERY static page and sitemap that transitively calls getAllPosts
+into 60-second ISR. On Workers, ISR re-renders have no fs → content lists come
+back empty → the re-render REPLACES the good build-time version in cache.
+Effect: /blog, /career-tips, /resume-examples listings and all sitemaps served
+full content for ~60s after each deploy, then silently emptied themselves.
+Individual content pages (e.g. /resume-examples/software-engineer) were never
+affected — fully static, no ISR. This had been live since the first Workers
+deploy Aug 5. Fix: fetchDbPosts/fetchDbPostBySlug return empty directly (no
+fetch, no revalidate) — commit in main; deployed via build20.
+
+Lesson for this stack: **content must be build-time only. Any fetch-level
+`next.revalidate` inside code reachable from static pages converts them to ISR
+and breaks them on Workers.** Grep for `next: { revalidate` before adding any.
