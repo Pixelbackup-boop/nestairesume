@@ -49,6 +49,22 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // api.bestairesumes.com is the same worker (kept for /api/v1/* backward
+  // compat, which the matcher excludes) — without this, every page is a full
+  // duplicate of the site on a second hostname. Redirect pages to the apex.
+  if (host?.startsWith('api.')) {
+    const apexHost = host.replace('api.', '');
+    const url = new URL(`https://${apexHost}${request.nextUrl.pathname}${request.nextUrl.search}`);
+    return NextResponse.redirect(url, 301);
+  }
+
+  // http → https. Cloudflare's "Always Use HTTPS" edge setting is the primary
+  // guard; this is the in-code guarantee in case the zone toggle is off.
+  if (request.nextUrl.protocol === 'http:') {
+    const url = new URL(`https://${host}${request.nextUrl.pathname}${request.nextUrl.search}`);
+    return NextResponse.redirect(url, 301);
+  }
+
   const { pathname } = request.nextUrl;
 
   // Skip middleware for sitemap routes — let Next.js handle directly

@@ -8,6 +8,12 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'tr
 
 const securityHeaders = [
   {
+    // 6 months; includeSubDomains is safe — www/api are the same worker.
+    // No preload: that requires an explicit hstspreload.org submission.
+    key: 'Strict-Transport-Security',
+    value: 'max-age=15552000; includeSubDomains',
+  },
+  {
     key: 'X-Frame-Options',
     value: 'DENY',
   },
