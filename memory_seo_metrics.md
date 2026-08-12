@@ -12,6 +12,8 @@
 | 2026-06-28 | 90d  | 12 | 10,078 | 0.12% | 33.9 | ~75% German/French blog; English ~25% with no top-20 |
 | 2026-06-28 | 28d  | 1  | 31     | 3.23% | 3.3  | Collapsed; high pos is just a tiny residual |
 | 2026-06-24 | 28d  | 1  | 28     | 3.57% | 4.6  | Pre-audit baseline |
+| 2026-06-29 | 28d  | 1  | 31     | 3.23% | 3.5  | Flat vs 06-28 (no change yet — fixes need recrawl). Post all-fixes baseline |
+| 2026-06-29 | 7d   | 0  | 11     | 0.00% | 2.5  | Tiny residual; watch this window for first recovery signal |
 
 ## Daily impressions (the collapse curve — key inflection points)
 
@@ -92,3 +94,46 @@
 - **Device:** Desktop 8,785 impr (CTR 0.07%) / Mobile 1,285 (CTR 0.47%, ~7x better) / Tablet 8. Desktop-skew = research/template query mix.
 - **Top countries:** USA 2,549 · Italy 1,551 *(noindexed now)* · Germany 1,430 · France 663 · Spain 334 · Switzerland 264.
 - **Markets:** English-speaking 37.6% · German-speaking 22.4% · Italy 19.7% *(gone)* · French 9.5% · Spanish 5.7%.
+
+## GSC Page Indexing report (2026-06-29) — THE KEY BASELINE to track recovery against
+**17 indexed / 31.6K not indexed** (11 reasons). Chart shows ~25K indexed until ~Apr 29 2026, then cliff to ~17.
+| Reason | Pages | Bucket |
+|--------|-------|--------|
+| Crawled - currently not indexed | 19,916 | recovery (quality/authority/time) |
+| Excluded by 'noindex' tag | 7,326 | intended (12-locale consolidation) |
+| Page with redirect | 2,149 | intended (/en→/ migration) |
+| Duplicate, Google chose diff canonical | 1,337 | fixed PR#4 (word-builder noindex) + synonym map |
+| (11th) noindex-locale URLs in sitemaps | ~1,100 | fixed PR#4+#5 (sitemap gating) |
+| Alternate page w/ canonical | 363 | fixed PR#4 (hreflang leaks) |
+| Duplicate without canonical | 336 | fixed earlier (308+self-canonical) |
+| Not found (404) | 162 | fixed PR#4 (career/category root redirect) |
+| Blocked by robots.txt | 18 | intended (auth pages) |
+| Redirect error | 9 | www chains — left (Cloud Run mapping, don't touch) |
+| Soft 404 | 2 | negligible |
+- **Watch:** does "Indexed" climb above 17, and does "Crawled-not-indexed" fall, over the next 2–6 weeks as Google recrawls the fixed/de-templatized site.
+
+## Sitemap counts (post-fix, 2026-06-29)
+| Sitemap | Before | After fix | Note |
+|---------|--------|-----------|------|
+| sitemap-blog.xml | 1,371 | **507** | gated to indexable locales (PR#5) — dropped 864 noindex-locale URLs |
+| sitemap-en.xml | — | 1,352 | includes the 3 new guides |
+| sitemap-priority.xml | 50 | 50 | curated; submitted=50 indexed=0 |
+- All sitemaps `indexed=0` in GSC — reflects the 17-indexed collapse, not a sitemap defect. Resubmitted index+blog 2026-06-29.
+
+## What shipped (4 deploys, by 2026-06-29)
+PR #1 (technical recovery + dedup) → PR #3 (hreflang Link-header + author redirects) → PR #4 (6 indexation bugs + canonical consolidation + 726 /en content links + europass/3-hub wiring + 3 new guides) → PR #5 (sitemap-blog gating). All live-verified.
+
+## 2026-08-07 — Post-migration baseline (after sitemap fix + resubmission)
+| sitemap | submitted | indexed | note |
+|---|---|---|---|
+| sitemap-en.xml | 1352 | 0 | full counts restored (was 51 runtime-poisoned) |
+| sitemap-es.xml | 1308 | 0 | |
+| sitemap-fr.xml | 1309 | 0 | |
+| sitemap-blog.xml | 507 | 0 | was 5 runtime-poisoned |
+| sitemap-priority.xml | 53 | 0 | |
+| sitemap-ar/de | pending | - | submitted, not yet fetched |
+
+Google downloaded 6/8 sitemaps within SECONDS of API resubmission — crawler
+re-engaged immediately. indexed=0 across the board is the outage baseline;
+watch for movement over 7-14 days. Homepage still "Server error (5xx)" state
+in GSC (last crawl Jul 4) until recrawled.
