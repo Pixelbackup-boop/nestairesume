@@ -7,6 +7,7 @@ import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 import { getDb } from '@/lib/server/db';
 import { jsonResponse, validationErrorResponse, signAccessToken } from '@/lib/server/apiUtils';
+import { getCountryFromRequest } from '@/lib/server/geo';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
 
@@ -17,7 +18,7 @@ const loginSchema = z
     username: z.string().email('Invalid email format').optional(),
     email: z.string().email('Invalid email format').optional(),
     password: z.string({ error: 'Password is required' }).min(1, 'Password is required'),
-    // Accepted for API compatibility; the D1 User model has no country columns
+    // Fallback country source when the cf-ipcountry header is absent (lib/server/geo)
     countryCode: z.string().max(2).optional(),
   })
   .refine((data) => data.username || data.email, {
@@ -77,6 +78,15 @@ export async function POST(request: Request): Promise<Response> {
     const isValid = await bcrypt.compare(password, user.hashedPassword);
     if (!isValid) {
       return jsonResponse({ detail: 'Invalid email or password' }, 401, origin);
+    }
+
+    // Update country on login (keeps it current) — same as backend loginUser()
+    const geo = getCountryFromRequest(request, parsed.data.countryCode);
+    if (geo) {
+      await db.user.update({
+        where: { id: user.id },
+        data: { country: geo.country, countryCode: geo.countryCode },
+      });
     }
 
     const accessToken = await signAccessToken(user.id, user.email, user.role);

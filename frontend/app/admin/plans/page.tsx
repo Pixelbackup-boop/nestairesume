@@ -30,6 +30,17 @@ const LIMIT_LABELS = [
   { key: "coverLetterLimit", label: "Cover Letters / month" },
 ] as const;
 
+// lib/api.ts throws plain ApiError object literals, not Error instances —
+// read .message off either shape so server {detail} text reaches the UI.
+function getErrorMessage(err: unknown, fallback: string): string {
+  if (err instanceof Error) return err.message;
+  if (typeof err === "object" && err !== null && "message" in err) {
+    const message = (err as { message?: unknown }).message;
+    if (typeof message === "string" && message) return message;
+  }
+  return fallback;
+}
+
 export default function AdminPlansPage() {
   const [plans, setPlans] = useState<PlansData | null>(null);
   const [edited, setEdited] = useState<PlansData>({});
@@ -49,8 +60,7 @@ export default function AdminPlansPage() {
       setEdited(structuredClone(res.data as PlansData));
       setError(null);
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "Failed to load plans";
-      setError(message);
+      setError(getErrorMessage(err, "Failed to load plans"));
     } finally {
       setLoading(false);
     }
@@ -99,8 +109,7 @@ export default function AdminPlansPage() {
       setSuccess((prev) => ({ ...prev, [planType]: true }));
       setTimeout(() => setSuccess((prev) => ({ ...prev, [planType]: false })), 3000);
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "Failed to save";
-      setError(message);
+      setError(getErrorMessage(err, "Failed to save"));
     } finally {
       setSaving((prev) => ({ ...prev, [planType]: false }));
     }
@@ -124,7 +133,7 @@ export default function AdminPlansPage() {
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Plan Limits</h1>
         <p className="text-gray-500 mt-1">
-          Manage subscription plan limits. Changes apply immediately across pricing page, dashboard, and enforcement.
+          Subscription plan limits per tier. On this deployment limits are compile-time constants — runtime editing is not supported yet.
         </p>
       </div>
 
@@ -228,7 +237,7 @@ export default function AdminPlansPage() {
 
       {/* Help Text */}
       <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-500">
-        <p><strong className="text-gray-700">How it works:</strong> Changes are saved to the database and applied immediately to the in-memory plan configuration. The pricing page, dashboard usage cards, and all enforcement middleware will reflect the new limits without a server restart.</p>
+        <p><strong className="text-gray-700">How it works:</strong> Limits are compile-time constants in <code>lib/server/subscriptionLimits.ts</code>. Saving returns 501 Not Implemented — changing a limit requires a code change and redeploy.</p>
         <p className="mt-2"><strong className="text-gray-700">-1 = Unlimited:</strong> Use the infinity toggle to set a limit to unlimited (-1). This removes the cap for that metric.</p>
       </div>
     </div>

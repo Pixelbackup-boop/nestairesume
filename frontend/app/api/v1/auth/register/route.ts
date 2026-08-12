@@ -12,6 +12,7 @@ import {
   sendVerificationEmail,
   VERIFICATION_CODE_EXPIRY_MINUTES,
 } from '@/lib/server/apiUtils';
+import { getCountryFromRequest } from '@/lib/server/geo';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
 
@@ -36,7 +37,7 @@ const registerSchema = z.object({
     .min(1, 'Name is required')
     .max(100, 'Name too long')
     .trim(),
-  // Accepted for API compatibility; the D1 User model has no country columns
+  // Fallback country source when the cf-ipcountry header is absent (lib/server/geo)
   countryCode: z.string().max(2).optional(),
 });
 
@@ -49,7 +50,8 @@ export async function POST(request: Request): Promise<Response> {
     const parsed = registerSchema.safeParse(body);
     if (!parsed.success) return validationErrorResponse(parsed.error, origin);
 
-    const { email, password, name } = parsed.data;
+    const { email, password, name, countryCode } = parsed.data;
+    const geo = getCountryFromRequest(request, countryCode);
 
     const db = getDb();
 
@@ -69,10 +71,23 @@ export async function POST(request: Request): Promise<Response> {
     const user = existingUser
       ? await db.user.update({
           where: { email },
-          data: { hashedPassword, name, verificationCode, verificationCodeExpires },
+          data: {
+            hashedPassword,
+            name,
+            verificationCode,
+            verificationCodeExpires,
+            ...(geo && { country: geo.country, countryCode: geo.countryCode }),
+          },
         })
       : await db.user.create({
-          data: { email, hashedPassword, name, verificationCode, verificationCodeExpires },
+          data: {
+            email,
+            hashedPassword,
+            name,
+            verificationCode,
+            verificationCodeExpires,
+            ...(geo && { country: geo.country, countryCode: geo.countryCode }),
+          },
         });
 
     // Never throws — registration succeeds even if the email provider is down (same as backend)

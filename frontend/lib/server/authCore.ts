@@ -47,6 +47,8 @@ export interface OAuthSyncInput {
   image?: string | null;
   accessToken?: string;
   refreshToken?: string;
+  country?: string;
+  countryCode?: string;
 }
 
 /** Mirrors POST /api/v1/auth/oauth: find-or-create the user for an OAuth sign-in. */
@@ -54,6 +56,10 @@ export async function syncOAuthUser(input: OAuthSyncInput): Promise<AuthedUser |
   try {
     const { provider, providerAccountId, email, image, accessToken, refreshToken } = input;
     const name = input.name || email.split('@')[0];
+    const geo =
+      input.country && input.countryCode
+        ? { country: input.country, countryCode: input.countryCode }
+        : null;
 
     const db = getDb();
 
@@ -88,8 +94,15 @@ export async function syncOAuthUser(input: OAuthSyncInput): Promise<AuthedUser |
         await db.user.update({ where: { id: user.id }, data: { image } });
       }
 
-      if (!user.emailVerified) {
-        await db.user.update({ where: { id: user.id }, data: { emailVerified: new Date() } });
+      // Backend handleOAuthSignIn refreshed country on every OAuth sign-in, not just creation
+      if (!user.emailVerified || geo) {
+        await db.user.update({
+          where: { id: user.id },
+          data: {
+            ...(!user.emailVerified && { emailVerified: new Date() }),
+            ...(geo && { country: geo.country, countryCode: geo.countryCode }),
+          },
+        });
       }
     } else {
       user = await db.user.create({
@@ -99,6 +112,7 @@ export async function syncOAuthUser(input: OAuthSyncInput): Promise<AuthedUser |
           image,
           emailVerified: new Date(), // OAuth emails are pre-verified
           hashedPassword: '', // No password for OAuth users
+          ...(geo && { country: geo.country, countryCode: geo.countryCode }),
           accounts: {
             create: {
               type: 'oauth',

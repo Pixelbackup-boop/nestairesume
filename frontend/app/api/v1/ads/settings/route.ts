@@ -1,38 +1,39 @@
 /**
- * GET /api/v1/ads/settings — public ad display config.
- *
- * The Express backend read this from a JSON file on disk (admin-editable);
- * that file died with the GCP deployment and Workers has no fs. Ads are not
- * configured on the new infrastructure, so this serves the safe defaults the
- * backend used for a fresh install (ads disabled). Wire to D1 if/when the
- * admin ads panel is rebuilt.
+ * GET /api/v1/ads/settings — public ad display config. No auth; exposes only
+ * the safe subset of the admin ad settings, now read from the AppSetting D1
+ * table (previously hardcoded defaults while ads were unconfigured on Workers).
+ * Ported from backend GET /ads/settings: estimatedMonthlyViews stays
+ * admin-only, hasPublisherId masks presence, but publisherId itself is still
+ * returned for the AdSense script loader — same exposure as the backend.
  */
+import { getDb } from '@/lib/server/db';
 import { jsonResponse } from '@/lib/server/apiUtils';
+import { getSetting } from '@/lib/server/settingsService';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
 
 export const dynamic = 'force-dynamic';
 
-const PUBLIC_AD_SETTINGS = {
-  adsEnabled: false,
-  usePlaceholders: true,
-  hasPublisherId: false,
-  publisherId: '',
-  slots: {
-    blogInArticle: '',
-    resumeInArticle: '',
-    careerInArticle: '',
-    toolsRewarded: '',
-    sidebarDisplay: '',
-    leaderboard: '',
-    multiplex: '',
-    toolsBetweenSection: '',
-  },
-};
-
 export async function GET(request: Request): Promise<Response> {
   const origin = request.headers.get('origin');
-  const response = jsonResponse(PUBLIC_AD_SETTINGS, 200, origin);
-  response.headers.set('Cache-Control', 'public, max-age=300, stale-while-revalidate=600');
-  return response;
+
+  try {
+    const settings = await getSetting(getDb(), 'ads');
+    const response = jsonResponse(
+      {
+        adsEnabled: settings.adsEnabled,
+        usePlaceholders: settings.usePlaceholders,
+        hasPublisherId: !!settings.adsensePublisherId,
+        publisherId: settings.adsensePublisherId || '',
+        slots: settings.slots,
+      },
+      200,
+      origin
+    );
+    response.headers.set('Cache-Control', 'public, max-age=300, stale-while-revalidate=600');
+    return response;
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Failed to get ad settings';
+    return jsonResponse({ detail: message }, 500, origin);
+  }
 }

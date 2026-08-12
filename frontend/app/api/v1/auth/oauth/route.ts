@@ -5,6 +5,7 @@
 import { z } from 'zod';
 import { getDb, getEnv } from '@/lib/server/db';
 import { jsonResponse, validationErrorResponse, signAccessToken } from '@/lib/server/apiUtils';
+import { getCountryFromRequest } from '@/lib/server/geo';
 
 export { OPTIONS } from '@/lib/server/apiUtils';
 
@@ -19,7 +20,7 @@ const oauthSchema = z.object({
   image: z.string().url().optional().nullable(),
   accessToken: z.string().optional(),
   refreshToken: z.string().optional(),
-  // Accepted for API compatibility; the D1 User model has no country columns
+  // Fallback when the cf-ipcountry header is absent — same precedence as the backend
   countryCode: z.string().max(2).optional(),
 });
 
@@ -39,8 +40,10 @@ export async function POST(request: Request): Promise<Response> {
     const parsed = oauthSchema.safeParse(body);
     if (!parsed.success) return validationErrorResponse(parsed.error, origin);
 
-    const { provider, providerAccountId, email, image, accessToken, refreshToken } = parsed.data;
+    const { provider, providerAccountId, email, image, accessToken, refreshToken, countryCode } =
+      parsed.data;
     const name = parsed.data.name || email.split('@')[0];
+    const geo = getCountryFromRequest(request, countryCode);
 
     const db = getDb();
 
@@ -79,11 +82,14 @@ export async function POST(request: Request): Promise<Response> {
         await db.user.update({ where: { id: user.id }, data: { image } });
       }
 
-      // Mark email as verified for OAuth users
-      if (!user.emailVerified) {
+      // Mark email as verified for OAuth users + refresh country on every sign-in
+      if (!user.emailVerified || geo) {
         await db.user.update({
           where: { id: user.id },
-          data: { emailVerified: new Date() },
+          data: {
+            ...(!user.emailVerified && { emailVerified: new Date() }),
+            ...(geo && { country: geo.country, countryCode: geo.countryCode }),
+          },
         });
       }
     } else {
@@ -95,6 +101,7 @@ export async function POST(request: Request): Promise<Response> {
           image,
           emailVerified: new Date(), // OAuth emails are pre-verified
           hashedPassword: '', // No password for OAuth users
+          ...(geo && { country: geo.country, countryCode: geo.countryCode }),
           accounts: {
             create: {
               type: 'oauth',

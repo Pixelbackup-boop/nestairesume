@@ -5,7 +5,9 @@ import LinkedInProvider from "next-auth/providers/linkedin";
 import AzureADProvider from "next-auth/providers/azure-ad";
 import AppleProvider from "next-auth/providers/apple";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { headers } from "next/headers";
 import { loginWithPassword, syncOAuthUser, refreshBackendToken } from "@/lib/server/authCore";
+import { getCountryFromHeaders, type GeoInfo } from "@/lib/server/geo";
 
 // Build providers array dynamically based on available credentials
 const providers: NextAuthOptions["providers"] = [];
@@ -117,6 +119,15 @@ export const authOptions: NextAuthOptions = {
       // OAuth sign-in: sync with D1 directly (a worker cannot fetch its own
       // hostname, so the old HTTP handoff to /api/v1/auth/oauth was blocked)
       if (account && user.email) {
+        // Country from the OAuth callback request's cf-ipcountry header;
+        // headers() throws outside a request scope, so degrade to no geo
+        let geo: GeoInfo | null = null;
+        try {
+          geo = getCountryFromHeaders(await headers());
+        } catch {
+          geo = null;
+        }
+
         const synced = await syncOAuthUser({
           provider: account.provider,
           providerAccountId: account.providerAccountId,
@@ -125,6 +136,8 @@ export const authOptions: NextAuthOptions = {
           image: user.image,
           accessToken: account.access_token,
           refreshToken: account.refresh_token,
+          country: geo?.country,
+          countryCode: geo?.countryCode,
         });
 
         if (!synced) {

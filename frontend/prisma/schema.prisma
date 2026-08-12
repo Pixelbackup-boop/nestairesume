@@ -22,6 +22,8 @@ model User {
   name                    String
   image                   String?
   role                    String    @default("user")
+  country                 String?
+  countryCode             String?
   verificationCode        String?
   verificationCodeExpires DateTime?
   pendingEmail            String?
@@ -270,6 +272,15 @@ model PlanConfig {
   trialDailyLimit  Int
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
+}
+
+// Key-value store for admin-editable site settings (ads/tawk/trustpilot) —
+// replaces the Express backend's JSON files on disk (Workers has no fs).
+// `value` holds a JSON blob merged over per-key defaults in settingsService.
+model AppSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
 }
 
 model GlobalSettings {
